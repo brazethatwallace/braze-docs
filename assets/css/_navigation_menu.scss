@@ -98,7 +98,7 @@ $nav-active-bg: $grey-athens;
 			min-height: 0;
 			overflow-y: auto;
 			align-items: flex-start;
-			padding: 8px 16px 16px 16px;
+			padding: 8px 8px 16px 24px;
 			@media (min-width: $window-medium-px) {
 				width: $nav_width;
 			}
@@ -180,7 +180,7 @@ $nav-active-bg: $grey-athens;
 		padding-right: 8px;
 	}
 	#nav_top > .nav-item {
-		padding-top: 6px;
+		padding-top: 4px;
 		width: 100%;
 		div {
 			width: fit-content;
@@ -208,7 +208,7 @@ $nav-active-bg: $grey-athens;
 		justify-content: space-between;
 		width: 100%;
 		min-width: 0;
-		padding: 6px 8px;
+		padding: 4px 8px;
 		border-radius: 4px;
 		min-height: 32px;
 		box-sizing: border-box;
@@ -266,7 +266,7 @@ $nav-active-bg: $grey-athens;
 	a.nav_link {
 		display: inline-flex;
 		align-items: center;
-		min-height: 32px;
+		min-height: 28px;
 		width: 100%;
 		padding: 0;
 		border-radius: 6px;
@@ -287,8 +287,8 @@ $nav-active-bg: $grey-athens;
 	.nav div.nav-item > .nav_block {
 		display: flex;
 		align-items: center;
-		min-height: 32px;
-		padding: 6px 8px;
+		min-height: 28px;
+		padding: 4px 8px;
 		border-radius: 4px;
 		position: relative;
 		box-sizing: border-box;
@@ -331,7 +331,7 @@ $nav-active-bg: $grey-athens;
 
 			&.nav-item {
 				width: 100%;
-				padding-bottom: 4px;
+				padding-bottom: 2px;
 				font-family: $braze-regular;
 				color: $black-shark;
 
@@ -386,8 +386,8 @@ $nav-active-bg: $grey-athens;
 							content: '';
 							position: absolute;
 							left: 0;
-							top: 6px;
-							bottom: 6px;
+							top: 4px;
+							bottom: 4px;
 							width: 3px;
 							background-color: $braze-purple;
 							border-radius: 2px;
