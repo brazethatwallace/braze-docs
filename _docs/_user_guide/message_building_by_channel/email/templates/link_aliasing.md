@@ -265,9 +265,11 @@ If you're using a conditional Liquid statement to display one of multiple links,
 
 You can then template the URL into the URL field of the button, for example:
 
+{% raw %}
 ```
 {{url}}?
 ```
+{% endraw %}
 
 ## Considerations for turning off link aliasing
 
