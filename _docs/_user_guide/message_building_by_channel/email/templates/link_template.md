@@ -103,7 +103,7 @@ When including links in your message, be sure to start the URLs with `http://` o
 
 ### Missing UTM parameters
 
-Link templating isn't applied to links in HTML comments. Check that your links aren't in HTML comments that are conditional statements.
+Link templates aren't applied to links in HTML comments, including conditional comments (for example, Outlook conditional comments).
 
 ### UTM parameters aren't displaying in each link, but do appear when you view the email in a browser
 
