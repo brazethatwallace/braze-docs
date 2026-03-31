@@ -99,9 +99,6 @@ You can also [duplicate]({{site.baseurl}}/user_guide/engagement_tools/templates_
 Archiving templates is not currently available for link templates.
 {% endalert %}
 
-{% alert tip %}
-When including links in your message, be sure to start the URLs with `http://` or `https://`.
-{% endalert %}
 
 ## Troubleshooting
 
