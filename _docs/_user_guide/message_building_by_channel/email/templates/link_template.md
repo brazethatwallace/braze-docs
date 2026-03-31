@@ -85,7 +85,11 @@ To access the **Link Management** tab, you must have link aliasing turned on. To
 Link templates aren't applied to plain text. This means Currents may show clicks that don't include the parameters from the link templates as those clicks may come from the plain text version of the email.
 {% endalert %}
 
-As you add link templates in the **Link Management** tab, scroll to the right to view the templates you've added. If existing links within an email already have a link template added, newly added links will also have the link template added by default.
+As you add link templates in the **Link Management** tab, scroll to the right to view the templates. If existing links within an email already have a link template added, newly added links also have the link template added by default.
+
+{% alert tip %}
+When including links in your message, be sure to start the URLs with `http://` or `https://`.
+{% endalert %}
 
 ## Managing link templates
 
