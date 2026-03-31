@@ -115,7 +115,7 @@ Before appending UTM parameters to a link, Braze checks if the resulting link is
 
 ### UTM values don't populate compared to the preview in a test send
 
-When test sending link templates, `{{${user_id}}}` does not get rendered. Instead, duplicate the campaign and set it to target your internal users' email or `external_id` and launch the campaign to verify that all UTM parameters from the link template are populated.
+When test sending link templates, {% raw %}`{{${user_id}}}`{% endraw %} does not get rendered. Instead, duplicate the campaign and set it to target your internal users' email or `external_id` and launch the campaign to verify that all UTM parameters from the link template are populated.
 
 ## Frequently asked questions
 
