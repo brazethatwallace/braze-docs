@@ -105,9 +105,9 @@ When including links in your message, be sure to start the URLs with `http://` o
 
 Link templating isn't applied to links in HTML comments. Check that your links aren't in HTML comments that are conditional statements.
 
-### UTM parameters aren't displaying in each link, but are present when viewed in-browser
+### UTM parameters aren't displaying in each link, but do appear when you view the email in a browser
 
-Check if the full path to the website was added. If not, the UTM parameter was not applied to clicked links in those cases. The user may still be redirected to the correct page from the website. For example, if the full website link is `https://www.somewebsite.com/women/designer/johnjane` and the link added to the email body is `https://www.somewebsite.com/designer/johnjane`, it's expected that the UTM parameters won't be added to the link.
+Check whether the full path to the website was added. If not, the UTM parameters were not applied to clicked links in those cases. Users may still be redirected to the correct page from the website. For example, if the full website link is `https://www.somewebsite.com/women/designer/johnjane` and the link added to the email body is `https://www.somewebsite.com/designer/johnjane`, it's expected that the UTM parameters won't be added to the link.
 
 ### UTM parameters aren't appending for a link rendered from a Liquid tag
 
