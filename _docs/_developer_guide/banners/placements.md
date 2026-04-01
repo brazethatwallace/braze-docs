@@ -694,7 +694,7 @@ const handleDismiss = () => {
 {% endtabs %}
 
 {% alert important %}
-**`subscribeToBannersUpdates` integration pattern:** When `logBannerDismissal` is called, the dismissed Banner is immediately removed from the local cache and all active `subscribeToBannersUpdates` subscribers are re-invoked with the updated Banner info. Make sure your subscriber handles the case where a previously-rendered Banner is no longer present; for example, by hiding or collapsing its container element.
+**`subscribeToBannersUpdates` integration pattern:** When `logBannerDismissal` is called, the dismissed Banner is immediately removed from the local cache and all active `subscribeToBannersUpdates` subscribers are re-invoked with the updated Banner info. Make sure your subscriber handles the case where a previously-rendered Banner is no longer present. You can do this by hiding or collapsing its container element. The following code snippet shows an example of how to hide a container element.
 
 ```javascript
 braze.subscribeToBannersUpdates((banners) => {
