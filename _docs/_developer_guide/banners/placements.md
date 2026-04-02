@@ -659,9 +659,27 @@ These are the minimum SDK versions required to log Banner dismissals:
 
 {% sdk_min_versions swift:14.1.0 android:42.0.0 web:6.7.0 reactnative:x.x.x flutter:x.x.x %}
 
-### Standard and Headless Banner integrations
+### Standard Banner integrations (drag-and-drop editor)
 
-Call `logBannerDismissal` with the Banner object from your application code.
+If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, `logBannerDismissal` is called automatically by the Banner's HTML.
+
+### Custom Code Blocks
+
+If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`. This removes the Banner from the UI and calls `logBannerDismissal`, which invokes any active `subscribeToBannersUpdates` subscribers.
+
+{% alert note %}
+`brazeBridge.closeMessage()` behaves differently depending on the channel. For in-app messages, it only closes the UI without logging a dismissal or causing any server-side suppression.
+{% endalert %}
+
+```html
+<button onclick="brazeBridge.closeMessage()">
+  Dismiss
+</button>
+```
+
+### Custom UI (headless)
+
+If you're building a fully custom UI using the Banner's [custom properties](#custom-properties), call `logBannerDismissal` with the Banner object from your application code.
 
 {% tabs %}
 {% tab Web %}
@@ -712,20 +730,6 @@ braze.subscribeToBannersUpdates((banners) => {
 });
 ```
 {% endalert %}
-
-### Custom Code Blocks (Web)
-
-If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`. This removes the Banner from the UI and calls `logBannerDismissal`, which invokes any active `subscribeToBannersUpdates` subscribers.
-
-{% alert note %}
-`brazeBridge.closeMessage()` behaves differently depending on the channel. For in-app messages, it only closes the UI without logging a dismissal or causing any server-side suppression.
-{% endalert %}
-
-```html
-<button onclick="brazeBridge.closeMessage()">
-  Dismiss
-</button>
-```
 
 ### Pending dismissal storage cap
 
