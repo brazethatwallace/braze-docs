@@ -170,7 +170,7 @@ Arrays have a maximum size of 100&nbsp;KB. The default length for an attribute i
 
 Note that if you input any values with spaces in between, before, or after words, Braze will also check for the same spaces.
 
-Array-type custom attributes can't be imported via CSV. To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
+Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/csv_import/). To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
 
 {% alert note %}
 The option to increase the maximum length will not be available if the attribute is set to automatically detect the data type; the data type must be set to array.
