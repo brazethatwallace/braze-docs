@@ -667,10 +667,6 @@ If your Banner uses the drag-and-drop editor and includes a dismiss button compo
 
 If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`.
 
-{% alert note %}
-`brazeBridge.closeMessage()` behaves differently depending on the channel. For in-app messages, it only closes the UI without logging a dismissal or causing any server-side suppression.
-{% endalert %}
-
 ```html
 <button onclick="brazeBridge.closeMessage()">
   Dismiss
