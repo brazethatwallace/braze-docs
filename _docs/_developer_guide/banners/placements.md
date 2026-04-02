@@ -657,7 +657,7 @@ Banner dismissals allow you to programmatically remove a Banner from a placement
 
 These are the minimum SDK versions required to log Banner dismissals:
 
-{% sdk_min_versions web:6.7.0 %}
+{% sdk_min_versions swift:14.1.0 android:42.0.0 web:6.7.0 reactnative:x.x.x flutter:x.x.x %}
 
 ### Standard and Headless Banner integrations
 
