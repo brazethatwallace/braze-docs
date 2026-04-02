@@ -651,7 +651,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 ## Log dismissals
 
-Banner dismissals allow you to programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user until a new campaign or banner creative is assigned to that placement.
+Banner dismissals allow you to programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user until a new campaign or banner creative is assigned to that placement after refreshing the list of placements.
 
 ### Prerequisites
 
@@ -661,11 +661,11 @@ These are the minimum SDK versions required to log Banner dismissals:
 
 ### Standard Banner integrations (drag-and-drop editor)
 
-If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, `logBannerDismissal` is called automatically by the Banner's HTML.
+If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message will trigger a dismissal and record a dismissal event for analytics.
 
 ### Custom Code Blocks
 
-If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`. This removes the Banner from the UI and calls `logBannerDismissal`, which invokes any active `subscribeToBannersUpdates` subscribers.
+If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`.
 
 {% alert note %}
 `brazeBridge.closeMessage()` behaves differently depending on the channel. For in-app messages, it only closes the UI without logging a dismissal or causing any server-side suppression.
