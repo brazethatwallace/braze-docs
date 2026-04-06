@@ -738,8 +738,19 @@ if (banner != null) {
 {% endtabs %}
 
 {% alert important %}
-**`subscribeToBannersUpdates` integration pattern (Web):** When `logBannerDismissal` is called, the dismissed Banner is immediately removed from the local cache and all active `subscribeToBannersUpdates` subscribers are re-invoked with the updated Banner info. Make sure your subscriber handles the case where a previously-rendered Banner is no longer present. You can do this by hiding or collapsing its container element. The following code snippet shows an example of how to hide a container element.
+**`subscribeToBannersUpdates` integration pattern**
 
+When `logBannerDismissal` is called, the dismissed Banner is immediately removed from the local cache and all active `subscribeToBannersUpdates` subscribers are re-invoked with the updated Banner info.
+
+Make sure your subscriber handles the case where a previously-rendered Banner is no longer present. You can do this by hiding or collapsing its container element.
+
+
+##### Examples
+
+{% tabs %}
+{% tab Web %}
+{% subtabs %}
+{% subtab Javascript %}
 ```javascript
 braze.subscribeToBannersUpdates((banners) => {
   const globalBanner = braze.getBanner("global_banner");
@@ -755,8 +766,51 @@ braze.subscribeToBannersUpdates((banners) => {
   braze.insertBanner(globalBanner, container);
 });
 ```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+{% tab Android %}
+{% subtabs %}
+{% subtab Kotlin %}
+```kotlin
+import android.view.View
+import com.braze.Braze
 
-**Android:** Calling `dismissBanner` removes the Banner from the local cache and triggers `subscribeToBannersUpdates` subscribers the same way. In your subscriber or UI layer, treat a `null` result from `getBanner` for that placement as “no Banner to show” (for example, after dismissal or loss of eligibility) and hide any custom UI you built for that placement.
+Braze.getInstance(context).subscribeToBannersUpdates {
+    val globalBanner = Braze.getInstance(context).getBanner("global_banner")
+    if (globalBanner == null) {
+        // Banner was dismissed or the user is no longer eligible—hide the host.
+        bannerHostView.visibility = View.GONE
+        return@subscribeToBannersUpdates
+    }
+
+    bannerHostView.visibility = View.VISIBLE
+    // Bind or refresh your custom UI from `globalBanner` (for example, custom properties).
+}
+```
+{% endsubtab %}
+{% subtab Java %}
+```java
+import android.view.View;
+import com.braze.Braze;
+import com.braze.models.Banner;
+
+Braze.getInstance(context).subscribeToBannersUpdates(event -> {
+    Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
+    if (globalBanner == null) {
+        // Banner was dismissed or the user is no longer eligible—hide the host.
+        bannerHostView.setVisibility(View.GONE);
+        return;
+    }
+
+    bannerHostView.setVisibility(View.VISIBLE);
+    // Bind or refresh your custom UI from globalBanner (for example, custom properties).
+});
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+{% endtabs %}
 {% endalert %}
 
 ### Pending dismissal storage cap
