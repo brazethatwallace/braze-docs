@@ -679,7 +679,7 @@ If your Banner uses the **Custom Code** editor block, you can trigger a dismissa
 
 ### Custom UI (headless)
 
-If you're building a fully custom UI using the Banner's [custom properties](#custom-properties), call `logBannerDismissal` with the Banner object from your application code.
+If you're building a fully custom UI using the Banner's [custom properties](#custom-properties), record the dismissal from your application code using the method for your platform (for example, `logBannerDismissal` on Web or `dismissBanner` on Android).
 
 {% tabs %}
 {% tab Web %}
@@ -709,10 +709,36 @@ const handleDismiss = () => {
 {% endsubtabs %}
 [Web SDK reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerdismissal)
 {% endtab %}
+{% tab Android %}
+{% subtabs %}
+{% subtab Kotlin %}
+```kotlin
+import com.braze.Braze
+
+val banner = Braze.getInstance(context).getBanner("global_banner")
+if (banner != null) {
+  Braze.getInstance(context).dismissBanner("global_banner")
+}
+```
+{% endsubtab %}
+{% subtab Java %}
+```java
+import com.braze.Braze;
+import com.braze.models.Banner;
+
+Banner banner = Braze.getInstance(context).getBanner("global_banner");
+if (banner != null) {
+  Braze.getInstance(context).dismissBanner("global_banner");
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+[Android SDK reference](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/dismiss-banner.html)
+{% endtab %}
 {% endtabs %}
 
 {% alert important %}
-**`subscribeToBannersUpdates` integration pattern:** When `logBannerDismissal` is called, the dismissed Banner is immediately removed from the local cache and all active `subscribeToBannersUpdates` subscribers are re-invoked with the updated Banner info. Make sure your subscriber handles the case where a previously-rendered Banner is no longer present. You can do this by hiding or collapsing its container element. The following code snippet shows an example of how to hide a container element.
+**`subscribeToBannersUpdates` integration pattern (Web):** When `logBannerDismissal` is called, the dismissed Banner is immediately removed from the local cache and all active `subscribeToBannersUpdates` subscribers are re-invoked with the updated Banner info. Make sure your subscriber handles the case where a previously-rendered Banner is no longer present. You can do this by hiding or collapsing its container element. The following code snippet shows an example of how to hide a container element.
 
 ```javascript
 braze.subscribeToBannersUpdates((banners) => {
@@ -729,6 +755,8 @@ braze.subscribeToBannersUpdates((banners) => {
   braze.insertBanner(globalBanner, container);
 });
 ```
+
+**Android:** Calling `dismissBanner` removes the Banner from the local cache and triggers `subscribeToBannersUpdates` subscribers the same way. In your subscriber or UI layer, treat a `null` result from `getBanner` for that placement as “no Banner to show” (for example, after dismissal or loss of eligibility) and hide any custom UI you built for that placement.
 {% endalert %}
 
 ### Pending dismissal storage cap
