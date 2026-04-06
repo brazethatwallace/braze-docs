@@ -19,6 +19,21 @@ After creating a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/
 - You can add up to 10 filters per selection.
 - Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/recommendations/) for example use cases.
 
+## Supported operators
+
+When creating a selection filter, the available operators depend on the field type you select.
+
+| Field type | Available operators |
+| --- | --- |
+| String | `equals`, `does not equal`, `is any of`, `is none of` |
+| Number | `equals`, `does not equal`, `greater than`, `less than` |
+| Boolean | `is` |
+| Time | `before`, `after` |
+| Array | `includes value`, `does not include value` |
+| Geo | `geo within`, `geo outside` |
+
+The `is any of` and `is none of` operators are available for string fields and each support up to 10 values.
+
 ## Creating a selection
 
 To create a selection, do the following.
@@ -27,7 +42,7 @@ To create a selection, do the following.
 2. Select the **Selection** tab and click **Create Selection**.
 3. Give your selection a name and optional description.
 4. For **Filter Field**, select the catalog column you want to filter by. String fields with more than 1,000 characters can't be selected for filters.
-5. Finish defining your filter criteria by selecting the relevant operator (for example, "equals" or "does not equal") and attribute.
+5. Finish defining your filter criteria by selecting the relevant operator and attribute. For a full list of operators by field type, see [Supported operators](#supported-operators).
 6. In the **Sort type** section, determine how results are sorted. By default, results are returned in no particular order. To specify sorting by a specific field, turn off **Randomize Sort Order** and specify the **Sort Field** and **Sort Order** (ascending or descending).
 7. In the **Results limit** section, enter the results (up to 50).
 8. Select **Create Selection**.
