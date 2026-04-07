@@ -1,0 +1,49 @@
+# Weekly sync of SDK repository guide pages from public GitHub READMEs.
+name: Sync SDK repository guides
+
+on:
+  schedule:
+    - cron: "0 7 * * 0" # Every Sunday at 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout braze-docs
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Sync SDK repository guide pages
+        run: python scripts/sync_sdk_repository_guides.py --write
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sdk-repository-guides-sync/${{ github.run_id }}
+          base: develop
+          title: "chore: sync SDK repository guides from upstream READMEs"
+          commit-message: "chore: sync SDK repository guides from upstream READMEs"
+          delete-branch: true
+          body: |
+            ## Summary
+            - Sync SDK repository guide pages from upstream public README files.
+            - Update docs mirrors only when source README content changed.
+
+            ## Notes
+            - This PR was automatically created by the scheduled SDK repository guide sync workflow.
+          add-paths: |
+            _docs/_developer_guide/sdk_repository_guides/
