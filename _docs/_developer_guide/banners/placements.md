@@ -651,7 +651,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 ## Log dismissals
 
-Banner dismissals allow you to programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user until a new campaign or banner creative is assigned to that placement after refreshing the list of placements.
+Banner dismissals allow you to programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user. The next time the list of placements is refreshed, a new banner will be returned if the user is eligible for one.
 
 ### Prerequisites
 
@@ -729,7 +729,7 @@ braze.subscribeToBannersUpdates((banners) => {
 
 ### Pending dismissal storage cap
 
-Dismissals are stored locally as pending entries until they can be synced to the Braze server on the next `requestBannersRefresh` call.
+Dismissal events are stored locally as pending entries until they can be synced to the Braze server on the next `requestBannersRefresh` call.
 
 {% alert warning %}
 There is a cap on the number of pending dismissals that can be stored on the device. If this cap is exceeded, the oldest pending dismissals are evicted. Evicted dismissals may cause previously-dismissed Banners to reappear until the next successful server sync completes. To minimize impact, call `requestBannersRefresh` whenever your app regains network connectivity.
