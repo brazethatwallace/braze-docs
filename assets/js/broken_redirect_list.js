@@ -1048,12 +1048,12 @@ validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/sho
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify'] = '/docs/partners/ecommerce/shopify/shopify_overview/';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs'] = '/docs/partners/ecommerce/shopify/shopify_catalogs/';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs/#troubleshooting'] = '/docs/partners/ecommerce/shopify/shopify_catalogs/#troubleshooting';
-validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs/back_in_stock'] = '/docs/partners/ecommerce/shopify/shopify_catalogs/#back-in-stock-and-price-drop-use-cases'
-validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs'] = '/docs/partners/ecommerce/shopify/shopify_catalogs/';
-validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/back_in_stock'] = '/docs/partners/ecommerce/shopify/shopify_catalogs/';
-validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_data_in_braze'] = '/docs/partners/ecommerce/shopify/shopify_data_features/';
-validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/use_cases'] = '/docs/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/';
-validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/scripttag_web_sdk_integration'] = '/docs/partners/ecommerce/shopify/shopify_overview/';
+validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs/back_in_stock'] = '/docs/partners/ecommerce/shopify/shopify_catalogs/#back-in-stock-and-price-drop-use-cases';
+validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs'] = '/docs/partners/ecommerce/shopify/shopify_catalogs';
+validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/back_in_stock'] = '/docs/partners/ecommerce/shopify/shopify_catalogs';
+validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_data_in_braze'] = '/docs/partners/ecommerce/shopify_legacy/using_shopify/shopify_data_in_braze/';
+validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/use_cases'] = '/docs/partners/ecommerce/shopify_legacy/using_shopify/use_cases/';
+validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/scripttag_web_sdk_integration'] = '/docs/partners/ecommerce/shopify_legacy/getting_started_shopify/';
 
 validurls['/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/overview'] = '/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/';
 validurls['/docs/developer_guide/platform_integration_guides/macos/initial_sdk_setup'] = '/docs/developer_guide/platforms/legacy_sdks/macOS/initial_sdk_setup/';
@@ -2215,8 +2215,8 @@ validurls['/docs/help/help_articles/email/email_bounces'] = '/docs/user_guide/ch
 validurls['/docs/help/help_articles/email/universal_links'] = '/docs/user_guide/channels/email/customize/universal_links_and_app_links/';
 
 validurls['/docs/developer_guide/sdk_initialization'] = '/docs/developer_guide/sdk_integration/';
-validurls['/docs/developer_guide/authentication'] = '/docs/developer_guide/sdk_integration/authentication/'
-validurls['/docs/developer_guide/debugging'] = '/docs/developer_guide/sdk_integration/debugging/'
+validurls['/docs/developer_guide/authentication'] = '/docs/developer_guide/sdk_integration/authentication/';
+validurls['/docs/developer_guide/debugging'] = '/docs/developer_guide/sdk_integration/debugging/';
 validurls['/docs/developer_guide/sending_test_messages'] = '/docs/developer_guide/in_app_messages/sending_test_messages/';
 
 validurls['/docs/developer_guide/platforms/android/changelog'] = '/docs/developer_guide/changelogs/?sdktab=android';
