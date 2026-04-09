@@ -196,4 +196,5 @@ To download a list of your users and their permissions, go to **Settings** > **C
 |Workspace|View Custom AI Agents|Allows users to view [custom AI agents]({{site.baseurl}}/user_guide/brazeai/agents/). This feature is currently in beta.|
 |Workspace|Create Custom AI Agents|Allows users to create custom AI agents. This feature is currently in beta.|
 |Workspace|Edit Custom AI Agents|Allows users to edit custom AI agents. This feature is currently in beta.|
+|Workspace|Support Tickets | Create Support Ticket | Create and update Support tickets. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
