@@ -223,6 +223,19 @@ Welcome to our store, Peter!
 Catalog Liquid tags can't be used recursively inside catalogs.
 {% endalert %}
 
+## Troubleshooting catalog personalization
+
+If catalog or selection Liquid doesn't display as you expect in a message or Canvas step, check the following:
+
+| Symptom | What to check |
+| --- | --- |
+| Preview shows items but live sends are empty | Confirm catalog **item IDs** exist at send time. If the ID in your Liquid doesn't match a row, Braze returns an empty items array—see [Using Liquid](#using-liquid). Check for typos and for ID sources (such as event properties) that are missing on the trigger or user profile. |
+| Composer preview works in a campaign but not in Canvas | Confirm you're using the right Liquid context—**Canvas entry properties** versus **event properties**—and that those fields exist on the trigger. See [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
+| A selection returns no items | Review [selection filters]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) and limits; confirm catalog data synced and column names match your filters. |
+| `:rerender` or templated delivery looks wrong | For nested Liquid inside catalog fields, you need `:rerender` and correct ordering of variables—see [Templating catalog items including Liquid](#templating-catalog-items-including-liquid). Templated in-app messages resolve at trigger time; see [What are templated in-app messages?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Some channels restrict catalog tags (for example, certain **:rerender** uses with Banners)—see [Are all Liquid tags supported?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) in the Banners FAQ. |
+
+For general Liquid behavior, see [Liquid use cases]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) and [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+
 ## Structuring your catalog data
 
 When planning how to structure your catalog data, start from your intended use case and design the catalog around it. Each row in the catalog represents an item (with a unique `id`). The columns should contain the attributes for that item, such as URLs, description copy, image URLs, price, rating, size, or color.
