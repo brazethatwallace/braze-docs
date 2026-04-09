@@ -773,7 +773,7 @@ braze.subscribeToBannersUpdates((banners) => {
 ```
 {% endalert %}
 
-### Using the banner view's `onDismiss` callback
+### Log custom analytics on banner dismissal
 
 To run additional logic such as logging custom analytics upon dismising a banner, override the optional `onDismiss` callback on your banner view. By default, this callback is empty.
 
