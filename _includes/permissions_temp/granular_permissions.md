@@ -177,8 +177,8 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Landing pages | Edit Landing Page Drafts | Create and save landing page drafts |
 | Message Archiving Settings | View Message Archiving Settings | |
 | Message Archiving Settings | Edit Message Archiving Settings | |
-| Message Prioritization | View Message Prioritization | |
-| Message Prioritization | Edit Message Prioritization | |
+| Message Prioritization | View Message Prioritization | View message prioritization settings without making changes |
+| Message Prioritization | Edit Message Prioritization | Create and update message prioritization settings |
 | WhatsApp Flows | View WhatsApp Flows | Allow users to view all WhatsApp Flows |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -324,7 +324,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Decisioning Studio Agents | View Decisioning Studio Agent | |
 | Decisioning Studio Agent | Edit Decisioning Studio Agents | |
 | Decisioning Studio Audience | View Decisioning Studio Audience | Allow users to see audience details on decisioning studio agent configuration summaries |
-| Decisioning Studio Conversion Event | View Conversion Event | |
+| Decisioning Studio Conversion Event | View Decisioning Studio Conversion Event | |
 | Decisioning Studio Guardrails | View Decisioning Studio Guardrails | Allow users to see configured guardrails on decisioning studio agent configuration summaries |
 | Decisioning Studio Timing | View Decisioning Studio Timing | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
