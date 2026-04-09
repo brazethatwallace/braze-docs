@@ -53,3 +53,17 @@ jobs:
           else
             echo "No sitemap changes to commit."
           fi
+
+      - name: "Open issue on failure"
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue create \
+            --title "Nightly sitemap update failed ($(date -u +'%Y-%m-%d'))" \
+            --body "The nightly sitemap last-modified update failed. Check the run log for details.
+
+**Run:** ${RUN_URL}
+
+Common causes: rebase conflict on \`develop\`, push failure, or Ruby script error."
