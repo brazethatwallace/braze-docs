@@ -779,7 +779,53 @@ To run additional logic such as logging custom analytics upon dismising a banner
 
 {% tabs %}
 {% tab Web %}
-// TODO
+The Web SDK does not have a dedicated `onDismiss` callback on `insertBanner`. Instead, use `subscribeToBannersUpdates` to detect when a banner has been dismissed by checking if it is no longer present in the updated banners map.
+
+{% subtabs %}
+{% subtab JavaScript %}
+```javascript
+import * as braze from "@braze/web-sdk";
+
+braze.subscribeToBannersUpdates((banners) => {
+  const globalBanner = banners["global_banner"];
+
+  if (!globalBanner) {
+    // The banner was dismissed or the user is no longer eligible.
+    // Run any custom analytics here.
+    console.log("Banner was dismissed");
+    return;
+  }
+});
+
+braze.requestBannersRefresh(["global_banner"]);
+```
+{% endsubtab %}
+{% subtab React %}
+```typescript
+import { useEffect } from "react";
+import * as braze from "@braze/web-sdk";
+
+useEffect(() => {
+  const subscriptionId = braze.subscribeToBannersUpdates((banners) => {
+    const globalBanner = banners["global_banner"];
+
+    if (!globalBanner) {
+      // The banner was dismissed or the user is no longer eligible.
+      // Run any custom analytics here.
+      console.log("Banner was dismissed");
+      return;
+    }
+  });
+
+  braze.requestBannersRefresh(["global_banner"]);
+
+  return () => {
+    braze.removeSubscription(subscriptionId);
+  };
+}, []);
+```
+{% endsubtab %}
+{% endsubtabs %}
 {% endtab %}
 
 {% tab Android %}
