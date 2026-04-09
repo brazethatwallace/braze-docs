@@ -161,7 +161,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Campaigns | Launch Campaigns | Start, stop, pause, or resume existing campaigns |
 | Campaigns | Archive Campaigns | Move campaigns to archive |
 | Campaigns | Edit Campaigns | Create and update campaigns |
-| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early acces. |
 | Canvas | View Canvases | View Canvases |
 | Canvas | Archive Canvases | Move Canvases to archive |
 | Canvas | Edit Canvases | Create and update Canvases |
@@ -179,7 +179,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Message Archiving Settings | Edit Message Archiving Settings | |
 | Message Prioritization | View Message Prioritization | View message prioritization settings without making changes |
 | Message Prioritization | Edit Message Prioritization | Create and update message prioritization settings |
-| WhatsApp Flows | View WhatsApp Flows | Allow users to view all WhatsApp Flows |
+| WhatsApp Flows | View WhatsApp Flows | View all WhatsApp Flows |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Audience
@@ -193,16 +193,16 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Locations | Archive Locations | Move locations to archive |
 | Locations | View Locations | View locations |
 | Locations | Edit Locations | Create and edit locations |
-| Segments | View Segments | View segments . Users must have the “View Segments” permission to have the “Edit Segments” or “Archive Segments” permission. |
-| Segments | Archive Segments | Archive and un-archive segments. Users with the “Archive Segments” permission must also be granted the “View Segments” permission. |
-| Segments | Edit Segments | Create and update Segments. Users with the “Edit Segments” permission must also be granted the “View Segments permission”. |
+| Segments | View Segments | View segments. Users must have the “View Segments” permission to have the “Edit Segments” or “Archive Segments” permission |
+| Segments | Archive Segments | Archive and un-archive segments. Users with the “Archive Segments” permission must also be granted the “View Segments” permission |
+| Segments | Edit Segments | Create and update Segments. Users with the “Edit Segments” permission must also be granted the “View Segments permission” |
 | User Data | View Import Users | View CSV user imports without making changes |
 | User Data | Import Users | Upload users to the dashboard |
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
 | User Deletion Records | View User Merge Records | View a list of user merge records |
 | Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
-| Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging. |
+| Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -234,9 +234,9 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Webhook Templates | View Webhook Templates | View webhook templates without making changes |
 | Webhook Templates | Archive Webhook Templates | Move webhook templates to archive |
 | Webhook Templates | Edit Webhook Templates | Create and update webhook templates |
-| Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message). |
+| Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message) |
 | Whatsapp Message Templates | Edit WhatsApp Message Templates | Allows users to create WhatsApp message templates in the template builder. This feature is currently in early access. |
-| WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | Allow users to view All WhatsApp Templates |
+| WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | View All WhatsApp Templates |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Partner integrations
@@ -288,7 +288,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | API Usage Data | View API Usage Dashboard | View the API usage dashboard |
 | App Settings | Edit App Settings | Create, edit, and update apps within app settings |
 | App Settings | View App Settings | View App Settings page |
-| Audience Sync Settings | View Audience Sync Settings | Allow users to view all settings of their connected Audience Sync partners |
+| Audience Sync Settings | View Audience Sync Settings | View all settings of their connected Audience Sync partners |
 | Dashboard Users | Edit Dashboard Users | View, create, and edit company users |
 | Email Settings | View Email Settings | View Email Preferences |
 | Email Settings | Edit Email Settings | Enable and update Email Preferences |
@@ -313,7 +313,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Teams | View Teams | View Teams |
 | Teams | Archive Teams | Move teams to archive |
 | Teams | Edit Teams | Create and update teams |
-| WhatsApp Settings | View WhatsApp Settings | Allow users to view all WhatsApp channel settings |
+| WhatsApp Settings | View WhatsApp Settings | View all WhatsApp channel settings |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Decisioning Studio
@@ -323,9 +323,9 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Decisioning Studio Action Banks | View Decisioning Studio Action Banks | |
 | Decisioning Studio Agents | View Decisioning Studio Agent | |
 | Decisioning Studio Agent | Edit Decisioning Studio Agents | |
-| Decisioning Studio Audience | View Decisioning Studio Audience | Allow users to see audience details on decisioning studio agent configuration summaries |
+| Decisioning Studio Audience | View Decisioning Studio Audience | See audience details on Decisioning Studio Agent configuration summaries |
 | Decisioning Studio Conversion Event | View Decisioning Studio Conversion Event | |
-| Decisioning Studio Guardrails | View Decisioning Studio Guardrails | Allow users to see configured guardrails on decisioning studio agent configuration summaries |
+| Decisioning Studio Guardrails | View Decisioning Studio Guardrails | See configured guardrails on Decisioning Studio Agent configuration summaries |
 | Decisioning Studio Timing | View Decisioning Studio Timing | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -335,21 +335,21 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | --- | --- | --- |
 | App Usage | View Usage Data | View usage data |
 | Billing | View Billing Details | View billing details |
-| Custom Agents | View Agent Console AI Agents | Allows users to view custom AI agents. |
-| Custom Agents | Archive Agent Console AI Agents | Allows users to archive custom AI agents. |
-| Custom Agents | Edit Agent Console AI Agents | Allows users to create and update custom AI agents. |
+| Custom Agents | View Agent Console AI Agents | Allows users to view custom AI agents |
+| Custom Agents | Archive Agent Console AI Agents | Allows users to archive custom AI agents |
+| Custom Agents | Edit Agent Console AI Agents | Allows users to create and update custom AI agents |
 | Custom Attributes Marked As PII | View Custom Attributes Marked as PII | View custom attributes marked as PII |
 | Dashboard Reports | View Dashboard Reports | View reports without making changes |
 | Dashboard Reports | Delete Dashboard Reports | Permanently delete reports |
 | Dashboard Reports | Edit Dashboard Reports | Create and update reports |
-| Domain Settings | Edit Domain Settings | Allow users to add delegated domains and custom domains under Verified Domains |
+| Domain Settings | Edit Domain Settings | Add delegated domains and custom domains under Verified Domains |
 | Field Level Encryption | Edit Identifier Field-Level Encryption | Enable and update Field-Level Encryption settings |
 | Media Library Assets | View Media Library Assets | View media library assets |
 | Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |
-| Messaging Rate Limits | Edit Messaging Rate Limits | Allow users to configure and edit workspace-level messaging rate limits. |
-| Operator | Use BrazeAI Operator<sup>TM</sup> | Access and use Braze Operator to answer questions, navigate setup, troubleshoot issues, and brainstorm ideas. |
+| Messaging Rate Limits | Edit Messaging Rate Limits | Configure and edit workspace-level messaging rate limits |
+| Operator | Use BrazeAI Operator<sup>TM</sup> | Access and use Braze Operator to answer questions, navigate setup, troubleshoot issues, and brainstorm ideas |
 | Placements | View Placements | View Banner placement |
 | Placements | Archive Placements | Move Banner placements to archive |
 | Placements | Edit Placements | View Banner placements without making changes |
