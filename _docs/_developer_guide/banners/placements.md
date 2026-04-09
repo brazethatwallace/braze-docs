@@ -778,6 +778,14 @@ braze.subscribeToBannersUpdates((banners) => {
 To run additional logic such as logging custom analytics upon dismising a banner, override the optional `onDismiss` callback on your banner view. By default, this callback is empty.
 
 {% tabs %}
+{% tab Web %}
+// TODO
+{% endtab %}
+
+{% tab Android %}
+// TODO
+{% endtab %}
+
 {% tab Swift %}
 ```swift
 // After initializing your banner view instance using UIKit or SwiftUI
@@ -789,11 +797,6 @@ bannerView.onDismiss = { dismissedBanner in
 }
 ```
 {% endtab %}
-
-{% tab Android %}
-// TODO
-{% endtab %}
-
 {% endtabs %}
 
 ### Pending dismissal storage cap
