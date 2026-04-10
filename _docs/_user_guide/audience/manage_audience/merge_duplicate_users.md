@@ -43,7 +43,7 @@ Duplicate user profiles cannot be recovered after merging.
 
 ## Bulk merging
 
-When you bulk merge duplicate users, Braze finds profiles with matching identifiers (such as an email address) and keeps one profile. Braze first prioritizes profiles with an `external_id`, then applies your **Resolving ties** settings: **Resolve ties using** and **Prioritization**. If there are no profiles with an `external_id`, Braze uses **Resolve ties using** and **Prioritization** across profiles without an `external_id`. Braze only merges users when these settings identify one profile to keep. For example, if **Resolve ties using** is `Updated date` and both profiles have the same last updated timestamp, Braze can't resolve the tie, so those users aren't merged.
+When you bulk merge duplicate users, Braze finds profiles with matching identifiers (such as an email address) and keeps one profile. Braze first prioritizes profiles with an `external_id`, then applies your **Resolving ties** settings: **Resolve ties using** and **Prioritization**. If there are no profiles with an `external_id`, Braze uses **Resolve ties using** and **Prioritization** across profiles without an `external_id`. Braze only merges users when these settings identify one profile to keep. For example, if **Resolve ties using** is **Updated date** and both profiles have the same last updated timestamp, Braze can't resolve the tie, so those users aren't merged.
 
 ### Step 1: Go to Manage Audience
 
