@@ -37,17 +37,9 @@ When the user starts a new session or refreshes Banners after performing the act
 
 ## Can users dismiss a Banner?
 
-Banners are not manually dismissable by end users across all platforms. However, you can programmatically dismiss a Banner on behalf of the user by calling `logBannerDismissal`. The following SDK versions are required:
+No. Users cannot manually dismiss Banners. However, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
-{% sdk_min_versions swift:14.1.0 android:42.0.0 web:6.7.0 reactnative:x.x.x flutter:x.x.x %}
-
-Once dismissed, the Banner is suppressed for that user until a new campaign or banner content variant is assigned to that placement. In this context, a campaign is the Banner campaign object targeting the placement. A banner content variant is the specific Banner content delivered by that campaign. For more information, see [Create a Banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/) and [Manage Banner placements for the Braze SDK]({{site.baseurl}}/developer_guide/banners/placements/).
-
-For Banners that use the **Custom Code** editor block, you can trigger the same dismissal behavior directly from within the Banner's HTML using `brazeBridge.closeMessage()`.
-
-For all other platforms, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session. For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
-
-For full integration details, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
+For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
 
 ## Can I export Banners campaign analytics using the Braze API?
 

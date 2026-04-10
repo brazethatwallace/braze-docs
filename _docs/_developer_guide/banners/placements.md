@@ -653,11 +653,15 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 Banner dismissals allow you to programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user. The next time the list of placements is refreshed, a new banner will be returned if the user is eligible for one.
 
+{% alert warning %}
+Banner dismissals are still in early access. Please reach out to your customer service manager or support for access.
+{% endalert %}
+
 ### Prerequisites
 
 These are the minimum SDK versions required to log Banner dismissals:
 
-{% sdk_min_versions swift:14.1.0 android:42.0.0 web:6.7.0 reactnative:x.x.x flutter:x.x.x %}
+{% sdk_min_versions swift:14.1.0 android:42.0.0 web:6.7.0 %}
 
 ### Standard Banner integrations (drag-and-drop editor)
 
