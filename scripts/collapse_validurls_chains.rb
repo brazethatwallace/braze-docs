@@ -6,17 +6,18 @@
 # Run after apply_validurl_rhs_from_csv so intermediates already point at Jekyll URLs where possible.
 #
 # Usage:
-#   bundle exec ruby scripts/collapse_validurls_chains.rb [--dry-run | --apply] [--max-hops N] [--redirect-file PATH]
+#   bundle exec ruby scripts/collapse_validurls_chains.rb --jekyll-map PATH.json [--dry-run | --apply] [--max-hops N] [--redirect-file PATH]
+#
+# Required:
+#   --jekyll-map PATH.json  Load published URLs; only apply a collapse when the final RHS passes published_include?
+#                           (matches Jekyll map semantics). Rows that would end on a non-published URL are skipped.
 #
 # Optional:
-#   --jekyll-map PATH       Load published URLs; only apply a collapse when the final RHS passes published_include?
-#                           (matches Jekyll map semantics). Rows that would end on a non-published URL are skipped.
 #   --warn-unpublished      With --jekyll-map, only warn instead of skipping (default is skip when map given).
 #   --export-skipped PATH   Write skipped rows to CSV (lhs, immediate_rhs, collapsed_final, category, suggested_jekyll_url).
 
 require "csv"
 require "fileutils"
-require "json"
 require_relative "redirect_file_io"
 require_relative "redirect_target_verify_helpers"
 DEFAULT_MAX_HOPS = 32

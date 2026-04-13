@@ -142,13 +142,13 @@ https://braze-docs-gtcavota9-braze.vercel.app/docs/user_guide/sage_ai/predictive
 If you're using VS Code, hold **CMD** while right-clicking a link to open it in your default browser. Because these are the old links, they should all redirect to the new URL specified in the redirect file. If it doesn't, there's an issue with the redirect.
 {% endalert %}
 
-## Auditing redirect targets against the site map
+## Auditing redirect targets against the URL map
 
 To find `validurls` destinations that do not match any published Jekyll URL on your tree, generate a URL map with `bundle exec ruby scripts/jekyll_url_map_dump.rb`, then run `bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb` (see the script header for flags). The default report requires a **minimum shared path prefix** so the “known suggestions” CSV stays conservative; use `--min-prefix-segments 0` for basename-only grouping.
 
-To **bulk-update** RHS strings from a triaged CSV (after you delete bad rows), use `bundle exec ruby scripts/apply_validurl_rhs_from_csv.rb --csv PATH --dry-run`, review the diff, then run again with `--apply`. The script only rewrites lines where the quoted RHS equals `stale_target` in the CSV. Re-run the audit, a redirect cycle check, and `./bdocs fblinks` (or your `ts-node` workflow) before you open a PR.
+To **bulk-update** destination URL strings from a triaged CSV (after you delete bad rows), use `bundle exec ruby scripts/apply_validurl_rhs_from_csv.rb --csv PATH --dry-run`, review the diff, then run again with `--apply`. The script only rewrites lines where the quoted destination URL equals `stale_target` in the CSV. Re-run the audit, a redirect cycle check, and `./bdocs fblinks` (or your `ts-node` workflow) before you open a PR.
 
-To export a triage CSV of stale RHS values with the same **minimum shared path prefix** rule as the audit script, use `bundle exec ruby scripts/export_stale_validurls_rhs_triage_csv.rb MAP.json OUT.csv` (optional: `--min-prefix-segments N`, default `4`).
+To export a triage CSV of stale destination URL values with the same **minimum shared path prefix** rule as the audit script, use `bundle exec ruby scripts/export_stale_validurls_rhs_triage_csv.rb MAP.json OUT.csv` (optional: `--min-prefix-segments N`, default `4`).
 
 ### Redirect list maintenance order
 
