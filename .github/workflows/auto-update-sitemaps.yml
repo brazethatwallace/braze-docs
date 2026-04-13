@@ -1,9 +1,12 @@
 # Nightly sitemap last-modified update.
 #
 # Runs on a schedule just before the nightly deploy, checks out develop, and
-# commits any changed _data/sitemap_*.json files directly to develop. This
-# ensures up-to-date lastmod dates land in every nightly release without
+# opens a PR with any changed _data/sitemap_*.json files targeting develop.
+# This ensures up-to-date lastmod dates land in every nightly release without
 # polluting PR history with bot commits or breaking on fork PRs.
+#
+# Branch protection on develop requires a PR — the bot cannot push directly.
+# The PR is auto-merged if the branch has no conflicts.
 #
 # Also supports manual dispatch (workflow_dispatch) for ad-hoc runs.
 
@@ -16,9 +19,10 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
-# Prevent overlapping nightly runs from racing to push to develop.
+# Prevent overlapping nightly runs from racing.
 concurrency:
   group: nightly-sitemap-update
   cancel-in-progress: false
@@ -42,17 +46,40 @@ jobs:
       - name: "Update sitemaps"
         run: ruby scripts/generate_sitemap_lastmodified.rb all
 
-      - name: "Commit sitemap updates"
+      - name: "Create PR with sitemap updates"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -n "$(git status --porcelain _data/sitemap_*.json)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add _data/sitemap_*.json
-            git commit -m "chore: nightly sitemap last-modified update"
-            git pull --rebase origin develop
-            git push origin develop
-          else
+          if [ -z "$(git status --porcelain _data/sitemap_*.json)" ]; then
             echo "No sitemap changes to commit."
+            exit 0
+          fi
+
+          BRANCH="chore/nightly-sitemap-update-$(date -u +'%Y-%m-%d')"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add _data/sitemap_*.json
+          git commit -m "chore: nightly sitemap last-modified update"
+          git push origin "$BRANCH"
+
+          # Reuse an existing open PR for today if one exists (e.g. manual re-run).
+          EXISTING=$(gh pr list --base develop --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Reusing existing PR #$EXISTING."
+          else
+            gh pr create \
+              --base develop \
+              --head "$BRANCH" \
+              --title "chore: nightly sitemap last-modified update ($(date -u +'%Y-%m-%d'))" \
+              --body "Automated nightly update of \`_data/sitemap_*.json\` last-modified dates.
+
+          This PR was created by the **Nightly sitemap last-modified update** workflow.
+
+          > **On-call writer:** merge this PR into develop **before** approving the nightly deploy PR so the deploy includes the latest sitemap dates." \
+              --label "auto"
           fi
 
       - name: "Open issue on failure"
@@ -67,4 +94,4 @@ jobs:
 
 **Run:** ${RUN_URL}
 
-Common causes: rebase conflict on \`develop\`, push failure, or Ruby script error."
+Common causes: branch creation failure, PR creation failure, or Ruby script error."
