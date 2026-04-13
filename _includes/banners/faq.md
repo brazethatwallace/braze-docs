@@ -39,6 +39,10 @@ When the user starts a new session or refreshes Banners after performing the act
 
 No. Users cannot manually dismiss Banners. However, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
+{% alert important %}
+[Banner dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
+
 For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
 
 ## Can I export Banners campaign analytics using the Braze API?
