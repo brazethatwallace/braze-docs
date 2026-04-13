@@ -15,9 +15,7 @@ on:
       - "scripts/apply_validurl_by_lhs_csv.rb"
       - "scripts/apply_validurl_rhs_from_csv.rb"
       - "scripts/normalize_broken_redirect_list.rb"
-      - "scripts/fix_validurls_slash_before_query_fragment.rb"
       - "scripts/collapse_validurls_chains.rb"
-      - "scripts/ensure_validurls_trailing_semicolons.rb"
 
 permissions:
   contents: read

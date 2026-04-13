@@ -155,11 +155,10 @@ To export a triage CSV of stale destination URL values with the same **minimum s
 Use this order for bulk or automation-assisted edits so audits match the file on disk and the redirect list stays valid JavaScript:
 
 1. `node --check assets/js/broken_redirect_list.js` (must pass before and after edits).
-2. Optional: `bundle exec ruby scripts/normalize_broken_redirect_list.rb` (defaults to dry-run; use `--apply` to write).
-3. Optional: `bundle exec ruby scripts/fix_validurls_slash_before_query_fragment.rb` (defaults to dry-run; use `--apply` to write).
-4. Generate a Jekyll URL map, then run `bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb` and/or `bundle exec ruby scripts/verify_redirect_targets_in_jekyll.rb --audit-stale MAP.json` **after** any normalize or slash-fix pass.
-5. CSV apply scripts: always `--dry-run` first, triage the CSV, then `--apply`.
-6. Run `node --check assets/js/broken_redirect_list.js` again, then your usual redirect cycle check and `./bdocs fblinks` (or `ts-node` link workflow).
+2. Optional: `bundle exec ruby scripts/normalize_broken_redirect_list.rb` (defaults to dry-run; use `--apply` to write). Supports `--semicolons-only` or `--slash-fix-only` for targeted fixes, or runs all passes by default.
+3. Generate a Jekyll URL map, then run `bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb` and/or `bundle exec ruby scripts/verify_redirect_targets_in_jekyll.rb --audit-stale MAP.json` **after** any normalize pass.
+4. CSV apply scripts: always `--dry-run` first, triage the CSV, then `--apply`.
+5. Run `node --check assets/js/broken_redirect_list.js` again, then your usual redirect cycle check and `./bdocs fblinks` (or `ts-node` link workflow).
 
 **Compare normalization** (`normalize_url_for_compare` in the Ruby helpers, used against the Jekyll map) and **file canonicalization** (`normalize_broken_redirect_list.rb`, which lowercases internal paths and fragments) answer different questions; do not expect identical strings from both.
 
