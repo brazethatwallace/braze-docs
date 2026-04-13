@@ -712,10 +712,12 @@ const handleDismiss = () => {
 [Web SDK reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerdismissal)
 {% endtab %}
 {% tab Swift %}
+```swift
 // Retrieve a banner and log a dismissal
 braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
   banner?.context.logDismissed()
 }
+```
 
 [Swift SDK reference](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logdismissed())
 {% endtab %}
