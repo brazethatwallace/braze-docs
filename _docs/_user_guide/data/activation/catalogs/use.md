@@ -123,7 +123,7 @@ To output how many items a selection returned, use the Liquid `size` filter on t
 
 {% raw %}
 ```liquid
-{% catalog_selection_items Offers national %}{{ items | size }}
+{% catalog_selection_items item-list selections %}{{ items | size }}
 ```
 {% endraw %}
 
