@@ -82,7 +82,7 @@ For example, if a campaign is scheduled to be delivered at 7 pm UTC, we start qu
 
 As another example, say you want to create two campaigns scheduled to send on the same day—one in the morning and one in the evening—and add a filter that users can only receive the second campaign if they've already received the first. With local time zone delivery, some users may not receive the second campaign. This is because we check eligibility when the user's time zone is identified, so if the scheduled time hasn't occurred in their time zone yet, they haven't received the first campaign, meaning they won't be eligible for the second campaign.
 
-The following timeline assumes a **segment definition that includes a time-limited membership window** (in this example, users exit the segment 24 hours after they join). That filter behavior is **one** reason a user can pass the first check and fail the second—not a universal rule for all audiences.
+The following timeline assumes a segment definition that includes a time-limited membership window. In this example, users exit the segment 24 hours after they join. That filter behavior is one reason a user can pass the first check and fail the second.
 
 ![Timeline of a user entering the segment before the first check, then leaving before the second.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -97,7 +97,7 @@ The following timeline assumes a **segment definition that includes a time-limit
 
 ### How do I schedule a local time zone campaign?
 
-The previous section describes **when Braze evaluates eligibility** for local time zone delivery (the two checks). This section describes **when you set the campaign schedule in the dashboard** (scheduling lead time) and which users still receive the message if you schedule with less than 24 hours' notice.
+The previous section describes when Braze evaluates eligibility for local time zone delivery (the two checks). This section describes when you set the campaign schedule in the dashboard (scheduling lead time) and which users still receive the message if you schedule with less than 24 hours' notice.
 
 When scheduling a campaign, choose to send it at a designated time and then select **Send campaign to users in their local time zone**.
 

@@ -372,8 +372,8 @@ Campaigns
 
 Braze evaluates users for their entry eligibility at:
 
-- Samoa time (UTC+13) or UTC+14 during Daylight Saving Time
-- The local time of the scheduled day
+- Samoa time (UTC+13) or UTC+14 during Daylight Saving Time on the scheduled day
+- The user's local time on the scheduled day
 
 For a user to be eligible for entry, they must be eligible for both checks. For example, if a Canvas is scheduled to launch on August 7, 2021 at 2 pm local time zone, then targeting a user located in New York would require the following checks for eligibility:
 
