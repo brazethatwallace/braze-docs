@@ -72,7 +72,9 @@ For a user to be eligible for entry, they must be eligible for both checks. For 
 - New York on August 6, 2021 at 9 pm
 - New York on August 7, 2021 at 2 pm
 
-The user must be in the segment for 24 hours before the launch. If the user is not eligible in the first check, then Braze does not attempt the second check.
+To enter, a user must **match your audience and filters at both evaluation times**. If the user is not eligible at the first check, Braze does not run the second check. There is **no** minimum length of time that a user must have been in the segment before launch—only eligibility at each check matters.
+
+This evaluation behavior is **separate** from [how far in advance you schedule the campaign in the dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Scheduling at least 24 hours ahead is a recommendation so sends can roll across the full day, not a requirement that each user has been in the audience for 24 hours.
 
 #### Examples
 
@@ -80,7 +82,7 @@ For example, if a campaign is scheduled to be delivered at 7 pm UTC, we start qu
 
 As another example, say you want to create two campaigns scheduled to send on the same day—one in the morning and one in the evening—and add a filter that users can only receive the second campaign if they've already received the first. With local time zone delivery, some users may not receive the second campaign. This is because we check eligibility when the user's time zone is identified, so if the scheduled time hasn't occurred in their time zone yet, they haven't received the first campaign, meaning they won't be eligible for the second campaign.
 
-For a visual of how a user might be in a segment during the first check but not the second, see this timeline:
+The following timeline assumes a **segment definition that includes a time-limited membership window** (in this example, users exit the segment 24 hours after they join). That filter behavior is **one** reason a user can pass the first check and fail the second—not a universal rule for all audiences.
 
 ![Timeline of a user entering the segment before the first check, then leaving before the second.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -94,6 +96,8 @@ For a visual of how a user might be in a segment during the first check but not 
 {% enddetails %}
 
 ### How do I schedule a local time zone campaign?
+
+The previous section describes **when Braze evaluates eligibility** for local time zone delivery (the two checks). This section describes **when you set the campaign schedule in the dashboard** (scheduling lead time) and which users still receive the message if you schedule with less than 24 hours' notice.
 
 When scheduling a campaign, choose to send it at a designated time and then select **Send campaign to users in their local time zone**.
 
