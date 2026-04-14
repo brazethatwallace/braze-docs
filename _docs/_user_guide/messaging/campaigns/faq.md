@@ -74,7 +74,7 @@ For a user to be eligible for entry, they must be eligible for both checks. For 
 
 To enter, a user must **match your audience and filters at both evaluation times**. If the user is not eligible at the first check, Braze does not run the second check. There is **no** minimum length of time that a user must have been in the segment before launch—only eligibility at each check matters.
 
-This evaluation behavior is **separate** from [how far in advance you schedule the campaign in the dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Scheduling at least 24 hours ahead is a recommendation so sends can roll across the full day, not a requirement that each user has been in the audience for 24 hours.
+This evaluation behavior is **separate** from [how far in advance you schedule the campaign in the dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Scheduling at least 24 hours ahead is a recommendation because it helps messages deliver throughout the full 24-hour local time zone window, not a requirement that each user has been in the audience for 24 hours.
 
 #### Examples
 
