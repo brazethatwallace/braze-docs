@@ -380,9 +380,9 @@ For a user to be eligible for entry, they must be eligible for both checks. For 
 - New York on August 6, 2021 at 9 pm
 - New York on August 7, 2021 at 2 pm
 
-To enter, a user must **match your audience and filters at both evaluation times**. If the user is not eligible at the first check, Braze does not run the second check. There is **no** minimum length of time that a user must have been in the segment before launch—only eligibility at each check matters.
+To enter, a user must match your audience and filters at both evaluation times. If the user is not eligible at the first check, Braze does not run the second check. There is no minimum length of time that a user must have been in the segment before launch—only eligibility at each check matters.
 
-This evaluation behavior is **separate** from [how far in advance you schedule the campaign in the dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). For the full explanation, examples, and scheduling guidance, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) and [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) in the Campaigns FAQ.
+This evaluation behavior is separate from [how far in advance you schedule the campaign in the dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). For the full explanation, examples, and scheduling guidance, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) and [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) in the Campaigns FAQ.
 
 {% endapi %}
 {% api %}
