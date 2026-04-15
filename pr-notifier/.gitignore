@@ -1,0 +1,2 @@
+# Local config contains the GitHub token — never commit it
+config.json
