@@ -661,7 +661,7 @@ Banner dismissals are currently in early access. If you're interested in partici
 
 These are the minimum SDK versions required to log Banner dismissals:
 
-{% sdk_min_versions swift:14.1.0 android:42.0.0 web:6.7.0 %}
+{% sdk_min_versions swift:14.1.0 android:43.0.0 web:6.7.0 %}
 
 ### Standard Banner integrations (drag-and-drop editor)
 
