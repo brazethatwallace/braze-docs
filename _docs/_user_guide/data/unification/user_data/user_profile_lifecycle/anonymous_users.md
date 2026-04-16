@@ -41,7 +41,7 @@ Because anonymous users don't have an `external_id`, you can look them up by the
 2. In the **Console** tab, run the following:
 
 ```javascript
-braze.getDeviceId(function(deviceId) { console.log(deviceId); });
+console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
