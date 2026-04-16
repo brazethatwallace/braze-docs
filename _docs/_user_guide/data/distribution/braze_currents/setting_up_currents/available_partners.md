@@ -45,5 +45,8 @@ These partners specialize in product analytics and business intelligence and can
 * [Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/)
 * [Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/heap_cohort_import/)
 
+## eCommerce
 
+?????
 
+* [Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_for_currents)

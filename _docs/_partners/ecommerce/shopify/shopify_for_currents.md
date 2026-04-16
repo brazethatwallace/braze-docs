@@ -1,0 +1,45 @@
+---
+nav_title: Shopify for Currents
+article_title: Shopify for Currents
+description: "This reference article outlines the partnership between Braze Currents and Shopify, a global commerce company that allows you to seamlessly connect their Shopify store with Braze to ?????."
+page_type: partner
+tool: Currents
+search_tag: Partner
+alias: /shopify_for_currents/
+
+---
+
+# Shopify for Currents
+
+> [Shopify](https://www.shopify.com/) is a leading global commerce company providing trusted tools to start, grow, market, and manage a business of any size. Shopify makes commerce better for everyone with a platform and services engineered for reliability while delivering a better shopping experience for consumers everywhere.
+
+The Braze integration with Shopify provides a powerful solution for eCommerce businesses looking to enhance their customer engagement and drive personalized marketing efforts. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can also connect data to Shopify to ?????.
+
+## Prerequisites
+
+| Requirement | Description |
+| ----------- | ----------- |
+| Currents | To export data into Shopify, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
+| Shopify store | Be sure that you've already [set up at least one Shopify store with Braze]({{site.baseurl}}/shopify_overview/). |
+| Shopify store owner or staff member permissions | {::nomarkdown}<ul><li>Access to all General and Online Store settings.</li><li> Additional Admin Permissions:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+## Integration
+
+### Step 1: Obtain your Shop ID
+
+1. In your store admin page ([https://admin.shopify.com/](https://admin.shopify.com/)), go to **Settings** > **Customer accounts**.
+2. Under the **URL** section of the page, there should be a URL in the following format:
+    ```
+    https://shopify.com/<ID>/account
+    ```
+3. Make note of the `<ID>` portion of the URL. This is your Shop ID.
+
+### Step 2: Create Braze Current
+
+1. In Braze, navigate to **Partner Integrations** > **Currents** > **+ Create New Current** > **Shopify Export**.
+2. Provide an integration name, contact email, and the Shop ID that you previously recorded.
+3. Next, select the events you want to track; a list of available events is provided.
+4. Lastly, click **Launch Current**
+
+![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shop ID.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
