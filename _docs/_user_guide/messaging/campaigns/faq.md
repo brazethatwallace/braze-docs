@@ -280,7 +280,7 @@ For questions about calendar days, silent push, webhooks, Canvas behavior, and r
 
 If you find that your daily scheduled campaigns have lower sends, check for the following:
 
-- **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your campaign receive the message.
+- **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your campaign will receive the message.
 - **Check if the campaign targets a static segment:** Because new users do not enter the segment, lower sends over time can be observed if there is also a rate limit applied at the campaign level.
 
 ### Why can unique recipients exceed sends for email and SMS?
