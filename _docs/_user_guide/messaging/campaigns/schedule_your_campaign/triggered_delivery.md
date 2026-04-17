@@ -194,6 +194,6 @@ If the custom event displays, further troubleshoot by doing the following:
 In-app messages can only be triggered by events sent through the SDK, not the REST API.
 {% endalert %}
 
-### Do action-based campaigns evaluate the segment before or after the trigger event occurs? 
+### Do action-based campaigns evaluate the segment before or after the trigger event occurs?
 
 Segment membership is evaluated before the trigger event occurs. You can also configure campaigns to re-evaluate just before send time. This can be useful for instances where there is a delay between the trigger event and the actual send where the user could log the trigger event, then exit the audience before the send time.
