@@ -61,5 +61,6 @@ These services can include:
 ## Next steps
 
 - [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup/)
+- [Improve email deliverability]({{site.baseurl}}/user_guide/channels/email/improve_deliverability/)
 - [Create an email with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
 - [Create an email with the HTML editor]({{site.baseurl}}/user_guide/channels/email/html_editor/)
