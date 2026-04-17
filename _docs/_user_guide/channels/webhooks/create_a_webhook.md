@@ -277,7 +277,7 @@ Alternatively, you can import a list of specific users [using CSV import]({{site
 1. Create a webhook campaign targeting the segment of users to delete.
 2. Enter the REST endpoint for your cluster in the **Webhook URL** field. For example, if your company is in the US-05 cluster, your URL would be: `https://rest.iad-05.braze.com/users/delete`
 3. Select **POST** as the HTTP method.
-4. In the **Request Body** dropdown, select **Raw Text**. Then, enter the following: {% raw %}`{""braze_ids"" : [""{{${braze_id}}}""]}`{% endraw %}
+4. In the **Request Body** dropdown, select **Raw Text**. Then, enter the following: {% raw %}`{"braze_ids": ["{{${braze_id}}}"]}`{% endraw %}
 5. In **Request headers**, add the following headers and make sure your API key is valid:
   - **Key**: **Content-Type**
   - **Value:** **application/json**
