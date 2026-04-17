@@ -238,4 +238,8 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Delivery timing and windows:** For local time zone or scheduled campaigns, users must qualify at both entry and send time; users in certain time zones may fall outside the delivery window.
 - **Rate limiting:** If rate limiting is applied, messages are distributed over time and some sends may be deferred or not yet reflected in the count.
 
+### Where are frequently asked questions about global frequency capping?
+
+For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 

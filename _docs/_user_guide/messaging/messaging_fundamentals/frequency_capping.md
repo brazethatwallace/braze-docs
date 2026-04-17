@@ -195,7 +195,9 @@ Each line of frequency caps is connected using the `AND` operator, and you can a
 
 #### Behavior when users are frequency capped on a Canvas step
 
-If a Canvas user is frequency-capped because of global frequency capping settings, then the user will immediately advance to the next Canvas step. The user will not exit the Canvas because of the frequency cap.
+Global frequency capping alone doesn't exit users from a Canvas. On [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), users still advance when a message isn't sent because of global frequency capping, in line with [how users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) through the step.
+
+This is separate from **Delivery validations** on a Message step. If a user doesn't meet your delivery validation criteria at send time, they can exit the Canvas at that step.
 
 ### Delivery rules
 
@@ -322,18 +324,3 @@ For example, you might set up the following rule:
 > No more than three email campaigns or Canvas components per week from all campaigns and Canvas steps.
 
 This rule determines that no users receive more than 100 emails per week because, at most, users receive three emails per week from campaigns or Canvas components with frequency capping turned on.
-
-## Frequently asked questions
-
-### If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
-
-Yes, when you increase or decrease a Canvas rate limit, the updated limit will take effect for new messages within approximately 30 seconds of the change due to caching.
-
-### Does frequency capping cause users to exit a Canvas?
-
-No. If a Canvas user is frequency-capped because of global frequency capping settings, the user will immediately advance to the next Canvas step. The user will **not** exit the Canvas because of the frequency cap.
-
-### How can I identify users who were frequency capped in a Canvas?
-
-Users who are frequency capped don't generate a send event for that step. To identify these users, you can use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) to track message frequency capped events. Alternatively, you can create a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to analyze users who entered the Canvas but didn't receive the expected message.
-
