@@ -282,7 +282,7 @@ Alternatively, you can import a list of specific users [using CSV import]({{site
   - **Key**: **Content-Type**
   - **Value:** **application/json**
   - **Key:** **Authorization**
-  - **Value:** **Bearer [YOURAPIKEY]**
+  - **Value:** **Bearer [YOUR_API_KEY]**
 6. Test the campaign with a small subset of users to make sure it is working as expected. Remember that testing, in this case, means the users you test with are deleted as well.
 
 #### Check your rate limits
