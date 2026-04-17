@@ -275,7 +275,7 @@ For example, if you use a filter such as "Last Used App more than 30 days ago", 
 Alternatively, you can import a list of specific users [using CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). This way, you would be able to target that specific list of users in a segment using the **Updated/Imported from CSV** filter.
 
 1. Create a webhook campaign targeting the segment of users to delete.
-2. Enter the REST endpoint for your cluster in the **Webhook URL** field. For example, if your company is in the US-05 cluster, your URL would be: `https://rest.iad-05.braze.com/users/delete`
+2. Enter the REST endpoint for your cluster in the **Webhook URL** field. For example, if your company is in the US-01 cluster, your URL would be: `https://rest.iad-01.braze.com/users/delete`
 3. Select **POST** as the HTTP method.
 4. In the **Request Body** dropdown, select **Raw Text**. Then, enter the following: {% raw %}`{"braze_ids": ["{{${braze_id}}}"]}`{% endraw %}
 5. In **Request headers**, add the following headers and make sure your API key is valid:
