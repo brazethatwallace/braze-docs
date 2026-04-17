@@ -291,4 +291,4 @@ The webhook campaign must respect the rate limits shared with other endpoints. M
 
 #### Confirm number of users to be deleted
 
-Estimate the time required to delete users based on the rate limit. For example, deleting 1.5 million users at a rate of 10,000 users per minute could take several hours. Consider splitting the deletion into multiple campaigns. If you're planning to delete over 5 million users, contact your customer success manager or the Support team beforehand to inform them of the mass deletion."
+Estimate the time required to delete users based on the rate limit. For example, deleting 1.5 million users at a rate of 10,000 users per minute could take several hours. Consider splitting the deletion into multiple campaigns. If you're planning to delete over 5 million users, contact your customer success manager or the Support team beforehand to inform them of the mass deletion.
