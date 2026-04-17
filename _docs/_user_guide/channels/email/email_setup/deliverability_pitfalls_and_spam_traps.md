@@ -51,7 +51,7 @@ Refer to the following best practices to decrease the possibility of your messag
 
 ### Message content
 
-The MBP will use automated tools to assess the message content. The aim of the MBP is to protect the experience of its users. Consider the following questions as you're composing your messages:
+The MBP uses automated tools to assess the message content. The aim of the MBP is to protect the experience of its users. Consider the following questions as you're composing your messages:
 
 - Does your message unintentionally look like it might be harmful?
 - Where are images hosted?
@@ -59,7 +59,7 @@ The MBP will use automated tools to assess the message content. The aim of the M
 
 ### Recipient reports and behaviors
 
-MBPs will act quickly on user reports. Consider that the MBP has access to a huge amount of aggregated behavioral data from their users. Are users deleting your messages without even opening them? If so, this could be a symptom of spam.
+MBPs act quickly on user reports. Consider that the MBP has access to a huge amount of aggregated behavioral data from their users. Are users deleting your messages without even opening them? If so, this could be a symptom of spam.
 
 - If many users flag a message as spam, the MBP might divert your future emails. The spam folder can be seen as a quarantined location where recipients or mailbox providers are unconvinced of the quality of the message.
 - Send relevant, compelling mail with good subject lines and good calls-to-action. Subscribers decide before they open mail, based solely on from address and subject line, whether they're going to open the message, delete it, or mark it as spam.
