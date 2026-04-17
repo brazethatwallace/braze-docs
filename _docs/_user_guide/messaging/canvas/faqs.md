@@ -119,6 +119,13 @@ _Unique Recipients_ can be higher than the audience you expected because Braze t
 
 For example, if a user receives a Canvas step on Monday and again on Friday and converts after each send, Braze can count two recipient rows and two in-scope conversions. With recurring entries or re-eligibility, the same small set of profiles can produce multiple _Unique Recipients_ over several days.
 
+### Why is my Canvas experiencing lower send rates?
+
+If you find that your daily scheduled Canvas has lower sends, check for the following:
+
+- **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your Canvas will receive the message.
+- **Check if the Canvas targets a static segment:** Because new users do not enter the segment, lower sends over time can be observed if there is also a rate limit applied at the Canvas level.
+
 ## Analytics and conversions
 
 ### How are user conversions tracked in a Canvas?

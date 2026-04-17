@@ -276,6 +276,12 @@ Several factors can cause the number of sends to be lower than the estimated aud
 
 For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
+### Why is my campaign experiencing lower send rates?
+
+If you find that your daily scheduled campaigns have lower sends, check for the following:
+
+- **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your campaign receive the message.
+- **Check if the campaign targets a static segment:** Because new users do not enter the segment, lower sends over time can be observed if there is also a rate limit applied at the campaign level.
 
 ### Why can unique recipients exceed sends for email and SMS?
 

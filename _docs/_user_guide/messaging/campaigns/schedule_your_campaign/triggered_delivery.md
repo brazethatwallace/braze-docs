@@ -143,7 +143,9 @@ Transactional campaigns include messages sent after the user completes a purchas
 
 In addition, when creating welcome campaigns, you can trigger messages to send after the user registers or sets up an account. Staggering messages to be sent on different days following registration will allow you to create a thorough onboarding process.
 
-## Why did a user not receive my triggered campaign?
+## Frequently asked questions
+
+### Why did a user not receive my triggered campaign?
 
 Any of these things will prevent a user who has completed the trigger event from receiving the campaign:
 
@@ -162,7 +164,7 @@ As a best practice, ensure that the attribute on which the campaign is segmented
 
 Additionally, if a campaign is action-based and has a delay, you can check the option to **Re-evaluate segment membership at send-time** to ensure users are still part of the target audience when the message is sent.
 
-### Audience criteria evaluation
+#### Audience criteria evaluation
 
 For campaigns that involve a delay before sending (including rate limiting, local time zone, Intelligent Timing, or a trigger schedule), when the segment is re-evaluated depends on campaign type and settings.
 
@@ -177,7 +179,7 @@ We recommend either changing the target audience to include all users, or checki
 
 ![Screenshot related to audience criteria evaluation.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Troubleshooting custom events
+#### Troubleshooting custom events
 
 First, confirm that the custom event is being passed to Braze. Go to **Analytics** > **Custom Events Report**, and then select the respective custom event and date range. If the event doesn't display, confirm that it's set up correctly and that the user performed the correct action.
 
@@ -192,3 +194,6 @@ If the custom event displays, further troubleshoot by doing the following:
 In-app messages can only be triggered by events sent through the SDK, not the REST API.
 {% endalert %}
 
+### Do action-based campaigns evaluate the segment before or after the trigger event occurs? 
+
+Segment membership is evaluated before the trigger event has occurred. You can also configure campaigns to re-evaluate just before send time. This can be useful for instances where there is a delay between the trigger event and the actual send where the user could log the trigger event, then exit the audience before the send time.
