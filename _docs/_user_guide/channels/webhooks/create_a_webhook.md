@@ -262,13 +262,13 @@ If you're making a Braze-to-Braze webhook and using allowlisting, you should all
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
 
-### Use webhooks to delete segments
+### Use webhooks to delete users
 
 {% alert warning %}
 If you're using webhooks to delete an entire group of users, we highly recommend you make sure that the segment you create represents the users you want to delete as these users **can't be restored after deletion**. 
 {% endalert %}
 
-User deletion is typically done by creating a webhook campaign with the segment of users to delete as its audience. The payload of the webhook would be aimed at the `/user/delete` endpoint, and Liquid dynamically populates the `braze_id` into the `braze_ids` field. This allows the webhook delivery to be rate-limited to the respective API limits and avoid overloading servers.
+User deletion is typically done by creating a webhook campaign with the segment of users to delete as its audience. The payload of the webhook would be aimed at the `/users/delete` endpoint, and Liquid dynamically populates the `braze_id` into the `braze_ids` field. This allows the webhook delivery to be rate-limited to the respective API limits and avoid overloading servers.
 
 For example, if you use a filter such as "Last Used App more than 30 days ago", you may get a different set of users depending on the time the segment is checked versus when the campaign is launched. A user who started a session 29 days ago might not be in the segment right now, but if the campaign is only launched two days after, the user would be included in the segment and may be deleted as well. 
 
