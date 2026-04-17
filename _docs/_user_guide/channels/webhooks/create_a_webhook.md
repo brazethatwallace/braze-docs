@@ -272,7 +272,7 @@ User deletion is typically done by creating a webhook campaign with the segment 
 
 For example, if you use a filter such as "Last Used App more than 30 days ago", you may get a different set of users depending on the time the segment is checked versus when the campaign is launched. A user who started a session 29 days ago might not be in the segment right now, but if the campaign is only launched two days after, the user would be included in the segment and may be deleted as well. 
 
-Alternatively, you can import a list of specific users [using CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). This way, you would be able to target that specific list of users in a segment using the “Updated/Imported from CSV” filter.
+Alternatively, you can import a list of specific users [using CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). This way, you would be able to target that specific list of users in a segment using the **Updated/Imported from CSV** filter.
 
 1. Create a webhook campaign targeting the segment of users to delete.
 2. Enter the REST endpoint for your cluster in the *Webhook URL** field. For example, if your company is in the US-05 cluster, your URL would be: `https://rest.iad-05.braze.com/users/delete`
