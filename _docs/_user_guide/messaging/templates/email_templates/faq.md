@@ -43,6 +43,12 @@ To save this new link, the default Braze unsubscribe tag {%raw%}(``${set_user_to
 
 Edits made to an existing template won't be reflected in campaigns that were created using previous versions of that template. For API campaigns that use a template in the REST API body, Braze will use the latest version of the template at the time of sending.  
 
+### How do I find the email templates I created?
+
+Go to **Templates** > **Email Templates**. Select **Filters**, open **Created by**, and choose your Braze user. The list updates to templates associated with your account.
+
+You can also press **Ctrl+K** (Windows) or **⌘+K** (Mac) to open search, or select the search field at the top of the dashboard, and search for a template by name.
+
 ## Link templates
 
 ### Can I upload multiple link templates to my email?
