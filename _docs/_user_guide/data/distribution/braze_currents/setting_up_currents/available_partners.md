@@ -47,6 +47,4 @@ These partners specialize in product analytics and business intelligence and can
 
 ## eCommerce
 
-?????
-
 * [Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_for_currents)
