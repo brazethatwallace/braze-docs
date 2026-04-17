@@ -121,7 +121,7 @@ For example, if a user receives a Canvas step on Monday and again on Friday and 
 
 ### Why is my Canvas experiencing lower send rates?
 
-If you find that your daily scheduled Canvas has lower sends, check for the following:
+If you find that your daily scheduled Canvas has lower send rates, check for the following:
 
 - **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your Canvas will receive the message.
 - **Check if the Canvas targets a static segment:** Because new users do not enter the segment, lower sends over time can be observed if there is also a rate limit applied at the Canvas level.
