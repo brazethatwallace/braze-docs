@@ -1,7 +1,7 @@
 ---
 nav_title: Shopify for Currents
 article_title: Shopify for Currents
-description: "This reference article outlines the partnership between Braze Currents and Shopify, a global commerce company that allows you to seamlessly connect their Shopify store with Braze to ?????."
+description: "This reference article outlines the partnership between Braze Currents and Shopify, a global commerce company that allows you to seamlessly connect Braze with your Shopify store to power internal reporting and better track last-touch attribution for purchases."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -13,7 +13,7 @@ alias: /shopify_for_currents/
 
 > [Shopify](https://www.shopify.com/) is a leading global commerce company providing trusted tools to start, grow, market, and manage a business of any size. Shopify makes commerce better for everyone with a platform and services engineered for reliability while delivering a better shopping experience for consumers everywhere.
 
-The Braze integration with Shopify provides a powerful solution for eCommerce businesses looking to enhance their customer engagement and drive personalized marketing efforts. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can also connect data to Shopify to ?????.
+The Braze integration with Shopify provides a powerful solution for eCommerce businesses looking to enhance their customer engagement and drive personalized marketing efforts. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can also connect data to Shopify to power internal reporting and better track last-touch attribution for purchases.
 
 ## Prerequisites
 
