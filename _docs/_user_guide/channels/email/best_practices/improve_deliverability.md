@@ -18,7 +18,7 @@ The following provides general guidance to reduce your chances of spam-folder pl
 
 Sending patterns influence domain reputation. When they misalign with the following best practices, MBPs are more likely to bounce or filter mail.
 
-- **Collect high-quality subscriber data.** Gather valid addresses, use voluntary opt-in with clear language, and consider confirmed opt-in or validation services so subscribers know what they're signing up for. Design the signup flow to be clear and resistant to fraudulent signups.
+- **Collect high-quality subscriber data.** Gather valid addresses, use voluntary opt-in with clear language, and consider confirmed opt-in or validation services so subscribers know what they're signing up for. Design the sign up flow to be clear and resistant to fraudulent sign ups.
 - **Set and honor expectations about content and frequency.** Avoid mailing products or cadences the subscriber didn't agree to.
 - **Send mail subscribers want to open and interact with.** Ask what value each send provides before you schedule it.
 - **Prioritize recipients who recently opted in or engaged** (such as users who have logged opens, clicks, and website activity). Avoid repeatedly mailing inactive addresses.
