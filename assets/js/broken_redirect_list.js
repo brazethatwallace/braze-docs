@@ -718,8 +718,8 @@ validurls['/docs/partners/channel_extensions/email_orchestration/taxi_for_email'
 validurls['/docs/partners/channel_extensions/workflow_automation'] = '/docs/partners/ecommerce';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/amerpity'] = '/docs/partners/data_and_analytics/customer_data_platform/amperity';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/census'] = '/docs/partners/data_and_analytics/reverse_etl/census';
-validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle_for_currents';
-validurls['/docs/partners/data_and_infrastructure_agility/cohort_import/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle';
+validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents';
+validurls['/docs/partners/data_and_infrastructure_agility/cohort_import/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
 validurls['/docs/partners/data_and_infrastructure_agility/cohort_import/storyly'] = '/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/storyly';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium_audience_stream'] = '/docs/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream';
@@ -972,7 +972,7 @@ validurls['/docs/copying_to_workspace'] = '/docs/user_guide/messaging/governance
 validurls['/docs/developer_guide/platform_wide/feature_flags/use_cases'] = '/docs/developer_guide/feature_flags';
 validurls['/docs/user_guide/message_building_by_channel/content_cards/customize'] = '/docs/developer_guide/getting_started/customization_overview';
 
-validurls['/docs/partners/technology_partners/data_and_infrastructure_agility/customer_data_platform/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle';
+validurls['/docs/partners/technology_partners/data_and_infrastructure_agility/customer_data_platform/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
 validurls['/docs/partners/message_personalization/yotpo'] = '/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/yotpo';
 validurls['/docs/help/help_article'] = '/docs/help/help_articles';
 validurls['/docs/help/help_articles/in-app_messages/in-app_message_impressions_appear_lower_than_expected'] = '/docs/user_guide/messaging/ab_testing/#variant-distribution';
@@ -2384,9 +2384,9 @@ validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform
 validurls['/docs/partners/data_and_infrastructure_agility/workflow_automation/growthloop'] = '/docs/partners/data_and_analytics/customer_data_platform/growthloop';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/lexer'] = '/docs/partners/data_and_analytics/customer_data_platform/lexer';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/lytics'] = '/docs/partners/data_and_analytics/customer_data_platform/lytics';
-validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle';
+validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
 validurls['/docs/partners/data_and_infrastructure_agility/analytics/merkury'] = '/docs/partners/data_and_analytics/customer_data_platform/merkury';
-validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle';
+validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/octolis'] = '/docs/partners/data_and_analytics/customer_data_platform/octolis';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/redpoint'] = '/docs/partners/data_and_analytics/customer_data_platform/redpoint';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack'] = '/docs/partners/data_and_analytics/customer_data_platform/rudderstack';
@@ -2584,7 +2584,7 @@ validurls['/docs/developer_guide/platform_integration_guides/windows_universal/a
 validurls['/docs/api/objects_filters/messaging/windows_objects'] = '/docs/api/objects_filters';
 validurls['/docs/partners/message_personalization/dynamic_content/amazon_personalize/workshop'] = '/docs/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/workshop';
 validurls['/docs/partners/message_personalization/dynamic_content/amazon_personalize'] = '/docs/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/amazon_personalize';
-validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle_for_currents';
+validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mparticle/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents';
 validurls['/docs/partners/message_orchestration/additional_channels/retargeting/remerge'] = '/docs/partners/message_orchestration/retargeting/remerge';
 
 validurls['/docs/user_guide/message_building_by_channel/push/ios/advanced_campaign_settings'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/notification_options';
@@ -4087,7 +4087,10 @@ validurls['/docs/user_guide/engagement_tools/canvas/ideas_and_strategies/matchin
 validurls['/docs/user_guide/data/activation/custom_data/managing_custom_data/faq'] = '/docs/user_guide/data/activation/custom_data/managing_custom_data';
 
 // Legacy URL fixes (2026-04): broken-link audit + Messenger cycle resolution follow-ups
-validurls['/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle';
+// mParticle folder casing: old camelCase URL segment → lowercase on-disk path
+validurls['/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
+validurls['/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents';
+validurls['/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
 validurls['/docs/user_guide/administrative/manage_user_accounts/user_settings'] = '/docs/user_guide/administer/personal/the_braze_dashboard/#access-your-profile-settings';
 validurls['/docs/user_guide/data_and_analytics/user_data_collection/user_profile_attributes'] = '/docs/user_guide/messaging/design_and_edit/personalize/sources/user_profile';
 validurls['/docs/user_guide/developer_guide/push_notifications/swift/step_1'] = '/docs/developer_guide/push_notifications/?sdktab=swift#swift_step-1-upload-your-apns-token';
@@ -4365,7 +4368,7 @@ validurls['/docs/partners/shopify'] = '/docs/partners/ecommerce/shopify';
 validurls['/docs/partners/datadog'] = '/docs/partners/data_and_analytics/business_intelligence/datadog';
 validurls['/docs/partners/data_and_infrastructure_agility/monitoring/datadog'] = '/docs/partners/data_and_analytics/business_intelligence/datadog';
 validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mParticle/mparticle'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle';
-validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mParticle/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mParticle/mparticle_for_currents';
+validurls['/docs/partners/data_and_infrastructure_agility/customer_data_platform/mParticle/mparticle_for_currents'] = '/docs/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents';
 validurls['/docs/partners/technology_partners/advertising_technologies/attribution/branch_for_attribution'] = '/docs/partners/message_orchestration/attribution/branch_for_attribution';
 validurls['/docs/partners/message_personalization/dynamic_content/liftigniter'] = '/docs/hidden/archive_docs/liftigniter';
 validurls['/docs/partners/message_personalization/location/gimbal'] = '/docs/partners/message_personalization/location/infillion';
