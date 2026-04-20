@@ -173,7 +173,7 @@ Use this process before enabling or scaling a large sync:
 1. Identify the exact CDI source table or view and the sync window you want to validate.
 2. Open your warehouse SQL editor and select the same database, schema, and role used by CDI.
 3. Run the distinct timestamp count query to measure how many distinct `UPDATED_AT` values exist in that window.
-4. Run the hotspot query to find timestamps with unusually high row counts.
+4. Run the query that groups by `UPDATED_AT` and counts rows to find timestamps with unusually high row counts.
 5. If many rows share identical timestamps, split loads into smaller batches or increase timestamp precision so rows are more distributed.
 6. Re-run both queries until concentration is reduced, then launch or scale your sync.
 7. After launch, monitor **CDI** > **Sync Log** for unexpected re-sync volume at boundary timestamps.
