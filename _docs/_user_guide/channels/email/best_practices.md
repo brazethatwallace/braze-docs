@@ -30,5 +30,8 @@ guide_featured_list:
   - name: "Know before you send"
     link: /docs/know_before_send/
     image: /assets/img/braze_icons/send-01.svg
+  - name: "Email deliverability"
+    link: /docs/user_guide/channels/email/best_practices/improve_deliverability/
+    image: /assets/img/braze_icons/send-02.svg  
 
 ---
