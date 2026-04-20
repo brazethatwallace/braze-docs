@@ -63,7 +63,7 @@ Start by choosing which platforms should receive the message. Use this selection
 | Both Mobile Apps & Web Browsers | iOS, Android, Vega, and Web SDKs |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-For Vega SDK apps, set **Send To** to **Both Mobile Apps & Web Browsers** to configure deep links in **On-Click Behavior**. If you set **Send To** to **Mobile Apps**, in-app messages still deliver to Vega apps, but Vega deep-link configuration doesn't appear in the composer.
+For Vega SDK apps, set **Send To** to **Both Mobile Apps & Web Browsers** to configure deep links in **On-Click Behavior**.
 
 ## Step 3: Specify your message types
 
