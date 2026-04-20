@@ -119,7 +119,7 @@ Message if the venue name's size is 10 characters or fewer.
 
 In this example, different messages display based on whether the `venue_name` field has more or fewer than 10 characters. If `venue_name` is blank, the message is aborted.
 
-To output how many items a selection returned, use the Liquid `size` filter on the `items` array after the tag, not on a single field:
+To output how many items a selection returns, use the Liquid `size` filter on the `items` array after the tag, not on a single field:
 
 {% raw %}
 ```liquid
