@@ -22,8 +22,8 @@
 #   pt-br  → _lang/_config_pt-br.yml, source _lang/pt_br,   site _site/docs/pt-br,  JSON sitemap_pt_br.json
 #
 # --completeness uses source Markdown (not a blind _site walk) so redirect/config-only pages
-# that still emit HTML do not inflate P. Custom permalink: in frontmatter can break path-based P
-# (same caveat as English).
+# that still emit HTML do not inflate **P**, the Markdown-derived URL set (see completeness diagnostics).
+# Custom permalink in frontmatter can break path-based **P** (same caveat as English).
 #
 # Usage (repo root):
 #   bundle exec ruby scripts/verify_sitemap_en_build.rb

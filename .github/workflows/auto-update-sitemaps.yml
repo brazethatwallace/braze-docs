@@ -6,7 +6,7 @@
 # polluting PR history with bot commits or breaking on fork PRs.
 #
 # Branch protection on develop requires a PR — the bot cannot push directly.
-# The PR is auto-merged if the branch has no conflicts.
+# Merge is manual: someone with permission to merge to develop must approve and merge (no auto-merge).
 #
 # Also supports manual dispatch (workflow_dispatch) for ad-hoc runs.
 
@@ -70,6 +70,7 @@ jobs:
           if [ -n "$EXISTING" ]; then
             echo "Reusing existing PR #$EXISTING."
           else
+            # Label must exist in the repo or gh pr create fails (Settings → Labels: create nightly-sitemap).
             gh pr create \
               --base develop \
               --head "$BRANCH" \
@@ -79,7 +80,7 @@ jobs:
           This PR was created by the **Nightly sitemap last-modified update** workflow.
 
           > **On-call writer:** merge this PR into develop **before** approving the nightly deploy PR so the deploy includes the latest sitemap dates." \
-              --label "auto"
+              --label "nightly-sitemap"
           fi
 
       - name: "Open issue on failure"
