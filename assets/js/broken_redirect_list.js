@@ -4336,7 +4336,6 @@ validurls['/docs/cloning_canvases'] = '/docs/user_guide/messaging/canvas/managin
 validurls['/docs/cloning_canvases#limitations'] = '/docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases/#limitations';
 validurls['/docs/cloud_ingestion'] = '/docs/user_guide/data/unification/cloud_ingestion';
 validurls['/docs/cloud_ingestion#product-setup'] = '/docs/user_guide/data/unification/cloud_ingestion/#product-setup';
-validurls['/docs/cloud_ingestion/#product-setup'] = '/docs/user_guide/data/unification/cloud_ingestion/#product-setup';
 validurls['/docs/data_transformation'] = '/docs/user_guide/data/unification/data_transformation';
 validurls['/docs/line'] = '/docs/user_guide/channels/line';
 validurls['/docs/messaging_interaction_data'] = 'https://braze.com/unlisted_docs/messaging_interaction_data';
@@ -4345,14 +4344,12 @@ validurls['/docs/persistent_entry'] = '/docs/user_guide/messaging/canvas/create_
 validurls['/docs/post_user_track_synchronous'] = '/docs/api/endpoints/user_data/post_user_track_synchronous';
 validurls['/docs/scim_api_appendix'] = '/docs/api/objects_filters/scim_api_appendix';
 validurls['/docs/scim_api_appendix#permissions-object'] = '/docs/api/objects_filters/scim_api_appendix/#permissions-object';
-validurls['/docs/scim_api_appendix/#permissions-object'] = '/docs/api/objects_filters/scim_api_appendix/#permissions-object';
 validurls['/docs/support_contact'] = '/docs/user_guide/administer/personal/braze_support';
 validurls['/docs/target_approvals'] = '/docs/user_guide/messaging/governance/approvals';
 
 // API paths
 validurls['/docs/api/api_key'] = '/docs/api/basics';
 validurls['/docs/api/api_key#how-can-i-use-it'] = '/docs/api/basics';
-validurls['/docs/api/api_key/#how-can-i-use-it'] = '/docs/api/basics';
 validurls['/docs/api/endpoints/translations/content_blocks/get_view_translation_content_block'] = '/docs/api/endpoints/translations/content_blocks/get_translation_content_block';
 validurls['/docs/api/home-new'] = '/docs/api/home';
 validurls['/docs/api/new_home'] = '/docs/api/home';
@@ -4363,7 +4360,6 @@ validurls['/docs/email/managing_subscriptions'] = '/docs/user_guide/channels/ema
 // Help
 validurls['/docs/help/push'] = '/docs/developer_guide/push_notifications';
 validurls['/docs/help/push#android-push-category'] = '/docs/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#push-category';
-validurls['/docs/help/push/#android-push-category'] = '/docs/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#push-category';
 
 // Partners — restructured paths
 validurls['/docs/partners/anthropic'] = '/docs/partners/ai_model_providers/anthropic';
