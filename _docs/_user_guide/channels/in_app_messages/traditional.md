@@ -63,8 +63,6 @@ Start by choosing which platforms should receive the message. Use this selection
 | Both Mobile Apps & Web Browsers | iOS, Android, Vega, and Web SDKs |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-For Vega SDK apps, set **Send To** to **Both Mobile Apps & Web Browsers** to configure deep links in **On-Click Behavior**.
-
 ## Step 3: Specify your message types
 
 Once you've selected a sending platform, browse the message types, layouts, and other options associated with it. Learn more about the expected behavior and look of each of these messages on our [Message types]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) page, or by clicking on the linked message types in the following tables.
