@@ -156,8 +156,7 @@ To avoid these behaviors in the future, we recommend using monotonically increas
 
 Yes. For high-volume runs (for example, more than approximately 10 million rows), make sure your source data has mostly distinct `UPDATED_AT` values. If too many rows share the same timestamp, CDI is more likely to re-select rows at boundary timestamps in later runs. This can increase duplicate syncs and data point consumption.
 
-For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/
-unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Where do I run these SQL checks?
 
