@@ -39,7 +39,7 @@ Yes, you can add up to 10 WhatsApp Business accounts per workspace, and each bus
 ![Diagram of the Braze and WhatsApp ecosystem, showing how workspaces and WhatsApp Business accounts connect to each other: you can connect one subscription group to one phone number, multiple WhatsApp Business accounts to one workspace, and one workspace to multiple Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %}) 
 
 #### Can I change my WhatsApp Business Account currency?
-No. Meta controls the currency for your WhatsApp Business Account, and Braze can't change or convert it. To use a different currency, create a separate WhatsApp Business Account with that currency, or contact Meta support to ask whether they can update the currency on your existing account.
+No. Meta controls the currency for your WhatsApp Business Account, and Braze can't change or convert it. To use a different currency, [create a separate WhatsApp Business Account]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) with that currency, or contact Meta support to ask whether they can update the currency on your existing account.
 
 ### WhatsApp business account phone numbers 
 
