@@ -720,4 +720,7 @@ event_documentation:
     description: This is the Kafka record schema for when a tool is executed. A tool is a function given to an LLM to fulfill an objective.
     api_tags:
       - Agent
-
+  users.profile.Update:
+    description: This represents the profile updates for a user.
+    api_tags:
+      - Profile
