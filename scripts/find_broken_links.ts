@@ -70,9 +70,15 @@ function indexMarkdownFilesByLowercasePath(rootDir: string): Map<string, string>
       if (ent.isDirectory()) {
         walk(full);
       } else if (ent.isFile() && ent.name.endsWith('.md')) {
-        const key = path.normalize(full).toLowerCase();
-        if (!index.has(key)) {
-          index.set(key, path.normalize(full));
+        const normalizedFull = path.normalize(full);
+        const key = normalizedFull.toLowerCase();
+        const existing = index.get(key);
+        if (existing === undefined) {
+          index.set(key, normalizedFull);
+        } else if (path.normalize(existing) !== normalizedFull) {
+          console.warn(
+            `[find_broken_links] Case-only path collision for key "${key}": existing "${existing}" vs "${normalizedFull}"`
+          );
         }
       }
     }
