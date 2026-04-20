@@ -296,7 +296,7 @@ If a sync run is already in progress, your changes take effect on the next run.
 
 - Read the error banner for hints
 - "Unable to connect to the source"
-  - Check credentials (username, password, and JWT authentication)
+  - Check the configured username, account locator, and RSA key-pair authentication setup
   - Verify the warehouse is running
   - Confirm network access
 - "SQL syntax error"
