@@ -21,11 +21,7 @@ Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn
 
 ### How should I design emails for dark mode and light mode?
 
-Most marketing emails don't need separate light and dark layouts. Some clients and devices apply their own dark theme, which can invert colors or hide backgrounds when you don't set explicit colors on the outer container and major sections. Define solid background colors and test on real devices so the message reads clearly in both themes.
-
-If you build custom HTML, the [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media query lets you swap styles when a client supports it. For context on how consumers experience dark mode in email, see [What's dark mode, anyway?](https://www.braze.com/perspectives/article/whats-dark-mode-anyway) on Braze Perspectives.
-
-Support varies by inbox. Gmail does not honor `prefers-color-scheme` in email HTML; see [Can I email… `prefers-color-scheme`](https://www.caniemail.com/features/css-at-media-prefers-color-scheme/) for client support notes. For layout ideas that work when inboxes force dark backgrounds, refer to Litmus' [Ultimate guide to dark mode for email marketers](https://www.litmus.com/blog/the-ultimate-guide-to-dark-mode-for-email-marketers/).
+Emails do not need to be sent in separate light and dark layouts because email clients and devices can apply their own dark theme. However, this may invert colors or hide backgrounds if explicit colors are not set on the outer container and major sections. To prevent this, we recommend setting solid background colors so your message reads clearly in both dark and light mode.
 
 ### How can I change the email padding on mobile without updating the padding in the web view?
 
