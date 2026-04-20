@@ -36,7 +36,7 @@ There are two kinds of how-tos: generic and technology partner. Only use the tec
 
 ### Generic
 
-How-to guides are action-based, chronological steps that show users how to complete a specific task. For an example, see [Creating a Content Card](https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards/create/).
+How-to guides are action-based, chronological steps that show users how to complete a specific task. For an example, see [Creating a Content Card](https://www.braze.com/docs/user_guide/channels/content_cards/create_a_content_card/).
 
 File in GitHub: [`how_to_guide.md`](../../_includes/contributing/templates/how_to_guide.md)
 
@@ -48,12 +48,14 @@ File in GitHub: [`technology_partner.md`](../../_includes/contributing/templates
 
 
 
-![Screenshot of the "Creating a Content Card" page.](../../assets/img/contributing/content_types/how_to_guide_example.png)#### Guidelines
+![Screenshot of the "Creating a Content Card" page.](../../assets/img/contributing/content_types/how_to_guide_example.png)
+
+#### Guidelines
 
 - Cover only what the user needs to know to take action. 
 - Only cover the best or recommended way to complete the task. Do not document alternative methods.
 - Only include [reference material](#references) that's vital to the end-user's goal, such as a list of options a user can select during a step.
-- Link out to references that are longer than reasonable to include in the same article, such as [Segmentation filters](https://www.braze.com/docs/user_guide/engagement_tools/segments/segmentation_filters/).
+- Link out to references that are longer than reasonable to include in the same article, such as [Segmentation filters](https://www.braze.com/docs/user_guide/audience/segments/segmentation_filters/).
 - Avoid providing troubleshooting steps. Instead, you can include this information in a another section on this page or a separate article.
 
 #### Header syntax
@@ -115,15 +117,15 @@ The title header should be prepended with `Use case:` and describe the way Braze
 
 Each use of the words "Use case" in a header should have a description following it.
 
----
-
 ### Generic
 
-Generic tutorials are learning-oriented practical lessons. They focus on what the user learns, such as becoming familiar with terminology, how things interact, how to use commands, and similar. For an example, see [Rules-based recommendations](https://www.braze.com/docs/user_guide/brazeai/recommendations/rules_based_recommendations/):
+Generic tutorials are learning-oriented practical lessons. They focus on what the user learns, such as becoming familiar with terminology, how things interact, how to use commands, and similar. For an example, see [Rules-based recommendations](https://www.braze.com/docs/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based/):
 
 File in GitHub: [`tutorial.md`](../../_includes/contributing/templates/tutorial.md)
 
-![Screenshot of the "Rules-based recommendations page.](../../assets/img/contributing/content_types/tutorial_example.png)#### Guidelines
+![Screenshot of the "Rules-based recommendations" page.](../../assets/img/contributing/content_types/tutorial_example.png)
+
+#### Guidelines
 
 - Create a guided step-by-step activity or scenario for the user to follow or roleplay. 
 - Assume that the user has little to no familiarity with the platforms, tools, or workflows used during the activity.
@@ -141,11 +143,13 @@ The title header should be prepended with `Tutorial:` and generally describe wha
 
 ### References
 
-References are information-oriented content. They focus on providing the user with objective, authoritative, and technical knowledge. For an example, see [Message engagement events](https://www.braze.com/docs/user_guide/data/braze_currents/event_glossary/message_engagement_events/) (events glossary).
+References are information-oriented content. They focus on providing the user with objective, authoritative, and technical knowledge. For an example, see [Message engagement events](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) (events glossary).
 
 File in GitHub: [`reference.md`](../../_includes/contributing/templates/reference.md)
 
-![Screenshot of the "Message engagement events" page.](../../assets/img/contributing/content_types/reference_example.png)#### Guidelines
+![Screenshot of the "Message engagement events" page.](../../assets/img/contributing/content_types/reference_example.png)
+
+#### Guidelines
 
 - Create technical descriptions or information that are necessary to complete a task.
 - Organize the information alphabetically, categorically, or hierarchically.
@@ -154,11 +158,13 @@ File in GitHub: [`reference.md`](../../_includes/contributing/templates/referenc
 
 ##### Header syntax
 
-Topmost should be nouns. For example, [Editor blocks](https://www.braze.com/docs/user_guide/message_building_by_channel/email/drag_and_drop/dnd_editor_blocks/) has the following names for its references:
+Topmost should be nouns. For example, [Editor blocks](https://www.braze.com/docs/dnd/editor_blocks/) has the following names for its references:
 
-![Screenshot of the in-page table of contents for the "Editor Blocks" page. Headings include: Types (H2), Properties (H2), Title (H3), Paragraph (H3), List (H3), Button (H3), Divider (H3), Spacer (H3), Image (H3), Video (H3), Social (H3), Icons (H3), HTML (H3), Menu (H3).](../../assets/img/contributing/content_types/explanation_header_syntax_example.png)### Explanations
+![Screenshot of the in-page table of contents for the "Editor Blocks" page. Headings include: Types (H2), Properties (H2), Title (H3), Paragraph (H3), List (H3), Button (H3), Divider (H3), Spacer (H3), Image (H3), Video (H3), Social (H3), Icons (H3), HTML (H3), Menu (H3).](../../assets/img/contributing/content_types/explanation_header_syntax_example.png)
 
-Explanations are understanding-oriented content. They focus on improving the user’s conceptual understanding. For an example, see [Getting started: Braze overview](https://www.braze.com/docs/user_guide/getting_started/overview/).
+### Explanations
+
+Explanations are understanding-oriented content. They focus on improving the user’s conceptual understanding. For an example, see [Getting started: Braze overview](https://www.braze.com/docs/user_guide/get_started/).
 
 ### Explanation template
 
@@ -166,16 +172,17 @@ File in GitHub: [`explanation.md`](../../_includes/contributing/templates/explan
 
 
 
-![Screenshot of the "Getting started: Braze overview" page.](../../assets/img/contributing/content_types/explanation_example.png)#### Guidelines
+![Screenshot of the "Getting started: Braze overview" page.](../../assets/img/contributing/content_types/explanation_example.png)
+
+#### Guidelines
 
 - Create textual or visual descriptions of concepts, such as how data travels between features, third-party partners, tools, and similar.
 - Discuss how features and techniques can benefit users.
 - Place explanations in the most relevant article. For example, a basic feature article might have an explanation called "How it works" that describes that feature's workflow. 
-- Consider placing explanations that are too broad to fit into only one article onto a landing page for a general topic, such as [Campaigns](https://www.braze.com/docs/user_guide/engagement_tools/campaigns).
+- Consider placing explanations that are too broad to fit into only one article onto a landing page for a general topic, such as [Campaigns](https://www.braze.com/docs/user_guide/messaging/campaigns/).
 
 > [!TIP]
 > Even though explanations aren't telling users what to do to achieve a specific outcome, you can broadly describe chronological steps to achieve a general goal (such as using A/B testing to improve your messaging). Don't go into the same detail you would for a [how-to guide](#how-to-guides) or [tutorial](#tutorials).
-
 
 
 ##### Header syntax
@@ -201,8 +208,7 @@ Release notes are a monthly compilation of product updates in Braze. Each update
 | New Braze partnerships | Introduces new integrations with other platforms and services.          |
 | SDK updates            | Lists new SDKs or updates, including breaking changes and new features. |
 
-
-You can use this template to create release notes for Braze Docs. For an example, see [January 9, 2024 release](https://www.braze.com/docs/help/release_notes/2024/1_9_24/).
+You can use this template to create release notes for Braze Docs. For an example, see [January 9, 2024 release](https://www.braze.com/docs/releases/2024/1_9_24/).
 
 ### Release note template
 

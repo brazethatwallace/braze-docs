@@ -9,7 +9,7 @@ Braze Docs is managed using docs-as-code, a method for managing documentation th
 
 ![The Braze Docs repository's home page on GitHub.](../../assets/img/contributing/github/home_page.png)
 
-## Site generator 
+## Site generator
 
 Braze Docs is built using Jekyll, a popular static-site generator that allows content files and design files to be stored in separate directories, such as `_docs` for content files and `assets` for design files. When the site is built, Jekyll intelligently merges each file and stores them as XML and HTML data in the `_site` directory. For more information, see [Jekyll Directory Structure](https://jekyllrb.com/docs/structure/).
 
@@ -19,7 +19,7 @@ As a contributor, you'll primarily work within the following directories.
 
 | Directory                                                                     | Description                                                                                                                                                                                                                                                                                                                       |
 |-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`_docs`](https://github.com/braze-inc/braze-docs/tree/develop/_docs)         | Contains all the written content for Braze Docs as text files written in Markdown. Text files are organized into directories and subdirectories mirroring the docs site, such as `_api` for the [API section](https://www.braze.com/docs/api/home) and `user_guide` for the [User Guide section](https://www.braze.com/docs/user_guide/introduction). |
+| [`_docs`](https://github.com/braze-inc/braze-docs/tree/develop/_docs)         | Contains all the written content for Braze Docs as text files written in Markdown. Text files are organized into directories and subdirectories mirroring the docs site, such as `_api` for the [API section](https://www.braze.com/docs/api/home) and `user_guide` for the [User Guide section](https://www.braze.com/docs/user_guide/home). |
 | [`_includes`](https://github.com/braze-inc/braze-docs/tree/develop/_includes) | Contains text files (called "includes") that can be reused in any file within the `_docs` directory. Typically, includes are short, modular pieces of content that don't use standard formatting. The files stored in this location are important for [content reuse](#content-reuse).                                            |
 | [`assets`](https://github.com/braze-inc/braze-docs/tree/develop/assets)       | Contains all the images for Braze Docs. Any text file in the `_docs` or `_includes` directory can link to this directory to display an image on its page.                                                                                                                                                                         |
 
@@ -112,8 +112,8 @@ Braze Docs is organized into [primary sections](#primary-sections) and [subsecti
 
 The primary sections on Braze Docs are:
 
-- [Braze Docs Home](https://www.braze.com/docs)
-- [User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Braze Docs Home](https://www.braze.com/docs/)
+- [User Guide](https://www.braze.com/docs/user_guide/home)
 - [Developer Guide](https://www.braze.com/docs/developer_guide/home)
 - [Braze API Guide](https://www.braze.com/docs/api/home)
 - [Technology Partners](https://www.braze.com/docs/partners/home)

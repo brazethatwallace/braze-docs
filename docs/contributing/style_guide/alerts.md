@@ -62,13 +62,13 @@ Refer to the following examples for how and why each alert type is used in our d
 
 File in GitHub: [`important_alerts.md`](../../../_includes/alerts/important_alerts.md)
 
-* **Article:** [Push for Web](https://www.braze.com/docs/user_guide/message_building_by_channel/push/web/)
+* **Article:** [Push for Web](https://www.braze.com/docs/user_guide/channels/push/platform_specific_resources/web/)
 * **Use case:** Includes essential feature caveat that the reader should know as they set up their web push.
 * **Alert reasoning:** Use an Important alert as opposed to a Note alert because the content's importance is greater for a reader to know as they set up their web push.
 
 File in GitHub: [`important_alerts.md`](../../../_includes/alerts/important_alerts.md)
 
-* **Article:** [Email Settings](https://www.braze.com/docs/user_guide/administrative/app_settings/email_settings/)
+* **Article:** [Email Settings](https://www.braze.com/docs/user_guide/administer/global/workspace_settings/email_preferences/)
 * **Use case:**
   - Provides important feature caveat about the possibility of doubling billable emails
   - Redirects reader to contact their customer success manager as needed
@@ -84,13 +84,13 @@ File in GitHub: [`important_alerts.md`](../../../_includes/alerts/important_aler
 
 File in GitHub: [`note_alerts.md`](../../../_includes/alerts/note_alerts.md)
 
-* **Article:** [Create a Content Card](https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards/create/)
+* **Article:** [Create a Content Card](https://www.braze.com/docs/user_guide/channels/content_cards/create_a_content_card/)
 * **Use case:** Includes additional information that a reader should be aware of as they learn more about Content Cards.
 * **Alert reasoning:** This Note alert provides background information on how Braze cycles older Content Cards for users. This is helpful, supplemental information for the reader to be aware of and does not require the use of an Important or Tip alert.
 
 File in GitHub: [`note_alerts.md`](../../../_includes/alerts/note_alerts.md)
 
-* **Article:** [Custom Attributes](https://www.braze.com/docs/user_guide/data/activation/custom_data/custom_attributes/)
+* **Article:** [Custom Attributes](https://www.braze.com/docs/user_guide/data/activation/custom_data/data_types/)
 * **Use case:** Includes general information that a reader should be aware of. Provides an article to learn more about related content (time attributes).
 * **Alert reasoning:** This information is best relayed using a Note alert as opposed to an Important alert because the content is directed to provide general information. Disregarding this information would not impact the ease of use for this feature.
 
@@ -104,7 +104,7 @@ File in GitHub: [`note_alerts.md`](../../../_includes/alerts/note_alerts.md)
 
 File in GitHub: [`tip_alerts.md`](../../../_includes/alerts/tip_alerts.md)
 
-* **Article:** [SMS and RCS Billing Calculators](https://www.braze.com/docs/user_guide/message_building_by_channel/sms_mms_rcs/segments/)
+* **Article:** [SMS and RCS Billing Calculators](https://www.braze.com/docs/user_guide/channels/sms_mms_and_rcs/billing_calculator/)
 * **Use case:** Includes tool for the reader to understand their message length and SMS segment count. Provides information that may be helpful for the reader in their understanding of copy limits.
 * **Alert reasoning:** This is a lengthy Tip alert because it provides a space for entering the copy to see how many segments a message dispatches. The Tip alert is the best option here because this is a helpful generator for the reader to use in the process of setting up their SMS messages.
 
@@ -130,6 +130,6 @@ File in GitHub: [`warning_alerts.md`](../../../_includes/alerts/warning_alerts.m
 
 File in GitHub: [`warning_alerts.md`](../../../_includes/alerts/warning_alerts.md)
 
-* **Article:** [Create a Canvas](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)
+* **Article:** [Create a Canvas](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/)
 * **Use case:** Lists the information that may cause the feature to not work. Details how the intended audience may not receive the campaign or enter the Canvas.
 * **Alert reasoning:** The Warning alert is used here to note how the feature may work incorrectly. This information is best relayed using a Warning alert as opposed to an Important alert because the information is critical and may result in breaking the Canvas delivery.
