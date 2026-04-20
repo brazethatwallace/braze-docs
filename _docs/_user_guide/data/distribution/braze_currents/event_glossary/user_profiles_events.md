@@ -27,6 +27,8 @@ Storage schemas apply to flat file event data sent to data warehouse storage par
 Currents drops events with payloads larger than 900 KB.
 {% endalert %}
 
+{% enddetails %}
+
 
 {% api %}
 ## User Profile Update events {#user-profile-update-events}
