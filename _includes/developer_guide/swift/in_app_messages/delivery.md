@@ -24,7 +24,7 @@ For production apps, don't set this value lower than 10 seconds, so users aren't
 
 You can set this interval to `0` for testing. However, a `0`-second interval doesn't force multiple in-app messages to appear at the same time. If one message is visible, another triggered message waits on the in-app message stack until a message can be displayed.
 
-To override this, add the `triggerMinimumTimeInterval` property to your Braze configuration before the Braze instance is initialized. It can be set to any non-negative integer and represents the minimum time interval in seconds. For example:
+To override this, update the `triggerMinimumTimeInterval` property to your Braze configuration before the Braze instance is initialized. It can be set to any non-negative integer and represents the minimum time interval in seconds. For example:
 
 {% tabs %}
 {% tab swift %}
