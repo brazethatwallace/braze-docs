@@ -109,6 +109,10 @@ You can choose one of three ways in which users can enter your Canvas.
 
     ![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+  {% alert important %}
+  If your action-based Canvas isn't sending, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze checks the timestamp sent with the custom event. If the timestamp sent with the custom event is backdated, the Canvas considers this delay as finished and sends the message.
+  {% endalert %}
+
   {% endtab %}
   {% tab API-Triggered Delivery %}
     With API-triggered delivery, users will enter your Canvas and begin receiving messages after they have been added using the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) via the API. In the dashboard, you can find an example cURL request that does this as well as assign optional [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) using the [context object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). 
