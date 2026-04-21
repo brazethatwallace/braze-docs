@@ -41,6 +41,8 @@ To prevent your page from exceeding size limits or experiencing slow load times,
 - Doesn't continuously loops through or references large data sets.
 - Doesn't rely on extensive mathematical or conditional logic within the Liquid block.
 
+Additionally, avoid embedding large scripts, stylesheets, and base64-encoded assets directly in your landing page code. These inline assets count toward the page size limit and can slow down rendering. Instead, upload fonts, images, stylesheets, and scripts to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Assets served from the media library are hosted on Braze's CDN, so they do not get processed for Liquid rendering and do not count toward the page size limit.
+
 ### Use Liquid for identified and anonymous users 
 
 Liquid can customize the landing page experience for both identified and anonymous visitors.
