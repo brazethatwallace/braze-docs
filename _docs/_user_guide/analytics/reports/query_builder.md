@@ -94,10 +94,7 @@ To generate SQL with the AI Query Builder:
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) for this feature. Not following these rules will cause an error.
 - You can send up to 20 prompts per minute with the AI Query Builder.
 
-### How is my data used and sent to OpenAI?
-<!-- Contact Legal for changes. -->
-
-In order to generate your SQL, Braze will send your prompts to OpenAI’s API Platform. All queries sent to OpenAI from Braze are anonymized, meaning that OpenAI will not be able to identify from whom the query was sent unless you include uniquely identifiable information in the content you provide. As detailed in [OpenAI’s API Platform Commitments](https://openai.com/policies/api-data-usage-policies), data sent to OpenAI’s API via Braze is not used to train or improve their models and will be deleted after 30 days. Please ensure that you adhere to OpenAI’s policies relevant to you, including the [Usage Policy](https://openai.com/policies/usage-policies). Braze makes no warranty of any kind with respect to any AI-generated content. 
+#{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Writing custom SQL queries {#custom-sql}
 
