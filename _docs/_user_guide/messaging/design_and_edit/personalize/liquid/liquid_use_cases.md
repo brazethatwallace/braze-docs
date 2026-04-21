@@ -1370,7 +1370,7 @@ Time zones
 - [Send a reoccurring in-app message campaign between a window of time in a user's local time zone](#time-reocurring-iam-window)
 - [Send different messages on weekdays versus weekends in a user's local time zone](#time-weekdays-vs-weekends)
 - [Send different messages based on time of day in a user's local time zone](#time-of-day)
-- [Abort a message outside an allowed hour range at send time](#abort-send-time-hour-range)
+- [Abort a message outside an hour range at send time](#abort-send-time-hour-range)
 - [Abort a message outside a time window in a fixed time zone](#abort-fixed-timezone-window)
 
 ### Template in the user's time zone {#users-time-zone}
@@ -1524,7 +1524,7 @@ Check out this new bar after work today. HH specials!
 
 ### Abort a message outside an hour range at send time {#abort-send-time-hour-range}
 
-This use case aborts the message when the current hour falls outside a defined range. It uses the time at which the message is rendered (for example, in UTC), not the user's local time zone. To send messages based on a user's local time zone, [Send different messages based on time of day in a user's local time zone](#time-of-day).
+This use case aborts the message when the current hour falls outside a defined range. It uses the time at which the message is rendered, which is UTC by default unless you apply the `time_zone` filter, not the user's local time zone. To send messages based on a user's local time zone, [Send different messages based on time of day in a user's local time zone](#time-of-day).
 
 {% raw %}
 ```liquid
@@ -1540,7 +1540,7 @@ Check out this new bar after work today. HH specials!
 
 ### Abort a message outside a time window in a fixed time zone {#abort-fixed-timezone-window}
 
-This use case aborts the message when the current time falls outside a defined window in a specific time zone (Singapore time in this example). You can use this pattern when you need a Quiet Hours inspired rule that is tied to one region instead of each user's `time_zone` attribute.
+This use case aborts the message when the current time falls outside a defined window in a specific time zone (Singapore time in this example). You can use this pattern when you need a Quiet Hours-inspired rule that is tied to one region instead of each user's `time_zone` attribute.
 
 {% raw %}
 ```liquid
@@ -1549,7 +1549,7 @@ This use case aborts the message when the current time falls outside a defined w
 {% assign minute = time | date: '%M' | plus: 0 %}
 
 {% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
-{% abort_message("Not within eligible time of 8 PM to 9:45 PM SGT") %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
 {% endif %}
 
 Sign up for our exclusive time-limited offer now!
@@ -1771,13 +1771,9 @@ You can replace the line "default copy" with {% raw %}`{% abort_message() %}`{% 
 
 ### Abort a message on a specific calendar date {#abort-specific-calendar-date}
 
-This use case aborts the message on a chosen month and day every year (May 5 in the example). It compares the current date to a `DD/MM` string built with the `date` filter.
+This use case aborts the message on a chosen month and day every year (May 5 in the example). It compares the current date to an unambiguous month-day string built with the `date` filter.
 
 {% raw %}
-```liquid
-{% assign date = 'now' | date: '%d/%m' %}
-{% if date == '05/05' %}
-{% abort_message('No message on the 5th of May') %}
 {% endif %}
 ```
 {% endraw %}
@@ -1788,9 +1784,9 @@ This use case aborts the message when Liquid runs on a given weekday (`Wednesday
 
 {% raw %}
 ```liquid
-{% assign date = 'now' | date: '%A' %} 
-{% if date == 'Wednesday' %} 
-{% abort_message('No message on Wednesdays') %} 
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
 {% endif %}
 ```
 {% endraw %}
