@@ -4084,6 +4084,7 @@ validurls['/docs/user_guide/message_building_by_channel/banners/custom_code'] = 
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/template_builder'] = '/docs/user_guide/channels/whatsapp/message_features_and_optimization/template_builder';
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/template_builder/whatsapp_carousel_templates'] = '/docs/user_guide/channels/whatsapp/message_features_and_optimization/template_builder/whatsapp_carousel_templates';
 validurls['/docs/user_guide/engagement_tools/canvas/ideas_and_strategies/matching_entry_and_exit_criteria'] = '/docs/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria';
+// FAQ slug → parent hub (distinct paths under find_broken_links normalizeUrlForCompare; not an identity mapping)
 validurls['/docs/user_guide/data/activation/custom_data/managing_custom_data/faq'] = '/docs/user_guide/data/activation/custom_data/managing_custom_data';
 
 // Legacy URL fixes (2026-04): broken-link audit + Messenger cycle resolution follow-ups
@@ -4289,7 +4290,7 @@ validurls['/docs/user_guide/data/report_builder/report_builder_csv'] = '/docs/us
 validurls['/docs/user_guide/channels/in_app_messages/traditional/delivery'] = '/docs/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms';
 validurls['/docs/developer_guide/in_app_messages/html_messages/javascript_bridge'] = '/docs/developer_guide/in_app_messages/html_messages';
 validurls['/docs/user_guide/data/analysis/engagement_reports'] = '/docs/user_guide/analytics/reports/engagement_reports';
-validurls['/docs/#email_blacklist/'] = '/docs/api/endpoints/email/post_blocklist';
+validurls['/docs/#email_blacklist'] = '/docs/api/endpoints/email/post_blocklist';
 validurls['/docs/React_Native/iOS/'] = '/docs/developer_guide/sdk_integration/?sdktab=react%20native&tab=ios';
 validurls['/docs/SDK_Changelogs/'] = '/docs/developer_guide/changelogs';
 validurls['/docs/user_guide/getting_started/braze_overview/'] = '/docs/user_guide/get_started';
