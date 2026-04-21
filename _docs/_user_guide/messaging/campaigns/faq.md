@@ -182,7 +182,7 @@ API campaigns are used to track the messages sent using the API. Unlike most cam
 
 ### How can I confirm if my users received an API-triggered campaign?
 
-You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) that determines if a user has successfully been sent the campaign. Then, use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) to export the users from the segment.
+You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) using the **Received Campaign** filter, then select the specific API-triggered campaign you want to verify. After you save the segment, use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) to export the users in that segment.
 
 ### Can I delete a campaign?
 
