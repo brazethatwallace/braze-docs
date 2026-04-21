@@ -9,18 +9,16 @@ page_type: landing
 description: "This landing page is home to help articles related to the Braze API."
 guide_menu_title: ""
 guide_menu_list:
-  - name: Deleting Users via API
-    link: /docs/help/help_articles/api/delete_user/
+  - name: Delete users
+    link: /docs/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles
     image: /assets/img/braze_icons/user-minus-01.svg
-  - name: Campaign and Canvas Attributes in Braze
-    link: /docs/help/help_articles/api/attribute_name_id_across_sources/
+  - name: Campaign and Canvas attributes across sources
+    link: /docs/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/
     image: /assets/img/braze_icons/info-circle.svg
-  - name: Webhook and Connected Content Requests 
-    link: /docs/help/help_articles/api/webhook_connected_content_errors/
+  - name: Troubleshoot webhooks and Connected Content
+    link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/
     image: /assets/img/braze_icons/check-square-broken.svg
 
 noindex: true
 ---
-
-
 

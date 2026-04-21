@@ -251,7 +251,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

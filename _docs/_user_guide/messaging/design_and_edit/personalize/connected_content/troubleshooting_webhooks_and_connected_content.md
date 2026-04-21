@@ -1,9 +1,7 @@
 ---
-nav_title: Troubleshooting webhook and Connected Content requests
-article_title: Troubleshoot Webhook and Connected Content Requests
-page_order: 3
-channel:
-  - webhooks
+nav_title: Troubleshoot webhooks and Connected Content
+article_title: Troubleshoot webhook and Connected Content requests
+page_order: 4
 description: "This article covers how to troubleshoot webhook and Connected Content error codes, including what the errors are and steps to resolve them."
 ---
 
@@ -138,7 +136,7 @@ Here are tips for troubleshooting common `5XX` errors:
 - Review the error message for specific details available in the **Message Activity Log**. For webhooks, go to the **Performance Over Time** section on the Braze home page and select the statistics for webhooks. From here, you can find the timestamp that indicates when the errors occurred.
 - Make sure you're not sending too many requests that overload the endpoint. You can send in batches or adjust the rate limit to check if this reduces any errors.
 
-## Unhealthy host detection
+## Unhealthy host detection {#unhealthy-host-detection}
 
 Braze webhooks and Connected Content employ an unhealthy host detection mechanism to detect when the target host experiences a high rate of significant slowness or overload resulting in timeouts, too many requests, or other outcomes that prevent Braze from successfully communicating with the target endpoint. It acts as a safeguard to reduce unnecessary load that may be causing the target host to struggle. It also serves to stabilize Braze infrastructure and maintain fast messaging speeds.
 
@@ -150,7 +148,7 @@ When requests are halted, Braze simulates responses with a `598` error code to i
 
 The following error codes contribute to the unhealthy host detector failure count: `408`, `429`, `502`, `503`, `504`, `529`.
 
-For webhooks, Braze will automatically retry HTTP requests that were halted by the unhealthy host detector. This automatic retry uses exponential backoff and will retry only a few times before failing. For more information on webhook errors, refer to [Errors, retry logic, and timeouts]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#errors-retry-logic-and-timeouts).
+For webhooks, Braze will automatically retry HTTP requests that were halted by the unhealthy host detector. This automatic retry uses exponential backoff and will retry only a few times before failing. For more information on webhook errors, refer to [Errors, retry logic, and timeouts]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts).
 
 For Connected Content, if requests to the target host are halted by the unhealthy host detector, Braze will continue to render messages and follow your Liquid logic as if it received an error response code. If you want to ensure these Connected Content requests are retried when they're halted by the unhealthy host detector, use the `:retry` option. For more information on the `:retry` option, see [Connected Content retries]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
 

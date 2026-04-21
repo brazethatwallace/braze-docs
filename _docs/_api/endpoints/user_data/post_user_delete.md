@@ -21,7 +21,7 @@ Up to 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `pho
 If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for assistance.
 
 {% alert warning %}
-Deleting user profiles cannot be undone. It will permanently remove users which may cause discrepancies in your data. Learn more about what happens when you [delete a user profile using the API]({{site.baseurl}}/help/help_articles/api/delete_user/) in our Help documentation.
+Deleting user profiles cannot be undone. It will permanently remove users which may cause discrepancies in your data. For details, see [Effects of deleting user profiles](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -109,6 +109,33 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## Effects of deleting user profiles {#effects-of-deleting-user-profiles}
+
+When you remove a user with this endpoint, the following fields on the profile are cleared (nulled):
+
+- Any attributes that the user had
+- Email address
+- Phone number
+- External user ID
+- Gender
+- Country
+- Language
+
+The following also applies:
+
+- The user profile is deleted (nulled).
+- Workspace user counts (such as total users on the [analytics home]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) update to account for the removed users.
+- The removed user still counts toward the aggregated conversion percentage. Custom event counts and purchase counts are not updated for removed users.
+
+### Multiple profiles with a shared email address
+
+If you need to merge user profiles that share the same email address:
+
+1. Identify any users with duplicate email addresses.
+2. Export all the attributes of the profile you want to keep.
+3. Import those attributes onto that profile using the API or CSV.
+4. Remove the duplicate profiles with this endpoint so the outdated profiles and the data outlined above are cleared.
 
 ## Troubleshooting
 

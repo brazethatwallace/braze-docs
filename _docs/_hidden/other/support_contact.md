@@ -1612,7 +1612,7 @@ var ticket_lookuptable = {
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
@@ -1664,12 +1664,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1679,7 +1679,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },

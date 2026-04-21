@@ -32,15 +32,14 @@ popular_topic_list:
   - name: Logging Custom Event Properties
     link: /docs/developer_guide/analytics/logging_events/
   - name: Dispatch ID
-    link: /docs/help/help_articles/data/dispatch_id/
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id/
   - name: Email Bounces
     link: /docs/user_guide/channels/email/reporting/
   - name: Deleting Users via API
-    link: /docs/help/help_articles/api/delete_user/
+    link: /docs/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles
   - name: Changing Custom Data Type
     link: /docs/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type
   - name: Using Event Logging
-    link: /docs/help/help_articles/campaigns_and_canvas/using_event_logging/ 
+    link: /docs/developer_guide/analytics/logging_events/
 ---
-
 
