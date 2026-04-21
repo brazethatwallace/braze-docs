@@ -45,11 +45,11 @@ braze.initialize("YOUR-API-KEY", {
 });
 ```
 
-## Customizing delivery timing
+## Customizing display timing
 
 To override the default display timing, remove calls to `braze.automaticallyShowInAppMessages()` and handle messages in `braze.subscribeToInAppMessage()`. Register your callback before `braze.openSession()`, so you can intercept session-start messages and decide whether to display or defer each message.
 
-Web supports the same delivery-timing customization concept available on Swift and Android. By default, Braze displays the highest-priority in-app message available at session start. If you need different behavior for your app experience, use a custom callback to defer or display messages based on your own logic.
+By default, Braze displays in-app messages when they are triggered and eligible to display. If you need different behavior for your app experience, use a custom callback to defer or display messages based on your own logic.
 
 The following example shows how to subscribe to triggered in-app messages, defer selected messages, and display deferred messages later:
 
@@ -61,7 +61,13 @@ braze.initialize("YOUR-API-KEY", {
 });
 
 braze.subscribeToInAppMessage(function (message) {
-    const shouldDefer = true; // Replace with your own delivery logic
+    // Control-group messages should always be "shown" to log analytics.
+    if (message.isControl || message instanceof braze.ControlMessage) {
+        braze.showInAppMessage(message);
+        return;
+    }
+
+    const shouldDefer = true; // Replace with your own display logic
 
     if (shouldDefer) {
         braze.deferInAppMessage(message);
