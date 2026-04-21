@@ -83,7 +83,7 @@ Operator can propose and execute changes directly in the Braze dashboard, such a
 
 ### Copy responses to other tools
 
-Operator responses are formatted in Markdown. Most tools render Markdown natively or accept it with minor adjustments. Select a tab for your destination:
+Operator responses are formatted in Markdown. When you've received a response, select **Copy** in the toolbar that appears to copy the full response to your clipboard. Most tools render Markdown natively or accept it with minor adjustments. Select a tab for your destination:
 
 {% tabs %}
 {% tab Google Docs %}
