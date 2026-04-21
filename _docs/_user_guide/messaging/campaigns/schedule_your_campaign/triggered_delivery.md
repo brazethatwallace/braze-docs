@@ -81,7 +81,7 @@ In addition, triggered in-app messages still abide by in-app message delivery ru
 Select how long to wait before sending the campaign after the trigger criteria are met. If the delay length chosen is longer than the message's duration for sending, no users will receive the campaign. 
 
 {% alert important %}
-If your action-based campaign isn't sending, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based campaign has a three-hour delay after a user performs a custom event, Braze checks the timestamp sent with the custom event. If the timestamp sent with the custom event is backdated, the campaign considers this delay as finished and sends the message. 
+Braze uses the timestamp sent with the custom event to evaluate the delay for an action-based campaign. If that timestamp is backdated, Braze may treat the delay as already elapsed and send the message immediately or earlier than expected. To avoid unintended delivery timing, send the custom event timestamp with the current time.
 {% endalert %}
 
 Additionally, users who complete the trigger event after your campaign is launched will be the first to start receiving the message after the delay has passed. Users who have completed the trigger event before the campaign launches will not qualify to receive the campaign.

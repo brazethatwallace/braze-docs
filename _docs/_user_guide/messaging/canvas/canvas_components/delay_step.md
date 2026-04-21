@@ -21,7 +21,7 @@ To create a delay, add a step to your Canvas. Drag and drop the Delay component 
 
 #### Extended delays
 
-You can extend Delay steps up to two years (730 calendar days). For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
+You can extend Delay steps up to two years (730 days). For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
 
 ## Time delay types
 

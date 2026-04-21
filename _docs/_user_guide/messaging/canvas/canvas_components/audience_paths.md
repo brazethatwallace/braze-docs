@@ -28,7 +28,7 @@ With Audience Paths, you can:
 - Precisely target users on a large scale.
   - You can create up to eight audience groups (two default and six additional groups) per Audience Paths step, but you may want to connect multiple Audience Paths steps to further sort your users. 
 
-When using multiple Audience Paths, your users are evaluated at the first path. If a user qualifies for the first path, they won't be considered for subsequent paths.
+Within a single Audience Paths step, users are evaluated against audience groups in order and move down the first path they qualify for. If you connect multiple Audience Paths steps in a Canvas, users are evaluated again each time they reach a new Audience Paths step.
 
 ### How users are evaluated
 

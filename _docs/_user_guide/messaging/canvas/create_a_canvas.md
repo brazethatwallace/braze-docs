@@ -110,7 +110,7 @@ You can choose one of three ways in which users can enter your Canvas.
     ![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
   {% alert important %}
-  If your action-based Canvas isn't sending, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze checks the timestamp sent with the custom event. If the timestamp sent with the custom event is backdated, the Canvas considers this delay as finished and sends the message.
+  If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze uses the timestamp sent with the custom event to evaluate that delay. If the timestamp is backdated by more than three hours, Braze treats the delay as already elapsed and sends the message immediately.
   {% endalert %}
 
   {% endtab %}
