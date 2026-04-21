@@ -1,13 +1,17 @@
 ---
 name: braze-docs
 description: >
-  This skill applies Braze Docs writing, style, and structural standards when
-  drafting, editing, or reviewing documentation. It should be used when working
-  on markdown files in _docs/ or _includes/, creating or updating pull requests
-  for docs content, reviewing documentation changes, fixing broken links,
-  updating cross-references, or adding Liquid formatting. It covers site
+  This skill applies Braze Docs writing, style, and structural standards for
+  routine work in canonical English source: markdown under `_docs/` and root
+  `_includes/`. `_lang/` is out of scope by default (localized content is updated
+  separately); follow the user's instructions if they explicitly request
+  translation or locale-only edits. Use when drafting, editing, or reviewing
+  documentation, creating or updating pull requests for docs content, fixing
+  broken links, updating cross-references, adding Liquid formatting, or
+  resolving merge conflicts in documentation branches. It covers site
   structure, YAML frontmatter, internal linking conventions, redirect
-  configuration, Liquid syntax, and page anatomy.
+  configuration, Liquid syntax, page anatomy, and reviewer expectations for
+  duplication, verification, and conflict resolution.
 ---
 
 # Braze Docs
@@ -20,9 +24,24 @@ and site structure (frontmatter, linking, Liquid syntax, redirects). For detaile
 writing and formatting rules, load [references/writing-style.md](references/writing-style.md).
 For the canonical source of truth, consult the full style guide files listed below.
 
-## File scope
+## Gotchas
 
-All normal contribution and editing work happens in the canonical English source files under `_docs/` and `_includes/`. Files under `_lang/` are machine-translated and managed exclusively by the `auto-translate` workflow (`.github/workflows/auto-translate.yml`). Never read, edit, or create files in `_lang/` unless you are explicitly running a translation workflow.
+- **Don't resolve merge conflicts in bulk until the user explicitly approves a written plan**, because conflict resolution needs to match the PR's intent and the user must stay in control. Do the full **Merge conflicts** workflow below instead of guessing.
+- **Don't add a new section or paragraph when the same idea already exists elsewhere in the docs**, because duplicate or rephrased content drifts, bloats the site, and hides the single source of truth. Search `_docs/` (and root `_includes/` for shared snippets) for existing coverage first; prefer tightening or correcting that content, or adding a short cross-link, over pasting near-duplicate prose.
+- **Don't ship long, speculative copy to "fill in" gaps you didn't verify**, because confident-sounding filler drives hallucinations. Prefer the smallest edit that stays accurate; when you rely on another article, style guide section, or product/SDK behavior, **say where it came from** (for example the `_docs/...` path, article title, or style guide file) so the author can confirm. For **public PR descriptions**, follow repository guidance: do not publish internal platform or SDK file paths; use a generic verification phrase instead.
+- **Don't treat `_lang/` as the place to fix English canonical issues**, because the translation pipeline owns localized files. See **Locale and English source** for the exception.
+
+## Merge conflicts
+
+When the user is in a merge conflict (or asks for help with one):
+
+1. **Gather context** — Use the feature branch name, changed files, and the PR title/description or the user's stated goal so you know what the change is trying to achieve.
+2. **Summarize conflicts** — For each conflicted file (or region), state what each side is doing (for example "main added X; our branch moved Y") in plain language, not only conflict markers.
+3. **Propose a resolution plan** — Tie recommendations to the end goal: what to keep, what to merge, what to drop, and any follow-up edits (links, redirects, style). Call out risky spots (redirect lists, shared `_includes/`, generated or high-churn files).
+4. **Stop for explicit approval** — Present the plan and **wait until the user clearly approves** (for example "approved — apply the plan" or equivalent). Do not mass-apply resolutions before that.
+5. **After approval** — Apply the agreed resolution, run a quick consistency pass (links, frontmatter, style), and report what changed file-by-file.
+
+If the user wants only analysis, stop after step 3.
 
 ## Style guide source files
 
@@ -68,6 +87,13 @@ Jekyll site. Collections dir: `_docs/`. Base URL: `/docs`.
 Contributor handbook (not a Jekyll collection): `docs/contributing/` in this repository.
 
 Permalink pattern: `./:collection/:path/` (pretty URLs, trailing slash).
+
+## Locale and English source
+
+- **Routine work:** Edit markdown under `_docs/` (all collections) and root `_includes/` for shared snippets. Do not create, edit, move, rename, or delete files under `_lang/` during normal article updates, link fixes, redirects follow-up, or style edits.
+- **Why:** Localized pages are updated by Braze’s separate translation process; editing `_lang/` in the same PR as English changes risks drift or conflicts with that pipeline.
+- **Broken links and verification:** When resolving links for English pages, treat canonical targets as `_docs/...` and root `_includes/...` as appropriate. Reading `_lang/` for comparison or existence checks is fine; **writes** to `_lang/` stay off limits unless the user asked for that scope.
+- **Exception:** If the user clearly asks to update a specific locale, fix a translation bug, or work only in `_lang/`, follow that instruction for that task.
 
 ## YAML frontmatter
 
@@ -128,7 +154,7 @@ Other acceptable phrases:
 To fix a broken or suspect link:
 
 1. Identify the link target path (strip `{{site.baseurl}}` prefix).
-2. Check if a file exists at `_docs/_<collection>/<path>.md`.
+2. Check if a file exists at `_docs/_<collection>/<path>.md`. Verify canonical targets against English source under `_docs/` (and root `_includes/` when the link points to included content), not `_lang/`, unless you are explicitly fixing localized pages.
 3. If not, search `assets/js/broken_redirect_list.js` for the path.
 4. Follow any redirect chain to the final destination.
 5. Verify the final destination file exists.
