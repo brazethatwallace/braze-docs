@@ -41,6 +41,10 @@ When the user starts a new session or refreshes Banners after performing the act
 
 ## Can users manually dismiss a Banner?
 
+{% alert important %}
+Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
+
 No. Users cannot manually dismiss Banners. However, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
 For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
