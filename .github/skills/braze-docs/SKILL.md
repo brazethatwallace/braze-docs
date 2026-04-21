@@ -20,15 +20,19 @@ and site structure (frontmatter, linking, Liquid syntax, redirects). For detaile
 writing and formatting rules, load [references/writing-style.md](references/writing-style.md).
 For the canonical source of truth, consult the full style guide files listed below.
 
+## File scope
+
+All normal contribution and editing work happens in the canonical English source files under `_docs/` and `_includes/`. Files under `_lang/` are machine-translated and managed exclusively by the `auto-translate` workflow (`.github/workflows/auto-translate.yml`). Never read, edit, or create files in `_lang/` unless you are explicitly running a translation workflow.
+
 ## Style guide source files
 
 | Path | Use for |
 |------|---------|
-| `_docs/_contributing/style_guide.md` | Parent index — start here |
-| `_docs/_contributing/style_guide/writing_style_guide.md` | Writing style, voice, tone, grammar, punctuation, formatting |
-| `_docs/_contributing/style_guide/image_style_guide.md` | Image styling, cropping, alt text, screenshots |
-| `_docs/_contributing/style_guide/alerts.md` | Important, Note, Tip, Warning alerts — when and how to use |
-| `_docs/_contributing/style_guide/api_endpoint_guidelines.md` | API endpoint article structure and formatting |
+| `docs/contributing/style_guide.md` | Parent index — start here |
+| `docs/contributing/style_guide/writing_style_guide.md` | Writing style, voice, tone, grammar, punctuation, formatting |
+| `docs/contributing/style_guide/image_style_guide.md` | Image styling, cropping, alt text, screenshots |
+| `docs/contributing/style_guide/alerts.md` | Important, Note, Tip, Warning alerts — when and how to use |
+| `docs/contributing/style_guide/api_endpoint_guidelines.md` | API endpoint article structure and formatting |
 
 When the full style guide has specific guidance on a topic, defer to the source file over this summary.
 
@@ -60,7 +64,8 @@ Jekyll site. Collections dir: `_docs/`. Base URL: `/docs`.
 | partners | `_partners/` | Technology partner integrations |
 | releases | `_releases/` | Release notes |
 | help | `_help/` | Troubleshooting and support |
-| contributing | `_contributing/` | Docs contribution guides |
+
+Contributor handbook (not a Jekyll collection): `docs/contributing/` in this repository.
 
 Permalink pattern: `./:collection/:path/` (pretty URLs, trailing slash).
 
@@ -145,6 +150,7 @@ validurls['/docs/user_guide/old_section/old_page/'] = '/docs/user_guide/new_sect
 
 - One entry per moved path.
 - Paths include the `/docs/` prefix, lowercase, trailing slash.
+- Never include locale prefixes in redirect paths. Strip `/docs/en/`, `/docs/es/`, `/docs/ko/`, and any other language tag down to `/docs/`. Redirects only map canonical English paths.
 - Collapse redirect chains (old to new directly, not old to intermediate to new).
 - Other mechanisms: `layout: redirect` in frontmatter, `local_redirect` for heading-level redirects.
 
@@ -195,7 +201,20 @@ Use block quotes (`>`) for intro text.
 
 ### Prerequisites
 
-Place a `## Prerequisites` section near the top, before the first task heading. Format as bullets, a numbered list, or a table.
+Place a `## Prerequisites` section as the **first** `##` on the page (after the H1 and optional blockquote). Use it only for what the user must have or do before completing the article's task. Format as bullets, a numbered list, or a table.
+
+When using a table, the first column header must be **Requirements** (not "Prerequisite" or "Prerequisites"):
+
+```markdown
+## Prerequisites
+
+| Requirements | Description |
+|---|---|
+| Braze REST API key | A key with the `users.track` permission. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+```
+
+Use a **Requirements** section (not Prerequisites) for constraints or specs from Braze or a third party (e.g., file format rules, API permissions). That section may appear anywhere on the page.
 
 ## Key glossary
 
