@@ -89,7 +89,7 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 Banner dismissals are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
 {% endalert %}
 
-Select the **Banner can be dismissed** checkbox to allow your users to dismiss the Banner. This option can be beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
+Select the **Banner can be dismissed** checkbox to allow users to dismiss the Banner. This option can be beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
 
 #### Step 3.4: Add custom properties (optional) {#custom-properties}
 
