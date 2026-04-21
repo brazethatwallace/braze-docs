@@ -10,7 +10,7 @@ toc_headers: h2
 
 Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse.
 
-This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views).
+This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
 
 Use the SQL Editor when you want to:
 
@@ -129,7 +129,7 @@ Select **SQL** and write a SQL query that returns user data from your warehouse.
 
 Your SQL query must return:
 
-- A user identifier (`external_id`, `braze_id`, `alias_name` and `alias_label`, `email`, or `phone`)
+- A user identifier (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` and `ALIAS_LABEL`, `EMAIL`, or `PHONE`)
 - An `UPDATED_AT` column
 - At least one additional column (attribute)
 
@@ -167,17 +167,23 @@ Your query must meet the following requirements.
 
 Your query must include at least one of the following:
 
-- `external_id`
-- `braze_id`
-- `email`
-- `phone`
-- `alias_name` and `alias_label`
+- `EXTERNAL_ID`
+- `BRAZE_ID`
+- `EMAIL`
+- `PHONE`
+- `ALIAS_NAME` and `ALIAS_LABEL`
 
 If no valid identifier is detected, validation fails.
 
+{% alert note %}
+Note that these identifiers are case sensitive and have to be upper cased.
+{% endalert %}
+
 ### Include `UPDATED_AT`
 
-Your query must include an `UPDATED_AT` column (case-insensitive).
+Your query must include an `UPDATED_AT` column.
+
+`UPDATED_AT` is case sensitive and has to be upper cased.
 
 If it's missing, validation fails.
 
@@ -185,7 +191,7 @@ If it's missing, validation fails.
 
 Your query must include at least one column in addition to:
 
-- The identifier
+- User identifier column(s)
 - `UPDATED_AT`
 
 If not, validation fails.
