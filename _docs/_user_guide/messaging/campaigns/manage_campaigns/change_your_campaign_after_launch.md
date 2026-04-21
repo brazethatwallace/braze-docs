@@ -22,6 +22,12 @@ To stop a campaign, open your **Campaign Details** page and select **Stop Campai
 
 To restart your campaign, select **Resume**. Your campaign will continue sending messages and A/B tests, but any missed messages will not be re-sent or re-scheduled.
 
+### Stopping your campaign during sending
+
+For campaigns with a larger audience and rate limits, Braze partitions and schedules batches of messages to send at different times. When a campaign is stopped, the sends don't get cancelled immediately, but rather they are cancelled when they start to run and see that the campaign has been stopped. 
+
+For example, if you start a rate-limited email campaign, then pause it for a few hours, and then resume it, all the messages scheduled to send during the paused hours will be canceled and will never send. However, the remaining scheduled time after the pause, if there are remaining messages to be sent, will continue to send. If re-eligibility is enabled in the campaign, messages send again to the audience on top of what was queued if it has not been cancelled.
+
 ## Triggered campaigns
 
 All changes to action-based delivery campaigns and API-triggered delivery campaigns take effect immediately for go-forward sends. 

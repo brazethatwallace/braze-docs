@@ -180,6 +180,14 @@ API-triggered campaigns allow you to manage campaign copy, multivariate testing,
 
 API campaigns are used to track the messages sent using the API. Unlike most campaigns, you don't specify the message, recipients, or schedule but instead pass the identifiers into your API calls. 
 
+### How can I confirm if my users received an API-triggered campaign?
+
+You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) that determines if a user has successfully been sent the campaign. Then, use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) to export the users from the segment.
+
+### Can I delete a campaign?
+
+No, but you can [archive a campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### What is the difference between action-based and API-triggered campaigns?
 
 <style>
