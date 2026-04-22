@@ -1,5 +1,6 @@
 {%- comment -%}
-Copy for LLM Button - Only show on developer guide pages that have processed markdown content
+Copy for LLM Button - Rendered on pages in supported collections (user_guide, developer_guide,
+api, partners, releases) whenever the markdown_copy_llm plugin has populated llm_markdown_content.
 {%- endcomment -%}
 
 {%- if page.llm_markdown_content and page.llm_markdown_content != "" -%}
