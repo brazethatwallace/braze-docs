@@ -1,34 +1,54 @@
 ---
 name: braze-docs
 description: >
-  This skill applies Braze Docs writing, style, and structural standards for
-  routine work in canonical English source: markdown under `_docs/` and root
-  `_includes/`. `_lang/` is out of scope by default (localized content is updated
-  separately); follow the user's instructions if they explicitly request
-  translation or locale-only edits. Use when drafting, editing, or reviewing
-  documentation, creating or updating pull requests for docs content, fixing
-  broken links, updating cross-references, adding Liquid formatting, or
-  resolving merge conflicts in documentation branches. It covers site
-  structure, YAML frontmatter, internal linking conventions, redirect
-  configuration, Liquid syntax, page anatomy, and reviewer expectations for
-  duplication, verification, and conflict resolution.
+  Use when drafting, editing, or reviewing markdown under `_docs/` or root
+  `_includes/` in the braze-docs repo — including fixing broken links, updating
+  cross-references, adding Liquid formatting (alerts, tabs, images), or resolving
+  merge conflicts in documentation branches. English canonical source only;
+  `_lang/` is out of scope unless the user explicitly requests locale work.
 ---
 
 # Braze Docs
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only HEAD`
+
+## Mode detection
+
+Detect mode from $ARGUMENTS first, then modified files, then ask.
+
+| Signal | Mode | Load |
+|--------|------|------|
+| $ARGUMENTS: "conflict", "merge", "resolve" | **Conflict** | *(workflow is in this file)* |
+| $ARGUMENTS: "link", "redirect", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
+| $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
+| $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
+| Modified files include `broken_redirect_list.js` | **Links** | [site-conventions.md](references/site-conventions.md) |
+| Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
+| Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
+
+If mode is still ambiguous, ask: "What are you working on?"
+
+If AskUserQuestion is available:
+- **Writing or editing content** — Drafting new articles or updating existing ones
+- **Fixing broken links** — Broken links, redirects, or cross-references
+- **Resolving merge conflicts** — Conflicts between branches
+- **Reviewing for style** — Checking existing content against style standards
+
+Otherwise ask: "What are you working on? (1) Writing/editing content, (2) Fixing broken links, (3) Resolving merge conflicts, (4) Reviewing for style"
+
 ## Overview
 
-This skill provides the conventions for writing, structuring, and linking Braze
-documentation. It covers two areas: writing style (voice, grammar, formatting)
-and site structure (frontmatter, linking, Liquid syntax, redirects). For detailed
-writing and formatting rules, load [references/writing-style.md](references/writing-style.md).
-For the canonical source of truth, consult the full style guide files listed below.
+Writing, structuring, and linking Braze documentation. References load by mode
+(see above). For the canonical source of truth on any topic, consult the style
+guide files listed below.
 
 ## Gotchas
 
-- **Don't resolve merge conflicts in bulk until the user explicitly approves a written plan**, because conflict resolution needs to match the PR's intent and the user must stay in control. Do the full **Merge conflicts** workflow below instead of guessing.
-- **Don't add a new section or paragraph when the same idea already exists elsewhere in the docs**, because duplicate or rephrased content drifts, bloats the site, and hides the single source of truth. Search `_docs/` (and root `_includes/` for shared snippets) for existing coverage first; prefer tightening or correcting that content, or adding a short cross-link, over pasting near-duplicate prose.
-- **Don't ship long, speculative copy to "fill in" gaps you didn't verify**, because confident-sounding filler drives hallucinations. Prefer the smallest edit that stays accurate; when you rely on another article, style guide section, or product/SDK behavior, **say where it came from** (for example the `_docs/...` path, article title, or style guide file) so the author can confirm. For **public PR descriptions**, follow repository guidance: do not publish internal platform or SDK file paths; use a generic verification phrase instead.
+- **Don't resolve merge conflicts in bulk without an approved written plan**, because conflict resolution must match the PR's intent and the user must stay in control. Do the full **Merge conflicts** workflow below instead of guessing.
+- **Don't draft new content before searching `_docs/` (and root `_includes/`) for existing coverage**, because duplicate or rephrased prose drifts, bloats the site, and hides the single source of truth. When coverage exists, tighten or correct that content or add a short cross-link instead.
+- **Don't write comprehensive speculative copy to fill gaps you haven't verified**, because confident-sounding filler drives hallucinations. Prefer the smallest accurate edit; when you draw on another article, style guide section, or product/SDK behavior, cite the source inline — for example: `[_docs/_user_guide/path/to/page.md]` or article title in brackets — so the author can confirm. Omit internal paths from public PR descriptions.
 - **Don't treat `_lang/` as the place to fix English canonical issues**, because the translation pipeline owns localized files. See **Locale and English source** for the exception.
 
 ## Merge conflicts
@@ -38,8 +58,10 @@ When the user is in a merge conflict (or asks for help with one):
 1. **Gather context** — Use the feature branch name, changed files, and the PR title/description or the user's stated goal so you know what the change is trying to achieve.
 2. **Summarize conflicts** — For each conflicted file (or region), state what each side is doing (for example "main added X; our branch moved Y") in plain language, not only conflict markers.
 3. **Propose a resolution plan** — Tie recommendations to the end goal: what to keep, what to merge, what to drop, and any follow-up edits (links, redirects, style). Call out risky spots (redirect lists, shared `_includes/`, generated or high-churn files).
-4. **Stop for explicit approval** — Present the plan and **wait until the user clearly approves** (for example "approved — apply the plan" or equivalent). Do not mass-apply resolutions before that.
-5. **After approval** — Apply the agreed resolution, run a quick consistency pass (links, frontmatter, style), and report what changed file-by-file.
+
+**Wait gate:** Do not proceed to step 4 until the user responds with explicit approval of the plan.
+
+4. **Apply all resolutions** — Resolve every conflict agreed in the plan in one comprehensive pass. Do not stop mid-conflict or ask for re-confirmation; the approval above covers the full plan. Run a consistency pass (links, frontmatter, style) and report what changed file-by-file.
 
 If the user wants only analysis, stop after step 3.
 
@@ -67,9 +89,7 @@ The Braze voice is **straightforward**, **empowering**, and **human**. Key rules
 - Descriptive link text. Never "Learn more", "here", "click here".
 - Use gender-neutral pronouns. Avoid ableist language.
 
-For the complete writing rules — including UI element formatting, numbers, lists,
-punctuation, accessibility, and procedures — load
-[references/writing-style.md](references/writing-style.md).
+For the complete writing rules, load [references/writing-style.md](references/writing-style.md) (loaded automatically in Write and Review modes).
 
 ## Site structure
 
@@ -91,7 +111,7 @@ Permalink pattern: `./:collection/:path/` (pretty URLs, trailing slash).
 ## Locale and English source
 
 - **Routine work:** Edit markdown under `_docs/` (all collections) and root `_includes/` for shared snippets. Do not create, edit, move, rename, or delete files under `_lang/` during normal article updates, link fixes, redirects follow-up, or style edits.
-- **Why:** Localized pages are updated by Braze’s separate translation process; editing `_lang/` in the same PR as English changes risks drift or conflicts with that pipeline.
+- **Why:** Localized pages are updated by Braze's separate translation process; editing `_lang/` in the same PR as English changes risks drift or conflicts with that pipeline.
 - **Broken links and verification:** When resolving links for English pages, treat canonical targets as `_docs/...` and root `_includes/...` as appropriate. Reading `_lang/` for comparison or existence checks is fine; **writes** to `_lang/` stay off limits unless the user asked for that scope.
 - **Exception:** If the user clearly asks to update a specific locale, fix a translation bug, or work only in `_lang/`, follow that instruction for that task.
 
@@ -121,126 +141,17 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 
 ## Internal linking
 
-### Link format
-
 ```markdown
 [Link text]({{site.baseurl}}/user_guide/path/to/page/)
 ```
 
-- Always use `{{site.baseurl}}` (resolves to `/docs`).
-- Trailing slash required.
+- Always use `{{site.baseurl}}` (resolves to `/docs`). Trailing slash required.
 - Anchor links: `{{site.baseurl}}/user_guide/path/to/page/#heading-slug`
 - Same-page anchors: `[heading text](#heading-slug)`
+- Never use "Learn more", "here", or "click here" as link text.
+- Standard cross-reference phrase: "To learn more, refer to [Topic](...)." or "For more information, see [Topic](...)."
 
-### Cross-referencing child pages
-
-To link from a parent page to a dedicated child page:
-
-```markdown
-To learn more, refer to [Topic name]({{site.baseurl}}/user_guide/.../topic_name/).
-```
-
-Other acceptable phrases:
-- "For more information, see [Topic](...)."
-- "For more information about X, see [Topic](...)."
-
-### Same-page references
-
-- "On this page, see [heading](#anchor)."
-- "For more information, refer to the section [heading](#anchor)."
-
-## Broken link detection and fixing
-
-To fix a broken or suspect link:
-
-1. Identify the link target path (strip `{{site.baseurl}}` prefix).
-2. Check if a file exists at `_docs/_<collection>/<path>.md`. Verify canonical targets against English source under `_docs/` (and root `_includes/` when the link points to included content), not `_lang/`, unless you are explicitly fixing localized pages.
-3. If not, search `assets/js/broken_redirect_list.js` for the path.
-4. Follow any redirect chain to the final destination.
-5. Verify the final destination file exists.
-6. If the link has an anchor (`#slug`), verify the heading exists in the target.
-7. Update the link to the current canonical path.
-8. If the old path has no redirect entry, add one to `broken_redirect_list.js`.
-
-Heading anchors are auto-generated from heading text: lowercased, spaces become
-hyphens, special characters stripped. Example: `## Custom event analytics`
-generates `#custom-event-analytics`.
-
-## Redirect configuration
-
-Redirects live in `assets/js/broken_redirect_list.js`:
-
-```javascript
-validurls['/docs/user_guide/old_section/old_page/'] = '/docs/user_guide/new_section/new_page/';
-```
-
-- One entry per moved path.
-- Paths include the `/docs/` prefix, lowercase, trailing slash.
-- Never include locale prefixes in redirect paths. Strip `/docs/en/`, `/docs/es/`, `/docs/ko/`, and any other language tag down to `/docs/`. Redirects only map canonical English paths.
-- Collapse redirect chains (old to new directly, not old to intermediate to new).
-- Other mechanisms: `layout: redirect` in frontmatter, `local_redirect` for heading-level redirects.
-
-## Liquid syntax
-
-### Alerts
-
-```liquid
-{% alert important %}
-Must-know caveats, billing impacts, deprecated features, beta status.
-{% endalert %}
-```
-
-Types: `important`, `note`, `tip`, `warning`. Use sparingly. Do not stack two in a row.
-
-### Tabs
-
-```liquid
-{% tabs %}
-{% tab Tab Name %}
-Content for this tab.
-{% endtab %}
-{% endtabs %}
-```
-
-Use `{% tabs local %}` for tabs that do not sync across the page. Subtabs: `{% subtabs %}` / `{% subtab Name %}`.
-
-### Images
-
-```markdown
-![Alt text describing the image.]({% image_buster /assets/img/directory/filename.png %})
-```
-
-Optional styling: `{: style="max-width:60%"}`
-
-Alt text: plain language, complete sentence, sentence case. Do not use "image of" or "picture of". Use "and" not "&".
-
-## Page anatomy
-
-### Introduction
-
-Place 1-5 sentences immediately after the H1 heading. Two patterns:
-
-1. **Lead-in paragraph:** Opens the topic with context.
-2. **Content statement:** "This reference article covers..."
-
-Use block quotes (`>`) for intro text.
-
-### Prerequisites
-
-Place a `## Prerequisites` section as the **first** `##` on the page (after the H1 and optional blockquote). Use it only for what the user must have or do before completing the article's task. Format as bullets, a numbered list, or a table.
-
-When using a table, the first column header must be **Requirements** (not "Prerequisite" or "Prerequisites"):
-
-```markdown
-## Prerequisites
-
-| Requirements | Description |
-|---|---|
-| Braze REST API key | A key with the `users.track` permission. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-```
-
-Use a **Requirements** section (not Prerequisites) for constraints or specs from Braze or a third party (e.g., file format rules, API permissions). That section may appear anywhere on the page.
+For broken link detection, redirect rules, Liquid syntax, and page anatomy, load [references/site-conventions.md](references/site-conventions.md) (loaded automatically in Links mode).
 
 ## Key glossary
 
@@ -250,3 +161,5 @@ Use a **Requirements** section (not Prerequisites) for constraints or specs from
 - **eCommerce** — Not "ecommerce" or "e-commerce".
 - Avoid: "via" (use "through"), "e.g." (use "for example"), "i.e." (use "that is").
 - Avoid: "out-of-the-box" (use "default"), "whitelist" (use "allowlist"), "blacklist" (use "blocklist").
+
+For the full glossary, load [references/glossary.md](references/glossary.md) (loaded automatically in Review mode).
