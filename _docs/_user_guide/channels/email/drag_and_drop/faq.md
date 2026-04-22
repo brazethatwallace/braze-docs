@@ -19,6 +19,10 @@ tool:
 
 Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn on **Dark mode**. We recommend also previewing and testing your emails across different user platforms and using transparent images for row background images when possible. 
 
+### How should I design emails for dark mode and light mode?
+
+Emails do not need to be sent in separate light and dark layouts because email clients and devices can apply their own dark theme. However, this may invert colors or hide backgrounds if explicit colors are not set on the outer container and major sections. To prevent this, we recommend setting solid background colors so your message reads clearly in both dark and light mode.
+
 ### How can I change the email padding on mobile without updating the padding in the web view?
 
 You cannot edit the padding for mobile and web views exclusively, so any edits are reflected in both views. However, you can add CSS logic in the HTML editor that sets the padding based on different screen sizes. This isn't supported in the drag-and-drop editor, so you can export the HTML file and use the HTML editor instead.
