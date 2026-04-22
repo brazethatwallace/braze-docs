@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Track users (bulk)"
-article_title: "POST: Track users (bulk)"
+nav_title: "POST: Create and update users (bulk)"
+article_title: "POST: Create and update users (bulk)"
 search_tag: Endpoint
 page_order: 4.25
 layout: api_page
@@ -11,7 +11,7 @@ alias:
 description: "This article outlines details about the bulk Track users endpoint."
 ---
 {% api %}
-# Track users (bulk)
+# Create and update users (bulk)
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
@@ -19,7 +19,7 @@ description: "This article outlines details about the bulk Track users endpoint.
 Use this endpoint to record custom events and purchases and update user profile attributes in bulk.
 
 {% alert important %}
-This endpoint is currently in early access. Contact your Braze customer success manager if you are interested in participating in the early access.
+This endpoint is currently in **limited beta** . Although we're not adding new customers to the beta right now, let your Braze account manager know if you think this feature could be useful for your Braze integration.
 {% endalert %}
 
 ## When to use this endpoint
