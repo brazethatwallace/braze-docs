@@ -147,10 +147,10 @@ codes, terminal input.
 {%- connected_content YOUR-API-URL :save items -%}
 ```
 
-**Inline** — use italics: *YOUR_API_KEY*
+**Inline** — use italicized code: *`YOUR_API_KEY`*
 
 Guidelines:
-- Use as many words as needed for clarity: *CAMPAIGN_NAME* not *NAME*.
+- Use as many words as needed for clarity: *`CAMPAIGN_NAME`* not *`NAME`*.
 - Call out placeholders immediately after the code block.
 - For two or more placeholders, list each in order of appearance.
 
