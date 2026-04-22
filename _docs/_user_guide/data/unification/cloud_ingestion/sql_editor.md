@@ -8,9 +8,9 @@ toc_headers: h2
 
 # Cloud Data Ingestion: SQL Editor (beta)
 
-Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse.
+> This page covers how to use Braze Cloud Data Ingestion (CDI) SQL Editor to create and validate syncs with SQL queries.
 
-This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse. This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
 
 Use the SQL Editor when you want to:
 
@@ -42,7 +42,7 @@ Follow these steps to create a sync with SQL Editor. If you've already set up a 
 
 Before creating your Snowflake source in CDI, make sure the Snowflake user Braze uses has access to the data you want to query and a warehouse to run queries.
 
-#### (Optional) Create a database and schema
+#### Step 1.1: (Optional) Create a database and schema
 
 If needed, create a dedicated database and schema for your CDI data:
 
@@ -51,7 +51,7 @@ CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 ```
 
-#### Set up role and database permissions
+#### Step 1.2: Set up role and database permissions
 
 Grant access to the tables you want to sync:
 
@@ -69,7 +69,7 @@ You can also grant access to multiple or future tables, depending on your use ca
 GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
-#### Set up the warehouse and grant access to the Braze role
+#### Step 1.3: Set up the warehouse and grant access to the Braze role
 
 Create a warehouse for Braze to run queries:
 
@@ -82,7 +82,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 The warehouse must have auto-resume enabled. If it doesn't, grant Braze additional `OPERATE` privileges on the warehouse so Braze can turn it on when the query runs.
 {% endalert %}
 
-#### Create a Snowflake user
+#### Step 1.4: Create a Snowflake user
 
 Create a user for Braze and assign the role:
 
@@ -95,11 +95,15 @@ You use this user when you configure your Snowflake source in Braze.
 
 ### Step 2: Create a new source in the Braze dashboard
 
-#### Add a Snowflake source
+In this step, create your Snowflake source in Braze and validate the connection.
 
-In the Braze dashboard, go to **Data Settings** > **Cloud Data Ingestion** > **Sources**, select **Add data source**, and then select **Snowflake**.
+#### Step 2.1: Add a Snowflake source
 
-#### Enter connection details
+1. In the Braze dashboard, go to **Data Settings** > **Cloud Data Ingestion** > **Sources**.
+2. Select **Add data source**.
+3. Select **Snowflake**.
+
+#### Step 2.2: Enter connection details
 
 Choose a name for your source and enter your Snowflake credentials and configuration.
 
@@ -107,7 +111,7 @@ Choose a name for your source and enter your Snowflake credentials and configura
 For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier), which typically follows a format like `xy12345.us-east-1.aws`. This is not the same as a database name or warehouse name.
 {% endalert %}
 
-#### Complete RSA key setup
+#### Step 2.3: Complete RSA key setup
 
 After entering your credentials and configuration, select **Save credentials** and generate an RSA key. Then go back to Snowflake to complete setup. Add the public key shown in the dashboard to the user you created for Braze to connect to Snowflake.
 
@@ -121,9 +125,11 @@ Back in Braze, select **Test connection** to verify source access, and then crea
 
 ### Step 3: Create a new sync and write your SQL query
 
-Go to **Data Settings** > **Cloud Data Ingestion** > **Syncs**, and select **Create data sync**. Choose **User Attributes** under **Data Type**, then reference the Snowflake source from Step 2.
-
-Select **SQL** and write a SQL query that returns user data from your warehouse. Your SQL query defines the data that syncs to Braze. The query result becomes the schema for your sync.
+1. Go to **Data Settings** > **Cloud Data Ingestion** > **Syncs**.
+2. Select **Create data sync**.
+3. Choose **User Attributes** under **Data Type**.
+4. Reference the Snowflake source from Step 2.
+5. Select **SQL** and write a SQL query that returns user data from your warehouse. Your SQL query defines the data that syncs to Braze. The query result becomes the schema for your sync.
 
 ![The Create data sync flow showing SQL selected with a sample query in the SQL editor.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
@@ -183,7 +189,7 @@ Note that these identifiers are case sensitive and have to be upper cased.
 
 Your query must include an `UPDATED_AT` column.
 
-`UPDATED_AT` is case sensitive and has to be upper cased.
+`UPDATED_AT` is case sensitive and must be upper cased.
 
 If it's missing, validation fails.
 
@@ -298,19 +304,18 @@ If a sync run is already in progress, your changes take effect on the next run.
 
 ## Troubleshooting {#troubleshooting}
 
+This section includes common errors and guidance on how to troubleshoot them.
+
 ### "No preview available"
 
-- Read the error banner for hints
-- "Unable to connect to the source"
-  - Check the configured username, account locator, and RSA key-pair authentication setup
-  - Verify the warehouse is running
-  - Confirm network access
-- "SQL syntax error"
-  - Check your SQL syntax
-- "Object does not exist or not authorized"
-  - Make sure the role has `SELECT` access to the table
-  - Confirm database and schema permissions
-  - Check table name typos
+When you see "No preview available", one of the following underlying error types may be causing it.
+
+| Error type | Steps to resolve |
+|---|---|
+| "No preview available" | Read the error banner for hints. |
+| "Unable to connect to the source" | Check the configured username, account locator, and RSA key-pair authentication setup.<br>Verify the warehouse is running.<br>Confirm network access. |
+| "SQL syntax error" | Check your SQL syntax. |
+| "Object does not exist or not authorized" | Make sure the role has `SELECT` access to the table.<br>Confirm database and schema permissions.<br>Check table name typos. |
 
 ### "Identity column required"
 
