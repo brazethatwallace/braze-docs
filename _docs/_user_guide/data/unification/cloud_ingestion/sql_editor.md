@@ -1,6 +1,6 @@
 ---
 hidden: true
-article_title: Cloud Data Ingestion: SQL Editor (beta)
+article_title: "Cloud Data Ingestion: SQL Editor (beta)"
 description: "Learn how to create and validate Cloud Data Ingestion syncs with SQL queries."
 page_type: reference
 toc_headers: h2
