@@ -24,6 +24,8 @@ Sending patterns influence domain reputation. When they misalign with the follow
 - **Prioritize recipients who recently opted in or engaged** (such as users who have logged opens, clicks, and website activity). Avoid repeatedly mailing inactive addresses.
 - **Separate transactional mail from marketing mail.** Many Internet Service Providers (ISPs) treat transactional mail differently from marketing. Separate the two when it makes sense. For example, distinct sender email addresses can be enough separation in some cases.
 
+{% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
+
 ## Message content
 
 Content filters help MBPs protect their users from phishing, malware, and unwanted mail. Your creativity may look benign, but still resemble patterns filters watch for.
