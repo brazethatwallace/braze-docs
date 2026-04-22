@@ -735,7 +735,44 @@ useEffect(() => {
 {% endtab %}
 
 {% tab Android %}
-// TODO
+Set the optional [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) property on [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html).
+
+{% subtabs %}
+{% subtab Java %}
+
+```java
+import android.util.Log;
+import com.braze.ui.banners.BannerView;
+import kotlin.Unit;
+
+// After obtaining your BannerView instance (for example from XML via findViewById, or `new BannerView(context, "global_banner")`)
+
+bannerView.setOnDismissCallback(() -> {
+  Log.d(TAG, "Successfully dismissed banner with placementId: " + bannerView.getPlacementId());
+
+  // Run any custom logic here, such as logging custom analytics
+  return Unit.INSTANCE;
+});
+```
+
+{% endsubtab %}
+{% subtab Kotlin %}
+
+```kotlin
+import android.util.Log
+import com.braze.ui.banners.BannerView
+
+// After obtaining your BannerView instance (for example via findViewById or `BannerView(context, "global_banner")`)
+
+bannerView.onDismissCallback = {
+  Log.d(TAG, "Successfully dismissed banner with placementId: ${bannerView.placementId}")
+
+  // Run any custom logic here, such as logging custom analytics
+}
+```
+
+{% endsubtab %}
+{% endsubtabs %}
 {% endtab %}
 
 {% tab Swift %}
