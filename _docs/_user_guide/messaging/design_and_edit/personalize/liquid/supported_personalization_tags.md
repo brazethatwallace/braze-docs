@@ -47,12 +47,12 @@ Refer to this help article to learn more about [how some of these attributes dif
 The behavior for the following tags differs between Canvas and campaigns:
 {% raw %}
 - `dispatch_id` behavior differs because Braze treats Canvas steps as triggered events, even when they are "scheduled" (except for entry steps, which can be scheduled). To learn more, refer to [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
-- Using the `{{campaign.${name}}}` tag with Canvas will display the Canvas component name. When using this tag with campaigns, it will display the campaign name.
+- Using the `{{campaign.${name}}}` tag with Canvas displays the Canvas component name. When using this tag with campaigns, it displays the campaign name.
 {% endraw %}
 
 ## Most recently used device information
 
-You can template the following attributes for the user's most recent device across all platforms. If a user has not used your application (for example, you imported the user via REST API), then these values will all be `null`.
+You can template the following attributes for the user's most recent device across all platforms. If a user has not used your application (for example, you imported the user via REST API), then these values are all `null`.
 
 {% raw %}
 
@@ -62,15 +62,15 @@ You can template the following attributes for the user's most recent device acro
 |`{{most_recently_used_device.${id}}}` | The Braze device identifier. On iOS, this can be the Apple Identifier for Vendor (IDFV) or a UUID. For Android and other platforms, it's a randomly generated UUID. |
 | `{{most_recently_used_device.${carrier}}}` | The most recently used device's telephone service carrier, if available. Examples include "Verizon" and "Orange". |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | If the device has ad tracking enabled or not. This is a boolean value (`true` or `false`). |
-| `{{most_recently_used_device.${idfa}}}` | For iOS devices, this value will be the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). For non-iOS devices, this value will be null. |
-| `{{most_recently_used_device.${google_ad_id}}}` | For Android devices, this value will be the Google Play Advertising Identifier if your application is configured with our optional Google Play Advertising ID collection. For non-Android devices, this value will be null. |
-| `{{most_recently_used_device.${roku_ad_id}}}` | For Roku devices, this value will be the Roku Advertising Identifier that is collected when your application is configured with Braze. For non-Roku devices, this value will be null. |
+| `{{most_recently_used_device.${idfa}}}` | For iOS devices, this value is the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). For non-iOS devices, this value is null. |
+| `{{most_recently_used_device.${google_ad_id}}}` | For Android devices, this value is the Google Play Advertising Identifier if your application is configured with our optional Google Play Advertising ID collection. For non-Android devices, this value is null. |
+| `{{most_recently_used_device.${roku_ad_id}}}` | For Roku devices, this value is the Roku Advertising Identifier that is collected when your application is configured with Braze. For non-Roku devices, this value is null. |
 | `{{most_recently_used_device.${model}}}` | The device's model name, if available. Examples include "iPhone 6S" and "Nexus 6P" and "Firefox". |
 | `{{most_recently_used_device.${os}}}` | The device's operating system, if available. Examples include "iOS 9.2.1" and "Android (Lollipop)" and "Windows". |
-| `{{most_recently_used_device.${platform}}}` | The device's platform, if available. If set, the value will be one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. |
+| `{{most_recently_used_device.${platform}}}` | The device's platform, if available. If set, the value is one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Because there is such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any Liquid that conditionally depends on any of those values. These values will be `null` if they are not available on a particular device.
+Because there is such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any Liquid that conditionally depends on any of those values. These values are `null` if they are not available on a particular device.
 
 ## Targeted app information
 
@@ -82,7 +82,7 @@ For in-app messages, you can use the following app attributes within Liquid. The
 | `{{app.${name}}}` | The name of the app (as defined in the Braze dashboard) requesting the message. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-For example, this Liquid code will abort a message if the requesting apps are not one of the two API keys in the list:
+For example, this Liquid code aborts a message if the requesting apps are not one of the two API keys in the list:
 
 ```liquid
 {% assign allowed_api_keys = 'sdk_api_key_1,sdk_api_key_2' | split: ',' %}
@@ -99,22 +99,22 @@ For push notifications, in-app messages, and Banners, you can template in the fo
 
 |Tag | Description |
 |------------------|---|
-| `{{targeted_device.${id}}}` | This is the Braze device identifier. On iOS, this can be the Apple Identifier for Vendor (IDFV) or a UUID. For Android and other platforms, it is a randomly generated UUID. For example, if a user has five devices, a send attempt occurs for all five devices, each using the corresponding device identifier. If a message is configured to send to a user's most recently used device, only one send attempt will occur to the most recently used device identified through Braze. |
+| `{{targeted_device.${id}}}` | This is the Braze device identifier. On iOS, this can be the Apple Identifier for Vendor (IDFV) or a UUID. For Android and other platforms, it is a randomly generated UUID. For example, if a user has five devices, a send attempt occurs for all five devices, each using the corresponding device identifier. If a message is configured to send to a user's most recently used device, only one send attempt  occurs to the most recently used device identified through Braze. |
 | `{{targeted_device.${carrier}}}` | The most recently used device's telephone service carrier, if available. Examples include "Verizon" and "Orange". |
-| `{{targeted_device.${idfa}}}` | For iOS devices, this value will be the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). For non-iOS devices, this value will be null. |
-| `{{targeted_device.${google_ad_id}}}` | For Android devices, this value will be the Google Play Advertising Identifier if your application is configured with our [optional Google Play Advertising ID collection]. For non-Android devices, this value will be null. |
-| `{{targeted_device.${roku_ad_id}}}` | For Roku devices, this value will be the Roku Advertising Identifier that is collected when your application is configured with Braze. For non-Roku devices, this value will be null. |
+| `{{targeted_device.${idfa}}}` | For iOS devices, this value is the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). For non-iOS devices, this value is null. |
+| `{{targeted_device.${google_ad_id}}}` | For Android devices, this value is the Google Play Advertising Identifier if your application is configured with our [optional Google Play Advertising ID collection]. For non-Android devices, this value is null. |
+| `{{targeted_device.${roku_ad_id}}}` | For Roku devices, this value is the Roku Advertising Identifier that is collected when your application is configured with Braze. For non-Roku devices, this value is null. |
 | `{{targeted_device.${model}}}` | The device's model name, if available. Examples include "iPhone 6S" and "Nexus 6P" and "Firefox". |
 | `{{targeted_device.${os}}}` | The device's operating system, if available. Examples include "iOS 9.2.1" and "Android (Lollipop)" and "Windows". |
-| `{{targeted_device.${platform}}}` | The device's platform, if available. If set, the value will be one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. You can also use the `most_recently_used_device` personalization tag. |
-| `{{targeted_device.${foreground_push_enabled}}}` | This value will be `true` when the targeted device is enabled for foreground push, `false` otherwise. |
+| `{{targeted_device.${platform}}}` | The device's platform, if available. If set, the value is one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. You can also use the `most_recently_used_device` personalization tag. |
+| `{{targeted_device.${foreground_push_enabled}}}` | This value is `true` when the targeted device is enabled for foreground push, `false` otherwise. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endraw %}
 
-Because there is such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any logic that conditionally depends on any of those values. These values will be `null` if they are not available on a particular device. 
+Because there is such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any logic that conditionally depends on any of those values. These values are `null` if they are not available on a particular device. 
 
-Furthermore, for push notifications, it's possible that Braze won't be able to discern the device attached to the push notification under certain circumstances such as if the push token was imported through API, resulting in values being `null` for those messages.
+Furthermore, for push notifications, it is possible that Braze cannot discern the device attached to the push notification under certain circumstances such as if the push token was imported through API, resulting in values being `null` for those messages.
 
 ![Example of using a default value of "there" when using a first name variable in a push message.]({% image_buster /assets/img_archive/personalized_firstname_.png %})
 
@@ -154,7 +154,7 @@ In this case, there are two options that may work better than setting a default 
    {% endif %}
    ```
 
-In this use case, a user with a blank or null first name will get the message "Thanks for downloading". You should include a [default value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) for first name to make sure that your customer doesn't see Liquid in the event of a mistake.
+In this use case, a user with a blank or null first name receives the message "Thanks for downloading". You should include a [default value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) for first name to make sure that your customer doesn't see Liquid in the event of a mistake.
 
 {% endraw %}
 
@@ -172,7 +172,7 @@ Find yourself assigning the same variables in every message? Instead of writing 
 3. Select **Edit** at the bottom of the page.
 4. Type in your `assign` tags.
 
-As long as the Content Block is at the top of your message, every time the variable is inserted into your message as an object, it will refer to your chosen custom attribute!
+As long as the Content Block is at the top of your message, every time the variable is inserted into your message as an object, it refers to your chosen custom attribute.
 {% endalert %}
 
 ### Use case
@@ -237,7 +237,7 @@ You can utilize the HTTP status from a [Connected Content]({{site.baseurl}}/user
 {% endraw %}
 
 {% alert note %}
-This key will only be automatically added to the Connected Content object if the endpoint returns a JSON object. If the endpoint returns an array or other type, then that key can't be set automatically in the response.
+This key is only automatically added to the Connected Content object if the endpoint returns a JSON object. If the endpoint returns an array or other type, that key cannot be set automatically in the response.
 {% endalert %}
 
 ## Send messages based on language, most recent locale, and time zone
@@ -272,13 +272,13 @@ Message in default language
 {% endif %}
 ```
 
-In this use case, customers with a most recent locale of `pt_BR` will get a message in Brazilian Portuguese, and customers with a most recent locale of `pt_PT` will get a message in European Portuguese. Customers who don't meet the first two conditions but have their language set to Portuguese will get a message in whatever you'd like the default Portuguese language type to be.
+In this use case, customers with a most recent locale of `pt_BR` get a message in Brazilian Portuguese, and customers with a most recent locale of `pt_PT` get a message in European Portuguese. Customers who don't meet the first two conditions but have their language set to Portuguese get a message in whatever you would like the default Portuguese language type to be.
 
 ### Use case: Target users by time zone
 
 You can also target users by their time zone. For example, send one message if they are based in EST and another if they are PST. To do this, save the current time in UTC, and compare an if/else statement with the user's current time to send the right message for the right time zone. You should set the campaign to send in the user's local time zone, to give them the campaign at the right time. 
 
-See the following use case for how to write a message that will go out between 2 pm and 3 pm and will have a specific message for each time zone.
+See the following use case for how to write a message that delivers between 2 pm and 3 pm with a specific message for each time zone.
 
 ```liquid
 {% assign hour_in_utc = 'now' | date: '%H' | plus:0 %}
