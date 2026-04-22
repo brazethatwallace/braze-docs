@@ -57,7 +57,7 @@ To add an Audience Paths step, do the following:
 1. Add a step to your Canvas. 
 2. Drag and drop the component from the sidebar, or select <i class="fas fa-plus-circle"></i> **Add** at the bottom of a step and select **Audience Paths**.
 
-The default Audience Paths component contains two default audience groups, **Group 1** and **Everybody Else**. The **Everybody Else** group includes any user who does not fall into a defined audience group. This group will always be last in the order.
+The default Audience Paths component contains two default audience groups, **Group 1** and **Everybody Else**. The **Everybody Else** group includes any user who does not fall into a defined audience group. This group is always last in the order.
 
 ### Defining audience groups
 
