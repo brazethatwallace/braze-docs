@@ -25,11 +25,14 @@ generates `#custom-event-analytics`.
 Redirects live in `assets/js/broken_redirect_list.js`:
 
 ```javascript
-validurls['/docs/user_guide/old_section/old_page/'] = '/docs/user_guide/new_section/new_page/';
+validurls['/docs/user_guide/old_section/old_page'] = '/docs/user_guide/new_section/new_page';
 ```
 
 - One entry per moved path.
-- Paths include the `/docs/` prefix, lowercase, trailing slash.
+- Paths include the `/docs/` prefix and must be lowercase.
+- `REDIRECT_FROM` must match the broken URL path exactly, including any trailing slash, `#anchor`, or other link artifacts when present.
+- `REDIRECT_TO` should be the canonical destination path.
+- Prefer no trailing slash for both paths unless an anchor or another link artifact requires it.
 - Never include locale prefixes in redirect paths. Strip `/docs/en/`, `/docs/es/`, `/docs/ko/`, and any other language tag down to `/docs/`. Redirects only map canonical English paths.
 - Collapse redirect chains (old to new directly, not old to intermediate to new).
 - Other mechanisms: `layout: redirect` in frontmatter, `local_redirect` for heading-level redirects.
