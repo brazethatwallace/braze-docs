@@ -31,11 +31,11 @@ Here are the key in-app message metrics you may see in your analytics. For defin
 
 ## How do conversions increment with re-eligibility?
 
-Each in-app message delivery can only have one conversion event assigned to it, and the conversion is attributed to the last received message.
+Braze assigns only one conversion to each in-app message delivery and attributes it to the most recently received message.
 
-If a user converts five times after seeing an in-app message, only one conversion event is counted for that message. However, if a user sees the same in-app message five times in a single day and converts after each impression, five conversions are counted. The conversion event is attributed to the most recent in-app message sent.
+With re-eligibility turned on, each new delivery can generate its own conversion. For example, if a user sees the same in-app message five times and converts after each impression, five conversions count. If a user sees the message only once but converts multiple times afterward, only one conversion counts.
 
-If a user sees an in-app message on two separate days but only converts on the third day, the conversion is logged for the second day's impression. Only one conversion can be assigned to each step in a Canvas after the user has received that step.
+If a user views an in-app message on two separate days but converts on the third day, Braze logs the conversion against the second day's impression. For Canvases, the same rule applies: each step tracks only one conversion per user receipt.
 
 {% tabs local %}
 {% tab Scenario 1 %}
