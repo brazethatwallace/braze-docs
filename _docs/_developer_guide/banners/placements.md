@@ -794,7 +794,7 @@ bannerView.onDismiss = { dismissedBanner in
 Dismissal events are stored locally as pending entries until they can be synced to the Braze server on the next `requestBannersRefresh` call.
 
 {% alert warning %}
-There is a cap on the number of pending dismissals that can be stored on the device. If this cap is exceeded, the oldest pending dismissals are evicted. Evicted dismissals may cause previously-dismissed Banners to reappear until the next successful server sync completes. To minimize impact, call `requestBannersRefresh` whenever your app regains network connectivity.
+In rare cases where a large number of dismissals accumulate without a successful sync, older pending dismissals may be dropped. If this occurs, previously-dismissed Banners may reappear until the next successful sync completes. To minimize this risk, call `requestBannersRefresh` whenever your app regains network connectivity.
 {% endalert %}
 
 ## Dimensions and sizing
