@@ -665,11 +665,12 @@ These are the minimum SDK versions required to log Banner dismissals:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.0 %}
 
-### Standard Banner integrations (drag-and-drop editor)
+### Integrations
+#### Standard Banner integrations (drag-and-drop editor)
 
 If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message will be hidden, trigger a dismissal and then record a dismissal event for analytics.
 
-### Custom Code Blocks
+#### Custom Code Blocks
 
 If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`.
 
