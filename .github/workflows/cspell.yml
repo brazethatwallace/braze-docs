@@ -57,10 +57,11 @@ jobs:
         run: |
           set -euo pipefail
           BASE="origin/${{ github.base_ref }}"
-          mapfile -t FILES < <(git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD -- _docs _includes | grep -E '\.md$' || true)
+          # Exclude _docs/_hidden/ — matches cspell.json ignorePaths; cspell exits 1 if every path is ignored ("Files checked: 0").
+          mapfile -t FILES < <(git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD -- _docs _includes | grep -E '\.md$' | grep -v '^_docs/_hidden/' || true)
           if ((${#FILES[@]} == 0)); then
             echo "ran=false" >> "$GITHUB_OUTPUT"
-            echo "No changed Markdown under _docs/ or _includes/."
+            echo "No changed Markdown under _docs/ or _includes/ (or only under _docs/_hidden/, which spellcheck skips)."
             exit 0
           fi
           echo "ran=true" >> "$GITHUB_OUTPUT"
