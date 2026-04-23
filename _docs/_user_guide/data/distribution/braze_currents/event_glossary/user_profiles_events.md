@@ -9,6 +9,10 @@ tool: Currents
 search_rank: 7
 ---
 
+{% alert important %}
+User profile events are in beta. Contact your customer success manager or account manager for access.
+{% endalert %}
+
 {% alert tip %}
 These events are also available as SQL tables in the [Query Builder]({{site.baseurl}}/user_guide/analytics/query_builder/), [SQL Segment Extensions]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/), and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). For SQL table schemas and column details, refer to the [SQL table reference]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}

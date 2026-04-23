@@ -245,5 +245,6 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Control groups:** If a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group/) or campaign-level control group is in use, a portion of the audience is withheld from delivery.
 - **Delivery timing and windows:** For local time zone or scheduled campaigns, users must qualify at both entry and send time; users in certain time zones may fall outside the delivery window.
 - **Rate limiting:** If rate limiting is applied, messages are distributed over time and some sends may be deferred or not yet reflected in the count.
+- **Email deliverability filters:** For email campaigns, Braze excludes users who have hard-bounced, unsubscribed from emails, been marked as spam, have no email address on their profile, or are not subscribed to a required subscription group. These checks run at send time, so a user present in your segment can still be excluded from the actual send count.
 
 

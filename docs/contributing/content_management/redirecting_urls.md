@@ -148,6 +148,26 @@ https://braze-docs-gtcavota9-braze.vercel.app/docs/user_guide/sage_ai/predictive
 
 
 
+## Auditing redirect targets against the URL map
+
+To find `validurls` destinations that do not match any published Jekyll URL on your tree, generate a URL map with `bundle exec ruby scripts/jekyll_url_map_dump.rb`, then run `bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb` (see the script header for flags). The default report requires a **minimum shared path prefix** so the “known suggestions” CSV stays conservative; use `--min-prefix-segments 0` for basename-only grouping.
+
+To **bulk-update** destination URL strings from a triaged CSV (after you delete bad rows), use `bundle exec ruby scripts/apply_validurl_rhs_from_csv.rb --csv PATH --dry-run`, review the diff, then run again with `--apply`. The script only rewrites lines where the quoted destination URL equals `stale_target` in the CSV. Re-run the audit, a redirect cycle check, and `./bdocs fblinks` (or your `ts-node` workflow) before you open a PR.
+
+To export a triage CSV of stale destination URL values with the same **minimum shared path prefix** rule as the audit script, use `bundle exec ruby scripts/export_stale_validurls_rhs_triage_csv.rb MAP.json OUT.csv` (optional: `--min-prefix-segments N`, default `4`).
+
+### Redirect list maintenance order
+
+Use this order for bulk or automation-assisted edits so audits match the file on disk and the redirect list stays valid JavaScript:
+
+1. `node --check assets/js/broken_redirect_list.js` (must pass before and after edits).
+2. Optional: `bundle exec ruby scripts/normalize_broken_redirect_list.rb` (defaults to dry-run; use `--apply` to write). Supports `--semicolons-only` or `--slash-fix-only` for targeted fixes, or runs all passes by default.
+3. Generate a Jekyll URL map, then run `bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb` and/or `bundle exec ruby scripts/verify_redirect_targets_in_jekyll.rb --audit-stale MAP.json` **after** any normalize pass.
+4. CSV apply scripts: always `--dry-run` first, triage the CSV, then `--apply`.
+5. Run `node --check assets/js/broken_redirect_list.js` again, then your usual redirect cycle check and `./bdocs fblinks` (or `ts-node` link workflow).
+
+**Compare normalization** (`normalize_url_for_compare` in the Ruby helpers, used against the Jekyll map) and **file canonicalization** (`normalize_broken_redirect_list.rb`, which lowercases internal paths and fragments) answer different questions; do not expect identical strings from both.
+
 ## Troubleshooting
 
 If a [redirect you set up](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/content_management/redirecting_urls.md) in the global redirect file (`assets/js/broken_redirect_list.js`) isn't working, double-check your URL string for any uppercase characters. If you find any, convert them to lowercase (even if the corresponding filename in the `_docs` directory contains uppercase characters).
