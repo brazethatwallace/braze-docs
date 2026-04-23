@@ -5,11 +5,14 @@ module Jekyll
     RAW_MARKDOWN_KEY = "__export_merged_md"
     PUBLIC_MARKDOWN_KEY = "llm_markdown_content"
 
-    SUPPORTED_COLLECTIONS = %w[developer_guide user_guide].freeze
+    SUPPORTED_COLLECTIONS = %w[user_guide developer_guide api partners releases].freeze
 
     COLLECTION_LABELS = {
+      'user_guide' => 'User Guide',
       'developer_guide' => 'Developer Guide',
-      'user_guide' => 'User Guide'
+      'api' => 'API',
+      'partners' => 'Technology Partners',
+      'releases' => "What's New"
     }.freeze
 
     def self.init

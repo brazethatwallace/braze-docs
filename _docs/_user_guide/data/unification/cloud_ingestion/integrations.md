@@ -61,6 +61,10 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 
 ### Step 1: Set up tables or views
 
+{% alert note %}
+Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
+{% endalert %}
+
 {% tabs %}
 {% tab Snowflake %}
 

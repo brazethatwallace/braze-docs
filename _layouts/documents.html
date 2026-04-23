@@ -47,8 +47,9 @@ hide_binary_feedback: false
     </div>
     {%- endunless -%}
     
-    {%- comment -%} Add Copy for LLM button for developer and user guide pages {%- endcomment -%}
-    {%- if page.collection == 'developer_guide' or page.collection == 'user_guide' -%}
+    {%- comment -%} Add Copy for LLM button for supported collection pages {%- endcomment -%}
+    {%- assign llm_supported_collections = "user_guide,developer_guide,api,partners,releases" | split: "," -%}
+    {%- if llm_supported_collections contains page.collection -%}
     <div class="copy-for-llm-page-header">
       {% include copy_for_llm_button.html %}
     </div>

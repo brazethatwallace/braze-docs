@@ -22,7 +22,7 @@ Here's an example of the standard Liquid tag format for `message_extras`:
 ```
 {% endraw %}
 
-You can add these tags as needed for your key-value pairs in the message body. However, the length of all keys and values shouldn't exceed 1&nbsp;KB. In Currents and Snowflake Data Sharing, you'll see a new event field called `message_extras` for your send events. This will generate a JSON serialized string in one field.
+You can add these tags as needed for your key-value pairs in the message body. However, the length of all keys and values should not exceed 1,000 bytes (1&nbsp;KB). In Currents and Snowflake Data Sharing, you can see a new event field called `message_extras` for your send events. This generates a JSON-serialized string in one field.
 
 ## How message extras data is sent using Currents
 
@@ -64,10 +64,10 @@ Any other input that doesn't match the tag standard discussed above may fail to 
 
 ## Considerations
 
-- If your key-values exceed 1&nbsp;KB, they'll truncate. 
-- Whitespace will count toward the character count. Note that Braze omits the leading and trailing whitespaces.
-- The resulting JSON will output only string values.
-- You can include Liquid variables as a key or value, but you can't nest additional Liquid tags inside `message_extras`.
+- Key-values that exceed 1,000 bytes (1&nbsp;KB) are truncated.
+- Whitespace counts toward the character count. Note that Braze omits the leading and trailing whitespaces.
+- The resulting JSON outputs string values only.
+- You can include Liquid variables as a key or value, but you cannot nest additional Liquid tags inside `message_extras`.
   - For example, you could use the following Liquid: {% raw %}```{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}```{% endraw %}
 
 ## Frequently asked questions

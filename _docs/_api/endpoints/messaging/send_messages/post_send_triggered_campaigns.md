@@ -18,7 +18,7 @@ description: "This article outlines details about the Send campaigns using API-t
 
 API-triggered delivery allows you to house message content inside of the Braze dashboard while dictating when a message is sent, and to whom using your API.
 
-If you're targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/). To send messages with this endpoint, you must have a [campaign ID](https://www.braze.com/docs/api/identifier_types/) created when you build an [API-triggered campaign]({{site.baseurl}}/api/api_campaigns/).
+If you're targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/). To send messages with this endpoint, you must have a [campaign ID]({{site.baseurl}}/api/identifier_types/) created when you build an [API-triggered campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
