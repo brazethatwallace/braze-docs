@@ -145,7 +145,7 @@ jobs:
           bundler-cache: true
 
       - name: Clean up orphaned translations
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || inputs.skip_orphan_cleanup != 'true') }}
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true')) }}
         run: python scripts/clean_orphaned_translations.py
 
       - name: Verify builds and fix errors

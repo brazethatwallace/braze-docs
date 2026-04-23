@@ -19,9 +19,15 @@ REPO="${REPO:-braze-inc/braze-docs}"
 REF="${REF:-develop}"
 SKIP_ORPHAN="${SKIP_ORPHAN:-true}"
 
-mapfile -t lines < <(grep -v '^[[:space:]]*$' "$BATCH_FILE" || true)
+lines=()
+while IFS= read -r raw || [[ -n "${raw}" ]]; do
+  line=$(printf '%s\n' "$raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  [[ -z "$line" || "$line" == \#* ]] && continue
+  lines+=("$line")
+done < "$BATCH_FILE"
+
 if [[ ${#lines[@]} -eq 0 ]]; then
-  echo "error: no paths in $BATCH_FILE" >&2
+  echo "error: no usable paths in $BATCH_FILE (empty, whitespace-only, or comment-only)" >&2
   exit 1
 fi
 

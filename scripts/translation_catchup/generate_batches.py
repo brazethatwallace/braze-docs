@@ -21,8 +21,6 @@ DEFAULT_BASE = "3e2a7ea3cac0f973b2cf6a901954739e285c512e"
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
-GENERATED = SCRIPT_DIR / "generated"
-BATCHES_DIR = GENERATED / "batches"
 
 
 def run_git(args: list[str], *, cwd: Path) -> str:
@@ -56,10 +54,11 @@ def write_batches(
     label: str,
     paths: list[str],
     *,
+    batches_dir: Path,
     max_per_batch: int,
     counter: list[int],
 ) -> list[Path]:
-    """Write batch files; counter[0] is incremented per file written."""
+    """Write batch files; counter[0] is incremented once per batch file written."""
     written: list[Path] = []
     paths = sorted(paths)
     for i in range(0, len(paths), max_per_batch):
@@ -67,7 +66,7 @@ def write_batches(
         counter[0] += 1
         n = counter[0]
         name = f"{label}_{n:03d}.txt"
-        batch_path = BATCHES_DIR / name
+        batch_path = batches_dir / name
         batch_path.write_text("\n".join(chunk) + "\n", encoding="utf-8")
         written.append(batch_path)
     return written
@@ -91,7 +90,10 @@ def main() -> int:
         "--repo",
         type=Path,
         default=REPO_ROOT,
-        help="Git repository root",
+        help=(
+            "Git repository root; outputs are written under "
+            "<repo>/scripts/translation_catchup/generated/"
+        ),
     )
     parser.add_argument(
         "--max-per-batch",
@@ -107,14 +109,17 @@ def main() -> int:
     args = parser.parse_args()
     repo: Path = args.repo.resolve()
 
+    catchup_dir = repo / "scripts" / "translation_catchup"
+    generated = catchup_dir / "generated"
+    batches_dir = generated / "batches"
+    generated.mkdir(parents=True, exist_ok=True)
+    batches_dir.mkdir(parents=True, exist_ok=True)
+
     paths = git_diff_paths(
         repo, args.base, args.head, find_renames=not args.no_find_renames
     )
 
-    GENERATED.mkdir(parents=True, exist_ok=True)
-    BATCHES_DIR.mkdir(parents=True, exist_ok=True)
-
-    all_paths = GENERATED / "all_paths.txt"
+    all_paths = generated / "all_paths.txt"
     all_paths.write_text("\n".join(paths) + "\n", encoding="utf-8")
 
     includes = [p for p in paths if p.startswith("_includes/")]
@@ -144,6 +149,7 @@ def main() -> int:
     batches = write_batches(
         "phase_a_includes_batch",
         includes,
+        batches_dir=batches_dir,
         max_per_batch=args.max_per_batch,
         counter=counter,
     )
@@ -160,6 +166,7 @@ def main() -> int:
         batches = write_batches(
             f"phase_b_user_guide_{sub}_batch",
             ug_groups[sub],
+            batches_dir=batches_dir,
             max_per_batch=args.max_per_batch,
             counter=counter,
         )
@@ -174,6 +181,7 @@ def main() -> int:
     batches = write_batches(
         "phase_c_other_docs_batch",
         other_docs,
+        batches_dir=batches_dir,
         max_per_batch=args.max_per_batch,
         counter=counter,
     )
@@ -182,11 +190,11 @@ def main() -> int:
         manifest_lines.append(str(rel))
         all_batch_paths.append(bp)
 
-    manifest_path = BATCHES_DIR / "MANIFEST.txt"
+    manifest_path = batches_dir / "MANIFEST.txt"
     manifest_path.write_text("\n".join(manifest_lines) + "\n", encoding="utf-8")
 
     print(f"Wrote {len(paths)} paths to {all_paths.relative_to(repo)}")
-    print(f"Wrote {len(all_batch_paths)} batch files under {BATCHES_DIR.relative_to(repo)}")
+    print(f"Wrote {len(all_batch_paths)} batch files under {batches_dir.relative_to(repo)}")
     print(f"Manifest: {manifest_path.relative_to(repo)}")
     return 0
 
