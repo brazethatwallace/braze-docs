@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttonContainer = copyBtn.closest('.copy-for-llm-page-header');
     if (!buttonContainer) return;
 
-    const firstH1 = document.querySelector('#article-main h1');
-    const fallbackHeading = document.querySelector('#article-main h2, #article-main h3');
+    const firstH1 = document.querySelector('#article-main h1, #api-main h1');
+    const fallbackHeading = document.querySelector('#article-main h2, #article-main h3, #api-main h2, #api-main h3');
     const targetHeading = firstH1 || fallbackHeading;
     if (!targetHeading || !targetHeading.parentNode) return;
 
