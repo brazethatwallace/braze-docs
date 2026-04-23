@@ -161,7 +161,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Campaigns | Launch Campaigns | Start, stop, pause, or resume existing campaigns |
 | Campaigns | Archive Campaigns | Move campaigns to archive |
 | Campaigns | Edit Campaigns | Create and update campaigns |
-| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early acces. |
+| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
 | Canvas | View Canvases | View Canvases |
 | Canvas | Archive Canvases | Move Canvases to archive |
 | Canvas | Edit Canvases | Create and update Canvases |
@@ -175,8 +175,8 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Landing pages | View Landing Pages | View landing pages |
 | Landing pages | Publish Landing Pages | Make a draft landing page active |
 | Landing pages | Edit Landing Page Drafts | Create and save landing page drafts |
-| Message Archiving Settings | View Message Archiving Settings | |
-| Message Archiving Settings | Edit Message Archiving Settings | |
+| Message Archiving Settings | View Message Archiving Settings | View Message Archiving settings without making changes |
+| Message Archiving Settings | Edit Message Archiving Settings | Create and update Message Archiving settings |
 | Message Prioritization | View Message Prioritization | View message prioritization settings without making changes |
 | Message Prioritization | Edit Message Prioritization | Create and update message prioritization settings |
 | WhatsApp Flows | View WhatsApp Flows | View all WhatsApp Flows |
@@ -186,8 +186,6 @@ To download a list of your users and their permissions, go to **Settings** > **C
 
 | Product area | Permission | Definition |
 | --- | --- | --- |
-| Cross Channel Profile Linking | View Cross Channel Profile Linking | |
-| Cross Channel Profile Linking | Edit Cross Channel Profile Linking | |
 | Global Control Group | View Global Control Group | View Global Control Group setup page |
 | Global Control Group | Edit Global Control Group | Create and save changes to the Global Control Group. Users with the “Edit Global Control Group” permission must also be granted permissions for “Edit Campaigns” and “Edit Canvases”. Users with the “Edit Global Control Group” permission are also granted the “View Global Control Group” permission. |
 | Locations | Archive Locations | Move locations to archive |
