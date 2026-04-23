@@ -3,6 +3,10 @@
 
 ## Writing style guide
 
+{% alert note %}
+This file is the canonical source of truth for Braze Docs writing standards. A condensed version is maintained for the AI writing skill at `.github/skills/braze-docs/references/writing-style.md`. If you make changes here that affect UI interaction verbs, placeholder conventions, code sample rules, or voice and tone, update the skill reference to match.
+{% endalert %}
+
 ### General guidelines
 
 #### Voice and tone
