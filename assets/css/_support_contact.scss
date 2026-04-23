@@ -3,7 +3,7 @@
   align-items: flex-start;
   gap: 12px;
   background: $white;
-  border: 1px solid #E4E7EC;
+  border: 1px solid #E4E7EC; // no exact token match; closest is $grey-ghost (#dddde2)
   border-left: 4px solid $braze-purple;
   border-radius: 8px;
   padding: 19px 18px 14px;
@@ -28,7 +28,7 @@
 
 .operator-callout-badge {
   display: inline-block;
-  background: linear-gradient(80deg, #FFA524 0%, #FFB3D1 50%, #C9C4FF 100%);
+  background: linear-gradient(80deg, $braze-orange 0%, #FFB3D1 50%, $braze-purple-light 100%); // middle stop has no token
   color: $black;
   font-size: 11px;
   font-weight: 700;
