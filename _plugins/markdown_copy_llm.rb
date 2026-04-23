@@ -303,7 +303,7 @@ module Jekyll
       false
     end
 
-    SUPPORTED_COLLECTIONS = %w[developer_guide user_guide].freeze
+    SUPPORTED_COLLECTIONS = %w[user_guide developer_guide api partners releases].freeze
 
     def self.is_supported_guide?(item)
       if item.respond_to?(:collection)
