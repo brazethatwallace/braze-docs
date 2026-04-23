@@ -35,7 +35,7 @@ Sometimes anonymous user profiles are duplicates that have the same phone number
 
 ## Looking up an anonymous user
 
-Because anonymous users don't have an `external_id`, you can use a device ID to search for a specific profile. The following steps show how to get the device ID for the current visitor in your Web SDK integration:
+Because anonymous users don't have an `external_id`, you can use a device ID to search for a specific profile. The following steps show how to get the device ID for the current user in your Web SDK integration:
 
 1. Open your browser's developer tools (for example, in Chrome, press **Command + Option + J** on Mac or **Ctrl + Shift + I** on Windows).
 2. In the **Console** tab, run the following:
