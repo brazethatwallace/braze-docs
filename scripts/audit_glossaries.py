@@ -550,8 +550,29 @@ def generate_markdown_report(report, fix_results=None):
         if substr:
             header = "Skipped — substring mismatches (needs human review)" if fixed_mode else "Substring mismatches"
             lines.append(f"**{header}**\n")
-            lines.append("| Term | Glossary | Source English | Source Translation | Source repo |")
-            lines.append("|------|----------|---------------|-------------------|-------------|")
+            lines.append(
+                "These rows are **not** auto-fixed: the English UI string in a source repo "
+                "is a *longer phrase* that merely **contains** the glossary’s English key, so "
+                "the right translation is ambiguous.\n\n"
+                "**How to read the table**\n\n"
+                "| Column | Meaning |\n"
+                "|--------|--------|\n"
+                "| **Glossary key (English)** | The English string used as the key in that language’s glossary JSON under `scripts/glossaries/` (same term docs use as the UI reference). |\n"
+                "| **Current glossary translation** | What the glossary maps that key to today in this language. |\n"
+                "| **Source UI string (English)** | The **full** English string from the product/SDK locale file that **contains** the glossary key as a substring (e.g. a longer label like “Edit campaign” containing “Campaign”). |\n"
+                "| **Source UI translation** | The localized string shipped with that **full** English source string. |\n"
+                "| **Source repo** | Which repository that English/translation pair came from. |\n\n"
+                "Use this to decide whether to align the glossary with the source, keep both "
+                "intentionally different (different surfaces), or fix data upstream.\n"
+            )
+            lines.append(
+                "| Glossary key (English) | Current glossary translation | "
+                "Source UI string (English) | Source UI translation | Source repo |"
+            )
+            lines.append(
+                "|--------------------------|------------------------------|"
+                "------------------------------|-------------------------|-------------|"
+            )
             for m in substr[:30]:
                 lines.append(
                     f"| {m['term']} | {m['glossary_value']} "
