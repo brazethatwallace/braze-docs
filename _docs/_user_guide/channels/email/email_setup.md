@@ -64,4 +64,8 @@ By starting with smaller volumes of email, you are establishing a level of trust
 
 After you're done warming up your IP, you can [start creating and sending emails]({{site.baseurl}}/user_guide/channels/email/html_editor/)!
 
+## Legally required transactional emails
+
+{% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
+
 <br><br>

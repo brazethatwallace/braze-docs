@@ -21,11 +21,13 @@ To create a delay, add a step to your Canvas. Drag and drop the Delay component 
 
 #### Extended delays
 
-You can now extend Delay steps up to two years. For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
+You can extend Delay steps up to two years (730 days). For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
 
 ## Time delay types
 
 You can choose the type of delay before the next message in your Canvas. You can either set a delay for your users to last until after a designated time period, or delay your users until a specific date and time.
+
+If there is a time delay, it's expected that some users will only proceed to the next step of the Canvas after the delay. Users who are in the delay won't be added to the _Proceeded to Next Step_ metric. For more information, see [Delay analytics](#delay-analytics).
 
 {% tabs %}
 {% tab Duration %}

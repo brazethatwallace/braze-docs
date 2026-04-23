@@ -1,7 +1,9 @@
 # Writing Style Reference
 
-Detailed writing and formatting rules for Braze documentation. For the
-canonical source of truth, consult `_docs/_contributing/style_guide/writing_style_guide.md`.
+Condensed reference for the braze-docs AI skill. Distilled from
+`docs/contributing/style_guide/writing_style_guide.md`, which is the canonical
+source of truth. If this file and the in-repo guide conflict, follow the in-repo
+guide and update this file to match.
 
 ## Voice and tone
 
@@ -83,6 +85,24 @@ common abbreviations (PDF, USB, API, SDK).
 - Do not skip heading levels (h3 follows h2, etc.).
 - Use an h1 for page titles only.
 
+### UI interaction verbs
+
+Use these specific verbs when describing interactions with the Braze dashboard:
+
+| Verb | Usage | Example |
+|---|---|---|
+| Open | Apps, files, folders | Open the `braze.xml` file. |
+| Close | Apps, files, folders | Close the `braze.xml` file. |
+| Go to | Pages, tabs, sections, webpages | Go to the **Segments** page. |
+| > | Sequential steps of the same type | Go to **Segments** > **Segment Insights**. |
+| Choose | Subjective, strategic, or open-ended decisions | Choose a campaign strategy. |
+| Select | Checkboxes, dropdowns, tabs, simple decisions | Select **Show Password**. |
+| Clear | Deselecting a checkbox | Clear the **Show Password** checkbox. |
+| Click | Clicking a UI element | Click **Save**. |
+| Turn on | Enabling a toggle | Turn on the **List-Unsubscribe header**. |
+| Turn off | Disabling a toggle | Turn off **Inline CSS on New Emails by Default**. |
+| Enter | Typing a value into a field | In the text field, enter the name of your custom attribute. |
+
 ### UI elements in instructions
 
 | Element | Formatting | Example |
@@ -97,11 +117,42 @@ common abbreviations (PDF, USB, API, SDK).
 | Metrics (in text) | *Italics* with initial caps. | The *Machine Opens* metric shows... |
 | Permissions | "Quotation marks". | Grant the "Manage Segments" permission. |
 
+### Code samples
+
+- Indent with two spaces per level.
+- Specify the language for syntax highlighting (e.g., `json`, `javascript`, `swift`, `bash`, `python`, `liquid`).
+- Introduce with an expository sentence where possible.
+- Use straight quotation marks, not curly quotes.
+
 ### Code in text
 
 Use backtick code font for: attribute names/values, API parameters, filenames,
 file paths, method/variable/parameter names, HTML/XML elements, HTTP status
 codes, terminal input.
+
+### Placeholder text
+
+**In API code blocks** — enclose in curly brackets, uppercase with underscores:
+
+```json
+{
+  "api_key": "{YOUR_API_KEY}",
+  "external_id": "{YOUR_EXTERNAL_ID}"
+}
+```
+
+**In Liquid code blocks** — uppercase with underscores (no curly brackets beyond Liquid syntax):
+
+```liquid
+{%- connected_content YOUR-API-URL :save items -%}
+```
+
+**Inline** — use italicized code: *`YOUR_API_KEY`*
+
+Guidelines:
+- Use as many words as needed for clarity: *`CAMPAIGN_NAME`* not *`NAME`*.
+- Call out placeholders immediately after the code block.
+- For two or more placeholders, list each in order of appearance.
 
 ### Lists
 
@@ -174,3 +225,6 @@ limitations with appropriate, positive context without promising future features
 When reviewing content, verify compliance with all rules above. Flag and correct
 violations. For detailed guidance on any topic, consult the relevant source file
 listed in the style guide source files table in SKILL.md.
+
+For terminology decisions (banned words, caution words, capitalization of product
+names), load [glossary.md](glossary.md).

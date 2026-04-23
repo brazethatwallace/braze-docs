@@ -481,6 +481,7 @@ mform
 microsites
 Microsoft
 minimise
+misalign
 miscategorization
 misformat
 misintegration
@@ -728,6 +729,7 @@ Spamhaus
 spamminess
 spammy
 Sparkpost
+Speedrunning
 Splio
 SPLITENTRY
 springsale
