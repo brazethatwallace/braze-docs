@@ -24,6 +24,11 @@ parser = OptionParser.new do |opts|
 end
 args = parser.order!(ARGV)
 
+unless File.directory?(content_root)
+  warn "Content root not found: #{content_root}"
+  exit 2
+end
+
 sitemap_path = args[0] || "_data/sitemap_en.json"
 unless File.file?(sitemap_path)
   warn "Missing #{sitemap_path}"

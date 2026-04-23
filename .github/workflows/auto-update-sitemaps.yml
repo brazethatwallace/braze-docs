@@ -56,30 +56,39 @@ jobs:
           fi
 
           BRANCH="chore/nightly-sitemap-update-$(date -u +'%Y-%m-%d')"
+          PR_TITLE="chore: nightly sitemap last-modified update ($(date -u +'%Y-%m-%d'))"
+          PR_BODY="Automated nightly update of \`_data/sitemap_*.json\` last-modified dates.
+
+          This PR was created by the **Nightly sitemap last-modified update** workflow.
+
+          > **On-call writer:** merge this PR into develop **before** approving the nightly deploy PR so the deploy includes the latest sitemap dates."
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
           git add _data/sitemap_*.json
           git commit -m "chore: nightly sitemap last-modified update"
-          git push origin "$BRANCH"
+
+          # If the remote branch already exists (same-day re-run), force-push to update it
+          # so the existing PR picks up the latest sitemap commit.
+          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null 2>&1; then
+            git push --force-with-lease origin "$BRANCH"
+          else
+            git push origin "$BRANCH"
+          fi
 
           # Reuse an existing open PR for today if one exists (e.g. manual re-run).
           EXISTING=$(gh pr list --base develop --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
 
           if [ -n "$EXISTING" ]; then
-            echo "Reusing existing PR #$EXISTING."
+            echo "Updating existing PR #$EXISTING with latest sitemap commit."
+            gh pr edit "$EXISTING" --title "$PR_TITLE" --body "$PR_BODY"
           else
-            # Label must exist in the repo or gh pr create fails (Settings → Labels: create nightly-sitemap).
             gh pr create \
               --base develop \
               --head "$BRANCH" \
-              --title "chore: nightly sitemap last-modified update ($(date -u +'%Y-%m-%d'))" \
-              --body "Automated nightly update of \`_data/sitemap_*.json\` last-modified dates.
-
-          This PR was created by the **Nightly sitemap last-modified update** workflow.
-
-          > **On-call writer:** merge this PR into develop **before** approving the nightly deploy PR so the deploy includes the latest sitemap dates." \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY" \
               --label "nightly-sitemap"
           fi
 

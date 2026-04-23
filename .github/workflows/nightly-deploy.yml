@@ -3,8 +3,9 @@
 # Creates a deploy PR (develop → main) on a schedule. Approval and merge are
 # done manually on the PR to satisfy branch protection rules.
 #
-# Also triggers after the nightly sitemap update completes, so the deploy PR
-# always includes the latest sitemap last-modified dates.
+# Also triggers after the nightly sitemap update workflow completes (i.e., when
+# the sitemap PR is opened). This refreshes the deploy PR title and body for the
+# day. Note: sitemap lastmod changes land on develop only after that PR is merged.
 #
 name: Nightly Release Deploy
 
