@@ -211,16 +211,18 @@ def _bounded_substring_match(key_lower: str, haystack_lower: str) -> bool:
     return bool(pattern.search(haystack_lower))
 
 
-def find_mismatches(glossary, source_pairs, source_name):
+def find_mismatches(
+    glossary, source_pairs, source_name, include_substring_mismatches=False
+):
     """Compare glossary entries against source localization pairs.
 
     For each glossary English term, look for exact matches in the source
-    English strings. Substring matches are only reported when the source
-    string is a close variant (e.g. plural, "Edit X") rather than a full
-    sentence that happens to contain the term. Substring detection requires
-    the glossary key to appear as a whole word/phrase (non-alphanumeric
-    boundaries), so letter-only overlaps like "connect" in "connection" or
-    "review" in "preview" are not flagged.
+    English strings. When ``include_substring_mismatches`` is true (CLI:
+    ``--include-substring-mismatches``), also report short source strings where
+    the term appears with different translations; those rows are not
+    auto-fixed. Substring detection requires the glossary key to appear as a
+    whole word/phrase (non-alphanumeric boundaries), so letter-only overlaps
+    like "connect" in "connection" or "review" in "preview" are not flagged.
 
     Returns list of mismatch dicts.
     """
@@ -244,10 +246,13 @@ def find_mismatches(glossary, source_pairs, source_name):
                 })
             continue
 
-        # 2) Substring: only for short source strings that are close variants
-        #    (at most 2x the glossary term length to avoid sentence matches).
-        #    Require whole-token boundaries so we do not flag \"Connect\" vs
-        #    \"Connection Error\" or \"Review\" vs \"Preview\".
+        if not include_substring_mismatches:
+            continue
+
+        # Substring: only for short source strings that are close variants
+        # (at most ~2x the glossary term length to avoid sentence matches).
+        # Require whole-token boundaries so we do not flag "Connect" vs
+        # "Connection Error" or "Review" vs "Preview".
         if len(gloss_en) < 4:
             continue
         max_src_len = max(len(gloss_en) * 2.5, len(gloss_en) + 15)
@@ -655,6 +660,7 @@ def run_audit(args):
     total_missing = 0
     total_glossary_entries = 0
     total_source_strings = 0
+    include_substring = getattr(args, "include_substring_mismatches", False)
 
     for lang_key, mappings in LANG_MAP.items():
         glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
@@ -677,7 +683,9 @@ def run_audit(args):
             print(f"    {len(pairs)} string pairs loaded")
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "platform")
+            mismatches = find_mismatches(
+                glossary, pairs, "platform", include_substring
+            )
             all_mismatches.extend(mismatches)
             if mismatches:
                 print(f"    {len(mismatches)} mismatches found")
@@ -689,7 +697,9 @@ def run_audit(args):
             pairs = parse_android_sdk(android_repo, mappings["android"])
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "android-sdk")
+            mismatches = find_mismatches(
+                glossary, pairs, "android-sdk", include_substring
+            )
             all_mismatches.extend(mismatches)
             if pairs:
                 print(f"  Android SDK: {len(pairs)} pairs, {len(mismatches)} mismatches")
@@ -699,7 +709,9 @@ def run_audit(args):
             pairs = parse_swift_sdk(swift_repo, mappings["swift"])
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "swift-sdk")
+            mismatches = find_mismatches(
+                glossary, pairs, "swift-sdk", include_substring
+            )
             all_mismatches.extend(mismatches)
             if pairs:
                 print(f"  Swift SDK: {len(pairs)} pairs, {len(mismatches)} mismatches")
@@ -709,7 +721,9 @@ def run_audit(args):
             pairs = parse_grapesjs(grapesjs_repo, mappings["grapesjs"])
             total_source_strings += len(pairs)
             all_source_pairs.update(pairs)
-            mismatches = find_mismatches(glossary, pairs, "grapesjs")
+            mismatches = find_mismatches(
+                glossary, pairs, "grapesjs", include_substring
+            )
             all_mismatches.extend(mismatches)
             if pairs:
                 print(f"  GrapesJS: {len(pairs)} pairs, {len(mismatches)} mismatches")
@@ -789,6 +803,14 @@ def main():
     parser.add_argument(
         "--output", default="glossary_audit_report.json",
         help="Output path for the JSON report (default: glossary_audit_report.json)",
+    )
+    parser.add_argument(
+        "--include-substring-mismatches",
+        action="store_true",
+        help=(
+            "Report fuzzy substring mismatches (noisy; not auto-fixed). "
+            "Default is exact mismatches only."
+        ),
     )
     args = parser.parse_args()
     sys.exit(run_audit(args))
