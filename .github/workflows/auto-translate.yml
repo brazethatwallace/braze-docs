@@ -91,7 +91,7 @@ jobs:
 
       - name: Install Python dependencies
         if: steps.changes.outputs.count != '0'
-        run: pip install anthropic
+        run: pip install anthropic pyyaml
 
       - name: Translate changed files
         id: translate
