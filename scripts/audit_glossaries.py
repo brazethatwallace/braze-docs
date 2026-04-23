@@ -195,13 +195,32 @@ def _parse_grapesjs_strings(path):
 # Comparison engine
 # ---------------------------------------------------------------------------
 
+def _bounded_substring_match(key_lower: str, haystack_lower: str) -> bool:
+    """True if key_lower appears in haystack_lower as a whole token/phrase.
+
+    Uses non-alphanumeric boundaries on both sides (or string start/end) so
+    naive substring traps are avoided, e.g. \"connect\" inside \"connection\",
+    \"review\" inside \"preview\", \"log\" inside \"changelog\".
+    English locale keys are ASCII-heavy; this deliberately does not use \\b so
+    hyphen and apostrophe boundaries still work (e.g. \"user\" in \"user's\").
+    """
+    if not key_lower or not haystack_lower:
+        return False
+    escaped = re.escape(key_lower)
+    pattern = re.compile(rf"(?<![A-Za-z0-9]){escaped}(?![A-Za-z0-9])")
+    return bool(pattern.search(haystack_lower))
+
+
 def find_mismatches(glossary, source_pairs, source_name):
     """Compare glossary entries against source localization pairs.
 
     For each glossary English term, look for exact matches in the source
     English strings. Substring matches are only reported when the source
     string is a close variant (e.g. plural, "Edit X") rather than a full
-    sentence that happens to contain the term.
+    sentence that happens to contain the term. Substring detection requires
+    the glossary key to appear as a whole word/phrase (non-alphanumeric
+    boundaries), so letter-only overlaps like "connect" in "connection" or
+    "review" in "preview" are not flagged.
 
     Returns list of mismatch dicts.
     """
@@ -226,14 +245,19 @@ def find_mismatches(glossary, source_pairs, source_name):
             continue
 
         # 2) Substring: only for short source strings that are close variants
-        #    (at most 2x the glossary term length to avoid sentence matches)
+        #    (at most 2x the glossary term length to avoid sentence matches).
+        #    Require whole-token boundaries so we do not flag \"Connect\" vs
+        #    \"Connection Error\" or \"Review\" vs \"Preview\".
         if len(gloss_en) < 4:
             continue
         max_src_len = max(len(gloss_en) * 2.5, len(gloss_en) + 15)
         for src_en, src_trans in source_pairs.items():
             if len(src_en) > max_src_len:
                 continue
-            if gloss_en_lower in src_en.lower() and src_en.lower() != gloss_en_lower:
+            src_lower = src_en.lower()
+            if src_lower != gloss_en_lower and _bounded_substring_match(
+                gloss_en_lower, src_lower
+            ):
                 if not _translations_match(gloss_trans, src_trans):
                     mismatches.append({
                         "term": gloss_en,
@@ -554,12 +578,18 @@ def generate_markdown_report(report, fix_results=None):
                 "These rows are **not** auto-fixed: the English UI string in a source repo "
                 "is a *longer phrase* that merely **contains** the glossary’s English key, so "
                 "the right translation is ambiguous.\n\n"
+                "**Matching rule:** The audit only treats a hit as a substring when the "
+                "glossary key appears as a **whole word or phrase** inside that longer "
+                "English string (non-alphanumeric boundaries on both sides). That suppresses "
+                "spurious overlaps such as **Connect** inside **Connection** or **Review** "
+                "inside **Preview**, while still allowing cases like **Mobile** in "
+                "**Mobile Landscape**.\n\n"
                 "**How to read the table**\n\n"
                 "| Column | Meaning |\n"
                 "|--------|--------|\n"
                 "| **Glossary key (English)** | The English string used as the key in that language’s glossary JSON under `scripts/glossaries/` (same term docs use as the UI reference). |\n"
                 "| **Current glossary translation** | What the glossary maps that key to today in this language. |\n"
-                "| **Source UI string (English)** | The **full** English string from the product/SDK locale file that **contains** the glossary key as a substring (e.g. a longer label like “Edit campaign” containing “Campaign”). |\n"
+                "| **Source UI string (English)** | The **full** English string from the product/SDK locale file where the glossary key appears as a **whole word or phrase** (e.g. “Mobile Landscape” for key “Mobile”, or “Edit campaign” for key “Campaign”). |\n"
                 "| **Source UI translation** | The localized string shipped with that **full** English source string. |\n"
                 "| **Source repo** | Which repository that English/translation pair came from. |\n\n"
                 "Use this to decide whether to align the glossary with the source, keep both "
