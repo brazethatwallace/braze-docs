@@ -4,14 +4,14 @@ article_title: Audience Paths
 alias: /audience_paths/
 page_order: 3
 page_type: reference
-description: "This reference article describes how to use Audience Paths in your Canvas to intuitively filter and segment users on a large scale with strategic priority-based user-groupings."
+description: "This reference article describes how to use Audience Paths in your Canvas to intuitively filter and segment users on a large scale by sending each user down the first matching branch."
 tool: Canvas
 
 ---
 
 # Audience Paths 
 
-> Canvas Audience Paths allow you to intuitively filter and segment users on a large scale with strategic priority-based user-groupings. 
+> Canvas Audience Paths allow you to intuitively filter and segment users on a large scale by sending each user down the first path whose criteria they meet.
 
 This Canvas component replaces the need to create excessive audience-based full steps, allowing you to combine what might have been eight full components into one. This helps you simplify user targeting while clearing up your Canvases from unnecessary clutter and complexity. 
 
@@ -19,21 +19,24 @@ This Canvas component replaces the need to create excessive audience-based full 
 
 ![An Audience Path with two groups: engaged users and everyone else.]({% image_buster /assets/img/audience_path/audience_path.png %}){: style="float:right;max-width:45%;margin-left:15px;margin-top:15px;"}
 
-Audience Paths are similar to sorting funnels with ranking criteria. Users are evaluated for each criterion in priority order and sent down the path of the highest-ranking criteria they qualify. This reduces ambiguity of where users will go and what messages they will receive. Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).
+Users are progressed down the first branch whose criteria they meet, so put the most important path first. This reduces ambiguity about where users go and which messages they receive. Note that this order isn't [editable after launch]({{site.baseurl}}/post-launch_edits/).
 
 With Audience Paths, you can:
 
 - Send users down different Canvas paths based on audience criteria.
-- Assign priority to different audience groups, so your messages get to the correct users. 
-  - Previously, if users met the criteria of two potential full steps, they would be randomly assigned. 
+- Put your most important audience groups first; users take the first path they qualify for.
 - Precisely target users on a large scale.
-  - Create up to eight audience groups (two default and six additional groups) per component, but you may want to connect multiple Audience Paths Steps to further sort your users. 
+  - You can create up to eight audience groups (two default and six additional groups) per Audience Paths step, but you may want to connect multiple Audience Paths steps to further sort your users. 
+
+Within a single Audience Paths step, users are evaluated against audience groups in order and move down the first path they qualify for. If you connect multiple Audience Paths steps in a Canvas, users are evaluated again each time they reach a new Audience Paths step.
 
 ### How users are evaluated
 
 ![Canvas showing a 24-hour delay after a Message step, followed by an Audience Path.]({% image_buster /assets/img/audience_path/audience_path5.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 Users are evaluated against filters and segment membership **at the moment they reach the Audience Path step**—not when they entered the Canvas. After evaluation, they immediately progress to the matching path. When a user is placed in an audience group, they stay in that group even if their user profile changes afterward.
+
+<div style="clear: both;"></div>
 
 {% alert important %}
 Audience Paths evaluate based on a user's current attributes, filters, and segment membership at the time of evaluation. They do not evaluate based on the specific event that triggered Canvas entry. To route users based on an action they perform (such as a custom event), use [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) instead.
@@ -54,7 +57,7 @@ To add an Audience Paths step, do the following:
 1. Add a step to your Canvas. 
 2. Drag and drop the component from the sidebar, or select <i class="fas fa-plus-circle"></i> **Add** at the bottom of a step and select **Audience Paths**.
 
-The default Audience Paths component contains two default audience groups, **Group 1** and **Everybody Else**. The **Everybody Else** group includes any user who does not fall into a defined audience group. This group will always be ranked last.
+The default Audience Paths component contains two default audience groups, **Group 1** and **Everybody Else**. The **Everybody Else** group includes any user who does not fall into a defined audience group. This group is always last in the order.
 
 ### Defining audience groups
 
@@ -76,15 +79,15 @@ After adding segments and filters to your audience, you can test if your audienc
 
 ## Using Audience Paths
 
-The true power of Audience Paths lies in the ability to assign priority. While this feature doesn't need to be used strategically, some marketers may find themselves pushing certain products to users such as specials or limited-edition releases. 
+The true power of Audience Paths lies in putting the paths you care about most **first**. While this feature doesn't need to be used strategically, some marketers may find themselves pushing certain products to users such as specials or limited-edition releases. 
 
-By assigning a high priority to these groups, you can target users that fall into specific filters and segments while still targeting users that might not fit those specific criteria—all in a single Canvas step.
+By placing those segments first in the list, you can target users that fall into specific filters and segments while still targeting users that might not fit those specific criteria—all in a single Canvas step.
 
 ![An Audience Path with groups for “Likes Big Brand Shoes”, “Likes Big Brand”, and "Everyone Else".]({% image_buster /assets/img/audience_path/audience_path2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
-For example, let's say you wanted to send a group of users ads for new products. You'd start by ranking filters that fall under those products high on the Audience Path. If you were creating a marketing campaign for the company "Big Brand" and a new retail brand had just released, you might select filters like "Likes Big Brand Shoes" or "Likes Big Brand Bags", and send different email messages based on what filtered group they fall into. 
+For example, let's say you wanted to send a group of users ads for new products. You'd start by putting filters that fall under those products **first** on the Audience Path. If you were creating a marketing campaign for the company "Big Brand" and a new retail brand had just released, you might select filters like "Likes Big Brand Shoes" or "Likes Big Brand Bags", and send different email messages based on what filtered group they fall into. 
 
-When users enter this Audience Paths component, they'll first be evaluated if they fall under the highest-ranked audience group: Audience Group 1 "Likes Big Brand Shoes". If so, they'll continue to the next component defined in your Canvas. If they don't "Like Big Brand Shoes", they will then be evaluated for the next audience group, Audience Group 2 "Likes Big Brand Bags", and will continue to the next step if the criteria are met. Lastly, users don't fall into the previous groups would fall into the "Everybody Else" group and also continue to the next Canvas step you define for that path.
+When users enter this Audience Paths component, they'll first be evaluated for Audience Group 1 "Likes Big Brand Shoes"—the first path in the list. If so, they'll continue to the next component defined in your Canvas. If they don't "Like Big Brand Shoes", they will then be evaluated for the next audience group, Audience Group 2 "Likes Big Brand Bags", and will continue to the next step if the criteria are met. Lastly, users who don't fall into the previous groups would fall into the "Everybody Else" group and also continue to the next Canvas step you define for that path.
 
 You can also see the performance of this step using [Canvas analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics#performance-visualization).
 
