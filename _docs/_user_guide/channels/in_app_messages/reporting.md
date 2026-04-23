@@ -18,7 +18,7 @@ tool:
 
 ## In-app message metrics
 
-Here are the key in-app message metrics you may see in your analytics. For definitions of all metrics used in Braze, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Here are the key in-app message metrics you may see in your analytics. For definitions of all metrics used in Braze, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 | Term | Definition |
 | --- | --- |
@@ -39,7 +39,7 @@ If a user sees an in-app message on two separate days but only converts on the t
 
 {% details Expand for example scenarios %}
 
-#### Scenario 1
+### Scenario 1
 
 *A user receives the same in-app message five times in a single day and converts five times that same day.*
 
@@ -53,7 +53,7 @@ A few hours later, she receives the same in-app message again and decides to buy
 Each impression and conversion in this scenario is processed as a separate SDK event. If your SDK batches an impression and a conversion event together, the conversion count may differ.
 {% endalert %}
 
-#### Scenario 2
+### Scenario 2
 
 *A user receives one in-app message and converts in a single day.*
 
@@ -61,7 +61,7 @@ Lena receives an in-app message about a new learning course. She clicks on the m
 
 **Results:** *Total Conversions* and *Total Impressions* for Lena each increment by one.
 
-#### Scenario 3
+### Scenario 3
 
 *A user receives an in-app message and converts one day later.*
 
@@ -69,7 +69,7 @@ Tom is a regular customer of an eCommerce app. He receives an in-app message pro
 
 **Results:** *Total Conversions* and *Total Impressions* for Tom each increment by one.
 
-#### Scenario 4
+### Scenario 4
 
 *A user receives an in-app message and converts twice one day later.*
 
@@ -77,7 +77,7 @@ Alex recently downloaded an arcade app. One day, Alex receives an in-app message
 
 **Results:** Since completing a level is the conversion event, Alex converted twice on the second day. However, because they only received one in-app message, *Total Conversions* and *Total Impressions* for Alex each increment by one.
 
-#### Scenario 5
+### Scenario 5
 
 *A user receives the same in-app message twice in a single day and converts twice the following day.*
 
