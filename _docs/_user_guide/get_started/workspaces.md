@@ -8,7 +8,7 @@ description: "Everything you do in the Braze platform happens within a workspace
 
 # Get started: Workspaces
 
-Everything you do in the Braze platform happens within a workspace. Workspaces act as separate silos of data, and allow you to keep different brands or activities separate. Multiple versions of your website or mobile app can send data to the same workspace. We refer to the different sites and apps that are collected within a workspace as "app instances."
+> Everything you do in the Braze platform happens within a workspace. Workspaces act as separate silos of data and let you keep different brands or activities separate. Multiple versions of your website or mobile app can send data to the same workspace. We refer to the different sites and apps that are collected within a workspace as "app instances."
 
 ## Understanding workspaces
 

@@ -9,7 +9,7 @@ description: "This article provides an overview of users and segments, outlining
 
 # Get started: Users and segments
 
-Understanding your users and effectively targeting them is crucial for sending personalized and targeted marketing campaigns. This article provides an overview of users and segments, outlining their significance and how they can be leveraged to engage your audience.
+> Understanding your users and effectively targeting them is crucial for sending personalized and targeted marketing campaigns. This article provides an overview of users and segments, outlining their significance and how you can leverage them to engage your audience.
 
 ## Users
 
