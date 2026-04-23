@@ -346,7 +346,7 @@ Event-property-specific rules:
 - **Time (Datetime):** Use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) or `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. Not supported within arrays.
 - **Array:** Datetimes are not supported within arrays.
 - **Nested object:** See [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
-- **Payload:** Event property objects that contain array or object values can be up to 100&nbsp;KB.
+- **Payload:** Event property objects that contain array or object values can be up to 102,400 bytes (100&nbsp;KiB).
 
 You can change the data type of your custom event property, but be aware of the impacts of [changing data types](#changing-custom-attribute-or-event-data-type) after data has been collected.
 

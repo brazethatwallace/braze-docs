@@ -3,16 +3,27 @@
 # Creates a deploy PR (develop → main) on a schedule. Approval and merge are
 # done manually on the PR to satisfy branch protection rules.
 #
+# Also triggers after the nightly sitemap update workflow completes (i.e., when
+# the sitemap PR is opened). This refreshes the deploy PR title and body for the
+# day. Note: sitemap lastmod changes land on develop only after that PR is merged.
+#
 name: Nightly Release Deploy
 
 on:
   schedule:
     - cron: '0 8 * * 1-5' # 12am PT / 3am ET, Sun-Thu nights (Mon-Fri UTC)
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Nightly sitemap last-modified update"]
+    types: [completed]
 
 jobs:
   create-pr:
     runs-on: ubuntu-latest
+    # Run on schedule/dispatch always; on workflow_run only if the sitemap job succeeded.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     # Opt into Node.js 24 for JS actions; avoids Node 20 deprecation failures
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

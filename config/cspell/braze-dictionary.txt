@@ -730,6 +730,7 @@ Spamhaus
 spamminess
 spammy
 Sparkpost
+Speedrunning
 Splio
 SPLITENTRY
 springsale
