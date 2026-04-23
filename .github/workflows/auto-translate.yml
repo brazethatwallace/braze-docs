@@ -1,8 +1,10 @@
 # Translates English docs into all supported languages using Claude.
 #
-# Triggers automatically when a deploy PR merges to main (nightly or manual),
-# detecting changed _docs/ and _includes/ markdown files.
-# Also supports manual runs via workflow_dispatch with explicit file paths.
+# Trigger: workflow_dispatch only (push-to-main trigger temporarily disabled
+# during catch-up; re-enable after cleanup — restore the `push` block below).
+#
+# When enabled, push runs after deploy merges to main for changed _docs/ and
+# _includes/ markdown files.
 #
 # Flow:
 #   1. Identify _docs/ and _includes/ markdown files changed in the push
@@ -14,9 +16,9 @@
 name: Auto-translate
 
 on:
-  push:
-    branches: [main]
-    paths: ['_docs/**', '_includes/**']
+  # push:
+  #   branches: [main]
+  #   paths: ['_docs/**', '_includes/**']
   workflow_dispatch:
     inputs:
       files:
