@@ -13,7 +13,7 @@ tool: Currents
 
 > [Mixpanel](https://mixpanel.com/) is a business analytics platform that allows you to export events from Mixpanel into other platforms to perform deeper analysis. The data collected can then be used to build custom reports and measure user engagement and retention.
 
-The Braze and Mixpanel integration allows you to [import Mixpanel Cohorts into Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) to create Braze segments that can be used to target users in future Braze campaigns or Canvases. You can also leverage Braze Currents to [export your Braze events to Mixpanel](#data-export-integration) to drive deeper analytics into conversions, retention, and product usage. 
+The Braze and Mixpanel integration allows you to [import Mixpanel Cohorts into Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) to create Braze segments that can target users in future Braze campaigns or Canvases. You can also use Braze Currents to [export your Braze events to Mixpanel](#data-export-integration) to drive deeper analytics into conversions, retention, and product usage.
 
 ## Prerequisites
 
@@ -37,7 +37,10 @@ In your Mixpanel dashboard, click into the **Project Settings** in either a new 
 
 ### Step 2: Create Braze Current
 
-In Braze, navigate to **Currents > **+ Create Current** > **Create Mixpanel Export**. Provide an integration name, contact email, Mixpanel API secret, and Mixpanel token in the listed fields. Next, select the events you want to track; a list of available events is provided. Lastly, click **Launch Current**.
+1. In Braze, go to **Currents** > **+ Create Current** > **Create Mixpanel Export**. 
+2. Provide an integration name, contact email, Mixpanel API secret, and Mixpanel token in the listed fields. 
+3. Select the events you want to track; a list of available events is provided.
+4. Select **Launch Current**.
 
 ![The Braze Mixpanel Currents page. This page includes fields for integration name, contact email, API secret, and mixpanel export token. The lower half of the Currents page lists available Currents events you can send.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
@@ -47,7 +50,7 @@ Check out Mixpanel's [integration docs](https://help.mixpanel.com/hc/en-us/artic
 
 ## Supported Currents events
 
-Braze supports exporting the following data listed in the Currents [user behavior]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/) and [message engagement]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) event glossaries to Mixpanel:
+Braze supports exporting the following data listed in the Currents [user behavior]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) and [message engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) event glossaries to Mixpanel:
 
 ### Behaviors
 - Custom event: `users.behaviors.CustomEvent`
@@ -124,3 +127,24 @@ Braze supports exporting the following data listed in the Currents [user behavio
   - `users.messages.whatsapp.Read`
   - `users.messages.whatsapp.Send`
   
+## Troubleshooting
+
+### Verify Mixpanel API key and Braze external ID
+
+Confirm that your Mixpanel API key and `braze_external_id` values match what you expect across Braze and Mixpanel. The cohort sync API shares user groups between products, and the sync won't behave correctly if the `external_id` in Braze and the identifier Mixpanel sends don't align. Cohort syncs from Mixpanel run on Mixpanel's schedule—for example, once or approximately every two hours—so allow time between checks.
+
+### Check implementation status
+
+Confirm that `braze_external_id` is implemented in Mixpanel.
+
+### Set the user property directly
+
+To reduce ambiguity, set `braze_external_id` directly in Mixpanel.
+
+### Automatic property setting (SDKs)
+
+The Mixpanel SDK can set `braze_external_id` automatically when the Braze SDK is integrated in the same application. If you implement both Mixpanel and Braze together, you typically don't need extra wiring beyond installing both SDKs.
+
+{% alert note %}
+`braze_external_id` is not set when `changeUser()` is called in Braze; it is set when Mixpanel initializes or starts a session (during the "init" or "start session").
+{% endalert %}

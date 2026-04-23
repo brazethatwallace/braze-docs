@@ -18,9 +18,13 @@ For more information about the SDK's session start semantics, see[Session Lifecy
 
 ### Rate limits
 
-By default, you can send an in-app message once every 30 seconds.
+By default, the SDK rate-limits triggered in-app messages to once every 30 seconds.
 
-To override this, add the following property to your Braze configuration&#8212;before the Braze instance is initialized. You can set it to any positive integer, which represents the minimum time interval in seconds. For example:
+For production apps, don't set this value lower than 10 seconds, so users aren't overwhelmed with back-to-back in-app messages. For testing and sample app flows, 5 seconds is a common setting.
+
+You can set this interval to `0` for testing. However, a `0`-second interval doesn't force multiple in-app messages to appear at the same time. If another modal or full in-app message is already visible, `braze.showInAppMessage` returns `false` and the new message won't display.
+
+To override this, add the following property to your Braze configuration&#8212;before the Braze instance is initialized. You can set it to any non-negative integer, which represents the minimum time interval in seconds. For example:
 
 ```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
