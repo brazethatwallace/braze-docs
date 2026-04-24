@@ -561,6 +561,7 @@ OTT
 ouibounce's
 oversaturating
 Pangle
+Pandoc
 parentheticals
 passback
 PassKit
