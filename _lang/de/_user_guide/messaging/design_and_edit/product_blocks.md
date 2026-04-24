@@ -22,7 +22,7 @@ Das Feature für Drag-and-Drop-Produkt-Blöcke befindet sich im Early Access und
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | Empfohlene E-Commerce-Events | [Empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_events/) bieten standardisierte Datenschemata für wichtige Verhaltens-Events, die vor und nach einer Bestellung auftreten. Diese Events werden langfristig das bisherige Braze-Kauf-Event ersetzen und zum Standard für das Tracking von Commerce-bezogenem Verhalten werden. <br><br> Empfohlene E-Commerce-Events sind für dynamische Produkt-Blöcke erforderlich.<br><br> Empfohlene E-Commerce-Events befinden sich derzeit im Early Access. Wenden Sie sich an Ihren Braze Customer-Success-Manager, wenn Sie am Early Access teilnehmen möchten. |
-| E-Commerce-Canvas-Templates | Die empfohlenen E-Commerce-Events unterstützen vorgefertigte Templates, einschließlich E-Commerce-Canvas-Templates für wesentliche Anwendungsfälle wie abgebrochenes Browsing, Warenkorb-Abbruch und Bestellbestätigungen. <br><br>Wenn Sie einen dieser wesentlichen E-Commerce-Anwendungsfälle mit den [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases) umsetzen möchten, müssen Sie das bereitgestellte Canvas-Template verwenden oder sich daran orientieren. |
+| E-Commerce-Canvas-Templates | Die empfohlenen E-Commerce-Events unterstützen vorgefertigte Templates, einschließlich E-Commerce-Canvas-Templates für wesentliche Anwendungsfälle wie abgebrochenes Browsing, Warenkorb-Abbruch und Bestellbestätigungen. <br><br>Wenn Sie einen dieser wesentlichen E-Commerce-Anwendungsfälle mit den [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases/) umsetzen möchten, müssen Sie das bereitgestellte Canvas-Template verwenden oder sich daran orientieren. |
 | Braze-Katalog | Sie müssen einen Braze-Katalog erstellen, der die folgenden Felder enthält, die Sie in Ihrer Produkt-Block-Konfiguration verwenden:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | Katalogauswahl | Für statische Produkt-Blöcke müssen Sie eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) erstellen, um festzulegen, welche Produkte in Ihrem Produkt-Block enthalten sein sollen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -59,12 +59,12 @@ Wählen Sie im Abschnitt **Product Fields** Ihren Produkt-Block-Typ aus und akti
 #### Statischer Produkt-Block
 
 | Produktfeld | Quelle |
-| --- | --- | --- |
+| --- | --- |
 | Variantenbild | Kataloge |
 | Produkttitel | Kataloge |
 | Button für Produkt-URL | Kataloge |
 | Preis | Kataloge |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![Produktfelder für einen statischen Produkt-Block, die alle als Katalogdaten kategorisiert sind.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 

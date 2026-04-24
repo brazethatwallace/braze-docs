@@ -59,12 +59,12 @@ Na seção **Product Fields**, selecione o tipo de bloco de produto e ative os c
 #### Bloco de produto estático
 
 | Campo de produto | Origem |
-| --- | --- | --- |
+| --- | --- |
 | Imagem da variante | Catálogos |
 | Título do produto | Catálogos |
 | Botão para URL do produto | Catálogos |
 | Preço | Catálogos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![Campos de produto para um bloco de produto estático, todos categorizados como dados do catálogo.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -127,7 +127,7 @@ Este guia vai orientar você nas etapas para criar, testar e garantir o funciona
 #### Bloco de produto dinâmico
 
 {% alert note %}
-Os blocos de produto dinâmicos exigem [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) e só podem ser usados dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases). Para usuários da Braze com Shopify, esses eventos são incluídos automaticamente como parte da integração. Para usuários que não usam Shopify, é necessário trabalhar com seus desenvolvedores para enviar esses eventos para a Braze e garantir que o identificador principal do produto dentro dos eventos seja adicionado como ID do item do catálogo.
+Os blocos de produto dinâmicos exigem [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) e só podem ser usados dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases/). Para usuários da Braze com Shopify, esses eventos são incluídos automaticamente como parte da integração. Para usuários que não usam Shopify, é necessário trabalhar com seus desenvolvedores para enviar esses eventos para a Braze e garantir que o identificador principal do produto dentro dos eventos seja adicionado como ID do item do catálogo.
 {% endalert %}
 
 Crie um novo Canvas que use um dos modelos disponíveis da Braze para o seu caso de uso específico:

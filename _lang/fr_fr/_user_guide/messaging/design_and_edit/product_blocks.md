@@ -59,12 +59,12 @@ Dans la section **Champs produit**, sélectionnez votre type de bloc produit, pu
 #### Bloc produit statique
 
 | Champ produit | Source |
-| --- | --- | --- |
+| --- | --- |
 | Image de la variante | Catalogues |
 | Titre du produit | Catalogues |
 | Bouton pour l'URL du produit | Catalogues |
 | Prix | Catalogues |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![Champs produit pour un bloc produit statique, tous catégorisés comme données de catalogue.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -127,7 +127,7 @@ Ce guide vous accompagne à travers les étapes de création, de test et de vér
 #### Bloc produit dynamique
 
 {% alert note %}
-Les blocs produit dynamiques nécessitent des [événements eCommerce recommandés]({{site.baseurl}}/ecommerce_events/) et ne peuvent être utilisés que dans des [Canvas]({{site.baseurl}}/ecommerce_use_cases). Pour les utilisateurs Braze Shopify, ces événements sont automatiquement inclus dans l'intégration. Pour les utilisateurs non-Shopify, vous devez travailler avec vos développeurs pour transmettre ces événements à Braze et vous assurer que l'identifiant produit principal au sein des événements est ajouté comme ID d'article du catalogue.
+Les blocs produit dynamiques nécessitent des [événements eCommerce recommandés]({{site.baseurl}}/ecommerce_events/) et ne peuvent être utilisés que dans des [Canvas]({{site.baseurl}}/ecommerce_use_cases/). Pour les utilisateurs Braze Shopify, ces événements sont automatiquement inclus dans l'intégration. Pour les utilisateurs non-Shopify, vous devez travailler avec vos développeurs pour transmettre ces événements à Braze et vous assurer que l'identifiant produit principal au sein des événements est ajouté comme ID d'article du catalogue.
 {% endalert %}
 
 Créez un nouveau Canvas qui utilise l'un des modèles Braze disponibles pour votre cas d'utilisation spécifique :

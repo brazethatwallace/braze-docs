@@ -59,12 +59,12 @@ En la sección **Campos de producto**, selecciona tu tipo de bloque de producto 
 #### Bloque de producto estático
 
 | Campo de producto | Fuente |
-| --- | --- | --- |
+| --- | --- |
 | Imagen de variante | Catálogos |
 | Título del producto | Catálogos |
 | Botón para URL del producto | Catálogos |
 | Precio | Catálogos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![Campos de producto para un bloque de producto estático, que están todos categorizados como datos de catálogo.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -127,7 +127,7 @@ Esta guía te llevará a través de los pasos para crear, probar y asegurar la f
 #### Bloque de producto dinámico
 
 {% alert note %}
-Los bloques de producto dinámicos requieren [eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_events/) y solo se pueden usar dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases). Para los usuarios de Braze con Shopify, estos eventos se incluyen automáticamente como parte de la integración. Para los usuarios que no usan Shopify, necesitas trabajar con tus desarrolladores para pasar estos eventos a Braze y asegurarte de que el identificador principal del producto dentro de los eventos se añada como el ID del artículo del catálogo.
+Los bloques de producto dinámicos requieren [eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_events/) y solo se pueden usar dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases/). Para los usuarios de Braze con Shopify, estos eventos se incluyen automáticamente como parte de la integración. Para los usuarios que no usan Shopify, necesitas trabajar con tus desarrolladores para pasar estos eventos a Braze y asegurarte de que el identificador principal del producto dentro de los eventos se añada como el ID del artículo del catálogo.
 {% endalert %}
 
 Crea un nuevo Canvas que use una de las plantillas de Braze disponibles para tu caso de uso específico:
