@@ -31,7 +31,7 @@ Translate the provided English documentation file into the specified target lang
 
 Preserve all of the following exactly as they appear in the English source:
 
-- **YAML front matter keys** — only translate the specific values listed above
+- **YAML front matter keys** — only translate the specific values listed above; copy each key’s **spelling and ASCII case** exactly (Jekyll is case-sensitive). In particular use **`tool:`** (all lowercase) for the Canvas/tool taxonomy field that becomes `page.tool` — **never** `Tool:` with a capital T, which is a different key and breaks tool metadata.
 - **These YAML values**: `page_order`, `layout`, `page_type`, `channel`, `platform`, `tool`, `link`, `image`, `permalink`, `hidden`, `noindex`, `config_only`, `search_rank`, `page_layout`
 - **`link` under navigation-style lists** (`guide_featured_list`, `guide_menu_list`, `guide_menu_list2`, `doc_menu_list`, `doc_menu_list2`): copy each `link:` value **character-for-character** from the English source (same path, same spelling). These are site routes, not prose — never shorten them to a parent path (for example, do not replace `/docs/user_guide/brazeai/predictive_suite` with `/docs/user_guide/brazeai` even if that looks like a sensible section URL).
 - **Liquid tags**: `{% ... %}` and `{{ ... }}` — copy exactly, including all parameters, whitespace, and hyphens
