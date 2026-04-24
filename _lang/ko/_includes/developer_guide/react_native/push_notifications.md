@@ -127,7 +127,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `badge_count`      | 숫자   | 알림의 배지 수를 나타냅니다. |
 | `timestamp`        | 숫자 | 애플리케이션이 페이로드를 수신한 시간을 나타냅니다. |
 | `is_silent`        | 부울   | `true`이면 페이로드가 무음으로 수신됩니다. Android 무음 푸시 알림 전송에 대한 자세한 내용은 [Android 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 참조하세요. iOS 무음 푸시 알림 전송에 대한 자세한 내용은 [iOS 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요. |
-| `is_braze_internal`| 부울   | 지오펜스 동기화, 기능 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
+| `is_braze_internal`| 부울   | 지오펜스 동기화, 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
 | `image_url`        | 문자열    | 알림 이미지와 연결된 URL을 지정합니다. |
 | `braze_properties` | 오브젝트    | 캠페인과 관련된 Braze 등록정보(키-값 페어)를 나타냅니다. |
 | `ios`              | 오브젝트    | iOS 전용 필드를 나타냅니다. |
@@ -138,7 +138,14 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 푸시 알림 클릭 시 Braze가 React 구성요소 내에서 딥링크를 처리할 수 있도록 하려면, 먼저 [React Native Linking](https://reactnative.dev/docs/linking) 라이브러리에 설명된 단계를 구현하거나 원하는 솔루션을 사용하세요. 그런 다음 아래의 추가 단계를 따르세요.
 
-딥링크에 대한 자세한 내용은 [FAQ 문서]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)를 참조하세요.
+딥링크에 대한 자세한 내용은 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요.
+
+{% alert important %}
+기존 React Native 푸시 통합을 마이그레이션하는 경우, Braze SDK, React Native, Expo 또는 관련 라이브러리를 업그레이드한 후 딥링킹을 다시 테스트하세요. 다음 사항을 확인하세요:
+- [React Native Linking](https://reactnative.dev/docs/linking)이 여전히 구성되어 있고 딥링크 URL을 처리하고 있는지 확인합니다.
+- iOS 초기 푸시 페이로드 처리([3.1단계](#step-3-1) 참조)가 구현되어 있고 앱 시작 시 여전히 호출되는지 확인합니다.
+- 푸시 클릭 이벤트를 처리하는 데 사용하는 네이티브 델리게이트 또는 리스너 메서드가 여전히 등록되어 있고 예상대로 호출되는지 확인합니다.
+{% endalert %}
 
 {% tabs local %}
 {% tab Android Native %}
@@ -187,7 +194,7 @@ iOS에서 푸시 알림의 딥링크를 처리하려면 네이티브 iOS 레이�
 {% endalert %}
 
 여기에는 커스텀 URL 스킴을 등록하고 `AppDelegate`에서 URL 핸들러를 구현하는 것이 포함됩니다. 전체 설정 지침은 네이티브 iOS 설명서의 [딥링크 처리]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c)를 참조하세요.
-#### 3.1단계: 앱 시작 시 푸시 알림 페이로드 저장
+#### 3.1단계: 앱 시작 시 푸시 알림 페이로드 저장 {#step-3-1}
 {% alert note %}
 Braze Expo 플러그인을 사용하는 경우 3.1단계를 건너뛰세요. 이 기능은 자동으로 처리됩니다.
 {% endalert %}
@@ -513,3 +520,14 @@ iOS 통합의 경우, 프로젝트 종속성과의 잠재적 충돌을 식별하
 기기 토큰이 Braze에 등록되지 않는 경우, 먼저 [푸시 알림이 작동하지 않음](#troubleshooting-stopped-working)을 검토하세요.
 
 문제가 지속되면 Braze 푸시 알림 구성을 방해하는 별도의 종속성이 있을 수 있습니다. 해당 종속성을 제거하거나 `Braze.registerPushToken`을 수동으로 호출해 보세요.
+
+#### 푸시 알림의 딥링크가 열리지 않음 {#troubleshooting-deep-links}
+
+마이그레이션 후 푸시 알림의 딥링크가 열리지 않는 경우, 다음 사항을 확인하세요:
+
+1. 업그레이드된 앱에서 [React Native Linking](https://reactnative.dev/docs/linking) 설정이 여전히 유효한지 확인합니다.
+2. iOS 네이티브 통합의 경우, `populateInitialPayloadFromLaunchOptions`와 `Braze.getInitialPushPayload`를 구현하여 앱이 종료된 상태에서 시작될 때 초기 푸시 페이로드를 가져와 `url`을 딥링크 핸들러에 전달할 수 있는지 확인합니다.
+3. Braze Expo 플러그인을 사용하는 경우, `androidHandlePushDeepLinksAutomatically`가 구현에 맞게 올바르게 설정되어 있는지 확인합니다.
+4. 최근에 추가된 종속성이 알림 처리 또는 앱 델리게이트 동작을 재정의하고 있는지 검토합니다.
+
+이러한 확인을 완료한 후에도 문제가 지속되면, [고객지원 티켓을 열고]({{site.baseurl}}/user_guide/administrative/access_braze/support/) SDK 로그와 재현 단계를 포함해 주세요.

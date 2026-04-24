@@ -82,8 +82,8 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `sms_no_sending_numbers` | Für diese Abo-Gruppe sind keine Absender-Telefonnummern verfügbar. |
 | `sms_fatal_provider_error` | Beim SMS-Anbieter ist ein schwerwiegender Fehler aufgetreten, der die Nachrichtenzustellung verhindert hat. |
 | `sms_gateway_domain_not_allowed` | Die SMS-Gateway-Domain befindet sich nicht auf der Zulassungsliste. |
-| `blocked_recipient_country` | Die Telefonnummer der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_geographic_permissions/) blockiert ist. |
-| `mms_not_supported` | MMS wird für diese Empfänger:in oder Absendernummer nicht unterstützt. |
+| `blocked_recipient_country` | Die Telefonnummer des/der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/) blockiert ist. |
+| `mms_not_supported` | MMS wird für diese/n Empfänger:in oder diese Absendernummer nicht unterstützt. |
 | `no_current_messaging_service` | Für diese Abo-Gruppe ist kein aktiver Messaging-Dienst konfiguriert. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -127,7 +127,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Content Cards
+### Content-Cards
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |

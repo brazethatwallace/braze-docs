@@ -3,7 +3,7 @@
 Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Kampagnen** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content-Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
 
 {% alert tip %}
-Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
+Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser 
   {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/) an.
   {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Bannern.
   {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content-Cards.
@@ -23,7 +23,7 @@ Standardmäßig zeigt **Kampagnen-Analytics** die letzten 90 Tage ab dem aktuell
 ### Kampagnendetails
 
 Das Panel **Kampagnendetails** zeigt einen Überblick über die gesamte Performance Ihrer
-  {% if include.channel == "banner" %}Banner.
+  {% if include.channel == "banner" %}Banner. 
   {% elsif include.channel == "Content Card" %}Content-Card.
   {% elsif include.channel == "email" %}E-Mail.
   {% elsif include.channel == "in-app message" %}In-App-Nachricht.
@@ -34,7 +34,7 @@ Das Panel **Kampagnendetails** zeigt einen Überblick über die gesamte Performa
   {% elsif include.channel == "webhook" %}Webhook.
   {% endif %}
 
-In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Konversion überprüfen.
+In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Conversion überprüfen.
 
 {% if include.channel == "whatsapp" %}
 {% alert note %}
@@ -71,6 +71,20 @@ In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen er
 ![Kampagnendetails-Panel mit einer Übersicht über die Metriken, die zur Bestimmung der Kampagnen-Performance verwendet werden.]({% image_buster /assets/img/campaign_details_webhook.png %})
 
 {% endif %}
+
+#### Geschätzte Zielgruppe und aktuelle Zielgruppe
+
+Je nach Größe Ihres Workspace kann das Panel **Kampagnendetails** die Zielgruppenstatistiken als **Geschätzte Zielgruppe** oder **Aktuelle Zielgruppe** bezeichnen.
+
+Die folgende Tabelle erklärt, wann welche Bezeichnung verwendet wird und was sie bedeutet.
+
+| Bezeichnung in der Fußzeile | Wann sie verwendet wird |
+| --- | --- |
+| **Geschätzte Zielgruppe** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
+| **Aktuelle Zielgruppe** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Weitere Informationen zum Stichprobenverhalten, zu **Exakte Statistiken berechnen** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -213,7 +227,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Gesendete Nachrichten</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
-                Die Berechnung hängt davon ab, was Sie für die
+                Die Berechnung hängt davon ab, was Sie für die 
                 <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">Kartenerstellung</a> ausgewählt haben:<br><br>
                 <ul>
                     <li><b>Beim Start oder beim Einstieg in den Schritt:</b> Die Anzahl der erstellten und verfügbaren Karten. Dabei wird nicht berücksichtigt, ob die Nutzer:innen die Karte angesehen haben.</li>
@@ -430,7 +444,7 @@ Ein Aufschub (Deferral) bedeutet, dass eine E-Mail nicht sofort zugestellt werde
 
 _Aufschübe_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
-Beachten Sie, dass _Aufschübe_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Query Builder, SQL-Segmente, Snowflake Data Sharing) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Beachten Sie, dass _Aufschübe_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
@@ -458,7 +472,7 @@ Nachdem eine E-Mail unsere Server verlassen hat, haben wir nur begrenzte Einblic
 2. Ein höheres positives Engagement korreliert in der Regel mit niedrigerer NHI. Daher ist es wichtig, die [Best Practices]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) für E-Mail-Messaging zu befolgen. Dazu gehört, die ausdrückliche Erlaubnis Ihrer Nutzer:innen für den E-Mail-Versand einzuholen und nicht engagierte Abonnent:innen regelmäßig per Sunsetting zu entfernen.
 3. Verwenden Sie wenn möglich HTTPS-Links in Ihren E-Mails. NHI ist bei Absendern, die sichere Links verwenden, weniger verbreitet.
 4. Wenn Sie einen Ein-Klick-Abmeldeprozess verwenden, sollten Sie die Einrichtung eines [Präferenzzentrums]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) in Betracht ziehen, das die Nutzer:innen zu einer Seite weiterleitet, auf der sie ihre Benachrichtigungseinstellungen bearbeiten und verwalten können. Dies kann hilfreich sein, da NHI Nutzer:innen versehentlich abmelden kann.
-5. Ziehen Sie [andere Metriken]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#email-performance) in Betracht, um den Erfolg Ihres E-Mail-Marketings zu messen, z. B. Konversionen, App-Sitzungen oder Website-Besuche.
+5. Ziehen Sie [andere Metriken]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#email-performance) in Betracht, um den Erfolg Ihres E-Mail-Marketings zu messen, z. B. Conversions, App-Sitzungen oder Website-Besuche.
 6. Fügen Sie einen versteckten Link in Ihre E-Mail-Kampagnen ein. Dieser Link sollte für Menschen nicht sichtbar sein, z. B. weißer Text auf weißem Hintergrund oder ein Interpunktionszeichen. Bots neigen dazu, alle Links anzuklicken. Daher können Sie davon ausgehen, dass Nutzer:innen, die Klick-Events auf dem unsichtbaren Link generieren, tatsächlich das Ergebnis von NHI sind – die Öffnung oder der Klick deutet also nicht unbedingt auf positives Engagement hin.
 
 {% elsif include.channel == "in-app message" %}
@@ -508,11 +522,11 @@ Die Berichterstattung für _Button-1-Klicks_ und _Button-2-Klicks_ funktioniert 
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Impressions' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#conversions-b-c-d">Konversionen (B, C, D)</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#conversions-b-c-d">Conversions (B, C, D)</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Conversions (B, C, D)' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-conversions">Konversionen gesamt</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-conversions">Conversions gesamt</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Conversions' %}</td>
         </tr>
         <tr>
@@ -525,6 +539,12 @@ Die Berichterstattung für _Button-1-Klicks_ und _Button-2-Klicks_ funktioniert 
         </tr>
     </tbody>
 </table>
+
+#### Abweichungen zwischen Kontrollgruppen und Varianten
+
+Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht.
+
+Die Verteilung zwischen Kontroll- und Variantengruppen ist grundsätzlich annähernd gleichmäßig, aber die Zuweisung zu einer Variante erfolgt erst, wenn die In-App-Nachricht tatsächlich an das Gerät gesendet wird. Einige Nutzer:innen lösen die In-App-Nachricht möglicherweise nie aus (z. B. weil sie die Aktion, die das erforderliche angepasste Event triggert, nie ausführen), was zu Unterschieden in den Gruppengrößen führen kann.
 
 {% elsif include.channel == "KakaoTalk" %}
 
@@ -774,7 +794,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     </tbody>
 </table>
 
-#### Metriken zu Endnutzer-Sperrung und -Meldung
+#### Metriken zu Endnutzer:innen-Sperrung und -Meldung
 
 Über das [Dashboard des WhatsApp Managers](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx) können Sie auf weitere Metriken zugreifen. Allerdings ist eine [Bestätigung Ihres Zugriffs](https://www.facebook.com/business/help/218116047387456) erforderlich, um alle verfügbaren Insights einzusehen.
 
@@ -782,7 +802,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 ### Historische Performance
 
-Im Panel **Historische Performance** können Sie die Metriken aus dem Panel **Nachrichtenleistung** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
+Im Panel **Historische Performance** können Sie die Metriken aus dem Panel **Nachrichten-Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
 Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das Hamburger-Menü <i class="fas fa-bars"></i> und wählen Sie **CSV herunterladen**, um einen CSV-Export des Berichts zu erhalten.
 
@@ -834,7 +854,7 @@ Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/re
 
 ### Meta-Analytics
 
-Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf Analytics auf Vorlagenebene zugreifen. Weitere Informationen finden Sie in der [Dokumentation von Meta](https://www.facebook.com/business/help/218116047387456).
+Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf Analytics auf Template-Ebene zugreifen. Weitere Informationen finden Sie in der [Dokumentation von Meta](https://www.facebook.com/business/help/218116047387456).
 
 {% endif %}
 
@@ -858,7 +878,7 @@ Bindungsberichte zeigen Ihnen die Raten, mit denen Ihre Nutzer:innen ein ausgew�
 
 ## Funnel-Bericht
 
-Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Wege Ihrer Kund:innen nach dem Erhalt einer Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} analysieren können. Wenn Ihre Kampagne {% if include.channel != "banner" %}oder Canvas {% endif %}eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie nachvollziehen, wie sich die verschiedenen Varianten auf den Konversionstrichter ausgewirkt haben, und auf Grundlage dieser Daten optimieren.
+Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys Ihrer Kund:innen nach dem Erhalt einer Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} analysieren können. Wenn Ihre Kampagne {% if include.channel != "banner" %}oder Canvas {% endif %}eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie nachvollziehen, wie sich die verschiedenen Varianten auf den Konversionstrichter ausgewirkt haben, und auf Grundlage dieser Daten optimieren.
 
 Weitere Informationen finden Sie unter [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports/).
 

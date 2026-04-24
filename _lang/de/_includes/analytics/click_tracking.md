@@ -26,11 +26,11 @@ Ja. Es können sowohl statische als auch dynamische Parameter hinzugefügt werde
 
 ### Wie lange bleiben verkürzte URLs gültig?
 
-Personalisierte URLs sind ab dem Zeitpunkt der URL-Registrierung zwei Monate lang gültig. Bei der [einheitlichen Linkverkürzung]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/?sdktab=unified), die keine Unterscheidung zwischen statisch und personalisiert vornimmt, sind alle Links neun Wochen lang gültig.
+Personalisierte URLs sind ab dem Zeitpunkt der URL-Registrierung zwei Monate lang gültig. Bei der [einheitlichen Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified), die keine Unterscheidung zwischen statisch und personalisiert vornimmt, sind alle Links neun Wochen lang gültig.
 
 ### Muss das Braze SDK installiert sein, um Links zu kürzen?
 
-Nein. Die Linkverkürzung funktioniert ohne SDK-Integration.
+Nein. Die Linkverkürzung funktioniert ohne jegliche SDK-Integration.
 
 {% endif %}
 
@@ -38,6 +38,6 @@ Nein. Die Linkverkürzung funktioniert ohne SDK-Integration.
 
 ## Angepasste Domains
 
-Die Linkverkürzung ermöglicht es Ihnen auch, Ihre eigene Domain zu verwenden, um das Erscheinungsbild Ihrer verkürzten URLs zu personalisieren und so ein konsistentes Markenimage zu vermitteln. Weitere Informationen finden Sie unter [Angepasste Domains]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/).
+Die Linkverkürzung ermöglicht es Ihnen auch, Ihre eigene Domain zu verwenden, um das Erscheinungsbild Ihrer verkürzten URLs zu personalisieren und so ein konsistentes Markenimage zu vermitteln. Weitere Informationen finden Sie unter [Self-Service-Domains (angepasst)]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
 
 {% endif %}

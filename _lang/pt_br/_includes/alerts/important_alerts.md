@@ -45,7 +45,7 @@ Lembre-se de que, embora esses e-mails possam não ser entregues ao gateway de S
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Para maior segurança, recomendamos adicionar nosso recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/authentication/) para evitar a simulação de usuários.
+Para maior segurança, recomendamos adicionar nosso recurso de [Autenticação do SDK]({{site.baseurl}}/developer_guide/authentication/) para evitar a simulação de usuários.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Existem certos navegadores, como os apps Naver para Android e iOS, que não ofer
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-Os planos para descontinuar o evento de compra serão anunciados em 2026. O evento de compra será eventualmente substituído por novos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), que virão com recursos aprimorados para segmentação, relatórios, análise de dados e mais. No entanto, os novos eventos de eCommerce não oferecerão suporte a recursos existentes relacionados ao evento de compra, como valor do tempo de vida (LTV) ou relatórios de receita em canvas ou campanhas. Para uma lista completa de recursos relacionados a eventos de compra, consulte [Registro de eventos de compra]({{site.baseurl}}/user_guide/data/activation/custom_data/purchase_events/#logging-purchase-events).
+O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ Os planos para descontinuar o evento de compra serão anunciados em 2026. O even
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-Os planos para descontinuar o evento de compra serão anunciados em 2026. O evento de compra será eventualmente substituído por novos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), que virão com recursos aprimorados para segmentação, relatórios, análise de dados e mais. Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra. Para uma lista completa de eventos de compra, consulte [Registro de eventos de compra]({{site.baseurl}}/user_guide/data/custom_data/purchase_events/#logging-purchase-events).
+O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ A integração do Shopify oferece suporte a webhooks de criação e atualizaçã
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, veja [Contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object).
+As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object).
 {% endalert %}
 
 {% endif %}
@@ -101,7 +101,7 @@ As propriedades de entrada do Canvas fazem parte das variáveis de contexto do C
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este parceiro aparece na sua página **Parceiros de Tecnologia** apenas se você tiver os [Agentes Braze]({{site.baseurl}}/user_guide/brazeai/agents/) ativados. Para ajuda para começar, entre em contato com seu gerente de sucesso do cliente.
+Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você tiver os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) ativados. Para ajuda para começar, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
 {% endif %}
@@ -129,12 +129,52 @@ As permissões granulares estão em acesso antecipado. Quando a migração for p
 
 {% endif %}
 
+{% if include.alert == 'WhatsApp audio and documents' %}
+
+{% alert note %}
+A [Biblioteca de mídia da Braze]({{site.baseurl}}/media_library/) oferece suporte apenas a imagens e vídeos. Arquivos de áudio e documentos devem ser referenciados por meio de uma URL hospedada.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Meta MP4 video issue' %}
+
+{% alert important %}
+A Meta tem um problema conhecido que pode impedir a reprodução de alguns vídeos MP4 em dispositivos Android devido a configurações específicas de codificação ou contêiner. Até que uma correção permanente esteja disponível, reformatar o arquivo MP4 resolve o problema para a maioria dos remetentes. Teste todos os vídeos em dispositivos Android para confirmar a entregabilidade correta. <br><br>Você pode reformatar o arquivo MP4 usando uma ferramenta online, como o [CloudConvert](https://cloudconvert.com/mp4-converter). Faça upload do seu arquivo MP4 na ferramenta, converta-o para MP4 novamente e depois baixe o arquivo convertido.
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == 'Shopify cart token alias' %}
 
 {% alert important %}
 Para esta integração, o alias de usuário deve usar o seguinte formato para que a Braze possa associar os webhooks ao perfil de usuário correto:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'multi-language ea' %}
+
+{% alert important %}
+Mensagens multilíngues e traduções por localidade estão atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'network dependency' %}
+
+{% alert important %}
+Cartões de conteúdo, mensagens no app, Banners e Feature Flags dependem da conectividade do dispositivo para sincronizar com os servidores da Braze. Como as condições de rede podem variar, existe a possibilidade de que o conteúdo ou as atualizações não sejam sincronizados, exibidos ou removidos imediatamente (por exemplo, se o usuário estiver offline). Recomendamos evitar esses canais para atualizações críticas e urgentes.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'dynamic image URL' %}
+
+{% alert important %}
+Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
 {% endalert %}
 
 {% endif %}

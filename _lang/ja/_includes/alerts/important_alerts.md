@@ -45,7 +45,7 @@
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-さらにセキュリティを高めるために、ユーザーのなりすましを防ぐ [SDK 認証]({{site.baseurl}}/developer_guide/authentication/)機能を追加することをお勧めします。
+さらにセキュリティを高めるために、ユーザーのなりすましを防ぐ [SDK認証]({{site.baseurl}}/developer_guide/authentication/)機能を追加することをお勧めします。
 {% endalert %}
 
 {% endif %}
@@ -53,7 +53,7 @@
 {% if include.alert == 'Preference Center warning' %}
 
 {% alert important %}
-Naver の Android アプリや iOS アプリなど、Braze のユーザー設定センターをサポートしていないブラウザがあります。一部のユーザーがこれらのブラウザを使用することが予想される場合は、メールの環境設定を管理するための代替方法を提供することを検討してください。
+Naver の Android アプリや iOS アプリなど、Braze のユーザー設定センターをサポートしていないブラウザがあります。一部のユーザーがこれらのブラウザを使用することが予想される場合は、メール設定を管理するための代替方法を提供することを検討してください。
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Naver の Android アプリや iOS アプリなど、Braze のユーザー設定
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-購入イベントを段階的に廃止する計画は2026年に発表されます。購入イベントは最終的に新しい [e コマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)に置き換えられます。これにはセグメンテーション、レポート作成、分析などの機能強化が含まれます。ただし、新しい e コマースイベントでは、購入イベントに関連する既存の機能（キャンバスやキャンペーンでの生涯価値 (LTV) や収益のレポートなど）はサポートされません。購入イベントに関連する機能の完全な一覧については、[購入イベントのログ記録]({{site.baseurl}}/user_guide/data/activation/custom_data/purchase_events/#logging-purchase-events)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[e コマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)が優先されるため、購入イベントの上に新しい機能が構築されることはありません。現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ Naver の Android アプリや iOS アプリなど、Braze のユーザー設定
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-購入イベントを段階的に廃止する計画は2026年に発表されます。購入イベントは最終的に新しい [e コマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)に置き換えられます。これにはセグメンテーション、レポート作成、分析などの機能強化が含まれます。この置き換えが行われると、Segment フィルターでは購入動作でデータが入力されなくなります。購入イベントの完全なリストについては、[購入イベントの記録]({{site.baseurl}}/user_guide/data/custom_data/purchase_events/#logging-purchase-events)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[e コマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、セグメントフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Shopify 連携は、Shopify の顧客作成と顧客更新の Webhook をサポ�
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-キャンバスのエントリプロパティは、キャンバスコンテキスト変数の一部です。つまり、`canvas_entry_properties` は `context` として参照されます。各 `context` 変数には、名前、データタイプ、および Liquid を含めることができる値が含まれます。現在、`canvas_entry_properties` は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works)と[キャンバスコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)を参照してください。
+キャンバスのエントリプロパティは、キャンバスコンテキスト変数の一部です。つまり、`canvas_entry_properties` は `context` として参照されます。各 `context` 変数には、名前、データタイプ、および Liquid を含めることができる値が含まれます。現在、`canvas_entry_properties` は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works)と[キャンバスコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -124,7 +124,23 @@ Shopify 連携は、Shopify の顧客作成と顧客更新の Webhook をサポ�
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-詳細な権限設定は早期アクセス中です。自社の移行が計画された場合、Braze の管理者はメールとダッシュボード上のバナーで[詳細な権限の移行]({{site.baseurl}}/granular_permissions_migration/)に関する通知を受け取ります。
+詳細な権限設定は早期アクセス中です。会社の移行が計画された場合、Braze の管理者はメールとダッシュボード上のバナーで[詳細な権限の移行]({{site.baseurl}}/granular_permissions_migration/)に関する通知を受け取ります。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'WhatsApp audio and documents' %}
+
+{% alert note %}
+[Braze メディアライブラリ]({{site.baseurl}}/media_library/)は画像と動画のみをサポートしています。オーディオファイルと文書は、ホストされた URL を通じて参照する必要があります。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Meta MP4 video issue' %}
+
+{% alert important %}
+Meta には、特定のエンコーディングやコンテナ設定が原因で、一部の MP4 動画が Android デバイスで再生できなくなる既知の問題があります。恒久的な修正が利用可能になるまで、MP4 ファイルを再フォーマットすることで、ほとんどの送信者の問題が解決します。すべての動画を Android デバイスでテストして、正しく配信されることを確認してください。<br><br>MP4 ファイルを再フォーマットするには、[CloudConvert](https://cloudconvert.com/mp4-converter) などの Web ツールを使用します。MP4 ファイルをツールにアップロードし、再度 MP4 に変換してから、変換されたファイルをダウンロードしてください。
 {% endalert %}
 
 {% endif %}
@@ -135,6 +151,30 @@ Shopify 連携は、Shopify の顧客作成と顧客更新の Webhook をサポ�
 この連携では、Braze が Webhook を正しいユーザープロファイルに一致させるために、ユーザーエイリアスは以下の形式を使用する必要があります。<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'multi-language ea' %}
+
+{% alert important %}
+多言語メッセージとロケール翻訳は現在早期アクセス中です。この早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'network dependency' %}
+
+{% alert important %}
+コンテンツカード、アプリ内メッセージ、バナー、およびフィーチャーフラグは、Braze サーバーとの同期にデバイスの接続性に依存しています。ネットワーク状況は変動する可能性があるため、コンテンツや更新がすぐに同期、表示、またはクリアされない場合があります（例えば、ユーザーがオフラインの場合）。重要な時間的制約のある更新には、これらのチャネルの使用を避けることをお勧めします。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'dynamic image URL' %}
+
+{% alert important %}
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)や [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) で画像を取得する場合は、画像 URL が `https://` で始まることを確認してください。`http://` を使用すると、アプリがクラッシュします。
 {% endalert %}
 
 {% endif %}

@@ -8,6 +8,8 @@ jobs:
   add-reviewers:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
+      issues: write
       pull-requests: write
     steps:
       - name: Check assignees and PR diff
