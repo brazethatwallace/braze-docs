@@ -1,0 +1,183 @@
+---
+nav_title: Editar Canvas después del lanzamiento
+article_title: Editar Canvas después del lanzamiento
+page_order: 0
+description: "Este artículo de referencia cubre los diferentes aspectos de un Canvas que se pueden cambiar después del lanzamiento inicial."
+alias: "/post-launch_edits/"
+page_type: reference
+tool:
+  - Canvas
+
+---
+
+# Editar Canvas después del lanzamiento
+
+> Este artículo de referencia cubre lo que se puede cambiar en un Canvas después del lanzamiento inicial.
+
+Puedes editar tus Canvas después del lanzamiento de las siguientes maneras:
+
+* Insertando nuevos pasos en Canvas en el recorrido del usuario
+* Añadiendo nuevas variantes y conexiones
+* Ajustando la distribución de variantes
+* Deteniendo o reanudando todos los pasos en Canvas
+
+{% alert note %}
+La distribución de la variante de control solo puede disminuirse después del lanzamiento.
+{% endalert %}
+
+Puedes eliminar cualquiera de los siguientes elementos en tu recorrido del usuario:
+
+- [Pasos en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/)
+- Variantes en Canvas
+- Conexiones entre pasos en Canvas
+
+Si deseas editar o añadir más pasos al recorrido del usuario en tu Canvas, se aplican los siguientes detalles:
+
+- Los usuarios que aún no han entrado en el Canvas son elegibles para cualquier paso recién creado.
+- Si la configuración de entrada de tu Canvas permite a los usuarios volver a entrar en los pasos, los usuarios que ya han pasado por los pasos recién creados son elegibles para volver a entrar.
+- Los usuarios que actualmente están en un Canvas lanzado, pero no han alcanzado los puntos del recorrido del usuario donde se añadieron nuevos pasos, son elegibles para recibir esos pasos recién añadidos.
+
+Si eliminas un paso de [Retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) o de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/), puedes opcionalmente redirigir a los usuarios que actualmente están esperando en el paso hacia otro paso en Canvas. Para los retrasos, los usuarios permanecen en el paso hasta el final del período de retraso. Para las rutas de acción, los usuarios permanecen en el paso hasta el final de la ventana de evaluación.
+
+Ten en cuenta que cuando lanzas un Canvas inicialmente, Braze pone en cola a los usuarios para el paso de mensaje en el que se encuentran, no todos los mensajes posteriores en el Canvas. Si realizas una edición en el Canvas después del lanzamiento, es posible que algunos usuarios ya estén en cola y no reciban los cambios. Si detienes el Canvas, lo duplicas, luego lo cambias y lanzas esta nueva versión, el Canvas vuelve a evaluar a todos los usuarios de nuevo, no solo a los usuarios que aún no han sido puestos en cola.
+
+Consulta la sección de [Mejores prácticas](#best-practices) para casos de uso específicos de edición. En general, es una buena práctica evitar editar Canvas en vivo, ya que puede haber comportamientos inesperados.
+
+{% details Expandir para ver detalles del editor de Canvas original %}
+
+Ten en cuenta las siguientes ediciones permitidas después del lanzamiento de Canvas, dependiendo del flujo de trabajo con el que se creó tu Canvas. Si tu Canvas utiliza el flujo de trabajo original de Canvas, necesitarás clonarlo a Canvas Flow primero para realizar ediciones después del lanzamiento.
+
+No puedes editar ni eliminar conexiones existentes, y no puedes insertar un paso entre pasos ya conectados. Si deseas editar o añadir más pasos al recorrido del usuario en tu Canvas, se aplican los siguientes detalles:
+
+- Los usuarios que aún no han entrado en el Canvas son elegibles para cualquier paso recién creado.
+- Si la configuración de entrada de tu Canvas permite a los usuarios volver a entrar en los pasos, los usuarios que ya han pasado por los pasos recién creados son elegibles para volver a entrar.
+- Los usuarios que actualmente están en un Canvas lanzado, pero no han alcanzado los pasos recién añadidos en el recorrido del usuario, son elegibles para recibir esos pasos recién añadidos.
+- Si un paso de retraso es el último paso en el Canvas, los usuarios que llegan a ese paso avanzan automáticamente fuera del Canvas y no recibirán ningún paso recién creado.
+
+{% alert important %}
+Si actualizas la configuración de **Retraso** o **Ventana** para un paso en Canvas, los usuarios que actualmente están en ese paso en el momento de la actualización se rigen por el tiempo de retraso que se les asignó cuando entraron originalmente. Solo los nuevos usuarios que entran en el Canvas y aquellos que aún no han sido puestos en cola para ese paso reciben el mensaje en el tiempo actualizado.
+{% endalert %}
+
+Detener un Canvas no hace salir a los usuarios que están esperando recibir un mensaje. Si vuelves a habilitar el Canvas y los usuarios aún están esperando el mensaje, lo reciben (a menos que el momento en que debería haberse enviado el mensaje ya haya pasado, en cuyo caso no lo reciben).
+
+{% enddetails %}
+
+## Detalles de Canvas
+
+Puedes editar la siguiente configuración y detalles después de lanzar un Canvas:
+
+* Nombre y descripción del Canvas
+* Equipos y etiquetas
+* Tipo de entrada, horario y controles
+* Estado de suscripción
+* Límite de velocidad
+* Limitación de frecuencia
+* Horas tranquilas
+* Audiencia objetivo
+
+Después de que un Canvas ha sido lanzado:
+
+- Los eventos de conversión no se pueden editar.
+- Los siguientes pasos no se pueden añadir ni eliminar, y no se pueden reordenar para ajustar la clasificación: [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/), [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) y [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/).
+  - **Solución alternativa 1:** Crea una nueva ruta de audiencia, ruta de acción o ruta de experimentos y reconfigura las rutas hacia ese nuevo paso.
+  - **Solución alternativa 2:** Duplica el Canvas para hacer tus ediciones.
+
+### Pasos individuales
+
+Para pasos individuales en Canvas, puedes editar los siguientes detalles después del lanzamiento:
+
+* Nombre
+* Contenido del mensaje
+* Desencadenantes
+* Audiencia
+* Eventos de excepción
+* Retrasos (solo para pasos de retraso)
+
+Sin embargo, el tipo de planificación del paso y los porcentajes de control no son editables después del lanzamiento. Para los pasos de rutas de acción y rutas de audiencia, las clasificaciones y las ventanas de evaluación no son editables después del lanzamiento.
+
+### Porcentajes de variantes en Canvas
+
+Después de lanzar un Canvas, solo puedes disminuir los porcentajes de la variante de control. Si se modifica un porcentaje de variante en Canvas, encontrarás que tus usuarios pueden ser redistribuidos a otras variantes.
+
+Inicialmente, estos usuarios se asignan aleatoriamente a una variante particular antes de recibir una campaña por primera vez. A partir de entonces, cada vez sucesiva que se recibe la campaña (o el usuario vuelve a entrar en una variante en Canvas), reciben la misma variante a menos que se modifiquen los porcentajes de variante.
+
+Si los porcentajes de variante cambian, los usuarios pueden ser redistribuidos a otras variantes. Los usuarios permanecen en estas variantes hasta que los porcentajes se modifiquen de nuevo. Ten en cuenta que para Canvas que utilizan ramificación con filtros `NOT` con números de contenedor aleatorio, es posible que los usuarios no reciban la misma rama cada vez en su recorrido del usuario cuando vuelven a entrar en el Canvas.
+
+#### Grupos de control
+
+Los grupos de control permanecen consistentes si el porcentaje de variante no cambia. Si el porcentaje de un grupo de control se disminuye o aumenta, los usuarios que previamente recibieron mensajes no podrían entrar en el grupo de control en un envío posterior, ni ningún usuario en el grupo de control recibiría jamás un mensaje.
+
+### Hora de envío local
+
+Los Canvas programados para lanzarse a una hora de envío local pueden editarse hasta 24 horas antes de la hora de envío programada. Esta ventana se llama la "zona segura".
+
+{% alert tip %}
+Si tienes la intención de hacer ediciones más grandes que lleven a crear una copia completamente nueva del Canvas, recuerda excluir a los usuarios que recibieron el primer Canvas y reajustar los horarios de planificación del Canvas para permitir el envío por zona horaria.
+{% endalert %}
+
+Cuando un horario de entrada está configurado para que los usuarios entren inmediatamente al lanzar, el Canvas se lanza a la hora más cercana en incrementos de 5 minutos. Por ejemplo, si actualizas un Canvas para que los usuarios entren inmediatamente a las 8:31 am PST, la hora de lanzamiento se establece a las 8:30 am PST y en la zona horaria de la empresa.
+
+### Eliminar variantes
+
+Cuando se eliminan variantes de un Canvas, ocurre lo siguiente:
+
+- Los pasos dentro de la variante (incluidos los compartidos por otras variantes) se eliminan.
+- Los análisis del paso y los análisis de nivel superior del Canvas, como *Entradas totales*, *Salidas totales* y *Tasa de conversión*, se eliminan.
+- Los usuarios en variantes eliminadas salen de los pasos, y cualquier mensaje posterior no se envía.
+
+### Propiedades de entrada de Canvas
+
+Las propiedades de entrada de Canvas no se aplican como plantilla en los pasos cuando se envían. Esto significa que cuando las propiedades de entrada de Canvas se editan después de que un Canvas ha sido lanzado, estos cambios solo se aplican a los nuevos usuarios que entran en el Canvas. Si tu Canvas permite a los usuarios volver a entrar en el Canvas, cualquier usuario que vuelva a entrar se determina por las propiedades de entrada de Canvas actualizadas.
+
+## Mejores prácticas
+
+Consulta estas mejores prácticas a tener en cuenta al editar o añadir elementos a tu Canvas después de que ha sido lanzado.
+
+{% alert important %}
+En general, evita hacer cambios mientras el Canvas está activo y poniendo usuarios en cola.
+{% endalert %}
+
+### Pasos desconectados
+
+Puedes lanzar tu Canvas con pasos desconectados y también guardar estos Canvas después del lanzamiento. Antes de desconectar un paso de tu flujo de trabajo, te recomendamos verificar la vista de análisis de los pasos para usuarios pendientes.
+
+Supongamos que un usuario está en un paso desconectado de tu flujo de trabajo de Canvas. Este usuario avanza al paso posterior si hay uno. La configuración del paso determina cómo debe avanzar el usuario.
+
+Al crear o editar pasos desconectados, puedes hacer cambios en estos pasos independientes sin tener que conectarlos directamente al resto de tu Canvas. Esto ayuda a probar tus pasos antes de lanzar tu Canvas de nuevo.
+
+### Paso de ruta de experimentos
+
+Si tu Canvas tiene un experimento de ruta ganadora o ruta personalizada activo o en progreso y actualizas el Canvas activo (independientemente de si actualizas el paso de ruta de experimentos en sí), el experimento en progreso finaliza y el paso de recorridos de experimentos no determina una ruta ganadora ni rutas personalizadas. Para reiniciar el experimento, puedes desconectar la ruta de experimentos existente y lanzar una nueva, o duplicar el Canvas y lanzar un nuevo Canvas. De lo contrario, los usuarios fluyen a través de la ruta de experimentos como si no se hubiera seleccionado ningún método de optimización.
+
+### Retrasos de tiempo
+
+Editar Canvas con retrasos de tiempo puede ser un poco complicado, así que ten en cuenta los siguientes detalles mientras realizas ediciones en tus Canvas:
+
+- Si actualizas el retraso en un paso de retraso, solo los nuevos usuarios que entran en el Canvas y los usuarios que no han sido puestos en cola para ese paso reciben el mensaje con el retraso de tiempo actualizado.
+- Si eliminas un paso con un retraso de tiempo (como retraso o rutas de acción) y decides redirigir a esos usuarios a otro paso en Canvas, los usuarios solo son redirigidos después de que el retraso de tiempo del paso se haya completado. Por ejemplo, supongamos que eliminas un paso de retraso con un retraso de un día y rediriges a esos usuarios a un paso de mensaje. En este caso, los usuarios solo son redirigidos después de que el retraso de un día se haya completado.
+- Si tu Canvas tiene uno o más pasos de recorridos de experimentos, eliminar pasos podría invalidar los resultados de este paso.
+
+### Detener Canvas
+
+Detener un Canvas no hace salir a los usuarios que están esperando en un paso. Si vuelves a habilitar el Canvas y los usuarios aún están esperando, completan el paso y avanzan al siguiente paso. Sin embargo, si el momento en que el usuario debería haber avanzado al siguiente paso ya ha pasado, en su lugar sale del Canvas.
+
+Por ejemplo, supongamos que tienes un Canvas creado usando el flujo de trabajo de Canvas Flow configurado para lanzarse a las 2 pm con una variante con dos pasos: un paso de retraso con un retraso de una hora que lleva a un paso de mensaje.
+
+Un usuario entra en este Canvas a las 2:01 pm y entra en el paso de retraso al mismo tiempo. Esto significa que el usuario está programado para avanzar al siguiente paso del recorrido del usuario (el paso de mensaje) a las 3:01 pm. Si detienes el Canvas a las 2:30 pm y vuelves a habilitar el Canvas a las 3:30 pm, el usuario sale del Canvas ya que es después de las 3:01 pm. Sin embargo, si vuelves a habilitar el Canvas a las 2:40 pm, el usuario avanza al paso de mensaje como se esperaba a las 3:01 pm.
+
+## Cosas que debes saber
+
+Los siguientes problemas comunes pueden desencadenarse al editar o añadir más componentes a cualquier otro componente en un Canvas después del lanzamiento.
+
+{% alert important %}
+Los siguientes problemas son evitables. Si necesitas hacer ediciones a un Canvas después de que ha sido lanzado, te recomendamos primero confirmar que todos los usuarios que ya han entrado en el Canvas hayan completado su recorrido del usuario. Además, sugerimos que no elimines pasos que ya hayan sido procesados por al menos un usuario.
+{% endalert %}
+
+- Datos de informes faltantes (cuando las variantes de mensaje se eliminan y se vuelven a añadir)
+- Los usuarios no siguen la ruta esperada
+- Los mensajes se envían en momentos inesperados
+- Las ediciones no sobrescriben los datos de Currents, por lo que puedes notar discrepancias entre los pasos en Canvas (como `canvas_step_ids` que no existen en el Canvas debido a la eliminación)
+- Los usuarios pueden recibir el mismo mensaje dos veces
+- Los usuarios no recibirán mensajes debido al límite de velocidad existente
+  - Cuando actualizas el límite de velocidad en un Canvas activo, el nuevo límite de velocidad entra en vigor para todos los envíos de mensajes futuros, incluidos los usuarios que ya están en el Canvas. Sin embargo, debido al almacenamiento en caché interno (hasta 30 segundos), puede haber un breve retraso antes de que el nuevo límite de velocidad se aplique completamente. Ten en cuenta que Braze pone en cola a los usuarios para el paso de mensaje en el que se encuentran actualmente, por lo que el límite de velocidad vigente cuando el mensaje de cada paso se envía realmente es el que se aplica.
+- Cuando un Canvas se [detiene automáticamente]({{site.baseurl}}/user_guide/messaging/governance/statuses/#available-statuses), los borradores posteriores al lanzamiento del Canvas también se eliminan.

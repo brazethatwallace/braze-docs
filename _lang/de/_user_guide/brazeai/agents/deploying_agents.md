@@ -110,7 +110,7 @@ Sie können auch Fehler bezüglich des täglichen Aufruflimits im [Nachrichten-A
 
 ![Protokolle für einen Agenten „AI Sentiment Score".]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Wählen Sie **Ansicht** für einen bestimmten Agentenaufruf, um die Eingabe, Ausgabe und Nutzer-ID anzuzeigen.
+Wählen Sie **Ansicht** für einen bestimmten Agentenaufruf aus, um die Eingabe, Ausgabe und Nutzer-ID anzuzeigen.
 
 ![Das Detail-Panel für einen Agenten „Random Sports Assignment", das die Eingabeaufforderung, die Ausgabeantwort und eine zugehörige Nutzer-ID anzeigt.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

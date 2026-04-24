@@ -74,7 +74,7 @@ alias: /creating-agents/
 - [카탈로그 필드]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): 보다 정확한 응답을 위해 에이전트에게 카탈로그 데이터에 대한 액세스를 제공합니다.
 - [세그먼트 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): 에이전트가 사용자가 속한 세그먼트에 따라 응답을 개인화할 수 있도록 합니다. 최대 5개의 세그먼트를 선택할 수 있습니다.
 - [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): 에이전트가 따를 브랜드 보이스와 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 체육관 회원 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
-- [모든 Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): 이 에이전트가 호출될 때 **지침** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 캔버스 컨텍스트 데이터를 분석합니다.
+- [모든 캔버스 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): 이 에이전트가 호출될 때 **지침** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 캔버스 컨텍스트 데이터를 분석합니다.
 
 #### 3.2단계: 선택적 설정 추가
 

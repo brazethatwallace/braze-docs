@@ -4,7 +4,7 @@ article_title: Vista previa de las rutas de usuario
 page_order: 0.3
 alias: /preview_user_paths/
 description: "Esta página explica cómo puedes obtener una vista previa de las rutas de usuario en Canvas."
-Tool:
+tool:
   - Canvas
 ---
 

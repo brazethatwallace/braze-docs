@@ -38,13 +38,13 @@ Não. Os agentes recebem apenas os pontos de dados de usuários específicos que
 
 Considere usar o [Operator]({{site.baseurl}}/user_guide/brazeai/operator) para investigar por que seu agente não está seguindo suas instruções. O Operator pode fornecer instruções passo a passo e explicações detalhadas.
 
-### Meu agente está tendo dificuldades com uma tarefa complexa. Como posso melhorar sua performance? {#subagent-approach}
+### Meu agente está tendo dificuldades com uma tarefa complexa. Como posso melhorar a performance dele? {#subagent-approach}
 
 Se o agente estiver tendo dificuldades com as tarefas que você está pedindo, considere uma abordagem com subagentes. Por exemplo, você poderia usar três agentes para fazer o seguinte:
 
-- O primeiro agente padroniza e transforma dados de contexto de Canvas não estruturados recebidos.
-- O segundo agente consulta um catálogo de detalhes de itens e identifica quais itens podem ser relevantes.
-- O terceiro agente consulta um catálogo diferente que contém diversas descrições possíveis para cada item e identifica a descrição do item mais relevante para o usuário, para incluir em um e-mail.
+- O agente 1 padroniza e transforma dados de contexto de Canvas não estruturados recebidos.
+- O agente 2 consulta um catálogo de detalhes de itens e identifica quais itens podem ser relevantes.
+- O agente 3 consulta um catálogo diferente que contém diversas descrições possíveis para cada item e identifica a descrição do item mais relevante para o usuário, para incluir em um e-mail.
 
 ### O que pode fazer com que um agente personalizado frequentemente expire por tempo limite?
 

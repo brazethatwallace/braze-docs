@@ -148,6 +148,15 @@ jobs:
         if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true')) }}
         run: python scripts/clean_orphaned_translations.py
 
+      # Alias check runs after orphan cleanup so stale duplicates from the
+      # IA restructure don't fail the job. Skipped during catch-up batches
+      # (skip_orphan_cleanup=true) because cleanup is deferred to the final run.
+      - name: Check for duplicate YAML aliases
+        id: aliases
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || inputs.skip_orphan_cleanup != 'true') }}
+        continue-on-error: true
+        run: python scripts/auto_translate.py check-aliases
+
       - name: Verify builds and fix errors
         id: verify
         if: steps.changes.outputs.count != '0'
@@ -179,11 +188,22 @@ jobs:
           add-paths: |
             _lang/
 
+      # Requires GitHub Copilot code review on the repo/org (see GitHub Docs).
+      - name: Request Copilot review
+        if: ${{ steps.changes.outputs.count != '0' && steps.create-pr.outputs.pull-request-number }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr edit "${{ steps.create-pr.outputs.pull-request-number }}" \
+            --repo "${{ github.repository }}" \
+            --add-reviewer copilot
+
       - name: Report failures
-        if: steps.translate.outcome == 'failure' || steps.qc.outcome == 'failure' || steps.verify.outcome == 'failure'
+        if: steps.translate.outcome == 'failure' || steps.qc.outcome == 'failure' || steps.aliases.outcome == 'failure' || steps.verify.outcome == 'failure'
         run: |
           echo "::warning::One or more translation steps had failures — check the PR summary for details."
           echo "  Translate: ${{ steps.translate.outcome }}"
           echo "  QC:        ${{ steps.qc.outcome }}"
+          echo "  Aliases:   ${{ steps.aliases.outcome }}"
           echo "  Verify:    ${{ steps.verify.outcome }}"
           exit 1

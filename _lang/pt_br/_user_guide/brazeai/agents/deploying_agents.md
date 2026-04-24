@@ -74,21 +74,21 @@ Agentes de catálogo estão limitados a processar valores de entrada de até 25 
 
 #### Definir campos de resposta
 
-Se o seu agente usar [fields]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de saída, você pode selecionar o campo correspondente do agente para **Campo de Resposta** para usar no campo do catálogo. 
+Se o seu agente usar [fields]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de saída, você pode selecionar, no campo **Response Field**, o campo correspondente do agente para usar no campo do catálogo. 
 
 Digamos que você tenha um agente que adiciona descrições de produtos a um catálogo com os seguintes campos para estruturar o formato de saída:
 
 | Nome do campo | Valor |
 | --- | --- |
-| **descrição** | Texto |
+| **description** | Texto |
 | **confidence_score_out_of_ten** | Número |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Você pode adicionar um campo chamado **product_description** a um catálogo e selecionar **descrição** como o **Campo de Resposta** para preencher a coluna com as descrições do agente.
+Você pode adicionar um campo chamado **product_description** a um catálogo e selecionar **description** como o **Response Field** para preencher a coluna com as descrições do agente.
 
-![Um campo "product_description" com o agente "Descriptor" aplicado. A saída "descrição" é selecionada como o campo de resposta.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
+![Um campo "product_description" com o agente "Descriptor" aplicado. A saída "description" é selecionada como o campo de resposta.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
 
-Você também pode substituir manualmente a célula gerada pelo agente selecionando **Editar Item** e atualizando a descrição gerada pelo agente com suas edições. Para reverter à descrição gerada pelo agente, selecione o símbolo de atualizar na célula.
+Você também pode substituir manualmente a célula gerada pelo agente selecionando **Editar item** e atualizando a descrição gerada pelo agente com suas edições. Para reverter à descrição gerada pelo agente, selecione o símbolo de atualizar na célula.
 
 ### Tratamento de erros em catálogos  
 
@@ -98,11 +98,11 @@ Você também pode substituir manualmente a célula gerada pelo agente seleciona
 
 ## Monitore seu agente
 
-Na seção **Uso** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
+Na seção **Usage** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
 
 ![Seção de uso do agente que mostra dois agentes ativos e um agente inativo para Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Na seção **Logs** do seu agente, você pode monitorar chamadas reais do agente que ocorrem nos seus Canvas e catálogos. Você pode filtrar por informações como intervalo de datas, resultado (sucesso ou falha) ou local de chamada. Também pode selecionar **Exportar CSV** para exportar os registros mostrados apenas na página atual.
+Na seção **Logs** do seu agente, você pode monitorar chamadas reais do agente que ocorrem nos seus Canvas e catálogos. Você pode filtrar por informações como intervalo de datas, resultado (sucesso ou falha) ou local de chamada. Também pode selecionar **Export CSV** para exportar os registros mostrados apenas na página atual.
 
 {% alert tip %}
 Você também pode monitorar erros de limite de invocação diária no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
@@ -110,7 +110,7 @@ Você também pode monitorar erros de limite de invocação diária no [Registro
 
 ![Registros para um agente de Pontuação de Sentimento de IA.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Selecione **Ver** em uma chamada de agente específica para ver a entrada, a saída e o ID do usuário.
+Selecione **View** em uma chamada de agente específica para ver a entrada, a saída e o ID do usuário.
 
 ![O painel de detalhes para um agente de Atribuição Aleatória de Esportes que mostra o prompt de entrada, a resposta de saída e um ID de usuário associado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 
