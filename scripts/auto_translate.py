@@ -678,23 +678,24 @@ def repair_front_matter_miscapitalized_tool_key(content):
     return new_content, ["front_matter — Tool: → tool: (Jekyll page.tool)"]
 
 
-def _collect_guide_featured_list_links(block):
-    """Return ordered list of `link:` values inside a `guide_featured_list` YAML block."""
+def _collect_guide_featured_list_field(block, field):
+    """Return ordered list of ``link:`` or ``image:`` values in ``guide_featured_list``."""
     if not block:
         return []
     out = []
     for line in block.splitlines():
-        m = re.match(r"^\s+link:\s*(.+)$", line)
+        m = re.match(rf"^\s+{re.escape(field)}:\s*(.+)$", line)
         if m:
             out.append(m.group(1).strip().strip("\"'"))
     return out
 
 
 def repair_guide_featured_list_links(english_content, translated_content):
-    """Sync `link:` paths under `guide_featured_list` to match English (order-based).
+    """Sync ``link:`` (and ``image:`` when safe) under ``guide_featured_list`` to English.
 
-    Display `name` values are often translated, so matching by list position is more
-    reliable than matching by `name` text.
+    Display ``name`` values are often translated, so matching by list position is more
+    reliable than matching by ``name`` text. Icon paths are locale-invariant assets;
+    models sometimes alter or drop them—restore from English when counts match.
     """
     en_fm, _ = _extract_front_matter(english_content)
     tr_fm, tr_body = _extract_front_matter(translated_content)
@@ -706,37 +707,60 @@ def repair_guide_featured_list_links(english_content, translated_content):
     if not en_block or not tr_block:
         return translated_content, []
 
-    en_links = _collect_guide_featured_list_links(en_block)
-    tr_links = _collect_guide_featured_list_links(tr_block)
+    en_links = _collect_guide_featured_list_field(en_block, "link")
+    tr_links = _collect_guide_featured_list_field(tr_block, "link")
     if len(en_links) != len(tr_links):
         return translated_content, [
             "guide_featured_list — link count mismatch "
             f"(English: {len(en_links)}, translated: {len(tr_links)}); skipped link sync"
         ]
 
+    en_images = _collect_guide_featured_list_field(en_block, "image")
+    tr_images = _collect_guide_featured_list_field(tr_block, "image")
+    sync_images = (
+        len(en_images) == len(tr_images) == len(en_links) and len(en_images) > 0
+    )
+
     new_lines = []
-    idx = 0
-    sync_count = 0
+    idx_link = 0
+    idx_image = 0
+    link_sync = 0
+    image_sync = 0
     for line in tr_block.splitlines():
-        m = re.match(r"^(\s+link:\s*)(.+)$", line)
-        if m and idx < len(tr_links):
-            want = en_links[idx]
-            got = tr_links[idx]
-            idx += 1
+        m_link = re.match(r"^(\s+link:\s*)(.+)$", line)
+        if m_link and idx_link < len(tr_links):
+            want = en_links[idx_link]
+            got = tr_links[idx_link]
+            idx_link += 1
             if want != got:
-                new_lines.append(m.group(1) + want)
-                sync_count += 1
+                new_lines.append(m_link.group(1) + want)
+                link_sync += 1
                 continue
+        if sync_images:
+            m_img = re.match(r"^(\s+image:\s*)(.+)$", line)
+            if m_img and idx_image < len(tr_images):
+                want = en_images[idx_image]
+                got = tr_images[idx_image]
+                idx_image += 1
+                if want != got:
+                    new_lines.append(m_img.group(1) + want)
+                    image_sync += 1
+                    continue
         new_lines.append(line)
 
-    if sync_count == 0:
+    if link_sync == 0 and image_sync == 0:
         return translated_content, []
 
     new_tr_block = "\n".join(new_lines)
     new_tr_fm = tr_fm.replace(tr_block, new_tr_block, 1)
     translated_content = f"---\n{new_tr_fm}\n---\n{tr_body}"
+    parts = []
+    if link_sync:
+        parts.append(f"{link_sync} link(s)")
+    if image_sync:
+        parts.append(f"{image_sync} image path(s)")
     return translated_content, [
-        f"guide_featured_list — synced {sync_count} link(s) from English"
+        "guide_featured_list — synced " + " and ".join(parts) + " from English"
     ]
 
 

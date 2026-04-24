@@ -135,6 +135,11 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 
 - English may add `_docs/_user_guide/messaging/canvas.md` while the locale already has `_lang/<locale>/_user_guide/engagement_tools/canvas.md` for the same product hub. For **`nav_title`**, **`article_title`**, and **`guide_top_header`**, reuse the **exact same values** as on the existing `engagement_tools/canvas.md` page in that locale (for example Japanese **キャンバス**, Korean **캔버스**, pt-BR **Canva** where that page already uses them). Do not leave bare English **Canvas** in those keys when the engagement_tools hub uses a localized convention—navigation and in-product search expect one consistent label per locale.
 
+### Section landing pages (`layout: dev_guide`, `page_type: landing`)
+
+- Many section hubs (for example **Analytics → Dashboards**) are **YAML-only** landings: body text is often just `<br><br>`. Translate **`nav_title`**, **`article_title`**, **`guide_top_header`**, **`guide_top_text`**, **`description`**, **`guide_featured_title`**, and each **`guide_featured_list` → `name`** for display cards.
+- Under **`guide_featured_list`**, copy each **`link:`** and **`image:`** value **character-for-character** from the English source (same `/docs/...` routes and same `/assets/img/...` icon paths). Those are site and asset identifiers—not prose. Do not “translate” paths, swap icons between rows, or drop the `image:` line.
+
 ### Illustrative HTML and fenced examples
 
 - Translate **user-visible placeholder text** in illustrative snippets (for example a sample `<button>` label inside a short HTML block) unless the string is a literal API identifier, variable name, or Liquid token. Avoid leaving stray English UX scraps on an otherwise localized page.
