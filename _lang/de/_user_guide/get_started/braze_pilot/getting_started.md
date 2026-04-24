@@ -49,7 +49,7 @@ Folgen Sie der Schritt-für-Schritt-Anleitung zur Initialisierung der Verbindung
 
 Diese Verbindung ist Workspace-spezifisch. Das bedeutet: Wenn Sie die Verbindung vom Demo-Workspace aus initialisieren und dann in Ihrem Dashboard der kostenlosen Demo zum Live-Workspace wechseln, müssen Sie das SDK von diesem Workspace aus neu initialisieren, um dort gestartete Kampagnen empfangen zu können.
 
-![Das Workspace-Dropdown-Menü im Braze-Dashboard mit „Demo – Braze" als ausgewähltem aktiven Workspace.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
+![Das Workspace-Dropdown-Menü im Braze-Dashboard mit „Demo – Braze“ als ausgewähltem aktiven Workspace.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 
 {% endtab %}
 {% endtabs %}

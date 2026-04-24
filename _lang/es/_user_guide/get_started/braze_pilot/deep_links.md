@@ -35,7 +35,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Stepp
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de bienvenida | `braze-pilot://navigation/steppington/splash` |
+| Pantalla de inicio | `braze-pilot://navigation/steppington/splash` |
 | Inicio | `braze-pilot://navigation/steppington/home` |
 | Página de Steppington+ | `braze-pilot://navigation/steppington/plus` |
 | Pantalla de objetivos | `braze-pilot://navigation/steppington/goals` |
@@ -219,7 +219,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Pants
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/splash` |
+| Pantalla de carga inicial | `braze-pilot://navigation/pantslabyrinth/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/welcome` |
 | Pantalla de listado | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Página del carrito | `braze-pilot://navigation/pantslabyrinth/cart` |
@@ -358,7 +358,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Movie
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de bienvenida | `braze-pilot://navigation/moviecannon/splash` |
+| Pantalla de presentación | `braze-pilot://navigation/moviecannon/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/moviecannon/welcome` |
 | Página de listado de películas | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

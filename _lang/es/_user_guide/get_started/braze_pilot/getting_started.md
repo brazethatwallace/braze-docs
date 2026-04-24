@@ -91,4 +91,4 @@ Puedes utilizar un mensaje dentro de la aplicación de Braze para solicitar perm
 
 ¡Ya estás listo para empezar a recibir campañas y Canvas desde tu panel de Braze como usuario de Braze Pilot! Visita cualquiera de las campañas lanzadas en tu espacio de trabajo de demostración para ver una breve demostración de los casos de uso de Braze y, a continuación, dirígete a tu espacio de trabajo en vivo para empezar a enviar las tuyas.
 
-Para obtener más información sobre cómo configurar campañas y Canvas en Braze, consulta [Primeros pasos: Campaigns y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Para obtener más información sobre cómo configurar campañas y Canvas en Braze, consulta [Primeros pasos: Campañas y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).

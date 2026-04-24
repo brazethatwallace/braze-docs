@@ -91,4 +91,4 @@ Vous pouvez utiliser un message in-app de Braze pour demander les autorisations 
 
 Vous êtes maintenant prêt à recevoir des campagnes et des Canvas depuis votre tableau de bord de Braze en tant qu'utilisateur de Braze Pilot ! Consultez l'une des campagnes lancées dans votre espace de travail de démonstration pour une démonstration rapide des cas d'utilisation de Braze, puis rendez-vous dans votre espace de travail en production pour commencer à envoyer vos propres campagnes.
 
-Pour en savoir plus sur l'implémentation de campagnes et de Canvas dans Braze, consultez [Pour commencer : Campaigns et Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Pour en savoir plus sur l'implémentation de campagnes et de Canvas dans Braze, consultez [Pour commencer : Campagnes et Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
