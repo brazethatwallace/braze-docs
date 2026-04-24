@@ -1,6 +1,6 @@
 ---
 nav_title: Pesquisar campanhas
-article_title: Pesquisar Campanhas
+article_title: Pesquisar campanhas
 page_order: 10
 page_type: reference
 description: "Este artigo descreve as diversas formas de pesquisar campanhas na página de lista de campanhas."

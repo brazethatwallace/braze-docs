@@ -36,9 +36,9 @@ Vous pouvez configurer une alerte par e-mail, une alerte par webhook, ou les deu
 Lorsque vous configurez des alertes de campagne pour des campagnes futures, vous pouvez recevoir des notifications avant le début de la campagne et après sa fin. En effet, les alertes de campagne continuent d'être envoyées tant que la campagne n'a pas été arrêtée manuellement.
 {% endalert %}
 
-## PAYLOAD du webhook d'alerte de campagne
+## Payload du webhook d'alerte de campagne
 
-Voici un exemple de PAYLOAD pour le corps d'un webhook d'alerte de campagne. Cet exemple utilise une alerte configurée pour se déclencher lorsque le nombre de messages envoyés tombe en dessous de 500 pour un envoi de campagne donné.
+Voici un exemple de payload pour le corps d'un webhook d'alerte de campagne. Cet exemple utilise une alerte configurée pour se déclencher lorsque le nombre de messages envoyés tombe en dessous de 500 pour un envoi de campagne donné.
 
 ```
 {"text":"Your campaign 'Sample campaign' had fewer than 500 messages sent this run. It had 4 messages sent this run. See https://dashboard-01.braze.com/engagement/campaigns/5b44b00ffbe76a7024f242e6/51804f26dd365acfa700026a?page=-2",

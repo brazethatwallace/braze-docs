@@ -23,7 +23,7 @@ Uma campanha disparada por API é diferente de uma [campanha da API]({{site.base
 
 Em seguida, configure seu texto e notificações da mesma forma que faria normalmente para notificações agendadas e selecione **API-Triggered Delivery**. Para saber mais sobre como disparar essas campanhas a partir do seu servidor, confira este artigo sobre [envio de campanhas disparadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 
-![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![Captura de tela da configuração de campanha com a opção de entrega disparada por API selecionada.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## Usando o conteúdo de template incluído em uma requisição de API
 
