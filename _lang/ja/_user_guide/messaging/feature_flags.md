@@ -1,8 +1,8 @@
 ---
 page_order: 7
 nav_title: フィーチャーフラグ
-article_title: Braze SDK のフィーチャーフラグ
-description: "この参照記事では、前提条件やユースケースを含むフィーチャーフラグの概要について説明します。"
+article_title: Braze SDKのフィーチャーフラグ
+description: "このリファレンス記事では、前提条件とユースケースを含むフィーチャーフラグの概要について説明します。"
 tool: Feature Flags
 platform:
   - iOS

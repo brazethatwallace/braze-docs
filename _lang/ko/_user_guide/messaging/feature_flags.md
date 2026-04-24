@@ -1,8 +1,8 @@
 ---
 page_order: 7
 nav_title: 기능 플래그
-article_title: Braze SDK용 기능 플래그
-description: "이 참조 문서에서는 필수 조건 및 활용 사례를 포함한 기능 플래그의 개요를 다룹니다."
+article_title: Braze SDK의 기능 플래그
+description: "이 참조 문서에서는 전제 조건 및 사용 사례를 포함한 기능 플래그에 대한 개요를 다룹니다."
 tool: Feature Flags
 platform:
   - iOS
