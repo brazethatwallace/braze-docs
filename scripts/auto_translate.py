@@ -1636,7 +1636,13 @@ _DE_MISMATCHED_QUOTE_RE = re.compile(
 
 
 def repair_german_mismatched_quotes(translated_path, translated_content):
-    """Fix ``„...text..."`` → ``„...text..."`` in ``_lang/de/`` files.
+    r"""Fix ``\u201E…\u0022`` → ``\u201E…\u201C`` in ``_lang/de/`` files.
+
+    That is: German low-9 double quote (U+201E, ``„``) incorrectly closed
+    with ASCII U+0022 (``"``) becomes closed with left double quotation
+    mark U+201C (``"`` / ``\u201C``). The old docstring showed ``"`` in
+    monospace for both sides, which rendered identically and confused
+    readers (Copilot on PR #13303).
 
     Only runs on German translations because „ isn't an opening quote in
     the other five locales.
@@ -1663,7 +1669,20 @@ def repair_german_mismatched_quotes(translated_path, translated_content):
 # etc.) have legitimate patterns that would produce noisy false positives, so
 # we scope the check to cURL/JSON/shell/Liquid — the classes where an
 # unterminated string literal is almost always a real bug.
-_CODE_FENCE_OPEN_RE = re.compile(r'^```([A-Za-z0-9_+.-]*)\s*$', re.MULTILINE)
+# Allow leading indentation so list-nested fences (``    ```xml``) still
+# toggle fence state. Copilot on PR #13303: the old ``^````` form missed
+# indented openers, so ``in_fence`` stayed false and triple-backtick
+# repairs could rewrite literal fence examples inside blocks.
+#
+# **Closing** fences are only lines that are *solely* backticks + optional
+# spaces (no info string). **Opening** lines may carry a language tag
+# (`` ```json``). ``repair_triple_backtick_inline_code`` uses that
+# distinction so a `` ```liquid`` line *inside* an outer fence does not
+# flip ``in_fence`` until the real `` ````` closer arrives.
+_CODE_FENCE_OPEN_RE = re.compile(
+    r'^\s*```([A-Za-z0-9_+.-]*)\s*$',
+)
+_CODE_FENCE_CLOSE_RE = re.compile(r'^\s*```\s*$')
 _CHECKED_FENCE_LANGS = frozenset({
     "liquid", "json", "bash", "sh", "shell", "zsh", "curl",
 })
@@ -1687,7 +1706,7 @@ def _iter_code_fences(content):
             continue
         lang = m.group(1).lower()
         j = i + 1
-        while j < total and not lines[j].startswith("```"):
+        while j < total and not _CODE_FENCE_CLOSE_RE.match(lines[j]):
             j += 1
         if j >= total:
             return
@@ -1755,8 +1774,9 @@ def repair_triple_backtick_inline_code(content):
 
     Scope rules:
 
-    * Fence delimiter lines (``^```lang$`` / ``^```$``) are excluded via
-      ``_CODE_FENCE_OPEN_RE`` so we never touch a real fence opener.
+    * Fence delimiter lines (``^\s*```lang$`` / ``^\s*```$``) are excluded
+      via ``_CODE_FENCE_OPEN_RE`` / ``_CODE_FENCE_CLOSE_RE`` so we never
+      touch a real fence opener or closer (including indented fences).
     * Lines *inside* an already-open fenced block are skipped so we
       don't rewrite literal examples of Kramdown fencing syntax.
     * Table-cell lines (``^\\s*\\|``) are skipped — triple backticks
@@ -1773,10 +1793,12 @@ def repair_triple_backtick_inline_code(content):
     in_fence = False
     repair_count = 0
     for i, L in enumerate(lines):
-        if _CODE_FENCE_OPEN_RE.match(L):
-            in_fence = not in_fence
-            continue
         if in_fence:
+            if _CODE_FENCE_CLOSE_RE.match(L):
+                in_fence = False
+            continue
+        if _CODE_FENCE_OPEN_RE.match(L):
+            in_fence = True
             continue
         if L.lstrip().startswith("|"):
             continue
@@ -1814,10 +1836,12 @@ def check_triple_backtick_inline_code(content, label="translated"):
     lines = content.splitlines()
     in_fence = False
     for i, L in enumerate(lines, start=1):
-        if _CODE_FENCE_OPEN_RE.match(L):
-            in_fence = not in_fence
-            continue
         if in_fence:
+            if _CODE_FENCE_CLOSE_RE.match(L):
+                in_fence = False
+            continue
+        if _CODE_FENCE_OPEN_RE.match(L):
+            in_fence = True
             continue
         if L.lstrip().startswith("|"):
             continue
