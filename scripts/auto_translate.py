@@ -23,13 +23,30 @@ from pathlib import Path
 from typing import Optional
 
 def _get_anthropic_client():
-    """Lazy-import Anthropic so commands like qc/summary work without the SDK."""
+    """Lazy-import Anthropic so commands like qc/summary work without the SDK.
+
+    The HTTP ``timeout`` bounds **every** HTTP operation (connect, read,
+    write). Without it, a stalled ``client.messages.stream(...)`` socket
+    blocks the whole workflow: run 24906077736 sat on the `Translate
+    changed files` step for 87+ minutes (against a typical 9-35 min
+    healthy runtime for the same-wave siblings) until it was manually
+    cancelled, because the streaming response simply stopped sending
+    chunks with no exception raised.
+
+    With the timeout in place, a stalled stream raises after
+    ``TRANSLATION_HTTP_TIMEOUT`` seconds of silence; ``call_claude``'s
+    3-retry loop then reissues the request. Worst-case per-task time
+    is ``3 * TRANSLATION_HTTP_TIMEOUT`` seconds (~9 min at the default
+    of 180s), and the workflow's ``timeout-minutes`` gives a final
+    wall-clock ceiling on top of that.
+    """
     try:
         from anthropic import Anthropic
     except ImportError:
         print("ERROR: Install the Anthropic SDK: pip install anthropic")
         sys.exit(1)
-    return Anthropic()
+    timeout_seconds = float(os.environ.get("TRANSLATION_HTTP_TIMEOUT", "180"))
+    return Anthropic(timeout=timeout_seconds)
 
 
 LANGUAGES = {

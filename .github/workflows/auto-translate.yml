@@ -48,6 +48,13 @@ permissions:
 jobs:
   auto-translate:
     runs-on: ubuntu-latest
+    # Hard wall-clock ceiling so a stalled Anthropic stream can't hog a
+    # runner indefinitely (run 24906077736 spent 87+ minutes stuck on
+    # `Translate changed files` before manual cancellation). Healthy
+    # wave-4 runs finished in 9-35 min on batches of ~40 files × 6
+    # locales, so 90 min leaves ~3x headroom for outliers while still
+    # failing fast when a stream stalls.
+    timeout-minutes: 90
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
@@ -123,6 +130,14 @@ jobs:
         id: translate
         if: steps.changes.outputs.count != '0'
         continue-on-error: true
+        # Step-level timeout sits inside the 90-minute job ceiling. A
+        # stalled Anthropic stream is now bounded per-request by the
+        # Anthropic client's HTTP timeout (`TRANSLATION_HTTP_TIMEOUT`,
+        # default 180s) + 3 retries in `call_claude`, so a single task
+        # can't burn more than ~9 min. Giving the step 75 min leaves
+        # 15 min for the downstream QC/build/PR steps even if the
+        # translate step walks all the way to its limit.
+        timeout-minutes: 75
         run: python scripts/auto_translate.py translate --changed-files changed_files.txt
 
       # ------------------------------------------------------------------
