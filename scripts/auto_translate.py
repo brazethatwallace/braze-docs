@@ -374,21 +374,23 @@ def translation_path(english_relative, lang_dir):
 # meta description) — the strings a reader sees in navigation and search.
 _SIBLING_CONTEXT_FM_KEYS = ("nav_title", "article_title", "title", "description")
 
-# Cap how many sibling pages we expose to the LLM per translation to keep
-# prompt size predictable. In practice an IA move produces 1 sibling; a few
-# hub pages (e.g. canvas.md) produce 2–3. Cap at 4 for safety.
-_SIBLING_CONTEXT_MAX = 4
+# Cap how many related pages we expose to the LLM per translation to keep
+# prompt size predictable. In practice an IA move produces 1 sibling and a
+# product-area tree adds 2–4 deeper guides. Cap at 5 for safety.
+_SIBLING_CONTEXT_MAX = 5
+
+# Max characters of body excerpt to include per related page. Front matter
+# alone catches IA-move drift (see PR #13297 / feature_flags.md), but
+# product-area drift (PR #13298 / email.md — "Standard" tier labels, bullet
+# phrasing) lives in body prose, so we include a short body excerpt too.
+_SIBLING_CONTEXT_BODY_CHARS = 1400
 
 
 def _find_sibling_translations(basename, lang_dir, exclude_target):
     """Return already-translated files in the locale with the same basename.
 
-    IA restructures often move ``_docs/a/foo.md`` to ``_docs/b/foo.md``. The
-    first time we translate the new path, the existing locale translation at
-    the old path is effectively an authoritative terminology reference for
-    that concept (nav label, article title, description, body glossary).
-    Surfacing it deterministically to the LLM prevents cross-section
-    terminology drift (see PR #13297).
+    Used by the QC drift check (which only compares same-concept pages).
+    See ``_find_related_locale_pages`` for the broader prompt-context lookup.
     """
     lang_root = REPO_ROOT / "_lang" / lang_dir
     if not lang_root.exists():
@@ -412,6 +414,115 @@ def _find_sibling_translations(basename, lang_dir, exclude_target):
     return hits
 
 
+_SECTION_RANK = {
+    "_user_guide": 0,
+    "_developer_guide": 1,
+    "_partners": 2,
+    "_help": 2,
+    "_hidden": 3,
+    "_api": 4,
+    "_includes": 5,
+}
+
+# Candidate categories (lower wins):
+#   0 — same-basename (IA-move sibling)
+#   1 — stem-prefix/suffix filename (e.g. email.md → email_services.md)
+#   2 — same-stem-directory (e.g. channels/email.md → …/email/**/*.md)
+_CAT_SAME_BASENAME = 0
+_CAT_STEM_FILENAME = 1
+_CAT_STEM_DIRECTORY = 2
+
+
+def _related_page_priority(path, lang_dir, category):
+    """Lower is better. Favors user-facing sections, then category."""
+    parts = path.parts
+    try:
+        lang_idx = parts.index(lang_dir)
+        section = parts[lang_idx + 1] if lang_idx + 1 < len(parts) else ""
+    except ValueError:
+        section = ""
+    section_rank = _SECTION_RANK.get(section, 9)
+    return (section_rank, category, len(parts), str(path))
+
+
+def _find_related_locale_pages(fpath, lang_dir, exclude_target):
+    """Return locale pages likely to cover the same Braze product area.
+
+    Candidates are gathered from three lookups and then ranked so the most
+    relevant pages win the ``_SIBLING_CONTEXT_MAX`` slots:
+
+    1. **Same-basename** siblings — an IA move relocates ``_docs/a/foo.md``
+       to ``_docs/b/foo.md``; the locale's existing ``_lang/<locale>/.../foo.md``
+       is an authoritative terminology reference (see PR #13297).
+    2. **Stem-prefix/suffix** filenames — for ``channels/email.md`` the
+       locale's ``email_services.md``, ``email_setup.md``, etc. are
+       near-canonical terminology references even when buried several
+       levels deep. Also picks up ``_email.md``-style suffixes
+       (see PR #13298).
+    3. **Same-stem-directory** pages — for ``channels/email.md``, every
+       ``_lang/<locale>/.../email/**/*.md`` is in the same product area,
+       covering the locale's glossary and phrasing conventions (tier
+       labels, bullet sentence structure, etc.).
+
+    Priority ranking favors ``_user_guide/`` over ``_api/`` / ``_includes/``,
+    then prefers same-basename → stem-filename → stem-directory so
+    canonical user-facing prose wins out over machine-format fragments.
+    """
+    basename = Path(fpath).name
+    stem = Path(fpath).stem
+    lang_root = REPO_ROOT / "_lang" / lang_dir
+    if not lang_root.exists():
+        return []
+
+    exclude_resolved = exclude_target.resolve() if exclude_target else None
+    candidates = {}
+
+    def _consider(path, category):
+        try:
+            resolved = path.resolve()
+        except OSError:
+            return
+        if exclude_resolved and resolved == exclude_resolved:
+            return
+        existing = candidates.get(resolved)
+        prio = _related_page_priority(path, lang_dir, category)
+        if existing is None or prio < existing[0]:
+            candidates[resolved] = (prio, path)
+
+    for path in lang_root.rglob(basename):
+        _consider(path, _CAT_SAME_BASENAME)
+
+    # Limit the stem-based searches to pages that actually live inside a
+    # directory named for the stem (e.g. `.../email/**`). A global
+    # ``email_*`` glob would otherwise drag in weakly-related files like
+    # ``analytics/tracking/email_tracking.md`` that don't share the same
+    # product-area glossary.
+    if len(stem) >= 4:
+        stem_prefix = f"{stem}_"
+        stem_suffix = f"_{stem}.md"
+        for path in lang_root.rglob("*.md"):
+            if stem not in path.parts:
+                continue
+            if path.name == basename:
+                continue
+            if path.name.startswith(stem_prefix) or path.name.endswith(stem_suffix):
+                _consider(path, _CAT_STEM_FILENAME)
+            else:
+                _consider(path, _CAT_STEM_DIRECTORY)
+
+    ordered = sorted(candidates.values(), key=lambda item: item[0])
+    out = []
+    for _, path in ordered:
+        if len(out) >= _SIBLING_CONTEXT_MAX:
+            break
+        try:
+            content = path.read_text()
+        except OSError:
+            continue
+        out.append((path.relative_to(REPO_ROOT).as_posix(), content))
+    return out
+
+
 def _sibling_front_matter_snippet(content):
     """Extract only the cross-section terminology keys from a sibling file."""
     fm, _ = _extract_front_matter(content)
@@ -425,34 +536,70 @@ def _sibling_front_matter_snippet(content):
     return "\n".join(lines)
 
 
-def _build_sibling_context(fpath, lang_dir, target):
-    """Build a prompt section listing same-basename translations in the locale.
+def _related_page_snippet(content):
+    """Return FM (terminology keys) + a short body excerpt for prompt context.
 
-    Returns an empty string when no meaningful siblings exist, so the function
-    is safe to always call.
+    The body excerpt captures body-level glossary drift (tier labels in
+    bullet lists, preferred sentence patterns, etc.) that front matter alone
+    misses. Capped at ``_SIBLING_CONTEXT_BODY_CHARS`` to keep token use
+    predictable.
     """
-    basename = Path(fpath).name
-    siblings = _find_sibling_translations(basename, lang_dir, target)
-    if not siblings:
+    parts = []
+    fm_snippet = _sibling_front_matter_snippet(content)
+    if fm_snippet:
+        parts.append("Front matter (terminology reference):\n```yaml\n"
+                     + fm_snippet + "\n```")
+    _, body = _extract_front_matter(content)
+    if body:
+        excerpt = body.lstrip()
+        if len(excerpt) > _SIBLING_CONTEXT_BODY_CHARS:
+            excerpt = excerpt[:_SIBLING_CONTEXT_BODY_CHARS].rstrip() + "\n…"
+        if excerpt.strip():
+            parts.append("Body excerpt (glossary/phrasing reference — do "
+                         "NOT translate or copy this):\n```markdown\n"
+                         + excerpt + "\n```")
+    return "\n\n".join(parts)
+
+
+def _build_sibling_context(fpath, lang_dir, target):
+    """Build a prompt section listing related locale pages for terminology.
+
+    Returns an empty string when no related pages exist, so the function is
+    safe to always call.
+    """
+    related = _find_related_locale_pages(fpath, lang_dir, target)
+    if not related:
         return ""
     blocks = []
-    for rel, content in siblings:
-        snippet = _sibling_front_matter_snippet(content)
+    for rel, content in related:
+        snippet = _related_page_snippet(content)
         if not snippet:
             continue
-        blocks.append(f"### {rel}\n```yaml\n{snippet}\n```")
+        blocks.append(f"### {rel}\n\n{snippet}")
     if not blocks:
         return ""
     header = (
-        "## Cross-section consistency (existing locale translations)\n\n"
-        "The target locale already ships translated page(s) with the same file "
-        "basename as the one you are about to translate — typically because an "
-        "information-architecture move relocated the English source. These "
-        "sibling pages cover the same Braze concept. **Reuse their "
-        "`nav_title`, `article_title`, and `description` wording verbatim**, "
-        "and align body glossary terms with them, so a reader jumping between "
-        "sections sees the same labels. Do not invent new translations for "
-        "terminology the locale has already chosen."
+        "## Cross-section consistency (related locale pages)\n\n"
+        "The target locale already ships translated page(s) that cover the "
+        "same Braze concept or product area as the file you are about to "
+        "translate — either because an information-architecture move "
+        "relocated the English source (same basename) or because deeper "
+        "guides live under a directory named for this product (e.g. "
+        "`…/email/…` guides when you are translating `channels/email.md`). "
+        "Use them as the **authoritative terminology and phrasing reference "
+        "for this locale**:\n\n"
+        "- Reuse **`nav_title`**, **`article_title`**, and **`description`** "
+        "wording verbatim when the page covers the same concept.\n"
+        "- Reuse body **glossary terms** — product names, tier/plan labels, "
+        "UI strings, and loanword conventions (e.g., Japanese katakana "
+        "`スタンダード` / `デラックス` for support tiers rather than native "
+        "equivalents like `標準`).\n"
+        "- Match the locale's **sentence patterns for bullet lists** (e.g., "
+        "Romance languages often prefer verb forms — *Mitigar y remediar…* — "
+        "over nominalizations — *Mitigación y remediación de…*).\n"
+        "- **Do not translate or copy** these snippets into your output. "
+        "They are context only; translate the English source under "
+        "`## English source`."
     )
     return header + "\n\n" + "\n\n".join(blocks) + "\n"
 
