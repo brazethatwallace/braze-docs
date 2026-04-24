@@ -71,6 +71,11 @@ These are Braze product names and features. Keep them in English:
 
 Common UI terms (buttons, menus, navigation labels) may be translated according to the target language's conventions if the Braze product UI is localized for that language. When an existing translation is provided, maintain consistency with its terminology choices.
 
+### Channel landing — Content Cards (`channels/content_cards.md`)
+
+- **Product names inside feature bullets**: When the English page uses **Content Cards**, **In-App Messages**, and **Campaigns** as Braze glossary names inside the same list items (benefits and “by the numbers” stats), keep those **three strings in English** in your translation—localize only the surrounding grammar (articles, verbs, punctuation). Do not replace them with paraphrases such as *tarjetas de contenido*, *messages in-app*, *In-App-Nachrichten*, *campañas* for the Braze **Campaigns** product in that reporting bullet, or katakana rewrites of **Content Cards** / **In-App Messages** in those lines, or reviews will flag glossary drift.
+- **External research footnotes** (`[^1]:`, `[^2]:`, …): Translate the **visible link title** in `[title](https://...)` into the target language for readability; **do not** change Braze-hosted URLs.
+
 ### BrazeAI Agents documentation (`_user_guide/brazeai/agents/`)
 
 - **Generic “agent” / “agents”**: Use the natural word in the target language for an automated agent entity (for example Portuguese *agente* / *agentes*, French *agent* / *agents*). Keep **Braze Agents** for the official product or suite name when you mean that feature—do not use English *agent(s)* as a generic noun in otherwise localized prose.

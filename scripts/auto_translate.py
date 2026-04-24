@@ -1404,6 +1404,7 @@ def repair_fr_payload_display_typography(translated_content, lang_key):
     new = translated_content
     for wrong, right in (
         ("les PAYLOAD ", "les payloads "),
+        ("les PAYLOAD à", "les payloads à"),
         ("les PAYLOAD,", "les payloads,"),
         ("leurs PAYLOAD ", "leurs payloads "),
         ("leurs PAYLOAD.", "leurs payloads."),
