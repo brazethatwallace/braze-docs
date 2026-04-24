@@ -1,0 +1,364 @@
+---
+nav_title: Glossário de análise de dados de e-mail
+article_title: Glossário de análise de dados de e-mail
+layout: email_report_metrics
+page_order: 0
+excerpt_separator: ""
+page_type: glossary
+description: "Este glossário inclui os termos que você encontrará na seção de análise de dados da sua campanha de e-mail ou Canvas, após o lançamento. Este glossário não inclui métricas do Currents."
+channel:
+  - email
+---
+
+<style>
+  .calculation-line {
+    color: #76848C;
+    font-size: 14px;
+  }
+</style>
+
+{% api %}
+
+### Variante
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Variation' %}
+
+<span class="calculation-line">Cálculo: Contagem</span>
+
+{% endapi %}
+
+{% api %}
+
+### Elegível para e-mail
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Emailable' %}
+
+<span class="calculation-line">Cálculo: Contagem</span>
+
+{% endapi %}
+
+{% api %}
+
+### % do público
+
+{% apitags %}
+Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Audience' %}
+
+<span class="calculation-line">Cálculo: (Número de destinatários na variante) / (Destinatários únicos)</span>
+
+{% endapi %}
+
+{% api %}
+
+### Destinatários únicos
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} Esse número é recebido da Braze.
+
+<span class="calculation-line">Cálculo: Contagem</span>
+
+{% endapi %}
+
+{% api %}
+
+### Envios
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Sends' %}  Essa métrica é fornecida pela Braze.
+
+<span class="calculation-line">Cálculo: Contagem</span>
+
+{% endapi %}
+
+{% api %}
+
+### Mensagens enviadas
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Essa métrica é fornecida pela Braze.
+
+<span class="calculation-line">Cálculo: Contagem</span>
+
+{% endapi %}
+
+{% api %}
+
+### Entregas
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Deliveries' %} Para e-mails, *Entregas* é o número total de mensagens (Envios) enviadas com sucesso e recebidas por destinatários elegíveis para e-mail.
+
+<span class="calculation-line">Cálculo: (Envios) - (Bounces) </span>
+
+{% endapi %}
+
+{% api %}
+
+### % de entregas
+
+{% apitags %}
+Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Deliveries %' %}
+
+<span class="calculation-line">Cálculo: (Envios - Bounces) / (Envios) </span>
+
+{% endapi %}
+
+{% api %}
+
+### Bounces
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Bounces' %}
+
+Para e-mail, *% de bounce* ou *taxa de bounce* é a porcentagem de mensagens que não foram enviadas com sucesso ou foram designadas como "devolvidas" ou "não recebidas" pelos serviços de envio utilizados, ou que não foram recebidas pelos usuários elegíveis para e-mail.
+
+Um bounce de e-mail para clientes que usam SendGrid consiste em hard bounces, spam (`spam_report_drops`) e e-mails enviados para endereços inválidos (`invalid_emails`).
+
+{::nomarkdown}
+<span class="calculation-line">
+    Cálculo:
+    <ul>
+        <li><b><i>Bounces</i>:</b> Contagem</li>
+        <li><b><i>% de bounce</i> ou <i>taxa de bounce %</i>:</b> (Bounces) / (Envios)</li>
+    </ul>
+</span>
+{:/}
+
+{% endapi %}
+
+{% api %}
+
+### Hard Bounce
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
+
+Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o endereço de e-mail como inválido, mas não atualiza o [status de inscrição]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) do usuário. A Braze interrompe qualquer envio futuro para esse endereço de e-mail. Para remover um endereço de e-mail da sua lista de hard bounce, use o [endpoint Remover e-mails com hard bounce]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+
+<span class="calculation-line">Cálculo: Contagem </span>
+
+{% endapi %}
+
+{% api %}
+
+### Soft Bounce
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Se um e-mail receber um soft bounce, geralmente tentaremos novamente dentro de 72 horas, mas o número de tentativas varia de acordo com o destinatário.
+
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+
+<span class="calculation-line">Cálculo: Contagem </span>
+
+{% endapi %}
+
+{% api %}
+
+### Spam
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Spam' %}
+
+{::nomarkdown}
+<span class="calculation-line">
+    Cálculo:
+    <ul>
+        <li><b><i>Spam</i>:</b> Contagem</li>
+        <li><b><i>% de spam</i> ou <i>taxa de spam %</i>:</b> (Marcados como spam) / (Envios)</li>
+    </ul>
+</span>
+{:/}
+
+{% endapi %}
+
+{% api %}
+
+### Aberturas únicas
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Para e-mail, isso é rastreado ao longo de um período de sete dias. Isso significa que um único usuário que abrir o mesmo e-mail novamente após sete dias conta como uma nova abertura única. Como resultado, as contagens de aberturas únicas no dashboard podem ser maiores do que uma simples consulta `DISTINCT user_id` nos dados do Currents. Para corresponder às contagens do dashboard a partir do Currents, filtre por eventos em que `is_unique` é `true`.
+
+{::nomarkdown}
+<span class="calculation-line">
+    Cálculo:
+    <ul>
+        <li><b><i>Aberturas únicas</i>:</b> Contagem</li>
+        <li><b><i>% de aberturas únicas</i> ou <i>taxa de abertura única</i>:</b> (Aberturas únicas) / (Entregas)</li>
+    </ul>
+</span>
+{:/}
+
+{% endapi %}
+
+{% api %}
+
+### Cliques únicos
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Isso inclui cliques nos links de cancelamento de inscrição fornecidos pela Braze. Após sete dias, outro clique único pode ser contabilizado para o mesmo usuário se ele clicar novamente. Para corresponder às contagens do dashboard a partir do Currents, filtre por eventos em que `is_unique` é `true`.
+
+{::nomarkdown}
+<span class="calculation-line">
+    Cálculo:
+    <ul>
+        <li><b><i>Cliques únicos</i>:</b> Contagem</li>
+        <li><b><i>% de cliques únicos</i> ou <i>taxa de cliques</i>:</b> (Cliques únicos) / (Entregas)</li>
+    </ul>
+</span>
+{:/}
+
+{% endapi %}
+
+{% api %}
+
+### Cancelamentos de inscrição
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+_Cancelamentos de inscrição_ refletem o link padrão de cancelamento de inscrição da Braze. Páginas de cancelamento de inscrição personalizadas não incrementam essa métrica, a menos que você atualize os usuários usando a API. A **Série temporal do grupo de inscrições** ainda reflete as alterações feitas via API.
+
+{% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
+
+{::nomarkdown}
+<span class="calculation-line">
+    Cálculo:
+    <ul>
+        <li><b><i>Cancelamentos de inscrição</i>:</b> Contagem</li>
+        <li><b><i>% de cancelamentos de inscrição</i> ou <i>taxa de cancelamento de inscrição</i>:</b> (Cancelamentos de inscrição) / (Entregas)</li>
+    </ul>
+</span>
+{:/}
+
+{% endapi %}
+
+{% api %}
+
+### Receita
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Revenue' %}
+
+<span class="calculation-line">Cálculo: Contagem </span>
+
+{% endapi %}
+
+{% api %}
+
+### Conversões primárias (A) ou evento de conversão primária
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} Para e-mail, push e webhooks, começamos a rastrear conversões após o envio inicial.
+
+{::nomarkdown}
+<span class="calculation-line">
+    Cálculo:
+    <ul>
+        <li><b><i>Conversões primárias (A)</i> ou <i>Evento de conversão primária</i>:</b> Contagem</li>
+        <li><b><i>% de conversões primárias (A)</i> ou <i>taxa de evento de conversão primária</i>:</b> (Conversões primárias) / (Destinatários únicos)</li>
+    </ul>
+</span>
+{:/}
+
+{% endapi %}
+
+{% api %}
+
+### Intervalo de confiança
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Confidence' %}
+
+{% endapi %}
+
+{% api %}
+
+### Aberturas por máquina
+
+{% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Essa métrica é rastreada a partir de 11 de novembro de 2021 para SendGrid e 2 de dezembro de 2021 para SparkPost.
+
+<span class="calculation-line">Cálculo: Contagem </span>
+
+{% endapi %}
+
+{% api %}
+
+### Outras aberturas
+
+{% apitags %}
+Count
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Observe que um usuário também pode abrir um e-mail (de forma que a abertura conte para <i>Outras aberturas</i>) antes que uma contagem de <i>Aberturas por máquina</i> seja registrada. Se um usuário abrir um e-mail uma vez (ou mais) após um evento de abertura por máquina em uma caixa de entrada que não seja do Apple Mail, a quantidade de vezes que o usuário abre o e-mail é calculada em <i>Outras aberturas</i> e apenas uma vez em <i>Aberturas únicas</i>.
+
+<span class="calculation-line">Cálculo: Contagem </span>
+
+{% endapi %}
+
+{% api %}
+
+### Taxa de clique por abertura
+
+{% apitags %}
+Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
+
+<span class="calculation-line">Cálculo: (Cliques únicos) / (Aberturas únicas) (para e-mail)</span>
+
+{% endapi %}
