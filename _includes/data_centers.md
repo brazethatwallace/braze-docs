@@ -27,6 +27,13 @@
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endif %}
 
+{% if include.datacenters == "KR" %}
+| Dashboard URL | REST endpoint | SDK endpoint |
+| --- | --- | --- |
+| `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{% endif %}
+
 {% if include.datacenters == "US" %}
 | Dashboard URL | REST endpoint | SDK endpoint |
 | --- | --- | --- |
@@ -59,6 +66,7 @@
 |AU-01| `https://dashboard.au-01.braze.com`| `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
 |ID-01| `https://dashboard.id-01.braze.com`| `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
 |JP-01| `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
+|KR-01| `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 {% endif %}
 
@@ -143,7 +151,10 @@ For instance `JP-01`, these are the relevant IP addresses:
 - `54.250.120.139`
 - `18.181.114.232`
 - `3.114.38.100`
-
+{% endsubtab %}
+{% subtab South Korea (KR) %}
+For instance `KR-01`, these are the relevant IP addresses:
+-
 
 {% endsubtab %}
 {% endsubtabs %}
