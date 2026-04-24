@@ -11,7 +11,7 @@ search_rank: 2
 
 # E-Mail
 
-> Mit E-Mail bei Braze können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvas erstellen, die die Aufmerksamkeit Ihrer Nutzer:innen außerhalb Ihrer App oder Website gewinnen. Passen Sie Ihre E-Mail-Nachrichten an – von der Verwaltung Ihrer Zielgruppe bis hin zu auffälligen Multimedia-Inhalten. Beispiele für E-Mail-Campaigns finden Sie in den Braze-[Fallstudien](https://www.braze.com/customers/).
+> Mit E-Mail bei Braze können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvas erstellen, die die Aufmerksamkeit Ihrer Nutzer:innen außerhalb Ihrer App oder Website gewinnen. Passen Sie Ihre E-Mail-Nachrichten an – von der Verwaltung Ihrer Zielgruppe bis hin zu auffälligen Multimedia-Inhalten. Beispiele für Campaigns finden Sie in den Braze-[Fallstudien](https://www.braze.com/customers/).
 
 ## Voraussetzungen
 

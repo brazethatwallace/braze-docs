@@ -11,7 +11,7 @@ search_rank: 2
 
 # E-mail
 
-> Com o e-mail na Braze, você pode criar mensagens de e-mail totalmente personalizadas em Campaigns ou Canvas que chamam a atenção do usuário fora do seu app ou site. Personalize suas mensagens de e-mail, desde o gerenciamento do seu público até a inclusão de conteúdo multimídia atraente. Para ver exemplos de campanhas de e-mail, consulte os [estudos de caso](https://www.braze.com/customers/) da Braze.
+> Com o e-mail na Braze, você pode criar mensagens de e-mail totalmente personalizadas em Campaigns ou Canvas que chamam a atenção do usuário fora do seu app ou site. Personalize suas mensagens de e-mail, desde o gerenciamento do seu público até a inclusão de conteúdo multimídia atraente. Para ver exemplos de Campaigns, consulte os [estudos de caso](https://www.braze.com/customers/) da Braze.
 
 ## Pré-requisitos
 

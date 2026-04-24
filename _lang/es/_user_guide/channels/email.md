@@ -11,7 +11,7 @@ search_rank: 2
 
 # Correo electrónico
 
-> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de campañas de correo electrónico, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
+> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de Campaigns, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
 
 ## Requisitos previos
 
