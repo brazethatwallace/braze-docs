@@ -3171,6 +3171,65 @@ def repair_de_channels_banners_landing(translated_path, translated_content, lang
     return translated_content, []
 
 
+def repair_user_guide_data_distribution_landing(
+    translated_path, translated_content, lang_key
+):
+    """Fix Snowflake blurb and DE YAML on the data distribution landing.
+
+    English ``campaign data`` in the Snowflake paragraph is generic analytics
+    copy, not the Braze **Campaign** UI token; models sometimes emit raw
+    English *Campaign* into KO/JA/DE (Copilot PR #13308). German featured
+    cards sometimes drop the hyphen in ``Braze-Daten``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel or not rel.endswith("_user_guide/data/distribution.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "ko" and "Campaign 데이터" in new:
+        new = new.replace("Campaign 데이터", "캠페인 데이터", 1)
+        repairs.append(
+            "data-distribution-landing — Campaign 데이터 → 캠페인 데이터 "
+            "(Snowflake blurb)"
+        )
+    if lang_key == "ja":
+        if "Campaign データ" in new:
+            new = new.replace("Campaign データ", "キャンペーンデータ", 1)
+            repairs.append(
+                "data-distribution-landing — Campaign データ → キャンペーンデータ "
+                "(Snowflake blurb)"
+            )
+        elif "Campaignデータ" in new:
+            new = new.replace("Campaignデータ", "キャンペーンデータ", 1)
+            repairs.append(
+                "data-distribution-landing — Campaignデータ → キャンペーンデータ "
+                "(Snowflake blurb)"
+            )
+    if lang_key == "de":
+        if "Campaign-Daten" in new:
+            new = new.replace("Campaign-Daten", "Kampagnendaten", 1)
+            repairs.append(
+                "data-distribution-landing — Campaign-Daten → Kampagnendaten "
+                "(Snowflake blurb)"
+            )
+        if "  - name: Braze Daten exportieren\n" in new:
+            new = new.replace(
+                "  - name: Braze Daten exportieren\n",
+                "  - name: Braze-Daten exportieren\n",
+                1,
+            )
+            repairs.append(
+                "data-distribution-landing — Braze Daten → Braze-Daten "
+                "(featured_list)"
+            )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 _SHELL_FENCE_LANGS = {"", "bash", "sh", "shell", "zsh", "console"}
 _JSON_OR_SHELL_FENCE_LANGS = _SHELL_FENCE_LANGS | {"json"}
 # Single-backtick inline code span containing at least one `\"` escape. We
@@ -3502,6 +3561,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(de_banners_repairs)
+
+    translated_content, data_dist_repairs = (
+        repair_user_guide_data_distribution_landing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(data_dist_repairs)
 
     translated_content, canvas_hub_repairs = (
         repair_messaging_canvas_hub_titles_from_engagement_tools(
