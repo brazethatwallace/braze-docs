@@ -1287,6 +1287,181 @@ _RESET_TD_BR_IAL_MISSING_DOT = re.compile(
 )
 
 
+_MD_TABLE_SEP_RE = re.compile(r"^\s*\|(?:\s*:?-+:?\s*\|)+\s*$")
+_IAL_LINE_RE = re.compile(r"^\s*\{:\s*[^}]*\}\s*$")
+_RESET_TD_CLASS_RE = re.compile(r"\.reset-td-br-(\d+)")
+
+
+def _count_md_table_cells(line):
+    """Count cells in a markdown table row (header/body/separator)."""
+    s = line.strip()
+    if not s.startswith("|") or not s.endswith("|"):
+        return 0
+    inner = s[1:-1]
+    return len([c for c in inner.split("|")])
+
+
+def _rebuild_md_separator(header_cols, original_sep):
+    """Return a separator row with ``header_cols`` cells, preserving each
+    original cell's alignment marker where available."""
+    s = original_sep.strip()
+    if s.startswith("|"):
+        s = s[1:]
+    if s.endswith("|"):
+        s = s[:-1]
+    cells = [c.strip() or "---" for c in s.split("|")]
+    if len(cells) < header_cols:
+        cells.extend(["---"] * (header_cols - len(cells)))
+    else:
+        cells = cells[:header_cols]
+    return "| " + " | ".join(cells) + " |"
+
+
+def _clamp_reset_td_br_ial(ial_line, header_cols):
+    """Remove ``.reset-td-br-N`` classes where ``N > header_cols``.
+
+    Returns ``(new_line, removed_count)``.
+    """
+    removed = 0
+
+    def repl(match):
+        nonlocal removed
+        n = int(match.group(1))
+        if n > header_cols:
+            removed += 1
+            return ""
+        return match.group(0)
+
+    new = _RESET_TD_CLASS_RE.sub(repl, ial_line)
+    if removed:
+        new = re.sub(r" +", " ", new)
+        new = re.sub(r"\s+\}", " }", new)
+    return new, removed
+
+
+def repair_markdown_table_column_count(content):
+    """Repair markdown tables whose separator row's cell count doesn't match
+    the header row's cell count (and prune trailing ``.reset-td-br-N`` IAL
+    classes that reference non-existent columns).
+
+    The LLM was asked to preserve table shape verbatim, so when the English
+    source itself has the mismatch (see PR #13302 / product_blocks.md static
+    product block: 2-col header with ``| --- | --- | --- |`` separator and a
+    ``.reset-td-br-3`` IAL), the bug rides into every locale. This repair
+    fixes it deterministically in post-processing.
+    """
+    lines = content.splitlines()
+    repairs = []
+    total = len(lines)
+    i = 0
+    while i < total - 1:
+        cur = lines[i]
+        nxt = lines[i + 1]
+        cur_stripped = cur.strip()
+        if (
+            cur_stripped.startswith("|")
+            and cur_stripped.endswith("|")
+            and not _MD_TABLE_SEP_RE.match(cur)
+            and _MD_TABLE_SEP_RE.match(nxt)
+        ):
+            header_cols = _count_md_table_cells(cur)
+            sep_cols = _count_md_table_cells(nxt)
+            if header_cols > 0 and header_cols != sep_cols:
+                lines[i + 1] = _rebuild_md_separator(header_cols, nxt)
+                repairs.append(
+                    f"md-table — separator cols {sep_cols}→{header_cols}"
+                )
+            # Scan forward through body rows to find the IAL (if any).
+            j = i + 2
+            while j < total and lines[j].strip().startswith("|"):
+                j += 1
+            if header_cols > 0 and j < total and _IAL_LINE_RE.match(lines[j]):
+                new_ial, removed = _clamp_reset_td_br_ial(lines[j], header_cols)
+                if removed:
+                    lines[j] = new_ial
+                    repairs.append(
+                        f"md-ial — trimmed {removed} stale .reset-td-br-N "
+                        f"class(es) past column {header_cols}"
+                    )
+            i = j
+        else:
+            i += 1
+    if repairs:
+        result = "\n".join(lines)
+        if content.endswith("\n"):
+            result += "\n"
+        return result, repairs
+    return content, []
+
+
+_INTERNAL_LINK_URL_RE = re.compile(r"\]\(([^)]+)\)")
+_SLASH_SKIP_EXTS = (
+    ".md", ".html", ".htm", ".json", ".xml", ".png", ".jpg", ".jpeg",
+    ".gif", ".svg", ".pdf", ".txt", ".yaml", ".yml", ".csv",
+)
+
+
+def _normalize_trailing_slash_on_baseurl(url):
+    """Add trailing ``/`` to extensionless ``{{site.baseurl}}`` doc links.
+
+    Braze docs are directory-style (Jekyll permalinks end in ``/``). Bare
+    ``{{site.baseurl}}/path)`` without a trailing slash causes redirects
+    and inconsistent in-page link formats (Copilot flag on PR #13302).
+    """
+    if "{{site.baseurl}}" not in url:
+        return url, False
+    if "?" in url or "#" in url:
+        return url, False
+    if url.endswith("/"):
+        return url, False
+    if url.rstrip().endswith("}}"):
+        return url, False
+    idx = url.find("{{site.baseurl}}")
+    tail = url[idx + len("{{site.baseurl}}") :]
+    if not tail or not tail.startswith("/"):
+        return url, False
+    last_seg = tail.rsplit("/", 1)[-1]
+    if not last_seg:
+        return url, False
+    lower = last_seg.lower()
+    if any(lower.endswith(ext) for ext in _SLASH_SKIP_EXTS):
+        return url, False
+    if "." in last_seg:
+        return url, False
+    return url + "/", True
+
+
+def repair_markdown_internal_link_trailing_slash(content):
+    """Generalize ``repair_ideas_and_strategies_internal_link_trailing_slash``
+    to every extensionless ``{{site.baseurl}}`` directory-style link.
+
+    PR #13302 had the same link appearing both as
+    ``.../ecommerce_use_cases)`` and ``.../ecommerce_use_cases/)`` within a
+    single localized file. The translation prompt already asks for trailing
+    ``/`` on directory-style links; this is a deterministic backstop.
+    """
+    repairs = []
+    counts = {}
+
+    def repl(match):
+        url = match.group(1)
+        new_url, changed = _normalize_trailing_slash_on_baseurl(url)
+        if changed:
+            counts[url] = counts.get(url, 0) + 1
+        return f"]({new_url})"
+
+    new = _INTERNAL_LINK_URL_RE.sub(repl, content)
+    if counts:
+        total = sum(counts.values())
+        distinct = len(counts)
+        repairs.append(
+            f"md-link — added trailing / to {total} directory-style "
+            f"{{{{site.baseurl}}}} link(s) ({distinct} distinct path(s))"
+        )
+        return new, repairs
+    return content, []
+
+
 def repair_markdown_wire_format_tables(content):
     """Auto-fix markdown table / IAL issues from translation or English typos.
 
@@ -2526,6 +2701,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_ideas_and_strategies_internal_link_trailing_slash(translated_content)
     )
     findings["repairs"].extend(ideas_slash_repairs)
+
+    translated_content, link_slash_repairs = (
+        repair_markdown_internal_link_trailing_slash(translated_content)
+    )
+    findings["repairs"].extend(link_slash_repairs)
+
+    translated_content, table_col_repairs = repair_markdown_table_column_count(
+        translated_content
+    )
+    findings["repairs"].extend(table_col_repairs)
 
     translated_content, wire_repairs = repair_markdown_wire_format_tables(
         translated_content
