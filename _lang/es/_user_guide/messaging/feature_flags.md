@@ -1,8 +1,8 @@
 ---
 page_order: 7
-nav_title: Banderas de características
-article_title: Banderas de características para el SDK de Braze
-description: "Este artículo de referencia ofrece un resumen de los indicadores de características, incluidos los requisitos previos y los casos de uso."
+nav_title: Conmutador de características
+article_title: Conmutador de características para el SDK de Braze
+description: "Este artículo de referencia ofrece un resumen de los conmutadores de características, incluidos los requisitos previos y los casos de uso."
 tool: Feature Flags
 platform:
   - iOS
