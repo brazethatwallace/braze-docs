@@ -9,7 +9,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 |Name|Permissions|
 |-----------|----------------|
 |Developers|"View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger".|
-|Marketers|"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents", "View Decisioning Studio Conversion Event".|
+|Marketers|"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents".|
 |User Management|"Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams".|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
@@ -232,7 +232,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Webhook Templates | View Webhook Templates | View webhook templates without making changes |
 | Webhook Templates | Archive Webhook Templates | Move webhook templates to archive |
 | Webhook Templates | Edit Webhook Templates | Create and update webhook templates |
-| Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message) |
+| Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
 | Whatsapp Message Templates | Edit WhatsApp Message Templates | Allows users to create WhatsApp message templates in the template builder. This feature is currently in early access. |
 | WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | View All WhatsApp Templates |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -318,13 +318,8 @@ To download a list of your users and their permissions, go to **Settings** > **C
 
 | Product area | Permission | Definition |
 | --- | --- | --- |
-| Decisioning Studio Action Banks | View Decisioning Studio Action Banks | |
-| Decisioning Studio Agents | View Decisioning Studio Agent | |
-| Decisioning Studio Agent | Edit Decisioning Studio Agents | |
+| Decisioning Studio Agents | View Decisioning Studio Agent | View Decisioning Studio Agents configuration whithout making changes |
 | Decisioning Studio Audience | View Decisioning Studio Audience | See audience details on Decisioning Studio Agent configuration summaries |
-| Decisioning Studio Conversion Event | View Decisioning Studio Conversion Event | |
-| Decisioning Studio Guardrails | View Decisioning Studio Guardrails | See configured guardrails on Decisioning Studio Agent configuration summaries |
-| Decisioning Studio Timing | View Decisioning Studio Timing | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Other
