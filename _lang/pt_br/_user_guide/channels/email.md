@@ -11,7 +11,7 @@ search_rank: 2
 
 # E-mail
 
-> Com o e-mail na Braze, você pode criar mensagens de e-mail totalmente personalizadas em Campanhas ou Canvas que chamam a atenção do usuário fora do seu app ou site. Personalize suas mensagens de e-mail, desde o gerenciamento do seu público até a inclusão de conteúdo multimídia atraente. Para ver exemplos de campanhas de e-mail, consulte os [estudos de caso](https://www.braze.com/customers/) da Braze.
+> Com o e-mail na Braze, você pode criar mensagens de e-mail totalmente personalizadas em Campaigns ou Canvas que chamam a atenção do usuário fora do seu app ou site. Personalize suas mensagens de e-mail, desde o gerenciamento do seu público até a inclusão de conteúdo multimídia atraente. Para ver exemplos de campanhas de e-mail, consulte os [estudos de caso](https://www.braze.com/customers/) da Braze.
 
 ## Pré-requisitos
 
@@ -32,9 +32,9 @@ Você pode personalizar suas mensagens de e-mail de várias formas, incluindo:
 | --- | --- |
 | Reengajamento | Alcance usuários fora do seu app, incluindo aqueles que não instalaram o app. |
 | Integração | Integre e incentive novos usuários a ativar notificações por push ou compartilhar o app em redes sociais. |
-| Mensagens ricas | Permita mensagens HTML ricas e dinâmicas. |
+| Mensagens rich | Permita o envio de mensagens HTML ricas e dinâmicas. |
 | Conteúdo multimídia | Facilidade na inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
-| Newsletters | Envie newsletters mensais ou semanais de forma prática para manter o engajamento dos usuários. |
+| Boletins informativos | Envie boletins informativos mensais ou semanais de forma prática para manter o engajamento dos usuários. |
 | Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envios com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -56,7 +56,7 @@ Esses serviços podem incluir:
 - Chamadas regulares com o especialista em entregabilidade (duas vezes por mês para Deluxe e mensalmente para Standard) para fornecer:
   - Monitoramento do desempenho de entregabilidade por domínio
   - Recomendações para melhorar o desempenho e os resultados do programa de e-mail utilizando dados e melhores práticas estabelecidas
-- Mitigação e remediação de crises para eventos que levam a problemas como inclusão em lista de bloqueio de entregabilidade
+- Mitigar e remediar crises para eventos que levam a problemas como inclusão em lista de bloqueio de entregabilidade
 
 ## Próximas etapas
 
