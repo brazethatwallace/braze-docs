@@ -79,12 +79,18 @@ These are Braze product names and features. Keep them in English:
 
 **Case-insensitive**: these terms stay in English even when the English source uses the lowercase common-noun form (for example, *"create a segment in Braze"* or *"target this campaign to"*). Render them as **Segment**, **Campaign**, etc. in your translated prose — never as katakana (セグメント, キャンペーン), hangul (세그먼트, 캠페인), or a native-language paraphrase (*Segmentos*, *Campañas*, *Tarjetas de contenido*). The glossary that may be appended below is authoritative; if it maps a product term to itself (e.g., `| Segment | Segment |`), preserve the English token literally.
 
+- **Automated review / “mixed language” heuristics**: Some PR reviewers (including Copilot) flag English **Campaign**, **Campaigns**, **Canvas**, **Segment**, etc. sitting inside otherwise localized sentences as inconsistent. **Those English tokens are still correct** when they denote Braze glossary products—do **not** replace them with localized paraphrases just to silence mixed-language warnings; doing so reintroduces the glossary drift this section forbids (auto-translate PR #13310).
+
 Common UI terms (buttons, menus, navigation labels) may be translated according to the target language's conventions if the Braze product UI is localized for that language. When an existing translation is provided, maintain consistency with its terminology choices.
 
 ### Channel landing — Content Cards (`channels/content_cards.md`)
 
 - **Product names inside feature bullets**: When the English page uses **Content Cards**, **In-App Messages**, and **Campaigns** as Braze glossary names inside the same list items (benefits and “by the numbers” stats), keep those **three strings in English** in your translation—localize only the surrounding grammar (articles, verbs, punctuation). Do not replace them with paraphrases such as *tarjetas de contenido*, *messages in-app*, *In-App-Nachrichten*, *campañas* for the Braze **Campaigns** product in that reporting bullet, or katakana rewrites of **Content Cards** / **In-App Messages** in those lines, or reviews will flag glossary drift.
 - **External research footnotes** (`[^1]:`, `[^2]:`, …): Translate the **visible link title** in `[title](https://...)` into the target language for readability; **do not** change Braze-hosted URLs.
+
+### Channel landing — Email (`channels/email.md`)
+
+- The opening blockquote often mixes localized email prose with English **Campaigns** / **Canvas** (and phrases like “examples of **Campaigns**”). That pattern matches the glossary—**do not** rewrite **Campaigns** into *campañas*, *campagnes*, *Campanhas*, *Kampagnen*, katakana, hangul, etc., to chase “pure” single-language prose; reviewers may suggest it, but it violates the product-terminology rules above (PR #13310).
 
 ### BrazeAI Agents documentation (`_user_guide/brazeai/agents/`)
 
