@@ -1199,6 +1199,59 @@ def repair_decisioning_insights_table_labels(
     return translated_content, repairs
 
 
+def repair_pt_br_agents_reference_confidence_alt(
+    translated_path: str, translated_content: str
+):
+    """Fix mistaken *confidence interval* wording for ``confidence_score`` alt (pt-BR).
+
+    Models sometimes render *intervalo de confiança* next to *probability score*
+    and *explanation*; the field is **confidence score** / *pontuação de confiança*.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/pt_br/_user_guide/brazeai/agents/reference.md"):
+        return translated_content, []
+    wrong = "pontuação de intervalo de confiança"
+    if wrong not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        wrong, "pontuação de confiança"
+    ), ["pt-agents-reference — confidence score alt wording"]
+
+
+def repair_de_brazeai_schritt_three_link_text(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Use idiomatic ``Schritt 3`` in prose links, not ``3. Schritt`` (German agents docs)."""
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/brazeai/agents/" not in rel or not rel.endswith(".md"):
+        return translated_content, []
+    marker = "[3. Schritt](#agent-instructions)"
+    if marker not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        marker, "[Schritt 3](#agent-instructions)"
+    ), ['de-agents — link text "Schritt 3" (not "3. Schritt")']
+
+
+def repair_es_agents_reference_alt_sentence_case(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Sentence-case *gestión* inside Spanish image alt (agents reference)."""
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/es/_user_guide/brazeai/agents/reference.md"):
+        return translated_content, []
+    wrong = "![Página de Gestión de agentes"
+    if wrong not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        wrong, "![Página de gestión de agentes"
+    ), ["es-agents-reference — sentence case in image alt"]
+
+
 def repair_fr_payload_display_typography(translated_content, lang_key):
     """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
 
@@ -1653,6 +1706,23 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(tool_sp_repairs)
+
+    translated_content, pt_agents_ref_repairs = (
+        repair_pt_br_agents_reference_confidence_alt(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(pt_agents_ref_repairs)
+
+    translated_content, de_schritt_repairs = repair_de_brazeai_schritt_three_link_text(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_schritt_repairs)
+
+    translated_content, es_agents_alt_repairs = repair_es_agents_reference_alt_sentence_case(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(es_agents_alt_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

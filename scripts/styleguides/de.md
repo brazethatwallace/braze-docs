@@ -17,6 +17,10 @@ Omit articles before "Braze" unless grammar requires one. When an article is nee
 - The tone should be friendly, conversational, and informative — approachable rather than stiff or academic
 - Content should sound conversational, as if explaining something to an acquaintance, while consistently using the formal address (Sie)
 
+## Numbered steps in links (BrazeAI Agents and similar)
+
+- Headings may use forms like `### 3. Schritt: …`, but in **prose link text** write **Schritt 3** (for example `[Schritt 3](#agent-instructions)`), not `3. Schritt`, so the sentence reads naturally in German.
+
 ## English martech terminology
 
 Keep established English marketing technology terms in English — do not translate them into German. German martech professionals universally use these English terms, and the German translations sound awkward and unnatural. Key terms to keep in English include:
