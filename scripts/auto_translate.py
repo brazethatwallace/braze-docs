@@ -719,6 +719,99 @@ def repair_guide_featured_list_links(english_content, translated_content):
     ]
 
 
+# English Braze dashboard strings that often leak into localized Agents docs
+# when the model copies US UI labels verbatim. Keys: lang_key. Order is applied
+# longest-first per file to reduce partial-match issues.
+_AGENTS_EN_UI_COMMON = {
+    "pt_br": [
+        ("**Recalculate when catalog rows update**",
+         "**Recalcular quando as linhas do catálogo forem atualizadas**"),
+        ("**Apply AI agent**", "**Aplicar agente IA**"),
+        ("**Response Field**", "**Campo de Resposta**"),
+        ("**Cost estimation**", "**Estimativa de custo**"),
+        ("**Add fields**", "**Adicionar campos**"),
+        ("**Export CSV**", "**Exportar CSV**"),
+        ("**Edit Item**", "**Editar Item**"),
+        ("**Confirm**", "**Confirmar**"),
+        ('"Apply AI agent"', '"Aplicar agente IA"'),
+        ("'Apply AI agent'", "'Aplicar agente IA'"),
+    ],
+    "fr_fr": [
+        ("**Recalculate when catalog rows update**",
+         "**Recalculer lors de la mise à jour des lignes du catalogue**"),
+        ("**Apply AI agent**", "**Appliquer l'agent IA**"),
+        ("**Response Field**", "**Champ de réponse**"),
+        ("**Cost estimation**", "**Estimation des coûts**"),
+        ("**Add fields**", "**Ajouter des champs**"),
+        ("**Export CSV**", "**Exporter CSV**"),
+        ("**Edit Item**", "**Modifier l'élément**"),
+        ("**Confirm**", "**Confirmer**"),
+        ("« Apply AI agent »", "« Appliquer l'agent IA »"),
+        ('"Apply AI agent"', '"Appliquer l\'agent IA"'),
+    ],
+    "ja": [
+        ("**Recalculate when catalog rows update**",
+         "**カタログ行の更新時に再計算**"),
+        ("**Apply AI agent**", "**AIエージェントを適用**"),
+        ("**Response Field**", "**応答フィールド**"),
+        ("**Cost estimation**", "**コスト見積もり**"),
+        ("**Add fields**", "**フィールドを追加**"),
+        ("**Export CSV**", "**CSVをエクスポート**"),
+        ("**Edit Item**", "**アイテムを編集**"),
+        ("**Confirm**", "**確認**"),
+        ("「Apply AI agent」", "「AIエージェントを適用」"),
+        ('"Apply AI agent"', '"AIエージェントを適用"'),
+    ],
+}
+
+# Short labels that are risky to replace outside the catalog deployment article.
+_AGENTS_EN_UI_DEPLOYING_ONLY = {
+    "pt_br": [
+        ("**Usage**", "**Uso**"),
+        ("**View**", "**Ver**"),
+    ],
+    "fr_fr": [
+        ("**Usage**", "**Utilisation**"),
+        ("**View**", "**Afficher**"),
+    ],
+    "ja": [
+        ("**Usage**", "**使用状況**"),
+        ("**View**", "**表示**"),
+    ],
+}
+
+
+def repair_agents_catalog_en_ui(translated_path, translated_content, lang_key):
+    """Fix US-English dashboard labels leaked into localized BrazeAI Agents docs."""
+    rel = Path(translated_path).as_posix()
+    if "/brazeai/agents/" not in rel and "brazeai/agents/" not in rel:
+        return translated_content, []
+    if "_lang/" not in rel:
+        return translated_content, []
+    if not rel.endswith(".md"):
+        return translated_content, []
+
+    basename = Path(translated_path).name
+    pairs = list(_AGENTS_EN_UI_COMMON.get(lang_key, []))
+    if basename == "deploying_agents.md":
+        pairs.extend(_AGENTS_EN_UI_DEPLOYING_ONLY.get(lang_key, []))
+    if not pairs:
+        return translated_content, []
+
+    pairs.sort(key=lambda item: len(item[0]), reverse=True)
+    new_content = translated_content
+    n = 0
+    for old, new in pairs:
+        if old in new_content:
+            new_content = new_content.replace(old, new)
+            n += 1
+    if new_content == translated_content:
+        return translated_content, []
+    return new_content, [
+        f"agents_catalog_ui — replaced {n} leaked EN UI string(s) for {lang_key}"
+    ]
+
+
 def repair_yaml_syntax(translated_content):
     """Validate YAML front matter and auto-fix common parse errors.
 
@@ -1151,6 +1244,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(gfl_repairs)
+
+    translated_content, agents_ui_repairs = repair_agents_catalog_en_ui(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(agents_ui_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

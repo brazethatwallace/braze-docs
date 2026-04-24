@@ -65,6 +65,11 @@ These are Braze product names and features. Keep them in English:
 
 Common UI terms (buttons, menus, navigation labels) may be translated according to the target language's conventions if the Braze product UI is localized for that language. When an existing translation is provided, maintain consistency with its terminology choices.
 
+### BrazeAI Agents documentation (`_user_guide/brazeai/agents/`)
+
+- **Generic “agent” / “agents”**: Use the natural word in the target language for an automated agent entity (for example Portuguese *agente* / *agentes*, French *agent* / *agents*). Keep **Braze Agents** for the official product or suite name when you mean that feature—do not use English *agent(s)* as a generic noun in otherwise localized prose.
+- **Bold UI labels from the English file**: English pages often copy US-dashboard strings such as **Apply AI agent**, **Add fields**, **Cost estimation**, **Confirm**, **Recalculate when catalog rows update**, **Response Field**, **Edit Item**, **Usage**, **Export CSV**, and **View**. If the Braze dashboard is localized for the target language, translate those bold labels to match that UI. Do not leave raw US-English bold labels in the middle of paragraphs that are otherwise translated unless you are explicitly documenting that the UI is English-only.
+
 An "Approved terminology" table may be appended to the end of these instructions with file-specific term translations. When present, use those approved translations. If an English term maps to itself in the table, keep it in English.
 
 ## Grammatical gender for brand names
