@@ -205,9 +205,9 @@ A medida que crees más catálogos, también puedes utilizar el [punto de conexi
 
 La API REST admite todos los [tipos de datos de catálogo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), incluidos los objetos JSON y las matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la API REST.
 
-### Uso de la Ingesta de datos de Cloud
+### Uso de la ingesta de datos en la nube
 
-Puedes mantener catálogos a través de la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
+Puedes mantener catálogos a través de la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
 
 ## Gestión de los elementos del catálogo
 
