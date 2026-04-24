@@ -22,14 +22,38 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Optional
 
+# Single source of truth for the Braze product-name allowlist; imported by
+# ``scripts/audit_glossaries.py`` too so the runtime glossary override and
+# the upstream-sync guard cannot drift apart (Copilot flagged the prior
+# "keep in sync" duplication on PR #13303).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
+
 def _get_anthropic_client():
-    """Lazy-import Anthropic so commands like qc/summary work without the SDK."""
+    """Lazy-import Anthropic so commands like qc/summary work without the SDK.
+
+    The HTTP ``timeout`` bounds **every** HTTP operation (connect, read,
+    write). Without it, a stalled ``client.messages.stream(...)`` socket
+    blocks the whole workflow: run 24906077736 sat on the `Translate
+    changed files` step for 87+ minutes (against a typical 9-35 min
+    healthy runtime for the same-wave siblings) until it was manually
+    cancelled, because the streaming response simply stopped sending
+    chunks with no exception raised.
+
+    With the timeout in place, a stalled stream raises after
+    ``TRANSLATION_HTTP_TIMEOUT`` seconds of silence; ``call_claude``'s
+    3-retry loop then reissues the request. Worst-case per-task time
+    is ``3 * TRANSLATION_HTTP_TIMEOUT`` seconds (~9 min at the default
+    of 180s), and the workflow's ``timeout-minutes`` gives a final
+    wall-clock ceiling on top of that.
+    """
     try:
         from anthropic import Anthropic
     except ImportError:
         print("ERROR: Install the Anthropic SDK: pip install anthropic")
         sys.exit(1)
-    return Anthropic()
+    timeout_seconds = float(os.environ.get("TRANSLATION_HTTP_TIMEOUT", "180"))
+    return Anthropic(timeout=timeout_seconds)
 
 
 LANGUAGES = {
@@ -64,6 +88,39 @@ BRAZE_PRODUCT_NAMES = [
     "Campaign", "Segments", "Segment", "Braze", "Liquid", "SDK", "API",
 ]
 
+def protected_term_for_locale(term, lang_key):
+    """Canonical glossary value for a protected product term in ``lang_key``.
+
+    Returns ``None`` when ``term`` is not in ``PROTECTED_PRODUCT_TERMS``.
+    When it is protected, returns the locale-specific override if one
+    exists (for example ``Canvases`` → ``Canvas`` in Romance locales),
+    otherwise falls back to the English term itself.
+
+    No exception is raised — ``.get(lang_key, term)`` defaults to
+    ``term`` for locales without a specific override. The earlier
+    docstring claimed a ``KeyError`` path that the implementation has
+    never actually taken (Copilot flagged the mismatch on PR #13303).
+    """
+    if term not in PROTECTED_PRODUCT_TERMS:
+        return None
+    return PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
+
+
+# Case-folded lookup so ``filter_glossary``-style case-insensitive hits
+# can't inject a localized entry for a lowercase spelling of a protected
+# term (Copilot flagged this gap on PR #13303: pre-fix glossaries still
+# carried ``campaign``→``campaña``, ``segment``→``세그먼트``, etc.).
+_PROTECTED_TERM_CANONICAL_BY_LOWER = {
+    term.lower(): term for term in PROTECTED_PRODUCT_TERMS
+}
+
+
+def _canonical_protected_term(term):
+    """Return the canonical-cased protected product term for any casing of
+    ``term``, or ``None`` if ``term`` is not a protected product name."""
+    return _PROTECTED_TERM_CANONICAL_BY_LOWER.get(term.lower())
+
+
 NON_LATIN_LANGUAGES = frozenset({"ja", "ko"})
 
 COMPLETENESS_MIN_RATIO = float(os.environ.get("QC_MIN_RATIO", "0.6"))
@@ -87,11 +144,35 @@ def load_styleguide(lang_key):
 
 
 def load_glossary(lang_key):
-    """Load the terminology glossary for a language. Returns {} if not found."""
+    """Load the terminology glossary for a language. Returns {} if not found.
+
+    After loading, enforces the ``translation_prompt.md`` "Braze product
+    terminology" rule by **removing every case-insensitive variant** of a
+    protected term from the raw glossary, then injecting exactly one
+    canonical entry (English-cased key → locale override or English value).
+
+    The case-fold step matters because ``filter_glossary`` matches the
+    English term against file text case-insensitively (``en.lower() in
+    text_lower``). Copilot flagged on PR #13303 that the prior
+    implementation only overwrote the exact-cased key, so a glossary
+    like ``"campaign" -> "campaña"`` or ``"segment" -> "세그먼트"`` still
+    slipped through and contradicted the "keep product terms in English"
+    rule. Stripping every case-variant up-front closes the loophole: the
+    canonical ``"Campaign"`` / ``"Segment"`` entries we then inject are
+    the only protected-term rows the LLM sees.
+    """
     glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
-    if glossary_path.exists():
-        return json.loads(glossary_path.read_text())
-    return {}
+    raw = (
+        json.loads(glossary_path.read_text())
+        if glossary_path.exists()
+        else {}
+    )
+    for key in list(raw):
+        if _canonical_protected_term(key) is not None:
+            del raw[key]
+    for term in PROTECTED_PRODUCT_TERMS:
+        raw[term] = protected_term_for_locale(term, lang_key)
+    return raw
 
 
 def filter_glossary(glossary, text, max_terms=200):
@@ -370,6 +451,290 @@ def translation_path(english_relative, lang_dir):
     return REPO_ROOT / "_lang" / lang_dir / english_relative
 
 
+# Keys whose values carry cross-section terminology (nav labels, page
+# title, meta description, hero header). These are the strings a reader
+# sees in navigation, search, and landing-page heroes — the surfaces
+# where "same product, different wording" is most jarring.
+#
+# ``guide_top_header`` is included because the prompt already tells the
+# LLM to reuse it for cross-section consistency (``translation_prompt.md``
+# "Cross-section consistency" section) and it appears widely across
+# ``_lang/*`` front matter; omitting it here meant the injected context
+# and the QC drift check both silently ignored a key the prompt was
+# asking the model to mirror (Copilot flag on PR #13303).
+_SIBLING_CONTEXT_FM_KEYS = (
+    "nav_title",
+    "article_title",
+    "title",
+    "description",
+    "guide_top_header",
+)
+
+# Cap how many related pages we expose to the LLM per translation to keep
+# prompt size predictable. In practice an IA move produces 1 sibling and a
+# product-area tree adds 2–4 deeper guides. Cap at 5 for safety.
+_SIBLING_CONTEXT_MAX = 5
+
+# Max characters of body excerpt to include per related page. Front matter
+# alone catches IA-move drift (see PR #13297 / feature_flags.md), but
+# product-area drift (PR #13298 / email.md — "Standard" tier labels, bullet
+# phrasing) lives in body prose, so we include a short body excerpt too.
+_SIBLING_CONTEXT_BODY_CHARS = 1400
+
+
+# Per-process cache of ``list(lang_root.rglob("*.md"))`` per locale.
+#
+# Without this, ``_find_related_locale_pages`` (which does one rglob per
+# translated file for basename + one for every ``.md`` in the locale
+# when ``len(stem) >= 4``) scanned ~12K paths per locale × 6 locales
+# × N translated files in a wave, turning prompt-building into the
+# dominant cost of a batch. Copilot flagged the O(N × M) hot path on
+# PR #13303. Caching the path list once per process collapses that to
+# a single walk per locale; the cache is bounded (≤6 locales × ~12K
+# entries ≈ 72K Path objects) and a fresh process is spawned per CLI
+# invocation, so there's no stale-data risk.
+_LOCALE_MD_PATH_CACHE: dict = {}
+
+
+def _locale_md_paths(lang_dir):
+    """Return a cached list of every ``.md`` path under ``_lang/<lang_dir>/``.
+
+    The first call walks ``_lang/<lang_dir>/`` once and memoizes the
+    result; subsequent calls in the same process reuse the list.
+    """
+    cached = _LOCALE_MD_PATH_CACHE.get(lang_dir)
+    if cached is not None:
+        return cached
+    lang_root = REPO_ROOT / "_lang" / lang_dir
+    if not lang_root.exists():
+        _LOCALE_MD_PATH_CACHE[lang_dir] = []
+        return _LOCALE_MD_PATH_CACHE[lang_dir]
+    _LOCALE_MD_PATH_CACHE[lang_dir] = list(lang_root.rglob("*.md"))
+    return _LOCALE_MD_PATH_CACHE[lang_dir]
+
+
+def _find_sibling_translations(basename, lang_dir, exclude_target):
+    """Return already-translated files in the locale with the same basename.
+
+    Used by the QC drift check (which only compares same-concept pages).
+    See ``_find_related_locale_pages`` for the broader prompt-context lookup.
+    """
+    all_paths = _locale_md_paths(lang_dir)
+    if not all_paths:
+        return []
+    exclude_resolved = exclude_target.resolve() if exclude_target else None
+    hits = []
+    for path in sorted(p for p in all_paths if p.name == basename):
+        try:
+            if exclude_resolved and path.resolve() == exclude_resolved:
+                continue
+        except OSError:
+            continue
+        try:
+            content = path.read_text()
+        except OSError:
+            continue
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        hits.append((rel, content))
+        if len(hits) >= _SIBLING_CONTEXT_MAX:
+            break
+    return hits
+
+
+_SECTION_RANK = {
+    "_user_guide": 0,
+    "_developer_guide": 1,
+    "_partners": 2,
+    "_help": 2,
+    "_hidden": 3,
+    "_api": 4,
+    "_includes": 5,
+}
+
+# Candidate categories (lower wins):
+#   0 — same-basename (IA-move sibling)
+#   1 — stem-prefix/suffix filename (e.g. email.md → email_services.md)
+#   2 — same-stem-directory (e.g. channels/email.md → …/email/**/*.md)
+_CAT_SAME_BASENAME = 0
+_CAT_STEM_FILENAME = 1
+_CAT_STEM_DIRECTORY = 2
+
+
+def _related_page_priority(path, lang_dir, category):
+    """Lower is better. Favors user-facing sections, then category."""
+    parts = path.parts
+    try:
+        lang_idx = parts.index(lang_dir)
+        section = parts[lang_idx + 1] if lang_idx + 1 < len(parts) else ""
+    except ValueError:
+        section = ""
+    section_rank = _SECTION_RANK.get(section, 9)
+    return (section_rank, category, len(parts), str(path))
+
+
+def _find_related_locale_pages(fpath, lang_dir, exclude_target):
+    """Return locale pages likely to cover the same Braze product area.
+
+    Candidates are gathered from three lookups and then ranked so the most
+    relevant pages win the ``_SIBLING_CONTEXT_MAX`` slots:
+
+    1. **Same-basename** siblings — an IA move relocates ``_docs/a/foo.md``
+       to ``_docs/b/foo.md``; the locale's existing ``_lang/<locale>/.../foo.md``
+       is an authoritative terminology reference (see PR #13297).
+    2. **Stem-prefix/suffix** filenames — for ``channels/email.md`` the
+       locale's ``email_services.md``, ``email_setup.md``, etc. are
+       near-canonical terminology references even when buried several
+       levels deep. Also picks up ``_email.md``-style suffixes
+       (see PR #13298).
+    3. **Same-stem-directory** pages — for ``channels/email.md``, every
+       ``_lang/<locale>/.../email/**/*.md`` is in the same product area,
+       covering the locale's glossary and phrasing conventions (tier
+       labels, bullet sentence structure, etc.).
+
+    Priority ranking favors ``_user_guide/`` over ``_api/`` / ``_includes/``,
+    then prefers same-basename → stem-filename → stem-directory so
+    canonical user-facing prose wins out over machine-format fragments.
+    """
+    basename = Path(fpath).name
+    stem = Path(fpath).stem
+    all_paths = _locale_md_paths(lang_dir)
+    if not all_paths:
+        return []
+
+    exclude_resolved = exclude_target.resolve() if exclude_target else None
+    candidates = {}
+
+    def _consider(path, category):
+        try:
+            resolved = path.resolve()
+        except OSError:
+            return
+        if exclude_resolved and resolved == exclude_resolved:
+            return
+        existing = candidates.get(resolved)
+        prio = _related_page_priority(path, lang_dir, category)
+        if existing is None or prio < existing[0]:
+            candidates[resolved] = (prio, path)
+
+    # Single pass over the cached locale index — categorise each file by
+    # whichever lookup rule it matches, if any. The earlier implementation
+    # did one ``rglob(basename)`` plus one ``rglob("*.md")`` per call, so
+    # a wave of 40 files × 6 locales walked the ``_lang`` tree 480 times;
+    # the shared ``_locale_md_paths`` cache now walks it 6 times per
+    # process (Copilot performance flag on PR #13303).
+    stem_ok = len(stem) >= 4
+    stem_prefix = f"{stem}_" if stem_ok else ""
+    stem_suffix = f"_{stem}.md" if stem_ok else ""
+    for path in all_paths:
+        if path.name == basename:
+            _consider(path, _CAT_SAME_BASENAME)
+            continue
+        # The stem-based lookups are scoped to pages that actually live
+        # inside a directory named for the stem (e.g. ``.../email/**``).
+        # A global ``email_*`` glob would otherwise drag in weakly-related
+        # files like ``analytics/tracking/email_tracking.md`` that don't
+        # share the same product-area glossary.
+        if not stem_ok or stem not in path.parts:
+            continue
+        if path.name.startswith(stem_prefix) or path.name.endswith(stem_suffix):
+            _consider(path, _CAT_STEM_FILENAME)
+        else:
+            _consider(path, _CAT_STEM_DIRECTORY)
+
+    ordered = sorted(candidates.values(), key=lambda item: item[0])
+    out = []
+    for _, path in ordered:
+        if len(out) >= _SIBLING_CONTEXT_MAX:
+            break
+        try:
+            content = path.read_text()
+        except OSError:
+            continue
+        out.append((path.relative_to(REPO_ROOT).as_posix(), content))
+    return out
+
+
+def _sibling_front_matter_snippet(content):
+    """Extract only the cross-section terminology keys from a sibling file."""
+    fm, _ = _extract_front_matter(content)
+    if not fm:
+        return ""
+    lines = []
+    for key in _SIBLING_CONTEXT_FM_KEYS:
+        block = _extract_fm_block(fm, key)
+        if block:
+            lines.append(block)
+    return "\n".join(lines)
+
+
+def _related_page_snippet(content):
+    """Return FM (terminology keys) + a short body excerpt for prompt context.
+
+    The body excerpt captures body-level glossary drift (tier labels in
+    bullet lists, preferred sentence patterns, etc.) that front matter alone
+    misses. Capped at ``_SIBLING_CONTEXT_BODY_CHARS`` to keep token use
+    predictable.
+    """
+    parts = []
+    fm_snippet = _sibling_front_matter_snippet(content)
+    if fm_snippet:
+        parts.append("Front matter (terminology reference):\n```yaml\n"
+                     + fm_snippet + "\n```")
+    _, body = _extract_front_matter(content)
+    if body:
+        excerpt = body.lstrip()
+        if len(excerpt) > _SIBLING_CONTEXT_BODY_CHARS:
+            excerpt = excerpt[:_SIBLING_CONTEXT_BODY_CHARS].rstrip() + "\n…"
+        if excerpt.strip():
+            parts.append("Body excerpt (glossary/phrasing reference — do "
+                         "NOT translate or copy this):\n```markdown\n"
+                         + excerpt + "\n```")
+    return "\n\n".join(parts)
+
+
+def _build_sibling_context(fpath, lang_dir, target):
+    """Build a prompt section listing related locale pages for terminology.
+
+    Returns an empty string when no related pages exist, so the function is
+    safe to always call.
+    """
+    related = _find_related_locale_pages(fpath, lang_dir, target)
+    if not related:
+        return ""
+    blocks = []
+    for rel, content in related:
+        snippet = _related_page_snippet(content)
+        if not snippet:
+            continue
+        blocks.append(f"### {rel}\n\n{snippet}")
+    if not blocks:
+        return ""
+    header = (
+        "## Cross-section consistency (related locale pages)\n\n"
+        "The target locale already ships translated page(s) that cover the "
+        "same Braze concept or product area as the file you are about to "
+        "translate — either because an information-architecture move "
+        "relocated the English source (same basename) or because deeper "
+        "guides live under a directory named for this product (e.g. "
+        "`…/email/…` guides when you are translating `channels/email.md`). "
+        "Use them as the **authoritative terminology and phrasing reference "
+        "for this locale**:\n\n"
+        "- Reuse **`nav_title`**, **`article_title`**, and **`description`** "
+        "wording verbatim when the page covers the same concept.\n"
+        "- Reuse body **glossary terms** — product names, tier/plan labels, "
+        "UI strings, and loanword conventions (e.g., Japanese katakana "
+        "`スタンダード` / `デラックス` for support tiers rather than native "
+        "equivalents like `標準`).\n"
+        "- Match the locale's **sentence patterns for bullet lists** (e.g., "
+        "Romance languages often prefer verb forms — *Mitigar y remediar…* — "
+        "over nominalizations — *Mitigación y remediación de…*).\n"
+        "- **Do not translate or copy** these snippets into your output. "
+        "They are context only; translate the English source under "
+        "`## English source`."
+    )
+    return header + "\n\n" + "\n\n".join(blocks) + "\n"
+
+
 def load_results():
     if RESULTS_FILE.exists():
         return json.loads(RESULTS_FILE.read_text())
@@ -392,7 +757,10 @@ def translate_one(client, prompt, fpath, relative, english_content,
 
     filtered = filter_glossary(glossary, english_content)
     glossary_section = format_glossary_for_prompt(filtered)
+    sibling_section = _build_sibling_context(fpath, lang_info["dir"], target)
     extra_context = styleguide + glossary_section
+    if sibling_section:
+        extra_context = extra_context + "\n\n" + sibling_section
 
     try:
         translated = translate_file(
@@ -431,7 +799,10 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
     filtered = filter_glossary(glossary, english_content)
     glossary_section = format_glossary_for_prompt(filtered)
+    sibling_section = _build_sibling_context(fpath, lang_info["dir"], target)
     extra_context = styleguide + glossary_section
+    if sibling_section:
+        extra_context = extra_context + "\n\n" + sibling_section
 
     en_chunks = split_into_chunks(english_content)
     tr_chunks = match_existing_chunks(en_chunks, existing)
@@ -1045,6 +1416,589 @@ def repair_markdown_internal_link_fragments(content):
 _RESET_TD_BR_IAL_MISSING_DOT = re.compile(
     r"\{\:\s*\.reset-td-br-1\s+reset-td-br-2\b"
 )
+
+
+_MD_TABLE_SEP_RE = re.compile(r"^\s*\|(?:\s*:?-+:?\s*\|)+\s*$")
+_IAL_LINE_RE = re.compile(r"^\s*\{:\s*[^}]*\}\s*$")
+_RESET_TD_CLASS_RE = re.compile(r"\.reset-td-br-(\d+)")
+
+
+def _count_md_table_cells(line):
+    """Count cells in a markdown table row (header/body/separator)."""
+    s = line.strip()
+    if not s.startswith("|") or not s.endswith("|"):
+        return 0
+    inner = s[1:-1]
+    return len([c for c in inner.split("|")])
+
+
+def _rebuild_md_separator(header_cols, original_sep):
+    """Return a separator row with ``header_cols`` cells, preserving each
+    original cell's alignment marker where available."""
+    s = original_sep.strip()
+    if s.startswith("|"):
+        s = s[1:]
+    if s.endswith("|"):
+        s = s[:-1]
+    cells = [c.strip() or "---" for c in s.split("|")]
+    if len(cells) < header_cols:
+        cells.extend(["---"] * (header_cols - len(cells)))
+    else:
+        cells = cells[:header_cols]
+    return "| " + " | ".join(cells) + " |"
+
+
+def _clamp_reset_td_br_ial(ial_line, header_cols):
+    """Remove ``.reset-td-br-N`` classes where ``N > header_cols``.
+
+    Returns ``(new_line, removed_count)``.
+    """
+    removed = 0
+
+    def repl(match):
+        nonlocal removed
+        n = int(match.group(1))
+        if n > header_cols:
+            removed += 1
+            return ""
+        return match.group(0)
+
+    new = _RESET_TD_CLASS_RE.sub(repl, ial_line)
+    if removed:
+        new = re.sub(r" +", " ", new)
+        new = re.sub(r"\s+\}", " }", new)
+    return new, removed
+
+
+def repair_markdown_table_column_count(content):
+    """Repair markdown tables whose separator row's cell count doesn't match
+    the header row's cell count (and prune trailing ``.reset-td-br-N`` IAL
+    classes that reference non-existent columns).
+
+    The LLM was asked to preserve table shape verbatim, so when the English
+    source itself has the mismatch (see PR #13302 / product_blocks.md static
+    product block: 2-col header with ``| --- | --- | --- |`` separator and a
+    ``.reset-td-br-3`` IAL), the bug rides into every locale. This repair
+    fixes it deterministically in post-processing.
+
+    Skips lines inside fenced code blocks (``\u200b```...\u200b```\u200b`` /
+    ``~~~...~~~``) so pipe-table-looking example rows inside code fences
+    (``curl -X POST ... | jq .``, SQL ``|`` unions, shell pipelines)
+    aren't treated as real tables and have their structure mutated.
+    Copilot flagged this gap on PR #13303 — the repair previously ran
+    purely line-wise and could have rewritten example code after
+    ``repair_code_blocks`` restored it.
+    """
+    lines = content.splitlines()
+    repairs = []
+    total = len(lines)
+    i = 0
+    in_fence = False
+    fence_delim = None
+    while i < total - 1:
+        cur = lines[i]
+        stripped = cur.strip()
+        # Match both ``\u200b```\u200b`` and ``~~~`` fence delimiters. The
+        # existing ``_CODE_FENCE_OPEN_RE`` only covers backticks, so track
+        # both here locally to stay robust against ``~~~`` fences that show
+        # up in a few of the `_api/` pages.
+        if stripped.startswith("```") and (fence_delim in (None, "```")):
+            in_fence = not in_fence
+            fence_delim = "```" if in_fence else None
+            i += 1
+            continue
+        if stripped.startswith("~~~") and (fence_delim in (None, "~~~")):
+            in_fence = not in_fence
+            fence_delim = "~~~" if in_fence else None
+            i += 1
+            continue
+        if in_fence:
+            i += 1
+            continue
+
+        nxt = lines[i + 1]
+        if (
+            stripped.startswith("|")
+            and stripped.endswith("|")
+            and not _MD_TABLE_SEP_RE.match(cur)
+            and _MD_TABLE_SEP_RE.match(nxt)
+        ):
+            header_cols = _count_md_table_cells(cur)
+            sep_cols = _count_md_table_cells(nxt)
+            if header_cols > 0 and header_cols != sep_cols:
+                lines[i + 1] = _rebuild_md_separator(header_cols, nxt)
+                repairs.append(
+                    f"md-table — separator cols {sep_cols}→{header_cols}"
+                )
+            # Scan forward through body rows to find the IAL (if any).
+            j = i + 2
+            while j < total and lines[j].strip().startswith("|"):
+                j += 1
+            if header_cols > 0 and j < total and _IAL_LINE_RE.match(lines[j]):
+                new_ial, removed = _clamp_reset_td_br_ial(lines[j], header_cols)
+                if removed:
+                    lines[j] = new_ial
+                    repairs.append(
+                        f"md-ial — trimmed {removed} stale .reset-td-br-N "
+                        f"class(es) past column {header_cols}"
+                    )
+            i = j
+        else:
+            i += 1
+    if repairs:
+        result = "\n".join(lines)
+        if content.endswith("\n"):
+            result += "\n"
+        return result, repairs
+    return content, []
+
+
+_INTERNAL_LINK_URL_RE = re.compile(r"\]\(([^)]+)\)")
+_SLASH_SKIP_EXTS = (
+    ".md", ".html", ".htm", ".json", ".xml", ".png", ".jpg", ".jpeg",
+    ".gif", ".svg", ".pdf", ".txt", ".yaml", ".yml", ".csv",
+)
+
+
+def _normalize_trailing_slash_on_baseurl(url):
+    """Add trailing ``/`` to extensionless ``{{site.baseurl}}`` doc links.
+
+    Braze docs are directory-style (Jekyll permalinks end in ``/``). Bare
+    ``{{site.baseurl}}/path)`` without a trailing slash causes redirects
+    and inconsistent in-page link formats (Copilot flag on PR #13302).
+    """
+    if "{{site.baseurl}}" not in url:
+        return url, False
+    if "?" in url or "#" in url:
+        return url, False
+    if url.endswith("/"):
+        return url, False
+    if url.rstrip().endswith("}}"):
+        return url, False
+    idx = url.find("{{site.baseurl}}")
+    tail = url[idx + len("{{site.baseurl}}") :]
+    if not tail or not tail.startswith("/"):
+        return url, False
+    last_seg = tail.rsplit("/", 1)[-1]
+    if not last_seg:
+        return url, False
+    lower = last_seg.lower()
+    if any(lower.endswith(ext) for ext in _SLASH_SKIP_EXTS):
+        return url, False
+    if "." in last_seg:
+        return url, False
+    return url + "/", True
+
+
+def repair_markdown_internal_link_trailing_slash(content):
+    """Generalize ``repair_ideas_and_strategies_internal_link_trailing_slash``
+    to every extensionless ``{{site.baseurl}}`` directory-style link.
+
+    PR #13302 had the same link appearing both as
+    ``.../ecommerce_use_cases)`` and ``.../ecommerce_use_cases/)`` within a
+    single localized file. The translation prompt already asks for trailing
+    ``/`` on directory-style links; this is a deterministic backstop.
+    """
+    repairs = []
+    counts = {}
+
+    def repl(match):
+        url = match.group(1)
+        new_url, changed = _normalize_trailing_slash_on_baseurl(url)
+        if changed:
+            counts[url] = counts.get(url, 0) + 1
+        return f"]({new_url})"
+
+    new = _INTERNAL_LINK_URL_RE.sub(repl, content)
+    if counts:
+        total = sum(counts.values())
+        distinct = len(counts)
+        repairs.append(
+            f"md-link — added trailing / to {total} directory-style "
+            f"{{{{site.baseurl}}}} link(s) ({distinct} distinct path(s))"
+        )
+        return new, repairs
+    return content, []
+
+
+# German uses U+201E („) as the opening quotation mark and U+201C (") as
+# the closing one. The LLM occasionally pairs a typographic „ with an
+# ASCII " (U+0022) — the latter breaks screen readers, CSS selectors, and
+# PDF export, and was flagged on PR #13299. Non-greedy matching and an
+# exclusion of both ASCII " and typographic „/" inside the content window
+# means we only flip the *first* ASCII " after each „ opener, so straight
+# quotes inside unrelated HTML attributes like ``style="max-width:70%;"``
+# are never touched (they sit past the match boundary).
+_DE_MISMATCHED_QUOTE_RE = re.compile(
+    r'\u201E([^\u201E\u201C"]+?)"',
+    re.DOTALL,
+)
+
+
+def repair_german_mismatched_quotes(translated_path, translated_content):
+    r"""Fix ``\u201E…\u0022`` → ``\u201E…\u201C`` in ``_lang/de/`` files.
+
+    That is: German low-9 double quote (U+201E, ``„``) incorrectly closed
+    with ASCII U+0022 (``"``) becomes closed with left double quotation
+    mark U+201C (``"`` / ``\u201C``). The old docstring showed ``"`` in
+    monospace for both sides, which rendered identically and confused
+    readers (Copilot on PR #13303).
+
+    Only runs on German translations because „ isn't an opening quote in
+    the other five locales.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    # Match both ``_lang/de/...`` (relative) and ``/.../_lang/de/...`` (abs).
+    if "_lang/de/" not in rel:
+        return translated_content, []
+
+    new, n = _DE_MISMATCHED_QUOTE_RE.subn(
+        lambda m: "\u201E" + m.group(1) + "\u201C",
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"de-quotes — closed {n} „ opening quote(s) with typographic "
+            f"\u201C (was ASCII \")"
+        ]
+    return translated_content, []
+
+
+# Code fences we trust to contain balanced ASCII double-quote strings. Other
+# languages (Markdown, TypeScript's template literals, Python's triple-quotes,
+# etc.) have legitimate patterns that would produce noisy false positives, so
+# we scope the check to cURL/JSON/shell/Liquid — the classes where an
+# unterminated string literal is almost always a real bug.
+# Allow leading indentation so list-nested fences (``    ```xml``) still
+# toggle fence state. Copilot on PR #13303: the old ``^````` form missed
+# indented openers, so ``in_fence`` stayed false and triple-backtick
+# repairs could rewrite literal fence examples inside blocks.
+#
+# **Closing** fences are only lines that are *solely* backticks + optional
+# spaces (no info string). **Opening** lines may carry a language tag
+# (`` ```json``). ``repair_triple_backtick_inline_code`` uses that
+# distinction so a `` ```liquid`` line *inside* an outer fence does not
+# flip ``in_fence`` until the real `` ````` closer arrives.
+_CODE_FENCE_OPEN_RE = re.compile(
+    r'^\s*```([A-Za-z0-9_+.-]*)\s*$',
+)
+_CODE_FENCE_CLOSE_RE = re.compile(r'^\s*```\s*$')
+_CHECKED_FENCE_LANGS = frozenset({
+    "liquid", "json", "bash", "sh", "shell", "zsh", "curl",
+})
+_ESCAPED_DOUBLE_QUOTE_RE = re.compile(r'\\"')
+
+
+def _iter_code_fences(content):
+    """Yield ``(lang, start_line, end_line, body)`` for each fenced block.
+
+    ``start_line`` / ``end_line`` are 0-based indices into ``splitlines()``
+    and point at the opening / closing ``` lines respectively. ``body``
+    is the text *between* those lines (unchanged whitespace).
+    """
+    lines = content.splitlines()
+    i = 0
+    total = len(lines)
+    while i < total:
+        m = _CODE_FENCE_OPEN_RE.match(lines[i])
+        if not m:
+            i += 1
+            continue
+        lang = m.group(1).lower()
+        j = i + 1
+        while j < total and not _CODE_FENCE_CLOSE_RE.match(lines[j]):
+            j += 1
+        if j >= total:
+            return
+        body = "\n".join(lines[i + 1:j])
+        yield lang, i, j, body
+        i = j + 1
+
+
+def check_code_fence_balanced_quotes(content, label="translated"):
+    """Warn when a ``liquid``/``json``/``bash``/``shell`` fence has an odd
+    number of unescaped ASCII ``"`` characters.
+
+    PR #13305's English source shipped a broken Liquid example
+    (``"Hi ${first_name}, {% connected_content ... %}``) with an opening
+    quote but no closer; the auto-translate pipeline faithfully mirrored
+    the unterminated string into all six locales. A character-count
+    heuristic is enough to catch this class of bug without the complexity
+    of actual parsing: `curl -d '{"k": "v"}'`-style lines always contain
+    an even number of quotes, so any odd count in the trusted fence
+    languages is strong evidence of a missing closer.
+
+    ``label`` distinguishes whether the fence lives in the English source
+    vs. a locale copy in the warning message — a ``(english source)``
+    tag is a cue to fix upstream before re-running the translation.
+    """
+    warnings = []
+    for lang, start_line, end_line, body in _iter_code_fences(content):
+        if lang not in _CHECKED_FENCE_LANGS:
+            continue
+        stripped = _ESCAPED_DOUBLE_QUOTE_RE.sub("", body)
+        count = stripped.count('"')
+        if count % 2 == 1:
+            first_body_line = start_line + 2
+            warnings.append(
+                f"code-fence — unbalanced \" in ```{lang} block starting "
+                f"near line {first_body_line} ({label}): {count} unescaped "
+                f"double-quote(s), expected an even number. Likely an "
+                f"unterminated string — inspect the opening/closing quotes "
+                f"of the first line."
+            )
+    return warnings
+
+
+# Triple backticks inside a paragraph line (with prose before or after)
+# are almost always a mis-formatted inline code span. Kramdown treats the
+# run of backticks as a fenced-code-block delimiter and breaks the
+# surrounding rendering. The content group forbids newlines and backticks
+# so we can only match a single-line token sequence like ``WYSIWYG``.
+_TRIPLE_BACKTICK_INLINE_RE = re.compile(r'```([^\s`][^\n`]*?)```')
+
+
+def repair_triple_backtick_inline_code(content):
+    """Rewrite mid-paragraph ``` ```word``` ``` to ``` `word` ``` (single
+    backticks).
+
+    The English source of PR #13304's
+    ``_user_guide/channels/email/html_editor/troubleshooting.md`` shipped
+    ``The plain text view removes your ```WYSIWYG``` (what you see...)``
+    on one line. Kramdown interprets the first `` ``` `` as a fenced-
+    code-block opener mid-paragraph, so everything from *WYSIWYG* onward
+    renders inside a dangling code block instead of as an inline span.
+    The bug rode into every locale because the auto-translate pipeline
+    mirrors the English source verbatim. This repair closes the loop
+    deterministically in post-processing.
+
+    Scope rules:
+
+    * Fence delimiter lines (``^\s*```lang$`` / ``^\s*```$``) are excluded
+      via ``_CODE_FENCE_OPEN_RE`` / ``_CODE_FENCE_CLOSE_RE`` so we never
+      touch a real fence opener or closer (including indented fences).
+    * Lines *inside* an already-open fenced block are skipped so we
+      don't rewrite literal examples of Kramdown fencing syntax.
+    * Table-cell lines (``^\\s*\\|``) are skipped — triple backticks
+      inside table cells render as inline code in practice and rewriting
+      them risks altering column alignment or escaping meaning.
+    * Lines that are *entirely* a triple-backtick span (no surrounding
+      prose) are left alone — those are the author's shorthand for a
+      single-line code block, not the PR #13304 bug class.
+    * The content group ``[^\\s`][^\\n`]*?`` forbids a leading whitespace
+      or backtick so we don't accidentally chew into 4-backtick spans
+      or padded fence openers.
+    """
+    lines = content.splitlines()
+    in_fence = False
+    repair_count = 0
+    for i, L in enumerate(lines):
+        if in_fence:
+            if _CODE_FENCE_CLOSE_RE.match(L):
+                in_fence = False
+            continue
+        if _CODE_FENCE_OPEN_RE.match(L):
+            in_fence = True
+            continue
+        if L.lstrip().startswith("|"):
+            continue
+        matches = list(_TRIPLE_BACKTICK_INLINE_RE.finditer(L))
+        if not matches:
+            continue
+        residue = _TRIPLE_BACKTICK_INLINE_RE.sub("", L).strip()
+        if not residue:
+            continue
+        new_line = _TRIPLE_BACKTICK_INLINE_RE.sub(r"`\1`", L)
+        repair_count += len(matches)
+        lines[i] = new_line
+    if repair_count:
+        result = "\n".join(lines)
+        if content.endswith("\n"):
+            result += "\n"
+        return result, [
+            f"md-code-inline — rewrote {repair_count} "
+            f"\"```word```\" to \"`word`\" (triple backticks in a "
+            f"paragraph break Kramdown fenced-block parsing)"
+        ]
+    return content, []
+
+
+def check_triple_backtick_inline_code(content, label="translated"):
+    """Warn-only sibling of ``repair_triple_backtick_inline_code``.
+
+    Runs the same scan without rewriting so we can surface mid-paragraph
+    triple-backticks in the **English source** (where the bug usually
+    originates — PR #13304). The repair still fires on the translated
+    output, but flagging the source in the QC log prods humans to fix
+    upstream before the next wave of locales inherits the same mistake.
+    """
+    warnings = []
+    lines = content.splitlines()
+    in_fence = False
+    for i, L in enumerate(lines, start=1):
+        if in_fence:
+            if _CODE_FENCE_CLOSE_RE.match(L):
+                in_fence = False
+            continue
+        if _CODE_FENCE_OPEN_RE.match(L):
+            in_fence = True
+            continue
+        if L.lstrip().startswith("|"):
+            continue
+        matches = list(_TRIPLE_BACKTICK_INLINE_RE.finditer(L))
+        if not matches:
+            continue
+        residue = _TRIPLE_BACKTICK_INLINE_RE.sub("", L).strip()
+        if not residue:
+            continue
+        tokens = ", ".join(sorted({m.group(1) for m in matches}))[:120]
+        warnings.append(
+            f"md-code-inline — line {i} ({label}) uses triple backticks "
+            f"mid-paragraph around [{tokens}]; Kramdown will parse them as "
+            f"a fenced-block opener. Use single backticks for inline code."
+        )
+    return warnings
+
+
+_HEADING_RE = re.compile(r'^(#{1,6})\s+(.+?)\s*$', re.MULTILINE)
+_HEADING_SLUG_TAIL_RE = re.compile(r'\s*\{#[^}]+\}\s*$')
+
+# The heading-drift check is scoped to user-facing prose sections. API
+# reference, developer guide, and partner integration pages routinely keep
+# English technical headings (``## Request body``, ``## Endpoint``,
+# ``## Webhooks``, ``## iOS``) as intentional loanwords, so running the
+# check there produces too much noise. PR #13299's real drift lived in
+# ``_user_guide/channels/email/use_cases.md`` — we keep the check focused
+# on the class of files where human-readable heading translation is the
+# documented convention.
+_HEADING_CHECK_SECTIONS = ("_user_guide/",)
+
+
+def _strip_heading_slug(text):
+    return _HEADING_SLUG_TAIL_RE.sub('', text).strip()
+
+
+def _heading_is_product_term_only(heading_text):
+    """True when the heading is a single Braze product name (stays English)."""
+    text = _strip_heading_slug(heading_text).lower()
+    return any(text == name.lower() for name in BRAZE_PRODUCT_NAMES)
+
+
+# Single-word headings that universally stay English across all locales
+# (fictional example brand names, platform/tech proper nouns, acronyms).
+# Case-folded on lookup. Kept narrow so genuinely translatable single
+# words — like ``Updates`` → ``Aktualisierungen`` — still surface.
+_HEADING_SINGLE_WORD_ALLOWLIST = frozenset({
+    # Platform / format / protocol proper nouns.
+    "ios", "android", "csv", "json", "xml", "yaml", "html",
+    "whatsapp", "sms", "mms", "rcs", "http", "https",
+    "webhook", "webhooks",
+    "shopify", "mparticle", "salesforce", "segment.com",
+    # Fictional brand names used in Braze doc examples.
+    "steppington", "pantslabyrinth", "moviecanon",
+    # Common English loanwords accepted unchanged in tech prose.
+    "onboarding", "feedback", "upload", "download", "login", "logout",
+    "setup", "dashboard", "dashboards", "engagement", "performance",
+    "teams", "events", "workspaces", "integration", "integrations",
+    "analytics", "customization", "customizations", "arrays",
+    "general", "prerequisites", "overview",
+    "endpoint", "endpoints", "response", "request",
+    "audience", "audiences", "push", "email",
+})
+
+
+def _heading_should_skip_check(heading_text):
+    """True when a verbatim-English match should *not* be flagged as drift.
+
+    Filters out false-positive shapes observed in a sweep of shipped
+    _user_guide/ translations:
+
+    - Headings inside inline code spans (```` ``identifier`` ``).
+    - Headings containing any Braze product-name substring
+      (``BrazeAI Operator``, ``Canvas components``, ``Content Optimizer``).
+    - Single-word headings in the platform/brand/loanword allowlist
+      (``## iOS``, ``## Integration``, ``## Steppington``).
+
+    Still fires on genuine drift: multi-word English phrases with obvious
+    native translations (``## Social Media``, ``## Best practices``), and
+    single-word translatables not on the allowlist (``## Updates`` →
+    ``## Aktualisierungen``).
+    """
+    stripped = _strip_heading_slug(heading_text)
+    if not stripped:
+        return True
+    if "`" in stripped:
+        return True
+    lowered = stripped.lower()
+    for name in BRAZE_PRODUCT_NAMES:
+        if name.lower() in lowered:
+            return True
+    words = stripped.split()
+    if len(words) <= 1 and lowered in _HEADING_SINGLE_WORD_ALLOWLIST:
+        return True
+    return False
+
+
+def check_untranslated_headings(
+    english_content, translated_content, lang_key, translated_path=None
+):
+    """Warn when most user-guide headings are translated but a few stay English.
+
+    PR #13299 had a German translation of a user-guide page where every
+    heading was translated except ``## Social Media`` and ``## Updates`` —
+    an outlier pattern that no existing QC catches (they're too short to
+    trip ``check_untranslated``'s 200-char threshold, and they're not
+    product names so glossary checks ignore them). This surfaces a
+    reviewer-visible warning; no auto-edit, because a bad replacement
+    would be worse than a missed translation.
+
+    Runs only on ``_user_guide/`` files for the reason explained on
+    ``_HEADING_CHECK_SECTIONS``. Within that scope, still skips headings
+    that are just Braze product names (``## Canvas``) and files where
+    fewer than 60% of headings already differ from English.
+    """
+    if translated_path is None:
+        return []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not any(section in rel for section in _HEADING_CHECK_SECTIONS):
+        return []
+
+    _, en_body = _extract_front_matter(english_content)
+    _, tr_body = _extract_front_matter(translated_content)
+
+    en_heads = [(lvl, text) for lvl, text in _HEADING_RE.findall(en_body)]
+    tr_heads = [(lvl, text) for lvl, text in _HEADING_RE.findall(tr_body)]
+
+    if len(en_heads) != len(tr_heads) or len(en_heads) < 4:
+        return []
+
+    matching = []
+    translated_count = 0
+    for (en_lvl, en_text), (tr_lvl, tr_text) in zip(en_heads, tr_heads):
+        en_stripped = _strip_heading_slug(en_text)
+        tr_stripped = _strip_heading_slug(tr_text)
+        if en_stripped == tr_stripped:
+            if _heading_is_product_term_only(tr_text):
+                continue
+            if _heading_should_skip_check(tr_text):
+                continue
+            matching.append(tr_stripped)
+        else:
+            translated_count += 1
+
+    total = len(en_heads)
+    if not matching:
+        return []
+    if translated_count < 0.6 * total:
+        return []
+
+    preview = ", ".join(f'"{h}"' for h in matching[:5])
+    more = f" (+{len(matching) - 5} more)" if len(matching) > 5 else ""
+    return [
+        f"headings — {len(matching)} heading(s) left in English while "
+        f"{translated_count} other heading(s) are translated: "
+        f"{preview}{more}"
+    ]
 
 
 def repair_markdown_wire_format_tables(content):
@@ -1724,6 +2678,58 @@ def check_untranslated(english_content, translated_content):
     return warnings
 
 
+def check_sibling_terminology_drift(translated_path, translated_content):
+    """Warn when same-basename sibling translations in the locale disagree on
+    navigation/title/description wording.
+
+    An IA move that relocates ``_docs/a/foo.md`` to ``_docs/b/foo.md`` leaves
+    two copies of the translated page (old and new) until orphan cleanup
+    runs. Even outside IA moves, two pages sharing a filename almost always
+    cover the same concept. When their ``nav_title``, ``article_title``, or
+    ``description`` drift apart, a reader jumping between sections sees
+    inconsistent labels — the exact issue Copilot flagged on PR #13297.
+    """
+    path = Path(translated_path)
+    try:
+        parts = path.relative_to(REPO_ROOT).parts
+    except (ValueError, RuntimeError):
+        return []
+    if len(parts) < 3 or parts[0] != "_lang":
+        return []
+    lang_dir = parts[1]
+
+    tr_fm, _ = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return []
+
+    warnings = []
+    siblings = _find_sibling_translations(path.name, lang_dir, path)
+    # Iterate the same key set the prompt-context injection uses
+    # (``_SIBLING_CONTEXT_FM_KEYS``) so the prompt guidance and the QC
+    # backstop cannot drift out of sync — Copilot flagged on PR #13303
+    # that ``title`` / ``guide_top_header`` drift would never warn when
+    # only ``nav_title`` / ``article_title`` / ``description`` were
+    # checked.
+    for rel, sibling_content in siblings:
+        sib_fm, _ = _extract_front_matter(sibling_content)
+        if not sib_fm:
+            continue
+        for key in _SIBLING_CONTEXT_FM_KEYS:
+            tr_block = _extract_fm_block(tr_fm, key)
+            sib_block = _extract_fm_block(sib_fm, key)
+            if not tr_block or not sib_block:
+                continue
+            if tr_block.strip() == sib_block.strip():
+                continue
+            tr_line = tr_block.splitlines()[0].strip()
+            sib_line = sib_block.splitlines()[0].strip()
+            warnings.append(
+                f"sibling_terminology_drift — {key} differs from {rel}: "
+                f"this page has `{tr_line}` vs sibling `{sib_line}`"
+            )
+    return warnings
+
+
 def repair_brazeai_trademark(translated_content):
     """Fix BrazeAI trademark formatting: only TM should be in <sup>, not the product name.
     Handles trailing language particles/suffixes inside the tag (e.g. <sup>BrazeAITM의</sup>
@@ -2213,6 +3219,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(de_pilot_quote_repairs)
 
+    translated_content, de_quote_repairs = repair_german_mismatched_quotes(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(de_quote_repairs)
+
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
 
@@ -2240,6 +3251,21 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_ideas_and_strategies_internal_link_trailing_slash(translated_content)
     )
     findings["repairs"].extend(ideas_slash_repairs)
+
+    translated_content, link_slash_repairs = (
+        repair_markdown_internal_link_trailing_slash(translated_content)
+    )
+    findings["repairs"].extend(link_slash_repairs)
+
+    translated_content, table_col_repairs = repair_markdown_table_column_count(
+        translated_content
+    )
+    findings["repairs"].extend(table_col_repairs)
+
+    translated_content, tb_inline_repairs = repair_triple_backtick_inline_code(
+        translated_content
+    )
+    findings["repairs"].extend(tb_inline_repairs)
 
     translated_content, wire_repairs = repair_markdown_wire_format_tables(
         translated_content
@@ -2293,6 +3319,25 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["warnings"].extend(
         check_untranslated(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_untranslated_headings(
+            english_content, translated_content, lang_key, translated_path
+        )
+    )
+    findings["warnings"].extend(
+        check_code_fence_balanced_quotes(english_content, label="english source")
+    )
+    findings["warnings"].extend(
+        check_code_fence_balanced_quotes(
+            translated_content, label=f"{lang_key} translation"
+        )
+    )
+    findings["warnings"].extend(
+        check_triple_backtick_inline_code(english_content, label="english source")
+    )
+    findings["warnings"].extend(
+        check_sibling_terminology_drift(translated_path, translated_content)
     )
 
     return findings
