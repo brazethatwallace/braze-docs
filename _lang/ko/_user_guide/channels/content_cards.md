@@ -23,11 +23,11 @@ search_rank: 5
 
 개발자가 앱에 직접 콘텐츠를 구축하는 것과 비교하여 콘텐츠 카드를 사용하면 다음과 같은 이점이 있습니다:
 
-- **더 쉬운 세분화 및 개인화:** 사용자 데이터가 Braze에 저장되어 있으므로 오디언스를 정의하고 콘텐츠 카드로 메시지를 개인화하기가 쉽습니다.
-- **중앙 집중식 보고:** 콘텐츠 카드 분석이 Braze에서 추적되므로 모든 캠페인에 대한 인사이트를 한 곳에서 확인할 수 있습니다.
-- **일관된 고객 여정:** Braze에서 콘텐츠 카드를 다른 채널과 결합하여 일관된 고객 경험을 만들 수 있습니다. 대표적인 사용 사례는 푸시 알림을 보낸 후, 푸시에 참여하지 않은 사용자를 위해 해당 알림을 앱의 콘텐츠 카드로 저장하는 것입니다. 콘텐츠가 개발자에 의해 앱에 직접 구축된 경우, 나머지 메시징과 분리됩니다.
-- **옵트인 불필요:** 인앱 메시지와 마찬가지로 콘텐츠 카드는 사용자의 옵트인이나 권한이 필요하지 않습니다. 인앱 메시지는 권한이 필요 없고 일시적인 반면, 콘텐츠 카드는 권한이 필요 없고 영구적입니다. 따라서 인앱 메시지와 콘텐츠 카드를 함께 활용하는 메시징 전략은 훌륭한 균형을 이룹니다.
-- **메시징 경험에 대한 더 많은 제어:** 콘텐츠 카드의 초기 설정에는 개발자의 도움이 필요하지만, 이후에는 Braze 대시보드에서 직접 메시지, 수신자, 타이밍 등을 제어할 수 있습니다.
+- **더 쉬운 세분화 및 개인화:** 사용자 데이터가 Braze에 저장되어 있으므로 오디언스를 정의하고 Content Cards로 메시지를 개인화하기가 쉽습니다.
+- **중앙 집중식 보고:** 콘텐츠 카드 분석이 Braze에서 추적되므로 모든 Campaigns에 대한 인사이트를 한 곳에서 확인할 수 있습니다.
+- **일관된 고객 여정:** Braze에서 Content Cards를 다른 채널과 결합하여 일관된 고객 경험을 만들 수 있습니다. 대표적인 사용 사례는 푸시 알림을 보낸 후, 푸시에 참여하지 않은 사용자를 위해 해당 알림을 앱의 Content Card로 저장하는 것입니다. 콘텐츠가 개발자에 의해 앱에 직접 구축된 경우, 나머지 메시징과 분리됩니다.
+- **옵트인 불필요:** In-App Messages와 마찬가지로 Content Cards는 사용자의 옵트인이나 권한이 필요하지 않습니다. In-App Messages는 권한이 필요 없고 일시적인 반면, Content Cards는 권한이 필요 없고 영구적입니다. 따라서 In-App Messages와 Content Cards를 함께 활용하는 메시징 전략은 훌륭한 균형을 이룹니다.
+- **메시징 경험에 대한 더 많은 제어:** Content Cards의 초기 설정에는 개발자의 도움이 필요하지만, 이후에는 Braze 대시보드에서 직접 메시지, 수신자, 타이밍 등을 제어할 수 있습니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -35,13 +35,13 @@ search_rank: 5
 
 Braze에서 콘텐츠 카드를 구축하면 앱이나 웹사이트를 전면 개편하지 않고도 메시징을 업데이트하고 효과를 측정할 수 있습니다. Braze 리서치의 주요 결과는 다음과 같습니다:
 
-- 콘텐츠 카드는 72시간 기간 동안 매출 증대에 있어 이메일보다 **38배** 더 효과적입니다.[^1]
-- 로열티 등록 캠페인에서 콘텐츠 카드를 사용하면 전환율이 **5배** 증가합니다.[^1]
-- 푸시 알림, 인앱 메시지, 콘텐츠 카드를 통한 아웃리치는 푸시만 사용하는 것보다 **6.9배** 더 많은 세션을 유도합니다.[^2]
-- 이메일, 인앱 메시지, 콘텐츠 카드를 통한 아웃리치는 이메일만 사용하는 것보다 **3.6배** 더 긴 평균 사용자 수명을 유도합니다.[^2]
+- Content Cards는 72시간 기간 동안 매출 증대에 있어 이메일보다 **38배** 더 효과적입니다.[^1]
+- 로열티 등록 캠페인에서 Content Cards를 사용하면 전환율이 **5배** 증가합니다.[^1]
+- 푸시 알림, In-App Messages, Content Cards를 통한 아웃리치는 푸시만 사용하는 것보다 **6.9배** 더 많은 세션을 유도합니다.[^2]
+- 이메일, In-App Messages, Content Cards를 통한 아웃리치는 이메일만 사용하는 것보다 **3.6배** 더 긴 평균 사용자 수명을 유도합니다.[^2]
 
-[^1]: [8 tips for making the most of your customer retention campaigns](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
-[^2]: [Report: The cross-channel marketing difference](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
+[^1]: [고객 유지 캠페인을 최대한 활용하는 8가지 팁](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
+[^2]: [보고서: 크로스채널 마케팅의 차이](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
 
 ## 활용 사례
 

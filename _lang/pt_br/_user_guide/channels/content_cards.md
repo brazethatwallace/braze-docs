@@ -23,11 +23,11 @@ Antes de usar os Cartões de conteúdo, você precisa integrar o [SDK da Braze](
 
 Veja alguns benefícios de usar Cartões de conteúdo em vez de pedir para seus desenvolvedores criarem conteúdo diretamente no app:
 
-- **Segmentação e personalização mais fáceis:** Seus dados de usuários ficam na Braze, facilitando a definição do público e a personalização das mensagens com Cartões de conteúdo.
-- **Relatórios centralizados:** A análise de dados dos Cartões de conteúdo é rastreada na Braze, então você tem insight de todas as suas campanhas em um único local.
-- **Jornadas do cliente coesas:** Você pode combinar Cartões de conteúdo com outros canais na Braze para criar experiências consistentes para o cliente. Um caso de uso popular é enviar uma notificação por push e depois salvar essa notificação como um cartão de conteúdo no seu app para quem não interagiu com o push. Se o conteúdo for criado diretamente no app pelos seus desenvolvedores, ele fica isolado do restante do seu envio de mensagens.
-- **Sem necessidade de opt-in:** Assim como as mensagens no app, os Cartões de conteúdo não exigem opt-in ou permissões dos seus usuários. Porém, enquanto as mensagens no app não precisam de permissão e são temporárias, os Cartões de conteúdo não precisam de permissão e são permanentes. Isso significa que estratégias de envio de mensagens que combinam mensagens no app e Cartões de conteúdo alcançam um ótimo equilíbrio.
-- **Mais controle sobre a experiência de mensagens:** Embora você ainda precise dos seus desenvolvedores para a configuração inicial dos Cartões de conteúdo, depois disso, você pode controlar a mensagem, os destinatários, o timing e muito mais diretamente pelo dashboard da Braze.
+- **Segmentação e personalização mais fáceis:** Seus dados de usuários ficam na Braze, facilitando a definição do público e a personalização das mensagens com Content Cards.
+- **Relatórios centralizados:** A análise de dados dos Cartões de conteúdo é rastreada na Braze, então você tem insight de todas as suas Campaigns em um único local.
+- **Jornadas do cliente coesas:** Você pode combinar Content Cards com outros canais na Braze para criar experiências consistentes para o cliente. Um caso de uso popular é enviar uma notificação por push e depois salvar essa notificação como uma Content Card no seu app para quem não interagiu com o push. Se o conteúdo for criado diretamente no app pelos seus desenvolvedores, ele fica isolado do restante do seu envio de mensagens.
+- **Sem necessidade de opt-in:** Assim como In-App Messages, Content Cards não exigem opt-in ou permissões dos seus usuários. Porém, enquanto In-App Messages não precisam de permissão e são temporárias, Content Cards não precisam de permissão e são permanentes. Isso significa que estratégias de envio de mensagens que combinam In-App Messages e Content Cards alcançam um ótimo equilíbrio.
+- **Mais controle sobre a experiência de mensagens:** Embora você ainda precise dos seus desenvolvedores para a configuração inicial de Content Cards, depois disso, você pode controlar a mensagem, os destinatários, o timing e muito mais diretamente pelo dashboard da Braze.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -35,13 +35,13 @@ Veja alguns benefícios de usar Cartões de conteúdo em vez de pedir para seus 
 
 Quando você cria Cartões de conteúdo na Braze, pode atualizar mensagens e medir o impacto sem reformular seu app ou site. Destaques das pesquisas da Braze incluem:
 
-- Os Cartões de conteúdo são **38X** mais eficazes que o e-mail para impulsionar vendas em um período de 72 horas.[^1]
-- Usar Cartões de conteúdo em campanhas de inscrição em programas de fidelidade aumenta as conversões em **5X**.[^1]
-- O alcance por meio de notificações por push, mensagens no app e Cartões de conteúdo gera **6,9X** mais sessões do que o push sozinho.[^2]
-- O alcance por meio de e-mail, mensagens no app e Cartões de conteúdo gera **3,6X** mais tempo de vida médio do usuário do que o e-mail sozinho.[^2]
+- Content Cards são **38X** mais eficazes que o e-mail para impulsionar vendas em um período de 72 horas.[^1]
+- Usar Content Cards em campanhas de inscrição em programas de fidelidade aumenta as conversões em **5X**.[^1]
+- O alcance por meio de notificações por push, In-App Messages e Content Cards gera **6,9X** mais sessões do que o push sozinho.[^2]
+- O alcance por meio de e-mail, In-App Messages e Content Cards gera **3,6X** mais tempo de vida médio do usuário do que o e-mail sozinho.[^2]
 
-[^1]: [8 tips for making the most of your customer retention campaigns](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
-[^2]: [Report: The cross-channel marketing difference](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
+[^1]: [8 dicas para aproveitar ao máximo suas campanhas de retenção de clientes](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
+[^2]: [Relatório: A diferença do marketing multicanal](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
 
 ## Casos de uso
 

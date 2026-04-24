@@ -23,11 +23,11 @@ Avant de pouvoir utiliser les Cartes de contenu, vous devez intégrer le [SDK Br
 
 Voici quelques avantages des Cartes de contenu par rapport à un contenu intégré directement dans votre application par vos développeurs :
 
-- **Segmentation et personnalisation simplifiées :** Vos données utilisateur sont stockées dans Braze, ce qui facilite la définition de votre audience et la personnalisation de vos messages avec les Cartes de contenu.
-- **Reporting centralisé :** L'analyse des Cartes de contenu est suivie dans Braze, ce qui vous donne une visibilité sur l'ensemble de vos campagnes en un seul endroit.
-- **Parcours client cohérents :** Vous pouvez combiner les Cartes de contenu avec d'autres canaux dans Braze pour créer des expériences client homogènes. Un cas d'utilisation courant consiste à envoyer une notification push, puis à enregistrer cette notification sous forme de carte de contenu dans votre application pour les utilisateurs qui n'ont pas interagi avec le push. Si le contenu est intégré directement dans votre application par vos développeurs, il reste isolé du reste de vos communications.
-- **Aucun abonnement requis :** Comme les messages in-app, les Cartes de contenu ne nécessitent ni abonnement ni autorisation de la part de vos utilisateurs. Cependant, alors que les messages in-app ne nécessitent pas d'autorisation et sont éphémères, les Cartes de contenu ne nécessitent pas d'autorisation et sont permanentes. Les stratégies de communication qui associent messages in-app et Cartes de contenu offrent ainsi un excellent équilibre.
-- **Plus de contrôle sur l'expérience de communication :** Même si vous aurez besoin de vos développeurs pour la configuration initiale des Cartes de contenu, vous pourrez ensuite contrôler le message, les destinataires, le timing et bien plus encore directement depuis votre tableau de bord de Braze.
+- **Segmentation et personnalisation simplifiées :** Vos données utilisateur sont stockées dans Braze, ce qui facilite la définition de votre audience et la personnalisation de vos messages avec Content Cards.
+- **Reporting centralisé :** L'analyse des Cartes de contenu est suivie dans Braze, ce qui vous donne une visibilité sur l'ensemble de vos Campaigns en un seul endroit.
+- **Parcours client cohérents :** Vous pouvez combiner Content Cards avec d'autres canaux dans Braze pour créer des expériences client homogènes. Un cas d'utilisation courant consiste à envoyer une notification push, puis à enregistrer cette notification sous forme de Content Card dans votre application pour les utilisateurs qui n'ont pas interagi avec le push. Si le contenu est intégré directement dans votre application par vos développeurs, il reste isolé du reste de vos communications.
+- **Aucun abonnement requis :** Comme In-App Messages, Content Cards ne nécessitent ni abonnement ni autorisation de la part de vos utilisateurs. Cependant, alors que In-App Messages ne nécessitent pas d'autorisation et sont éphémères, Content Cards ne nécessitent pas d'autorisation et sont permanentes. Les stratégies de communication qui associent In-App Messages et Content Cards offrent ainsi un excellent équilibre.
+- **Plus de contrôle sur l'expérience de communication :** Même si vous aurez besoin de vos développeurs pour la configuration initiale de Content Cards, vous pourrez ensuite contrôler le message, les destinataires, le timing et bien plus encore directement depuis votre tableau de bord de Braze.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -35,13 +35,13 @@ Voici quelques avantages des Cartes de contenu par rapport à un contenu intégr
 
 Lorsque vous créez des Cartes de contenu dans Braze, vous pouvez mettre à jour vos messages et mesurer leur impact sans avoir à refondre votre application ou votre site web. Voici quelques résultats clés issus des recherches de Braze :
 
-- Les Cartes de contenu sont **38 fois** plus efficaces que l'e-mail pour stimuler les ventes sur une période de 72 heures.[^1]
-- L'utilisation des Cartes de contenu dans les campagnes d'inscription aux programmes de fidélité multiplie les conversions par **5**.[^1]
-- La communication via les notifications push, les messages in-app et les Cartes de contenu génère **6,9 fois** plus de sessions que les notifications push seules.[^2]
-- La communication via l'e-mail, les messages in-app et les Cartes de contenu multiplie par **3,6** la durée de vie moyenne des utilisateurs par rapport à l'e-mail seul.[^2]
+- Les Content Cards sont **38 fois** plus efficaces que l'e-mail pour stimuler les ventes sur une période de 72 heures.[^1]
+- L'utilisation de Content Cards dans les campagnes d'inscription aux programmes de fidélité multiplie les conversions par **5**.[^1]
+- La communication via les notifications push, In-App Messages et Content Cards génère **6,9 fois** plus de sessions que les notifications push seules.[^2]
+- La communication via l'e-mail, In-App Messages et Content Cards multiplie par **3,6** la durée de vie moyenne des utilisateurs par rapport à l'e-mail seul.[^2]
 
-[^1]: [8 tips for making the most of your customer retention campaigns](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
-[^2]: [Report: The cross-channel marketing difference](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
+[^1]: [8 conseils pour tirer le meilleur parti de vos campagnes de fidélisation client](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
+[^2]: [Rapport : la différence en matière de marketing multicanal](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
 
 ## Cas d'utilisation
 
@@ -84,7 +84,7 @@ Tirez parti des Cartes de contenu pour mettre en avant des messages promotionnel
 
 ### Autres cas d'utilisation
 
-Au-delà de ces principaux cas d'utilisation, les clients utilisent les Cartes de contenu de nombreuses façons différentes. La force des Cartes de contenu réside dans leur flexibilité. Si le cas d'utilisation que vous recherchez n'est pas présenté ici, vous pouvez configurer des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) et envoyer les PAYLOAD à votre application ou votre site web.
+Au-delà de ces principaux cas d'utilisation, les clients utilisent les Cartes de contenu de nombreuses façons différentes. La force des Cartes de contenu réside dans leur flexibilité. Si le cas d'utilisation que vous recherchez n'est pas présenté ici, vous pouvez configurer des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) et envoyer les payloads à votre application ou votre site web.
 
 Pour un aperçu de la mise en œuvre des emplacements de Cartes de contenu dans votre application ou votre site web, consultez [Créer des Cartes de contenu personnalisées]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
 
