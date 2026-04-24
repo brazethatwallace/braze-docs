@@ -134,11 +134,6 @@ jobs:
         continue-on-error: true
         run: python scripts/auto_translate.py qc
 
-      - name: Check for duplicate YAML aliases
-        id: aliases
-        if: steps.changes.outputs.count != '0'
-        run: python scripts/auto_translate.py check-aliases
-
       # ------------------------------------------------------------------
       # Build verification + auto-fix loop
       # ------------------------------------------------------------------
@@ -152,6 +147,15 @@ jobs:
       - name: Clean up orphaned translations
         if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true')) }}
         run: python scripts/clean_orphaned_translations.py
+
+      # Alias check runs after orphan cleanup so stale duplicates from the
+      # IA restructure don't fail the job. Skipped during catch-up batches
+      # (skip_orphan_cleanup=true) because cleanup is deferred to the final run.
+      - name: Check for duplicate YAML aliases
+        id: aliases
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || inputs.skip_orphan_cleanup != 'true') }}
+        continue-on-error: true
+        run: python scripts/auto_translate.py check-aliases
 
       - name: Verify builds and fix errors
         id: verify
