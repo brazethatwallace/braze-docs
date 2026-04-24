@@ -91,7 +91,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
           -moz-transition:  all ease $toc_transition_time;
 
           &.active {
-            font-family: $braze-medium;
+            font-family: $braze-bold;
             color: $black-shark;
             width: fit-content;
             border-bottom-width: 2px;
@@ -112,7 +112,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
     }
     .toc_header {
       // border-bottom: 2px solid $toc_color;
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       font-size: $toc_font_size + 1;
       margin-bottom: 6px;
     }
