@@ -4,7 +4,7 @@ article_title: Preview User Paths
 page_order: 0.3
 alias: /preview_user_paths/
 description: "This page covers how you can preview user paths in Canvas."
-Tool:
+tool:
   - Canvas
 ---
 

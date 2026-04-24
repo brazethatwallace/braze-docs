@@ -4,7 +4,7 @@ article_title: 사용자 경로 미리보기
 page_order: 0.3
 alias: /preview_user_paths/
 description: "이 페이지에서는 캔버스에서 사용자 경로를 미리 보는 방법에 대해 설명합니다."
-Tool:
+tool:
   - Canvas
 ---
 
