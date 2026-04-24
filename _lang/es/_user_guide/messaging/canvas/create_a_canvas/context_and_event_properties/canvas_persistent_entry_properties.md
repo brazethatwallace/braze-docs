@@ -24,7 +24,7 @@ Las propiedades de entrada se pueden usar en Canvas basados en acciones y desenc
 - [Objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object/)
 - [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
 
-Las propiedades pasadas desde estos objetos se pueden referenciar usando la etiqueta de Liquid `canvas_entry_properties`. Por ejemplo, una solicitud con `\"canvas_entry_properties\" : {\"product_name\" : \"shoes\", \"product_price\" : 79.99}` podría añadir la palabra "shoes" a un mensaje agregando el Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
+Las propiedades pasadas desde estos objetos se pueden referenciar usando la etiqueta de Liquid `canvas_entry_properties`. Por ejemplo, una solicitud con `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` podría añadir la palabra "shoes" a un mensaje agregando el Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
 Cuando un Canvas incluye un mensaje con la etiqueta de Liquid `canvas_entry_properties`, los valores asociados con esas propiedades se guardarán durante toda la trayectoria del usuario en el Canvas y se eliminarán cuando el usuario salga del Canvas. Ten en cuenta que las propiedades de entrada de Canvas solo están disponibles para referencia en Liquid. Para filtrar por las propiedades dentro del Canvas, usa la [segmentación por propiedades del evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/) en su lugar.
 
@@ -55,18 +55,18 @@ Con `canvas_entry_properties`, puedes establecer propiedades globales que se apl
 
 ### Ejemplo de solicitud
 
-```
-url -X POST \
--H 'Content-Type:application/json' \
+```bash
+curl -X POST \
+-H 'Content-Type: application/json' \
 -d '{
       "api_key": "a valid rest api key",
       "canvas_id": "the ID of your Canvas",
-         "canvas_entry_properties": {
-            "food_allergies": "none"
-          },
+      "canvas_entry_properties": {
+        "food_allergies": "none"
+      },
       "recipients": [
         {
-          "external_user_id": Customer_123,
+          "external_user_id": "Customer_123",
           "canvas_entry_properties": {
             "food_allergies": ["dairy", "soy"],
             "nutrition": {
@@ -76,7 +76,7 @@ url -X POST \
           }
         }
       ]
-    }' \
+    }'
 ```
  
 En esta solicitud, el valor global para "food allergies" es "none". Para Customer_123, el valor es "dairy". Los mensajes en este Canvas que contengan el fragmento de Liquid {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} se renderizarán con "dairy" para Customer_123 y "none" para el resto. 

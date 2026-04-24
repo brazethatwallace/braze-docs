@@ -24,7 +24,7 @@ page_order: 5
 - [이벤트 속성정보 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)
 - [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
 
-이러한 오브젝트에서 전달된 속성정보는 `canvas_entry_properties` Liquid 태그를 사용하여 참조할 수 있습니다. 예를 들어, `\"canvas_entry_properties\" : {\"product_name\" : \"shoes\", \"product_price\" : 79.99}`가 포함된 요청은 Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}를 추가하여 메시지에 "shoes"라는 단어를 추가할 수 있습니다.
+이러한 오브젝트에서 전달된 속성정보는 `canvas_entry_properties` Liquid 태그를 사용하여 참조할 수 있습니다. 예를 들어, `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}`가 포함된 요청은 Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}를 추가하여 메시지에 "shoes"라는 단어를 추가할 수 있습니다.
 
 캔버스에 `canvas_entry_properties` Liquid 태그가 포함된 메시지가 있으면, 해당 속성정보와 연결된 값은 사용자가 캔버스에서 여정을 진행하는 동안 저장되며, 사용자가 캔버스를 종료하면 삭제됩니다. 캔버스 진입 속성정보는 Liquid에서의 참조에만 사용할 수 있습니다. 캔버스 내에서 속성정보를 기준으로 필터링하려면 대신 [이벤트 속성정보 세분화]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)를 사용하세요.
 
@@ -55,18 +55,18 @@ Liquid를 사용한 메시지 중단에 대해 자세히 알아보려면 [Liquid
 
 ### 요청 예시
 
-```
-url -X POST \
--H 'Content-Type:application/json' \
+```bash
+curl -X POST \
+-H 'Content-Type: application/json' \
 -d '{
       "api_key": "a valid rest api key",
       "canvas_id": "the ID of your Canvas",
-         "canvas_entry_properties": {
-            "food_allergies": "none"
-          },
+      "canvas_entry_properties": {
+        "food_allergies": "none"
+      },
       "recipients": [
         {
-          "external_user_id": Customer_123,
+          "external_user_id": "Customer_123",
           "canvas_entry_properties": {
             "food_allergies": ["dairy", "soy"],
             "nutrition": {
@@ -76,7 +76,7 @@ url -X POST \
           }
         }
       ]
-    }' \
+    }'
 ```
  
 이 요청에서 "food allergies"의 글로벌 값은 "none"입니다. Customer_123의 경우 값은 "dairy"입니다. 이 캔버스에서 Liquid 스니펫 {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%}이 포함된 메시지는 Customer_123에게는 "dairy"로, 다른 모든 사용자에게는 "none"으로 템플릿됩니다. 

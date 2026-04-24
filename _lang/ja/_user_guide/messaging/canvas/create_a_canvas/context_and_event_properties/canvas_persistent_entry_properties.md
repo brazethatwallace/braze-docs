@@ -24,7 +24,7 @@ page_order: 5
 - [イベントプロパティオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)
 - [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
 
-これらのオブジェクトから渡されたプロパティは、`canvas_entry_properties` Liquid タグを使用して参照できます。例えば、`\"canvas_entry_properties\" : {\"product_name\" : \"shoes\", \"product_price\" : 79.99}` というリクエストでは、Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} を追加することで、メッセージに「shoes」という単語を追加できます。
+これらのオブジェクトから渡されたプロパティは、`canvas_entry_properties` Liquid タグを使用して参照できます。例えば、`"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` というリクエストでは、Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} を追加することで、メッセージに「shoes」という単語を追加できます。
 
 キャンバスに `canvas_entry_properties` Liquid タグを含むメッセージがある場合、それらのプロパティに関連付けられた値は、ユーザーのキャンバス内のジャーニーの間保存され、ユーザーがキャンバスを退出すると削除されます。キャンバスエントリプロパティは Liquid での参照にのみ使用できます。キャンバス内でプロパティによるフィルタリングを行うには、代わりに[イベントプロパティセグメンテーション]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)を使用してください。
 
@@ -55,18 +55,18 @@ Liquid を使用したメッセージの中止について詳しくは、[Liquid
 
 ### リクエスト例
 
-```
-url -X POST \
--H 'Content-Type:application/json' \
+```bash
+curl -X POST \
+-H 'Content-Type: application/json' \
 -d '{
       "api_key": "a valid rest api key",
       "canvas_id": "the ID of your Canvas",
-         "canvas_entry_properties": {
-            "food_allergies": "none"
-          },
+      "canvas_entry_properties": {
+        "food_allergies": "none"
+      },
       "recipients": [
         {
-          "external_user_id": Customer_123,
+          "external_user_id": "Customer_123",
           "canvas_entry_properties": {
             "food_allergies": ["dairy", "soy"],
             "nutrition": {
@@ -76,7 +76,7 @@ url -X POST \
           }
         }
       ]
-    }' \
+    }'
 ```
  
 このリクエストでは、「food allergies」のグローバル値は「none」です。Customer_123 の場合、値は「dairy」です。このキャンバス内の Liquid スニペット {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} を含むメッセージは、Customer_123 には「dairy」、その他のユーザーには「none」としてテンプレート化されます。

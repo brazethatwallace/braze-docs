@@ -24,7 +24,7 @@ Eingangs-Eigenschaften können in aktionsbasierten und API-getriggerten Canvases
 - [Event-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/event_object/)
 - [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
 
-Eigenschaften, die von diesen Objekten übergeben werden, können mit dem Liquid-Tag `canvas_entry_properties` referenziert werden. Zum Beispiel könnte eine Anfrage mit `\"canvas_entry_properties\" : {\"product_name\" : \"shoes\", \"product_price\" : 79.99}` das Wort „shoes" zu einer Nachricht hinzufügen, indem der Liquid-Code {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} verwendet wird.
+Eigenschaften, die von diesen Objekten übergeben werden, können mit dem Liquid-Tag `canvas_entry_properties` referenziert werden. Zum Beispiel könnte eine Anfrage mit `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` das Wort „shoes" zu einer Nachricht hinzufügen, indem der Liquid-Code {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} verwendet wird.
 
 Wenn ein Canvas eine Nachricht mit dem Liquid-Tag `canvas_entry_properties` enthält, werden die mit diesen Eigenschaften verknüpften Werte für die Dauer der Journey einer Nutzer:in im Canvas gespeichert und gelöscht, wenn die Nutzer:in den Canvas verlässt. Beachten Sie, dass Canvas-Eingangs-Eigenschaften nur zur Referenzierung in Liquid verfügbar sind. Um innerhalb des Canvas nach den Eigenschaften zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 
@@ -55,18 +55,18 @@ Mit `canvas_entry_properties` können Sie globale Eigenschaften festlegen, die f
 
 ### Beispielanfrage
 
-```
-url -X POST \
--H 'Content-Type:application/json' \
+```bash
+curl -X POST \
+-H 'Content-Type: application/json' \
 -d '{
       "api_key": "a valid rest api key",
       "canvas_id": "the ID of your Canvas",
-         "canvas_entry_properties": {
-            "food_allergies": "none"
-          },
+      "canvas_entry_properties": {
+        "food_allergies": "none"
+      },
       "recipients": [
         {
-          "external_user_id": Customer_123,
+          "external_user_id": "Customer_123",
           "canvas_entry_properties": {
             "food_allergies": ["dairy", "soy"],
             "nutrition": {
@@ -76,7 +76,7 @@ url -X POST \
           }
         }
       ]
-    }' \
+    }'
 ```
  
 In dieser Anfrage ist der globale Wert für „food allergies" „none". Für Customer_123 ist der Wert „dairy". Nachrichten in diesem Canvas, die das Liquid-Snippet {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} enthalten, werden für Customer_123 mit „dairy" und für alle anderen mit „none" gerendert. 
