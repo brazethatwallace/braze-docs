@@ -22,9 +22,9 @@ Ja. Gehen Sie zum Abschnitt **Vorschau und Test** des Drag-and-Drop-Editors und 
 
 E-Mails müssen nicht in separaten Light- und Dark-Layouts versendet werden, da E-Mail-Clients und Geräte ihr eigenes dunkles Design anwenden können. Dies kann jedoch Farben invertieren oder Hintergründe ausblenden, wenn keine expliziten Farben für den äußeren Container und die Hauptabschnitte festgelegt sind. Um dies zu verhindern, empfehlen wir, feste Hintergrundfarben festzulegen, damit Ihre Nachricht sowohl im Dark Mode als auch im Light Mode gut lesbar ist.
 
-### Wie kann ich das E-Mail-Padding auf Mobilgeräten ändern, ohne das Padding in der Internet-Ansicht zu aktualisieren?
+### Wie kann ich das E-Mail-Padding auf Mobilgeräten ändern, ohne das Padding in der Web-Ansicht zu aktualisieren?
 
-Sie können das Padding für Mobilgeräte- und Internet-Ansichten nicht separat bearbeiten, sodass alle Änderungen in beiden Ansichten übernommen werden. Sie können jedoch CSS-Logik im HTML-Editor hinzufügen, die das Padding basierend auf verschiedenen Bildschirmgrößen festlegt. Dies wird im Drag-and-Drop-Editor nicht unterstützt, sodass Sie die HTML-Datei exportieren und stattdessen den HTML-Editor verwenden können.
+Sie können das Padding für Mobilgeräte- und Web-Ansichten nicht separat bearbeiten, sodass alle Änderungen in beiden Ansichten übernommen werden. Sie können jedoch CSS-Logik im HTML-Editor hinzufügen, die das Padding basierend auf verschiedenen Bildschirmgrößen festlegt. Dies wird im Drag-and-Drop-Editor nicht unterstützt, sodass Sie die HTML-Datei exportieren und stattdessen den HTML-Editor verwenden können.
 
 ### Wie kann ich eine Reihe von Buttons optimieren, damit sie auf Desktop und Mobilgeräten horizontal bleiben?
 

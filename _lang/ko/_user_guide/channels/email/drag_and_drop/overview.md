@@ -1,6 +1,6 @@
 ---
-nav_title: 이메일 생성
-article_title: 드래그 앤 드롭으로 이메일 생성
+nav_title: 이메일 만들기
+article_title: 드래그 앤 드롭으로 이메일 만들기
 alias: "/dnd/overview/"
 noindex: true
 layout: redirect

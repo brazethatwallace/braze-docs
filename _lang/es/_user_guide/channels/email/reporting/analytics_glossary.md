@@ -1,11 +1,11 @@
 ---
-nav_title: Glosario de análisis de correo electrónico
-article_title: Glosario de análisis de correo electrónico
+nav_title: Glosario de Email Analytics
+article_title: Glosario de Email Analytics
 layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "Este glosario incluye los términos que encontrarás en la sección de análisis de tu campaña de correo electrónico o Canvas, después del lanzamiento. Este glosario no incluye métricas de Currents."
+description: "Este glosario incluye los términos que encontrarás en la sección de análisis de tu campaña de correo electrónico o Canvas, tras el lanzamiento. Este glosario no incluye las métricas de Currents."
 channel:
   - email
 ---
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### Enviable por correo electrónico
+### Envío por correo electrónico
 
 {% apitags %}
 Count
@@ -67,7 +67,7 @@ Percentage
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} Este número lo proporciona Braze.
+{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} Este número se recibe de Braze.
 
 <span class="calculation-line">Cálculo: Recuento</span>
 
@@ -139,7 +139,7 @@ Count, Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Bounces' %}
 
-Para correo electrónico, el *% de rebotes* o la *tasa de rebote* es el porcentaje de mensajes que no se enviaron correctamente o que fueron designados como "devueltos" o "no recibidos" por los servicios de envío utilizados, o que no fueron recibidos por los usuarios con direcciones de correo electrónico válidas.
+Para correo electrónico, el *% de rebotes* o la *tasa de rebote* es el porcentaje de mensajes que no se enviaron correctamente o que fueron designados como «devueltos» o «no recibidos» por los servicios de envío utilizados, o que no fueron recibidos por los usuarios con direcciones de correo electrónico válidas.
 
 Un rebote de correo electrónico para clientes que usan SendGrid consiste en rebotes duros, correo no deseado (`spam_report_drops`) y correos electrónicos enviados a direcciones no válidas (`invalid_emails`).
 
@@ -165,7 +165,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Cuando un correo electrónico tiene un rebote duro o se marca como correo no deseado, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) del usuario. Braze detiene cualquier envío futuro a esa dirección de correo electrónico. Para eliminar una dirección de correo electrónico de tu lista de rebotes duros, usa el [punto de conexión para eliminar correos electrónicos con rebote duro]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+Cuando un correo electrónico tiene un rebote duro o se marca como correo no deseado, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) del usuario. Braze detiene cualquier envío futuro a esa dirección de correo electrónico. Para eliminar una dirección de correo electrónico de tu lista de rebotes duros, usa el [punto de conexión para eliminar correos electrónicos con rebote duro]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/).
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -181,7 +181,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente se reintentará en un plazo de 72 horas, pero el número de reintentos varía según el receptor.
 
-Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) o excluir a estos usuarios de tu envío con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los "envíos" y las "entregas" de tus campañas de correo electrónico.
+Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) o excluir a estos usuarios de tu envío con el [filtro de Segment de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 

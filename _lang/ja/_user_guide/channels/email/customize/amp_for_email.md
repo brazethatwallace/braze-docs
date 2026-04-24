@@ -20,12 +20,12 @@ Braze は、ユーザーが Google に登録したり、必要なセキュリテ
 | 要件   | 説明 |
 | --------------| ----------- |
 | AMP for email の有効化 | AMP はすべてのユーザーが利用できます。 |
-| Gmail アカウントの有効化 | [Gmail アカウントの有効化](#enabling-gmail-account)を参照してください。 |
+| Gmail アカウントのイネーブルメント | [Gmail アカウントの有効化](#enabling-gmail-account)を参照してください。 |
 | Google 送信者認証 | Gmail は DKIM、SPF、DMARC を使用して AMP メールの[送信者を認証](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication)します。これらをアカウントに設定する必要があります。<br><br>- [DomainKeys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
 | AMP メール要素 | 魅力的な AMP メールには、さまざまなコンポーネントの戦略的な使用が含まれます。以下の[コンポーネント](#components)セクションの「必須要素」タブを参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### サポートされているメールクライアント {#supported-email-clients}
+### サポートされているメールクライアント
 
 ユーザーに AMP メールを送信する前に、メールクライアントに登録する必要があります。登録プロセスでは、承認を得るためにテスト用の AMP HTML メールを送信します。承認にかかる時間はクライアントによって異なります。詳細については、登録リンクをご確認ください。
 
@@ -247,6 +247,6 @@ AMP メールが Gmail アカウントに配信されるためには、メール
 
 ### よくある質問
 
-#### AMP メールでセグメントを使用すべきですか？
+#### AMP メールでセグメンテーションを使用すべきですか？
 
-さまざまなタイプのユーザーに送信するためにセグメントを使用しないことをお勧めします。これは、AMP メッセージをマルチパートで送信し、元のメールに異なるバージョンが含まれているためです。ユーザーが AMP バージョンを表示できない場合、HTML にデフォルトで戻ります。
+さまざまなタイプのユーザーに送信するためにセグメンテーションを使用しないことをお勧めします。これは、AMP メッセージをマルチパートで送信し、元のメールに異なるバージョンが含まれているためです。ユーザーが AMP バージョンを表示できない場合、HTML にデフォルトで戻ります。

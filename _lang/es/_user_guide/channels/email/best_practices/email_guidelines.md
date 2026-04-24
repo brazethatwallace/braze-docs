@@ -3,14 +3,14 @@ nav_title: "Directrices de correo electrónico"
 article_title: "Directrices de correo electrónico"
 page_order: 1
 page_type: reference
-description: "Este artículo cubre consejos generales y trucos a tener en cuenta al crear campañas de correo electrónico para diversos casos de uso y temas."
+description: "Este artículo cubre consejos generales y trucos a tener en cuenta al crear Campaigns de correo electrónico para diversos casos de uso y temas."
 channel: email
 
 ---
 
 # Directrices de correo electrónico
 
-> Al crear tu campaña de correo electrónico, es importante tener en cuenta cómo tus mensajes de correo electrónico son recibidos por tus distintos usuarios y proveedores de servicios de correo electrónico (ESP).
+> Al crear tu Campaign de correo electrónico, es importante tener en cuenta cómo tus mensajes de correo electrónico son recibidos por tus distintos usuarios y proveedores de servicios de correo electrónico (ESP).
 
 Aquí tienes algunos consejos rápidos a tener en cuenta mientras construyes tu contenido:
 
@@ -56,7 +56,7 @@ El diseño puede romperse cuando el HTML/CSS generado por Braze entra en conflic
 - Verifica el relleno de filas y columnas
 - Prefiere diseños basados en tablas y mantente dentro del ancho del editor.
 
-Los bloques de contenido que incorporan HTML externo al editor también pueden romper el diseño.
+Los Content Blocks que incorporan HTML externo al editor también pueden romper el diseño.
 
 ## Uso de parámetros UTM en URLs de correo electrónico
 

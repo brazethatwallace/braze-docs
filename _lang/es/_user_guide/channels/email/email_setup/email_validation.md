@@ -1,5 +1,5 @@
 ---
-nav_title: Validación de correo electrónico
+nav_title: Validación del correo electrónico
 article_title: Validación de correo electrónico
 alias: "/email_validation/"
 page_order: 3
@@ -9,15 +9,15 @@ channel: email
 
 ---
 
-# Validación de correo electrónico
+# Validación del correo electrónico
 
-> Este artículo de referencia cubre las reglas de validación de la parte local y del host para las direcciones de correo electrónico. La validación se utiliza para las direcciones de correo electrónico del dashboard, las direcciones de correo electrónico de los usuarios finales (tus clientes) y las direcciones de remitente y responder a de un mensaje de correo electrónico.
+> Este artículo de referencia cubre las reglas de validación de la parte local y del host para las direcciones de correo electrónico. La validación se utiliza para las direcciones de correo electrónico del panel, las direcciones de correo electrónico del usuario final (tus clientes) y las direcciones de origen y de responder a de un mensaje de correo electrónico.
 
 ## Cómo funciona
 
-Braze valida una dirección de correo electrónico cuando se actualiza, se importa por API, se carga por CSV, SDK o se modifica en el dashboard. Las direcciones de correo electrónico no pueden incluir espacios en blanco. Si usas la API, los espacios en blanco devuelven un error `400`.
+Braze valida una dirección de correo electrónico cuando se actualiza, se importa mediante API, se carga en formato CSV, se modifica mediante SDK o se modifica en el panel. Las direcciones de correo electrónico no pueden incluir espacios en blanco. Si usas la API, los espacios en blanco devuelven un error `400`.
 
-Braze rechaza ciertos caracteres y marca la dirección como no válida. Si un correo electrónico rebota, Braze marca la dirección como no válida y no cambia el estado de suscripción. Si el cuerpo del correo electrónico contiene caracteres [ASCII](https://en.wikipedia.org/wiki/ASCII) no estándar, Braze no envía el correo electrónico.
+Braze rechaza ciertos caracteres y marca la dirección como no válida. Si un correo electrónico rebota, Braze marca la dirección como no válida y no cambia el estado de la suscripción. Si el cuerpo del correo electrónico contiene caracteres [ASCII](https://en.wikipedia.org/wiki/ASCII) no estándar, Braze no envía el correo electrónico.
 
 {% details Caracteres aceptados %}
 - Letras (A-Z)
@@ -39,7 +39,7 @@ Braze rechaza ciertos caracteres y marca la dirección como no válida. Si un co
 	- ~
 	- !
 	- ?
-	- . (solo entre letras u otros caracteres)
+	- . (sólo entre letras u otros caracteres)
 {% enddetails %}
 
 {% details Caracteres no aceptados %}

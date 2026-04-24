@@ -3,7 +3,7 @@ nav_title: E-Mail-Styling
 article_title: E-Mail-Styling
 page_order: 2
 page_type: reference
-description: "Dieser Artikel beschreibt Best Practices für das E-Mail-Styling, die Sie beim Erstellen Ihrer E-Mail-Kampagnen als Referenz nutzen können."
+description: "In diesem Artikel finden Sie eine Übersicht über Best Practices für das E-Mail-Styling, die Sie bei der Erstellung Ihrer E-Mail-Kampagnen als Referenz nutzen können."
 channel: email
 
 ---
@@ -14,11 +14,11 @@ channel: email
 
 ## Adress-Styling
 
-Die Betreffzeile ist eines der ersten Dinge, die Empfänger:innen beim Erhalt Ihrer Nachricht sehen. Eine Länge von 6 bis 10 Wörtern erzielt die höchsten Öffnungsraten.
+Die **Betreffzeile** ist eines der ersten Dinge, die Empfänger:innen sehen, wenn sie Ihre Nachricht erhalten. Wenn Sie sich auf 6 bis 10 Wörter beschränken, erzielen Sie die höchsten Öffnungsraten.
 
-Es gibt verschiedene Ansätze, um eine gute Betreffzeile zu erstellen – von einer Frage, die das Interesse der Leser:innen weckt, über einen direkteren Ansatz bis hin zur Personalisierung, um Ihre Kundschaft anzusprechen. Bleiben Sie nicht bei einer einzigen Betreffzeile, sondern nutzen Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/), um neue auszuprobieren und deren Wirksamkeit zu messen. Betreffzeilen sollten nicht mehr als 35 Zeichen umfassen, damit sie auf Mobilgeräten korrekt angezeigt werden.
+Es gibt auch verschiedene Ansätze für eine gute Betreffzeile – von einer Frage, um das Interesse der Leser:innen zu wecken, über eine direktere Formulierung bis hin zur Personalisierung, um Ihre Kundschaft gezielt anzusprechen. Bleiben Sie nicht bei einer einzigen Betreffzeile, sondern nutzen Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/), um neue Betreffzeilen auszuprobieren und ihre Wirksamkeit zu messen. Die Betreffzeilen sollten nicht länger als 35 Zeichen sein, damit sie auf Mobilgeräten richtig angezeigt werden.
 
-Das „Von"-Feld sollte klar zeigen, wer der Sender ist. Verwenden Sie möglichst keinen Personennamen oder eine ungewöhnliche Abkürzung. Nutzen Sie stattdessen einen wiedererkennbaren Namen wie Ihren Markennamen. Wenn die Verwendung eines Personennamens zu den Personalisierungsmethoden Ihrer Marke passt, bleiben Sie konsistent, um eine Beziehung zu den Empfänger:innen aufzubauen. Der „Von"-Name sollte nicht mehr als 25 Zeichen umfassen, damit er auf Mobilgeräten korrekt angezeigt wird.
+Im Feld „Von“ sollte klar ersichtlich sein, wer der Sender ist. Verwenden Sie möglichst nicht den Namen einer Person oder eine ungewöhnliche Abkürzung. Verwenden Sie stattdessen einen wiedererkennbaren Namen wie Ihren Markennamen. Wenn die Verwendung eines Personennamens zu den Personalisierungsmethoden Ihrer Marke für E-Mails passt, bleiben Sie konsequent, um eine Beziehung zu den Empfänger:innen aufzubauen. Der „Von“-Name sollte nicht länger als 25 Zeichen sein, damit er auf Mobilgeräten richtig angezeigt wird.
 
 ### No-Reply-Adressen
 
@@ -30,7 +30,7 @@ Abwesenheitsbenachrichtigungen können tatsächlich wertvolle Informationen lief
 
 Der Preheader-Text in einer E-Mail kommuniziert den Hauptpunkt der Nachricht effizient, um das Interesse der Leser:innen zu wecken und Öffnungen zu fördern. Preheader-Text wird von E-Mail-Marketern auch häufig verwendet, um zusätzliche Informationen zum Inhalt einer E-Mail bereitzustellen. Ein Preheader ist der Vorschautext, der direkt nach dem E-Mail-Betreff angezeigt wird. Im folgenden Beispiel lautet der Preheader `- Brand. New. Lounge Shorts`.
 
-![Preheader-Text in einem Gmail-Posteingang mit dem Text „Brand. New. Lounge Shorts".]({% image_buster /assets/img_archive/preheader_example.png %})
+![Preheader-Text in einem Gmail-Posteingang mit dem Text „Brand. New. Lounge Shorts“.]({% image_buster /assets/img_archive/preheader_example.png %})
 
 Die Menge des sichtbaren Preheader-Texts hängt vom E-Mail-Client der Nutzer:innen und der Länge der Betreffzeile ab. Generell empfehlen wir, dass E-Mail-Preheader zwischen 50 und 100 Zeichen lang sein sollten.
 
@@ -102,7 +102,7 @@ Um das Risiko des Abschneidens zu reduzieren:
 - Komprimieren Sie Bilder und HTML-Assets.
 
 {% alert note %}
-Um Ihre E-Mail-Kampagne oder Ihr Template zu speichern, stellen Sie sicher, dass Ihr E-Mail-Body 400&nbsp;KB nicht überschreitet.
+Um Ihre E-Mail-Campaign oder Ihr Template zu speichern, stellen Sie sicher, dass Ihr E-Mail-Body 400&nbsp;KB nicht überschreitet.
 {% endalert %}
 
 ### Was kann zur endgültigen E-Mail-Größe beitragen?
@@ -143,7 +143,7 @@ Bei Push-Benachrichtigungen und In-App-Nachrichten führt ein [Deeplink]({{site.
 
 Verwenden Sie stattdessen [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), die als Standard-URLs funktionieren. Sie können sie so konfigurieren, dass sie die App öffnen oder Nutzer:innen zu einer bestimmten Seite weiterleiten. Sie können auch zum App Store weiterleiten oder auf eine Webseite zurückfallen, wenn die App nicht installiert ist.
 
-## Content-Blöcke mit transparenten Bildern
+## Content Blocks mit transparenten Bildern
 
 Wenn ein Content-Block ein Bild mit transparentem Hintergrund enthält (z. B. ein Logo) und über einen Liquid-Tag eingefügt wird, kann hinter dem Bild eine Hintergrundfarbe erscheinen. Diese Farbe stammt aus den [globalen E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) des Drag-and-Drop-Editors – insbesondere der **E-Mail-Hintergrundfarbe**. Wenn Ihre globalen Stileinstellungen eine andere Farbe als Weiß verwenden, erscheint diese Farbe stattdessen.
 

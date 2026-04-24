@@ -1,21 +1,21 @@
 ---
-nav_title: Envoyer des e-mails au relais privé Apple
-article_title: Envoyer des e-mails au relais privé Apple
+nav_title: Envoyer des e-mails à Apple Private Relay
+article_title: Envoyer des e-mails à Apple Private Relay
 alias: /email_relay/
 page_order: 0
-description: "Cet article décrit le processus d'envoi d'e-mails au relais privé Apple."
+description: "Cet article décrit le processus d'envoi d'e-mails au relais privé d'Apple."
 channel:
   - email
 toc_headers: h2
 ---
 
-# Envoyer des e-mails au relais privé Apple
+# Envoyer des e-mails à Apple Private Relay
 
-> La fonctionnalité d'authentification unique (SSO) d'Apple permet à ses utilisateurs de partager leur adresse e-mail (`example@icloud.com`) ou de la masquer en fournissant aux marques une adresse relais (`tq1234snin@privaterelay.appleid.com`) au lieu de leur adresse e-mail personnelle. Apple transfère ensuite les messages envoyés aux adresses relais vers l'adresse e-mail réelle de l'utilisateur.
+> La fonctionnalité d'authentification unique (SSO) d'Apple permet aux utilisateurs de partager leur adresse e-mail (`example@icloud.com`) ou de la masquer en fournissant aux marques une adresse anonymisée (`tq1234snin@privaterelay.appleid.com`) au lieu de leur adresse e-mail personnelle. Apple transfère ensuite les messages envoyés aux adresses relais vers l'adresse e-mail réelle de l'utilisateur.
 
-Pour envoyer des e-mails au relais privé d'Apple, enregistrez vos domaines d'envoi auprès d'Apple. Si vous ne configurez pas vos domaines avec Apple, les e-mails envoyés aux adresses relais entraîneront des rebonds.
+Pour envoyer des e-mails au relais d'e-mail privé d'Apple, enregistrez vos domaines d'envoi auprès d'Apple. Si vous ne configurez pas vos domaines avec Apple, les e-mails envoyés à des adresses relais entraîneront des rebonds.
 
-Si un utilisateur décide de désactiver le transfert d'e-mails vers l'adresse relais de votre application, Braze recevra les informations de rebond comme d'habitude. Ces utilisateurs peuvent gérer les applications qui utilisent la connexion avec Apple depuis la page de paramètres de leur identifiant Apple (voir la [documentation d'Apple](https://support.apple.com/en-us/HT210426)).
+Si un utilisateur décide de désactiver le transfert d'e-mails vers l'adresse relais de votre application, Braze recevra les informations de rebond comme d'habitude. Ces utilisateurs peuvent gérer les applications qui utilisent la connexion avec Apple depuis leur page de paramètres Apple ID (voir la [documentation d'Apple](https://support.apple.com/en-us/HT210426)).
 
 ## Configurer votre fournisseur d'e-mail
 
@@ -24,7 +24,7 @@ Si un utilisateur décide de désactiver le transfert d'e-mails vers l'adresse r
 
 Si vous utilisez SendGrid comme fournisseur d'e-mail, vous pouvez envoyer des e-mails à Apple sans effectuer de modifications DNS.
 
-1. Connectez-vous au [portail développeur Apple](https://developer.apple.com/).
+1. Connectez-vous au [portail des développeurs Apple](https://developer.apple.com/).
 2. Accédez à la page **Certificates, Identifiers & Profiles**.
 3. Sélectionnez **Services** > **Sign in with Apple for Email Communication**.
 4. Dans la section **Email Sources**, ajoutez les domaines et sous-domaines.
@@ -35,7 +35,7 @@ Si l'adresse « From » souhaitée est une adresse `abmail`, incluez-la dans vot
 {% endtab %}
 {% tab SparkPost %}
 
-Pour configurer le relais privé Apple avec SparkPost, suivez ces étapes :
+Pour configurer Apple Private Relay avec SparkPost, suivez ces étapes :
 
 1. Connectez-vous avec Apple.
 2. Suivez la [documentation d'Apple](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service) pour enregistrer les domaines d'e-mail.
@@ -65,7 +65,7 @@ Pour éviter les échecs SPF, vous devez créer les enregistrements MX et TXT et
 {% endtab %}
 {% tab Amazon SES %}
 
-Pour configurer le relais privé Apple, il est idéalement recommandé d'avoir un domaine MAIL FROM personnalisé configuré.
+Pour configurer Apple Private Relay, il est recommandé d'avoir au préalable un domaine MAIL FROM personnalisé.
 
 1. Connectez-vous avec Apple.
 2. Suivez la [documentation d'Apple](https://developer.apple.com/help/account/capabilities/configure-private-email-relay-service) pour enregistrer les domaines d'e-mail.

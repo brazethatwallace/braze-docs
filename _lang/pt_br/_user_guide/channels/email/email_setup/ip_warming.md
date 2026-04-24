@@ -1,5 +1,5 @@
 ---
-nav_title: Aquecimento de IP
+nav_title: aquecimento de IP
 article_title: Aquecimento de IP
 page_order: 1
 page_type: reference
@@ -11,9 +11,9 @@ local_redirect:
 
 # Aquecimento de IP
 
-> O aquecimento de IP é a prática de acostumar os provedores de caixa de e-mail a receber mensagens dos seus endereços de IP dedicados. É uma parte extremamente importante do envio de e-mails com qualquer prestador de serviço de e-mail (ESP) e uma prática padrão na Braze para garantir que suas mensagens cheguem às caixas de entrada de destino com uma taxa consistentemente alta.
+> O aquecimento de IP é a prática de acostumar os provedores de caixa de e-mail a receber envio de mensagens dos seus endereços de IP dedicados. É uma parte extremamente importante do envio de e-mails com qualquer prestador de serviço de e-mail (ESP) e prática padrão na Braze para confirmar que suas mensagens alcancem as caixas de entrada de destino a uma taxa consistentemente alta.
 
-O aquecimento de IP foi projetado para ajudar você a estabelecer uma reputação positiva com os provedores de acesso à internet (ISPs). Toda vez que um novo endereço de IP é usado para enviar um e-mail, os ISPs monitoram programaticamente esses e-mails para verificar se não estão sendo usados para enviar spam aos usuários. Pense na reputação do seu IP e domínio como uma pontuação de crédito — os ISPs usam essa reputação para determinar se o seu e-mail vai para a caixa de entrada ou para a pasta de spam. Assim como uma pontuação de crédito, leva tempo para construir uma reputação positiva e ainda mais tempo para reconstruir uma reputação ruim.
+O aquecimento de IP é projetado para ajudar você a estabelecer uma reputação positiva com os provedores de acesso à internet (ISPs). Toda vez que um novo endereço de IP é usado para enviar um e-mail, os ISPs monitoram programaticamente esses e-mails para verificar se não estão sendo usados para enviar spam aos usuários. Pense na reputação do seu IP e domínio como uma pontuação de crédito — os ISPs usam essa reputação para determinar se o seu e-mail vai para a caixa de entrada ou para a pasta de spam. Assim como uma pontuação de crédito, leva tempo para construir uma reputação positiva e ainda mais tempo para reconstruir uma reputação ruim.
 
 ## Entrega e entregabilidade de e-mail
 
@@ -151,11 +151,11 @@ A maioria dos ISPs armazena dados de reputação por apenas 30 dias. Se você fi
 
 ### Endereços de IP
 
-Após três meses sem uso, a Braze pode reciclar e reatribuir endereços de IP. Independentemente do histórico anterior de um endereço de IP, o aquecimento completo de IP é recomendado para todos os IPs recém-atribuídos, pois a maioria dos ISPs armazena dados de reputação por apenas 30 dias. Para a maioria dos ISPs, isso significa que um período de inatividade de três meses efetivamente redefine a reputação. Se você tiver mais dúvidas sobre o histórico de um endereço de IP específico, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Após três meses sem uso, a Braze pode reciclar e reatribuir endereços de IP. Independentemente do histórico anterior de um endereço de IP, o aquecimento completo de IP é recomendado para todos os IPs recém-atribuídos, pois a maioria dos ISPs armazena dados de reputação por apenas 30 dias. Para a maioria dos ISPs, isso significa que um período de inatividade de três meses efetivamente redefine a reputação. Se você tiver mais dúvidas sobre o histórico de um endereço de IP específico, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 ## Como limitar envios durante o aquecimento
 
-Nosso recurso integrado de limitação de usuários é uma ferramenta útil para ajudar você no aquecimento do seu endereço de IP. Após escolher os segmentos de mensagens desejados durante a criação da campanha, na etapa [Usuários-alvo]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), selecione o menu suspenso **Opções avançadas** para limitar seus usuários. À medida que seu cronograma de aquecimento avança, você pode aumentar gradualmente esse limite para aumentar o volume de e-mails enviados.
+Nosso recurso integrado de limitação de usuários é uma ferramenta útil para ajudar você no aquecimento do seu endereço de IP. Após escolher os Segments de envio de mensagens desejados durante a criação da Campaign, na etapa [Usuários-alvo]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), selecione o menu suspenso **Opções avançadas** para limitar seus usuários. À medida que seu cronograma de aquecimento avança, você pode aumentar gradualmente esse limite para aumentar o volume de e-mails enviados.
 
 ![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
@@ -175,7 +175,7 @@ Você pode evitar todas as consequências de não aquecer o IP seguindo estas me
 
 ### Comece com volumes pequenos de envio de e-mail
 
-Aumente a quantidade enviada a cada dia da forma mais gradual possível. Campanhas de e-mail abruptas e de alto volume são vistas com mais desconfiança pelos ISPs. Portanto, você deve começar enviando pequenas quantidades de e-mail e escalar gradualmente em direção ao volume que pretende enviar. Lembre-se de que você está aquecendo seu IP em cada ISP individualmente — os ISPs não compartilham dados de reputação entre si. Ao planejar seus volumes de aquecimento, certifique-se de não aumentar o volume muito rapidamente em nenhum ISP específico. Independentemente do volume, sugerimos aquecer seu IP por segurança. Consulte os [cronogramas de aquecimento de IP](#ip-warming-schedules).
+Aumente a quantidade enviada a cada dia da forma mais gradual possível. Campaigns de e-mail abruptas e de alto volume são vistas com mais desconfiança pelos ISPs. Portanto, você deve começar enviando pequenas quantidades de e-mail e escalar gradualmente em direção ao volume que pretende enviar. Lembre-se de que você está aquecendo seu IP em cada ISP individualmente — os ISPs não compartilham dados de reputação entre si. Ao planejar seus volumes de aquecimento, certifique-se de não aumentar o volume muito rapidamente em nenhum ISP específico. Independentemente do volume, sugerimos aquecer seu IP por segurança. Consulte os [cronogramas de aquecimento de IP](#ip-warming-schedules).
 
 ### Tenha conteúdo introdutório envolvente
 
@@ -194,12 +194,12 @@ Garanta que sua lista de e-mail esteja limpa e não contenha e-mails antigos ou 
 ### Monitore a reputação do remetente
 
 Ao conduzir o processo de aquecimento de IP, certifique-se de monitorar cuidadosamente a reputação do remetente. Estas métricas específicas são importantes de acompanhar:
-- **Taxas de bounce:** Se qualquer campanha tiver uma taxa de bounce superior a 3-5%, você deve avaliar a limpeza da sua lista seguindo as diretrizes do nosso artigo [Mantenha limpo: a importância da higiene da lista de e-mail](https://www.braze.com/blog/email-list-hygiene/). Além disso, considere implementar uma [política de sunset]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) para parar de enviar e-mails para endereços inativos ou sem engajamento.
-- **Relatórios de spam:** Se qualquer campanha for reportada como spam a uma taxa superior a 0,08%, você deve reavaliar o conteúdo que está enviando, verificar se está direcionado a um público interessado e garantir que seus e-mails estejam redigidos de forma adequada para despertar o interesse.
+- **Taxas de bounce:** Se qualquer Campaign tiver uma taxa de bounce superior a 3-5%, você deve avaliar a limpeza da sua lista seguindo as diretrizes do nosso artigo [Mantenha limpo: a importância da higiene da lista de e-mail](https://www.braze.com/blog/email-list-hygiene/). Além disso, considere implementar uma [política de sunset]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) para parar de enviar e-mails para endereços inativos ou sem engajamento.
+- **Relatórios de spam:** Se qualquer Campaign for reportada como spam a uma taxa superior a 0,08%, você deve reavaliar o conteúdo que está enviando, verificar se está direcionado a um público interessado e garantir que seus e-mails estejam redigidos de forma adequada para despertar o interesse.
 - **Taxas de abertura:** As taxas de abertura são um indicador útil de posicionamento na caixa de entrada. Se suas taxas de abertura únicas estiverem acima de 25%, é provável que você esteja tendo um alto posicionamento na caixa de entrada, o que indica uma reputação positiva do remetente.
 
 {% alert tip %}
-A Braze não recomenda usar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) para aquecer seus IPs. Como as campanhas de aquecimento de IP são algumas das primeiras campanhas que você envia, a Braze não terá informações suficientes sobre seus usuários para calcular um horário de envio ideal. Nesse caso, todas as mensagens com Intelligent Timing usariam o horário de fallback e seriam enviadas no mesmo horário.
+A Braze não recomenda usar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) para aquecer seus IPs. Como as Campaigns de aquecimento de IP são algumas das primeiras Campaigns que você envia, a Braze não terá informações suficientes sobre seus usuários para calcular um horário de envio ideal. Nesse caso, todas as mensagens com Intelligent Timing usariam o horário de fallback e seriam enviadas no mesmo horário.
 {% endalert %}
 
 {% alert tip %}

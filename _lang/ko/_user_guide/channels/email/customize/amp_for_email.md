@@ -11,7 +11,7 @@ channel:
 
 # 이메일용 AMP
 
-> [이메일용 AMP](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. AMP는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 캠페인, 리뷰, 구독 센터 등 매력적인 이메일 콘텐츠를 구축할 수 있게 해줍니다. 이러한 도구는 참여도와 리텐션을 높일 수 있는 기회를 제공합니다.
+> [이메일용 AMP](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. AMP는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 Campaign, 리뷰, 구독 센터 등 매력적인 이메일 콘텐츠를 구축할 수 있게 해줍니다. 이러한 도구는 참여도와 리텐션을 높일 수 있는 기회를 제공합니다.
 
 ## 요구 사항
 
@@ -20,7 +20,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | 요구 사항   | 설명 |
 | --------------| ----------- |
 | 이메일용 AMP 활성화 | AMP는 모든 사용자가 사용할 수 있습니다. |
-| Gmail 계정 활성화 | [Gmail 계정 활성화](#enabling-gmail-account)를 참조하세요. |
+| Gmail 계정 인에이블먼트 | [Gmail 계정 활성화](#enabling-gmail-account)를 참조하세요. |
 | Google 발신자 인증 | Gmail은 DKIM, SPF, DMARC를 사용하여 AMP 이메일의 [발신자를 인증](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication)합니다. 계정에 이를 설정해야 합니다. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
 | AMP 이메일 요소 | 매력적인 AMP 이메일에는 다양한 구성요소의 전략적 사용이 포함됩니다. 아래 [구성요소](#components) 섹션의 필수 요소 탭을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -160,7 +160,7 @@ AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentati
 * 피드에서 항목을 동적으로 업데이트
 * 문서 북마크 이메일
 
-이 구성요소를 사용하면 사용자가 필드 값을 제출하거나 지울 수 있습니다. 또한 이메일 설정 방식에 따라 설문조사 제출이 성공했는지 여부와 같은 추가 프롬프트를 사용자에게 제공하거나, 설문조사 결과(예: 투표 캠페인)를 보여주는 사용자 응답을 렌더링할 수 있습니다.
+이 구성요소를 사용하면 사용자가 필드 값을 제출하거나 지울 수 있습니다. 또한 이메일 설정 방식에 따라 설문조사 제출이 성공했는지 여부와 같은 추가 프롬프트를 사용자에게 제공하거나, 설문조사 결과(예: 투표 Campaign)를 보여주는 사용자 응답을 렌더링할 수 있습니다.
 
 {% endtab %}
 {% tab Collapsable Content %}
@@ -247,6 +247,6 @@ AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 �
 
 ### 자주 묻는 질문
 
-#### AMP 이메일로 세그먼트를 나눠야 하나요?
+#### AMP 이메일로 Segment를 나눠야 하나요?
 
-다양한 유형의 사용자에게 보내기 위해 세그먼트를 나누지 않는 것을 권장합니다. AMP 메시지는 멀티파트로 발송되어 원본 이메일에 여러 버전이 포함되기 때문입니다. 사용자가 AMP 버전을 볼 수 없는 경우 HTML로 자동 전환됩니다.
+다양한 유형의 사용자에게 보내기 위해 Segment를 나누지 않는 것을 권장합니다. AMP 메시지는 멀티파트로 발송되어 원본 이메일에 여러 버전이 포함되기 때문입니다. 사용자가 AMP 버전을 볼 수 없는 경우 HTML로 자동 전환됩니다.

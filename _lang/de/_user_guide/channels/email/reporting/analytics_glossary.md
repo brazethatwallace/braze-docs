@@ -1,11 +1,11 @@
 ---
-nav_title: E-Mail-Analytics-Glossar
-article_title: E-Mail-Analytics-Glossar
+nav_title: E-Mail-Analyse-Glossar
+article_title: E-Mail-Analyse-Glossar
 layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar enthält die Begriffe, die Sie im Analytics-Bereich Ihrer E-Mail-Kampagne oder Ihres Canvas nach dem Start finden. Dieses Glossar enthält keine Currents-Metriken."
+description: "Dieses Glossar enthält die Begriffe, die Sie im Analysebereich Ihrer E-Mail-Kampagne oder Ihres Canvas nach dem Start finden werden. Dieses Glossar enthält keine Currents-Metriken."
 channel:
   - email
 ---
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### E-Mail-fähig
+### Per E-Mail versendbar
 
 {% apitags %}
 Count
@@ -55,7 +55,7 @@ Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Audience' %}
 
-<span class="calculation-line">Berechnung: (Anzahl der Empfänger:innen in der Variante) / (Eindeutige Empfänger:innen)</span>
+<span class="calculation-line">Berechnung: (Zahl der Empfänger:innen in der Variante) / (Eindeutige Empfänger:innen)</span>
 
 {% endapi %}
 
@@ -81,7 +81,7 @@ Count
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Sends' %} Diese Metrik wird von Braze bereitgestellt.
+{% multi_lang_include analytics/metrics.md metric='Sends' %}  Diese Metrik wird von Braze bereitgestellt.
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 
@@ -89,13 +89,13 @@ Count
 
 {% api %}
 
-### Gesendete Nachrichten
+### Nachrichten gesendet
 
 {% apitags %}
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} Diese Metrik wird von Braze bereitgestellt.
+{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Diese Metrik wird von Braze bereitgestellt.
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 
@@ -139,7 +139,7 @@ Count, Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Bounces' %}
 
-Bei E-Mails ist *Bounce %* oder *Bounce-Rate* der Prozentsatz der Nachrichten, die nicht erfolgreich gesendet wurden oder als „zurückgesendet" bzw. „nicht empfangen" von den verwendeten Versanddiensten gekennzeichnet wurden oder von den vorgesehenen E-Mail-fähigen Nutzer:innen nicht empfangen wurden.
+Bei E-Mails ist *Bounce %* oder *Bounce-Rate* der Prozentsatz der Nachrichten, die nicht erfolgreich gesendet wurden oder als „zurückgesendet“ bzw. „nicht empfangen“ von den verwendeten Versanddiensten gekennzeichnet wurden oder von den vorgesehenen E-Mail-fähigen Nutzer:innen nicht empfangen wurden.
 
 Ein E-Mail-Bounce für Kund:innen, die SendGrid verwenden, umfasst Hard Bounces, Spam (`spam_report_drops`) und E-Mails, die an ungültige Adressen gesendet wurden (`invalid_emails`).
 
@@ -165,7 +165,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Wenn eine E-Mail einen Hard Bounce verursacht oder als Spam markiert wird, kennzeichnet Braze die E-Mail-Adresse als ungültig, aktualisiert jedoch nicht den [Abo-Status]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) der Nutzer:innen. Braze stoppt alle zukünftigen Sendungen an diese E-Mail-Adresse. Um eine E-Mail-Adresse von Ihrer Hard-Bounce-Liste zu entfernen, verwenden Sie den [Endpunkt zum Entfernen von Hard-Bounce-E-Mails]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+Wenn eine E-Mail einen Hard Bounce verursacht oder als Spam markiert wird, kennzeichnet Braze die E-Mail-Adresse als ungültig, aktualisiert jedoch nicht den [Abo-Status]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) der Nutzer:innen. Braze stoppt alle zukünftigen Sendungen an diese E-Mail-Adresse. Um eine E-Mail-Adresse von Ihrer Hard-Bounce-Liste zu entfernen, verwenden Sie den [Endpunkt zum Entfernen von Hard-Bounce-E-Mails]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/).
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 
@@ -181,7 +181,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Wenn eine E-Mail einen Soft Bounce verursacht, wird in der Regel innerhalb von 72 Stunden ein erneuter Zustellversuch unternommen, wobei die Anzahl der Wiederholungsversuche je nach Empfänger:in variiert.
 
-Obwohl Soft Bounces nicht in Ihren Kampagnen-Analytics erfasst werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen oder diese Nutzer:innen mit dem [Soft-Bounce-Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced) von Ihrem Versand ausschließen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces einsehen und mögliche Abweichungen zwischen den „Sendungen" und „Zustellungen" Ihrer E-Mail-Kampagnen nachvollziehen.
+Obwohl Soft Bounces nicht in Ihren Kampagnen-Analytics erfasst werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen oder diese Nutzer:innen mit dem [Soft-Bounce-Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced) von Ihrem Versand ausschließen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces einsehen und mögliche Abweichungen zwischen den „Sendungen“ und „Zustellungen“ Ihrer E-Mail-Campaigns nachvollziehen.
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 
@@ -217,7 +217,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Bei E-Mails wird dies über einen Zeitraum von sieben Tagen erfasst. Das bedeutet, dass ein:e einzelne Nutzer:in, die dieselbe E-Mail nach sieben Tagen erneut öffnet, als neue eindeutige Öffnung gezählt wird. Daher können die Zähler für eindeutige Öffnungen im Dashboard höher sein als eine einfache `DISTINCT user_id`-Abfrage auf Currents-Daten. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Bei E-Mails wird dies über einen Zeitraum von sieben Tagen erfasst. Das bedeutet, dass ein:e einzelne:r Nutzer:in, der/die dieselbe E-Mail nach sieben Tagen erneut öffnet, als neue eindeutige Öffnung gezählt wird. Daher können die Zähler für eindeutige Öffnungen im Dashboard höher sein als eine einfache `DISTINCT user_id`-Abfrage auf Currents-Daten. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -239,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Nach sieben Tagen kann ein weiterer eindeutiger Klick für dieselbe Nutzer:in gezählt werden, wenn sie erneut klickt. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Nach sieben Tagen kann ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt werden, wenn er/sie erneut klickt. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -343,7 +343,7 @@ Count
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Beachten Sie, dass ein:e Nutzer:in eine E-Mail auch öffnen kann (wobei die Öffnung zu <i>Sonstige Öffnungen</i> gezählt wird), bevor ein Zähler für <i>Maschinelle Öffnungen</i> protokolliert wird. Wenn ein:e Nutzer:in eine E-Mail einmal (oder mehrmals) nach einem maschinellen Öffnungs-Event aus einem Nicht-Apple-Mail-Posteingang öffnet, wird die Anzahl der Öffnungen durch die Nutzer:in zu <i>Sonstige Öffnungen</i> gezählt und nur einmal zu <i>Eindeutige Öffnungen</i>.
+{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Beachten Sie, dass ein:e Nutzer:in eine E-Mail auch öffnen kann (wobei die Öffnung zu <i>Sonstige Öffnungen</i> gezählt wird), bevor ein Zähler für <i>Maschinelle Öffnungen</i> protokolliert wird. Wenn ein:e Nutzer:in eine E-Mail einmal (oder mehrmals) nach einem maschinellen Öffnungs-Event aus einem Nicht-Apple-Mail-Posteingang öffnet, wird die Anzahl der Öffnungen durch die:den Nutzer:in zu <i>Sonstige Öffnungen</i> gezählt und nur einmal zu <i>Eindeutige Öffnungen</i>.
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 

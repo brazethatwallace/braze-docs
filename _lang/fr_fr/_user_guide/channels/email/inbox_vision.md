@@ -12,17 +12,17 @@ channel:
 
 # Inbox Vision
 
-> Inbox Vision vous permet de visualiser vos e-mails du point de vue de différents clients de messagerie et appareils mobiles. Par exemple, vous pouvez tester les différences entre le mode sombre et le mode clair pour vérifier que vos e-mails s'affichent comme prévu.
+> Inbox Vision vous permet de visualiser vos e-mails depuis différents clients de messagerie et appareils mobiles. Par exemple, vous pouvez tester les différences entre le mode sombre et le mode clair afin de vérifier que vos e-mails s'affichent correctement.
 
 {% alert important %}
-Inbox Vision peut ne pas fonctionner si le contenu de votre e-mail repose sur des informations de templating telles que les données du profil utilisateur. Braze utilise un utilisateur vide lors de l'envoi des e-mails pour cette fonctionnalité.<br><br>Ajoutez des valeurs par défaut à tout élément Liquid dans votre e-mail. Sans valeurs par défaut, vous pourriez obtenir un faux positif ou le test pourrait échouer.
+Inbox Vision peut ne pas fonctionner si le contenu de votre e-mail repose sur des informations provenant de modèles, telles que les données du profil utilisateur. Braze crée un modèle d'utilisateur vide lors de l'envoi d'e-mails pour cette fonctionnalité.<br><br>Ajoutez des valeurs par défaut à tout élément Liquid dans votre e-mail. Sans valeurs par défaut, vous pourriez obtenir un faux positif ou le test pourrait échouer.
 {% endalert %}
 
 ## Considérations
 
-De manière générale, votre e-mail ne fonctionnera pas avec Inbox Vision si son contenu repose sur des informations de templating, telles que les informations du profil utilisateur. En effet, Braze utilise un utilisateur vide lors de l'envoi des e-mails avec cette fonctionnalité.
+En règle générale, votre e-mail ne fonctionnera pas avec Inbox Vision si son contenu repose sur des informations provenant de modèles, telles que les informations du profil utilisateur. En effet, Braze crée un modèle d'utilisateur vide lorsque nous envoyons des e-mails à l'aide de cette fonctionnalité.
 
-Vous pouvez résoudre ce problème en ajoutant des valeurs par défaut ou toute autre valeur aux éléments Liquid de votre e-mail avant d'exécuter Inbox Vision. Lorsque vous avez terminé les tests dans Inbox Vision, le message e-mail original réapparaît. Si aucune valeur n'est fournie, le test peut échouer à générer les prévisualisations correctement.
+Vous pouvez résoudre ce problème en ajoutant des valeurs par défaut ou n'importe quelle autre valeur aux éléments Liquid de votre e-mail avant d'exécuter Inbox Vision. Une fois les tests terminés dans Inbox Vision, le message e-mail d'origine réapparaît. Si aucune valeur n'est fournie, le test peut échouer à générer les prévisualisations correctement.
 
 Votre entreprise dispose d'une limite sur le nombre d'e-mails que vous pouvez prévisualiser avec Inbox Vision. Vous pouvez suivre cette limite dans l'onglet **Email Previews** d'Inbox Vision.
 
@@ -120,10 +120,10 @@ Inbox Vision classe les problèmes d'accessibilité par gravité pour vous aider
 | État | Définition |
 | --- | --- |
 | Critique | Problèmes pouvant bloquer l'accès au contenu ou aux fonctionnalités pour les utilisateurs en situation de handicap. Ce sont les plus graves et doivent être corrigés en priorité. |
-| Grave | Problèmes pouvant créer des obstacles significatifs mais qui ne bloquent pas complètement l'accès. Ils doivent être traités rapidement. |
-| Modéré | Problèmes pouvant causer certaines difficultés pour les utilisateurs en situation de handicap, mais qui sont moins susceptibles de bloquer complètement l'accès. |
+| Grave | Problèmes pouvant créer des obstacles significatifs sans pour autant bloquer complètement l'accès. Ils doivent être traités rapidement. |
+| Modéré | Problèmes pouvant causer certaines difficultés pour les utilisateurs en situation de handicap, mais moins susceptibles de bloquer complètement l'accès. |
 | Mineur | Problèmes ayant un impact relativement faible sur l'accessibilité et pouvant ne causer qu'un inconvénient mineur. |
-| À vérifier | Impossible de détecter s'il y a un problème ou non. Cela peut se produire lorsque le ratio de contraste ne peut pas être déterminé car le texte est placé sur une image d'arrière-plan. Vous devez vérifier manuellement car cela ne peut pas être déterminé automatiquement. |
+| À vérifier | Impossible de détecter s'il y a un problème ou non. Cela peut se produire lorsque le ratio de contraste ne peut pas être déterminé car le texte est placé sur une image d'arrière-plan. Une vérification manuelle est nécessaire car la détection automatique n'est pas possible. |
 | Réussi | Conforme aux normes WCAG A, AA ou aux bonnes pratiques d'accessibilité. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -139,21 +139,21 @@ L'éditeur par glisser-déposer ne prend pas en charge la définition d'un élé
 
 ### Examiner votre liste d'utilisateurs abonnés aux e-mails
 
-Consultez le [tableau de bord d'informations sur les e-mails]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) pour déterminer le type d'appareil et les fournisseurs les plus populaires auprès de vos utilisateurs abonnés. Si vous avez besoin de plus de granularité, comme le navigateur, le modèle d'appareil, etc., vous pouvez exploiter vos données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) pour obtenir ce niveau de détail sur l'engagement e-mail récent de vos utilisateurs.
+Consultez le [tableau de bord d'informations sur les e-mails]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) pour déterminer le type d'appareil et les fournisseurs les plus populaires auprès de vos utilisateurs abonnés. Si vous avez besoin de plus de granularité (navigateur, modèle d'appareil, etc.), vous pouvez exploiter vos données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) pour obtenir ce niveau de détail sur l'engagement e-mail récent de vos utilisateurs.
 
-Sinon, Braze propose par défaut les 20 prévisualisations les plus courantes basées sur les données générales du secteur et d'experts, ce qui couvre la majorité des environnements où vos utilisateurs abonnés consultent vos e-mails. Si votre analyse de données indique d'autres prévisualisations plus populaires, vous pouvez définir un ensemble de prévisualisations par défaut à chaque exécution d'Inbox Vision.
+Par défaut, Braze propose les 20 prévisualisations les plus courantes basées sur les données générales du secteur et d'experts, ce qui couvre la majorité des environnements où vos utilisateurs abonnés consultent vos e-mails. Si votre analyse de données indique d'autres prévisualisations plus populaires, vous pouvez définir un ensemble de prévisualisations par défaut à chaque exécution d'Inbox Vision.
 
 ### Sélectionner des prévisualisations pertinentes et impactées
 
-Si votre activité est principalement basée aux États-Unis, certaines prévisualisations, comme les prévisualisations internationales telles que GMX.de, ne sont utilisées que par un nombre marginal d'utilisateurs. Nous vous recommandons de prioriser et d'optimiser pour les boîtes de réception ayant un impact significatif sur vos utilisateurs abonnés, et de réserver vos prévisualisations pour les boîtes de réception à fort impact.
+Si votre activité est principalement basée aux États-Unis, certaines prévisualisations internationales comme GMX.de ne sont utilisées que par un nombre marginal d'utilisateurs. Nous vous recommandons de prioriser et d'optimiser pour les boîtes de réception ayant un impact significatif sur vos utilisateurs abonnés, et de réserver vos prévisualisations pour les boîtes de réception à fort impact.
 
 Lorsque vous effectuez des corrections affectant des prévisualisations spécifiques, veillez à sélectionner uniquement les prévisualisations impactées pour éviter de consommer des prévisualisations inutilisées.
 
 ### Exécuter Inbox Vision sur la version finale de l'e-mail
 
-Nous vous suggérons d'exécuter Inbox Vision lorsque l'e-mail est prêt pour la production ou proche de l'être. Cela vous permet de réduire le nombre de prévisualisations générées, car l'e-mail passe par plusieurs itérations avant d'être finalisé et prêt à être envoyé aux utilisateurs.
+Nous vous recommandons d'exécuter Inbox Vision lorsque l'e-mail est prêt pour la production ou proche de l'être. Cela vous permet de réduire le nombre de prévisualisations générées, car l'e-mail passe par plusieurs itérations avant d'être finalisé et prêt à être envoyé aux utilisateurs.
 
-Exécuter Inbox Vision à chaque modification peut rapidement consommer vos prévisualisations. Nous vous suggérons d'apporter d'abord toutes les modifications nécessaires à l'e-mail, puis d'exécuter Inbox Vision pour prévisualiser l'impact de l'ensemble de vos changements sur le rendu de votre e-mail dans les différents environnements.
+Exécuter Inbox Vision à chaque modification peut rapidement consommer vos prévisualisations. Nous vous recommandons d'apporter d'abord toutes les modifications nécessaires à l'e-mail, puis d'exécuter Inbox Vision pour prévisualiser l'impact de l'ensemble de vos changements sur le rendu de votre e-mail dans les différents environnements.
 
 Braze exécute les tests via de véritables clients de messagerie et s'efforce de garantir l'exactitude des rendus. Si vous constatez un problème récurrent avec un client, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/).
 

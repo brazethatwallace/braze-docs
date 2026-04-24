@@ -1,6 +1,6 @@
 ---
 nav_title: メールの作成
-article_title: ドラッグ＆ドロップでメールを作成
+article_title: ドラッグ＆ドロップでメールを作成する
 alias: "/dnd/overview/"
 noindex: true
 layout: redirect

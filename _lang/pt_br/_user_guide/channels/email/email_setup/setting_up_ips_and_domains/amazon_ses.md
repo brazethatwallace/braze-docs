@@ -75,4 +75,4 @@ Isso se baseia na regra de que o domínio de rastreamento de cliques precisa cor
 
 ## Próximas etapas
 
-- [Configurar SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)
+- [Configurar SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)

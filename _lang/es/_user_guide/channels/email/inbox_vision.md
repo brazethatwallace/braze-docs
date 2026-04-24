@@ -12,24 +12,24 @@ channel:
 
 # Inbox Vision
 
-> Inbox Vision te permite ver tus correos electrónicos desde la perspectiva de varios clientes de correo electrónico y dispositivos móviles. Por ejemplo, puedes probar las diferencias entre el modo oscuro y el modo claro para confirmar que tus correos electrónicos se renderizan como esperas.
+> Inbox Vision te permite ver tus correos electrónicos desde la perspectiva de varios clientes de correo electrónico y dispositivos móviles. Por ejemplo, puedes probar las diferencias entre el modo oscuro y el modo claro para confirmar que tus correos electrónicos se muestran según lo previsto.
 
 {% alert important %}
-Es posible que Inbox Vision no funcione si el contenido de tu correo electrónico depende de información de plantillas, como datos del perfil de usuario. Braze utiliza un usuario vacío como plantilla al enviar correos electrónicos para esta característica.<br><br>Añade valores predeterminados a cualquier Liquid en tu mensaje de correo electrónico. Sin valores predeterminados, podrías recibir un falso positivo o la prueba podría fallar.
+Es posible que Inbox Vision no funcione si el contenido de tu correo electrónico se basa en información de plantillas, como los datos del perfil de usuario. Braze crea una plantilla de usuario vacía al enviar correos electrónicos para esta característica.<br><br>Añade valores predeterminados a cualquier Liquid en tu mensaje de correo electrónico. Sin valores predeterminados, es posible que recibas un falso positivo o que la prueba falle.
 {% endalert %}
 
 ## Consideraciones
 
-En general, tu correo electrónico no funcionará con Inbox Vision si el contenido depende de información de plantillas, como información del perfil de usuario. Esto se debe a que Braze utiliza un usuario vacío como plantilla cuando enviamos correos electrónicos con esta característica.
+En general, tu correo electrónico no funcionará con Inbox Vision si su contenido depende de información de plantillas, como la información del perfil de usuario. Esto se debe a que Braze crea una plantilla de usuario vacía cuando enviamos correos electrónicos utilizando esta característica.
 
-Puedes resolver esto añadiendo valores predeterminados o cualquier valor al Liquid en tu mensaje de correo electrónico antes de ejecutar Inbox Vision. Cuando termines de probar en Inbox Vision, aparecerá el mensaje de correo electrónico original. Si no se proporcionan valores, la prueba podría no renderizar las vistas previas correctamente.
+Puedes resolver esto añadiendo valores predeterminados o cualquier valor al Liquid de tu mensaje de correo electrónico antes de ejecutar Inbox Vision. Cuando termines de probar en Inbox Vision, aparecerá el mensaje de correo electrónico original. Si no se proporcionan valores, es posible que la prueba no logre renderizar las vistas previas correctamente.
 
 Tu empresa tiene un límite de cuántos correos electrónicos puedes previsualizar con Inbox Vision. Puedes monitorear esto en la pestaña **Email Previews** de Inbox Vision.
 
-Incluye una línea del asunto y un dominio de envío válido para ver las vistas previas. Ten en cuenta las diferencias de renderizado entre escritorio y móvil. Usa las vistas previas para confirmar que el correo electrónico aparece como esperas.
+Incluye una línea del asunto y un dominio de envío válido para ver las vistas previas. Ten en cuenta las diferencias de renderizado entre escritorio y móvil. Usa las vistas previas para confirmar que el correo electrónico aparece según lo previsto.
 
 {% alert note %}
-Si al previsualizar una campaña aparece un error de permiso, limpia tu caché y cookies, o prueba con una ventana de incógnito. Las extensiones del navegador a veces bloquean la vista previa.
+Si al previsualizar una campaign aparece un error de permiso, limpia tu caché y cookies, o prueba con una ventana de incógnito. Las extensiones del navegador a veces bloquean la vista previa.
 {% endalert %}
 
 Para probar tu mensaje de correo electrónico en Inbox Vision:
@@ -72,7 +72,7 @@ El análisis de código puede aparecer más rápido que la vista previa para un 
 Las pruebas de correo no deseado estiman si el correo podría ser filtrado como correo no deseado. Las pruebas se ejecutan a través de filtros como IronPort, SpamAssassin y Barracuda, y filtros de ISP como Gmail y Outlook, utilizando buzones de entrada estáticos que no abren ni hacen clic de forma predeterminada.
 
 {% alert important %}
-La ubicación en el buzón de entrada depende principalmente de la interacción de los destinatarios en vivo. Los resultados de las pruebas de correo no deseado pueden no coincidir con lo que ves en campañas reales.
+La ubicación en el buzón de entrada depende principalmente de la interacción de los destinatarios en vivo. Los resultados de las pruebas de correo no deseado pueden no coincidir con lo que ves en campaigns reales.
 {% endalert %}
 
 Para una lectura más clara de la capacidad de entrega, prueba el contenido con pequeñas cohortes en vivo: las aperturas y los clics sólidos son la señal más confiable. Usa las pruebas de correo no deseado como una entrada más junto con el monitoreo de la interacción.
@@ -82,7 +82,7 @@ Para una lectura más clara de la capacidad de entrega, prueba el contenido con 
 Para verificar los resultados de tus pruebas de correo no deseado:
 
 1. Selecciona la pestaña **Spam Testing** en la sección **Inbox Vision**. La tabla **Spam Test Result** muestra el nombre del filtro de correo no deseado, el estado y el tipo.
-2. Revisa estos resultados y realiza los ajustes necesarios en tu campaña de correo electrónico.
+2. Revisa estos resultados y realiza los ajustes necesarios en tu campaign de correo electrónico.
 3. Selecciona **Re-run Test** para recargar los resultados de tus pruebas de correo no deseado.
 
 ## Pruebas de accesibilidad
@@ -139,7 +139,7 @@ El editor de arrastrar y soltar no admite la configuración de un elemento `<tit
 
 ### Revisa tu lista de suscriptores de correo electrónico
 
-Consulta el [dashboard de información de correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) para determinar el tipo de dispositivo y los proveedores más populares donde tus suscriptores interactúan. Si necesitas más granularidad, como el navegador, el modelo de dispositivo y más, puedes aprovechar tus datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para obtener este nivel de detalle sobre la interacción reciente de tus usuarios con el correo electrónico.
+Consulta el [dashboard de información de correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) para determinar el tipo de dispositivo y los proveedores más populares donde tus suscriptores interactúan. Si necesitas más granularidad, como el navegador, el modelo de dispositivo y más, puedes aprovechar tus datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) o el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para obtener este nivel de detalle sobre la interacción reciente de tus usuarios con el correo electrónico.
 
 De lo contrario, Braze muestra de forma predeterminada las 20 vistas previas principales basadas en datos generales de la industria y de expertos, lo que cubre la mayoría de los lugares donde tus suscriptores interactúan con tus correos electrónicos. Si tu análisis de datos apunta a otras vistas previas más populares, puedes definir un conjunto predeterminado de vistas previas cada vez que ejecutes Inbox Vision.
 

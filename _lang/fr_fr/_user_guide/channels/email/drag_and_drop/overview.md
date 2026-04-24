@@ -1,6 +1,6 @@
 ---
 nav_title: Créer un e-mail
-article_title: Créer un e-mail avec le glisser-déposer
+article_title: Créer un e-mail par glisser-déposer
 alias: "/dnd/overview/"
 noindex: true
 layout: redirect

@@ -20,7 +20,7 @@ guide_featured_list:
   - name: AMP para e-mail
     link: /docs/user_guide/channels/email/customize/amp_for_email
     image: /assets/img/braze_icons/zap.svg
-  - name: Links universais e links de app
+  - name: Links universais e App Links
     link: /docs/user_guide/channels/email/customize/universal_links_and_app_links
     image: /assets/img/braze_icons/link-03.svg
 ---

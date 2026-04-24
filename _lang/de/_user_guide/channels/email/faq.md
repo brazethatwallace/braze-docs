@@ -21,7 +21,7 @@ Die folgenden Szenarien können den Eindruck erwecken, dass ein:e Nutzer:in eine
 
 - **Bei der Erstellung der Kampagne oder des Canvas ist ein Fehler aufgetreten:** Die/der Nutzer:in erhält möglicherweise nicht buchstäblich denselben Versand zweimal, kann aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Kampagne oder ein Canvas dupliziert wird, überprüfen Sie die E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch die Changelogs einsehen, um festzustellen, ob die Kampagne oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die/der Nutzer:in es erhalten hat.
 - **Mehrere Nutzerprofile haben E-Mail-Weiterleitung:** Wenn ein:e Nutzer:in mehrere Konten in einer bestimmten App hat, aber ein Konto E-Mails weiterleitet, erhält die/der Nutzer:in die Kampagne einmal pro Posteingang; E-Mails können im Posteingang, an den Nachrichten weitergeleitet werden, doppelt erscheinen. Nur einige Anbieter zeigen an, wenn eine E-Mail von einem anderen Konto weitergeleitet wurde.
-- **E-Mail-Konfiguration bei der/dem Empfänger:in:** Einige Clients führen Posteingänge zusammen („universeller Posteingang"). Wenn dieselbe Kampagne mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Kampagne zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die/der Empfänger:in kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
+- **E-Mail-Konfiguration bei der/dem Empfänger:in:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Kampagne mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Kampagne zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die/der Empfänger:in kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
 
 Beachten Sie, dass diese Deduplizierung erfolgt, wenn die angesprochenen Nutzer:innen im selben Versand enthalten sind. Getriggerte Kampagnen (mit Ausnahme von API-getriggerten Kampagnen) und Canvases können zu mehreren Sendungen an dieselbe E-Mail-Adresse führen (auch innerhalb eines Zeitraums, in dem Nutzer:innen aufgrund der Wiederberechtigung ausgeschlossen werden könnten), wenn verschiedene Nutzer:innen mit übereinstimmenden E-Mail-Adressen das Trigger-Ereignis zu unterschiedlichen Zeiten auslösen. Wenn beispielsweise Nutzer:in A und Nutzer:in B die E-Mail-Adresse `johndoe@example.com` teilen, sich ihre Profile aber in unterschiedlichen Zeitzonen befinden, und das Kampagnen-Trigger-Ereignis den Versand in der Zeitzone der/des Nutzers:in vorsieht, erhält die E-Mail-Adresse `johndoe@example.com` zwei E-Mails.
 
@@ -47,21 +47,21 @@ Wenn Sie die E-Mail-Adresse für Nutzer:in A auf eine andere E-Mail-Adresse setz
 
 Nein. Aktualisierungen der ausgehenden E-Mail-Einstellungen wirken sich nicht rückwirkend auf bestehende Sendungen aus. Wenn Sie beispielsweise Ihren Standard-Anzeigenamen in den E-Mail-Einstellungen ändern, wird der bestehende Standard-Anzeigename in Ihren aktiven Kampagnen oder Canvases nicht automatisch ersetzt.
 
-### Was ist eine „gute" E-Mail-Zustellrate?
+### Was ist eine „gute“ E-Mail-Zustellrate?
 
-Typischerweise liegt die „magische Zahl" bei etwa 98 % zugestellter Nachrichten mit einer Bounce-Rate von nicht mehr als 3 %. Wenn Ihre Zustellrate darunter fällt, gibt es in der Regel Grund zur Sorge.
+Typischerweise liegt die „magische Zahl“ bei etwa 98 % zugestellter Nachrichten mit einer Bounce-Rate von nicht mehr als 3 %. Wenn Ihre Zustellrate darunter fällt, gibt es in der Regel Grund zur Sorge.
 
 Allerdings kann eine Rate über 98 % dennoch Zustellbarkeitsprobleme aufweisen. Wenn beispielsweise alle Ihre Bounces von einer einzigen Domain stammen, ist das ein klares Signal für ein Reputationsproblem bei diesem Anbieter.
 
-Darüber hinaus können Nachrichten zugestellt werden und im Spam-Ordner landen, was auf potenziell schwerwiegende Reputationsprobleme hinweist. Es ist wichtig, nicht nur die Anzahl der zugestellten Nachrichten zu überwachen, sondern auch die Öffnungs- und Klickraten, um festzustellen, ob die Nutzer:innen die Nachrichten tatsächlich in ihren Posteingängen sehen. Da Anbieter in der Regel nicht jede Spam-Instanz melden, könnte eine Spam-Rate von selbst 1 % Anlass zur Sorge und weiteren Analyse sein.
+Darüber hinaus können Nachrichten zugestellt werden und im Spam-Ordner landen, was auf potenziell schwerwiegende Reputationsprobleme hinweist. Es ist wichtig, nicht nur die Anzahl der zugestellten Nachrichten zu überwachen, sondern auch die Öffnungs- und Klickraten, um festzustellen, ob die Nutzer:innen die Nachrichten tatsächlich in ihren Posteingängen sehen. Da Anbieter in der Regel nicht jede Spam-Instanz melden, könnte selbst eine Spam-Rate von 1 % Anlass zur Sorge und weiteren Analyse sein.
 
-Schließlich können auch Ihr Geschäft und die Art der E-Mails, die Sie senden, die Zustellung beeinflussen. Jemand, der hauptsächlich [Transaktions-E-Mails]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) sendet, sollte beispielsweise eine bessere Rate erwarten als jemand, der viele Marketing-Nachrichten versendet.
+Schließlich können auch Ihr Geschäft und die Art der E-Mails, die Sie senden, die Zustellung beeinflussen. Jemand, der hauptsächlich [Transaktions-E-Mails]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/) sendet, sollte beispielsweise eine bessere Rate erwarten als jemand, der viele Marketing-Nachrichten versendet.
 
 ### Warum ergeben meine E-Mail-Zustellmetriken nicht 100 %?
 
 E-Mail-Zustellmetriken (Zustellungen, Bounces und Spam-Rate) ergeben möglicherweise nicht 100 %, da E-Mails, die einen Soft Bounce hatten und nach der Wiederholungsperiode von bis zu 72 Stunden nicht zugestellt wurden, nicht berücksichtigt werden.
 
-Soft Bounces sind E-Mails, die aufgrund eines temporären oder vorübergehenden Problems zurückgewiesen werden, wie z. B. „Postfach voll", „Server vorübergehend nicht verfügbar" und mehr. Wenn eine E-Mail mit Soft Bounce nach 72 Stunden immer noch nicht zugestellt wurde, wird diese E-Mail nicht in den Zustellmetriken der Kampagne berücksichtigt.
+Soft Bounces sind E-Mails, die aufgrund eines temporären oder vorübergehenden Problems zurückgewiesen werden, wie z. B. „Postfach voll“, „Server vorübergehend nicht verfügbar“ und mehr. Wenn eine E-Mail mit Soft Bounce nach 72 Stunden immer noch nicht zugestellt wurde, wird diese E-Mail nicht in den Zustellmetriken der Kampagne berücksichtigt.
 
 ### Was ist eine E-Mail-Feedback-Schleife?
 
@@ -99,7 +99,7 @@ Bestimmte Elemente einer E-Mail-Nachricht, wie übermäßig lange Nachrichten od
 
 Best Practices zum Umgang mit diesen Reaktionen finden Sie unter [Umgang mit Anstiegen der Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting/).
 
-### Kann Braze Abmeldelinks verfolgen, die zur Metrik „Abmeldungen" gezählt werden?
+### Kann Braze Abmeldelinks verfolgen, die zur Metrik „Abmeldungen“ gezählt werden?
 
 Braze verfolgt Abmeldelinks, wenn das folgende Liquid in E-Mails verwendet wird: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}
 
@@ -109,13 +109,13 @@ Wenn es mehr _Abmeldungen_ gibt als Nutzer:innen, die auf den Abmeldelink im E-M
 
 Wenn die Gesamtzahl der Klicks auf den Body-Abmeldelink größer ist als die Anzahl der _Abmeldungen_, haben Nutzer:innen möglicherweise mehr als einmal auf den Link geklickt.
 
-### Kann ich einen „Diese E-Mail im Browser anzeigen"-Link zu meinen E-Mails hinzufügen?
+### Kann ich einen „Diese E-Mail im Browser anzeigen“-Link zu meinen E-Mails hinzufügen?
 
 Nein. Braze bietet diese Funktionalität nicht an. Dies liegt daran, dass eine wachsende Mehrheit der E-Mails auf Mobilgeräten und in modernen E-Mail-Clients geöffnet wird, die Bilder und Inhalte problemlos rendern.
 
 **Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page (z. B. Ihrer Website) hosten, die dann über das **Link**-Tool beim Bearbeiten des E-Mail-Textes aus der E-Mail-Kampagne heraus verlinkt werden kann.
 
-### Wandelt Braze automatisch Klartext-URLs oder „www."-Text in Links um?
+### Wandelt Braze automatisch Klartext-URLs oder „www.“-Text in Links um?
 
 Nein. Braze scannt Ihre Nachricht nicht und konvertiert keinen Klartext, wie Text, der mit `www.` beginnt oder wie eine URL aussieht, in Hyperlinks. Nur Links, die Sie mit HTML-Anchor-Tags (`<a href="...">`) definieren, werden durch das normale Rendering und die Link-Features in Braze verarbeitet.
 

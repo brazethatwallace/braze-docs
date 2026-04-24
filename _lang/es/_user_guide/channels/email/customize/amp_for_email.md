@@ -42,7 +42,7 @@ Para obtener una lista completa de clientes de correo electrónico compatibles, 
 
 Ve a la configuración de Gmail y selecciona **Habilitar correo electrónico dinámico** en **General**.
 
-![Un ejemplo de la configuración de Gmail con la casilla "Habilitar correo electrónico dinámico" seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
+![Un ejemplo de la configuración de Gmail con la casilla «Habilitar correo electrónico dinámico» seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## Uso de la API {#api-usage}
 

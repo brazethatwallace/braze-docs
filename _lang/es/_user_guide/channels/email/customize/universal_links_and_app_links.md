@@ -12,7 +12,7 @@ channel: email
 > Este artículo describe cómo configurar los enlaces universales de Apple y los Android App Links.
 
 {% alert tip %}
-Para una comparación de tipos de enlaces en todos los canales de mensajería y orientación sobre cuándo necesitas un archivo AASA, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
+Para una comparación de tipos de enlaces en todos los canales de mensajería y orientación sobre cuándo necesitas un archivo AASA, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
 {% endalert %}
 
 Los enlaces universales de Apple y los Android App Links son mecanismos diseñados para proporcionar una transición fluida entre el contenido web y las aplicaciones móviles. Mientras que los enlaces universales son específicos de iOS, los Android App Links cumplen el mismo propósito para las aplicaciones Android.
@@ -30,16 +30,16 @@ Esta tabla describe las diferencias clave entre los enlaces universales y los v�
 |                        | Enlaces universales y App Links                                  | Vínculos profundos                   |
 | ---------------------- | -------------------------------------------------------------- | ---------------------------- |
 | Compatibilidad de plataforma | iOS (versión 9 y posterior) y Android (versión 6.0 y posterior)  | Se usan en varios SO móviles    |
-| Propósito                | Vincular de forma fluida contenido web y de la aplicación en dispositivos iOS y Android | Vincular a contenido específico de la aplicación |
+| Propósito                | Vincular fácilmente contenido web y de la aplicación en dispositivos iOS y Android | Vincular a contenido específico de la aplicación |
 | Función               | Dirige a páginas web o contenido de la aplicación según el contexto           | Abre pantallas específicas de la aplicación   |
 | Instalación de la aplicación       | Abre la aplicación si está instalada, de lo contrario abre contenido web | Requiere que la aplicación esté instalada |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Casos de uso
 
-Los enlaces universales y los App Links se usan más comúnmente para campañas de correo electrónico, ya que los correos electrónicos pueden abrirse y hacer clic desde dispositivos de escritorio y móviles.
+Los enlaces universales y los App Links se usan más comúnmente para Campaigns de correo electrónico, ya que los correos electrónicos pueden abrirse y hacer clic desde dispositivos de escritorio y móviles.
 
-Algunos canales no funcionan bien con estos enlaces. Por ejemplo, las notificaciones push, los mensajes dentro de la aplicación y las tarjetas de contenido deben usar vínculos profundos basados en esquema (`mydomain://`).
+Algunos canales no funcionan bien con estos enlaces. Por ejemplo, las notificaciones push, los mensajes dentro de la aplicación y Content Cards deben usar vínculos profundos basados en esquema (`mydomain://`).
 
 {% alert note %}
 Los Android App Links requieren un `IBrazeDeeplinkHandler` personalizado con lógica para manejar enlaces de sus dominios por separado de otras URL web. Puede ser más fácil usar vínculos profundos en su lugar y mantener prácticas de vinculación uniformes para canales distintos al correo electrónico.

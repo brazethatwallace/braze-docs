@@ -1,41 +1,41 @@
 ---
-nav_title: Apple Private Relay へのメール送信
-article_title: Apple Private Relay へのメール送信
+nav_title: Apple Private Relayにメールを送る
+article_title: Apple Private Relayにメールを送る
 alias: /email_relay/
 page_order: 0
-description: "この記事では、Apple Private Relay にメールを送信するプロセスについて説明します。"
+description: "この記事では、Apple Private Relayにメールを送信する手順について説明します。"
 channel:
   - email
 toc_headers: h2
 ---
 
-# Apple Private Relay へのメール送信
+# Apple Private Relayにメールを送る
 
-> Apple のシングルサインオン (SSO) 機能を使用すると、ユーザーは自分のメールアドレス (`example@icloud.com`) を共有するか、個人のメールアドレスの代わりにブランドに提供されるアドレスをマスクしてメールアドレスを非公開にする (`tq1234snin@privaterelay.appleid.com`) かを選択できます。Apple は、リレーアドレスに送信されたメッセージをユーザーの実際のメールアドレスに転送します。
+> Apple のシングルサインオン (SSO) 機能を使用すると、ユーザーは自分のメールアドレス (`example@icloud.com`) を共有するか、パーソナルメールアドレスの代わりにマスキングされたアドレス (`tq1234snin@privaterelay.appleid.com`) をブランドに提供してメールアドレスを非公開にすることができます。Apple は、リレーアドレスに送信されたメッセージをユーザーの実際のメールアドレスに転送します。
 
-Apple のプライベートメールリレーにメールを送信するには、送信ドメインを Apple に登録してください。ドメインを Apple で設定しない場合、リレーアドレスに送信されたメールはバウンスになります。
+Apple のプライベートメールリレーにメールを送信するには、送信ドメインを Apple に登録してください。Apple でドメインを設定しないと、リレーアドレスに送信されたメールはバウンスされます。
 
-ユーザーがアプリのリレーメールへのメール転送を無効にした場合、Braze は通常どおりメールバウンス情報を受信します。これらのユーザーは、Apple ID の設定ページから Apple でサインインを使用するアプリを管理できます（[Apple のドキュメント](https://support.apple.com/en-us/HT210426)を参照）。
+ユーザーがアプリのリレーメールへのメール転送を無効にした場合、Braze は通常通りメールのバウンス情報を受信します。これらのユーザーは、Apple ID の設定ページから、Apple でサインインを使用するアプリを管理できます（[Apple のドキュメント](https://support.apple.com/en-us/HT210426)を参照してください）。
 
 ## メールプロバイダーの設定
 
 {% tabs %}
 {% tab SendGrid %}
 
-メールプロバイダーとして SendGrid を使用している場合、DNS の変更なしで Apple にメールを送信できます。
+SendGrid をメールプロバイダーとして使用している場合、DNS を変更せずに Apple にメールを送信できます。
 
 1. [Apple Developer Portal](https://developer.apple.com/) にログインします。
 2. **Certificates, Identifiers & Profiles** ページに移動します。
 3. **Services** > **Sign in with Apple for Email Communication** を選択します。
 4. **Email Sources** セクションで、ドメインとサブドメインを追加します。
-- アドレスは次の形式にする必要があります: `bounces+<YOUR_UID>@<YOUR_WHITELABELED_SUBDOMAIN_AND_DOMAIN>`（例: `bounces+1234567@braze.online.docs.com`）。
+- アドレスは `bounces+<YOUR_UID>@<YOUR_WHITELABELED_SUBDOMAIN_AND_DOMAIN>` の形式にする必要があります（例: `bounces+1234567@braze.online.docs.com`）。
 
-希望する「From」アドレスが `abmail` アドレスの場合は、サブドメインにそれを含めてください。たとえば、`docs.braze.com` ではなく `abmail.docs.braze.com` を使用します。
+希望する「From」アドレスが `abmail` アドレスの場合、サブドメインにそれを含めてください。例えば、`docs.braze.com` の代わりに `abmail.docs.braze.com` を使用します。
 
 {% endtab %}
 {% tab SparkPost %}
 
-SparkPost で Apple Private Relay を設定するには、次のステップに従ってください:
+SparkPost で Apple Private Relay を設定するには、以下の手順に従います：
 
 1. Apple でサインインします。
 2. [Apple のドキュメント](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service)に従ってメールドメインを登録します。
@@ -43,9 +43,9 @@ SparkPost で Apple Private Relay を設定するには、次のステップに�
 
 ### 送信ドメインがバウンスドメインでもある場合
 
-送信ドメインがバウンスドメインとしても使用されている場合、レコードを保存できないため、以下の追加ステップに従う必要があります:
+送信ドメインがバウンスドメインとしても使用されている場合、レコードを保存できないため、以下の追加手順に従う必要があります：
 
-1. ドメインが既に SparkPost で検証されている場合、MX レコードと TXT レコードを作成する**必要があります**:
+1. ドメインが既に SparkPost で検証されている場合、MX レコードと TXT レコードを作成する**必要があります**：
 
 | インスタンス | MX レコード                   | TXT レコード                                    |
 |----------|-----------------------------|-----------------------------------------------|

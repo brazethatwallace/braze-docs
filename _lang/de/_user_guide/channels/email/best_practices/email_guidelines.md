@@ -3,14 +3,14 @@ nav_title: "E-Mail-Richtlinien"
 article_title: "E-Mail-Richtlinien"
 page_order: 1
 page_type: reference
-description: "Dieser Artikel behandelt allgemeine Tipps und Tricks, die Sie beim Erstellen von E-Mail-Kampagnen für verschiedene Anwendungsfälle und Themen beachten sollten."
+description: "Dieser Artikel behandelt allgemeine Tipps und Tricks, die Sie beim Erstellen von E-Mail-Campaigns für verschiedene Anwendungsfälle und Themen beachten sollten."
 channel: email
 
 ---
 
 # E-Mail-Richtlinien
 
-> Beim Erstellen Ihrer E-Mail-Kampagne ist es wichtig zu beachten, wie Ihre E-Mail-Nachrichten bei Ihren verschiedenen Nutzer:innen und E-Mail-Anbietern (ESPs) ankommen.
+> Beim Erstellen Ihrer E-Mail-Campaign ist es wichtig zu beachten, wie Ihre E-Mail-Nachrichten bei Ihren verschiedenen Nutzer:innen und E-Mail-Anbietern (ESPs) ankommen.
 
 Hier sind einige schnelle Tipps, die Sie beim Erstellen Ihrer Inhalte beachten sollten:
 
@@ -56,7 +56,7 @@ Das Layout kann brechen, wenn von Braze generiertes HTML/CSS mit benutzerdefinie
 - Überprüfen Sie das Padding von Zeilen und Spalten
 - Bevorzugen Sie tabellenbasierte Layouts und bleiben Sie innerhalb der Breite des Editors.
 
-Content-Blöcke, die HTML von außerhalb des Editors einbinden, können ebenfalls das Layout beeinträchtigen.
+Content Blocks, die HTML von außerhalb des Editors einbinden, können ebenfalls das Layout beeinträchtigen.
 
 ## Verwendung von UTM-Parametern in E-Mail-URLs
 

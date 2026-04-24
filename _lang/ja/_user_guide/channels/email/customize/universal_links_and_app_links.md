@@ -12,12 +12,12 @@ channel: email
 > この記事では、Apple ユニバーサルリンクと Android App Links の設定方法について説明します。
 
 {% alert tip %}
-すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASA ファイルが必要なタイミングに関するガイダンスについては、[iOS ディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)を参照してください。
+すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASA ファイルが必要なタイミングに関するガイダンスについては、[iOS ディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
 {% endalert %}
 
 Apple ユニバーサルリンクと Android App Links は、Web コンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクは iOS 固有のものですが、Android App Links は Android アプリケーションで同じ目的を果たします。
 
-## ユニバーサルリンクと App Links の仕組み {#how-universal-links-and-app-links-work}
+## ユニバーサルリンクと App Links の仕組み
 
 ユニバーサルリンク（iOS）と App Links（Android）は、Web ページとアプリ内のコンテンツの両方を指す標準的な Web リンク（`http://mydomain.com`）です。
 
@@ -35,24 +35,24 @@ Apple ユニバーサルリンクと Android App Links は、Web コンテンツ
 | アプリのインストール       | アプリがインストールされている場合はアプリを開き、それ以外の場合は Web コンテンツを開く | アプリのインストールが必要 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## ユースケース {#use-cases}
+## ユースケース
 
-ユニバーサルリンクと App Links は、メールキャンペーンで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
+ユニバーサルリンクと App Links は、メール Campaign で最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
 
-一部のチャネルはこれらのリンクとうまく連携しません。たとえば、プッシュ通知、アプリ内メッセージ、コンテンツカードでは、スキームベースのディープリンク（`mydomain://`）を使用する必要があります。
+一部のチャネルはこれらのリンクとうまく連携しません。たとえば、プッシュ通知、アプリ内メッセージ、Content Cards では、スキームベースのディープリンク（`mydomain://`）を使用する必要があります。
 
 {% alert note %}
 Android App Links には、そのドメインからのリンクを他の Web URL とは別に処理するロジックを持つカスタム `IBrazeDeeplinkHandler` が必要です。代わりにディープリンクを使用し、メール以外のチャネルではリンクの方法を統一する方が簡単な場合があります。
 {% endalert %}
 
-## 前提条件 {#prerequisites}
+## 前提条件
 
 ユニバーサルリンクと App Links を使用するには、以下が必要です。
 
 - Web サイトが HTTPS 経由でアクセス可能であること
 - アプリが App Store（iOS）または Google Play Store（Android）で利用可能であること
 
-## ユニバーサルリンクと App Links の設定 {#setting-up-universal-links-and-app-links}
+## ユニバーサルリンクと App Links の設定
 
 アプリがユニバーサルリンクまたは App Links をサポートするには、iOS と Android の両方で、リンクドメインに特別な権限ファイルをホストする必要があります。このファイルには、そのドメインからのリンクを開くことができるアプリの定義と、iOS の場合はそれらのアプリが開くことを許可されるパスが含まれています。
 
@@ -219,7 +219,7 @@ Android アプリで、受信するディープリンクを処理する必要が
 {% endtab %}
 {% endtabs %}
 
-## ユニバーサルリンク、App Links、およびクリックトラッキング {#universal-links-app-links-and-click-tracking}
+## ユニバーサルリンク、App Links、およびクリックトラッキング
 
 {% alert note %}
 クリックトラッキングリンクは通常、メールのオンボーディングの一環として設定されます。顧客のオンボーディング中に完了しなかった場合は、アカウントマネージャーにお問い合わせください。
@@ -269,7 +269,7 @@ SparkPost のクリックトラッキングリンクをユニバーサルリン�
 
 次に、アプリがカスタムパスを適切に処理するように設定されていることを確認します。SparkPost の記事 [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links) を参照してください。この記事には [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) と [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost) のサンプルコードが含まれています。
 
-### リンクごとのクリックトラッキングの無効化 {#turning-off-click-tracking-on-a-link-to-link-basis}
+### リンクごとのクリックトラッキングの無効化
 
 特定のリンクのクリックトラッキングを無効にするには、HTML エディターのメールメッセージに HTML コードを追加するか、ドラッグ＆ドロップエディターの HTML ブロックに追加します。
 
@@ -339,7 +339,7 @@ SparkPost のクリックトラッキングリンクをユニバーサルリン�
 
 ![ボタンのカスタム属性。]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
 
-### クリックトラッキング付きユニバーサルリンクのトラブルシューティング {#troubleshooting-universal-links-with-click-tracking}
+### クリックトラッキング付きユニバーサルリンクのトラブルシューティング
 
 メール内のユニバーサルリンクが期待どおりに機能しない場合（受信者がメールアプリから Web ブラウザーに移動し、最終的にアプリにリダイレクトされるなど）、以下のヒントを参照してユニバーサルリンクの設定をトラブルシューティングしてください。
 

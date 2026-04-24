@@ -10,19 +10,19 @@ channel: email
 
 # SSL bei Braze
 
-{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
+> Eine SSL-Verschlüsselung (Secure Socket Layer) verschlüsselt eine URL mit HTTPS anstelle von HTTP. HTTPS zeigt an, dass ein gültiges und vertrauenswürdiges SSL- oder TLS-Zertifikat vorhanden ist und dass die Website sicher besucht werden kann.
 
-> Eine Secure Socket Layer (SSL) verschlüsselt eine URL mit HTTPS anstelle von HTTP. HTTPS zeigt an, dass ein gültiges und vertrauenswürdiges SSL- oder TLS-Zertifikat vorhanden ist und die Website sicher besucht werden kann.
+{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
 ## Warum ist SSL wichtig?
 
-Die meisten Domains erfordern kein SSL, aber Braze empfiehlt aus folgenden Gründen dringend die Verwendung von SSL.
+Die meisten Domains erfordern kein SSL, jedoch empfiehlt Braze aus den folgenden Gründen dringend die Verwendung von SSL.
 
-Die Absicherung Ihrer Website und Links mit SSL ist eine gängige Praxis, selbst für Unternehmen, die nicht direkt mit sensiblen Kundendaten umgehen. Nutzer:innen vertrauen Links, die mit SSL gesichert sind, stärker, und die zusätzliche Authentifizierungsebene hilft, Ihre Daten zu schützen.
+Die Sicherung Ihrer Website und Links mit SSL ist eine gängige Praxis, selbst für Unternehmen, die nicht direkt mit sensiblen Kundendaten arbeiten. Nutzer:innen vertrauen Links, die mit SSL gesichert sind, eher, und die zusätzliche Authentifizierungsebene trägt zum Schutz Ihrer Daten bei.
 
-### Erforderlich für Klick- und Öffnungs-Tracking
+### Erforderlich für das Tracking von Klicks und Öffnungen
 
-Braze transformiert Ihre Links mithilfe Ihrer gebrandeten Link-Tracking-Subdomain, um Klicks und Öffnungen zu verfolgen. Standardmäßig beginnen diese Links mit HTTP. Nutzer:innen mit Browsern oder Erweiterungen, die unsicheren Datenverkehr einschränken, können Schwierigkeiten haben, die Weiterleitung zu passieren, bevor die Ziel-URL erreicht wird – selbst wenn die URL sicher ist. Dies kann zu fehlerhaften Bildern und ungenauen Tracking-Daten führen. Wenden Sie SSL auf die Link-Tracking-Subdomain an, um sichere Weiterleitungen zu gewährleisten.
+Braze transformiert Ihre Links mithilfe Ihrer markenspezifischen Link-Tracking-Subdomain, um Klicks und Öffnungen zu verfolgen. Standardmäßig beginnen diese Links mit HTTP. Nutzer:innen mit Browsern oder Erweiterungen, die nicht sicheren Datenverkehr einschränken, könnten Schwierigkeiten haben, die Weiterleitung vor der Ziel-URL zu passieren, selbst wenn die URL sicher ist. Dies kann zu fehlerhaften Bildern und ungenauem Tracking führen. Wenden Sie SSL auf die Subdomain für das Link-Tracking an, um sichere Weiterleitungen zu gewährleisten.
 
 ### Browser-Anforderung
 
@@ -30,7 +30,7 @@ Große Browser wie Google Chrome schränken den Datenverkehr über unsichere URL
 
 ### Anforderung für HSTS-Domains
 
-Wenn Sie eine HTTP Strict Transport Security (HSTS)-Domain haben, richten Sie SSL ein und konfigurieren Sie ein CDN, um die erforderlichen Sicherheitszertifikate zu senden. Ohne SSL funktionieren Bild- und Web-Links nicht.
+Wenn Sie eine HTTP Strict Transport Security (HSTS)-Domain haben, richten Sie SSL ein und konfigurieren Sie ein CDN, um die erforderlichen Sicherheitszertifikate zu senden. Ohne SSL funktionieren Bild- und Internet-Links nicht.
 
 ## Ein SSL-Zertifikat erwerben
 
@@ -53,7 +53,7 @@ Ein Content Delivery Network (CDN) ist eine Plattform aus Servern, die schnelle 
 Die CDN-Konfiguration erfolgt immer erst, nachdem Ihre DNS-Einträge von Braze validiert wurden. Wenn Sie diesen Schritt noch nicht eingeleitet haben, kontaktieren Sie Ihren Customer-Success-Manager für weitere Informationen zum Einstieg.
 {% endalert %}
 
-Für das Klick- und Öffnungs-Tracking transformieren Zustellungspartner Links mithilfe einer gebrandeten Subdomain, und das CDN wendet das SSL-Zertifikat auf diese transformierten Links an. Partner müssen dem Browser der Empfänger:innen häufig gültige Zertifikate vorlegen, damit Links und Bilder korrekt angezeigt werden. Da Braze keine Zertifikate anfordert oder verwaltet, müssen Sie dies über ein CDN einrichten.
+Für das Klick- und Öffnungs-Tracking transformieren Zustellungspartner Links mithilfe einer markenspezifischen Subdomain, und das CDN wendet das SSL-Zertifikat auf diese transformierten Links an. Partner müssen dem Browser der Empfänger:innen häufig gültige Zertifikate vorlegen, damit Links und Bilder korrekt angezeigt werden. Da Braze keine Zertifikate anfordert oder verwaltet, müssen Sie dies über ein CDN einrichten.
 
 {% alert note %}
 Wenn Sie die aufgeführten CDNs nicht für SSL-Klick- und Öffnungs-Tracking verwenden können oder möchten, können Sie eine angepasste SSL-Konfiguration einrichten. Alternative CDNs oder angepasste Proxys können zu einer komplexeren Einrichtung führen. Weitere Informationen finden Sie in der Dokumentation von [SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/) und [SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/).
@@ -108,7 +108,7 @@ Führen Sie einen dig-Befehl aus, um zu bestätigen, dass das Link-Tracking auf 
 
 ### CDN-Probleme
 
-Wenn Live-E-Mail-Links während der Einrichtung nicht funktionieren, haben Sie wahrscheinlich DNS vor der ordnungsgemäßen Konfiguration auf Ihr CDN verwiesen. Dies kann als „falscher Link"-Fehler erscheinen. Kontaktieren Sie Ihren CDN-Anbieter und lesen Sie dessen Dokumentation zur Fehlerbehebung der Konfiguration.
+Wenn Live-E-Mail-Links während der Einrichtung nicht funktionieren, haben Sie wahrscheinlich DNS vor der ordnungsgemäßen Konfiguration auf Ihr CDN verwiesen. Dies kann als „falscher Link“-Fehler erscheinen. Kontaktieren Sie Ihren CDN-Anbieter und lesen Sie dessen Dokumentation zur Fehlerbehebung der Konfiguration.
 
 Wenn Sie eine Fehlermeldung sehen, dass Ihre Verbindung nicht privat ist, kann dies darauf hinweisen, dass Ihr SSL oder CDN nicht korrekt konfiguriert ist. Führen Sie einen `dig`-Befehl in Ihrem Terminal aus (zum Beispiel `dig CNAME your_link_tracking_subdomain`). Wenn das Ergebnis im Abschnitt `ANSWER SECTION` auf Ihren ESP statt auf Ihr CDN verweist, liegt eine Fehlkonfiguration vor. Damit das Braze SSL-Klick-Tracking funktioniert, sollte der CNAME auf Ihr CDN verweisen. Koordinieren Sie sich mit dem Team, das Ihre SSL- und CDN-Konfiguration verwaltet, für weitere Unterstützung.
 

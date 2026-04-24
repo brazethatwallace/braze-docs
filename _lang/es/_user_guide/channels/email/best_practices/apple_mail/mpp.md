@@ -1,24 +1,24 @@
 ---
-nav_title: Protección de la privacidad en Apple Mail
-article_title: Protección de la privacidad en Apple Mail para iOS 15
+nav_title: Protección de la privacidad de Apple Mail
+article_title: Protección de la privacidad de Apple Mail para iOS 15
 page_order: 1
-description: "Este artículo de referencia cubre la actualización de protección de la privacidad en Apple Mail, a quién afectará y algunos pasos a seguir para prepararse para esta característica."
+description: "Este artículo de referencia cubre la actualización de la protección de la privacidad de Apple Mail, a quién afectará y algunos pasos a seguir para prepararse para esta característica."
 channel:
   - email
 
 ---
 
-# Protección de la privacidad en Apple Mail
+# Protección de la privacidad del correo de Apple
 
-> Este artículo cubre la protección de la privacidad en los correos electrónicos de Apple (MPP), a quién afecta y cómo prepararse para su impacto en las métricas de capacidad de entrega de correo electrónico.
+> Este artículo cubre la protección de la privacidad en los correos electrónicos (MPP) de Apple, a quién afecta y cómo prepararse para su impacto en las métricas de capacidad de entrega de correo electrónico.
 
-## ¿Qué es la actualización de protección de la privacidad en Apple Mail?
+## ¿Qué es la actualización de la protección de la privacidad en los correos electrónicos de Apple?
 
-La protección de la privacidad en los correos electrónicos de Apple (MPP) es una actualización de privacidad disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, lanzada a mediados de septiembre de 2021. Para los usuarios que optan por la adhesión voluntaria a MPP (lo cual predecimos que la mayoría de los usuarios hará), los correos electrónicos ahora se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la capacidad de aprovechar los píxeles de seguimiento para métricas como el [seguimiento de aperturas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel).
+La protección de la privacidad en los correos electrónicos (MPP) de Apple es una actualización de privacidad disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, lanzada a mediados de septiembre de 2021. Para los usuarios que opten por la adhesión voluntaria a MPP (lo cual predecimos que la mayoría de los usuarios hará), los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la capacidad de aprovechar los píxeles de seguimiento para métricas como el [seguimiento de aperturas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel).
 
-Las marcas deben esperar que MPP genere problemas en las métricas de capacidad de entrega de correo electrónico y problemas con campañas y Canvas preexistentes que se desencadenan en función de estas métricas. Para comprender el impacto en la capacidad de entrega de correo electrónico, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Las marcas deben esperar que MPP genere problemas en las métricas de capacidad de entrega de correo electrónico y problemas con Campaigns y Canvas preexistentes que se desencadenan en función de estas métricas. Para comprender el impacto en la capacidad de entrega de correo electrónico, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/).
 
-### ¿A quién afectará esto?
+### ¿A quién afectará?
 
 A cualquier destinatario que utilice la aplicación nativa de Apple Mail en:
 
@@ -41,4 +41,4 @@ El tiempo es esencial para las marcas que apenas están comenzando a pensar en c
 - Elaborar un plan de respuesta específico para MPP que aborde los ajustes de automatización en la plataforma Braze, fortalezca las mejores prácticas de capacidad de entrega y desarrolle un conjunto más amplio de métricas para medir el rendimiento.
 - Implementar ese plan de respuesta lo antes posible
 
-Para un resumen detallado de cómo prepararse para la protección de la privacidad en Apple Mail, consulta nuestra [publicación de blog](https://www.braze.com/resources/articles/apple-mail-privacy-protection-how-to-prepare).
+Para un resumen detallado de cómo prepararse para la protección de la privacidad del correo de Apple, consulta nuestra [publicación de blog](https://www.braze.com/resources/articles/apple-mail-privacy-protection-how-to-prepare).

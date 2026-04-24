@@ -6,7 +6,7 @@ page_order: 0
 guide_top_header: "Configuração de e-mail"
 guide_top_text: "A Braze pode ajudar você a começar a enviar campanhas de e-mail. Siga nossos guias ou confira nosso <a href='https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability' target='_blank'>curso de integração de e-mail</a> do Braze Learning."
 page_type: landing
-description: "Esta landing page inclui recursos para começar a usar campanhas de e-mail, incluindo configuração de IPs e domínios, aquecimento de IP, validação de e-mail e muito mais."
+description: "Essa landing page inclui recursos sobre como começar a usar campanhas de e-mail, incluindo a configuração de seus IPs e domínios, aquecimento de IP, validação de e-mail e muito mais."
 channel: email
 
 guide_featured_title: "Artigos da seção"
@@ -42,14 +42,14 @@ guide_featured_list:
 
 ## Requisitos
 
-Antes de começar a enviar e-mails, há algumas coisas que você precisa. Consulte a tabela a seguir para saber mais sobre esses requisitos.
+Antes de começar a enviar e-mails, você precisa de alguns itens. Consulte a tabela a seguir para saber mais sobre esses requisitos.
 
 | Requisito | Descrição | Origem |
 |---|---|---|
-| Um IP dedicado (Internet Protocol) | Um IP dedicado é um endereço de internet exclusivo fornecido a uma única conta de hospedagem. | A Braze fornece IPs dedicados para garantir o controle da reputação do remetente de e-mail. A equipe de integração da Braze fará essa configuração para você. |
-| Domínios de marca branca | Eles consistem em um domínio e um subdomínio. Ao usar marca branca, você pode passar nas verificações de autenticação de e-mail para DKIM e SPF. | A equipe de integração da Braze gerará esses domínios para você, mas você deve escolher os nomes deles. |
-| Subdomínios | É uma subdivisão de um domínio (como "@news.company.com") dentro do seu endereço de e-mail. Ter um subdomínio evitará erros que possam prejudicar a reputação oficial de e-mail da sua empresa. | A equipe de integração gerará isso para você, mas você deve decidir o nome do subdomínio. Você não pode usar subdomínios que já estejam sendo usados fora da Braze. |
-| Pools de IP | São uma configuração opcional usada para separar a reputação de diferentes tipos de e-mail (como "promocional" e "transacional") para evitar que a reputação de um impacte o outro e garantir maior entregabilidade. | A equipe de integração configurará os pools para você. Depois, ao compor seu e-mail, você pode visualizar o pool de IP do seu e-mail na etapa **Público-alvo**. |
+| Um IP (Protocolo de Internet) dedicado | Um IP dedicado é um endereço de Internet exclusivo fornecido exclusivamente para uma única conta de hospedagem. | A Braze fornece IPs dedicados para garantir o controle da reputação do remetente do seu e-mail. A integração da Braze configurará isso para você. |
+| Domínios com marca branca | Eles consistem em um domínio e um subdomínio. Ao usar a marca branca, você pode passar nas verificações de autenticação de e-mail para DKIM e SPF. | A equipe de integração da Braze gerará esses domínios para você, mas você deve escolher os nomes. |
+| Subdomínios | Trata-se de uma subdivisão de um domínio (como "@news.company.com") em seu endereço de e-mail. Ter um subdomínio evitará erros que possam prejudicar a reputação do e-mail oficial de sua empresa. | A equipe de integração gerará isso para você, mas você deve decidir o nome do subdomínio. Não é possível usar subdomínios que estejam sendo usados atualmente fora da Braze. |
+| Pools de IP | Trata-se de uma configuração opcional usada para separar a reputação de diferentes tipos de e-mail (como "promocional" e "transacional") para evitar que a reputação de um afete o outro e para oferecer maior entregabilidade. | A equipe de integração configurará os pools para você. Depois, ao compor seu e-mail, você pode visualizar o pool de IP do seu e-mail na etapa **Público-alvo**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Aquecimento de IP

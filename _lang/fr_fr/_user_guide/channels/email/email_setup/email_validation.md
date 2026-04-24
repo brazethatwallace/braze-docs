@@ -1,23 +1,23 @@
 ---
-nav_title: Validation des e-mails
+nav_title: Validation de l'e-mail
 article_title: Validation des e-mails
 alias: "/email_validation/"
 page_order: 3
 page_type: reference
-description: "Cet article de référence présente les règles de validation de la partie locale et de la partie hôte des adresses e-mail."
+description: "Le présent article de référence couvre les règles de validation des pièces locales et hôtes pour les adresses e-mail."
 channel: email
 
 ---
 
 # Validation des e-mails
 
-> Cet article de référence présente les règles de validation de la partie locale et de la partie hôte des adresses e-mail. La validation s'applique aux adresses e-mail du tableau de bord, aux adresses e-mail des utilisateurs finaux (vos clients), ainsi qu'aux adresses d'expéditeur et de réponse d'un message e-mail.
+> Le présent article de référence couvre les règles de validation des pièces locales et hôtes pour les adresses e-mail. La validation est utilisée pour les adresses e-mail du tableau de bord, les adresses e-mail des utilisateurs finaux (vos clients) et les adresses d'expéditeur et de réponse d'un message électronique.
 
-## Comment ça fonctionne
+## Fonctionnement
 
-Braze valide une adresse e-mail lorsqu'elle est mise à jour, importée via l'API, un téléchargement CSV, le SDK, ou modifiée dans le tableau de bord. Les adresses e-mail ne peuvent pas contenir d'espaces. Si vous utilisez l'API, les espaces renvoient une erreur `400`.
+Braze valide une adresse e-mail lorsqu'elle est mise à jour, importée par API, téléchargée au format CSV, SDK ou modifiée dans le tableau de bord. Les adresses e-mail ne doivent pas contenir d'espaces. Si vous utilisez l'API, les espaces blancs renvoient une erreur `400`.
 
-Braze rejette certains caractères et marque l'adresse comme invalide. Si un e-mail fait l'objet d'un rebond, Braze marque l'adresse comme invalide sans modifier l'état d'abonnement. Si le corps de l'e-mail contient des caractères [ASCII](https://en.wikipedia.org/wiki/ASCII) non standard, Braze n'envoie pas l'e-mail.
+Braze rejette certains caractères et marque l'adresse comme non valide. Si un e-mail est renvoyé, Braze marque l'adresse comme non valide et ne modifie pas le statut de l'abonnement. Si le corps de l'e-mail contient des caractères [ASCII](https://en.wikipedia.org/wiki/ASCII) non standard, Braze n'envoie pas l'e-mail.
 
 {% details Caractères acceptés %}
 - Lettres (A-Z)
@@ -39,14 +39,14 @@ Braze rejette certains caractères et marque l'adresse comme invalide. Si un e-m
 	- ~
 	- !
 	- ?
-	- . (uniquement entre des lettres ou d'autres caractères)
+	- . (seulement entre les lettres ou d'autres caractères)
 {% enddetails %}
 
 {% details Caractères non acceptés %}
-- Espaces (ASCII et Unicode)
+- Espaces blancs (ASCII et Unicode)
 {% enddetails %}
 
-Cette validation est une vérification syntaxique, et non un service de validation. L'un des objectifs de ce processus est de prendre en charge les caractères internationaux (tels que l'UTF-8) dans la partie locale de l'adresse e-mail.
+Cette validation est une vérification syntaxique et non un service de validation. L'un des objectifs de ce processus est de prendre en charge les caractères internationaux (tels que l'UTF-8) dans la partie locale de l'adresse e-mail.
 
 Braze valide la syntaxe de la partie locale et de la partie hôte d'une adresse e-mail. La partie locale correspond à tout ce qui précède l'arobase (@) ; la partie hôte correspond à tout ce qui suit. La partie locale peut commencer et se terminer par n'importe quel caractère autorisé, à l'exception du point (.). Ce processus ne vérifie pas si le domaine dispose d'un serveur MX valide ni si un utilisateur existe sur ce domaine.
 
@@ -54,7 +54,7 @@ Braze valide la syntaxe de la partie locale et de la partie hôte d'une adresse 
 Si la partie domaine contient des caractères ASCII non standard, elle devra être [encodée en Punycode](https://www.punycoder.com/) avant d'être transmise à Braze.
 {% endalert %}
 
-Si Braze reçoit une requête pour ajouter un utilisateur avec une adresse e-mail invalide, l'API renvoie une erreur. Pour un téléchargement CSV, Braze crée l'utilisateur mais omet l'adresse e-mail invalide.
+Si Braze reçoit une requête pour ajouter un utilisateur avec une adresse e-mail non valide, l'API renvoie une erreur. Pour un téléchargement CSV, Braze crée l'utilisateur mais omet l'adresse e-mail non valide.
 
 ## Règles de validation de la partie locale
 

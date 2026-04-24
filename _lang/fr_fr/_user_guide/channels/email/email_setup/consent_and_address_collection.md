@@ -12,18 +12,18 @@ channel: email
 
 > Avant d'envoyer vos premiers e-mails, il est important d'obtenir d'abord la permission de vos clients. C'est une question de courtoisie, et cela fait des merveilles pour vos taux d'ouverture !
 
-## États d'abonnement
+## États des abonnés
 
-Il existe trois états d'abonnement e-mail pour un utilisateur : **abonnement confirmé (opted in)**, **abonné** et **désabonné**. Pour modifier l'état d'abonnement d'un utilisateur, consultez notre article sur la [modification des abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou utilisez nos [API d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Il existe trois états d'abonnement e-mail pour un utilisateur : **abonné**, **inscrit** et **désabonné**. Pour modifier l'état d'abonnement d'un utilisateur, consultez notre article sur la [modification des abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou utilisez nos [API d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 
-| État de l'utilisateur abonné | Description : |
+| État de l'abonné | Description |
 |---|---|
-| Abonnement confirmé (Opted In) | Ces clients ont cliqué sur le lien dans un e-mail de confirmation et ont activement choisi de recevoir vos messages. |
-| Abonné | Par défaut, les utilisateurs sont abonnés aux e-mails tant qu'une adresse e-mail valide est enregistrée dans leur profil. Les utilisateurs restent abonnés jusqu'à ce qu'ils se désabonnent ou confirment leur abonnement. |
+| Abonné | Ces clients ont cliqué sur le lien dans un e-mail de confirmation et ont activement choisi de recevoir vos messages. |
+| Inscrit | Par défaut, les utilisateurs sont inscrits aux e-mails tant qu'une adresse e-mail valide est enregistrée dans leur profil. Les utilisateurs restent inscrits jusqu'à ce qu'ils se désabonnent ou qu'ils choisissent de s'abonner. |
 | Désabonné | Pour être marqué comme désabonné, un client s'est soit explicitement désabonné de vos e-mails, soit a signalé un e-mail comme spam. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Méthodes de collecte d'adresses
+## Méthodes de collecte des adresses
 
 En plus d'obtenir la permission de vos utilisateurs avant de leur envoyer des messages, il existe plusieurs méthodes pour collecter ces adresses e-mail, et chacune peut avoir un impact sur votre livrabilité.
 
@@ -37,11 +37,11 @@ La co-inscription désigne un accord entre entreprises pour collecter des inform
 
 ### Abonnement pré-coché ou forcé
 
-L'abonnement pré-coché est une méthode d'inscription par e-mail dans laquelle la case d'inscription est déjà cochée pour que les utilisateurs abonnés reçoivent vos e-mails. En laissant la case cochée, les utilisateurs abonnés donnent leur consentement à recevoir vos e-mails. Cette méthode a tendance à agacer les gens (elle est également illégale pour les e-mails envoyés vers ou au sein du Canada). Vous pourriez obtenir une liste d'e-mails de taille respectable, mais vous ne pouvez pas vraiment être sûr que ces utilisateurs souhaitent recevoir vos e-mails marketing.
+L'abonnement pré-coché est une méthode d'inscription par e-mail dans laquelle la case d'inscription est déjà cochée pour que les utilisateurs reçoivent vos e-mails. En laissant la case cochée, les utilisateurs donnent leur consentement à recevoir vos e-mails. Cette méthode a tendance à agacer les gens (elle est également illégale pour les e-mails envoyés vers ou au sein du Canada). Vous pourriez obtenir une liste d'e-mails de taille respectable, mais vous ne pouvez pas vraiment être sûr que ces utilisateurs souhaitent recevoir vos e-mails marketing.
 
 ### Abonnement simple (single opt-in)
 
-L'abonnement simple se produit lorsque des utilisateurs abonnés s'inscrivent via un formulaire d'inscription et sont immédiatement ajoutés à votre liste d'e-mails. Avec cette méthode, les utilisateurs effectuent une seule action pour s'abonner, comme saisir leur adresse e-mail dans un champ de collecte ou cocher une case dans le cadre d'une transaction.
+L'abonnement simple se produit lorsque des utilisateurs s'inscrivent via un formulaire et sont immédiatement ajoutés à votre liste d'e-mails. Avec cette méthode, les utilisateurs effectuent une seule action pour s'abonner, comme saisir leur adresse e-mail dans un champ de collecte ou cocher une case dans le cadre d'une transaction.
 
 ### Abonnement confirmé (confirmed opt-in)
 

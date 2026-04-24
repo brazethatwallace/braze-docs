@@ -55,7 +55,7 @@ Cependant, un taux supérieur à 98 % peut tout de même présenter des problèm
 
 De plus, les messages peuvent être distribués mais finir dans les courriers indésirables, ce qui indique des problèmes de réputation potentiellement graves. Il est important de surveiller non seulement le nombre de messages distribués, mais aussi les taux d'ouverture et de clics pour déterminer si les utilisateurs voient réellement les messages dans leur boîte de réception. Étant donné que les fournisseurs ne signalent généralement pas chaque instance de courrier indésirable, un taux de spam même de 1 % pourrait être préoccupant et nécessiter une analyse plus approfondie.
 
-Enfin, votre activité et les types d'e-mails que vous envoyez peuvent également affecter la distribution. Par exemple, quelqu'un qui envoie principalement des [e-mails transactionnels]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) devrait s'attendre à un meilleur taux que quelqu'un qui envoie de nombreux messages marketing.
+Enfin, votre activité et les types d'e-mails que vous envoyez peuvent également affecter la distribution. Par exemple, quelqu'un qui envoie principalement des [e-mails transactionnels]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/) devrait s'attendre à un meilleur taux que quelqu'un qui envoie de nombreux messages marketing.
 
 ### Pourquoi mes indicateurs de distribution d'e-mails ne totalisent-ils pas 100 % ?
 

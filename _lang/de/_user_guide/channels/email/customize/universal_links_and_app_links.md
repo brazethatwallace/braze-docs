@@ -12,7 +12,7 @@ channel: email
 > Dieser Artikel beschreibt, wie Sie Apple Universal Links und Android App Links einrichten.
 
 {% alert tip %}
-Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
+Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
 {% endalert %}
 
 Apple Universal Links und Android App Links sind Mechanismen, die einen nahtlosen Übergang zwischen Web-Inhalten und mobilen Apps ermöglichen. Während Universal Links spezifisch für iOS sind, erfüllen Android App Links denselben Zweck für Android-Anwendungen.
@@ -37,9 +37,9 @@ Diese Tabelle zeigt die wichtigsten Unterschiede zwischen Universal Links und he
 
 ## Anwendungsfälle
 
-Universal Links und App Links werden am häufigsten für E-Mail-Kampagnen verwendet, da E-Mails sowohl auf Desktop- als auch auf Mobilgeräten geöffnet und angeklickt werden können.
+Universal Links und App Links werden am häufigsten für E-Mail-Campaigns verwendet, da E-Mails sowohl auf Desktop- als auch auf Mobilgeräten geöffnet und angeklickt werden können.
 
-Einige Kanäle funktionieren mit diesen Links nicht gut. Zum Beispiel sollten Push-Benachrichtigungen, In-App-Nachrichten und Content-Cards schemabasierte Deeplinks (`mydomain://`) verwenden.
+Einige Kanäle funktionieren mit diesen Links nicht gut. Zum Beispiel sollten Push-Benachrichtigungen, In-App-Nachrichten und Content Cards schemabasierte Deeplinks (`mydomain://`) verwenden.
 
 {% alert note %}
 Android App Links erfordern einen angepassten `IBrazeDeeplinkHandler` mit Logik, um Links von ihren Domains getrennt von anderen Web-URLs zu verarbeiten. Es kann einfacher sein, stattdessen Deeplinks zu verwenden und die Verlinkungspraktiken für andere Kanäle als E-Mail einheitlich zu halten.
@@ -61,7 +61,7 @@ Damit Apps Universal Links oder App Links unterstützen, erfordern sowohl iOS al
 
 Zusätzlich zu dieser Berechtigungsdatei gibt es fest codierte Definitionen, welche Link-Domains die App öffnen darf, die innerhalb der App eingerichtet werden:
 
-- **iOS:** Als „Associated Domains" in Xcode festgelegt
+- **iOS:** Als „Associated Domains“ in Xcode festgelegt
 - **Android:** In der `AndroidManifest.xml`-Datei der App definiert
 
 Diese zweiteilige Domain-App-Zuordnung ist erforderlich, damit ein Universal Link oder App Link funktioniert, und verhindert, dass eine beliebige App Links von einer bestimmten Domain übernimmt oder eine beliebige Domain eine bestimmte App öffnet.
@@ -104,14 +104,14 @@ Bevor Sie fortfahren, stellen Sie sicher, dass in Ihrem Xcode-Projekt dasselbe T
 
 ##### Tipp zur Fehlerbehebung
 
-Wenn Sie den Fehler „An App ID with Identifier 'your-app-id' is not available. Please enter a different string" sehen, gehen Sie wie folgt vor:
+Wenn Sie den Fehler „An App ID with Identifier 'your-app-id' is not available. Please enter a different string“ sehen, gehen Sie wie folgt vor:
 
 1. Überprüfen Sie, ob das richtige Team ausgewählt ist.
 2. Überprüfen Sie, ob die Bundle ID ([Schritt 1a](#step-1a)) Ihres Xcode-Projekts mit der bei der Registrierung des App Identifiers verwendeten übereinstimmt.
 
 #### Schritt 1d: Domain-Berechtigung hinzufügen
 
-Fügen Sie im Abschnitt „Domains" den entsprechenden Domain-Tag hinzu. Sie müssen ihm `applinks:` voranstellen. In diesem Fall sehen Sie, dass wir `applinks:yourdomain.com` hinzugefügt haben.
+Fügen Sie im Abschnitt „Domains“ den entsprechenden Domain-Tag hinzu. Sie müssen ihm `applinks:` voranstellen. In diesem Fall sehen Sie, dass wir `applinks:yourdomain.com` hinzugefügt haben.
 
 ![]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
@@ -143,8 +143,8 @@ Die AASA-Datei enthält ein JSON-Objekt mit einer Liste von Apps und den URL-Pfa
 }
 ```
 
-- `appID`: Wird durch die Kombination der **Team ID** Ihrer App (gehen Sie zu `https://developer.apple.com/account/#/membership/`, um die Team ID zu erhalten) und des **Bundle Identifier** erstellt. Im obigen Beispiel ist „JHGFJHHYX" die Team ID und „com.facebook.ios" die Bundle ID.
-- `paths`: Array von Strings, die angeben, welche Pfade in die Zuordnung eingeschlossen oder davon ausgeschlossen werden. Sie können `NOT` vor dem Pfad verwenden, um Pfade zu deaktivieren. In diesem Beispiel werden alle Links auf diesem Pfad im Web geöffnet, anstatt die App zu öffnen. Sie können `*` als Platzhalter verwenden, um alle Pfade in einem Verzeichnis zu aktivieren, und `?`, um ein einzelnes Zeichen abzugleichen (z. B. /archives/201?/, um alle Zahlen von 2010–2019 abzugleichen).
+- `appID`: Wird durch die Kombination der **Team ID** Ihrer App (gehen Sie zu `https://developer.apple.com/account/#/membership/`, um die Team ID zu erhalten) und des **Bundle Identifier** erstellt. Im obigen Beispiel ist „JHGFJHHYX“ die Team ID und „com.facebook.ios“ die Bundle ID.
+- `paths`: String-Array, das angibt, welche Pfade in die Zuordnung eingeschlossen oder davon ausgeschlossen werden. Sie können `NOT` vor dem Pfad verwenden, um Pfade zu deaktivieren. In diesem Beispiel werden alle Links auf diesem Pfad im Web geöffnet, anstatt die App zu öffnen. Sie können `*` als Platzhalter verwenden, um alle Pfade in einem Verzeichnis zu aktivieren, und `?`, um ein einzelnes Zeichen abzugleichen (z. B. /archives/201?/, um alle Zahlen von 2010–2019 abzugleichen).
 
 {% alert note %}
 Diese Strings unterscheiden zwischen Groß- und Kleinschreibung, und Query-Strings sowie Fragment-Bezeichner werden ignoriert.
@@ -206,7 +206,7 @@ Sie müssen Ihre App mit Ihrer Website verknüpfen. Dies kann durch das Erstelle
 
 ### 3. Schritt: App-Manifest-Datei aktualisieren
 
-Fügen Sie in Ihrer `AndroidManifest.xml`-Datei ein Meta-Data-Element innerhalb des Application-Elements hinzu. Das Meta-Data-Element sollte ein `android:name`-Attribut mit dem Wert „asset_statements" und ein `android:resource`-Attribut haben, das auf eine Ressourcendatei mit einem String-Array verweist, das die URL Ihrer Website enthält.
+Fügen Sie in Ihrer `AndroidManifest.xml`-Datei ein Meta-Data-Element innerhalb des Application-Elements hinzu. Das Meta-Data-Element sollte ein `android:name`-Attribut mit dem Wert „asset_statements“ und ein `android:resource`-Attribut haben, das auf eine Ressourcendatei mit einem String-Array verweist, das die URL Ihrer Website enthält.
 
 ### 4. Schritt: App für die Verarbeitung von Deeplinks vorbereiten
 
@@ -257,7 +257,7 @@ Mit dieser Konfiguration funktionieren Links mit `/uni/` im URL-Pfad als Univers
 
 ### SparkPost
 
-Um einen SparkPost-Klick-Tracking-Link als Universal Link zu behandeln, fügen Sie das folgende Attribut im Abschnitt „Attribute" des Drag-and-Drop-Editors für E-Mail hinzu, oder bearbeiten Sie den Link-HTML manuell, um das folgende Attribut in das Anchor-Tag Ihres Links einzufügen: `data-msys-sublink="custom_path"`.
+Um einen SparkPost-Klick-Tracking-Link als Universal Link zu behandeln, fügen Sie das folgende Attribut im Abschnitt „Attribute“ des Drag-and-Drop-Editors für E-Mail hinzu, oder bearbeiten Sie den Link-HTML manuell, um das folgende Attribut in das Anchor-Tag Ihres Links einzufügen: `data-msys-sublink="custom_path"`.
 
 Dieser angepasste Pfad ermöglicht es Ihnen, URLs mit diesem Wert selektiv als Universal Link zu behandeln.
 

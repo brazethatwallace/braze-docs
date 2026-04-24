@@ -1,13 +1,13 @@
 ---
 page_order: 22
 nav_title: Melhores práticas
-article_title: Melhores práticas de e-mail
+article_title: Práticas recomendadas de envio de e-mail
 layout: dev_guide
-guide_top_header: "Melhores práticas de e-mail"
+guide_top_header: "Práticas recomendadas de envio de e-mail"
 guide_top_text: "Antes de enviar suas mensagens de e-mail, consulte os artigos a seguir para saber o que verificar e ter em mente."
 
 page_type: landing
-description: "Esta landing page reúne as melhores práticas de e-mail. Aqui, você encontra dicas, casos de uso e melhores práticas para aprimorar seu envio de mensagens por e-mail."
+description: "Esta landing page reúne as melhores práticas de e-mail. Aqui, você encontra dicas, casos de uso e melhores práticas para aprimorar seu envio de mensagens de e-mail."
 channel: email
 
 guide_featured_title: "Artigos da seção"

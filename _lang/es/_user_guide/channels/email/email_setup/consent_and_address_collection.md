@@ -1,26 +1,26 @@
 ---
-nav_title: Consentimiento y recopilación de direcciones
-article_title: Consentimiento y recopilación de direcciones
+nav_title: Consentimiento y recogida de direcciones
+article_title: Consentimiento y recogida de direcciones
 page_order: 6
 page_type: reference
-description: "Este artículo de referencia cubre las mejores prácticas para obtener el consentimiento y las direcciones de correo electrónico de los usuarios, y define los diferentes estados posibles de suscripción de un usuario."
+description: "Este artículo de referencia cubre las mejores prácticas para recopilar el consentimiento y las direcciones de correo electrónico de los usuarios y define los diferentes estados posibles de los suscriptores de los usuarios."
 channel: email
 
 ---
 
 # Consentimiento y recopilación de direcciones
 
-> Antes de enviar tus primeros correos electrónicos, es importante obtener primero el permiso de tus clientes. Es una cortesía habitual y hace maravillas con tus tasas de apertura.
+> Antes de enviar tus primeros correos electrónicos, es importante obtener primero el permiso de tus clientes. Es un gesto de cortesía y hace maravillas en tus tasas de apertura.
 
-## Estados de suscripción
+## Estados del suscriptor
 
-Existen tres estados de suscripción de correo electrónico para un usuario: **adhesión voluntaria**, **suscrito** y **canceló suscripción**. Para cambiar el estado de suscripción de un usuario, consulta nuestro artículo sobre [cambiar suscripciones]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) o usa nuestras [API de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Existen tres estados de suscripción de correo electrónico para un usuario: **opted in**, **subscribed** y **unsubscribed**. Para cambiar el estado de suscripción de un usuario, consulta nuestro artículo sobre [cambiar suscripciones]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) o usa nuestras [API de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 
-| Estado de suscripción | Descripción |
+| Estado del suscriptor | Descripción |
 |---|---|
-| Adhesión voluntaria | Estos clientes han hecho clic en el enlace de un correo electrónico de confirmación y han optado activamente por recibir tus mensajes. |
-| Suscrito | De forma predeterminada, los usuarios están suscritos al correo electrónico siempre que tengan una dirección de correo electrónico válida almacenada en su perfil. Los usuarios permanecen suscritos hasta que cancelan la suscripción o realizan la adhesión voluntaria. |
-| Canceló suscripción | Para ser marcado como canceló suscripción, un cliente ha cancelado explícitamente la suscripción a tus correos electrónicos o ha marcado un correo electrónico como correo no deseado. |
+| Optado | Estos clientes han hecho clic en el enlace de un correo electrónico de confirmación y han optado activamente por recibir tus mensajes. |
+| Suscrito | Por defecto, los usuarios están suscritos al correo electrónico siempre que tengan una dirección de correo electrónico válida almacenada en su perfil. Los usuarios permanecen suscritos hasta que se dan de baja o se dan de alta. |
+| No suscrito | Para ser marcado como desuscrito, un cliente debe haberse dado de baja explícitamente de tus correos electrónicos o haber marcado un correo electrónico como correo no deseado. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Métodos de recopilación de direcciones
@@ -33,7 +33,7 @@ Enviar correos electrónicos a listas compradas o alquiladas viola tu contrato c
 
 ### Co-registro
 
-El co-registro se refiere a un acuerdo entre empresas para recopilar información de los usuarios. Este es un método de recopilación arriesgado. Suscribe a los usuarios para recibir correos electrónicos de terceros, a veces sin el conocimiento o permiso del cliente. Si optas por esta vía, asegúrate de tener divulgaciones claras y la posibilidad de cancelar la suscripción en el punto de recopilación.
+El co-registro se refiere a un acuerdo entre empresas para recopilar información de los usuarios. Este es un método de recopilación arriesgado. Suscribe a los usuarios para recibir correos electrónicos de terceros, a veces sin el conocimiento o permiso del cliente. Si optas por esta vía, asegúrate de tener divulgaciones claras y la posibilidad de cancelar suscripción en el punto de recopilación.
 
 ### Adhesión voluntaria preseleccionada o forzada
 

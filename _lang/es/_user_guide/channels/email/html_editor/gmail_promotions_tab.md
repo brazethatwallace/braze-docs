@@ -2,7 +2,7 @@
 nav_title: "Pestaña Promociones de Gmail"
 article_title: "Pestaña Promociones de Gmail"
 page_order: 8
-description: "Este artículo de referencia explica cómo usar Braze para ayudarte a crear la tarjeta de promociones móviles de Gmail desde tu campaña de correo electrónico."
+description: "Este artículo de referencia explica cómo utilizar Braze para ayudarte a crear la tarjeta de promociones para móviles de Gmail a partir de tu campaña de correo electrónico."
 channel:
   - email
 toc_headers: h2
@@ -10,15 +10,15 @@ toc_headers: h2
 
 # Pestaña Promociones de Gmail
 
-> La [pestaña Promociones de Gmail para móviles](https://developers.google.com/gmail/promotab/) permite a los especialistas en marketing enviar más información mediante anotaciones en una "tarjeta" en lugar de solo la línea del asunto o la información del preencabezado. Braze tiene una herramienta integrada para ayudarte a crear la tarjeta desde tu campaña de correo electrónico.
+> La [pestaña Promociones de Gmail para móviles](https://developers.google.com/gmail/promotab/) permite a los especialistas en marketing enviar más información mediante anotaciones en una "tarjeta", en lugar de limitarse a la línea del asunto o a la información del preencabezado. Braze tiene una herramienta integrada que te ayuda a crear la tarjeta a partir de tu campaña de correo electrónico.
 
 ## Requisitos previos
 
-Primero, reenvía tus dominios y subdominios al equipo de difusión de la pestaña Promociones de Google a <a href="mailto:p-promo-outreach@google.com">p-promo-outreach@google.com</a> para que te añadan a la lista de permitidos de Gmail. Esto te permite usar cualquier característica que muestre imágenes enriquecidas, como el carrusel de productos para la pestaña Promociones de Gmail.
+Primero, envía tus dominios y subdominios al equipo de difusión de la pestaña Promociones de Google a la dirección <a href="mailto:p-promo-outreach@google.com">p-promo-outreach@google.com</a> para añadirlos a la lista de permitidos de Gmail. Esto te permite utilizar cualquier característica que muestre imágenes enriquecidas, como el carrusel de productos de la pestaña Promociones de Gmail.
 
-## Crear la tarjeta con Braze
+## Construir la tarjeta con Braze
 
-Sigue estos pasos para crear una tarjeta de promoción de Gmail para una campaña de correo electrónico. Ten en cuenta que al navegar fuera de la sección **Contenido** en el editor se restablecerán los campos y la información en la pestaña **Promoción de Gmail**. Completa la configuración de tu tarjeta de promoción y copia el HTML generado para no perder tu código HTML.
+Sigue estos pasos para crear una tarjeta promocional de Gmail para una campaña de correo electrónico. Ten en cuenta que al salir de la sección **Contenido** del editor se restablecerán los campos y la información de la pestaña **Promoción de Gmail**. Completa la configuración de tu tarjeta promocional y copia el HTML generado para no perder tu código HTML.
 
 ### Paso 1: Crea una campaña de correo electrónico
 
@@ -26,7 +26,7 @@ Primero, [crea tu campaña de correo electrónico]({{site.baseurl}}/user_guide/c
 
 ### Paso 2: Añade detalles a la tarjeta de promoción de Gmail
 
-A continuación, ve a la sección **Contenido** del editor HTML y selecciona la pestaña **Promoción de Gmail**. Completa los campos en **Información básica** y luego selecciona **Generar código HTML**. Esto ayudará a generar el script para tu tarjeta de la pestaña Promociones de Gmail en la sección **Copiar y pegar código HTML en `<Head>`**.
+A continuación, ve a la sección **Contenido** del editor HTML y selecciona la pestaña **Promoción de Gmail**. Completa los campos en **Información básica** y luego selecciona **Generar código HTML**. Esto generará el script para tu tarjeta de la pestaña Promociones de Gmail en la sección **Copiar y pegar código HTML en `<Head>`**.
 
 ![Un ejemplo de cómo crear una tarjeta.]({% image_buster /assets/img/create-gmail-promo.png %})
 
@@ -111,11 +111,11 @@ Para probar anotaciones en envíos de bajo volumen, debes usar la [herramienta d
 
 ## Medir las tarjetas de Gmail
 
-Gmail no devuelve análisis sobre estas tarjetas, y los proveedores de servicios de correo electrónico (ESP) como Braze no pueden insertar su propio seguimiento de enlaces en los enlaces de la sección del encabezado (incluidas las tarjetas de promoción y los carruseles de productos). Sin embargo, puedes añadir parámetros UTM o códigos únicos a las URL durante la configuración. Estos parámetros te permiten rastrear la interacción usando los análisis de tu propio sitio web o el seguimiento de conversiones, porque el seguimiento es parte de la URL en sí, no insertado por el ESP. El seguimiento de clics a nivel de ESP no está disponible para estos enlaces.
+Gmail no devuelve análisis sobre estas tarjetas, y los proveedores de servicios de correo electrónico (ESP) como Braze no pueden insertar su propio seguimiento de enlaces en los enlaces de la sección del encabezado (incluidas las tarjetas de promoción y los carruseles de productos). Sin embargo, puedes añadir parámetros UTM o códigos únicos a las URL durante la configuración. Estos parámetros te permiten rastrear la interacción usando los análisis de tu propio sitio web o el seguimiento de conversiones, ya que el seguimiento es parte de la URL en sí, no insertado por el ESP. El seguimiento de clics a nivel de ESP no está disponible para estos enlaces.
 
 ### Incorporar imágenes
 
-Gmail ha visto mejores resultados con imágenes impactantes relacionadas con el mensaje del correo electrónico. Gmail no recomienda usar un diseño de solo texto, ya que este espacio fue diseñado para aportar lenguaje visual, que es vital para el marketing por correo electrónico, a la vista previa. No uses imágenes con texto cortado ni repitas imágenes en múltiples campañas.
+Gmail ha visto mejores resultados con imágenes impactantes relacionadas con el mensaje del correo electrónico. Gmail no recomienda usar un diseño de solo texto, ya que este espacio fue diseñado para aportar lenguaje visual, que es vital para el marketing por correo electrónico, a la vista previa. No uses imágenes con texto cortado ni repitas imágenes en múltiples campaigns.
 
 ### Describir ofertas
 
@@ -138,7 +138,7 @@ Aunque se admite Liquid en el script, recomendamos probar exhaustivamente para e
 
 ### Previsualizar tu anotación
 
-Usa la [herramienta de vista previa](https://developers.google.com/workspace/gmail/promotab/preview) para previsualizar tu anotación. Ten en cuenta que enviarte un correo electrónico de prueba no funcionará para las anotaciones, ya que tu anotación solo se renderiza si el correo electrónico debe enviarse a un número significativo de destinatarios. Asegúrate de enviar el correo electrónico final (con sus URL de imágenes) a al menos 100 destinatarios de Gmail.
+Usa la [herramienta de vista previa](https://developers.google.com/workspace/gmail/promotab/preview) para previsualizar tu anotación. Ten en cuenta que enviarte un correo electrónico de prueba no funcionará para las anotaciones, ya que tu anotación solo se renderiza si el correo electrónico se envía a un número significativo de destinatarios. Asegúrate de enviar el correo electrónico final (con sus URL de imágenes) a al menos 100 destinatarios de Gmail.
 
 No uses Google Workspace para enviar correos electrónicos con anotaciones. Solo usa dominios de correo electrónico en la lista de permitidos para enviar anotaciones a un grupo grande de destinatarios.
 
@@ -146,7 +146,7 @@ No uses Google Workspace para enviar correos electrónicos con anotaciones. Solo
 
 Verifica que tus imágenes cumplan con estas directrices:
 - Usa imágenes de alta calidad y alta resolución.
-- Todas las imágenes anotadas usan la misma relación de aspecto. Las relaciones de aspecto admitidas incluyen: 4:5, 1:1, 1.91:1.
+- Todas las imágenes anotadas deben usar la misma relación de aspecto. Las relaciones de aspecto admitidas incluyen: 4:5, 1:1, 1.91:1.
 - Usa tamaños de imagen correctos. El mínimo es 256x256; el máximo es 4096x4096 píxeles.
 
 Gmail recomienda evitar:
@@ -173,7 +173,7 @@ Todas las imágenes en la anotación aún deben pasar un filtro de calidad. Para
 
 Además, Gmail tiene un límite de densidad sobre cuántos carruseles de productos aparecen en la pestaña Promociones de Gmail de un usuario. Por ejemplo, si un usuario está suscrito a muchas marcas que usan carruseles de productos en sus correos electrónicos de promoción, Gmail eventualmente pone un límite en cuántos carruseles de productos se muestran.
 
-Debido a las regulaciones de privacidad y seguridad de Google, los correos electrónicos con anotaciones deben enviarse ampliamente para que la anotación funcione. Se recomienda lanzar una campaña y enviarla a al menos 100 destinatarios para que el sistema de Google la detecte como un "envío masivo". Las URL de imágenes no pueden variar entre destinatarios.
+Debido a las regulaciones de privacidad y seguridad de Google, los correos electrónicos con anotaciones deben enviarse ampliamente para que la anotación funcione. Se recomienda lanzar una campaign y enviarla a al menos 100 destinatarios para que el sistema de Google la detecte como un "envío masivo". Las URL de imágenes no pueden variar entre destinatarios.
 
 ### ¿Cómo se rastrean los clics en una tarjeta de promoción o carrusel de productos?
 

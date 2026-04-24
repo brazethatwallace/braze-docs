@@ -12,7 +12,7 @@ tool:
 
 # Eine E-Mail mit Drag-and-Drop erstellen
 
-> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten für Kampagnen oder Canvases erstellen – ganz ohne HTML für den E-Mail-Body verwenden zu müssen.
+> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten für Campaigns oder Canvases erstellen – ganz ohne HTML für den E-Mail-Body verwenden zu müssen.
 
 ## Über den Editor {#about-the-editor}
 
@@ -25,10 +25,10 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
     </tr>
     <tr>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="Der Tab „Zeilen" mit verschiedenen strukturellen Kombinationen für Ihr E-Mail-Layout." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="Der Tab „Zeilen“ mit verschiedenen strukturellen Kombinationen für Ihr E-Mail-Layout." style="max-width: 100%; height: auto;">
         </td>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="Der Tab „Inhalt" mit grundlegenden Blöcken, Medien und erweiterten Optionen." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="Der Tab „Inhalt“ mit grundlegenden Blöcken, Medien und erweiterten Optionen." style="max-width: 100%; height: auto;">
         </td>
     </tr>
 </table>
@@ -65,7 +65,7 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 
 ### Zeilen {#rows}
 
-**Zeilen** sind strukturelle Einheiten, die die horizontale Zusammensetzung eines Abschnitts der Nachricht mithilfe von Spalten definieren. Sie können entweder leere Zeilen oder [Content-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) verwenden. Durch die Verwendung von mehr als einer Spalte können Sie verschiedene Inhaltselemente nebeneinander platzieren. So können Sie alle strukturellen Elemente, die Sie benötigen, zu Ihrer Nachricht hinzufügen – unabhängig davon, welches Template Sie zu Beginn ausgewählt haben.
+**Zeilen** sind strukturelle Einheiten, die die horizontale Zusammensetzung eines Abschnitts der Nachricht mithilfe von Spalten definieren. Sie können entweder leere Zeilen oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) verwenden. Durch die Verwendung von mehr als einer Spalte können Sie verschiedene Inhaltselemente nebeneinander platzieren. So können Sie alle strukturellen Elemente, die Sie benötigen, zu Ihrer Nachricht hinzufügen – unabhängig davon, welches Template Sie zu Beginn ausgewählt haben.
 
 #### Cards-Stil
 
@@ -73,7 +73,7 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 
 ## Den Drag-and-Drop-Editor verwenden
 
-Sind Sie unsicher, ob Ihre E-Mail-Nachricht über eine Kampagne oder ein Canvas gesendet werden sollte? Kampagnen eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
+Sind Sie unsicher, ob Ihre E-Mail-Nachricht über eine Campaign oder ein Canvas gesendet werden sollte? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-E-Mail durch.
 
@@ -95,7 +95,7 @@ Nachdem Sie Ihr Template ausgewählt haben, sehen Sie unter **E-Mail-Varianten**
 
 Wählen Sie dann **E-Mail-Body bearbeiten**, um mit dem Entwerfen der E-Mail-Struktur im Drag-and-Drop-Editor zu beginnen.
 
-![Der Abschnitt „E-Mail-Varianten" mit einem Beispiel-E-Mail-Body.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![Der Abschnitt „E-Mail-Varianten“ mit einem Beispiel-E-Mail-Body.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### 2. Schritt: E-Mail erstellen
 
@@ -117,7 +117,7 @@ Während Sie Ihre E-Mail erstellen, können Sie zwischen einer Desktop- und eine
 {% alert tip %}
 Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
-![Button „Textassistent" im Inhalt-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
+![Button „Textassistent“ im Inhalt-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
 
 ### 3. Schritt: Sendeinformationen hinzufügen
@@ -138,7 +138,7 @@ Im rechten Panel wird eine Vorschau mit den von Ihnen hinzugefügten Sendeinform
 Unter **Sendeeinstellungen** können Sie Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, mit denen Sie zusätzliche Daten an andere E-Mail-Anbieter zurücksenden können. Die Personalisierung eines E-Mail-Headers, z. B. durch Einbeziehung des Namens der Empfänger:in, kann auch dazu beitragen, die Wahrscheinlichkeit zu erhöhen, dass Ihre E-Mail geöffnet wird.
 
 {% alert note %}
-Erweiterte Funktionen werden im Kampagnen- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
+Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
 {% endalert %}
 
 ### 4. Schritt: E-Mail testen
@@ -149,7 +149,7 @@ Nachdem Sie Ihre Sendeinformationen hinzugefügt haben, ist es an der Zeit, Ihre
 Wenn die E-Mail im Editor anders aussieht als in der Vorschau oder beim Testversand, überprüfen Sie, ob alle Tags geschlossen sind, Bildattribute Werte haben und Hintergrundbilder an den Rändern nicht unscharf sind.
 {% endalert %}
 
-Gehen Sie zum Abschnitt **Vorschau und Test**. Hier haben Sie die Möglichkeit, eine Vorschau Ihrer E-Mail als Nutzer:in anzuzeigen oder eine Testnachricht zu senden. Dieser Abschnitt enthält auch [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/), mit dem Sie überprüfen können, ob Ihre E-Mail in verschiedenen mobilen und Web-Clients korrekt dargestellt wird.
+Gehen Sie zum Abschnitt **Vorschau und Test**. Hier haben Sie die Möglichkeit, eine Vorschau Ihrer E-Mail als Nutzer:in anzuzeigen oder eine Testnachricht zu senden. Dieser Abschnitt enthält auch [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/), mit dem Sie überprüfen können, ob Ihre E-Mail in verschiedenen mobilen und Internet-Clients korrekt dargestellt wird.
 
 {% alert tip %}
 Sie können auch den Schalter **Dark-Mode-Vorschau** im Vorschau-Panel verwenden, um Ihren E-Mail-Body im Dark Mode anzuzeigen und Ihre E-Mail bei Bedarf anzupassen.
@@ -173,17 +173,17 @@ Sie können auch **Vorschau-Link kopieren** auswählen, um einen teilbaren Vorsc
 
 Beachten Sie, dass Änderungen an einem E-Mail-Template sich nicht in einem zuvor generierten Link widerspiegeln. Sie müssen eine neue Link-Vorschau generieren, um Änderungen zu sehen.
 
-![E-Mail-Vorschau mit einem Button zum „Vorschau-Link kopieren" und zum Kopieren des generierten Links.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![E-Mail-Vorschau mit einem Button zum „Vorschau-Link kopieren“ und zum Kopieren des generierten Links.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Inbox Vision verwenden
 
-Inbox Vision ermöglicht es Ihnen, Ihre E-Mail-Kampagnen aus der Perspektive von E-Mail-Clients und Mobilgeräten zu betrachten. Um Ihre E-Mail-Nachricht mit Inbox Vision zu testen, wählen Sie **Inbox Vision** im Abschnitt **Vorschau & Test** und dann **Inbox Vision ausführen**.
+Inbox Vision ermöglicht es Ihnen, Ihre E-Mail-Campaigns aus der Perspektive von E-Mail-Clients und Mobilgeräten zu betrachten. Um Ihre E-Mail-Nachricht mit Inbox Vision zu testen, wählen Sie **Inbox Vision** im Abschnitt **Vorschau & Test** und dann **Inbox Vision ausführen**.
 
 Es ist wichtig, die feinen Details Ihrer E-Mail-Nachricht zu testen und zu überprüfen. Beispielsweise können Hintergrundbilder in E-Mail-Nachrichten manchmal weiße Linien oder Unterbrechungen zwischen Bildern verursachen, oder Clients wie Windows Outlook zeigen Hintergrundbilder möglicherweise nicht an. Die Verwendung von Inbox Vision kann helfen, diese Diskrepanzen zwischen Clients zu identifizieren. In diesem Szenario legen Sie eine Fallback-Hintergrundfarbe fest, damit diese Bilder wie erwartet dargestellt werden können.
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
 
-Nachdem Sie den Drag-and-Drop-Editor zum Entwerfen und Erstellen Ihrer E-Mail-Nachricht verwendet haben, fahren Sie mit dem [Aufbau]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) des restlichen Teils Ihrer Kampagne oder Ihres Canvas fort.
+Nachdem Sie den Drag-and-Drop-Editor zum Entwerfen und Erstellen Ihrer E-Mail-Nachricht verwendet haben, fahren Sie mit dem [Aufbau]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) des restlichen Teils Ihrer Campaign oder Ihres Canvas fort.
 
 {% details Über die aktualisierte HTML-Engine %}
 Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wurde optimiert und aktualisiert, was zu Vorteilen bei der HTML-Dateikomprimierung und dem Rendering führt.
@@ -209,7 +209,7 @@ Sie können ein benutzerdefiniertes Theme für Ihren Drag-and-Drop-Editor mithil
 
 Bilder, die zu Ihrer E-Mail hinzugefügt werden, werden automatisch auf **Automatische Breite** eingestellt. Um diese Einstellung anzupassen, deaktivieren Sie **Automatische Breite** und passen Sie den Breitenprozentsatz nach Bedarf an.
 
-![Option „Automatische Breite" im Inhalt-Tab des Drag-and-Drop-Editors.]({% image_buster /assets/img/dnd/dnd1.png %})
+![Option „Automatische Breite“ im Inhalt-Tab des Drag-and-Drop-Editors.]({% image_buster /assets/img/dnd/dnd1.png %})
 
 ### Farbschichtung
 
@@ -225,13 +225,13 @@ Um das Padding anzupassen, scrollen Sie nach unten zu **Block-Optionen** und wä
 
 ### Inhaltshintergrund
 
-Sie können ein Hintergrundbild zu Ihrer Zeilenkonfiguration hinzufügen, um mehr Design und visuelle Inhalte in Ihre E-Mail-Kampagne einzubinden.
+Sie können ein Hintergrundbild zu Ihrer Zeilenkonfiguration hinzufügen, um mehr Design und visuelle Inhalte in Ihre E-Mail-Campaign einzubinden.
 
 ### Sprachattribut
 
 Sie können das Sprachattribut festlegen, indem Sie zum Tab **Einstellungen** gehen und die gewünschte Sprache auswählen. Sie können auch das Nutzerattribut {%raw%} `{{${language}}}` {%endraw%} verwenden, wenn die Nachricht für Nutzer:innen mit dynamischen Sprachwerten bestimmt ist.
 
-![Festlegen des Werts „Sprache" für eine E-Mail.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
+![Festlegen des Werts „Sprache“ für eine E-Mail.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
 ### Personalisierung
 
@@ -266,7 +266,7 @@ Das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten hängt weitge
 
 #### HTML-Attribute für Links
 
-![Der Abschnitt „Attribute" mit dem Attribut „clicktracking", das für einen Link deaktiviert ist.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Der Abschnitt „Attribute“ mit dem Attribut „clicktracking“, das für einen Link deaktiviert ist.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Bei der Verwendung von Links, Buttons, Bildern und Videos im Drag-and-Drop-Editor wählen Sie **Neues Attribut hinzufügen** unter **Attribute** im Abschnitt **Inhalt**, um zusätzliche Informationen an HTML-Tags in E-Mails anzuhängen. Dies kann besonders nützlich für die Personalisierung, Segmentierung und Gestaltung von Nachrichten sein.
 

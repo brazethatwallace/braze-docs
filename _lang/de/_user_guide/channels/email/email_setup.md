@@ -4,9 +4,9 @@ article_title: E-Mail-Einrichtung
 layout: dev_guide
 page_order: 0
 guide_top_header: "E-Mail-Einrichtung"
-guide_top_text: "Braze kann Ihnen beim Versand von E-Mail-Kampagnen helfen. Folgen Sie unseren Anleitungen oder sehen Sie sich unseren <a href='https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability' target='_blank'>E-Mail-Onboarding</a>-Braze-Lernkurs an."
+guide_top_text: "Braze kann Ihnen beim Versand von E-Mail-Campaigns helfen. Folgen Sie unseren Anleitungen oder sehen Sie sich unseren <a href='https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability' target='_blank'>E-Mail-Onboarding</a>-Braze-Lernkurs an."
 page_type: landing
-description: "Diese Landing-Page enthält Ressourcen für den Einstieg in E-Mail-Kampagnen, einschließlich der Einrichtung Ihrer IPs und Domains, IP-Warming, E-Mail-Validierung und mehr."
+description: "Diese Landing-Page enthält Ressourcen für den Einstieg in E-Mail-Campaigns, einschließlich der Einrichtung Ihrer IPs und Domains, IP-Warming, E-Mail-Validierung und mehr."
 channel: email
 
 guide_featured_title: "Artikel in diesem Abschnitt"
@@ -40,16 +40,16 @@ guide_featured_list:
   image: /assets/img/braze_icons/cursor-click-02.svg
 ---
 
-## Voraussetzungen
+## Anforderungen
 
-Bevor Sie mit dem Versand von E-Mails beginnen, gibt es einige Dinge, die Sie benötigen. In der folgenden Tabelle erfahren Sie mehr über diese Voraussetzungen.
+Bevor Sie mit dem Versenden von E-Mails beginnen, benötigen Sie einige Dinge. Lesen Sie das folgende Chart, um mehr über diese Anforderungen zu erfahren.
 
-| Voraussetzung | Beschreibung | Quelle |
+| Anforderung | Beschreibung | Quelle |
 |---|---|---|
-| Eine dedizierte IP (Internet Protocol) | Eine dedizierte IP ist eine eindeutige Internetadresse, die ausschließlich einem einzelnen Hosting-Konto zugewiesen wird. | Braze stellt Ihnen dedizierte IPs zur Verfügung, um die Kontrolle über Ihre Absender-Reputation zu gewährleisten. Das Braze-Onboarding-Team richtet dies für Sie ein. |
-| Whitelabel-Domains | Diese bestehen aus einer Domain und einer Subdomain. Durch die Verwendung von Whitelabeling können Sie E-Mail-Authentifizierungsprüfungen für DKIM und SPF bestehen. | Das Braze-Onboarding-Team generiert diese Domains für Sie, aber Sie müssen deren Namen festlegen. |
-| Subdomains | Dies ist eine Unterteilung einer Domain (z. B. „@news.company.com") innerhalb Ihrer E-Mail-Adresse. Eine Subdomain verhindert Fehler, die die offizielle E-Mail-Reputation Ihres Unternehmens beschädigen könnten. | Das Onboarding-Team generiert diese für Sie, aber Sie müssen den Namen der Subdomain festlegen. Sie können keine Subdomains verwenden, die derzeit außerhalb von Braze genutzt werden. |
-| IP-Pools | Dies ist eine optionale Konfiguration, die dazu dient, die Reputation verschiedener E-Mail-Typen (z. B. „Werbe-E-Mails" und „Transaktions-E-Mails") zu trennen, damit die Reputation des einen Typs den anderen nicht beeinflusst und eine höhere Zustellbarkeit unterstützt wird. | Das Onboarding-Team richtet die Pools für Sie ein. Beim Erstellen Ihrer E-Mail können Sie dann den IP-Pool Ihrer E-Mail im Schritt **Zielgruppen** einsehen. |
+| Eine dedizierte IP (Internetprotokoll) | Eine dedizierte IP ist eine einzigartige Internetadresse, die exklusiv für ein einzelnes Hosting-Konto bereitgestellt wird. | Braze stellt Ihnen dedizierte IPs zur Verfügung, um die Kontrolle über die Absender-Reputation Ihrer E-Mails zu gewährleisten. Das Braze-Onboarding wird dies für Sie einrichten. |
+| Whitelabel-Domains | Diese bestehen aus einer Domain und einer Subdomain. Durch Whitelabeling können Sie die E-Mail-Authentifizierungsprüfungen für DKIM und SPF umgehen. | Das Braze-Onboarding-Team wird diese Domains für Sie generieren, aber Sie müssen deren Namen selbst wählen. |
+| Subdomänen | Dies ist eine Unterteilung einer Domain (z. B. „@news.company.com“) innerhalb Ihrer E-Mail-Adresse. Mit einer Subdomain vermeiden Sie Fehler, die dem offiziellen Ruf Ihres Unternehmens bei E-Mails schaden könnten. | Das Onboarding-Team wird dies für Sie erstellen, aber Sie müssen den Namen der Subdomain festlegen. Sie können keine Subdomains verwenden, die derzeit außerhalb von Braze verwendet werden. |
+| IP-Pools | Hierbei handelt es sich um eine optionale Konfiguration, die dazu dient, die Reputation verschiedener Arten von E-Mails (z. B. „Werbe-E-Mails“ und „Transaktions-E-Mails“) zu trennen, damit die Reputation des einen Typs den anderen nicht beeinflusst und eine höhere Zustellbarkeit unterstützt wird. | Das Onboarding-Team richtet die Pools für Sie ein. Beim Erstellen Ihrer E-Mail können Sie dann den IP-Pool Ihrer E-Mail im Schritt **Zielgruppen** einsehen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## IP-Warming

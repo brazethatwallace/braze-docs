@@ -20,4 +20,4 @@ Beim Importieren oder Aktualisieren eines Nutzerprofils über [API]({{site.baseu
 
 Zur Referenz: Diese Informationen werden im Nutzerprofil unter den E-Mail-**Kontakteinstellungen** im Tab **Engagement** angezeigt.
 
-![Felder für E-Mail-Öffnungs- und Klick-Tracking-Pixel im Tab „Engagement" eines Nutzerprofils]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}
+![Felder für E-Mail-Öffnungs- und Klick-Tracking-Pixel im Tab „Engagement“ eines Nutzerprofils]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}

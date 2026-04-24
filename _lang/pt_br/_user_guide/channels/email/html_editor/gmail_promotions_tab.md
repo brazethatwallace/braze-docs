@@ -18,7 +18,7 @@ Primeiro, encaminhe seus domínios e subdomínios para a equipe de divulgação 
 
 ## Criar o cartão com a Braze
 
-Siga estas etapas para criar um cartão de promoção do Gmail para uma campanha de e-mail. Observe que navegar para fora da seção **Conteúdo** no editor redefinirá os campos e as informações na guia **Gmail Promotion**. Conclua a configuração do seu cartão de promoção e copie o HTML gerado para não perder o código.
+Siga estas etapas para criar um cartão de promoção do Gmail para uma campanha de e-mail. Observe que navegar para fora da seção **Conteúdo** no editor redefinirá os campos e as informações na guia **Promoção do Gmail**. Conclua a configuração do seu cartão de promoção e copie o HTML gerado para não perder o código.
 
 ### Etapa 1: Criar uma campanha de e-mail
 
@@ -26,7 +26,7 @@ Primeiro, [crie sua campanha de e-mail]({{site.baseurl}}/user_guide/channels/ema
 
 ### Etapa 2: Adicionar informações ao cartão de promoção do Gmail
 
-Em seguida, acesse a seção **Conteúdo** do editor de HTML e selecione a guia **Gmail Promotion**. Preencha os campos em **Basic Information** e selecione **Generate HTML Code**. Isso gerará o script para o cartão da guia Promoções do Gmail na seção **Copy and Paste HTML code into `<Head>`**.
+Em seguida, acesse a seção **Conteúdo** do editor de HTML e selecione a guia **Promoção do Gmail**. Preencha os campos em **Basic Information** e selecione **Generate HTML Code**. Isso gerará o script para o cartão da guia Promoções do Gmail na seção **Copy and Paste HTML code into `<Head>`**.
 
 ![Exemplo de como criar um cartão.]({% image_buster /assets/img/create-gmail-promo.png %})
 

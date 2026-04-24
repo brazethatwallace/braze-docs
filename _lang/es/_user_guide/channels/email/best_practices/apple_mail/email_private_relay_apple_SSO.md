@@ -3,7 +3,7 @@ nav_title: Enviar correos electrónicos a Apple Private Relay
 article_title: Enviar correos electrónicos a Apple Private Relay
 alias: /email_relay/
 page_order: 0
-description: "Este artículo describe el proceso de envío de correos electrónicos a Apple Private Relay."
+description: "Este artículo cubre el proceso de envío de correos electrónicos a Apple Private Relay."
 channel:
   - email
 toc_headers: h2
@@ -11,11 +11,11 @@ toc_headers: h2
 
 # Enviar correos electrónicos a Apple Private Relay
 
-> La característica de inicio de sesión único (SSO) de Apple permite a sus usuarios compartir sus direcciones de correo electrónico (`example@icloud.com`) u ocultar sus direcciones de correo electrónico enmascarando lo que se proporciona a las marcas (`tq1234snin@privaterelay.appleid.com`) en lugar de su dirección de correo electrónico personal. Apple reenviará entonces los mensajes enviados a las direcciones de relay a la dirección de correo electrónico real del usuario.
+> La característica de inicio de sesión único (SSO) de Apple permite a sus usuarios compartir sus direcciones de correo electrónico (`example@icloud.com`) u ocultar sus direcciones de correo electrónico enmascarando lo que se proporciona a las marcas (`tq1234snin@privaterelay.appleid.com`) en lugar de su dirección de correo electrónico personal. Apple reenviará entonces los mensajes enviados a las direcciones de retransmisión a la dirección de correo electrónico real del usuario.
 
-Para enviar correos electrónicos al relay de correo electrónico privado de Apple, registra tus dominios de envío con Apple. Si no configuras tus dominios con Apple, los correos electrónicos enviados a las direcciones de relay rebotarán.
+Para enviar correos electrónicos al relé de correo electrónico privado de Apple, registra tus dominios de envío con Apple. Si no configuras tus dominios con Apple, los correos electrónicos enviados a direcciones de retransmisión rebotarán.
 
-Si un usuario decide desactivar el reenvío de correo electrónico al correo electrónico de relay de tu aplicación, Braze recibirá la información de rebote de correo electrónico como de costumbre. Estos usuarios pueden administrar las aplicaciones que usan el inicio de sesión con Apple desde su página de configuración de Apple ID (consulta la [documentación de Apple](https://support.apple.com/en-us/HT210426)).
+Si un usuario decide desactivar el reenvío de correo electrónico al correo electrónico de retransmisión de tu aplicación, Braze recibirá la información de rebote de correo electrónico como de costumbre. Estos usuarios pueden gestionar las aplicaciones que utilizan el inicio de sesión con Apple desde la página de configuración de su ID de Apple (consulta la [documentación de Apple](https://support.apple.com/en-us/HT210426)).
 
 ## Configura tu proveedor de correo electrónico
 
