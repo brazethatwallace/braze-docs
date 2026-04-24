@@ -1809,6 +1809,121 @@ def repair_de_channels_banners_landing(translated_path, translated_content, lang
     return translated_content, []
 
 
+_HEADING_LINE_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
+_EXPLICIT_ID_RE = re.compile(r"\{#[A-Za-z][A-Za-z0-9_\-:\.]*\}\s*$")
+_ANCHOR_REF_RE = re.compile(r"\]\(#([A-Za-z][A-Za-z0-9_\-]*)\)")
+
+
+def _auto_slug(text: str) -> str:
+    """Best-effort Kramdown auto-slug for an ASCII heading.
+
+    This is intentionally conservative: we only emit slugs for headings whose
+    text is ASCII (so the English counterpart produces a stable slug). This is
+    all we need, because we only look up English headings for references.
+    """
+    text = re.sub(r"[*_`]", "", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.lower().strip()
+    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"\s+", "-", text)
+    text = re.sub(r"-+", "-", text).strip("-")
+    return text
+
+
+def _iter_doc_headings(text):
+    """Yield ``(line_index, level, heading_text, explicit_id_or_None)``.
+
+    Skips front matter and fenced code blocks so we don't pick up ``#`` lines
+    that live inside shell/markdown examples.
+    """
+    lines = text.split("\n")
+    in_fm = False
+    fm_done = False
+    in_fence = False
+    fence_marker = ""
+    for i, line in enumerate(lines):
+        stripped = line.rstrip()
+        if not fm_done and i == 0 and stripped.strip() == "---":
+            in_fm = True
+            continue
+        if in_fm:
+            if stripped.strip() == "---":
+                in_fm = False
+                fm_done = True
+            continue
+        if in_fence:
+            if stripped.lstrip().startswith(fence_marker):
+                in_fence = False
+                fence_marker = ""
+            continue
+        lstr = stripped.lstrip()
+        if lstr.startswith("```") or lstr.startswith("~~~"):
+            in_fence = True
+            fence_marker = lstr[:3]
+            continue
+        m = _HEADING_LINE_RE.match(stripped)
+        if not m:
+            continue
+        heading_text = m.group(2)
+        explicit = None
+        em = _EXPLICIT_ID_RE.search(heading_text)
+        if em:
+            explicit = em.group(0).strip()[2:-1]
+            heading_text = heading_text[: em.start()].rstrip()
+        yield i, m.group(1), heading_text, explicit
+
+
+def repair_same_page_anchor_ids(english_content, translated_content):
+    """Preserve English same-page anchor slugs on localized headings.
+
+    When an English doc contains ``](#slug)`` references whose slug matches
+    the auto-slug of one of its own headings, the translated doc loses those
+    anchors because the localized heading auto-slugs to a different value.
+    We add an explicit ``{#slug}`` to the corresponding translated heading
+    (matched by positional index) so the existing link targets keep working.
+
+    Conservative by design:
+      * Only adds IDs for slugs that are (a) referenced in this file and
+        (b) map 1:1 to an English heading via auto-slug.
+      * Never overwrites an existing ``{#id}`` on the translated heading.
+      * Skips the file if the English and translated heading counts differ
+        (structure mismatch → too risky to auto-align).
+    """
+    # Only operate on files that actually use same-page anchors.
+    referenced = set(_ANCHOR_REF_RE.findall(english_content))
+    referenced |= set(_ANCHOR_REF_RE.findall(translated_content))
+    if not referenced:
+        return translated_content, []
+
+    en_headings = list(_iter_doc_headings(english_content))
+    tr_headings = list(_iter_doc_headings(translated_content))
+    if not en_headings or len(en_headings) != len(tr_headings):
+        return translated_content, []
+
+    lines = translated_content.split("\n")
+    repairs = []
+    for (_, _en_lvl, en_text, en_explicit), (tr_idx, _tr_lvl, _tr_text, tr_explicit) in zip(
+        en_headings, tr_headings
+    ):
+        slug = en_explicit or _auto_slug(en_text)
+        if not slug or slug not in referenced:
+            continue
+        if tr_explicit:
+            continue
+        existing = lines[tr_idx]
+        if _EXPLICIT_ID_RE.search(existing):
+            continue
+        new_line = existing.rstrip() + f" {{#{slug}}}"
+        if new_line != existing:
+            lines[tr_idx] = new_line
+            repairs.append(f"anchor_id — added {{#{slug}}} to translated heading")
+
+    if not repairs:
+        return translated_content, []
+    new_content = "\n".join(lines)
+    return new_content, repairs
+
+
 def repair_trailing_whitespace(translated_content: str):
     """Strip trailing spaces and tabs from each line (preserve newlines)."""
     lines = translated_content.split("\n")
@@ -1848,6 +1963,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(gfl_repairs)
+
+    translated_content, anchor_id_repairs = repair_same_page_anchor_ids(
+        english_content, translated_content
+    )
+    findings["repairs"].extend(anchor_id_repairs)
 
     translated_content, agents_ui_repairs = repair_agents_catalog_en_ui(
         translated_path, translated_content, lang_key

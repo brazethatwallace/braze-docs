@@ -32,3 +32,15 @@ Avoid gendered articles directly before "Braze" when possible (prefer "de Braze"
 
 - Keep established English job titles in English when they are commonly used as-is in French professional contexts (e.g., "Account Manager", "Customer Success Manager")
 - If a French equivalent is well-established and widely used in the industry, you may use it — but never invent awkward literal translations
+
+## Analytics and reporting tables
+
+- In “Available metrics” / “Indicateurs disponibles” tables, **translate the metric row labels** — do not leave them in English. Follow the same pattern as the DE/ES/JA/KO/PT-BR translations of the eCommerce revenue dashboard:
+  - `eCommerce Revenue` → **Chiffre d’affaires eCommerce**
+  - `Daily Orders Placed` → **Commandes quotidiennes passées**
+  - `Average Daily eCommerce Revenue` → **Chiffre d’affaires eCommerce quotidien moyen**
+  - `eCommerce Revenue Over Time` → **Chiffre d’affaires eCommerce au fil du temps**
+  - `eCommerce Revenue by Campaign / by Canvas` → **Chiffre d’affaires eCommerce par campagne / par Canvas**
+  - `Total Revenue` → **Chiffre d’affaires total**
+  - `Total Orders` → **Total des commandes**
+- Keep only the actual Braze dashboard **product UI name** in English when that is how French users see it in-product (e.g. `eCommerce Revenue - Last Touch Attribution`). Normal descriptor metric names belong in French.
