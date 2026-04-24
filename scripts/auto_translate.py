@@ -958,6 +958,49 @@ def repair_markdown_internal_link_fragments(content):
     return new_content, repairs
 
 
+# Missing `.` before second class breaks Kramdown table styling.
+_RESET_TD_BR_IAL_MISSING_DOT = re.compile(
+    r"\{\:\s*\.reset-td-br-1\s+reset-td-br-2\b"
+)
+
+
+def repair_markdown_wire_format_tables(content):
+    """Auto-fix markdown table / IAL issues from translation or English typos.
+
+    - ``Content_Type`` → ``Content-Type`` (HTTP header spelling)
+    - ``{: .reset-td-br-1 reset-td-br-2`` → ``{: .reset-td-br-1 .reset-td-br-2``
+    - Restore ``Authorization`` when the header cell was translated (es/pt)
+    """
+    repairs = []
+    new = content
+
+    if "| Content_Type |" in new:
+        new = new.replace("| Content_Type |", "| Content-Type |")
+        repairs.append("md-table — Content_Type → Content-Type")
+
+    new, n_ial = _RESET_TD_BR_IAL_MISSING_DOT.subn(
+        "{: .reset-td-br-1 .reset-td-br-2", new
+    )
+    if n_ial:
+        repairs.append(
+            f"md-ial — added missing '.' before reset-td-br-2 ({n_ial}x)"
+        )
+
+    for wrong, right in (
+        ("| Autorización |", "| Authorization |"),
+        ("| Autorização |", "| Authorization |"),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append(
+                "md-table — restored Authorization header cell (wire-format token)"
+            )
+
+    if new != content:
+        return new, repairs
+    return content, []
+
+
 def repair_urls(english_content, translated_content):
     """Ensure markdown link URLs match the English source."""
     en_urls = _extract_md_link_urls(english_content)
@@ -1316,6 +1359,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(frag_repairs)
+
+    translated_content, wire_repairs = repair_markdown_wire_format_tables(
+        translated_content
+    )
+    findings["repairs"].extend(wire_repairs)
 
     translated_content, brazeai_repairs = repair_brazeai_trademark(
         translated_content

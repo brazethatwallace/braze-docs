@@ -40,7 +40,8 @@ Preserve all of the following exactly as they appear in the English source:
 - **URLs and link targets** `](url)` — preserve the URL exactly
 - **Image paths** and `{% image_buster ... %}` tags — preserve exactly
 - **HTML tags** — preserve exactly
-- **Markdown attribute blocks** `{: ... }` — preserve exactly (e.g., `{: .reset-td-br-1}`, `{: start="5"}`)
+- **Markdown attribute blocks** `{: ... }` — preserve exactly (e.g., `{: .reset-td-br-1}`, `{: start="5"}`). Every **Kramdown CSS class** in an IAL must start with a dot — for example `{: .reset-td-br-1 .reset-td-br-2}` (note the dot before *each* class). Never output `{: .reset-td-br-1 reset-td-br-2}` (missing dot before the second class).
+- **Wire-format names in tables and examples**: When a markdown table or example names an HTTP header sent on the wire, keep the **canonical ASCII field name**: `Authorization`, `Content-Type`, etc. You may translate the *column title* (e.g. “Header” / “Encabezado”), but the **first-column cell that names the header** must use the protocol spelling. Use **`Content-Type`** with a hyphen — never `Content_Type`. Keep `Bearer` and similar scheme tokens in English where they denote the real protocol value.
 - **Hex color codes** (e.g., `#FFFFFF`) — preserve exactly
 - **Dotted identifiers** (e.g., `Braze.iOS.BrazeLocation`) — preserve exactly
 - **Tokens with underscores** (e.g., `user_id`, `campaign_name`) — preserve exactly
@@ -98,7 +99,7 @@ A style guide for the target language may be appended to the end of these instru
 - **German quotation marks in body text**: In markdown body (outside YAML), use the same pair: `„` … `“`. Do not mix `„` with straight `"` as the closer for German prose.
 - **Internal doc links**: In `]({{site.baseurl}}/path#anchor-id)`, the path must end with `/` before `#` when the last segment has no file extension (for example `.../agent_step/#define-the-output-variable`, not `.../agent_step#define-the-output-variable`). Preserve `file.md#anchor` as-is.
 - Preserve numbered list continuation markers like `{: start="5"}`
-- Preserve Kramdown table classes like `{: .reset-td-br-1 .reset-td-br-2 role="presentation" }`
+- Preserve Kramdown table classes like `{: .reset-td-br-1 .reset-td-br-2 role="presentation" }` — copy the full IAL from English, including every leading `.` before a class name.
 - Do NOT escape `[`, `]`, or `!` characters — use them as-is in markdown syntax
 - **Headings, table labels, and link text**: Keep a single language’s grammar and vocabulary in each phrase—do not splice English fragments into non-English titles (for example avoid “Ingesta de datos de Cloud” when you mean cloud ingestion in Spanish). Use natural target-language wording, or keep a full official English product name only when you intentionally leave that name untranslated.
 - **Table row labels**: When a column lists parallel requirement names (for example CSV requirements), use consistent capitalization across rows (all titles or all sentence case—match the surrounding table).
