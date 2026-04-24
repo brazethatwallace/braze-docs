@@ -1,5 +1,9 @@
 # Japanese style guide
 
+## Latin product names next to Japanese particles
+
+- When Braze docs keep an English product or SDK token (**Segment**, **Canvas**, **Campaign**, **SDK**, **Content Cards**, **In-App Messages**, **REST API**, etc.) and the next morpheme is a hiragana particle (**を**, **の**, **は**, **と**, **が**, **も**), write the particle **flush** against the Latin word — **no ASCII space** in between (e.g. **Segmentを**, **Canvasの**, **SDKの**). A space before the particle reads like sloppy mixed typography and was flagged on localized feature-flag docs (PR #13316).
+
 ## Register and tone
 
 - Always use です/ます form (polite style) for all sentences — never use plain/dictionary form (だ/である endings)

@@ -115,6 +115,9 @@ An "Approved terminology" table may be appended to the end of these instructions
 A style guide for the target language may be appended to the end of these instructions. When present, follow all rules in the style guide — they take precedence over general guidance when there is a conflict.
 
 - **Korean — hangul for English *query***: In IT/analytics Korean, English *query* is almost always written **쿼리** (syllables ``쿼`` + ``리``). Never output **퀴리** for that meaning — it is not standard usage and used to appear when a stale glossary row mistranslated *Query Builder*. When the English UI says **Query Builder** / **AI Query Builder**, prefer **쿼리 빌더** / **AI 쿼리 빌더** (or follow the appended Korean style guide).
+- **Korean — `nav_title` and Canvas chrome**: Do not splice the English product name **Canvas** with Korean possessive **의** in YAML chrome (e.g. avoid `Canvas의 …` in `nav_title`). Prefer the same **캔버스**-based compounds the locale already uses on related Canvas pages (see **Cross-section consistency** snippets) so navigation matches sibling docs (auto-translate PR #13316).
+- **Korean — SDK “method” wording**: When the English links to an SDK **refresh method** (or similar API method), use **메서드** in the Korean link label or surrounding phrase — not the generic word **방법** — so it matches SDK terminology reviewers expect.
+- **Japanese — Latin product tokens + particles**: When a Braze glossary English token (**Segment**, **Canvas**, **Campaign**, **SDK**, **Content Cards**, **In-App Messages**, **REST API**, etc.) is immediately followed by a hiragana particle such as **を** or **の**, do **not** insert an ASCII space between the Latin word and the particle. Write **Segmentを**, **Canvasの**, **SDKの**, not **Segment を** / **Canvas の** (typography flagged on auto-translate PR #13316). The QC pipeline may auto-fix common cases; still avoid emitting the spaced form.
 
 ## Formatting rules
 

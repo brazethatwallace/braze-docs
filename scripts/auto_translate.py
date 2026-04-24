@@ -719,8 +719,11 @@ def _build_sibling_context(fpath, lang_dir, target):
         "`…/email/…` guides when you are translating `channels/email.md`). "
         "Use them as the **authoritative terminology and phrasing reference "
         "for this locale**:\n\n"
-        "- Reuse **`nav_title`**, **`article_title`**, and **`description`** "
-        "wording verbatim when the page covers the same concept.\n"
+        "- Reuse **`nav_title`**, **`article_title`**, **`title`**, "
+        "**`description`**, and (when present) **`guide_top_header`** wording "
+        "verbatim when the page covers the same concept — the QC step "
+        "compares these keys against same-basename siblings and reviewers "
+        "flag paraphrases (e.g. German FAQ `description` drift on PR #13316).\n"
         "- Reuse body **glossary terms** — product names, tier/plan labels, "
         "UI strings, and loanword conventions (e.g., Japanese katakana "
         "`スタンダード` / `デラックス` for support tiers rather than native "
@@ -1648,6 +1651,45 @@ def repair_korean_query_hangul_typo(translated_path, translated_content, lang_ke
         f"ko-query-hangul — normalized {n} mistransliterated "
         f"퀴리→쿼리 (English *query* in Korean IT prose)"
     ]
+
+
+# Latin Braze product / SDK tokens immediately followed by a Japanese
+# particle should not have an ASCII space in between — models often emit
+# ``Segment を`` / ``Canvas の`` (seen on auto-translate PR #13316) which
+# reads like sloppy typography next to native ``を``/``の``.
+_JA_LATIN_TOKEN_PARTICLE_RE = re.compile(
+    r"(?P<tok>"
+    r"Content Cards|In-App Messages|REST API|"
+    r"Campaigns?|Segment|Canvas|SDK"
+    r")\s+(?P<particle>[をのとはがも])"
+)
+
+
+def repair_japanese_latin_token_particle_spacing(
+    translated_path, translated_content, lang_key
+):
+    """Collapse ``Token を`` → ``Tokenを`` for common Latin tokens in JA docs.
+
+    Only ``lang_key == "ja"`` and paths under ``_lang/ja/``. Longer tokens are
+    listed first inside the alternation so ``Content Cards`` wins over
+    ``Content``-style false paths (not in the set anyway).
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    new, n = _JA_LATIN_TOKEN_PARTICLE_RE.subn(
+        lambda m: m.group("tok") + m.group("particle"),
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"ja-latin-particle — removed {n} ASCII space(s) between "
+            f"Latin product/SDK token and Japanese particle (を/の/…)"
+        ]
+    return translated_content, []
 
 
 # German uses U+201E („) as the opening quotation mark and U+201C (") as
@@ -3257,6 +3299,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(ko_query_repairs)
+
+    translated_content, ja_particle_repairs = (
+        repair_japanese_latin_token_particle_spacing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_particle_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
