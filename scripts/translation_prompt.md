@@ -186,6 +186,8 @@ If **no** related-page context is provided for this file but the target locale c
 
 - Many section hubs (for example **Analytics → Dashboards**) are **YAML-only** landings: body text is often just `<br><br>`. Translate **`nav_title`**, **`article_title`**, **`guide_top_header`**, **`guide_top_text`**, **`description`**, **`guide_featured_title`**, and each **`guide_featured_list` → `name`** for display cards.
 - Under **`guide_featured_list`**, copy each **`link:`** and **`image:`** value **character-for-character** from the English source (same `/docs/...` routes and same `/assets/img/...` icon paths). Those are site and asset identifiers—not prose. Do not “translate” paths, swap icons between rows, or drop the `image:` line.
+- **`guide_featured_list` row parity**: Keep the **same number** of featured cards as the English source (one `- name:` / `link:` / `image:` group per row). If the model drops or duplicates a row, the translation QC step cannot safely resync `link:` / `image:` paths from English (auto-translate PR #13312 context for new admin **Global** hub landings).
+- **Short English hub labels (`nav_title` / `article_title` / `guide_top_header`)**: When English repeats the same token for all three (for example **Global** under **Administer**), Romance and German locales in this repo often **keep that English token** in all three fields for dashboard parity; CJK locales often **localize all three** to the same target-language word (for example **グローバル** / **글로벌**). Either pattern is fine—**do not** split the three (for example English `nav_title` with a localized `guide_top_header` only) unless an existing localized admin hub in that locale already establishes that split.
 
 ### Illustrative HTML and fenced examples
 
