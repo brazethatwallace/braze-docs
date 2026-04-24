@@ -68,7 +68,7 @@ Hier ist ein Beispiel für ein angepasstes Event:
 ### Einrichten von Benachrichtigungsregeln
 
 1. Rufen Sie die Seite **Einstellungen** Ihres Katalogs auf. 
-2. Wählen Sie für **Benachrichtigungsregeln** eine der folgenden Optionen aus:<br>
+2. Wählen Sie bei **Benachrichtigungsregeln** eine der folgenden Optionen aus:<br>
 
     - **Alle Abonnent:innen benachrichtigen:** Benachrichtigen Sie alle Kund:innen, die warten, wenn der Preis des Artikels sinkt.
     - **Benachrichtigungsgrenzen festlegen:** Benachrichtigen Sie eine bestimmte Anzahl von Kund:innen in dem von Ihnen konfigurierten Benachrichtigungszeitraum. Braze benachrichtigt die angegebene Anzahl von Kund:innen schrittweise, bis es keine Kund:innen mehr zu benachrichtigen gibt oder bis der Preis des Artikels wieder steigt. Ihre Benachrichtigungsrate darf 10.000 Nutzer:innen pro Minute nicht überschreiten.<br>
@@ -90,7 +90,7 @@ Nachdem Sie die Benachrichtigungen über Preissenkungen in einem Katalog eingeri
 1. Richten Sie ein aktionsbasiertes Canvas ein.
 2. Wählen Sie als Trigger **Preissenkungsevent durchführen**.
 3. Wählen Sie den Namen des Katalogs mit den Preissenkungsbenachrichtigungen aus.
-4. Fahren Sie mit der [Einrichtung]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) Ihres Canvas fort, wie Sie es gewohnt sind.
+4. Fahren Sie mit der [Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) Ihres Canvas fort, wie Sie es gewohnt sind.
 
 Jetzt werden Ihre Kund:innen benachrichtigt, wenn der Preis eines Artikels sinkt.
 
