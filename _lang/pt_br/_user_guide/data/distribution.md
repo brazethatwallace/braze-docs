@@ -16,14 +16,14 @@ guide_featured_list:
   - name: Compartilhamento de dados do Snowflake
     link: /docs/partners/data_and_analytics/data_warehouses/snowflake/data_sharing
     image: /assets/img/braze_icons/snowflake-01.svg
-  - name: Exportar dados da Braze
+  - name: Exportar dados do Braze
     link: /docs/user_guide/data/distribution/export_braze_data
     image: /assets/img/braze_icons/file-download-01.svg
 ---
 <br><br>
 
-## Compartilhamento de dados do Snowflake
+## Compartilhamento de dados do Snowflake {#snowflake-data-sharing}
 
 O Compartilhamento de dados do Snowflake faz parte da Distribuição de dados da Braze. Use-o para consultar dados de engajamento e de campanhas da Braze diretamente na sua instância do Snowflake.
 
-Para detalhes de configuração e implementação, consulte [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/). Para opções adicionais de distribuição de dados, consulte [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) e [Exportar dados da Braze]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/).
+Para detalhes de configuração e implementação, consulte [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/). Para opções adicionais de distribuição de dados, consulte [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) e [Exportar dados do Braze]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/).
