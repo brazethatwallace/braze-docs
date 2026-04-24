@@ -24,6 +24,6 @@ guide_featured_list:
 
 ## Snowflake 데이터 공유
 
-Snowflake 데이터 공유는 Braze 데이터 배포의 일부입니다. 이를 사용하면 Snowflake 인스턴스에서 Braze 참여 및 Campaign 데이터를 직접 쿼리할 수 있습니다.
+Snowflake 데이터 공유는 Braze 데이터 배포의 일부입니다. 이를 사용하면 Snowflake 인스턴스에서 Braze 참여 및 캠페인 데이터를 직접 쿼리할 수 있습니다.
 
 설정 및 구현에 대한 자세한 내용은 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)를 참조하세요. 추가 데이터 배포 옵션은 [Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 및 [Braze 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/)를 참조하세요.
