@@ -256,17 +256,17 @@
       }
     }
 
-    // Markdown often inserts a leading whitespace text node, so the first real
-    // element is not :first-child. For non-headings only, clear stray top margin;
-    // leave h1–h6 alone so they keep the same margin-top as elsewhere in the article
-    // (for example h2’s 40px, matching space after a tip before the next h2).
+    // If the first element in the pane is a non-heading content block, clear its
+    // top margin. Leave h1–h6 alone so they keep the same margin-top as elsewhere
+    // in the article (for example h2’s 40px, matching space after a tip before
+    // the next h2).
     .sdk-tab-content > .sdk-ab-tab-pane,
     .sdk-ab-sub_tab-content > .sdk-ab-sub_tab-pane {
-      > p:nth-of-type(1),
-      > div:nth-of-type(1),
-      > ul:nth-of-type(1),
-      > ol:nth-of-type(1),
-      > table:nth-of-type(1) {
+      > p:first-child,
+      > div:first-child,
+      > ul:first-child,
+      > ol:first-child,
+      > table:first-child {
         margin-top: 0 !important;
       }
     }
