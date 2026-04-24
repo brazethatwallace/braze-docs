@@ -183,8 +183,8 @@ Pour mettre à jour l'enregistrement du prospect dans Salesforce avec le statut 
 | En-tête | Contenu |
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Pour récupérer un jeton, [configurez une application connectée](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) pour le flux d'identifiants client OAuth 2.0, puis utilisez le contenu connecté pour récupérer le bearer depuis Salesforce : <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
-| Content_Type | application/json |
-{: .reset-td-br-1 reset-td-br-2}
+| Content-Type | application/json |
+{: .reset-td-br-1 .reset-td-br-2}
 
 ![Webhook composé avec une URL de webhook Salesforce, une méthode HTTP PATCH, un corps de requête en texte brut et des en-têtes de requête.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

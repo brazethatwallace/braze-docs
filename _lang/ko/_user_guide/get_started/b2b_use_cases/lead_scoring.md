@@ -183,8 +183,8 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 | 헤더 | 콘텐츠 |
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>토큰을 가져오려면 OAuth 2.0 클라이언트 자격 증명 흐름에 대해 [연결된 앱을 구성](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)한 다음 연결된 콘텐츠를 사용하여 Salesforce에서 베어러를 가져옵니다. <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
-| Content_Type | application/json |
-{: .reset-td-br-1 reset-td-br-2}
+| Content-Type | application/json |
+{: .reset-td-br-1 .reset-td-br-2}
 
 ![Salesforce 웹훅 URL, PATCH HTTP 메서드, 원시 텍스트 요청 본문 및 요청 헤더로 구성되는 웹훅.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

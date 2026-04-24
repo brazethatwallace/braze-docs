@@ -182,9 +182,9 @@ Para actualizar el registro de clientes potenciales en Salesforce con el estado 
 
 | Encabezado | Contenido |
 | --- | --- |
-| Autorización | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar un token, [configura una aplicación conectada](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para el flujo de credenciales de cliente OAuth 2.0 y luego usa Contenido conectado para recuperar el bearer de Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
-| Content_Type | application/json |
-{: .reset-td-br-1 reset-td-br-2}
+| Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar un token, [configura una aplicación conectada](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para el flujo de credenciales de cliente OAuth 2.0 y luego usa Contenido conectado para recuperar el bearer de Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
+| Content-Type | application/json |
+{: .reset-td-br-1 .reset-td-br-2}
 
 ![Webhook que se compone con una URL de webhook de Salesforce, método HTTP PATCH, cuerpo de solicitud de texto sin formato y encabezados de solicitud.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
