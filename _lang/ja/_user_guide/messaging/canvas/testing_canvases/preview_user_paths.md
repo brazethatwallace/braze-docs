@@ -4,7 +4,7 @@ article_title: ユーザーパスのプレビュー
 page_order: 0.3
 alias: /preview_user_paths/
 description: "このページでは、キャンバスでユーザーパスをプレビューする方法について説明します。"
-Tool:
+tool:
   - Canvas
 ---
 

@@ -4,7 +4,7 @@ article_title: Pré-visualizar jornadas do usuário
 page_order: 0.3
 alias: /preview_user_paths/
 description: "Esta página explica como pré-visualizar jornadas do usuário no Canvas."
-Tool:
+tool:
   - Canvas
 ---
 

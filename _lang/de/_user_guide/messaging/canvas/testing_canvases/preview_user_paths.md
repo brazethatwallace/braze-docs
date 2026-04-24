@@ -4,7 +4,7 @@ article_title: Nutzerpfade in der Vorschau anzeigen
 page_order: 0.3
 alias: /preview_user_paths/
 description: "Diese Seite beschreibt, wie Sie Nutzerpfade in Canvas in der Vorschau anzeigen können."
-Tool:
+tool:
   - Canvas
 ---
 

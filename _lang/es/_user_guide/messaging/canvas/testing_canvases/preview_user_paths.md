@@ -4,7 +4,7 @@ article_title: Vista previa de recorridos de usuario
 page_order: 0.3
 alias: /preview_user_paths/
 description: "Esta página explica cómo puedes previsualizar los recorridos de usuario en Canvas."
-Tool:
+tool:
   - Canvas
 ---
 
