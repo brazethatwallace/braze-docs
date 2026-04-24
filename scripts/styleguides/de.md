@@ -6,6 +6,11 @@ Omit articles before "Braze" unless grammar requires one. When an article is nee
 
 - "das Braze SDK" (because "das SDK")
 
+## Quotation marks
+
+- In prose and table cells, use German double quotation marks: `„` (U+201E) at the opening and `“` (U+201C) at the closing — for example `„überwachen“`, not `„überwachen"`.
+- Never pair the low opening quote `„` with a straight ASCII double quote `"` as the closer.
+
 ## Register and tone
 
 - Use formal German (Sie) — this is the standard for friendly technical content in German

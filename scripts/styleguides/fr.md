@@ -7,6 +7,10 @@ Avoid gendered articles directly before "Braze" when possible (prefer "de Braze"
 - "la Braze Intelligence Suite" (because "la suite")
 - "le Braze SDK" (because "le SDK")
 
+## Capitalization
+
+- Use normal French sentence capitalization; do not import English title case into the middle of a sentence (for example *une décision automatisée*, not *une Décision automatisée*, unless it starts a sentence or is a proper name)
+
 ## Brand phrases
 
 - "Be Absolutely Engaging" must always be translated as **"L'Engagement, réinventé"** — ensure it fits naturally in the surrounding sentence context

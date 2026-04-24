@@ -910,6 +910,54 @@ def _extract_md_link_urls(content):
     return re.findall(r'\[(?:[^\]]*)\]\(([^)]+)\)', content)
 
 
+# Kramdown/Jekyll: `.../page_slug#anchor-id` can fuse slug and fragment; use
+# `.../page_slug/#anchor-id` when the slug is extensionless (not `file.md#`).
+_MD_LINK_FRAGMENT_ANCHOR_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9_-]*$")
+
+
+def _normalize_single_internal_link_url(url):
+    """If ``url`` is a ``{{site.baseurl}}`` doc link whose path omits ``/``
+    before ``#anchor``, insert the slash. Returns ``(new_url, changed)``.
+    """
+    if "{{site.baseurl}}" not in url:
+        return url, False
+    if "?" in url:
+        return url, False
+    hashidx = url.find("#")
+    if hashidx <= 0:
+        return url, False
+    before, frag = url[:hashidx], url[hashidx + 1 :]
+    if not frag or before.endswith("/"):
+        return url, False
+    bl = before.lower()
+    if bl.endswith((".md", ".html", ".htm", ".json", ".xml")):
+        return url, False
+    last_seg = before.rsplit("/", 1)[-1]
+    if "." in last_seg:
+        return url, False
+    if not _MD_LINK_FRAGMENT_ANCHOR_RE.match(frag):
+        return url, False
+    return f"{before}/#{frag}", True
+
+
+def repair_markdown_internal_link_fragments(content):
+    """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
+    repairs = []
+
+    def repl(match):
+        url = match.group(1)
+        new_url, changed = _normalize_single_internal_link_url(url)
+        if changed:
+            preview = url if len(url) <= 100 else url[:97] + "..."
+            repairs.append(
+                f"md-fragment — inserted '/' before # in internal link ({preview})"
+            )
+        return f"]({new_url})"
+
+    new_content = re.sub(r"\]\(([^)]+)\)", repl, content)
+    return new_content, repairs
+
+
 def repair_urls(english_content, translated_content):
     """Ensure markdown link URLs match the English source."""
     en_urls = _extract_md_link_urls(english_content)
@@ -1263,6 +1311,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(url_repairs)
+
+    translated_content, frag_repairs = repair_markdown_internal_link_fragments(
+        translated_content
+    )
+    findings["repairs"].extend(frag_repairs)
 
     translated_content, brazeai_repairs = repair_brazeai_trademark(
         translated_content

@@ -7,6 +7,10 @@
 - **Correct**: a Braze, da Braze, na Braze, para a Braze
 - **Incorrect**: o Braze, do Braze, no Braze, para o Braze
 
+## Capitalization
+
+- Inside a sentence, use sentence case for common phrases — do not use English headline capitalization (for example *tomada de decisões*, not *Tomada de decisões*, when it is not a heading or proper name)
+
 ## Register and tone
 
 - Use informal Portuguese (você) — this is the standard for friendly technical content in Brazilian Portuguese

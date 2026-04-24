@@ -13,6 +13,7 @@ Avoid gendered articles directly before "Braze" when possible (prefer "de Braze"
 ## Capitalization
 
 - Only capitalize the first word of branded term phrases and proper noun phrases — do not title-case translated headings or feature names unless the target language convention requires it
+- Inside a sentence, avoid English-style title case on common phrases (for example write *toma de decisiones*, not *Toma de decisiones*, when it is not a heading or proper name)
 
 ## Register and tone
 
