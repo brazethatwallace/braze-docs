@@ -79,6 +79,10 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 - **Example segment or object names**: If the English uses a sample dashboard name (e.g. **Loyalty Users**) and the figure alt keeps that string for UI fidelity, use the **same** name in the surrounding prose—or translate both the prose and the alt consistently. Do not mix a translated example name in prose with the English name only in the figure.
 - **German cross-references to numbered steps**: Headings may appear as `### 3. Schritt: …`, but in **inline link text** prefer idiomatic **Schritt 3** (e.g. `[Schritt 3](#agent-instructions)`), not `[3. Schritt](#…)`, in running sentences.
 
+### BrazeAI — Content Optimizer (`_user_guide/brazeai/content_optimizer.md`)
+
+- **Brazilian Portuguese**: Use **Otimizador de Conteúdo** in prose, alerts, link text, and tables—the same localized name as on `engagement_tools/canvas/canvas_components/content_optimizer_step.md` and other related pages for that locale. Do not leave the raw English phrase **Content Optimizer** in the body when `nav_title` / `article_title` / the H1 already use Portuguese.
+
 ### Braze Pilot (`_user_guide/get_started/braze_pilot/`)
 
 - **Deep link tables**: English distinguishes routes such as **Splash screen** (`…/splash`) from **welcome** flows (`…/welcome`). In tables, give **different** translated first-column labels for `/splash` and `/welcome` when both rows exist—do not reuse *welcome* wording for the splash route (e.g. in Spanish avoid labeling `/splash` *Pantalla de bienvenida* if `/welcome` also uses *bienvenida*).

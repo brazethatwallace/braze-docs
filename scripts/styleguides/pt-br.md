@@ -17,6 +17,10 @@
 - The tone should be informal, friendly, and informative — approachable rather than stiff or academic
 - Content should sound conversational, as if explaining something to an acquaintance
 
+## BrazeAI — Otimizador de Conteúdo (Content Optimizer)
+
+- On **Content Optimizer** docs (`brazeai/content_optimizer.md` and related Canvas step pages), use **Otimizador de Conteúdo** consistently in running text, alerts, and link anchors. Do not mix English **Content Optimizer** with Portuguese titles or navigation labels.
+
 ## Analytics and reporting vocabulary
 
 - Prefer **desempenho** (and related forms like *desempenho da mensagem*, *desempenho histórico*) for “message performance” / “historical performance” in reporting and analytics prose. Avoid the English loanword **performance** in those contexts unless it is a fixed product string.

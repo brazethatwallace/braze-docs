@@ -1242,6 +1242,24 @@ def repair_pt_br_agents_reference_confidence_alt(
     ), ["pt-agents-reference — confidence score alt wording"]
 
 
+def repair_pt_br_brazeai_content_optimizer_product_name(
+    translated_path: str, translated_content: str
+):
+    """Replace leaked English *Content Optimizer* with pt-BR **Otimizador de Conteúdo**.
+
+    Nav/titles often localize the feature name while the model still pastes the US
+    marketing string into alerts and body copy (see Copilot review on PR #13282).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/pt_br/_user_guide/brazeai/content_optimizer.md"):
+        return translated_content, []
+    if "Content Optimizer" not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        "Content Optimizer", "Otimizador de Conteúdo"
+    ), ["pt-brazeai-content_optimizer — Content Optimizer → Otimizador de Conteúdo"]
+
+
 def repair_de_brazeai_schritt_three_link_text(
     translated_path: str, translated_content: str, lang_key: str
 ):
@@ -1834,6 +1852,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(pt_agents_ref_repairs)
+
+    translated_content, pt_co_repairs = (
+        repair_pt_br_brazeai_content_optimizer_product_name(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(pt_co_repairs)
 
     translated_content, de_schritt_repairs = repair_de_brazeai_schritt_three_link_text(
         translated_path, translated_content, lang_key
