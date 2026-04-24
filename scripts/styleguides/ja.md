@@ -8,6 +8,10 @@
 
 - For the *idea* of email campaigns in Japanese sentences, prefer **メールキャンペーン** or **Eメールキャンペーン** — avoid half-mixed **メール Campaign** when you mean the localized concept (PR #13314). Keep bare **Campaign** / **Campaigns** when echoing English UI labels.
 
+## BrazeAI generative brand guidelines (YAML)
+
+- For `brazeai/generative_ai/brand_guidelines.md`, keep **`nav_title` / `article_title`** aligned with the administrative **ブランド・ガイドライン** hub: use the **・** form in those keys so left-nav matches sibling pages (PR #13313).
+
 ## Register and tone
 
 - Always use です/ます form (polite style) for all sentences — never use plain/dictionary form (だ/である endings)

@@ -98,6 +98,14 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 
 - **Brazilian Portuguese**: Use **Otimizador de Conteúdo** in prose, alerts, link text, and tables—the same localized name as on `engagement_tools/canvas/canvas_components/content_optimizer_step.md` and other related pages for that locale. Do not leave the raw English phrase **Content Optimizer** in the body when `nav_title` / `article_title` / the H1 already use Portuguese.
 
+### BrazeAI — Generative images & brand guidelines (`_user_guide/brazeai/generative_ai/`)
+
+- **`images.md` step list**: Translate bold UI strings from the English source (**AI Image Generator**, **Generate Images**) into the target language when the surrounding steps are localized—do not leave those two labels in raw US English (Copilot on PR #13313). Match the tense/register of the rest of the list (for example French **Générer des images**, Portuguese **Gerar imagens**).
+- **Icon `title="..."` attributes** (for example the download control in `images.md`): Localize the tooltip string for the same locale as the prose—do not keep `Add image to Media Library` in Korean or Portuguese while the steps are translated (accessibility + consistency; PR #13313).
+- **French `images.md` tooltips**: Use grammatically complete French, e.g. **Ajouter une image à la bibliothèque multimédia** — not *Ajouter image à la…* (missing article **une**; PR #13313).
+- **French `generative_ai/brand_guidelines.md`**: Keep `nav_title` / `article_title` terminology aligned — if the page uses *directives de marque* in the title and body, do not use a different synonym such as *lignes directrices* only in `nav_title` (PR #13313).
+- **Japanese `generative_ai/brand_guidelines.md`**: In `nav_title` / `article_title`, use the same **ブランド・ガイドライン** (with middot **・**) as the existing **Brand guidelines** hub under `administrative/.../brand_guidelines.md` so navigation strings stay consistent (PR #13313).
+
 ### Braze Pilot (`_user_guide/get_started/braze_pilot/`)
 
 - **Deep link tables**: English distinguishes routes such as **Splash screen** (`…/splash`) from **welcome** flows (`…/welcome`). In tables, give **different** translated first-column labels for `/splash` and `/welcome` when both rows exist—do not reuse *welcome* wording for the splash route (e.g. in Spanish avoid labeling `/splash` *Pantalla de bienvenida* if `/welcome` also uses *bienvenida*).

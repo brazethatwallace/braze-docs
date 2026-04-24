@@ -1765,6 +1765,168 @@ def repair_de_email_use_cases_social_heading(
     ]
 
 
+_GENERATIVE_AI_IMAGES_MD = "brazeai/generative_ai/images.md"
+
+
+def repair_generative_ai_images_english_flow_bold(
+    translated_path, translated_content, lang_key
+):
+    """Replace vestigial English bold UI labels in localized ``images.md``.
+
+    English source uses **AI Image Generator** / **Generate Images** in
+    numbered steps; Copilot on PR #13313 flagged FR/ES/pt-BR pages that left
+    those strings in US English while the rest of the page was translated.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_GENERATIVE_AI_IMAGES_MD):
+        return translated_content, []
+
+    pairs_by_lang = {
+        "fr": (
+            ("**AI Image Generator**", "**Générateur d'images IA**"),
+            ("**Generate Images**", "**Générer des images**"),
+            ("**Générer des images.**", "**Générer des images**"),
+        ),
+        "es": (
+            ("**AI Image Generator**", "**Generador de imágenes con IA**"),
+            ("**Generate Images**", "**Generar imágenes**"),
+        ),
+        "pt-br": (
+            ("**AI Image Generator**", "**Gerador de imagens por IA**"),
+            ("**IA Image Generator**", "**Gerador de imagens por IA**"),
+            ("**Generate Images**", "**Gerar imagens**"),
+            ("**Gerar Imagens**", "**Gerar imagens**"),
+        ),
+    }
+    pairs = pairs_by_lang.get(lang_key)
+    if not pairs:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    for old, repl in pairs:
+        if old in new:
+            c = new.count(old)
+            new = new.replace(old, repl)
+            repairs.append(f"gen-ai-images — {old} → {repl} ({c}×)")
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
+def repair_fr_generative_images_download_tooltip_article(
+    translated_path, translated_content, lang_key
+):
+    r"""Fix missing indefinite article in FR download ``title=`` string.
+
+    ``Ajouter image à la bibliothèque…`` is ungrammatical; Copilot on PR
+    #13313 asked for ``Ajouter une image à la bibliothèque…``.
+    """
+    if lang_key != "fr":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_GENERATIVE_AI_IMAGES_MD):
+        return translated_content, []
+    old = 'title="Ajouter image à la bibliothèque multimédia"'
+    new = 'title="Ajouter une image à la bibliothèque multimédia"'
+    if old not in translated_content:
+        return translated_content, []
+    return translated_content.replace(old, new, 1), [
+        "fr-gen-ai-images — Ajouter image→Ajouter une image (download title)"
+    ]
+
+
+def repair_generative_ai_images_add_to_media_library_title(
+    translated_path, translated_content, lang_key
+):
+    """Localize the English-only download icon ``title`` on ``images.md``.
+
+    Copilot on PR #13313: ``title=\"Add image to Media Library\"`` left in
+    KO (and similar) while steps were Korean/Portuguese hurts accessibility.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_GENERATIVE_AI_IMAGES_MD):
+        return translated_content, []
+
+    en_title = 'title="Add image to Media Library"'
+    if en_title not in translated_content:
+        return translated_content, []
+
+    repl = {
+        "ko": 'title="미디어 라이브러리에 이미지 추가"',
+        "pt-br": 'title="Adicionar imagem à biblioteca de mídia"',
+    }.get(lang_key)
+    if not repl:
+        return translated_content, []
+
+    n = translated_content.count(en_title)
+    return translated_content.replace(en_title, repl), [
+        f"gen-ai-images — localized download title ({n}×) for {lang_key}"
+    ]
+
+
+def repair_fr_generative_brand_guidelines_nav_directives(
+    translated_path, translated_content, lang_key
+):
+    """Align FR generative ``brand_guidelines`` ``nav_title`` with *directives*.
+
+    Copilot on PR #13313: ``nav_title`` used *lignes directrices* while
+    ``article_title`` and body used *directives de marque*.
+    """
+    if lang_key != "fr":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("brazeai/generative_ai/brand_guidelines.md"):
+        return translated_content, []
+    if "_lang/fr_fr/" not in rel:
+        return translated_content, []
+
+    old_nav = "nav_title: Lignes directrices de la marque\n"
+    new_nav = "nav_title: Directives de marque\n"
+    if old_nav not in translated_content:
+        return translated_content, []
+    if "Directives de marque" not in translated_content:
+        return translated_content, []
+    return translated_content.replace(old_nav, new_nav, 1), [
+        "fr-gen-ai-brand — nav_title lignes directrices→Directives de marque"
+    ]
+
+
+def repair_ja_generative_brand_guidelines_fm_middot(
+    translated_path, translated_content, lang_key
+):
+    r"""Restore middot in JA generative ``brand_guidelines`` YAML chrome.
+
+    Copilot on PR #13313: ``nav_title`` / ``article_title`` dropped **・**
+    while ``administrative/.../brand_guidelines.md`` still uses
+    ``ブランド・ガイドライン``, producing inconsistent navigation labels.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("brazeai/generative_ai/brand_guidelines.md"):
+        return translated_content, []
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    pairs = (
+        ("nav_title: ブランドガイドライン\n", "nav_title: ブランド・ガイドライン\n"),
+        (
+            "article_title: AIが生成するブランドガイドライン\n",
+            "article_title: AIが生成するブランド・ガイドライン\n",
+        ),
+    )
+    repairs = []
+    new = translated_content
+    for old, repl in pairs:
+        if old in new:
+            new = new.replace(old, repl, 1)
+            repairs.append(f"ja-gen-ai-brand — inserted ・ in {old.strip()[:40]}…")
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
 # German uses U+201E („) as the opening quotation mark and U+201C (") as
 # the closing one. The LLM occasionally pairs a typographic „ with an
 # ASCII " (U+0022) — the latter breaks screen readers, CSS selectors, and
@@ -3398,6 +3560,41 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(de_social_uc_repairs)
+
+    translated_content, gen_img_bold_repairs = (
+        repair_generative_ai_images_english_flow_bold(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(gen_img_bold_repairs)
+
+    translated_content, fr_img_tt_repairs = (
+        repair_fr_generative_images_download_tooltip_article(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(fr_img_tt_repairs)
+
+    translated_content, gen_img_title_repairs = (
+        repair_generative_ai_images_add_to_media_library_title(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(gen_img_title_repairs)
+
+    translated_content, fr_brand_nav_repairs = (
+        repair_fr_generative_brand_guidelines_nav_directives(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(fr_brand_nav_repairs)
+
+    translated_content, ja_brand_fm_repairs = (
+        repair_ja_generative_brand_guidelines_fm_middot(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_brand_fm_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

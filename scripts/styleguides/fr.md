@@ -4,6 +4,10 @@
 
 - In elided words (**d’utilisation**, **l’e-mail**, **l’application**, **n’**, **j’**, **qu’**, etc.), use the typographic apostrophe **’** (U+2019), not the ASCII apostrophe **'** (U+0027), so copy matches other `fr_fr` pages and passes typography review (PR #13314).
 
+## BrazeAI generative docs (`brazeai/generative_ai/`)
+
+- On **`images.md`**, translate bold step labels and HTML `title` tooltips into French; use complete phrases (**Ajouter une image à la bibliothèque multimédia**, not *Ajouter image à…*). On **`brand_guidelines.md`**, keep `nav_title` / `article_title` wording consistent when the page centers on *directives de marque* (PR #13313).
+
 ## Grammatical gender for "Braze"
 
 Avoid gendered articles directly before "Braze" when possible (prefer "de Braze", "avec Braze"). When an article is required in a compound name, match the gender of the head noun:
