@@ -3,7 +3,7 @@ nav_title: Braze 파일럿
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze 파일럿"
-guide_top_text: "Braze 파일럿은 Braze 대시보드와 원활하게 연결되도록 설계된 모바일 앱입니다. 이 앱을 통해 캠페인과 캔버스를 앱으로 시작하여 Braze 메시지를 자신의 휴대폰에서 직접 확인할 수 있습니다. Braze 파일럿에는 다양한 산업을 대표하는 가상 브랜드의 앱 시뮬레이션 라이브러리가 포함되어 있어, 고객의 관점에서 메시징이 어떻게 보일지 체험할 수 있습니다."
+guide_top_text: "Braze 파일럿은 Braze 대시보드와 원활하게 연결되도록 설계된 모바일 앱입니다. 이 앱을 통해 Campaign 및 Canvas를 앱으로 시작하여 Braze 메시지를 자신의 휴대폰에서 직접 확인할 수 있습니다. Braze 파일럿에는 다양한 산업을 대표하는 가상 브랜드의 앱 시뮬레이션 라이브러리가 포함되어 있어, 고객의 관점에서 메시징이 어떻게 보일지 체험할 수 있습니다."
 description: "Braze 대시보드에서 휴대폰으로 메시지를 전송하는 다양한 방법을 확인해 보세요."
 
 guide_featured_title: "섹션 문서"

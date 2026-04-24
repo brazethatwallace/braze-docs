@@ -3,7 +3,7 @@ nav_title: Braze Pilot
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze Pilot"
-guide_top_text: "Braze Pilot est une application mobile conçue pour se connecter de façon fluide à votre tableau de bord de Braze. Elle vous permet de lancer des campagnes et des Canvas vers l'application, donnant vie aux messages Braze directement sur votre téléphone. Braze Pilot comprend une bibliothèque de simulations d'applications pour des marques fictives représentant différents secteurs, vous permettant de découvrir comment vos messages pourraient apparaître du point de vue de vos clients."
+guide_top_text: "Braze Pilot est une application mobile conçue pour se connecter de façon fluide à votre tableau de bord de Braze. Elle vous permet de lancer des Campaigns et des Canvas vers l'application, donnant vie aux messages Braze directement sur votre téléphone. Braze Pilot comprend une bibliothèque de simulations d'applications pour des marques fictives représentant différents secteurs, vous permettant de découvrir comment vos messages pourraient apparaître du point de vue de vos clients."
 description: "Découvrez les différentes façons d'utiliser Braze pour envoyer des messages depuis le tableau de bord de Braze vers votre téléphone."
 
 guide_featured_title: "Articles de la section"

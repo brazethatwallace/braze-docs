@@ -3,7 +3,7 @@ nav_title: Braze Pilot
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze Pilot"
-guide_top_text: "Braze Pilot ist eine mobile App, die für die nahtlose Verbindung mit Ihrem Braze-Dashboard entwickelt wurde. Sie ermöglicht es Ihnen, Kampagnen und Canvases in der App zu starten und Braze-Nachrichten auf Ihrem eigenen Smartphone zum Leben zu erwecken. Braze Pilot umfasst eine Bibliothek mit App-Simulationen für fiktive Marken aus verschiedenen Branchen, mit denen Sie erleben können, wie Ihr Messaging aus der Perspektive Ihrer Kund:innen aussehen könnte."
+guide_top_text: "Braze Pilot ist eine mobile App, die für die nahtlose Verbindung mit Ihrem Braze-Dashboard entwickelt wurde. Sie ermöglicht es Ihnen, Campaigns und Canvases in der App zu starten und Braze-Nachrichten auf Ihrem eigenen Smartphone zum Leben zu erwecken. Braze Pilot umfasst eine Bibliothek mit App-Simulationen für fiktive Marken aus verschiedenen Branchen, mit denen Sie erleben können, wie Ihr Messaging aus der Perspektive Ihrer Kund:innen aussehen könnte."
 description: "Entdecken Sie die verschiedenen Möglichkeiten, wie Sie Braze nutzen können, um Nachrichten vom Braze-Dashboard auf Ihr Smartphone zu senden."
 
 guide_featured_title: "Abschnittsartikel"
@@ -64,7 +64,7 @@ Nachdem Pilot eine Verbindung zu Ihrem Braze-Dashboard hergestellt hat, funktion
 
 - Daten zu Ihren Nutzeraktivitäten in Pilot speichert, einschließlich angepasster Daten, die für die fiktiven Marken in der App spezifisch sind.
 - Automatisch Sitzungsdaten, Geräteinformationen und Push-Token erfasst.
-- Push-Benachrichtigungen, In-App-Nachrichten und Content-Card-Messaging-Kanäle unterstützt, die eine SDK-Integration erfordern, um zu funktionieren.
+- Push-Benachrichtigungen, In-App Messages und Content-Card-Messaging-Kanäle unterstützt, die eine SDK-Integration erfordern, um zu funktionieren.
 
 Weitere Informationen zum Braze SDK finden Sie unter [Integration]({{site.baseurl}}/user_guide/get_started/integrations/).
 
@@ -82,7 +82,7 @@ Dieser Verbindungsstatus spiegelt die Erfahrung eines Gastes Ihrer App oder Webs
 
 Dieser Verbindungsstatus bedeutet, dass Braze Ihr Nutzerprofil anhand eines Ihnen zugewiesenen eindeutigen Bezeichners erkennt, der als externe ID bezeichnet wird. Sie können auf der Seite **Nutzersuche** Ihres Dashboards nach dieser externen ID suchen, um Ihr Nutzerprofil zu finden, in dem alle Nutzerattribute und Events gespeichert sind, die von Pilot basierend auf Ihren Aktivitäten in der App protokolliert wurden.
 
-![Ein Beispiel für ein Braze-Nutzerprofil für die Nutzer:in „torchie-208117".]({% image_buster /assets/img/braze_pilot/user_profile.png %})
+![Ein Beispiel für ein Braze-Nutzerprofil für die Nutzer:in „torchie-208117“.]({% image_buster /assets/img/braze_pilot/user_profile.png %})
 
 ### Verbindungstyp
 
@@ -138,4 +138,4 @@ Mit Kampagnen und Canvases senden Sie Nachrichten an Ihre Nutzer:innen.
 
 Braze Pilot unterstützt derzeit [In-App-Nachrichten]({{site.baseurl}}/in-app_messages/), die in Ihrer App angezeigt werden und zeitnahe Nachrichten übermitteln, während die Nutzer:in aktiv mit der App interagiert.
 
-![Eine In-App-Nachricht in der MovieCanon-App: „Gefällt Ihnen MovieCanon? Empfehlen Sie es Ihren Freunden!" mit der Option, Ihre E-Mail-Adresse einzugeben, um eine Empfehlung zu versenden.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}
+![Eine In-App-Nachricht in der MovieCanon-App: „Gefällt Ihnen MovieCanon? Empfehlen Sie es Ihren Freunden!“ mit der Option, Ihre E-Mail-Adresse einzugeben, um eine Empfehlung zu versenden.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}
