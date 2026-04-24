@@ -28,3 +28,8 @@ Keep established English marketing technology terms in English — do not transl
 - **Canvas / Canvases** (Braze product name, always English)
 
 When forming German compound words with these terms, use a hyphen: Bounce-Rate, Churn-Risiko, Churn-Definition, Conversion Goal.
+
+## Braze „Banners“-Kanal (Navigation)
+
+- In Kurztiteln (`nav_title`, `article_title`) und ähnlichen Navigationsbezeichnungen heißt der Kanal durchgängig **„Banner“** (Singular), nicht das englische Pluralwort **„Banners“**.
+- In Fließtext und `description` verwenden Sie natürliche deutsche Plural- und Kasusformen (z. B. **„Bannern“**, **„Banner-Kanal“**, **„Braze-Banner-Kanal“**), keine wörtlichen englischen Mischformen wie *„Braze-Banners-Kanal“* oder *„zum Erstellen von Banners“*.

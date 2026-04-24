@@ -1303,6 +1303,39 @@ def repair_spurious_bold_link_wrappers(translated_content: str):
     return translated_content, repairs
 
 
+def repair_de_channels_banners_landing(translated_path, translated_content, lang_key):
+    """Normalize German Banners channel landing front matter.
+
+    Auto-translate sometimes leaves English plural \"Banners\" in German YAML;
+    the de site uses \"Banner\" for nav titles and natural compounds in prose.
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/channels/banners.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if "nav_title: Banners" in new:
+        new = new.replace("nav_title: Banners", "nav_title: Banner")
+        repairs.append("de-banners-landing — nav_title: Banners → Banner")
+    if "article_title: Banners" in new:
+        new = new.replace("article_title: Banners", "article_title: Banner")
+        repairs.append("de-banners-landing — article_title: Banners → Banner")
+    if "Braze-Banners-Kanal" in new:
+        new = new.replace("Braze-Banners-Kanal", "Braze-Banner-Kanal")
+        repairs.append("de-banners-landing — Braze-Banner-Kanal compound")
+    if "zum Erstellen von Banners" in new:
+        new = new.replace("zum Erstellen von Banners", "zum Erstellen von Bannern")
+        repairs.append("de-banners-landing — Bannern in description")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_trailing_whitespace(translated_content: str):
     """Strip trailing spaces and tabs from each line (preserve newlines)."""
     lines = translated_content.split("\n")
@@ -1341,6 +1374,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(agents_ui_repairs)
+
+    translated_content, de_banners_repairs = repair_de_channels_banners_landing(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_banners_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

@@ -130,6 +130,7 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - Maintain consistent terminology throughout the file; follow the approved glossary
 - Keep translations concise; do not expand significantly beyond the English source length
 - **Inflected languages (e.g. Spanish, French, German, Portuguese):** Ensure adjectives, past participles used as adjectives, and similar words **agree in gender and number** with the nouns they modify. Example: Spanish plural *experimentos* requires a plural adjective (*experimentos multivariantes*, not *experimentos multivariante*). Pay special attention to short YAML values such as `description` and `nav_title` — mistakes there are easy to introduce but highly visible.
+- **Channel hub `nav_title` / `article_title`:** Messaging channel landings (paths like `_user_guide/channels/<channel>.md`) use short labels in YAML. Match the **wording already established** for that channel in the **same locale** (channel index, `_user_guide/message_building_by_channel/`, and related pages). Do not paste an **English plural UI label** into localized nav titles when the locale uses a different convention—for example **German** uses **„Banner“** (singular) for the Banners channel in navigation, not **„Banners“**.
 
 ### Inclusivity
 
