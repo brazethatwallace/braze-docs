@@ -1630,6 +1630,111 @@ def check_code_fence_balanced_quotes(content, label="translated"):
     return warnings
 
 
+# Triple backticks inside a paragraph line (with prose before or after)
+# are almost always a mis-formatted inline code span. Kramdown treats the
+# run of backticks as a fenced-code-block delimiter and breaks the
+# surrounding rendering. The content group forbids newlines and backticks
+# so we can only match a single-line token sequence like ``WYSIWYG``.
+_TRIPLE_BACKTICK_INLINE_RE = re.compile(r'```([^\s`][^\n`]*?)```')
+
+
+def repair_triple_backtick_inline_code(content):
+    """Rewrite mid-paragraph ``` ```word``` ``` to ``` `word` ``` (single
+    backticks).
+
+    The English source of PR #13304's
+    ``_user_guide/channels/email/html_editor/troubleshooting.md`` shipped
+    ``The plain text view removes your ```WYSIWYG``` (what you see...)``
+    on one line. Kramdown interprets the first `` ``` `` as a fenced-
+    code-block opener mid-paragraph, so everything from *WYSIWYG* onward
+    renders inside a dangling code block instead of as an inline span.
+    The bug rode into every locale because the auto-translate pipeline
+    mirrors the English source verbatim. This repair closes the loop
+    deterministically in post-processing.
+
+    Scope rules:
+
+    * Fence delimiter lines (``^```lang$`` / ``^```$``) are excluded via
+      ``_CODE_FENCE_OPEN_RE`` so we never touch a real fence opener.
+    * Lines *inside* an already-open fenced block are skipped so we
+      don't rewrite literal examples of Kramdown fencing syntax.
+    * Table-cell lines (``^\\s*\\|``) are skipped — triple backticks
+      inside table cells render as inline code in practice and rewriting
+      them risks altering column alignment or escaping meaning.
+    * Lines that are *entirely* a triple-backtick span (no surrounding
+      prose) are left alone — those are the author's shorthand for a
+      single-line code block, not the PR #13304 bug class.
+    * The content group ``[^\\s`][^\\n`]*?`` forbids a leading whitespace
+      or backtick so we don't accidentally chew into 4-backtick spans
+      or padded fence openers.
+    """
+    lines = content.splitlines()
+    in_fence = False
+    repair_count = 0
+    for i, L in enumerate(lines):
+        if _CODE_FENCE_OPEN_RE.match(L):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if L.lstrip().startswith("|"):
+            continue
+        matches = list(_TRIPLE_BACKTICK_INLINE_RE.finditer(L))
+        if not matches:
+            continue
+        residue = _TRIPLE_BACKTICK_INLINE_RE.sub("", L).strip()
+        if not residue:
+            continue
+        new_line = _TRIPLE_BACKTICK_INLINE_RE.sub(r"`\1`", L)
+        repair_count += len(matches)
+        lines[i] = new_line
+    if repair_count:
+        result = "\n".join(lines)
+        if content.endswith("\n"):
+            result += "\n"
+        return result, [
+            f"md-code-inline — rewrote {repair_count} "
+            f"\"```word```\" to \"`word`\" (triple backticks in a "
+            f"paragraph break Kramdown fenced-block parsing)"
+        ]
+    return content, []
+
+
+def check_triple_backtick_inline_code(content, label="translated"):
+    """Warn-only sibling of ``repair_triple_backtick_inline_code``.
+
+    Runs the same scan without rewriting so we can surface mid-paragraph
+    triple-backticks in the **English source** (where the bug usually
+    originates — PR #13304). The repair still fires on the translated
+    output, but flagging the source in the QC log prods humans to fix
+    upstream before the next wave of locales inherits the same mistake.
+    """
+    warnings = []
+    lines = content.splitlines()
+    in_fence = False
+    for i, L in enumerate(lines, start=1):
+        if _CODE_FENCE_OPEN_RE.match(L):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if L.lstrip().startswith("|"):
+            continue
+        matches = list(_TRIPLE_BACKTICK_INLINE_RE.finditer(L))
+        if not matches:
+            continue
+        residue = _TRIPLE_BACKTICK_INLINE_RE.sub("", L).strip()
+        if not residue:
+            continue
+        tokens = ", ".join(sorted({m.group(1) for m in matches}))[:120]
+        warnings.append(
+            f"md-code-inline — line {i} ({label}) uses triple backticks "
+            f"mid-paragraph around [{tokens}]; Kramdown will parse them as "
+            f"a fenced-block opener. Use single backticks for inline code."
+        )
+    return warnings
+
+
 _HEADING_RE = re.compile(r'^(#{1,6})\s+(.+?)\s*$', re.MULTILINE)
 _HEADING_SLUG_TAIL_RE = re.compile(r'\s*\{#[^}]+\}\s*$')
 
@@ -3026,6 +3131,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(table_col_repairs)
 
+    translated_content, tb_inline_repairs = repair_triple_backtick_inline_code(
+        translated_content
+    )
+    findings["repairs"].extend(tb_inline_repairs)
+
     translated_content, wire_repairs = repair_markdown_wire_format_tables(
         translated_content
     )
@@ -3091,6 +3201,9 @@ def qc_check_file(english_path, translated_path, lang_key):
         check_code_fence_balanced_quotes(
             translated_content, label=f"{lang_key} translation"
         )
+    )
+    findings["warnings"].extend(
+        check_triple_backtick_inline_code(english_content, label="english source")
     )
     findings["warnings"].extend(
         check_sibling_terminology_drift(translated_path, translated_content)
