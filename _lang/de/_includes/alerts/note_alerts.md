@@ -17,7 +17,7 @@ Ein Datums-String wie "12-1-2021" oder "12/1/2021" wird in ein Datetime-Objekt u
 {% if include.alert == 'Manage custom data storage' %}
 
 {% alert note %}
-Alle Nutzerprofildaten (angepasste Events, Angepasste Attribute, angepasste Daten) werden gespeichert, solange diese Profile aktiv sind.
+Alle Nutzerprofildaten (angepasste Events, angepasste Attribute, angepasste Daten) werden gespeichert, solange diese Profile aktiv sind.
 {% endalert %}
 
 {% endif %}
@@ -34,6 +34,14 @@ Braze erstellt erst dann Profile für Nutzer:innen, wenn diese die App zum erste
 
 {% alert note %}
 Alle Attribute stammen aus der Braze REST API.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+Sie können bis zu 350 Abo-Gruppen pro Workspace hinzufügen.
 {% endalert %}
 
 {% endif %}

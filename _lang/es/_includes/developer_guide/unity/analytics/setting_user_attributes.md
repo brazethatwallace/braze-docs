@@ -14,7 +14,7 @@ Braze proporciona métodos predefinidos para configurar los siguientes atributos
 - País del usuario
 - Ciudad de residencia del usuario
 - Suscripción por correo electrónico del usuario
-- Suscripción push de usuario
+- Suscripción push del usuario
 - Número de teléfono del usuario
 
 ### Configuración de atributos predeterminados
@@ -74,9 +74,9 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 {% endtab %}
 {% endtabs %}
 
-### Desactivar atributos predeterminados
+### Eliminar atributos predeterminados
 
-Para desactivar un atributo predeterminado del usuario, pasa `null` al método correspondiente.
+Para eliminar un atributo predeterminado del usuario, pasa `null` al método correspondiente.
 
 ```csharp
 BrazeBinding.SetUserFirstName(null);
@@ -109,10 +109,10 @@ AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
 ```
 {% endtab %}
 
-{% tab Double %}
+{% tab Float %}
 
 ```csharp
-AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
 ```
 
 {% endtab %}
@@ -135,7 +135,7 @@ AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute ke
 ```
 
 {% alert note %}
-Las fechas pasadas a Braze deben estar en el formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (como `2013-07-16T19:20:30+01:00`) o en el formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (como`2016-12-14T13:32:31.601-0800`).
+Las fechas pasadas a Braze deben estar en el formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (como `2013-07-16T19:20:30+01:00`) o en el formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (como `2016-12-14T13:32:31.601-0800`).
 {% endalert %}
 
 {% endtab %}
@@ -157,9 +157,9 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 Los valores de atributos personalizados tienen una longitud máxima de 255 caracteres; los valores más largos se truncarán.
 {% endalert %}
 
-### Desactivar atributos personalizados
+### Eliminar atributos personalizados
 
-Para desactivar un atributo personalizado, pasa la clave del atributo correspondiente al método `UnsetCustomUserAttribute`. 
+Para eliminar un atributo personalizado, pasa la clave del atributo correspondiente al método `UnsetCustomUserAttribute`. 
 
 ```csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
@@ -167,7 +167,7 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### Utilizar la API REST
 
-También puedes utilizar nuestra API REST para establecer o desestablecer atributos de usuario. Para más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra API REST para establecer o eliminar atributos de usuario. Para más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
 ## Configuración de las suscripciones de los usuarios
 
@@ -187,17 +187,17 @@ Ambas funciones toman como argumento `Appboy.Models.AppboyNotificationSubscripti
 | ------------------- | ---------- |
 | `OPTED_IN` | Suscrito y con adhesión voluntaria explícita |
 | `SUBSCRIBED` | Suscrito, pero sin adhesión voluntaria explícita |
-| `UNSUBSCRIBED` | No suscrito y/o sin adhesión voluntaria explícita |
+| `UNSUBSCRIBED` | No suscrito y/o con exclusión voluntaria explícita |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-Windows no necesita una adhesión voluntaria explícita para enviar notificaciones push a los usuarios. Cuando un usuario se registra para push, se establece de manera predeterminada `SUBSCRIBED` en lugar de `OPTED_IN`. Para saber más, consulta nuestra documentación sobre [la implementación de suscripciones y adhesiones voluntarias explícitas]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
+Windows no necesita una adhesión voluntaria explícita para enviar notificaciones push a los usuarios. Cuando un usuario se registra para push, se establece de manera predeterminada como `SUBSCRIBED` en lugar de `OPTED_IN`. Para saber más, consulta nuestra documentación sobre [la implementación de suscripciones y adhesiones voluntarias explícitas]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 {% endalert %}
 
 | Tipo de suscripción                        | Descripción |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | Los usuarios se configurarán en `SUBSCRIBED` automáticamente al recibir una dirección de correo electrónico válida. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
-| `PushNotificationSubscriptionType`       | Los usuarios se configurarán en `SUBSCRIBED` automáticamente tras un registro push válido. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
+| `EmailNotificationSubscriptionType`      | Los usuarios se configurarán como `SUBSCRIBED` automáticamente al recibir una dirección de correo electrónico válida. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
+| `PushNotificationSubscriptionType`       | Los usuarios se configurarán como `SUBSCRIBED` automáticamente tras un registro push válido. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) para más detalles. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}

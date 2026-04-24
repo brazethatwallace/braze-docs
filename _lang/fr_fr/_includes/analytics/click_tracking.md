@@ -26,7 +26,7 @@ Oui. Des paramètres statiques et dynamiques peuvent être ajoutés.
 
 ### Combien de temps les URL raccourcies restent-elles valides ?
 
-Les URL personnalisées sont valables deux mois à compter de la date d'enregistrement de l'URL. Pour le [raccourcissement de lien unifié]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/?sdktab=unified), qui ne fait pas de distinction entre liens statiques et personnalisés, tous les liens sont valables neuf semaines.
+Les URL personnalisées sont valables deux mois à compter de la date d'enregistrement de l'URL. Pour le [raccourcissement de lien unifié]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified), qui ne fait pas de distinction entre liens statiques et personnalisés, tous les liens sont valables neuf semaines.
 
 ### Le SDK Braze doit-il être installé pour raccourcir des liens ?
 
@@ -38,6 +38,6 @@ Non. Le raccourcissement des liens fonctionne sans aucune intégration SDK.
 
 ## Domaines personnalisés
 
-Le raccourcissement de lien vous permet également d'utiliser votre propre domaine pour personnaliser l'apparence de vos URL raccourcies et présenter une image de marque cohérente. Pour plus d'informations, consultez [Domaines personnalisés]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/).
+Le raccourcissement de lien vous permet également d'utiliser votre propre domaine pour personnaliser l'apparence de vos URL raccourcies et présenter une image de marque cohérente. Pour plus d'informations, consultez [Domaines personnalisés en libre-service]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
 
 {% endif %}

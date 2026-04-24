@@ -26,7 +26,7 @@ URL에 UTM 매개변수를 추가하려면 다음과 같이 하세요:
 
 ### 단축 URL은 얼마 동안 유효하나요?
 
-개인화된 URL은 URL 등록 시점부터 2개월 동안 유효합니다. 정적 또는 개인화된 구분이 없는 [통합 링크 단축]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/?sdktab=unified)의 경우, 모든 링크는 9주 동안 유효합니다.
+개인화된 URL은 URL 등록 시점부터 2개월 동안 유효합니다. 정적 또는 개인화된 구분이 없는 [통합 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified)의 경우, 모든 링크는 9주 동안 유효합니다.
 
 ### 링크를 단축하려면 Braze SDK를 설치해야 하나요?
 
@@ -38,6 +38,6 @@ URL에 UTM 매개변수를 추가하려면 다음과 같이 하세요:
 
 ## 커스텀 도메인
 
-링크 단축을 사용하면 자체 도메인을 사용하여 단축 URL의 모양과 느낌을 개인화할 수 있으므로 일관된 브랜드 이미지를 표현하는 데 도움이 됩니다. 자세한 내용은 [커스텀 도메인]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/)을 참조하세요.
+링크 단축을 사용하면 자체 도메인을 사용하여 단축 URL의 모양과 느낌을 개인화할 수 있으므로 일관된 브랜드 이미지를 표현하는 데 도움이 됩니다. 더 많은 정보는 [셀프 서비스 커스텀 도메인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)을 참조하세요.
 
 {% endif %}
