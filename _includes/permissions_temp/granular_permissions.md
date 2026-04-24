@@ -318,7 +318,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 
 | Product area | Permission | Definition |
 | --- | --- | --- |
-| Decisioning Studio Agents | View Decisioning Studio Agent | View Decisioning Studio Agents configuration whithout making changes |
+| Decisioning Studio Agents | View Decisioning Studio Agent | View Decisioning Studio Agents configuration without making changes |
 | Decisioning Studio Audience | View Decisioning Studio Audience | See audience details on Decisioning Studio Agent configuration summaries |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
