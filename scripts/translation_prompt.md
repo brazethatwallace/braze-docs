@@ -112,6 +112,15 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 
 - **`{% apitags %}...{% endapitags %}`** — Keep **canonical English identifiers** (do not translate the tag tokens). Filter/checkbox logic depends on exact tag-key matches; translating tags (e.g. Subscription → サブスクリプション) fragments filters into separate categories and can break matching. Use **only the half-width comma (`,`)** to separate multiple tags; do not use the full-width comma (、). Localize display text in headings and body only.
 
+### `multi_lang_include` and shared snippets
+
+- Never output the **same** `{% multi_lang_include path/to_snippet.md %}` **twice in a row** with only blank lines between. If the English source accidentally duplicates an include, your translation should **keep a single include** (and note the upstream typo if you are fixing English separately).
+- In **numbered dashboard steps** that show navigation paths in bold, keep **canonical English UI labels** exactly as in the Braze product (`Messaging`, `Campaigns`, `Create campaign`, and so on) so glossary checks and screenshots stay aligned—translate surrounding instructional words, not those tokens inside `**…**` path steps unless the style guide for that locale explicitly says otherwise.
+
+### Illustrative HTML and fenced examples
+
+- Translate **user-visible placeholder text** in illustrative snippets (for example a sample `<button>` label inside a short HTML block) unless the string is a literal API identifier, variable name, or Liquid token. Avoid leaving stray English UX scraps on an otherwise localized page.
+
 ## Quality guidelines
 
 ### Voice and tone
@@ -131,6 +140,8 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - Keep translations concise; do not expand significantly beyond the English source length
 - **Inflected languages (e.g. Spanish, French, German, Portuguese):** Ensure adjectives, past participles used as adjectives, and similar words **agree in gender and number** with the nouns they modify. Example: Spanish plural *experimentos* requires a plural adjective (*experimentos multivariantes*, not *experimentos multivariante*). Pay special attention to short YAML values such as `description` and `nav_title` — mistakes there are easy to introduce but highly visible.
 - **Channel hub `nav_title` / `article_title`:** Messaging channel landings (paths like `_user_guide/channels/<channel>.md`) use short labels in YAML. Match the **wording already established** for that channel in the **same locale** (channel index, `_user_guide/message_building_by_channel/`, and related pages). Do not paste an **English plural UI label** into localized nav titles when the locale uses a different convention—for example **German** uses **„Banner“** (singular) for the Banners channel in navigation, not **„Banners“**.
+- **Spanish (and similar Romance languages):** Watch **number and person agreement** in relative clauses and parallel comparisons (for example *los análisis … que incluyen*, not *que incluye*; when contrasting two product types, keep **parallel number** in each clause—*las campañas … mientras que los Canvas …*).
+- **Brazilian Portuguese analytics copy:** Prefer **desempenho** (message/historical performance) over the English loanword **performance** in reporting and analytics descriptions unless you are quoting a proper product name that truly requires English.
 
 ### Inclusivity
 

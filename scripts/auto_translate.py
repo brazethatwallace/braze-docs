@@ -1001,6 +1001,53 @@ def repair_markdown_wire_format_tables(content):
     return content, []
 
 
+_DUP_ADJACENT_TARGET_AUDIENCES = re.compile(
+    r"(\{%\s*multi_lang_include\s+target_audiences\.md\s*%\})\s*\n\1"
+)
+
+
+def repair_duplicate_adjacent_target_audiences_include(content):
+    """Collapse back-to-back duplicate ``target_audiences`` includes.
+
+    The English ``create_a_banner`` page briefly duplicated this include;
+    translations should not repeat the same block twice with only whitespace
+    between (renders duplicated content).
+    """
+    repairs = []
+    new = content
+    total = 0
+    while True:
+        new2, n = _DUP_ADJACENT_TARGET_AUDIENCES.subn(r"\1", new, count=1)
+        if not n:
+            break
+        new = new2
+        total += n
+    if total:
+        return new, [
+            f"liquid_include — removed duplicate adjacent target_audiences.md ({total}x)"
+        ]
+    return content, []
+
+
+def repair_pt_br_banners_reporting_performance(translated_path, translated_content):
+    """Prefer ``desempenho`` over English *performance* in PT-BR banner reporting."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/pt_br/_user_guide/channels/banners/reporting.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    if "performance da mensagem" in new:
+        new = new.replace("performance da mensagem", "desempenho da mensagem")
+        repairs.append("pt-banners-reporting — performance → desempenho (mensagem)")
+    if "performance histórica" in new:
+        new = new.replace("performance histórica", "desempenho histórico")
+        repairs.append("pt-banners-reporting — performance histórica → desempenho histórico")
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_urls(english_content, translated_content):
     """Ensure markdown link URLs match the English source."""
     en_urls = _extract_md_link_urls(english_content)
@@ -1402,6 +1449,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(wire_repairs)
+
+    translated_content, dup_inc_repairs = (
+        repair_duplicate_adjacent_target_audiences_include(translated_content)
+    )
+    findings["repairs"].extend(dup_inc_repairs)
+
+    translated_content, pt_rep_repairs = repair_pt_br_banners_reporting_performance(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(pt_rep_repairs)
 
     translated_content, brazeai_repairs = repair_brazeai_trademark(
         translated_content
