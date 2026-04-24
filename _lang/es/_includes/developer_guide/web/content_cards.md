@@ -2,7 +2,11 @@
 
 ## Requisitos previos
 
-Antes de poder utilizar las Tarjetas de contenido, tendrás que [integrar el SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) en tu aplicación. Sin embargo, no es necesaria ninguna configuración adicional. Para crear tu propia interfaz de usuario, consulta la [Guía de personalización de tarjetas de contenido]({{site.baseurl}}/developer_guide/content_cards/).
+Antes de poder utilizar las Tarjetas de contenido, tendrás que [integrar el SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) en tu aplicación. Sin embargo, no es necesaria ninguna configuración adicional. Para crear tu propia interfaz de usuario, consulta la [guía de personalización de tarjetas de contenido]({{site.baseurl}}/developer_guide/content_cards/).
+
+{% alert note %}
+Algunos bloqueadores de anuncios y extensiones de privacidad del navegador pueden bloquear el script del SDK Web de Braze o las solicitudes de red relacionadas, lo que puede impedir que las Tarjetas de contenido se carguen. Si estás utilizando el método de integración por CDN, considera cambiar al [método de integración por NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), que almacena las bibliotecas del SDK localmente en tu sitio web y puede evitar algunos problemas relacionados con bloqueadores de anuncios.
+{% endalert %}
 
 ## IU estándar de la fuente
 
@@ -78,7 +82,7 @@ Todas las Tarjetas de contenido tienen estas propiedades compartidas:
 |---|---|
 | `expiresAt` | La marca de tiempo UNIX de la fecha de caducidad de la tarjeta.|
 | `extras`| (Opcional) Datos de par clave-valor formateados como un objeto de cadena con una cadena de valor. |
-| `id` | (Opcional) El ID de la tarjeta. Esto se comunicará a Braze con eventos para fines de análisis. |
+| `id` | (Opcional) El ID de la tarjeta. Se comunicará a Braze con eventos para fines de análisis. |
 | `pinned` | Esta propiedad refleja si la tarjeta se configuró como "anclada" en el dashboard.|
 | `updated` | La marca de tiempo UNIX de la última vez que se modificó esta tarjeta. |
 | `viewed` | Esta propiedad refleja si el usuario ha visto la tarjeta o no.|
@@ -290,7 +294,7 @@ Para una integración estándar de la fuente de Tarjetas de contenido, puedes ut
 </script>
 ```
 
-![Configuración en Google Tag Manager de una etiqueta HTML personalizada que muestra la fuente de Tarjetas de contenido.]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
+![Configuración de etiquetas en Google Tag Manager de una etiqueta HTML personalizada que muestra la fuente de Tarjetas de contenido.]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
 {% endtab %}
 
 {% tab manual %}

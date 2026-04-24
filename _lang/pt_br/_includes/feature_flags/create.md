@@ -17,7 +17,7 @@ Para gerenciar os Feature Flags no dashboard, você precisará ser um administra
 | Permissão                                                                    | O que você pode fazer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Gerenciar Feature Flags**                                                      | Visualizar, criar e editar Feature Flags.     |
-| **Campanhas de acesso, Canvas, cartões, Feature Flags, segmentos, biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
+| **Acessar Campanhas, Canvas, cartões, Feature Flags, segmentos, Biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Criação de um Feature Flag
@@ -40,7 +40,7 @@ Em **Detalhes do Feature Flag**, insira um nome, ID e descrição para seu Featu
 | Nome         | Um título legível para seus profissionais de marketing e administradores.              |
 | ID           | O ID exclusivo que você usará em seu código para verificar se esse recurso está [ativado para um usuário](#enabled). Esse ID não pode ser alterado posteriormente, portanto, revise as [práticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
 | Descrição  | Uma descrição opcional que fornece algum contexto sobre seu Feature Flag.   |
-| Propriedades   | Propriedades opcionais que configuram remotamente seu Feature Flag. Elas podem ser sobrescritas em etapas do canva ou em experimentos de Feature Flag. |
+| Propriedades   | Propriedades opcionais que configuram remotamente seu Feature Flag. Elas podem ser sobrescritas em etapas do Canvas ou em experimentos de Feature Flag. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Etapa 2a: Criar propriedades personalizadas
@@ -49,7 +49,7 @@ Em **Propriedades**, você pode opcionalmente criar propriedades personalizadas 
 
 {% tabs local %}
 {% tab example %}
-No exemplo a seguir, o Feature Flag mostra um banner de produto esgotado para uma loja de eCommerce usando as propriedades personalizadas listadas: 
+No exemplo a seguir, o Feature Flag mostra um banner de produto esgotado para uma loja de eCommerce usando as propriedades personalizadas listadas:
 
 |Nome da propriedade|Tipo|Valor|
 |--|--|--|
@@ -87,7 +87,7 @@ Para lançar um flag com apenas uma regra ou para um público singular, adicione
 
 ## Lançamentos de Feature Flag com múltiplas regras
 
-Use lançamentos de Feature Flag com múltiplas regras para definir uma sequência de regras para avaliar usuários, o que permite segmentação precisa e lançamentos controlados de recursos. Esse método é ideal para implantar o mesmo recurso para públicos diversos. 
+Use lançamentos de Feature Flag com múltiplas regras para definir uma sequência de regras para avaliar usuários, o que permite segmentação precisa e lançamentos controlados de recursos. Esse método é ideal para implantar o mesmo recurso para públicos diversos.
 
 ### Ordem de avaliação
 
@@ -119,7 +119,7 @@ Por padrão, as regras são ordenadas na sequência em que foram criadas, mas vo
 Vamos supor que você trabalhe para uma marca de eCommerce e tenha uma nova página de checkout que deseja lançar em diferentes regiões para garantir estabilidade. Usando Feature Flags com múltiplas regras, você pode definir o seguinte:
 
 - **Regra 1:** Seu segmento dos EUA está definido para 100%.
-- **Regra 2:** Seu segmento está definido para 50% dos seus usuários brasileiros, então nem todos recebem o fluxo ao mesmo tempo. 
+- **Regra 2:** Seu segmento está definido para 50% dos seus usuários brasileiros, então nem todos recebem o fluxo ao mesmo tempo.
 - **Regra 3 (Restante do público):** Para todos os outros usuários, ative sua regra "Restante do público" e defina-a para 15%, para que uma parte de todos os usuários possa finalizar a compra com o novo fluxo.
 
 #### Alcançar os testadores internos primeiro
@@ -128,12 +128,12 @@ Vamos supor que você seja um gerente de produto que quer garantir que seus test
 
 ## Usando o campo "enabled" para seus Feature Flags {#enabled}
 
-Depois de definir seu Feature Flag, configure seu app ou site para verificar se ele está ativado para um usuário específico. Quando estiver ativado, você definirá alguma ação ou fará referência às propriedades variáveis do Feature Flag com base no seu caso de uso. O SDK da Braze fornece métodos getter para obter o status do Feature Flag e suas propriedades em seu app. 
+Depois de definir seu Feature Flag, configure seu app ou site para verificar se ele está ativado para um usuário específico. Quando estiver ativado, você definirá alguma ação ou fará referência às propriedades variáveis do Feature Flag com base no seu caso de uso. O SDK da Braze fornece métodos getter para obter o status do Feature Flag e suas propriedades em seu app.
 
-Os Feature Flags são atualizados automaticamente no início da sessão para que você possa exibir a versão mais atualizada do seu recurso no lançamento. O SDK armazena esses valores em cache para que possam ser usados off-line. 
+Os Feature Flags são atualizados automaticamente no início da sessão para que você possa exibir a versão mais atualizada do seu recurso no lançamento. O SDK armazena esses valores em cache para que possam ser usados off-line.
 
 {% alert note %}
-Certifique-se de registrar [as impressões de Feature Flags](#impressions). 
+Certifique-se de registrar [as impressões de Feature Flags](#impressions).
 {% endalert %}
 
 Digamos que você esteja implementando um novo tipo de perfil de usuário para o seu app. Você pode definir o `ID` como `expanded_user_profile`. Em seguida, o app verificaria se deve exibir esse novo perfil de usuário para um usuário específico. Por exemplo:
@@ -216,7 +216,7 @@ if (featureFlag != null && featureFlag.Enabled) {
 ```javascript
 const featureFlag = await BrazePlugin.getFeatureFlag("expanded_user_profile");
 if (featureFlag?.enabled) {
-  console.log(`expanded_user_profile is enabled`);  
+  console.log(`expanded_user_profile is enabled`);
 } else {
   console.log(`expanded_user_profile is not enabled`);
 }
@@ -247,7 +247,7 @@ end if
 
 ### Registro da impressão de um Feature Flag {#impressions}
 
-Rastreie a impressão de um Feature Flag sempre que um usuário tiver a oportunidade de interagir com seu novo recurso ou quando ele __poderia__ ter interagido se o recurso estivesse desativado (no caso de um grupo de controle em um teste A/B). As impressões de Feature Flags são registradas apenas uma vez por sessão. 
+Rastreie a impressão de um Feature Flag sempre que um usuário tiver a oportunidade de interagir com seu novo recurso ou quando ele __poderia__ ter interagido se o recurso estivesse desativado (no caso de um grupo de controle em um teste A/B). As impressões de Feature Flags são registradas apenas uma vez por sessão.
 
 Normalmente, você pode colocar essa linha de código diretamente abaixo de onde faz referência ao Feature Flag em seu app:
 
@@ -886,9 +886,9 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## Verificando a elegibilidade do usuário
 
-Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar Usuários** e pesquise e selecione um usuário.
+Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar usuários** e pesquise e selecione um usuário.
 
-Na guia **Elegibilidade dos Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de um Feature Flag.
+Na guia **Elegibilidade dos Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de um Feature Flag.
 
 ![Uma imagem mostrando a tabela de Feature Flags para os quais um usuário é elegível.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
@@ -958,4 +958,4 @@ Adicione uma descrição ao seu Feature Flag. Embora esse seja um campo opcional
 
 É muito comum deixarmos recursos 100% implementados por mais tempo do que o necessário.
 
-Para ajudar a manter seu código (e o dashboard da Braze) limpo, remova os Feature Flags permanentes de sua base de código depois que todos os usuários tiverem feito upgrade e você não precisar mais da opção de desativar o recurso. Isso ajuda a reduzir a complexidade de seu ambiente de desenvolvimento, mas também mantém sua lista de Feature Flags organizada.
+Para ajudar a manter seu código (e o dashboard da Braze) limpo, remova os Feature Flags permanentes da sua base de código depois que todos os usuários tiverem feito upgrade e você não precisar mais da opção de desativar o recurso. Isso ajuda a reduzir a complexidade do seu ambiente de desenvolvimento e também mantém sua lista de Feature Flags organizada.

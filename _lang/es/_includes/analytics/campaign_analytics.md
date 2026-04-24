@@ -72,6 +72,20 @@ En Canvas, verás el rendimiento de los mensajes dentro de la aplicación mapead
 
 {% endif %}
 
+#### Audiencia estimada y audiencia actual
+
+Dependiendo del tamaño de tu espacio de trabajo, el panel **Detalles de la campaña** puede etiquetar las estadísticas de audiencia como **Audiencia estimada** o **Audiencia actual**.
+
+La siguiente tabla explica cuándo se utiliza cada etiqueta y qué significa.
+
+| Etiqueta del pie | Cuándo se utiliza |
+| --- | --- |
+| **Audiencia estimada** | Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Usuarios alcanzables** en el generador de segmentos. Se esperan márgenes de error, especialmente para espacios de trabajo grandes o segmentos pequeños como proporción del espacio de trabajo. |
+| **Audiencia actual** | Braze puede calcular la estadística predeterminada con un escaneo completo de los perfiles del espacio de trabajo, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Para más detalles sobre el comportamiento de muestreo, **Calcular estadísticas exactas** y la segmentación de **Usuarios alcanzables**, consulta [Medir el tamaño del segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+
 {% if include.channel == "Content Card" %}
 
 #### Grupos de control {#cc-control-group}
@@ -194,7 +208,7 @@ Si faltan imágenes en una exportación, trabaja con tus desarrolladores para qu
 
 #### Métricas de la tarjeta de contenido
 
-Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para ver las definiciones completas de todas las métricas de las tarjetas de contenido, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) y filtra por tarjetas de contenido.
+Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para ver las definiciones completas de todas las métricas de las tarjetas de contenido, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) y filtra por Content Cards.
 
 <style>
     .no-split {
@@ -430,7 +444,7 @@ Diferido o aplazamiento es cuando un correo electrónico no se entregó inmediat
 
 Los _Aplazamientos_ difieren de los _Rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
 
-Ten en cuenta que los _Aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, segmento SQL, compartir datos de Snowflake). Si quieres incluirlo en los análisis de campaña o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Ten en cuenta que los _Aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el Generador de consultas, segmento SQL, Snowflake Data Sharing). Si quieres incluirlo en los análisis de campaña o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
 
 ##### Estimación de la tasa de apertura real {#estimated-real-open-rate}
 
@@ -442,7 +456,7 @@ Dado que esta métrica se recalcula de forma continua, el valor de la _Estimaci�
 
 Normalmente se necesitan unos 10 000 correos electrónicos entregados para que la estadística se calcule correctamente, aunque ese número puede variar en función de la tasa de clics. Si no se puede calcular la estadística, la columna muestra "--".
 
-###### Limitaciones
+###### Consideraciones
 
 La estimación de la tasa de apertura real solo está disponible en campañas y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
 
@@ -525,6 +539,12 @@ Los informes sobre _Clics en botón 1_ y _Clics en botón 2_ solo funcionan cuan
         </tr>
     </tbody>
 </table>
+
+#### Discrepancias entre grupos de control y variantes
+
+Cuando una campaña de mensajes dentro de la aplicación tiene una división de variantes 50-50, a veces el grupo de control tendrá un porcentaje ligeramente superior al de la variante (como 51 % para el grupo de control y 49 % para la variante). Esta discrepancia se debe a una diferencia en el tiempo de renderizado.
+
+La distribución entre los grupos de control y variante está pensada para ser aproximadamente uniforme, pero la asignación a una variante ocurre cuando el mensaje dentro de la aplicación se envía realmente al dispositivo. Algunos usuarios pueden no desencadenar nunca el mensaje dentro de la aplicación (por ejemplo, nunca realizan la acción que desencadena el evento personalizado requerido), lo que puede causar diferencias en el tamaño de los grupos.
 
 {% elsif include.channel == "KakaoTalk" %}
 
@@ -826,7 +846,7 @@ El panel **Correlación de conversión** te da información sobre qué atributos
 
 ## Generador de informes
 
-También puedes usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus campañas de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo campañas de KakaoTalk seleccionando **KakaoTalk** en **Canales**, o filtrando por cualquier etiqueta que hayas aplicado a tus campañas de KakaoTalk.
+También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus campañas de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo campañas de KakaoTalk seleccionando **KakaoTalk** en **Canales**, o filtrando por cualquier etiqueta que hayas aplicado a tus campañas de KakaoTalk.
 
 {% endif %}
 

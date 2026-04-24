@@ -2,13 +2,13 @@
 
 ## Creación de un conjunto de permisos
 
-Usa conjuntos de permisos para agrupar permisos relacionados con áreas temáticas o acciones específicas. Puedes aplicar conjuntos de permisos a los usuarios del dashboard que necesiten el mismo acceso en diferentes espacios de trabajo. Para crear un conjunto de permisos, ve a **Configuración** > **Configuración de permisos** y selecciona **Crear conjunto de permisos**. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions).
+Usa conjuntos de permisos para agrupar permisos relacionados con áreas temáticas o acciones específicas. Puedes aplicar conjuntos de permisos a los usuarios del dashboard que necesiten el mismo acceso en diferentes espacios de trabajo. Para crear un conjunto de permisos, ve a **Configuración** > **Configuración de permisos** y selecciona **Crear conjunto de permisos**. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
 |Nombre|Permisos|
 |-----------|----------------|
-|Desarrolladores|«Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de usuarios del evento», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK».|
+|Desarrolladores|«Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de eventos de usuario», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK».|
 |Especialistas en marketing|«Ver campañas», «Editar campañas», «Archivar campañas», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver reglas de limitación de frecuencia», «Editar reglas de limitación de frecuencia», «Ver priorización de mensajes», «Editar priorización de mensajes», «Ver bloques de contenido», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver segmentos», «Editar segmentos», «Editar grupo de control global», «Ver plantillas de IAM», «Editar plantillas de IAM», «Archivar plantillas de IAM», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Archivar plantillas de correo electrónico», «Ver plantillas de webhook», «Editar plantillas de webhook», «Archivar plantillas de webhook», «Ver plantillas de enlaces de correo electrónico», «Editar plantillas de enlaces de correo electrónico», «Ver activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias», «Editar informes del dashboard», «Ver plantillas de banners», «Ver configuración de localización», «Usar Operator», «Ver agentes de Decisioning Studio», «Ver evento de conversión de Decisioning Studio».|
 |Gestión de usuarios|«Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos».|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -17,7 +17,7 @@ Usa conjuntos de permisos para agrupar permisos relacionados con áreas temátic
 
 ## Crear un rol
 
-Los roles permiten una mayor estructura al agrupar los permisos personalizados individuales con los controles de acceso al espacio de trabajo. Esto es especialmente útil si tienes muchas marcas o espacios de trabajo regionales en un mismo dashboard. Con los roles, puedes añadir usuarios del dashboard a los espacios de trabajo adecuados y concederles directamente los permisos asociados. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions).
+Los roles permiten una mayor estructura al agrupar los permisos personalizados individuales con los controles de acceso al espacio de trabajo. Esto es especialmente útil si tienes muchas marcas o espacios de trabajo regionales en un mismo dashboard. Con los roles, puedes añadir usuarios del dashboard a los espacios de trabajo adecuados y concederles directamente los permisos asociados. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
@@ -81,8 +81,8 @@ Para editar los permisos actuales de administrador, empresa o espacio de trabajo
 
 Los administradores tienen acceso a todas las funciones y la posibilidad de modificar cualquier configuración de la empresa. Pueden:
 
-- Cambiar [la configuración de aprobación]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/campaign_approval/#turning-on-campaign-approval)
-- Añadir, editar, eliminar, suspender o anular la suspensión de otros [usuarios de Braze]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/adding_users_to_your_dashboard/#adding-braze-users)
+- Cambiar [la configuración de aprobación]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow)
+- Añadir, editar, eliminar, suspender o anular la suspensión de otros [usuarios de Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
 - Exportar usuarios de Braze como archivo CSV
 
 Para conceder o eliminar privilegios de administrador, selecciona **Este usuario es un administrador** y luego selecciona **Actualizar usuario**.
@@ -90,7 +90,7 @@ Para conceder o eliminar privilegios de administrador, selecciona **Este usuario
 ![Los detalles del usuario seleccionado con la casilla de verificación de administrador activada.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
-Si eliminas los privilegios de administrador de un usuario, este no podrá acceder a Braze hasta que le asignes al menos un [permiso a nivel de empresa o de espacio de trabajo]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+Si eliminas los privilegios de administrador de un usuario, este no podrá acceder a Braze hasta que le asignes al menos un [permiso a nivel de empresa o de espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -111,7 +111,7 @@ Para gestionar los siguientes permisos a nivel de empresa para un usuario, marca
 
 ### Espacio de trabajo
 
-Puedes dar a un usuario permisos diferentes para cada espacio de trabajo al que pertenezca en Braze. Para gestionar los permisos a nivel del espacio de trabajo, selecciona **Seleccionar espacios de trabajo y permisos** y luego elige los permisos manualmente o asigna un [conjunto de permisos o un rol]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que hayas creado previamente. Si necesitas dar a un usuario permisos diferentes para distintos espacios de trabajo, repite este proceso tantas veces como sea necesario. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Puedes dar a un usuario permisos diferentes para cada espacio de trabajo al que pertenezca en Braze. Para gestionar los permisos a nivel del espacio de trabajo, selecciona **Seleccionar espacios de trabajo y permisos** y luego elige los permisos manualmente o asigna un [conjunto de permisos o un rol]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que hayas creado previamente. Si necesitas dar a un usuario permisos diferentes para distintos espacios de trabajo, repite este proceso tantas veces como sea necesario. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -183,7 +183,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Ver conmutadores de características                              | Ver conmutadores de características |
 | Editar conmutadores de características                              | Crear y actualizar conmutadores de características |
 | Archivar conmutadores de características                           | Mover conmutadores de características al archivo |
-| Ver plantillas de mensajes de WhatsApp                 | Permite a los usuarios ver [plantillas de mensajes de WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message). |
+| Ver plantillas de mensajes de WhatsApp                 | Permite a los usuarios ver [plantillas de mensajes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/?tab=template%20messages#step-2-compose-your-whatsapp-message). |
 | Editar plantillas de mensajes de WhatsApp | Permite a los usuarios crear plantillas de mensajes de WhatsApp en el generador de plantillas. Esta característica está actualmente en acceso anticipado. |
 | Ver segmentos                                   | Ver segmentos. Los usuarios deben tener el permiso «Ver segmentos» para tener el permiso «Editar segmentos» o «Archivar segmentos». |
 | Archivar segmentos                                | Archivar y desarchivar segmentos. Los usuarios con el permiso «Archivar segmentos» también deben tener el permiso «Ver segmentos». |
@@ -222,7 +222,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Editar grupos internos                            | Crear y actualizar grupos internos |
 | Eliminar grupos internos                          | Eliminar grupos internos |
 | Ver registro de actividad de mensajes                       | Ver registros de actividad de mensajes |
-| Ver registro de usuarios del evento                             | Ver registros de usuarios del evento |
+| Ver registro de eventos de usuario                             | Ver registros de eventos de usuario |
 | Ver identificadores de API                            | Ver identificadores de API y otros identificadores |
 | Ver panel de uso de API                        | Ver el panel de uso de API |
 | Ver límites de API                                 | Ver límites de velocidad de API |
@@ -270,8 +270,8 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Ver transformación de datos                        | Ver transformaciones de datos |
 | Editar transformación de datos                        | Crear y actualizar transformaciones de datos |
 | Editar plantillas de Canvas                           | Crear y actualizar plantillas de Canvas |
-| Aprobar campañas                               | Aprobar o rechazar campañas. El [flujo de trabajo de aprobación de campañas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
-| Aprobar Canvas                                | Aprobar o rechazar Canvas. El [flujo de trabajo de aprobación de Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
+| Aprobar campañas                               | Aprobar o rechazar campañas. El [flujo de trabajo de aprobación de campañas]({{site.baseurl}}/user_guide/messaging/governance/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
+| Aprobar Canvas                                | Aprobar o rechazar Canvas. El [flujo de trabajo de aprobación de Canvas]({{site.baseurl}}/user_guide/messaging/governance/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
 | Ver ubicaciones de banners                                 | Ver ubicaciones de banners |
 | Editar ubicaciones de banners                                 | Ver ubicaciones de banners sin realizar cambios |
 | Archivar ubicaciones de banners                              | Mover ubicaciones de banners al archivo |

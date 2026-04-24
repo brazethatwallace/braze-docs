@@ -4,11 +4,15 @@
 
 Bevor Sie Content-Cards verwenden können, müssen Sie [das Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) in Ihre App integrieren. Es ist jedoch keine zusätzliche Einrichtung erforderlich. Wenn Sie stattdessen Ihr eigenes UI erstellen möchten, lesen Sie die [Anleitung zur Anpassung von Content-Cards]({{site.baseurl}}/developer_guide/content_cards/).
 
+{% alert note %}
+Einige Werbeblocker und Browser-Datenschutzerweiterungen können das Braze Web SDK-Skript oder zugehörige Netzwerkanfragen blockieren, was dazu führen kann, dass Content-Cards nicht geladen werden. Wenn Sie die CDN-Integrationsmethode verwenden, sollten Sie einen Wechsel zur [NPM-Integrationsmethode]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web) in Betracht ziehen, die SDK-Bibliotheken lokal auf Ihrer Website speichert und einige Probleme im Zusammenhang mit Werbeblockern vermeiden kann.
+{% endalert %}
+
 ## Standard-Feed-UI
 
 Um die integrierte Content-Cards-UI zu verwenden, müssen Sie angeben, wo der Feed auf Ihrer Website angezeigt werden soll. 
 
-In diesem Beispiel möchten wir den Content-Card-Feed in `<div id="feed"></div>` platzieren. Wir verwenden drei Buttons, um den Feed auszublenden, einzublenden oder umzuschalten (d. h. je nach aktuellem Status aus- oder einzublenden).
+In diesem Beispiel möchten wir den Content-Cards-Feed in `<div id="feed"></div>` platzieren. Wir verwenden drei Buttons, um den Feed auszublenden, einzublenden oder umzuschalten (d. h. je nach aktuellem Status aus- oder einzublenden).
 
 ```html
 
@@ -141,7 +145,7 @@ Das [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.clas
 
 ## Kontrollgruppe
 
-Wenn Sie den standardmäßigen Content-Card-Feed verwenden, werden Impressionen und Klicks automatisch getrackt.
+Wenn Sie den standardmäßigen Content-Cards-Feed verwenden, werden Impressionen und Klicks automatisch getrackt.
 
 Wenn Sie eine angepasste Integration für Content-Cards verwenden, müssen Sie [Impressionen protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/), wenn eine Kontrollgruppen-Karte gesehen worden wäre. Achten Sie darauf, dass Sie bei der Protokollierung der Impressionen in einem A/B-Test auch die Kontrollgruppen-Karten berücksichtigen. Diese Karten sind leer, und obwohl sie von den Nutzer:innen nicht gesehen werden, sollten Sie dennoch Impressionen protokollieren, um zu vergleichen, wie sie im Vergleich zu Nicht-Kontrollkarten abschneiden.
 
@@ -172,7 +176,7 @@ Verwenden Sie diese Methoden, wenn Sie Ihr eigenes Content-Card-UI erstellen:
 |[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| Protokolliert Impression-Events für ein Array von Karten. Rufen Sie dies auf, wenn Karten gerendert und für die:den Nutzer:in sichtbar sind. Erforderlich für genaues Kampagnen-Reporting bei Verwendung eines angepassten UI, da Impressionen außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
 |[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| Protokolliert ein Klick-Event für eine einzelne Karte. Rufen Sie dies auf, wenn eine:ein Nutzer:in mit einer Karte in Ihrem angepassten UI interagiert. Erforderlich für genaues Kampagnen-Reporting, da Klicks außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
 |[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| Verarbeitet die URL einer Karte und führt die konfigurierte Klick-Aktion aus, einschließlich Braze-Aktionen (`brazeActions://`-URLs) und Standard-URL-Navigation. Rufen Sie dies in Ihrem Karten-Klick-Handler auf, um sicherzustellen, dass im Braze-Dashboard konfigurierte Klick-Verhaltensweisen ausgeführt werden. |
-|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Blendet eine Karte programmatisch aus und entfernt sie aus dem Feed der:des Nutzers:in. Verwenden Sie dies, um Nutzer:innen das Ausblenden von Karten in Ihrem angepassten UI zu ermöglichen. |
+|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Blendet eine Karte programmatisch aus und entfernt sie aus dem Feed der:des Nutzer:in. Verwenden Sie dies, um Nutzer:innen das Ausblenden von Karten in Ihrem angepassten UI zu ermöglichen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Weitere Einzelheiten finden Sie in der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).

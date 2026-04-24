@@ -22,7 +22,7 @@ Par défaut, la période prise en compte par **Campaign Analytics** correspond a
 
 ### Détails de la campagne
 
-Le panneau **Détails de la campagne** présente un aperçu global des performances de votre
+Le panneau **Campaign Details** présente un aperçu global des performances de votre
   {% if include.channel == "banner" %}bannière. 
   {% elsif include.channel == "Content Card" %}carte de contenu.
   {% elsif include.channel == "email" %}e-mail.
@@ -72,35 +72,49 @@ Dans Canvas, les performances des messages in-app sont cartographiées sur le Ca
 
 {% endif %}
 
+#### Audience estimée et audience actuelle
+
+Selon la taille de votre espace de travail, le panneau **Campaign Details** peut afficher les statistiques d'audience sous le libellé **Estimated Audience** ou **Current Audience**.
+
+Le tableau suivant explique quand chaque libellé est utilisé et ce qu'il signifie.
+
+| Libellé | Quand il est utilisé |
+| --- | --- |
+| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
+| **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+
 {% if include.channel == "Content Card" %}
 
 #### Groupes de contrôle {#cc-control-group}
 
-Pour mesurer l'impact d'une carte de contenu individuelle, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Détails de la campagne** n'inclut pas les indicateurs de la variante Groupe de contrôle.
+Pour mesurer l'impact d'une carte de contenu individuelle, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Campaign Details** n'inclut pas les indicateurs de la variante Groupe de contrôle.
 
 {% elsif include.channel == "SMS" %}
 
 #### Groupes de contrôle {#sms-control-group}
 
-Pour mesurer l'impact d'un SMS, MMS ou message RCS individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Détails de la campagne** n'inclut pas les indicateurs de la variante Groupe de contrôle.
+Pour mesurer l'impact d'un SMS, MMS ou message RCS individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Campaign Details** n'inclut pas les indicateurs de la variante Groupe de contrôle.
 
 {% elsif include.channel == "whatsapp" %}
 
 #### Groupes de contrôle {#whatsapp-control-group}
 
-Pour mesurer l'impact d'un message WhatsApp individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Détails de la campagne** n'inclut pas les indicateurs de la variante Groupe de contrôle.
+Pour mesurer l'impact d'un message WhatsApp individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Campaign Details** n'inclut pas les indicateurs de la variante Groupe de contrôle.
 
 {% elsif include.channel == "webhook" %}
 
 #### Groupes de contrôle {#webhook-control-group}
 
-Pour mesurer l'impact d'un message webhook individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Détails de la campagne** n'inclut pas les indicateurs de la variante Groupe de contrôle.
+Pour mesurer l'impact d'un message webhook individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) à un test A/B. Le panneau supérieur **Campaign Details** n'inclut pas les indicateurs de la variante Groupe de contrôle.
 
 {% endif %}
 
 #### Modifications depuis la dernière consultation
 
-Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Modifications depuis la dernière consultation* sur la page d'aperçu de la campagne. Sélectionnez **Modifications depuis la dernière consultation** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
+Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Modifications depuis la dernière consultation* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
 
 <!--
 ### Message Performance
@@ -110,61 +124,61 @@ The **Message Performance** panel outlines how well your message has performed a
 {% if include.channel == "Content Card" %}
 ### Performance de la carte de contenu
 
-Le panneau **Performance de la carte de contenu** indique le niveau de performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **Content Card Performance** indique le niveau de performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Analytique des performances des messages des cartes de contenu]({% image_buster /assets/img/cc-message-performance.png %})
 
 {% elsif include.channel == "email" %}
 ### Performances des e-mails
 
-Le panneau **Performances des e-mails** indique le niveau de performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **Email Performance** indique le niveau de performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Analytique des performances des messages e-mail]({% image_buster /assets/img_archive/email_message_performance.png %})
 
 {% elsif include.channel == "in-app message" %}
 ### Performance des messages in-app
 
-Le panneau **Performance des messages in-app** présente l'efficacité de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **In-App Message Performance** présente l'efficacité de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Analytique des performances des messages in-app]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
 ### Performances des notifications push
 
-Le panneau **Performances des notifications push** donne un aperçu de la performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **Push Performance** donne un aperçu de la performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Analytique des performances des messages push]({% image_buster /assets/img_archive/push_message_performance.png %})
 
 {% elsif include.channel == "SMS" %}
 ### Performances des SMS/MMS/RCS
 
-Le panneau **Performances SMS/MMS/RCS** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **SMS/MMS/RCS Performance** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Panneau de performances SMS/MMS/RCS comprenant un tableau d'indicateurs pour le groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Performance des bannières
 
-Le panneau **Performance de la bannière** indique le niveau de performance de votre message selon différentes dimensions. Ces indicateurs varient en fonction de votre canal de communication et de l'exécution ou non d'un test multivarié.
+Le panneau **Banner Performance** indique le niveau de performance de votre message selon différentes dimensions. Ces indicateurs varient en fonction de votre canal de communication et de l'exécution ou non d'un test multivarié.
 
-![Panneau de performances SMS/MMS comprenant un tableau d'indicateurs pour un groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![Panneau de performances des bannières comprenant un tableau d'indicateurs pour un groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### Performances KakaoTalk
 
-Le panneau **Performances KakaoTalk** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **KakaoTalk Performance** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 {% elsif include.channel == "webhook" %}
 ### Performances des webhooks
 
-Le panneau **Performances des webhooks** donne un aperçu de l'efficacité de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **Webhook Performance** donne un aperçu de l'efficacité de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Panneau de performances webhook comprenant un tableau d'indicateurs pour un groupe de contrôle et la variante 1.]({% image_buster /assets/img/webhook_message_performance.png %})
 
 {% elsif include.channel == "whatsapp" %}
 ### Performances WhatsApp
 
-Le panneau **Performances WhatsApp** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **WhatsApp Performance** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Panneau de performances WhatsApp comprenant un tableau d'indicateurs pour la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
@@ -176,7 +190,7 @@ Si vous souhaitez simplifier votre vue, cliquez sur <i class="fas fa-plus"></i> 
 
 #### Cartes thermiques
 
-Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents liens d'une même campagne e-mail. Dans la section **Analytique des messages**, accédez au panneau **Performances des e-mails**. Sélectionnez **Preview & Heatmap** pour afficher un aperçu de votre campagne e-mail et de la carte thermique. Vous pouvez également sélectionner le lien hypertexte dans le nom de la variante pour afficher la carte thermique.
+Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents liens d'une même campagne e-mail. Dans la section **Message Analytics**, accédez au panneau **Email Performance**. Sélectionnez **Preview & Heatmap** pour afficher un aperçu de votre campagne e-mail et de la carte thermique. Vous pouvez également sélectionner le lien hypertexte dans le nom de la variante pour afficher la carte thermique.
 
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
 
@@ -430,7 +444,7 @@ On parle de report ou d'ajournement lorsqu'un e-mail n'a pas été livré imméd
 
 Les _reports_ diffèrent des _échecs provisoires d'envoi_. Si aucun e-mail n'a été délivré avec succès pendant cette période de réessai, Braze enverra un événement d'échec provisoire d'envoi par tentative de campagne envoyée. Avant le 25 février 2025, ces tentatives étaient comptabilisées comme plusieurs échecs provisoires d'envoi pour une même campagne.
 
-Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fonctionnalités Currents ou Braze Snowflake (telles que Query Builder, SQL Segment, Snowflake Data Sharing). Si vous souhaitez les inclure dans l'analytique des campagnes ou de Canvas, veuillez [nous faire part de vos commentaires sur le produit]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fonctionnalités Currents ou Braze Snowflake (telles que le Générateur de requêtes, SQL Segment, Snowflake Data Sharing). Si vous souhaitez les inclure dans l'analytique des campagnes ou de Canvas, veuillez [nous faire part de vos commentaires sur le produit]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
 
 ##### Taux d'ouverture réel estimé {#estimated-real-open-rate}
 
@@ -525,6 +539,12 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
         </tr>
     </tbody>
 </table>
+
+#### Écarts entre les groupes de contrôle et les variantes
+
+Lorsqu'une campagne de messages in-app a une répartition 50-50 entre les variantes, il arrive que le groupe de contrôle ait un pourcentage légèrement supérieur à celui de la variante (par exemple 51 % pour le groupe de contrôle et 49 % pour la variante). Cet écart est dû à une différence dans le temps de rendu.
+
+La répartition entre les groupes de contrôle et les variantes est censée être à peu près égale, mais l'affectation à une variante se produit au moment où le message in-app est effectivement envoyé à l'appareil. Certains utilisateurs peuvent ne jamais déclencher le message in-app (par exemple, s'ils n'effectuent jamais l'action qui déclenche l'événement personnalisé requis), ce qui peut entraîner des différences dans la taille des groupes.
 
 {% elsif include.channel == "KakaoTalk" %}
 
@@ -782,7 +802,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 ### Performances historiques
 
-Le panneau **Performances historiques** vous permet de visualiser les indicateurs du panneau **Performances des messages** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page. 
+Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page. 
 
 Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
@@ -800,7 +820,7 @@ Si vous choisissez d'envoyer uniquement aux utilisateurs qui peuvent voir la der
 
 ### Réponses aux mots-clés
 
-Le panneau **Réponses aux mots-clés** vous montre une chronologie des mots-clés entrants avec lesquels les utilisateurs ont répondu après avoir reçu votre message.  
+Le panneau **Keyword Responses** vous montre une chronologie des mots-clés entrants avec lesquels les utilisateurs ont répondu après avoir reçu votre message.  
 
 ![Panneau Réponses aux mots-clés SMS/MMS/RCS au niveau de la campagne comprenant un graphique linéaire représentant la répartition des mots-clés dans le temps, ainsi qu'une section Catégories de mots-clés avec des cases à cocher pour Abonnement, Opt-out, Aide, Autre, Plus et Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
@@ -812,13 +832,13 @@ Ici, vous pouvez également consulter la répartition des réponses pour chaque 
 
 ### Détails de l'événement de conversion
 
-Le panneau **Détails de l'événement de conversion** vous indique les performances de vos événements de conversion pour votre campagne. Pour plus d'informations, reportez-vous à la section [Événements de conversion]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results).
+Le panneau **Conversion Event Details** vous indique les performances de vos événements de conversion pour votre campagne. Pour plus d'informations, reportez-vous à la section [Événements de conversion]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results).
 
 ![Le panneau Détails de l'événement de conversion.]({% image_buster /assets/img/cc-conversion.png %})
 
 ### Corrélation de conversion
 
-Le panneau **Corrélation de conversion** vous donne des informations sur les attributs et les comportements des utilisateurs qui favorisent ou entravent les résultats que vous avez définis pour les campagnes. Pour plus d'informations, consultez la section [Corrélation de conversion]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
+Le panneau **Conversion Correlation** vous donne des informations sur les attributs et les comportements des utilisateurs qui favorisent ou entravent les résultats que vous avez définis pour les campagnes. Pour plus d'informations, consultez la section [Corrélation de conversion]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
 
 ![Le panneau Corrélation de conversion avec une analyse des attributs et du comportement des utilisateurs à partir de l'événement de conversion principal - A.]({% image_buster /assets/img/convcorr.png %})
 
@@ -826,7 +846,7 @@ Le panneau **Corrélation de conversion** vous donne des informations sur les at
 
 ## Générateur de rapports
 
-Vous pouvez également utiliser le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Canaux**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
+Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Canaux**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
 
 {% endif %}
 

@@ -1,22 +1,22 @@
-> Lernen Sie, wie Sie den Query Builder verwenden, um Berichte mit Braze-Daten in Snowflake zu erstellen. Der Query Builder enthält vorgefertigte [SQL-Anfragen-Templates]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/), die Ihnen den Einstieg erleichtern. Sie können aber auch Ihre eigenen angepassten SQL-Anfragen schreiben, um noch mehr Insights zu gewinnen.
+> Lernen Sie, wie Sie den Abfrage-Builder verwenden, um Berichte mit Braze-Daten in Snowflake zu erstellen. Der Abfrage-Builder enthält vorgefertigte [SQL-Anfragen-Templates]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/), die Ihnen den Einstieg erleichtern. Sie können aber auch Ihre eigenen angepassten SQL-Anfragen schreiben, um noch mehr Insights zu gewinnen.
 
 ## Voraussetzungen
 
-Sie benötigen die [Berechtigung "PII anzeigen"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/), um den Query Builder zu verwenden, da er direkten Zugriff auf einige Kundendaten erlaubt.
+Sie benötigen die [Berechtigung „PII anzeigen"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), um den Abfrage-Builder zu verwenden, da er direkten Zugriff auf einige Kundendaten erlaubt.
 
-## Verwenden des Query Builders
+## Verwenden des Abfrage-Builders
 
 ### 1. Schritt: Erstellen Sie eine SQL-Anfrage
 
 Um eine neue Anfrage zu erstellen, gehen Sie zu **Analytics** > **Query Builder** und wählen Sie dann **Create SQL Query**.
 
-![Die Optionen "Query Template" und "SQL Editor" im Dropdown-Menü "Create SQL Query".]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
+![Die Optionen „Query Template" und „SQL Editor" im Dropdown-Menü „Create SQL Query".]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
 Wenn Sie Inspiration oder Hilfe bei der Gestaltung Ihrer Anfrage benötigen, wählen Sie **Query Template** und wählen Sie ein [vorgefertigtes Template]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/) aus. Um mit einer leeren Anfrage zu beginnen, wählen Sie **SQL Editor**.
 
 Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Edit"></i>, um Ihrer SQL-Anfrage einen aussagekräftigen Namen zu geben.
 
-![Ein Beispielbericht mit dem Namen "Kanal-Engagement für Mai 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
+![Ein Beispielbericht mit dem Namen „Channel engagement for May 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
 ### 2. Schritt: Erstellen Sie Ihre Anfrage
 
@@ -24,19 +24,19 @@ Bei der Erstellung Ihrer Anfrage können Sie sich von der KI helfen lassen oder 
 
 {% tabs local %}
 {% tab Using BrazeAI %}
-Der KI-Query-Builder nutzt [GPT](https://openai.com/gpt-4) von OpenAI, um SQL für Ihre Anfrage zu empfehlen. So generieren Sie SQL mit dem KI-Query-Builder:
+Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4) von OpenAI, um SQL für Ihre Anfrage zu empfehlen. So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
-1. Wenn Sie einen Bericht im Query Builder erstellt haben, wählen Sie den Tab **AI Query Builder**.
+1. Wenn Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **AI Query Builder**.
 2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispielprompt aus und wählen Sie **Generieren**, um Ihren Prompt in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL auf Richtigkeit und wählen Sie dann **Insert into Editor**.
 
-![Der SQL-KI-Query-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![Der SQL-KI-Abfrage-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
 #### Tipps
 
 - Machen Sie sich mit den verfügbaren [Snowflake-Datentabellen]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann es passieren, dass ChatGPT eine fiktive Tabelle erfindet.
 - Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql) für dieses Feature vertraut. Die Nichtbeachtung dieser Regeln führt zu einem Fehler.
-- Sie können bis zu 20 Prompts pro Minute mit dem KI-Query-Builder senden.
+- Sie können bis zu 20 Prompts pro Minute mit dem KI-Abfrage-Builder senden.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 {% endtab %}
@@ -44,7 +44,7 @@ Der KI-Query-Builder nutzt [GPT](https://openai.com/gpt-4) von OpenAI, um SQL f�
 {% tab On My Own %}
 Schreiben Sie Ihre SQL-Anfrage mit der [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference). In der [Tabellenreferenz]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
 
-Um Tabellendetails im Query Builder anzuzeigen:
+Um Tabellendetails im Abfrage-Builder anzuzeigen:
 
 1. Öffnen Sie auf der Seite **Query Builder** das Panel **Reference** und wählen Sie **Available Data Tables**, um die verfügbaren Datentabellen und ihre Namen anzuzeigen.
 3. Wählen Sie <i class="fas fa-chevron-down" alt=""></i> **See Details**, um die Tabellenbeschreibung und Informationen über die Tabellenspalten, wie z. B. Datentypen, anzuzeigen.
@@ -70,9 +70,9 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 
 | ID-Name | Zugehörige Namensspalte |
 | --- | --- |
-| `CANVAS_ID` | Canvas-Name |
-| `CANVAS_VARIATION_API_ID` | Canvas-Variante-Name |
-| `CAMPAIGN_ID` | Kampagnenname |
+| `CANVAS_ID` | Canvas Name |
+| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CAMPAIGN_ID` | Campaign Name |
 {: .reset-td-br-1 .reset-td-br-2 }
 
 Diese Anfrage ruft alle drei IDs und ihre zugehörigen Namensspalten mit maximal 100 Zeilen ab:
@@ -100,7 +100,7 @@ Wenn Sie mit der Erstellung Ihrer Anfrage fertig sind, wählen Sie **Run Query**
 
 Um den CSV-Bericht herunterzuladen, wählen Sie **Exportieren**.
 
-![Der Query Builder zeigt die Ergebnisse für die Template-Anfrage "Kanal-Engagement und Umsatz der letzten 30 Tage".]({% image_buster /assets/img_archive/query_builder.png %})
+![Der Abfrage-Builder zeigt die Ergebnisse für die Template-Anfrage „Channel engagement and revenue for the last 30 days".]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
 Jeder Bericht kann nur einmal pro Tag Ergebnisse liefern. Wenn Sie denselben Bericht mehrmals an einem Kalendertag ausführen, sehen Sie in jedem Bericht dieselben Ergebnisse.
@@ -137,13 +137,13 @@ Alle Anfragen beziehen sich auf die Daten der letzten 60 Tage. Wenn Sie Ihre Erg
 Jedem Unternehmen stehen 5 Snowflake Credits pro Monat zur Verfügung, die auf alle Workspaces aufgeteilt werden. Ein kleiner Teil eines Snowflake Credits wird immer dann verbraucht, wenn Sie eine Anfrage ausführen oder eine Vorschau einer Tabelle anzeigen.
 
 {% alert note %}
-Snowflake Credits werden nicht zwischen Features geteilt. So sind zum Beispiel Credits für SQL-Segmenterweiterungen und den Query Builder unabhängig voneinander.
+Snowflake Credits werden nicht zwischen Features geteilt. So sind zum Beispiel Credits für SQL-Segmenterweiterungen und den Abfrage-Builder unabhängig voneinander.
 {% endalert %}
 
 Der Verbrauch hängt von der Laufzeit Ihrer SQL-Anfrage ab. Je länger die Laufzeit, desto mehr Snowflake Credits werden verbraucht. Die Laufzeit kann sich je nach Komplexität und Umfang Ihrer Anfragen unterscheiden. Je komplexere und häufigere Anfragen Sie ausführen, desto mehr Ressourcen werden Ihnen zugewiesen und desto schneller wird die Laufzeit.
 
-Credits werden beim Schreiben, Bearbeiten oder Speichern von Berichten im Braze SQL-Editor nicht verbraucht. Ihr Guthaben wird am ersten eines jeden Monats um 12 Uhr UTC auf 5 zurückgesetzt. Sie können den Verbrauch Ihres monatlichen Guthabens oben auf der Query-Builder-Seite einsehen.
+Credits werden beim Schreiben, Bearbeiten oder Speichern von Berichten im Braze SQL-Editor nicht verbraucht. Ihr Guthaben wird am ersten eines jeden Monats um 12 Uhr UTC auf 5 zurückgesetzt. Sie können den Verbrauch Ihres monatlichen Guthabens oben auf der Seite des Abfrage-Builders einsehen.
 
-![Der Query Builder zeigt das im laufenden Monat verbrauchte Guthaben an.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
+![Der Abfrage-Builder zeigt das im laufenden Monat verbrauchte Guthaben an.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 
-Wenn Sie Ihr Guthaben aufgebraucht haben, können Sie keine Anfragen mehr ausführen, aber weiterhin SQL-Berichte erstellen, bearbeiten und speichern. Wenn Sie weitere Query-Builder-Credits erwerben möchten, wenden Sie sich bitte an Ihren Account Manager.
+Wenn Sie Ihr Guthaben aufgebraucht haben, können Sie keine Anfragen mehr ausführen, aber weiterhin SQL-Berichte erstellen, bearbeiten und speichern. Wenn Sie weitere Abfrage-Builder-Credits erwerben möchten, wenden Sie sich bitte an Ihren Account Manager.

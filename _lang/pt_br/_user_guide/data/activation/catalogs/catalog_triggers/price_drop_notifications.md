@@ -90,7 +90,7 @@ Após configurar as notificações de queda de preço em um catálogo, siga esta
 1. Configure um Canvas baseado em ação.
 2. Selecione **Executar Evento de Queda de Preço** como o gatilho.
 3. Selecione o nome do catálogo com as notificações de queda de preço.
-4. Continue [configurando]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) seu Canvas como de costume.
+4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) seu Canvas como de costume.
 
 Agora, seus clientes serão notificados quando o preço de um item cair.
 

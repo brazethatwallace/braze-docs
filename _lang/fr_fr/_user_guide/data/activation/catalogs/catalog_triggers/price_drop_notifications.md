@@ -20,8 +20,8 @@ Vous devez configurer un événement personnalisé à utiliser comme événement
 
 Vous pouvez créer un abonnement de baisse de prix pour un utilisateur et un article de catalogue dans les cas suivants :
 
-- Un événement personnalisé sélectionné est réalisé par un utilisateur.
-- L'événement personnalisé possède une propriété `type` qui inclut `price_drop` (`type` doit être un tableau).
+- Un événement personnalisé sélectionné est réalisé par un utilisateur
+- L'événement personnalisé possède une propriété `type` qui inclut `price_drop` (`type` doit être un tableau)
 
 Pour configurer les notifications de baisse de prix et de retour en stock dans le même événement, vous pouvez utiliser la propriété `type`, qui doit être un tableau. Lorsqu'un article subit un changement de prix conforme à votre règle de prix, nous recherchons tous les utilisateurs abonnés à cet article (ceux qui ont effectué l'événement d'abonnement) et envoyons un événement personnalisé Braze que vous pouvez utiliser pour déclencher une campagne ou un Canvas. 
 
@@ -74,10 +74,10 @@ Voici un exemple d'événement personnalisé :
     - **Fixer des limites de notification :** Notifiez un nombre déterminé de clients selon la période de notification que vous avez configurée. Braze informera le nombre de clients spécifié par incréments jusqu'à ce qu'il n'y ait plus de clients à notifier ou jusqu'à ce que le prix de l'article remonte. Votre taux de notification ne peut pas dépasser 10 000 utilisateurs par minute.<br>
 
 2. Définissez le **Champ Prix dans le catalogue**. Il s'agit du champ du catalogue qui sera utilisé pour déterminer le prix de l'article. Il doit être de type numérique.
-3. Définissez la **Règle de baisse des prix**. Il s'agit de la logique utilisée pour déterminer si une notification doit être envoyée. Une baisse de prix peut être configurée en pourcentage de variation de prix ou en fonction de la variation de la valeur du champ de prix.
+3. Définissez la **Règle de baisse de prix**. Il s'agit de la logique utilisée pour déterminer si une notification doit être envoyée. Une baisse de prix peut être configurée en pourcentage de variation de prix ou en fonction de la variation de la valeur du champ de prix.
 4. Sélectionnez **Enregistrer les paramètres**.
 
-![Paramètres du catalogue montrant que la fonctionnalité de baisse des prix est activée. La règle de baisse des prix consiste en une modification de trois pour cent du prix initial.]({% image_buster /assets/img/price_drop_notifications.png %})
+![Paramètres du catalogue montrant que la fonctionnalité de baisse de prix est activée. La règle de baisse de prix consiste en une modification de trois pour cent du prix initial.]({% image_buster /assets/img/price_drop_notifications.png %})
 
 {% alert important %}
 Les règles de notification de ces paramètres ne remplacent pas les paramètres de notification du Canvas, tels que les heures calmes.
@@ -90,7 +90,7 @@ Après avoir configuré les notifications de baisse de prix dans un catalogue, s
 1. Mettez en place un Canvas basé sur une action.
 2. Sélectionnez **Effectuer un événement de baisse de prix** comme déclencheur.
 3. Sélectionnez le nom du catalogue contenant les notifications de baisse de prix.
-4. Continuez à [configurer]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) votre Canvas comme vous le feriez habituellement.
+4. Continuez à [configurer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) votre Canvas comme vous le feriez habituellement.
 
 Vos clients seront désormais avertis lorsque le prix d'un article baisse.
 

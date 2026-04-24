@@ -260,7 +260,7 @@ A continuación, sube tus credenciales JSON a tu panel de Braze. En Braze, selec
 
 ![El menú "Settings" abierto en Braze con "App Settings" resaltado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-En la **Push Notification Settings** de tu aplicación Android, elige **Firebase**, luego selecciona **Upload JSON File** y sube las credenciales [que generaste anteriormente](#android_json). Cuando hayas terminado, selecciona **Save**.
+En la **Configuración de notificación push** de tu aplicación Android, elige **Firebase**, luego selecciona **Upload JSON File** y sube las credenciales [que generaste anteriormente](#android_json). Cuando hayas terminado, selecciona **Save**.
 
 ![El formulario "Push Notification Settings" con "Firebase" seleccionado como proveedor de push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
@@ -627,7 +627,7 @@ Para obtener más información sobre cómo personalizar las notificaciones, cons
 
 #### Crear vínculos profundos personalizados
 
-Sigue las instrucciones que se encuentran en la [documentación para desarrolladores de Android](http://developer.android.com/training/app-indexing/deep-linking.html) sobre vinculación en profundidad si aún no has añadido vínculos profundos a tu aplicación. Para saber más sobre qué son los vínculos profundos, consulta nuestro [artículo de preguntas frecuentes]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+Sigue las instrucciones que se encuentran en la [documentación para desarrolladores de Android](http://developer.android.com/training/app-indexing/deep-linking.html) sobre vinculación en profundidad si aún no has añadido vínculos profundos a tu aplicación. Para saber más sobre qué son los vínculos profundos, consulta nuestro [artículo de preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
 #### Añadir vínculos profundos
 
@@ -681,7 +681,7 @@ Para configurar el nombre visible para el usuario del canal de notificación pre
 
 Para configurar la descripción visible para el usuario del canal de notificación predeterminado de Braze, utiliza [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html).
 
-Actualiza cualquier campaña de la API con el parámetro del [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object/) para incluir el campo `notification_channel`. Si no se especifica este campo, Braze enviará la carga útil de la notificación con el ID del canal [alternativo del dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel).
+Actualiza cualquier campaña de API con el parámetro del [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object/) para incluir el campo `notification_channel`. Si no se especifica este campo, Braze enviará la carga útil de la notificación con el ID del canal [alternativo del dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel).
 
 Aparte del canal de notificación predeterminado, Braze no creará ningún canal. Todos los demás canales deben ser definidos mediante programación por la aplicación anfitriona y luego introducidos en el panel de Braze.
 

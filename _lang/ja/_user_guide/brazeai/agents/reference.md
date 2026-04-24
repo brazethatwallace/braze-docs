@@ -7,7 +7,7 @@ page_order: 3
 
 # エージェントのリファレンス
 
-> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。概要については、[Braze エージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を参照してください。
+> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。概要については、[Braze エージェント]({{site.baseurl}}/user_guide/brazeai/agents/)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)を参照してください。
 
 ## モデル
 
@@ -29,7 +29,7 @@ Braze パワードの **Auto** モデルは、カタログ検索やセグメン�
 
 このオプションでは、OpenAI、Anthropic、Google Gemini などのプロバイダーに Braze アカウントを接続できます。LLM プロバイダーから独自の API キーを持ち込む場合、トークンコストは Braze ではなくプロバイダーを通じて直接請求されます。
 
-レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。
+レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。また、[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)でエージェントコンソールの通知に登録すると、Braze がモデルの利用不可を検出した際にアラートを受け取ることができます。
 
 設定方法:
 
@@ -52,13 +52,23 @@ Braze 提供の LLM を使用する場合、そのモデルのプロバイダー
 | **Medium** | 複数ステップまたはニュアンスのあるタスク（複数の入力を分析してアクションを推奨するなど）。 |
 | **High** | 複雑な推論、エッジケース、またはモデルにステップを踏んで回答させたい場合。 |
 
-まず **Minimal** から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを **Low** または **Medium** に調整できます。まれに **High** の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、Canvas やカタログで連携させることを検討してください。
+まず **Minimal** から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを **Low** または **Medium** に調整できます。まれに **High** の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、キャンバスやカタログで連携させることを検討してください。
 
-Braze は、コネクテッドコンテンツと同じ IP 範囲をアウトバウンド LLM コールに使用します。範囲は[コネクテッドコンテンツ IP 許可リスト]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#connected-content-ip-allowlisting)に記載されています。プロバイダーが IP 許可リストをサポートしている場合、Braze のみがキーを使用できるようにこれらの範囲に制限できます。
+Braze は、コネクテッドコンテンツと同じ IP 範囲をアウトバウンド LLM コールに使用します。範囲は[コネクテッドコンテンツ IP 許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)に記載されています。プロバイダーが IP 許可リストをサポートしている場合、Braze のみがキーを使用できるようにこれらの範囲に制限できます。
 
 {% alert important %}
-Braze 提供の LLM を使用する場合、そのモデルのプロバイダーは、お客様と Braze 間のデータ処理補遺（DPA）の条件に従い、Braze のサブプロセッサーとして機能します。独自の API キーを持ち込むことを選択した場合、LLM サブスクリプションのプロバイダーは、お客様と Braze 間の契約に基づくサードパーティプロバイダーと見なされます。  
+Braze 提供の LLM を使用する場合、そのモデルのプロバイダーは、お客様と Braze 間のデータ処理補遺（DPA）の条件に従い、Braze のサブプロセッサーとして機能します。独自の API キーを持ち込むことを選択した場合、LLM サブスクリプションのプロバイダーは、お客様と Braze 間の契約に基づくサードパーティプロバイダーと見なされます。
 {% endalert %}
+
+#### 使用するモデルの決定
+
+各 LLM プロバイダーは、モデルの能力、コスト、思考レベルの組み合わせがそれぞれ異なります。以下に一般的なガイドラインとベストプラクティスを示します。
+
+- コスト効率を重視する場合は、高コストモデルよりも低トークンコストモデルのテストを優先してください。低コストモデルがユースケースに対応できない場合や、一貫性のない不正確な出力を生成する場合にのみ、高コストモデルに調整してください。
+- 速度とパフォーマンス効率を重視する場合は、高い思考レベルよりも低いモデル思考レベルのテストを優先してください。低い思考レベルがユースケースに対応できない場合や、一貫性のない不正確な出力を生成する場合にのみ、高い思考レベルのモデルに調整してください。
+- 低コストモデルやモデル思考レベルがユースケースに対応できない場合や、一貫性のない不正確な出力を生成する場合は、高コストモデルや高い思考レベルのモデルへの調整を検討してください。
+- テスト中は、信頼性と精度をトークン使用量と呼び出し時間とバランスさせるようにしてください。
+- ユースケースごとに最適なモデルと思考レベルが異なる場合があります。タイムアウトなしで一貫した品質を確認するために、徹底的にテストすることをお勧めします。
 
 ## インストラクションの記述
 
@@ -79,7 +89,7 @@ Braze 提供の LLM を使用する場合、そのモデルのプロバイダー
 
 ### Liquid の使用
 
-エージェントのインストラクションに [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) を含めると、レスポンスにパーソナライゼーションのレイヤーを追加できます。エージェントが取得する正確な Liquid 変数を指定し、プロンプトのコンテキストに含めることができます。たとえば、「名」を明示的に記述する代わりに、Liquid スニペット {% raw %}`{{${first_name}}}`{% endraw %} を使用できます。
+エージェントのインストラクションに [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) を含めると、レスポンスにパーソナライゼーションのレイヤーを追加できます。エージェントが取得する正確な Liquid 変数を指定し、プロンプトのコンテキストに含めることができます。たとえば、「名」を明示的に記述する代わりに、Liquid スニペット {% raw %}`{{${first_name}}}`{% endraw %} を使用できます。
 
 {% raw %}
 ```
@@ -91,7 +101,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ![インストラクションに Liquid を含むエージェントの詳細。]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-### Canvas エージェントの例
+### キャンバスエージェントの例
 
 旅行ブランド UponVoyage の一員であるとしましょう。目標は、顧客フィードバックの分析、パーソナライズされたメッセージの作成、無料サブスクライバーのコンバージョン率の判定です。以下は、定義された目標に基づくさまざまなインストラクションの例です。
 
@@ -123,13 +133,15 @@ Rules:
 - Do not mention "AI," "bot," or "automated message."
 - Do not make up input data that is not present in the prompt.
 - Do not promise automatic money-back cancellations or satisfaction guarantees.
+- Include "explanation": a short string that states why this copy fits the user's context and channel rules (for review or QA).
 
 Final Output Specification:
-You must return an object containing exactly four keys: "email_subject_line", "email_preheader", "push_title", and "push_body". These keys will be inserted into the appropriate locations in subsequent messages in the journey. Ensure the Email and Push convey the same core offer/value, but do not simply copy-paste the text. The Push should be shorter and more direct. Make sure you follow the channel constraints below:
+You must return an object containing exactly five keys: "email_subject_line", "email_preheader", "push_title", "push_body", and "explanation". The first four keys will be inserted into the appropriate locations in subsequent messages in the journey. Ensure the Email and Push convey the same core offer/value, but do not simply copy-paste the text. The Push should be shorter and more direct. Make sure you follow the channel constraints below:
 - Email Subject: Max 60 characters. Intriguing and benefit-led.
 - Email Preheader: Max 100 characters. Supports the subject line.
 - Push Title: Max 50 characters. Punchy and urgent.
 - Push Body: Max 120 characters. Clear value prop.
+- explanation: String. Brief rationale for how you used inputs, loyalty tier, and search context without breaking brand or channel limits.
 
 Input & Output Example:
 <input_example> 
@@ -141,7 +153,7 @@ Input & Output Example:
 The user IS in the segment: “Logged multiple searches in the past 30D”.
 </input_example>
 <output_example> 
-{ "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers." }
+{ "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
 ```
 {% endraw %}
@@ -166,14 +178,15 @@ Rules:
 - Analyze Sentiment: Classify the survey_text as "Positive", "Neutral", or "Negative". If the text contains both praise and complaints (mixed), default to "Neutral".
 - Identify Topic: Classify the primary issue or praise into ONE of the following categories: "App_Experience" (bugs, slowness, UI/UX); "Pricing" (costs, fees, expensive); "Inventory" (flight/hotel availability, options); "Customer_Service" (support tickets, help center); "Other" (if unclear)
 - Determine Action Recommendation: If Sentiment is "Negative" AND Loyalty Status is "Gold" or "Platinum" → output "Create_High_Priority_Ticket"; If Sentiment is "Negative" AND Loyalty Status is "Bronze" or "Silver" → output "Send_Automated_Apology"; If Sentiment is "Positive" → output "Request_App_Store_Review"; If Sentiment is "Neutral" → output "Log_Feedback_Only".
-- Data Safety: Do not make up data not present in the input. Return valid JSON only and do not include any extra fields beyond the requested outputs.
-- If the survey response is empty or meaningless, set sentiment as Neutral, topic as Other, and action recommendation as Request_More_Details.
+- Data Safety: Do not make up data not present in the input. Return valid JSON only. Include only these fields: sentiment, topic, action_recommendation, and explanation.
+- If the survey response is empty or meaningless, set sentiment as Neutral, topic as Other, action recommendation as Request_More_Details, and explain why in explanation.
 
 Final Output Specification:
-You must return an object containing exactly three fields: sentiment, topic, and action_recommendation.
+You must return an object containing exactly four fields: sentiment, topic, action_recommendation, and explanation.
 - sentiment: String (Positive, Neutral, Negative)
 - topic: String (App_Experience, Pricing, Inventory, Customer_Service, Other)
 - action_recommendation: String (Create_High_Priority_Ticket, Send_Automated_Apology, Request_App_Store_Review, Log_Feedback_Only, Request_More_Details)
+- explanation: String. Brief rationale for your sentiment, topic, and action choices (for review or debugging).
 
 Input & Output Example:
 <input_example>
@@ -183,9 +196,8 @@ Input & Output Example:
 {{context.${trip_destination}}}: Paris
 </input_example>
 <output_example>
-{"sentiment": "Neutral","topic": "App_Experience", "action_recommendation": "Log_Feedback_Only"}
+{"sentiment": "Neutral","topic": "App_Experience", "action_recommendation": "Log_Feedback_Only", "explanation": "Mixed praise and crash report maps to Neutral per rules; primary issue is app stability (App_Experience). Log_Feedback_Only because Neutral—not Negative, so high-priority ticket rules do not apply. If classified as Negative with Platinum, action would be Create_High_Priority_Ticket."}
 </output_example>
-(Note: In this example, sentiment is Neutral because she said she "loves" it usually but was frustrated this time. However, if you determine the frustration outweighs the love, you may classify as Negative. If classified as Negative + Platinum, the action would be "Create_High_Priority_Ticket".)
 ```
 {% endraw %}
 {% endtab %}
@@ -223,10 +235,11 @@ Low/Cold: "Re-engagement Offer" (Deep discount or extension)
 - Data Safety: Do not generate numerical probability scores (e.g., "85%"). Stick to the defined labels.
 
 Final Output Specification:
-You must return an object containing exactly three keys: "segment_label", "primary_barrier", and "retention_strategy".
+You must return an object containing exactly four keys: "segment_label", "primary_barrier", "retention_strategy", and "explanation".
 - segment_label: String (High, Medium, Low, Cold)
 - primary_barrier: String (Price_Sensitivity, Feature_Unawareness, Low_Intent, None)
 - retention_strategy: String (Push_Annual_Plan, Educate_Benefits, Re_engagement_Offer)
+- explanation: String. Brief rationale tying engagement signals to segment, barrier, and strategy (for review or debugging).
 
 Input & Output Example:
 <input_example>
@@ -238,9 +251,8 @@ Input & Output Example:
 The user IS in the segment: "Has Valid Payment Method on File".
 </input_example>
 <output_example>
-{"segment_label": "Medium", "primary_barrier": "Feature_Unawareness", "retention_strategy": "Educate_Benefits"}
+{"segment_label": "Medium", "primary_barrier": "Feature_Unawareness", "retention_strategy": "Educate_Benefits", "explanation": "High search volume (15) but zero Premium feature use—they are engaged but not seeing subscription value. Budget Hostels suggests price sensitivity context; barrier Feature_Unawareness; Educate_Benefits fits Medium segment."}
 </output_example>
-(Rationale: The user is very active [15 searches], so they like the app. But they haven't touched a single Premium feature [0 uses], meaning they don't yet understand why they should pay for the subscription. They are "Medium" risk and need education, not just a generic nudge.)
 ```
 {% endraw %}
 
@@ -260,7 +272,7 @@ Role:
 You are an expert Travel Copywriter for StyleRyde. Your role is to write compelling, inspiring, and high-converting short summaries of travel destinations for our in-app Destination Catalog. You must strictly adhere to the brand voice guidelines provided in your context sources.
 
 Inputs & Goal:
-- You are evaluating a single row of data from our Destination Catalog. Your goal is to generate a "Short Description" that will be saved to a new column in this catalog.
+- You are evaluating a single row of data from our Destination Catalog. Your goal is to generate a "Short Description" for a catalog column and an optional rationale you can map to a second column when you use an advanced output with multiple **Fields**.
 - You will be provided with the following column values for the specific destination row:
     - Destination_Name - the specific city or region
     - Country - the country where the destination is located
@@ -277,9 +289,14 @@ Rules:
 - Avoid spammy phrasing (ALL CAPS, excessive punctuation) and emojis.
 - Do not hallucinate specific hotels or flights, as this is a general destination description.
 - If any input fields are missing, write the best description possible with the available data
+- Include "explanation": a short string that states how you applied the rules (for review or QA).
 
 Final Output Specification:
-You must return ONLY the plain text string of the description. Do not wrap the output in quotes, do not use markdown formatting, and do not return a JSON object. The text you output will be injected directly into a cell in the catalog spreadsheet. Maximum length is 150 characters.
+You must return an object with exactly two keys: "short_description" and "explanation".
+- short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
+- explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
+Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+
 Input & Output Example:
 <input_example>
 Destination Name: Kyoto
@@ -287,7 +304,7 @@ Country: Japan
 Primary Vibe: Historic & Serene
 Price Tier: $$$
 </input_example>
-<output_example>Discover the historic and serene beauty of Kyoto, Japan. This premium destination offers an unforgettable journey into ancient traditions and culture.</output_example>
+<output_example>{"short_description": "Discover the historic and serene beauty of Kyoto, Japan. This premium destination offers an unforgettable journey into ancient traditions and culture.", "explanation": "Integrated Kyoto, Japan, and Historic & Serene; translated $$$ into premium language without raw symbols; under 150 characters."}</output_example>
 ```
 {% endraw %}
 
@@ -300,7 +317,7 @@ Role:
 You are an expert AI Localization Specialist for StyleRyde. Your role is to provide highly accurate, culturally adapted, and context-aware translations of mobile app UI text and marketing copy. You ensure our app feels native and natural to users around the world.
 
 Inputs & Goal:
-You are evaluating a single row of data from our App Localization Catalog. Your goal is to translate the English source text into the requested target language, which will be saved to a specific localized column in this catalog.
+You are evaluating a single row of data from our App Localization Catalog. Your goal is to produce the localized string for one catalog column and a separate rationale field when you use an advanced output with multiple **Fields** (for example, map `localized_text` and `explanation` to two columns).
 
 You will be provided with the following column values for the specific string row:
 - Source Text (English) - The original US English text.
@@ -323,10 +340,13 @@ Apply Category Guidelines:
     - Arabic → ترافل آب
     - Chinese (Simplified) → 旅游应用
 
-Fallback Logic: If the source text is empty, if you do not understand the translation, or if it is impossible to translate within the character limit, output exactly: ERROR_MANUAL_REVIEW_NEEDED. Do not attempt a broken translation.
+Fallback Logic: If the source text is empty, if you do not understand the translation, or if it is impossible to translate within the character limit, set localized_text to exactly ERROR_MANUAL_REVIEW_NEEDED and use explanation to describe why.
 
 Final Output Specification:
-You must return ONLY the plain text string of the localized translation. Do not wrap the output in quotes, do not include pronunciation guides, do not add notes. The text you output will be injected directly into a cell in the catalog spreadsheet.
+You must return an object with exactly two keys: "localized_text" and "explanation".
+- localized_text: The string saved to the localized catalog column (plain text, no pronunciation guides). Must respect Max Characters when you return a translation.
+- explanation: String. Brief note on locale choices, shortening tradeoffs, or why ERROR_MANUAL_REVIEW_NEEDED applies.
+Configure your agent's **Output** with **Fields** that match these key names.
 
 Input & Output Example:
 <input_example>
@@ -336,7 +356,7 @@ UI Category: CTA_Button
 Max Characters: 20
 </input_example>
 <output_example>
-Buscar Vuelos
+{"localized_text": "Buscar Vuelos", "explanation": "Latin American Spanish for CTA; imperative form fits CTA_Button; 12 characters, under the 20-character limit."}
 </output_example>
 ```
 {% endraw %}
@@ -344,11 +364,78 @@ Buscar Vuelos
 {% endtab %}
 {% endtabs %}
 
+カタログエージェントの場合は、JSON スキーマではなく**出力**セクションの**フィールド**を使用します。ただし、インストラクション内でモデルにフィールド名に一致するキーバリュー出力を求めることは可能です。
+
 プロンプトのベストプラクティスの詳細については、以下のモデルプロバイダーのガイドを参照してください。
 
 - [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
 - [Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
+
+## 出力
+
+### 基本スキーマ
+
+基本スキーマは、エージェントが返すシンプルな出力です。文字列、数値、ブール値、文字列の配列、または数値の配列を指定できます。
+
+たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバックアンケートからユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**数値**を選択できます。
+
+{% alert important %}
+配列はキャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+{% endalert %}
+
+![基本スキーマとして数値が選択されたエージェントコンソール。]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
+
+### 高度なスキーマ
+
+高度なスキーマオプションには、フィールドの手動構造化または JSON の使用が含まれます。
+
+- **フィールド:** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
+- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSON スキーマ内に変数やオブジェクトをネストできます。キャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+
+エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
+
+たとえば、ユーザーが送信したフォームに基づいてサンプル旅行プランを作成するエージェント内で出力フォーマットを使用できます。出力フォーマットにより、すべてのエージェントレスポンスが `tripStartDate`、`tripEndDate`、`destination` の値を含んで返されるように定義できます。これらの各値はコンテキスト変数から抽出し、Liquid を使用してメッセージステップに配置してパーソナライゼーションに活用できます。
+
+{% tabs %}
+{% tab フィールド %}
+
+レストランの最新アイスクリームフレーバーを推薦する可能性を判定するために、シンプルなフィードバックアンケートへのレスポンスをフォーマットしたい場合、出力フォーマットを構造化するために以下のフィールドを設定できます。
+
+| フィールド名 | 値 |
+| --- | --- |
+| **likelihood_score** | 数値 |
+| **explanation** | 文字列 |
+| **confidence_score** | 数値 |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+![likelihood score、explanation、confidence score の3つの出力フィールドを表示するエージェントコンソール。]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
+
+{% endtab %}
+{% tab JSON スキーマ %}
+
+レストランチェーンでの最新の食事体験に関するユーザーフィードバックを収集したい場合、出力フォーマットとして **JSON スキーマ**を選択し、以下の JSON を挿入して、センチメント変数と理由変数を含むデータオブジェクトを返すことができます。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "type": "string"
+    },
+    "reasoning": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sentiment",
+    "reasoning"
+  ]
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 ## カタログとフィールド
 
@@ -358,13 +445,13 @@ Buscar Vuelos
 
 ## セグメントメンバーシップのコンテキスト
 
-エージェントが Canvas で使用されている場合に、各ユーザーのセグメントメンバーシップを相互参照するためのセグメントを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」セグメントのセグメントメンバーシップを選択しており、そのエージェントが Canvas で使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各セグメントのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）を LLM のコンテキストとして使用できます。
+エージェントがキャンバスで使用されている場合に、各ユーザーのセグメントメンバーシップを相互参照するためのセグメントを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」セグメントのセグメントメンバーシップを選択しており、そのエージェントがキャンバスで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各セグメントのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）を LLM のコンテキストとして使用できます。
 
 ![エージェントメンバーシップアクセス用に選択された「Loyalty Users」セグメント。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## ブランドガイドライン
 
-エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administrative/app_settings/brand_guidelines)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促す SMS コピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
+エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促す SMS コピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
 
 ## 温度
 
@@ -383,9 +470,9 @@ Buscar Vuelos
 
 ## エージェントのアーカイブ
 
-カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェント管理**ページを整理できます。エージェントをアーカイブするには:
+カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェントマネージャー**ページを整理できます。エージェントをアーカイブするには:
 
 1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
 2. **アーカイブ**を選択します。
 
-![アーカイブされたエージェントを含むエージェント管理ページ。]({% image_buster /assets/img/ai_agent/archived_agents.png %})
+![アーカイブされたエージェントを含むエージェントマネージャーページ。]({% image_buster /assets/img/ai_agent/archived_agents.png %})

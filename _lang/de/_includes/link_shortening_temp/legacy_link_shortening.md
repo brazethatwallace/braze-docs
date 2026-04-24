@@ -1,17 +1,17 @@
 Linkverkürzung und Click-Tracking ermöglichen es Ihnen, URLs in SMS- oder RCS-Nachrichten automatisch zu verkürzen und Click-through-Rate-Analytics zu erfassen. So erhalten Sie zusätzliche Engagement-Metriken, die Ihnen helfen zu verstehen, wie Nutzer:innen mit Ihren Kampagnen interagieren.
 
-Linkverkürzung und Click-Tracking können auf der [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#step-1-create-your-campaign) sowohl in Kampagnen als auch in Canvases aktiviert werden.
+Linkverkürzung und Click-Tracking können auf der [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) sowohl in Kampagnen als auch in Canvases aktiviert werden.
 
 Die Länge der URL wird durch die Art des aktivierten Trackings bestimmt:
 - **Basis-Tracking** ermöglicht Click-Tracking auf Kampagnenebene. Statische URLs haben eine Länge von 20 Zeichen, und personalisierte URLs haben eine Länge von 25 Zeichen.
-- **Erweitertes Tracking** ermöglicht Click-Tracking auf Kampagnen- und Nutzer:innen-Ebene und erlaubt die Nutzung von Segmentierungs- und Retargeting-Funktionen, die auf Klicks basieren. Klicks erzeugen außerdem ein [SMS-Klick-Event]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/), das über Currents gesendet wird. Statische URLs mit erweitertem Tracking haben eine Länge von 27–28 Zeichen, sodass Sie Segmente von Nutzer:innen erstellen können, die auf URLs geklickt haben. Personalisierte URLs haben eine Länge von 32–33 Zeichen.
+- **Erweitertes Tracking** ermöglicht Click-Tracking auf Kampagnen- und Nutzer:innen-Ebene und erlaubt die Nutzung von Segmentierungs- und Retargeting-Funktionen, die auf Klicks basieren. Klicks erzeugen außerdem ein [SMS-Klick-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), das über Currents gesendet wird. Statische URLs mit erweitertem Tracking haben eine Länge von 27–28 Zeichen, sodass Sie Segmente von Nutzer:innen erstellen können, die auf URLs geklickt haben. Personalisierte URLs haben eine Länge von 32–33 Zeichen.
 
 Links werden über unsere gemeinsame Kurz-Domain (`brz.ai`) oder Ihre angepasste Linkverkürzungs-Domain verkürzt. Eine Beispiel-URL könnte so aussehen: `https://brz.ai/8jshX` (Basis, statisch) oder `https://brz.ai/p/8jshX/2dj8d` (erweitert, personalisiert). Weitere Informationen finden Sie unter [Testen](#testing).
 
 Alle statischen URLs, die mit `http://` oder `https://` beginnen, werden verkürzt. Statisch verkürzte URLs sind ein Jahr ab dem Erstellungsdatum gültig. Verkürzte URLs, die Liquid-Personalisierung enthalten, sind zwei Monate gültig.
 
 {% alert note %}
-Wenn Sie den BrazeAI<sup>TM</sup> [Intelligenter-Kanal-Filter]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_channel/) verwenden möchten und die SMS- und RCS-Kanäle auswählbar sein sollen, aktivieren Sie die Linkverkürzung mit erweitertem Tracking.
+Wenn Sie den BrazeAI<sup>TM</sup> [Intelligenter-Kanal-Filter]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) verwenden möchten und die SMS- und RCS-Kanäle auswählbar sein sollen, aktivieren Sie die Linkverkürzung mit erweitertem Tracking.
 {% endalert %}
 
 ## Linkverkürzung verwenden
@@ -20,7 +20,7 @@ Um die Linkverkürzung zu verwenden, stellen Sie sicher, dass der Linkverkürzun
 
 ![Nachrichten-Editor mit einem Toggle für die Linkverkürzung.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %})
 
-Braze erkennt nur URLs, die mit `http://` oder `https://` beginnen. Wenn eine URL erkannt wird, aktualisiert sich der **Vorschau**-Abschnitt mit einer Platzhalter-URL. Braze schätzt die Länge der URL nach der Verkürzung, aber eine Warnung fordert Sie auf, eine:n Testnutzer:in auszuwählen und die Nachricht als Entwurf zu speichern, um eine genauere Schätzung zu erhalten.
+Braze erkennt nur URLs, die mit `http://` oder `https://` beginnen. Wenn eine URL erkannt wird, aktualisiert sich der Abschnitt **Vorschau** mit einer Platzhalter-URL. Braze schätzt die Länge der URL nach der Verkürzung, aber eine Warnung fordert Sie auf, eine:n Testnutzer:in auszuwählen und die Nachricht als Entwurf zu speichern, um eine genauere Schätzung zu erhalten.
 
 ![Nachrichten-Editor mit einer langen URL im Feld „Nachricht" und einem generierten verkürzten Link in der Vorschau.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
 
@@ -34,7 +34,7 @@ Sie können Ihre URL direkt im Braze-Composer dynamisch erstellen, sodass Sie dy
 
 ### Eine URL mit unterstützten Liquid-Personalisierungs-Tags erstellen
 
-URLs können dynamisch durch die Verwendung beliebiger [unterstützter Liquid-Personalisierungs-Tags]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags/) generiert werden.
+URLs können dynamisch durch die Verwendung beliebiger [unterstützter Liquid-Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) generiert werden.
 
 {% raw %}
 ```liquid
@@ -71,13 +71,13 @@ Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter
 
 ## Testen
 
-Bevor Sie Ihre Kampagne oder Ihr Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine SMS- oder RCS-Nachricht an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab#content-test-groups) oder eine:n einzelne:n Nutzer:in in der Vorschau anzuzeigen und zu senden.
+Bevor Sie Ihre Kampagne oder Ihr Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine SMS- oder RCS-Nachricht an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder eine:n einzelne:n Nutzer:in in der Vorschau anzuzeigen und zu senden.
 
-Diese Vorschau wird mit der relevanten Personalisierung und der verkürzten URL aktualisiert. Die Zeichenanzahl und die [abrechenbaren Segmente]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/) werden ebenfalls aktualisiert, um die gerenderte Personalisierung und die verkürzte URL widerzuspiegeln.
+Diese Vorschau wird mit der relevanten Personalisierung und der verkürzten URL aktualisiert. Die Zeichenanzahl und die [abrechenbaren Segmente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) werden ebenfalls aktualisiert, um die gerenderte Personalisierung und die verkürzte URL widerzuspiegeln.
 
 Stellen Sie sicher, dass Sie die Kampagne oder das Canvas speichern, bevor Sie eine Testnachricht senden, um eine Darstellung der verkürzten URL zu erhalten, die in Ihrer Nachricht versendet wird. Wenn die Kampagne oder das Canvas vor dem Testversand nicht gespeichert wird, enthält der Testversand eine Platzhalter-URL.
 
-Damit Canvase im Filter „Verkürzten SMS-Link angeklickt" erscheinen, muss der Canvas-Schritt, der den Kurzlink enthält, ebenfalls mit erweitertem Tracking aktiviert sein, das Click-Tracking auf Nutzer:innen-Ebene ermöglicht. Wenn der Kurzlink mit Basis-Tracking konfiguriert ist, steht die Option zum Filtern von SMS-Kurzlink-Klick-Events nicht zur Verfügung.
+Damit Canvases im Filter „Verkürzten SMS-Link angeklickt" erscheinen, muss der Canvas-Schritt, der den Kurzlink enthält, ebenfalls mit erweitertem Tracking aktiviert sein, das Click-Tracking auf Nutzer:innen-Ebene ermöglicht. Wenn der Kurzlink mit Basis-Tracking konfiguriert ist, steht die Option zum Filtern von SMS-Kurzlink-Klick-Events nicht zur Verfügung.
 
 {% alert important %}
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkürzte URL generiert. Die tatsächliche verkürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
@@ -91,7 +91,7 @@ Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Aus
 
 ## Click-Tracking
 
-Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Events pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/sms_mms_rcs_reporting/).
+Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Events pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
 ![Tabelle mit SMS- und MMS-Performance-Metriken.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
@@ -99,7 +99,7 @@ Die Tabellen **Historische Performance** und **SMS/MMS/RCS-Performance** enthalt
 
 ## Retargeting von Nutzer:innen
 
-Hinweise zum Retargeting finden Sie unter [Retargeting]({{site.baseurl}}/user_guide/message_building_by_channel/sms/campaign/retargeting/#filter-by-advanced-tracking-links).
+Hinweise zum Retargeting finden Sie unter [Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/#filter-by-advanced-tracking-links).
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
 
@@ -107,7 +107,7 @@ Hinweise zum Retargeting finden Sie unter [Retargeting]({{site.baseurl}}/user_gu
 
 ### Kann ich sehen, welche einzelnen Nutzer:innen auf eine URL klicken?
 
-Ja. Wenn **Erweitertes Tracking** aktiviert ist, können Sie Nutzer:innen, die auf URLs geklickt haben, über die [SMS-Retargeting-Filter]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/retargeting/) oder die SMS-Klick-Events (`users.messages.sms.ShortLinkClick`) retargeten, die über Currents gesendet werden.
+Ja. Wenn **Erweitertes Tracking** aktiviert ist, können Sie Nutzer:innen, die auf URLs geklickt haben, über die [SMS-Retargeting-Filter]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) oder die SMS-Klick-Events (`users.messages.sms.ShortLinkClick`) retargeten, die über Currents gesendet werden.
 
 ### Funktioniert die Linkverkürzung mit Deeplinks oder Universal Links?
 
@@ -119,7 +119,7 @@ Testen Sie die Nutzererfahrung, bevor Sie die Linkverkürzung mit Universal Link
 
 ### Sind `send_ids` mit SMS-Klick-Events verknüpft?
 
-Nein. Wenn Sie jedoch erweitertes Tracking aktiviert haben, können Sie `send_ids` in der Regel mit Klick-Events verknüpfen, indem Sie den [Query Builder]({{site.baseurl}}/query_builder/) verwenden, um Currents-Daten mit dieser Abfrage abzufragen:
+Nein. Wenn Sie jedoch erweitertes Tracking aktiviert haben, können Sie `send_ids` in der Regel mit Klick-Events verknüpfen, indem Sie den [Abfrage-Builder]({{site.baseurl}}/query_builder/) verwenden, um Currents-Daten mit dieser Abfrage abzufragen:
 
 ```sql
 SELECT c.*, s.send_id
