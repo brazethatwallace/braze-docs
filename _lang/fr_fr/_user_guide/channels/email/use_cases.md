@@ -1,28 +1,28 @@
 ---
-nav_title: Cas d'utilisation
-article_title: Cas d'utilisation des e-mails
+nav_title: Exemples d'utilisation de l'e-mail
+article_title: Exemples d'utilisation de l'e-mail
 page_order: 6
 page_type: reference
-description: "Cet article présente des conseils et astuces spécifiques au contenu pour différents cas d'utilisation des e-mails."
+description: "Le présent article donne des conseils et astuces spécifiques au contenu pour différents cas d'utilisation de l'e-mail."
 channel: email
 
 ---
 
-# Cas d'utilisation des e-mails
+# Exemples d'utilisation de l'e-mail
 
-> Lorsque vous créez vos Campaigns e-mail, voici quelques recommandations générales pour construire votre contenu en fonction de vos cas d'utilisation.
+> Voici quelques recommandations générales sur la création de votre contenu en fonction de vos cas d'utilisation dans vos campagnes par e-mail.
 
 ## Onboarding
 
-Lorsque vos utilisateurs sont intégrés, fournissez-leur des conseils utiles pour bien démarrer et mettez en avant uniquement les fonctionnalités les plus essentielles. Essayez de toujours envoyer un e-mail de bienvenue après l'inscription d'un utilisateur. Voici un exemple de LivingSocial qui contient des appels à l'action clairs et informe les utilisateurs d'une offre :
+Une fois vos utilisateurs onboardés, donnez-leur des conseils utiles pour démarrer et décrivez uniquement les fonctionnalités les plus essentielles. Essayez de toujours envoyer un e-mail de bienvenue lorsqu'un utilisateur s'inscrit. Voici un exemple de LivingSocial qui contient des appels à l'action clairs et informe les utilisateurs sur une offre :
 
-![E-mail d'onboarding envoyé par LivingSocial pour accueillir les nouveaux utilisateurs.]({% image_buster /assets/img_archive/Livingsocial_email.png %}){: style="max-width:70%;"}
+![E-mail d'onboarding envoyé par LivingSocial qui accueille les nouveaux utilisateurs.]({% image_buster /assets/img_archive/Livingsocial_email.png %}){: style="max-width:70%;"}
 
-Cependant, trop d'informations peuvent être accablantes et potentiellement déroutantes si l'utilisateur ne connaît pas encore bien votre application ! Lorsque vous introduisez davantage d'informations sur votre application, il peut être utile de fournir des liens vers votre documentation et d'indiquer aux utilisateurs comment obtenir de l'assistance.
+Cependant, trop d'informations peuvent accabler voire désorienter l'utilisateur si ce dernier ne connaît pas bien votre application ! Lorsque vous communiquez plus d'informations sur votre appli, il peut être utile de fournir des liens vers votre documentation et d'informer les utilisateurs sur la façon d'obtenir de l'assistance.
 
 ## Ventes et promotions
 
-Votre contenu doit communiquer la valeur d'une promotion, comme les remises, les informations sur les soldes et la durée de l'offre. Utiliser des visuels est un excellent moyen d'illustrer les produits que vous promouvez. Gardez votre texte concis et ciblé afin de ne pas surcharger votre e-mail et de ne pas détourner les utilisateurs du contenu essentiel. Rendez votre appel à l'action clair et offrez aux destinataires un moyen simple de participer immédiatement à la promotion.
+Votre contenu doit décrire la valeur d'une promotion, comme les remises, les informations commerciales et la durée de l'offre. Les graphiques sont un excellent moyen d'illustrer les produits dont vous faites la promotion. Veillez à ce que votre texte soit concis et ciblé afin qu'il n'encombre pas votre e-mail et ne détourne pas les utilisateurs du contenu essentiel. Rendez votre appel à l'action clair et offrez aux destinataires un moyen simple de participer immédiatement à la promotion.
 
 Pour recommander certains produits, essayez de les présenter comme des suggestions personnalisées et sélectionnées que l'utilisateur pourrait apprécier. Si vous promouvez une offre à durée limitée, assurez-vous d'en informer les utilisateurs ! Ideeli fait un excellent travail pour transmettre un sentiment d'urgence dans cet e-mail :
 
@@ -30,7 +30,7 @@ Pour recommander certains produits, essayez de les présenter comme des suggesti
 
 ## Transactionnel
 
-Après qu'un utilisateur a effectué un achat in-app, voici quelques recommandations de contenu pour vos Campaigns e-mail spécifiquement dédiées aux interactions transactionnelles avec vos utilisateurs :
+Après qu'un utilisateur a effectué un achat in-app, voici quelques recommandations de contenu pour vos campagnes par e-mail spécifiquement dédiées aux interactions transactionnelles avec vos utilisateurs :
 - Remerciez-les et fournissez des conseils qui peuvent les aider à tirer le meilleur parti de leur achat
 - Envoyez-leur une confirmation d'expédition et un moyen de poser des questions sur leur livraison
 - Demandez un retour d'expérience pour recueillir leur avis sans être insistant
