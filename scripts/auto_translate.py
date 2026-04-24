@@ -984,6 +984,45 @@ def _normalize_single_internal_link_url(url):
     return f"{before}/#{frag}", True
 
 
+_SUP_BOLD_STAR_TYPO = re.compile(r"<sup>\*\*([^*<]+)\*</sup>")
+
+
+def repair_sup_addon_footnote_bold_typo(translated_content: str):
+    """Fix ``<sup>**text*</sup>`` copied from English (unbalanced ``**`` / ``*``).
+
+    Models sometimes preserve a malformed footnote after channel tables; it
+    breaks Markdown emphasis pairing in some pipelines (see Copilot on PR #13285).
+    """
+    new, n = _SUP_BOLD_STAR_TYPO.subn(
+        lambda m: f"<sup>{m.group(1).strip()}</sup>", translated_content
+    )
+    if n:
+        return new, [f"html-sup — normalized {n} add-on footnote(s) (removed **…*)"]
+    return translated_content, []
+
+
+def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content: str):
+    """Ensure ``ideas_and_strategies`` doc links use a trailing ``/`` before ``)``."""
+    repairs = []
+    new = translated_content
+    for wrong, right in (
+        (
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)",
+        ),
+        (
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/)",
+        ),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append("md-link — ideas_and_strategies trailing /")
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_markdown_internal_link_fragments(content):
     """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
     repairs = []
@@ -1909,6 +1948,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(frag_repairs)
+
+    translated_content, sup_foot_repairs = repair_sup_addon_footnote_bold_typo(
+        translated_content
+    )
+    findings["repairs"].extend(sup_foot_repairs)
+
+    translated_content, ideas_slash_repairs = (
+        repair_ideas_and_strategies_internal_link_trailing_slash(translated_content)
+    )
+    findings["repairs"].extend(ideas_slash_repairs)
 
     translated_content, wire_repairs = repair_markdown_wire_format_tables(
         translated_content
