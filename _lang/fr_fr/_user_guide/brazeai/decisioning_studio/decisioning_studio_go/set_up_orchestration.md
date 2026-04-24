@@ -31,7 +31,7 @@ Pour intégrer Decisioning Studio Go avec Braze, vous allez créer une clé API,
 
 ### Étape 1 : Créer une clé API REST
 
-1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Clés API** > **Clés API**.
+1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **API et identifiants** > **Clés API**.
 2. Sélectionnez **Créer une clé API**.
 3. Saisissez un nom pour votre clé API. Par exemple : « DecisioningStudioGoEmail ».
 4. Sélectionnez les autorisations en fonction des catégories suivantes :

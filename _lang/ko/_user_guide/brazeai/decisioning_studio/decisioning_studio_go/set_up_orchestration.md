@@ -31,7 +31,7 @@ Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API �
 
 ### 1단계: REST API 키 생성
 
-1. Braze 대시보드에서 **설정** > **API 키** > **API 키**로 이동하세요.
+1. Braze 대시보드에서 **설정** > **API 및 식별자** > **API 키**로 이동하세요.
 2. **API 키 생성**을 선택합니다.
 3. API 키의 이름을 입력하세요. 예를 들어 "DecisioningStudioGoEmail"과 같이 입력할 수 있습니다.
 4. 다음 카테고리에 따라 권한을 선택하세요:

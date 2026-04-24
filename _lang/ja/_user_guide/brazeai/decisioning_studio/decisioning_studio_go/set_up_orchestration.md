@@ -31,7 +31,7 @@ Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、API
 
 ### ステップ 1: REST APIキーを作成する
 
-1. Brazeダッシュボードで、**設定** > **APIキー** > **APIキー**に移動します。
+1. Brazeダッシュボードで、**設定** > **APIと識別子** > **APIキー**に移動します。
 2. **APIキーを作成**を選択します。
 3. APIキーの名前を入力します。例：「DecisioningStudioGoEmail」
 4. 以下のカテゴリに基づいて権限を選択します。
