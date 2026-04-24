@@ -34,9 +34,9 @@ Braze では、[キャンペーン](#campaigns)または[キャンバス](#canva
 
 Braze のキャンペーンについてさらに詳しく学ぶには、以下の追加リソースをご覧ください。
 
-- Braze Learning: [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
+- Braze Learning: [キャンペーン設定](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
 - [キャンペーンを作成する]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- [アイデアと戦略]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)
+- [アイデアと戦略]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)
 
 ## キャンバス
 
@@ -52,7 +52,7 @@ Braze のキャンペーンについてさらに詳しく学ぶには、以下�
 
 キャンバスについてさらに詳しく学ぶには、以下の追加リソースをご覧ください。
 
-- Braze Learning: [Journey Orchestration with Canvas Flow](https://learning.braze.com/path/journey-orchestration-with-canvas-flow)
+- Braze Learning: [Canvas Flow を使用したジャーニーオーケストレーション](https://learning.braze.com/path/journey-orchestration-with-canvas-flow)
 - [キャンバスを作成する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
 - [キャンバスの概要]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/canvas_outlines/)
 
@@ -79,7 +79,7 @@ Braze のキャンペーンについてさらに詳しく学ぶには、以下�
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | 日本で最も人気のあるメッセージングアプリ LINE でユーザーとエンゲージします。                                                    |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-<sup>**アドオン機能として利用できます。*</sup>
+<sup>アドオン機能として利用できます。</sup>
 
 {% alert tip %}
 ほとんどのチャネル（メール、SMS、プッシュ）で送信できる短くて緊急のメッセージについては、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)フィルターを活用して、各ユーザーに最適なチャネルを通じてメッセージを自動的に送信しましょう。

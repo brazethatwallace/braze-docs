@@ -36,7 +36,7 @@ Braze에서 캠페인에 대해 더 알아보려면 다음 추가 리소스를 �
 
 - Braze 학습센터: [캠페인 설정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
 - [캠페인 생성]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- [아이디어와 전략]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)
+- [아이디어와 전략]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)
 
 ## 캔버스
 
@@ -79,7 +79,7 @@ Braze에서 캠페인에 대해 더 알아보려면 다음 추가 리소스를 �
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | 일본에서 가장 인기 있는 메시징 앱인 LINE에서 사용자와 소통하세요.                                                    |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-<sup>**추가 기능으로 사용할 수 있습니다.*</sup>
+<sup>추가 기능으로 사용할 수 있습니다.</sup>
 
 {% alert tip %}
 대부분의 채널(이메일, SMS, 푸시)을 통해 전달할 수 있는 짧고 긴급한 메시지의 경우, [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) 필터를 활용하여 각 사용자에게 가장 적합한 채널을 통해 메시지를 자동으로 전송하세요.

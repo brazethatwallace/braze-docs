@@ -36,7 +36,7 @@ Consulta estos recursos adicionales para saber más sobre las campañas en Braze
 
 - Braze Learning: [Configuración de la campaña](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
 - [Crear una campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- [Ideas y estrategias]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)
+- [Ideas y estrategias]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)
 
 ## Canvas
 
@@ -79,7 +79,7 @@ En la tabla siguiente se describen los canales que admitimos.
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | Interactúa con los usuarios en LINE, la aplicación de mensajería más popular de Japón.                                                    |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-<sup>**Disponible como característica adicional.*</sup>
+<sup>Disponible como característica adicional.</sup>
 
 {% alert tip %}
 Para mensajes cortos y urgentes que pueden comunicarse a través de la mayoría de los canales (correo electrónico, SMS, push), aprovecha el filtro de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) para enviar automáticamente el mensaje a través del mejor canal para cada usuario.
