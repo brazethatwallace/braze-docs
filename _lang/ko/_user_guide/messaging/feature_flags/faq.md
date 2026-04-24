@@ -73,7 +73,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 마케팅 팀은 기능이 소수의 사용자에게만 활성화되어 있을 때 제품 발표(예: 제품 출시 이메일)를 조율하기 위해 기능 플래그를 사용할 수 있습니다.
 
-예를 들어, Braze 기능 플래그를 사용하면 앱 사용자의 10%에게 새로운 로열티 프로그램을 출시하고, 캔버스 피처 플래그 단계를 사용하여 동일한 10%의 활성화된 사용자에게 이메일, 푸시 또는 기타 메시징을 보낼 수 있습니다.
+예를 들어, Braze 기능 플래그를 사용하면 앱 사용자의 10%에게 새로운 로열티 프로그램을 출시하고, Canvas 피처 플래그 단계를 사용하여 동일한 10%의 활성화된 사용자에게 이메일, 푸시 또는 기타 메시징을 보낼 수 있습니다.
 
 ### 기능 플래그가 제품 팀에 어떤 도움이 되나요? {#product-teams}
 
@@ -81,7 +81,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 제품 팀은 [기능 플래그 등록정보]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties)를 사용하여 딥링크, 텍스트, 이미지 또는 기타 동적 콘텐츠와 같은 앱 내 콘텐츠를 원격으로 채울 수 있습니다.
 
-캔버스 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스트를 실행하여 새로운 기능이 기능이 비활성화된 사용자와 비교하여 전환율에 어떤 영향을 미치는지 측정할 수도 있습니다.
+Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스트를 실행하여 새로운 기능이 기능이 비활성화된 사용자와 비교하여 전환율에 어떤 영향을 미치는지 측정할 수도 있습니다.
 
 ### 기능 플래그가 엔지니어링 팀에 어떤 도움이 되나요? {#engineering-teams}
 
@@ -93,7 +93,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 ### 기능 플래그를 특정 사용자 그룹에만 출시할 수 있나요? {#target-users}
 
-네, Braze에서 이메일 주소, `user_id` 또는 고객 프로필의 기타 속성을 기준으로 특정 사용자를 타겟팅하는 Segment를 생성하세요. 그런 다음 해당 Segment의 100%에 기능 플래그를 배포하세요.
+네, Braze에서 이메일 주소, `user_id` 또는 고객 프로필의 기타 속성을 기준으로 특정 사용자를 타겟팅하는 세그먼트(Segment)를 생성하세요. 그런 다음 해당 세그먼트의 100%에 기능 플래그를 배포하세요.
 
 ### 출시 비율을 조정하면 이전에 활성화 그룹에 버킷된 사용자에게 어떤 영향을 미치나요? {#random-buckets}
 
@@ -127,9 +127,9 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 이를 제어하려면 기능 플래그의 [업데이트를 수신]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates)하고 어떤 기능 플래그가 변경되었는지에 따라 앱을 다시 렌더링할지 결정하세요.
 
-### 전역 제어 그룹의 사용자가 기능 플래그 실험을 받지 못하는 이유는 무엇인가요?
+### 글로벌 컨트롤 그룹의 사용자가 기능 플래그 실험을 받지 못하는 이유는 무엇인가요?
 
-[전역 제어 그룹]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/)의 사용자에게는 기능 플래그를 활성화할 수 없습니다. 즉, 전역 제어 그룹의 사용자는 피처 플래그 실험에 참여할 수 없습니다.
+[글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/)의 사용자에게는 기능 플래그를 활성화할 수 없습니다. 즉, 글로벌 컨트롤 그룹의 사용자는 기능 플래그 실험에 참여할 수 없습니다.
 
 ## 추가 질문이 있으신가요?
 

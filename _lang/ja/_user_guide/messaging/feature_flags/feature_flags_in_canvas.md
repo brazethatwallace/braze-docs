@@ -1,5 +1,5 @@
 ---
-nav_title: キャンバスのフィーチャーフラグ
+nav_title: Canvas のフィーチャーフラグ
 page_order: 30
 noindex: true
 tool: Feature Flags
