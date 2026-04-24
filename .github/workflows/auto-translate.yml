@@ -189,14 +189,31 @@ jobs:
             _lang/
 
       # Requires GitHub Copilot code review on the repo/org (see GitHub Docs).
+      # Prefers the `gh pr edit --add-reviewer @copilot` shortcut (gh >= 2.88.0,
+      # released 2026-03-11). Falls back to the REST API bot-login workaround
+      # if the shortcut isn't available or fails for any reason. Non-blocking:
+      # a missing Copilot review should never stop translation PRs from merging.
       - name: Request Copilot review
         if: ${{ steps.changes.outputs.count != '0' && steps.create-pr.outputs.pull-request-number }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
+          REPO: ${{ github.repository }}
         run: |
-          gh pr edit "${{ steps.create-pr.outputs.pull-request-number }}" \
-            --repo "${{ github.repository }}" \
-            --add-reviewer copilot
+          set +e
+          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
+            echo "Requested Copilot review via gh CLI shortcut."
+            exit 0
+          fi
+          echo "gh CLI shortcut failed; falling back to REST API bot login..."
+          if gh api --method POST \
+            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
+            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
+            echo "Requested Copilot review via REST API fallback."
+            exit 0
+          fi
+          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
 
       - name: Report failures
         if: steps.translate.outcome == 'failure' || steps.qc.outcome == 'failure' || steps.aliases.outcome == 'failure' || steps.verify.outcome == 'failure'
