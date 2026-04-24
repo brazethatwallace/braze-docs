@@ -1,10 +1,10 @@
 {% if include.section == "Differing audience size" %}
 
-O tamanho do público-alvo exibido em uma campanha ou Canvas pode ser diferente do [tamanho do público alcançável para um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), mesmo que você esteja adicionando diretamente esse segmento à sua campanha ou Canvas sem filtros adicionais. 
+O tamanho do público-alvo exibido em uma campanha ou Canvas pode ser diferente do [tamanho do público alcançável para um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), mesmo que você esteja adicionando diretamente esse segmento à sua campanha ou Canvas sem filtros adicionais.
 Isso pode ocorrer por vários motivos:
 
 - Quando um Grupo de controle global se aplica a uma campanha ou Canvas, os usuários desse Grupo de controle global são excluídos da contagem de usuários contatáveis.
-- O tamanho do público-alvo de uma campanha ou Canvas exclui os usuários que não podem ser contatados por meio de vários canais de mensagens; o comportamento difere de canal para canal. Por exemplo, o público alcançável de uma campanha ou Canvas exclui os usuários que cancelaram a inscrição, foram marcados como spam (para e-mails) ou sofreram hard bounce (para e-mails). O segmento em si, no entanto, exclui apenas os descadastramentos ao mostrar o número estimado de usuários alcançáveis por e-mail. 
+- O tamanho do público-alvo de uma campanha ou Canvas exclui os usuários que não podem ser contatados por meio de vários canais de mensagens; o comportamento difere de canal para canal. Por exemplo, o público alcançável de uma campanha ou Canvas exclui os usuários que cancelaram a inscrição, foram marcados como spam (para e-mails) ou sofreram hard bounce (para e-mails). O segmento em si, no entanto, exclui apenas os descadastramentos ao mostrar o número estimado de usuários alcançáveis por e-mail.
 - A Braze só envia mensagens SMS para usuários dentro do grupo de inscrições selecionado, portanto, o público-alvo de SMS para uma campanha ou Canvas também excluirá todos os usuários que não fizerem parte do grupo de inscrições selecionado.
 
 {% endif %}
@@ -38,7 +38,7 @@ No painel **Refresh Interval Settings**, você pode selecionar a frequência de 
 - Se quiser que seu segmento seja atualizado todos os dias, selecione a frequência de atualização diária e, em seguida, escolha a hora do dia para atualizar.
 
 {% alert note %}
-A capacidade de definir uma programação de atualização por hora não está disponível para extensões de segmento baseadas em formulário (mas você pode definir programações diárias, semanais ou mensais). 
+A capacidade de definir uma programação de atualização por hora não está disponível para extensões de segmento baseadas em formulário (mas você pode definir programações diárias, semanais ou mensais).
 {% endalert %}
 
 #### Consumo de crédito e custos adicionais
@@ -48,8 +48,8 @@ Como as atualizações executam novamente a consulta do seu segmento, cada atual
 {% alert note %}
 Os segmentos podem levar até 60 minutos para serem atualizados devido ao tempo de processamento dos dados. Os segmentos que estão em processo de atualização terão o status "Processing" na lista de Extensões de segmento. Isso tem algumas implicações:
 
-- Para concluir o processamento do seu segmento antes de um horário específico, escolha um horário de atualização que seja 60 minutos antes. 
-- Somente uma atualização pode ocorrer de cada vez para uma extensão de segmento específica. Se houver um conflito em que uma nova atualização seja iniciada quando uma atualização existente já tiver começado a ser processada, a Braze cancelará a nova solicitação de atualização e continuará o processamento em andamento. 
+- Para concluir o processamento do seu segmento antes de um horário específico, escolha um horário de atualização que seja 60 minutos antes.
+- Somente uma atualização pode ocorrer de cada vez para uma extensão de segmento específica. Se houver um conflito em que uma nova atualização seja iniciada quando uma atualização existente já tiver começado a ser processada, a Braze cancelará a nova solicitação de atualização e continuará o processamento em andamento.
 {% endalert %}
 
 #### Critérios para desativar automaticamente extensões obsoletas

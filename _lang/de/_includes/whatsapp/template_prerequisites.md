@@ -4,10 +4,10 @@ Vor dem Erstellen von WhatsApp-Templates müssen Sie das [WhatsApp-Setup]({{site
 - Medien-Assets (Bilder oder Videos), die zum Hochladen bereit sind
 - Braze-Berechtigungen für Nutzer:innen ohne Administratorrechte
     - Damit Nutzer:innen neue Templates im Template Builder erstellen können:
-        - „View WhatsApp Message Templates"
-        - „Edit WhatsApp Message Templates"
+        - „View WhatsApp Message Templates“
+        - „Edit WhatsApp Message Templates“
     - Damit Nutzer:innen Kampagnen oder Canvases mit Karussell-Templates verfassen können:
-        - „View WhatsApp Message Templates"
+        - „View WhatsApp Message Templates“
 - Grundkenntnisse in Liquid-Templating (optional, für dynamischen Content)
 
 {% alert important %}
