@@ -21,7 +21,7 @@ guide_featured_list:
 - name: AI Liquid 어시스턴트
   link: /docs/user_guide/brazeai/generative_ai/liquid
   image: /assets/img/braze_icons/beaker-02.svg
-- name: SQL 퀴리 빌더
+- name: SQL 쿼리 빌더
   link: /docs/user_guide/analytics/reports/query_builder
   image: /assets/img/braze_icons/tool-01.svg
 - name: SQL 세그먼트 확장
