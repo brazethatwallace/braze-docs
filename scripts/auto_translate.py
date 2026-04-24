@@ -2448,6 +2448,56 @@ def repair_messaging_canvas_hub_titles_from_engagement_tools(
     return translated_content, []
 
 
+def repair_messaging_feature_flags_fm_from_engagement_tools(
+    translated_path, translated_content
+):
+    """Sync Feature Flags stub front matter with ``engagement_tools/feature_flags``.
+
+    ``messaging/feature_flags.md`` mirrors the English IA as a thin include of
+    the same body as ``engagement_tools/feature_flags.md``. Models sometimes
+    paraphrase ``nav_title`` / ``article_title`` / ``description`` (e.g.
+    Spanish *Conmutador de características* vs established *Banderas de
+    características* on the sibling — Copilot on PR #13309).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    suffix = "_user_guide/messaging/feature_flags.md"
+    if "_lang/" not in rel or not rel.endswith(suffix):
+        return translated_content, []
+
+    tr_path = Path(translated_path).resolve()
+    ref_path = tr_path.parent.parent / "engagement_tools" / "feature_flags.md"
+    if not ref_path.is_file():
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    ref_fm, _ = _extract_front_matter(ref_path.read_text(encoding="utf-8"))
+    if not ref_fm:
+        return translated_content, []
+
+    keys = ("nav_title", "article_title", "description")
+    repairs = []
+    repaired_fm = tr_fm
+    for key in keys:
+        ref_line = _fm_line_for_key(ref_fm, key)
+        tr_line = _fm_line_for_key(repaired_fm, key)
+        if not ref_line or not tr_line:
+            continue
+        if ref_line == tr_line:
+            continue
+        repaired_fm = repaired_fm.replace(tr_line, ref_line, 1)
+        repairs.append(
+            f"feature-flags-messaging-hub — {key} aligned with "
+            f"engagement_tools/feature_flags.md"
+        )
+
+    if repairs:
+        return f"---\n{repaired_fm}\n---\n{tr_body}", repairs
+    return translated_content, []
+
+
 _EN_SETTINGS_APIS_API_KEYS_NAV = (
     "**Settings** > **APIs and Identifiers** > **API Keys**"
 )
@@ -3459,6 +3509,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(canvas_hub_repairs)
+
+    translated_content, ff_hub_repairs = (
+        repair_messaging_feature_flags_fm_from_engagement_tools(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(ff_hub_repairs)
 
     translated_content, api_nav_repairs = repair_braze_dashboard_api_keys_nav_collapse(
         english_content, translated_content, lang_key
