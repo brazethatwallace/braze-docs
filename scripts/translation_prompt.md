@@ -33,6 +33,7 @@ Preserve all of the following exactly as they appear in the English source:
 
 - **YAML front matter keys** — only translate the specific values listed above
 - **These YAML values**: `page_order`, `layout`, `page_type`, `channel`, `platform`, `tool`, `link`, `image`, `permalink`, `hidden`, `noindex`, `config_only`, `search_rank`, `page_layout`
+- **`link` under navigation-style lists** (`guide_featured_list`, `guide_menu_list`, `guide_menu_list2`, `doc_menu_list`, `doc_menu_list2`): copy each `link:` value **character-for-character** from the English source (same path, same spelling). These are site routes, not prose — never shorten them to a parent path (for example, do not replace `/docs/user_guide/brazeai/predictive_suite` with `/docs/user_guide/brazeai` even if that looks like a sensible section URL).
 - **Liquid tags**: `{% ... %}` and `{{ ... }}` — copy exactly, including all parameters, whitespace, and hyphens
 - **Code blocks** (fenced with ``` or ~~~) — preserve all content inside verbatim
 - **Inline code** (wrapped in backticks) — preserve exactly, UNLESS the backtick-wrapped text is clearly a UI label or dropdown option (not actual code, a variable name, or a technical identifier). UI labels in backticks should be translated to match the localized Braze dashboard while keeping the backtick formatting. For example, "do" and "do not" wrapped in backticks are UI dropdown options and should be translated; "user_id" and "campaign_name" wrapped in backticks are code and must not be translated.

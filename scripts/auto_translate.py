@@ -657,6 +657,68 @@ def repair_front_matter(english_content, translated_content):
     return translated_content, repairs
 
 
+def _collect_guide_featured_list_links(block):
+    """Return ordered list of `link:` values inside a `guide_featured_list` YAML block."""
+    if not block:
+        return []
+    out = []
+    for line in block.splitlines():
+        m = re.match(r"^\s+link:\s*(.+)$", line)
+        if m:
+            out.append(m.group(1).strip().strip("\"'"))
+    return out
+
+
+def repair_guide_featured_list_links(english_content, translated_content):
+    """Sync `link:` paths under `guide_featured_list` to match English (order-based).
+
+    Display `name` values are often translated, so matching by list position is more
+    reliable than matching by `name` text.
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not en_fm or not tr_fm:
+        return translated_content, []
+
+    en_block = _extract_fm_block(en_fm, "guide_featured_list")
+    tr_block = _extract_fm_block(tr_fm, "guide_featured_list")
+    if not en_block or not tr_block:
+        return translated_content, []
+
+    en_links = _collect_guide_featured_list_links(en_block)
+    tr_links = _collect_guide_featured_list_links(tr_block)
+    if len(en_links) != len(tr_links):
+        return translated_content, [
+            "guide_featured_list — link count mismatch "
+            f"(English: {len(en_links)}, translated: {len(tr_links)}); skipped link sync"
+        ]
+
+    new_lines = []
+    idx = 0
+    sync_count = 0
+    for line in tr_block.splitlines():
+        m = re.match(r"^(\s+link:\s*)(.+)$", line)
+        if m and idx < len(tr_links):
+            want = en_links[idx]
+            got = tr_links[idx]
+            idx += 1
+            if want != got:
+                new_lines.append(m.group(1) + want)
+                sync_count += 1
+                continue
+        new_lines.append(line)
+
+    if sync_count == 0:
+        return translated_content, []
+
+    new_tr_block = "\n".join(new_lines)
+    new_tr_fm = tr_fm.replace(tr_block, new_tr_block, 1)
+    translated_content = f"---\n{new_tr_fm}\n---\n{tr_body}"
+    return translated_content, [
+        f"guide_featured_list — synced {sync_count} link(s) from English"
+    ]
+
+
 def repair_yaml_syntax(translated_content):
     """Validate YAML front matter and auto-fix common parse errors.
 
@@ -1084,6 +1146,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(fm_repairs)
+
+    translated_content, gfl_repairs = repair_guide_featured_list_links(
+        english_content, translated_content
+    )
+    findings["repairs"].extend(gfl_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
