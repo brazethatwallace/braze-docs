@@ -1,8 +1,10 @@
-## Using email editor blocks
+## Email editor blocks
 
-Editor blocks are located under the **Content** section for email messages. To use an editor block, drag an editor block inside a column in the drag-and-drop editor. It will auto-adjust to the column width. Each editor block has its owns settings, such as granular control on padding.
+Editor blocks are located under the **Content** section for email messages. To use an editor block, drag an editor block inside a column in the drag-and-drop editor. It will auto-adjust to the column width. Each editor block has its own settings, such as granular control on padding.
 
-For more information on how to use and customize these editor blocks in your email, check out [Other customizations]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/#other-customizations).
+For more information about creating emails in the drag-and-drop editor, see [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/).
+
+For more information about customizing these editor blocks in your email, see <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Other customizations</a> in that article.
 
 {% alert tip %}
 You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
@@ -10,7 +12,7 @@ You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation
 
 ## Types
 
-The following table describes how users can use each editor block type.
+The following table describes each editor block type.
 
 | Name | Description |
 |---|---|

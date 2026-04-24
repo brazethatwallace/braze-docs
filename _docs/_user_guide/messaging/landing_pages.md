@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Braze landing pages are standalone web pages that can drive your user acquisition and engagement strategy.
 
-Use landing pages to grow your audience, capture user data, promote special offers, and support multichannel campaigns.
+Use landing pages to grow your audience, capture user data, promote special offers, and support multichannel campaigns. For a reference of landing page drag-and-drop blocks, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 {% alert note %}
 Landing page and custom domain availability depends on your Braze package. Contact your account manager or customer success manager to get started.

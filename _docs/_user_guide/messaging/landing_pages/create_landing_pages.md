@@ -49,7 +49,7 @@ If you haven't already, select **Save as draft**. To start customizing your page
 
 ![An example landing page being created in the drag-and-drop editor.]({% image_buster /assets/img/landing_pages/template.png %})
 
-The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row.
+The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row. For a dedicated reference of each block and properties, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 ![The 'Build' section containing 'Rows' and 'Form Blocks'.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
