@@ -18,7 +18,7 @@ Por exemplo, para registrar um clique quando um usuário toca em um botão no se
 
 ```html
 <button onclick="brazeBridge.logClick()">
-  Click me
+  Clique aqui
 </button>
 ```
 

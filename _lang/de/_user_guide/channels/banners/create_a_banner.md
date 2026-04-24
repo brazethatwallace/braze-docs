@@ -28,7 +28,7 @@ Sind Sie unsicher, ob Ihre Nachricht über eine Kampagne oder ein Canvas gesende
 {% tabs %}
 {% tab Campaign %}
 
-1. Gehen Sie zu **Messaging** > **Kampagnen** und wählen Sie **Kampagne erstellen**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Create Campaign**.
 2. Wählen Sie **Banner**.
 3. Geben Sie Ihrer Kampagne einen klaren und aussagekräftigen Namen.
 4. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu. Tags erleichtern das Auffinden Ihrer Kampagnen und das Erstellen von Berichten. Wenn Sie beispielsweise den Berichts-Builder verwenden, können Sie nach den relevanten Tags filtern.
@@ -141,8 +141,6 @@ Wenn Sie mehrere Banner-Kampagnen mit derselben Placement-ID haben, empfehlen wi
 
 {:start="2"}
 2. Verfolgen Sie unter **Conversions zuweisen**, wie oft Nutzer:innen bestimmte Aktionen nach Erhalt einer Kampagne ausführen, indem Sie Konversions-Events mit einem Zeitfenster von bis zu 30 Tagen definieren, um die Aktion als Conversion zu zählen.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Konversions-Events auswählen
 

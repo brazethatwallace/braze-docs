@@ -28,7 +28,7 @@ Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canv
 {% tabs %}
 {% tab Campaign %}
 
-1. Acesse **Envio de mensagens** > **Campanhas** e selecione **Criar campanha**.
+1. Acesse **Messaging** > **Campaigns** e selecione **Create campaign**.
 2. Selecione **Banner**.
 3. Dê à sua campanha um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) conforme necessário. Tags facilitam encontrar suas campanhas e criar relatórios. Por exemplo, ao usar o Criador de relatórios, você pode filtrar pelas tags relevantes.
@@ -141,8 +141,6 @@ Se você tem várias campanhas de Banner usando o mesmo ID de posicionamento, re
 
 {:start="2"}
 2. Em **Atribuir conversões**, acompanhe a frequência com que os usuários realizam ações específicas após receberem uma campanha, definindo eventos de conversão com um período de até 30 dias para contar a ação como uma conversão.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Escolher eventos de conversão
 

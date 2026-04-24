@@ -23,12 +23,12 @@ Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ub
 
 ### Paso 2: Elige dónde crear tu mensaje
 
-¿No tienes claro si tu mensaje debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para campañas de mensajería únicas y dirigidas, mientras que Canvas es mejor para recorridos de usuario con múltiples pasos.
+¿No tienes claro si tu mensaje debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para campañas de mensajería únicas y dirigidas, mientras que los Canvas son mejores para recorridos de usuario con múltiples pasos.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Mensajería** > **Campañas** y selecciona **Crear campaña**.
+1. Ve a **Messaging** > **Campaigns** y selecciona **Create campaign**.
 2. Selecciona **Banner**.
 3. Dale a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario. Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el Generador de informes, puedes filtrar por las etiquetas relevantes.
@@ -141,8 +141,6 @@ Si tienes múltiples campañas de banner usando el mismo ID de ubicación, te re
 
 {:start="2"}
 2. En **Asignar conversiones**, realiza un seguimiento de la frecuencia con la que los usuarios realizan acciones específicas después de recibir una campaña definiendo eventos de conversión con una ventana de hasta 30 días para contar la acción como una conversión.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Elige eventos de conversión
 

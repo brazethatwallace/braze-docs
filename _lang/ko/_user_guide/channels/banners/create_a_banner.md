@@ -28,7 +28,7 @@ channel:
 {% tabs %}
 {% tab Campaign %}
 
-1. **메시징** > **캠페인**으로 이동하여 **캠페인 생성**을 선택합니다.
+1. **Messaging** > **Campaigns**로 이동하여 **Create campaign**을 선택합니다.
 2. **배너**를 선택합니다.
 3. 캠페인에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다. 태그를 사용하면 캠페인을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, 보고서 빌더를 사용할 때 관련 태그로 필터링할 수 있습니다.
@@ -141,8 +141,6 @@ channel:
 
 {:start="2"}
 2. **전환 할당**에서 전환 이벤트를 정의하여 캠페인을 수신한 후 사용자가 특정 행동을 수행하는 빈도를 추적합니다. 해당 행동을 전환으로 집계하기 위한 최대 30일의 기간을 설정할 수 있습니다.
-
-{% multi_lang_include target_audiences.md %}
 
 #### 전환 이벤트 선택
 

@@ -28,7 +28,7 @@ channel:
 {% tabs %}
 {% tab Campaign %}
 
-1. **メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
+1. **Messaging** > **Campaigns** に移動し、**Create campaign** を選択します。
 2. **バナー**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。タグを使用すると、キャンペーンを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
@@ -141,8 +141,6 @@ channel:
 
 {:start="2"}
 2. **コンバージョンの割り当て**で、コンバージョンイベントを定義して、キャンペーンを受信した後にユーザーが特定のアクションを実行する頻度を追跡します。アクションをコンバージョンとしてカウントするための最大30日間の時間枠を設定できます。
-
-{% multi_lang_include target_audiences.md %}
 
 #### コンバージョンイベントを選択する
 

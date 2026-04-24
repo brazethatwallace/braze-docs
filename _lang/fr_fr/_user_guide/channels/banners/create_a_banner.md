@@ -28,7 +28,7 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 {% tabs %}
 {% tab Campaign %}
 
-1. Accédez à **Messagerie** > **Campagnes** et sélectionnez **Créer une campagne**.
+1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create campaign**.
 2. Sélectionnez **Bannière**.
 3. Donnez à votre campagne un nom clair et explicite.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) si nécessaire. Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, avec le Générateur de rapports, vous pouvez filtrer par étiquettes pertinentes.
@@ -141,8 +141,6 @@ Si vous avez plusieurs campagnes de bannière utilisant le même ID d'emplacemen
 
 {:start="2"}
 2. Dans **Affecter les conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une fenêtre pouvant aller jusqu'à 30 jours pour comptabiliser l'action comme une conversion.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Choisir les événements de conversion
 
