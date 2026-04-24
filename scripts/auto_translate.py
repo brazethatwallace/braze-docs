@@ -1106,6 +1106,80 @@ def repair_messaging_canvas_hub_titles_from_engagement_tools(
     return translated_content, []
 
 
+_EN_SETTINGS_APIS_API_KEYS_NAV = (
+    "**Settings** > **APIs and Identifiers** > **API Keys**"
+)
+
+
+def repair_braze_dashboard_api_keys_nav_collapse(
+    english_content: str, translated_content: str, lang_key: str
+):
+    """Restore middle menu level when models collapse REST API key navigation.
+
+    English uses **Settings** > **APIs and Identifiers** > **API Keys**; bad
+    translations repeat the child label twice and drop *APIs and Identifiers*.
+    """
+    if _EN_SETTINGS_APIS_API_KEYS_NAV not in english_content:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    fixes = (
+        (
+            "ko",
+            "Braze 대시보드에서 **설정** > **API 키** > **API 키**",
+            "Braze 대시보드에서 **설정** > **API 및 식별자** > **API 키**",
+        ),
+        (
+            "ja",
+            "Brazeダッシュボードで、**設定** > **APIキー** > **APIキー**",
+            "Brazeダッシュボードで、**設定** > **APIと識別子** > **APIキー**",
+        ),
+        (
+            "fr",
+            "**Paramètres** > **Clés API** > **Clés API**",
+            "**Paramètres** > **API et identifiants** > **Clés API**",
+        ),
+    )
+    for key, wrong, right in fixes:
+        if lang_key != key:
+            continue
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append(
+                "nav-path — Settings > APIs and Identifiers > API Keys (collapsed fix)"
+            )
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_decisioning_insights_table_labels(
+    english_content: str, translated_path: str, translated_content: str, lang_key: str
+):
+    """Fix recurring Decisioning Studio *Insights* table mistranslations."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("decisioning_studio/reporting/insights.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "ko" and "| Dimension |" in english_content:
+        if "| 크기 및 위치 |" in new:
+            new = new.replace("| 크기 및 위치 |", "| 차원 |")
+            repairs.append("insights-table — KO Dimension row (차원)")
+
+    if lang_key == "ja" and "| % of time chosen |" in english_content:
+        if "全セレクションのうち" in new:
+            new = new.replace("全セレクションのうち", "全選択のうち")
+            repairs.append("insights-table — JA percent-chosen phrasing")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
 def repair_urls(english_content, translated_content):
     """Ensure markdown link URLs match the English source."""
     en_urls = _extract_md_link_urls(english_content)
@@ -1491,6 +1565,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(canvas_hub_repairs)
+
+    translated_content, api_nav_repairs = repair_braze_dashboard_api_keys_nav_collapse(
+        english_content, translated_content, lang_key
+    )
+    findings["repairs"].extend(api_nav_repairs)
+
+    translated_content, ds_insights_repairs = repair_decisioning_insights_table_labels(
+        english_content, translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ds_insights_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

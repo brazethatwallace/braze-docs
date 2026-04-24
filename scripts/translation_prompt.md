@@ -117,6 +117,11 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - Never output the **same** `{% multi_lang_include path/to_snippet.md %}` **twice in a row** with only blank lines between. If the English source accidentally duplicates an include, your translation should **keep a single include** (and note the upstream typo if you are fixing English separately).
 - In **numbered dashboard steps** that show navigation paths in bold, keep **canonical English UI labels** exactly as in the Braze product (`Messaging`, `Campaigns`, `Create campaign`, and so on) so glossary checks and screenshots stay aligned—translate surrounding instructional words, not those tokens inside `**…**` path steps unless the style guide for that locale explicitly says otherwise.
 
+### Braze dashboard paths (Settings → APIs and identifiers → API keys)
+
+- When the English source shows **Settings** > **APIs and Identifiers** > **API Keys** (for example when creating a REST API key), your translation must keep **three distinct levels**: settings/home, the **APIs and identifiers** (or equivalent) **section**, then **API keys**. Do **not** collapse this into a duplicated child label (for example two consecutive “API keys” / “API キー” / “Clés API” segments with no parent section in between)—that drops the real middle screen and readers cannot follow the path in the product.
+- **Reporting tables — “Dimension”:** In analytics copy, English **Dimension** names a **breakdown attribute** (channel, campaign, platform, etc.), not physical size or layout. Use the same kind of term your locale already uses for **data / analytics dimensions** (for example Korean **차원** for this concept)—do not substitute unrelated “size and position” wording.
+
 ### Canvas hub under Messaging (`messaging/canvas.md`)
 
 - English may add `_docs/_user_guide/messaging/canvas.md` while the locale already has `_lang/<locale>/_user_guide/engagement_tools/canvas.md` for the same product hub. For **`nav_title`**, **`article_title`**, and **`guide_top_header`**, reuse the **exact same values** as on the existing `engagement_tools/canvas.md` page in that locale (for example Japanese **キャンバス**, Korean **캔버스**, pt-BR **Canva** where that page already uses them). Do not leave bare English **Canvas** in those keys when the engagement_tools hub uses a localized convention—navigation and in-product search expect one consistent label per locale.
@@ -146,6 +151,7 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - **Channel hub `nav_title` / `article_title`:** Messaging channel landings (paths like `_user_guide/channels/<channel>.md`) use short labels in YAML. Match the **wording already established** for that channel in the **same locale** (channel index, `_user_guide/message_building_by_channel/`, and related pages). Do not paste an **English plural UI label** into localized nav titles when the locale uses a different convention—for example **German** uses **„Banner“** (singular) for the Banners channel in navigation, not **„Banners“**.
 - **Spanish (and similar Romance languages):** Watch **number and person agreement** in relative clauses and parallel comparisons (for example *los análisis … que incluyen*, not *que incluye*; when contrasting two product types, keep **parallel number** in each clause—*las campañas … mientras que los Canvas …*).
 - **Brazilian Portuguese analytics copy:** Prefer **desempenho** (message/historical performance) over the English loanword **performance** in reporting and analytics descriptions unless you are quoting a proper product name that truly requires English.
+- **Japanese reporting phrasing:** For “out of all selections” / “share of total selections” style meanings, prefer natural **選択** wording (for example **全選択のうち**) over ad-hoc katakana like **セレクション** in the same sentence, which can read as an unnecessary English borrowing and drift from established doc tone.
 
 ### Inclusivity
 
