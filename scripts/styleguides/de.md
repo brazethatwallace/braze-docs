@@ -10,6 +10,7 @@ Omit articles before "Braze" unless grammar requires one. When an article is nee
 
 - In prose and table cells, use German double quotation marks: `„` (U+201E) at the opening and `“` (U+201C) at the closing — for example `„überwachen“`, not `„überwachen"`.
 - Never pair the low opening quote `„` with a straight ASCII double quote `"` as the closer.
+- The same rule applies inside **markdown image alt text** (`![…]({% image_buster … %})`): screen readers read the full alt aloud, so use `„` … `“` there too (for example workspace names shown in a screenshot).
 
 ## Register and tone
 

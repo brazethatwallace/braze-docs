@@ -79,6 +79,12 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 - **Example segment or object names**: If the English uses a sample dashboard name (e.g. **Loyalty Users**) and the figure alt keeps that string for UI fidelity, use the **same** name in the surrounding prose—or translate both the prose and the alt consistently. Do not mix a translated example name in prose with the English name only in the figure.
 - **German cross-references to numbered steps**: Headings may appear as `### 3. Schritt: …`, but in **inline link text** prefer idiomatic **Schritt 3** (e.g. `[Schritt 3](#agent-instructions)`), not `[3. Schritt](#…)`, in running sentences.
 
+### Braze Pilot (`_user_guide/get_started/braze_pilot/`)
+
+- **Deep link tables**: English distinguishes routes such as **Splash screen** (`…/splash`) from **welcome** flows (`…/welcome`). In tables, give **different** translated first-column labels for `/splash` and `/welcome` when both rows exist—do not reuse *welcome* wording for the splash route (e.g. in Spanish avoid labeling `/splash` *Pantalla de bienvenida* if `/welcome` also uses *bienvenida*).
+- **Internal doc links**: Keep product names per the glossary (**Canvas** stays English). In the same markdown **link anchor**, translate ordinary words that are not fixed product tokens—e.g. use **Campañas** / **Campagnes** in “Getting started: … and Canvas” style anchors when the surrounding sentence is localized; do not leave raw English *Campaigns* inside an otherwise Spanish or French phrase.
+- **German image alts**: Use the full German pair `„` … `“` inside `![…](…)` alt text (see style guide). Do not close a `„` phrase with a straight ASCII `"` before words like *als ausgewähltem*.
+
 An "Approved terminology" table may be appended to the end of these instructions with file-specific term translations. When present, use those approved translations. If an English term maps to itself in the table, keep it in English.
 
 ## Grammatical gender for brand names

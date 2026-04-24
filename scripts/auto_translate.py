@@ -1252,6 +1252,103 @@ def repair_es_agents_reference_alt_sentence_case(
     ), ["es-agents-reference — sentence case in image alt"]
 
 
+def repair_es_braze_pilot_deep_links_splash_vs_welcome(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Disambiguate Spanish *splash* deep-link rows from ``/welcome`` (same file).
+
+    Models sometimes label every ``/splash`` row *Pantalla de bienvenida* even when
+    a separate ``.../welcome`` row uses the same phrase—mirror English *Splash
+    screen* vs *welcome* semantics with distinct labels.
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/es/_user_guide/get_started/braze_pilot/deep_links.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    for wrong, right in (
+        (
+            "| Pantalla de bienvenida | `braze-pilot://navigation/steppington/splash` |",
+            "| Pantalla de inicio | `braze-pilot://navigation/steppington/splash` |",
+        ),
+        (
+            "| Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/splash` |",
+            "| Pantalla de carga inicial | `braze-pilot://navigation/pantslabyrinth/splash` |",
+        ),
+        (
+            "| Pantalla de bienvenida | `braze-pilot://navigation/moviecannon/splash` |",
+            "| Pantalla de presentación | `braze-pilot://navigation/moviecannon/splash` |",
+        ),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append(
+                "es-braze-pilot-deep_links — splash table label distinct from /welcome"
+            )
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_braze_pilot_getting_started_campaigns_in_link_anchor(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Keep **Canvas** English (product name) but localize *Campaigns* in link text.
+
+    Copilot review: ``[… Campaigns …]({{site.baseurl}}/…)`` reads mixed when the
+    sentence is otherwise Spanish/French; glossary keeps *Canvas* in English.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("get_started/braze_pilot/getting_started.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    if lang_key == "es":
+        if "[Primeros pasos: Campaigns y Canvas]" in new:
+            new = new.replace(
+                "[Primeros pasos: Campaigns y Canvas]",
+                "[Primeros pasos: Campañas y Canvas]",
+            )
+            repairs.append(
+                "es-braze-pilot-getting_started — Campaigns → Campañas in link anchor"
+            )
+    elif lang_key == "fr":
+        if "[Pour commencer : Campaigns et Canvas]" in new:
+            new = new.replace(
+                "[Pour commencer : Campaigns et Canvas]",
+                "[Pour commencer : Campagnes et Canvas]",
+            )
+            repairs.append(
+                "fr-braze-pilot-getting_started — Campaigns → Campagnes in link anchor"
+            )
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_de_braze_pilot_low9_pair_ascii_close_quote(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    r"""Fix ``„…"`` (low-9 + ASCII U+0022 closer) before `` als …`` in Pilot DE alts."""
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/get_started/braze_pilot/getting_started.md"):
+        return translated_content, []
+
+    pattern = re.compile(r'„([^„]+)"(?=\s+als\s+ausgew)')
+    new, n = pattern.subn(r'„\1“', translated_content)
+    if n:
+        return new, [
+            "de-braze-pilot-getting_started — German alt „…“ (not „…\" ) before als …"
+        ]
+    return translated_content, []
+
+
 def repair_fr_payload_display_typography(translated_content, lang_key):
     """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
 
@@ -1723,6 +1820,27 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(es_agents_alt_repairs)
+
+    translated_content, es_pilot_dl_repairs = (
+        repair_es_braze_pilot_deep_links_splash_vs_welcome(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(es_pilot_dl_repairs)
+
+    translated_content, pilot_gs_repairs = (
+        repair_braze_pilot_getting_started_campaigns_in_link_anchor(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pilot_gs_repairs)
+
+    translated_content, de_pilot_quote_repairs = (
+        repair_de_braze_pilot_low9_pair_ascii_close_quote(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_pilot_quote_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
