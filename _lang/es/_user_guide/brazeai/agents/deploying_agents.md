@@ -102,7 +102,7 @@ En la sección **Uso** de tu agente, puedes consultar y navegar hasta los lugare
 
 ![Sección de uso del agente que muestra dos agentes activos y un agente inactivo para Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-En la sección **Registros** de tu agente, puedes supervisar las llamadas reales de los agentes que se producen en tus Canvas y catálogos. Puedes filtrar por información como el intervalo de fechas, el resultado (éxito o fracaso) o la ubicación de la llamada. También puedes seleccionar **Exportar CSV** para exportar solo los registros que se muestran en la página actual.
+En la sección **Registros** de tu agente, puedes supervisar las llamadas reales de los agentes que se producen en tus Canvas y catálogos. Puedes filtrar por información como el intervalo de fechas, el resultado (correcto o fallido) o la ubicación de la llamada. También puedes seleccionar **Exportar CSV** para exportar solo los registros que se muestran en la página actual.
 
 {% alert tip %}
 También puedes supervisar los errores de límite de invocaciones diarias en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).

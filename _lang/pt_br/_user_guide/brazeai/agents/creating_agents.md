@@ -74,11 +74,11 @@ Selecione **Adicionar recursos** para escolher o que seu agente pode referenciar
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Dê ao agente acesso aos dados do seu catálogo para respostas mais precisas.
 - [Associação a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos segmentos aos quais um usuário pertence. Você pode selecionar até cinco segmentos.
 - [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Referencie a voz da marca e as diretrizes de estilo para o agente seguir. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz da marca motivacional e em negrito predefinida.
-- [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estão referenciadas na seção **Instruções**.
+- [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
 
 #### Etapa 3.2: Adicione configurações opcionais
 
-Nas **Configurações opcionais**, você pode ajustar a [temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) do texto gerado pelo agente. Uma temperatura mais alta permite que o agente use as informações fornecidas de forma mais criativa.
+Em **Configurações opcionais**, você pode ajustar a [temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) do texto gerado pelo agente. Uma temperatura mais alta permite que o agente use as informações fornecidas de forma mais criativa.
 
 ### Etapa 4: Selecione a saída {#select-output}
 
