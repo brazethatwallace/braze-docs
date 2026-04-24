@@ -340,6 +340,12 @@ Users who have integrated a cloud data storage solution and export APIs, dashboa
 - All API exports do not return a download URL in the response body and must be retrieved through data storage.
 - All dashboard reports and CSV reports are sent to the user's email for download (no storage permissions required) and backed up on Data Storage.
 
+### `Unable to connect to S3, please validate that your credentials are correct` error
+
+If you see this error when downloading a CSV export, open the [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) integration on the **Technology Partners** page and select **Test Credentials**. The result explains what failed validation—for example, the key might be missing `GetObject` permission, which prevents Braze from generating download links.
+
+Update your IAM policy so the integration user or role can call `GetObject` in the `pdx-marketing-automation` bucket. For more export issues, see [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+
 {% alert important %}
 **JSON format requirement:** For JSON exports, Braze uses JSONL (newline-delimited JSON) format, where each line contains a separate JSON object. This format differs from standard JSON, which is a single JSON array or object. Each line in the exported file is a valid JSON object, but the file as a whole is not a single valid JSON document. When processing these files, parse each line individually as a separate JSON object rather than attempting to parse the entire file as a single JSON document.
 
