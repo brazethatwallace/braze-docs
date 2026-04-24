@@ -1,0 +1,50 @@
+---
+nav_title: Consentimento e coleta de endereços
+article_title: Consentimento e coleta de endereços
+page_order: 6
+page_type: reference
+description: "Este artigo de referência aborda as melhores práticas para obter consentimento e coletar endereços de e-mail dos usuários, além de definir os diferentes estados possíveis de inscrição."
+channel: email
+
+---
+
+# Consentimento e coleta de endereços
+
+> Antes de enviar seus primeiros e-mails, é importante obter a permissão dos seus clientes primeiro. É uma questão de cortesia e faz maravilhas pela sua taxa de abertura!
+
+## Estados de inscrição
+
+Existem três estados de inscrição de e-mail para um usuário: **opt-in**, **inscrito** e **cancelou inscrição**. Para alterar o estado de inscrição de um usuário, confira nosso artigo sobre [alteração de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou use nossas [APIs de inscrição]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+
+| Estado de inscrição | Descrição |
+|---|---|
+| Opt-in | Esses clientes clicaram no link de um e-mail de confirmação e optaram ativamente por receber suas mensagens. |
+| Inscrito | Por padrão, os usuários estão inscritos para receber e-mails desde que tenham um endereço de e-mail válido armazenado em seu perfil. Os usuários permanecem inscritos até que cancelem a inscrição ou façam opt-in. |
+| Cancelou inscrição | Para ser marcado como cancelou inscrição, o cliente cancelou explicitamente a inscrição dos seus e-mails ou marcou um e-mail como spam. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+## Métodos de coleta de endereços
+
+Além de obter permissão dos seus usuários antes do envio de mensagens, existem vários métodos para coletar esses endereços de e-mail que podem impactar sua entregabilidade.
+
+### Listas de endereços compradas
+
+Enviar e-mails para listas compradas ou alugadas é uma violação do seu contrato com a Braze! Se você está comprando e-mails, está enviando mensagens totalmente não solicitadas e colocando em risco sua entregabilidade.
+
+### Co-registro
+
+Co-registro refere-se a um acordo entre empresas para coletar informações de usuários. Este é um método arriscado de coleta. Ele inscreve os usuários para receber e-mails de terceiros, às vezes sem o conhecimento ou permissão do cliente. Se você optar por esse caminho, certifique-se de ter divulgações claras e a possibilidade de cancelar a inscrição no momento da coleta.
+
+### Opt-in pré-selecionado ou forçado
+
+O opt-in pré-selecionado é um método de registro de e-mail no qual a caixa de inscrição já vem marcada para que os assinantes recebam seu e-mail. Ao deixar a caixa marcada, os assinantes estão fazendo opt-in e dando seu consentimento para receber seu e-mail. Esse método tende a irritar as pessoas (e também é ilegal para e-mails enviados para ou dentro do Canadá). Você pode acabar com uma lista de e-mails de tamanho razoável, mas não pode ter certeza de que esses usuários realmente querem seus e-mails de marketing.
+
+### Opt-in simples
+
+O opt-in simples acontece quando os assinantes se inscrevem por meio de um formulário de inscrição e são imediatamente adicionados à sua lista de e-mails. Com esse método, os usuários realizam uma única etapa para se inscrever, como digitar seu endereço de e-mail em um campo de coleta ou marcar uma caixa como parte de uma transação.
+
+### Opt-in confirmado
+
+O opt-in confirmado ocorre quando um usuário marca uma caixa solicitando comunicação por e-mail e uma mensagem de confirmação é enviada em resposta. Esse método permite que os usuários escolham o tipo e a frequência do conteúdo, melhorando o engajamento.
+
+Para garantir que você está direcionando apenas os usuários mais engajados, você também pode usar o método de opt-in com dupla confirmação. Essa abordagem adiciona uma etapa extra na qual o usuário deve clicar em um botão ou link no e-mail de confirmação para ser incluído na lista de e-mails.
