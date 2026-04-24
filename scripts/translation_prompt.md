@@ -117,6 +117,10 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - Never output the **same** `{% multi_lang_include path/to_snippet.md %}` **twice in a row** with only blank lines between. If the English source accidentally duplicates an include, your translation should **keep a single include** (and note the upstream typo if you are fixing English separately).
 - In **numbered dashboard steps** that show navigation paths in bold, keep **canonical English UI labels** exactly as in the Braze product (`Messaging`, `Campaigns`, `Create campaign`, and so on) so glossary checks and screenshots stay aligned—translate surrounding instructional words, not those tokens inside `**…**` path steps unless the style guide for that locale explicitly says otherwise.
 
+### Canvas hub under Messaging (`messaging/canvas.md`)
+
+- English may add `_docs/_user_guide/messaging/canvas.md` while the locale already has `_lang/<locale>/_user_guide/engagement_tools/canvas.md` for the same product hub. For **`nav_title`**, **`article_title`**, and **`guide_top_header`**, reuse the **exact same values** as on the existing `engagement_tools/canvas.md` page in that locale (for example Japanese **キャンバス**, Korean **캔버스**, pt-BR **Canva** where that page already uses them). Do not leave bare English **Canvas** in those keys when the engagement_tools hub uses a localized convention—navigation and in-product search expect one consistent label per locale.
+
 ### Illustrative HTML and fenced examples
 
 - Translate **user-visible placeholder text** in illustrative snippets (for example a sample `<button>` label inside a short HTML block) unless the string is a literal API identifier, variable name, or Liquid token. Avoid leaving stray English UX scraps on an otherwise localized page.

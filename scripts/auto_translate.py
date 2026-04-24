@@ -20,6 +20,7 @@ import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from typing import Optional
 
 def _get_anthropic_client():
     """Lazy-import Anthropic so commands like qc/summary work without the SDK."""
@@ -1048,6 +1049,63 @@ def repair_pt_br_banners_reporting_performance(translated_path, translated_conte
     return translated_content, []
 
 
+def _fm_line_for_key(fm: str, key: str) -> Optional[str]:
+    """Return the full source line for ``key:`` (single-line YAML scalar) or None."""
+    for line in fm.split("\n"):
+        if re.match(rf"^{re.escape(key)}\s*:", line):
+            return line
+    return None
+
+
+def repair_messaging_canvas_hub_titles_from_engagement_tools(
+    translated_path, translated_content
+):
+    """Sync Canvas hub title YAML with the locale's ``engagement_tools/canvas`` page.
+
+    New ``_user_guide/messaging/canvas`` mirrors the English IA; models often
+    leave ``nav_title`` / ``article_title`` / ``guide_top_header`` as English
+    ``Canvas`` while ``engagement_tools/canvas`` already uses localized titles
+    (e.g. Japanese キャンバス, Korean 캔버스, pt-BR Canva). Align so nav and search stay consistent.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    suffix = "_user_guide/messaging/canvas.md"
+    if "_lang/" not in rel or not rel.endswith(suffix):
+        return translated_content, []
+
+    tr_path = Path(translated_path).resolve()
+    # Sibling of ``messaging/`` under ``_user_guide/`` → ``engagement_tools/canvas.md``
+    ref_path = tr_path.parent.parent / "engagement_tools" / "canvas.md"
+    if not ref_path.is_file():
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    ref_fm, _ = _extract_front_matter(ref_path.read_text(encoding="utf-8"))
+    if not ref_fm:
+        return translated_content, []
+
+    keys = ("nav_title", "article_title", "guide_top_header")
+    repairs = []
+    repaired_fm = tr_fm
+    for key in keys:
+        ref_line = _fm_line_for_key(ref_fm, key)
+        tr_line = _fm_line_for_key(repaired_fm, key)
+        if not ref_line or not tr_line:
+            continue
+        if ref_line == tr_line:
+            continue
+        repaired_fm = repaired_fm.replace(tr_line, ref_line, 1)
+        repairs.append(
+            f"canvas-messaging-hub — {key} aligned with engagement_tools/canvas.md"
+        )
+
+    if repairs:
+        return f"---\n{repaired_fm}\n---\n{tr_body}", repairs
+    return translated_content, []
+
+
 def repair_urls(english_content, translated_content):
     """Ensure markdown link URLs match the English source."""
     en_urls = _extract_md_link_urls(english_content)
@@ -1426,6 +1484,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(de_banners_repairs)
+
+    translated_content, canvas_hub_repairs = (
+        repair_messaging_canvas_hub_titles_from_engagement_tools(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(canvas_hub_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
