@@ -56,11 +56,11 @@ You can find more Canvas-specific information in [In-app messages in Canvas]({{s
 
 Start by choosing which platforms should receive the message. Use this selection to limit the delivery of a campaign to a specific set of apps. For example, you might choose **Web Browsers** for an in-browser message encouraging users to download your mobile app to ensure they do not receive the message after already getting your app. Because platform selections are specific to each variant, you could try testing message engagement per platform.
 
-| Platform                        | Message Delivery        |
-|---------------------------------|-------------------------|
-| Mobile Apps                     | iOS & Android SDKs      |
-| Web Browsers                    | Web SDK                 |
-| Both Mobile Apps & Web Browsers | iOS, Android & Web SDKs |
+| Platform                        | Message delivery             |
+|---------------------------------|------------------------------|
+| Mobile Apps                     | iOS, Android, and Vega SDKs |
+| Web Browsers                    | Web SDK                      |
+| Both Mobile Apps & Web Browsers | iOS, Android, Vega, and Web SDKs |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Step 3: Specify your message types
@@ -234,7 +234,7 @@ When your customer clicks on a button in your in-app message, the following acti
 | Action | Description |
 |---|---|
 | Redirect to Web URL | Open a non-native web page. |
-| [Deep Link into App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/deep_linking_to_in-app_content/#deep-linking-to-in-app-content) | Deep link into an existing screen in your app. |
+| [Deep Link into App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deep link into an existing screen in your app. |
 | Close Message | Closes the currently active message. |
 | Log Custom Event | Choose a [custom event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) to trigger. Can be used to display another in-app message or trigger additional messaging. |
 | Log Custom Attribute | Choose a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) to set for the current user. |

@@ -81,6 +81,9 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
     "properties": {
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "products": [
             {
@@ -113,6 +116,9 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
         "order_id": "820982911946154508",
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -131,7 +137,7 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -331,6 +337,9 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
         "order_id": "820982911946154508",
         "cancel_reason": "no longer necessary",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -349,7 +358,7 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"

@@ -83,7 +83,15 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 {:/}
 {% endalert %}
 
-#### Step 3.3: Add custom properties (optional) {#custom-properties}
+#### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
+
+{% alert important %}
+Banner dismissals are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
+
+Select the **Banner can be dismissed** checkbox to allow users to dismiss the Banner. This option can be beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
+
+#### Step 3.4: Add custom properties (optional) {#custom-properties}
 
 You can add custom properties to a Banner to attach structured metadata, such as strings or JSON objects. These properties don’t affect how the Banner is displayed but can be [accessed through the Braze SDK]({{site.baseurl}}/developer_guide/banners/placements/) to modify your app’s behavior or appearance. For example, you could:
 
@@ -133,8 +141,6 @@ If you have multiple Banner campaigns using the same placement ID, we recommend 
 
 {:start="2"}
 2. In **Assign Conversions**, track how often users perform specific actions after receiving a campaign by defining conversion events with up to a 30-day window to count the action as a conversion.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Choose conversion events
 

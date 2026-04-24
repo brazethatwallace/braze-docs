@@ -10,6 +10,8 @@ channel:
 
 # Required information for 10DLC application
 
+> This article covers the company and SMS campaign information Braze needs if you're working with Braze to register your 10DLC.
+
 If you’ve purchased help from Braze to register your 10DLC, you’ll need to send us all the required information listed to the email below, as agreed in your contract with us.
 
 Please include any relevant screenshots and attachments and send everything to [smsapplications@braze.com](mailto:smsapplications@braze.com). If you have any questions about 10DLC, check out the [Braze SMS 10DLC guide]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) or contact your Braze customer success manager.

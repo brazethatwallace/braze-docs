@@ -804,7 +804,7 @@ Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
 {% endtab %}
 {% tab Unity %}
 
-Pour écouter les changements, définissez les valeurs de **Nom de l'objet de jeu** et **Nom de la méthode de rappel** sous **Configuration de Braze** > **Indicateurs de fonctionnalité** avec les valeurs correspondantes dans votre application.
+Pour écouter les changements, définissez les valeurs de **Game Object Name** et **Callback Method Name** sous **Braze Configuration** > **Feature Flags** avec les valeurs correspondantes dans votre application.
 
 {% endtab %}
 {% tab Cordova %}

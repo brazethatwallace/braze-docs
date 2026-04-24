@@ -72,7 +72,7 @@ Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdes
 
 #### Schritt 1.1: Push-Berechtigungen anfordern
 
-Wenn Sie nicht vorhaben, Push-Berechtigungen beim Start der App anzufordern, lassen Sie den Aufruf `requestAuthorizationWithOptions:completionHandler:` in Ihrem AppDelegate weg. Fahren Sie dann mit [Schritt 2](#reactnative_step-2-request-push-notifications-permission) fort. Andernfalls folgen Sie der [nativen iOS-Integrationsanleitung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/?tab=objective-c#automatic-push-integration).
+Wenn Sie nicht vorhaben, Push-Berechtigungen beim Start der App anzufordern, lassen Sie den Aufruf `requestAuthorizationWithOptions:completionHandler:` in Ihrem AppDelegate weg. Fahren Sie dann mit [2. Schritt](#reactnative_step-2-request-push-notifications-permission) fort. Andernfalls folgen Sie der [nativen iOS-Integrationsanleitung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/?tab=objective-c#automatic-push-integration).
 
 #### Schritt 1.2 (optional): Push-Schlüssel migrieren
 
@@ -102,7 +102,7 @@ Braze.requestPushPermission(permissionOptions);
 Sie können zusätzlich Ereignisse abonnieren, bei denen Braze eine eingehende Push-Benachrichtigung erkannt und verarbeitet hat. Verwenden Sie den Listener-Schlüssel `Braze.Events.PUSH_NOTIFICATION_EVENT`.
 
 {% alert important %}
-Empfangene iOS-Push-Events werden nur für Benachrichtigungen im Vordergrund sowie für Hintergrundbenachrichtigungen mit `content-available` getriggert. Für Benachrichtigungen, die im beendeten Zustand empfangen werden, oder für Hintergrundbenachrichtigungen ohne das Feld `content-available` werden sie nicht getriggert.
+Empfangene iOS-Push-Events werden nur für Benachrichtigungen im Vordergrund sowie für Hintergrundbenachrichtigungen mit `content-available` ausgelöst. Für Benachrichtigungen, die im beendeten Zustand empfangen werden, oder für Hintergrundbenachrichtigungen ohne das Feld `content-available` werden sie nicht ausgelöst.
 {% endalert %}
 
 ```javascript
@@ -116,7 +116,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in der folgenden Tabelle:
 
-| Feldname         | Typ      | Beschreibung |
+| Feldname           | Typ       | Beschreibung |
 | ------------------ | --------- | ----------- |
 | `payload_type`     | String    | Gibt den Nutzlasttyp der Benachrichtigung an. Die beiden Werte, die vom Braze React Native SDK gesendet werden, sind `push_opened` und `push_received`. |
 | `url`              | String    | Gibt die URL an, die durch die Benachrichtigung geöffnet wurde. |
@@ -138,7 +138,14 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 
 Um Braze in die Lage zu versetzen, Deeplinks innerhalb von React-Komponenten zu verarbeiten, wenn auf eine Push-Benachrichtigung geklickt wird, implementieren Sie zunächst die Schritte, die in der Bibliothek [React Native Linking](https://reactnative.dev/docs/linking) beschrieben sind, oder verwenden Sie die Lösung Ihrer Wahl. Folgen Sie dann den weiteren Schritten unten.
 
-Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+
+{% alert important %}
+Wenn Sie eine bestehende React Native Push-Integration migrieren, testen Sie das Deeplinking erneut, nachdem Sie das Braze SDK, React Native, Expo oder zugehörige Bibliotheken aktualisiert haben. Stellen Sie sicher, dass:
+- [React Native Linking](https://reactnative.dev/docs/linking) weiterhin konfiguriert ist und Ihre Deeplink-URLs verarbeitet.
+- Ihre iOS-Verarbeitung der initialen Push-Nutzlast (siehe [Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern](#step-3-1)) implementiert ist und weiterhin beim App-Start aufgerufen wird.
+- Alle nativen Delegate- oder Listener-Methoden, die Sie zur Verarbeitung von Push-Klick-Events verwenden, weiterhin registriert und wie erwartet aufgerufen werden.
+{% endalert %}
 
 {% tabs local %}
 {% tab Android Native %}
@@ -187,7 +194,7 @@ Um Deeplinks aus Push-Benachrichtigungen unter iOS zu verarbeiten, müssen Sie a
 {% endalert %}
 
 Dazu gehört die Registrierung eines benutzerdefinierten URL-Schemas und die Implementierung eines URL-Handlers in Ihrem `AppDelegate`. Eine vollständige Einrichtungsanleitung finden Sie unter [Deeplinks verarbeiten]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c) in der nativen iOS-Dokumentation.
-#### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern
+#### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern {#step-3-1}
 {% alert note %}
 Überspringen Sie Schritt 3.1, wenn Sie das Braze Expo Plugin verwenden, da diese Funktionalität automatisch abgewickelt wird.
 {% endalert %}
@@ -439,7 +446,7 @@ Braze.getInitialPushPayload((payload) => {
 ```
 
 {% alert note %}
-Im Expo-verwalteten Workflow übernimmt das Braze Expo Plugin automatisch die native Push-Verarbeitung. Sie steuern die UI im Vordergrund über die oben gezeigten Präsentationsoptionen für Expo-Benachrichtigungen.
+Im von Expo verwalteten Workflow übernimmt das Braze Expo Plugin automatisch die native Push-Verarbeitung. Sie steuern die UI im Vordergrund über die oben gezeigten Präsentationsoptionen für Expo-Benachrichtigungen.
 {% endalert %}
 
 Für Bare-Workflow-Integrationen verwenden Sie stattdessen die nativen Ansätze für iOS und Android.
@@ -513,3 +520,14 @@ Für iOS-Integrationen können Sie auch unser [Tutorial zur Einrichtung von Push
 Sollte Ihr Geräte-Token nicht bei Braze registriert werden, überprüfen Sie zunächst, ob [Push-Benachrichtigungen nicht mehr funktionieren](#troubleshooting-stopped-working).
 
 Sollte das Problem weiterhin bestehen, besteht die Möglichkeit, dass eine separate Abhängigkeit die Konfiguration Ihrer Braze-Push-Benachrichtigungen beeinträchtigt. Sie können versuchen, diese zu entfernen oder stattdessen manuell `Braze.registerPushToken` aufzurufen.
+
+#### Deeplinks aus Push-Benachrichtigungen öffnen sich nicht {#troubleshooting-deep-links}
+
+Wenn sich Deeplinks aus Push-Benachrichtigungen nach einer Migration nicht mehr öffnen, überprüfen Sie Folgendes:
+
+1. Stellen Sie sicher, dass Ihre [React Native Linking](https://reactnative.dev/docs/linking)-Konfiguration in Ihrer aktualisierten App weiterhin gültig ist.
+2. Bestätigen Sie bei nativen iOS-Integrationen, dass Sie `populateInitialPayloadFromLaunchOptions` und `Braze.getInitialPushPayload` implementiert haben, damit die App beim Start aus einem beendeten Zustand die initiale Push-Nutzlast abrufen und deren `url` an Ihren Deeplink-Handler übergeben kann.
+3. Wenn Sie das Braze Expo Plugin verwenden, überprüfen Sie, ob `androidHandlePushDeepLinksAutomatically` für Ihre Implementierung korrekt gesetzt ist.
+4. Überprüfen Sie kürzlich hinzugefügte Abhängigkeiten auf Überschreibungen der Benachrichtigungsverarbeitung oder des App-Delegate-Verhaltens.
+
+Wenn Sie diese Prüfungen abgeschlossen haben und das Problem weiterhin besteht, [erstellen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/) und fügen Sie SDK-Logs sowie Schritte zur Reproduktion bei.

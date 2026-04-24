@@ -24,6 +24,10 @@ If a user qualifies for multiple Banner campaigns that share the same placement,
 
 Banners are different from Content Cards, meaning you can’t use Banners and Content Cards in the same feed. To replace existing Content Card feeds with Banners, you’ll need to [create placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/).
 
+## Can Banners include video?
+
+The standard Banner composer supports images, text, and buttons. To include a video in a Banner, you could use a **Custom Code** block and render a video or embedded player in your app or website.
+
 ## Can I trigger a banner based on user actions?
 
 While Banners do not support [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery), you can target users based on their past actions using segmentation and priority.
@@ -37,7 +41,11 @@ When the user starts a new session or refreshes Banners after performing the act
 
 ## Can users manually dismiss a Banner?
 
-No. Users cannot manually dismiss Banners. However, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
+{% alert important %}
+Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
+
+Users can manually dismiss Banners only if dismissal behavior is enabled and your workspace is participating in the early access. If dismissal isn't enabled or available for your workspace, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
 For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
 

@@ -80,6 +80,10 @@ In addition, triggered in-app messages still abide by in-app message delivery ru
 
 Select how long to wait before sending the campaign after the trigger criteria are met. If the delay length chosen is longer than the message's duration for sending, no users will receive the campaign. 
 
+{% alert important %}
+Braze uses the timestamp sent with the custom event to evaluate the delay for an action-based campaign. If that timestamp is backdated, Braze may treat the delay as already elapsed and send the message immediately or earlier than expected. To avoid unintended delivery timing, send the custom event timestamp with the current time.
+{% endalert %}
+
 Additionally, users who complete the trigger event after your campaign is launched will be the first to start receiving the message after the delay has passed. Users who have completed the trigger event before the campaign launches will not qualify to receive the campaign.
 
 ![]({% image_buster /assets/img_archive/schedule_triggered22.png %})
@@ -147,7 +151,7 @@ Any of these things will prevent a user who has completed the trigger event from
 - Liquid [`abort_message` logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)  was used and the message was aborted based on the `abort_message` logic or rules.
 - The time delay caused the user to become qualified to receive the campaign after the duration has ended.
 - The time delay caused the user to become qualified to receive the campaign outside of the specified portion of the day.
-- The user has already received the campaign, and users do not become re-eligible.
+- The user has already received the campaign (including attribution through shared channel identifiers—for example, if they share an email with someone who received, opened, or clicked it), and users do not become re-eligible.
 - While users are re-eligible to receive the campaign, they can only re-trigger it after a certain period of time, and that period of time has not yet elapsed.
 
 [Segmenting]({{site.baseurl}}/user_guide/audience/segments/) a triggered campaign on user data recorded at the time of the event may cause a [race condition]({{site.baseurl}}/help/best_practices/race_conditions/#race-conditions). This happens when the user attribute on which the campaign is segmented gets changed, but the change hasn't been processed for the user when the campaign is sent. Since campaigns check for segment membership on entry, this can lead to the user not receiving the campaign.

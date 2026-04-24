@@ -2,13 +2,13 @@
 
 ## Criando um conjunto de permissões
 
-Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de Permissão**, depois selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions).
+Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de Permissão** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
 |Nome|Permissões|
 |-----------|----------------|
-|Desenvolvedores|"Ver Chaves de API", "Editar Chaves de API", "Ver Grupos Internos", "Editar Grupos Internos", "Ver Registro de Atividade de Mensagens", "Ver Registro de Usuários de Eventos", "Ver identificadores de API", "Ver Dashboard de Uso da API", "Ver Limites da API", "Ver Alertas de Uso da API", "Editar Alertas de Uso da API", "Ver Depurador SDK", "Editar Depurador SDK".|
+|Desenvolvedores|"Ver Chaves de API", "Editar Chaves de API", "Ver Grupos Internos", "Editar Grupos Internos", "Ver Registro de Atividade de Mensagens", "Ver Registro de Usuários de Eventos", "Ver identificadores de API", "Ver Dashboard de Uso da API", "Ver Limites da API", "Ver Alertas de Uso da API", "Editar Alertas de Uso da API", "Ver Depurador do SDK", "Editar Depurador do SDK".|
 |Profissionais de Marketing|"Ver Campanhas", "Editar Campanhas", "Arquivar Campanhas", "Ver Canvas", "Editar Canvas", "Arquivar Canvas", "Ver Regras de Limitação de Frequência", "Editar Regras de Limitação de Frequência", "Ver Priorização de Mensagens", "Editar Priorização de Mensagens", "Ver Blocos de Conteúdo", "Ver Feature Flags", "Editar Feature Flags", "Arquivar Feature Flags", "Ver Segmentos", "Editar Segmentos", "Editar Grupo de Controle Global", "Ver Modelos IAM", "Editar Modelos IAM", "Arquivar Modelos IAM", "Ver Modelos de E-mail", "Editar Modelos de E-mail", "Arquivar Modelos de E-mail", "Ver Modelos de Webhook", "Editar Modelos de Webhook", "Arquivar Modelos de Webhook", "Ver Modelos de Link de E-mail", "Editar Modelos de Link de E-mail", "Ver Ativos da Biblioteca de Mídia", "Ver Locais", "Editar Locais", "Arquivar Locais", "Ver Códigos de Promoção", "Editar Códigos de Promoção", "Exportar Códigos de Promoção", "Ver Centrais de Preferências", "Editar Centrais de Preferências", "Editar Relatórios do Dashboard", "Ver Modelos de Banner", "Ver Configurações de Localização", "Usar Operator", "Ver Agentes do Decisioning Studio", "Ver Evento de Conversão do Decisioning Studio".|
 |Gerenciamento de Usuários|"Editar Usuários do Dashboard", "Ver Equipes", "Editar Equipes", "Arquivar Equipes".|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -17,15 +17,15 @@ Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou a
 
 ## Criando uma função
 
-As funções permitem mais estrutura ao agrupar suas permissões personalizadas individuais com os controles de acesso do espaço de trabalho. Isso é especialmente útil se você tiver muitas marcas ou espaços de trabalho regionais em um dashboard. Com funções, você pode adicionar usuários do dashboard aos espaços de trabalho certos e conceder diretamente as permissões associadas. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions).
+As funções permitem mais estrutura ao agrupar suas permissões personalizadas individuais com os controles de acesso do espaço de trabalho. Isso é especialmente útil se você tiver muitas marcas ou espaços de trabalho regionais em um dashboard. Com funções, você pode adicionar usuários do dashboard aos espaços de trabalho certos e conceder diretamente as permissões associadas. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
-| Nome da Função | Espaço de trabalho | Permissões  
+| Nome da Função    | Espaço de trabalho | Permissões  
 ----------- | ----------- | ---------
-| Profissional de Marketing - Marcas de Moda | {::nomarkdown}[DEV] Marca de Moda, [QA] Marca de Moda, [PROD] Marca de Moda {:/} | "Ver Campanhas", "Editar Campanhas", "Arquivar Campanhas", "Ver Canvas", "Editar Canvas", "Arquivar Canvas", "Ver Blocos de Conteúdo", "Editar Blocos de Conteúdo", "Arquivar Blocos de Conteúdo", "Lançar Blocos de Conteúdo", "Ver Feature Flags", "Editar Feature Flags", "Arquivar Feature Flags", "Ver Segmentos", "Editar Segmentos", "Ver Modelos de Banner", "Editar Modelos de Banner", "Ver Modelos de E-mail", "Editar Modelos de E-mail", "Ver Ativos da Biblioteca de Mídia", "Editar Ativos da Biblioteca de Mídia", "Excluir Ativos da Biblioteca de Mídia", "Ver Locais", "Editar Locais", "Arquivar Locais", "Ver Códigos de Promoção", "Editar Códigos de Promoção", "Exportar Códigos de Promoção", "Ver Centrais de Preferências", "Editar Centrais de Preferências". |
-| Profissional de Marketing - Marcas de Cuidados com a Pele | {::nomarkdown}[DEV] Marca de Cuidados com a Pele, [QA] Marca de Cuidados com a Pele, [PROD] Marca de Cuidados com a Pele {:/} |"Ver Campanhas", "Editar Campanhas", "Arquivar Campanhas", "Ver Canvas", "Editar Canvas", "Arquivar Canvas", "Ver Blocos de Conteúdo", "Editar Blocos de Conteúdo", "Arquivar Blocos de Conteúdo", "Lançar Blocos de Conteúdo", "Ver Feature Flags", "Editar Feature Flags", "Arquivar Feature Flags", "Ver Segmentos", "Editar Segmentos", "Ver Modelos de Banner", "Editar Modelos de Banner", "Ver Modelos de E-mail", "Editar Modelos de E-mail", "Ver Ativos da Biblioteca de Mídia", "Editar Ativos da Biblioteca de Mídia", "Excluir Ativos da Biblioteca de Mídia", "Ver Locais", "Editar Locais", "Arquivar Locais", "Ver Códigos de Promoção", "Editar Códigos de Promoção", "Exportar Códigos de Promoção", "Ver Centrais de Preferências", "Editar Centrais de Preferências".|
-| Gerenciamento de Usuários - Todas as Marcas | {::nomarkdown}[DEV] Marca de Moda, [QA] Marca de Moda, [PROD] Marca de Moda, [DEV] Marca de Cuidados com a Pele, [QA] Marca de Cuidados com a Pele, [PROD] Marca de Cuidados com a Pele {:/} | "Editar Usuários do Dashboard", "Ver Equipes", "Editar Equipes", "Arquivar Equipes"|
+| Profissional de Marketing - Marcas de Moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Ver Campanhas", "Editar Campanhas", "Arquivar Campanhas", "Ver Canvas", "Editar Canvas", "Arquivar Canvas", "Ver Blocos de Conteúdo", "Editar Blocos de Conteúdo", "Arquivar Blocos de Conteúdo", "Lançar Blocos de Conteúdo", "Ver Feature Flags", "Editar Feature Flags", "Arquivar Feature Flags", "Ver Segmentos", "Editar Segmentos", "Ver Modelos de Banner", "Editar Modelos de Banner", "Ver Modelos de E-mail", "Editar Modelos de E-mail", "Ver Ativos da Biblioteca de Mídia", "Editar Ativos da Biblioteca de Mídia", "Excluir Ativos da Biblioteca de Mídia", "Ver Locais", "Editar Locais", "Arquivar Locais", "Ver Códigos de Promoção", "Editar Códigos de Promoção", "Exportar Códigos de Promoção", "Ver Centrais de Preferências", "Editar Centrais de Preferências". |
+| Profissional de Marketing - Marcas de Cuidados com a Pele | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"Ver Campanhas", "Editar Campanhas", "Arquivar Campanhas", "Ver Canvas", "Editar Canvas", "Arquivar Canvas", "Ver Blocos de Conteúdo", "Editar Blocos de Conteúdo", "Arquivar Blocos de Conteúdo", "Lançar Blocos de Conteúdo", "Ver Feature Flags", "Editar Feature Flags", "Arquivar Feature Flags", "Ver Segmentos", "Editar Segmentos", "Ver Modelos de Banner", "Editar Modelos de Banner", "Ver Modelos de E-mail", "Editar Modelos de E-mail", "Ver Ativos da Biblioteca de Mídia", "Editar Ativos da Biblioteca de Mídia", "Excluir Ativos da Biblioteca de Mídia", "Ver Locais", "Editar Locais", "Arquivar Locais", "Ver Códigos de Promoção", "Editar Códigos de Promoção", "Exportar Códigos de Promoção", "Ver Centrais de Preferências", "Editar Centrais de Preferências".|
+| Gerenciamento de Usuários - Todas as Marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Editar Usuários do Dashboard", "Ver Equipes", "Editar Equipes", "Arquivar Equipes"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -38,7 +38,7 @@ As funções permitem mais estrutura ao agrupar suas permissões personalizadas 
 
 Você pode encontrar dificuldades ao tentar salvar permissões no dashboard da Braze, especialmente ao adicionar ou remover usuários de um espaço de trabalho, ou ao adicioná-los a uma Equipe. O botão **Salvar/Atualizar Usuários** pode ficar desativado se as permissões do usuário forem idênticas às que ele já possui no nível do espaço de trabalho. Essa restrição existe porque não há benefício em ter uma Equipe se todos os usuários possuem as mesmas permissões que todo o espaço de trabalho.
 
-Para adicionar um usuário a uma Equipe com sucesso, mantendo as mesmas permissões, não atribua nenhuma permissão no nível do espaço de trabalho. Em vez disso, atribua permissões exclusivamente no nível da equipe.
+Para adicionar um usuário a uma Equipe com sucesso mantendo as mesmas permissões, não atribua nenhuma permissão no nível do espaço de trabalho. Em vez disso, atribua permissões exclusivamente no nível da equipe.
 
 ## Usuários limitados
 
@@ -81,8 +81,8 @@ Para editar as permissões atuais de administrador, empresa ou espaço de trabal
 
 Os administradores têm acesso a todos os recursos e a capacidade de modificar qualquer configuração da empresa. Eles podem:
 
-- Alterar [configurações de aprovação]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/campaign_approval/#turning-on-campaign-approval)
-- Adicionar, editar, excluir, suspender ou reativar outros [usuários da Braze]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/adding_users_to_your_dashboard/#adding-braze-users)
+- Alterar [configurações de aprovação]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow)
+- Adicionar, editar, excluir, suspender ou reativar outros [usuários da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
 - Exportar usuários da Braze como um arquivo CSV
 
 Para conceder ou remover privilégios de administrador, selecione **Este usuário é um administrador** e depois selecione **Atualizar usuário**.
@@ -90,7 +90,7 @@ Para conceder ou remover privilégios de administrador, selecione **Este usuári
 ![Os detalhes do usuário selecionado com a caixa de seleção de administrador em foco.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
-Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua a ele pelo menos uma [permissão em nível de empresa ou em nível de espaço de trabalho]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua a ele pelo menos uma [permissão em nível de empresa ou em nível de espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -111,7 +111,7 @@ Para gerenciar as seguintes permissões em nível de empresa para um usuário, m
 
 ### Espaço de trabalho
 
-Você pode dar a um usuário diferentes permissões para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões em nível de espaço de trabalho, selecione **Selecionar espaços de trabalho e permissões** e escolha as permissões manualmente ou atribua um [conjunto de permissões ou função]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que você criou anteriormente. Se você precisar dar a um usuário permissões diferentes para diferentes espaços de trabalho, repita este processo quantas vezes forem necessárias. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Você pode dar a um usuário diferentes permissões para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões em nível de espaço de trabalho, selecione **Selecionar espaços de trabalho e permissões** e escolha as permissões manualmente ou atribua um [conjunto de permissões ou função]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que você criou anteriormente. Se você precisar dar a um usuário permissões diferentes para diferentes espaços de trabalho, repita este processo quantas vezes forem necessárias. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -173,17 +173,17 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Lançar campanhas                                | Iniciar, parar, pausar ou retomar campanhas existentes |
 | Ver regras de limitação de frequência                    | Ver regras de limitação de frequência |
 | Editar regras de limitação de frequência                    | Criar e atualizar regras de limitação de frequência |
-| Ver canvas                                   | Ver canvas |
-| Editar canvas                                   | Criar e atualizar canvas |
-| Arquivar canvas                                | Mover canvas para o arquivo |
-| Lançar canvas                                 | Iniciar, parar, pausar ou retomar canvas existentes |
+| Ver Canvas                                   | Ver Canvas |
+| Editar Canvas                                   | Criar e atualizar Canvas |
+| Arquivar Canvas                                | Mover Canvas para o arquivo |
+| Lançar Canvas                                 | Iniciar, parar, pausar ou retomar Canvas existentes |
 | Ver blocos de conteúdo                             | Ver blocos de conteúdo |
 | Editar blocos de conteúdo                             | Criar e atualizar blocos de conteúdo |
 | Arquivar blocos de conteúdo                          | Mover blocos de conteúdo para o arquivo |
 | Ver Feature Flags                              | Ver Feature Flags |
 | Editar Feature Flags                              | Criar e atualizar Feature Flags |
 | Arquivar Feature Flags                           | Mover Feature Flags para o arquivo |
-| Ver modelos de mensagens do WhatsApp                 | Permite que os usuários vejam [modelos de mensagens do WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message). |
+| Ver modelos de mensagens do WhatsApp                 | Permite que os usuários vejam [modelos de mensagens do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/?tab=template%20messages#step-2-compose-your-whatsapp-message). |
 | Editar modelos de mensagens do WhatsApp | Permite que os usuários criem modelos de mensagens do WhatsApp no construtor de modelos. Esse recurso está atualmente em acesso antecipado. |
 | Ver segmentos                                   | Ver segmentos. Os usuários devem ter a permissão "Ver Segmentos" para ter a permissão "Editar Segmentos" ou "Arquivar Segmentos". |
 | Arquivar segmentos                                | Arquivar e desarquivar segmentos. Os usuários com a permissão "Arquivar Segmentos" também devem ter a permissão "Ver Segmentos". |
@@ -270,8 +270,8 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Ver transformação de dados                        | Ver transformações de dados |
 | Editar transformação de dados                        | Criar e atualizar transformações de dados |
 | Editar modelos de Canvas                           | Criar e atualizar modelos de Canvas |
-| Aprovar campanhas                               | Aprovar ou negar campanhas. O [fluxo de trabalho de aprovação para campanhas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) deve estar ativado para que essa permissão se aplique. Esta configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se estiver interessado em participar do acesso antecipado. |
-| Aprovar canvas                                | Aprovar ou negar canvas. O [fluxo de trabalho de aprovação para canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) deve estar ativado para que essa permissão se aplique. Esta configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se estiver interessado em participar do acesso antecipado. |
+| Aprovar campanhas                               | Aprovar ou negar campanhas. O [fluxo de trabalho de aprovação para campanhas]({{site.baseurl}}/user_guide/messaging/governance/approvals/) deve estar ativado para que essa permissão se aplique. Esta configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se estiver interessado em participar do acesso antecipado. |
+| Aprovar Canvas                                | Aprovar ou negar Canvas. O [fluxo de trabalho de aprovação para Canvas]({{site.baseurl}}/user_guide/messaging/governance/approvals/) deve estar ativado para que essa permissão se aplique. Esta configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se estiver interessado em participar do acesso antecipado. |
 | Ver posicionamentos                                 | Ver posicionamento de banner |
 | Editar posicionamentos                                 | Ver posicionamentos de banner sem fazer alterações |
 | Arquivar posicionamentos                              | Mover posicionamentos de banner para o arquivo |

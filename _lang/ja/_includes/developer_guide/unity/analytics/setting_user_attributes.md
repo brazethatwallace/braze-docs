@@ -4,22 +4,22 @@
 
 ### 定義済みのメソッド
 
-Brazeは、`BrazeBinding` オブジェクトを使用して以下のユーザー属性を設定するための定義済みメソッドを提供する。詳しくは[Braze Unity宣言ファイルを](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)参照のこと。
+Braze は、`BrazeBinding` オブジェクトを使用して以下のユーザー属性を設定するための定義済みメソッドを提供しています。詳しくは [Braze Unity 宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。
 
 - 名
 - 姓
 - ユーザーのメールアドレス
 - 性別
 - 生年月日
-- ユーザー国
+- ユーザーの国
 - ユーザーの市区町村
 - ユーザーのメールサブスクリプション
-- ユーザプッシュサブスクリプション
+- ユーザーのプッシュサブスクリプション
 - ユーザーの電話番号
 
 ### デフォルト属性の設定
 
-デフォルト属性を設定するには、`BrazeBinding` オブジェクトの関連メソッドを呼び出す。
+デフォルト属性を設定するには、`BrazeBinding` オブジェクトの関連メソッドを呼び出します。
 
 {% tabs local %}
 {% tab First name %}
@@ -74,9 +74,9 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 {% endtab %}
 {% endtabs %}
 
-### デフォルト属性の設定を解除する
+### デフォルト属性の設定解除
 
-デフォルトのユーザー属性を解除するには、関連するメソッドに`null` 。
+デフォルトのユーザー属性の設定を解除するには、関連するメソッドに `null` を渡します。
 
 ```csharp
 BrazeBinding.SetUserFirstName(null);
@@ -84,11 +84,11 @@ BrazeBinding.SetUserFirstName(null);
 
 ## カスタムユーザー属性
 
-デフォルトのユーザー属性に加え、Brazeではいくつかのデータタイプを使用してカスタム属性を定義することができる。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集を]({{site.baseurl}}/developer_guide/analytics)参照のこと。
+デフォルトのユーザー属性に加え、Braze ではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics)を参照してください。
 
 ### カスタム属性の設定
 
-カスタム属性を設定するには、属性タイプに対応するメソッドを使用する： 
+カスタム属性を設定するには、属性タイプに対応するメソッドを使用します。
 
 {% tabs %}
 {% tab String %}
@@ -109,10 +109,10 @@ AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
 ```
 {% endtab %}
 
-{% tab Double %}
+{% tab Float %}
 
 ```csharp
-AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
 ```
 
 {% endtab %}
@@ -135,7 +135,7 @@ AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute ke
 ```
 
 {% alert note %}
-Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（`2013-07-16T19:20:30+01:00` など）か、`yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式（`2016-12-14T13:32:31.601-0800` など）でなければならない。
+Braze に渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 形式（`2013-07-16T19:20:30+01:00` など）か、`yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式（`2016-12-14T13:32:31.601-0800` など）でなければなりません。
 {% endalert %}
 
 {% endtab %}
@@ -157,9 +157,9 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 カスタム属性値の最大長は 255 文字です。これより長い値は切り捨てられます。
 {% endalert %}
 
-### カスタム属性の設定を解除する
+### カスタム属性の設定解除
 
-カスタム属性を解除するには、`UnsetCustomUserAttribute` メソッドに関連する属性キーを渡す。 
+カスタム属性の設定を解除するには、`UnsetCustomUserAttribute` メソッドに関連する属性キーを渡します。
 
 ```csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
@@ -167,11 +167,11 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### REST API の使用
 
-また、REST APIを使用して、ユーザー属性を設定または解除することもできる。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+REST API を使用して、ユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
 
 ## ユーザーサブスクリプションの設定
 
-ユーザーにメールまたはプッシュサブスクリプションを設定するには、以下のいずれかの機能を呼び出す。
+ユーザーにメールまたはプッシュサブスクリプションを設定するには、以下のいずれかの関数を呼び出します。
 
 ```csharp
 // Email notifications
@@ -181,23 +181,23 @@ AppboyBinding.SetUserEmailNotificationSubscriptionType()
 AppboyBinding.SetPushNotificationSubscriptionType()`
 ```
 
-どちらの関数も引数として`Appboy.Models.AppboyNotificationSubscriptionType` 、3つの異なる状態を持つ：
+どちらの関数も引数として `Appboy.Models.AppboyNotificationSubscriptionType` を取り、3 つの異なるステータスがあります。
 
-| サブスクリプション ステータス | 定義 |
+| サブスクリプションステータス | 定義 |
 | ------------------- | ---------- |
-| `OPTED_IN` | 配信登録済み、かつ明示的にオプトイン済み |
-| `SUBSCRIBED` | 購読済み、ただし明示的に選択されていない |
-| `UNSUBSCRIBED` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
+| `OPTED_IN` | 購読中、かつ明示的にオプトイン済み |
+| `SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
+| `UNSUBSCRIBED` | 配信停止済み、または明示的にオプトアウト済み、あるいはその両方 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-Windows では、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで `OPTED_IN` ではなく `SUBSCRIBED` に設定されます。詳細については、[ サブスクリプションs と明示的なopt-ins]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) の実装に関するドキュメントを参照してください。
+Windows では、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで `OPTED_IN` ではなく `SUBSCRIBED` に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)に関するドキュメントを参照してください。
 {% endalert %}
 
-| サブスクリプション・タイプ                        | 説明 |
+| サブスクリプションタイプ                        | 説明 |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | 有効なメールアドレスを受信すると、ユーザは自動的に`SUBSCRIBED` に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取ったときにこの値を`OPTED_IN` に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
-| `PushNotificationSubscriptionType`       | ユーザは、有効なプッシュ登録時に自動的に`SUBSCRIBED` に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取ったときにこの値を`OPTED_IN` に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
+| `EmailNotificationSubscriptionType`      | 有効なメールアドレスを受信すると、ユーザーは自動的に `SUBSCRIBED` に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を `OPTED_IN` に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
+| `PushNotificationSubscriptionType`       | 有効なプッシュ登録時に、ユーザーは自動的に `SUBSCRIBED` に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を `OPTED_IN` に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
