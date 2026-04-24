@@ -1199,6 +1199,49 @@ def repair_decisioning_insights_table_labels(
     return translated_content, repairs
 
 
+def repair_fr_payload_display_typography(translated_content, lang_key):
+    """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
+
+    All-caps *PAYLOAD* in prose reads like shouting; technical French often uses
+    lowercase *payload* / plural *payloads* (see Copilot review on campaigns /
+    Decisioning docs).
+    """
+    if lang_key != "fr":
+        return translated_content, []
+
+    new = translated_content
+    for wrong, right in (
+        ("les PAYLOAD ", "les payloads "),
+        ("les PAYLOAD,", "les payloads,"),
+        ("leurs PAYLOAD ", "leurs payloads "),
+        ("leurs PAYLOAD.", "leurs payloads."),
+        ("le PAYLOAD brut", "le payload brut"),
+        ("## PAYLOAD ", "## Payload "),
+        ("## PAYLOAD\n", "## Payload\n"),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+
+    new, _n = re.subn(r"\bPAYLOAD\b", "payload", new)
+
+    if new != translated_content:
+        return new, ["fr-payload — normalized PAYLOAD → payload/Payload wording"]
+    return translated_content, []
+
+
+def repair_yaml_tool_list_spacing(translated_content):
+    """Normalize ``tool:␠`` + newline before list (``tool:\\n  -``) in front matter."""
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    if "tool: \n" not in tr_fm and "tool: \r\n" not in tr_fm:
+        return translated_content, []
+    repaired = tr_fm.replace("tool: \n", "tool:\n").replace("tool: \r\n", "tool:\r\n")
+    if repaired == tr_fm:
+        return translated_content, []
+    return f"---\n{repaired}\n---\n{tr_body}", ["front_matter — tool: trailing space before list"]
+
+
 def repair_urls(english_content, translated_content):
     """Ensure markdown link URLs match the English source."""
     en_urls = _extract_md_link_urls(english_content)
@@ -1600,6 +1643,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(ds_insights_repairs)
+
+    translated_content, fr_payload_repairs = repair_fr_payload_display_typography(
+        translated_content, lang_key
+    )
+    findings["repairs"].extend(fr_payload_repairs)
+
+    translated_content, tool_sp_repairs = repair_yaml_tool_list_spacing(
+        translated_content
+    )
+    findings["repairs"].extend(tool_sp_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

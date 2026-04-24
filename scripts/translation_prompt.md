@@ -23,7 +23,7 @@ Translate the provided English documentation file into the specified target lang
   - `glossary_top_header`, `glossary_top_text`, `glossary_filter_text`, `glossary_tag_name`
   - `braze_learning`
   - `search_tag`
-- Alt text inside image syntax `![alt text](...)`
+- Alt text inside image syntax `![alt text](...)` — always provide a **short, descriptive alt** in the target language for screenshots and diagrams. Do **not** emit `![]({% image_buster ... %})` with an empty alt when the image conveys information; match the English pattern `![English alt](...)` with an equivalent localized string. When the English image tag includes a **quoted title** after the `image_buster` tag (for example `...png %} "Define your top users")`, translate that string too so the page is not a mix of languages.
 - Text content inside alert blocks (`{% alert %}...{% endalert %}`), details blocks (`{% details %}...{% enddetails %}`), and tab blocks (`{% tab %}...{% endtab %}`)
 - Table cell content (preserve table formatting/alignment)
 
@@ -129,6 +129,7 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 ### Illustrative HTML and fenced examples
 
 - Translate **user-visible placeholder text** in illustrative snippets (for example a sample `<button>` label inside a short HTML block) unless the string is a literal API identifier, variable name, or Liquid token. Avoid leaving stray English UX scraps on an otherwise localized page.
+- **`{% image_buster ... %}` in markdown figures**: Prefer `![localized alt]({% image_buster /path.png %})` (and an optional localized quoted title after the closing `%}`) over a bare `![]({% image_buster ... %})` when the screenshot is part of the instructional content.
 
 ## Quality guidelines
 
@@ -152,6 +153,8 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - **Spanish (and similar Romance languages):** Watch **number and person agreement** in relative clauses and parallel comparisons (for example *los análisis … que incluyen*, not *que incluye*; when contrasting two product types, keep **parallel number** in each clause—*las campañas … mientras que los Canvas …*).
 - **Brazilian Portuguese analytics copy:** Prefer **desempenho** (message/historical performance) over the English loanword **performance** in reporting and analytics descriptions unless you are quoting a proper product name that truly requires English.
 - **Japanese reporting phrasing:** For “out of all selections” / “share of total selections” style meanings, prefer natural **選択** wording (for example **全選択のうち**) over ad-hoc katakana like **セレクション** in the same sentence, which can read as an unnecessary English borrowing and drift from established doc tone.
+- **`nav_title`, `article_title`, and the in-page `#` heading:** Use the **same capitalization convention** across all three (usually **sentence case** for Portuguese, French, Spanish, and similar locales). Do not title-case **`article_title`** alone when **`nav_title`** and the H1 use sentence case—readers see mismatched cards versus page chrome.
+- **French — HTTP / webhook “payload”:** In prose and headings, prefer **payload** / **payloads** (or a clear French equivalent such as *corps de requête* where it fits). Do **not** use English-style **PAYLOAD** in all caps; it reads as shouting and is inconsistent with French technical style.
 
 ### Inclusivity
 
