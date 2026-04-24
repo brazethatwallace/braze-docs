@@ -1,6 +1,6 @@
 ---
-nav_title: Canvas
-article_title: Canvas
+nav_title: 캔버스
+article_title: 캔버스
 layout: dev_guide
 page_order: 3
 guide_top_header: "캔버스"
