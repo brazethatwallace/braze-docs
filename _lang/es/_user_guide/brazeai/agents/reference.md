@@ -475,4 +475,4 @@ A medida que crees más agentes personalizados, puedes organizar la página **Ge
 1. Coloca el cursor sobre la fila del agente y selecciona el menú <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecciona **Archivar**.
 
-![Página de Gestión de agentes con agentes archivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})
+![Página de gestión de agentes con agentes archivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})
