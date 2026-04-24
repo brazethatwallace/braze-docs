@@ -1,5 +1,5 @@
 ---
-nav_title: "Zustellbarkeitsfallen &amp; Spam-Trap's"
+nav_title: "Zustellbarkeitsfallen & Spam-Traps"
 article_title: Zustellbarkeitsfehler und Spam-Traps
 page_order: 7
 page_type: reference

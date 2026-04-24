@@ -25,10 +25,10 @@ O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como o
     </tr>
     <tr>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="A guia „Linhas" que inclui diferentes combinações estruturais para o layout do seu e-mail." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="A guia 'Linhas' que inclui diferentes combinações estruturais para o layout do seu e-mail." style="max-width: 100%; height: auto;">
         </td>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="A guia „Conteúdo" que inclui blocos básicos, mídia e avançados." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="A guia 'Conteúdo' que inclui blocos básicos, mídia e avançados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
 </table>
