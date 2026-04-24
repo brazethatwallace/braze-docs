@@ -1,0 +1,52 @@
+---
+nav_title: Conversion-Korrelation
+article_title: Conversion-Korrelation
+alias: /conversion_correlation/
+page_order: 3
+
+page_type: reference
+description: "Dieser Referenzartikel erläutert die Conversion-Korrelationsanalyse auf der Seite „Campaign Analytics“."
+tool: 
+  - Reports
+  
+---
+# Conversion-Korrelation
+
+> Die Conversion-Korrelationsanalyse auf der Seite **Campaign Analytics** gibt Ihnen Einblicke, welche Nutzer:innen-Attribute und -Verhaltensweisen die Ergebnisse Ihrer Kampagnen positiv oder negativ beeinflussen.
+
+## Übersicht
+
+Für jede Kampagne prüft Braze eine Liste von Attributen und Nutzer:innen-Verhaltensweisen und berechnet, ob diese statistisch signifikant mit einem Anstieg oder Rückgang der einzelnen [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) zusammenhängen, die Sie für die Kampagne festgelegt haben. Außerdem berechnen wir, wie viel wahrscheinlicher oder unwahrscheinlicher es ist, dass Nutzer:innen mit dem jeweiligen Attribut oder Verhalten konvertieren, und zeigen dies – sofern signifikant – auf der entsprechenden Seite der Tabelle an. Nutzer:innen mit dem jeweiligen Attribut oder Verhalten werden mit den Raten der gesamten Kampagnen-Zielgruppe verglichen. Verhaltensweisen und Attribute, die keine signifikante Korrelation mit der Conversion aufweisen, werden in der Tabelle nicht angezeigt.
+
+Um eine Conversion-Korrelationsanalyse durchzuführen, wählen Sie das gewünschte Konversions-Event aus dem Dropdown-Menü aus.
+
+![Conversion-Korrelations-Panel mit einem Beispiel, bei dem „Select a conversion event" auf „Primary Conversion Event - A" gesetzt ist und die Event-Einstellung „Made Purchase within 12 hours (Any product)" lautet.]({% image_buster /assets/img/convcorr.png %})
+
+## Was wird geprüft?
+
+Wir prüfen die folgenden Attribute, indem wir sie als kategoriale Variablen behandeln. Das bedeutet, dass Nutzer:innen entweder einen bestimmten Wert dieser Attribute haben oder nicht – und wir testen, ob dies die Konversionsrate beeinflusst.
+
+- Land
+- Sprache
+- Geschlecht
+
+Außerdem prüfen wir, ob Folgendes die Konversionsrate beeinflusst:
+
+- Ausführung beliebiger angepasster Events
+- Kampagnen und Canvases, die in den letzten 30 Tagen empfangen wurden (außer der aktuell bewerteten Kampagne)
+
+Schließlich prüfen wir mehrere Verhaltensvariablen, die verschiedene Werte annehmen können. Wir teilen die folgenden Variablen in vier Buckets oder Quartile auf und messen dann den Zusammenhang zwischen der Zugehörigkeit zu einem Quartil und einem Anstieg oder Rückgang der Conversion:
+
+- Alter
+- Gesamtausgaben in Dollar
+- Anzahl der Sitzungen
+
+## Wann kann ich diese Analyse einsehen?
+
+Diese Analyse wird frühestens 24 Stunden nach Beginn des Kampagnenversands verfügbar und berücksichtigt nur Sendungen der letzten 30 Tage. Wenn keine Verhaltensweisen oder Attribute signifikant mit einem der Konversions-Events der Kampagne korrelieren, wird das Dropdown-Menü deaktiviert und eine entsprechende Meldung angezeigt.
+
+## Wie Braze die Signifikanz prüft
+
+Wir prüfen die statistische Signifikanz mithilfe des [Wilson-Konfidenzintervalls](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval). Wir bestimmen mit 95-prozentiger Konfidenz die Rate, mit der die gesamte Kampagnen-Zielgruppe konvertiert hat. Dies wird als Basisrate bezeichnet.
+
+Anschließend berechnen wir für jede der Variablen ebenfalls mit 95-prozentiger Konfidenz die Rate, mit der Nutzer:innen mit dem jeweiligen Attribut oder Verhalten konvertiert haben. Indem wir diesen Wert durch die Basisrate teilen, können wir das Verhältnis ermitteln. Ist es deutlich größer als 1, konvertieren Nutzer:innen mit diesem Attribut oder Verhalten mit höherer Wahrscheinlichkeit. Ist es deutlich kleiner, ist die Wahrscheinlichkeit geringer. Wir zeigen den Wert des Verhältnisses in der Tabelle an. Der Wert wird nur angezeigt, wenn er weit genug von 1 entfernt ist, um auf dem 95-Prozent-Konfidenzniveau signifikant zu sein.

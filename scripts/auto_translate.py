@@ -5,6 +5,7 @@ Auto-translate English Braze docs into all supported languages using Claude.
 Usage:
     python auto_translate.py translate --changed-files changed_files.txt
     python auto_translate.py qc
+    python auto_translate.py check-aliases
     python auto_translate.py verify --max-attempts 3
     python auto_translate.py summary
 """
@@ -19,6 +20,7 @@ import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from typing import Optional
 
 def _get_anthropic_client():
     """Lazy-import Anthropic so commands like qc/summary work without the SDK."""
@@ -657,6 +659,204 @@ def repair_front_matter(english_content, translated_content):
     return translated_content, repairs
 
 
+def repair_front_matter_miscapitalized_tool_key(content):
+    """Normalize ``Tool:`` / ``Tool :`` to ``tool:`` in YAML front matter.
+
+    Jekyll exposes ``page.tool`` from the lowercase key. A capitalized
+    ``Tool`` key is a different identifier and skips tool taxonomy (Copilot /
+    PR reviews on Canvas ``preview_user_paths`` and similar pages).
+    """
+    tr_fm, tr_body = _extract_front_matter(content)
+    if not tr_fm:
+        return content, []
+    if not re.search(r"^Tool\s*:\s*", tr_fm, re.MULTILINE):
+        return content, []
+    repaired_fm = re.sub(r"^Tool\s*:", "tool:", tr_fm, flags=re.MULTILINE)
+    if repaired_fm == tr_fm:
+        return content, []
+    new_content = f"---\n{repaired_fm}\n---\n{tr_body}"
+    return new_content, ["front_matter — Tool: → tool: (Jekyll page.tool)"]
+
+
+def _collect_guide_featured_list_field(block, field):
+    """Return ordered list of ``link:`` or ``image:`` values in ``guide_featured_list``."""
+    if not block:
+        return []
+    out = []
+    for line in block.splitlines():
+        m = re.match(rf"^\s+{re.escape(field)}:\s*(.+)$", line)
+        if m:
+            out.append(m.group(1).strip().strip("\"'"))
+    return out
+
+
+def repair_guide_featured_list_links(english_content, translated_content):
+    """Sync ``link:`` (and ``image:`` when safe) under ``guide_featured_list`` to English.
+
+    Display ``name`` values are often translated, so matching by list position is more
+    reliable than matching by ``name`` text. Icon paths are locale-invariant assets;
+    models sometimes alter or drop them—restore from English when counts match.
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not en_fm or not tr_fm:
+        return translated_content, []
+
+    en_block = _extract_fm_block(en_fm, "guide_featured_list")
+    tr_block = _extract_fm_block(tr_fm, "guide_featured_list")
+    if not en_block or not tr_block:
+        return translated_content, []
+
+    en_links = _collect_guide_featured_list_field(en_block, "link")
+    tr_links = _collect_guide_featured_list_field(tr_block, "link")
+    if len(en_links) != len(tr_links):
+        return translated_content, [
+            "guide_featured_list — link count mismatch "
+            f"(English: {len(en_links)}, translated: {len(tr_links)}); skipped link sync"
+        ]
+
+    en_images = _collect_guide_featured_list_field(en_block, "image")
+    tr_images = _collect_guide_featured_list_field(tr_block, "image")
+    sync_images = (
+        len(en_images) == len(tr_images) == len(en_links) and len(en_images) > 0
+    )
+
+    new_lines = []
+    idx_link = 0
+    idx_image = 0
+    link_sync = 0
+    image_sync = 0
+    for line in tr_block.splitlines():
+        m_link = re.match(r"^(\s+link:\s*)(.+)$", line)
+        if m_link and idx_link < len(tr_links):
+            want = en_links[idx_link]
+            got = tr_links[idx_link]
+            idx_link += 1
+            if want != got:
+                new_lines.append(m_link.group(1) + want)
+                link_sync += 1
+                continue
+        if sync_images:
+            m_img = re.match(r"^(\s+image:\s*)(.+)$", line)
+            if m_img and idx_image < len(tr_images):
+                want = en_images[idx_image]
+                got = tr_images[idx_image]
+                idx_image += 1
+                if want != got:
+                    new_lines.append(m_img.group(1) + want)
+                    image_sync += 1
+                    continue
+        new_lines.append(line)
+
+    if link_sync == 0 and image_sync == 0:
+        return translated_content, []
+
+    new_tr_block = "\n".join(new_lines)
+    new_tr_fm = tr_fm.replace(tr_block, new_tr_block, 1)
+    translated_content = f"---\n{new_tr_fm}\n---\n{tr_body}"
+    parts = []
+    if link_sync:
+        parts.append(f"{link_sync} link(s)")
+    if image_sync:
+        parts.append(f"{image_sync} image path(s)")
+    return translated_content, [
+        "guide_featured_list — synced " + " and ".join(parts) + " from English"
+    ]
+
+
+# English Braze dashboard strings that often leak into localized Agents docs
+# when the model copies US UI labels verbatim. Keys: lang_key. Order is applied
+# longest-first per file to reduce partial-match issues.
+_AGENTS_EN_UI_COMMON = {
+    "pt_br": [
+        ("**Recalculate when catalog rows update**",
+         "**Recalcular quando as linhas do catálogo forem atualizadas**"),
+        ("**Apply AI agent**", "**Aplicar agente IA**"),
+        ("**Response Field**", "**Campo de Resposta**"),
+        ("**Cost estimation**", "**Estimativa de custo**"),
+        ("**Add fields**", "**Adicionar campos**"),
+        ("**Export CSV**", "**Exportar CSV**"),
+        ("**Edit Item**", "**Editar Item**"),
+        ("**Confirm**", "**Confirmar**"),
+        ('"Apply AI agent"', '"Aplicar agente IA"'),
+        ("'Apply AI agent'", "'Aplicar agente IA'"),
+    ],
+    "fr_fr": [
+        ("**Recalculate when catalog rows update**",
+         "**Recalculer lors de la mise à jour des lignes du catalogue**"),
+        ("**Apply AI agent**", "**Appliquer l'agent IA**"),
+        ("**Response Field**", "**Champ de réponse**"),
+        ("**Cost estimation**", "**Estimation des coûts**"),
+        ("**Add fields**", "**Ajouter des champs**"),
+        ("**Export CSV**", "**Exporter CSV**"),
+        ("**Edit Item**", "**Modifier l'élément**"),
+        ("**Confirm**", "**Confirmer**"),
+        ("« Apply AI agent »", "« Appliquer l'agent IA »"),
+        ('"Apply AI agent"', '"Appliquer l\'agent IA"'),
+    ],
+    "ja": [
+        ("**Recalculate when catalog rows update**",
+         "**カタログ行の更新時に再計算**"),
+        ("**Apply AI agent**", "**AIエージェントを適用**"),
+        ("**Response Field**", "**応答フィールド**"),
+        ("**Cost estimation**", "**コスト見積もり**"),
+        ("**Add fields**", "**フィールドを追加**"),
+        ("**Export CSV**", "**CSVをエクスポート**"),
+        ("**Edit Item**", "**アイテムを編集**"),
+        ("**Confirm**", "**確認**"),
+        ("「Apply AI agent」", "「AIエージェントを適用」"),
+        ('"Apply AI agent"', '"AIエージェントを適用"'),
+    ],
+}
+
+# Short labels that are risky to replace outside the catalog deployment article.
+_AGENTS_EN_UI_DEPLOYING_ONLY = {
+    "pt_br": [
+        ("**Usage**", "**Uso**"),
+        ("**View**", "**Ver**"),
+    ],
+    "fr_fr": [
+        ("**Usage**", "**Utilisation**"),
+        ("**View**", "**Afficher**"),
+    ],
+    "ja": [
+        ("**Usage**", "**使用状況**"),
+        ("**View**", "**表示**"),
+    ],
+}
+
+
+def repair_agents_catalog_en_ui(translated_path, translated_content, lang_key):
+    """Fix US-English dashboard labels leaked into localized BrazeAI Agents docs."""
+    rel = Path(translated_path).as_posix()
+    if "/brazeai/agents/" not in rel and "brazeai/agents/" not in rel:
+        return translated_content, []
+    if "_lang/" not in rel:
+        return translated_content, []
+    if not rel.endswith(".md"):
+        return translated_content, []
+
+    basename = Path(translated_path).name
+    pairs = list(_AGENTS_EN_UI_COMMON.get(lang_key, []))
+    if basename == "deploying_agents.md":
+        pairs.extend(_AGENTS_EN_UI_DEPLOYING_ONLY.get(lang_key, []))
+    if not pairs:
+        return translated_content, []
+
+    pairs.sort(key=lambda item: len(item[0]), reverse=True)
+    new_content = translated_content
+    n = 0
+    for old, new in pairs:
+        if old in new_content:
+            new_content = new_content.replace(old, new)
+            n += 1
+    if new_content == translated_content:
+        return translated_content, []
+    return new_content, [
+        f"agents_catalog_ui — replaced {n} leaked EN UI string(s) for {lang_key}"
+    ]
+
+
 def repair_yaml_syntax(translated_content):
     """Validate YAML front matter and auto-fix common parse errors.
 
@@ -752,6 +952,526 @@ def repair_code_blocks(english_content, translated_content):
 def _extract_md_link_urls(content):
     """Extract markdown link/image URLs in order."""
     return re.findall(r'\[(?:[^\]]*)\]\(([^)]+)\)', content)
+
+
+# Kramdown/Jekyll: `.../page_slug#anchor-id` can fuse slug and fragment; use
+# `.../page_slug/#anchor-id` when the slug is extensionless (not `file.md#`).
+_MD_LINK_FRAGMENT_ANCHOR_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9_-]*$")
+
+
+def _normalize_single_internal_link_url(url):
+    """If ``url`` is a ``{{site.baseurl}}`` doc link whose path omits ``/``
+    before ``#anchor``, insert the slash. Returns ``(new_url, changed)``.
+    """
+    if "{{site.baseurl}}" not in url:
+        return url, False
+    if "?" in url:
+        return url, False
+    hashidx = url.find("#")
+    if hashidx <= 0:
+        return url, False
+    before, frag = url[:hashidx], url[hashidx + 1 :]
+    if not frag or before.endswith("/"):
+        return url, False
+    bl = before.lower()
+    if bl.endswith((".md", ".html", ".htm", ".json", ".xml")):
+        return url, False
+    last_seg = before.rsplit("/", 1)[-1]
+    if "." in last_seg:
+        return url, False
+    if not _MD_LINK_FRAGMENT_ANCHOR_RE.match(frag):
+        return url, False
+    return f"{before}/#{frag}", True
+
+
+_SUP_BOLD_STAR_TYPO = re.compile(r"<sup>\*\*([^*<]+)\*</sup>")
+
+
+def repair_sup_addon_footnote_bold_typo(translated_content: str):
+    """Fix ``<sup>**text*</sup>`` copied from English (unbalanced ``**`` / ``*``).
+
+    Models sometimes preserve a malformed footnote after channel tables; it
+    breaks Markdown emphasis pairing in some pipelines (see Copilot on PR #13285).
+    """
+    new, n = _SUP_BOLD_STAR_TYPO.subn(
+        lambda m: f"<sup>{m.group(1).strip()}</sup>", translated_content
+    )
+    if n:
+        return new, [f"html-sup — normalized {n} add-on footnote(s) (removed **…*)"]
+    return translated_content, []
+
+
+def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content: str):
+    """Ensure ``ideas_and_strategies`` doc links use a trailing ``/`` before ``)``."""
+    repairs = []
+    new = translated_content
+    for wrong, right in (
+        (
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)",
+        ),
+        (
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/)",
+        ),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append("md-link — ideas_and_strategies trailing /")
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
+def repair_markdown_internal_link_fragments(content):
+    """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
+    repairs = []
+
+    def repl(match):
+        url = match.group(1)
+        new_url, changed = _normalize_single_internal_link_url(url)
+        if changed:
+            preview = url if len(url) <= 100 else url[:97] + "..."
+            repairs.append(
+                f"md-fragment — inserted '/' before # in internal link ({preview})"
+            )
+        return f"]({new_url})"
+
+    new_content = re.sub(r"\]\(([^)]+)\)", repl, content)
+    return new_content, repairs
+
+
+# Missing `.` before second class breaks Kramdown table styling.
+_RESET_TD_BR_IAL_MISSING_DOT = re.compile(
+    r"\{\:\s*\.reset-td-br-1\s+reset-td-br-2\b"
+)
+
+
+def repair_markdown_wire_format_tables(content):
+    """Auto-fix markdown table / IAL issues from translation or English typos.
+
+    - ``Content_Type`` → ``Content-Type`` (HTTP header spelling)
+    - ``{: .reset-td-br-1 reset-td-br-2`` → ``{: .reset-td-br-1 .reset-td-br-2``
+    - Restore ``Authorization`` when the header cell was translated (es/pt)
+    """
+    repairs = []
+    new = content
+
+    if "| Content_Type |" in new:
+        new = new.replace("| Content_Type |", "| Content-Type |")
+        repairs.append("md-table — Content_Type → Content-Type")
+
+    new, n_ial = _RESET_TD_BR_IAL_MISSING_DOT.subn(
+        "{: .reset-td-br-1 .reset-td-br-2", new
+    )
+    if n_ial:
+        repairs.append(
+            f"md-ial — added missing '.' before reset-td-br-2 ({n_ial}x)"
+        )
+
+    for wrong, right in (
+        ("| Autorización |", "| Authorization |"),
+        ("| Autorização |", "| Authorization |"),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append(
+                "md-table — restored Authorization header cell (wire-format token)"
+            )
+
+    if new != content:
+        return new, repairs
+    return content, []
+
+
+_DUP_ADJACENT_TARGET_AUDIENCES = re.compile(
+    r"(\{%\s*multi_lang_include\s+target_audiences\.md\s*%\})\s*\n\1"
+)
+
+
+def repair_duplicate_adjacent_target_audiences_include(content):
+    """Collapse back-to-back duplicate ``target_audiences`` includes.
+
+    The English ``create_a_banner`` page briefly duplicated this include;
+    translations should not repeat the same block twice with only whitespace
+    between (renders duplicated content).
+    """
+    repairs = []
+    new = content
+    total = 0
+    while True:
+        new2, n = _DUP_ADJACENT_TARGET_AUDIENCES.subn(r"\1", new, count=1)
+        if not n:
+            break
+        new = new2
+        total += n
+    if total:
+        return new, [
+            f"liquid_include — removed duplicate adjacent target_audiences.md ({total}x)"
+        ]
+    return content, []
+
+
+def repair_pt_br_banners_reporting_performance(translated_path, translated_content):
+    """Prefer ``desempenho`` over English *performance* in PT-BR banner reporting."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/pt_br/_user_guide/channels/banners/reporting.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    if "performance da mensagem" in new:
+        new = new.replace("performance da mensagem", "desempenho da mensagem")
+        repairs.append("pt-banners-reporting — performance → desempenho (mensagem)")
+    if "performance histórica" in new:
+        new = new.replace("performance histórica", "desempenho histórico")
+        repairs.append("pt-banners-reporting — performance histórica → desempenho histórico")
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
+def _fm_line_for_key(fm: str, key: str) -> Optional[str]:
+    """Return the full source line for ``key:`` (single-line YAML scalar) or None."""
+    for line in fm.split("\n"):
+        if re.match(rf"^{re.escape(key)}\s*:", line):
+            return line
+    return None
+
+
+def repair_messaging_canvas_hub_titles_from_engagement_tools(
+    translated_path, translated_content
+):
+    """Sync Canvas hub title YAML with the locale's ``engagement_tools/canvas`` page.
+
+    New ``_user_guide/messaging/canvas`` mirrors the English IA; models often
+    leave ``nav_title`` / ``article_title`` / ``guide_top_header`` as English
+    ``Canvas`` while ``engagement_tools/canvas`` already uses localized titles
+    (e.g. Japanese キャンバス, Korean 캔버스, pt-BR Canva). Align so nav and search stay consistent.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    suffix = "_user_guide/messaging/canvas.md"
+    if "_lang/" not in rel or not rel.endswith(suffix):
+        return translated_content, []
+
+    tr_path = Path(translated_path).resolve()
+    # Sibling of ``messaging/`` under ``_user_guide/`` → ``engagement_tools/canvas.md``
+    ref_path = tr_path.parent.parent / "engagement_tools" / "canvas.md"
+    if not ref_path.is_file():
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    ref_fm, _ = _extract_front_matter(ref_path.read_text(encoding="utf-8"))
+    if not ref_fm:
+        return translated_content, []
+
+    keys = ("nav_title", "article_title", "guide_top_header")
+    repairs = []
+    repaired_fm = tr_fm
+    for key in keys:
+        ref_line = _fm_line_for_key(ref_fm, key)
+        tr_line = _fm_line_for_key(repaired_fm, key)
+        if not ref_line or not tr_line:
+            continue
+        if ref_line == tr_line:
+            continue
+        repaired_fm = repaired_fm.replace(tr_line, ref_line, 1)
+        repairs.append(
+            f"canvas-messaging-hub — {key} aligned with engagement_tools/canvas.md"
+        )
+
+    if repairs:
+        return f"---\n{repaired_fm}\n---\n{tr_body}", repairs
+    return translated_content, []
+
+
+_EN_SETTINGS_APIS_API_KEYS_NAV = (
+    "**Settings** > **APIs and Identifiers** > **API Keys**"
+)
+
+
+def repair_braze_dashboard_api_keys_nav_collapse(
+    english_content: str, translated_content: str, lang_key: str
+):
+    """Restore middle menu level when models collapse REST API key navigation.
+
+    English uses **Settings** > **APIs and Identifiers** > **API Keys**; bad
+    translations repeat the child label twice and drop *APIs and Identifiers*.
+    """
+    if _EN_SETTINGS_APIS_API_KEYS_NAV not in english_content:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    fixes = (
+        (
+            "ko",
+            "Braze 대시보드에서 **설정** > **API 키** > **API 키**",
+            "Braze 대시보드에서 **설정** > **API 및 식별자** > **API 키**",
+        ),
+        (
+            "ja",
+            "Brazeダッシュボードで、**設定** > **APIキー** > **APIキー**",
+            "Brazeダッシュボードで、**設定** > **APIと識別子** > **APIキー**",
+        ),
+        (
+            "fr",
+            "**Paramètres** > **Clés API** > **Clés API**",
+            "**Paramètres** > **API et identifiants** > **Clés API**",
+        ),
+    )
+    for key, wrong, right in fixes:
+        if lang_key != key:
+            continue
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append(
+                "nav-path — Settings > APIs and Identifiers > API Keys (collapsed fix)"
+            )
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_decisioning_insights_table_labels(
+    english_content: str, translated_path: str, translated_content: str, lang_key: str
+):
+    """Fix recurring Decisioning Studio *Insights* table mistranslations."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("decisioning_studio/reporting/insights.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "ko" and "| Dimension |" in english_content:
+        if "| 크기 및 위치 |" in new:
+            new = new.replace("| 크기 및 위치 |", "| 차원 |")
+            repairs.append("insights-table — KO Dimension row (차원)")
+
+    if lang_key == "ja" and "| % of time chosen |" in english_content:
+        if "全セレクションのうち" in new:
+            new = new.replace("全セレクションのうち", "全選択のうち")
+            repairs.append("insights-table — JA percent-chosen phrasing")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_pt_br_agents_reference_confidence_alt(
+    translated_path: str, translated_content: str
+):
+    """Fix mistaken *confidence interval* wording for ``confidence_score`` alt (pt-BR).
+
+    Models sometimes render *intervalo de confiança* next to *probability score*
+    and *explanation*; the field is **confidence score** / *pontuação de confiança*.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/pt_br/_user_guide/brazeai/agents/reference.md"):
+        return translated_content, []
+    wrong = "pontuação de intervalo de confiança"
+    if wrong not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        wrong, "pontuação de confiança"
+    ), ["pt-agents-reference — confidence score alt wording"]
+
+
+def repair_pt_br_brazeai_content_optimizer_product_name(
+    translated_path: str, translated_content: str
+):
+    """Replace leaked English *Content Optimizer* with pt-BR **Otimizador de Conteúdo**.
+
+    Nav/titles often localize the feature name while the model still pastes the US
+    marketing string into alerts and body copy (see Copilot review on PR #13282).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/pt_br/_user_guide/brazeai/content_optimizer.md"):
+        return translated_content, []
+    if "Content Optimizer" not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        "Content Optimizer", "Otimizador de Conteúdo"
+    ), ["pt-brazeai-content_optimizer — Content Optimizer → Otimizador de Conteúdo"]
+
+
+def repair_de_brazeai_schritt_three_link_text(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Use idiomatic ``Schritt 3`` in prose links, not ``3. Schritt`` (German agents docs)."""
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/brazeai/agents/" not in rel or not rel.endswith(".md"):
+        return translated_content, []
+    marker = "[3. Schritt](#agent-instructions)"
+    if marker not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        marker, "[Schritt 3](#agent-instructions)"
+    ), ['de-agents — link text "Schritt 3" (not "3. Schritt")']
+
+
+def repair_es_agents_reference_alt_sentence_case(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Sentence-case *gestión* inside Spanish image alt (agents reference)."""
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/es/_user_guide/brazeai/agents/reference.md"):
+        return translated_content, []
+    wrong = "![Página de Gestión de agentes"
+    if wrong not in translated_content:
+        return translated_content, []
+    return translated_content.replace(
+        wrong, "![Página de gestión de agentes"
+    ), ["es-agents-reference — sentence case in image alt"]
+
+
+def repair_es_braze_pilot_deep_links_splash_vs_welcome(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Disambiguate Spanish *splash* deep-link rows from ``/welcome`` (same file).
+
+    Models sometimes label every ``/splash`` row *Pantalla de bienvenida* even when
+    a separate ``.../welcome`` row uses the same phrase—mirror English *Splash
+    screen* vs *welcome* semantics with distinct labels.
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/es/_user_guide/get_started/braze_pilot/deep_links.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    for wrong, right in (
+        (
+            "| Pantalla de bienvenida | `braze-pilot://navigation/steppington/splash` |",
+            "| Pantalla de inicio | `braze-pilot://navigation/steppington/splash` |",
+        ),
+        (
+            "| Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/splash` |",
+            "| Pantalla de carga inicial | `braze-pilot://navigation/pantslabyrinth/splash` |",
+        ),
+        (
+            "| Pantalla de bienvenida | `braze-pilot://navigation/moviecannon/splash` |",
+            "| Pantalla de presentación | `braze-pilot://navigation/moviecannon/splash` |",
+        ),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+            repairs.append(
+                "es-braze-pilot-deep_links — splash table label distinct from /welcome"
+            )
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_braze_pilot_getting_started_campaigns_in_link_anchor(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Keep **Canvas** English (product name) but localize *Campaigns* in link text.
+
+    Copilot review: ``[… Campaigns …]({{site.baseurl}}/…)`` reads mixed when the
+    sentence is otherwise Spanish/French; glossary keeps *Canvas* in English.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("get_started/braze_pilot/getting_started.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    if lang_key == "es":
+        if "[Primeros pasos: Campaigns y Canvas]" in new:
+            new = new.replace(
+                "[Primeros pasos: Campaigns y Canvas]",
+                "[Primeros pasos: Campañas y Canvas]",
+            )
+            repairs.append(
+                "es-braze-pilot-getting_started — Campaigns → Campañas in link anchor"
+            )
+    elif lang_key == "fr":
+        if "[Pour commencer : Campaigns et Canvas]" in new:
+            new = new.replace(
+                "[Pour commencer : Campaigns et Canvas]",
+                "[Pour commencer : Campagnes et Canvas]",
+            )
+            repairs.append(
+                "fr-braze-pilot-getting_started — Campaigns → Campagnes in link anchor"
+            )
+    if new != translated_content:
+        return new, repairs
+    return translated_content, repairs
+
+
+def repair_de_braze_pilot_low9_pair_ascii_close_quote(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    r"""Fix ``„…"`` (low-9 + ASCII U+0022 closer) before `` als …`` in Pilot DE alts."""
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/get_started/braze_pilot/getting_started.md"):
+        return translated_content, []
+
+    pattern = re.compile(r'„([^„]+)"(?=\s+als\s+ausgew)')
+    new, n = pattern.subn(r'„\1“', translated_content)
+    if n:
+        return new, [
+            "de-braze-pilot-getting_started — German alt „…“ (not „…\" ) before als …"
+        ]
+    return translated_content, []
+
+
+def repair_fr_payload_display_typography(translated_content, lang_key):
+    """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
+
+    All-caps *PAYLOAD* in prose reads like shouting; technical French often uses
+    lowercase *payload* / plural *payloads* (see Copilot review on campaigns /
+    Decisioning docs).
+    """
+    if lang_key != "fr":
+        return translated_content, []
+
+    new = translated_content
+    for wrong, right in (
+        ("les PAYLOAD ", "les payloads "),
+        ("les PAYLOAD à", "les payloads à"),
+        ("les PAYLOAD,", "les payloads,"),
+        ("leurs PAYLOAD ", "leurs payloads "),
+        ("leurs PAYLOAD.", "leurs payloads."),
+        ("le PAYLOAD brut", "le payload brut"),
+        ("## PAYLOAD ", "## Payload "),
+        ("## PAYLOAD\n", "## Payload\n"),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+
+    new, _n = re.subn(r"\bPAYLOAD\b", "payload", new)
+
+    if new != translated_content:
+        return new, ["fr-payload — normalized PAYLOAD → payload/Payload wording"]
+    return translated_content, []
+
+
+def repair_yaml_tool_list_spacing(translated_content):
+    """Normalize ``tool:␠`` + newline before list (``tool:\\n  -``) in front matter."""
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    if "tool: \n" not in tr_fm and "tool: \r\n" not in tr_fm:
+        return translated_content, []
+    repaired = tr_fm.replace("tool: \n", "tool:\n").replace("tool: \r\n", "tool:\r\n")
+    if repaired == tr_fm:
+        return translated_content, []
+    return f"---\n{repaired}\n---\n{tr_body}", ["front_matter — tool: trailing space before list"]
 
 
 def repair_urls(english_content, translated_content):
@@ -1030,6 +1750,339 @@ def repair_brazeai_trademark(translated_content):
     return translated_content, repairs
 
 
+_SPURIOUS_BOLD_LINK = re.compile(
+    # [**label**] that is not a link `[**...**](...)` or reference `[**...**][...]`
+    r"\[\*\*([^\]]+?)\*\*\](?!\s*[\(\[])"
+)
+
+
+def repair_spurious_bold_link_wrappers(translated_content: str):
+    """Unwrap `[**text**]` when it is not a Markdown link or reference opener.
+
+    Models sometimes emit bracket-wrapped bold instead of `**text**`, which
+    renders as a broken link.
+    """
+    repairs = []
+
+    def _repl(match: re.Match) -> str:
+        return f"**{match.group(1)}**"
+
+    new_content, n = _SPURIOUS_BOLD_LINK.subn(_repl, translated_content)
+    if n:
+        repairs.append(
+            f"markdown — unwrapped {n} spurious [**…**] pattern(s) (not a link)"
+        )
+        return new_content, repairs
+    return translated_content, repairs
+
+
+def repair_de_channels_banners_landing(translated_path, translated_content, lang_key):
+    """Normalize German Banners channel landing front matter.
+
+    Auto-translate sometimes leaves English plural \"Banners\" in German YAML;
+    the de site uses \"Banner\" for nav titles and natural compounds in prose.
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/channels/banners.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if "nav_title: Banners" in new:
+        new = new.replace("nav_title: Banners", "nav_title: Banner")
+        repairs.append("de-banners-landing — nav_title: Banners → Banner")
+    if "article_title: Banners" in new:
+        new = new.replace("article_title: Banners", "article_title: Banner")
+        repairs.append("de-banners-landing — article_title: Banners → Banner")
+    if "Braze-Banners-Kanal" in new:
+        new = new.replace("Braze-Banners-Kanal", "Braze-Banner-Kanal")
+        repairs.append("de-banners-landing — Braze-Banner-Kanal compound")
+    if "zum Erstellen von Banners" in new:
+        new = new.replace("zum Erstellen von Banners", "zum Erstellen von Bannern")
+        repairs.append("de-banners-landing — Bannern in description")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
+_SHELL_FENCE_LANGS = {"", "bash", "sh", "shell", "zsh", "console"}
+_JSON_OR_SHELL_FENCE_LANGS = _SHELL_FENCE_LANGS | {"json"}
+# Single-backtick inline code span containing at least one `\"` escape. We
+# disallow internal backticks and newlines so we don't greedily span across
+# unrelated code spans.
+_INLINE_CODE_WITH_ESCAPED_QUOTE_RE = re.compile(
+    r"(?<!`)`([^`\n]*\\\"[^`\n]*)`(?!`)"
+)
+# Lines that start a `curl`-style command but misspell the binary as `url`.
+# Requires a common curl flag on the same line so we don't rewrite prose.
+_URL_CURL_TYPO_RE = re.compile(
+    r"^(\s*)url(\s+-[A-Za-z]|\s+https?://)"
+)
+# Keys in Braze API payloads whose values are always JSON strings. If any of
+# these shows up unquoted inside a JSON-ish code fence, that is invalid JSON
+# (the canonical offender on Canvas/API docs is ``external_user_id``).
+_JSON_STRING_VALUE_KEYS = (
+    "external_user_id",
+    "external_id",
+    "api_key",
+    "canvas_id",
+    "campaign_id",
+    "event_name",
+    "email_address",
+    "user_alias",
+)
+_JSON_UNQUOTED_VALUE_RE = re.compile(
+    r'^(?P<prefix>\s*"(?P<key>'
+    + "|".join(re.escape(k) for k in _JSON_STRING_VALUE_KEYS)
+    + r')"\s*:\s*)'
+    r'(?P<value>[A-Za-z_][A-Za-z0-9_]*)'
+    r'(?P<suffix>\s*[,}])'
+)
+
+
+def _iter_fenced_code_blocks(text):
+    """Yield ``(start_line, end_line, lang)`` for triple-backtick fences.
+
+    ``start_line`` / ``end_line`` are line-index positions of the opening and
+    closing fence lines; content lines are ``start_line+1 .. end_line-1``.
+    """
+    lines = text.split("\n")
+    i = 0
+    n = len(lines)
+    while i < n:
+        stripped = lines[i].lstrip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            marker = stripped[:3]
+            lang = stripped[3:].strip().lower()
+            j = i + 1
+            while j < n:
+                s2 = lines[j].lstrip()
+                if s2.startswith(marker):
+                    break
+                j += 1
+            yield i, j, lang
+            i = j + 1
+        else:
+            i += 1
+
+
+def repair_inline_code_escaped_quotes(content):
+    """Unescape ``\\"`` inside single-backtick inline code spans.
+
+    Inside an inline code span the content is literal, so ``\\"`` renders as
+    ``\\"`` on the page — almost always a copy/paste bug from a JSON string
+    literal that leaked its shell/JSON escaping into prose. We keep the
+    backticks, just drop the backslashes.
+    """
+    repairs = []
+
+    def repl(match):
+        inner = match.group(1)
+        new_inner = inner.replace('\\"', '"')
+        if new_inner != inner:
+            preview = new_inner if len(new_inner) <= 60 else new_inner[:57] + "..."
+            repairs.append(
+                f'inline_code — unescaped \\\" → \" in code span (`{preview}`)'
+            )
+        return f"`{new_inner}`"
+
+    new_content = _INLINE_CODE_WITH_ESCAPED_QUOTE_RE.sub(repl, content)
+    return new_content, repairs
+
+
+def repair_curl_typo_url_in_code_fence(content):
+    """Rewrite ``url -X POST`` → ``curl -X POST`` inside shell code fences."""
+    repairs = []
+    lines = content.split("\n")
+    changed = False
+    for start, end, lang in _iter_fenced_code_blocks(content):
+        if lang not in _SHELL_FENCE_LANGS:
+            continue
+        for idx in range(start + 1, end):
+            if idx >= len(lines):
+                break
+            m = _URL_CURL_TYPO_RE.match(lines[idx])
+            if not m:
+                continue
+            lines[idx] = _URL_CURL_TYPO_RE.sub(r"\1curl\2", lines[idx], count=1)
+            changed = True
+            repairs.append("code_fence — `url -X` → `curl -X` (binary typo)")
+    if not changed:
+        return content, []
+    return "\n".join(lines), repairs
+
+
+def repair_unquoted_json_string_values(content):
+    """Quote known-string JSON values inside JSON / shell code fences.
+
+    Catches samples like ``"external_user_id": Customer_123,`` where the
+    value was clearly meant to be a string but lost its quotes. Keys are
+    restricted to a well-known Braze-API set so we don't touch fields that
+    might legitimately be numbers (``canvas_entry_properties``, etc.).
+    """
+    repairs = []
+    lines = content.split("\n")
+    changed = False
+    for start, end, lang in _iter_fenced_code_blocks(content):
+        if lang not in _JSON_OR_SHELL_FENCE_LANGS:
+            continue
+        for idx in range(start + 1, end):
+            if idx >= len(lines):
+                break
+            m = _JSON_UNQUOTED_VALUE_RE.match(lines[idx])
+            if not m:
+                continue
+            value = m.group("value")
+            if value in {"true", "false", "null"}:
+                continue
+            new_line = (
+                m.group("prefix")
+                + f'"{value}"'
+                + m.group("suffix")
+                + lines[idx][m.end():]
+            )
+            if new_line != lines[idx]:
+                lines[idx] = new_line
+                changed = True
+                repairs.append(
+                    f'json — quoted "{m.group("key")}" value ({value}) to keep JSON valid'
+                )
+    if not changed:
+        return content, []
+    return "\n".join(lines), repairs
+
+
+_HEADING_LINE_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
+_EXPLICIT_ID_RE = re.compile(r"\{#[A-Za-z][A-Za-z0-9_\-:\.]*\}\s*$")
+_ANCHOR_REF_RE = re.compile(r"\]\(#([A-Za-z][A-Za-z0-9_\-]*)\)")
+
+
+def _auto_slug(text: str) -> str:
+    """Best-effort Kramdown auto-slug for an ASCII heading.
+
+    This is intentionally conservative: we only emit slugs for headings whose
+    text is ASCII (so the English counterpart produces a stable slug). This is
+    all we need, because we only look up English headings for references.
+    """
+    text = re.sub(r"[*_`]", "", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.lower().strip()
+    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"\s+", "-", text)
+    text = re.sub(r"-+", "-", text).strip("-")
+    return text
+
+
+def _iter_doc_headings(text):
+    """Yield ``(line_index, level, heading_text, explicit_id_or_None)``.
+
+    Skips front matter and fenced code blocks so we don't pick up ``#`` lines
+    that live inside shell/markdown examples.
+    """
+    lines = text.split("\n")
+    in_fm = False
+    fm_done = False
+    in_fence = False
+    fence_marker = ""
+    for i, line in enumerate(lines):
+        stripped = line.rstrip()
+        if not fm_done and i == 0 and stripped.strip() == "---":
+            in_fm = True
+            continue
+        if in_fm:
+            if stripped.strip() == "---":
+                in_fm = False
+                fm_done = True
+            continue
+        if in_fence:
+            if stripped.lstrip().startswith(fence_marker):
+                in_fence = False
+                fence_marker = ""
+            continue
+        lstr = stripped.lstrip()
+        if lstr.startswith("```") or lstr.startswith("~~~"):
+            in_fence = True
+            fence_marker = lstr[:3]
+            continue
+        m = _HEADING_LINE_RE.match(stripped)
+        if not m:
+            continue
+        heading_text = m.group(2)
+        explicit = None
+        em = _EXPLICIT_ID_RE.search(heading_text)
+        if em:
+            explicit = em.group(0).strip()[2:-1]
+            heading_text = heading_text[: em.start()].rstrip()
+        yield i, m.group(1), heading_text, explicit
+
+
+def repair_same_page_anchor_ids(english_content, translated_content):
+    """Preserve English same-page anchor slugs on localized headings.
+
+    When an English doc contains ``](#slug)`` references whose slug matches
+    the auto-slug of one of its own headings, the translated doc loses those
+    anchors because the localized heading auto-slugs to a different value.
+    We add an explicit ``{#slug}`` to the corresponding translated heading
+    (matched by positional index) so the existing link targets keep working.
+
+    Conservative by design:
+      * Only adds IDs for slugs that are (a) referenced in this file and
+        (b) map 1:1 to an English heading via auto-slug.
+      * Never overwrites an existing ``{#id}`` on the translated heading.
+      * Skips the file if the English and translated heading counts differ
+        (structure mismatch → too risky to auto-align).
+    """
+    # Only operate on files that actually use same-page anchors.
+    referenced = set(_ANCHOR_REF_RE.findall(english_content))
+    referenced |= set(_ANCHOR_REF_RE.findall(translated_content))
+    if not referenced:
+        return translated_content, []
+
+    en_headings = list(_iter_doc_headings(english_content))
+    tr_headings = list(_iter_doc_headings(translated_content))
+    if not en_headings or len(en_headings) != len(tr_headings):
+        return translated_content, []
+
+    lines = translated_content.split("\n")
+    repairs = []
+    for (_, _en_lvl, en_text, en_explicit), (tr_idx, _tr_lvl, _tr_text, tr_explicit) in zip(
+        en_headings, tr_headings
+    ):
+        slug = en_explicit or _auto_slug(en_text)
+        if not slug or slug not in referenced:
+            continue
+        if tr_explicit:
+            continue
+        existing = lines[tr_idx]
+        if _EXPLICIT_ID_RE.search(existing):
+            continue
+        new_line = existing.rstrip() + f" {{#{slug}}}"
+        if new_line != existing:
+            lines[tr_idx] = new_line
+            repairs.append(f"anchor_id — added {{#{slug}}} to translated heading")
+
+    if not repairs:
+        return translated_content, []
+    new_content = "\n".join(lines)
+    return new_content, repairs
+
+
+def repair_trailing_whitespace(translated_content: str):
+    """Strip trailing spaces and tabs from each line (preserve newlines)."""
+    lines = translated_content.split("\n")
+    stripped = [ln.rstrip(" \t") for ln in lines]
+    new_content = "\n".join(stripped)
+    if translated_content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    if new_content != translated_content:
+        return new_content, ["trailing_whitespace — removed end-of-line spaces/tabs"]
+    return translated_content, []
+
+
 def qc_check_file(english_path, translated_path, lang_key):
     """Run all QC checks on one file pair. Auto-repairs are written back."""
     english_content = Path(english_path).read_text()
@@ -1042,10 +2095,123 @@ def qc_check_file(english_path, translated_path, lang_key):
         "warnings": [],
     }
 
+    english_content, _ = repair_front_matter_miscapitalized_tool_key(english_content)
+    translated_content, tool_key_repairs = (
+        repair_front_matter_miscapitalized_tool_key(translated_content)
+    )
+    findings["repairs"].extend(tool_key_repairs)
+
     translated_content, fm_repairs = repair_front_matter(
         english_content, translated_content
     )
     findings["repairs"].extend(fm_repairs)
+
+    translated_content, gfl_repairs = repair_guide_featured_list_links(
+        english_content, translated_content
+    )
+    findings["repairs"].extend(gfl_repairs)
+
+    translated_content, anchor_id_repairs = repair_same_page_anchor_ids(
+        english_content, translated_content
+    )
+    findings["repairs"].extend(anchor_id_repairs)
+
+    translated_content, inline_esc_repairs = repair_inline_code_escaped_quotes(
+        translated_content
+    )
+    findings["repairs"].extend(inline_esc_repairs)
+
+    translated_content, curl_typo_repairs = repair_curl_typo_url_in_code_fence(
+        translated_content
+    )
+    findings["repairs"].extend(curl_typo_repairs)
+
+    translated_content, json_value_repairs = repair_unquoted_json_string_values(
+        translated_content
+    )
+    findings["repairs"].extend(json_value_repairs)
+
+    translated_content, agents_ui_repairs = repair_agents_catalog_en_ui(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(agents_ui_repairs)
+
+    translated_content, de_banners_repairs = repair_de_channels_banners_landing(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_banners_repairs)
+
+    translated_content, canvas_hub_repairs = (
+        repair_messaging_canvas_hub_titles_from_engagement_tools(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(canvas_hub_repairs)
+
+    translated_content, api_nav_repairs = repair_braze_dashboard_api_keys_nav_collapse(
+        english_content, translated_content, lang_key
+    )
+    findings["repairs"].extend(api_nav_repairs)
+
+    translated_content, ds_insights_repairs = repair_decisioning_insights_table_labels(
+        english_content, translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ds_insights_repairs)
+
+    translated_content, fr_payload_repairs = repair_fr_payload_display_typography(
+        translated_content, lang_key
+    )
+    findings["repairs"].extend(fr_payload_repairs)
+
+    translated_content, tool_sp_repairs = repair_yaml_tool_list_spacing(
+        translated_content
+    )
+    findings["repairs"].extend(tool_sp_repairs)
+
+    translated_content, pt_agents_ref_repairs = (
+        repair_pt_br_agents_reference_confidence_alt(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(pt_agents_ref_repairs)
+
+    translated_content, pt_co_repairs = (
+        repair_pt_br_brazeai_content_optimizer_product_name(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(pt_co_repairs)
+
+    translated_content, de_schritt_repairs = repair_de_brazeai_schritt_three_link_text(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_schritt_repairs)
+
+    translated_content, es_agents_alt_repairs = repair_es_agents_reference_alt_sentence_case(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(es_agents_alt_repairs)
+
+    translated_content, es_pilot_dl_repairs = (
+        repair_es_braze_pilot_deep_links_splash_vs_welcome(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(es_pilot_dl_repairs)
+
+    translated_content, pilot_gs_repairs = (
+        repair_braze_pilot_getting_started_campaigns_in_link_anchor(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pilot_gs_repairs)
+
+    translated_content, de_pilot_quote_repairs = (
+        repair_de_braze_pilot_low9_pair_ascii_close_quote(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_pilot_quote_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
@@ -1059,6 +2225,36 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(url_repairs)
+
+    translated_content, frag_repairs = repair_markdown_internal_link_fragments(
+        translated_content
+    )
+    findings["repairs"].extend(frag_repairs)
+
+    translated_content, sup_foot_repairs = repair_sup_addon_footnote_bold_typo(
+        translated_content
+    )
+    findings["repairs"].extend(sup_foot_repairs)
+
+    translated_content, ideas_slash_repairs = (
+        repair_ideas_and_strategies_internal_link_trailing_slash(translated_content)
+    )
+    findings["repairs"].extend(ideas_slash_repairs)
+
+    translated_content, wire_repairs = repair_markdown_wire_format_tables(
+        translated_content
+    )
+    findings["repairs"].extend(wire_repairs)
+
+    translated_content, dup_inc_repairs = (
+        repair_duplicate_adjacent_target_audiences_include(translated_content)
+    )
+    findings["repairs"].extend(dup_inc_repairs)
+
+    translated_content, pt_rep_repairs = repair_pt_br_banners_reporting_performance(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(pt_rep_repairs)
 
     translated_content, brazeai_repairs = repair_brazeai_trademark(
         translated_content
@@ -1074,6 +2270,14 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content, lang_key
     )
     findings["repairs"].extend(glossary_id_repairs)
+
+    translated_content, md_bold_repairs = repair_spurious_bold_link_wrappers(
+        translated_content
+    )
+    findings["repairs"].extend(md_bold_repairs)
+
+    translated_content, tw_repairs = repair_trailing_whitespace(translated_content)
+    findings["repairs"].extend(tw_repairs)
 
     if findings["repairs"]:
         Path(translated_path).write_text(translated_content)
@@ -1242,6 +2446,94 @@ def cmd_verify(args):
 
 
 # ---------------------------------------------------------------------------
+# check-aliases  (duplicate alias guard)
+# ---------------------------------------------------------------------------
+
+def _normalize_alias_key(raw):
+    """Normalize an alias value for duplicate comparison."""
+    if raw is None:
+        return None
+    v = str(raw).strip().strip("\"'").strip()
+    if not v:
+        return None
+    if not v.startswith("/"):
+        v = "/" + v
+    v = v.rstrip("/")
+    return v or "/"
+
+
+def _alias_key_from_front_matter(content):
+    """Return normalized alias key, or None if the file has no alias."""
+    fm, _ = _extract_front_matter(content)
+    if not fm:
+        return None
+    for line in fm.split("\n"):
+        stripped = line.strip()
+        if stripped.lower().startswith("alias:"):
+            raw = stripped.split(":", 1)[1].strip()
+            return _normalize_alias_key(raw)
+    return None
+
+
+def _collect_alias_duplicates(root, *, skip_includes):
+    """Map normalized alias -> list of repo-relative posix paths under ``root``."""
+    alias_map = {}
+    if not root.exists():
+        return alias_map
+    for path in sorted(root.rglob("*.md")):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        key = _alias_key_from_front_matter(text)
+        if not key:
+            continue
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        if skip_includes and "/_includes/" in rel:
+            continue
+        alias_map.setdefault(key, []).append(rel)
+    return {k: v for k, v in alias_map.items() if len(v) > 1}
+
+
+def cmd_check_aliases(args):
+    """Ensure no duplicate ``alias:`` values within each locale (and in English _docs)."""
+    skip_includes = not args.include_lang_includes
+    errors = []
+
+    for alias_key, paths in sorted(
+        _collect_alias_duplicates(REPO_ROOT / "_docs", skip_includes=False).items()
+    ):
+        errors.append(("English `_docs/`", alias_key, paths))
+
+    for lang_key, info in LANGUAGES.items():
+        root = REPO_ROOT / "_lang" / info["dir"]
+        for alias_key, paths in sorted(
+            _collect_alias_duplicates(root, skip_includes=skip_includes).items()
+        ):
+            errors.append((f"`_lang/{info['dir']}/`", alias_key, paths))
+
+    if not errors:
+        print("check-aliases: no duplicate alias values found "
+              f"(per locale; _lang _includes/ {'scanned' if args.include_lang_includes else 'skipped'}).")
+        return
+
+    print("check-aliases: DUPLICATE ALIAS VALUES\n", file=sys.stderr)
+    for label, alias_key, paths in errors:
+        print(f"  {label}  alias {alias_key!r}:", file=sys.stderr)
+        for p in paths:
+            print(f"    - {p}", file=sys.stderr)
+        print(file=sys.stderr)
+    print(
+        f"check-aliases failed: {len(errors)} duplicate alias group(s). "
+        "Use layout: redirect without alias on superseded pages, or remove the "
+        "extra alias. Re-run with --include-lang-includes to also scan _includes "
+        "(stricter; may need cleanup before enabling in CI).",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+
+
+# ---------------------------------------------------------------------------
 # summary  (generate PR body)
 # ---------------------------------------------------------------------------
 
@@ -1396,6 +2688,17 @@ def main():
 
     qp = sub.add_parser("qc", help="Run deterministic quality checks on translations")
     qp.set_defaults(func=cmd_qc)
+
+    ap = sub.add_parser(
+        "check-aliases",
+        help="Fail if duplicate alias: values exist within _docs or each _lang locale",
+    )
+    ap.add_argument(
+        "--include-lang-includes",
+        action="store_true",
+        help="Also scan _lang/**/_includes/**/*.md (default: skip; often shares alias with a page)",
+    )
+    ap.set_defaults(func=cmd_check_aliases)
 
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)

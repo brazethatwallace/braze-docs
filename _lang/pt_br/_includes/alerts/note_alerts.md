@@ -25,7 +25,7 @@ Todos os dados do perfil de usuário (eventos personalizados, atributos personal
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-A Braze não gera perfis para os usuários até que eles tenham usado o app pela primeira vez, portanto, não é possível fazer o direcionamento para usuários que ainda não abriram o app.
+A Braze não gera perfis para os usuários até que eles tenham usado o app pela primeira vez, portanto, não é possível direcionar usuários que ainda não abriram o app.
 {% endalert %}
 
 {% endif %}
@@ -34,6 +34,14 @@ A Braze não gera perfis para os usuários até que eles tenham usado o app pela
 
 {% alert note %}
 Todos os atributos são originados da API REST da Braze.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+Você pode adicionar até 350 grupos de inscrições por espaço de trabalho.
 {% endalert %}
 
 {% endif %}

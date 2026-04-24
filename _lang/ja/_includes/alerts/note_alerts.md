@@ -25,7 +25,7 @@
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-Braze は、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、アプリをまだ開封していないユーザーをターゲットにすることはできません。
+Braze は、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。
 {% endalert %}
 
 {% endif %}
@@ -34,6 +34,14 @@ Braze は、ユーザーが初めてアプリを使用するまでプロファ�
 
 {% alert note %}
 すべての属性のソースは Braze REST API です。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+1つのワークスペースにつき、最大350のサブスクリプショングループを追加できます。
 {% endalert %}
 
 {% endif %}

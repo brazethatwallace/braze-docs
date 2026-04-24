@@ -1,4 +1,3 @@
- 
 # Configuración de los ID de usuario
  
 > Este artículo de referencia muestra cómo configurar ID de usuario en tu aplicación Android o FireOS, las convenciones sugeridas para nombrar ID de usuario y algunas buenas prácticas.
@@ -11,7 +10,7 @@
 
 ### Asignar un ID de usuario
 
-Debes realizar la siguiente llamada en cuanto se identifique el usuario (generalmente después de iniciar la sesión) para establecer el ID de usuario:
+Debes realizar la siguiente llamada en cuanto se identifique al usuario (generalmente después de iniciar sesión) para establecer el ID de usuario:
 
 {% tabs %}
 {% tab JAVA %}
@@ -31,12 +30,42 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 {% endtabs %}
 
 {% alert warning %}
-**No llames a `changeUser()` cuando un usuario cierra la sesión. `changeUser()` solo se debe llamar cuando el usuario inicia sesión en la aplicación.** Si configuras `changeUser()` con un valor predeterminado estático, se asociará TODA la actividad del usuario con ese "usuario" predeterminado hasta que vuelva a conectarse.
+**No llames a `changeUser()` cuando un usuario cierra sesión. `changeUser()` solo debe llamarse cuando el usuario inicia sesión en la aplicación.** Si configuras `changeUser()` con un valor estático predeterminado, se asociará TODA la actividad del usuario con ese "usuario" predeterminado hasta que vuelva a iniciar sesión.
 {% endalert %}
 
-Además, te recomendamos **que no** cambies el ID de usuario cuando un usuario cierra la sesión, ya que esto hace que no puedas dirigirte al usuario que había iniciado sesión anteriormente con campañas de reactivación de la interacción. Si prevés varios usuarios en el mismo dispositivo, pero sólo quieres dirigirte a uno de ellos cuando tu aplicación esté desconectada, te recomendamos que hagas un seguimiento por separado del ID de usuario al que quieres dirigirte mientras está desconectado y que vuelvas a cambiar a ese ID de usuario como parte del proceso de cierre de sesión de tu aplicación.
+Además, te recomendamos **que no** cambies el ID de usuario cuando un usuario cierra sesión, ya que esto impide dirigirte al usuario que había iniciado sesión anteriormente con campañas de reactivación de la interacción. Si prevés varios usuarios en el mismo dispositivo, pero solo quieres dirigirte a uno de ellos cuando tu aplicación esté en estado de sesión cerrada, te recomendamos que hagas un seguimiento por separado del ID de usuario al que quieres dirigirte mientras la sesión está cerrada y que vuelvas a cambiar a ese ID de usuario como parte del proceso de cierre de sesión de tu aplicación.
 
-Consulta la documentación [`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html) para más información.
+Consulta la documentación de [`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html) para más información.
+
+### Suscribirse a eventos de cambio de usuario
+
+Usa [`subscribeToChangeUserEvents`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-change-user-events.html) para ejecutar lógica cuando tu aplicación cambia de usuario con `changeUser()`. Este método está disponible en el SDK de Android 40.0.0 y versiones posteriores.
+
+La devolución de llamada del suscriptor se ejecuta cuando se cambia de usuario mediante `changeUser()` y recibe un `BrazeUserChangeEvent`. `BrazeUserChangeEvent` se dispara cuando el usuario actual ha cambiado o cuando el SDK acaba de inicializarse. El SDK puede disparar múltiples eventos para el mismo usuario, incluso cuando no se produce ninguna transición.
+
+{% tabs %}
+{% tab JAVA %}
+
+```java
+Braze.getInstance(context).subscribeToChangeUserEvents(new IEventSubscriber<BrazeUserChangeEvent>() {
+  @Override
+  public void trigger(BrazeUserChangeEvent event) {
+    // Add your app logic for user changes, such as refreshing user-scoped state.
+  }
+});
+```
+
+{% endtab %}
+{% tab KOTLIN %}
+
+```kotlin
+Braze.getInstance(context).subscribeToChangeUserEvents { event ->
+  // Add your app logic for user changes, such as refreshing user-scoped state.
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 ## Prácticas recomendadas y notas sobre la integración del ID de usuario
 
@@ -45,4 +74,3 @@ Consulta la documentación [`changeUser`](https://braze-inc.github.io/braze-andr
 ## Asignación de alias de usuarios
 
 {% multi_lang_include archive/setting_user_ids/aliasing.md platform="Android" %}
-

@@ -9,24 +9,28 @@ tool: Currents
 search_rank: 7
 ---
 
-その他のイベントの種類にアクセスする必要がある場合は、Braze の担当者に問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。このページで必要なものが見つからない場合は、[メッセージ・エンゲージメント・イベント・ライブラリーや]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) [Currentsのサンプルデータ例を](https://github.com/Appboy/currents-examples/tree/master/sample-data)ご覧いただきたい。
+{% alert tip %}
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQL セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および [Snowflake データ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)で SQL テーブルとしても利用できます。SQL テーブルスキーマとカラムの詳細については、[SQL テーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+{% endalert %}
 
-{% details Explanation of customer behavior and user event structure and platform values %}
+その他のイベントの種類にアクセスする必要がある場合は、Braze の担当者に問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)や [Currents のサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+
+{% details 顧客行動とユーザーイベントの構造およびプラットフォーム値の説明 %}
 
 ### イベントの構造
 
 この顧客行動とユーザーイベントの内訳は、一般的に顧客行動やユーザーイベントに含まれる情報のタイプを示します。開発者とビジネスインテリジェンス戦略チームは、情報の構成要素をしっかり理解したうえで、受信した Currents イベントデータを使用して、データドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
 
-![ユーザーイベントの内訳。購入イベントを示し、リストされたプロパティはユーザー固有のプロパティ、行動固有のプロパティ、デバイス固有のプロパティごとにグループ分けされている。]({% image_buster /assets/img/customer_engagement_event.png %})
+![ユーザーイベントの内訳。購入イベントを示し、リストされたプロパティはユーザー固有のプロパティ、動作固有のプロパティ、デバイス固有のプロパティごとにグループ分けされている]({% image_buster /assets/img/customer_engagement_event.png %})
 
-顧客行動およびユーザーイベントは、**ユーザー固有**のプロパティ、**行動固有**のプロパティ、および**デバイス固有**のプロパティで構成されます。
+顧客行動およびユーザーイベントは、**ユーザー固有**のプロパティ、**動作固有**のプロパティ、および**デバイス固有**のプロパティで構成されます。
 
 ### プラットフォームの値
 
 特定のイベントは、ユーザーのデバイスのプラットフォームを示す `platform` 値を返します。
 <br>次の表に、返される可能性のある値の詳細を示します。
 
-| ユーザー デバイス | プラットフォーム値 |
+| ユーザーデバイス | プラットフォーム値 |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -40,5 +44,9 @@ search_rank: 7
 {% enddetails %}
 
 {% alert important %}
-ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storageなど）に送信するフラットファイルのイベントデータに適用される。ここにリストされているいくつかのイベントと宛先の組み合わせは、まだ一般的には利用できません。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。<br><br>さらに、Currents は 900 KB 超の過度に大きいペイロードを持つイベントをドロップすることに注意してください。
+ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage など）に送信するフラットファイルのイベントデータに適用されます。ここにリストされているイベントと送信先の組み合わせの中には、まだ一般提供されていないものもあります。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。<br><br>さらに、Currents は 900&nbsp;KB を超える過度に大きいペイロードを持つイベントをドロップすることに注意してください。
+{% endalert %}
+
+{% alert note %}
+この用語集に含まれるイベントの多くは SDK によって開始されます。`token_state_change` などの一部のイベントは、SDK またはバックエンドのいずれかによって開始される場合があります（例えば、プッシュバウンスへの応答として）。`sdk_version`、`gender`、`language`、`country` フィールドは SDK によって開始されたイベントでのみ設定されます。バックエンドによって開始されたイベントの場合、またはその情報が利用できないかユーザーに設定されていない場合、これらのフィールドは `null` になることがあります。
 {% endalert %}

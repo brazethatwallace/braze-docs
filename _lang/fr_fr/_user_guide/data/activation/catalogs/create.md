@@ -25,17 +25,7 @@ Une fois ces informations importées, vous pouvez y accéder dans vos messages d
 
 ## Types de données pris en charge {#supported-data-types}
 
-Le tableau suivant répertorie les types de données de catalogue pris en charge et indique comment les créer ou les mettre à jour.
-
-| Type de données    | Description                                   | Disponible via téléchargement CSV | Disponible via API et CDI |
-|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
-| Chaîne de caractères       | Une séquence de caractères.                     | ✅ Oui                    | ✅ Oui                     |
-| Nombre       | Une valeur numérique, entière ou float.     | ✅ Oui                    | ✅ Oui                     |
-| Valeur booléenne      | Une valeur `true` ou `false`.                    | ✅ Oui                    | ✅ Oui                     |
-| Date         | Une chaîne de caractères formatée au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).                        | ✅ Oui                    | ✅ Oui                     |
-| Objet JSON  | Un objet imbriqué contenant des paires clé-valeur. Peut être affiché sur la plateforme, mais ne peut être créé ou mis à jour que via l'API ou le CDI.         | ⛔ Non                     | ✅ Oui                     |
-| Tableau de chaînes de caractères | Une liste de chaînes de caractères. Peut être affiché sur la plateforme, mais ne peut être créé ou mis à jour que via l'API ou le CDI. Maximum de 100 éléments. | ⛔ Non                     | ✅ Oui                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+Pour consulter les types de données de catalogue pris en charge, leurs descriptions, la manière dont chacun peut être créé ou mis à jour (CSV vs API et CDI), ainsi que les formats et exemples, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Création d'un catalogue
 
@@ -54,13 +44,13 @@ Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigenc
 | Taille du fichier | Pour les forfaits gratuits, la taille totale de tous les fichiers CSV d'une entreprise est limitée à 100 Mo. Pour les plans Pro, la taille maximale d'un seul fichier CSV est de 2 Go. |
 | Valeurs des champs | Chaque cellule (valeur de champ) peut contenir jusqu'à 5 000 caractères. |
 | Caractères valides | La colonne `id` et toutes les valeurs d'en-tête ne peuvent contenir que des lettres, des chiffres, des tirets et des traits de soulignement. |
-| Types de données | Les types de données pris en charge pour les téléchargements CSV comprennent les chaînes de caractères, les nombres, les booléens et les dates. Pour obtenir la liste complète des types de données, y compris ceux disponibles uniquement via l'API et le CDI, consultez la section [Types de données pris en charge](#supported-data-types). |
+| Types de données | Les types de données pris en charge pour les téléchargements CSV comprennent les chaînes de caractères, les nombres, les booléens et les dates. Pour obtenir la liste complète des types de données, y compris ceux disponibles uniquement via l'API et le CDI, consultez la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatage | Formatez tout le texte en minuscules afin de garantir la cohérence. |
 | Encodage | Enregistrez et téléchargez le fichier CSV en utilisant l'encodage UTF-8. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert note %}
-Vous avez besoin de plus d'espace pour vos fichiers CSV ? Contactez votre Account Manager Braze pour en savoir plus sur la mise à niveau de vos catalogues.
+Vous avez besoin de plus d'espace pour vos fichiers CSV ? Contactez votre gestionnaire de compte Braze pour en savoir plus sur la mise à niveau de vos catalogues.
 {% endalert %}
 
 ### Étape 2 : Téléchargez le fichier CSV
@@ -143,13 +133,13 @@ Ensuite, nous nommerons ce catalogue « games_catalog » et sélectionnerons le 
 
 Notez que vous ne pourrez pas modifier ce nom après la création du catalogue. Vous pouvez toutefois supprimer un catalogue et en télécharger une version mise à jour en utilisant le même nom.
 
-Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Conditions préalables
 
-Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) suivantes pour votre espace de travail :
+Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes pour votre espace de travail :
 
 - Afficher les catalogues
 - Modifier les catalogues
@@ -188,19 +178,7 @@ Braze traite les valeurs temporelles sur la base de l'horodatage du tableau de b
 {% endtab %}
 {% endtabs %}
 
-## Types de données du catalogue
-
-Les catalogues prennent en charge divers types de données pour vous aider à organiser et structurer efficacement vos données. Le tableau suivant décrit chaque type de données pris en charge et son mappage avec les noms de types CSV et API :
-
-| Type de données | Format | Exemple | Description |
-|-----------|--------|---------|-------------|
-| Chaîne de caractères | Texte | `"Hello World"` | Toute séquence de caractères utilisée pour les données textuelles telles que les noms, les descriptions et les ID. Équivalent au type `string` dans les importations CSV et API. |
-| Date | ISO 8601 ou horodatage unix (en secondes) | `"2024-03-15T14:30:00Z"` | Valeurs de date et d'heure au format ISO 8601 ou horodatage unix en secondes. Équivalent au type `time` dans l'API et au type `datetime` dans les importations CSV. |
-| Valeur booléenne | `true` ou `false` | `true` | Valeurs logiques représentant des états vrais ou faux. Équivalent au type `boolean` dans les importations CSV et API. |
-| Nombre | Nombre entier ou décimal | `42` ou `19.99` | Valeurs numériques, y compris les nombres entiers et les nombres à virgule flottante pour les prix, les quantités, les évaluations, etc. Équivalent aux types `integer` et `float` dans les importations CSV et au type `number` dans l'API. |
-| Objet | Objet JSON | `{"key": "value", "price": 10}` | Structures de données imbriquées complexes. La valeur `type` de l'API est `object`. Affiché sous forme d'objet JSON dans le tableau de bord. Uniquement disponible via l'API ou Cloud Data Ingestion (CDI). |
-| Tableau | Tableau de chaînes de caractères | `["red", "blue", "green"]` | Listes de valeurs de chaîne de caractères. La valeur `type` de l'API est `array`. Affiché sous forme de tableau de chaînes de caractères dans le tableau de bord. Uniquement disponible via l'API ou le CDI. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Pour consulter les types de données de catalogue avec leurs formats et exemples, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Utilisation de modèles dans les noms de catalogues {#template-catalog-names}
 
@@ -225,11 +203,11 @@ Pour mettre à jour votre catalogue après avoir téléchargé un fichier CSV ou
 
 Au fur et à mesure que vous créez des catalogues, vous pouvez également utiliser l'[endpoint Lister les catalogues]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) pour obtenir la liste des catalogues d'un espace de travail.
 
-L'API REST prend en charge tous les [types de données du catalogue](#supported-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via l'API REST.
+L'API REST prend en charge tous les [types de données de catalogue]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via l'API REST.
 
-### Avec l'ingestion de données cloud
+### Avec l'Ingestion de données cloud
 
-Vous pouvez gérer vos catalogues via l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
+Vous pouvez gérer vos catalogues via l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
 
 ## Gérer les éléments du catalogue
 
@@ -242,7 +220,7 @@ Par exemple, si vous souhaitez modifier un élément de catalogue spécifique, v
 La version gratuite des catalogues prend en charge des fichiers CSV d'une taille totale combinée de 100 Mo pour l'ensemble de votre entreprise, tandis que la version Catalogues Pro prend en charge des fichiers CSV d'une taille maximale de 2 Go par fichier.
 
 {% alert important %}
-Les droits d'utilisation des packages affichés dans le tableau de bord de Braze sont arrondis à l'unité la plus proche à des fins d'affichage. Vous conservez toutefois l'intégralité des droits d'utilisation achetés. Pour demander une mise à niveau du stockage des catalogues, contactez votre Account Manager Braze.
+Les droits d'utilisation des packages affichés dans le tableau de bord de Braze sont arrondis à l'unité la plus proche à des fins d'affichage. Vous conservez toutefois l'intégralité des droits d'utilisation achetés. Pour demander une mise à niveau du stockage des catalogues, contactez votre gestionnaire de compte Braze.
 {% endalert %}
 
 #### Version gratuite

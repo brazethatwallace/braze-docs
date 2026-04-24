@@ -26,7 +26,7 @@ Sí. Se pueden añadir tanto parámetros estáticos como dinámicos.
 
 ### ¿Durante cuánto tiempo son válidas las URL acortadas?
 
-Las URL personalizadas son válidas durante dos meses desde el momento del registro de la URL. Para el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/?sdktab=unified), que no tiene distinción entre estático y personalizado, todos los enlaces son válidos durante nueve semanas.
+Las URL personalizadas son válidas durante dos meses desde el momento del registro de la URL. Para el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified), que no tiene distinción entre estático y personalizado, todos los enlaces son válidos durante nueve semanas.
 
 ### ¿Es necesario instalar el SDK de Braze para acortar enlaces?
 
@@ -38,6 +38,6 @@ No. El acortamiento de enlaces funciona sin ninguna integración de SDK.
 
 ## Dominios personalizados
 
-El acortamiento de enlaces también te permite utilizar tu propio dominio para personalizar el aspecto de tus URL acortadas, lo que contribuye a mostrar una imagen de marca coherente. Para más información, consulta [Dominios personalizados]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/).
+El acortamiento de enlaces también te permite utilizar tu propio dominio para personalizar el aspecto de tus URL acortadas, lo que contribuye a mostrar una imagen de marca coherente. Para más información, consulta [Dominios personalizados de autoservicio]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
 
 {% endif %}

@@ -2,15 +2,15 @@
 
 ## 前提条件
 
-クエリビルダーを使用するには、["View PII" 権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)が必要です。これにより、一部の顧客データに直接アクセスできるようになります。
+クエリビルダーを使用するには、[「View PII」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。これにより、一部の顧客データに直接アクセスできるようになります。
 
 ## クエリビルダーの使用
 
-### ステップ 1:SQL クエリの作成
+### ステップ 1: SQL クエリの作成
 
 新しいクエリを作成するには、**分析** > **クエリビルダー**に移動し、**Create SQL Query** を選択します。
 
-!["Create SQL Query" ドロップダウン内にある "Query Template" および "SQL Editor" オプション。]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
+![「Create SQL Query」ドロップダウン内にある「Query Template」および「SQL Editor」オプション。]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
 インスピレーションが必要な場合やクエリの作成にヘルプが必要な場合は、**Query Template** を選択し、[事前作成テンプレート]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)を選択します。空のクエリで開始するには、**SQL Editor** を選択します。
 
@@ -18,7 +18,7 @@
 
 ![レポート名の例「Channel engagement for May 2025」。]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
-### ステップ 2:クエリを作成する
+### ステップ 2: クエリを作成する
 
 クエリを作成する際に、AI のサポートを受けるか、自分で作成するかを選択できます。
 
@@ -94,7 +94,7 @@ LIMIT 100
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3:レポートの生成
+### ステップ 3: レポートの生成
 
 クエリの構築が完了したら、**Run Query** を選択します。エラーや[レポートタイムアウト](#report-timeouts)がない場合、クエリからCSVファイルが生成されます。
 

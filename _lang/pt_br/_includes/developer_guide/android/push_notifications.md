@@ -258,11 +258,11 @@ As chaves privadas podem representar um risco de segurança se forem comprometid
 
 Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear"></i>&nbsp;**Configurações** > **Configurações do app**.
 
-![O menu "Configurações" aberto na Braze com "Configurações do App" destacado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![O menu "Configurações" aberto na Braze com "Configurações do app" destacado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Nas **Configurações de notificação por push** do seu app Android, escolha **Firebase**, selecione **Upload JSON File** e faça upload das credenciais [geradas anteriormente](#android_json). Quando terminar, selecione **Save**.
+Nas **Configurações das notificações por push** do seu app Android, escolha **Firebase**, selecione **Upload JSON File** e faça upload das credenciais [geradas anteriormente](#android_json). Quando terminar, selecione **Save**.
 
-![O formulário de "Configurações de Notificação por Push" com "Firebase" selecionado como o provedor de push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
+![O formulário de "Configurações das notificações por push" com "Firebase" selecionado como o provedor de push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
 {% alert warning %}
 As chaves privadas podem representar um risco de segurança se forem comprometidas. Agora que sua chave foi carregada na Braze, exclua o arquivo [gerado anteriormente](#android_json).
@@ -627,7 +627,7 @@ Para saber mais sobre como personalizar notificações, veja [Fábrica de notifi
 
 #### Criando deep links personalizados
 
-Siga as instruções na [documentação do desenvolvedor Android](http://developer.android.com/training/app-indexing/deep-linking.html) sobre deep linking se você ainda não adicionou deep links ao seu app. Para saber mais sobre o que são deep links, consulte nosso [artigo de perguntas frequentes]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+Siga as instruções na [documentação do desenvolvedor Android](http://developer.android.com/training/app-indexing/deep-linking.html) sobre deep linking se você ainda não adicionou deep links ao seu app. Para saber mais sobre o que são deep links, consulte nosso [artigo de perguntas frequentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
 #### Adicionando deep links
 
@@ -696,7 +696,7 @@ O nome e a descrição padrão do canal também podem ser configurados em `braze
 
 #### Testando a exibição
 
-Nesse ponto, você já deve conseguir ver as notificações enviadas pela Braze. Para testar, acesse a página **Campaigns** no dashboard da Braze e crie uma campanha de **notificação por push**. Escolha **Android Push** e crie sua mensagem. Em seguida, clique no ícone do olho no criador para obter o remetente de teste. Digite o ID do usuário ou o endereço de e-mail do usuário atual e clique em **Send Test**. Você deverá ver o push aparecer no seu dispositivo.
+Nesse ponto, você já deve conseguir ver as notificações enviadas pela Braze. Para testar, acesse a página **Campanhas** no dashboard da Braze e crie uma campanha de **Notificação por push**. Escolha **Push para Android** e crie sua mensagem. Em seguida, clique no ícone do olho no criador para obter o remetente de teste. Digite o ID do usuário ou o endereço de e-mail do usuário atual e clique em **Send Test**. Você deverá ver o push aparecer no seu dispositivo.
 
 ![A guia 'Test' de uma campanha de notificação por push no dashboard da Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -704,7 +704,7 @@ Para problemas relacionados à exibição de push, consulte nosso [guia de solu�
 
 #### Testando a análise de dados
 
-Nesse ponto, você também deve ter o registro de análise de dados para aberturas de notificações por push. Ao clicar na notificação quando ela chegar, as **aberturas diretas** na página de resultados da sua campanha deverão aumentar em 1. Confira nosso artigo sobre [relatórios push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) para obter informações detalhadas sobre a análise de dados de push.
+Nesse ponto, você também deve ter o registro de análise de dados para aberturas de notificações por push. Ao clicar na notificação quando ela chegar, as **Aberturas diretas** na página de resultados da sua campanha deverão aumentar em 1. Confira nosso artigo sobre [relatórios push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) para obter informações detalhadas sobre a análise de dados de push.
 
 Para problemas relacionados à análise de dados de push, consulte nosso [guia de solução de problemas]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
@@ -712,8 +712,8 @@ Para problemas relacionados à análise de dados de push, consulte nosso [guia d
 
 Se quiser testar notificações no app e por push via interface de linha de comando, você pode enviar uma única notificação pelo terminal via cURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
 
-- `YOUR_API_KEY` (Acesse **Configurações** > **API Keys**.)
-- `YOUR_EXTERNAL_USER_ID` (Procure um perfil na página **Search Users**.)
+- `YOUR_API_KEY` (Acesse **Configurações** > **Chaves de API**.)
+- `YOUR_EXTERNAL_USER_ID` (Procure um perfil na página **Pesquisar usuários**.)
 - `YOUR_KEY1` (opcional)
 - `YOUR_VALUE1` (opcional)
 
