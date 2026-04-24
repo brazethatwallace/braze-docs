@@ -370,6 +370,93 @@ def translation_path(english_relative, lang_dir):
     return REPO_ROOT / "_lang" / lang_dir / english_relative
 
 
+# Keys whose values carry cross-section terminology (nav labels, page title,
+# meta description) — the strings a reader sees in navigation and search.
+_SIBLING_CONTEXT_FM_KEYS = ("nav_title", "article_title", "title", "description")
+
+# Cap how many sibling pages we expose to the LLM per translation to keep
+# prompt size predictable. In practice an IA move produces 1 sibling; a few
+# hub pages (e.g. canvas.md) produce 2–3. Cap at 4 for safety.
+_SIBLING_CONTEXT_MAX = 4
+
+
+def _find_sibling_translations(basename, lang_dir, exclude_target):
+    """Return already-translated files in the locale with the same basename.
+
+    IA restructures often move ``_docs/a/foo.md`` to ``_docs/b/foo.md``. The
+    first time we translate the new path, the existing locale translation at
+    the old path is effectively an authoritative terminology reference for
+    that concept (nav label, article title, description, body glossary).
+    Surfacing it deterministically to the LLM prevents cross-section
+    terminology drift (see PR #13297).
+    """
+    lang_root = REPO_ROOT / "_lang" / lang_dir
+    if not lang_root.exists():
+        return []
+    exclude_resolved = exclude_target.resolve() if exclude_target else None
+    hits = []
+    for path in sorted(lang_root.rglob(basename)):
+        try:
+            if exclude_resolved and path.resolve() == exclude_resolved:
+                continue
+        except OSError:
+            continue
+        try:
+            content = path.read_text()
+        except OSError:
+            continue
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        hits.append((rel, content))
+        if len(hits) >= _SIBLING_CONTEXT_MAX:
+            break
+    return hits
+
+
+def _sibling_front_matter_snippet(content):
+    """Extract only the cross-section terminology keys from a sibling file."""
+    fm, _ = _extract_front_matter(content)
+    if not fm:
+        return ""
+    lines = []
+    for key in _SIBLING_CONTEXT_FM_KEYS:
+        block = _extract_fm_block(fm, key)
+        if block:
+            lines.append(block)
+    return "\n".join(lines)
+
+
+def _build_sibling_context(fpath, lang_dir, target):
+    """Build a prompt section listing same-basename translations in the locale.
+
+    Returns an empty string when no meaningful siblings exist, so the function
+    is safe to always call.
+    """
+    basename = Path(fpath).name
+    siblings = _find_sibling_translations(basename, lang_dir, target)
+    if not siblings:
+        return ""
+    blocks = []
+    for rel, content in siblings:
+        snippet = _sibling_front_matter_snippet(content)
+        if not snippet:
+            continue
+        blocks.append(f"### {rel}\n```yaml\n{snippet}\n```")
+    if not blocks:
+        return ""
+    header = (
+        "## Cross-section consistency (existing locale translations)\n\n"
+        "The target locale already ships translated page(s) with the same file "
+        "basename as the one you are about to translate — typically because an "
+        "information-architecture move relocated the English source. These "
+        "sibling pages cover the same Braze concept. **Reuse their "
+        "`nav_title`, `article_title`, and `description` wording verbatim**, "
+        "and align body glossary terms with them, so a reader jumping between "
+        "sections sees the same labels. Do not invent new translations for "
+        "terminology the locale has already chosen."
+    )
+    return header + "\n\n" + "\n\n".join(blocks) + "\n"
+
+
 def load_results():
     if RESULTS_FILE.exists():
         return json.loads(RESULTS_FILE.read_text())
@@ -392,7 +479,10 @@ def translate_one(client, prompt, fpath, relative, english_content,
 
     filtered = filter_glossary(glossary, english_content)
     glossary_section = format_glossary_for_prompt(filtered)
+    sibling_section = _build_sibling_context(fpath, lang_info["dir"], target)
     extra_context = styleguide + glossary_section
+    if sibling_section:
+        extra_context = extra_context + "\n\n" + sibling_section
 
     try:
         translated = translate_file(
@@ -431,7 +521,10 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
     filtered = filter_glossary(glossary, english_content)
     glossary_section = format_glossary_for_prompt(filtered)
+    sibling_section = _build_sibling_context(fpath, lang_info["dir"], target)
     extra_context = styleguide + glossary_section
+    if sibling_section:
+        extra_context = extra_context + "\n\n" + sibling_section
 
     en_chunks = split_into_chunks(english_content)
     tr_chunks = match_existing_chunks(en_chunks, existing)
@@ -1724,6 +1817,52 @@ def check_untranslated(english_content, translated_content):
     return warnings
 
 
+def check_sibling_terminology_drift(translated_path, translated_content):
+    """Warn when same-basename sibling translations in the locale disagree on
+    navigation/title/description wording.
+
+    An IA move that relocates ``_docs/a/foo.md`` to ``_docs/b/foo.md`` leaves
+    two copies of the translated page (old and new) until orphan cleanup
+    runs. Even outside IA moves, two pages sharing a filename almost always
+    cover the same concept. When their ``nav_title``, ``article_title``, or
+    ``description`` drift apart, a reader jumping between sections sees
+    inconsistent labels — the exact issue Copilot flagged on PR #13297.
+    """
+    path = Path(translated_path)
+    try:
+        parts = path.relative_to(REPO_ROOT).parts
+    except (ValueError, RuntimeError):
+        return []
+    if len(parts) < 3 or parts[0] != "_lang":
+        return []
+    lang_dir = parts[1]
+
+    tr_fm, _ = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return []
+
+    warnings = []
+    siblings = _find_sibling_translations(path.name, lang_dir, path)
+    for rel, sibling_content in siblings:
+        sib_fm, _ = _extract_front_matter(sibling_content)
+        if not sib_fm:
+            continue
+        for key in ("nav_title", "article_title", "description"):
+            tr_block = _extract_fm_block(tr_fm, key)
+            sib_block = _extract_fm_block(sib_fm, key)
+            if not tr_block or not sib_block:
+                continue
+            if tr_block.strip() == sib_block.strip():
+                continue
+            tr_line = tr_block.splitlines()[0].strip()
+            sib_line = sib_block.splitlines()[0].strip()
+            warnings.append(
+                f"sibling_terminology_drift — {key} differs from {rel}: "
+                f"this page has `{tr_line}` vs sibling `{sib_line}`"
+            )
+    return warnings
+
+
 def repair_brazeai_trademark(translated_content):
     """Fix BrazeAI trademark formatting: only TM should be in <sup>, not the product name.
     Handles trailing language particles/suffixes inside the tag (e.g. <sup>BrazeAITM의</sup>
@@ -2293,6 +2432,9 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["warnings"].extend(
         check_untranslated(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_sibling_terminology_drift(translated_path, translated_content)
     )
 
     return findings
