@@ -112,6 +112,7 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 - The content should read as if it was originally written in the target language, not translated
 - Maintain consistent terminology throughout the file; follow the approved glossary
 - Keep translations concise; do not expand significantly beyond the English source length
+- **Inflected languages (e.g. Spanish, French, German, Portuguese):** Ensure adjectives, past participles used as adjectives, and similar words **agree in gender and number** with the nouns they modify. Example: Spanish plural *experimentos* requires a plural adjective (*experimentos multivariantes*, not *experimentos multivariante*). Pay special attention to short YAML values such as `description` and `nav_title` — mistakes there are easy to introduce but highly visible.
 
 ### Inclusivity
 
