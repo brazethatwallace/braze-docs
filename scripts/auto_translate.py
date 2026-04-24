@@ -1809,6 +1809,153 @@ def repair_de_channels_banners_landing(translated_path, translated_content, lang
     return translated_content, []
 
 
+_SHELL_FENCE_LANGS = {"", "bash", "sh", "shell", "zsh", "console"}
+_JSON_OR_SHELL_FENCE_LANGS = _SHELL_FENCE_LANGS | {"json"}
+# Single-backtick inline code span containing at least one `\"` escape. We
+# disallow internal backticks and newlines so we don't greedily span across
+# unrelated code spans.
+_INLINE_CODE_WITH_ESCAPED_QUOTE_RE = re.compile(
+    r"(?<!`)`([^`\n]*\\\"[^`\n]*)`(?!`)"
+)
+# Lines that start a `curl`-style command but misspell the binary as `url`.
+# Requires a common curl flag on the same line so we don't rewrite prose.
+_URL_CURL_TYPO_RE = re.compile(
+    r"^(\s*)url(\s+-[A-Za-z]|\s+https?://)"
+)
+# Keys in Braze API payloads whose values are always JSON strings. If any of
+# these shows up unquoted inside a JSON-ish code fence, that is invalid JSON
+# (the canonical offender on Canvas/API docs is ``external_user_id``).
+_JSON_STRING_VALUE_KEYS = (
+    "external_user_id",
+    "external_id",
+    "api_key",
+    "canvas_id",
+    "campaign_id",
+    "event_name",
+    "email_address",
+    "user_alias",
+)
+_JSON_UNQUOTED_VALUE_RE = re.compile(
+    r'^(?P<prefix>\s*"(?P<key>'
+    + "|".join(re.escape(k) for k in _JSON_STRING_VALUE_KEYS)
+    + r')"\s*:\s*)'
+    r'(?P<value>[A-Za-z_][A-Za-z0-9_]*)'
+    r'(?P<suffix>\s*[,}])'
+)
+
+
+def _iter_fenced_code_blocks(text):
+    """Yield ``(start_line, end_line, lang)`` for triple-backtick fences.
+
+    ``start_line`` / ``end_line`` are line-index positions of the opening and
+    closing fence lines; content lines are ``start_line+1 .. end_line-1``.
+    """
+    lines = text.split("\n")
+    i = 0
+    n = len(lines)
+    while i < n:
+        stripped = lines[i].lstrip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            marker = stripped[:3]
+            lang = stripped[3:].strip().lower()
+            j = i + 1
+            while j < n:
+                s2 = lines[j].lstrip()
+                if s2.startswith(marker):
+                    break
+                j += 1
+            yield i, j, lang
+            i = j + 1
+        else:
+            i += 1
+
+
+def repair_inline_code_escaped_quotes(content):
+    """Unescape ``\\"`` inside single-backtick inline code spans.
+
+    Inside an inline code span the content is literal, so ``\\"`` renders as
+    ``\\"`` on the page — almost always a copy/paste bug from a JSON string
+    literal that leaked its shell/JSON escaping into prose. We keep the
+    backticks, just drop the backslashes.
+    """
+    repairs = []
+
+    def repl(match):
+        inner = match.group(1)
+        new_inner = inner.replace('\\"', '"')
+        if new_inner != inner:
+            preview = new_inner if len(new_inner) <= 60 else new_inner[:57] + "..."
+            repairs.append(
+                f'inline_code — unescaped \\\" → \" in code span (`{preview}`)'
+            )
+        return f"`{new_inner}`"
+
+    new_content = _INLINE_CODE_WITH_ESCAPED_QUOTE_RE.sub(repl, content)
+    return new_content, repairs
+
+
+def repair_curl_typo_url_in_code_fence(content):
+    """Rewrite ``url -X POST`` → ``curl -X POST`` inside shell code fences."""
+    repairs = []
+    lines = content.split("\n")
+    changed = False
+    for start, end, lang in _iter_fenced_code_blocks(content):
+        if lang not in _SHELL_FENCE_LANGS:
+            continue
+        for idx in range(start + 1, end):
+            if idx >= len(lines):
+                break
+            m = _URL_CURL_TYPO_RE.match(lines[idx])
+            if not m:
+                continue
+            lines[idx] = _URL_CURL_TYPO_RE.sub(r"\1curl\2", lines[idx], count=1)
+            changed = True
+            repairs.append("code_fence — `url -X` → `curl -X` (binary typo)")
+    if not changed:
+        return content, []
+    return "\n".join(lines), repairs
+
+
+def repair_unquoted_json_string_values(content):
+    """Quote known-string JSON values inside JSON / shell code fences.
+
+    Catches samples like ``"external_user_id": Customer_123,`` where the
+    value was clearly meant to be a string but lost its quotes. Keys are
+    restricted to a well-known Braze-API set so we don't touch fields that
+    might legitimately be numbers (``canvas_entry_properties``, etc.).
+    """
+    repairs = []
+    lines = content.split("\n")
+    changed = False
+    for start, end, lang in _iter_fenced_code_blocks(content):
+        if lang not in _JSON_OR_SHELL_FENCE_LANGS:
+            continue
+        for idx in range(start + 1, end):
+            if idx >= len(lines):
+                break
+            m = _JSON_UNQUOTED_VALUE_RE.match(lines[idx])
+            if not m:
+                continue
+            value = m.group("value")
+            if value in {"true", "false", "null"}:
+                continue
+            new_line = (
+                m.group("prefix")
+                + f'"{value}"'
+                + m.group("suffix")
+                + lines[idx][m.end():]
+            )
+            if new_line != lines[idx]:
+                lines[idx] = new_line
+                changed = True
+                repairs.append(
+                    f'json — quoted "{m.group("key")}" value ({value}) to keep JSON valid'
+                )
+    if not changed:
+        return content, []
+    return "\n".join(lines), repairs
+
+
 _HEADING_LINE_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
 _EXPLICIT_ID_RE = re.compile(r"\{#[A-Za-z][A-Za-z0-9_\-:\.]*\}\s*$")
 _ANCHOR_REF_RE = re.compile(r"\]\(#([A-Za-z][A-Za-z0-9_\-]*)\)")
@@ -1968,6 +2115,21 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(anchor_id_repairs)
+
+    translated_content, inline_esc_repairs = repair_inline_code_escaped_quotes(
+        translated_content
+    )
+    findings["repairs"].extend(inline_esc_repairs)
+
+    translated_content, curl_typo_repairs = repair_curl_typo_url_in_code_fence(
+        translated_content
+    )
+    findings["repairs"].extend(curl_typo_repairs)
+
+    translated_content, json_value_repairs = repair_unquoted_json_string_values(
+        translated_content
+    )
+    findings["repairs"].extend(json_value_repairs)
 
     translated_content, agents_ui_repairs = repair_agents_catalog_en_ui(
         translated_path, translated_content, lang_key
