@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Segmentation basée sur les comptes
     link: /docs/user_guide/get_started/b2b_use_cases/account_based_segmentation
     image: /assets/img/braze_icons/users-01.svg
-  - name: Lead scoring
+  - name: Notation des prospects
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/user-plus-01.svg
   - name: Gérer les prospects avec Salesforce Sales Cloud
