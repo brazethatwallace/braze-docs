@@ -64,6 +64,51 @@ BRAZE_PRODUCT_NAMES = [
     "Campaign", "Segments", "Segment", "Braze", "Liquid", "SDK", "API",
 ]
 
+# Braze product terminology that must be preserved in English per
+# ``translation_prompt.md``. Keys map to per-locale overrides; an empty dict
+# means "map to self in every locale". Each entry is enforced both at prompt
+# injection time (``load_glossary``) and when auditing JSON glossaries from
+# upstream dashboard/SDK strings, so a stale upstream mapping (e.g. pt-br
+# dashboard translating "Segment" as "Segmento faturável") cannot leak back
+# into ``scripts/glossaries/*.json`` and silently redirect the LLM.
+#
+# The only sanctioned deviation is ``Canvases`` → ``Canvas`` in Romance
+# locales: Spanish/French/Portuguese prose conventionally drops the ``-es``
+# plural on the loanword, matching shipped translations.
+PROTECTED_PRODUCT_TERMS = {
+    "Braze":            {},
+    "BrazeAI":          {},
+    "Canvas":           {},
+    "Canvases":         {"es": "Canvas", "fr": "Canvas", "pt-br": "Canvas"},
+    "Currents":         {},
+    "Content Cards":    {},
+    "Content Blocks":   {},
+    "News Feed":        {},
+    "Liquid":           {},
+    "SDK":              {},
+    "API":              {},
+    "REST API":         {},
+    "Segment":          {},
+    "Segments":         {},
+    "Campaign":         {},
+    "Campaigns":        {},
+    "Push Stories":     {},
+    "In-App Messages":  {},
+}
+
+
+def protected_term_for_locale(term, lang_key):
+    """Canonical glossary value for a protected product term in ``lang_key``.
+
+    Returns ``None`` when the term is not protected. Raising ``KeyError`` on
+    a per-locale override is intentional — callers should handle by falling
+    back to the English term.
+    """
+    if term not in PROTECTED_PRODUCT_TERMS:
+        return None
+    return PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
+
+
 NON_LATIN_LANGUAGES = frozenset({"ja", "ko"})
 
 COMPLETENESS_MIN_RATIO = float(os.environ.get("QC_MIN_RATIO", "0.6"))
@@ -87,11 +132,24 @@ def load_styleguide(lang_key):
 
 
 def load_glossary(lang_key):
-    """Load the terminology glossary for a language. Returns {} if not found."""
+    """Load the terminology glossary for a language. Returns {} if not found.
+
+    After loading, enforces the ``translation_prompt.md`` "Braze product
+    terminology" rule by overriding any protected-term entries that drift
+    from English. This prevents stale upstream dashboard strings (e.g. the
+    pt-br glossary mapping "Segment" → "Segmento faturável", or ja/ko
+    mapping "Canvas" → katakana/hangul renderings) from being injected into
+    the LLM prompt as "approved" translations.
+    """
     glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
-    if glossary_path.exists():
-        return json.loads(glossary_path.read_text())
-    return {}
+    raw = (
+        json.loads(glossary_path.read_text())
+        if glossary_path.exists()
+        else {}
+    )
+    for term in PROTECTED_PRODUCT_TERMS:
+        raw[term] = protected_term_for_locale(term, lang_key)
+    return raw
 
 
 def filter_glossary(glossary, text, max_terms=200):

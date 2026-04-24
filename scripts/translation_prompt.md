@@ -73,6 +73,8 @@ These are Braze product names and features. Keep them in English:
 - Push Stories
 - In-App Messages
 
+**Case-insensitive**: these terms stay in English even when the English source uses the lowercase common-noun form (for example, *"create a segment in Braze"* or *"target this campaign to"*). Render them as **Segment**, **Campaign**, etc. in your translated prose — never as katakana (セグメント, キャンペーン), hangul (세그먼트, 캠페인), or a native-language paraphrase (*Segmentos*, *Campañas*, *Tarjetas de contenido*). The glossary that may be appended below is authoritative; if it maps a product term to itself (e.g., `| Segment | Segment |`), preserve the English token literally.
+
 Common UI terms (buttons, menus, navigation labels) may be translated according to the target language's conventions if the Braze product UI is localized for that language. When an existing translation is provided, maintain consistency with its terminology choices.
 
 ### Channel landing — Content Cards (`channels/content_cards.md`)
