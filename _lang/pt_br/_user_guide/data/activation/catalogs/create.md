@@ -25,21 +25,11 @@ Depois que essas informações forem importadas, você poderá começar a acess�
 
 ## Tipos de dados suportados {#supported-data-types}
 
-A tabela a seguir lista os tipos de dados de catálogo suportados e como eles podem ser criados ou atualizados.
-
-| Tipo de dados    | Descrição                                   | Disponível via upload de CSV | Disponível via API e CDI |
-|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
-| String       | Uma sequência de caracteres.                     | ✅ Sim                    | ✅ Sim                     |
-| Número       | Um valor numérico, seja inteiro ou flutuante.     | ✅ Sim                    | ✅ Sim                     |
-| Booleano      | Um valor `true` ou `false`.                    | ✅ Sim                    | ✅ Sim                     |
-| Horário         | Uma string formatada no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).                        | ✅ Sim                    | ✅ Sim                     |
-| Objeto JSON  | Um objeto aninhado com pares chave-valor. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI.         | ⛔ Não                     | ✅ Sim                     |
-| Array de strings | Uma lista de strings. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ⛔ Não                     | ✅ Sim                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+Para ver os tipos de dados de catálogo suportados, descrições, como cada um pode ser criado ou atualizado (CSV vs API e CDI), além de formato e exemplos, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Criação de um catálogo
 
-Para criar um catálogo, acesse **Configurações de Dados** > **Catálogos** e selecione **Criar Novo Catálogo**. Em seguida, escolha uma das seguintes opções:
+Para criar um catálogo, acesse **Configurações de dados** > **Catálogos** e selecione **Criar Novo Catálogo**. Em seguida, escolha uma das seguintes opções:
 
 {% tabs local %}
 {% tab Upload CSV %}
@@ -54,7 +44,7 @@ Antes de fazer upload do seu arquivo CSV, certifique-se de que ele atende aos se
 | Tamanho do arquivo | Para planos Gratuitos, o tamanho total de todos os arquivos CSV em uma empresa é limitado a 100 MB. Para planos Pro, o tamanho máximo de um único arquivo CSV é de 2 GB. |
 | Valores de campo | Cada célula (valor do campo) pode conter até 5.000 caracteres. |
 | Caracteres válidos | A coluna `id` e todos os valores de cabeçalho podem conter apenas letras, números, hífens e sublinhados. |
-| Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano e hora. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados suportados](#supported-data-types). |
+| Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano e hora. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatação | Formate todo o texto em letras minúsculas para manter a consistência. |
 | Codificação | Salve e faça upload do arquivo CSV usando a codificação UTF-8. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -143,18 +133,18 @@ Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o bo
 
 Observe que você não poderá editar esse nome depois que o catálogo for criado. Você pode excluir um catálogo e fazer upload novamente de uma versão atualizada usando o mesmo nome de catálogo.
 
-Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma campanha]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma campanha]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Pré-requisitos
 
-Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) para seu espaço de trabalho:
+Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para seu espaço de trabalho:
 
-- Ver catálogos
-- Editar catálogos
-- Exportar catálogos
-- Excluir catálogos
+- Ver Catálogos
+- Editar Catálogos
+- Exportar Catálogos
+- Excluir Catálogos
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
@@ -188,19 +178,7 @@ A Braze processa valores de tempo com base no registro de data e hora do dashboa
 {% endtab %}
 {% endtabs %}
 
-## Tipos de dados do catálogo
-
-Os catálogos suportam vários tipos de dados para ajudar você a organizar e estruturar suas informações de forma eficaz. A tabela a seguir descreve cada tipo de dado suportado e como ele se mapeia para os nomes de tipo CSV e API:
-
-| Tipo de dados | Formato | Exemplo | Descrição |
-|-----------|--------|---------|-------------|
-| String | Texto | `"Hello World"` | Qualquer sequência de caracteres usada para dados de texto, como nomes, descrições e IDs. Equivalente ao tipo `string` em importações CSV e API. |
-| Horário | ISO 8601 ou timestamp Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de data e hora formatados como ISO 8601 ou timestamp Unix em segundos. Equivalente ao tipo `time` na API e ao tipo `datetime` em importações CSV. |
-| Booleano | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações CSV e API. |
-| Número | Inteiro ou decimal | `42` ou `19.99` | Valores numéricos, incluindo inteiros e números de ponto flutuante para preços, quantidades, classificações e mais. Equivalente aos tipos `integer` e `float` em importações CSV e ao tipo `number` na API. |
-| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados complexas aninhadas. O valor da API `type` é `object`. Exibido como Objeto JSON no dashboard. Disponível apenas via API ou Ingestão de Dados na Nuvem (CDI). |
-| Vetor | Array de strings | `["red", "blue", "green"]` | Listas de valores de string. O valor da API `type` é `array`. Exibido como array de String no dashboard. Disponível apenas por meio da API ou CDI. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Para ver os tipos de dados de catálogo com formato e exemplos, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Usando modelos em nomes de catálogo {#template-catalog-names}
 
@@ -225,11 +203,11 @@ Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo 
 
 À medida que você cria mais catálogos, também pode usar o [endpoint List catalogs]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) para retornar uma lista dos catálogos em um espaço de trabalho.
 
-A API REST suporta todos os [tipos de dados de catálogo](#supported-data-types), incluindo objetos JSON e arrays de string. Objetos JSON e arrays de string só podem ser criados ou atualizados por meio da API REST.
+A API REST suporta todos os [tipos de dados de catálogo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), incluindo objetos JSON e arrays de string. Objetos JSON e arrays de string só podem ser criados ou atualizados por meio da API REST.
 
-### Usando Ingestão de Dados na Nuvem
+### Usando Ingestão de dados na nuvem
 
-Você pode manter catálogos por meio da [Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) sincronizando dados de catálogo diretamente do seu data warehouse (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3) de forma programada.
+Você pode manter catálogos por meio da [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) sincronizando dados de catálogo diretamente do seu data warehouse (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3) de forma programada.
 
 ## Gerenciamento de itens do catálogo
 

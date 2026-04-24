@@ -7,9 +7,13 @@ description: "この参照記事では、Liquid を通して Braze のキャン�
 
 # カタログの使用
 
-> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) を使用して、Braze キャンペーンの非ユーザーデータを参照できます。Liquid がサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
+> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) を使用して、Braze キャンペーンの非ユーザーデータを参照できます。Liquid がサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
 
 ## メッセージでカタログを使う
+
+以下の動画では、メッセージでカタログを使用する方法を説明しています。
+
+{% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
 
 ### ステップ 1: パーソナライゼーションタイプを追加する {#step-one-personalization}
 
@@ -50,7 +54,7 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 - **カタログ**セクションのカタログ行にカーソルを合わせます。次に、**「カタログをエクスポート」**ボタンを選択します。
 - カタログを選択します。次に、カタログの**プレビュー**タブで**「カタログをエクスポート」**ボタンを選択します。
 
-エクスポートを開始すると、CSV ファイルをダウンロードするためのメールが届きます。このファイルの取得期限は最大 4 時間です。
+エクスポートを開始すると、CSVファイルをダウンロードするためのメールが届きます。このファイルの取得期限は最大 4 時間です。
 
 ## その他のユースケース
 
@@ -158,7 +162,7 @@ Liquid がレンダリングされると、次のように表示されます。
 カタログ内の JSON オブジェクトは、API を介してのみ取り込まれます。CSVファイルを使用して JSON オブジェクトをアップロードすることはできません。
 {% endalert %}
 
-Liquid テンプレートを使用することで、ウィッシュリストの ID をダイナミックに取り出し、メッセージで使用できます。そのためには、カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#assigning-variables)、**「パーソナライゼーションを追加」**モーダルを使用して、配列から特定のアイテムを取り出します。カタログアイテム ID として参照する変数は、`{{result}}` のように中かっこで囲む必要があります。
+Liquid テンプレートを使用することで、ウィッシュリストの ID をダイナミックに取り出し、メッセージで使用できます。そのためには、カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)、**「パーソナライゼーションを追加」**モーダルを使用して、配列から特定のアイテムを取り出します。カタログアイテム ID として参照する変数は、`{{result}}` のように中かっこで囲む必要があります。
 
 {% alert tip %}
 配列は `1` ではなく `0` から始まることを忘れないでください。
@@ -190,7 +194,7 @@ Liquid ロジックを使用してカタログを手動で組み立てること�
 
 #### Liquid を含むカタログアイテムのテンプレート化
 
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)と同様に、Liquid タグで `:rerender` フラグを使用してカタログアイテムの Liquid コンテンツをレンダリングする必要があります。`:rerender` フラグは 1 レベルの深さまでしか適用されないことに注意してください。つまり、ネストされた Liquid タグ呼び出しには適用されません。
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)と同様に、Liquid タグで `:rerender` フラグを使用してカタログアイテムの Liquid コンテンツをレンダリングする必要があります。`:rerender` フラグは 1 レベルの深さまでしか適用されないことに注意してください。つまり、ネストされた Liquid タグ呼び出しには適用されません。
 
 カタログアイテムにユーザープロファイルフィールド（Liquid パーソナライゼーションタグ内）が含まれている場合は、Liquid を適切にレンダリングするために、テンプレート化の前にメッセージ内でこれらの値を Liquid で事前に定義する必要があります。`:rerender` フラグが指定されていない場合、生の Liquid コンテンツがそのままレンダリングされます。
 

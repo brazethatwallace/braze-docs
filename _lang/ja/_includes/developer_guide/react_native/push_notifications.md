@@ -138,7 +138,14 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 Reactコンポーネント内でプッシュ通知がクリックされた際にBrazeがディープリンクを処理できるようにするには、まず[React Native Linking](https://reactnative.dev/docs/linking)ライブラリーで説明されているステップを実装するか、任意のソリューションで実装してください。次に、以下の追加ステップに従ってください。
 
-ディープリンクの詳細については、[FAQの記事]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)を参照してください。
+ディープリンクの詳細については、[FAQの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
+
+{% alert important %}
+既存のReact Nativeプッシュ統合を移行する場合は、Braze SDK、React Native、Expo、または関連ライブラリーをアップグレードした後にディープリンクを再テストしてください。以下を確認してください：
+- [React Native Linking](https://reactnative.dev/docs/linking)がまだ設定されており、ディープリンクURLを処理していること。
+- iOSの初期プッシュペイロード処理（[ステップ3.1](#step-3-1)を参照）が実装されており、アプリ起動時にまだ呼び出されていること。
+- プッシュクリックイベントを処理するために使用しているネイティブデリゲートまたはリスナーメソッドがまだ登録されており、期待通りに呼び出されていること。
+{% endalert %}
 
 {% tabs local %}
 {% tab Android Native %}
@@ -161,7 +168,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-#### ステップ 3.2：閉じている状態からのディープリンクを処理する
+#### ステップ 3.2：閉じた状態からのディープリンクを処理する
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
@@ -187,7 +194,7 @@ iOSでプッシュ通知からのディープリンクを処理するには、�
 {% endalert %}
 
 これには、カスタムURLスキームの登録と `AppDelegate` でのURLハンドラーの実装が含まれます。完全なセットアップ手順については、ネイティブiOSドキュメントの[ディープリンクの処理]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c)を参照してください。
-#### ステップ 3.1：アプリ起動時にプッシュ通知のペイロードを保存する
+#### ステップ 3.1：アプリ起動時にプッシュ通知のペイロードを保存する {#step-3-1}
 {% alert note %}
 Braze Expoプラグインを使用している場合は、ステップ3.1をスキップしてください。この機能は自動的に処理されます。
 {% endalert %}
@@ -236,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### ステップ 3.2：閉じている状態からのディープリンクを処理する
+#### ステップ 3.2：閉じた状態からのディープリンクを処理する
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
@@ -499,7 +506,7 @@ Expo Application Services（EAS）を使用していて、`enableBrazeIosRichPus
 
 Expoプラグイン経由のプッシュ通知が機能しなくなった場合：
 
-1. Braze SDKがまだセッションの追跡を行っているか確認してください。
+1. Braze SDKがまだセッションを追跡しているか確認してください。
 2. SDKが明示的または暗黙的な `wipeData` 呼び出しによって無効化されていないことを確認してください。
 3. Expoや関連ライブラリーの最近のアップグレードを確認してください。Brazeの設定と競合する可能性があります。
 4. 最近追加されたプロジェクトの依存関係を確認し、それらが既存のプッシュ通知デリゲートメソッドを手動で上書きしていないかチェックしてください。
@@ -512,4 +519,15 @@ iOS統合については、プロジェクトの依存関係との潜在的な�
 
 デバイストークンがBrazeに登録されない場合、まず[プッシュ通知が機能しなくなった](#troubleshooting-stopped-working)を確認してください。
 
-問題が解決しない場合、別の依存関係がBrazeのプッシュ通知設定に干渉している可能性があります。それを削除するか、代わりに手動で `Braze.registerPushToken` を呼び出すことを試してください。
+問題が解決しない場合、別の依存関係がBrazeのプッシュ通知設定に干渉している可能性があります。その依存関係を削除するか、代わりに手動で `Braze.registerPushToken` を呼び出すことを試してください。
+
+#### プッシュ通知からのディープリンクが開かない {#troubleshooting-deep-links}
+
+移行後にプッシュ通知からのディープリンクが開かなくなった場合は、以下を確認してください：
+
+1. アップグレードしたアプリで[React Native Linking](https://reactnative.dev/docs/linking)の設定がまだ有効であることを確認してください。
+2. iOSネイティブ統合の場合、`populateInitialPayloadFromLaunchOptions` と `Braze.getInitialPushPayload` を実装していることを確認してください。これにより、アプリが終了状態から起動された際に、初期プッシュペイロードを取得し、その `url` をディープリンクハンドラーに渡すことができます。
+3. Braze Expoプラグインを使用している場合、`androidHandlePushDeepLinksAutomatically` が実装に合わせて正しく設定されていることを確認してください。
+4. 最近追加された依存関係が通知処理やアプリデリゲートの動作を上書きしていないか確認してください。
+
+これらの確認を完了しても問題が解決しない場合は、[サポートチケットを開いて]({{site.baseurl}}/user_guide/administrative/access_braze/support/)、SDKログと再現手順を添付してください。

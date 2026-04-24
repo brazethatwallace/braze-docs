@@ -115,6 +115,14 @@ No. Braze does not offer this functionality. This is because a growing majority 
 
 **Workaround:** To achieve this same result, you can host the content of your email on an external landing page (such as your website), which can then be linked to from the email campaign you are building using the **Link** tool when editing the email body.
 
+### Does Braze automatically turn plain text URLs or "www." text into links?
+
+No. Braze does not scan your message and convert plain text, such as text that starts with `www.` or looks like a URL, into hyperlinks. Only links you define with HTML anchor tags (`<a href="...">`) are processed through normal rendering and link features in Braze.
+
+If a recipient sees plain text shown as a clickable link, that behavior usually comes from their email client (for example, Gmail, Outlook, or Apple Mail). Many clients detect URL-like strings after the message is delivered and turn them into links on the recipient's device. Braze does not control that behavior and cannot turn it off for the recipient.
+
+For predictable link appearance, tracking, and styling, use explicit `<a href>` tags instead of plain text URLs.
+
 ### Why are my users being auto-unsubscribed by email security software?
 
 Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) pre-fetch or scan all URLs in incoming emails, including unsubscribe links. This can cause unintended unsubscribes when the security tool follows the one-click list-unsubscribe link.

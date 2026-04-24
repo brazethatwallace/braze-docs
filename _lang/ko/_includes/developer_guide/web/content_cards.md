@@ -2,11 +2,15 @@
 
 ## 필수 조건
 
-콘텐츠 카드를 사용하려면 먼저 [Braze Web SDK를]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) 앱에 [통합해야]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) 합니다. 그러나 추가 설정은 필요하지 않습니다. 대신 고유한 UI를 구축하려면 [콘텐츠 카드 커스터마이징 가이드를]({{site.baseurl}}/developer_guide/content_cards/) 참조하세요.
+콘텐츠 카드를 사용하려면 먼저 [Braze Web SDK를]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) 앱에 [통합해야]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) 합니다. 그러나 추가 설정은 필요하지 않습니다. 대신 고유한 UI를 구축하려면 [콘텐츠 카드 커스터마이징 가이드]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+
+{% alert note %}
+일부 광고 차단기 및 브라우저 개인정보 보호 확장 프로그램은 Braze Web SDK 스크립트 또는 관련 네트워크 요청을 차단하여 콘텐츠 카드가 로드되지 않을 수 있습니다. CDN 통합 방법을 사용하고 있다면 SDK 라이브러리를 웹사이트에 로컬로 저장하여 일부 광고 차단기 관련 문제를 방지할 수 있는 [NPM 통합 방법]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)으로 전환하는 것을 고려하세요.
+{% endalert %}
 
 ## 표준 피드 UI
 
-포함된 콘텐츠 카드 UI를 사용하려면 웹사이트에서 피드를 표시할 위치를 지정해야 합니다. 
+포함된 콘텐츠 카드 UI를 사용하려면 웹사이트에서 피드를 표시할 위치를 지정해야 합니다.
 
 이 예제에서는 콘텐츠 카드 피드를 `<div id="feed"></div>`에 배치하려고 합니다. 세 개의 버튼을 사용하여 피드를 숨기거나, 표시하거나, 토글(현재 상태에 따라 숨기거나 표시)합니다.
 
@@ -79,10 +83,10 @@
 | `expiresAt` | 카드 만료 시간의 UNIX 타임스탬프입니다.|
 | `extras`| (선택 사항) 값 문자열이 포함된 문자열 오브젝트로 형식이 지정된 키-값 페어 데이터입니다. |
 | `id` | (선택 사항) 카드의 ID입니다. 분석 목적으로 이벤트와 함께 Braze에 다시 보고됩니다. |
-| `pinned` | 이 등록정보는 대시보드에서 카드가 '고정됨'으로 설정되었는지 여부를 반영합니다.|
+| `pinned` | 이 등록정보는 대시보드에서 카드가 "고정됨"으로 설정되었는지 여부를 반영합니다.|
 | `updated` | 이 카드가 마지막으로 수정된 시점의 UNIX 타임스탬프입니다. |
 | `viewed` | 이 등록정보는 사용자가 카드를 조회했는지 여부를 반영합니다.|
-| `isControl` | 이 등록정보는 카드가 A/B 테스트 내에서 '대조군'인 경우 `true`입니다.|
+| `isControl` | 이 등록정보는 카드가 A/B 테스트 내에서 "대조군"인 경우 `true`입니다.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### 이미지만

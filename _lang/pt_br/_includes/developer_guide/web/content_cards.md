@@ -2,11 +2,15 @@
 
 ## Pré-requisitos
 
-Antes de poder usar os Cartões de conteúdo, você precisará [integrar o Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) em seu app. No entanto, não é necessária nenhuma configuração adicional. Para criar sua própria interface do usuário, consulte o [Guia de personalização do cartão de conteúdo]({{site.baseurl}}/developer_guide/content_cards/).
+Antes de poder usar os Cartões de conteúdo, você precisará [integrar o Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) ao seu app. No entanto, nenhuma configuração adicional é necessária. Para criar sua própria interface do usuário, consulte o [Guia de personalização do cartão de conteúdo]({{site.baseurl}}/developer_guide/content_cards/).
+
+{% alert note %}
+Alguns bloqueadores de anúncios e extensões de privacidade do navegador podem bloquear o script do Braze Web SDK ou solicitações de rede relacionadas, o que pode impedir o carregamento dos Cartões de conteúdo. Se você estiver usando o método de integração por CDN, considere mudar para o [método de integração por NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), que armazena as bibliotecas do SDK localmente no seu site e pode evitar alguns problemas relacionados a bloqueadores de anúncios.
+{% endalert %}
 
 ## Interface do usuário do feed padrão
 
-Para usar a interface de usuário dos Cartões de conteúdo incluída, você precisará especificar onde mostrar o feed em seu site. 
+Para usar a interface de usuário dos Cartões de conteúdo incluída, você precisará especificar onde mostrar o feed no seu site. 
 
 Neste exemplo, temos um `<div id="feed"></div>` no qual queremos colocar o feed dos Cartões de conteúdo. Usaremos três botões para ocultar, mostrar ou alternar (ocultar ou mostrar com base no estado atual) o feed.
 
@@ -92,7 +96,7 @@ Os cartões [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braz
 |Propriedade|Descrição|
 |---|---|
 | `aspectRatio` | A proporção da imagem do cartão, que serve como uma dica antes da conclusão do carregamento da imagem. Observe que a propriedade pode não ser fornecida em determinadas circunstâncias. |
-| `categories` | Essa propriedade serve apenas para organização em sua implementação personalizada; essas categorias podem ser definidas no criador do dashboard. |
+| `categories` | Essa propriedade serve apenas para organização na sua implementação personalizada; essas categorias podem ser definidas no criador do dashboard. |
 | `clicked` | Essa propriedade indica se esse cartão já foi clicado nesse dispositivo. |
 | `created` | O registro de data e hora UNIX do horário de criação do cartão na Braze. |
 | `dismissed` | Essa propriedade indica se esse cartão foi descartado. |
@@ -109,7 +113,7 @@ Os cartões [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes
 |Propriedade|Descrição|
 |---|---|
 | `aspectRatio` | A proporção da imagem do cartão, que serve como uma dica antes da conclusão do carregamento da imagem. Observe que a propriedade pode não ser fornecida em determinadas circunstâncias. |
-| `categories` | Essa propriedade serve apenas para organização em sua implementação personalizada; essas categorias podem ser definidas no criador do dashboard. |
+| `categories` | Essa propriedade serve apenas para organização na sua implementação personalizada; essas categorias podem ser definidas no criador do dashboard. |
 | `clicked` | Essa propriedade indica se esse cartão já foi clicado nesse dispositivo. |
 | `created` | O registro de data e hora UNIX do horário de criação do cartão na Braze. |
 | `dismissed` | Essa propriedade indica se esse cartão foi descartado. |
@@ -127,7 +131,7 @@ O modelo [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze
 |Propriedade|Descrição|
 |---|---|
 | `aspectRatio` | A proporção da imagem do cartão, que serve como uma dica antes da conclusão do carregamento da imagem. Observe que a propriedade pode não ser fornecida em determinadas circunstâncias. |
-| `categories` | Essa propriedade serve apenas para organização em sua implementação personalizada; essas categorias podem ser definidas no criador do dashboard. |
+| `categories` | Essa propriedade serve apenas para organização na sua implementação personalizada; essas categorias podem ser definidas no criador do dashboard. |
 | `clicked` | Essa propriedade indica se esse cartão já foi clicado nesse dispositivo. |
 | `created` | O registro de data e hora UNIX do horário de criação do cartão na Braze. |
 | `description` | O texto do corpo deste cartão. |
@@ -141,9 +145,9 @@ O modelo [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze
 
 ## Grupo de controle
 
-Se você usar o feed padrão dos Cartões de conteúdo, as impressões e os cliques serão automaticamente rastreados.
+Se você usar o feed padrão dos Cartões de conteúdo, as impressões e os cliques serão rastreados automaticamente.
 
-Se você usar uma integração personalizada para Cartões de conteúdo, precisará [registrar impressões]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) quando um cartão de controle tiver sido visto. Nessa iniciativa, lide com os cartões de controle ao registrar impressões em um teste A/B. Esses cartões estão em branco e, embora não sejam vistos pelos usuários, você ainda deve registrar as impressões para comparar a performance deles com os cartões que não são de controle.
+Se você usar uma integração personalizada para Cartões de conteúdo, precisará [registrar impressões]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) quando um cartão de controle tiver sido visto. Nesse caso, lide com os cartões de controle ao registrar impressões em um teste A/B. Esses cartões estão em branco e, embora não sejam vistos pelos usuários, você ainda deve registrar as impressões para comparar a performance deles com os cartões que não são de controle.
 
 Para determinar se um cartão de conteúdo está no grupo de controle de um teste A/B, verifique a propriedade `card.isControl` (Web SDK v4.5.0+) ou verifique se o cartão é uma instância `ControlCard` (`card instanceof braze.ControlCard`).
 
@@ -170,9 +174,9 @@ Use estes métodos ao criar sua própria interface de Cartões de conteúdo:
 |[`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards)| Retorna todos os cartões disponíveis no momento a partir da atualização mais recente dos Cartões de conteúdo. Use isso para exibir cartões imediatamente ao carregar a página sem aguardar uma nova solicitação ao servidor, como quando o usuário retorna a uma página durante uma sessão ativa. |
 |[`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh)| Solicita uma atualização imediata dos Cartões de conteúdo dos servidores da Braze. Por padrão, os cartões são atualizados no início da sessão e quando o feed padrão é reaberto. Use isso para forçar uma atualização em outros momentos, como após uma ação específica do usuário. Esteja ciente dos [limites de taxa]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit). |
 |[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| Registra eventos de impressão para um vetor de cartões. Chame isso quando os cartões forem renderizados e visíveis para o usuário. Necessário para relatórios precisos de campanha ao usar uma interface personalizada, pois as impressões não são rastreadas automaticamente fora do feed padrão. |
-|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| Registra um evento de clique para um único cartão. Chame isso quando um usuário interagir com um cartão em sua interface personalizada. Necessário para relatórios precisos de campanha, pois os cliques não são rastreados automaticamente fora do feed padrão. |
+|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| Registra um evento de clique para um único cartão. Chame isso quando um usuário interagir com um cartão na sua interface personalizada. Necessário para relatórios precisos de campanha, pois os cliques não são rastreados automaticamente fora do feed padrão. |
 |[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| Processa a URL de um cartão e executa o comportamento ao clicar configurado, incluindo ações da Braze (URLs `brazeActions://`) e navegação de URL padrão. Chame isso no manipulador de clique do seu cartão para garantir que os comportamentos ao clicar configurados no dashboard da Braze sejam executados. |
-|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Descarta programaticamente um cartão, removendo-o do feed do usuário. Use isso para permitir que os usuários descartem cartões em sua interface personalizada. |
+|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Descarta programaticamente um cartão, removendo-o do feed do usuário. Use isso para permitir que os usuários descartem cartões na sua interface personalizada. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Para mais informações, consulte a [documentação de referência do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
@@ -290,11 +294,11 @@ Para uma integração padrão do feed do cartão de conteúdo, você pode usar u
 </script>
 ```
 
-![Configuração de tag no Google Tag Manager de uma tag HTML personalizada que mostra o feed do Content Card.]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
+![Configuração de tag no Google Tag Manager de uma tag HTML personalizada que mostra o feed do cartão de conteúdo.]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
 {% endtab %}
 
 {% tab manual %}
-Para ter mais liberdade na personalização da aparência dos Cartões de conteúdo e de seu feed, é possível integrar diretamente os Cartões de conteúdo em seu site nativo. Há duas abordagens que você pode adotar: usar a interface de usuário de feed padrão ou criar uma interface de usuário de feed personalizada.
+Para ter mais liberdade na personalização da aparência dos Cartões de conteúdo e do seu feed, é possível integrar diretamente os Cartões de conteúdo ao seu site nativo. Há duas abordagens que você pode adotar: usar a interface de usuário de feed padrão ou criar uma interface de usuário de feed personalizada.
 
 {% subtabs local %}
 {% subtab standard feed %}
@@ -302,7 +306,7 @@ Ao implementar a [UI de feed padrão]({{site.baseurl}}/developer_guide/platform_
 {% endsubtab %}
 
 {% subtab custom feed %}
-Para o estilo de [feed personalizado]({{site.baseurl}}/developer_guide/content_cards/creating_cards/), as etapas são as mesmas que se você tivesse integrado o SDK sem o GTM. Por exemplo, se quiser personalizar a largura do feed do cartão de conteúdo, você pode colar o seguinte em seu arquivo CSS:
+Para o estilo de [feed personalizado]({{site.baseurl}}/developer_guide/content_cards/creating_cards/), as etapas são as mesmas que se você tivesse integrado o SDK sem o GTM. Por exemplo, se quiser personalizar a largura do feed do cartão de conteúdo, você pode colar o seguinte no seu arquivo CSS:
 
 {% raw %}
 ```css
@@ -320,9 +324,9 @@ body .ab-feed {
 
 Para fazer upgrade para a versão mais recente do Braze Web SDK, siga as três etapas a seguir no seu dashboard do Google Tag Manager:
 
-1. **Atualizar modelo de tag**<br>Acesse a página **Modelos** em seu espaço de trabalho. Aqui você verá um ícone indicando que há uma atualização disponível.<br><br>![Página de modelos mostrando que uma atualização está disponível]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Clique nesse ícone e, após revisar a alteração, clique em **Accept Update (Aceitar atualização)**.<br><br>![Uma tela comparando os modelos de tag antigos e novos com um botão para "Aceitar atualização"]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
-2. **Atualizar o número da versão**<br>Depois que seu modelo de tag tiver sido atualizado, edite a tag de inicialização da Braze e atualize a versão do SDK para a versão mais recente `major.minor`. Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Você pode ver uma lista das versões do SDK em nosso [changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md).<br><br>![Modelo de inicialização da Braze com um campo de entrada para alterar a versão do SDK]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **Controle de qualidade e publicação**<br>Verifique se a nova versão do SDK está funcionando usando a [ferramenta de debug](https://support.google.com/tagmanager/answer/6107056?hl=en) do Google Tag Manager antes de publicar uma atualização no seu contêiner de tags.
+1. **Atualizar modelo de tag**<br>Acesse a página **Modelos** no seu espaço de trabalho. Aqui você verá um ícone indicando que há uma atualização disponível.<br><br>![Página de modelos mostrando que uma atualização está disponível]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Clique nesse ícone e, após revisar a alteração, clique em **Accept Update (Aceitar atualização)**.<br><br>![Uma tela comparando os modelos de tag antigos e novos com um botão para "Aceitar atualização"]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
+2. **Atualizar o número da versão**<br>Depois que seu modelo de tag tiver sido atualizado, edite a tag de inicialização da Braze e atualize a versão do SDK para a versão mais recente `major.minor`. Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Você pode ver uma lista das versões do SDK no nosso [changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md).<br><br>![Modelo de inicialização da Braze com um campo de entrada para alterar a versão do SDK]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
+3. **QA e publicação**<br>Verifique se a nova versão do SDK está funcionando usando a [ferramenta de debug](https://support.google.com/tagmanager/answer/6107056?hl=en) do Google Tag Manager antes de publicar uma atualização no seu contêiner de tags.
 
 ### Solução de problemas {#troubleshooting}
 
@@ -354,7 +358,7 @@ Isso garante que o SDK esteja totalmente inicializado antes que qualquer tag de 
 
 Para capturar registros detalhados para solução de problemas, você pode ativar o registro detalhado na sua integração com o Google Tag Manager. Esses registros serão exibidos na guia **Console** das [ferramentas de desenvolvedor](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) do seu navegador.
 
-Em sua integração do Google Tag Manager, navegue até a tag de inicialização da Braze e selecione **Ativar registro do Web SDK**.
+Na sua integração do Google Tag Manager, navegue até a tag de inicialização da Braze e selecione **Ativar registro do Web SDK**.
 
 ![A página de resumo da tag de inicialização da Braze com a opção de ativar o registro do Web SDK.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
