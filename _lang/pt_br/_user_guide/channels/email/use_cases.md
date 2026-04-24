@@ -1,28 +1,28 @@
 ---
-nav_title: Casos de uso
-article_title: Casos de uso de e-mail
+nav_title: Casos de uso de e-mail
+article_title: Casos de Uso de e-mail
 page_order: 6
 page_type: reference
-description: "Este artigo aborda dicas e truques de conteúdo específicos para diversos casos de uso de e-mail."
+description: "Este artigo cobre dicas e truques específicos de conteúdo para vários casos de uso de e-mail."
 channel: email
 
 ---
 
 # Casos de uso de e-mail
 
-> Ao criar suas Campaigns de e-mail, confira algumas diretrizes gerais sobre como construir seu conteúdo de acordo com seus casos de uso.
+> À medida que você constrói suas campanhas de e-mail, aqui estão algumas diretrizes gerais sobre como construir seu conteúdo, dependendo de seus casos de uso.
 
-## Integração
+## Onboarding
 
-Quando seus usuários são integrados, forneça dicas úteis para ajudá-los a começar e destaque apenas os recursos mais essenciais. Procure sempre enviar um e-mail de boas-vindas após o cadastro do usuário. A seguir, um exemplo da LivingSocial que contém chamadas para ação claras e informa os usuários sobre uma oferta:
+Quando seus usuários são integrados, forneça dicas úteis para ajudá-los a começar e destaque apenas os recursos mais essenciais. Procure sempre enviar um e-mail de boas-vindas após o cadastro do usuário. A seguir, um exemplo da LivingSocial que contém chamadas claras para ação e informa os usuários sobre uma oferta:
 
-![E-mail de integração enviado pela LivingSocial que dá as boas-vindas a novos usuários.]({% image_buster /assets/img_archive/Livingsocial_email.png %}){: style="max-width:70%;"}
+![E-mail de integração enviado pela LivingSocial que dá as boas-vindas aos novos usuários.]({% image_buster /assets/img_archive/Livingsocial_email.png %}){: style="max-width:70%;"}
 
-No entanto, informações em excesso podem ser cansativas e potencialmente confusas se o usuário ainda não estiver familiarizado com o seu app! À medida que você apresenta mais informações sobre o app, pode ser útil incluir links para sua documentação e informar aos usuários como obter suporte.
+No entanto, muita informação pode ser esmagadora e potencialmente confusa se o usuário ainda não estiver familiarizado com seu app! À medida que você introduz mais informações sobre seu app, pode ser útil fornecer links para sua documentação e informar aos usuários como eles podem obter suporte.
 
-## Vendas e promoções
+## Vendas e promocionais
 
-Seu conteúdo deve comunicar o valor de uma promoção, como informações sobre descontos e vendas e a duração da oferta. Usar elementos gráficos é uma ótima forma de ilustrar os produtos que você está promovendo. Mantenha o texto conciso e focado para não poluir o e-mail e distrair os usuários do conteúdo essencial. Deixe sua chamada para ação clara e ofereça aos destinatários uma forma fácil de participar imediatamente da promoção.
+Seu conteúdo deve comunicar o valor de uma promoção, como as informações de descontos e vendas e a duração da oferta. Fornecer gráficos é uma ótima maneira de ilustrar qualquer produto que você esteja promovendo. Mantenha seu texto conciso e focado para que não sobrecarregue seu e-mail e distraia os usuários do conteúdo essencial. Sua chamada para ação precisa ser clara e oferecer aos destinatários uma forma fácil de participar imediatamente da promoção.
 
 Para recomendar determinados produtos, tente apresentá-los como sugestões curadas e pessoais que o usuário pode gostar. Se você está promovendo uma oferta por tempo limitado, não deixe de avisar os usuários! A Ideeli faz um ótimo trabalho ao transmitir urgência neste e-mail:
 
@@ -30,7 +30,7 @@ Para recomendar determinados produtos, tente apresentá-los como sugestões cura
 
 ## Transacional
 
-Após um usuário fazer uma compra no app, confira algumas diretrizes de conteúdo para suas Campaigns de e-mail voltadas especificamente para interações transacionais com seus usuários:
+Após um usuário fazer uma compra no app, confira algumas diretrizes de conteúdo para suas campanhas de e-mail voltadas especificamente para interações transacionais com seus usuários:
 - Agradeça e forneça dicas que possam ajudá-los a aproveitar ao máximo a compra
 - Envie a confirmação de envio e uma forma de tirar dúvidas sobre a entrega
 - Peça feedback para obter opiniões sem ser insistente
