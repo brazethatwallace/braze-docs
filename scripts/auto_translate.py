@@ -1030,6 +1030,44 @@ def repair_brazeai_trademark(translated_content):
     return translated_content, repairs
 
 
+_SPURIOUS_BOLD_LINK = re.compile(
+    # [**label**] that is not a link `[**...**](...)` or reference `[**...**][...]`
+    r"\[\*\*([^\]]+?)\*\*\](?!\s*[\(\[])"
+)
+
+
+def repair_spurious_bold_link_wrappers(translated_content: str):
+    """Unwrap `[**text**]` when it is not a Markdown link or reference opener.
+
+    Models sometimes emit bracket-wrapped bold instead of `**text**`, which
+    renders as a broken link.
+    """
+    repairs = []
+
+    def _repl(match: re.Match) -> str:
+        return f"**{match.group(1)}**"
+
+    new_content, n = _SPURIOUS_BOLD_LINK.subn(_repl, translated_content)
+    if n:
+        repairs.append(
+            f"markdown — unwrapped {n} spurious [**…**] pattern(s) (not a link)"
+        )
+        return new_content, repairs
+    return translated_content, repairs
+
+
+def repair_trailing_whitespace(translated_content: str):
+    """Strip trailing spaces and tabs from each line (preserve newlines)."""
+    lines = translated_content.split("\n")
+    stripped = [ln.rstrip(" \t") for ln in lines]
+    new_content = "\n".join(stripped)
+    if translated_content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    if new_content != translated_content:
+        return new_content, ["trailing_whitespace — removed end-of-line spaces/tabs"]
+    return translated_content, []
+
+
 def qc_check_file(english_path, translated_path, lang_key):
     """Run all QC checks on one file pair. Auto-repairs are written back."""
     english_content = Path(english_path).read_text()
@@ -1074,6 +1112,14 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content, lang_key
     )
     findings["repairs"].extend(glossary_id_repairs)
+
+    translated_content, md_bold_repairs = repair_spurious_bold_link_wrappers(
+        translated_content
+    )
+    findings["repairs"].extend(md_bold_repairs)
+
+    translated_content, tw_repairs = repair_trailing_whitespace(translated_content)
+    findings["repairs"].extend(tw_repairs)
 
     if findings["repairs"]:
         Path(translated_path).write_text(translated_content)
