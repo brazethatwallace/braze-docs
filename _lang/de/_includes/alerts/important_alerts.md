@@ -53,7 +53,7 @@ Für zusätzliche Sicherheit empfehlen wir, unser Feature zur [SDK-Authentifizie
 {% if include.alert == 'Preference Center warning' %}
 
 {% alert important %}
-Es gibt bestimmte Browser, wie die Naver Android- und iOS-Apps, die das Braze Preference Center nicht unterstützen. Wenn Sie davon ausgehen, dass einige Ihrer Nutzer:innen diese Browser verwenden, sollten Sie alternative Methoden zur Verwaltung ihrer E-Mail-Einstellungen anbieten.
+Es gibt bestimmte Browser, wie die Naver Android- und iOS-Apps, die das Braze Präferenzzentrum nicht unterstützen. Wenn Sie davon ausgehen, dass einige Ihrer Nutzer:innen diese Browser verwenden, sollten Sie alternative Methoden zur Verwaltung ihrer E-Mail-Präferenzen anbieten.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Es gibt bestimmte Browser, wie die Naver Android- und iOS-Apps, die das Braze Pr
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-Die Pläne zur schrittweisen Einstellung des Kauf-Events werden im Jahr 2026 bekannt gegeben. Das Kauf-Event wird letztendlich durch neue [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/) ersetzt, die erweiterte Features für Segmentierung, Berichterstellung, Analytics und mehr bieten werden. Die neuen E-Commerce-Events unterstützen jedoch keine bestehenden Features im Zusammenhang mit dem Kauf-Event, wie z. B. Lifetime-Value (LTV) oder Umsatzberichte in Canvasen oder Kampagnen. Eine vollständige Liste der Features im Zusammenhang mit Kauf-Events finden Sie unter [Kauf-Events protokollieren]({{site.baseurl}}/user_guide/data/activation/custom_data/purchase_events/#logging-purchase-events).
+Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ Die Pläne zur schrittweisen Einstellung des Kauf-Events werden im Jahr 2026 bek
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-Die Pläne zur schrittweisen Einstellung des Kauf-Events werden im Jahr 2026 bekannt gegeben. Das Kauf-Event wird letztendlich durch neue [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/) ersetzt, die erweiterte Features für Segmentierung, Berichterstellung, Analytics und mehr bieten werden. Wenn dies geschieht, werden die Segment-Filter nicht mehr unter Kaufverhalten angezeigt. Eine vollständige Liste der Kauf-Events finden Sie unter [Kauf-Events protokollieren]({{site.baseurl}}/user_guide/data/custom_data/purchase_events/#logging-purchase-events).
+Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Ak
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, dass `canvas_entry_properties` als `context` referenziert wird. Jede `context`-Variable enthält einen Namen, einen Datentyp und einen Wert, der Liquid enthalten kann. Derzeit sind `canvas_entry_properties` abwärtskompatibel. Weitere Informationen finden Sie unter [Kontext]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) und [Canvas-Kontextobjekt]({{site.baseurl}}/api/objects_filters/context_object).
+Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, dass `canvas_entry_properties` als `context` referenziert wird. Jede `context`-Variable enthält einen Namen, einen Datentyp und einen Wert, der Liquid enthalten kann. Derzeit sind `canvas_entry_properties` abwärtskompatibel. Weitere Informationen finden Sie unter [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) und [Canvas-Kontextobjekt]({{site.baseurl}}/api/objects_filters/context_object).
 {% endalert %}
 
 {% endif %}
@@ -101,7 +101,7 @@ Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeute
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Dieser Partner wird auf Ihrer Seite **Technologiepartner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
+Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% endif %}
@@ -129,12 +129,52 @@ Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn f
 
 {% endif %}
 
+{% if include.alert == 'WhatsApp audio and documents' %}
+
+{% alert note %}
+Die [Braze Medienbibliothek]({{site.baseurl}}/media_library/) unterstützt nur Bilder und Video. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Meta MP4 video issue' %}
+
+{% alert important %}
+Meta hat ein bekanntes Problem, das dazu führen kann, dass einige MP4-Videos auf Android-Geräten aufgrund bestimmter Kodierungs- oder Container-Einstellungen nicht abgespielt werden. Bis eine dauerhafte Lösung verfügbar ist, behebt das Neuformatieren der MP4-Datei das Problem für die meisten Absender. Testen Sie alle Videos auf Android-Geräten, um die korrekte Zustellbarkeit zu bestätigen. <br><br>Sie können die MP4-Datei mit einem Web-Tool wie [CloudConvert](https://cloudconvert.com/mp4-converter) neu formatieren. Laden Sie Ihre MP4-Datei in das Tool hoch, konvertieren Sie sie erneut in MP4 und laden Sie dann die konvertierte Datei herunter.
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == 'Shopify cart token alias' %}
 
 {% alert important %}
 Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, damit Braze Webhooks dem richtigen Nutzerprofil zuordnen kann:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'multi-language ea' %}
+
+{% alert important %}
+Mehrsprachige Nachrichten und Gebietsschema-Übersetzungen befinden sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'network dependency' %}
+
+{% alert important %}
+Content-Cards, In-App-Nachrichten, Banner und Feature-Flags sind auf die Geräteverbindung angewiesen, um sich mit Braze-Servern zu synchronisieren. Da die Netzwerkbedingungen variieren können, besteht die Möglichkeit, dass Inhalte oder Updates nicht sofort synchronisiert, angezeigt oder entfernt werden (z. B. wenn Nutzer:innen offline sind). Wir empfehlen, diese Kanäle nicht für kritische, zeitkritische Updates zu verwenden.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'dynamic image URL' %}
+
+{% alert important %}
+Wenn Sie Bilder über [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
 {% endalert %}
 
 {% endif %}

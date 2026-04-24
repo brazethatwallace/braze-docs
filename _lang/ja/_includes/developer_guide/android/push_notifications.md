@@ -229,7 +229,7 @@ Google Cloud で、Android アプリが使用しているプロジェクトを�
 [**ロール**] フィールドで、ロールのリストから [**Firebase Cloud Messaging API 管理者**] を見つけて選択します。アクセスをより制限する場合は、`cloudmessaging.messages.create` 権限を持つ[カスタムロール](https://cloud.google.com/iam/docs/creating-custom-roles)を作成し、代わりにリストからそれを選択します。完了したら、[**完了**] を選択します。
 
 {% alert warning %}
-[**Firebase Cloud Messaging 管理者**] ではなく、[**Firebase Cloud Messaging _API_ 管理者**] を選択してください。
+[**Firebase Cloud Messaging 管理者**] ではなく、[**Firebase Cloud Messaging *API* 管理者**] を選択してください。
 {% endalert %}
 
 ![「このサービスアカウントにプロジェクトへのアクセスを許可する」フォームで、「Firebase Cloud Messaging API 管理者」がロールとして選択されている。]({% image_buster /assets/img/android/push_integration/create_a_service_account/add-fcm-api-admin.png %})
@@ -256,13 +256,13 @@ Google Cloud で、Android アプリが使用しているプロジェクトを�
 
 ### ステップ 6: JSON の認証情報を Braze にアップロードする
 
-次に、JSON 認証情報を Braze ダッシュボードにアップロードします。Braze で、<i class="fa-solid fa-gear"></i>&nbsp;[**設定**] > [**アプリの設定**] を選択します。
+次に、JSON 認証情報を Braze ダッシュボードにアップロードします。Braze で、<i class="fa-solid fa-gear"></i>&nbsp;[**設定**] > [**アプリ設定**] を選択します。
 
-![「設定」メニューが Braze で開かれ、「アプリの設定」がハイライト表示されている。]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![「設定」メニューが Braze で開かれ、「アプリ設定」がハイライト表示されている。]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Android アプリの [**プッシュ通知設定**] で [**Firebase**] を選択し、[**JSON ファイルのアップロード**] を選択して、[先ほど生成した](#android_json)認証情報をアップロードします。完了したら、[**保存**] を選択します。
+Android アプリの [**プッシュ通知の設定**] で [**Firebase**] を選択し、[**JSON ファイルのアップロード**] を選択して、[先ほど生成した](#android_json)認証情報をアップロードします。完了したら、[**保存**] を選択します。
 
-![プッシュ通知プロバイダーとして「Firebase」が選択された「プッシュ通知設定」フォーム。]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
+![プッシュプロバイダーとして「Firebase」が選択された「プッシュ通知の設定」フォーム。]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
 {% alert warning %}
 秘密キーが漏洩した場合は、セキュリティリスクが生じる可能性があります。キーが Braze にアップロードされたので、[先に生成した](#android_json)ファイルを削除してください。
@@ -627,7 +627,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 #### カスタムディープリンクの作成
 
-アプリにまだディープリンクを追加していない場合は、[Android 開発者ドキュメント](http://developer.android.com/training/app-indexing/deep-linking.html)に記載されているディープリンクに関する手順に従ってください。ディープリンクの詳細については、[FAQ の記事]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)を参照してください。
+アプリにまだディープリンクを追加していない場合は、[Android 開発者ドキュメント](http://developer.android.com/training/app-indexing/deep-linking.html)に記載されているディープリンクに関する手順に従ってください。ディープリンクの詳細については、[FAQ の記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
 
 #### ディープリンクの追加
 
@@ -675,7 +675,7 @@ Braze.configure(this, brazeConfig)
 
 ### ステップ 5: 通知チャネルを定義する
 
-Braze Android SDK は [Android 通知チャネル](https://developer.android.com/preview/features/notification-channels.html)をサポートしています。Braze の通知に通知チャネルの ID が含まれていない場合、または Braze の通知に無効なチャネル ID が含まれている場合、Braze は SDK で定義されているデフォルトの通知チャネルで通知を表示します。Braze ユーザーはプラットフォーム内で [Android 通知チャネル]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/)を使用して通知をグループ化します。
+Braze Android SDK は [Android 通知チャネル](https://developer.android.com/preview/features/notification-channels.html)をサポートしています。Braze の通知に通知チャネルの ID が含まれていない場合、または Braze の通知に無効なチャネル ID が含まれている場合、Braze は SDK で定義されているデフォルトの通知チャネルで通知を表示します。会社ユーザーはプラットフォーム内で [Android 通知チャネル]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/)を使用して通知をグループ化します。
 
 デフォルトの Braze 通知チャネルのユーザー向けの名前を設定するには、[`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html) を使用します。
 

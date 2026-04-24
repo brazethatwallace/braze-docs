@@ -7,13 +7,17 @@ description: "En este artículo de referencia se explica cómo utilizar catálog
 
 # Uso de catálogos
 
-> Después de crear un catálogo, puedes hacer referencia a datos de no usuarios en tus campañas de Braze a través de [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid). Puedes utilizar catálogos en todos tus canales de mensajería, incluso en cualquier parte del editor de arrastrar y soltar donde se admita Liquid.
+> Después de crear un catálogo, puedes hacer referencia a datos de no usuarios en tus campañas de Braze a través de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Puedes utilizar catálogos en todos tus canales de mensajería, incluso en cualquier parte del editor de arrastrar y soltar donde se admita Liquid.
 
 ## Utilización de catálogos en un mensaje
 
+El siguiente video muestra cómo utilizar catálogos en un mensaje.
+
+{% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
+
 ### Paso 1: Añadir tipo de personalización {#step-one-personalization}
 
-En el creador de mensajes que elijas, selecciona el icono <i class="fas fa-plus-circle"></i> más para abrir el modal **Añadir personalización** y selecciona **Elementos del catálogo** como **tipo de personalización**. A continuación, selecciona el nombre de tu catálogo. Utilizando nuestro ejemplo anterior, seleccionaremos el catálogo "Games".
+En el creador de mensajes que elijas, selecciona el icono <i class="fas fa-plus-circle"></i> más para abrir el modal **Añadir personalización** y selecciona **Elementos del catálogo** como **Tipo de personalización**. A continuación, selecciona el nombre de tu catálogo. Utilizando nuestro ejemplo anterior, seleccionaremos el catálogo "Games".
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -158,7 +162,7 @@ También puedes utilizar plantillas para extraer dinámicamente elementos del ca
 Los objetos JSON de los catálogos solo se ingieren a través de la API. No puedes cargar un objeto JSON utilizando un archivo CSV.
 {% endalert %}
 
-Utilizando plantillas de Liquid, puedes extraer dinámicamente los ID de la lista de deseos y utilizarlos en tu mensaje. Para ello, [asigna una variable]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#assigning-variables) a tu atributo personalizado y, a continuación, utiliza el modal **Añadir personalización** para extraer un elemento específico de la matriz. Las variables a las que se hace referencia como ID de elemento del catálogo deben escribirse entre llaves para que se puedan referenciar correctamente, como por ejemplo `{{result}}`.
+Utilizando plantillas de Liquid, puedes extraer dinámicamente los ID de la lista de deseos y utilizarlos en tu mensaje. Para ello, [asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) a tu atributo personalizado y, a continuación, utiliza el modal **Añadir personalización** para extraer un elemento específico de la matriz. Las variables a las que se hace referencia como ID de elemento del catálogo deben escribirse entre llaves para que se puedan referenciar correctamente, como por ejemplo `{{result}}`.
 
 {% alert tip %}
 Recuerda que las matrices empiezan en `0`, no en `1`.
@@ -190,7 +194,7 @@ También puedes crear catálogos manualmente con lógica de Liquid. Sin embargo,
 
 #### Elementos del catálogo con plantillas que incluyen Liquid
 
-De forma similar al [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content), debes utilizar la marca `:rerender` en una etiqueta de Liquid para renderizar el contenido Liquid de un elemento del catálogo. Ten en cuenta que la marca `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna llamada anidada de etiquetas de Liquid.
+De forma similar al [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), debes utilizar la marca `:rerender` en una etiqueta de Liquid para renderizar el contenido Liquid de un elemento del catálogo. Ten en cuenta que la marca `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna llamada anidada de etiquetas de Liquid.
 
 Si un elemento del catálogo contiene campos de perfil de usuario (dentro de una etiqueta de personalización de Liquid), estos valores deben definirse en Liquid antes en el mensaje y antes de la plantilla para que el Liquid se renderice correctamente. Si no se proporciona la marca `:rerender`, se mostrará el contenido sin procesar de Liquid.
 

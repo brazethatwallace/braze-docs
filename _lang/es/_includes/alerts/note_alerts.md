@@ -37,3 +37,11 @@ Todos los atributos provienen de la API REST de Braze.
 {% endalert %}
 
 {% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+Puedes añadir hasta 350 grupos de suscripción por espacio de trabajo.
+{% endalert %}
+
+{% endif %}

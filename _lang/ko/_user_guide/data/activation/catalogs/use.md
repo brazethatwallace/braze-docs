@@ -7,9 +7,13 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 
 
 # 카탈로그 사용
 
-> 카탈로그를 생성한 후, [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid)를 통해 Braze 캠페인에서 비사용자 데이터를 참조할 수 있습니다. Liquid가 지원되는 드래그 앤 드롭 편집기의 어느 곳에서나 모든 메시징 채널에서 카탈로그를 사용할 수 있습니다.
+> 카탈로그를 생성한 후, [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 통해 Braze 캠페인에서 비사용자 데이터를 참조할 수 있습니다. 드래그 앤 드롭 편집기에서 Liquid가 지원되는 곳이라면 어디서든 모든 메시징 채널에서 카탈로그를 사용할 수 있습니다.
 
 ## 메시지에서 카탈로그 사용
+
+다음 동영상에서는 메시지에서 카탈로그를 사용하는 방법을 안내합니다.
+
+{% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
 
 ### 1단계: 개인화 유형 추가 {#step-one-personalization}
 
@@ -27,9 +31,9 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 
 
 ### 2단계: 카탈로그 항목 선택
 
-이제 카탈로그 항목을 추가할 차례입니다! 드롭다운을 사용하여 카탈로그 항목과 표시할 정보를 선택합니다. 이 정보는 카탈로그 생성에 사용된 업로드한 CSV 파일의 열에 해당합니다.
+이제 카탈로그 항목을 추가할 차례입니다! 드롭다운을 사용하여 카탈로그 항목과 표시할 정보를 선택합니다. 이 정보는 카탈로그를 생성하는 데 사용된 업로드한 CSV 파일의 열에 해당합니다.
 
-예를 들어, Tales 게임의 제목과 가격을 참조하려면 카탈로그 항목으로 Tales의 `id`(1234)를 선택하고 표시할 정보로 `title` 및 `price`를 요청할 수 있습니다.
+예를 들어, Tales 게임의 제목과 가격을 참조하려면 카탈로그 항목으로 Tales의 `id`(1234)를 선택하고 표시할 정보로 `title`과 `price`를 요청할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -158,7 +162,7 @@ Liquid가 렌더링되었을 때의 모습은 다음과 같습니다:
 카탈로그의 JSON 오브젝트는 API를 통해서만 수집됩니다. CSV 파일을 사용하여 JSON 오브젝트를 업로드할 수 없습니다.
 {% endalert %}
 
-Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#assigning-variables)한 다음 **개인화 추가** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
+Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)한 다음 **개인화 추가** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
 
 {% alert tip %}
 배열은 `1`이 아닌 `0`에서 시작한다는 점을 기억하세요.
@@ -190,7 +194,7 @@ Liquid 로직을 사용하여 카탈로그를 수동으로 구성할 수도 있�
 
 #### Liquid를 포함한 카탈로그 항목 템플릿
 
-[연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)와 유사하게, 카탈로그 항목의 Liquid 콘텐츠를 렌더링하려면 Liquid 태그에서 `:rerender` 플래그를 사용해야 합니다. `:rerender` 플래그는 한 단계 깊이에만 적용되므로 중첩된 Liquid 태그 호출에는 적용되지 않는다는 점에 유의하세요.
+[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)와 유사하게, 카탈로그 항목의 Liquid 콘텐츠를 렌더링하려면 Liquid 태그에서 `:rerender` 플래그를 사용해야 합니다. `:rerender` 플래그는 한 단계 깊이에만 적용되므로 중첩된 Liquid 태그 호출에는 적용되지 않는다는 점에 유의하세요.
 
 카탈로그 항목에 고객 프로필 필드가 포함되어 있는 경우(Liquid 개인화 태그 내), Liquid를 올바르게 렌더링하기 위해 이러한 값은 메시지에서 템플릿 지정 이전에 Liquid에서 먼저 정의되어야 합니다. `:rerender` 플래그가 제공되지 않으면 원시 Liquid 콘텐츠가 렌더링됩니다.
 

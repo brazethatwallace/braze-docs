@@ -4,9 +4,13 @@
 
 コンテンツカードを使用するには、[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) をアプリに統合する必要があります。ただし、追加のセットアップは必要ありません。代わりに独自の UI を構築するには、[コンテンツカードカスタマイズガイド]({{site.baseurl}}/developer_guide/content_cards/)を参照してください。
 
+{% alert note %}
+一部の広告ブロッカーやブラウザーのプライバシー拡張機能は、Braze Web SDK スクリプトや関連するネットワークリクエストをブロックすることがあり、コンテンツカードの読み込みが妨げられる場合があります。CDN 統合方法を使用している場合は、[NPM 統合方法]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)への切り替えを検討してください。この方法では SDK ライブラリを Web サイトにローカルで保存するため、広告ブロッカー関連の問題を回避できる場合があります。
+{% endalert %}
+
 ## 標準フィード UI
 
-付属のコンテンツカード UI を使用するには、Web サイト上のどこにフィードを表示するかを指定する必要があります。 
+付属のコンテンツカード UI を使用するには、Web サイト上のどこにフィードを表示するかを指定する必要があります。
 
 この例では、コンテンツカードフィードを配置する `<div id="feed"></div>` があります。3つのボタンを使って、フィードの非表示、表示、トグル（現在の状態に応じて非表示または表示）を切り替えます。
 
@@ -47,7 +51,7 @@
 |---|---|
 |`parentNode` | コンテンツカードをレンダリングする HTML ノード。親ノードがすでに直系の子孫として Braze コンテンツカードビューを持っている場合、既存のコンテンツカードは置き換えられます。たとえば、`document.querySelector(".my-container")` を渡します。|
 |`filterFunction` | このビューに表示されるカードのフィルターまたはソート関数。`Card` オブジェクトの配列で呼び出され、`{pinned, date}` でソートされます。このユーザーにレンダリングするソート済みの `Card` オブジェクトの配列を返す必要があります。省略した場合は、すべてのカードが表示されます。 |
-{: .reset-td-br-1 .reset-td-br_2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 コンテンツカードの切り替えに関する詳細は、[SDK リファレンスドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards)を参照してください。
 

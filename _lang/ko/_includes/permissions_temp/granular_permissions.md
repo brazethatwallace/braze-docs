@@ -2,14 +2,14 @@
 
 ## 권한 세트 생성
 
-권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 여러 워크스페이스에서 동일한 액세스가 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions)을 참조하세요.
+권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 여러 워크스페이스에서 동일한 액세스가 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab example permission sets %}
 |이름|권한|
 |-----------|----------------|
 |개발자|"API 키 보기", "API 키 편집", "내부 그룹 보기", "내부 그룹 편집", "메시지 활동 로그 보기", "이벤트 사용자 로그 보기", "API 식별자 보기", "API 사용 대시보드 보기", "API 한도 보기", "API 사용 알림 보기", "API 사용 알림 편집", "SDK 디버거 보기", "SDK 디버거 편집".|
-|마케터|"캠페인 보기", "캠페인 편집", "캠페인 아카이브", "캔버스 보기", "캔버스 편집", "캔버스 아카이브", "최대 게재빈도 규칙 보기", "최대 게재빈도 규칙 편집", "메시지 우선순위 보기", "메시지 우선순위 편집", "콘텐츠 블록 보기", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "세그먼트 보기", "세그먼트 편집", "글로벌 컨트롤 그룹 편집", "IAM 템플릿 보기", "IAM 템플릿 편집", "IAM 템플릿 아카이브", "이메일 템플릿 보기", "이메일 템플릿 편집", "이메일 템플릿 아카이브", "웹훅 템플릿 보기", "웹훅 템플릿 편집", "웹훅 템플릿 아카이브", "링크 템플릿 보기", "링크 템플릿 편집", "미디어 라이브러리 자산 보기", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집", "보고서 편집", "배너 템플릿 보기", "현지화 설정 보기", "Operator 사용", "의사결정 스튜디오 에이전트 보기", "의사결정 스튜디오 전환 이벤트 보기".|
+|마케터|"캠페인 보기", "캠페인 편집", "캠페인 아카이브", "캔버스 보기", "캔버스 편집", "캔버스 아카이브", "최대 게재빈도 설정 규칙 보기", "최대 게재빈도 설정 규칙 편집", "메시지 우선순위 보기", "메시지 우선순위 편집", "콘텐츠 블록 보기", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "세그먼트 보기", "세그먼트 편집", "글로벌 컨트롤 그룹 편집", "IAM 템플릿 보기", "IAM 템플릿 편집", "IAM 템플릿 아카이브", "이메일 템플릿 보기", "이메일 템플릿 편집", "이메일 템플릿 아카이브", "웹훅 템플릿 보기", "웹훅 템플릿 편집", "웹훅 템플릿 아카이브", "이메일 링크 템플릿 보기", "이메일 링크 템플릿 편집", "미디어 라이브러리 자산 보기", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집", "대시보드 보고서 편집", "배너 템플릿 보기", "현지화 설정 보기", "Operator 사용", "의사결정 스튜디오 에이전트 보기", "의사결정 스튜디오 전환 이벤트 보기".|
 |사용자 관리|"대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브".|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
@@ -17,14 +17,14 @@
 
 ## 역할 생성
 
-역할은 개별 커스텀 권한을 워크스페이스 액세스 제어와 함께 묶어 더 체계적인 구조를 제공합니다. 하나의 대시보드에 여러 브랜드나 지역 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 적절한 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions)을 참조하세요.
+역할은 개별 커스텀 권한을 워크스페이스 액세스 제어와 함께 묶어 더 체계적인 구조를 제공합니다. 하나의 대시보드에 여러 브랜드나 지역 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 적절한 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab example roles %}
 | 역할 이름    | 워크스페이스 | 권한  
 ----------- | ----------- | ---------
-| 마케터 - 패션 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "캠페인 보기", "캠페인 편집", "캠페인 아카이브", "캔버스 보기", "캔버스 편집", "캔버스 아카이브", "콘텐츠 블록 보기", "콘텐츠 블록 편집", "콘텐츠 블록 아카이브", "콘텐츠 블록 시작", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "세그먼트 보기", "세그먼트 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집". |
-| 마케터 - 스킨케어 브랜드 | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"캠페인 보기", "캠페인 편집", "캠페인 아카이브", "캔버스 보기", "캔버스 편집", "캔버스 아카이브", "콘텐츠 블록 보기", "콘텐츠 블록 편집", "콘텐츠 블록 아카이브", "콘텐츠 블록 시작", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "세그먼트 보기", "세그먼트 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집".|
+| 마케터 - 패션 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "캠페인 보기", "캠페인 편집", "캠페인 아카이브", "캔버스 보기", "캔버스 편집", "캔버스 아카이브", "콘텐츠 블록 보기", "콘텐츠 블록 편집", "콘텐츠 블록 아카이브", "콘텐츠 블록 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "세그먼트 보기", "세그먼트 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집". |
+| 마케터 - 스킨케어 브랜드 | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"캠페인 보기", "캠페인 편집", "캠페인 아카이브", "캔버스 보기", "캔버스 편집", "캔버스 아카이브", "콘텐츠 블록 보기", "콘텐츠 블록 편집", "콘텐츠 블록 아카이브", "콘텐츠 블록 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "세그먼트 보기", "세그먼트 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집".|
 | 사용자 관리 - 모든 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
@@ -81,8 +81,8 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 관리자는 모든 기능에 접근할 수 있으며 회사의 모든 설정을 수정할 수 있습니다. 관리자는 다음을 수행할 수 있습니다:
 
-- [승인 설정]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/campaign_approval/#turning-on-campaign-approval) 변경
-- 다른 [Braze 사용자]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/adding_users_to_your_dashboard/#adding-braze-users)를 추가, 편집, 삭제, 일시 중지 또는 일시 중지 해제
+- [승인 설정]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow) 변경
+- 다른 [Braze 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)를 추가, 편집, 삭제, 일시 중지 또는 일시 중지 해제
 - Braze 사용자를 CSV로 내보내기
 
 관리자 권한을 부여하거나 제거하려면 **이 사용자는 관리자입니다**를 선택한 다음 **사용자 업데이트**를 선택하세요.
@@ -90,7 +90,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 ![선택한 사용자의 세부 정보에서 관리자 체크박스가 강조 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
-사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당할 때까지 해당 사용자는 Braze에 접근할 수 없습니다.
+사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당할 때까지 해당 사용자는 Braze에 접근할 수 없습니다.
 {% endalert %}
 
 {% endtab %}
@@ -102,7 +102,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 |권한 이름|설명|
 |----------|-----------|
-|회사 설정 관리|사용자가 권한 설정 및 발신자 인증을 수정할 수 있도록 허용합니다.|
+|회사 설정 관리|사용자가 권한 설정 및 발송자 확인을 수정할 수 있도록 허용합니다.|
 |워크스페이스 생성 및 삭제|사용자가 워크스페이스를 생성하고 삭제할 수 있도록 허용합니다.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -111,7 +111,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ### 워크스페이스
 
-Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **워크스페이스 및 권한 선택**을 선택한 다음 권한을 수동으로 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당하세요. 사용자에게 워크스페이스별로 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복하세요. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
+Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **워크스페이스 및 권한 선택**을 선택한 다음 권한을 수동으로 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당하세요. 사용자에게 워크스페이스별로 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복하세요. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -158,7 +158,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 청구 세부정보 보기                            | 청구 세부정보를 봅니다. |
 | PII로 표시된 커스텀 속성 보기            | PII로 표시된 커스텀 속성을 봅니다. |
 | PII 보기                                        | PII를 봅니다. |
-| PII 수정된 고객 프로필 보기               | 사용자 검색에 접근하고 PII가 수정된 고객 프로필을 봅니다. |
+| PII가 수정된 고객 프로필 보기               | 사용자 검색에 접근하고 PII가 수정된 고객 프로필을 봅니다. |
 | 사용량 데이터 보기                                 | 사용량 데이터를 봅니다. |
 | 중복 사용자 병합                           | 중복 사용자를 미리보고 하나의 사용자로 결합합니다. 병합 후 중복 항목이 제거됩니다. |
 | 캔버스 템플릿 보기                           | 캔버스 템플릿을 봅니다. |
@@ -183,7 +183,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 기능 플래그 보기                              | 기능 플래그를 봅니다. |
 | 기능 플래그 편집                              | 기능 플래그를 생성하고 업데이트합니다. |
 | 기능 플래그 아카이브                           | 기능 플래그를 아카이브로 이동합니다. |
-| WhatsApp 메시지 템플릿 보기                 | 사용자가 [WhatsApp 메시지 템플릿]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message)을 볼 수 있도록 허용합니다. |
+| WhatsApp 메시지 템플릿 보기                 | 사용자가 [WhatsApp 메시지 템플릿]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/?tab=template%20messages#step-2-compose-your-whatsapp-message)을 볼 수 있도록 허용합니다. |
 | WhatsApp 메시지 템플릿 편집 | 사용자가 템플릿 빌더에서 WhatsApp 메시지 템플릿을 생성할 수 있도록 허용합니다. 이 기능은 현재 얼리 액세스 중입니다. |
 | 세그먼트 보기                                   | 세그먼트를 봅니다. "세그먼트 편집" 또는 "세그먼트 아카이브" 권한을 가지려면 "세그먼트 보기" 권한이 필요합니다. |
 | 세그먼트 아카이브                                | 세그먼트를 아카이브하거나 아카이브 해제합니다. "세그먼트 아카이브" 권한이 있는 사용자는 "세그먼트 보기" 권한도 부여받아야 합니다. |
@@ -196,8 +196,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 이메일 템플릿 보기                            | 이메일 템플릿을 봅니다. |
 | 이메일 템플릿 편집                            | 이메일 템플릿을 생성하고 업데이트합니다. |
 | 이메일 템플릿 아카이브                         | 이메일 템플릿을 아카이브로 이동합니다. |
-| 링크 템플릿 보기   	                  | 변경 없이 링크 템플릿을 봅니다. |
-| 링크 템플릿 편집	                      | 링크 템플릿을 생성하고 업데이트합니다. |
+| 이메일 링크 템플릿 보기   	                  | 변경 없이 링크 템플릿을 봅니다. |
+| 이메일 링크 템플릿 편집	                      | 링크 템플릿을 생성하고 업데이트합니다. |
 | 랜딩 페이지 게시                           | 초안 랜딩 페이지를 활성화합니다. |
 | 랜딩 페이지 초안 편집                        | 랜딩 페이지 초안을 생성하고 저장합니다. |
 | 랜딩 페이지 보기			                  | 랜딩 페이지를 봅니다. |
@@ -270,8 +270,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 데이터 변환 보기                        | 데이터 변환을 봅니다. |
 | 데이터 변환 편집                        | 데이터 변환을 생성하고 업데이트합니다. |
 | 캔버스 템플릿 편집                           | 캔버스 템플릿을 생성하고 업데이트합니다. |
-| 캠페인 승인                               | 캠페인을 승인하거나 거부합니다. 이 권한이 적용되려면 [캠페인 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
-| 캔버스 승인                                | 캔버스를 승인하거나 거부합니다. 이 권한이 적용되려면 [캔버스 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
+| 캠페인 승인                               | 캠페인을 승인하거나 거부합니다. 이 권한이 적용되려면 [캠페인 승인 워크플로우]({{site.baseurl}}/user_guide/messaging/governance/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
+| 캔버스 승인                                | 캔버스를 승인하거나 거부합니다. 이 권한이 적용되려면 [캔버스 승인 워크플로우]({{site.baseurl}}/user_guide/messaging/governance/approvals/)가 활성화되어 있어야 합니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 계정 매니저에게 문의하세요. |
 | 배치 보기                                 | 배너 배치를 봅니다. |
 | 배치 편집                                 | 변경 없이 배너 배치를 봅니다. |
 | 배치 아카이브                              | 배너 배치를 아카이브로 이동합니다. |

@@ -37,3 +37,11 @@ Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하�
 {% endalert %}
 
 {% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+워크스페이스당 최대 350개의 구독 그룹을 추가할 수 있습니다.
+{% endalert %}
+
+{% endif %}

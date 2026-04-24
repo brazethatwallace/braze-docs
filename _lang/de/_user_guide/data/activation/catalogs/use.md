@@ -7,9 +7,13 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Kataloge verwenden
 
 # Verwendung von Katalogen
 
-> Nachdem Sie einen Katalog erstellt haben, können Sie in Ihren Braze-Kampagnen über [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) auf Nicht-Nutzerdaten verweisen. Sie können Kataloge in allen Ihren Messaging-Kanälen verwenden, auch überall dort, wo Liquid im Drag-and-Drop-Editor unterstützt wird.
+> Nachdem Sie einen Katalog erstellt haben, können Sie in Ihren Braze-Kampagnen über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) auf Nicht-Nutzerdaten verweisen. Sie können Kataloge in allen Ihren Messaging-Kanälen verwenden, auch überall dort, wo Liquid im Drag-and-Drop-Editor unterstützt wird.
 
 ## Kataloge in einer Nachricht verwenden
+
+Das folgende Video zeigt Ihnen, wie Sie Kataloge in einer Nachricht verwenden.
+
+{% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
 
 ### 1. Schritt: Personalisierungsart hinzufügen {#step-one-personalization}
 
@@ -141,7 +145,7 @@ So sieht das aus, wenn das Liquid gerendert wird:
 
 ### Templates für Katalogartikel
 
-Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepasster Attribute dynamisch abzurufen. Nehmen wir zum Beispiel an, ein Nutzer bzw. eine Nutzerin hat das angepasste Attribut `wishlist`, das ein Array von Spiele-IDs aus Ihrem Katalog enthält.
+Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepasster Attribute dynamisch abzurufen. Nehmen wir zum Beispiel an, ein:e Nutzer:in hat das angepasste Attribut `wishlist`, das ein Array von Spiele-IDs aus Ihrem Katalog enthält.
 
 ```json
 {
@@ -158,13 +162,13 @@ Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepa
 JSON-Objekte in Katalogen werden nur über die API aufgenommen. Sie können ein JSON-Objekt nicht über eine CSV-Datei hochladen.
 {% endalert %}
 
-Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu weisen Sie Ihrem angepassten Attribut [eine Variable zu]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#assigning-variables) und verwenden dann das Modal **Personalisierung hinzufügen**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
+Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) und verwenden dann das Modal **Personalisierung hinzufügen**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
 
 {% alert tip %}
 Denken Sie daran, dass Arrays bei `0` beginnen, nicht bei `1`.
 {% endalert %}
 
-Um beispielsweise einen Nutzer bzw. eine Nutzerin darüber zu informieren, dass Tales (ein Artikel aus unserem Katalog, der auf der Wunschliste steht) im Angebot ist, können wir unserem Nachrichten-Editor Folgendes hinzufügen:
+Um beispielsweise eine:n Nutzer:in darüber zu informieren, dass Tales (ein Artikel aus unserem Katalog, der auf der Wunschliste steht) im Angebot ist, können wir unserem Nachrichten-Editor Folgendes hinzufügen:
 
 {% raw %}
 ```liquid
@@ -178,7 +182,7 @@ Get {{ items[0].title }} now for {{ items[0].price }}!
 Dies wird wie folgt angezeigt:
 > Get Tales now for just 7.49!
 
-Mit Templates können Sie für jeden Nutzer bzw. jede Nutzerin einen anderen Katalogartikel rendern, der auf den individuellen angepassten Attributen, Event-Eigenschaften oder einem anderen in Templates verwendbaren Feld basiert.
+Mit Templates können Sie für jede:n Nutzer:in einen anderen Katalogartikel rendern, der auf den individuellen angepassten Attributen, Event-Eigenschaften oder einem anderen in Templates verwendbaren Feld basiert.
 
 ### Hochladen einer CSV-Datei
 
@@ -190,7 +194,7 @@ Sie können Kataloge auch manuell mit Liquid-Logik zusammenstellen. Beachten Sie
 
 #### Templates für Katalogartikel einschließlich Liquid
 
-Ähnlich wie bei [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) müssen Sie das `:rerender`-Flag in einem Liquid-Tag verwenden, um den Liquid-Inhalt eines Katalogartikels zu rendern. Beachten Sie, dass das `:rerender`-Flag nur eine Ebene tief wirkt, d. h. es gilt nicht für verschachtelte Liquid-Tag-Aufrufe.
+Ähnlich wie bei [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) müssen Sie das `:rerender`-Flag in einem Liquid-Tag verwenden, um den Liquid-Inhalt eines Katalogartikels zu rendern. Beachten Sie, dass das `:rerender`-Flag nur eine Ebene tief wirkt, d. h. es gilt nicht für verschachtelte Liquid-Tag-Aufrufe.
 
 Wenn ein Katalogartikel Nutzerprofil-Felder enthält (innerhalb eines Liquid-Personalisierungs-Tags), müssen diese Werte in Liquid zu einem früheren Zeitpunkt in der Nachricht und vor dem Templating definiert werden, damit das Liquid ordnungsgemäß gerendert werden kann. Wenn das `:rerender`-Flag nicht angegeben wird, wird der rohe Liquid-Inhalt ausgegeben.
 
@@ -240,12 +244,12 @@ Bei Standard-Katalogaufrufen gleichen Sie einen Wert mit der `id`-Spalte ab. Ind
 
 ### Wann Sie Katalogauswahlen verwenden sollten
 
-[Katalogauswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) ermöglichen es Ihnen, über jede Spalte in Ihrem Katalog zu filtern und bis zu 50 übereinstimmende Artikel zurückzugeben. Indem Sie angepasste Attribute oder Event-Eigenschaften in die Auswahlfilter einfügen, werden die Ergebnisse für jeden Nutzer bzw. jede Nutzerin personalisiert. Häufige Anwendungsfälle sind:
+[Katalogauswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) ermöglichen es Ihnen, über jede Spalte in Ihrem Katalog zu filtern und bis zu 50 übereinstimmende Artikel zurückzugeben. Indem Sie angepasste Attribute oder Event-Eigenschaften in die Auswahlfilter einfügen, werden die Ergebnisse für jede:n Nutzer:in personalisiert. Häufige Anwendungsfälle sind:
 
-- Artikel, deren Kategorie den Präferenzen eines Nutzers bzw. einer Nutzerin entspricht
-- Artikel, die zur bevorzugten Marke, Küche oder Größe eines Nutzers bzw. einer Nutzerin passen
+- Artikel, deren Kategorie den Präferenzen einer Nutzerin oder eines Nutzers entspricht
+- Artikel, die zur bevorzugten Marke, Küche oder Größe einer Nutzerin oder eines Nutzers passen
 - Inhalte zum Abo-Typ oder zur Treuestufe
-- Produkte innerhalb des durchschnittlichen Bestellwerts eines Nutzers bzw. einer Nutzerin
+- Produkte innerhalb des durchschnittlichen Bestellwerts einer Nutzerin oder eines Nutzers
 
 Der wesentliche Unterschied besteht darin, dass Standard-Katalogaufrufe einen einzelnen bekannten Artikel anhand der `id` nachschlagen, während Katalogauswahlen den gesamten Katalog abfragen und mehrere Artikel zurückgeben, die Ihren Filterkriterien entsprechen.
 

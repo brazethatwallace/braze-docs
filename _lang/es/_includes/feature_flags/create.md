@@ -17,7 +17,7 @@ Para gestionar los conmutadores de características en el dashboard, necesitará
 | Permiso                                                                    | Qué puedes hacer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Administrar conmutadores de características**                                                      | Ver, crear y editar conmutadores de características.     |
-| **Acceso a Campaigns, Canvas, tarjetas, conmutadores de características, Segments, mediateca** | Ver la lista de conmutadores de características disponibles. |
+| **Acceso a Campaigns, Canvas, tarjetas, conmutadores de características, Segments, Biblioteca de medios** | Ver la lista de conmutadores de características disponibles. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Crear un conmutador de características
@@ -78,7 +78,7 @@ Antes de desplegar un conmutador de características, tienes que elegir un [segm
 De forma predeterminada, los conmutadores de características siempre están inactivos, lo que te permite separar la fecha de lanzamiento de la característica de la activación total de los usuarios. Para comenzar la implementación, utiliza la sección **Tráfico de implementación** para introducir un porcentaje en el cuadro de texto. Esto seleccionará el porcentaje de usuarios aleatorios de tu segmento seleccionado que recibirán esta nueva característica.
 
 {% alert important %}
-No configures el tráfico de despliegue por encima del 0 % hasta que estés listo para que tu nueva característica entre en vivo. Cuando definas inicialmente tu conmutador de características en el dashboard, deja esta configuración en 0 %.
+No configures el tráfico de despliegue por encima del 0 % hasta que estés listo para que tu nueva característica entre en producción. Cuando definas inicialmente tu conmutador de características en el dashboard, deja esta configuración en 0 %.
 {% endalert %}
 
 {% alert important %}
@@ -126,7 +126,7 @@ Supongamos que trabajas para una marca de comercio electrónico y tienes una nue
 
 Supongamos que eres un administrador de productos y quieres asegurarte de que tus probadores internos siempre reciban el conmutador de características cuando lances un nuevo producto. Puedes añadir el segmento de tus probadores internos a tu primera regla y establecerlo en el 100 %, de modo que tus probadores internos sean elegibles durante cada lanzamiento de características.
 
-## Utilizar el campo "habilitado" para tus conmutadores de características {#enabled}
+## Utilizar el campo «habilitado» para tus conmutadores de características {#enabled}
 
 Una vez definido tu conmutador de características, configura tu aplicación o sitio web para comprobar si está habilitado para un usuario concreto. Cuando esté habilitado, establecerás alguna acción o harás referencia a las propiedades variables del conmutador de características en función de tu caso de uso. El SDK de Braze proporciona métodos getter para obtener el estado de tu conmutador de características y sus propiedades en tu aplicación. 
 

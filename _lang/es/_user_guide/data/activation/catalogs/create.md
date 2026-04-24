@@ -25,17 +25,7 @@ Una vez importada esta información, puedes empezar a acceder a ella en los mens
 
 ## Tipos de datos compatibles {#supported-data-types}
 
-La siguiente tabla enumera los tipos de datos de catálogo compatibles y cómo se pueden crear o actualizar.
-
-| Tipo de datos    | Descripción                                   | Disponible mediante carga de CSV | Disponible a través de API y CDI |
-|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
-| Cadena       | Una secuencia de caracteres.                     | ✅ Sí                    | ✅ Sí                     |
-| Número       | Un valor numérico, ya sea entero o flotante.     | ✅ Sí                    | ✅ Sí                     |
-| Booleano      | Un valor `true` o `false`.                    | ✅ Sí                    | ✅ Sí                     |
-| Tiempo         | Una cadena con formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).                        | ✅ Sí                    | ✅ Sí                     |
-| Objeto JSON  | Un objeto anidado con pares clave-valor. Se puede mostrar en la plataforma, pero solo se puede crear o actualizar a través de la API o CDI.         | ⛔ No                     | ✅ Sí                     |
-| Matriz de cadenas | Una lista de cadenas. Se puede mostrar en la plataforma, pero solo se puede crear o actualizar a través de la API o CDI. Máximo de 100 elementos. | ⛔ No                     | ✅ Sí                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+Para conocer los tipos de datos de catálogo compatibles, sus descripciones, cómo se pueden crear o actualizar (CSV vs API y CDI), y su formato y ejemplos, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Crear un catálogo
 
@@ -54,7 +44,7 @@ Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisit
 | Tamaño del archivo | En los planes gratuitos, el tamaño total de todos los archivos CSV de una empresa está limitado a 100 MB. Para los planes Pro, el tamaño máximo de un solo archivo CSV es de 2 GB. |
 | Valores de campo | Cada celda (valor de campo) puede contener hasta 5000 caracteres. |
 | Caracteres válidos | La columna `id` y todos los valores del encabezado solo pueden contener letras, números, guiones y guiones bajos. |
-| Tipos de datos | Los tipos de datos compatibles para las cargas CSV incluyen cadenas, números, valores booleanos y horas. Para obtener la lista completa de tipos de datos, incluidos los que solo están disponibles a través de la API y CDI, consulta [Tipos de datos compatibles](#supported-data-types). |
+| Tipos de datos | Los tipos de datos compatibles para las cargas CSV incluyen cadenas, números, valores booleanos y horas. Para obtener la lista completa de tipos de datos, incluidos los que solo están disponibles a través de la API y CDI, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formato | Formatea todo el texto en minúsculas para mantener la coherencia. |
 | Codificación | Guarda y carga el archivo CSV utilizando la codificación UTF-8. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -143,13 +133,13 @@ A continuación, daremos a este catálogo el nombre "games_catalog" y selecciona
 
 Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Puedes eliminar un catálogo y volver a cargar una versión actualizada utilizando el mismo nombre de catálogo.
 
-Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Requisitos previos
 
-Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) para tu espacio de trabajo:
+Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para tu espacio de trabajo:
 
 - Ver catálogos
 - Editar catálogos
@@ -188,19 +178,7 @@ Braze procesa los valores de tiempo basándose en la marca de tiempo del dashboa
 {% endtab %}
 {% endtabs %}
 
-## Tipos de datos del catálogo
-
-Los catálogos admiten varios tipos de datos para ayudarte a organizar y estructurar tus datos de manera eficaz. La siguiente tabla describe cada tipo de datos compatible y cómo se mapea a los nombres de tipos CSV y API:
-
-| Tipo de datos | Formato | Ejemplo | Descripción |
-|-----------|--------|---------|-------------|
-| Cadena | Texto | `"Hello World"` | Cualquier secuencia de caracteres utilizada para datos de texto, como nombres, descripciones e ID. Equivalente al tipo `string` en importaciones CSV y API. |
-| Tiempo | ISO 8601 o marca de tiempo unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de fecha y hora con formato ISO 8601 o marca de tiempo unix en segundos. Equivalente al tipo `time` en la API y al tipo `datetime` en las importaciones CSV. |
-| Booleano | `true` o `false` | `true` | Valores lógicos que representan estados verdaderos o falsos. Equivalente al tipo `boolean` en importaciones CSV y API. |
-| Número | Entero o decimal | `42` o `19.99` | Valores numéricos, incluyendo números enteros y decimales, para precios, cantidades, tasas y mucho más. Equivalente a los tipos `integer` y `float` en las importaciones CSV y al tipo `number` en la API. |
-| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estructuras de datos anidadas complejas. El valor `type` de la API es `object`. Se muestra como objeto JSON en el dashboard. Solo disponible a través de API o ingesta de datos en la nube (CDI). |
-| Matriz | Matriz de cadenas | `["red", "blue", "green"]` | Listas de valores de cadena. El valor `type` de la API es `array`. Se muestra como una matriz de cadenas en el dashboard. Solo disponible a través de la API o CDI. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Para conocer los tipos de datos de catálogo con formato y ejemplos, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Uso de plantillas en los nombres de los catálogos {#template-catalog-names}
 
@@ -225,7 +203,7 @@ Para actualizar tu catálogo después de cargar un archivo CSV o crear un catál
 
 A medida que crees más catálogos, también puedes utilizar el [punto de conexión Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) para obtener una lista de los catálogos de un espacio de trabajo.
 
-La API REST admite todos los [tipos de datos del catálogo](#supported-data-types), incluidos los objetos JSON y las matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la API REST.
+La API REST admite todos los [tipos de datos de catálogo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), incluidos los objetos JSON y las matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la API REST.
 
 ### Uso de la ingesta de datos en la nube
 
