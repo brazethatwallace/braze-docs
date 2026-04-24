@@ -660,18 +660,18 @@ def repair_front_matter(english_content, translated_content):
 
 
 def repair_front_matter_miscapitalized_tool_key(content):
-    """Normalize ``Tool:`` to ``tool:`` in YAML front matter.
+    """Normalize ``Tool:`` / ``Tool :`` to ``tool:`` in YAML front matter.
 
     Jekyll exposes ``page.tool`` from the lowercase key. A capitalized
-    ``Tool:`` key is a different identifier and skips tool taxonomy (see
-    auto-translate reviews on Canvas ``preview_user_paths`` pages).
+    ``Tool`` key is a different identifier and skips tool taxonomy (Copilot /
+    PR reviews on Canvas ``preview_user_paths`` and similar pages).
     """
     tr_fm, tr_body = _extract_front_matter(content)
     if not tr_fm:
         return content, []
-    if not re.search(r"^Tool:\s*", tr_fm, re.MULTILINE):
+    if not re.search(r"^Tool\s*:\s*", tr_fm, re.MULTILINE):
         return content, []
-    repaired_fm = re.sub(r"^Tool:", "tool:", tr_fm, flags=re.MULTILINE)
+    repaired_fm = re.sub(r"^Tool\s*:", "tool:", tr_fm, flags=re.MULTILINE)
     if repaired_fm == tr_fm:
         return content, []
     new_content = f"---\n{repaired_fm}\n---\n{tr_body}"
