@@ -11,12 +11,12 @@ channel:
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
-- name: Apple Private Relayへのメール送信
-  link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
-  image: /assets/img/braze_icons/list.svg
-- name: Apple Mailプライバシー保護
-  link: /docs/user_guide/channels/email/apple_mail/mpp
-  image: /assets/img/braze_icons/apple.svg
+  - name: Apple Private Relayへのメール送信
+    link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
+    image: /assets/img/braze_icons/list.svg
+  - name: Apple Mailプライバシー保護
+    link: /docs/user_guide/channels/email/apple_mail/mpp
+    image: /assets/img/braze_icons/apple.svg
 
 ---
 <br><br>

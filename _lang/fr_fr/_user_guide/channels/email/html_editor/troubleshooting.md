@@ -23,7 +23,7 @@ Certaines extensions de navigateur peuvent causer des problèmes avec notre édi
 - Modifier les e-mails Braze dans un navigateur qui ne dispose pas de Grammarly comme extension
 - Contacter votre gestionnaire de compte Braze et demander à passer vos éditeurs d'e-mails en HTML uniquement ou en texte brut.
 
-La vue en texte brut supprime votre éditeur ```WYSIWYG``` (what you see is what you get). Assurez-vous donc que tous les membres de l'équipe sont à l'aise avec le HTML avant de faire cette demande.
+La vue en texte brut supprime votre éditeur `WYSIWYG` (what you see is what you get). Assurez-vous donc que tous les membres de l'équipe sont à l'aise avec le HTML avant de faire cette demande.
 
 ### Rendu des e-mails
 

@@ -11,12 +11,12 @@ channel:
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
-- name: E-Mails an Apple Private Relay senden
-  link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
-  image: /assets/img/braze_icons/list.svg
-- name: E-Mail-Datenschutz bei Apple Mail
-  link: /docs/user_guide/channels/email/apple_mail/mpp
-  image: /assets/img/braze_icons/apple.svg
+  - name: E-Mails an Apple Private Relay senden
+    link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
+    image: /assets/img/braze_icons/list.svg
+  - name: E-Mail-Datenschutz bei Apple Mail
+    link: /docs/user_guide/channels/email/apple_mail/mpp
+    image: /assets/img/braze_icons/apple.svg
 
 ---
 <br><br>

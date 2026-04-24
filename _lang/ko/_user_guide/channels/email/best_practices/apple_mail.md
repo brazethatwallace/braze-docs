@@ -11,12 +11,12 @@ channel:
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
-- name: Apple Private Relay로 이메일 발송하기
-  link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
-  image: /assets/img/braze_icons/list.svg
-- name: Apple Mail MPP
-  link: /docs/user_guide/channels/email/apple_mail/mpp
-  image: /assets/img/braze_icons/apple.svg
+  - name: Apple Private Relay로 이메일 발송하기
+    link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
+    image: /assets/img/braze_icons/list.svg
+  - name: Apple Mail MPP
+    link: /docs/user_guide/channels/email/apple_mail/mpp
+    image: /assets/img/braze_icons/apple.svg
 
 ---
 <br><br>

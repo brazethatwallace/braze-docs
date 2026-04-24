@@ -11,12 +11,12 @@ channel:
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
-- name: Envío de correos electrónicos a Apple Private Relay
-  link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
-  image: /assets/img/braze_icons/list.svg
-- name: Protección de la privacidad en los correos electrónicos de Apple
-  link: /docs/user_guide/channels/email/apple_mail/mpp
-  image: /assets/img/braze_icons/apple.svg
+  - name: Envío de correos electrónicos a Apple Private Relay
+    link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
+    image: /assets/img/braze_icons/list.svg
+  - name: Protección de la privacidad en los correos electrónicos de Apple
+    link: /docs/user_guide/channels/email/apple_mail/mpp
+    image: /assets/img/braze_icons/apple.svg
 
 ---
 <br><br>

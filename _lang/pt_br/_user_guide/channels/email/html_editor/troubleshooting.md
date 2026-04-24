@@ -23,7 +23,7 @@ Certas extensões de navegador podem causar problemas com nosso editor de e-mail
 - Editar e-mails da Braze em um navegador que não tenha o Grammarly como extensão
 - Entrar em contato com o gerente da sua conta na Braze e solicitar a troca dos editores de e-mail para somente HTML ou texto simples.
 
-A visualização em texto simples remove o editor ```WYSIWYG``` (o que você vê é o que você obtém), então você deve primeiro confirmar que todos os membros da equipe estão confortáveis com HTML antes de fazer essa solicitação.
+A visualização em texto simples remove o editor `WYSIWYG` (o que você vê é o que você obtém), então você deve primeiro confirmar que todos os membros da equipe estão confortáveis com HTML antes de fazer essa solicitação.
 
 ### Renderização de e-mail
 
