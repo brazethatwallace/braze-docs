@@ -56,7 +56,7 @@ Estos servicios pueden incluir:
 - Llamadas regulares con un experto en capacidad de entrega (dos veces al mes para Deluxe y mensualmente para Estándar) para proporcionar:
   - Monitoreo del rendimiento de la capacidad de entrega por dominio
   - Recomendaciones para mejorar el rendimiento y los resultados del programa de correo electrónico utilizando datos y mejores prácticas establecidas
-- Mitigación y remediación de triaje de crisis para eventos que generen problemas como una lista de bloqueo de capacidad de entrega
+- Mitigar y remediar el triaje de crisis para eventos que generen problemas, como una lista de bloqueo de capacidad de entrega
 
 ## Próximos pasos
 
