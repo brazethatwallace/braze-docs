@@ -10,7 +10,7 @@ channel: email
 
 # Casos de uso de e-mail
 
-> Ao criar suas campanhas de e-mail, confira algumas diretrizes gerais sobre como construir seu conteúdo de acordo com seus casos de uso.
+> Ao criar suas Campaigns de e-mail, confira algumas diretrizes gerais sobre como construir seu conteúdo de acordo com seus casos de uso.
 
 ## Integração
 
@@ -30,7 +30,7 @@ Para recomendar determinados produtos, tente apresentá-los como sugestões cura
 
 ## Transacional
 
-Após um usuário fazer uma compra no app, confira algumas diretrizes de conteúdo para suas campanhas de e-mail voltadas especificamente para interações transacionais com seus usuários:
+Após um usuário fazer uma compra no app, confira algumas diretrizes de conteúdo para suas Campaigns de e-mail voltadas especificamente para interações transacionais com seus usuários:
 - Agradeça e forneça dicas que possam ajudá-los a aproveitar ao máximo a compra
 - Envie a confirmação de envio e uma forma de tirar dúvidas sobre a entrega
 - Peça feedback para obter opiniões sem ser insistente

@@ -10,7 +10,7 @@ channel: email
 
 # E-Mail-Anwendungsfälle
 
-> Beim Erstellen Ihrer E-Mail-Kampagnen finden Sie hier einige allgemeine Richtlinien, wie Sie Ihre Inhalte je nach Anwendungsfall gestalten können.
+> Beim Erstellen Ihrer E-Mail-Campaigns finden Sie hier einige allgemeine Richtlinien, wie Sie Ihre Inhalte je nach Anwendungsfall gestalten können.
 
 ## Onboarding
 
@@ -26,18 +26,18 @@ Ihre Inhalte sollten den Wert einer Aktion vermitteln, z. B. Rabatte und Verkauf
 
 Wenn Sie bestimmte Produkte empfehlen, versuchen Sie, diese als kuratierte, persönliche Vorschläge zu präsentieren, die den Nutzer:innen gefallen könnten. Wenn Sie ein zeitlich begrenztes Angebot bewerben, informieren Sie die Nutzer:innen unbedingt darüber! Ideeli vermittelt in dieser E-Mail hervorragend ein Gefühl der Dringlichkeit:
 
-![Aktions-E-Mail von Ideeli, die Nutzer:innen über ein zeitlich begrenztes Angebot informiert. Ein großes Banner enthält den Text „Ends at midnight EDT. 6-hour flash sale. Hurry! These amazing finds won't last long."]({% image_buster /assets/img_archive/Ideeli_email.png %}){: style="max-width:70%;"}
+![Aktions-E-Mail von Ideeli, die Nutzer:innen über ein zeitlich begrenztes Angebot informiert. Ein großes Banner enthält den Text „Ends at midnight EDT. 6-hour flash sale. Hurry! These amazing finds won't last long.“]({% image_buster /assets/img_archive/Ideeli_email.png %}){: style="max-width:70%;"}
 
 ## Transaktions-E-Mails
 
-Nachdem ein:e Nutzer:in einen In-App-Kauf getätigt hat, finden Sie hier einige Inhaltsrichtlinien für Ihre E-Mail-Kampagnen speziell für transaktionale Interaktionen mit Ihren Nutzer:innen:
+Nachdem ein:e Nutzer:in einen In-App-Kauf getätigt hat, finden Sie hier einige Inhaltsrichtlinien für Ihre E-Mail-Campaigns speziell für transaktionale Interaktionen mit Ihren Nutzer:innen:
 - Bedanken Sie sich und geben Sie Tipps, die helfen können, den Kauf optimal zu nutzen
 - Stellen Sie eine Versandbestätigung bereit und bieten Sie eine Möglichkeit, Fragen zur Lieferung zu stellen
 - Bitten Sie um Feedback, um Meinungen einzuholen, ohne aufdringlich zu sein
 
 Da Sie den Nutzer:innen einen Dienst erbracht haben, sind sie möglicherweise eher bereit, ihre Gedanken zu teilen. Hier ist ein Beispiel einer E-Mail von Restaurant.com:
 
-![Transaktions-E-Mail von Restaurants.com, die Nutzer:innen um Feedback bittet. Die E-Mail lautet: „Tell Us All About It! We hope you enjoyed your meal and experience at REDACTED. To ensure we are doing everything we can to provide you with the best service, food, and overall experience, please take a moment to give us your feedback. Your opinion is very valuable to us and we appreciate your thoughts." Die Handlungsaufforderung lautet „Take Survey".]({% image_buster /assets/img_archive/Restaurant_email.png %}){: style="max-width:80%;"}
+![Transaktions-E-Mail von Restaurants.com, die Nutzer:innen um Feedback bittet. Die E-Mail lautet: „Tell Us All About It! We hope you enjoyed your meal and experience at REDACTED. To ensure we are doing everything we can to provide you with the best service, food, and overall experience, please take a moment to give us your feedback. Your opinion is very valuable to us and we appreciate your thoughts.“ Die Handlungsaufforderung lautet „Take Survey“.]({% image_buster /assets/img_archive/Restaurant_email.png %}){: style="max-width:80%;"}
 
 ## Bindung
 
@@ -48,9 +48,9 @@ Halten Sie Ihren Ton freundlich! Dies könnte Ihre letzte Chance sein, Nutzer:in
 
 Versuchen Sie, Ihre Nachricht persönlich zu gestalten, um den Nutzer:innen zu zeigen, dass sie weiterhin geschätzt werden. Rue La La beispielsweise gestaltet die Bindungs-E-Mail als Nachricht des CEO:
 
-![Bindungs-E-Mail an Kund:innen mit einer personalisierten Nachricht des CEO von Rue La La. Die E-Mail lautet: „Just a quick hello. As Rue's CEO, I like checking in with our Members. Most tell me how much they love Rue. (And we're flattered.) But it doesn't seem like you're feeling it... yet. I'm not going to be subtle here. I'm giving you a 25 dollar credit to go shop the site and find what speaks to you, whether it's a designer bag, a new pair of jeans, or something amazing for your home. I (really) believe this is where you'll start feeling the Rue love. Enjoy!"]({% image_buster /assets/img_archive/Ruelala_email.png %}){: style="max-width:80%;"}
+![Bindungs-E-Mail an Kund:innen mit einer personalisierten Nachricht des CEO von Rue La La. Die E-Mail lautet: „Just a quick hello. As Rue's CEO, I like checking in with our Members. Most tell me how much they love Rue. (And we're flattered.) But it doesn't seem like you're feeling it... yet. I'm not going to be subtle here. I'm giving you a 25 dollar credit to go shop the site and find what speaks to you, whether it's a designer bag, a new pair of jeans, or something amazing for your home. I (really) believe this is where you'll start feeling the Rue love. Enjoy!“]({% image_buster /assets/img_archive/Ruelala_email.png %}){: style="max-width:80%;"}
 
-## Social Media
+## Soziale Medien
 
 E-Mails können eine Social-Media-Fangemeinde aufbauen, indem sie Empfänger:innen auf Ihre Social-Media-Plattformen leiten. Fügen Sie Links zu Ihren Social-Media-Konten ein, um die Verbindung mit Nutzer:innen zu vereinfachen.
 
@@ -58,10 +58,10 @@ Machen Sie es unterhaltsam! Veranstalten Sie einen Fotowettbewerb, bewerben Sie 
 
 ![Social-Media-E-Mail-Beispiel von Hailo, das Nutzer:innen zur Teilnahme an einer Foto-Challenge auffordert.]({% image_buster /assets/img_archive/Hailo_social_email.png %}){: style="max-width:70%;"}
 
-## Updates
+## Aktualisierungen
 
-Senden Sie Updates zu neuen oder verbesserten Features an alle Ihre Nutzer:innen. Nutzer:innen über neue Features zu informieren ist auch ein Engagement-Tool zur erneuten Interaktion, da es passive Nutzer:innen an den Wert Ihrer App erinnert.
+Senden Sie Aktualisierungen zu neuen oder verbesserten Features an alle Ihre Nutzer:innen. Nutzer:innen über neue Features zu informieren ist auch ein Engagement-Tool zur erneuten Interaktion, da es passive Nutzer:innen an den Wert Ihrer App erinnert.
 
 Wenn Ihr Feature eine Erklärung oder Demo erfordert, fügen Sie einen Link in die Nachricht ein. Hier ist ein Beispiel von Allrecipes.com:
 
-![Update-fokussiertes E-Mail-Beispiel von Allrecipes, das Nutzer:innen über ein neues Feature informiert. Der obere Teil der E-Mail lautet: „Too. Many. Passwords. Tired of passwords? So are we." Der E-Mail-Text leitet Nutzer:innen an, sich mit Facebook oder Google Plus anzumelden, mit der Handlungsaufforderung „See How".]({% image_buster /assets/img_archive/Allrecipes_email.png %}){: style="max-width:70%;"}
+![Update-fokussiertes E-Mail-Beispiel von Allrecipes, das Nutzer:innen über ein neues Feature informiert. Der obere Teil der E-Mail lautet: „Too. Many. Passwords. Tired of passwords? So are we.“ Der E-Mail-Text leitet Nutzer:innen an, sich mit Facebook oder Google Plus anzumelden, mit der Handlungsaufforderung „See How“.]({% image_buster /assets/img_archive/Allrecipes_email.png %}){: style="max-width:70%;"}

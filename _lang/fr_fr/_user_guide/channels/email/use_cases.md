@@ -10,7 +10,7 @@ channel: email
 
 # Cas d'utilisation des e-mails
 
-> Lorsque vous créez vos campagnes e-mail, voici quelques recommandations générales pour construire votre contenu en fonction de vos cas d'utilisation.
+> Lorsque vous créez vos Campaigns e-mail, voici quelques recommandations générales pour construire votre contenu en fonction de vos cas d'utilisation.
 
 ## Onboarding
 
@@ -30,7 +30,7 @@ Pour recommander certains produits, essayez de les présenter comme des suggesti
 
 ## Transactionnel
 
-Après qu'un utilisateur a effectué un achat in-app, voici quelques recommandations de contenu pour vos campagnes e-mail spécifiquement dédiées aux interactions transactionnelles avec vos utilisateurs :
+Après qu'un utilisateur a effectué un achat in-app, voici quelques recommandations de contenu pour vos Campaigns e-mail spécifiquement dédiées aux interactions transactionnelles avec vos utilisateurs :
 - Remerciez-les et fournissez des conseils qui peuvent les aider à tirer le meilleur parti de leur achat
 - Envoyez-leur une confirmation d'expédition et un moyen de poser des questions sur leur livraison
 - Demandez un retour d'expérience pour recueillir leur avis sans être insistant

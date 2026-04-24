@@ -10,7 +10,7 @@ channel: email
 
 # Casos de uso de correo electrónico
 
-> A medida que construyes tus campañas de correo electrónico, aquí tienes algunas pautas generales sobre cómo crear tu contenido según tus casos de uso.
+> A medida que construyes tus Campaigns de correo electrónico, aquí tienes algunas pautas generales sobre cómo crear tu contenido según tus casos de uso.
 
 ## Incorporación
 
@@ -30,7 +30,7 @@ Para recomendar ciertos productos, intenta presentarlos como sugerencias selecci
 
 ## Transaccional
 
-Después de que un usuario realiza una compra dentro de la aplicación, aquí tienes algunas pautas de contenido para tus campañas de correo electrónico específicamente para interacciones transaccionales con tus usuarios:
+Después de que un usuario realiza una compra dentro de la aplicación, aquí tienes algunas pautas de contenido para tus Campaigns de correo electrónico específicamente para interacciones transaccionales con tus usuarios:
 - Agradéceles y proporciona consejos que puedan ayudarles a aprovechar al máximo esa compra
 - Proporciónales una confirmación de envío y una forma de hacer preguntas sobre su pedido
 - Solicita comentarios para obtener opiniones sin ser insistente
