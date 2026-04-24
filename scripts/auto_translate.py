@@ -1520,6 +1520,184 @@ def repair_markdown_internal_link_trailing_slash(content):
     return content, []
 
 
+# German uses U+201E („) as the opening quotation mark and U+201C (") as
+# the closing one. The LLM occasionally pairs a typographic „ with an
+# ASCII " (U+0022) — the latter breaks screen readers, CSS selectors, and
+# PDF export, and was flagged on PR #13299. Non-greedy matching and an
+# exclusion of both ASCII " and typographic „/" inside the content window
+# means we only flip the *first* ASCII " after each „ opener, so straight
+# quotes inside unrelated HTML attributes like ``style="max-width:70%;"``
+# are never touched (they sit past the match boundary).
+_DE_MISMATCHED_QUOTE_RE = re.compile(
+    r'\u201E([^\u201E\u201C"]+?)"',
+    re.DOTALL,
+)
+
+
+def repair_german_mismatched_quotes(translated_path, translated_content):
+    """Fix ``„...text..."`` → ``„...text..."`` in ``_lang/de/`` files.
+
+    Only runs on German translations because „ isn't an opening quote in
+    the other five locales.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    # Match both ``_lang/de/...`` (relative) and ``/.../_lang/de/...`` (abs).
+    if "_lang/de/" not in rel:
+        return translated_content, []
+
+    new, n = _DE_MISMATCHED_QUOTE_RE.subn(
+        lambda m: "\u201E" + m.group(1) + "\u201C",
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"de-quotes — closed {n} „ opening quote(s) with typographic "
+            f"\u201C (was ASCII \")"
+        ]
+    return translated_content, []
+
+
+_HEADING_RE = re.compile(r'^(#{1,6})\s+(.+?)\s*$', re.MULTILINE)
+_HEADING_SLUG_TAIL_RE = re.compile(r'\s*\{#[^}]+\}\s*$')
+
+# The heading-drift check is scoped to user-facing prose sections. API
+# reference, developer guide, and partner integration pages routinely keep
+# English technical headings (``## Request body``, ``## Endpoint``,
+# ``## Webhooks``, ``## iOS``) as intentional loanwords, so running the
+# check there produces too much noise. PR #13299's real drift lived in
+# ``_user_guide/channels/email/use_cases.md`` — we keep the check focused
+# on the class of files where human-readable heading translation is the
+# documented convention.
+_HEADING_CHECK_SECTIONS = ("_user_guide/",)
+
+
+def _strip_heading_slug(text):
+    return _HEADING_SLUG_TAIL_RE.sub('', text).strip()
+
+
+def _heading_is_product_term_only(heading_text):
+    """True when the heading is a single Braze product name (stays English)."""
+    text = _strip_heading_slug(heading_text).lower()
+    return any(text == name.lower() for name in BRAZE_PRODUCT_NAMES)
+
+
+# Single-word headings that universally stay English across all locales
+# (fictional example brand names, platform/tech proper nouns, acronyms).
+# Case-folded on lookup. Kept narrow so genuinely translatable single
+# words — like ``Updates`` → ``Aktualisierungen`` — still surface.
+_HEADING_SINGLE_WORD_ALLOWLIST = frozenset({
+    # Platform / format / protocol proper nouns.
+    "ios", "android", "csv", "json", "xml", "yaml", "html",
+    "whatsapp", "sms", "mms", "rcs", "http", "https",
+    "webhook", "webhooks",
+    "shopify", "mparticle", "salesforce", "segment.com",
+    # Fictional brand names used in Braze doc examples.
+    "steppington", "pantslabyrinth", "moviecanon",
+    # Common English loanwords accepted unchanged in tech prose.
+    "onboarding", "feedback", "upload", "download", "login", "logout",
+    "setup", "dashboard", "dashboards", "engagement", "performance",
+    "teams", "events", "workspaces", "integration", "integrations",
+    "analytics", "customization", "customizations", "arrays",
+    "general", "prerequisites", "overview",
+    "endpoint", "endpoints", "response", "request",
+    "audience", "audiences", "push", "email",
+})
+
+
+def _heading_should_skip_check(heading_text):
+    """True when a verbatim-English match should *not* be flagged as drift.
+
+    Filters out false-positive shapes observed in a sweep of shipped
+    _user_guide/ translations:
+
+    - Headings inside inline code spans (```` ``identifier`` ``).
+    - Headings containing any Braze product-name substring
+      (``BrazeAI Operator``, ``Canvas components``, ``Content Optimizer``).
+    - Single-word headings in the platform/brand/loanword allowlist
+      (``## iOS``, ``## Integration``, ``## Steppington``).
+
+    Still fires on genuine drift: multi-word English phrases with obvious
+    native translations (``## Social Media``, ``## Best practices``), and
+    single-word translatables not on the allowlist (``## Updates`` →
+    ``## Aktualisierungen``).
+    """
+    stripped = _strip_heading_slug(heading_text)
+    if not stripped:
+        return True
+    if "`" in stripped:
+        return True
+    lowered = stripped.lower()
+    for name in BRAZE_PRODUCT_NAMES:
+        if name.lower() in lowered:
+            return True
+    words = stripped.split()
+    if len(words) <= 1 and lowered in _HEADING_SINGLE_WORD_ALLOWLIST:
+        return True
+    return False
+
+
+def check_untranslated_headings(
+    english_content, translated_content, lang_key, translated_path=None
+):
+    """Warn when most user-guide headings are translated but a few stay English.
+
+    PR #13299 had a German translation of a user-guide page where every
+    heading was translated except ``## Social Media`` and ``## Updates`` —
+    an outlier pattern that no existing QC catches (they're too short to
+    trip ``check_untranslated``'s 200-char threshold, and they're not
+    product names so glossary checks ignore them). This surfaces a
+    reviewer-visible warning; no auto-edit, because a bad replacement
+    would be worse than a missed translation.
+
+    Runs only on ``_user_guide/`` files for the reason explained on
+    ``_HEADING_CHECK_SECTIONS``. Within that scope, still skips headings
+    that are just Braze product names (``## Canvas``) and files where
+    fewer than 60% of headings already differ from English.
+    """
+    if translated_path is None:
+        return []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not any(section in rel for section in _HEADING_CHECK_SECTIONS):
+        return []
+
+    _, en_body = _extract_front_matter(english_content)
+    _, tr_body = _extract_front_matter(translated_content)
+
+    en_heads = [(lvl, text) for lvl, text in _HEADING_RE.findall(en_body)]
+    tr_heads = [(lvl, text) for lvl, text in _HEADING_RE.findall(tr_body)]
+
+    if len(en_heads) != len(tr_heads) or len(en_heads) < 4:
+        return []
+
+    matching = []
+    translated_count = 0
+    for (en_lvl, en_text), (tr_lvl, tr_text) in zip(en_heads, tr_heads):
+        en_stripped = _strip_heading_slug(en_text)
+        tr_stripped = _strip_heading_slug(tr_text)
+        if en_stripped == tr_stripped:
+            if _heading_is_product_term_only(tr_text):
+                continue
+            if _heading_should_skip_check(tr_text):
+                continue
+            matching.append(tr_stripped)
+        else:
+            translated_count += 1
+
+    total = len(en_heads)
+    if not matching:
+        return []
+    if translated_count < 0.6 * total:
+        return []
+
+    preview = ", ".join(f'"{h}"' for h in matching[:5])
+    more = f" (+{len(matching) - 5} more)" if len(matching) > 5 else ""
+    return [
+        f"headings — {len(matching)} heading(s) left in English while "
+        f"{translated_count} other heading(s) are translated: "
+        f"{preview}{more}"
+    ]
+
+
 def repair_markdown_wire_format_tables(content):
     """Auto-fix markdown table / IAL issues from translation or English typos.
 
@@ -2732,6 +2910,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(de_pilot_quote_repairs)
 
+    translated_content, de_quote_repairs = repair_german_mismatched_quotes(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(de_quote_repairs)
+
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
 
@@ -2822,6 +3005,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["warnings"].extend(
         check_untranslated(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_untranslated_headings(
+            english_content, translated_content, lang_key, translated_path
+        )
     )
     findings["warnings"].extend(
         check_sibling_terminology_drift(translated_path, translated_content)
