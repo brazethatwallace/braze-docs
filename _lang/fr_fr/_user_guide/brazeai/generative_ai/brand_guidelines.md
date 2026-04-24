@@ -1,5 +1,5 @@
 ---
-nav_title: Lignes directrices de la marque
+nav_title: Directives de marque
 article_title: Directives de marque générées par l'intelligence artificielle
 page_order: 2.2
 description: "Cet article de référence traite des directives de marque pour l'assistant de rédaction de l'intelligence artificielle. Cette fonctionnalité vous permet d'adapter le style des textes générés par l'assistant de rédaction de l'intelligence artificielle à la voix et au style de votre marque."

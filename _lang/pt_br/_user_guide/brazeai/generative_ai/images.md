@@ -15,9 +15,9 @@ A Biblioteca de mídia permite que você gerencie seus ativos em um único local
 
 ## Gerando uma imagem
 
-1. Acesse sua Biblioteca de mídia e selecione <i class="fas fa-wand-magic-sparkles"></i> **AI Image Generator**.
+1. Acesse sua Biblioteca de mídia e selecione <i class="fas fa-wand-magic-sparkles"></i> **Gerador de imagens por IA**.
 2. Digite uma descrição da imagem que você deseja gerar, com até 300 caracteres. Quanto mais detalhada a descrição, melhor será o resultado. Esse recurso aceita apenas entrada de texto — não é possível fazer upload de uma imagem como referência.
-3. Selecione **Generate Images**. Pode levar cerca de um minuto para as imagens serem geradas.
+3. Selecione **Gerar imagens**. Pode levar cerca de um minuto para as imagens serem geradas.
 4. Selecione <i class="fas fa-download" title="Adicionar imagem à Biblioteca de mídia"></i> nas imagens que deseja adicionar à sua Biblioteca de mídia.
 
 ![Modal do gerador de imagens de IA na Biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_dalle.png %}){: style="max-width:75%"}
