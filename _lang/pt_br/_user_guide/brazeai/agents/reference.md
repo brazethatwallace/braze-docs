@@ -259,7 +259,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 {% endtab %}
 {% endtabs %}
 
-### Exemplos de agentes em catálogo
+### Exemplos de agentes de catálogo
 
 Vamos supor que você faz parte de uma marca de transporte por aplicativo, StyleRyde, e seus objetivos são escrever resumos atrativos de métodos de viagem e fornecer traduções do app móvel com base no idioma usado na região. Aqui estão exemplos de diferentes instruções com base nos objetivos definidos.
 
@@ -409,7 +409,7 @@ Se você quiser formatar respostas de uma pesquisa de feedback simples para dete
 | **confidence_score** | Número |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-![Console do agente mostrando três campos de saída para pontuação de probabilidade, explicação e pontuação de confiança.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
+![Console do agente mostrando três campos de saída para pontuação de probabilidade, explicação e pontuação de intervalo de confiança.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
 {% endtab %}
 {% tab Esquema JSON %}
@@ -445,9 +445,9 @@ Escolha catálogos específicos para um agente referenciar e forneça ao seu age
 
 ## Contexto de associação a segmentos
 
-Você pode selecionar até cinco segmentos para o agente cruzar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação de segmento selecionada para um segmento de "Usuários de Fidelidade", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do Agente, o agente pode verificar se cada usuário é membro de cada segmento que você especificou no console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+Você pode selecionar até cinco segmentos para o agente cruzar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação de segmento selecionada para um segmento "Usuários de Fidelidade", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do Agente, o agente pode verificar se cada usuário é membro de cada segmento que você especificou no console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
 
-![O segmento "Usuários de Fidelidade" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+![O segmento "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## Diretrizes da marca
 

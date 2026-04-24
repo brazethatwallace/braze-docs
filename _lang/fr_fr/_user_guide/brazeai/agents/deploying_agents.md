@@ -57,7 +57,7 @@ Pour ajouter un agent à votre champ de catalogue :
 
 ### Fonctionnement des agents de catalogue  
 
-Après le lancement, l'agent s'exécute et évalue chaque ligne, en intégrant les colonnes sélectionnées dans son contexte pour produire un résultat. Les agents s'exécutent sur toutes les nouvelles lignes ajoutées après le déploiement de l'agent. Si vous avez sélectionné **Recalculate when catalog rows update**, toutes les valeurs de ce champ sont mises à jour lorsque les champs source existants changent.
+Après le lancement, l'agent s'exécute et évalue chaque ligne en intégrant les colonnes sélectionnées dans son contexte pour produire un résultat. Les agents s'exécutent sur toutes les nouvelles lignes ajoutées après le déploiement de l'agent. Si vous avez sélectionné **Recalculate when catalog rows update**, toutes les valeurs de ce champ sont mises à jour lorsque les champs source existants changent.
 
 Vous pouvez actualiser et modifier les champs de votre catalogue qui utilisent des agents. Pour supprimer un agent d'une colonne, désélectionnez **Apply AI agent**. La colonne redevient alors une colonne non agentique, et les champs conservent les dernières valeurs appliquées par l'agent lors de sa dernière exécution sur le catalogue.
 
@@ -102,7 +102,7 @@ Dans la section **Usage** de votre agent, vous pouvez consulter et accéder aux 
 
 ![Section Usage de l'agent affichant deux agents actifs et un agent inactif pour les Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Dans la section **Logs** de votre agent, vous pouvez surveiller les appels réels de l'agent qui ont lieu dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Export CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
+Dans la section **Logs** de votre agent, vous pouvez surveiller les appels réels de l'agent dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Export CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
 
 {% alert tip %}
 Vous pouvez également surveiller les erreurs de limite d'invocations quotidiennes dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).

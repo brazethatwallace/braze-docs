@@ -26,7 +26,7 @@ Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credits-Nutzung**, um Detail
 
 ### Kann ich bedingte Liquid-Anweisungen in Agent-Anweisungen verwenden?
 
-Nein. Der Versuch, Liquid-Blöcke wie {% raw %}`{% if %}{% endraw %}`-Anweisungen zu schreiben, kann zu einem Validierungsfehler führen. Agents können verschiedene Szenarien stattdessen über natürlichsprachliche Beschreibungen im Prompt abdecken.
+Nein. Der Versuch, Liquid-Blöcke wie {% raw %}`{% if %}`{% endraw %}-Anweisungen zu schreiben, kann zu einem Validierungsfehler führen. Agents können verschiedene Szenarien stattdessen über natürlichsprachliche Beschreibungen im Prompt abdecken.
 
 ### Können Agents auf Nutzerdaten zugreifen, die über die spezifischen Liquid-Attribute oder -Werte hinausgehen, die ich ihnen übergebe?
 

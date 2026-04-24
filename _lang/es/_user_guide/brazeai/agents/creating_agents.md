@@ -78,7 +78,7 @@ Selecciona **Añadir recursos** para elegir lo que tu agente puede consultar. Es
 
 #### Paso 3.2: Añadir configuración opcional
 
-En la **Configuración opcional**, puedes ajustar la [temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) del texto generado por el agente. Una temperatura más alta permite al agente utilizar la información proporcionada para ser más creativo.
+En la **Configuración opcional**, puedes ajustar la [temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) del texto generado por el agente. Una temperatura más alta permite al agente utilizar la información proporcionada de forma más creativa.
 
 ### Paso 4: Selecciona la salida {#select-output}
 
