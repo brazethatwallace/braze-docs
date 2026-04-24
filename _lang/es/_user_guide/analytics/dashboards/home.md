@@ -19,7 +19,7 @@ La página **Inicio** tiene dos secciones principales:
 
 ![Dashboard de inicio en Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
-## Retoma donde lo dejaste
+## Retoma donde lo dejaste {#pick-up-where-you-left-off}
 
 Puedes retomar donde lo dejaste en el dashboard de Braze con acceso directo a los archivos que editaste o creaste recientemente. Esta sección aparece en la parte superior de la página **Inicio** del dashboard de Braze.
 
@@ -31,7 +31,7 @@ La sección **Retoma donde lo dejaste** aparece después de que hayas editado o 
 
 ![Un borrador de Canvas, un segmento activo y un borrador de campaña en la sección "Retoma donde lo dejaste".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-## Resumen de rendimiento
+## Resumen de rendimiento {#performance-overview}
 
 De forma predeterminada, la sección **Resumen de rendimiento** muestra los datos de los últimos 30 días para todas las aplicaciones y sitios. Todas tus métricas se calculan en función del rango de fechas seleccionado.
 

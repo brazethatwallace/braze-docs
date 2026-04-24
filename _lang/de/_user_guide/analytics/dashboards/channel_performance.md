@@ -133,7 +133,7 @@ Sie können die Daten in Ihrem Dashboard mit den folgenden Filteroptionen filter
 
 ![Filteroptionen im Kanal-Performance-Dashboard, in dem Sie einen Tag und eine Liste von Canvases zum Filtern auswählen können.]({% image_buster /assets/img_archive/dashboard_filters.png %})
 
-## Zeiträume vergleichen
+## Zeiträume vergleichen {#comparing-time-periods}
 
 Das Kanal-Performance-Dashboard vergleicht automatisch den im Datumsbereich ausgewählten Zeitraum mit dem vorherigen Zeitraum, der die gleiche Anzahl an Tagen umfasst. Wenn Sie beispielsweise „Letzte 7 Tage" als Datumsbereich im Dashboard auswählen, vergleicht der Vergleich zum vorherigen Zeitraum die Metriken der letzten sieben Tage mit den sieben Tagen davor. Wenn Sie einen benutzerdefinierten Datumsbereich auswählen – sagen wir vom 10. Mai bis zum 15. Mai, also sechs Tage an Daten – vergleicht das Dashboard die Metriken aus diesen Tagen mit den Metriken vom 4. Mai bis zum 9. Mai.
 

@@ -19,7 +19,7 @@ Die **Home**-Seite besteht aus zwei Hauptbereichen:
 
 ![Home-Dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
-## Dort weitermachen, wo Sie aufgehört haben
+## Dort weitermachen, wo Sie aufgehört haben {#pick-up-where-you-left-off}
 
 Sie können im Braze-Dashboard dort weitermachen, wo Sie aufgehört haben – mit direktem Zugriff auf Dateien, die Sie kürzlich bearbeitet oder erstellt haben. Dieser Abschnitt erscheint oben auf der **Home**-Seite des Braze-Dashboards.
 
@@ -31,7 +31,7 @@ Der Abschnitt **Dort weitermachen, wo Sie aufgehört haben** erscheint, nachdem 
 
 ![Ein Canvas-Entwurf, ein aktives Segment und ein Kampagnen-Entwurf im Abschnitt „Dort weitermachen, wo Sie aufgehört haben".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-## Performance-Übersicht
+## Performance-Übersicht {#performance-overview}
 
 Standardmäßig zeigt der Abschnitt **Performance-Übersicht** die Daten der letzten 30 Tage für alle Apps und Websites an. Alle Metriken werden basierend auf dem ausgewählten Zeitraum berechnet.
 

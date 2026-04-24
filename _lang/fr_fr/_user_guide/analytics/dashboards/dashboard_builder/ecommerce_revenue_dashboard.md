@@ -20,12 +20,12 @@ Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans *
 
 | Indicateur | Définition |
 | --- | --- |
-| eCommerce Revenue | Chiffre d'affaires total attribué au dernier point de contact, basé sur la plage de dates et la fenêtre de conversion sélectionnées. |
-| Daily Orders Placed | Nombre moyen de commandes distinctes passées par jour. |
-| Average Daily eCommerce Revenue | Chiffre d'affaires moyen attribué par jour pour la période sélectionnée. |
-| eCommerce Revenue Over Time | Série temporelle du chiffre d'affaires attribué sur la plage de dates sélectionnée. |
-| eCommerce Revenue by Campaign | Chiffre d'affaires attribué ventilé par campagne. |
-| eCommerce Revenue by Canvas | Chiffre d'affaires attribué ventilé par Canvas. |
+| Chiffre d'affaires eCommerce | Chiffre d'affaires total attribué au dernier point de contact, basé sur la plage de dates et la fenêtre de conversion sélectionnées. |
+| Commandes quotidiennes passées | Nombre moyen de commandes distinctes passées par jour. |
+| Chiffre d'affaires eCommerce quotidien moyen | Chiffre d'affaires moyen attribué par jour pour la période sélectionnée. |
+| Chiffre d'affaires eCommerce au fil du temps | Série temporelle du chiffre d'affaires attribué sur la plage de dates sélectionnée. |
+| Chiffre d'affaires eCommerce par campagne | Chiffre d'affaires attribué ventilé par campagne. |
+| Chiffre d'affaires eCommerce par Canvas | Chiffre d'affaires attribué ventilé par Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ## Modèle d'attribution
@@ -64,8 +64,8 @@ Le chiffre d'affaires et le nombre de commandes utilisent les calculs standardis
 
 | Indicateur | Calcul |
 | --- | --- |
-| Total Revenue | Somme des valeurs des commandes passées − Somme des valeurs remboursées |
-| Total Orders | Commandes distinctes passées − Commandes distinctes annulées |
+| Chiffre d'affaires total | Somme des valeurs des commandes passées − Somme des valeurs remboursées |
+| Total des commandes | Commandes distinctes passées − Commandes distinctes annulées |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### Données exclues

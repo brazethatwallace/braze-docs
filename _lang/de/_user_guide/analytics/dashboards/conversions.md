@@ -13,7 +13,7 @@ tool:
 
 > Das Conversions-Dashboard analysiert Conversions über Kampagnen, Canvases und Kanäle hinweg mithilfe verschiedener [Attributionsmethoden](#attribution-methods). Bei der Messung Ihrer Conversions können Sie den Zeitraum, das Konversions-Event und das Konversionsfenster festlegen.
 
-## Ihren Bericht einrichten
+## Ihren Bericht einrichten {#setting-up-your-report}
 
 So richten Sie Ihren Conversions-Dashboard-Bericht ein:
 
@@ -35,7 +35,7 @@ Wenn Sie Conversions für mehrere Kanäle analysieren, wird Ihre **Attributionsm
 
 Nachdem die Seite geladen wurde, wählen Sie ein **Konversions-Event** aus, um den Bericht nach Conversion-Daten zu filtern. Die verfügbaren Optionen umfassen die Events, die in den Canvases und Kampagnen vorkonfiguriert wurden. Wenn Sie beim Einrichten Ihres Berichts (Schritt 6) ein angepasstes Event ausgewählt haben, ist diese Option nicht verfügbar.
 
-### Angepasste Events verwenden
+### Angepasste Events verwenden {#using-custom-events}
 
 Damit Metriken für angepasste Events im Conversions-Dashboard angezeigt werden, müssen ein Konversions-Event und ein Canvas-Eingangs-Event im auf der Seite angegebenen Datumsbereich vorhanden sein.
 
@@ -71,7 +71,7 @@ Ihr Bericht ist in drei Abschnitte unterteilt:
 - [Konversionstrichter](#conversion-funnel)
 - [Conversions im Zeitverlauf](#conversions-over-time)
 
-### Conversion-Details
+### Conversion-Details {#conversion-details}
 
 Die Tabelle mit den Conversion-Details zeigt immer eine Spalte für *Empfänger:innen* und eine weitere für *Conversions* (Rate und Gesamtzahl). Die verbleibenden zwei Tabellenspalten hängen von den Optionen ab, die Sie beim Einrichten Ihres Berichts ausgewählt haben.
 
@@ -89,7 +89,7 @@ Die folgende Tabelle beschreibt mögliche Metriken.
 
 Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Kampagnen oder Canvases ausgewählt haben, können Sie auf <i class="fas fa-angle-down"></i> klicken, um die Tabelle zu erweitern.
 
-### Konversionstrichter
+### Konversionstrichter {#conversion-funnel}
 
 Dieses Balkendiagramm zeigt die absoluten Zahlen für jedes [Engagement-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) basierend auf dem ausgewählten Kanal. Die Conversion-Anzahl wird gemäß der ausgewählten Attributionsmethode definiert.
 
@@ -103,7 +103,7 @@ Dieses Diagramm zeigt nur Daten für jeweils einen einzelnen Kanal an. Verwenden
 
 ![Konversionstrichter-Balkendiagramm für zwei E-Mail-Kampagnen mit ähnlichen Ergebnissen für E-Mail zugestellt, E-Mail geöffnet, E-Mail angeklickt und Conversions.]({% image_buster /assets/img_archive/conversions2_funnel.png %})
 
-### Conversions im Zeitverlauf
+### Conversions im Zeitverlauf {#conversions-over-time}
 
 Dieses Zeitreihendiagramm enthält eine Darstellung der Conversions pro Kampagne oder Canvas im Zeitverlauf. Standardmäßig werden alle ausgewählten Kampagnen und Canvases angezeigt. Um eine Kampagne oder einen Canvas abzuwählen, klicken Sie auf den Namen der Kampagne oder des Canvas, die/den Sie ausschließen möchten.
 
@@ -111,7 +111,7 @@ Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars"></i> 
 
 ![Zeitreihendiagramm „Conversions im Zeitverlauf" für zwei E-Mail-Kampagnen, das Conversions nach Tag zeigt.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
-### Attributionsmethoden
+### Attributionsmethoden {#attribution-methods}
 
 | Attributionsmethode | Definition | Ratenberechnung | Kanalspezifische Optionen |
 | --- | --- | --- | --- |
@@ -123,7 +123,7 @@ Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars"></i> 
 | Bei Last-Touch | Conversions, bei denen die gesamte Zuordnung der zuletzt berührten oder angeklickten Nachricht innerhalb des Konversionsfensters zugeschrieben wird. | Berechnet als (Anzahl der Touches) / (Eindeutige Empfänger:innen) | Last-Touch-Attribution wird automatisch ausgewählt, wenn dem Bericht mehrere Kanäle hinzugefügt werden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Wichtige Begriffe
+## Wichtige Begriffe {#terms-to-know}
 
 | Begriff | Definition |
 | --- | --- |

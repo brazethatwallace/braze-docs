@@ -18,7 +18,7 @@ tool:
 
 ![Braze의 홈 대시보드.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
-## 이전 작업 이어서 하기
+## 이전 작업 이어서 하기 {#pick-up-where-you-left-off}
 
 Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 접근하여 이전 작업을 이어서 할 수 있습니다. 이 섹션은 Braze 대시보드 **홈** 페이지 상단에 표시됩니다.
 
@@ -30,7 +30,7 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 !["이전 작업 이어서 하기" 섹션에 캔버스 초안, 활성 세그먼트, 캠페인 초안이 표시된 모습.]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-## 성과 개요
+## 성과 개요 {#performance-overview}
 
 기본적으로 **성과 개요** 섹션은 모든 앱과 사이트의 최근 30일 데이터를 표시합니다. 모든 측정기준은 선택한 날짜 범위를 기준으로 계산됩니다.
 

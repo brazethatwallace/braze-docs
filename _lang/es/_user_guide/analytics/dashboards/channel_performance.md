@@ -133,7 +133,7 @@ Puedes filtrar los datos de tu dashboard usando las siguientes opciones de filtr
 
 ![Opciones de filtro en el dashboard de rendimiento del canal donde puedes seleccionar una etiqueta y una lista de Canvas para filtrar.]({% image_buster /assets/img_archive/dashboard_filters.png %})
 
-## Comparación de períodos de tiempo
+## Comparación de períodos de tiempo {#comparing-time-periods}
 
 El dashboard de rendimiento del canal compara automáticamente el período de tiempo que has seleccionado en el rango de fechas con el período anterior, sumando la misma cantidad de días. Por ejemplo, si eliges "Últimos 7 días" como tu rango de fechas en el dashboard, la comparación con el período anterior comparará las métricas de los últimos siete días con los siete días previos. Si seleccionas un rango de fechas personalizado, digamos del 10 al 15 de mayo, que son seis días de datos, el dashboard comparará las métricas de esos días con las métricas del 4 al 9 de mayo.
 

@@ -13,7 +13,7 @@ tool:
 
 > Le tableau de bord des conversions analyse les conversions de vos campagnes, Canvas et canaux à l'aide de différentes [méthodes d'attribution](#attribution-methods). Lors de la mesure de vos conversions, vous pouvez spécifier la période, l'événement de conversion et la fenêtre de conversion.
 
-## Configurer votre rapport
+## Configurer votre rapport {#setting-up-your-report}
 
 Pour configurer votre rapport dans le tableau de bord des conversions :
 
@@ -35,7 +35,7 @@ Si vous analysez les conversions pour plusieurs canaux, votre **méthode d'attri
 
 Une fois la page chargée, sélectionnez un **événement de conversion** pour filtrer le rapport sur les données de conversion. Les sélections disponibles incluent les événements préconfigurés dans les Canvas et campagnes. Si vous avez sélectionné un événement personnalisé lors de la configuration de votre rapport (étape 6), cette option n'est pas disponible.
 
-### Utiliser des événements personnalisés
+### Utiliser des événements personnalisés {#using-custom-events}
 
 Pour que les indicateurs d'événements personnalisés apparaissent dans le tableau de bord des conversions, vous devez disposer d'un événement de conversion et d'un événement d'entrée dans le Canvas dans la plage de dates spécifiée sur la page. 
 
@@ -71,7 +71,7 @@ Votre rapport est divisé en trois sections :
 - [Tunnel de conversion](#conversion-funnel)
 - [Conversions au fil du temps](#conversions-over-time)
 
-### Détails des conversions
+### Détails des conversions {#conversion-details}
 
 Le tableau des détails des conversions affiche toujours une colonne pour les *destinataires* et une autre pour les *conversions* (taux et total). Les deux autres colonnes du tableau dépendent des options que vous avez sélectionnées lors de la configuration de votre rapport. 
 
@@ -89,7 +89,7 @@ Le tableau suivant décrit les indicateurs possibles.
 
 Si vous avez sélectionné un niveau de ventilation pour les campagnes ou Canvas lors de la [configuration de votre rapport](#setting-up-your-report) (étape 5), vous pouvez cliquer sur <i class="fas fa-angle-down"></i> pour développer le tableau.
 
-### Tunnel de conversion
+### Tunnel de conversion {#conversion-funnel}
 
 Ce graphique à barres affiche les valeurs absolues pour chaque [événement d'engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) en fonction du canal sélectionné. Le nombre de conversions sera défini selon la méthode d'attribution sélectionnée.
 
@@ -103,7 +103,7 @@ Ce graphique n'affiche les données que pour un seul canal à la fois. Utilisez 
 
 ![Graphique à barres du tunnel de conversion pour deux campagnes e-mail montrant des résultats similaires pour E-mails distribués, E-mails ouverts, E-mails cliqués et Conversions.]({% image_buster /assets/img_archive/conversions2_funnel.png %})
 
-### Conversions au fil du temps
+### Conversions au fil du temps {#conversions-over-time}
 
 Ce graphique de série temporelle représente les conversions par campagne ou Canvas au fil du temps. Par défaut, toutes les campagnes et tous les Canvas sélectionnés sont affichés. Pour désélectionner une campagne ou un Canvas, cliquez sur le nom de la campagne ou du Canvas que vous souhaitez exclure.
 
@@ -111,7 +111,7 @@ Pour télécharger les données de la série temporelle, sélectionnez <i class=
 
 ![Graphique de série temporelle des conversions au fil du temps pour deux campagnes e-mail, montrant les conversions par jour.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
-### Méthodes d'attribution
+### Méthodes d'attribution {#attribution-methods}
 
 | Méthode d'attribution | Définition | Calcul du taux | Options spécifiques au canal |
 | --- | --- | --- | --- |
@@ -123,7 +123,7 @@ Pour télécharger les données de la série temporelle, sélectionnez <i class=
 | Au dernier point de contact | Conversions attribuant tout le crédit au dernier message touché ou cliqué pendant la fenêtre de conversion | Calculé comme suit : (Nombre de points de contact) / (Destinataires uniques) | L'attribution au dernier point de contact est automatiquement sélectionnée si plusieurs canaux sont ajoutés au rapport. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Termes à connaître
+## Termes à connaître {#terms-to-know}
 
 | Terme | Définition |
 | --- | --- |

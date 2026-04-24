@@ -13,7 +13,7 @@ tool:
 
 > El dashboard de conversiones analiza conversiones en campañas, Canvas y canales, utilizando varios [métodos de atribución](#attribution-methods). Al medir tus conversiones, puedes especificar el periodo de tiempo, el evento de conversión y la ventana de conversión.
 
-## Configurar tu informe
+## Configurar tu informe {#setting-up-your-report}
 
 Para configurar tu informe del dashboard de conversiones:
 
@@ -35,7 +35,7 @@ Si estás analizando conversiones para múltiples canales, tu **Método de atrib
 
 Después de que se cargue la página, selecciona un **Evento de conversión** para filtrar el informe por datos de conversión. Las selecciones disponibles incluirán los eventos que fueron preconfigurados en los Canvas y campañas. Si seleccionaste un evento personalizado al configurar tu informe (paso 6), esta opción no estará disponible.
 
-### Usar eventos personalizados
+### Usar eventos personalizados {#using-custom-events}
 
 Para que las métricas de eventos personalizados aparezcan en el dashboard de conversiones, debes tener un evento de conversión y un evento de entrada de Canvas en el rango de fechas especificado en la página. 
 
@@ -71,7 +71,7 @@ Tu informe se divide en tres secciones:
 - [Embudo de conversión](#conversion-funnel)
 - [Conversiones a lo largo del tiempo](#conversions-over-time)
 
-### Detalles de conversión
+### Detalles de conversión {#conversion-details}
 
 La tabla de detalles de conversión siempre muestra una columna para *Destinatarios* y otra para *Conversiones* (tasa y total). Las dos columnas restantes de la tabla que aparecen dependen de las opciones que seleccionaste al configurar tu informe. 
 
@@ -89,7 +89,7 @@ La siguiente tabla describe las posibles métricas.
 
 Si seleccionaste detalles a nivel de desglose para campañas o Canvas al [configurar tu informe](#setting-up-your-report) (paso 5), puedes hacer clic en <i class="fas fa-angle-down"></i> para expandir la tabla.
 
-### Embudo de conversión
+### Embudo de conversión {#conversion-funnel}
 
 Este gráfico de barras muestra los conteos absolutos para cada [evento de interacción]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) basado en el canal seleccionado. El conteo de conversiones se definirá según el método de atribución seleccionado.
 
@@ -103,7 +103,7 @@ Este gráfico solo muestra datos para un canal a la vez. Usa el desplegable **Ca
 
 ![Gráfico de barras del embudo de conversión para dos campañas de correo electrónico que muestran resultados similares para correo electrónico entregado, correo electrónico abierto, clic en correo electrónico y conversiones.]({% image_buster /assets/img_archive/conversions2_funnel.png %})
 
-### Conversiones a lo largo del tiempo
+### Conversiones a lo largo del tiempo {#conversions-over-time}
 
 Este gráfico de serie temporal incluye una representación de las conversiones por campaña o Canvas a lo largo del tiempo. De forma predeterminada, se muestran todas las campañas y Canvas seleccionados. Para deseleccionar una campaña o Canvas, haz clic en el nombre de la campaña o Canvas que deseas excluir.
 
@@ -111,7 +111,7 @@ Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars"
 
 ![Gráfico de serie temporal de conversiones a lo largo del tiempo para dos campañas de correo electrónico, mostrando conversiones por día.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
-### Métodos de atribución
+### Métodos de atribución {#attribution-methods}
 
 | Método de atribución | Definición | Cálculo de la tasa | Opciones específicas del canal |
 | --- | --- | --- | --- |
@@ -123,7 +123,7 @@ Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars"
 | Al último punto de intervención | Conversiones que otorgan todo el crédito al último mensaje tocado o en el que se hizo clic durante la ventana de conversión. | Se calcula como (Número de puntos de intervención) / (Destinatarios únicos) | La atribución de último punto de intervención se selecciona automáticamente si se agregan múltiples canales al informe.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Términos que debes conocer
+## Términos que debes conocer {#terms-to-know}
 
 | Término | Definición |
 | --- | --- |

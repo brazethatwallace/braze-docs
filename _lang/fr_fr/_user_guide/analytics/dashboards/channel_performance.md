@@ -133,7 +133,7 @@ Vous pouvez filtrer les données de votre tableau de bord à l'aide des options 
 
 ![Options de filtre sur le tableau de bord des performances des canaux, où vous pouvez sélectionner une étiquette et une liste de Canvas pour filtrer les résultats.]({% image_buster /assets/img_archive/dashboard_filters.png %})
 
-## Comparaison des périodes
+## Comparaison des périodes {#comparing-time-periods}
 
 Le tableau de bord des performances des canaux compare automatiquement la période sélectionnée dans la plage de dates avec la période précédente de même durée. Par exemple, si vous choisissez « 7 derniers jours » comme plage de dates, la comparaison confrontera les indicateurs des sept derniers jours avec ceux des sept jours précédents. Si vous sélectionnez une plage de dates personnalisée — disons du 10 au 15 mai, soit six jours de données — le tableau de bord comparera les indicateurs de ces jours avec ceux du 4 au 9 mai.
 

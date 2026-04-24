@@ -13,7 +13,7 @@ tool:
 
 > O dashboard de conversões analisa conversões em campanhas, Canvas e canais, usando vários [métodos de atribuição](#attribution-methods). Ao medir suas conversões, você pode especificar o período, o evento de conversão e a janela de conversão.
 
-## Configurando seu relatório
+## Configurando seu relatório {#setting-up-your-report}
 
 Para configurar o relatório do dashboard de conversões:
 
@@ -35,7 +35,7 @@ Se você estiver analisando conversões para múltiplos canais, seu **Método de
 
 Após o carregamento da página, selecione um **Evento de conversão** para filtrar o relatório por dados de conversão. As opções disponíveis incluirão os eventos pré-configurados nos Canvas e campanhas. Se você selecionou um evento personalizado ao configurar o relatório (etapa 6), essa opção não estará disponível.
 
-### Usando eventos personalizados
+### Usando eventos personalizados {#using-custom-events}
 
 Para que as métricas de eventos personalizados apareçam no dashboard de conversões, você precisa ter um evento de conversão e um evento de entrada do Canvas no período especificado na página. 
 
@@ -71,7 +71,7 @@ Seu relatório é dividido em três seções:
 - [Funil de conversão](#conversion-funnel)
 - [Conversões ao longo do tempo](#conversions-over-time)
 
-### Detalhes da conversão
+### Detalhes da conversão {#conversion-details}
 
 A tabela de detalhes da conversão sempre exibe uma coluna para *Destinatários* e outra para *Conversões* (taxa e total). As duas colunas restantes que aparecem dependem das opções selecionadas ao configurar o relatório. 
 
@@ -89,7 +89,7 @@ A tabela a seguir descreve as métricas possíveis.
 
 Se você selecionou detalhes em nível de detalhamento para campanhas ou Canvas ao [configurar seu relatório](#setting-up-your-report) (etapa 5), clique em <i class="fas fa-angle-down"></i> para expandir a tabela.
 
-### Funil de conversão
+### Funil de conversão {#conversion-funnel}
 
 Este gráfico de barras mostra as contagens absolutas de cada [evento de engajamento]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) com base no canal selecionado. A contagem de conversões será definida conforme o método de atribuição selecionado.
 
@@ -103,7 +103,7 @@ Este gráfico exibe dados de apenas um canal por vez. Use o menu suspenso **Cana
 
 ![Gráfico de barras do funil de conversões para duas campanhas de e-mail mostrando resultados semelhantes para E-mail entregue, E-mail aberto, E-mail clicado e Conversões.]({% image_buster /assets/img_archive/conversions2_funnel.png %})
 
-### Conversões ao longo do tempo
+### Conversões ao longo do tempo {#conversions-over-time}
 
 Este gráfico de série temporal inclui uma representação das conversões por campanha ou Canvas ao longo do tempo. Por padrão, todas as campanhas e Canvas selecionados são exibidos. Para desmarcar uma campanha ou Canvas, clique no nome da campanha ou Canvas que deseja excluir.
 
@@ -111,7 +111,7 @@ Para baixar os dados da série temporal, selecione <i class="fas fa-bars"></i> e
 
 ![Gráfico de série temporal de conversões ao longo do tempo para duas campanhas de e-mail, mostrando conversões por dia.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
-### Métodos de atribuição
+### Métodos de atribuição {#attribution-methods}
 
 | Método de atribuição | Definição | Cálculo da taxa | Opções específicas por canal |
 | --- | --- | --- | --- |
@@ -123,7 +123,7 @@ Para baixar os dados da série temporal, selecione <i class="fas fa-bars"></i> e
 | Último ponto de contato | Conversões que atribuem todo o crédito à última mensagem tocada ou clicada durante a janela de conversão. | Calculado como (Número de pontos de contato) / (Destinatários únicos) | A atribuição de último ponto de contato é selecionada automaticamente se múltiplos canais forem adicionados ao relatório.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Termos importantes
+## Termos importantes {#terms-to-know}
 
 | Termo | Definição |
 | --- | --- |

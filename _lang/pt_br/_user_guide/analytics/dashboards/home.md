@@ -19,7 +19,7 @@ A página **Início** tem duas seções principais:
 
 ![Dashboard Início na Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
-## Continue de onde parou
+## Continue de onde parou {#pick-up-where-you-left-off}
 
 Você pode continuar de onde parou no dashboard da Braze com acesso direto aos arquivos que editou ou criou recentemente. Esta seção aparece no topo da página **Início** do dashboard da Braze.
 
@@ -31,7 +31,7 @@ A seção **Continue de onde parou** aparece depois que você edita ou cria uma 
 
 ![Um rascunho de Canvas, um segmento ativo e um rascunho de campanha na seção "Continue de onde parou".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-## Visão geral de performance
+## Visão geral de performance {#performance-overview}
 
 Por padrão, a seção **Visão geral de performance** mostra os dados dos últimos 30 dias para todos os apps e sites. Suas métricas são calculadas com base no intervalo de datas selecionado.
 

@@ -19,7 +19,7 @@ La page **Accueil** comporte deux sections principales :
 
 ![Tableau de bord Accueil dans Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
-## Reprendre là où vous vous étiez arrêté
+## Reprendre là où vous vous étiez arrêté {#pick-up-where-you-left-off}
 
 Vous pouvez reprendre là où vous vous étiez arrêté dans le tableau de bord de Braze grâce à un accès direct aux fichiers que vous avez récemment modifiés ou créés. Cette section apparaît en haut de la page **Accueil** du tableau de bord de Braze.
 
@@ -31,7 +31,7 @@ La section **Reprendre là où vous vous étiez arrêté** apparaît après que 
 
 ![Un brouillon de Canvas, un segment actif et un brouillon de campagne dans la section « Reprendre là où vous vous étiez arrêté ».]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-## Aperçu des performances
+## Aperçu des performances {#performance-overview}
 
 Par défaut, la section **Aperçu des performances** affiche les données des 30 derniers jours pour l'ensemble des applications et sites. Tous vos indicateurs sont calculés en fonction de la plage de dates sélectionnée.
 
