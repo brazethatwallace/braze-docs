@@ -7,7 +7,7 @@ guide_top_header: "Pruebas A/B"
 guide_top_text: "Ejecuta experimentos para optimizar tu mensajería. Una prueba A/B compara las respuestas de los usuarios a múltiples versiones de la misma campaña, mientras que una prueba multivariante amplía esto a dos o más variables. En Braze, los términos se usan indistintamente porque el proceso de configuración es el mismo. Usa las pruebas A/B con <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligent Selection</a> para optimizar automáticamente tus resultados."
 
 page_type: landing
-description: "Configura y analiza pruebas A/B y experimentos multivariante en Braze."
+description: "Configura y analiza pruebas A/B y experimentos multivariantes en Braze."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
