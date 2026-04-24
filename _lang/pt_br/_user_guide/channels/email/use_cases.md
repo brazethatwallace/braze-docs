@@ -26,7 +26,7 @@ Seu conteúdo deve comunicar o valor de uma promoção, como as informações de
 
 Para recomendar determinados produtos, tente apresentá-los como sugestões curadas e pessoais que o usuário pode gostar. Se você está promovendo uma oferta por tempo limitado, não deixe de avisar os usuários! A Ideeli faz um ótimo trabalho ao transmitir urgência neste e-mail:
 
-![E-mail promocional enviado pela Ideeli que notifica os usuários sobre uma oferta por tempo limitado. Um banner grande contém o texto „Termina à meia-noite EDT. Promoção relâmpago de 6 horas. Corra! Essas ofertas incríveis não vão durar muito."]({% image_buster /assets/img_archive/Ideeli_email.png %}){: style="max-width:70%;"}
+![E-mail promocional enviado pela Ideeli que notifica os usuários sobre uma oferta por tempo limitado. Um banner grande contém o texto "Termina à meia-noite EDT. Promoção relâmpago de 6 horas. Corra! Essas ofertas incríveis não vão durar muito."]({% image_buster /assets/img_archive/Ideeli_email.png %}){: style="max-width:70%;"}
 
 ## Transacional
 
@@ -37,7 +37,7 @@ Após um usuário fazer uma compra no app, confira algumas diretrizes de conteú
 
 Como você prestou um serviço aos usuários, eles podem estar mais propensos a compartilhar suas impressões. Veja um exemplo de e-mail da Restaurant.com:
 
-![E-mail transacional enviado pela Restaurants.com que pede feedback aos usuários. O e-mail diz „Conte-nos tudo! Esperamos que você tenha aproveitado sua refeição e experiência no REDACTED. Para garantir que estamos fazendo tudo ao nosso alcance para oferecer o melhor atendimento, comida e experiência geral, por favor, reserve um momento para nos dar seu feedback. Sua opinião é muito valiosa para nós e agradecemos seus comentários." A chamada para ação diz „Responder pesquisa".]({% image_buster /assets/img_archive/Restaurant_email.png %}){: style="max-width:80%;"}
+![E-mail transacional enviado pela Restaurants.com que pede feedback aos usuários. O e-mail diz "Conte-nos tudo! Esperamos que você tenha aproveitado sua refeição e experiência no REDACTED. Para garantir que estamos fazendo tudo ao nosso alcance para oferecer o melhor atendimento, comida e experiência geral, por favor, reserve um momento para nos dar seu feedback. Sua opinião é muito valiosa para nós e agradecemos seus comentários." A chamada para ação diz "Responder pesquisa".]({% image_buster /assets/img_archive/Restaurant_email.png %}){: style="max-width:80%;"}
 
 ## Retenção
 
@@ -48,7 +48,7 @@ Mantenha um tom amigável! Esta pode ser sua última chance de reconquistar os u
 
 Tente tornar sua mensagem pessoal para mostrar ao usuário que ele ainda é valorizado. A Rue La La, por exemplo, apresenta o e-mail de retenção como uma mensagem do seu CEO:
 
-![E-mail de retenção enviado a clientes com uma mensagem personalizada do CEO da Rue La La. O e-mail diz „Só passando para dar um oi. Como CEO da Rue, gosto de manter contato com nossos membros. A maioria me diz o quanto ama a Rue. (E ficamos lisonjeados.) Mas parece que você ainda não está sentindo isso... ainda. Vou ser direto. Estou te dando um crédito de 25 dólares para comprar no site e encontrar o que fala com você, seja uma bolsa de grife, um novo par de jeans ou algo incrível para sua casa. Eu (realmente) acredito que é aqui que você vai começar a sentir o amor pela Rue. Aproveite!"]({% image_buster /assets/img_archive/Ruelala_email.png %}){: style="max-width:80%;"}
+![E-mail de retenção enviado a clientes com uma mensagem personalizada do CEO da Rue La La. O e-mail diz "Só passando para dar um oi. Como CEO da Rue, gosto de manter contato com nossos membros. A maioria me diz o quanto ama a Rue. (E ficamos lisonjeados.) Mas parece que você ainda não está sentindo isso... ainda. Vou ser direto. Estou te dando um crédito de 25 dólares para comprar no site e encontrar o que fala com você, seja uma bolsa de grife, um novo par de jeans ou algo incrível para sua casa. Eu (realmente) acredito que é aqui que você vai começar a sentir o amor pela Rue. Aproveite!"]({% image_buster /assets/img_archive/Ruelala_email.png %}){: style="max-width:80%;"}
 
 ## Redes sociais
 
@@ -64,4 +64,4 @@ Envie atualizações sobre recursos novos ou aprimorados para todos os seus usu�
 
 Se o recurso requer uma explicação ou demonstração, inclua um link na mensagem. Veja um exemplo da Allrecipes.com:
 
-![Exemplo de e-mail de atualização da Allrecipes que notifica seus usuários sobre um novo recurso. O topo do e-mail diz „Senhas. Demais. Cansado de senhas? Nós também." O corpo do e-mail direciona os usuários a fazer login com Facebook ou Google Plus, com uma chamada para ação „Veja como".]({% image_buster /assets/img_archive/Allrecipes_email.png %}){: style="max-width:70%;"}
+![Exemplo de e-mail de atualização da Allrecipes que notifica seus usuários sobre um novo recurso. O topo do e-mail diz "Senhas. Demais. Cansado de senhas? Nós também." O corpo do e-mail direciona os usuários a fazer login com Facebook ou Google Plus, com uma chamada para ação "Veja como".]({% image_buster /assets/img_archive/Allrecipes_email.png %}){: style="max-width:70%;"}

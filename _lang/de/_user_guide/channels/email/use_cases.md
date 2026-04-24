@@ -50,7 +50,7 @@ Versuchen Sie, Ihre Nachricht persönlich zu gestalten, um den Nutzer:innen zu z
 
 ![Bindungs-E-Mail an Kund:innen mit einer personalisierten Nachricht des CEO von Rue La La. Die E-Mail lautet: „Just a quick hello. As Rue's CEO, I like checking in with our Members. Most tell me how much they love Rue. (And we're flattered.) But it doesn't seem like you're feeling it... yet. I'm not going to be subtle here. I'm giving you a 25 dollar credit to go shop the site and find what speaks to you, whether it's a designer bag, a new pair of jeans, or something amazing for your home. I (really) believe this is where you'll start feeling the Rue love. Enjoy!“]({% image_buster /assets/img_archive/Ruelala_email.png %}){: style="max-width:80%;"}
 
-## Social Media
+## Social
 
 E-Mails können eine Social-Media-Fangemeinde aufbauen, indem sie Empfänger:innen auf Ihre Social-Media-Plattformen leiten. Fügen Sie Links zu Ihren Social-Media-Konten ein, um die Verbindung mit Nutzer:innen zu vereinfachen.
 
