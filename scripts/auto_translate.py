@@ -22,6 +22,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Optional
 
+# Single source of truth for the Braze product-name allowlist; imported by
+# ``scripts/audit_glossaries.py`` too so the runtime glossary override and
+# the upstream-sync guard cannot drift apart (Copilot flagged the prior
+# "keep in sync" duplication on PR #13303).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
+
 def _get_anthropic_client():
     """Lazy-import Anthropic so commands like qc/summary work without the SDK.
 
@@ -81,49 +88,37 @@ BRAZE_PRODUCT_NAMES = [
     "Campaign", "Segments", "Segment", "Braze", "Liquid", "SDK", "API",
 ]
 
-# Braze product terminology that must be preserved in English per
-# ``translation_prompt.md``. Keys map to per-locale overrides; an empty dict
-# means "map to self in every locale". Each entry is enforced both at prompt
-# injection time (``load_glossary``) and when auditing JSON glossaries from
-# upstream dashboard/SDK strings, so a stale upstream mapping (e.g. pt-br
-# dashboard translating "Segment" as "Segmento faturável") cannot leak back
-# into ``scripts/glossaries/*.json`` and silently redirect the LLM.
-#
-# The only sanctioned deviation is ``Canvases`` → ``Canvas`` in Romance
-# locales: Spanish/French/Portuguese prose conventionally drops the ``-es``
-# plural on the loanword, matching shipped translations.
-PROTECTED_PRODUCT_TERMS = {
-    "Braze":            {},
-    "BrazeAI":          {},
-    "Canvas":           {},
-    "Canvases":         {"es": "Canvas", "fr": "Canvas", "pt-br": "Canvas"},
-    "Currents":         {},
-    "Content Cards":    {},
-    "Content Blocks":   {},
-    "News Feed":        {},
-    "Liquid":           {},
-    "SDK":              {},
-    "API":              {},
-    "REST API":         {},
-    "Segment":          {},
-    "Segments":         {},
-    "Campaign":         {},
-    "Campaigns":        {},
-    "Push Stories":     {},
-    "In-App Messages":  {},
-}
-
-
 def protected_term_for_locale(term, lang_key):
     """Canonical glossary value for a protected product term in ``lang_key``.
 
-    Returns ``None`` when the term is not protected. Raising ``KeyError`` on
-    a per-locale override is intentional — callers should handle by falling
-    back to the English term.
+    Returns ``None`` when ``term`` is not in ``PROTECTED_PRODUCT_TERMS``.
+    When it is protected, returns the locale-specific override if one
+    exists (for example ``Canvases`` → ``Canvas`` in Romance locales),
+    otherwise falls back to the English term itself.
+
+    No exception is raised — ``.get(lang_key, term)`` defaults to
+    ``term`` for locales without a specific override. The earlier
+    docstring claimed a ``KeyError`` path that the implementation has
+    never actually taken (Copilot flagged the mismatch on PR #13303).
     """
     if term not in PROTECTED_PRODUCT_TERMS:
         return None
     return PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
+
+
+# Case-folded lookup so ``filter_glossary``-style case-insensitive hits
+# can't inject a localized entry for a lowercase spelling of a protected
+# term (Copilot flagged this gap on PR #13303: pre-fix glossaries still
+# carried ``campaign``→``campaña``, ``segment``→``세그먼트``, etc.).
+_PROTECTED_TERM_CANONICAL_BY_LOWER = {
+    term.lower(): term for term in PROTECTED_PRODUCT_TERMS
+}
+
+
+def _canonical_protected_term(term):
+    """Return the canonical-cased protected product term for any casing of
+    ``term``, or ``None`` if ``term`` is not a protected product name."""
+    return _PROTECTED_TERM_CANONICAL_BY_LOWER.get(term.lower())
 
 
 NON_LATIN_LANGUAGES = frozenset({"ja", "ko"})
@@ -152,11 +147,19 @@ def load_glossary(lang_key):
     """Load the terminology glossary for a language. Returns {} if not found.
 
     After loading, enforces the ``translation_prompt.md`` "Braze product
-    terminology" rule by overriding any protected-term entries that drift
-    from English. This prevents stale upstream dashboard strings (e.g. the
-    pt-br glossary mapping "Segment" → "Segmento faturável", or ja/ko
-    mapping "Canvas" → katakana/hangul renderings) from being injected into
-    the LLM prompt as "approved" translations.
+    terminology" rule by **removing every case-insensitive variant** of a
+    protected term from the raw glossary, then injecting exactly one
+    canonical entry (English-cased key → locale override or English value).
+
+    The case-fold step matters because ``filter_glossary`` matches the
+    English term against file text case-insensitively (``en.lower() in
+    text_lower``). Copilot flagged on PR #13303 that the prior
+    implementation only overwrote the exact-cased key, so a glossary
+    like ``"campaign" -> "campaña"`` or ``"segment" -> "세그먼트"`` still
+    slipped through and contradicted the "keep product terms in English"
+    rule. Stripping every case-variant up-front closes the loophole: the
+    canonical ``"Campaign"`` / ``"Segment"`` entries we then inject are
+    the only protected-term rows the LLM sees.
     """
     glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
     raw = (
@@ -164,6 +167,9 @@ def load_glossary(lang_key):
         if glossary_path.exists()
         else {}
     )
+    for key in list(raw):
+        if _canonical_protected_term(key) is not None:
+            del raw[key]
     for term in PROTECTED_PRODUCT_TERMS:
         raw[term] = protected_term_for_locale(term, lang_key)
     return raw
@@ -445,9 +451,24 @@ def translation_path(english_relative, lang_dir):
     return REPO_ROOT / "_lang" / lang_dir / english_relative
 
 
-# Keys whose values carry cross-section terminology (nav labels, page title,
-# meta description) — the strings a reader sees in navigation and search.
-_SIBLING_CONTEXT_FM_KEYS = ("nav_title", "article_title", "title", "description")
+# Keys whose values carry cross-section terminology (nav labels, page
+# title, meta description, hero header). These are the strings a reader
+# sees in navigation, search, and landing-page heroes — the surfaces
+# where "same product, different wording" is most jarring.
+#
+# ``guide_top_header`` is included because the prompt already tells the
+# LLM to reuse it for cross-section consistency (``translation_prompt.md``
+# "Cross-section consistency" section) and it appears widely across
+# ``_lang/*`` front matter; omitting it here meant the injected context
+# and the QC drift check both silently ignored a key the prompt was
+# asking the model to mirror (Copilot flag on PR #13303).
+_SIBLING_CONTEXT_FM_KEYS = (
+    "nav_title",
+    "article_title",
+    "title",
+    "description",
+    "guide_top_header",
+)
 
 # Cap how many related pages we expose to the LLM per translation to keep
 # prompt size predictable. In practice an IA move produces 1 sibling and a
@@ -461,18 +482,49 @@ _SIBLING_CONTEXT_MAX = 5
 _SIBLING_CONTEXT_BODY_CHARS = 1400
 
 
+# Per-process cache of ``list(lang_root.rglob("*.md"))`` per locale.
+#
+# Without this, ``_find_related_locale_pages`` (which does one rglob per
+# translated file for basename + one for every ``.md`` in the locale
+# when ``len(stem) >= 4``) scanned ~12K paths per locale × 6 locales
+# × N translated files in a wave, turning prompt-building into the
+# dominant cost of a batch. Copilot flagged the O(N × M) hot path on
+# PR #13303. Caching the path list once per process collapses that to
+# a single walk per locale; the cache is bounded (≤6 locales × ~12K
+# entries ≈ 72K Path objects) and a fresh process is spawned per CLI
+# invocation, so there's no stale-data risk.
+_LOCALE_MD_PATH_CACHE: dict = {}
+
+
+def _locale_md_paths(lang_dir):
+    """Return a cached list of every ``.md`` path under ``_lang/<lang_dir>/``.
+
+    The first call walks ``_lang/<lang_dir>/`` once and memoizes the
+    result; subsequent calls in the same process reuse the list.
+    """
+    cached = _LOCALE_MD_PATH_CACHE.get(lang_dir)
+    if cached is not None:
+        return cached
+    lang_root = REPO_ROOT / "_lang" / lang_dir
+    if not lang_root.exists():
+        _LOCALE_MD_PATH_CACHE[lang_dir] = []
+        return _LOCALE_MD_PATH_CACHE[lang_dir]
+    _LOCALE_MD_PATH_CACHE[lang_dir] = list(lang_root.rglob("*.md"))
+    return _LOCALE_MD_PATH_CACHE[lang_dir]
+
+
 def _find_sibling_translations(basename, lang_dir, exclude_target):
     """Return already-translated files in the locale with the same basename.
 
     Used by the QC drift check (which only compares same-concept pages).
     See ``_find_related_locale_pages`` for the broader prompt-context lookup.
     """
-    lang_root = REPO_ROOT / "_lang" / lang_dir
-    if not lang_root.exists():
+    all_paths = _locale_md_paths(lang_dir)
+    if not all_paths:
         return []
     exclude_resolved = exclude_target.resolve() if exclude_target else None
     hits = []
-    for path in sorted(lang_root.rglob(basename)):
+    for path in sorted(p for p in all_paths if p.name == basename):
         try:
             if exclude_resolved and path.resolve() == exclude_resolved:
                 continue
@@ -545,8 +597,8 @@ def _find_related_locale_pages(fpath, lang_dir, exclude_target):
     """
     basename = Path(fpath).name
     stem = Path(fpath).stem
-    lang_root = REPO_ROOT / "_lang" / lang_dir
-    if not lang_root.exists():
+    all_paths = _locale_md_paths(lang_dir)
+    if not all_paths:
         return []
 
     exclude_resolved = exclude_target.resolve() if exclude_target else None
@@ -564,26 +616,30 @@ def _find_related_locale_pages(fpath, lang_dir, exclude_target):
         if existing is None or prio < existing[0]:
             candidates[resolved] = (prio, path)
 
-    for path in lang_root.rglob(basename):
-        _consider(path, _CAT_SAME_BASENAME)
-
-    # Limit the stem-based searches to pages that actually live inside a
-    # directory named for the stem (e.g. `.../email/**`). A global
-    # ``email_*`` glob would otherwise drag in weakly-related files like
-    # ``analytics/tracking/email_tracking.md`` that don't share the same
-    # product-area glossary.
-    if len(stem) >= 4:
-        stem_prefix = f"{stem}_"
-        stem_suffix = f"_{stem}.md"
-        for path in lang_root.rglob("*.md"):
-            if stem not in path.parts:
-                continue
-            if path.name == basename:
-                continue
-            if path.name.startswith(stem_prefix) or path.name.endswith(stem_suffix):
-                _consider(path, _CAT_STEM_FILENAME)
-            else:
-                _consider(path, _CAT_STEM_DIRECTORY)
+    # Single pass over the cached locale index — categorise each file by
+    # whichever lookup rule it matches, if any. The earlier implementation
+    # did one ``rglob(basename)`` plus one ``rglob("*.md")`` per call, so
+    # a wave of 40 files × 6 locales walked the ``_lang`` tree 480 times;
+    # the shared ``_locale_md_paths`` cache now walks it 6 times per
+    # process (Copilot performance flag on PR #13303).
+    stem_ok = len(stem) >= 4
+    stem_prefix = f"{stem}_" if stem_ok else ""
+    stem_suffix = f"_{stem}.md" if stem_ok else ""
+    for path in all_paths:
+        if path.name == basename:
+            _consider(path, _CAT_SAME_BASENAME)
+            continue
+        # The stem-based lookups are scoped to pages that actually live
+        # inside a directory named for the stem (e.g. ``.../email/**``).
+        # A global ``email_*`` glob would otherwise drag in weakly-related
+        # files like ``analytics/tracking/email_tracking.md`` that don't
+        # share the same product-area glossary.
+        if not stem_ok or stem not in path.parts:
+            continue
+        if path.name.startswith(stem_prefix) or path.name.endswith(stem_suffix):
+            _consider(path, _CAT_STEM_FILENAME)
+        else:
+            _consider(path, _CAT_STEM_DIRECTORY)
 
     ordered = sorted(candidates.values(), key=lambda item: item[0])
     out = []
@@ -1424,18 +1480,46 @@ def repair_markdown_table_column_count(content):
     product block: 2-col header with ``| --- | --- | --- |`` separator and a
     ``.reset-td-br-3`` IAL), the bug rides into every locale. This repair
     fixes it deterministically in post-processing.
+
+    Skips lines inside fenced code blocks (``\u200b```...\u200b```\u200b`` /
+    ``~~~...~~~``) so pipe-table-looking example rows inside code fences
+    (``curl -X POST ... | jq .``, SQL ``|`` unions, shell pipelines)
+    aren't treated as real tables and have their structure mutated.
+    Copilot flagged this gap on PR #13303 — the repair previously ran
+    purely line-wise and could have rewritten example code after
+    ``repair_code_blocks`` restored it.
     """
     lines = content.splitlines()
     repairs = []
     total = len(lines)
     i = 0
+    in_fence = False
+    fence_delim = None
     while i < total - 1:
         cur = lines[i]
+        stripped = cur.strip()
+        # Match both ``\u200b```\u200b`` and ``~~~`` fence delimiters. The
+        # existing ``_CODE_FENCE_OPEN_RE`` only covers backticks, so track
+        # both here locally to stay robust against ``~~~`` fences that show
+        # up in a few of the `_api/` pages.
+        if stripped.startswith("```") and (fence_delim in (None, "```")):
+            in_fence = not in_fence
+            fence_delim = "```" if in_fence else None
+            i += 1
+            continue
+        if stripped.startswith("~~~") and (fence_delim in (None, "~~~")):
+            in_fence = not in_fence
+            fence_delim = "~~~" if in_fence else None
+            i += 1
+            continue
+        if in_fence:
+            i += 1
+            continue
+
         nxt = lines[i + 1]
-        cur_stripped = cur.strip()
         if (
-            cur_stripped.startswith("|")
-            and cur_stripped.endswith("|")
+            stripped.startswith("|")
+            and stripped.endswith("|")
             and not _MD_TABLE_SEP_RE.match(cur)
             and _MD_TABLE_SEP_RE.match(nxt)
         ):
@@ -2596,11 +2680,17 @@ def check_sibling_terminology_drift(translated_path, translated_content):
 
     warnings = []
     siblings = _find_sibling_translations(path.name, lang_dir, path)
+    # Iterate the same key set the prompt-context injection uses
+    # (``_SIBLING_CONTEXT_FM_KEYS``) so the prompt guidance and the QC
+    # backstop cannot drift out of sync — Copilot flagged on PR #13303
+    # that ``title`` / ``guide_top_header`` drift would never warn when
+    # only ``nav_title`` / ``article_title`` / ``description`` were
+    # checked.
     for rel, sibling_content in siblings:
         sib_fm, _ = _extract_front_matter(sibling_content)
         if not sib_fm:
             continue
-        for key in ("nav_title", "article_title", "description"):
+        for key in _SIBLING_CONTEXT_FM_KEYS:
             tr_block = _extract_fm_block(tr_fm, key)
             sib_block = _extract_fm_block(sib_fm, key)
             if not tr_block or not sib_block:

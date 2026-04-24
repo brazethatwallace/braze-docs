@@ -26,39 +26,24 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 
-# Keep in sync with ``scripts/auto_translate.py::PROTECTED_PRODUCT_TERMS``.
-# These are Braze product names that must remain English per
-# ``scripts/translation_prompt.md``. The audit pipeline otherwise "fixes"
-# glossary entries to match upstream dashboard/SDK translations, which (as
-# of this writing) render "Segment", "Canvas", "Campaign", etc. as
-# localized strings — exactly the drift the translation rule forbids.
-_PROTECTED_PRODUCT_TERMS = {
-    "Braze":            {},
-    "BrazeAI":          {},
-    "Canvas":           {},
-    "Canvases":         {"es": "Canvas", "fr": "Canvas", "pt-br": "Canvas"},
-    "Currents":         {},
-    "Content Cards":    {},
-    "Content Blocks":   {},
-    "News Feed":        {},
-    "Liquid":           {},
-    "SDK":              {},
-    "API":              {},
-    "REST API":         {},
-    "Segment":          {},
-    "Segments":         {},
-    "Campaign":         {},
-    "Campaigns":        {},
-    "Push Stories":     {},
-    "In-App Messages":  {},
-}
+# Single source of truth for the Braze product-name allowlist — shared with
+# ``scripts/auto_translate.py``'s runtime glossary override so the two
+# scripts can't drift apart. The previous "keep in sync" duplication was
+# flagged by Copilot on PR #13303.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
 
 
 def _protected_value(term, lang_key):
-    """Canonical glossary value for a protected product term, or ``None``."""
-    if term not in _PROTECTED_PRODUCT_TERMS:
+    """Canonical glossary value for a protected product term, or ``None``.
+
+    Returns ``None`` if ``term`` is not in the protected allowlist; the
+    locale-specific override if one exists (e.g. ``Canvases`` → ``Canvas``
+    in Romance locales); otherwise falls back to the English term.
+    """
+    if term not in PROTECTED_PRODUCT_TERMS:
         return None
-    return _PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
+    return PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
 
 LANG_MAP = {
     "de":    {"platform": "de",    "android": "values-de",  "swift": "de",    "grapesjs": "de"},
