@@ -106,12 +106,12 @@ Monthly Active Users CY 24-25、Universal MAU、Web MAU、または Mobile MAU �
 <!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
-リクエストで Connected Audience フィルターを使用する場合、このエンドポイントには1分あたり250リクエストのレート制限が適用されます。それ以外の場合、`external_id` を指定すると、[API レート制限]({{site.baseurl}}/api/api_limits/)に記載されているように、`/messages/send`、`/campaigns/trigger/send`、および `/canvas/trigger/send` 間で共有される1時間あたり250,000リクエストのデフォルトのレート制限が適用されます。
+リクエストで Connected Audience フィルターを使用する場合、このエンドポイントには1分あたり250リクエストのレート制限が適用されます。それ以外の場合、`external_id` を指定すると、[API レート制限]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits)に記載されているエンドポイント間で共有される1時間あたり250,000リクエストのデフォルトのレート制限が適用されます。
 
-Braze のエンドポイントは API リクエストのバッチ処理をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
+Braze のエンドポイントは [API リクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の `external_ids`
-- リクエスト内で Connected Audience オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- リクエスト内で [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
@@ -159,7 +159,7 @@ Braze のエンドポイントは [API リクエストのバッチ処理]({{site
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の `external_ids`
 - `segment_id` で指定される、Braze ダッシュボードで作成された任意のサイズのセグメント
-- リクエストで [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- リクエスト内で [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
 
@@ -168,7 +168,7 @@ Braze のエンドポイントは [API リクエストのバッチ処理]({{site
 Braze のエンドポイントは [API リクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の `external_ids`
-- リクエストで [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- リクエスト内で [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
 
@@ -188,7 +188,7 @@ Braze のエンドポイントは [API リクエストのバッチ処理]({{site
 
 - 最大50個の特定の `external_ids`
 - `segment_id` で指定される、Braze ダッシュボードで作成された任意のサイズのセグメント
-- リクエストで [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- リクエスト内で [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
 

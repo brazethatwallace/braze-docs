@@ -2,30 +2,30 @@
 
 ## Erstellen eines Berechtigungssatzes
 
-Mit Berechtigungssätzen können Sie Berechtigungen für bestimmte Themenbereiche oder Aktionen bündeln. Sie können Berechtigungssätze auf Dashboard-Nutzer:innen anwenden, die in verschiedenen Workspaces denselben Zugriff benötigen. Um einen Berechtigungssatz zu erstellen, gehen Sie zu **Einstellungen** > **Berechtigungseinstellungen** und wählen Sie dann **Berechtigungssatz erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions).
+Mit Berechtigungssätzen können Sie Berechtigungen für bestimmte Themenbereiche oder Aktionen bündeln. Sie können Berechtigungssätze auf Dashboard-Nutzer:innen anwenden, die in verschiedenen Workspaces denselben Zugriff benötigen. Um einen Berechtigungssatz zu erstellen, gehen Sie zu **Einstellungen** > **Berechtigungseinstellungen** und wählen Sie dann **Berechtigungssatz erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
 |Name|Berechtigungen|
 |-----------|----------------|
-|Entwickler:innen|„API-Schlüssel anzeigen", „API-Schlüssel bearbeiten", „Interne Gruppen anzeigen", „Interne Gruppen bearbeiten", „Nachrichtenaktivitätsprotokoll anzeigen", „Event-Benutzerprotokoll anzeigen", „API-Bezeichner anzeigen", „API-Nutzungs-Dashboard anzeigen", „API-Limits anzeigen", „API-Nutzungswarnungen anzeigen", „API-Nutzungswarnungen bearbeiten", „SDK-Debugger anzeigen", „SDK-Debugger bearbeiten".|
-|Marketer|„Kampagnen anzeigen", „Kampagnen bearbeiten", „Kampagnen archivieren", „Canvase anzeigen", „Canvase bearbeiten", „Canvase archivieren", „Frequency-Capping-Regeln anzeigen", „Frequency-Capping-Regeln bearbeiten", „Nachrichtenpriorisierung anzeigen", „Nachrichtenpriorisierung bearbeiten", „Content-Blöcke anzeigen", „Feature-Flags anzeigen", „Feature-Flags bearbeiten", „Feature-Flags archivieren", „Segmente anzeigen", „Segmente bearbeiten", „Globale Kontrollgruppe bearbeiten", „IAM-Templates anzeigen", „IAM-Templates bearbeiten", „IAM-Templates archivieren", „E-Mail-Templates anzeigen", „E-Mail-Templates bearbeiten", „E-Mail-Templates archivieren", „Webhook-Templates anzeigen", „Webhook-Templates bearbeiten", „Webhook-Templates archivieren", „Link-Templates anzeigen", „Link-Templates bearbeiten", „Medienbibliothek-Assets anzeigen", „Standorte anzeigen", „Standorte bearbeiten", „Standorte archivieren", „Aktionscodes anzeigen", „Aktionscodes bearbeiten", „Aktionscodes exportieren", „Einstellungscenter anzeigen", „Einstellungscenter bearbeiten", „Dashboard-Berichte bearbeiten", „Banner-Templates anzeigen", „Lokalisierungseinstellungen anzeigen", „Operator verwenden", „Decisioning Studio-Agenten anzeigen", „Decisioning Studio-Konversions-Event anzeigen".|
-|Benutzerverwaltung|„Dashboard-Nutzer:innen bearbeiten", „Teams anzeigen", „Teams bearbeiten", „Teams archivieren".|
+|Entwickler:innen|„API-Schlüssel anzeigen", „API-Schlüssel bearbeiten", „Interne Gruppen anzeigen", „Interne Gruppen bearbeiten", „Nachrichtenaktivitätsprotokoll anzeigen", „Event-Nutzerprotokoll anzeigen", „API-Bezeichner anzeigen", „API-Nutzungs-Dashboard anzeigen", „API-Limits anzeigen", „API-Nutzungswarnungen anzeigen", „API-Nutzungswarnungen bearbeiten", „SDK-Debugger anzeigen", „SDK-Debugger bearbeiten".|
+|Marketer|„Kampagnen anzeigen", „Kampagnen bearbeiten", „Kampagnen archivieren", „Canvases anzeigen", „Canvases bearbeiten", „Canvases archivieren", „Frequency-Capping-Regeln anzeigen", „Frequency-Capping-Regeln bearbeiten", „Nachrichtenpriorisierung anzeigen", „Nachrichtenpriorisierung bearbeiten", „Content-Blöcke anzeigen", „Feature-Flags anzeigen", „Feature-Flags bearbeiten", „Feature-Flags archivieren", „Segmente anzeigen", „Segmente bearbeiten", „Globale Kontrollgruppe bearbeiten", „IAM-Templates anzeigen", „IAM-Templates bearbeiten", „IAM-Templates archivieren", „E-Mail-Templates anzeigen", „E-Mail-Templates bearbeiten", „E-Mail-Templates archivieren", „Webhook-Templates anzeigen", „Webhook-Templates bearbeiten", „Webhook-Templates archivieren", „E-Mail-Link-Templates anzeigen", „E-Mail-Link-Templates bearbeiten", „Medienbibliothek-Assets anzeigen", „Standorte anzeigen", „Standorte bearbeiten", „Standorte archivieren", „Aktionscodes anzeigen", „Aktionscodes bearbeiten", „Aktionscodes exportieren", „Präferenzzentren anzeigen", „Präferenzzentren bearbeiten", „Dashboard-Berichte bearbeiten", „Banner-Templates anzeigen", „Lokalisierungseinstellungen anzeigen", „Operator verwenden", „Decisioning Studio-Agenten anzeigen", „Decisioning Studio-Konversions-Event anzeigen".|
+|Nutzerverwaltung|„Dashboard-Nutzer:innen bearbeiten", „Teams anzeigen", „Teams bearbeiten", „Teams archivieren".|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
 
 ## Eine Rolle erstellen
 
-Rollen ermöglichen eine bessere Strukturierung durch die Bündelung Ihrer individuell angepassten Berechtigungen mit den Zugriffskontrollen für den Workspace. Das ist besonders nützlich, wenn Sie viele Marken oder regionale Workspaces in einem Dashboard haben. Mit Rollen können Sie Dashboard-Nutzer:innen zu den richtigen Workspaces hinzufügen und ihnen direkt die entsprechenden Berechtigungen erteilen. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#granularpermissions_list-of-permissions).
+Rollen ermöglichen eine bessere Strukturierung durch die Bündelung Ihrer individuell angepassten Berechtigungen mit den Zugriffskontrollen für den Workspace. Das ist besonders nützlich, wenn Sie viele Marken oder regionale Workspaces in einem Dashboard haben. Mit Rollen können Sie Dashboard-Nutzer:innen zu den richtigen Workspaces hinzufügen und ihnen direkt die entsprechenden Berechtigungen erteilen. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
 | Rollenname    | Workspace | Berechtigungen  
 ----------- | ----------- | ---------
-| Marketer – Modemarken | {::nomarkdown}[DEV] Modemarke, [QA] Modemarke, [PROD] Modemarke {:/} | „Kampagnen anzeigen", „Kampagnen bearbeiten", „Kampagnen archivieren", „Canvase anzeigen", „Canvase bearbeiten", „Canvase archivieren", „Content-Blöcke anzeigen", „Content-Blöcke bearbeiten", „Content-Blöcke archivieren", „Content-Blöcke starten", „Feature-Flags anzeigen", „Feature-Flags bearbeiten", „Feature-Flags archivieren", „Segmente anzeigen", „Segmente bearbeiten", „Banner-Templates anzeigen", „Banner-Templates bearbeiten", „E-Mail-Templates anzeigen", „E-Mail-Templates bearbeiten", „Medienbibliothek-Assets anzeigen", „Medienbibliothek-Assets bearbeiten", „Medienbibliothek-Assets löschen", „Standorte anzeigen", „Standorte bearbeiten", „Standorte archivieren", „Aktionscodes anzeigen", „Aktionscodes bearbeiten", „Aktionscodes exportieren", „Einstellungscenter anzeigen", „Einstellungscenter bearbeiten". |
-| Marketer – Hautpflegemarken | {::nomarkdown}[DEV] Hautpflegemarke, [QA] Hautpflegemarke, [PROD] Hautpflegemarke {:/} |„Kampagnen anzeigen", „Kampagnen bearbeiten", „Kampagnen archivieren", „Canvase anzeigen", „Canvase bearbeiten", „Canvase archivieren", „Content-Blöcke anzeigen", „Content-Blöcke bearbeiten", „Content-Blöcke archivieren", „Content-Blöcke starten", „Feature-Flags anzeigen", „Feature-Flags bearbeiten", „Feature-Flags archivieren", „Segmente anzeigen", „Segmente bearbeiten", „Banner-Templates anzeigen", „Banner-Templates bearbeiten", „E-Mail-Templates anzeigen", „E-Mail-Templates bearbeiten", „Medienbibliothek-Assets anzeigen", „Medienbibliothek-Assets bearbeiten", „Medienbibliothek-Assets löschen", „Standorte anzeigen", „Standorte bearbeiten", „Standorte archivieren", „Aktionscodes anzeigen", „Aktionscodes bearbeiten", „Aktionscodes exportieren", „Einstellungscenter anzeigen", „Einstellungscenter bearbeiten".|
-| Benutzerverwaltung – Alle Marken | {::nomarkdown}[DEV] Modemarke, [QA] Modemarke, [PROD] Modemarke, [DEV] Hautpflegemarke, [QA] Hautpflegemarke, [PROD] Hautpflegemarke {:/} | „Dashboard-Nutzer:innen bearbeiten", „Teams anzeigen", „Teams bearbeiten", „Teams archivieren"|
+| Marketer – Modemarken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | „Kampagnen anzeigen", „Kampagnen bearbeiten", „Kampagnen archivieren", „Canvases anzeigen", „Canvases bearbeiten", „Canvases archivieren", „Content-Blöcke anzeigen", „Content-Blöcke bearbeiten", „Content-Blöcke archivieren", „Content-Blöcke starten", „Feature-Flags anzeigen", „Feature-Flags bearbeiten", „Feature-Flags archivieren", „Segmente anzeigen", „Segmente bearbeiten", „Banner-Templates anzeigen", „Banner-Templates bearbeiten", „E-Mail-Templates anzeigen", „E-Mail-Templates bearbeiten", „Medienbibliothek-Assets anzeigen", „Medienbibliothek-Assets bearbeiten", „Medienbibliothek-Assets löschen", „Standorte anzeigen", „Standorte bearbeiten", „Standorte archivieren", „Aktionscodes anzeigen", „Aktionscodes bearbeiten", „Aktionscodes exportieren", „Präferenzzentren anzeigen", „Präferenzzentren bearbeiten". |
+| Marketer – Hautpflegemarken | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |„Kampagnen anzeigen", „Kampagnen bearbeiten", „Kampagnen archivieren", „Canvases anzeigen", „Canvases bearbeiten", „Canvases archivieren", „Content-Blöcke anzeigen", „Content-Blöcke bearbeiten", „Content-Blöcke archivieren", „Content-Blöcke starten", „Feature-Flags anzeigen", „Feature-Flags bearbeiten", „Feature-Flags archivieren", „Segmente anzeigen", „Segmente bearbeiten", „Banner-Templates anzeigen", „Banner-Templates bearbeiten", „E-Mail-Templates anzeigen", „E-Mail-Templates bearbeiten", „Medienbibliothek-Assets anzeigen", „Medienbibliothek-Assets bearbeiten", „Medienbibliothek-Assets löschen", „Standorte anzeigen", „Standorte bearbeiten", „Standorte archivieren", „Aktionscodes anzeigen", „Aktionscodes bearbeiten", „Aktionscodes exportieren", „Präferenzzentren anzeigen", „Präferenzzentren bearbeiten".|
+| Nutzerverwaltung – Alle Marken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | „Dashboard-Nutzer:innen bearbeiten", „Teams anzeigen", „Teams bearbeiten", „Teams archivieren"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -34,7 +34,7 @@ Rollen ermöglichen eine bessere Strukturierung durch die Bündelung Ihrer indiv
 
 {% multi_lang_include permissions.md content="Differences" %}
 
-### Überlegungen zum Hinzufügen von Benutzerberechtigungen zu Teams
+### Überlegungen zum Hinzufügen von Nutzerberechtigungen zu Teams
 
 Es kann zu Schwierigkeiten kommen, wenn Sie versuchen, Berechtigungen im Braze-Dashboard zu speichern – insbesondere beim Hinzufügen oder Entfernen von Nutzer:innen aus einem Workspace oder beim Hinzufügen zu einem Team. Der Button **Nutzer:innen speichern/aktualisieren** kann ausgegraut sein, wenn die Berechtigungen der Nutzer:innen mit denen identisch sind, die sie bereits auf Workspace-Ebene besitzen. Diese Einschränkung besteht, da es keinen Vorteil bietet, ein Team zu haben, wenn alle Nutzer:innen über dieselben Berechtigungen wie der gesamte Workspace verfügen.
 
@@ -62,17 +62,17 @@ Eingeschränkte Nutzer:innen verfügen über spezifische Berechtigungen, die es 
 
 ### Fehler bei eingeschränktem Zugriff
 
-Nutzer:innen können Nachrichten wie „Sie benötigen die Berechtigung ‚Landing Pages anzeigen', um auf diese Seite zugreifen zu können" erhalten. In solchen Fällen sollten die Nutzer:innen und der Kontoadministrator überprüfen, ob die erforderlichen Berechtigungen erteilt wurden. Ist dies der Fall, versuchen Sie, das Problem zu beheben, indem Sie die Berechtigungen der Nutzer:innen deaktivieren und anschließend wieder aktivieren. 
+Nutzer:innen können Nachrichten wie „Sie benötigen die Berechtigung ‚Landing-Pages anzeigen', um auf diese Seite zugreifen zu können" erhalten. In solchen Fällen sollten die Nutzer:innen und der Kontoadministrator überprüfen, ob die erforderlichen Berechtigungen erteilt wurden. Ist dies der Fall, versuchen Sie, das Problem zu beheben, indem Sie die Berechtigungen der Nutzer:innen deaktivieren und anschließend wieder aktivieren. 
 
 {% alert note %}
-Es ist nicht möglich, Benutzerberechtigungen von einer Dashboard-Nutzer:in auf eine andere zu übertragen oder zu importieren.
+Es ist nicht möglich, Nutzerberechtigungen von einer Dashboard-Nutzer:in auf eine andere zu übertragen oder zu importieren.
 {% endalert %}
 
 ## Bearbeiten der Berechtigungen von Nutzer:innen
 
-Um die aktuellen Administrator-, Unternehmens- oder Workspace-Berechtigungen von Nutzer:innen zu bearbeiten, navigieren Sie zu **Einstellungen** > **Unternehmensbenutzer** und wählen Sie den entsprechenden Namen aus.
+Um die aktuellen Administrator-, Unternehmens- oder Workspace-Berechtigungen von Nutzer:innen zu bearbeiten, navigieren Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie den entsprechenden Namen aus.
 
-![Die Seite „Unternehmensbenutzer" in Braze zeigt eine Tabelle mit Dashboard-Nutzer:innen an.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![Die Seite „Unternehmensnutzer:innen" in Braze zeigt eine Tabelle mit Dashboard-Nutzer:innen an.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab Admin %}
@@ -81,8 +81,8 @@ Um die aktuellen Administrator-, Unternehmens- oder Workspace-Berechtigungen von
 
 Admins haben Zugriff auf alle Features und können alle Unternehmenseinstellungen ändern. Sie können:
 
-- [Genehmigungseinstellungen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/campaign_approval/#turning-on-campaign-approval) ändern
-- Andere [Braze-Nutzer:innen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/adding_users_to_your_dashboard/#adding-braze-users) hinzufügen, bearbeiten, löschen, suspendieren oder die Suspendierung aufheben
+- [Genehmigungseinstellungen]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow) ändern
+- Andere [Braze-Nutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users) hinzufügen, bearbeiten, löschen, suspendieren oder die Suspendierung aufheben
 - Braze-Nutzer:innen als CSV-Datei exportieren
 
 Um Admin-Rechte zu gewähren oder zu entfernen, wählen Sie **Dieser Benutzer ist ein Admin** und dann **Benutzer aktualisieren**.
@@ -90,7 +90,7 @@ Um Admin-Rechte zu gewähren oder zu entfernen, wählen Sie **Dieser Benutzer is
 ![Die Details der ausgewählten Nutzer:in mit aktiviertem Admin-Kontrollkästchen.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
-Wenn Sie Nutzer:innen die Administratorrechte entziehen, können diese nicht mehr auf Braze zugreifen, bis Sie ihnen mindestens eine [Berechtigung auf Unternehmens- oder Workspace-Ebene]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions) zuweisen.
+Wenn Sie Nutzer:innen die Administratorrechte entziehen, können diese nicht mehr auf Braze zugreifen, bis Sie ihnen mindestens eine [Berechtigung auf Unternehmens- oder Workspace-Ebene]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions) zuweisen.
 {% endalert %}
 
 {% endtab %}
@@ -102,7 +102,7 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 
 |Berechtigungsname|Beschreibung|
 |----------|-----------|
-|Unternehmenseinstellungen verwalten|Ermöglicht es Nutzer:innen, Berechtigungseinstellungen und die Absenderverifizierung anzupassen.|
+|Unternehmenseinstellungen verwalten|Ermöglicht es Nutzer:innen, Berechtigungseinstellungen und die Senderüberprüfung anzupassen.|
 |Workspaces erstellen und löschen|Ermöglicht es Nutzer:innen, Workspaces zu erstellen und zu löschen.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -111,7 +111,7 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 
 ### Workspace
 
-Sie können Nutzer:innen unterschiedliche Berechtigungen für jeden Workspace erteilen, dem sie in Braze angehören. Um die Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Workspaces und Berechtigungen auswählen** und legen Sie dann die Berechtigungen manuell fest oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Um Nutzer:innen unterschiedliche Berechtigungen für verschiedene Workspaces zu vergeben, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Sie können Nutzer:innen unterschiedliche Berechtigungen für jeden Workspace erteilen, dem sie in Braze angehören. Um die Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Workspaces und Berechtigungen auswählen** und legen Sie dann die Berechtigungen manuell fest oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Um Nutzer:innen unterschiedliche Berechtigungen für verschiedene Workspaces zu vergeben, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -145,11 +145,11 @@ Wenn Sie fertig sind, wählen Sie **Benutzer aktualisieren**.
 {% endtab %}
 {% endtabs %}
 
-## Benutzerberechtigungen exportieren
+## Nutzerberechtigungen exportieren
 
-Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen Sie zu **Einstellungen** > **Unternehmensbenutzer** und wählen Sie dann **Nutzer:innen exportieren**. Eine CSV-Datei wird in Kürze an Ihre E-Mail-Adresse gesendet.
+Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie dann **Nutzer:innen exportieren**. Eine CSV-Datei wird in Kürze an Ihre E-Mail-Adresse gesendet.
 
-![Die Seite „Unternehmensbenutzer" in Braze mit der Option „Nutzer:innen exportieren" im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![Die Seite „Unternehmensnutzer:innen" in Braze mit der Option „Nutzer:innen exportieren" im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## Liste der Berechtigungen
 
@@ -173,31 +173,31 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Kampagnen starten                                | Bestehende Kampagnen starten, stoppen, pausieren oder fortsetzen |
 | Frequency-Capping-Regeln anzeigen                    | Frequency-Capping-Regeln anzeigen |
 | Frequency-Capping-Regeln bearbeiten                    | Frequency-Capping-Regeln erstellen und aktualisieren |
-| Canvase anzeigen                                   | Canvase anzeigen |
-| Canvase bearbeiten                                   | Canvase erstellen und aktualisieren |
-| Canvase archivieren                                | Canvase in das Archiv verschieben |
-| Canvase starten                                 | Bestehende Canvase starten, stoppen, pausieren oder fortsetzen |
+| Canvases anzeigen                                   | Canvases anzeigen |
+| Canvases bearbeiten                                   | Canvases erstellen und aktualisieren |
+| Canvases archivieren                                | Canvases in das Archiv verschieben |
+| Canvases starten                                 | Bestehende Canvases starten, stoppen, pausieren oder fortsetzen |
 | Content-Blöcke anzeigen                             | Content-Blöcke anzeigen |
 | Content-Blöcke bearbeiten                             | Content-Blöcke erstellen und aktualisieren |
 | Content-Blöcke archivieren                          | Content-Blöcke in das Archiv verschieben |
 | Feature-Flags anzeigen                              | Feature-Flags anzeigen |
 | Feature-Flags bearbeiten                              | Feature-Flags erstellen und aktualisieren |
 | Feature-Flags archivieren                           | Feature-Flags in das Archiv verschieben |
-| WhatsApp-Nachrichten-Templates anzeigen                 | Ermöglicht es Nutzer:innen, [WhatsApp-Nachrichten-Templates]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/?tab=template%20messages#step-2-compose-your-whatsapp-message) anzuzeigen. |
+| WhatsApp-Nachrichten-Templates anzeigen                 | Ermöglicht es Nutzer:innen, [WhatsApp-Nachrichten-Templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/?tab=template%20messages#step-2-compose-your-whatsapp-message) anzuzeigen. |
 | WhatsApp-Nachrichten-Templates bearbeiten | Ermöglicht es Nutzer:innen, WhatsApp-Nachrichten-Templates im Template-Builder zu erstellen. Dieses Feature befindet sich derzeit in der Early-Access-Phase. |
 | Segmente anzeigen                                   | Segmente anzeigen. Nutzer:innen müssen über die Berechtigung „Segmente anzeigen" verfügen, um die Berechtigung „Segmente bearbeiten" oder „Segmente archivieren" zu erhalten. |
 | Segmente archivieren                                | Segmente archivieren und aus dem Archiv entfernen. Nutzer:innen mit der Berechtigung „Segmente archivieren" muss auch die Berechtigung „Segmente anzeigen" erteilt werden. |
 | Segmente bearbeiten                                   | Segmente erstellen und aktualisieren. Nutzer:innen mit der Berechtigung „Segmente bearbeiten" muss auch die Berechtigung „Segmente anzeigen" erteilt werden. |
 | Globale Kontrollgruppe anzeigen                       | Die Einrichtungsseite der globalen Kontrollgruppe anzeigen |
-| Globale Kontrollgruppe bearbeiten                       | Änderungen an der globalen Kontrollgruppe erstellen und speichern. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten" müssen auch die Berechtigungen „Kampagnen bearbeiten" und „Canvase bearbeiten" erhalten. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten" erhalten auch die Berechtigung „Globale Kontrollgruppe anzeigen". |
+| Globale Kontrollgruppe bearbeiten                       | Änderungen an der globalen Kontrollgruppe erstellen und speichern. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten" müssen auch die Berechtigungen „Kampagnen bearbeiten" und „Canvases bearbeiten" erhalten. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten" erhalten auch die Berechtigung „Globale Kontrollgruppe anzeigen". |
 | Banner-Templates anzeigen                           | Banner-Templates anzeigen |
 | Banner-Templates bearbeiten                           | Banner-Templates erstellen und aktualisieren |
 | Banner-Templates archivieren                   	  | Banner-Templates in das Archiv verschieben |
 | E-Mail-Templates anzeigen                            | E-Mail-Templates anzeigen |
 | E-Mail-Templates bearbeiten                            | E-Mail-Templates erstellen und aktualisieren |
 | E-Mail-Templates archivieren                         | E-Mail-Templates in das Archiv verschieben |
-| Link-Templates anzeigen   	                  | Link-Templates anzeigen, ohne Änderungen vorzunehmen |
-| Link-Templates bearbeiten	                      | Link-Templates erstellen und aktualisieren |
+| E-Mail-Link-Templates anzeigen   	                  | Link-Templates anzeigen, ohne Änderungen vorzunehmen |
+| E-Mail-Link-Templates bearbeiten	                      | Link-Templates erstellen und aktualisieren |
 | Landing-Pages veröffentlichen                           | Einen Landing-Page-Entwurf aktivieren |
 | Landing-Page-Entwürfe bearbeiten                        | Landing-Page-Entwürfe erstellen und speichern |
 | Landing-Pages anzeigen			                  | Landing-Pages anzeigen |
@@ -213,16 +213,16 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Aktionscodes anzeigen                            | Aktionscodes anzeigen |
 | Aktionscodes bearbeiten                            | Aktionscodes erstellen und aktualisieren |
 | Aktionscodes exportieren                          | Eine Liste mit Aktionscodes vom Dashboard herunterladen |
-| Einstellungscenter anzeigen                         | Einstellungscenter anzeigen  |
-| Einstellungscenter bearbeiten                         | Einstellungscenter erstellen und aktualisieren |
-| Einstellungscenter starten	                      | Einen Entwurf für das Einstellungscenter aktivieren oder ein bestehendes aktualisieren |
+| Präferenzzentren anzeigen                         | Präferenzzentren anzeigen  |
+| Präferenzzentren bearbeiten                         | Präferenzzentren erstellen und aktualisieren |
+| Präferenzzentren starten	                      | Einen Entwurf für das Präferenzzentrum aktivieren oder ein bestehendes aktualisieren |
 | API-Schlüssel anzeigen                                   | API-Schlüssel anzeigen |
 | API-Schlüssel bearbeiten                                   | API-Schlüssel erstellen und aktualisieren |
 | Interne Gruppen anzeigen                            | Interne Gruppen anzeigen |
 | Interne Gruppen bearbeiten                            | Interne Gruppen erstellen und aktualisieren |
 | Interne Gruppen löschen                          | Interne Gruppen löschen |
 | Nachrichtenaktivitätsprotokoll anzeigen                       | Nachrichtenaktivitätsprotokolle anzeigen |
-| Event-Benutzerprotokoll anzeigen                             | Event-Benutzerprotokolle anzeigen |
+| Event-Nutzerprotokoll anzeigen                             | Event-Nutzerprotokolle anzeigen |
 | API-Bezeichner anzeigen                            | API-Bezeichner und andere Bezeichner anzeigen |
 | API-Nutzungs-Dashboard anzeigen                        | Das API-Nutzungs-Dashboard anzeigen |
 | API-Limits anzeigen                                 | API-Rate-Limits anzeigen |
@@ -237,8 +237,8 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Kataloge exportieren                                 | Kataloge vom Dashboard herunterladen |
 | Kataloge löschen                                 | Kataloge dauerhaft löschen |
 | Dashboard-Nutzer:innen bearbeiten                            | Unternehmensnutzer:innen anzeigen, erstellen und bearbeiten |
-| E-Mail-Einstellungen anzeigen                             | E-Mail-Einstellungen anzeigen |
-| E-Mail-Einstellungen bearbeiten                             | E-Mail-Einstellungen aktivieren und aktualisieren | 
+| E-Mail-Einstellungen anzeigen                             | E-Mail-Präferenzen anzeigen |
+| E-Mail-Einstellungen bearbeiten                             | E-Mail-Präferenzen aktivieren und aktualisieren | 
 | Verschlüsselung auf Bezeichner-Feldebene bearbeiten            | Einstellungen für die Verschlüsselung auf Feldebene aktivieren und aktualisieren |
 | Angepasste Attribute anzeigen                          | Angepasste Attribute und Nutzungsbericht anzeigen |
 | Angepasste Attribute bearbeiten                          | Angepasste Attribute erstellen und aktualisieren |
@@ -255,7 +255,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Produkte bearbeiten                                   | Produkte erstellen und aktualisieren |
 | Sperrliste für Produkte                              | Produkte zu einer Sperrliste hinzufügen, die die Verwendung im Dashboard einschränkt |
 | Segmentierung von Kaufeigenschaften bearbeiten             | Segmentierung für Kauf-Event-Eigenschaften aktivieren und deaktivieren |
-| Technologiepartner bearbeiten                        | Technologiepartner erstellen und aktualisieren |
+| Technologie-Partner bearbeiten                        | Technologie-Partner erstellen und aktualisieren |
 | Cloud-Datenaufnahme bearbeiten                       | Quellen und Synchronisierungen erstellen, aktualisieren und löschen |
 | Lokalisierungseinstellungen anzeigen                      | Die Seite für mehrsprachige Gebietsschemaeinstellungen anzeigen |
 | Lokalisierungseinstellungen bearbeiten                      | Mehrsprachige Gebietsschemaeinstellungen erstellen |
@@ -270,8 +270,8 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Datentransformationen anzeigen                        | Datentransformationen anzeigen |
 | Datentransformationen bearbeiten                        | Datentransformationen erstellen und aktualisieren |
 | Canvas-Templates bearbeiten                           | Canvas-Templates erstellen und aktualisieren |
-| Kampagnen genehmigen                               | Kampagnen genehmigen oder ablehnen. Der [Genehmigungsworkflow für Kampagnen]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Account Manager, wenn Sie an einer Teilnahme am Early Access interessiert sind. |
-| Canvase genehmigen                                | Canvase genehmigen oder ablehnen. Der [Genehmigungsworkflow für Canvase]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Account Manager, wenn Sie an einer Teilnahme am Early Access interessiert sind. |
+| Kampagnen genehmigen                               | Kampagnen genehmigen oder ablehnen. Der [Genehmigungs-Workflow für Kampagnen]({{site.baseurl}}/user_guide/messaging/governance/approvals/) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit in der Early-Access-Phase. Kontaktieren Sie Ihren Account Manager, wenn Sie an einer Teilnahme am Early Access interessiert sind. |
+| Canvases genehmigen                                | Canvases genehmigen oder ablehnen. Der [Genehmigungs-Workflow für Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals/) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit in der Early-Access-Phase. Kontaktieren Sie Ihren Account Manager, wenn Sie an einer Teilnahme am Early Access interessiert sind. |
 | Platzierungen anzeigen                                 | Bannerplatzierungen anzeigen |
 | Platzierungen bearbeiten                                 | Bannerplatzierungen anzeigen, ohne Änderungen vorzunehmen |
 | Platzierungen archivieren                              | Bannerplatzierungen in das Archiv verschieben |
