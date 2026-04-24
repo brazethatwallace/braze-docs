@@ -34,7 +34,7 @@ Um den Liquid-Passback korrekt zu rendern, müssen Sie das {% raw %}`${language}
 
 {%raw%}
 ```liquid
-"Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
+Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
 

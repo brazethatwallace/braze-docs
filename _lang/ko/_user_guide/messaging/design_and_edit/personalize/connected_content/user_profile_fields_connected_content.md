@@ -34,7 +34,7 @@ Liquid 패스백을 올바르게 렌더링하려면 다음 코드 스니펫에 �
 
 {%raw%}
 ```liquid
-"Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
+Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
 

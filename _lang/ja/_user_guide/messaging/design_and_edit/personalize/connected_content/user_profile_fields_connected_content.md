@@ -34,7 +34,7 @@ Liquid のパスバックを正しくレンダリングするには、以下の�
 
 {%raw%}
 ```liquid
-"Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
+Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
 

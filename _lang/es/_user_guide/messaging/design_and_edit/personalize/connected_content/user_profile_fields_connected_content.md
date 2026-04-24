@@ -34,7 +34,7 @@ Para renderizar correctamente el retorno de Liquid, debes incluir la etiqueta {%
 
 {%raw%}
 ```liquid
-"Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
+Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
 

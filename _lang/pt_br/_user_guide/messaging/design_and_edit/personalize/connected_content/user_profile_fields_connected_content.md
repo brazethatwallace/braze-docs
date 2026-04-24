@@ -34,7 +34,7 @@ Para renderizar o retorno do Liquid corretamente, você deve incluir a tag {% ra
 
 {%raw%}
 ```liquid
-"Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
+Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
 

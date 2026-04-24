@@ -34,7 +34,7 @@ Pour que le renvoi Liquid s'affiche correctement, vous devez inclure l'étiquett
 
 {%raw%}
 ```liquid
-"Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
+Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
 ```
 {% endraw %}
 
