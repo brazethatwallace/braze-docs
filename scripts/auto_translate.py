@@ -1557,6 +1557,79 @@ def repair_german_mismatched_quotes(translated_path, translated_content):
     return translated_content, []
 
 
+# Code fences we trust to contain balanced ASCII double-quote strings. Other
+# languages (Markdown, TypeScript's template literals, Python's triple-quotes,
+# etc.) have legitimate patterns that would produce noisy false positives, so
+# we scope the check to cURL/JSON/shell/Liquid — the classes where an
+# unterminated string literal is almost always a real bug.
+_CODE_FENCE_OPEN_RE = re.compile(r'^```([A-Za-z0-9_+.-]*)\s*$', re.MULTILINE)
+_CHECKED_FENCE_LANGS = frozenset({
+    "liquid", "json", "bash", "sh", "shell", "zsh", "curl",
+})
+_ESCAPED_DOUBLE_QUOTE_RE = re.compile(r'\\"')
+
+
+def _iter_code_fences(content):
+    """Yield ``(lang, start_line, end_line, body)`` for each fenced block.
+
+    ``start_line`` / ``end_line`` are 0-based indices into ``splitlines()``
+    and point at the opening / closing ``` lines respectively. ``body``
+    is the text *between* those lines (unchanged whitespace).
+    """
+    lines = content.splitlines()
+    i = 0
+    total = len(lines)
+    while i < total:
+        m = _CODE_FENCE_OPEN_RE.match(lines[i])
+        if not m:
+            i += 1
+            continue
+        lang = m.group(1).lower()
+        j = i + 1
+        while j < total and not lines[j].startswith("```"):
+            j += 1
+        if j >= total:
+            return
+        body = "\n".join(lines[i + 1:j])
+        yield lang, i, j, body
+        i = j + 1
+
+
+def check_code_fence_balanced_quotes(content, label="translated"):
+    """Warn when a ``liquid``/``json``/``bash``/``shell`` fence has an odd
+    number of unescaped ASCII ``"`` characters.
+
+    PR #13305's English source shipped a broken Liquid example
+    (``"Hi ${first_name}, {% connected_content ... %}``) with an opening
+    quote but no closer; the auto-translate pipeline faithfully mirrored
+    the unterminated string into all six locales. A character-count
+    heuristic is enough to catch this class of bug without the complexity
+    of actual parsing: `curl -d '{"k": "v"}'`-style lines always contain
+    an even number of quotes, so any odd count in the trusted fence
+    languages is strong evidence of a missing closer.
+
+    ``label`` distinguishes whether the fence lives in the English source
+    vs. a locale copy in the warning message — a ``(english source)``
+    tag is a cue to fix upstream before re-running the translation.
+    """
+    warnings = []
+    for lang, start_line, end_line, body in _iter_code_fences(content):
+        if lang not in _CHECKED_FENCE_LANGS:
+            continue
+        stripped = _ESCAPED_DOUBLE_QUOTE_RE.sub("", body)
+        count = stripped.count('"')
+        if count % 2 == 1:
+            first_body_line = start_line + 2
+            warnings.append(
+                f"code-fence — unbalanced \" in ```{lang} block starting "
+                f"near line {first_body_line} ({label}): {count} unescaped "
+                f"double-quote(s), expected an even number. Likely an "
+                f"unterminated string — inspect the opening/closing quotes "
+                f"of the first line."
+            )
+    return warnings
+
+
 _HEADING_RE = re.compile(r'^(#{1,6})\s+(.+?)\s*$', re.MULTILINE)
 _HEADING_SLUG_TAIL_RE = re.compile(r'\s*\{#[^}]+\}\s*$')
 
@@ -3009,6 +3082,14 @@ def qc_check_file(english_path, translated_path, lang_key):
     findings["warnings"].extend(
         check_untranslated_headings(
             english_content, translated_content, lang_key, translated_path
+        )
+    )
+    findings["warnings"].extend(
+        check_code_fence_balanced_quotes(english_content, label="english source")
+    )
+    findings["warnings"].extend(
+        check_code_fence_balanced_quotes(
+            translated_content, label=f"{lang_key} translation"
         )
     )
     findings["warnings"].extend(
