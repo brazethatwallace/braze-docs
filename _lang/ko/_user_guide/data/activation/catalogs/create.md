@@ -25,17 +25,7 @@ description: "이 참조 문서에서는 Liquid를 통해 Braze 캠페인에서 
 
 ## 지원되는 데이터 유형 {#supported-data-types}
 
-다음 표는 지원되는 카탈로그 데이터 유형과 생성 또는 업데이트 방법을 나열합니다.
-
-| 데이터 유형    | 설명                                   | CSV 업로드를 통해 사용 가능 | API 및 CDI를 통해 사용 가능 |
-|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
-| 문자열       | 문자의 시퀀스입니다.                     | ✅ 예                    | ✅ 예                     |
-| 숫자       | 정수 또는 플로트인 숫자 값입니다.     | ✅ 예                    | ✅ 예                     |
-| 부울      | `true` 또는 `false` 값입니다.                    | ✅ 예                    | ✅ 예                     |
-| Time         | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식으로 포맷된 문자열입니다.                        | ✅ 예                    | ✅ 예                     |
-| JSON 오브젝트  | 키-값 페어가 있는 중첩 오브젝트입니다. 플랫폼에 표시될 수 있지만 API 또는 CDI를 통해서만 생성 또는 업데이트할 수 있습니다.         | ⛔ 아니오                     | ✅ 예                     |
-| 문자열 배열 | 문자열 목록입니다. 플랫폼에 표시될 수 있지만 API 또는 CDI를 통해서만 생성 또는 업데이트할 수 있습니다. 최대 100개 요소입니다. | ⛔ 아니오                     | ✅ 예                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+지원되는 카탈로그 데이터 유형, 설명, 각 유형의 생성 또는 업데이트 방법(CSV vs API 및 CDI), 형식 및 예시에 대해서는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요.
 
 ## 카탈로그 만들기
 
@@ -49,12 +39,12 @@ CSV 파일을 업로드하기 전에 CSV 파일이 다음 요구 사항을 충�
 
 | CSV 요구 사항 | 세부 정보 |
 |-----------------|---------|
-| 헤더 | CSV 파일의 첫 번째 열은 `id`라고 명명해야 하며, 각 행은 고유한 `id` 값을 가져야 합니다. |
+| 헤더 | CSV 파일의 첫 번째 열은 `id`로 명명해야 하며, 각 행은 고유한 `id` 값을 가져야 합니다. |
 | 열 | CSV 파일은 최대 1,000개의 필드(열)를 가질 수 있으며, 각 열 이름은 최대 250자까지 가능합니다. |
 | 파일 크기 | 무료 요금제의 경우, 회사 전체의 모든 CSV 파일의 총 크기는 100MB로 제한됩니다. 프로 요금제의 경우, 단일 CSV 파일의 최대 파일 크기는 2GB입니다. |
 | 필드 값 | 각 셀(필드 값)은 최대 5,000자를 포함할 수 있습니다. |
 | 유효한 문자 | `id` 열과 모든 헤더 값은 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있습니다. |
-| 데이터 유형 | CSV 업로드에서 지원되는 데이터 유형에는 문자열, 숫자, 부울 및 시간이 포함됩니다. API 및 CDI를 통해서만 사용할 수 있는 데이터 유형을 포함한 전체 목록은 [지원되는 데이터 유형](#supported-data-types)을 참조하세요. |
+| 데이터 유형 | CSV 업로드에서 지원되는 데이터 유형에는 문자열, 숫자, 부울 및 시간이 포함됩니다. API 및 CDI를 통해서만 사용할 수 있는 데이터 유형을 포함한 전체 목록은 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요. |
 | 서식 지정 | 일관성을 유지하기 위해 모든 텍스트를 소문자로 포맷합니다. |
 | 인코딩 | UTF-8 인코딩을 사용하여 CSV 파일을 저장하고 업로드합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -137,19 +127,19 @@ CSV 파일을 업로드하여 카탈로그를 생성합니다. `id`, `title`, `p
 
 ![네 개의 카탈로그 열 이름: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-다음으로 이 카탈로그의 이름을 "games_catalog"로 지정하고 **카탈로그 처리** 버튼을 선택합니다. 그러면 Braze는 카탈로그를 생성하기 전에 오류가 있는지 확인합니다.
+다음으로 이 카탈로그의 이름을 "games_catalog"로 지정하고 **카탈로그 처리** 버튼을 선택합니다. 그러면 Braze가 카탈로그를 생성하기 전에 오류가 있는지 확인합니다.
 
 !["games_catalog"라는 이름의 카탈로그.]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 카탈로그가 생성된 후에는 이 이름을 편집할 수 없다는 점에 유의하세요. 카탈로그를 삭제하고 동일한 카탈로그 이름을 사용하여 업데이트된 버전을 다시 업로드할 수 있습니다.
 
-카탈로그를 생성한 후에는 [캠페인에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/)를 참조할 수 있습니다.
+카탈로그를 생성한 후에는 [캠페인에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)를 참조할 수 있습니다.
 {% endtab %}
 
 {% tab Create in browser %}
 ### 필수 조건
 
-브라우저에서 카탈로그를 편집하거나 생성하기 전에 워크스페이스에 대한 다음 [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)이 필요합니다:
+브라우저에서 카탈로그를 편집하거나 생성하기 전에 워크스페이스에 대한 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다:
 
 - 카탈로그 보기
 - 카탈로그 편집
@@ -188,19 +178,7 @@ Braze는 대시보드 타임스탬프를 기반으로 시간 값을 처리합니
 {% endtab %}
 {% endtabs %}
 
-## 카탈로그 데이터 유형
-
-카탈로그는 데이터를 효과적으로 구성하고 구조화하는 데 도움이 되는 다양한 데이터 유형을 지원합니다. 다음 표는 지원되는 각 데이터 유형과 CSV 및 API 유형 이름에 대한 매핑을 설명합니다:
-
-| 데이터 유형 | 형식 | 예시 | 설명 |
-|-----------|--------|---------|-------------|
-| 문자열 | 텍스트 | `"Hello World"` | 이름, 설명 및 ID와 같은 텍스트 데이터에 사용되는 모든 문자 시퀀스입니다. CSV 및 API 가져오기에서 `string` 유형에 해당합니다. |
-| Time | ISO 8601 또는 Unix 타임스탬프(초) | `"2024-03-15T14:30:00Z"` | ISO 8601 또는 Unix 타임스탬프(초)로 형식화된 날짜 및 시간 값입니다. API에서 `time` 유형에 해당하며 CSV 가져오기에서 `datetime` 유형에 해당합니다. |
-| 부울 | `true` 또는 `false` | `true` | 참 또는 거짓 상태를 나타내는 논리 값입니다. CSV 및 API 가져오기에서 `boolean` 유형에 해당합니다. |
-| 숫자 | 정수 또는 소수 | `42` 또는 `19.99` | 가격, 수량, 등급 등을 위한 정수 및 부동 소수점 숫자를 포함한 숫자 값입니다. CSV 가져오기에서 `integer` 및 `float` 유형과 API의 `number` 유형에 해당합니다. |
-| 오브젝트 | JSON 오브젝트 | `{"key": "value", "price": 10}` | 복잡한 중첩 데이터 구조입니다. API `type` 값은 `object`입니다. 대시보드에 JSON 오브젝트로 표시됩니다. API 또는 클라우드 데이터 수집(CDI)을 통해서만 사용할 수 있습니다. |
-| 배열 | 문자열 배열 | `["red", "blue", "green"]` | 문자열 값 목록입니다. API `type` 값은 `array`입니다. 대시보드에 문자열 배열로 표시됩니다. API 또는 CDI를 통해서만 사용할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+카탈로그 데이터 유형의 형식 및 예시에 대해서는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요.
 
 ## 카탈로그 이름에 템플릿 사용 {#template-catalog-names}
 
@@ -219,13 +197,13 @@ Braze는 대시보드 타임스탬프를 기반으로 시간 값을 처리합니
 
 ### 대시보드에서
 
-CSV를 업로드하거나 브라우저에서 카탈로그를 생성한 후 카탈로그를 업데이트하려면 **카탈로그 업데이트** > **CSV 업로드**를 선택한 다음 카탈로그의 항목을 업데이트, 추가 또는 삭제할지 선택합니다.
+CSV를 업로드하거나 브라우저에서 카탈로그를 생성한 후 카탈로그를 업데이트하려면 **카탈로그 업데이트 > CSV 업로드**를 선택한 다음 카탈로그의 항목을 업데이트, 추가 또는 삭제할지 선택합니다.
 
 ### REST API 사용
 
 더 많은 카탈로그를 구축하면서 [카탈로그 목록 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/)를 사용하여 워크스페이스에 있는 카탈로그 목록을 반환할 수도 있습니다.
 
-REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈로그 데이터 유형](#supported-data-types)을 지원합니다. JSON 오브젝트 및 문자열 배열은 REST API를 통해서만 생성하거나 업데이트할 수 있습니다.
+REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈로그 데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 지원합니다. JSON 오브젝트 및 문자열 배열은 REST API를 통해서만 생성하거나 업데이트할 수 있습니다.
 
 ### 클라우드 데이터 수집 사용
 
