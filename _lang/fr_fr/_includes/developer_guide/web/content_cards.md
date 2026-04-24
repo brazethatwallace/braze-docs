@@ -4,9 +4,13 @@
 
 Avant de pouvoir utiliser les cartes de contenu, vous devez [intégrer le SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) dans votre application. Cependant, aucune configuration supplémentaire n'est nécessaire. Pour créer votre propre interface utilisateur, consultez le [Guide de personnalisation des cartes de contenu]({{site.baseurl}}/developer_guide/content_cards/).
 
+{% alert note %}
+Certains bloqueurs de publicités et extensions de confidentialité des navigateurs peuvent bloquer le script du SDK Web de Braze ou les requêtes réseau associées, ce qui peut empêcher le chargement des cartes de contenu. Si vous utilisez la méthode d'intégration par réseau de diffusion de contenu, envisagez de passer à la [méthode d'intégration NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), qui stocke les bibliothèques du SDK localement sur votre site web et peut éviter certains problèmes liés aux bloqueurs de publicités.
+{% endalert %}
+
 ## IU de flux standard
 
-Pour utiliser l'IU de cartes de contenu incluse, vous devez spécifier où afficher le flux sur votre site Internet.
+Pour utiliser l'IU de cartes de contenu incluse, vous devez spécifier où afficher le flux sur votre site web.
 
 Dans cet exemple, nous avons un `<div id="feed"></div>` dans lequel nous voulons placer le flux de cartes de contenu. Nous utiliserons trois boutons pour masquer, afficher ou basculer le flux (masquer ou afficher en fonction de son état actuel).
 
@@ -49,7 +53,7 @@ Lorsque vous utilisez les méthodes `toggleContentCards(parentNode, filterFuncti
 |`filterFunction` | Un filtre ou une fonction de tri pour les cartes affichées dans cette vue. Invoquée avec le tableau d'objets `Card`, triés selon `{pinned, date}`. Doit retourner un tableau d'objets `Card` triés à afficher pour cet utilisateur. Si omis, toutes les cartes seront affichées. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-[Consultez la documentation de référence du SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) pour plus d'informations sur la façon de basculer les cartes de contenu.
+[Consultez la documentation de référence du SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) pour plus d'informations sur le basculement des cartes de contenu.
 
 ## Tester les cartes de contenu sur le web
 
@@ -78,7 +82,7 @@ Toutes les cartes de contenu partagent ces propriétés :
 |---|---|
 | `expiresAt` | L'horodatage UNIX du moment d'expiration de la carte.|
 | `extras`| (Facultatif) Données de paires clé-valeur formatées en tant qu'objet chaîne de caractères avec une valeur chaîne de caractères. |
-| `id` | (Facultatif) L'ID de la carte. Celui-ci sera transmis à Braze avec les événements à des fins analytiques. |
+| `id` | (Facultatif) L'ID de la carte. Celui-ci sera transmis à Braze avec les événements à des fins d'analyse. |
 | `pinned` | Cette propriété indique si la carte a été définie comme « épinglée » dans le tableau de bord.|
 | `updated` | L'horodatage UNIX de la dernière modification de cette carte. |
 | `viewed` | Cette propriété indique si l'utilisateur a vu la carte ou non.|
@@ -282,7 +286,7 @@ Google Tag Manager fonctionne en injectant le [réseau de diffusion de contenu d
 
 {% tabs local %}
 {% tab google tag manager %}
-Pour une intégration standard du flux de cartes de contenu, vous pouvez utiliser une balise **HTML personnalisée** dans Google Tag Manager. Ajoutez ce qui suit à votre balise HTML personnalisée, ce qui activera le flux de cartes de contenu standard :
+Pour une intégration standard du flux de cartes de contenu, vous pouvez utiliser une balise **HTML personnalisée** dans Google Tag Manager. Ajoutez ce qui suit à votre balise HTML personnalisée, ce qui activera le flux standard de cartes de contenu :
 
 ```html
 <script>
@@ -294,7 +298,7 @@ Pour une intégration standard du flux de cartes de contenu, vous pouvez utilise
 {% endtab %}
 
 {% tab manual %}
-Pour plus de liberté dans la personnalisation de l'apparence de vos cartes de contenu et de leur flux, vous pouvez intégrer directement les cartes de contenu dans votre site Internet natif. Deux approches s'offrent à vous : utiliser l'IU de flux standard ou créer une IU de flux personnalisée.
+Pour plus de liberté dans la personnalisation de l'apparence de vos cartes de contenu et de leur flux, vous pouvez intégrer directement les cartes de contenu dans votre site web natif. Deux approches s'offrent à vous : utiliser l'IU de flux standard ou créer une IU de flux personnalisée.
 
 {% subtabs local %}
 {% subtab standard feed %}

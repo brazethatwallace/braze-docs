@@ -1,6 +1,6 @@
 {% if include.section == "UTM parameters" %}
 
-リンクの短縮により、URL を自動的に追跡できますが、URL に UTM パラメータを追加して、Google Analytics などのサードパーティの分析ツールでキャンペーンのパフォーマンスを追跡することもできます。
+リンクの短縮により URL を自動的に追跡できますが、URL に UTM パラメータを追加して、Google Analytics などのサードパーティの分析ツールでキャンペーンのパフォーマンスを追跡することもできます。
 
 URL に UTM パラメータを追加するには、次の手順を実行します。
 
@@ -26,7 +26,7 @@ URL に UTM パラメータを追加するには、次の手順を実行しま�
 
 ### 短縮 URL はどのくらいの期間有効ですか？
 
-パーソナライズ済み URL は、URL 登録時から2か月間有効です。[統合リンク短縮]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/?sdktab=unified)の場合は、静的またはパーソナライズ済みの区別がなく、すべてのリンクは9週間有効です。
+パーソナライズ済み URL は、URL 登録時から2か月間有効です。[統合リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified)の場合は、静的またはパーソナライズ済みの区別がなく、すべてのリンクは9週間有効です。
 
 ### リンクを短縮するために Braze SDK をインストールする必要がありますか？
 
@@ -38,6 +38,6 @@ URL に UTM パラメータを追加するには、次の手順を実行しま�
 
 ## カスタムドメイン
 
-リンクの短縮では、独自のドメインを使用して短縮 URL の外観をパーソナライズし、一貫したブランドイメージを表現することもできます。詳細情報については、[カスタムドメイン]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/)を参照してください。
+リンクの短縮では、独自のドメインを使用して短縮 URL の外観をパーソナライズし、一貫したブランドイメージを表現することもできます。詳細情報については、[セルフサービスカスタムドメイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)を参照してください。
 
 {% endif %}

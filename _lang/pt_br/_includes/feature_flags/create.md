@@ -17,7 +17,7 @@ Para gerenciar os Feature Flags no dashboard, você precisará ser um administra
 | Permissão                                                                    | O que você pode fazer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Gerenciar Feature Flags**                                                      | Visualizar, criar e editar Feature Flags.     |
-| **Campanhas de acesso, Canvas, cartões, Feature Flags, segmentos, biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
+| **Acessar Campanhas, Canvas, cartões, Feature Flags, segmentos, Biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Criação de um Feature Flag
@@ -40,7 +40,7 @@ Em **Detalhes do Feature Flag**, insira um nome, ID e descrição para seu Featu
 | Nome         | Um título legível para seus profissionais de marketing e administradores.              |
 | ID           | O ID exclusivo que você usará em seu código para verificar se esse recurso está [ativado para um usuário](#enabled). Esse ID não pode ser alterado posteriormente, portanto, revise as [práticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
 | Descrição  | Uma descrição opcional que fornece algum contexto sobre seu Feature Flag.   |
-| Propriedades   | Propriedades opcionais que configuram remotamente seu Feature Flag. Elas podem ser sobrescritas em etapas do canva ou em experimentos de Feature Flag. |
+| Propriedades   | Propriedades opcionais que configuram remotamente seu Feature Flag. Elas podem ser sobrescritas em etapas do Canvas ou em experimentos de Feature Flag. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Etapa 2a: Criar propriedades personalizadas
@@ -82,7 +82,7 @@ Não defina seu tráfego de lançamento acima de 0% até que o novo recurso poss
 {% endalert %}
 
 {% alert important %}
-Para lançar um flag com apenas uma regra ou para um público singular, adicione sua primeira regra com critérios de segmentação e porcentagens de lançamento selecionadas. Por fim, confirme que a regra **Restante do público** está desativada e salve seu flag.
+Para lançar um flag com apenas uma regra ou para um público singular, adicione sua primeira regra com critérios de segmentação e porcentagens de lançamento selecionadas. Por fim, confirme que a regra **Restante do público** está desativada e salve seu flag. 
 {% endalert %}
 
 ## Lançamentos de Feature Flag com múltiplas regras
@@ -886,9 +886,9 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## Verificando a elegibilidade do usuário
 
-Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar Usuários** e pesquise e selecione um usuário.
+Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar usuários** e pesquise e selecione um usuário.
 
-Na guia **Elegibilidade dos Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de um Feature Flag.
+Na guia **Elegibilidade dos Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de um Feature Flag.
 
 ![Uma imagem mostrando a tabela de Feature Flags para os quais um usuário é elegível.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
@@ -958,4 +958,4 @@ Adicione uma descrição ao seu Feature Flag. Embora esse seja um campo opcional
 
 É muito comum deixarmos recursos 100% implementados por mais tempo do que o necessário.
 
-Para ajudar a manter seu código (e o dashboard da Braze) limpo, remova os Feature Flags permanentes de sua base de código depois que todos os usuários tiverem feito upgrade e você não precisar mais da opção de desativar o recurso. Isso ajuda a reduzir a complexidade de seu ambiente de desenvolvimento, mas também mantém sua lista de Feature Flags organizada.
+Para ajudar a manter seu código (e o dashboard da Braze) limpo, remova os Feature Flags permanentes da sua base de código depois que todos os usuários tiverem feito upgrade e você não precisar mais da opção de desativar o recurso. Isso ajuda a reduzir a complexidade do seu ambiente de desenvolvimento e também mantém sua lista de Feature Flags organizada.

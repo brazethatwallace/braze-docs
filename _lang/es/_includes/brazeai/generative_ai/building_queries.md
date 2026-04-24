@@ -2,7 +2,7 @@
 
 ## Requisitos previos
 
-Necesitarás [permisos de "Ver PII"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) para utilizar el Generador de consultas, ya que permite acceder directamente a algunos datos de clientes.
+Necesitarás [permisos de "Ver PII"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para utilizar el Generador de consultas, ya que permite acceder directamente a algunos datos de clientes.
 
 ## Utilizar el Generador de consultas
 
@@ -16,7 +16,7 @@ Si necesitas inspiración o ayuda para elaborar tu consulta, elige **Plantilla d
 
 Tu informe recibe automáticamente un nombre con la fecha y hora actuales. Pasa el ratón por encima del nombre y selecciona <i class="fas fa-pencil" alt="Edit"></i> para dar un nombre significativo a tu consulta SQL.
 
-![Un ejemplo de informe con el nombre "Interacción del canal para mayo de 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
+![Un ejemplo de nombre de informe "Interacción del canal para mayo de 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
 ### Paso 2: Construye tu consulta
 
@@ -68,7 +68,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 Si consultas por `CANVAS_ID`, `CANVAS_VARIATION_API_ID` o `CAMPAIGN_ID`, sus columnas de nombre asociadas se incluirán automáticamente en la tabla de resultados. No es necesario que las incluyas en la propia consulta `SELECT`.
 
-| Nombre del ID | Columna de nombre asociado |
+| Nombre del ID | Columna de nombre asociada |
 | --- | --- |
 | `CANVAS_ID` | Nombre del Canvas |
 | `CANVAS_VARIATION_API_ID` | Nombre de la variante en Canvas |

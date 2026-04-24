@@ -17,7 +17,7 @@ Um Feature-Flags im Dashboard zu verwalten, müssen Sie entweder Administrator:i
 | Berechtigung                                                                    | Was Sie tun können                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Feature-Flags verwalten**                                                      | Feature-Flags anzeigen, erstellen und bearbeiten.     |
-| **Zugang zu Kampagnen, Canvases, Karten, Feature-Flags, Segmenten, Mediathek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
+| **Zugang zu Kampagnen, Canvases, Karten, Feature-Flags, Segmenten, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Erstellen eines Feature-Flags
@@ -108,7 +108,7 @@ Die Regel „Alle anderen" fungiert als Standard. Wenn eine Nutzer:in keine der 
 
 Standardmäßig werden die Regeln in der Reihenfolge ihrer Erstellung angeordnet. Sie können diese Regeln jedoch neu anordnen, indem Sie sie im Dashboard per Drag-and-Drop verschieben.
 
-![Ein Bild, das zeigt, dass eine Nutzer:in eine Regel zu einem Feature-Flag hinzufügen kann.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![Ein Bild, das zeigt, dass Sie eine Regel zu einem Feature-Flag hinzufügen können.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
 ![Ein Bild, das eine Zusammenfassung eines Feature-Flags mit mehreren hinzugefügten Regeln und einer Regel für alle anderen zeigt.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
@@ -886,7 +886,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## Überprüfung der Nutzerberechtigung
 
-Um zu überprüfen, für welche Feature-Flags eine Nutzer:in in Braze berechtigt ist, gehen Sie zu **Audience** > **Search Users**, suchen Sie dann nach einer Nutzer:in und wählen Sie sie aus.
+Um zu überprüfen, für welche Feature-Flags eine Nutzer:in in Braze berechtigt ist, gehen Sie zu **Audience** > **Nutzer:innen suchen**, suchen Sie dann nach einer Nutzer:in und wählen Sie sie aus.
 
 Im Tab **Feature-Flag-Berechtigung** können Sie die Liste der berechtigten Feature-Flags nach Plattform, Anwendung oder Gerät filtern. Sie können auch eine Vorschau der Payload anzeigen, die an die Nutzer:in zurückgegeben wird, indem Sie <i class="fa-solid fa-eye"></i> neben einem Feature-Flag auswählen.
 

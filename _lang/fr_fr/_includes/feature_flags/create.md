@@ -804,7 +804,7 @@ Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
 {% endtab %}
 {% tab Unity %}
 
-Pour écouter les changements, définissez les valeurs de **Nom de l'objet de jeu** et **Nom de la méthode de rappel** sous **Configuration de Braze** > **Indicateurs de fonctionnalité** avec les valeurs correspondantes dans votre application.
+Pour écouter les changements, définissez les valeurs de **Game Object Name** et **Callback Method Name** sous **Braze Configuration** > **Feature Flags** avec les valeurs correspondantes dans votre application.
 
 {% endtab %}
 {% tab Cordova %}
@@ -888,7 +888,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Pour vérifier les indicateurs de fonctionnalité auxquels un utilisateur est éligible dans Braze, rendez-vous dans **Audience** > **Rechercher des utilisateurs**, puis recherchez et sélectionnez un utilisateur.
 
-Dans l'onglet **Éligibilité aux indicateurs de fonctionnalité**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye"></i> à côté d'un indicateur de fonctionnalité.
+Dans l'onglet **Éligibilité aux indicateurs de fonctionnalité**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le PAYLOAD qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye"></i> à côté d'un indicateur de fonctionnalité.
 
 ![Une image présentant le tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 

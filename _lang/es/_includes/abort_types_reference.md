@@ -31,8 +31,8 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
-| `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `exhausted_cc_retries` | El Contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 {% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | La URL del medio está en la lista negra y no se puede usar en mensajes. |
@@ -82,7 +82,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `sms_no_sending_numbers` | No hay números de teléfono de envío disponibles para este grupo de suscripción. |
 | `sms_fatal_provider_error` | Ocurrió un error fatal con el proveedor de SMS, lo que impidió la entrega del mensaje. |
 | `sms_gateway_domain_not_allowed` | El dominio de la pasarela SMS no está en la lista de permitidos. |
-| `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_geographic_permissions/). |
+| `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/). |
 | `mms_not_supported` | MMS no es compatible para este destinatario o número de envío. |
 | `no_current_messaging_service` | No hay un servicio de mensajería activo configurado para este grupo de suscripción. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

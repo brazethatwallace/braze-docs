@@ -19,7 +19,7 @@
 | `campaign_does_not_exist` | このメッセージに関連付けられたキャンペーンが存在しなくなりました。 |
 | `campaign_action_does_not_exist` | このメッセージに関連付けられたキャンペーンアクションが存在しなくなりました。 |
 | `message_variation_does_not_exist` | このユーザーに割り当てられたメッセージバリエーションが存在しなくなりました。 |
-| `user_not_in_segment` | ユーザーがターゲット Segment に含まれていないため、メッセージは送信されませんでした。 |
+| `user_not_in_segment` | ユーザーがターゲットセグメントに含まれていないため、メッセージは送信されませんでした。 |
 | `trigger_event_blacklisted` | トリガーイベントがブロックリストに登録されているため、メッセージは送信されませんでした。 |
 | `exhausted_retries` | 最大リトライ回数を超えてもメッセージを送信できませんでした。 |
 | `frequency_capped` | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しています。 |
@@ -82,7 +82,7 @@
 | `sms_no_sending_numbers` | このサブスクリプショングループで利用可能な送信用電話番号がありません。 |
 | `sms_fatal_provider_error` | SMS プロバイダーで致命的なエラーが発生し、メッセージを配信できませんでした。 |
 | `sms_gateway_domain_not_allowed` | SMS ゲートウェイドメインが許可リストに含まれていません。 |
-| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_geographic_permissions/)によりブロックされている国のものです。 |
+| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/)によりブロックされている国のものです。 |
 | `mms_not_supported` | この受信者または送信番号では MMS がサポートされていません。 |
 | `no_current_messaging_service` | このサブスクリプショングループにアクティブなメッセージングサービスが設定されていません。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
