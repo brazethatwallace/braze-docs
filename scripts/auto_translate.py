@@ -1692,6 +1692,79 @@ def repair_japanese_latin_token_particle_spacing(
     return translated_content, []
 
 
+def repair_pt_br_german_low9_double_quote_in_body(
+    translated_path, translated_content, lang_key
+):
+    r"""Replace German low-9 „ (U+201E) with ASCII ``"`` in pt-BR Markdown.
+
+    The model sometimes pastes German opening quotes into Brazilian
+    Portuguese image alts and pairs them with ASCII straight closers
+    (Copilot on PR #13314). For nested quoted email/UI copy inside
+    ``![...](...)``, pt-BR docs expect straight ASCII ``"`` pairs — not ``„``.
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/pt_br/" not in rel:
+        return translated_content, []
+    low9 = "\u201e"
+    if low9 not in translated_content:
+        return translated_content, []
+    n = translated_content.count(low9)
+    new = translated_content.replace(low9, '"')
+    return new, [
+        f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
+        f"in pt-BR doc"
+    ]
+
+
+def repair_japanese_mixed_mail_campaign(
+    translated_path, translated_content, lang_key
+):
+    """Normalize ``メール Campaign`` → ``メールキャンペーン`` in Japanese docs.
+
+    Glossary keeps **Campaign** / **Campaigns** in English for product UI, but
+    ``メール`` + English ``Campaign`` reads as half-translated; Copilot on PR
+    #13314 asked for **メールキャンペーン** (or **Eメールキャンペーン**) for the
+    email-campaign *concept* in running Japanese sentences.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+    needle = "メール Campaign"
+    if needle not in translated_content:
+        return translated_content, []
+    n = translated_content.count(needle)
+    new = translated_content.replace(needle, "メールキャンペーン")
+    return new, [
+        f"ja-mail-campaign — normalized {n} メール Campaign→メールキャンペーン"
+    ]
+
+
+def repair_de_email_use_cases_social_heading(
+    translated_path, translated_content, lang_key
+):
+    """Align DE ``channels/email/use_cases`` Social heading with EN + sibling.
+
+    English and ``message_building_by_channel/.../use_cases.md`` use
+    ``## Social``; the channels mirror had ``## Social Media`` (Copilot on
+    PR #13314), which breaks anchor parity with the established DE page.
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/channels/email/use_cases.md"):
+        return translated_content, []
+    if "## Social Media" not in translated_content:
+        return translated_content, []
+    new = translated_content.replace("## Social Media", "## Social", 1)
+    return new, [
+        "de-email-use-cases — ## Social Media → ## Social (match EN + sibling)"
+    ]
+
+
 # German uses U+201E („) as the opening quotation mark and U+201C (") as
 # the closing one. The LLM occasionally pairs a typographic „ with an
 # ASCII " (U+0022) — the latter breaks screen readers, CSS selectors, and
@@ -3306,6 +3379,25 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(ja_particle_repairs)
+
+    translated_content, pt_low9_repairs = (
+        repair_pt_br_german_low9_double_quote_in_body(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_low9_repairs)
+
+    translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ja_mail_camp_repairs)
+
+    translated_content, de_social_uc_repairs = (
+        repair_de_email_use_cases_social_heading(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_social_uc_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

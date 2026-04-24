@@ -6,6 +6,10 @@ Omit articles before "Braze" unless grammar requires one. When an article is nee
 
 - "das Braze SDK" (because "das SDK")
 
+## Section headings vs English IA mirrors
+
+- When a German page sits under the same topic as English (for example ``channels/email/use_cases.md`` alongside ``message_building_by_channel/email/best_practices/use_cases.md``), keep **`##` / `###` slug text** aligned with the English heading and the established German sibling — do not invent a different English loanword for the same section (e.g. **Social** in English must not become **Social Media** in German if the sibling page already uses **Social**; PR #13314).
+
 ## Quotation marks
 
 - In prose and table cells, use German double quotation marks: `„` (U+201E) at the opening and `“` (U+201C) at the closing — for example `„überwachen“`, not `„überwachen"`.
