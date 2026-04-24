@@ -54,7 +54,7 @@ Braze エージェントの機能には以下が含まれます。
 | [指示]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | エージェントに与えるルールやガイドライン（システムプロンプト）です。エージェントが実行されるたびにどのように動作すべきかを定義します。明確な指示により、エージェントはより信頼性が高く予測可能になります。 |
 | コンテキスト | デプロイ先に関わらず、実行時にエージェントに渡されるデータです。ユーザープロファイルフィールドやカタログ行などが含まれます。この入力は、エージェントが出力を生成するために使用する情報を提供します。 |
 | [キャンバスコンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | 特定のキャンバスを通じたユーザーのジャーニー内で作成・使用できる一時的なデータです。 |
-| [出力変数]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | キャンバスステップで使用された際にエージェントが生成する出力です。出力変数は、コンテンツのパーソナライズやワークフローパスの誘導のためにエージェントの結果を保存します。出力変数は文字列、数値、またはブール値のデータタイプにできます。 |
+| [出力変数]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | キャンバスステップで使用された際にエージェントが生成する出力です。出力変数は、コンテンツのパーソナライズやワークフローパスの誘導のためにエージェントの結果を保存します。出力変数は文字列、数値、またはブール値のデータタイプにできます。 |
 | [実行](#limitations) | エージェントの1回の実行です。日次制限にカウントされます。 |
 | [出力フォーマット]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | エージェントの応答の事前定義されたデータ構造です。 |
 | [温度]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | エージェントの出力の偏差レベルです。エージェントがどれほど正確か、あるいは創造的かを定義します。 |

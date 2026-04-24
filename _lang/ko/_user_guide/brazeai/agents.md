@@ -54,7 +54,7 @@ Braze 에이전트의 기능은 다음과 같습니다:
 | [지침]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | 에이전트에게 제공하는 규칙이나 가이드라인(시스템 프롬프트)입니다. 에이전트가 실행될 때마다 어떻게 동작해야 하는지를 정의합니다. 명확한 지침은 에이전트를 더 신뢰할 수 있고 예측 가능하게 만듭니다. |
 | 컨텍스트 | 에이전트가 배포된 곳에서 런타임에 전달되는 데이터로, 고객 프로필 필드나 카탈로그 행 등이 있습니다. 이 입력은 에이전트가 출력을 생성하는 데 사용하는 정보를 제공합니다. |
 | [캔버스 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | 특정 캔버스를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. |
-| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다.  |
+| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다.  |
 | [실행](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
 | [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
 | [온도]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | 에이전트 출력의 편차 수준입니다. 에이전트가 얼마나 정확하거나 창의적일 수 있는지를 정의합니다. |
