@@ -1621,6 +1621,35 @@ def repair_markdown_internal_link_trailing_slash(content):
     return content, []
 
 
+def repair_korean_query_hangul_typo(translated_path, translated_content, lang_key):
+    """Replace **퀴리** with **쿼리** in Korean locale Markdown.
+
+    Technical Korean borrows English *query* as **쿼리** (U+CFDC U+B9AC).
+    A long-lived ``scripts/glossaries/ko.json`` row mapped *Query Builder*
+    to **퀴리 빌더**, so the approved-terminology table pushed the wrong
+    hangul into prompts and the model mirrored it across analytics docs
+    until Copilot flagged it on PR #13311. A plain ``str.replace`` is
+    safe here: **퀴리** is not a standard morpheme in this corpus — every
+    hit is the same *query* typo class.
+
+    Only runs when ``lang_key`` is ``ko`` and the path lives under
+    ``_lang/ko/``.
+    """
+    if lang_key != "ko":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ko/" not in rel:
+        return translated_content, []
+    if "퀴리" not in translated_content:
+        return translated_content, []
+    n = translated_content.count("퀴리")
+    new = translated_content.replace("퀴리", "쿼리")
+    return new, [
+        f"ko-query-hangul — normalized {n} mistransliterated "
+        f"퀴리→쿼리 (English *query* in Korean IT prose)"
+    ]
+
+
 # German uses U+201E („) as the opening quotation mark and U+201C (") as
 # the closing one. The LLM occasionally pairs a typographic „ with an
 # ASCII " (U+0022) — the latter breaks screen readers, CSS selectors, and
@@ -3223,6 +3252,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content
     )
     findings["repairs"].extend(de_quote_repairs)
+
+    translated_content, ko_query_repairs = repair_korean_query_hangul_typo(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ko_query_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)

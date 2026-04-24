@@ -66,7 +66,7 @@ CDN으로 CloudFront를 사용하는 경우, 사용자의 사용자 에이전트
 이 "기타" 카테고리에 무엇이 포함되어 있는지 더 잘 이해하려면 다음 옵션 중 하나를 사용하여 사용자 에이전트를 추출할 수 있습니다:
 
 1. [커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 사용하면 사용자 기기에서 검색된 정확한 사용자 에이전트 문자열을 받을 수 있습니다.
-2. [퀴리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 SQL 또는 [AI 퀴리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder)를 사용하여 사용자 에이전트를 확인할 수 있습니다.
+2. [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 SQL 또는 [AI 쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder)를 사용하여 사용자 에이전트를 확인할 수 있습니다.
 
 ![모바일, 데스크탑, 태블릿 및 기타 기기의 클릭 수를 보여주는 기기별 참여 보고서. 가장 많은 클릭 수는 모바일 기기에서 발생합니다.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 

@@ -69,7 +69,7 @@ Send this message in English!
 
 ## 중단 메시지 쿼리
 
-[퀴리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) 또는 Braze에 연결된 데이터 웨어하우스를 사용하여 Liquid 로직으로 인해 메시지가 중단될 때 트리거되는 특정 중단 메시지를 쿼리할 수 있습니다.
+[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) 또는 Braze에 연결된 데이터 웨어하우스를 사용하여 Liquid 로직으로 인해 메시지가 중단될 때 트리거되는 특정 중단 메시지를 쿼리할 수 있습니다.
 
 ## 중단 로직이 평가되는 시점
 

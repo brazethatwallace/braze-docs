@@ -139,7 +139,7 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 
 ### 이메일 가입자 목록 검토
 
-[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard)를 참조하여 가입자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [퀴리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
+[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard)를 참조하여 가입자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
 
 그렇지 않으면 Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 가입자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우 Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
 

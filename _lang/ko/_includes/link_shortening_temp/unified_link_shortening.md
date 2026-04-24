@@ -81,7 +81,7 @@ Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭�
 
 ### `send_ids`가 SMS 클릭 이벤트와 연결되나요?
 
-아니요. 하지만 일반적으로 [퀴리 빌더]({{site.baseurl}}/query_builder/)를 사용하여 다음 쿼리로 커런츠 데이터를 조회함으로써 `send_ids`를 클릭 이벤트와 연결할 수 있습니다:
+아니요. 하지만 일반적으로 [쿼리 빌더]({{site.baseurl}}/query_builder/)를 사용하여 다음 쿼리로 커런츠 데이터를 조회함으로써 `send_ids`를 클릭 이벤트와 연결할 수 있습니다:
 
 ```sql
 SELECT c.*, s.send_id

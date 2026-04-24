@@ -114,6 +114,8 @@ An "Approved terminology" table may be appended to the end of these instructions
 
 A style guide for the target language may be appended to the end of these instructions. When present, follow all rules in the style guide — they take precedence over general guidance when there is a conflict.
 
+- **Korean — hangul for English *query***: In IT/analytics Korean, English *query* is almost always written **쿼리** (syllables ``쿼`` + ``리``). Never output **퀴리** for that meaning — it is not standard usage and used to appear when a stale glossary row mistranslated *Query Builder*. When the English UI says **Query Builder** / **AI Query Builder**, prefer **쿼리 빌더** / **AI 쿼리 빌더** (or follow the appended Korean style guide).
+
 ## Formatting rules
 
 - Preserve all blank lines and overall whitespace structure
