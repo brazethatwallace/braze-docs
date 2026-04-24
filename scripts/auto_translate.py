@@ -5,6 +5,7 @@ Auto-translate English Braze docs into all supported languages using Claude.
 Usage:
     python auto_translate.py translate --changed-files changed_files.txt
     python auto_translate.py qc
+    python auto_translate.py check-aliases
     python auto_translate.py verify --max-attempts 3
     python auto_translate.py summary
 """
@@ -1453,6 +1454,94 @@ def cmd_verify(args):
 
 
 # ---------------------------------------------------------------------------
+# check-aliases  (duplicate alias guard)
+# ---------------------------------------------------------------------------
+
+def _normalize_alias_key(raw):
+    """Normalize an alias value for duplicate comparison."""
+    if raw is None:
+        return None
+    v = str(raw).strip().strip("\"'").strip()
+    if not v:
+        return None
+    if not v.startswith("/"):
+        v = "/" + v
+    v = v.rstrip("/")
+    return v or "/"
+
+
+def _alias_key_from_front_matter(content):
+    """Return normalized alias key, or None if the file has no alias."""
+    fm, _ = _extract_front_matter(content)
+    if not fm:
+        return None
+    for line in fm.split("\n"):
+        stripped = line.strip()
+        if stripped.lower().startswith("alias:"):
+            raw = stripped.split(":", 1)[1].strip()
+            return _normalize_alias_key(raw)
+    return None
+
+
+def _collect_alias_duplicates(root, *, skip_includes):
+    """Map normalized alias -> list of repo-relative posix paths under ``root``."""
+    alias_map = {}
+    if not root.exists():
+        return alias_map
+    for path in sorted(root.rglob("*.md")):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        key = _alias_key_from_front_matter(text)
+        if not key:
+            continue
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        if skip_includes and "/_includes/" in rel:
+            continue
+        alias_map.setdefault(key, []).append(rel)
+    return {k: v for k, v in alias_map.items() if len(v) > 1}
+
+
+def cmd_check_aliases(args):
+    """Ensure no duplicate ``alias:`` values within each locale (and in English _docs)."""
+    skip_includes = not args.include_lang_includes
+    errors = []
+
+    for alias_key, paths in sorted(
+        _collect_alias_duplicates(REPO_ROOT / "_docs", skip_includes=False).items()
+    ):
+        errors.append(("English `_docs/`", alias_key, paths))
+
+    for lang_key, info in LANGUAGES.items():
+        root = REPO_ROOT / "_lang" / info["dir"]
+        for alias_key, paths in sorted(
+            _collect_alias_duplicates(root, skip_includes=skip_includes).items()
+        ):
+            errors.append((f"`_lang/{info['dir']}/`", alias_key, paths))
+
+    if not errors:
+        print("check-aliases: no duplicate alias values found "
+              f"(per locale; _lang _includes/ {'scanned' if args.include_lang_includes else 'skipped'}).")
+        return
+
+    print("check-aliases: DUPLICATE ALIAS VALUES\n", file=sys.stderr)
+    for label, alias_key, paths in errors:
+        print(f"  {label}  alias {alias_key!r}:", file=sys.stderr)
+        for p in paths:
+            print(f"    - {p}", file=sys.stderr)
+        print(file=sys.stderr)
+    print(
+        f"check-aliases failed: {len(errors)} duplicate alias group(s). "
+        "Use layout: redirect without alias on superseded pages, or remove the "
+        "extra alias. Re-run with --include-lang-includes to also scan _includes "
+        "(stricter; may need cleanup before enabling in CI).",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+
+
+# ---------------------------------------------------------------------------
 # summary  (generate PR body)
 # ---------------------------------------------------------------------------
 
@@ -1607,6 +1696,17 @@ def main():
 
     qp = sub.add_parser("qc", help="Run deterministic quality checks on translations")
     qp.set_defaults(func=cmd_qc)
+
+    ap = sub.add_parser(
+        "check-aliases",
+        help="Fail if duplicate alias: values exist within _docs or each _lang locale",
+    )
+    ap.add_argument(
+        "--include-lang-includes",
+        action="store_true",
+        help="Also scan _lang/**/_includes/**/*.md (default: skip; often shares alias with a page)",
+    )
+    ap.set_defaults(func=cmd_check_aliases)
 
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)

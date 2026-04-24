@@ -49,6 +49,11 @@ Preserve all of the following exactly as they appear in the English source:
   - **Non-Latin-script languages (e.g., Japanese, Korean, Chinese, Arabic, Thai, and any other language whose characters are not in the basic Latin alphabet):** preserve the following YAML values exactly as in the English source — do not translate them: the `glossary_tags` list (each `- name:` value), each `glossaries` entry `name`, and every `tags` list item. Non-Latin characters are stripped by Jekyll's `slugify` filter and the JavaScript `string_to_slug` function, producing empty or identical HTML IDs that break the filtering UI. Instead, add a `display_name` field to each `glossaries` entry with the translated name. The layout will show `display_name` to the user while using `name` for filtering. Example: `- name: Custom Event` followed by `display_name: "カスタムイベント"`. Only translate `description` values and add `display_name` — do not translate `name` or `tags`.
   - **Latin-script languages (e.g., German, Spanish, French, Portuguese):** you may translate `glossary_tags` names, entry `name` values, and `tags` — but you **must** ensure that `glossary_tags` name values and corresponding entry `tags` values are **identical strings** so the filter/checkbox matching works correctly.
 
+### `alias` (short URLs) and IA moves
+
+- Under each locale, every `alias:` value must be **unique across that locale’s `.md` files** (two articles must not claim the same short path). If the English source introduces or keeps an `alias:` that already exists on another localized page—common after an information-architecture move—**do not** duplicate it on the new file until the old page is retired.
+- For a superseded article, prefer `layout: redirect`, `redirect_to:` pointing at the canonical new doc, `noindex: true`, and **omit** `alias` on the redirect stub so exactly one page owns each alias.
+
 ## Braze product terminology
 
 These are Braze product names and features. Keep them in English:
@@ -93,6 +98,8 @@ A style guide for the target language may be appended to the end of these instru
 - Preserve numbered list continuation markers like `{: start="5"}`
 - Preserve Kramdown table classes like `{: .reset-td-br-1 .reset-td-br-2 role="presentation" }`
 - Do NOT escape `[`, `]`, or `!` characters — use them as-is in markdown syntax
+- **Headings, table labels, and link text**: Keep a single language’s grammar and vocabulary in each phrase—do not splice English fragments into non-English titles (for example avoid “Ingesta de datos de Cloud” when you mean cloud ingestion in Spanish). Use natural target-language wording, or keep a full official English product name only when you intentionally leave that name untranslated.
+- **Table row labels**: When a column lists parallel requirement names (for example CSV requirements), use consistent capitalization across rows (all titles or all sentence case—match the surrounding table).
 
 ## Special file handling
 
