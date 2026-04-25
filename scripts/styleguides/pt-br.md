@@ -1,5 +1,13 @@
 # Portuguese (Brazil) style guide
 
+## Quotation marks in image alt text
+
+- Do **not** paste the German low-9 double quote **„** (U+201E) into Brazilian Portuguese — models sometimes do this when paraphrasing quoted UI or email screenshots. Use consistent **ASCII `"…"`** pairs or Brazilian **“…”** for nested quotations inside ``![alt](...)`` (auto-translate PR #13314).
+
+## BrazeAI generative images (`brazeai/generative_ai/images.md`)
+
+- Translate numbered-step bold labels (**AI Image Generator**, **Generate Images**) and Font Awesome `title="..."` tooltips into Portuguese when the rest of the page is pt-BR — do not leave US-English UI scraps in the middle of localized instructions (PR #13313).
+
 ## Grammatical gender for "Braze"
 
 "Braze" is **feminine** in Portuguese (the implied noun is "a empresa/plataforma"). Always use feminine articles and contractions:

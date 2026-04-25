@@ -8,12 +8,13 @@
 #
 # Flow:
 #   1. Identify _docs/ and _includes/ markdown files changed in the push
-#   2. Translate each file into 6 languages via Claude API
-#   3. Build each language with Jekyll to verify translations
-#   4. If a build fails, send errors back to Claude for auto-fix (up to 3 attempts)
-#   5. Clean up orphaned translation files (full-repo only; skipped for explicit
+#   2. Matrix: translate each changed file into one language per job (6 jobs),
+#      then QC + Jekyll verify that locale only (avoids a single 6×locale step
+#      hitting the translate timeout on very large pages)
+#   3. Merge _lang/ trees + translation_results.json + qc_results.json, then
+#      orphan cleanup + alias check (full-repo only; skipped for explicit
 #      workflow_dispatch `files:` batches — PR #13327)
-#   6. Open a PR targeting develop with the translations
+#   4. Open one PR targeting develop with all locales
 name: Auto-translate
 
 on:
@@ -51,34 +52,29 @@ permissions:
   contents: write
   pull-requests: write
 
-jobs:
-  auto-translate:
-    runs-on: ubuntu-latest
-    # Hard wall-clock ceiling so a stalled Anthropic stream can't hog a
-    # runner indefinitely (run 24906077736 spent 87+ minutes stuck on
-    # `Translate changed files` before manual cancellation). Healthy
-    # wave-4 runs finished in 9-35 min on batches of ~40 files × 6
-    # locales; large catch-up diffs (e.g. run 24911225298: 126 file×locale
-    # tasks) can exceed the old 75-minute translate step. 210 / 165 leaves
-    # room for QC + multi-locale Jekyll verify + PR while still capping
-    # runaway jobs.
-    timeout-minutes: 210
-    env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+# One run at a time: overlapping dispatches can race on the same branch,
+# duplicate PRs, and multiply Anthropic spend. Queued runs start when the
+# previous workflow finishes (cancel-in-progress stays false so partial work
+# is not killed mid-flight).
+concurrency:
+  group: auto-translate-${{ github.workflow }}
+  cancel-in-progress: false
 
+jobs:
+  # --------------------------------------------------------------------------
+  # Detect changes once; matrix jobs download changed_files.txt
+  # --------------------------------------------------------------------------
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{ steps.changes.outputs.count }}
     steps:
-      # ------------------------------------------------------------------
-      # Checkout
-      # ------------------------------------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: false
 
-      # ------------------------------------------------------------------
-      # Detect which English docs changed
-      # ------------------------------------------------------------------
       - name: Identify changed English files
         id: changes
         run: |
@@ -105,7 +101,6 @@ jobs:
               -- '_docs/' '_includes/' > changed_files.txt
           fi
 
-          # Keep only markdown files
           grep '\.md$' changed_files.txt > filtered.txt 2>/dev/null || true
           mv filtered.txt changed_files.txt
 
@@ -115,96 +110,155 @@ jobs:
           count=$(wc -l < changed_files.txt | tr -d ' ')
           echo "count=${count}" >> "$GITHUB_OUTPUT"
 
-      - name: Skip if no changes
+      - name: Note when there is nothing to translate
         if: steps.changes.outputs.count == '0'
-        run: |
-          echo "No English markdown changes detected — nothing to translate."
-          exit 0
+        run: echo "No English markdown changes detected — nothing to translate."
 
-      # ------------------------------------------------------------------
-      # Translate
-      # ------------------------------------------------------------------
-      - name: Set up Python
+      - name: Upload changed-files list
         if: steps.changes.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: changed-files-list
+          path: changed_files.txt
+
+  # --------------------------------------------------------------------------
+  # One translate+QC+verify job per language (parallel matrix)
+  # --------------------------------------------------------------------------
+  translate-locale:
+    needs: prepare
+    if: needs.prepare.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lang: fr
+            lang_dir: fr_fr
+          - lang: ja
+            lang_dir: ja
+          - lang: ko
+            lang_dir: ko
+          - lang: pt-br
+            lang_dir: pt_br
+          - lang: es
+            lang_dir: es
+          - lang: de
+            lang_dir: de
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Download changed-files list
+        uses: actions/download-artifact@v4
+        with:
+          name: changed-files-list
+          path: .
+
+      - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        if: steps.changes.outputs.count != '0'
         run: pip install anthropic pyyaml
 
-      - name: Translate changed files
-        id: translate
-        if: steps.changes.outputs.count != '0'
-        continue-on-error: true
-        # Step-level timeout sits inside the job ceiling above. A stalled
-        # Anthropic stream is bounded per-request by the Anthropic client's
-        # HTTP timeout (`TRANSLATION_HTTP_TIMEOUT`, default 180s) + 3 retries
-        # in `call_claude`, so a single task can't burn more than ~9 min.
-        # Large batches still need wall clock for many sequential tasks;
-        # 165 min leaves ~45 min for QC, Ruby/Jekyll verify, and PR steps.
-        timeout-minutes: 165
-        run: python scripts/auto_translate.py translate --changed-files changed_files.txt
+      - name: Ensure locale directory exists for artifact upload
+        run: mkdir -p "_lang/${{ matrix.lang_dir }}"
 
-      # ------------------------------------------------------------------
-      # Quality checks
-      # ------------------------------------------------------------------
+      - name: Translate changed files (this locale only)
+        id: translate
+        timeout-minutes: 165
+        run: >-
+          python scripts/auto_translate.py translate
+          --changed-files changed_files.txt
+          --languages ${{ matrix.lang }}
+
       - name: Run translation QC checks
         id: qc
-        if: steps.changes.outputs.count != '0'
-        continue-on-error: true
         run: python scripts/auto_translate.py qc
 
-      # ------------------------------------------------------------------
-      # Build verification + auto-fix loop
-      # ------------------------------------------------------------------
       - name: Set up Ruby
-        if: steps.changes.outputs.count != '0'
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Verify builds and fix errors
+        id: verify
+        run: python scripts/auto_translate.py verify --max-attempts 3
+
+      - name: Upload locale artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: translate-${{ matrix.lang }}
+          path: |
+            translation_results.json
+            qc_results.json
+            _lang/${{ matrix.lang_dir }}
+
+  # --------------------------------------------------------------------------
+  # Merge all locales, repo-wide gates, single PR
+  # --------------------------------------------------------------------------
+  merge-and-publish:
+    needs: [prepare, translate-locale]
+    if: ${{ needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # Same toolchain as translate-locale: merge + check-aliases + summary run
+      # auto_translate.py (PyYAML + lazy Anthropic import paths).
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install anthropic pyyaml
+
+      - name: Download all locale artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: translate-*
+          path: matrix-out
+          merge-multiple: false
+
+      - name: Merge matrix outputs into workspace
+        id: merge-artifacts
+        run: python scripts/merge_translation_matrix_artifacts.py matrix-out
+
       - name: Clean up orphaned translations
-        # Never run after an explicit `files:` batch — cleanup compares every
-        # `_lang` path to current `_docs`/`_includes` and would mass-delete
-        # pre-IA mirrors still on disk until catch-up finishes (PR #13327).
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
+        id: orphan
+        if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
         env:
-          # Belt-and-suspenders with scripts/clean_orphaned_translations.py (PR #13327).
           ORPHAN_CLEANUP_MAX_DELETES: "500"
         run: python scripts/clean_orphaned_translations.py
 
-      # Alias check runs after orphan cleanup so stale duplicates from the
-      # IA restructure don't fail the job. Skipped during catch-up batches
-      # (skip_orphan_cleanup=true) or explicit `files:` batches (same guard as
-      # orphan cleanup — PR #13327).
       - name: Check for duplicate YAML aliases
         id: aliases
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
+        if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
         continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
-      - name: Verify builds and fix errors
-        id: verify
-        if: steps.changes.outputs.count != '0'
-        continue-on-error: true
-        run: python scripts/auto_translate.py verify --max-attempts 3
-
-      # ------------------------------------------------------------------
-      # Open PR targeting develop
-      # ------------------------------------------------------------------
-      # Only open a PR when translate/QC/verify succeeded. This avoids
-      # publishing partial translation PRs after a timed-out translate step.
-      # (PR #13327 follow-up)
       - name: Generate PR summary
-        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
+        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
         run: python scripts/auto_translate.py summary
 
       - name: Create pull request
         id: create-pr
-        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
+        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -220,13 +274,8 @@ jobs:
           add-paths: |
             _lang/
 
-      # Requires GitHub Copilot code review on the repo/org (see GitHub Docs).
-      # Prefers the `gh pr edit --add-reviewer @copilot` shortcut (gh >= 2.88.0,
-      # released 2026-03-11). Falls back to the REST API bot-login workaround
-      # if the shortcut isn't available or fails for any reason. Non-blocking:
-      # a missing Copilot review should never stop translation PRs from merging.
       - name: Request Copilot review
-        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
+        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -247,12 +296,23 @@ jobs:
           fi
           echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
 
+  report-failures:
+    needs: [prepare, translate-locale, merge-and-publish]
+    if: |
+      always() &&
+      needs.prepare.outputs.count != '0' && (
+        needs.translate-locale.result == 'failure' ||
+        (
+          needs.translate-locale.result == 'success' &&
+          needs.merge-and-publish.result == 'failure'
+        )
+      )
+    runs-on: ubuntu-latest
+    steps:
       - name: Report failures
-        if: steps.translate.outcome == 'failure' || steps.qc.outcome == 'failure' || steps.aliases.outcome == 'failure' || steps.verify.outcome == 'failure'
         run: |
-          echo "::warning::One or more translation steps had failures — check the PR summary for details."
-          echo "  Translate: ${{ steps.translate.outcome }}"
-          echo "  QC:        ${{ steps.qc.outcome }}"
-          echo "  Aliases:   ${{ steps.aliases.outcome }}"
-          echo "  Verify:    ${{ steps.verify.outcome }}"
+          echo "::warning::One or more translation workflow jobs failed."
+          echo "  prepare:            ${{ needs.prepare.result }}"
+          echo "  translate-locale:   ${{ needs.translate-locale.result }}"
+          echo "  merge-and-publish:  ${{ needs.merge-and-publish.result }}"
           exit 1

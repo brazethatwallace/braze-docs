@@ -1386,7 +1386,7 @@ Braze는 eCommerce 권장 이벤트를 기반으로 하는 사전 구축된 캔�
 
 ### 제품 수준의 구매 데이터는 어디에서 볼 수 있나요?
 
-고객 프로필의 **트랜잭션** 탭에는 총 매출 및 총 주문 수와 같은 상위 수준의 계산 필드가 표시됩니다. 특정 사용자의 제품 수준 세부 정보를 보려면 [퀴리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 사용하여 eCommerce 이벤트 데이터를 쿼리하거나, [커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 통해 이벤트 데이터를 내보내세요.
+고객 프로필의 **트랜잭션** 탭에는 총 매출 및 총 주문 수와 같은 상위 수준의 계산 필드가 표시됩니다. 특정 사용자의 제품 수준 세부 정보를 보려면 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 사용하여 eCommerce 이벤트 데이터를 쿼리하거나, [커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 통해 이벤트 데이터를 내보내세요.
 
 레거시 구매 이벤트와 달리, eCommerce 권장 이벤트는 제품 세부 정보를 `products` 배열 내의 중첩된 이벤트 속성정보로 저장합니다. 이러한 등록정보는 Liquid를 통한 메시징과 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통한 세분화에서 사용할 수 있습니다.
 

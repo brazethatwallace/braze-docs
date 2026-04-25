@@ -65,6 +65,26 @@ LANGUAGES = {
     "de":    {"config": "de",    "dir": "de",    "name": "German"},
 }
 
+
+def languages_from_cli_arg(languages_arg):
+    """Subset of ``LANGUAGES`` from ``--languages`` (comma-separated keys), or all.
+
+    Keys must match ``LANGUAGES`` (e.g. ``fr``, ``pt-br``). Order follows the
+    argument list.
+    """
+    if not languages_arg or not str(languages_arg).strip():
+        return dict(LANGUAGES)
+    keys = [k.strip() for k in str(languages_arg).split(",") if k.strip()]
+    bad = [k for k in keys if k not in LANGUAGES]
+    if bad:
+        print(
+            f"ERROR: Unknown language key(s): {bad}. Valid: {list(LANGUAGES.keys())}",
+            file=sys.stderr,
+        )
+        sys.exit(2)
+    return {k: LANGUAGES[k] for k in keys}
+
+
 MODEL = os.environ.get("TRANSLATION_MODEL", "claude-opus-4-6")
 MAX_TOKENS = int(os.environ.get("TRANSLATION_MAX_TOKENS", "128000"))
 MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
@@ -719,8 +739,11 @@ def _build_sibling_context(fpath, lang_dir, target):
         "`…/email/…` guides when you are translating `channels/email.md`). "
         "Use them as the **authoritative terminology and phrasing reference "
         "for this locale**:\n\n"
-        "- Reuse **`nav_title`**, **`article_title`**, and **`description`** "
-        "wording verbatim when the page covers the same concept.\n"
+        "- Reuse **`nav_title`**, **`article_title`**, **`title`**, "
+        "**`description`**, and (when present) **`guide_top_header`** wording "
+        "verbatim when the page covers the same concept — the QC step "
+        "compares these keys against same-basename siblings and reviewers "
+        "flag paraphrases (e.g. German FAQ `description` drift on PR #13316).\n"
         "- Reuse body **glossary terms** — product names, tier/plan labels, "
         "UI strings, and loanword conventions (e.g., Japanese katakana "
         "`スタンダード` / `デラックス` for support tiers rather than native "
@@ -843,7 +866,8 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
 
 def cmd_translate(args):
-    """Translate changed English docs into every supported language."""
+    """Translate changed English docs into every supported language (or ``--languages`` subset)."""
+    active_langs = languages_from_cli_arg(getattr(args, "languages", None))
     changed_path = REPO_ROOT / args.changed_files
     if not changed_path.exists():
         print("No changed-files list found. Nothing to translate.")
@@ -875,10 +899,12 @@ def cmd_translate(args):
         print("No translatable files found.")
         return
 
-    total_tasks = len(translatable) * len(LANGUAGES)
-    chunked_tasks = len(chunked) * len(LANGUAGES)
-    print(f"Translating {len(translatable)} file(s) into {len(LANGUAGES)} language(s) "
-          f"({total_tasks} tasks, {MAX_WORKERS} workers)")
+    n_langs = len(active_langs)
+    total_tasks = len(translatable) * n_langs
+    chunked_tasks = len(chunked) * n_langs
+    lang_label = ", ".join(active_langs.keys())
+    print(f"Translating {len(translatable)} file(s) into {n_langs} language(s) "
+          f"({lang_label}) — {total_tasks} tasks, {MAX_WORKERS} workers")
     if chunked:
         print(f"  + {len(chunked)} large file(s) via chunked translation "
               f"({chunked_tasks} tasks, sequential)")
@@ -892,8 +918,8 @@ def cmd_translate(args):
         {"source": f, "size_kb": round((REPO_ROOT / f).stat().st_size / 1024)}
         for f in chunked
     ]
-    glossaries = {lang: load_glossary(lang) for lang in LANGUAGES}
-    styleguides = {lang: load_styleguide(lang) for lang in LANGUAGES}
+    glossaries = {lang: load_glossary(lang) for lang in active_langs}
+    styleguides = {lang: load_styleguide(lang) for lang in active_langs}
 
     # --- Normal parallel translation for files under the size limit ---
     if translatable:
@@ -903,7 +929,7 @@ def cmd_translate(args):
                 relative = _relative_for_translation(fpath)
                 english_content = (REPO_ROOT / fpath).read_text()
 
-                for lang_key, lang_info in LANGUAGES.items():
+                for lang_key, lang_info in active_langs.items():
                     future = pool.submit(
                         translate_one, client, prompt, fpath, relative,
                         english_content, lang_key, lang_info,
@@ -942,7 +968,7 @@ def cmd_translate(args):
             english_content = (REPO_ROOT / fpath).read_text()
             print(f"\n  {fpath} ({len(english_content) // 1024}KB)")
 
-            for lang_key, lang_info in LANGUAGES.items():
+            for lang_key, lang_info in active_langs.items():
                 result = translate_one_chunked(
                     client, prompt, fpath, relative, english_content,
                     lang_key, lang_info,
@@ -1028,6 +1054,145 @@ def repair_front_matter(english_content, translated_content):
         translated_content = f"---\n{repaired_fm}\n---\n{tr_body}"
 
     return translated_content, repairs
+
+
+def repair_front_matter_display_scalar_cleanup(translated_content):
+    """Normalize HTML entities and rare typos in display-oriented YAML keys.
+
+    Models sometimes emit ``&amp;`` in ``nav_title`` / ``article_title`` /
+    ``guide_top_header`` so the literal entity appears in the site chrome
+    (Copilot PR #13319). German ``Spam-Trap's`` in a title should be the
+    plural ``Spam-Traps``.
+    """
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    if "&amp;" not in tr_fm and "Spam-Trap's" not in tr_fm:
+        return translated_content, []
+
+    repairs = []
+    out_lines = []
+    for line in tr_fm.split("\n"):
+        if re.match(
+            r"^(nav_title|article_title|guide_top_header)\s*:.*&amp;",
+            line,
+        ):
+            nl = line.replace("&amp;", "&")
+            if nl != line:
+                repairs.append("fm — &amp; → & in display YAML key")
+            line = nl
+        out_lines.append(line)
+    new_fm = "\n".join(out_lines)
+    if "Spam-Trap's" in new_fm:
+        new_fm2 = new_fm.replace("Spam-Trap's", "Spam-Traps")
+        if new_fm2 != new_fm:
+            repairs.append("fm — Spam-Trap's → Spam-Traps")
+        new_fm = new_fm2
+    if not repairs:
+        return translated_content, []
+    return f"---\n{new_fm}\n---\n{tr_body}", repairs
+
+
+def repair_img_alt_inner_german_low9_closing_quote(
+    translated_path, translated_content
+):
+    """Fix ``alt="…„Word"…"`` where German low-9 quotes break the HTML attribute.
+
+    Models sometimes use ``„…"`` inside a double-quoted ``alt``; the inner
+    ASCII ``"`` closes ``alt`` early (Copilot PR #13319, pt-BR drag-and-drop).
+    Replace inner ``„Segment"``-style pairs with ASCII single quotes.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel or "„" not in translated_content:
+        return translated_content, []
+    if "<img" not in translated_content or "alt=\"" not in translated_content:
+        return translated_content, []
+
+    repairs = []
+    lines = translated_content.split("\n")
+    new_lines = []
+    for line in lines:
+        if "<img" in line and "alt=\"" in line and "„" in line:
+            new_line = re.sub(r"„([^\"„]+)\"", r"'\1'", line)
+            if new_line != line:
+                repairs.append(
+                    "img-alt — German „…\" inside double-quoted alt → ASCII quotes"
+                )
+            line = new_line
+        new_lines.append(line)
+    if not repairs:
+        return translated_content, []
+    return "\n".join(new_lines), repairs
+
+
+def repair_de_email_setup_whitelabel_dkim_spf_phrasing(
+    translated_path, translated_content, lang_key
+):
+    """Fix mistranslated *umgehen* (bypass) for DKIM/SPF auth checks on DE setup.
+
+    English means senders **pass** DKIM/SPF checks via whitelabeling, not
+    **circumvent** them (Copilot PR #13319).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/de/" not in rel or not rel.endswith("email_setup.md"):
+        return translated_content, []
+    needle = "Authentifizierungsprüfungen für DKIM und SPF umgehen"
+    if needle not in translated_content:
+        return translated_content, []
+    new = translated_content.replace(
+        needle,
+        "Authentifizierungsprüfungen für DKIM und SPF bestehen",
+        1,
+    )
+    return new, [
+        "de-email_setup — DKIM/SPF umgehen → bestehen (pass auth checks)"
+    ]
+
+
+_IMAGE_BUSTER_PATH_FUSE_RE = re.compile(
+    r"(\{\%\s*)image_buster/(?=\S)",
+)
+
+
+def repair_liquid_image_buster_path_spacing(translated_content):
+    """Insert missing space before the path in ``{% image_buster/...`` tags.
+
+    Liquid requires ``{% image_buster /assets/... %}``. Models sometimes emit
+    ``image_buster/assets`` with no space, which breaks the tag (Copilot
+    PR #13318).
+    """
+
+    def _repl(m: re.Match) -> str:
+        return m.group(1) + "image_buster /"
+
+    new, n = _IMAGE_BUSTER_PATH_FUSE_RE.subn(_repl, translated_content)
+    if not n:
+        return translated_content, []
+    return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
+
+
+def repair_de_global_user_management_landing_titles(
+    translated_path, translated_content, lang_key
+):
+    """Normalize DE **User management** hub compound (administer / global).
+
+    ``Nutzer:in Verwaltung`` reads like two words; use the established compound
+    **Nutzer:innenverwaltung** in nav and headers (Copilot PR #13318).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_user_guide/administer/global/user_management.md"):
+        return translated_content, []
+    needle = "Nutzer:in Verwaltung"
+    if needle not in translated_content:
+        return translated_content, []
+    new = translated_content.replace(needle, "Nutzer:innenverwaltung")
+    return new, [
+        "de-user-mgmt-landing — Nutzer:in Verwaltung → Nutzer:innenverwaltung"
+    ]
 
 
 def repair_front_matter_miscapitalized_tool_key(content):
@@ -1621,6 +1786,309 @@ def repair_markdown_internal_link_trailing_slash(content):
     return content, []
 
 
+def repair_korean_query_hangul_typo(translated_path, translated_content, lang_key):
+    """Replace **퀴리** with **쿼리** in Korean locale Markdown.
+
+    Technical Korean borrows English *query* as **쿼리** (U+CFDC U+B9AC).
+    A long-lived ``scripts/glossaries/ko.json`` row mapped *Query Builder*
+    to **퀴리 빌더**, so the approved-terminology table pushed the wrong
+    hangul into prompts and the model mirrored it across analytics docs
+    until Copilot flagged it on PR #13311. A plain ``str.replace`` is
+    safe here: **퀴리** is not a standard morpheme in this corpus — every
+    hit is the same *query* typo class.
+
+    Only runs when ``lang_key`` is ``ko`` and the path lives under
+    ``_lang/ko/``.
+    """
+    if lang_key != "ko":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ko/" not in rel:
+        return translated_content, []
+    if "퀴리" not in translated_content:
+        return translated_content, []
+    n = translated_content.count("퀴리")
+    new = translated_content.replace("퀴리", "쿼리")
+    return new, [
+        f"ko-query-hangul — normalized {n} mistransliterated "
+        f"퀴리→쿼리 (English *query* in Korean IT prose)"
+    ]
+
+
+# Latin Braze product / SDK tokens immediately followed by a Japanese
+# particle should not have an ASCII space in between — models often emit
+# ``Segment を`` / ``Canvas の`` (seen on auto-translate PR #13316) which
+# reads like sloppy typography next to native ``を``/``の``.
+_JA_LATIN_TOKEN_PARTICLE_RE = re.compile(
+    r"(?P<tok>"
+    r"Content Cards|In-App Messages|REST API|"
+    r"Campaigns?|Segment|Canvas|SDK"
+    r")\s+(?P<particle>[をのとはがも])"
+)
+
+
+def repair_japanese_latin_token_particle_spacing(
+    translated_path, translated_content, lang_key
+):
+    """Collapse ``Token を`` → ``Tokenを`` for common Latin tokens in JA docs.
+
+    Only ``lang_key == "ja"`` and paths under ``_lang/ja/``. Longer tokens are
+    listed first inside the alternation so ``Content Cards`` wins over
+    ``Content``-style false paths (not in the set anyway).
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    new, n = _JA_LATIN_TOKEN_PARTICLE_RE.subn(
+        lambda m: m.group("tok") + m.group("particle"),
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"ja-latin-particle — removed {n} ASCII space(s) between "
+            f"Latin product/SDK token and Japanese particle (を/の/…)"
+        ]
+    return translated_content, []
+
+
+def repair_pt_br_german_low9_double_quote_in_body(
+    translated_path, translated_content, lang_key
+):
+    r"""Replace German low-9 „ (U+201E) with ASCII ``"`` in pt-BR Markdown.
+
+    The model sometimes pastes German opening quotes into Brazilian
+    Portuguese image alts and pairs them with ASCII straight closers
+    (Copilot on PR #13314). For nested quoted email/UI copy inside
+    ``![...](...)``, pt-BR docs expect straight ASCII ``"`` pairs — not ``„``.
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/pt_br/" not in rel:
+        return translated_content, []
+    low9 = "\u201e"
+    if low9 not in translated_content:
+        return translated_content, []
+    n = translated_content.count(low9)
+    new = translated_content.replace(low9, '"')
+    return new, [
+        f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
+        f"in pt-BR doc"
+    ]
+
+
+def repair_japanese_mixed_mail_campaign(
+    translated_path, translated_content, lang_key
+):
+    """Normalize ``メール Campaign`` → ``メールキャンペーン`` in Japanese docs.
+
+    Glossary keeps **Campaign** / **Campaigns** in English for product UI, but
+    ``メール`` + English ``Campaign`` reads as half-translated; Copilot on PR
+    #13314 asked for **メールキャンペーン** (or **Eメールキャンペーン**) for the
+    email-campaign *concept* in running Japanese sentences.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+    needle = "メール Campaign"
+    if needle not in translated_content:
+        return translated_content, []
+    n = translated_content.count(needle)
+    new = translated_content.replace(needle, "メールキャンペーン")
+    return new, [
+        f"ja-mail-campaign — normalized {n} メール Campaign→メールキャンペーン"
+    ]
+
+
+def repair_de_email_use_cases_social_heading(
+    translated_path, translated_content, lang_key
+):
+    """Align DE ``channels/email/use_cases`` Social heading with EN + sibling.
+
+    English and ``message_building_by_channel/.../use_cases.md`` use
+    ``## Social``; the channels mirror had ``## Social Media`` (Copilot on
+    PR #13314), which breaks anchor parity with the established DE page.
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/channels/email/use_cases.md"):
+        return translated_content, []
+    if "## Social Media" not in translated_content:
+        return translated_content, []
+    new = translated_content.replace("## Social Media", "## Social", 1)
+    return new, [
+        "de-email-use-cases — ## Social Media → ## Social (match EN + sibling)"
+    ]
+
+
+_GENERATIVE_AI_IMAGES_MD = "brazeai/generative_ai/images.md"
+
+
+def repair_generative_ai_images_english_flow_bold(
+    translated_path, translated_content, lang_key
+):
+    """Replace vestigial English bold UI labels in localized ``images.md``.
+
+    English source uses **AI Image Generator** / **Generate Images** in
+    numbered steps; Copilot on PR #13313 flagged FR/ES/pt-BR pages that left
+    those strings in US English while the rest of the page was translated.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_GENERATIVE_AI_IMAGES_MD):
+        return translated_content, []
+
+    pairs_by_lang = {
+        "fr": (
+            ("**AI Image Generator**", "**Générateur d'images IA**"),
+            ("**Generate Images**", "**Générer des images**"),
+            ("**Générer des images.**", "**Générer des images**"),
+        ),
+        "es": (
+            ("**AI Image Generator**", "**Generador de imágenes con IA**"),
+            ("**Generate Images**", "**Generar imágenes**"),
+        ),
+        "pt-br": (
+            ("**AI Image Generator**", "**Gerador de imagens por IA**"),
+            ("**IA Image Generator**", "**Gerador de imagens por IA**"),
+            ("**Generate Images**", "**Gerar imagens**"),
+            ("**Gerar Imagens**", "**Gerar imagens**"),
+        ),
+    }
+    pairs = pairs_by_lang.get(lang_key)
+    if not pairs:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    for old, repl in pairs:
+        if old in new:
+            c = new.count(old)
+            new = new.replace(old, repl)
+            repairs.append(f"gen-ai-images — {old} → {repl} ({c}×)")
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
+def repair_fr_generative_images_download_tooltip_article(
+    translated_path, translated_content, lang_key
+):
+    r"""Fix missing indefinite article in FR download ``title=`` string.
+
+    ``Ajouter image à la bibliothèque…`` is ungrammatical; Copilot on PR
+    #13313 asked for ``Ajouter une image à la bibliothèque…``.
+    """
+    if lang_key != "fr":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_GENERATIVE_AI_IMAGES_MD):
+        return translated_content, []
+    old = 'title="Ajouter image à la bibliothèque multimédia"'
+    new = 'title="Ajouter une image à la bibliothèque multimédia"'
+    if old not in translated_content:
+        return translated_content, []
+    return translated_content.replace(old, new, 1), [
+        "fr-gen-ai-images — Ajouter image→Ajouter une image (download title)"
+    ]
+
+
+def repair_generative_ai_images_add_to_media_library_title(
+    translated_path, translated_content, lang_key
+):
+    """Localize the English-only download icon ``title`` on ``images.md``.
+
+    Copilot on PR #13313: ``title=\"Add image to Media Library\"`` left in
+    KO (and similar) while steps were Korean/Portuguese hurts accessibility.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_GENERATIVE_AI_IMAGES_MD):
+        return translated_content, []
+
+    en_title = 'title="Add image to Media Library"'
+    if en_title not in translated_content:
+        return translated_content, []
+
+    repl = {
+        "ko": 'title="미디어 라이브러리에 이미지 추가"',
+        "pt-br": 'title="Adicionar imagem à biblioteca de mídia"',
+    }.get(lang_key)
+    if not repl:
+        return translated_content, []
+
+    n = translated_content.count(en_title)
+    return translated_content.replace(en_title, repl), [
+        f"gen-ai-images — localized download title ({n}×) for {lang_key}"
+    ]
+
+
+def repair_fr_generative_brand_guidelines_nav_directives(
+    translated_path, translated_content, lang_key
+):
+    """Align FR generative ``brand_guidelines`` ``nav_title`` with *directives*.
+
+    Copilot on PR #13313: ``nav_title`` used *lignes directrices* while
+    ``article_title`` and body used *directives de marque*.
+    """
+    if lang_key != "fr":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("brazeai/generative_ai/brand_guidelines.md"):
+        return translated_content, []
+    if "_lang/fr_fr/" not in rel:
+        return translated_content, []
+
+    old_nav = "nav_title: Lignes directrices de la marque\n"
+    new_nav = "nav_title: Directives de marque\n"
+    if old_nav not in translated_content:
+        return translated_content, []
+    if "Directives de marque" not in translated_content:
+        return translated_content, []
+    return translated_content.replace(old_nav, new_nav, 1), [
+        "fr-gen-ai-brand — nav_title lignes directrices→Directives de marque"
+    ]
+
+
+def repair_ja_generative_brand_guidelines_fm_middot(
+    translated_path, translated_content, lang_key
+):
+    r"""Restore middot in JA generative ``brand_guidelines`` YAML chrome.
+
+    Copilot on PR #13313: ``nav_title`` / ``article_title`` dropped **・**
+    while ``administrative/.../brand_guidelines.md`` still uses
+    ``ブランド・ガイドライン``, producing inconsistent navigation labels.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("brazeai/generative_ai/brand_guidelines.md"):
+        return translated_content, []
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    pairs = (
+        ("nav_title: ブランドガイドライン\n", "nav_title: ブランド・ガイドライン\n"),
+        (
+            "article_title: AIが生成するブランドガイドライン\n",
+            "article_title: AIが生成するブランド・ガイドライン\n",
+        ),
+    )
+    repairs = []
+    new = translated_content
+    for old, repl in pairs:
+        if old in new:
+            new = new.replace(old, repl, 1)
+            repairs.append(f"ja-gen-ai-brand — inserted ・ in {old.strip()[:40]}…")
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
 # German uses U+201E („) as the opening quotation mark and U+201C (") as
 # the closing one. The LLM occasionally pairs a typographic „ with an
 # ASCII " (U+0022) — the latter breaks screen readers, CSS selectors, and
@@ -1774,7 +2242,7 @@ def repair_triple_backtick_inline_code(content):
 
     Scope rules:
 
-    * Fence delimiter lines (``^\s*```lang$`` / ``^\s*```$``) are excluded
+    * Fence delimiter lines (``^\\s*```lang$`` / ``^\\s*```$``) are excluded
       via ``_CODE_FENCE_OPEN_RE`` / ``_CODE_FENCE_CLOSE_RE`` so we never
       touch a real fence opener or closer (including indented fences).
     * Lines *inside* an already-open fenced block are skipped so we
@@ -2135,6 +2603,56 @@ def repair_messaging_canvas_hub_titles_from_engagement_tools(
         repaired_fm = repaired_fm.replace(tr_line, ref_line, 1)
         repairs.append(
             f"canvas-messaging-hub — {key} aligned with engagement_tools/canvas.md"
+        )
+
+    if repairs:
+        return f"---\n{repaired_fm}\n---\n{tr_body}", repairs
+    return translated_content, []
+
+
+def repair_messaging_feature_flags_fm_from_engagement_tools(
+    translated_path, translated_content
+):
+    """Sync Feature Flags stub front matter with ``engagement_tools/feature_flags``.
+
+    ``messaging/feature_flags.md`` mirrors the English IA as a thin include of
+    the same body as ``engagement_tools/feature_flags.md``. Models sometimes
+    paraphrase ``nav_title`` / ``article_title`` / ``description`` (e.g.
+    Spanish *Conmutador de características* vs established *Banderas de
+    características* on the sibling — Copilot on PR #13309).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    suffix = "_user_guide/messaging/feature_flags.md"
+    if "_lang/" not in rel or not rel.endswith(suffix):
+        return translated_content, []
+
+    tr_path = Path(translated_path).resolve()
+    ref_path = tr_path.parent.parent / "engagement_tools" / "feature_flags.md"
+    if not ref_path.is_file():
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    ref_fm, _ = _extract_front_matter(ref_path.read_text(encoding="utf-8"))
+    if not ref_fm:
+        return translated_content, []
+
+    keys = ("nav_title", "article_title", "description")
+    repairs = []
+    repaired_fm = tr_fm
+    for key in keys:
+        ref_line = _fm_line_for_key(ref_fm, key)
+        tr_line = _fm_line_for_key(repaired_fm, key)
+        if not ref_line or not tr_line:
+            continue
+        if ref_line == tr_line:
+            continue
+        repaired_fm = repaired_fm.replace(tr_line, ref_line, 1)
+        repairs.append(
+            f"feature-flags-messaging-hub — {key} aligned with "
+            f"engagement_tools/feature_flags.md"
         )
 
     if repairs:
@@ -2815,6 +3333,65 @@ def repair_de_channels_banners_landing(translated_path, translated_content, lang
     return translated_content, []
 
 
+def repair_user_guide_data_distribution_landing(
+    translated_path, translated_content, lang_key
+):
+    """Fix Snowflake blurb and DE YAML on the data distribution landing.
+
+    English ``campaign data`` in the Snowflake paragraph is generic analytics
+    copy, not the Braze **Campaign** UI token; models sometimes emit raw
+    English *Campaign* into KO/JA/DE (Copilot PR #13308). German featured
+    cards sometimes drop the hyphen in ``Braze-Daten``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel or not rel.endswith("_user_guide/data/distribution.md"):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "ko" and "Campaign 데이터" in new:
+        new = new.replace("Campaign 데이터", "캠페인 데이터", 1)
+        repairs.append(
+            "data-distribution-landing — Campaign 데이터 → 캠페인 데이터 "
+            "(Snowflake blurb)"
+        )
+    if lang_key == "ja":
+        if "Campaign データ" in new:
+            new = new.replace("Campaign データ", "キャンペーンデータ", 1)
+            repairs.append(
+                "data-distribution-landing — Campaign データ → キャンペーンデータ "
+                "(Snowflake blurb)"
+            )
+        elif "Campaignデータ" in new:
+            new = new.replace("Campaignデータ", "キャンペーンデータ", 1)
+            repairs.append(
+                "data-distribution-landing — Campaignデータ → キャンペーンデータ "
+                "(Snowflake blurb)"
+            )
+    if lang_key == "de":
+        if "Campaign-Daten" in new:
+            new = new.replace("Campaign-Daten", "Kampagnendaten", 1)
+            repairs.append(
+                "data-distribution-landing — Campaign-Daten → Kampagnendaten "
+                "(Snowflake blurb)"
+            )
+        if "  - name: Braze Daten exportieren\n" in new:
+            new = new.replace(
+                "  - name: Braze Daten exportieren\n",
+                "  - name: Braze-Daten exportieren\n",
+                1,
+            )
+            repairs.append(
+                "data-distribution-landing — Braze Daten → Braze-Daten "
+                "(featured_list)"
+            )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 _SHELL_FENCE_LANGS = {"", "bash", "sh", "shell", "zsh", "console"}
 _JSON_OR_SHELL_FENCE_LANGS = _SHELL_FENCE_LANGS | {"json"}
 # Single-backtick inline code span containing at least one `\"` escape. We
@@ -3035,18 +3612,23 @@ def repair_same_page_anchor_ids(english_content, translated_content):
     We add an explicit ``{#slug}`` to the corresponding translated heading
     (matched by positional index) so the existing link targets keep working.
 
+    Also, when the translated heading text would auto-slug to something
+    **different** from the English heading (CJK and most localized titles),
+    we still add the English slug so **bookmark / cross-locale** ``#fragment``
+    URLs keep resolving (Copilot PR #13319 — JA drag-and-drop FAQ, AMP for
+    email).
+
     Conservative by design:
-      * Only adds IDs for slugs that are (a) referenced in this file and
-        (b) map 1:1 to an English heading via auto-slug.
+      * Slug always comes from the English (or explicit ``{#id}`` on English).
+      * Skips when the translated heading already has the same auto-slug as
+        English **and** the slug is not referenced in-file (avoids redundant
+        churn on all-ASCII pages).
       * Never overwrites an existing ``{#id}`` on the translated heading.
       * Skips the file if the English and translated heading counts differ
         (structure mismatch → too risky to auto-align).
     """
-    # Only operate on files that actually use same-page anchors.
     referenced = set(_ANCHOR_REF_RE.findall(english_content))
     referenced |= set(_ANCHOR_REF_RE.findall(translated_content))
-    if not referenced:
-        return translated_content, []
 
     en_headings = list(_iter_doc_headings(english_content))
     tr_headings = list(_iter_doc_headings(translated_content))
@@ -3055,16 +3637,19 @@ def repair_same_page_anchor_ids(english_content, translated_content):
 
     lines = translated_content.split("\n")
     repairs = []
-    for (_, _en_lvl, en_text, en_explicit), (tr_idx, _tr_lvl, _tr_text, tr_explicit) in zip(
+    for (_, _en_lvl, en_text, en_explicit), (tr_idx, _tr_lvl, tr_text, tr_explicit) in zip(
         en_headings, tr_headings
     ):
         slug = en_explicit or _auto_slug(en_text)
-        if not slug or slug not in referenced:
+        if not slug:
             continue
         if tr_explicit:
             continue
         existing = lines[tr_idx]
         if _EXPLICIT_ID_RE.search(existing):
+            continue
+        tr_auto = _auto_slug(tr_text)
+        if slug not in referenced and tr_auto == slug:
             continue
         new_line = existing.rstrip() + f" {{#{slug}}}"
         if new_line != existing:
@@ -3112,6 +3697,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_repairs)
 
+    translated_content, fm_display_repairs = repair_front_matter_display_scalar_cleanup(
+        translated_content
+    )
+    findings["repairs"].extend(fm_display_repairs)
+
     translated_content, gfl_repairs = repair_guide_featured_list_links(
         english_content, translated_content
     )
@@ -3121,6 +3711,30 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(anchor_id_repairs)
+
+    translated_content, img_alt_repairs = repair_img_alt_inner_german_low9_closing_quote(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(img_alt_repairs)
+
+    translated_content, de_dkim_repairs = (
+        repair_de_email_setup_whitelabel_dkim_spf_phrasing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_dkim_repairs)
+
+    translated_content, image_buster_repairs = repair_liquid_image_buster_path_spacing(
+        translated_content
+    )
+    findings["repairs"].extend(image_buster_repairs)
+
+    translated_content, de_user_mgmt_repairs = (
+        repair_de_global_user_management_landing_titles(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_user_mgmt_repairs)
 
     translated_content, inline_esc_repairs = repair_inline_code_escaped_quotes(
         translated_content
@@ -3147,12 +3761,26 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(de_banners_repairs)
 
+    translated_content, data_dist_repairs = (
+        repair_user_guide_data_distribution_landing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(data_dist_repairs)
+
     translated_content, canvas_hub_repairs = (
         repair_messaging_canvas_hub_titles_from_engagement_tools(
             translated_path, translated_content
         )
     )
     findings["repairs"].extend(canvas_hub_repairs)
+
+    translated_content, ff_hub_repairs = (
+        repair_messaging_feature_flags_fm_from_engagement_tools(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(ff_hub_repairs)
 
     translated_content, api_nav_repairs = repair_braze_dashboard_api_keys_nav_collapse(
         english_content, translated_content, lang_key
@@ -3223,6 +3851,72 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content
     )
     findings["repairs"].extend(de_quote_repairs)
+
+    translated_content, ko_query_repairs = repair_korean_query_hangul_typo(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ko_query_repairs)
+
+    translated_content, ja_particle_repairs = (
+        repair_japanese_latin_token_particle_spacing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_particle_repairs)
+
+    translated_content, pt_low9_repairs = (
+        repair_pt_br_german_low9_double_quote_in_body(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_low9_repairs)
+
+    translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ja_mail_camp_repairs)
+
+    translated_content, de_social_uc_repairs = (
+        repair_de_email_use_cases_social_heading(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_social_uc_repairs)
+
+    translated_content, gen_img_bold_repairs = (
+        repair_generative_ai_images_english_flow_bold(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(gen_img_bold_repairs)
+
+    translated_content, fr_img_tt_repairs = (
+        repair_fr_generative_images_download_tooltip_article(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(fr_img_tt_repairs)
+
+    translated_content, gen_img_title_repairs = (
+        repair_generative_ai_images_add_to_media_library_title(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(gen_img_title_repairs)
+
+    translated_content, fr_brand_nav_repairs = (
+        repair_fr_generative_brand_guidelines_nav_directives(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(fr_brand_nav_repairs)
+
+    translated_content, ja_brand_fm_repairs = (
+        repair_ja_generative_brand_guidelines_fm_middot(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_brand_fm_repairs)
 
     translated_content, yaml_repairs = repair_yaml_syntax(translated_content)
     findings["repairs"].extend(yaml_repairs)
@@ -3721,6 +4415,15 @@ def main():
     tp.add_argument(
         "--changed-files", default="changed_files.txt",
         help="Path to a newline-delimited list of changed English doc paths",
+    )
+    tp.add_argument(
+        "--languages",
+        default=None,
+        metavar="KEYS",
+        help=(
+            "Comma-separated language keys to translate (subset of: fr, ja, ko, "
+            "pt-br, es, de). Default: all. Used by CI matrix jobs (one key per job)."
+        ),
     )
     tp.set_defaults(func=cmd_translate)
 

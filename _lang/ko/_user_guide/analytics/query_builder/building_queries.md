@@ -7,6 +7,6 @@ description: "이 참조 문서에서는 Query Builder에서 Snowflake의 Braze 
 tool: Reports
 ---
 
-# 퀴리 빌더
+# 쿼리 빌더
 
 {% multi_lang_include brazeai/generative_ai/building_queries.md %}

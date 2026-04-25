@@ -1,14 +1,14 @@
-> 퀴리 빌더를 사용하여 Snowflake에서 Braze 데이터를 활용한 보고서를 생성하는 방법을 알아보세요. 퀴리 빌더는 시작할 수 있도록 미리 작성된 SQL [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)과 함께 제공되며, 직접 커스텀 SQL 쿼리를 작성하여 더 많은 인사이트를 얻을 수도 있습니다.
+> 쿼리 빌더를 사용하여 Snowflake에서 Braze 데이터를 활용한 보고서를 생성하는 방법을 알아보세요. 쿼리 빌더는 시작할 수 있도록 미리 작성된 SQL [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)과 함께 제공되며, 직접 커스텀 SQL 쿼리를 작성하여 더 많은 인사이트를 얻을 수도 있습니다.
 
 ## 필수 조건
 
-퀴리 빌더는 일부 고객 데이터에 직접 액세스할 수 있으므로, 사용하려면 ["PII 보기" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
+쿼리 빌더는 일부 고객 데이터에 직접 액세스할 수 있으므로, 사용하려면 ["PII 보기" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
 
-## 퀴리 빌더 사용
+## 쿼리 빌더 사용
 
 ### 1단계: SQL 쿼리 생성
 
-새 쿼리를 생성하려면 **분석** > **퀴리 빌더**로 이동한 다음 **SQL 쿼리 생성**을 선택합니다.
+새 쿼리를 생성하려면 **분석** > **쿼리 빌더**로 이동한 다음 **SQL 쿼리 생성**을 선택합니다.
 
 !["SQL 쿼리 생성" 드롭다운에 있는 "쿼리 템플릿" 및 "SQL 편집기" 옵션.]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
@@ -24,19 +24,19 @@
 
 {% tabs local %}
 {% tab Using BrazeAI %}
-AI 퀴리 빌더는 OpenAI에서 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 쿼리에 맞는 SQL을 추천합니다. AI 퀴리 빌더를 사용하여 SQL을 생성하는 방법:
+AI 쿼리 빌더는 OpenAI에서 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 쿼리에 맞는 SQL을 추천합니다. AI 쿼리 빌더를 사용하여 SQL을 생성하는 방법:
 
-1. 퀴리 빌더에서 보고서를 생성한 후 **AI 퀴리 빌더** 탭을 선택합니다.
+1. 쿼리 빌더에서 보고서를 생성한 후 **AI 쿼리 빌더** 탭을 선택합니다.
 2. 프롬프트를 입력하거나 샘플 프롬프트를 선택하고 **생성**을 선택하여 프롬프트를 SQL로 변환합니다.
 3. 생성된 SQL을 검토하여 올바른지 확인한 다음 **편집기에 삽입**을 선택합니다.
 
-![SQL AI 퀴리 빌더.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![SQL AI 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
 #### 팁
 
 - 사용 가능한 [Snowflake 데이터 테이블]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
 - 이 기능에 대한 [SQL 작성 규칙]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql)을 숙지하세요. 이 규칙을 따르지 않으면 오류가 발생합니다.
-- AI 퀴리 빌더를 사용하여 분당 최대 20개의 프롬프트를 보낼 수 있습니다.
+- AI 쿼리 빌더를 사용하여 분당 최대 20개의 프롬프트를 보낼 수 있습니다.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 {% endtab %}
@@ -44,9 +44,9 @@ AI 퀴리 빌더는 OpenAI에서 제공하는 [GPT](https://openai.com/gpt-4)를
 {% tab On My Own %}
 [Snowflake 구문](https://docs.snowflake.com/en/sql-reference)을 사용하여 SQL 쿼리를 작성하세요. 쿼리할 수 있는 전체 테이블 및 열 목록은 [테이블 참조]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)를 확인하세요.
 
-퀴리 빌더 내에서 테이블 세부 정보를 보려면:
+쿼리 빌더 내에서 테이블 세부 정보를 보려면:
 
-1. **퀴리 빌더** 페이지에서 **참조** 패널을 열고 **사용 가능한 데이터 테이블**을 선택하여 사용 가능한 데이터 테이블과 그 이름을 확인합니다.
+1. **쿼리 빌더** 페이지에서 **참조** 패널을 열고 **사용 가능한 데이터 테이블**을 선택하여 사용 가능한 데이터 테이블과 그 이름을 확인합니다.
 3. <i class="fas fa-chevron-down" alt=""></i> **세부 정보 보기**를 선택하여 테이블 설명 및 데이터 유형과 같은 테이블 열에 대한 정보를 확인합니다.
 4. SQL에 테이블 이름을 삽입하려면 <i class="fas fa-copy" title="SQL 편집기에 테이블 이름 복사"></i>를 선택합니다.
 
@@ -100,7 +100,7 @@ LIMIT 100
 
 CSV 보고서를 다운로드하려면 **내보내기**를 선택합니다.
 
-![템플릿 쿼리 "지난 30일 동안의 채널 참여도 및 매출"에 대한 결과를 보여주는 퀴리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
+![템플릿 쿼리 "지난 30일 동안의 채널 참여도 및 매출"에 대한 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
 각 보고서는 하루에 한 번만 결과를 생성할 수 있습니다. 같은 보고서를 하루에 여러 번 실행하면 각 보고서에서 동일한 결과가 표시됩니다.
@@ -137,13 +137,13 @@ ORDER BY abort_count DESC
 각 회사는 한 달에 5개의 Snowflake 크레딧을 사용할 수 있으며, 모든 워크스페이스에서 공유됩니다. 쿼리를 실행하거나 테이블을 미리 볼 때마다 Snowflake 크레딧의 일부가 사용됩니다.
 
 {% alert note %}
-Snowflake 크레딧은 기능 간에 공유되지 않습니다. 예를 들어 SQL 세그먼트 확장과 퀴리 빌더의 크레딧은 서로 독립적입니다.
+Snowflake 크레딧은 기능 간에 공유되지 않습니다. 예를 들어 SQL 세그먼트 확장과 쿼리 빌더의 크레딧은 서로 독립적입니다.
 {% endalert %}
 
 크레딧 사용량은 SQL 쿼리의 실행 시간과 비례합니다. 실행 시간이 길수록 쿼리에 소요되는 Snowflake 크레딧의 비율이 높아집니다. 실행 시간은 시간이 지남에 따라 쿼리의 복잡성과 크기에 따라 달라질 수 있습니다. 더 복잡하고 빈번한 쿼리를 실행할수록 리소스 할당이 커지고 실행 시간이 빨라집니다.
 
-크레딧은 Braze SQL 편집기에서 보고서를 작성, 편집 또는 저장할 때는 사용되지 않습니다. 크레딧은 매월 1일 UTC 기준 오전 12시에 5로 초기화됩니다. 퀴리 빌더 페이지 상단에서 월간 크레딧 사용량을 모니터링할 수 있습니다.
+크레딧은 Braze SQL 편집기에서 보고서를 작성, 편집 또는 저장할 때는 사용되지 않습니다. 크레딧은 매월 1일 UTC 기준 오전 12시에 5로 초기화됩니다. 쿼리 빌더 페이지 상단에서 월간 크레딧 사용량을 모니터링할 수 있습니다.
 
-![퀴리 빌더에서 이번 달에 사용된 크레딧 양을 보여줍니다.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
+![쿼리 빌더에서 이번 달에 사용된 크레딧 양을 보여줍니다.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 
-크레딧 한도에 도달하면 쿼리를 실행할 수 없지만 SQL 보고서를 생성, 편집 및 저장할 수는 있습니다. 퀴리 빌더 크레딧을 추가로 구매하려면 계정 매니저에게 문의하세요.
+크레딧 한도에 도달하면 쿼리를 실행할 수 없지만 SQL 보고서를 생성, 편집 및 저장할 수는 있습니다. 쿼리 빌더 크레딧을 추가로 구매하려면 계정 매니저에게 문의하세요.
