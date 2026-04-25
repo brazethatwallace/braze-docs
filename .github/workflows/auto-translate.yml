@@ -11,7 +11,8 @@
 #   2. Translate each file into 6 languages via Claude API
 #   3. Build each language with Jekyll to verify translations
 #   4. If a build fails, send errors back to Claude for auto-fix (up to 3 attempts)
-#   5. Clean up orphaned translation files (translations with no English source)
+#   5. Clean up orphaned translation files (full-repo only; skipped for explicit
+#      workflow_dispatch `files:` batches — PR #13327)
 #   6. Open a PR targeting develop with the translations
 name: Auto-translate
 
@@ -25,9 +26,9 @@ on:
         description: >
           Space-separated _docs/ or _includes/ paths to translate
           (leave empty unless using since_commit or push-based detection).
-          When set, the workflow skips global orphan cleanup even if
-          skip_orphan_cleanup is false — partial batches must not delete
-          every locale mirror whose English path moved in IA (PR #13327).
+          When set, skips global orphan cleanup and duplicate-YAML-alias check
+          even if skip_orphan_cleanup is false — partial batches must not
+          delete or gate the whole _lang tree after IA moves (PR #13327).
         required: false
         type: string
       since_commit:
@@ -38,8 +39,10 @@ on:
         type: string
       skip_orphan_cleanup:
         description: >
-          If true, skip clean_orphaned_translations (use for intermediate
-          catch-up batches; run false on final batch)
+          If true, skip clean_orphaned_translations and duplicate-YAML-alias
+          check on workflow_dispatch (use for intermediate catch-up; false on
+          final full-repo run). Ignored for those two steps when files is
+          non-empty — explicit path batches never run them (PR #13327).
         required: false
         type: string
         default: "false"
@@ -168,6 +171,9 @@ jobs:
         # `_lang` path to current `_docs`/`_includes` and would mass-delete
         # pre-IA mirrors still on disk until catch-up finishes (PR #13327).
         if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
+        env:
+          # Belt-and-suspenders with scripts/clean_orphaned_translations.py (PR #13327).
+          ORPHAN_CLEANUP_MAX_DELETES: "500"
         run: python scripts/clean_orphaned_translations.py
 
       # Alias check runs after orphan cleanup so stale duplicates from the
