@@ -9,17 +9,17 @@ tool:
   - Canvas
 ---
 
-# Distribución de variantes
+# Distribución de variantes {#variant-distribution}
 
 > Cuando configuras una prueba A/B o multivariante, cada envío asigna de forma independiente a los usuarios a variantes según los porcentajes que configures. Dado que la asignación es aleatoria, la distribución real puede no coincidir exactamente con tus porcentajes, especialmente con tamaños de muestra más pequeños.
 
-## Cómo funciona
+## Cómo funciona {#how-it-works}
 
-Cada vez que se envía un mensaje en una campaña multivariante, el sistema selecciona de forma independiente una opción aleatoria según los porcentajes que hayas establecido y asigna una variante en función del resultado. Es como lanzar una moneda: las anomalías son posibles. Si alguna vez has lanzado una moneda 100 veces, sabes que probablemente no obtendrás una división exacta de 50-50 entre cara y cruz cada vez, aunque solo tengas dos opciones. Podrías obtener 52 caras y 48 cruces.
+Cada vez que se envía un mensaje en una Campaign multivariante, el sistema selecciona de forma independiente una opción aleatoria según los porcentajes que hayas establecido y asigna una variante en función del resultado. Es como lanzar una moneda: las anomalías son posibles. Si alguna vez has lanzado una moneda 100 veces, sabes que probablemente no obtendrás una división exacta de 50-50 entre cara y cruz cada vez, aunque solo tengas dos opciones. Podrías obtener 52 caras y 48 cruces.
 
-Si tienes múltiples variantes que quieres dividir de manera uniforme, asegúrate de que el número de variantes sea un múltiplo de 100. De lo contrario, algunas variantes tendrán un porcentaje más alto de usuarios distribuidos en esa variante en comparación con otras. Por ejemplo, si tu campaña tiene 7 variantes, no puede haber una distribución uniforme de variantes, ya que 7 no divide a 100 de manera exacta como número entero. En este caso, tendrías 2 variantes del 15% y 5 variantes del 14%.
+Si tienes múltiples variantes que quieres dividir de manera uniforme, asegúrate de que el número de variantes sea un múltiplo de 100. De lo contrario, algunas variantes tendrán un porcentaje más alto de usuarios distribuidos en esa variante en comparación con otras. Por ejemplo, si tu Campaign tiene 7 variantes, no puede haber una distribución uniforme de variantes, ya que 7 no divide a 100 de manera exacta como número entero. En este caso, tendrías 2 variantes del 15 % y 5 variantes del 14 %.
 
-## Distribución de mensajes dentro de la aplicación
+## Distribución de mensajes dentro de la aplicación {#in-app-message-distribution}
 
 Al ejecutar una prueba A/B en mensajes dentro de la aplicación, tus análisis pueden parecer mostrar una distribución de variantes más alta entre una variante y otra, incluso si tienen una división de porcentaje uniforme. Por ejemplo, considera el siguiente gráfico de *Destinatarios únicos* para la variante A y la variante C.
 
