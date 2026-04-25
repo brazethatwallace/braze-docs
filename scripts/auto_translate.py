@@ -1128,6 +1128,50 @@ def repair_de_email_setup_whitelabel_dkim_spf_phrasing(
     ]
 
 
+_IMAGE_BUSTER_PATH_FUSE_RE = re.compile(
+    r"(\{\%\s*)image_buster/(?=\S)",
+)
+
+
+def repair_liquid_image_buster_path_spacing(translated_content):
+    """Insert missing space before the path in ``{% image_buster/...`` tags.
+
+    Liquid requires ``{% image_buster /assets/... %}``. Models sometimes emit
+    ``image_buster/assets`` with no space, which breaks the tag (Copilot
+    PR #13318).
+    """
+
+    def _repl(m: re.Match) -> str:
+        return m.group(1) + "image_buster /"
+
+    new, n = _IMAGE_BUSTER_PATH_FUSE_RE.subn(_repl, translated_content)
+    if not n:
+        return translated_content, []
+    return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
+
+
+def repair_de_global_user_management_landing_titles(
+    translated_path, translated_content, lang_key
+):
+    """Normalize DE **User management** hub compound (administer / global).
+
+    ``Nutzer:in Verwaltung`` reads like two words; use the established compound
+    **Nutzer:innenverwaltung** in nav and headers (Copilot PR #13318).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_user_guide/administer/global/user_management.md"):
+        return translated_content, []
+    needle = "Nutzer:in Verwaltung"
+    if needle not in translated_content:
+        return translated_content, []
+    new = translated_content.replace(needle, "Nutzer:innenverwaltung")
+    return new, [
+        "de-user-mgmt-landing — Nutzer:in Verwaltung → Nutzer:innenverwaltung"
+    ]
+
+
 def repair_front_matter_miscapitalized_tool_key(content):
     """Normalize ``Tool:`` / ``Tool :`` to ``tool:`` in YAML front matter.
 
@@ -3656,6 +3700,18 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(de_dkim_repairs)
+
+    translated_content, image_buster_repairs = repair_liquid_image_buster_path_spacing(
+        translated_content
+    )
+    findings["repairs"].extend(image_buster_repairs)
+
+    translated_content, de_user_mgmt_repairs = (
+        repair_de_global_user_management_landing_titles(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_user_mgmt_repairs)
 
     translated_content, inline_esc_repairs = repair_inline_code_escaped_quotes(
         translated_content
