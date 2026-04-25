@@ -11,7 +11,8 @@
 #   2. Translate each file into 6 languages via Claude API
 #   3. Build each language with Jekyll to verify translations
 #   4. If a build fails, send errors back to Claude for auto-fix (up to 3 attempts)
-#   5. Clean up orphaned translation files (translations with no English source)
+#   5. Clean up orphaned translation files (full-repo only; skipped for explicit
+#      workflow_dispatch `files:` batches — PR #13327)
 #   6. Open a PR targeting develop with the translations
 name: Auto-translate
 
@@ -24,7 +25,10 @@ on:
       files:
         description: >
           Space-separated _docs/ or _includes/ paths to translate
-          (leave empty unless using since_commit or push-based detection)
+          (leave empty unless using since_commit or push-based detection).
+          When set, skips global orphan cleanup and duplicate-YAML-alias check
+          even if skip_orphan_cleanup is false — partial batches must not
+          delete or gate the whole _lang tree after IA moves (PR #13327).
         required: false
         type: string
       since_commit:
@@ -35,8 +39,10 @@ on:
         type: string
       skip_orphan_cleanup:
         description: >
-          If true, skip clean_orphaned_translations (use for intermediate
-          catch-up batches; run false on final batch)
+          If true, skip clean_orphaned_translations and duplicate-YAML-alias
+          check on workflow_dispatch (use for intermediate catch-up; false on
+          final full-repo run). Ignored for those two steps when files is
+          non-empty — explicit path batches never run them (PR #13327).
         required: false
         type: string
         default: "false"
@@ -52,9 +58,11 @@ jobs:
     # runner indefinitely (run 24906077736 spent 87+ minutes stuck on
     # `Translate changed files` before manual cancellation). Healthy
     # wave-4 runs finished in 9-35 min on batches of ~40 files × 6
-    # locales, so 90 min leaves ~3x headroom for outliers while still
-    # failing fast when a stream stalls.
-    timeout-minutes: 90
+    # locales; large catch-up diffs (e.g. run 24911225298: 126 file×locale
+    # tasks) can exceed the old 75-minute translate step. 210 / 165 leaves
+    # room for QC + multi-locale Jekyll verify + PR while still capping
+    # runaway jobs.
+    timeout-minutes: 210
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
@@ -130,14 +138,13 @@ jobs:
         id: translate
         if: steps.changes.outputs.count != '0'
         continue-on-error: true
-        # Step-level timeout sits inside the 90-minute job ceiling. A
-        # stalled Anthropic stream is now bounded per-request by the
-        # Anthropic client's HTTP timeout (`TRANSLATION_HTTP_TIMEOUT`,
-        # default 180s) + 3 retries in `call_claude`, so a single task
-        # can't burn more than ~9 min. Giving the step 75 min leaves
-        # 15 min for the downstream QC/build/PR steps even if the
-        # translate step walks all the way to its limit.
-        timeout-minutes: 75
+        # Step-level timeout sits inside the job ceiling above. A stalled
+        # Anthropic stream is bounded per-request by the Anthropic client's
+        # HTTP timeout (`TRANSLATION_HTTP_TIMEOUT`, default 180s) + 3 retries
+        # in `call_claude`, so a single task can't burn more than ~9 min.
+        # Large batches still need wall clock for many sequential tasks;
+        # 165 min leaves ~45 min for QC, Ruby/Jekyll verify, and PR steps.
+        timeout-minutes: 165
         run: python scripts/auto_translate.py translate --changed-files changed_files.txt
 
       # ------------------------------------------------------------------
@@ -160,15 +167,22 @@ jobs:
           bundler-cache: true
 
       - name: Clean up orphaned translations
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true')) }}
+        # Never run after an explicit `files:` batch — cleanup compares every
+        # `_lang` path to current `_docs`/`_includes` and would mass-delete
+        # pre-IA mirrors still on disk until catch-up finishes (PR #13327).
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
+        env:
+          # Belt-and-suspenders with scripts/clean_orphaned_translations.py (PR #13327).
+          ORPHAN_CLEANUP_MAX_DELETES: "500"
         run: python scripts/clean_orphaned_translations.py
 
       # Alias check runs after orphan cleanup so stale duplicates from the
       # IA restructure don't fail the job. Skipped during catch-up batches
-      # (skip_orphan_cleanup=true) because cleanup is deferred to the final run.
+      # (skip_orphan_cleanup=true) or explicit `files:` batches (same guard as
+      # orphan cleanup — PR #13327).
       - name: Check for duplicate YAML aliases
         id: aliases
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || inputs.skip_orphan_cleanup != 'true') }}
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
         continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
@@ -181,13 +195,16 @@ jobs:
       # ------------------------------------------------------------------
       # Open PR targeting develop
       # ------------------------------------------------------------------
+      # Only open a PR when translate/QC/verify succeeded. This avoids
+      # publishing partial translation PRs after a timed-out translate step.
+      # (PR #13327 follow-up)
       - name: Generate PR summary
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
         run: python scripts/auto_translate.py summary
 
       - name: Create pull request
         id: create-pr
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -209,7 +226,7 @@ jobs:
       # if the shortcut isn't available or fails for any reason. Non-blocking:
       # a missing Copilot review should never stop translation PRs from merging.
       - name: Request Copilot review
-        if: ${{ steps.changes.outputs.count != '0' && steps.create-pr.outputs.pull-request-number }}
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
