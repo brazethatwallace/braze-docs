@@ -65,6 +65,26 @@ LANGUAGES = {
     "de":    {"config": "de",    "dir": "de",    "name": "German"},
 }
 
+
+def languages_from_cli_arg(languages_arg):
+    """Subset of ``LANGUAGES`` from ``--languages`` (comma-separated keys), or all.
+
+    Keys must match ``LANGUAGES`` (e.g. ``fr``, ``pt-br``). Order follows the
+    argument list.
+    """
+    if not languages_arg or not str(languages_arg).strip():
+        return dict(LANGUAGES)
+    keys = [k.strip() for k in str(languages_arg).split(",") if k.strip()]
+    bad = [k for k in keys if k not in LANGUAGES]
+    if bad:
+        print(
+            f"ERROR: Unknown language key(s): {bad}. Valid: {list(LANGUAGES.keys())}",
+            file=sys.stderr,
+        )
+        sys.exit(2)
+    return {k: LANGUAGES[k] for k in keys}
+
+
 MODEL = os.environ.get("TRANSLATION_MODEL", "claude-opus-4-6")
 MAX_TOKENS = int(os.environ.get("TRANSLATION_MAX_TOKENS", "128000"))
 MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
@@ -846,7 +866,8 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
 
 def cmd_translate(args):
-    """Translate changed English docs into every supported language."""
+    """Translate changed English docs into every supported language (or ``--languages`` subset)."""
+    active_langs = languages_from_cli_arg(getattr(args, "languages", None))
     changed_path = REPO_ROOT / args.changed_files
     if not changed_path.exists():
         print("No changed-files list found. Nothing to translate.")
@@ -878,10 +899,12 @@ def cmd_translate(args):
         print("No translatable files found.")
         return
 
-    total_tasks = len(translatable) * len(LANGUAGES)
-    chunked_tasks = len(chunked) * len(LANGUAGES)
-    print(f"Translating {len(translatable)} file(s) into {len(LANGUAGES)} language(s) "
-          f"({total_tasks} tasks, {MAX_WORKERS} workers)")
+    n_langs = len(active_langs)
+    total_tasks = len(translatable) * n_langs
+    chunked_tasks = len(chunked) * n_langs
+    lang_label = ", ".join(active_langs.keys())
+    print(f"Translating {len(translatable)} file(s) into {n_langs} language(s) "
+          f"({lang_label}) — {total_tasks} tasks, {MAX_WORKERS} workers")
     if chunked:
         print(f"  + {len(chunked)} large file(s) via chunked translation "
               f"({chunked_tasks} tasks, sequential)")
@@ -895,8 +918,8 @@ def cmd_translate(args):
         {"source": f, "size_kb": round((REPO_ROOT / f).stat().st_size / 1024)}
         for f in chunked
     ]
-    glossaries = {lang: load_glossary(lang) for lang in LANGUAGES}
-    styleguides = {lang: load_styleguide(lang) for lang in LANGUAGES}
+    glossaries = {lang: load_glossary(lang) for lang in active_langs}
+    styleguides = {lang: load_styleguide(lang) for lang in active_langs}
 
     # --- Normal parallel translation for files under the size limit ---
     if translatable:
@@ -906,7 +929,7 @@ def cmd_translate(args):
                 relative = _relative_for_translation(fpath)
                 english_content = (REPO_ROOT / fpath).read_text()
 
-                for lang_key, lang_info in LANGUAGES.items():
+                for lang_key, lang_info in active_langs.items():
                     future = pool.submit(
                         translate_one, client, prompt, fpath, relative,
                         english_content, lang_key, lang_info,
@@ -945,7 +968,7 @@ def cmd_translate(args):
             english_content = (REPO_ROOT / fpath).read_text()
             print(f"\n  {fpath} ({len(english_content) // 1024}KB)")
 
-            for lang_key, lang_info in LANGUAGES.items():
+            for lang_key, lang_info in active_langs.items():
                 result = translate_one_chunked(
                     client, prompt, fpath, relative, english_content,
                     lang_key, lang_info,
@@ -4392,6 +4415,15 @@ def main():
     tp.add_argument(
         "--changed-files", default="changed_files.txt",
         help="Path to a newline-delimited list of changed English doc paths",
+    )
+    tp.add_argument(
+        "--languages",
+        default=None,
+        metavar="KEYS",
+        help=(
+            "Comma-separated language keys to translate (subset of: fr, ja, ko, "
+            "pt-br, es, de). Default: all. Used by CI matrix jobs (one key per job)."
+        ),
     )
     tp.set_defaults(func=cmd_translate)
 
