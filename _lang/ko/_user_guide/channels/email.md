@@ -11,15 +11,15 @@ search_rank: 2
 
 # 이메일
 
-> Braze의 이메일을 사용하면 캠페인 또는 캔버스에서 완전히 맞춤화되고 개인화된 이메일 메시지를 만들어 앱이나 웹사이트 외부에서도 사용자의 관심을 끌 수 있습니다. 오디언스 관리부터 눈길을 끄는 멀티미디어 콘텐츠 포함까지 이메일 메시지를 자유롭게 커스터마이즈하세요. 이메일 캠페인 예시는 Braze [사례 연구](https://www.braze.com/customers/)를 참조하세요.
+> Braze의 이메일을 사용하면 Campaigns 또는 Canvas에서 완전히 맞춤화되고 개인화된 이메일 메시지를 만들어 앱이나 웹사이트 외부에서도 사용자의 관심을 끌 수 있습니다. 오디언스 관리부터 눈길을 끄는 멀티미디어 콘텐츠 포함까지 이메일 메시지를 자유롭게 커스터마이즈하세요. 이메일 Campaigns 예시는 Braze [사례 연구](https://www.braze.com/customers/)를 참조하세요.
 
 ## 필수 조건
 
 Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증 및 IP 워밍을 구성해야 합니다. 전체 안내는 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/)을 참조하세요.
 
-## 이메일 커스터마이즈
+## 이메일 커스터마이즈하기
 
-다음과 같은 다양한 방법으로 이메일 메시징을 커스터마이즈할 수 있습니다:
+다음과 같은 다양한 방법으로 이메일 메시지를 맞춤 설정할 수 있습니다:
 
 - [Braze 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
 - [커스텀 HTML 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
@@ -30,12 +30,12 @@ Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증
 
 | 활용 사례 | 설명 |
 | --- | --- |
-| 재참여 | 앱을 설치하지 않은 사용자를 포함하여 앱 외부에서 사용자에게 도달합니다. |
-| 온보딩 | 신규 사용자를 온보딩하고 푸시 알림을 켜거나 소셜 네트워크에서 앱을 공유하도록 유도합니다. |
-| 리치 메시지 | 풍부하고 동적인 HTML 메시지를 사용할 수 있습니다. |
+| 재참여 | 앱을 설치하지 않은 사용자를 포함하여 앱 외부의 사용자에게 도달하세요. |
+| 온보딩 | 신규 사용자를 온보딩하고 푸시 알림을 켜거나 소셜 네트워크에서 앱을 공유하도록 유도하세요. |
+| 풍부한 메시지 | 풍부하고 동적인 HTML 메시지를 활용할 수 있습니다. |
 | 멀티미디어 콘텐츠 | 동영상, 이미지 등 사용자의 참여를 유도하는 멀티미디어 콘텐츠를 쉽게 배치할 수 있습니다. |
-| 뉴스레터 | 월간 또는 주간 뉴스레터를 간편하게 발송하여 사용자 참여를 유지합니다. |
-| 트랜잭션 | 최근 구매를 사용자에게 알리고 [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)을 통해 중요한 제품 및 배송 정보를 전달합니다.
+| 뉴스레터 | 월간 또는 주간 뉴스레터를 편리하게 전송하여 사용자 참여를 유지하세요. |
+| 트랜잭션 | [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)을 통해 최근 구매 내역을 사용자에게 알리고 중요한 제품 및 배송 정보를 전달하세요.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 이메일 서비스 {#email-services}

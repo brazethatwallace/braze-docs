@@ -3,29 +3,29 @@ nav_title: Consentimento e coleta de endereços
 article_title: Consentimento e coleta de endereços
 page_order: 6
 page_type: reference
-description: "Este artigo de referência aborda as melhores práticas para obter consentimento e coletar endereços de e-mail dos usuários, além de definir os diferentes estados possíveis de inscrição."
+description: "Este artigo de referência aborda as práticas recomendadas para a coleta de consentimento e endereços de e-mail de usuários e define os diferentes estados possíveis de assinantes de usuários."
 channel: email
 
 ---
 
 # Consentimento e coleta de endereços
 
-> Antes de enviar seus primeiros e-mails, é importante obter a permissão dos seus clientes primeiro. É uma questão de cortesia e faz maravilhas pela sua taxa de abertura!
+> Antes de enviar seus e-mails iniciais, é importante obter primeiro a permissão de seus clientes. É uma cortesia comum e faz maravilhas para suas taxas de abertura!
 
-## Estados de inscrição
+## Estados do assinante
 
-Existem três estados de inscrição de e-mail para um usuário: **opt-in**, **inscrito** e **cancelou inscrição**. Para alterar o estado de inscrição de um usuário, confira nosso artigo sobre [alteração de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou use nossas [APIs de inscrição]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Há três estados de inscrição de e-mail para um usuário: **aceitação**, **inscrição** e **cancelamento da inscrição**. Para alterar o estado da inscrição de um usuário, consulte nosso artigo sobre [alteração de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou use nossas [APIs de inscrição]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 
-| Estado de inscrição | Descrição |
+| Estado do assinante | Descrição |
 |---|---|
-| Opt-in | Esses clientes clicaram no link de um e-mail de confirmação e optaram ativamente por receber suas mensagens. |
-| Inscrito | Por padrão, os usuários estão inscritos para receber e-mails desde que tenham um endereço de e-mail válido armazenado em seu perfil. Os usuários permanecem inscritos até que cancelem a inscrição ou façam opt-in. |
-| Cancelou inscrição | Para ser marcado como cancelou inscrição, o cliente cancelou explicitamente a inscrição dos seus e-mails ou marcou um e-mail como spam. |
+| Aceitou | Esses clientes clicaram no link em um e-mail de confirmação e aceitaram ativamente receber suas mensagens. |
+| Inscreveu-se | Por padrão, os usuários são inscritos para receber e-mails desde que tenham um endereço de e-mail válido armazenado em seu perfil. Os usuários permanecem inscritos até que cancelem a inscrição ou aceitem. |
+| Cancelou inscrição | Para ser marcado como cancelado, o cliente deve ter cancelado explicitamente a inscrição em seus e-mails ou marcado um e-mail como spam. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Métodos de coleta de endereços
 
-Além de obter permissão dos seus usuários antes do envio de mensagens, existem vários métodos para coletar esses endereços de e-mail que podem impactar sua entregabilidade.
+Além de obter a permissão dos usuários antes do envio de mensagens, existem vários métodos para coletar esses endereços de e-mail que podem impactar sua entregabilidade.
 
 ### Listas de endereços compradas
 

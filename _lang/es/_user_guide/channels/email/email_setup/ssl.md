@@ -1,32 +1,32 @@
 ---
 nav_title: SSL en Braze
-article_title: Resumen de SSL
+article_title: Descripción general de SSL
 page_order: 5
 page_type: reference
-description: "Este artículo de referencia cubre SSL, para qué se utiliza y cómo se usa en Braze."
+description: "Este artículo de referencia trata sobre SSL, para qué se utiliza y cómo se utiliza en Braze."
 channel: email
 
 ---
 
 # SSL en Braze
 
+> Una capa de conexión segura (SSL) cifra una URL con HTTPS en lugar de HTTP. HTTPS indica que existe un certificado SSL o TLS válido y fiable y que el sitio web es seguro para visitar.
+
 {% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
-> Una capa de conexión segura (SSL) cifra una URL con HTTPS en lugar de HTTP. HTTPS indica que existe un certificado SSL o TLS válido y de confianza, y que el sitio web es seguro para visitar.
+## ¿Por qué es importante el SSL?
 
-## ¿Por qué es importante SSL?
+La mayoría de los dominios no requieren SSL, pero Braze recomienda encarecidamente utilizar SSL por los siguientes motivos.
 
-La mayoría de los dominios no requieren SSL, pero Braze recomienda encarecidamente usar SSL por estas razones.
-
-Proteger tu sitio web y tus enlaces con SSL es una práctica común incluso para empresas que no manejan directamente información sensible de clientes. Los usuarios confían más en los enlaces protegidos con SSL, y la capa adicional de autenticación ayuda a proteger tus datos.
+Proteger tu sitio web y tus enlaces con SSL es una práctica habitual incluso para las empresas que no manejan directamente información confidencial de sus clientes. Los usuarios confían más en los enlaces protegidos con SSL, y la capa adicional de autenticación ayuda a proteger tus datos.
 
 ### Necesario para el seguimiento de clics y aperturas
 
-Braze transforma tus enlaces usando tu subdominio de seguimiento de enlaces de marca para rastrear clics y aperturas. De forma predeterminada, estos enlaces comienzan con HTTP. Los usuarios con navegadores o extensiones que restringen el tráfico no seguro pueden tener dificultades para pasar a través de la redirección antes de la URL de destino, incluso si la URL es segura. Esto puede causar imágenes rotas y un seguimiento impreciso. Aplica SSL al subdominio de seguimiento de enlaces para confirmar redirecciones seguras.
+Braze transforma tus enlaces utilizando tu subdominio de seguimiento de enlaces de marca para realizar el seguimiento de los clics y las aperturas. De forma predeterminada, estos enlaces comienzan con HTTP. Los usuarios con navegadores o extensiones que restringen el tráfico no seguro pueden tener dificultades para pasar por la redirección antes de la URL de destino, incluso si la URL es segura. Esto puede provocar imágenes rotas y un seguimiento inexacto. Aplica SSL al subdominio de seguimiento de enlaces para confirmar que las redirecciones son seguras.
 
 ### Requisito del navegador
 
-Los principales navegadores como Google Chrome restringen el tráfico a través de URLs no seguras para proteger a los usuarios. Usar SSL ayuda a confirmar que el contenido es de confianza y minimiza problemas como enlaces e imágenes rotos en los correos electrónicos.
+Los principales navegadores, como Google Chrome, restringen el tráfico a través de URL no seguras para proteger a los usuarios. Usar SSL ayuda a confirmar que el contenido es de confianza y minimiza problemas como enlaces e imágenes rotos en los correos electrónicos.
 
 ### Requisito de dominios HSTS
 
@@ -56,7 +56,7 @@ La configuración del CDN siempre se realiza después de que Braze valide tus re
 Para el seguimiento de clics y aperturas, los socios de entrega transforman los enlaces usando un subdominio de marca y el CDN aplica el certificado SSL a esos enlaces transformados. Los socios a menudo deben presentar certificados válidos al navegador del destinatario para que los enlaces y las imágenes se muestren correctamente. Dado que Braze no solicita ni gestiona certificados, debes configurar esto a través de un CDN.
 
 {% alert note %}
-Si no puedes o no quieres usar los CDN listados para el seguimiento de clics y aperturas con SSL, puedes configurar una configuración SSL personalizada. Los CDN alternativos o proxies personalizados pueden resultar en una configuración más compleja. Consulta la documentación de [SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/) y [SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/).
+Si no puedes o no quieres usar los CDN listados para el seguimiento de clics y aperturas con SSL, puedes establecer una configuración SSL personalizada. Los CDN alternativos o proxies personalizados pueden resultar en una configuración más compleja. Consulta la documentación de [SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/) y [SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/).
 {% endalert %}
 
 ### Recursos adicionales

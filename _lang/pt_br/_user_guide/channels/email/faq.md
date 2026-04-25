@@ -55,7 +55,7 @@ No entanto, uma taxa acima de 98% ainda pode ter problemas de entregabilidade. P
 
 Além disso, as mensagens podem estar sendo entregues e acabando na pasta de Spam, indicando problemas de reputação potencialmente sérios. É importante monitorar não apenas o número de mensagens sendo entregues, mas também as taxas de abertura e clique para determinar se os usuários estão realmente vendo as mensagens em suas caixas de entrada. Como os provedores geralmente não reportam todas as instâncias de spam, uma taxa de spam de apenas 1% pode ser motivo de preocupação e análise adicional.
 
-Por fim, seu negócio e os tipos de e-mails que você envia também podem afetar a entrega. Por exemplo, alguém que envia principalmente [e-mails de transação]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) deve esperar ver uma taxa melhor do que alguém que envia muitas mensagens de marketing.
+Por fim, seu negócio e os tipos de e-mails que você envia também podem afetar a entrega. Por exemplo, alguém que envia principalmente [e-mails de transação]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/) deve esperar ver uma taxa melhor do que alguém que envia muitas mensagens de marketing.
 
 ### Por que minhas métricas de entrega de e-mail não somam 100%?
 
@@ -75,7 +75,7 @@ Um loop de feedback de e-mail (FBL) permite que os remetentes monitorem sua repu
 
 Os usuários são impedidos de entrar no Canvas e nenhuma mensagem adicional é enviada.
 
-Para campanhas de e-mail e Canvas, o botão de parar não interrompe imediatamente o envio. Quando as solicitações de envio são enviadas, elas não podem ser impedidas de serem entregues ao usuário, o que pode acontecer após algum atraso.
+Para campanhas de e-mail e Canvas, o botão de parar não interrompe imediatamente o envio. Quando as solicitações de envio são disparadas, elas não podem ser impedidas de serem entregues ao usuário, o que pode acontecer após algum atraso.
 
 Embora a Braze não envie mais solicitações depois que a campanha ou o Canvas é interrompido, a análise de dados ainda pode aumentar enquanto o ESP termina de processar as solicitações que já estão em andamento.
 
@@ -143,7 +143,7 @@ Para mais detalhes sobre como o escaneamento do lado do servidor pode afetar as 
 - Atualizações nos recursos de privacidade do provedor de e-mail ou comportamentos de detecção de bots.
 - Mudanças na segmentação ou no direcionamento do seu público.
 
-As porcentagens de abertura por máquina não são uma medida confiável do engajamento real. Para uma visão mais precisa do desempenho de e-mail, concentre-se em *Outras Aberturas* (aberturas não realizadas por máquina) e *Cliques Únicos*. Você também pode comparar essas métricas ao longo do tempo usando o [Dashboard de desempenho de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/).
+As porcentagens de abertura por máquina não são uma medida confiável do engajamento real. Para uma visão mais precisa do desempenho de e-mail, concentre-se em *Outras Aberturas* (aberturas não realizadas por máquina) e *Cliques Únicos*. Você também pode comparar essas métricas ao longo do tempo usando o [Dashboard de Performance de E-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/).
 
 ### Por que meus deep links não estão funcionando no Gmail?
 

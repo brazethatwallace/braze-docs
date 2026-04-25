@@ -22,7 +22,7 @@ Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google registr
 | AMP für E-Mail aktiviert | AMP ist für alle Nutzer:innen verfügbar. |
 | Gmail-Konto-Aktivierung | Siehe [Gmail-Konto aktivieren](#enabling-gmail-account). |
 | Google-Sender-Authentifizierung | Gmail [authentifiziert den Sender](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) von AMP-E-Mails mit DKIM, SPF und DMARC. Diese müssen für Ihr Konto eingerichtet werden. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| AMP-E-Mail-Elemente | Eine überzeugende AMP-E-Mail beinhaltet den strategischen Einsatz verschiedener Komponenten. Weitere Informationen finden Sie im Tab „Grundlagen" im Abschnitt [Komponenten](#components) weiter unten. |
+| AMP-E-Mail-Elemente | Eine überzeugende AMP-E-Mail beinhaltet den strategischen Einsatz verschiedener Komponenten. Weitere Informationen finden Sie im Tab „Grundlagen“ im Abschnitt [Komponenten](#components) weiter unten. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Unterstützte E-Mail-Clients
@@ -42,7 +42,7 @@ Eine vollständige Liste der unterstützten E-Mail-Clients finden Sie in der [AM
 
 Gehen Sie zu Ihren Gmail-Einstellungen und wählen Sie unter **Allgemein** die Option **Dynamische E-Mails aktivieren** aus.
 
-![Ein Beispiel für Gmail-Einstellungen mit aktiviertem Kontrollkästchen „Dynamische E-Mails aktivieren".]({% image_buster /assets/img/dynamic-content.png %})
+![Ein Beispiel für Gmail-Einstellungen mit aktiviertem Kontrollkästchen „Dynamische E-Mails aktivieren“.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## API-Nutzung {#api-usage}
 
@@ -71,7 +71,7 @@ Sie können AMP für E-Mail auch mit unserer API verwenden. Wenn Sie einen der B
 
 ## Ihre AMP-E-Mail erstellen
 
-Erstellen Sie zunächst Ihre AMP-E-Mail mit [Komponenten](#components). Verwenden Sie dann die [Braze API](#api-usage), um Ihre Nachricht zu senden, und stellen Sie sicher, dass `amp_body` für Ihr AMP-HTML enthalten ist.
+Erstellen Sie zunächst Ihre AMP-E-Mail mit [Komponenten](#components). Verwenden Sie dann die [Braze-API](#api-usage), um Ihre Nachricht zu senden, und stellen Sie sicher, dass `amp_body` für Ihr AMP-HTML enthalten ist.
 
 Zusätzlich zum AMP-HTML benötigen wir eine reguläre HTML-`body`-Version und empfehlen eine `plaintext_body`-Version Ihrer AMP-E-Mail. Alle AMP-E-Mails werden als Multipart gesendet, d. h. Braze sendet eine E-Mail, die HTML, Klartext und AMP-HTML unterstützt. Dies ist nützlich, falls Ihre E-Mail über einen Anbieter gesendet wird, der AMP für E-Mail noch nicht unterstützt, da die E-Mail automatisch auf die entsprechende Version basierend auf den Nutzer:innen und ihrem Gerät zurückfällt.
 

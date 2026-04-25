@@ -56,7 +56,7 @@ A disposição pode quebrar quando o HTML/CSS gerado pela Braze entra em conflit
 - Verifique o preenchimento (padding) de linhas e colunas
 - Prefira disposições baseadas em tabelas e mantenha-se dentro da largura do editor.
 
-Blocos de conteúdo que importam HTML de fora do editor também podem quebrar a disposição.
+Content Blocks que importam HTML de fora do editor também podem quebrar a disposição.
 
 ## Usando parâmetros UTM em URLs de e-mail
 

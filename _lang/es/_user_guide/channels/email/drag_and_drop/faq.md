@@ -24,7 +24,7 @@ Los correos electrónicos no necesitan enviarse en diseños separados de modo cl
 
 ### ¿Cómo puedo cambiar el relleno del correo electrónico en móvil sin actualizar el relleno en la vista web?
 
-No puedes editar el relleno para las vistas de móvil y web de forma exclusiva, por lo que cualquier edición se refleja en ambas vistas. Sin embargo, puedes agregar lógica CSS en el editor HTML que establezca el relleno según diferentes tamaños de pantalla. Esto no es compatible con el editor de arrastrar y soltar, así que puedes exportar el archivo HTML y usar el editor HTML en su lugar.
+No puedes editar el relleno para las vistas de móvil y web de forma independiente, por lo que cualquier edición se refleja en ambas vistas. Sin embargo, puedes agregar lógica CSS en el editor HTML que establezca el relleno según diferentes tamaños de pantalla. Esto no es compatible con el editor de arrastrar y soltar, así que puedes exportar el archivo HTML y usar el editor HTML en su lugar.
 
 ### ¿Cómo puedo optimizar una fila de botones para que permanezcan horizontales en escritorio y móvil?
 

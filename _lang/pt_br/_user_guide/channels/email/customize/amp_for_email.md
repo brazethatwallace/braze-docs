@@ -27,7 +27,7 @@ A Braze não é responsável pelo registro dos usuários no Google nem pelo cump
 
 ### Clientes de e-mail compatíveis
 
-Antes de enviar e-mails AMP para os usuários, você precisa se registrar nos nossos clientes de e-mail. O processo de registro envolve o envio de um e-mail de teste em AMP HTML para aprovação. Os tempos de aprovação variam de cliente para cliente. Siga os links de registro para mais informações.
+Antes de enviar e-mails AMP para os usuários, você precisa se registrar nos clientes de e-mail. O processo de registro envolve o envio de um e-mail de teste em AMP HTML para aprovação. Os tempos de aprovação variam de cliente para cliente. Siga os links de registro para mais informações.
 
 | Cliente | Link de registro |
 | ------ | -------- |

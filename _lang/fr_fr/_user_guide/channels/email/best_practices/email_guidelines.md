@@ -35,7 +35,7 @@ La validation est utilisée pour les adresses e-mail du tableau de bord, les adr
 
 La validation des e-mails a lieu lorsque l'adresse e-mail d'un utilisateur est mise à jour ou importée dans Braze via l'API, un téléchargement CSV, le SDK, ou modifiée dans le tableau de bord. Notez que vos adresses e-mail ne peuvent pas contenir d'espaces ; si elles sont envoyées via l'API, les espaces peuvent entraîner une erreur `400`.
 
-Les adresses e-mail ciblées via les serveurs Braze doivent être validées conformément aux normes [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze n'accepte pas certains caractères et les considère comme invalides. Si un e-mail fait l'objet d'un rebond, Braze marque l'adresse comme invalide et le statut d'abonnement n'est pas modifié.
+Les adresses e-mail ciblées via les serveurs de Braze doivent être validées conformément aux normes [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze n'accepte pas certains caractères et les considère comme invalides. Si un e-mail fait l'objet d'un rebond, Braze marque l'adresse comme invalide et le statut d'abonnement n'est pas modifié.
 
 Pour plus d'informations sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
 
@@ -56,7 +56,7 @@ La mise en page peut se casser lorsque le HTML/CSS généré par Braze entre en 
 - Vérifiez le remplissage (padding) des lignes et des colonnes
 - Privilégiez les mises en page basées sur des tableaux et restez dans les limites de largeur de l'éditeur.
 
-Les Blocs de contenu qui intègrent du HTML provenant de l'extérieur de l'éditeur peuvent également casser la mise en page.
+Les Content Blocks qui intègrent du HTML provenant de l'extérieur de l'éditeur peuvent également casser la mise en page.
 
 ## Utiliser des paramètres UTM dans les URL des e-mails
 

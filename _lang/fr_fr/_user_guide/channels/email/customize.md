@@ -17,10 +17,10 @@ guide_featured_list:
   - name: Pied de page personnalisé pour les e-mails
     link: /docs/user_guide/channels/email/customize/custom_email_footer
     image: /assets/img/braze_icons/align-bottom-01.svg
-  - name: AMP pour les e-mails
+  - name: AMP pour l'e-mail
     link: /docs/user_guide/channels/email/customize/amp_for_email
     image: /assets/img/braze_icons/zap.svg
-  - name: Liens universels et liens d'application
+  - name: Liens universels et App Links
     link: /docs/user_guide/channels/email/customize/universal_links_and_app_links
     image: /assets/img/braze_icons/link-03.svg
 ---

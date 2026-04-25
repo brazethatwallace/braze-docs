@@ -11,7 +11,7 @@ search_rank: 2
 
 # Correo electrónico
 
-> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en campañas o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de campañas de correo electrónico, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
+> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de Campaigns, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
 
 ## Requisitos previos
 
@@ -19,7 +19,7 @@ Antes de poder enviar correo electrónico con Braze, necesitas configurar tus IP
 
 ## Personaliza tus correos electrónicos
 
-Puedes personalizar tus mensajes de correo electrónico de diversas maneras, incluyendo:
+Puedes personalizar tus mensajes de correo electrónico de varias maneras, entre ellas:
 
 - [Plantillas de correo electrónico de Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
 - [Plantillas HTML personalizadas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
@@ -30,8 +30,8 @@ Puedes personalizar tus mensajes de correo electrónico de diversas maneras, inc
 
 | Caso de uso | Explicación |
 | --- | --- |
-| Reactivación de la interacción | Llega a usuarios fuera de tu aplicación, incluidos aquellos que no la han instalado. |
-| Incorporación | Incorpora y anima a los nuevos usuarios a activar las notificaciones push o compartir la aplicación en redes sociales. |
+| Reactivación de la interacción | Llega a usuarios fuera de tu aplicación, incluidos los que no la han instalado. |
+| Incorporación | Incorpora y anima a los nuevos usuarios a activar las notificaciones push o a compartir la aplicación en las redes sociales. |
 | Mensajes enriquecidos | Permite mensajes HTML enriquecidos y dinámicos. |
 | Contenido multimedia | Facilidad para incluir contenido multimedia que atraiga a los usuarios, como videos e imágenes. |
 | Boletines informativos | Envía cómodamente boletines mensuales o semanales para mantener la interacción de los usuarios. |

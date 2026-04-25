@@ -10,7 +10,7 @@ page_type: landing
 description: "このランディングページには、メールのベストプラクティスがまとめられています。メールメッセージングを改善するためのヒント、ユースケース、ベストプラクティスをご覧いただけます。"
 channel: email
 
-guide_featured_title: "セクション記事"
+guide_featured_title: "セクションの記事"
 guide_featured_list:
   - name: "ガイドライン"
     link: /docs/user_guide/channels/email/best_practices/email_guidelines
@@ -27,7 +27,7 @@ guide_featured_list:
   - name: "テストメッセージの送信"
     link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email
     image: /assets/img/braze_icons/mail-01.svg
-  - name: "送信前に知っておくべきこと"
+  - name: "送る前に知っておこう"
     link: /docs/know_before_send/
     image: /assets/img/braze_icons/send-01.svg
   - name: "メールの到達性"

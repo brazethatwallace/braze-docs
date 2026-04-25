@@ -32,7 +32,7 @@ guide_featured_list:
 - name: "Consentement et collecte d'adresses"
   link: /docs/user_guide/channels/email/email_setup/consent_and_address_collection
   image: /assets/img/braze_icons/book-closed.svg
-- name: "Pièges à spam et écueils de livrabilité"
+- name: "Pièges de livrabilité et spam traps"
   link: /docs/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps
   image: /assets/img/braze_icons/alert-triangle.svg
 - name: "Pixel d'ouverture et suivi des clics"
@@ -40,15 +40,15 @@ guide_featured_list:
   image: /assets/img/braze_icons/cursor-click-02.svg
 ---
 
-## Prérequis
+## Conditions
 
-Avant de commencer à envoyer des e-mails, vous devez remplir certaines conditions. Consultez le tableau suivant pour en savoir plus sur ces prérequis.
+Avant de commencer à envoyer des e-mails, vous devez remplir certaines conditions. Consultez le tableau suivant pour en savoir plus sur ces exigences.
 
-| Prérequis | Description | Source |
+| Condition | Description | Source |
 |---|---|---|
-| Une adresse IP dédiée (Internet Protocol) | Une adresse IP dédiée est une adresse internet unique attribuée exclusivement à un seul compte d'hébergement. | Braze vous fournit des adresses IP dédiées pour vous garantir le contrôle de la réputation de votre expéditeur d'e-mails. L'équipe d'onboarding de Braze se chargera de cette configuration pour vous. |
-| Domaines en marque blanche | Ils se composent d'un domaine et d'un sous-domaine. L'utilisation de la marque blanche vous permet de passer les vérifications d'authentification des e-mails pour DKIM et SPF. | L'équipe d'onboarding de Braze génère ces domaines pour vous, mais vous devez choisir leurs noms. |
-| Sous-domaines | Il s'agit d'une subdivision d'un domaine (par exemple « @news.company.com ») au sein de votre adresse e-mail. Disposer d'un sous-domaine permet d'éviter toute erreur susceptible de nuire à la réputation officielle de l'e-mail de votre entreprise. | L'équipe d'onboarding génère ce sous-domaine pour vous, mais vous devez en choisir le nom. Vous ne pouvez pas utiliser de sous-domaines déjà utilisés en dehors de Braze. |
+| Une IP dédiée (protocole Internet) | Une adresse IP dédiée est une adresse internet unique fournie exclusivement à un seul compte d'hébergement. | Braze vous fournit des adresses IP dédiées afin de garantir le contrôle de la réputation de votre expéditeur d'e-mails. L'onboarding de Braze se chargera de cette configuration pour vous. |
+| Domaines en marque blanche | Ils se composent d'un domaine et d'un sous-domaine. La marque blanche vous permet de passer les vérifications d'authentification des e-mails pour DKIM et SPF. | L'équipe d'onboarding de Braze génèrera ces domaines pour vous, mais vous devez choisir leurs noms. |
+| Sous-domaines | Il s'agit d'une subdivision d'un domaine (par exemple « @news.company.com ») au sein de votre adresse e-mail. Disposer d'un sous-domaine permet d'éviter toute erreur susceptible de nuire à la réputation officielle de l'e-mail de votre entreprise. | L'équipe d'onboarding génèrera ce sous-domaine pour vous, mais vous devez en choisir le nom. Vous ne pouvez pas utiliser de sous-domaines déjà utilisés en dehors de Braze. |
 | Pools d'adresses IP | Il s'agit d'une configuration facultative permettant de séparer la réputation de différents types d'e-mails (par exemple « promotionnels » et « transactionnels ») afin d'éviter que la réputation de l'un n'affecte l'autre et de favoriser une meilleure livrabilité. | L'équipe d'onboarding configure les pools pour vous. Ensuite, lors de la rédaction de votre e-mail, vous pouvez consulter le pool d'adresses IP de votre e-mail à l'étape **Audiences cibles**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 

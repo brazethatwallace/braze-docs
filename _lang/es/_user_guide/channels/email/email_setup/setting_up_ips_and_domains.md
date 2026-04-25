@@ -1,50 +1,50 @@
 ---
-nav_title: Configurar IPs y dominios
-article_title: Configurar IPs y dominios
+nav_title: Configurar direcciones IP y dominios
+article_title: Configurar direcciones IP y dominios
 page_order: 0
 page_type: tutorial
 channel: email
-description: "Este artículo te guiará sobre cómo configurar tus IPs y dominios para enviar correos electrónicos a través de Braze."
+description: "Este artículo te guía sobre cómo configurar tus IP y dominios para enviar correos electrónicos a través de Braze."
 
 ---
 
-# Configurar IPs y dominios
+# Configurar direcciones IP y dominios
+
+> Este artículo te guía a través de los requisitos y pasos necesarios para configurar tus direcciones IP y pools, así como los dominios y subdominios necesarios antes de que puedas empezar a enviar correos electrónicos con Braze.
 
 {% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
-
-> Este artículo te guía a través de los requisitos y pasos necesarios para configurar tus direcciones IP y pools, así como los dominios y subdominios necesarios antes de que puedas empezar a enviar correos electrónicos con Braze. <br><br>Aunque la mayor parte del proceso de configuración lo realiza Braze, hemos descrito los requisitos y materiales para esta configuración.
 
 <br>
 
 {% alert important %}
-Puedes usar SendGrid, SparkPost o Amazon Simple Email Service (SES) como tu socio proveedor de servicios de correo electrónico (ESP). A partir de 2026, Braze utiliza Amazon SES como el ESP predeterminado para nuevas configuraciones de correo electrónico. Para más detalles, consulta [Configuración de Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
+Puedes usar SendGrid, SparkPost o Amazon Simple Email Service (SES) como tu socio proveedor de servicios de correo electrónico (ESP). A partir de 2026, Braze utiliza Amazon SES como el ESP predeterminado para nuevas configuraciones de correo electrónico. Para más detalles, consulta [Configuración de Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
 {% endalert %}
 
 ## Método 1: Coordinar con Braze (recomendado)
 
-### Paso 1: Describir la información
+### Paso 1: Información general
 
 Envía la siguiente información a tu representante de Braze:
 
 * Tus dominios y subdominios elegidos
-* El número aproximado de correos electrónicos que enviarás cada mes, lo que ayudará a determinar cuántas IPs necesitarás
-* Cómo prefieres mapear tus dominios de envío a tus IPs asignadas
+* El número aproximado de correos electrónicos que enviarás cada mes, lo que ayudará a determinar cuántas IP necesitarás
+* Cómo prefieres asignar tus dominios de envío a tus IP asignadas
 
 ### Paso 2: Braze configura la información
 
-Después de recibir tu correo electrónico, nos pondremos a trabajar en la configuración de tus IPs, dominios y subdominios, y pools de IPs.
+Tras recibir tu correo electrónico, nos pondremos manos a la obra para configurar tus IP, dominios y subdominios, y pools de IP.
 
-### Paso 3: Añadir registros de DNS
+### Paso 3: Añadir registros DNS
 
-Una vez que tus IPs, dominios, subdominios y pools de IPs estén configurados, te enviaremos una lista de registros de DNS. Pide a tus ingenieros y desarrolladores que añadan estos registros de DNS donde sea necesario y, una vez que se hayan añadido, informa al equipo de incorporación de Braze.
+Una vez que tus IP, dominios, subdominios y pools de IP estén configurados, te enviaremos una lista de registros DNS. Pide a tus ingenieros y desarrolladores que añadan estos registros DNS donde sea necesario y, una vez que se hayan añadido, informa al equipo de incorporación de Braze.
 
 {% multi_lang_include dns_records.md %}
 
-Después de que Braze te proporcione tus registros de DNS, añádelos tan pronto como tu equipo de DNS o de TI pueda. La verificación de dominio tiene un límite de tiempo, y si los registros se añaden demasiado tarde, la verificación puede fallar incluso si los registros de DNS se resuelven correctamente después. Si tus registros de DNS parecen correctos pero la verificación falla, ponte en contacto con el equipo de incorporación o soporte de Braze para reiniciar la verificación.
+Después de que Braze te proporcione tus registros DNS, añádelos tan pronto como tu equipo de DNS o de TI pueda. La verificación de dominio tiene un límite de tiempo, y si los registros se añaden demasiado tarde, la verificación puede fallar incluso si los registros DNS se resuelven correctamente después. Si tus registros DNS parecen correctos pero la verificación falla, ponte en contacto con el equipo de incorporación o soporte de Braze para reiniciar la verificación.
 
 ### Próximos pasos
 
-Revisaremos tu configuración y validaremos toda la información en nuestros sistemas internos. El equipo de incorporación de Braze te informará cuando estés listo para empezar, o si hay problemas con tus registros de DNS que debas resolver con tu equipo de ingeniería.
+Revisaremos tu configuración y validaremos toda la información en nuestros sistemas internos. El equipo de incorporación de Braze te informará cuando estés listo para empezar, o si hay problemas con tus registros DNS que debas resolver con tu equipo de ingeniería.
 
 ## Método 2: Configuración de correo electrónico de autoservicio
 
@@ -74,7 +74,7 @@ A continuación, añade los registros TXT y CNAME de la parte inferior de la pá
 
 ![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
-Si la verificación falla y crees que tus registros de DNS son correctos, ponte en contacto con soporte de Braze para obtener ayuda.
+Si la verificación falla y crees que tus registros DNS son correctos, ponte en contacto con soporte de Braze para obtener ayuda.
 
 {% alert important %}
 El dominio de envío debe ser un subordinado de un dominio que poseas. Por ejemplo, si posees "example.com", un subdominio podría ser "mail.example.com", lo que te permite usar la dirección de envío "@mail.example.com".

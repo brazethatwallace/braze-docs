@@ -12,7 +12,7 @@ tool:
 
 # Criar um e-mail com arrastar e soltar
 
-> Usando o editor de arrastar e soltar, você pode criar mensagens de e-mail totalmente personalizadas para Campanhas ou Canvas, sem precisar usar HTML para construir o corpo do e-mail.
+> Usando o editor de arrastar e soltar, você pode criar mensagens de e-mail totalmente personalizadas para Campaigns ou Canvas, sem precisar usar HTML para construir o corpo do e-mail.
 
 ## Sobre o editor {#about-the-editor}
 
@@ -65,7 +65,7 @@ Embora o editor de arrastar e soltar simplifique seu fluxo de trabalho com esses
 
 ### Linhas {#rows}
 
-**Linhas** são unidades estruturais que definem a composição horizontal de uma seção da mensagem usando colunas. Você pode usar linhas vazias ou [Blocos de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar mais de uma coluna permite colocar diferentes elementos de conteúdo lado a lado. Dessa forma, você pode adicionar todos os elementos estruturais necessários à sua mensagem, independentemente do modelo selecionado no início.
+**Linhas** são unidades estruturais que definem a composição horizontal de uma seção da mensagem usando colunas. Você pode usar linhas vazias ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar mais de uma coluna permite colocar diferentes elementos de conteúdo lado a lado. Dessa forma, você pode adicionar todos os elementos estruturais necessários à sua mensagem, independentemente do modelo selecionado no início.
 
 #### Estilo de cartões
 
@@ -73,7 +73,7 @@ Embora o editor de arrastar e soltar simplifique seu fluxo de trabalho com esses
 
 ## Usando o editor de arrastar e soltar
 
-Não tem certeza se sua mensagem de e-mail deve ser enviada usando uma campanha ou um Canvas? Campanhas são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem de e-mail deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
 
 Depois de selecionar onde construir sua mensagem, vamos ver as etapas para criar um e-mail com arrastar e soltar.
 
@@ -138,7 +138,7 @@ Uma pré-visualização no painel à direita será preenchida com as informaçõ
 Em **Configurações de envio**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros prestadores de serviço de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
 
 {% alert note %}
-A funcionalidade avançada aparecerá no criador de campanha ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
+A funcionalidade avançada aparecerá no criador de Campaign ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
 {% endalert %}
 
 ### Etapa 4: Teste seu e-mail
@@ -183,7 +183,7 @@ O Inbox Vision permite visualizar suas campanhas de e-mail da perspectiva de cli
 
 Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
 
-Depois de usar o editor de arrastar e soltar para projetar e criar sua mensagem de e-mail, continue a [construir]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) o restante da sua campanha ou Canvas.
+Depois de usar o editor de arrastar e soltar para projetar e criar sua mensagem de e-mail, continue a [construir]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) o restante da sua Campaign ou Canvas.
 
 {% details Sobre o mecanismo HTML atualizado %}
 O mecanismo subjacente que produz HTML a partir do editor de arrastar e soltar foi otimizado e atualizado, resultando em benefícios relacionados à compressão e renderização de arquivos HTML.

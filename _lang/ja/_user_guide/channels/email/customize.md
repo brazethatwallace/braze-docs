@@ -4,10 +4,10 @@ article_title: カスタマイズ
 page_order: 4
 layout: dev_guide
 guide_top_header: "カスタマイズ"
-guide_top_text: "グローバルスタイル設定、カスタムフッター、AMPサポート、ユニバーサルリンクを使用して、メールの外観と動作をカスタマイズできます。"
+guide_top_text: "グローバルスタイル設定、カスタムフッター、AMP サポート、ユニバーサルリンクを使用して、メールの外観と動作をカスタマイズできます。"
 
 page_type: landing
-description: "Brazeでメールのグローバルスタイル設定、フッター、AMP、ユニバーサルリンクをカスタマイズできます。"
+description: "Braze でメールのグローバルスタイル設定、フッター、AMP、ユニバーサルリンクをカスタマイズできます。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -17,10 +17,10 @@ guide_featured_list:
   - name: カスタムメールフッター
     link: /docs/user_guide/channels/email/customize/custom_email_footer
     image: /assets/img/braze_icons/align-bottom-01.svg
-  - name: メール向けAMP
+  - name: AMP for email
     link: /docs/user_guide/channels/email/customize/amp_for_email
     image: /assets/img/braze_icons/zap.svg
-  - name: ユニバーサルリンクとアプリリンク
+  - name: ユニバーサルリンクとApp Links
     link: /docs/user_guide/channels/email/customize/universal_links_and_app_links
     image: /assets/img/braze_icons/link-03.svg
 ---

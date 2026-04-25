@@ -2,7 +2,7 @@
 nav_title: Inbox Vision
 article_title: Inbox Vision
 page_order: 7
-description: "Diese Seite beschreibt, wie Sie Inbox Vision einrichten – ein Feature, mit dem Marketer ihre E-Mails aus der Perspektive verschiedener E-Mail-Clients und Mobilgeräte betrachten können."
+description: "Auf dieser Seite erfahren Sie, wie Sie Inbox Vision einrichten, ein Feature, mit dem Marketer ihre E-Mails aus der Perspektive verschiedener E-Mail-Clients und mobiler Geräte betrachten können."
 tool:
   - Dashboard
 channel:
@@ -12,24 +12,24 @@ channel:
 
 # Inbox Vision
 
-> Mit Inbox Vision können Sie Ihre E-Mails aus der Perspektive verschiedener E-Mail-Clients und Mobilgeräte betrachten. So können Sie beispielsweise Unterschiede zwischen Dark Mode und Light Mode testen, um sicherzustellen, dass Ihre E-Mails wie beabsichtigt dargestellt werden.
+> Mit Inbox Vision können Sie Ihre E-Mails aus der Perspektive verschiedener E-Mail-Clients und mobiler Geräte anzeigen. So können Sie beispielsweise Unterschiede zwischen Dark Mode und Light Mode testen, um sicherzustellen, dass Ihre E-Mails wie beabsichtigt dargestellt werden.
 
 {% alert important %}
-Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Template-Informationen wie Nutzerprofildaten angewiesen ist. Braze verwendet beim Versand von E-Mails für dieses Feature eine:n leere:n Nutzer:in.<br><br>Fügen Sie Standardwerte zu jedem Liquid in Ihrer E-Mail-Nachricht hinzu. Ohne Standardwerte erhalten Sie möglicherweise ein falsch positives Ergebnis oder der Test schlägt fehl.
+Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Templates basiert und Daten aus dem Nutzerprofil enthält. Braze erstellt beim Versenden von E-Mails für dieses Feature ein leeres Template für einen leeren Nutzer:in.<br><br>Fügen Sie Standardwerte zu jedem Liquid in Ihrer E-Mail-Nachricht hinzu. Ohne Standardwerte kann es zu einem falschen positiven Ergebnis kommen oder der Test kann fehlschlagen.
 {% endalert %}
 
-## Hinweise
+## Überlegungen
 
-Generell funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn der E-Mail-Inhalt auf Template-Informationen wie Nutzerprofildaten angewiesen ist. Das liegt daran, dass Braze beim Versand von E-Mails über dieses Feature eine:n leere:n Nutzer:in als Template verwendet.
+Im Allgemeinen ist es nicht möglich, Ihre E-Mails mit Inbox Vision zu verwenden, wenn deren Inhalt auf Templates basiert, wie beispielsweise Informationen zum Nutzerprofil. Dies liegt daran, dass Braze ein leeres Template vorlegt, wenn wir E-Mails mit diesem Feature versenden.
 
-Sie können dies beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Tests in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht wieder angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
+Sie können dieses Problem beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Prüfung in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
 
 Ihr Unternehmen hat ein Limit für die Anzahl der E-Mails, die Sie mit Inbox Vision in der Vorschau anzeigen können. Sie können dies im Tab **E-Mail-Vorschauen** von Inbox Vision überwachen.
 
 Geben Sie eine Betreffzeile und eine gültige Absender-Domain an, um Vorschauen anzuzeigen. Beachten Sie die Unterschiede beim Rendering zwischen Desktop und Mobilgerät. Nutzen Sie die Vorschauen, um zu bestätigen, dass die E-Mail wie beabsichtigt dargestellt wird.
 
 {% alert note %}
-Wenn bei der Vorschau einer Kampagne ein Berechtigungsfehler angezeigt wird, leeren Sie Ihren Cache und Ihre Cookies oder versuchen Sie es in einem Inkognito-Fenster. Browser-Erweiterungen blockieren manchmal die Vorschau.
+Wenn bei der Vorschau einer Campaign ein Berechtigungsfehler angezeigt wird, leeren Sie Ihren Cache und Ihre Cookies oder versuchen Sie es in einem Inkognito-Fenster. Browser-Erweiterungen blockieren manchmal die Vorschau.
 {% endalert %}
 
 So testen Sie Ihre E-Mail-Nachricht in Inbox Vision:
@@ -72,7 +72,7 @@ Die Code-Analyse kann schneller erscheinen als die Vorschau für einen bestimmte
 Der Spam-Test schätzt, ob E-Mails möglicherweise als Spam gefiltert werden. Tests werden über Filter wie IronPort, SpamAssassin und Barracuda sowie ISP-Filter wie Gmail und Outlook durchgeführt, wobei statische Seed-Postfächer verwendet werden, die standardmäßig keine Öffnungen oder Klicks erzeugen.
 
 {% alert important %}
-Die Inbox-Platzierung wird hauptsächlich durch das Live-Engagement der Empfänger:innen bestimmt. Spam-Testergebnisse stimmen möglicherweise nicht mit dem überein, was Sie bei echten Kampagnen sehen.
+Die Inbox-Platzierung wird hauptsächlich durch das Live-Engagement der Empfänger:innen bestimmt. Spam-Testergebnisse stimmen möglicherweise nicht mit dem überein, was Sie bei echten Campaigns sehen.
 {% endalert %}
 
 Für eine aussagekräftigere Einschätzung der Zustellbarkeit testen Sie Inhalte mit kleinen Live-Kohorten – starke Öffnungen und Klicks sind das zuverlässigste Signal. Nutzen Sie Spam-Tests als einen Faktor neben dem Engagement-Monitoring.
@@ -82,7 +82,7 @@ Für eine aussagekräftigere Einschätzung der Zustellbarkeit testen Sie Inhalte
 So überprüfen Sie Ihre Spam-Testergebnisse:
 
 1. Wählen Sie den Tab **Spam-Test** im Abschnitt **Inbox Vision** aus. Die Tabelle **Spam-Testergebnis** listet den Namen des Spam-Filters, den Status und den Typ auf.
-2. Überprüfen Sie diese Ergebnisse und nehmen Sie Anpassungen an Ihrer E-Mail-Kampagne vor.
+2. Überprüfen Sie diese Ergebnisse und nehmen Sie Anpassungen an Ihrer E-Mail-Campaign vor.
 3. Wählen Sie **Test erneut ausführen** aus, um Ihre Spam-Testergebnisse neu zu laden.
 
 ## Barrierefreiheitstest
@@ -139,7 +139,7 @@ Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements 
 
 ### Überprüfen Sie Ihre E-Mail-Abonnent:innenliste
 
-Nutzen Sie das [E-Mail-Insights-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard), um die beliebtesten Gerätetypen und Anbieter zu ermitteln, bei denen Ihre Abonnent:innen aktiv sind. Wenn Sie mehr Granularität benötigen, z. B. Browser, Gerätemodell und mehr, können Sie Ihre [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten oder den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) nutzen, um dieses Detailniveau über das aktuelle E-Mail-Engagement Ihrer Nutzer:innen abzurufen.
+Nutzen Sie das [E-Mail-Insights-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard), um die beliebtesten Gerätetypen und Anbieter zu ermitteln, bei denen Ihre Abonnent:innen aktiv sind. Wenn Sie mehr Granularität benötigen, z. B. Browser, Gerätemodell und mehr, können Sie Ihre [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten oder den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) nutzen, um dieses Detailniveau über das aktuelle E-Mail-Engagement Ihrer Nutzer:innen abzurufen.
 
 Andernfalls verwendet Braze standardmäßig die 20 wichtigsten Vorschauen basierend auf allgemeinen Branchen- und Expertendaten, die den Großteil der Umgebungen abdecken, in denen Ihre Abonnent:innen mit Ihren E-Mails interagieren. Wenn Ihre Datenanalyse auf andere, beliebtere Vorschauen hinweist, können Sie jedes Mal, wenn Sie Inbox Vision ausführen, einen Standardsatz von Vorschauen definieren.
 

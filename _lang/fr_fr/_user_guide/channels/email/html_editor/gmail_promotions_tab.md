@@ -2,7 +2,7 @@
 nav_title: "Onglet Promotions de Gmail"
 article_title: "Onglet Promotions de Gmail"
 page_order: 8
-description: "Cet article de référence explique comment utiliser Braze pour créer la carte de promotions mobiles Gmail à partir de votre campagne e-mail."
+description: "Cet article de référence explique comment utiliser Braze pour créer la carte de promotions mobiles Gmail à partir de votre campagne par e-mail."
 channel:
   - email
 toc_headers: h2
@@ -10,27 +10,27 @@ toc_headers: h2
 
 # Onglet Promotions de Gmail
 
-> L'[onglet Promotions de Gmail sur mobile](https://developers.google.com/gmail/promotab/) permet aux marketeurs d'envoyer davantage d'informations via des annotations dans une « carte » plutôt que de se limiter à la ligne d'objet ou à l'accroche. Braze dispose d'un outil intégré pour vous aider à créer la carte à partir de votre campagne e-mail.
+> L'[onglet Promotions de Gmail mobile](https://developers.google.com/gmail/promotab/) permet aux marketeurs d'envoyer davantage d'informations via des annotations dans une « carte » plutôt que de se limiter à la ligne d'objet ou à l'accroche. Braze dispose d'un outil intégré pour vous aider à créer la carte à partir de votre campagne par e-mail.
 
-## Conditions préalables
+## Prérequis
 
-Commencez par transmettre vos domaines et sous-domaines à l'équipe de sensibilisation de l'onglet Promotions de Google à l'adresse <a href="mailto:p-promo-outreach@google.com">p-promo-outreach@google.com</a> afin d'être ajouté à la liste autorisée de Gmail. Cela vous permet d'utiliser toute fonctionnalité affichant des images enrichies, comme le carrousel de produits pour l'onglet Promotions de Gmail.
+Tout d'abord, transférez vos domaines et sous-domaines à l'équipe en charge de l'onglet Promotions de Google, à l'adresse <a href="mailto:p-promo-outreach@google.com">p-promo-outreach@google.com</a>, pour être ajouté à la liste d'autorisation de Gmail. Cela vous permet d'utiliser toute fonctionnalité affichant des images riches, comme le carrousel de produits pour l'onglet Promotions de Gmail.
 
-## Créer la carte avec Braze {#build-the-card-with-braze}
+## Créer la carte avec Braze
 
-Suivez ces étapes pour créer une carte de promotion Gmail pour une campagne e-mail. Notez que quitter la section **Contenu** dans l'éditeur réinitialisera les champs et les informations de l'onglet **Gmail Promotion**. Terminez la configuration de votre carte de promotion et copiez le code HTML généré afin de ne pas perdre votre code HTML.
+Suivez ces étapes pour créer une carte de promotion Gmail pour une campagne par e-mail. Notez que quitter la section **Contenu** dans l'éditeur réinitialisera les champs et les informations de l'onglet **Promotion Gmail**. Finalisez la configuration de votre carte de promotion et copiez le code HTML généré afin de ne pas perdre votre code HTML.
 
-### Étape 1 : Créer une campagne e-mail {#step-1-create-an-email-campaign}
+### Étape 1 : Créer une campagne par e-mail
 
-Commencez par [créer votre campagne e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor/), puis sélectionnez l'**éditeur de code HTML** comme expérience d'édition.
+Commencez par [créer votre campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor/), puis sélectionnez l'**éditeur de code HTML** comme expérience d'édition.
 
-### Étape 2 : Ajouter les détails à la carte Gmail Promotion {#step-2-add-details-to-gmail-promotion-card}
+### Étape 2 : Ajouter les détails à la carte Gmail Promotion
 
 Ensuite, accédez à la section **Contenu** de l'éditeur HTML et sélectionnez l'onglet **Gmail Promotion**. Remplissez les champs sous **Informations de base**, puis sélectionnez **Générer le code HTML**. Cela générera le script pour votre carte de l'onglet Gmail Promo dans la section **Copier et coller le code HTML dans `<Head>`**.
 
 ![Exemple de création d'une carte.]({% image_buster /assets/img/create-gmail-promo.png %})
 
-### Étape 3 : Personnaliser votre carte Gmail Promotion {#step-3-customize-your-gmail-promotion-card}
+### Étape 3 : Personnaliser votre carte Gmail Promotion
 
 Choisissez d'inclure une offre de réduction, une carte d'offre, une carte de promotion, ou toutes ces options pour votre carte Gmail Promotion.
 
@@ -93,7 +93,7 @@ Nous recommandons de télécharger vos images de produits dans la bibliothèque 
 {% endtab %}
 {% endtabs %}
 
-### Étape 4 : Générer et coller le code HTML {#step-4-generate-and-paste-html-code}
+### Étape 4 : Générer et coller le code HTML
 
 Après avoir créé votre carte Gmail Promotion, sélectionnez **Générer le code HTML**. Copiez et collez le script dans l'élément `<head>` du code HTML de votre e-mail.
 
@@ -105,7 +105,7 @@ Pour l'éditeur par glisser-déposer, copiez et collez le code HTML généré da
 Le script Promotions n'apparaît que si votre e-mail arrive dans l'onglet Promotions de Gmail. Actuellement, Gmail utilise des algorithmes pour déterminer où votre e-mail sera classé. Cependant, si un utilisateur marque un jour votre e-mail comme promotion, l'algorithme de Gmail sera ignoré et votre e-mail arrivera automatiquement dans l'onglet Promotions par la suite.
 {% endalert %}
 
-### Étape 5 : Tester avec l'outil de prévisualisation de Gmail {#step-5-test-using-gmails-preview-tool}
+### Étape 5 : Tester avec l'outil de prévisualisation de Gmail
 
 Pour tester les annotations lors d'envois à faible volume, vous devez d'abord utiliser l'[outil de prévisualisation](https://developers.google.com/workspace/gmail/promotab/preview) de Gmail pour valider les annotations. Si vous ignorez cette étape, le carrousel de produits et l'aperçu d'image unique ne se déclencheront qu'à des volumes d'envoi plus élevés.
 
@@ -130,7 +130,7 @@ Lors de la création de votre carte, posez-vous les questions suivantes :
 - Le script d'annotation est-il valide ? [Prévisualisez avec Google](https://developers.google.com/workspace/gmail/promotab/preview).
 - L'option **Afficher l'original** dans Gmail montre-t-elle le script dans le message brut ?
 - L'e-mail arrive-t-il dans **Promotions** ? Les cartes ne s'appliquent que dans cet onglet.
-- Avez-vous testé sur ordinateur de bureau et sur mobile ?
+- Avez-vous testé sur ordinateur de bureau et sur appareil mobile ?
 
 {% alert tip %}
 Bien que Liquid soit pris en charge dans le script, nous recommandons de tester minutieusement pour éviter les erreurs.

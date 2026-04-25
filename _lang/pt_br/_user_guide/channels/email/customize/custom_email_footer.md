@@ -1,18 +1,18 @@
 ---
-nav_title: Rodapé personalizado de e-mail
-article_title: Rodapé personalizado de e-mail
+nav_title: Rodapé de e-mail personalizado
+article_title: Rodapé de e-mail personalizado
 page_order: 6.5
-description: "Este artigo descreve como configurar um rodapé personalizado de e-mail para todo o espaço de trabalho."
+description: "Este artigo descreve como configurar um rodapé de e-mail personalizado em todo o espaço de trabalho."
 channel:
   - email
 
 ---
 
-# Rodapé personalizado de e-mail
+# Rodapé de e-mail personalizado
 
-> Você pode definir um rodapé personalizado de e-mail para todo o espaço de trabalho, que pode ser inserido em todos os e-mails usando o atributo Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
+> Você pode definir um rodapé de e-mail personalizado em todo o espaço de trabalho, que pode ser modelado em cada e-mail usando o atributo Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Com rodapés personalizados de e-mail, você não precisa mais criar um novo rodapé para cada modelo de e-mail ou campanha de e-mail que utilizar. Todas as campanhas de e-mail novas e existentes refletem as alterações feitas no seu rodapé personalizado. Lembre-se de que a conformidade com a [Lei CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) exige que você inclua um endereço físico da sua empresa e um link de cancelamento de inscrição nos seus e-mails.
+Ao usar rodapés de e-mail personalizados, você não precisa mais criar um novo rodapé para cada modelo de e-mail ou campanha de e-mail que utilizar. Todas as campanhas de e-mail novas e existentes refletem as alterações feitas no seu rodapé personalizado. Lembre-se de que a conformidade com a [Lei CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) exige que você inclua um endereço físico da sua empresa e um link de cancelamento de inscrição nos seus e-mails.
 
 {% alert warning %}
 É sua responsabilidade garantir que o rodapé personalizado atenda aos requisitos mencionados acima.
@@ -46,9 +46,9 @@ Veja um aviso no criador de e-mail:
 
 ![Exemplo de e-mail redigido sem rodapé.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Veja um aviso no criador de campanha:
+Veja um aviso no criador de Campaign:
 
-![Composição de campanha sem rodapé.]({% image_buster /assets/img_archive/no_footer_test.png %})
+![Composição de Campaign sem rodapé.]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### Adicionando um link personalizado de cancelamento de inscrição
 

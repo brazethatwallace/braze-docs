@@ -11,13 +11,13 @@ channel: email
 
 # Validação de e-mail
 
-> Este artigo de referência aborda as regras de validação da parte local e do host para endereços de e-mail. A validação é usada para endereços de e-mail do dashboard, endereços de e-mail de usuários finais (seus clientes) e endereços de remetente e resposta de uma mensagem de e-mail.
+> Este artigo de referência aborda as regras de validação da parte local e do host para endereços de e-mail. A validação é usada para endereços de e-mail do dashboard, endereços de e-mail do usuário final (seus clientes) e endereços de origem e de resposta de uma mensagem de e-mail.
 
-## Como funciona
+## Como funciona?
 
-A Braze valida um endereço de e-mail quando ele é atualizado, importado por API, upload de CSV, SDK ou modificado no dashboard. Endereços de e-mail não podem conter espaços em branco. Se você usar a API, espaços em branco retornam um erro `400`.
+A Braze valida um endereço de e-mail quando ele é atualizado, importado por API, upload de CSV, SDK ou modificado no dashboard. Endereços de e-mail não podem incluir espaços em branco. Se você usar a API, espaços em branco retornam um erro `400`.
 
-A Braze rejeita determinados caracteres e marca o endereço como inválido. Se um e-mail sofrer bounce, a Braze marca o endereço como inválido e não altera o status de inscrição. Se o corpo do e-mail contiver caracteres [ASCII](https://en.wikipedia.org/wiki/ASCII) não padrão, a Braze não envia o e-mail.
+A Braze rejeita determinados caracteres e marca o endereço como inválido. Se um e-mail retornar bounce, a Braze marca o endereço como inválido e não altera o status da inscrição. Se o corpo do e-mail contiver caracteres [ASCII](https://en.wikipedia.org/wiki/ASCII) não padrão, a Braze não envia o e-mail.
 
 {% details Caracteres aceitos %}
 - Letras (A-Z)
@@ -46,7 +46,7 @@ A Braze rejeita determinados caracteres e marca o endereço como inválido. Se u
 - Espaços em branco (ASCII e Unicode)
 {% enddetails %}
 
-Essa validação é uma verificação de sintaxe, não um serviço de validação. Um dos objetivos desse processo é oferecer suporte a caracteres internacionais (como UTF-8) na parte local do endereço de e-mail.
+Essa validação é uma verificação de sintaxe, não um serviço de validação. Um dos objetivos desse processo é suportar caracteres internacionais (como UTF-8) na parte local do endereço de e-mail.
 
 A Braze valida a sintaxe tanto da parte local quanto da parte do host de um endereço de e-mail. A parte local é tudo antes do arroba (@); a parte do host é tudo depois. A parte local pode começar e terminar com qualquer caractere permitido, exceto ponto (.). Esse processo não verifica se o domínio possui um servidor MX válido ou se um usuário existe naquele domínio.
 

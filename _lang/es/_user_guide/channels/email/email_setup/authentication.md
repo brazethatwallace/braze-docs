@@ -1,16 +1,16 @@
 ---
-nav_title: Autenticación de correo electrónico
-article_title: Autenticación de correo electrónico
+nav_title: Autenticación del correo electrónico
+article_title: Autenticación del correo electrónico
 page_order: 2
 page_type: reference
-description: "Este artículo de referencia cubre la autenticación de correo electrónico, un conjunto de técnicas destinadas a dotar a tu correo electrónico de información verificable sobre su origen."
+description: "Este artículo de referencia trata sobre la autenticación del correo electrónico, un conjunto de técnicas destinadas a dotar a tu correo electrónico de información verificable sobre su origen."
 channel: email
 
 ---
 
-# Autenticación de correo electrónico
+# Autenticación del correo electrónico
 
-> La autenticación de correo electrónico es un conjunto de técnicas que dotan a tus correos electrónicos de información verificable sobre su origen.<br><br>Una autenticación adecuada es crucial para que los proveedores de servicios de Internet (ISP) te reconozcan como remitente de correos electrónicos deseados y entreguen tu correo de inmediato. Sin autenticación, se presume que tus comunicaciones son fraudulentas.
+> La autenticación del correo electrónico es un conjunto de técnicas que dotan a tus correos electrónicos de información verificable sobre su origen.<br><br>Una autenticación adecuada es crucial para que los proveedores de servicios de Internet (ISP) te reconozcan como remitente de correos electrónicos deseados y entreguen tu correo de inmediato. Sin autenticación, se presume que tus comunicaciones son fraudulentas.
 
 {% alert note %}
 No se requiere ninguna coordinación especial con Braze para **BIMI** (Brand Indicators for Message Identification). Los registros de DNS y certificados necesarios se gestionan de tu lado.
@@ -18,15 +18,15 @@ No se requiere ninguna coordinación especial con Braze para **BIMI** (Brand Ind
 
 ## Métodos de autenticación
 
-### Sender Policy Framework (SPF)
+### Marco de la Política de Remitentes (SPF)
 
 Este método confirma que la dirección IP de envío de correo electrónico de Braze está autorizada para enviar correo en tu nombre. SPF es tu autenticación básica y se logra publicando los registros de texto en la configuración de DNS. El servidor receptor verificará los registros de DNS y determinará si son auténticos. Este método está diseñado para validar al remitente del correo electrónico.
 
 Braze configura tu registro SPF cuando configuramos tus IP y dominios. Más allá de agregar los registros de DNS que te proporcionamos, no necesitas realizar ninguna acción adicional.
 
-### Domain Keys Identified Mail (DKIM)
+### Correo identificado por claves de dominio (DKIM)
 
-Este método confirma que tu dominio de envío de correo electrónico de Braze está autorizado para enviar correo en tu nombre. Este método está diseñado para validar la autenticidad del remitente y valida que la integridad del mensaje se preserve. También utiliza firmas digitales criptográficas individuales para que los ISP puedan asegurarse de que el correo que están entregando es el mismo que tú enviaste.
+Este método confirma que tu dominio de envío de correo electrónico de Braze está autorizado para enviar correo en tu nombre. Este método está diseñado para validar la autenticidad del remitente y valida que se preserve la integridad del mensaje. También utiliza firmas digitales criptográficas individuales para que los ISP puedan asegurarse de que el correo que están entregando es el mismo que tú enviaste.
 
 Braze firma el correo con tu clave privada secreta. Los ISP verifican la firma contra tu clave pública, que está almacenada en tu registro de DNS personalizado. No hay dos firmas exactamente iguales, y solo tu clave pública puede verificar con éxito la firma de tu clave privada.
 
@@ -51,7 +51,7 @@ Establece una política DMARC en el dominio raíz para que se aplique a todos lo
 | None | Indica al proveedor de buzones que no realice ninguna acción contra los mensajes que fallen. |
 | Quarantine | Indica al proveedor de buzones que envíe los mensajes que fallen a la carpeta de correo no deseado. |
 | Reject | Indica al proveedor de buzones que los mensajes que fallen irán a la carpeta de correo no deseado y deben ser bloqueados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Cómo verificar la autenticación DMARC de tu dominio
 

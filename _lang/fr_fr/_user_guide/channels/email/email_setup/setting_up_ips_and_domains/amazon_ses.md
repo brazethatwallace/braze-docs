@@ -75,4 +75,4 @@ Ceci repose sur la règle selon laquelle le domaine de suivi des clics doit corr
 
 ## Étapes suivantes
 
-- [Configurer le SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)
+- [Configurer le SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)

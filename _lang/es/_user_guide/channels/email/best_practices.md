@@ -1,16 +1,16 @@
 ---
 page_order: 22
-nav_title: Mejores prácticas
-article_title: Mejores prácticas de correo electrónico
+nav_title: Buenas prácticas
+article_title: Buenas prácticas de correo electrónico
 layout: dev_guide
-guide_top_header: "Mejores prácticas de correo electrónico"
+guide_top_header: "Buenas prácticas de correo electrónico"
 guide_top_text: "Antes de enviar tus mensajes de correo electrónico, consulta los siguientes artículos para conocer lo que debes saber y verificar."
 
 page_type: landing
-description: "Esta página de inicio reúne las mejores prácticas de correo electrónico. Aquí encontrarás consejos, casos de uso y mejores prácticas para perfeccionar tu mensajería de correo electrónico."
+description: "Esta página de inicio reúne las buenas prácticas de correo electrónico. Aquí encontrarás consejos, casos de uso y buenas prácticas para perfeccionar tu mensajería de correo electrónico."
 channel: email
 
-guide_featured_title: "Artículos de la sección"
+guide_featured_title: "Artículos de sección"
 guide_featured_list:
   - name: "Directrices"
     link: /docs/user_guide/channels/email/best_practices/email_guidelines

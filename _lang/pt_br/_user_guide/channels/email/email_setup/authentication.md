@@ -3,14 +3,14 @@ nav_title: Autenticação de e-mail
 article_title: Autenticação de e-mail
 page_order: 2
 page_type: reference
-description: "Este artigo de referência aborda a autenticação de e-mail, um conjunto de técnicas que equipa seus e-mails com informações verificáveis sobre sua origem."
+description: "Este artigo de referência aborda a autenticação de e-mail, um conjunto de técnicas destinadas a equipar seus e-mails com informações verificáveis sobre sua origem."
 channel: email
 
 ---
 
 # Autenticação de e-mail
 
-> A autenticação de e-mail é um conjunto de técnicas que equipa seus e-mails com informações verificáveis sobre sua origem.<br><br>A autenticação adequada é crucial para que os provedores de acesso à internet (ISPs) reconheçam você como remetente de e-mails desejáveis e entreguem suas mensagens imediatamente. Sem autenticação, suas comunicações são presumidas como fraudulentas.
+> A autenticação de e-mail é um conjunto de técnicas que equipam seus e-mails com informações verificáveis sobre sua origem.<br><br>A autenticação adequada é crucial para que os provedores de acesso à internet (ISPs) o reconheçam como remetente de e-mails desejáveis e entreguem seus e-mails imediatamente. Sem autenticação, presume-se que seu alcance seja fraudulento.
 
 {% alert note %}
 Nenhuma coordenação especial com a Braze é necessária para o **BIMI** (Brand Indicators for Message Identification). Os registros DNS e certificados necessários são gerenciados do seu lado.
@@ -20,17 +20,17 @@ Nenhuma coordenação especial com a Braze é necessária para o **BIMI** (Brand
 
 ### Sender Policy Framework (SPF)
 
-Este método confirma que o endereço IP de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. O SPF é sua autenticação básica e é realizado pela publicação de registros de texto nas configurações de DNS. O servidor receptor verificará os registros DNS e determinará se são autênticos. Este método foi projetado para validar o remetente do e-mail.
+Esse método confirma que seu endereço IP de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. O SPF é a autenticação básica e é realizado por meio da publicação dos registros de texto nas configurações de DNS. O servidor receptor verificará os registros DNS e determinará se eles são autênticos. Esse método foi criado para validar o remetente do e-mail.
 
-A Braze configura seu registro SPF quando configuramos seus IPs e domínios. Além de adicionar os registros DNS que fornecemos, você não precisa tomar nenhuma ação adicional.
+A Braze configura seu registro SPF quando configuramos seus IPs e domínios. Além de adicionar os registros DNS que fornecemos, você não precisa tomar mais nenhuma ação.
 
 ### Domain Keys Identified Mail (DKIM)
 
-Este método confirma que o domínio de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. Ele foi projetado para validar a autenticidade do remetente e garantir que a integridade da mensagem seja preservada. Também utiliza assinaturas digitais criptográficas individuais para que os ISPs possam ter certeza de que o e-mail entregue é o mesmo que você enviou.
+Esse método confirma que seu domínio de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. Esse método foi projetado para validar a autenticidade do remetente e garantir que a integridade da mensagem seja preservada. Ele também usa assinaturas digitais criptográficas individuais para que os provedores de acesso à internet possam ter certeza de que o e-mail entregue é o mesmo que você enviou.
 
 A Braze assina o e-mail com sua chave privada secreta. Os ISPs verificam a assinatura usando sua chave pública, que está armazenada no seu registro DNS personalizado. Nenhuma assinatura é exatamente igual, e somente sua chave pública pode verificar com sucesso a assinatura da sua chave privada.
 
-A Braze configura seu registro DKIM quando configuramos seus IPs e domínios. Além de adicionar os registros DNS que fornecemos, você não precisa tomar nenhuma ação adicional.
+A Braze configura seu registro DKIM quando configuramos seus IPs e domínios. Além de adicionar os registros DNS que fornecemos, você não precisa tomar mais nenhuma ação.
 
 ### Domain-based Message Authentication, Reporting, and Conformance (DMARC)
 
@@ -51,7 +51,7 @@ Defina uma política DMARC no domínio raiz para que ela se aplique a todos os s
 | None | Instrui o provedor de caixa de e-mail a não tomar nenhuma ação contra mensagens que falharam. |
 | Quarantine | Instrui o provedor de caixa de e-mail a enviar mensagens que falharam para a pasta de spam. |
 | Reject | Instrui o provedor de caixa de e-mail que mensagens que falharam irão para a pasta de spam e devem ser bloqueadas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Como verificar a autenticação DMARC do seu domínio
 

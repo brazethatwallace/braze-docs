@@ -49,17 +49,17 @@ No. Las actualizaciones realizadas en la configuración de correo electrónico s
 
 ### ¿Qué es una "buena" tasa de entrega de correo electrónico?
 
-Normalmente, el "número mágico" es alrededor del 98% de mensajes entregados con una tasa de rebote no superior al 3%. Si tu entrega cae por debajo de eso, generalmente hay motivo de preocupación.
+Normalmente, el "número mágico" es alrededor del 98 % de mensajes entregados con una tasa de rebote no superior al 3 %. Si tu entrega cae por debajo de eso, generalmente hay motivo de preocupación.
 
-Sin embargo, una tasa superior al 98% aún puede tener problemas de capacidad de entrega. Por ejemplo, si todos tus rebotes provienen de un solo dominio, eso es una señal clara de un problema de reputación con ese proveedor.
+Sin embargo, una tasa superior al 98 % aún puede tener problemas de capacidad de entrega. Por ejemplo, si todos tus rebotes provienen de un solo dominio, eso es una señal clara de un problema de reputación con ese proveedor.
 
-Además, los mensajes pueden estar siendo entregados y terminando en correo no deseado, lo que indica problemas de reputación potencialmente graves. Es importante monitorear no solo la cantidad de mensajes que se entregan, sino también las tasas de apertura y clics para determinar si los usuarios realmente están viendo los mensajes en sus buzones de entrada. Dado que los proveedores generalmente no informan de cada instancia de correo no deseado, una tasa de correo no deseado de incluso el 1% podría ser motivo de preocupación y análisis adicional.
+Además, los mensajes pueden estar siendo entregados y terminando en correo no deseado, lo que indica problemas de reputación potencialmente graves. Es importante monitorear no solo la cantidad de mensajes que se entregan, sino también las tasas de apertura y clics para determinar si los usuarios realmente están viendo los mensajes en sus buzones de entrada. Dado que los proveedores generalmente no informan de cada instancia de correo no deseado, una tasa de correo no deseado de incluso el 1 % podría ser motivo de preocupación y análisis adicional.
 
-Finalmente, tu negocio y los tipos de correos electrónicos que envías también pueden afectar la entrega. Por ejemplo, alguien que envía principalmente [correos electrónicos transaccionales]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) debería esperar ver una mejor tasa que alguien que envía muchos mensajes de marketing.
+Finalmente, tu negocio y los tipos de correos electrónicos que envías también pueden afectar la entrega. Por ejemplo, alguien que envía principalmente [correos electrónicos transaccionales]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/) debería esperar ver una mejor tasa que alguien que envía muchos mensajes de marketing.
 
-### ¿Por qué mis métricas de entrega de correo electrónico no suman el 100%?
+### ¿Por qué mis métricas de entrega de correo electrónico no suman el 100 %?
 
-Las métricas de entrega de correo electrónico (entregas, rebotes y tasa de correo no deseado) pueden no sumar el 100% debido a los correos electrónicos que tuvieron un rebote blando y luego no se entregaron después del período de reintento de hasta 72 horas.
+Las métricas de entrega de correo electrónico (entregas, rebotes y tasa de correo no deseado) pueden no sumar el 100 % debido a los correos electrónicos que tuvieron un rebote blando y luego no se entregaron después del período de reintento de hasta 72 horas.
 
 Los rebotes blandos son correos electrónicos que rebotan debido a un problema temporal o transitorio, como "buzón de entrada lleno", "servidor temporalmente no disponible" y más. Si un correo electrónico con rebote blando aún no se entrega después de 72 horas, este correo electrónico no se contabilizará en las métricas de entrega de la campaña.
 

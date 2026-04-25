@@ -25,7 +25,7 @@ channel:
 
 ### Dominios no válidos
 
-Errores como `unable to get mx info` suelen significar que muchos objetivos usan dominios incorrectos (por ejemplo, errores tipográficos). Segmenta, exporta, corrige y vuelve a importar esos perfiles.
+Errores como `unable to get mx info` suelen significar que muchos destinatarios usan dominios incorrectos (por ejemplo, errores tipográficos). Segmenta, exporta, corrige y vuelve a importar esos perfiles.
 
 ### IP con limitación de velocidad
 

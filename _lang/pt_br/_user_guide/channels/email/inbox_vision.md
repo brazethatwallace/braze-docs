@@ -2,7 +2,7 @@
 nav_title: Inbox Vision
 article_title: Inbox Vision
 page_order: 7
-description: "Esta página explica como configurar o Inbox Vision, um recurso que permite que profissionais de marketing visualizem seus e-mails da perspectiva de vários clientes de e-mail e dispositivos móveis."
+description: "Esta página cobre como configurar o Inbox Vision, um recurso que permite aos profissionais de marketing visualizar seus e-mails a partir da perspectiva de vários clientes de e-mail e dispositivos móveis."
 tool:
   - Dashboard
 channel:
@@ -12,15 +12,15 @@ channel:
 
 # Inbox Vision
 
-> O Inbox Vision permite que você visualize seus e-mails da perspectiva de vários clientes de e-mail e dispositivos móveis. Por exemplo, você pode testar diferenças entre modo escuro e claro para confirmar que seus e-mails são renderizados conforme o esperado.
+> Inbox Vision permite que você visualize seus e-mails a partir da perspectiva de vários clientes de e-mail e dispositivos móveis. Por exemplo, você pode testar as diferenças entre o modo escuro e o modo claro para confirmar se seus e-mails são exibidos como pretendido.
 
 {% alert important %}
-O Inbox Vision pode não funcionar se o conteúdo do seu e-mail depender de informações de template, como dados do perfil de usuário. A Braze usa um usuário vazio como template ao enviar e-mails para esse recurso.<br><br>Adicione valores padrão a qualquer Liquid na sua mensagem de e-mail. Sem valores padrão, você pode receber um falso positivo ou o teste pode falhar.
+O Inbox Vision pode não funcionar se o conteúdo do seu e-mail depender de informações de modelagem, como dados de perfil de usuário. A Braze modela um usuário vazio ao enviar e-mails para esse recurso.<br><br>Adicione valores padrão a qualquer Liquid na sua mensagem de e-mail. Sem valores padrão, você pode receber um falso positivo ou o teste pode falhar.
 {% endalert %}
 
 ## Considerações
 
-De modo geral, seu e-mail não funcionará com o Inbox Vision se o conteúdo depender de informações de template, como dados do perfil de usuário. Isso acontece porque a Braze usa um usuário vazio como template ao enviar e-mails com esse recurso.
+De modo geral, seu e-mail não funcionará com o Inbox Vision se o conteúdo depender de informações de modelagem, como dados do perfil de usuário. Isso acontece porque a Braze modela um usuário vazio ao enviar e-mails com esse recurso.
 
 Você pode resolver isso adicionando valores padrão ou quaisquer valores ao Liquid na sua mensagem de e-mail antes de executar o Inbox Vision. Quando você terminar os testes no Inbox Vision, a mensagem de e-mail original será exibida. Se nenhum valor for fornecido, o teste pode falhar ao renderizar as pré-visualizações.
 
@@ -29,7 +29,7 @@ Sua empresa tem um limite de quantos e-mails podem ser pré-visualizados com o I
 Inclua uma linha de assunto e um domínio de envio válido para visualizar as pré-visualizações. Fique atento às diferenças de renderização entre desktop e celular. Use as pré-visualizações para confirmar que o e-mail aparece conforme o esperado.
 
 {% alert note %}
-Se a pré-visualização de uma campanha mostrar um erro de permissão, limpe o cache e os cookies ou tente uma janela anônima. Extensões do navegador às vezes bloqueiam a pré-visualização.
+Se a pré-visualização de uma campaign mostrar um erro de permissão, limpe o cache e os cookies ou tente uma janela anônima. Extensões do navegador às vezes bloqueiam a pré-visualização.
 {% endalert %}
 
 Para testar sua mensagem de e-mail no Inbox Vision:
@@ -72,7 +72,7 @@ A análise de código pode aparecer mais rápido do que a pré-visualização pa
 O teste de spam estima se o e-mail pode ser filtrado como spam. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de provedores de acesso à internet como Gmail e Outlook, usando caixas de entrada estáticas que não abrem nem clicam por padrão.
 
 {% alert important %}
-O posicionamento na caixa de entrada é impulsionado principalmente pelo engajamento real dos destinatários. Os resultados do teste de spam podem não corresponder ao que você observa em campanhas reais.
+O posicionamento na caixa de entrada é impulsionado principalmente pelo engajamento real dos destinatários. Os resultados do teste de spam podem não corresponder ao que você observa em campaigns reais.
 {% endalert %}
 
 Para uma leitura mais clara sobre entregabilidade, teste o conteúdo com pequenas coortes reais — aberturas e cliques consistentes são o sinal mais confiável. Use os testes de spam como um dado adicional junto ao monitoramento de engajamento.
@@ -82,7 +82,7 @@ Para uma leitura mais clara sobre entregabilidade, teste o conteúdo com pequena
 Para verificar os resultados do teste de spam:
 
 1. Selecione a guia **Spam Testing** na seção **Inbox Vision**. A tabela **Spam Test Result** lista o nome do filtro de spam, o status e o tipo.
-2. Revise esses resultados e faça os ajustes necessários na sua campanha de e-mail.
+2. Revise esses resultados e faça os ajustes necessários na sua campaign de e-mail.
 3. Selecione **Re-run Test** para recarregar os resultados do teste de spam.
 
 ## Teste de acessibilidade
@@ -139,7 +139,7 @@ O editor de arrastar e soltar não oferece suporte à definição de um elemento
 
 ### Revise sua lista de assinantes de e-mail
 
-Consulte o [dashboard de insights de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) para determinar o tipo de dispositivo e os provedores mais populares entre seus assinantes. Se você precisar de mais granularidade, como navegador, modelo do dispositivo e mais, pode usar seus dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para obter esse nível de detalhe sobre o engajamento recente de e-mail dos seus usuários.
+Consulte o [dashboard de insights de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) para determinar o tipo de dispositivo e os provedores mais populares entre seus assinantes. Se você precisar de mais granularidade, como navegador, modelo do dispositivo e mais, pode usar seus dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para obter esse nível de detalhe sobre o engajamento recente de e-mail dos seus usuários.
 
 Caso contrário, a Braze usa como padrão as 20 principais pré-visualizações com base em dados gerais do setor e de especialistas, o que cobre a maioria dos ambientes onde seus assinantes estão engajando com seus e-mails. Se sua análise de dados apontar para outras pré-visualizações mais populares, você pode definir um conjunto padrão de pré-visualizações toda vez que executar o Inbox Vision.
 

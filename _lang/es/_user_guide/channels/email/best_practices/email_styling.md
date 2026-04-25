@@ -1,28 +1,28 @@
 ---
-nav_title: Estilo de correo electrónico
+nav_title: Estilo del correo electrónico
 article_title: Estilo de correo electrónico
 page_order: 2
 page_type: reference
-description: "Este artículo describe las mejores prácticas de estilo de correo electrónico como referencia al crear tus campañas de correo electrónico."
+description: "En este artículo se describen las mejores prácticas de estilo de correo electrónico a las que puedes recurrir al crear tus campañas de correo electrónico."
 channel: email
 
 ---
 
 # Estilo de correo electrónico
 
-> Este artículo describe las mejores prácticas de estilo de correo electrónico, incluyendo líneas del asunto, texto de preencabezado, tamaño del correo electrónico y recomendaciones de imágenes.
+> En este artículo se describen las mejores prácticas de estilo de correo electrónico, incluyendo líneas del asunto, texto de preencabezado, tamaño del correo electrónico y recomendaciones de imágenes.
 
 ## Estilo de dirección
 
-La línea del asunto es una de las primeras cosas que los destinatarios ven al recibir tu mensaje. Mantenerla entre 6 y 10 palabras produce las tasas de apertura más altas.
+La **línea del asunto** es una de las primeras cosas que verán los destinatarios al recibir tu mensaje. Si la limitas a entre 6 y 10 palabras, obtendrás las tasas de apertura más altas.
 
-También existen diferentes enfoques para crear una buena línea del asunto, desde hacer una pregunta para despertar el interés del lector, ser más directo, hasta personalizarla para captar la atención de tu clientela. No te quedes con una sola línea del asunto, aprovecha las [pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) para probar nuevas opciones y evaluar su efectividad. Las líneas del asunto no deben superar los 35 caracteres para mostrarse correctamente en dispositivos móviles.
+También hay distintos enfoques para crear una buena línea del asunto, desde formular una pregunta para despertar el interés del lector o ser más directo, hasta personalizarla para captar la atención de tu clientela. No te quedes con una sola línea del asunto, aprovecha las [pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) para probar otras nuevas y medir su eficacia. Las líneas del asunto no deben tener más de 35 caracteres para que se muestren correctamente en dispositivos móviles.
 
-El campo "De" debe mostrar claramente quién es el remitente. Intenta no usar el nombre de una persona o una abreviatura poco común. En su lugar, usa un nombre reconocible como el nombre de tu marca. Si usar el nombre de una persona se ajusta a los métodos de personalización de correo electrónico de tu marca, mantén la consistencia para desarrollar una relación con el destinatario. El nombre del campo "De" no debe superar los 25 caracteres para mostrarse correctamente en dispositivos móviles.
+El campo "De" debe mostrar claramente quién es el remitente. Procura no utilizar el nombre de una persona o una abreviatura poco común. En su lugar, utiliza un nombre reconocible como el de tu marca. Si utilizar el nombre de una persona se ajusta a los métodos de personalización del correo electrónico de tu marca, mantén la coherencia para desarrollar una relación con el destinatario. El nombre "De" no debe tener más de 25 caracteres para que se muestre correctamente en el móvil.
 
 ### Direcciones sin respuesta
 
-Las direcciones de correo electrónico sin respuesta generalmente no se recomiendan por múltiples razones, ya que desvinculan a tus lectores. Muchos destinatarios responden al correo electrónico para cancelar su suscripción, por lo que si no se les permite hacerlo, la siguiente acción más común es marcar el correo electrónico como correo no deseado.
+Por lo general, no se recomienda utilizar direcciones de correo electrónico sin respuesta por múltiples razones, ya que desvinculan a tus lectores. Muchos destinatarios responden al correo electrónico para cancelar su suscripción, por lo que si no se les permite hacerlo, la siguiente acción más común es marcar el correo electrónico como correo no deseado.
 
 Recibir respuestas de fuera de oficina puede proporcionar información valiosa, aumentando las tasas de apertura y reduciendo los informes de correos no deseados (al eliminar a quienes no desean recibir correos). A nivel personal, una dirección sin respuesta puede parecer impersonal para los destinatarios y puede disuadirlos de recibir más correos electrónicos de tu empresa.
 
@@ -139,23 +139,23 @@ Consulta la siguiente tabla para conocer los tamaños de imagen recomendados. La
 
 ## Vinculación en profundidad
 
-Con las notificaciones push y los mensajes dentro de la aplicación, un [vínculo profundo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) lleva a los usuarios directamente a un destino específico dentro de una aplicación. Sin embargo, los vínculos profundos requieren que la aplicación esté instalada, y los correos electrónicos no proporcionan una forma de saber si los destinatarios tienen la aplicación. Esto significa que los vínculos profundos en correos electrónicos pueden generar errores para los destinatarios que no tienen la aplicación instalada.
+Con las notificaciones push y los In-App Messages, un [vínculo profundo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) lleva a los usuarios directamente a un destino específico dentro de una aplicación. Sin embargo, los vínculos profundos requieren que la aplicación esté instalada, y los correos electrónicos no proporcionan una forma de saber si los destinatarios tienen la aplicación. Esto significa que los vínculos profundos en correos electrónicos pueden generar errores para los destinatarios que no tienen la aplicación instalada.
 
 En su lugar, usa [enlaces universales y App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), que funcionan como URL estándar. Puedes configurarlos para abrir la aplicación o dirigir a los usuarios a una página específica. También pueden redirigir a la tienda de aplicaciones o recurrir a una página web cuando la aplicación no está instalada.
 
-## Bloques de contenido con imágenes transparentes
+## Content Blocks con imágenes transparentes
 
-Cuando un bloque de contenido contiene una imagen con fondo transparente (por ejemplo, un logotipo) y se inserta mediante una etiqueta de Liquid, es posible que veas un color de fondo detrás de la imagen. Este color proviene de la [configuración de estilo global del correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) del editor de arrastrar y soltar, específicamente del **Color de fondo del correo electrónico**. Si tu configuración de estilo global usa un color diferente al blanco, ese color aparecerá en su lugar.
+Cuando un Content Block contiene una imagen con fondo transparente (por ejemplo, un logotipo) y se inserta mediante una etiqueta de Liquid, es posible que veas un color de fondo detrás de la imagen. Este color proviene de la [configuración de estilo global del correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) del editor de arrastrar y soltar, específicamente del **Color de fondo del correo electrónico**. Si tu configuración de estilo global usa un color diferente al blanco, ese color aparecerá en su lugar.
 
-Para mostrar el bloque de contenido como se pretende:
+Para mostrar el Content Block como se pretende:
 
-- Establece el color de fondo de la columna del bloque de contenido para que coincida con el fondo del correo electrónico o la plantilla.
-- Alternativamente, convierte el bloque de contenido de arrastrar y soltar en un bloque de contenido HTML y establece su fondo como transparente.
+- Establece el color de fondo de la columna del Content Block para que coincida con el fondo del correo electrónico o la plantilla.
+- Alternativamente, convierte el Content Block de arrastrar y soltar en un Content Block HTML y establece su fondo como transparente.
 
-Si necesitas usar el mismo bloque de contenido en áreas con diferentes fondos (por ejemplo, cuerpo y pie de página), crea dos versiones del bloque, cada una con el color de fondo de columna apropiado.
+Si necesitas usar el mismo Content Block en áreas con diferentes fondos (por ejemplo, cuerpo y pie de página), crea dos versiones del bloque, cada una con el color de fondo de columna apropiado.
 
-Si prefieres arrastrar el bloque de contenido al correo electrónico como una fila, puedes establecer el fondo de la columna de la fila como transparente para anular el fondo global.
+Si prefieres arrastrar el Content Block al correo electrónico como una fila, puedes establecer el fondo de la columna de la fila como transparente para anular el fondo global.
 
 {% alert note %}
-Arrastrar un bloque de contenido como una fila inserta una instantánea prerenderizada, que no se actualiza automáticamente si el bloque de contenido de origen cambia.
+Arrastrar un Content Block como una fila inserta una instantánea prerenderizada, que no se actualiza automáticamente si el Content Block de origen cambia.
 {% endalert %}

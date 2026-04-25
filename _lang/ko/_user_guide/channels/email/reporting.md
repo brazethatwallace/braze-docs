@@ -1,8 +1,8 @@
 ---
-nav_title: 보고
-article_title: 이메일 보고
+nav_title: 보고서
+article_title: 이메일 보고서
 page_order: 21
-description: "이 참조 문서에서는 이메일 보고의 다양한 구성요소와 대시보드에서 확인할 수 있는 위치를 다룹니다."
+description: "이 참조 문서에서는 이메일 보고서의 다양한 구성요소와 대시보드에서 확인할 수 있는 위치를 다룹니다."
 tool:
   - Reports
 channel:
@@ -10,9 +10,9 @@ channel:
 
 ---
 
-# 이메일 보고
+# 이메일 보고서
 
-> 이 문서에서는 이메일 보고의 다양한 구성요소와 대시보드에서 확인할 수 있는 위치를 다룹니다.
+> 이 문서에서는 이메일 보고서의 다양한 구성요소와 대시보드에서 확인할 수 있는 위치를 다룹니다.
 
 {% multi_lang_include analytics/campaign_analytics.md channel="email" %}
 
@@ -25,7 +25,7 @@ channel:
 
 ### 유효하지 않은 도메인
 
-`unable to get mx info`와 같은 오류는 많은 타겟이 잘못된 도메인(예: 오타)을 사용하고 있음을 의미하는 경우가 많습니다. 해당 프로필을 세그먼트로 분류하고, 내보내기한 후 수정하여 다시 가져오기하세요.
+`unable to get mx info`와 같은 오류는 많은 타겟이 잘못된 도메인(예: 오타)을 사용하고 있음을 의미하는 경우가 많습니다. 해당 프로필을 Segment로 분류하고, 내보내기한 후 수정하여 다시 가져오기하세요.
 
 ### 제한된 IP
 
