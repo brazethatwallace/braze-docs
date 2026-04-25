@@ -23,7 +23,7 @@ guide_featured_list:
 
 guide_menu_title: "Ressourcen"
 guide_menu_list:
-- name: Currents Changelogs
+- name: Currents-Änderungsprotokolle
   link: /docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs
   image: /assets/img/braze_icons/file-02.svg
 ---

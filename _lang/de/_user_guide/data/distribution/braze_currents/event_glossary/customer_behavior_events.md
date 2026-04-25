@@ -54,7 +54,7 @@ Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehous
 Random Bucket Number
 {% endapitags %}
 
-Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in in seinem/ihrem Workspace erstellt wird. Dabei wird jedem/jeder neuen Nutzer:in eine zufällige Bucket-Nummer zugewiesen, mit der Sie dann gleichmäßig verteilte Segments aus zufälligen Nutzer:innen erstellen können. Verwenden Sie diese Funktion, um eine Reihe zufälliger Bucket-Nummern zu gruppieren und die Performance Ihrer Campaigns und Kampagnenvarianten zu vergleichen.
+Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in in seinem/ihrem Workspace erstellt wird. Dabei wird jedem/jeder neuen Nutzer:in eine zufällige Bucket-Nummer zugewiesen, mit der Sie dann gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellen können. Verwenden Sie diese Funktion, um eine Reihe zufälliger Bucket-Nummern zu gruppieren und die Performance Ihrer Kampagnen und Kampagnenvarianten zu vergleichen.
 
 {% alert important %}
 Dieses Currents-Event ist nur für Kund:innen verfügbar, die einen „All Events Connector“ erworben haben, und steht nur für Storage-Event-Konnektoren (wie Amazon S3, Microsoft Azure und Google Cloud Storage) zur Verfügung.
@@ -1293,21 +1293,21 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
 
 #### Event-Typen
 
-##### Add
+##### Hinzufügen
 
 Ein „add“-Event wird erfasst, wenn ein neues Token registriert wird. Dies geschieht, wenn ein:e Nutzer:in die App zum ersten Mal auf einem neuen Gerät öffnet oder wenn ein Token über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt mit `push_tokens` für eine:n Nutzer:in gesetzt wird, der/die zuvor noch keines hatte.
 
-##### Update
+##### Aktualisieren
 
 Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token-String selbst ändert. Das Token hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`.
 
 {% alert note %}
-In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Campaign-Versand bereinigt wird.<br><br>
+In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Kampagnenversand bereinigt wird.<br><br>
 
 Es wäre äußerst ungewöhnlich, wenn sich nur die `device_id` ändern würde, ohne dass sich das `push_token` ändert (dies würde erfordern, dass das Betriebssystem nach der Neuinstallation denselben Token-String zurückgibt).
 {% endalert %}
 
-##### Remove
+##### Entfernen
 
 Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token entfernt. Dafür kann es mehrere Gründe geben:
 
@@ -1315,9 +1315,9 @@ Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token entfer
 - Deinstallationserkennung durch Silent Push
 - Token über die REST API oder den APNs-Feedback-Dienst entfernt
 
-##### Add- und Remove-Paare
+##### Hinzufügen- und Entfernen-Paare
 
-Add- und Remove-Paare lassen sich in zwei Kategorien einteilen:
+Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 
 **Token-String-Aktualisierung (derselbe/dieselbe Nutzer:in):** Das Betriebssystem rotiert den Token-String auf demselben Gerät (z. B. APNs- oder FCM-Token-Rotation). Das „add“-Event (neues Token) und das „remove“-Event (altes Token) haben dieselbe `user_id`, dieselbe `device_id`, unterschiedliche `push_token` und identische `time_ms`.
 
