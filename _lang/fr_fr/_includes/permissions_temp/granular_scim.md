@@ -142,7 +142,8 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Afficher les paramètres multilingues | `view_multi_language_settings` |
 | Utiliser BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Afficher les agents de Decisioning Studio | `view_decisioning_studio_agents` |
-| Afficher l'audience de Decisioning Studio |`view_decisioning_studio_audience` |
+| Afficher l'audience de Decisioning Studio | `view_decisioning_studio_audience` |
+| Afficher l'événement de conversion de Decisioning Studio | `view_decisioning_studio_conversion_event` |
 | Afficher les garde-fous de Decisioning Studio | `view_decisioning_studio_guardrails` |
 | Lancer des Campaigns | `launch_campaigns` |
 | Lancer des Canvas | `launch_canvases` |

@@ -142,7 +142,8 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Ver configuración multilingüe | `view_multi_language_settings` |
 | Utilizar BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Ver agentes de Decisioning Studio | `view_decisioning_studio_agents` |
-| Ver audiencia de Decisioning Studio |`view_decisioning_studio_audience` |
+| Ver audiencia de Decisioning Studio | `view_decisioning_studio_audience` |
+| Ver evento de conversión de Decisioning Studio | `view_decisioning_studio_conversion_event` |
 | Ver protecciones de Decisioning Studio | `view_decisioning_studio_guardrails` |
 | Lanzar Campaigns | `launch_campaigns` |
 | Lanzar Canvas | `launch_canvases` |

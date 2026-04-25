@@ -142,7 +142,8 @@
 | 다국어 설정 보기 | `view_multi_language_settings` |
 | BrazeAI Operator<sup>TM</sup> 사용 | `use_operator` |
 | Decisioning Studio 에이전트 보기 | `view_decisioning_studio_agents` |
-| Decisioning Studio 오디언스 보기 |`view_decisioning_studio_audience` |
+| Decisioning Studio 오디언스 보기 | `view_decisioning_studio_audience` |
+| Decisioning Studio 전환 이벤트 보기 | `view_decisioning_studio_conversion_event` |
 | Decisioning Studio 가드레일 보기 | `view_decisioning_studio_guardrails` |
 | Campaigns 시작 | `launch_campaigns` |
 | Canvases 시작 | `launch_canvases` |

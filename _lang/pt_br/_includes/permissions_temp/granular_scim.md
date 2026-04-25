@@ -142,7 +142,8 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 | Ver configurações de múltiplos idiomas | `view_multi_language_settings` |
 | Usar BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Ver agentes do Decisioning Studio | `view_decisioning_studio_agents` |
-| Ver público do Decisioning Studio |`view_decisioning_studio_audience` |
+| Ver público do Decisioning Studio | `view_decisioning_studio_audience` |
+| Ver evento de conversão do Decisioning Studio | `view_decisioning_studio_conversion_event` |
 | Ver proteções do Decisioning Studio | `view_decisioning_studio_guardrails` |
 | Lançar Campaigns | `launch_campaigns` |
 | Lançar Canvas | `launch_canvases` |

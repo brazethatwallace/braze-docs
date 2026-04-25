@@ -142,7 +142,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | 多言語設定を表示 | `view_multi_language_settings` |
 | BrazeAI Operator<sup>TM</sup>を使用 | `use_operator` |
 | Decisioning Studioエージェントを表示 | `view_decisioning_studio_agents` |
-| Decisioning Studioオーディエンスを表示 |`view_decisioning_studio_audience` |
+| Decisioning Studioオーディエンスを表示 | `view_decisioning_studio_audience` |
+| Decisioning Studioコンバージョンイベントを表示 | `view_decisioning_studio_conversion_event` |
 | Decisioning Studioガードレールを表示 | `view_decisioning_studio_guardrails` |
 | Campaignsを起動 | `launch_campaigns` |
 | Canvasesを起動 | `launch_canvases` |

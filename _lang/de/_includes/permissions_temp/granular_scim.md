@@ -142,7 +142,8 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Mehrsprachige Einstellungen anzeigen | `view_multi_language_settings` |
 | BrazeAI Operator<sup>TM</sup> verwenden | `use_operator` |
 | Decisioning-Studio-Agenten anzeigen | `view_decisioning_studio_agents` |
-| Decisioning-Studio-Zielgruppe anzeigen |`view_decisioning_studio_audience` |
+| Decisioning-Studio-Zielgruppe anzeigen | `view_decisioning_studio_audience` |
+| Decisioning-Studio-Konversionsereignis anzeigen | `view_decisioning_studio_conversion_event` |
 | Decisioning-Studio-Leitlinien anzeigen | `view_decisioning_studio_guardrails` |
 | Campaigns starten | `launch_campaigns` |
 | Canvases starten | `launch_canvases` |
