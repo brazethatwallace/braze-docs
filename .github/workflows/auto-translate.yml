@@ -218,6 +218,16 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      # Same toolchain as translate-locale: merge + check-aliases + summary run
+      # auto_translate.py (PyYAML + lazy Anthropic import paths).
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install anthropic pyyaml
+
       - name: Download all locale artifacts
         uses: actions/download-artifact@v4
         with:
