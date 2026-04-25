@@ -53,6 +53,13 @@ permissions:
 
 jobs:
   auto-translate:
+    # One run at a time: overlapping dispatches can race on the same branch,
+    # duplicate PRs, and multiply Anthropic spend. Queued runs start when the
+    # previous workflow finishes (cancel-in-progress stays false so partial work
+    # is not killed mid-flight).
+    concurrency:
+      group: auto-translate-${{ github.workflow }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # Hard wall-clock ceiling so a stalled Anthropic stream can't hog a
     # runner indefinitely (run 24906077736 spent 87+ minutes stuck on
@@ -152,7 +159,7 @@ jobs:
       # ------------------------------------------------------------------
       - name: Run translation QC checks
         id: qc
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' }}
         continue-on-error: true
         run: python scripts/auto_translate.py qc
 
@@ -160,7 +167,7 @@ jobs:
       # Build verification + auto-fix loop
       # ------------------------------------------------------------------
       - name: Set up Ruby
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' }}
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
@@ -170,7 +177,7 @@ jobs:
         # Never run after an explicit `files:` batch — cleanup compares every
         # `_lang` path to current `_docs`/`_includes` and would mass-delete
         # pre-IA mirrors still on disk until catch-up finishes (PR #13327).
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
         env:
           # Belt-and-suspenders with scripts/clean_orphaned_translations.py (PR #13327).
           ORPHAN_CLEANUP_MAX_DELETES: "500"
@@ -188,7 +195,7 @@ jobs:
 
       - name: Verify builds and fix errors
         id: verify
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' }}
         continue-on-error: true
         run: python scripts/auto_translate.py verify --max-attempts 3
 
