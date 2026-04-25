@@ -1,9 +1,9 @@
 ---
-nav_title: Nutzer:in Verwaltung
-article_title: Nutzer:in Verwaltung
+nav_title: Nutzer:innenverwaltung
+article_title: Nutzer:innenverwaltung
 page_order: 1
 layout: dev_guide
-guide_top_header: "Nutzer:in Verwaltung"
+guide_top_header: "Nutzer:innenverwaltung"
 guide_top_text: "Verwalten Sie Unternehmensnutzer:innen, Berechtigungen, Teams und Bereitstellung."
 
 page_type: landing
