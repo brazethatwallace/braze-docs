@@ -1,12 +1,12 @@
-## Analytik anzeigen
+## Analytik anzeigen {#viewing-analytics}
 
-Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Kampagnen** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content-Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
+Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
 
 {% alert tip %}
-Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser 
+Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
   {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/) an.
   {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Bannern.
-  {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content-Cards.
+  {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content Cards.
   {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachricht.
   {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Push.
   {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach SMS/MMS und RCS.
@@ -16,14 +16,14 @@ Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe un
 
 Auf dem Tab **Kampagnen-Analytics** können Sie Ihre Berichte in einer Reihe von Panels einsehen. Möglicherweise sehen Sie mehr oder weniger als die in den folgenden Abschnitten aufgelisteten, aber jedes hat seinen eigenen nützlichen Zweck.
 
-### Zeitraum
+### Zeitraum {#time-range}
 
-Standardmäßig zeigt **Kampagnen-Analytics** die letzten 90 Tage ab dem aktuellen Zeitpunkt an. Das bedeutet: Wenn die Kampagne vor mehr als 90 Tagen gestartet wurde, werden die Analytics für den angegebenen Zeitraum als „0" angezeigt. Um alle Analytics für ältere Kampagnen anzuzeigen, passen Sie den Berichtszeitraum an.
+Standardmäßig zeigt **Kampagnen-Analytics** die letzten 90 Tage ab dem aktuellen Zeitpunkt an. Das bedeutet: Wenn die Kampagne vor mehr als 90 Tagen gestartet wurde, werden die Analytics für den angegebenen Zeitraum als „0“ angezeigt. Um alle Analytics für ältere Kampagnen anzuzeigen, passen Sie den Berichtszeitraum an.
 
-### Kampagnendetails
+### Kampagnendetails {#campaign-details}
 
 Das Panel **Kampagnendetails** zeigt einen Überblick über die gesamte Performance Ihrer
-  {% if include.channel == "banner" %}Banner. 
+  {% if include.channel == "banner" %}Banner.
   {% elsif include.channel == "Content Card" %}Content-Card.
   {% elsif include.channel == "email" %}E-Mail.
   {% elsif include.channel == "in-app message" %}In-App-Nachricht.
@@ -65,14 +65,14 @@ In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen er
 ![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
-![Der Abschnitt „Kampagnendetails".]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
+![Der Abschnitt „Kampagnendetails“.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
 
 {% elsif include.channel == "webhook" %}
 ![Kampagnendetails-Panel mit einer Übersicht über die Metriken, die zur Bestimmung der Kampagnen-Performance verwendet werden.]({% image_buster /assets/img/campaign_details_webhook.png %})
 
 {% endif %}
 
-#### Geschätzte Zielgruppe und aktuelle Zielgruppe
+#### Geschätzte Zielgruppe und aktuelle Zielgruppe {#estimated-audience-and-current-audience}
 
 Je nach Größe Ihres Workspace kann das Panel **Kampagnendetails** die Zielgruppenstatistiken als **Geschätzte Zielgruppe** oder **Aktuelle Zielgruppe** bezeichnen.
 
@@ -80,7 +80,7 @@ Die folgende Tabelle erklärt, wann welche Bezeichnung verwendet wird und was si
 
 | Bezeichnung in der Fußzeile | Wann sie verwendet wird |
 | --- | --- |
-| **Geschätzte Zielgruppe** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
+| **Geschätzte Zielgruppe** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segments im Verhältnis zum Workspace. |
 | **Aktuelle Zielgruppe** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -112,7 +112,7 @@ Um die Wirkung einer einzelnen Webhook-Nachricht zu messen, können Sie einem A/
 
 {% endif %}
 
-#### Änderungen seit letztem Aufruf
+#### Änderungen seit letztem Aufruf {#changes-since-last-viewed}
 
 Die Anzahl der Aktualisierungen der Kampagne durch andere Mitglieder Ihres Teams wird durch die Metrik *Änderungen seit letztem Aufruf* auf der Kampagnenübersichtsseite erfasst. Wählen Sie **Änderungen seit letztem Aufruf**, um ein Changelog der Aktualisierungen an Name, Zeitplan, Tags, Nachricht, Zielgruppe, Genehmigungsstatus oder Teamzugriffskonfiguration der Kampagne anzuzeigen. Bei jeder Aktualisierung können Sie sehen, wer die Änderung vorgenommen hat und wann. Sie können dieses Changelog verwenden, um Änderungen an Ihrer Kampagne nachzuvollziehen.
 
@@ -129,14 +129,14 @@ Das Panel **Content-Card-Performance** zeigt Ihnen, wie gut Ihre Nachricht in ve
 ![Content-Card-Nachrichten-Performance-Analytics]({% image_buster /assets/img/cc-message-performance.png %})
 
 {% elsif include.channel == "email" %}
-### E-Mail-Performance
+### E-Mail-Performance {#email-performance}
 
 Das Panel **E-Mail-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![E-Mail-Nachrichten-Performance-Analytics]({% image_buster /assets/img_archive/email_message_performance.png %})
 
 {% elsif include.channel == "in-app message" %}
-### In-App-Nachrichten-Performance
+### In-App-Nachrichten-Performance {#in-app-message-performance}
 
 Das Panel **In-App-Nachrichten-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
@@ -196,7 +196,7 @@ In dieser Ansicht können Sie mit dem Schalter **Heatmap anzeigen** eine visuell
 
 ![Beispiel für die Vorschau- und Heatmap-Seite mit einer E-Mail-Kampagne und einem Panel mit Beispielen für Link-Aliase und deren Gesamtklicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
-#### Bilder
+#### Bilder {#images}
 
 Wir empfehlen, CORS für Ihre Bild-URLs zu aktivieren, damit Bilder in Heatmap-Vorschauen und -Exporten nicht fehlen.
 
@@ -206,9 +206,9 @@ Wenn Bilder in einem Export fehlen, arbeiten Sie mit Ihren Entwickler:innen zusa
 
 {% if include.channel == "Content Card" %}
 
-#### Content-Card-Metriken
+#### Content-Card-Metriken {#content-card-metrics}
 
-Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Content-Cards-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Content-Cards.
+Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Content-Cards-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Content Cards.
 
 <style>
     .no-split {
@@ -227,7 +227,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Gesendete Nachrichten</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
-                Die Berechnung hängt davon ab, was Sie für die 
+                Die Berechnung hängt davon ab, was Sie für die
                 <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">Kartenerstellung</a> ausgewählt haben:<br><br>
                 <ul>
                     <li><b>Beim Start oder beim Einstieg in den Schritt:</b> Die Anzahl der erstellten und verfügbaren Karten. Dabei wird nicht berücksichtigt, ob die Nutzer:innen die Karte angesehen haben.</li>
@@ -262,7 +262,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 Bei der Protokollierung von Impressionen gibt es einige Unterschiede zwischen Web, Android und iOS. Generell protokolliert Braze eine Impression, wenn eine Karte gesehen wird – also nachdem eine Nutzer:in zur entsprechenden Content-Card in ihrem Feed gescrollt hat.
 {% endalert %}
 
-#### Eindeutige Empfänger:innen versus eindeutige Impressionen
+#### Eindeutige Empfänger:innen versus eindeutige Impressionen {#unique-recipients-versus-unique-impressions}
 
 Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _eindeutige Empfänger:innen_ und _eindeutige Impressionen_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
 
@@ -274,11 +274,11 @@ Ein weiteres Beispiel: Angenommen, Sie sehen fünf _eindeutige Impressionen_ fü
 2. Zur Content-Cards-Ansicht navigiert
 3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
-_Gesendete Nachrichten_ bezieht sich auf Content-Cards, die zum Ansehen verfügbar sind, während _eindeutige Empfänger:innen_ die Content-Cards bezeichnet, die tatsächlich angesehen wurden.
+_Gesendete Nachrichten_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind, während _eindeutige Empfänger:innen_ die Content Cards bezeichnet, die tatsächlich angesehen wurden.
 
 {% elsif include.channel == "banner" %}
 
-### Banner-Metriken
+### Banner-Metriken {#banner-metrics}
 
 Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
@@ -333,7 +333,7 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
     </tbody>
 </table>
 
-#### Berechnungsbeispiele für Banner-Metriken
+#### Berechnungsbeispiele für Banner-Metriken {#banner-metrics-calculation-examples}
 
 Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _eindeutige Empfänger:innen_ und _eindeutige Impressionen_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
 
@@ -349,7 +349,7 @@ _Eindeutige Empfänger:innen_ bezieht sich auf die Banner, die tatsächlich ange
 
 {% elsif include.channel == "email" %}
 
-#### E-Mail-Metriken
+#### E-Mail-Metriken {#email-metrics}
 
 Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in anderen Kanälen nicht verfügbar sind. Die vollständigen Definitionen aller in Braze verwendeten E-Mail-Metriken finden Sie in unserem [E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/).
 
@@ -424,7 +424,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
     </tbody>
 </table>
 
-##### Zustellungen und Bounces
+##### Zustellungen und Bounces {#deliveries-and-bounces}
 
 Das Dashboard hebt _Hard Bounces_ hervor. Einige _Bounces_ können Soft Bounces sein und stimmen allein nicht mit dieser Zahl überein. Sie können Soft Bounces mit dieser Formel annähern:
 
@@ -432,19 +432,19 @@ _Sendungen − (Zustellungen + Hard Bounces) ≈ Soft Bounces_
 
 _Zustellungen_ können in den ersten 72 Stunden steigen, wenn Wiederholungsversuche erfolgreich sind, während _Sendungen_ und Hard Bounces bei einem einmaligen Versand nach Abschluss des Versands feststehen.
 
-##### Klicks ohne Öffnungs-Event
+##### Klicks ohne Öffnungs-Event {#clicks-without-an-open-event}
 
 Ein Klick kann ohne eine Öffnung protokolliert werden, wenn das Öffnungs-Pixel nie geladen wird. Zum Beispiel wird die Nachricht in Gmail abgeschnitten, oder die Nutzer:in hat Bilder deaktiviert (das Öffnungs-Pixel befindet sich normalerweise in der Fußzeile). Einige Clients leiten Bilder über Proxys weiter (wie Apple Mail), sodass die Öffnung protokolliert werden kann, wenn der Server das Pixel zum ersten Mal abruft – nicht wenn die Nutzer:in die E-Mail liest. Unternehmensdomains blockieren Bilder oft standardmäßig.
 
 Ein Klick und eine Öffnung können auch an verschiedenen Tagen stattfinden: Eine Nutzer:in könnte am 16. Mai mit deaktivierten Bildern klicken (keine Öffnung) und dann am 17. Mai im Webmail öffnen (Öffnung wird dann protokolliert).
 
-##### Aufschübe
+##### Aufschübe {#deferrals}
 
 Ein Aufschub (Deferral) bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte. Braze versucht jedoch, die E-Mail bis zu 72 Stunden nach diesem vorübergehenden Zustellungsfehler erneut zuzustellen, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezielle Kampagne eingestellt werden. Typische Gründe für Aufschübe sind reputationsbasiertes Rate-Limiting des Posteingangs-Anbieters für das E-Mail-Volumen, vorübergehende Verbindungsprobleme oder DNS-Fehler.
 
 _Aufschübe_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
-Beachten Sie, dass _Aufschübe_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Beachten Sie, dass _Aufschübe_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
@@ -454,37 +454,37 @@ Die _geschätzte reale Öffnungsrate_ wird 36 Stunden nach Beginn des E-Mail-Ver
 
 Da diese Metrik kontinuierlich neu berechnet wird, kann sich der Wert der _geschätzten realen Öffnungsrate_ im Laufe der Zeit ändern, wenn neue Engagement-Signale (wie Öffnungen und Klicks) empfangen und in das Modell integriert werden. In der Praxis kann die _geschätzte reale Öffnungsrate_ täglich aktualisiert werden, solange eine Kampagne aktiv ist.
 
-Normalerweise sind etwa 10.000 zugestellte E-Mails erforderlich, damit die Statistik erfolgreich berechnet werden kann, wobei diese Zahl je nach Klickrate variieren kann. Wenn die Statistik nicht berechnet werden kann, wird in der Spalte „--" angezeigt.
+Normalerweise sind etwa 10.000 zugestellte E-Mails erforderlich, damit die Statistik erfolgreich berechnet werden kann, wobei diese Zahl je nach Klickrate variieren kann. Wenn die Statistik nicht berechnet werden kann, wird in der Spalte „--“ angezeigt.
 
-###### Einschränkungen
+###### Einschränkungen {#considerations}
 
-Die geschätzte reale Öffnungsrate ist nur in Kampagnen verfügbar und wird nicht in Currents-Events gemeldet. Diese Metrik wird nur für aktive Kampagnen, die vor dem 14. November 2023 gestartet wurden, rückwirkend berechnet.
+Die geschätzte reale Öffnungsrate ist nur in Campaigns verfügbar und wird nicht in Currents-Events gemeldet. Diese Metrik wird nur für aktive Campaigns, die vor dem 14. November 2023 gestartet wurden, rückwirkend berechnet.
 
-##### Umgang mit steigenden Klickraten
+##### Umgang mit steigenden Klickraten {#handling-increases-in-click-rates}
 
 Öffnungsraten können eine aufschlussreiche Metrik für das Tracking Ihrer E-Mail-Kampagnen sein. Allerdings sind diese Öffnungsraten nicht unbedingt ein genauer Indikator für das menschliche Engagement bei E-Mail-Kampagnen. Ein Öffnungs-Event tritt definitionsgemäß ein, wenn eine Nutzer:in eine E-Mail öffnet, was bedeutet, dass ein transparentes Tracking-Pixel für die Öffnung erfolgreich heruntergeladen wurde.
 
-Darüber hinaus kann die Verwendung von Sicherheitsscannern die Öffnungsraten in die Höhe treiben. Einige dieser Tools schützen ihre Nutzer:innen, indem sie eingehende E-Mails auf bösartige Inhalte überprüfen und auf Links klicken, um deren Legitimität zu verifizieren. Diese Klicks werden oft als „Bot-Klicks" oder „nicht-menschliche Interaktion" (NHI) bezeichnet.
+Darüber hinaus kann die Verwendung von Sicherheitsscannern die Öffnungsraten in die Höhe treiben. Einige dieser Tools schützen ihre Nutzer:innen, indem sie eingehende E-Mails auf bösartige Inhalte überprüfen und auf Links klicken, um deren Legitimität zu verifizieren. Diese Klicks werden oft als „Bot-Klicks“ oder „nicht-menschliche Interaktion“ (NHI) bezeichnet.
 
 Nachdem eine E-Mail unsere Server verlassen hat, haben wir nur begrenzte Einblicke in den weiteren Verlauf. Hier sind einige Empfehlungen zum Umgang mit NHI, die sich auf Ihre Ergebnisse auswirken können:
 
 1. Seien Sie sich bewusst, dass dies bei jedem Absender und fast jeder Empfänger:in passieren kann. Klicks sind ebenso wie Öffnungen kein vollständig zuverlässiger Indikator für die menschliche Interaktion mit Ihren Nachrichten – NHI lässt sich nicht verhindern.
-2. Ein höheres positives Engagement korreliert in der Regel mit niedrigerer NHI. Daher ist es wichtig, die [Best Practices]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) für E-Mail-Messaging zu befolgen. Dazu gehört, die ausdrückliche Erlaubnis Ihrer Nutzer:innen für den E-Mail-Versand einzuholen und nicht engagierte Abonnent:innen regelmäßig per Sunsetting zu entfernen.
+2. Ein höheres positives Engagement korreliert in der Regel mit niedrigerer NHI. Daher ist es wichtig, die [Best Practices]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/) für E-Mail-Messaging zu befolgen. Dazu gehört, die ausdrückliche Erlaubnis Ihrer Nutzer:innen für den E-Mail-Versand einzuholen und nicht engagierte Abonnent:innen regelmäßig per Sunsetting zu entfernen.
 3. Verwenden Sie wenn möglich HTTPS-Links in Ihren E-Mails. NHI ist bei Absendern, die sichere Links verwenden, weniger verbreitet.
-4. Wenn Sie einen Ein-Klick-Abmeldeprozess verwenden, sollten Sie die Einrichtung eines [Präferenzzentrums]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) in Betracht ziehen, das die Nutzer:innen zu einer Seite weiterleitet, auf der sie ihre Benachrichtigungseinstellungen bearbeiten und verwalten können. Dies kann hilfreich sein, da NHI Nutzer:innen versehentlich abmelden kann.
+4. Wenn Sie einen Ein-Klick-Abmeldeprozess verwenden, sollten Sie die Einrichtung eines [Präferenzzentrums]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/) in Betracht ziehen, das die Nutzer:innen zu einer Seite weiterleitet, auf der sie ihre Benachrichtigungseinstellungen bearbeiten und verwalten können. Dies kann hilfreich sein, da NHI Nutzer:innen versehentlich abmelden kann.
 5. Ziehen Sie [andere Metriken]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#email-performance) in Betracht, um den Erfolg Ihres E-Mail-Marketings zu messen, z. B. Conversions, App-Sitzungen oder Website-Besuche.
 6. Fügen Sie einen versteckten Link in Ihre E-Mail-Kampagnen ein. Dieser Link sollte für Menschen nicht sichtbar sein, z. B. weißer Text auf weißem Hintergrund oder ein Interpunktionszeichen. Bots neigen dazu, alle Links anzuklicken. Daher können Sie davon ausgehen, dass Nutzer:innen, die Klick-Events auf dem unsichtbaren Link generieren, tatsächlich das Ergebnis von NHI sind – die Öffnung oder der Klick deutet also nicht unbedingt auf positives Engagement hin.
 
 {% elsif include.channel == "in-app message" %}
 
-#### Metriken für In-App-Nachrichten
+#### Metriken für In-App-Nachrichten {#in-app-message-metrics}
 
 Im Folgenden finden Sie einige wichtige Metriken für In-App-Nachrichten, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten Metriken für In-App-Nachrichten finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
 
 {% alert note %}
-Die Berichterstattung für _Button-1-Klicks_ und _Button-2-Klicks_ funktioniert nur, wenn Sie in der In-App-Nachricht den **Bezeichner für Reporting** auf „0" bzw. „1" setzen.
+Die Berichterstattung für _Button-1-Klicks_ und _Button-2-Klicks_ funktioniert nur, wenn Sie in der In-App-Nachricht den **Bezeichner für Reporting** auf „0“ bzw. „1“ setzen.
 
-![Das Feld „Bezeichner für Reporting" mit dem Wert „0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
+![Das Feld „Bezeichner für Reporting“ mit dem Wert „0“.]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 {% endalert %}
 
 <style>
@@ -540,7 +540,7 @@ Die Berichterstattung für _Button-1-Klicks_ und _Button-2-Klicks_ funktioniert 
     </tbody>
 </table>
 
-#### Abweichungen zwischen Kontrollgruppen und Varianten
+#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
 
 Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht.
 
@@ -548,7 +548,7 @@ Die Verteilung zwischen Kontroll- und Variantengruppen ist grundsätzlich annäh
 
 {% elsif include.channel == "KakaoTalk" %}
 
-### KakaoTalk-Metriken
+### KakaoTalk-Metriken {#kakaotalk-metrics}
 
 Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Analytics sehen können. Weitere Details finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/).
 
@@ -565,7 +565,7 @@ Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Ana
 
 {% elsif include.channel == "push" %}
 
-#### Push-Metriken
+#### Push-Metriken {#push-metrics}
 
 Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Push-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Push.
 
@@ -598,31 +598,31 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     </tbody>
 </table>
 
-> Die Zustellung von Benachrichtigungen erfolgt nach dem „Best-Effort"-Prinzip durch die Apple Push Notification Services (APNs). Sie ist nicht dazu gedacht, Daten an Ihre App zu liefern, sondern nur die Nutzer:in darüber zu informieren, dass neue Daten verfügbar sind. Der wichtige Unterschied ist, dass wir anzeigen, wie viele Nachrichten wir erfolgreich an APNs zugestellt haben – nicht unbedingt, wie viele APNs erfolgreich an Geräte zugestellt hat.
+> Die Zustellung von Benachrichtigungen erfolgt nach dem „Best-Effort“-Prinzip durch die Apple Push Notification Services (APNs). Sie ist nicht dazu gedacht, Daten an Ihre App zu liefern, sondern nur die Nutzer:in darüber zu informieren, dass neue Daten verfügbar sind. Der wichtige Unterschied ist, dass wir anzeigen, wie viele Nachrichten wir erfolgreich an APNs zugestellt haben – nicht unbedingt, wie viele APNs erfolgreich an Geräte zugestellt hat.
 
-##### Tracking von Abmeldungen
+##### Tracking von Abmeldungen {#tracking-unsubscribes}
 
 Push-Abmeldungen werden nicht als Metrik in die Kampagnen-Analytics einbezogen und hängen von Updates des Push-Status einer Nutzer:in durch Anbieter wie Apple oder Google ab. Diese Updates können unregelmäßig und unvorhersehbar sein. Daher werden Push-Abmeldungen nicht als Metrik in den Push-Kampagnen-Analytics berücksichtigt.
 
 Dennoch kann das manuelle Tracking von Push-Abmeldungen wertvolle Insights über die Reaktionen der Nutzer:innen auf Ihre Benachrichtigungshäufigkeit und die Relevanz der Inhalte liefern. Es gibt zwei Möglichkeiten für das Tracking von Push-Abmeldungen: Segmentfilter oder angepasste Filter.
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Segmentfilter %}
 
-Sie können ein Segment erstellen, um Nutzer:innen zu identifizieren, die keine Push-Benachrichtigungen aktiviert haben – also nicht abonniert oder per Opt-in registriert sind und kein [Vordergrund-Push-Token]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens) besitzen. Um beispielsweise die Anzahl der Abmeldungen in Ihrer App anzuzeigen, verwenden Sie eine „ODER"-Kombination der folgenden Segmente:
+Sie können ein Segment erstellen, um Nutzer:innen zu identifizieren, die keine Push-Benachrichtigungen aktiviert haben – also nicht abonniert oder per Opt-in registriert sind und kein [Vordergrund-Push-Token]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens) besitzen. Um beispielsweise die Anzahl der Abmeldungen in Ihrer App anzuzeigen, verwenden Sie eine „ODER“-Kombination der folgenden Segments:
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
 
-![Der Abschnitt „Segment Builder" mit dem Filter „Hintergrund- oder Vordergrund-Push für App aktiviert" für eine App ist deaktiviert, und der Filter „Hat deinstalliert" ist ausgewählt.]({% image_buster /assets/img/push_unsub_segment_example.png %})
+![Der Abschnitt „Segment Builder“ mit dem Filter „Hintergrund- oder Vordergrund-Push für App aktiviert“ für eine App ist deaktiviert, und der Filter „Hat deinstalliert“ ist ausgewählt.]({% image_buster /assets/img/push_unsub_segment_example.png %})
 
 Bitte beachten Sie, dass die Segmentierungsfilter nur Näherungswerte liefern und nicht konkret mit einem Datum und einer Kampagne verknüpft werden können.
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab Angepasste Filter %}
 
 {% alert important %}
-Das Protokollieren eines angepassten Events für Abo-Änderungen verbraucht [Datenpunkte]({{site.baseurl}}/user_guide/data_and_analytics/data_points#consumption-count). Verwenden Sie alternativ Segmentfilter, um Nutzer:innen zu identifizieren und zu targetieren, die nicht Push-aktiviert sind.
+Das Protokollieren eines angepassten Events für Abo-Änderungen verbraucht [Datenpunkte]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Verwenden Sie alternativ Segmentfilter, um Nutzer:innen zu identifizieren und zu targetieren, die nicht Push-aktiviert sind.
 {% endalert %}
 
 Als weitere Möglichkeit empfehlen wir, ein angepasstes Event für Push-Abmeldungen zu erstellen, das darauf basiert, ob der Push-Aktivierungsstatus einer Nutzer:in `true` oder `false` ist, um diese Metrik zu verfolgen.
@@ -630,11 +630,11 @@ Als weitere Möglichkeit empfehlen wir, ein angepasstes Event für Push-Abmeldun
 {% endtab %}
 {% endtabs %}
 
-##### Öffnungen verstehen
+##### Öffnungen verstehen {#understanding-opens}
 
-Auch wenn _direkte Öffnungen_ und _beeinflusste Öffnungen_ das Wort „Öffnungen" enthalten, handelt es sich um unterschiedliche Metriken. _Direkte Öffnungen_ bezieht sich auf das direkte Öffnen einer Push-Benachrichtigung, wie in der Tabelle oben beschrieben. _Beeinflusste Öffnungen_ bezieht sich auf das Öffnen einer App, ohne dass eine Push-Benachrichtigung innerhalb eines bestimmten Zeitraums nach Erhalt geöffnet wurde. _Beeinflusste Öffnungen_ bezieht sich also auf App-Öffnungen, nicht auf das Öffnen von Push-Benachrichtigungen.
+Auch wenn _direkte Öffnungen_ und _beeinflusste Öffnungen_ das Wort „Öffnungen“ enthalten, handelt es sich um unterschiedliche Metriken. _Direkte Öffnungen_ bezieht sich auf das direkte Öffnen einer Push-Benachrichtigung, wie in der Tabelle oben beschrieben. _Beeinflusste Öffnungen_ bezieht sich auf das Öffnen einer App, ohne dass eine Push-Benachrichtigung innerhalb eines bestimmten Zeitraums nach Erhalt geöffnet wurde. _Beeinflusste Öffnungen_ bezieht sich also auf App-Öffnungen, nicht auf das Öffnen von Push-Benachrichtigungen.
 
-##### Warum Push-Sendungen die Zahl der eindeutigen Empfänger:innen übersteigen können
+##### Warum Push-Sendungen die Zahl der eindeutigen Empfänger:innen übersteigen können {#why-push-sends-can-exceed-unique-recipients}
 
 Die Anzahl der _Sendungen_ kann die Anzahl der _eindeutigen Empfänger:innen_ aus folgenden Gründen übersteigen:
 
@@ -649,7 +649,7 @@ Die Anzahl der _Sendungen_ kann die Anzahl der _eindeutigen Empfänger:innen_ au
 
 Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token registrieren) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
 
-Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert". Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token vorhanden ist, sodass keine Benachrichtigung gesendet wird.
+Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert“. Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token vorhanden ist, sodass keine Benachrichtigung gesendet wird.
 
 Push-Benachrichtigungen, die vor der Zustellung ablaufen, gelten nicht als fehlgeschlagen und werden nicht als Bounce registriert.
 
@@ -671,7 +671,7 @@ Firebase Cloud Messaging (FCM) Bounces können in drei Fällen auftreten:
 
 {% elsif include.channel == "SMS" %}
 
-#### SMS-, MMS- und RCS-Metriken
+#### SMS-, MMS- und RCS-Metriken {#sms-mms-and-rcs-metrics}
 
 Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller SMS-, MMS- und RCS-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach SMS/MMS und RCS.
 
@@ -722,7 +722,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 
 {% elsif include.channel == "webhook" %}
 
-#### Webhook-Metriken
+#### Webhook-Metriken {#webhook-metrics}
 
 Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten Webhook-Metriken finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
 
@@ -757,7 +757,7 @@ Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen kö
 
 {% elsif include.channel == "whatsapp" %}
 
-#### WhatsApp-Metriken
+#### WhatsApp-Metriken {#whatsapp-metrics}
 
 Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten WhatsApp-Metriken finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
 
@@ -794,19 +794,19 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     </tbody>
 </table>
 
-#### Metriken zu Endnutzer:innen-Sperrung und -Meldung
+#### Metriken zu Endnutzer:innen-Sperrung und -Meldung {#end-user-blocking-and-reporting-metrics}
 
 Über das [Dashboard des WhatsApp Managers](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx) können Sie auf weitere Metriken zugreifen. Allerdings ist eine [Bestätigung Ihres Zugriffs](https://www.facebook.com/business/help/218116047387456) erforderlich, um alle verfügbaren Insights einzusehen.
 
 {% endif %}
 
-### Historische Performance
+### Historische Performance {#historical-performance}
 
 Im Panel **Historische Performance** können Sie die Metriken aus dem Panel **Nachrichten-Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
 Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das Hamburger-Menü <i class="fas fa-bars"></i> und wählen Sie **CSV herunterladen**, um einen CSV-Export des Berichts zu erhalten.
 
-![Ein Diagramm des Panels „Historische Performance" mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
+![Ein Diagramm des Panels „Historische Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 
 {% if include.channel == "in-app message" %}
 
@@ -818,33 +818,33 @@ Wenn Sie sich dafür entscheiden, nur an Nutzer:innen zu senden, die die neueste
 
 {% if include.channel == "SMS" %}
 
-### Schlüsselwort-Antworten
+### Schlüsselwort-Antworten {#keyword-responses}
 
 Das Panel **Schlüsselwort-Antworten** zeigt Ihnen eine Zeitleiste der eingehenden Schlüsselwörter, mit denen Nutzer:innen nach Erhalt Ihrer Nachricht geantwortet haben.
 
-![Das Panel „Kampagnenebene – SMS/MMS/RCS-Schlüsselwort-Antworten" mit einem Liniendiagramm zur Verteilung der Schlüsselwörter im Zeitverlauf und einem Abschnitt „Schlüsselwort-Kategorien" mit ausgewählten Kontrollkästchen für „Opt-in", „Opt-out", „Hilfe", „Sonstiges", „Mehr" und „Coaching".]({% image_buster /assets/img/sms/keyword_responses.png %})
+![Das Panel „Kampagnenebene – SMS/MMS/RCS-Schlüsselwort-Antworten“ mit einem Liniendiagramm zur Verteilung der Schlüsselwörter im Zeitverlauf und einem Abschnitt „Schlüsselwort-Kategorien“ mit ausgewählten Kontrollkästchen für „Opt-in“, „Opt-out“, „Hilfe“, „Sonstiges“, „Mehr“ und „Coaching“.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Hier können Sie auch die Antwortverteilung für jede Schlüsselwort-Kategorie einsehen, um die nächsten Schritte für das [Retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) festzulegen und bequem [ein Segment zu erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
+Hier können Sie auch die Antwortverteilung für jede Schlüsselwort-Kategorie einsehen, um die nächsten Schritte für das [Retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/) festzulegen und bequem [ein Segment zu erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
 ![Die Tabelle unterhalb des Liniendiagramms mit Spalten für Schlüsselwort-Kategorie, Antwortverteilung und Retargeting, wobei Sie die Möglichkeit haben, ein Segment mit der Schlüsselwort-Kategorie zu erstellen.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
-### Details zum Konversions-Event
+### Details zum Konversions-Event {#conversion-event-details}
 
 Das Panel **Details zum Konversions-Event** zeigt Ihnen die Performance Ihrer Konversions-Events für Ihre Kampagne. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results).
 
-![Das Panel „Details zum Konversions-Event".]({% image_buster /assets/img/cc-conversion.png %})
+![Das Panel „Details zum Konversions-Event“.]({% image_buster /assets/img/cc-conversion.png %})
 
-### Konversionskorrelation
+### Konversionskorrelation {#conversion-correlation}
 
-Das Panel **Konversionskorrelation** gibt Ihnen Aufschluss darüber, welche Nutzerattribute und Verhaltensweisen die von Ihnen für Kampagnen festgelegten Ergebnisse fördern oder beeinträchtigen. Weitere Informationen finden Sie unter [Konversionskorrelation]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
+Das Panel **Konversionskorrelation** gibt Ihnen Aufschluss darüber, welche Nutzerattribute und Verhaltensweisen die von Ihnen für Campaigns festgelegten Ergebnisse fördern oder beeinträchtigen. Weitere Informationen finden Sie unter [Konversionskorrelation]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
 
-![Das Panel „Konversionskorrelation" mit einer Analyse der Nutzerattribute und des Verhaltens aus dem primären Konversions-Event – A.]({% image_buster /assets/img/convcorr.png %})
+![Das Panel „Konversionskorrelation“ mit einer Analyse der Nutzerattribute und des Verhaltens aus dem primären Konversions-Event – A.]({% image_buster /assets/img/convcorr.png %})
 
 {% if include.channel == "KakaoTalk" %}
 
-## Berichts-Builder
+## Berichts-Builder {#report-builder}
 
 Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) verwenden, um benutzerdefinierte Berichte für Ihre KakaoTalk-Kampagnen zu erstellen. Beim Erstellen eines Berichts können Sie filtern, um nur KakaoTalk-Kampagnen einzubeziehen, indem Sie unter **Kanäle** die Option **KakaoTalk** auswählen oder nach Tags filtern, die Sie Ihren KakaoTalk-Kampagnen zugewiesen haben.
 
@@ -872,11 +872,11 @@ Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.
 
 {% if include.channel != "whatsapp" %}
 
-## Bindungsbericht
+## Bindungsbericht {#retention-report}
 
 Bindungsberichte zeigen Ihnen die Raten, mit denen Ihre Nutzer:innen ein ausgewähltes Bindungs-Event über Zeiträume in einer bestimmten Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} durchgeführt haben. Weitere Informationen finden Sie unter [Bindungsberichte]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/).
 
-## Funnel-Bericht
+## Funnel-Bericht {#funnel-report}
 
 Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys Ihrer Kund:innen nach dem Erhalt einer Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} analysieren können. Wenn Ihre Kampagne {% if include.channel != "banner" %}oder Canvas {% endif %}eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie nachvollziehen, wie sich die verschiedenen Varianten auf den Konversionstrichter ausgewirkt haben, und auf Grundlage dieser Daten optimieren.
 

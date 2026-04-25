@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-A limitação de frequência não se aplica aos Cartões de conteúdo.
+A limitação de frequência não se aplica aos Content Cards.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ A Braze não gera perfis para os usuários até que eles tenham usado o app pela
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-Todos os atributos são originados da API REST da Braze.
+Todos os atributos são originados da REST API da Braze.
 {% endalert %}
 
 {% endif %}

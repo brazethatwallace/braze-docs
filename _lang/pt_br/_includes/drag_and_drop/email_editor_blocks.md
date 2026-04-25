@@ -1,4 +1,4 @@
-## Usando blocos de editor de e-mail
+## Usando blocos de editor de e-mail {#using-email-editor-blocks}
 
 Os blocos de editor estão localizados na seção **Conteúdo** para mensagens de e-mail. Para usar um bloco de editor, arraste um bloco de editor para dentro de uma coluna no editor de arrastar e soltar. Ele se ajustará automaticamente à largura da coluna. Cada bloco do editor tem suas próprias configurações, como o controle granular do preenchimento.
 
@@ -8,41 +8,41 @@ Para saber mais sobre como usar e personalizar esses blocos de editor em seu e-m
 Você também pode adicionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) a qualquer URL dentro dos blocos de editor `Image`, `Button` ou `Text`.
 {% endalert %}
 
-## Tipos
+## Tipos {#types}
 
 A tabela a seguir descreve como os usuários podem usar cada tipo de bloco de editor.
 
 | Nome | Descrição |
 |---|---|
-|Título| Adiciona texto para cabeçalhos dentro do e-mail. | 
-|Parágrafo| Insere texto na mensagem. Uma barra de ferramentas ajuda na funcionalidade de edição de texto e fontes. | 
+|Título| Adiciona texto para cabeçalhos dentro do e-mail. |
+|Parágrafo| Insere texto na mensagem. Uma barra de ferramentas ajuda na funcionalidade de edição de texto e fontes. |
 |Lista| Adiciona uma lista com marcadores. |
-|Botão| Adiciona um botão padrão. As propriedades desse bloco permitem editar e definir links facilmente. | 
+|Botão| Adiciona um botão padrão. As propriedades desse bloco permitem editar e definir links facilmente. |
 |Divisor| Insere uma linha sólida, pontilhada ou tracejada para ajudar no espaçamento.|
 |Espaçador| Adiciona espaço, ou "padding", entre outros blocos. |
-|Imagem| Insere uma imagem da [Biblioteca de mídia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). | 
+|Imagem| Insere uma imagem da [Biblioteca de mídia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
 |Vídeo| Cria um link para o conteúdo do vídeo. |
 |Redes sociais| Insere o ícone da plataforma de redes sociais. Você pode fazer upload de imagens personalizadas para ícones específicos da marca. |
 |Ícones| Insere um ícone. Você pode fazer upload de imagens personalizadas. A Braze usa um ícone de espaço reservado grande até que você faça upload de uma imagem. |
-|HTML| Insere HTML bruto. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Conteúdo conectado ou declarações condicionais. | 
+|HTML| Insere HTML bruto. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Conteúdo conectado ou declarações condicionais. |
 |Menu| Cria um menu flexível para a mensagem que você está projetando. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Personalização em e-mail
+### Personalização em e-mail {#personalization-in-email}
 
 - **Liquid:** Em **Conteúdo** > **Personalização**, selecione um atributo, copie o snippet e cole-o em um bloco de texto (Liquid básico) ou bloco HTML (Liquid avançado). Em geral, embora você possa usar Liquid básico em blocos de texto, recomendamos usar blocos HTML para lógicas mais complexas, a fim de evitar problemas de layout. Note que o Liquid não é compatível com blocos de imagem ou campos de URL de botão.
 - **Conteúdo conectado:** Adicione um bloco **HTML** e insira sua chamada {% raw %}`{% connected_content %}`{% endraw %} nele.
 
-## Propriedades
+## Propriedades {#properties}
 
 Os detalhes das propriedades de cada bloco de editor são fornecidos nas tabelas a seguir.
 
-### Título
+### Título {#title}
 Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do editor `Title`.
 
 | Propriedades | Descrição |
 |---|---|
-|Título| Seleciona o estilo do cabeçalho. | 
+|Título| Seleciona o estilo do cabeçalho. |
 |Família da fonte| Esse é o estilo da fonte do seu título. |
 |Peso da fonte| Esse é o grau de negrito da fonte. |
 |Tamanho da fonte| Determina o tamanho do seu texto. |
@@ -54,7 +54,7 @@ Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do
 |Direção do texto| Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Parágrafo
+### Parágrafo {#paragraph}
 
 Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do editor `Paragraph`.
 
@@ -72,7 +72,7 @@ Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do
 |Direção do texto| Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Lista
+### Lista {#list}
 
 Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do editor `List`.
 
@@ -94,7 +94,7 @@ Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do
 |Direção do texto| Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Divisor
+### Divisor {#divider}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Divider`.
 
@@ -106,7 +106,7 @@ Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Divider`
 |Alinhar| Move a linha para a esquerda, para o centro ou para a direita. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Espaçador
+### Espaçador {#spacer}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Spacer`.
 
@@ -115,7 +115,7 @@ Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Spacer`.
 |Altura| Ajusta a altura do bloco espaçador. O padrão é 60px.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Imagem
+### Imagem {#image}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Image`. Para imagens dinâmicas (imagens com Liquid ou Conteúdo conectado), você deve definir uma imagem de fallback para usar as configurações de largura automática. Para especificações de imagem, consulte nossas [especificações de imagem de e-mail]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
 
@@ -139,7 +139,7 @@ Para `Auto Width`, o redimensionamento automático da imagem escolhe o melhor ta
 - Imagens menores do que o espaço disponível usarão o tamanho natural da imagem para evitar efeitos de distorção ou imagens borradas.
 {% endalert %}
 
-### Vídeo
+### Vídeo {#video}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Video`.
 
@@ -156,7 +156,7 @@ Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Video`.
 Os vídeos hospedados pelo Vimeo só funcionarão se estiverem definidos como públicos. Todas as outras configurações de segurança disponíveis no Vimeo (por exemplo, "Hide from Vimeo.com") gerarão um formato de link diferente que não é compatível com este bloco de conteúdo. Esses tipos de links são alterados pelo construtor, o que impede a Braze de gerar uma miniatura.
 {% endalert %}
 
-### Redes sociais
+### Redes sociais {#social}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Social`.
 
@@ -168,7 +168,7 @@ Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Social`.
 |Espaçamento do ícone| Determina o espaçamento entre cada ícone social. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Ícones
+### Ícones {#icons}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Icons`.
 
@@ -215,11 +215,11 @@ Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Menu`.
 |Todos os lados| Define um número de preenchimento consistente se o preenchimento do item estiver desativado. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Ações
+## Ações {#actions}
 
 Você pode atribuir uma ação que ocorre quando um usuário toca em um botão, link ou imagem na mensagem. Você também pode usar [Liquid]({{site.baseurl}}/liquid/) para personalizar as ações. Os detalhes das ações de cada bloco de editor são fornecidos nas tabelas a seguir.
 
-### Botão
+### Botão {#button}
 
 Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Button`.
 

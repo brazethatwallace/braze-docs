@@ -1,24 +1,24 @@
-### Requisitos previos
+### Requisitos previos {#prerequisites}
 
 Antes de poder utilizar este método de integración, deberás [crear una cuenta y un contenedor para Google Tag Manager](https://support.google.com/tagmanager/answer/14842164).
 
-### Paso 1: Abre la galería de plantillas de etiquetas
+### Paso 1: Abre la galería de plantillas de etiquetas {#step-1-open-the-tag-template-gallery}
 
 En [Google Tag Manager](https://tagmanager.google.com/), elige tu espacio de trabajo y, a continuación, selecciona **Plantillas**. En el panel **Plantilla de etiqueta**, selecciona **Buscar galería**.
 
 ![La página de plantillas para un espacio de trabajo de ejemplo en Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
-### Paso 2: Añade la plantilla de etiqueta de inicialización
+### Paso 2: Añade la plantilla de etiqueta de inicialización {#step-2-add-the-initialization-tag-template}
 
 En la galería de plantillas, busca `braze-inc` y selecciona **Braze Initialization Tag**.
 
-![La galería de plantillas mostrando las distintas plantillas de 'braze-inc'.]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
+![La galería de plantillas mostrando las distintas plantillas de "braze-inc".]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
 Selecciona **Add to workspace** > **Add**.
 
-![La página 'Braze Initialization Tag' en Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
+![La página "Braze Initialization Tag" en Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
-### Paso 3: Configura la etiqueta
+### Paso 3: Configura la etiqueta {#step-3-configure-the-tag}
 
 En la sección **Plantillas**, selecciona la plantilla que acabas de añadir.
 
@@ -26,7 +26,7 @@ En la sección **Plantillas**, selecciona la plantilla que acabas de añadir.
 
 Selecciona el icono del lápiz para abrir el menú desplegable **Tag Configuration**.
 
-![El mosaico Tag Configuration con el icono del 'lápiz' mostrado.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![El mosaico Tag Configuration con el icono del "lápiz" mostrado.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 Introduce la información mínima requerida:
 
@@ -39,9 +39,9 @@ Introduce la información mínima requerida:
 
 Para configuraciones de inicialización adicionales, selecciona **Braze Initialization Options** y elige las opciones que necesites.
 
-![La lista de opciones de inicialización de Braze en 'Tag Configuration'.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+![La lista de opciones de inicialización de Braze en "Tag Configuration".]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
-### Paso 4: Elige las opciones de inicialización
+### Paso 4: Elige las opciones de inicialización {#step-4-choose-initialization-options}
 
 La etiqueta de inicialización de Braze expone las siguientes opciones. La mayoría se mapean directamente a las [`InitializationOptions` del SDK Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions), y algunas corresponden a métodos del SDK Web que la etiqueta llamará durante la inicialización. Selecciona las opciones que se ajusten a tus necesidades de integración:
 
@@ -68,11 +68,11 @@ Para habilitar los [mensajes HTML personalizados dentro de la aplicación]({{sit
 
 Para las opciones que no aparecen en la plantilla GTM (como `contentSecurityNonce`, `localization` o `devicePropertyAllowlist`), utiliza la [inicialización en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
 
-### Paso 5: Configura para desencadenar en *todas las páginas*
+### Paso 5: Configura para desencadenar en *todas las páginas* {#step-5-set-to-trigger-on-all-pages}
 
 La etiqueta de inicialización debe ejecutarse en todas las páginas de tu sitio web. Esto te permite utilizar los métodos del SDK de Braze y registrar análisis de notificaciones push web.
 
-### Paso 6: Verifica tu integración
+### Paso 6: Verifica tu integración {#step-6-verify-your-integration}
 
 Puedes verificar tu integración utilizando cualquiera de las siguientes opciones:
 

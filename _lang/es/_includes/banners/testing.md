@@ -10,7 +10,7 @@ Para enviar un mensaje de prueba, añade un grupo de prueba de contenido o uno o
 
 Mientras revisas tu banner de prueba, verifica lo siguiente:
 
-- ¿Tu campaña de banner está asignada a una ubicación?
+- ¿Tu campaign de banner está asignada a una ubicación?
 - ¿Las imágenes y los medios se muestran y funcionan como esperabas en los tipos de dispositivos y tamaños de pantalla a los que te diriges?
 - ¿Tus enlaces y botones dirigen al usuario adonde deben ir?
 - ¿Funciona Liquid como se esperaba? ¿Has previsto un valor de atributo predeterminado en caso de que Liquid no devuelva ninguna información?

@@ -15,9 +15,9 @@ Ces événements sont également disponibles sous forme de tables SQL dans le [G
 
 Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
-{% details Explanation of customer behavior and user event structure and platform values %}
+{% details Explication de la structure des comportements clients et événements utilisateurs, et des valeurs de plateforme %}
 
-### Structure des événements
+### Structure des événements {#event-structure}
 
 Cette présentation des comportements des clients et des événements utilisateurs décrit le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent exploiter les données d'événements Currents entrantes pour créer des rapports et des graphiques axés sur les données, et tirer parti d'autres indicateurs précieux.
 
@@ -25,7 +25,7 @@ Cette présentation des comportements des clients et des événements utilisateu
 
 Les comportements des clients et les événements utilisateurs se composent de propriétés **propres à l'utilisateur**, de propriétés **propres au comportement** et de propriétés **propres à l'appareil**.
 
-### Valeurs de plateforme
+### Valeurs de plateforme {#platform-values}
 
 Certains événements renvoient une valeur `platform` qui spécifie la plateforme de l'appareil de l'utilisateur.
 <br>Le tableau suivant détaille les valeurs pouvant être renvoyées :
@@ -44,7 +44,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 {% enddetails %}
 
 {% alert important %}
-Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage d'entrepôt de données (tels que Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations répertoriées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.<br><br>Notez également que Currents abandonnera les événements dont le PAYLOAD est excessivement volumineux (supérieur à 900&nbsp;Ko).
+Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage d'entrepôt de données (tels que Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations répertoriées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.<br><br>Notez également que Currents abandonnera les événements dont le payload est excessivement volumineux (supérieur à 900&nbsp;Ko).
 {% endalert %}
 
 {% alert note %}

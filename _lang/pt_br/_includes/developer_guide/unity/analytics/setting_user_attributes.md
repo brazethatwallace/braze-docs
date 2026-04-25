@@ -1,10 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## Atributos padrão do usuário
+## Atributos padrão do usuário {#default-user-attributes}
 
-### Métodos predefinidos
+### Métodos predefinidos {#predefined-methods}
 
-A Braze fornece métodos predefinidos para configurar os seguintes atributos de usuário usando o objeto `BrazeBinding`. Para saber mais, consulte o [arquivo de declaração do Braze Unity](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs).
+A Braze fornece métodos predefinidos para definir os seguintes atributos de usuário usando o objeto `BrazeBinding`. Para saber mais, consulte o [arquivo de declaração do Braze Unity](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs).
 
 - Nome
 - Sobrenome
@@ -17,7 +17,7 @@ A Braze fornece métodos predefinidos para configurar os seguintes atributos de 
 - Inscrição push do usuário
 - Número de telefone do usuário
 
-### Definição de atributos padrão
+### Definindo atributos padrão {#setting-default-attributes}
 
 Para definir um atributo padrão, chame o método relevante no objeto `BrazeBinding`.
 
@@ -74,7 +74,7 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 {% endtab %}
 {% endtabs %}
 
-### Desativação de atributos padrão
+### Removendo atributos padrão {#unsetting-default-attributes}
 
 Para remover a definição de um atributo de usuário padrão, passe `null` para o método relevante.
 
@@ -82,13 +82,13 @@ Para remover a definição de um atributo de usuário padrão, passe `null` para
 BrazeBinding.SetUserFirstName(null);
 ```
 
-## Atributos personalizados do usuário
+## Atributos personalizados do usuário {#custom-user-attributes}
 
-Além dos atributos de usuário padrão, a Braze também permite definir atributos personalizados usando vários tipos de dados diferentes. Para saber mais sobre as opções de segmentação de cada atributo, consulte [Coleta de dados de usuários]({{site.baseurl}}/developer_guide/analytics).
+Além dos atributos de usuário padrão, a Braze também permite definir atributos personalizados usando vários tipos de dados diferentes. Para saber mais sobre as opções de segmentação de cada atributo, consulte [Coleta de dados de usuários]({{site.baseurl}}/developer_guide/analytics/).
 
-### Definindo atributos personalizados
+### Definindo atributos personalizados {#setting-custom-attributes}
 
-Para definir um atributo personalizado, use o método correspondente ao tipo do atributo: 
+Para definir um atributo personalizado, use o método correspondente ao tipo do atributo:
 
 {% tabs %}
 {% tab String %}
@@ -157,19 +157,19 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 Os valores de atributos personalizados têm um comprimento máximo de 255 caracteres; valores mais longos serão truncados.
 {% endalert %}
 
-### Desativação de atributos personalizados
+### Removendo atributos personalizados {#unsetting-custom-attributes}
 
-Para remover a definição de um atributo personalizado, passe a chave do atributo relevante para o método `UnsetCustomUserAttribute`. 
+Para remover a definição de um atributo personalizado, passe a chave do atributo relevante para o método `UnsetCustomUserAttribute`.
 
 ```csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### Usando a API REST
+### Usando a REST API {#using-the-rest-api}
 
-Também é possível usar nossa API REST para definir ou remover atributos de usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Também é possível usar nossa REST API para definir ou remover atributos de usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Configuração de inscrições de usuários
+## Configuração de inscrições de usuários {#setting-user-subscriptions}
 
 Para configurar uma inscrição de e-mail ou push para seus usuários, chame uma das seguintes funções.
 
@@ -204,13 +204,13 @@ O Windows não exige opt-in explícito para enviar notificações por push aos u
 Esses tipos pertencem a `Appboy.Models.AppboyNotificationSubscriptionType`.
 {% endalert %}
 
-### Configuração de inscrições de e-mail
+### Configuração de inscrições de e-mail {#setting-email-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
 ```
 
-### Configuração de inscrições de notificação por push
+### Configuração de inscrições de notificação por push {#setting-push-notification-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);

@@ -1,32 +1,32 @@
-### Voraussetzungen
+### Voraussetzungen {#prerequisites}
 
 Bevor Sie diese Integrationsmethode verwenden können, müssen Sie [ein Konto und einen Container für Google Tag Manager erstellen](https://support.google.com/tagmanager/answer/14842164).
 
-### 1. Schritt: Tag-Template-Galerie öffnen
+### 1. Schritt: Tag-Template-Galerie öffnen {#step-1-open-the-tag-template-gallery}
 
 Wählen Sie im [Google Tag Manager](https://tagmanager.google.com/) Ihren Workspace aus und wählen Sie dann **Templates**. Wählen Sie im Bereich **Tag Template** die Option **Search Gallery**.
 
-![Die Template-Seite für einen Beispiel-Workspace in Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
+![Die Template-Seite für einen Beispiel-Workspace im Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
-### 2. Schritt: Initialisierungs-Tag-Template hinzufügen
+### 2. Schritt: Initialisierungs-Tag-Template hinzufügen {#step-2-add-the-initialization-tag-template}
 
 Suchen Sie in der Template-Galerie nach `braze-inc` und wählen Sie dann **Braze Initialization Tag** aus.
 
-![Die Template-Galerie mit den verschiedenen „braze-inc"-Templates.]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
+![Die Template-Galerie mit den verschiedenen „braze-inc“-Templates.]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
 Wählen Sie **Add to workspace** > **Add**.
 
-![Die Seite „Braze Initialization Tag" im Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
+![Die Seite „Braze Initialization Tag“ im Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
-### 3. Schritt: Tag konfigurieren
+### 3. Schritt: Tag konfigurieren {#step-3-configure-the-tag}
 
 Wählen Sie im Abschnitt **Templates** Ihr neu hinzugefügtes Template aus.
 
-![Die Seite „Templates" im Google Tag Manager mit dem Braze Initialization Tag Template.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![Die Seite „Templates“ im Google Tag Manager mit dem Braze Initialization Tag Template.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
 Wählen Sie das Bleistift-Symbol, um das Dropdown-Menü **Tag Configuration** zu öffnen.
 
-![Die Kachel „Tag Configuration" mit dem Bleistift-Symbol.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![Die Kachel „Tag Configuration“ mit dem Bleistift-Symbol.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 Geben Sie die erforderlichen Mindestinformationen ein:
 
@@ -39,9 +39,9 @@ Geben Sie die erforderlichen Mindestinformationen ein:
 
 Für zusätzliche Initialisierungseinstellungen wählen Sie **Braze Initialization Options** und wählen die gewünschten Optionen aus.
 
-![Die Liste der Braze Initialization Options unter „Tag Configuration".]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+![Die Liste der Braze Initialization Options unter „Tag Configuration“.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
-### 4. Schritt: Initialisierungsoptionen auswählen
+### 4. Schritt: Initialisierungsoptionen auswählen {#step-4-choose-initialization-options}
 
 Das Braze Initialization Tag bietet die folgenden Optionen. Die meisten davon lassen sich direkt den [Web SDK `InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) zuordnen, und einige entsprechen Web-SDK-Methoden, die das Tag während der Initialisierung aufruft. Wählen Sie die Optionen aus, die Ihren Integrationsanforderungen entsprechen:
 
@@ -68,11 +68,11 @@ Um [angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_
 
 Für Optionen, die nicht im GTM-Template verfügbar sind (wie `contentSecurityNonce`, `localization` oder `devicePropertyAllowlist`), verwenden Sie stattdessen die [Laufzeitinitialisierung]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
 
-### 5. Schritt: Auf *allen Seiten* triggern
+### 5. Schritt: Auf *allen Seiten* triggern {#step-5-set-to-trigger-on-all-pages}
 
 Das Initialisierungs-Tag sollte auf allen Seiten Ihrer Website ausgeführt werden. So können Sie die Braze-SDK-Methoden nutzen und Web-Push-Analytics erfassen.
 
-### 6. Schritt: Integration überprüfen
+### 6. Schritt: Integration überprüfen {#step-6-verify-your-integration}
 
 Sie können Ihre Integration mit einer der folgenden Optionen überprüfen:
 

@@ -1,16 +1,16 @@
-# Configuração de IDs de usuário
- 
-> Este artigo de referência mostra como definir IDs de usuário no seu app para Android ou FireOS, sugere convenções de nomenclatura de IDs de usuário e algumas práticas recomendadas.
+# Definir IDs de usuário {#setting-user-ids}
+
+> Este artigo de referência mostra como definir IDs de usuário no seu app para Android ou FireOS, convenções de nomenclatura de IDs de usuário sugeridas e algumas práticas recomendadas.
 
 {% multi_lang_include archive/setting_user_ids/setting_user_ids.md %}
 
-## Sugestão de convenção de nomenclatura de ID de usuário
+## Sugestão de convenção de nomenclatura de ID de usuário {#suggested-user-id-naming-convention}
 
 {% multi_lang_include archive/setting_user_ids/naming_convention.md %}
 
-### Atribuindo um ID de usuário
+### Atribuindo um ID de usuário {#assigning-a-user-id}
 
-Você deve fazer a seguinte chamada assim que o usuário for identificado (geralmente após o login) para definir o ID do usuário:
+A seguinte chamada deve ser feita assim que o usuário for identificado (geralmente após o login) para definir o ID do usuário:
 
 {% tabs %}
 {% tab JAVA %}
@@ -37,7 +37,7 @@ Além disso, recomendamos **não** alterar o ID do usuário quando um usuário f
 
 Consulte a documentação de [`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html) para saber mais.
 
-### Inscrevendo-se em eventos de mudança de usuário
+### Inscrevendo-se em eventos de mudança de usuário {#subscribing-to-user-change-events}
 
 Use [`subscribeToChangeUserEvents`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-change-user-events.html) para executar lógica quando o app muda de usuário com `changeUser()`. Este método está disponível no Android SDK 40.0.0 e versões posteriores.
 
@@ -67,10 +67,10 @@ Braze.getInstance(context).subscribeToChangeUserEvents { event ->
 {% endtab %}
 {% endtabs %}
 
-## Práticas recomendadas e notas para integração de ID de usuário
+## Práticas recomendadas e notas para integração de ID de usuário {#user-id-integration-best-practices-and-notes}
 
 {% multi_lang_include archive/setting_user_ids/best_practices.md %}
 
-## Aliasing de usuários
+## Aliasing de usuários {#aliasing-users}
 
 {% multi_lang_include archive/setting_user_ids/aliasing.md platform="Android" %}

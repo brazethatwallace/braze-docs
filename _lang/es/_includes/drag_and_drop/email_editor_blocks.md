@@ -1,4 +1,4 @@
-## Uso de bloques de editor de correo electrónico
+## Uso de bloques de editor de correo electrónico {#using-email-editor-blocks}
 
 Los bloques de editor se encuentran en la sección **Contenido** de los mensajes de correo electrónico. Para usar un bloque de editor, arrastra un bloque de editor dentro de una columna en el editor de arrastrar y soltar. Se ajustará automáticamente al ancho de la columna. Cada bloque de editor tiene su propia configuración, como el control granular del relleno.
 
@@ -8,41 +8,41 @@ Para obtener más información sobre cómo usar y personalizar estos bloques de 
 También puedes añadir [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) a cualquier URL dentro de los bloques de editor `Image`, `Button` o `Text`.
 {% endalert %}
 
-## Tipos
+## Tipos {#types}
 
 La siguiente tabla describe cómo los usuarios pueden utilizar cada tipo de bloque de editor.
 
 | Nombre | Descripción |
 |---|---|
-|Título| Añade texto para encabezados dentro del correo electrónico. | 
-|Párrafo| Introduce texto en el mensaje. Una barra de herramientas ayuda con las funciones de edición de fuentes y texto. | 
+|Título| Añade texto para encabezados dentro del correo electrónico. |
+|Párrafo| Introduce texto en el mensaje. Una barra de herramientas ayuda con las funciones de edición de fuentes y texto. |
 |Lista| Añade una lista con viñetas. |
-|Botón| Añade un botón estándar. Las propiedades de este bloque permiten editar y configurar enlaces fácilmente. | 
+|Botón| Añade un botón estándar. Las propiedades de este bloque permiten editar y configurar enlaces fácilmente. |
 |Divisor| Inserta una línea sólida, punteada o discontinua para ayudar con el espaciado.|
 |Espaciador| Añade espacio, o "relleno", entre otros bloques. |
-|Imagen| Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). | 
+|Imagen| Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
 |Video| Crea un enlace al contenido del video. |
 |Social| Inserta el icono de la plataforma de redes sociales. Puedes cargar imágenes personalizadas para iconos específicos de la marca. |
 |Iconos| Inserta un icono. Puedes cargar imágenes personalizadas. Braze utiliza un icono de marcador de posición de gran tamaño hasta que cargues una imagen. |
-|HTML| Inserta HTML sin formato. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Contenido conectado o sentencias condicionales. | 
+|HTML| Inserta HTML sin formato. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Contenido conectado o sentencias condicionales. |
 |Menú| Crea un menú flexible para el mensaje que estás diseñando. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Personalización en correo electrónico
+### Personalización en correo electrónico {#personalization-in-email}
 
 - **Liquid:** En **Contenido** > **Personalización**, selecciona un atributo, copia el fragmento de código y pégalo en un bloque de texto (Liquid básico) o en un bloque HTML (Liquid avanzado). En general, aunque puedes usar Liquid básico en bloques de texto, recomendamos usar bloques HTML para lógica más compleja y así evitar problemas de diseño. Ten en cuenta que Liquid no es compatible en bloques de imagen ni en campos de URL de botones.
 - **Contenido conectado:** Añade un bloque **HTML** y coloca tu llamada {% raw %}`{% connected_content %}`{% endraw %} allí.
 
-## Propiedades
+## Propiedades {#properties}
 
 En las siguientes tablas se proporcionan detalles sobre las propiedades de cada bloque de editor.
 
-### Título
+### Título {#title}
 Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloque de editor `Title`.
 
 | Propiedades | Descripción |
 |---|---|
-|Título| Selecciona el estilo del encabezado. | 
+|Título| Selecciona el estilo del encabezado. |
 |Familia de fuente| Es el estilo de fuente para tu título. |
 |Peso de fuente| Es el grosor general de la fuente. |
 |Tamaño de fuente| Determina el tamaño del texto. |
@@ -50,11 +50,11 @@ Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloq
 |Color del enlace| Modifica el color del enlace. |
 |Alinear| Mueve el título hacia la izquierda, el centro o la derecha. |
 |Altura de línea| Modifica la distancia entre líneas de texto. |
-|Interlineado| Modifica la distancia entre cada carácter. |
+|Espaciado de letras| Modifica la distancia entre cada carácter. |
 |Dirección del texto| Predeterminado de izquierda a derecha, pero se puede editar para que sea [de derecha a izquierda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Párrafo
+### Párrafo {#paragraph}
 
 Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloque de editor `Paragraph`.
 
@@ -72,7 +72,7 @@ Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloq
 |Dirección del texto| Predeterminado de izquierda a derecha, pero se puede editar para que sea [de derecha a izquierda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Lista
+### Lista {#list}
 
 Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloque de editor `List`.
 
@@ -94,7 +94,7 @@ Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloq
 |Dirección del texto| Predeterminado de izquierda a derecha, pero se puede editar para que sea [de derecha a izquierda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Divisor
+### Divisor {#divider}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Divider`.
 
@@ -106,7 +106,7 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Div
 |Alinear| Mueve la línea hacia la izquierda, el centro o la derecha. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Espaciador
+### Espaciador {#spacer}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Spacer`.
 
@@ -115,7 +115,7 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Spa
 |Altura| Ajusta la altura del bloque espaciador. El valor predeterminado es 60 px.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Imagen
+### Imagen {#image}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Image`. Para imágenes dinámicas (imágenes con Liquid o Contenido conectado), debes establecer una imagen alternativa para usar la configuración de ancho automático. Para las especificaciones de imágenes, consulta nuestras [especificaciones de imágenes de correo electrónico]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
 
@@ -168,7 +168,7 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Soc
 |Espaciado entre iconos| Determina el espaciado entre cada icono social. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Iconos
+### Iconos {#icons}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Icons`.
 
@@ -195,7 +195,7 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `HTM
 |Editor HTML| Introduce el HTML sin formato. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Menú
+### Menú {#menu}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Menu`.
 
@@ -215,11 +215,11 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Men
 |Todos los lados| Establece un número de relleno consistente si el relleno de elementos está deshabilitado. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Acciones
+## Acciones {#actions}
 
 Puedes asignar una acción que se produzca cuando un usuario toque un botón, un enlace o una imagen del mensaje. También puedes usar [Liquid]({{site.baseurl}}/liquid/) para personalizar las acciones. En las siguientes tablas se proporcionan detalles sobre las acciones de cada bloque de editor.
 
-### Botón
+### Botón {#button}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Button`.
 

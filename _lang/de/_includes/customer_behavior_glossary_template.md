@@ -17,7 +17,7 @@ Kontaktieren Sie Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({{s
 
 {% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
 
-### Event-Struktur
+### Event-Struktur {#event-structure}
 
 Diese Aufschlüsselung von Kundenverhalten und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Kundenverhaltens- oder Nutzer-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Metriken auszuwerten.
 
@@ -25,7 +25,7 @@ Diese Aufschlüsselung von Kundenverhalten und Nutzer-Events zeigt, welche Art v
 
 Kundenverhalten und Nutzer-Events setzen sich aus **nutzerspezifischen** Eigenschaften, **verhaltensspezifischen** Eigenschaften und **gerätespezifischen** Eigenschaften zusammen.
 
-### Plattformwerte
+### Plattformwerte {#platform-values}
 
 Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutzergeräts angibt.
 <br>In der folgenden Tabelle finden Sie die möglichen Rückgabewerte:
@@ -48,5 +48,5 @@ Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehous
 {% endalert %}
 
 {% alert note %}
-Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur bei SDK-initiierten Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder für den/die Nutzer:in nicht hinterlegt sind, können diese Felder `null` sein.
+Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur bei SDK-initiierten Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder für die Nutzer:in nicht hinterlegt sind, können diese Felder `null` sein.
 {% endalert %}
