@@ -5,7 +5,7 @@ description: "A BrazeAI<sup>TM</sup> oferece uma coleção de ferramentas acess�
 page_order: 8
 layout: dev_guide
 search_rank: 12
-Tool:
+tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
@@ -38,7 +38,7 @@ guide_featured_list:
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
   - name: Predictive Suite
-    link: /docs/user_guide/brazeai
+    link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: Jornadas personalizadas
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
@@ -50,5 +50,4 @@ guide_featured_list:
     link: /docs/user_guide/messaging/ab_testing/optimizations
     image: /assets/img/braze_icons/trophy-01.svg
 ---
-
 <br>

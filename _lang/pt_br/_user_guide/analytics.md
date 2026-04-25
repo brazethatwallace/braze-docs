@@ -5,8 +5,8 @@ page_order: 7.5
 layout: dev_guide
 
 guide_top_header: "Análise de dados"
-guide_top_text: "A Braze oferece um conjunto abrangente de métricas e ferramentas de relatórios para medir a performance de campanhas, acompanhar o engajamento dos usuários e tomar decisões baseadas em dados. Você também pode complementar sua análise de dados com o <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, uma ferramenta de exportação de fluxo de dados para agir sobre grandes quantidades de dados granulares de clientes em suas próprias plataformas de BI."
-description: "Use a análise de dados da Braze para medir a performance de campanhas, acompanhar o engajamento dos usuários e acessar relatórios e dashboards detalhados."
+guide_top_text: "A Braze oferece um conjunto abrangente de métricas e ferramentas de relatórios para medir o desempenho de campaigns, acompanhar o engajamento dos usuários e tomar decisões baseadas em dados. Você também pode complementar sua análise de dados com o <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, uma ferramenta de exportação de fluxo de dados para agir sobre grandes quantidades de dados granulares de clientes em suas próprias plataformas de BI."
+description: "Use a análise de dados da Braze para medir o desempenho de campaigns, acompanhar o engajamento dos usuários e acessar relatórios e dashboards detalhados."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
@@ -25,4 +25,4 @@ guide_featured_list:
 
 ---
 
-Use **Dashboards** para monitorar a performance em uma visão geral, **Relatórios** para análises mais aprofundadas de campanhas e Canvas, e **Rastreamento** para configurar como a Braze captura as ações dos usuários. Se você não tem certeza do que uma métrica específica significa, consulte o **Glossário de métricas**.
+Use **Dashboards** para monitorar o desempenho em uma visão geral, **Relatórios** para análises mais aprofundadas de campaigns e Canvas, e **Rastreamento** para configurar como a Braze captura as ações dos usuários. Se você não tem certeza do que uma métrica específica significa, consulte o **Glossário de métricas**.

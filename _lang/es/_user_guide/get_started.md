@@ -7,9 +7,9 @@ description: "Familiarízate con los conceptos básicos que necesitarás conocer
 
 ---
 
-# Cómo empezar: Visión general de Braze
+# Cómo empezar: Visión general de Braze {#get-started-braze-overview}
 
-¡Te damos la bienvenida a Braze! Esta colección de artículos te ayudará a iniciarte en nuestra plataforma y te presentará los términos, características y funcionalidades clave de Braze. Esta página presenta los conceptos básicos que necesitarás conocer para trabajar en Braze.
+> ¡Te damos la bienvenida a Braze! Esta colección de artículos te ayudará a iniciarte en nuestra plataforma y te presentará los términos, características y funcionalidades clave de Braze. Esta página presenta los conceptos básicos que necesitas para trabajar en Braze.
 
 {% alert tip %}
 Te recomendamos encarecidamente que consultes nuestro curso gratuito [Braze Foundations for Everyone](https://learning.braze.com/page/braze-foundations-for-everyone) junto con estos artículos. No se necesita ningún inicio de sesión ni cuenta especial para este curso. Si eres desarrollador y buscas un resumen técnico de Braze, consulta también [Cómo empezar para desarrolladores]({{site.baseurl}}/developer_guide/getting_started/platform_overview/).
@@ -19,7 +19,7 @@ En las secciones de Cómo empezar, nos centramos en las implementaciones habitua
 
 Exploremos juntos el poder de Braze.
 
-## Cómo funciona Braze
+## Cómo funciona Braze {#how-braze-works}
 
 Braze es una plataforma de interacción con los clientes que ayuda a marcas de todos los tamaños a crear campañas personalizadas y dirigidas a través de diversos canales. Braze te ofrece la posibilidad de escuchar a tus clientes, comprender lo que su comportamiento está indicando y, a continuación, actuar enviándoles el mensaje adecuado, a través del canal adecuado, en el momento adecuado.
 
@@ -27,7 +27,7 @@ Braze es una plataforma de interacción con los clientes que ayuda a marcas de t
 Asegúrate de [añadir a tus colegas a Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) para que puedan explorar la plataforma contigo.
 {% endalert %}
 
-## Usuarios y segmentos
+## Usuarios y segmentos {#users-and-segments}
 
 Los usuarios son tus clientes, las personas que reciben los mensajes que envías con Braze. Todos los datos que recopilas sobre un usuario e ingieres en Braze se almacenan en su perfil de usuario, como sus datos demográficos, información personal, preferencias y comportamientos. Esta información potencia tu mensajería y es la forma en que puedes adaptar tus mensajes al usuario adecuado.
 
@@ -41,17 +41,17 @@ Los segmentos son dinámicos: los usuarios pueden entrar y salir de ellos en tie
 
 Para más información, consulta: [Cómo empezar: Usuarios y segmentos]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
 
-## Campañas y Canvas
+## Campaigns y Canvas {#campaigns-and-canvases}
 
 Las campañas y los Canvas son la forma de enviar mensajes a tus usuarios.
 
 Las campañas son ideales para mensajes únicos enviados a un segmento de audiencia específico a través de varios canales. Puedes aprovechar cualquiera de nuestros canales de mensajería compatibles en tu campaña (correo electrónico, push, mensajes dentro de la aplicación, SMS y más).
 
-Los Canvas son flujos de trabajo de campaña avanzados que te permiten automatizar y orquestar recorridos personalizados del cliente a través de múltiples canales. Dentro de un Canvas, puedes configurar lógica de ramificación, retrasos, puntos de decisión y eventos de conversión para guiar a los clientes a través de una serie de interacciones. Los Canvas ayudan a garantizar una comunicación coherente y fluida en los distintos puntos de intervención, lo que aumenta las posibilidades de interacción y conversión de los clientes. 
+Los Canvas son flujos de trabajo de campañas avanzados que te permiten automatizar y orquestar recorridos personalizados del cliente a través de múltiples canales. Dentro de un Canvas, puedes configurar lógica de ramificación, retrasos, puntos de decisión y eventos de conversión para guiar a los clientes a través de una serie de interacciones. Los Canvas ayudan a garantizar una comunicación coherente y fluida en los distintos puntos de intervención, lo que aumenta las posibilidades de interacción y conversión de los clientes.
 
 Para más información, consulta: [Cómo empezar: Campañas y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 
-## Espacios de trabajo
+## Espacios de trabajo {#workspaces}
 
 Los espacios de trabajo agrupan tus datos —usuarios, segmentos, campañas y Canvas— en una única ubicación. La información no se comparte entre espacios de trabajo, así que tenlo en cuenta cuando añadas sitios web y aplicaciones a tus espacios de trabajo. Como práctica recomendada, sugerimos agrupar en un mismo espacio de trabajo solo diferentes versiones de la misma aplicación o de aplicaciones muy similares.
 
@@ -64,7 +64,7 @@ Ejemplos de uso de los espacios de trabajo:
 
 Para más información, consulta: [Cómo empezar: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/).
 
-## Integración de Braze
+## Integración de Braze {#integrating-braze}
 
 Braze está diseñado para ponerse en marcha rápida y fácilmente. Nuestro tiempo medio de creación de valor es de seis semanas en nuestra base de clientes de cientos de marcas.
 
@@ -78,7 +78,7 @@ Este es el marco de Braze para estimar la duración de tu integración basándos
 ¿Necesitas ayuda con tu migración? Nuestros [socios certificados de Braze](https://www.braze.com/partners/solutions-partners) pueden ayudarte.
 {% endalert %}
 
-- **Volumen de correo electrónico:** Para enviar correos electrónicos, tendrás que calentar tus IP. El [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) es el proceso de construir la reputación del remitente con tus direcciones IP recién asignadas. Si envías menos de 2-3 millones de correos electrónicos al día, el calentamiento de tu IP debería tardar 30 días o menos. Ten en cuenta tu pico de envío. Si normalmente envías 2 millones de correos electrónicos al día pero planeas enviar 7 millones durante un período estacional, ese "pico" de envíos es al que deberías calentar. Los remitentes de gran volumen pueden utilizar varias IP para acelerar el proceso de calentamiento.
+- **Volumen de correo electrónico:** Para enviar correos electrónicos, tendrás que calentar tus IP. El [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) es el proceso de construir la reputación del remitente con tus direcciones IP recién asignadas. Si envías menos de 2-3 millones de correos electrónicos al día, el calentamiento de tu IP debería tardar 30 días o menos. Ten en cuenta tu pico de envío. Si normalmente envías 2 millones de correos electrónicos al día pero planeas enviar 7 millones durante un período estacional, ese «pico» de envíos es al que deberías calentar. Los remitentes de gran volumen pueden utilizar varias IP para acelerar el proceso de calentamiento.
 - **Complejidad organizativa:** Nuestro proceso de incorporación puede adaptarse a las necesidades de tu empresa. Tanto si se trata de una única unidad de negocio, como si tienes un Centro de Excelencia, varias unidades independientes o utilizas agencias para reforzar tus equipos, Braze tiene experiencia trabajando en todos los escenarios.
 - **Sofisticación de la infraestructura de datos:** Si solo estás implementando el SDK de Braze o ya tienes una plataforma de datos de los clientes (CDP), es posible tenerlo todo configurado en solo 30 días. Usar un CDP moderno puede acelerar el proceso. Pero si tienes muchos sistemas backend, herramientas o bases de datos que conectar con Braze, puede llevar más tiempo y necesitar más recursos dedicados para terminar la configuración.
 

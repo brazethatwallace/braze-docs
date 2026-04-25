@@ -5,7 +5,7 @@ description: "BrazeAI<sup>TM</sup> bietet eine Sammlung von leicht zugänglichen
 page_order: 8
 layout: dev_guide
 search_rank: 12
-Tool:
+tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
@@ -16,13 +16,13 @@ guide_featured_list:
   - name: Agenten
     link: /docs/user_guide/brazeai/agents
     image: /assets/img/braze_icons/star-06.svg
-  - name: Braze MCP-Server
+  - name: Braze MCP Server
     link: /docs/user_guide/brazeai/mcp_server
     image: /assets/img/braze_icons/dataflow-01.svg
   - name: Content Optimizer
     link: /docs/user_guide/brazeai/content_optimizer
     image: /assets/img/braze_icons/image-user-check.svg
-  - name: Decisioning Studio
+  - name: Entscheidungsstudio
     link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/stars-03.svg
   - name: Generative KI
@@ -38,7 +38,7 @@ guide_featured_list:
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
   - name: Predictive Suite
-    link: /docs/user_guide/brazeai
+    link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: Personalisierte Pfade
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
@@ -50,5 +50,4 @@ guide_featured_list:
     link: /docs/user_guide/messaging/ab_testing/optimizations
     image: /assets/img/braze_icons/trophy-01.svg
 ---
-
 <br>

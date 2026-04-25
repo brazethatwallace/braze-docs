@@ -4,7 +4,7 @@ article_title: Canaux
 page_order: 5
 layout: dev_guide
 guide_top_header: "Canaux"
-guide_top_text: "Atteignez vos utilisateurs via le bon canal au bon moment. Choisissez parmi les canaux intégrés au produit comme les messages in-app, les Cartes de contenu et les bannières, ou les canaux externes comme les notifications push, les e-mails, les SMS et WhatsApp."
+guide_top_text: "Atteignez vos utilisateurs via le bon canal au bon moment. Choisissez parmi les canaux intégrés au produit comme les messages in-app, les Content Cards et les bannières, ou les canaux externes comme les notifications push, les e-mails, les SMS et WhatsApp."
 
 page_type: landing
 description: "Atteignez vos utilisateurs via les canaux de communication intégrés au produit et externes dans Braze."
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Messages in-app
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: Cartes de contenu
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Bannières
@@ -52,20 +52,20 @@ guide_menu_list:
     image: /assets/img/braze_icons/whatsapp.svg
 ---
 
-## Choisir un canal de communication
+## Choisir un canal de communication {#choosing-a-message-channel}
 
-Lorsque vous déterminez quel canal de communication est le plus adapté à vos campagnes et Canvas, pensez toujours au contenu et à l'urgence de votre message :
+Lorsque vous déterminez quel canal de communication est le plus adapté à vos Campaigns et Canvas, pensez toujours au contenu et à l'urgence de votre message :
 
 - Le **contenu** correspond au degré d'attrait visuel de votre message. Vous pouvez ajouter des éléments multimédias et d'autres ressources à votre texte pour enrichir votre contenu.
 - L'**urgence** mesure la rapidité avec laquelle un message peut notifier votre utilisateur et capter son attention. Les notifications que l'utilisateur peut consulter immédiatement ont une urgence élevée, tandis que les messages nécessitant une connexion à votre application ont une urgence faible.
 
-La matrice de communication de Braze simplifie le choix du canal en croisant la **complexité du contenu** avec l'**urgence de distribution**. En équilibrant ces deux facteurs, vous aidez votre message à résonner plutôt qu'à interrompre.
+La matrice de communication de Braze simplifie le choix du canal en croisant la **complexité du contenu** avec l'**urgence de réception**. En équilibrant ces deux facteurs, vous permettez à votre message de résonner plutôt que d'interrompre.
 
-![Les notifications push mobile/web sont du contenu simple à urgence élevée ; les e-mails sont du contenu riche à urgence élevée ; les messages in-app/navigateur sont du contenu simple à urgence faible ; les Cartes de contenu sont du contenu riche à urgence faible]({% image_buster /assets/img_archive/messaging_matrix.png %})
+![Les notifications push mobile/web sont du contenu simple à urgence élevée ; les e-mails sont du contenu riche à urgence élevée ; les messages in-app/navigateur sont du contenu simple à urgence faible ; les Content Cards sont du contenu riche à urgence faible]({% image_buster /assets/img_archive/messaging_matrix.png %})
 
 Bien que la matrice mette en avant les canaux principaux, elle reste adaptable : les SMS et WhatsApp, par exemple, sont des outils à urgence élevée qui peuvent évoluer vers du contenu riche grâce aux formats multimédias. Pour en savoir plus sur l'utilisation de cette matrice, consultez notre cours d'apprentissage Braze sur la [communication cross-canal](https://learning.braze.com/cross-channel-messaging).
 
-## Ressources d'accessibilité
+## Ressources d'accessibilité {#accessibility-resources}
 
 Vous pouvez utiliser Braze pour créer des campagnes de communication accessibles sur chaque canal. Collaborez avec vos équipes techniques pour vous assurer de respecter les normes d'accessibilité dans votre implémentation. Si vous souhaitez des conseils supplémentaires, nous vous recommandons :
 
