@@ -195,13 +195,16 @@ jobs:
       # ------------------------------------------------------------------
       # Open PR targeting develop
       # ------------------------------------------------------------------
+      # Only open a PR when translate/QC/verify succeeded. This avoids
+      # publishing partial translation PRs after a timed-out translate step.
+      # (PR #13327 follow-up)
       - name: Generate PR summary
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
         run: python scripts/auto_translate.py summary
 
       - name: Create pull request
         id: create-pr
-        if: steps.changes.outputs.count != '0'
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -223,7 +226,7 @@ jobs:
       # if the shortcut isn't available or fails for any reason. Non-blocking:
       # a missing Copilot review should never stop translation PRs from merging.
       - name: Request Copilot review
-        if: ${{ steps.changes.outputs.count != '0' && steps.create-pr.outputs.pull-request-number }}
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && steps.qc.outcome == 'success' && steps.verify.outcome == 'success' && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
