@@ -161,7 +161,7 @@ tool: Currents
     * Adicionado novo campo `boolean` `is_sms_fallback`: Indica que uma mensagem SMS de fallback foi enviada devido a uma mensagem RCS rejeitada. A mensagem pode resultar em entrega, falha de entrega ou rejeição. Pode ser vinculada ao evento de rejeição RCS por meio de um ID de envio e ID de despacho
 
 * Mudanças de campo para o tipo de evento `users.messages.sms.Rejection`:
-    * Adicionado novo campo `boolean` `is_sms_fallback`: Indica que uma mensagem SMS de fallback foi enviada devido a uma mensagem RCS rejeitada. A mensagem pode resultar em entrega, falha de entrega ou rejeição. Pode ser vinculada ao evento de rejeição RCS por meio de um ID de envio e ID de despacho. Pode ser vinculada ao evento de rejeição RCS por meio de um ID de envio e ID de despacho. (Propriedade do evento)
+    * Adicionado novo campo `boolean` `is_sms_fallback`: Indica que uma mensagem SMS de fallback foi enviada devido a uma mensagem RCS rejeitada. A mensagem pode resultar em entrega, falha de entrega ou rejeição. Pode ser vinculada ao evento de rejeição RCS por meio de um ID de envio e ID de despacho. (Propriedade do evento)
 
 * Mudanças de campo para o tipo de evento `users.messages.whatsapp.Delivery`:
     * Adicionado novo campo `string` `flow_id`: O ID único do fluxo no gerenciador do WhatsApp. Presente se a mensagem incluir um CTA para responder a um fluxo do WhatsApp

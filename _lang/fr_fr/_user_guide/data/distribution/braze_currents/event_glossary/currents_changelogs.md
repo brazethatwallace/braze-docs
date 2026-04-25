@@ -161,7 +161,7 @@ tool: Currents
     * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition.
 
 * Modifications de champs pour le type d'événement `users.messages.sms.Rejection` :
-    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition. (Propriété d'événement)
+    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition. (Propriété d'événement)
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Delivery` :
     * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si le message comprend un CTA pour répondre à un Flow WhatsApp.

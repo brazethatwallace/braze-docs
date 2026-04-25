@@ -17,70 +17,70 @@ tool: Currents
 * 新しいイベントタイプ `users.messages.banner.Dismiss` を追加しました。
 
 * イベントタイプ `users.messages.whatsapp.Abort` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
 * イベントタイプ `users.messages.whatsapp.Delivery` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
 * イベントタイプ `users.messages.whatsapp.Failure` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
 * イベントタイプ `users.messages.whatsapp.InboundReceive` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: メッセージの送信元ユーザーの WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: メッセージの送信元ユーザーの WhatsApp Business-Scoped User ID です。
     * フィールド `user_phone_number` が*オプション*になりました。
 
 * イベントタイプ `users.messages.whatsapp.Read` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
 * イベントタイプ `users.messages.whatsapp.Retry` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
 * イベントタイプ `users.messages.whatsapp.Send` のフィールド変更:
-    * 新しい`文字列`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
 ## バージョン 7 の変更点（リリース日：2026年4月1日）
 
 ### ストレージに関する変更:
 
 * イベントタイプ `users.messages.banner.Abort` のフィールド変更:
-    * 新しい`文字列`フィールド `canvas_name` を追加しました: Canvas の名前
-    * 新しい`文字列`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
-    * 新しい`文字列`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
-    * 新しい`文字列`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
-    * 新しい`文字列`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
-    * 新しい`文字列`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
-    * 新しい`文字列`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
+    * 新しい`string`フィールド `canvas_name` を追加しました: Canvas の名前
+    * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
+    * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
 
 * イベントタイプ `users.messages.banner.Click` のフィールド変更:
-    * 新しい`文字列`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
-    * 新しい`文字列`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
-    * 新しい`文字列`フィールド `canvas_name` を追加しました: Canvas の名前
-    * 新しい`文字列`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
-    * 新しい`文字列`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
-    * 新しい`文字列`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
-    * 新しい`文字列`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
+    * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
+    * 新しい`string`フィールド `canvas_name` を追加しました: Canvas の名前
+    * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
 
 * イベントタイプ `users.messages.banner.Impression` のフィールド変更:
-    * 新しい`文字列`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
-    * 新しい`文字列`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
-    * 新しい`文字列`フィールド `canvas_name` を追加しました: Canvas の名前
-    * 新しい`文字列`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
-    * 新しい`文字列`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
-    * 新しい`文字列`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
-    * 新しい`文字列`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
+    * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
+    * 新しい`string`フィールド `canvas_name` を追加しました: Canvas の名前
+    * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
 
 ## バージョン 6 の変更点（リリース日：2026年3月4日）
 
 ### ストレージに関する変更:
 
 * イベントタイプ `agentconsole.AgentExecuted` のフィールド変更:
-    * 新しい`文字列`フィールド `error` を追加しました: エラーの説明
+    * 新しい`string`フィールド `error` を追加しました: エラーの説明
 
 * イベントタイプ `agentconsole.ToolInvocation` のフィールド変更:
-    * 新しい`文字列`フィールド `request_id` を追加しました: この LLM リクエスト全体と完全な実行に対するユニーク ID
+    * 新しい`string`フィールド `request_id` を追加しました: この LLM リクエスト全体と完全な実行に対するユニーク ID
 
 * イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
-    * 新しい`文字列`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
 
 ## バージョン 5 の変更点（リリース日：2026年2月4日）
 
@@ -110,23 +110,23 @@ tool: Currents
 ### ストレージに関する変更:
 
 * イベントタイプ `users.behaviors.pushnotification.TokenStateChange` のフィールド変更:
-    * 新しい`文字列`フィールド `push_token` を追加しました: イベントのプッシュトークン
+    * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
 * イベントタイプ `users.messages.pushnotification.Bounce` のフィールド変更:
-    * 新しい`文字列`フィールド `push_token` を追加しました: イベントのプッシュトークン
+    * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
 * イベントタイプ `users.messages.pushnotification.Send` のフィールド変更:
-    * 新しい`文字列`フィールド `push_token` を追加しました: イベントのプッシュトークン
+    * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
 * イベントタイプ `users.messages.rcs.Click` のフィールド変更:
-    * 新しい`文字列`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
     * フィールド `user_phone_number` が*オプション*になりました。
 
 * イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
     * フィールド `user_id` が*オプション*になりました。
 
 * イベントタイプ `users.messages.rcs.Rejection` のフィールド変更:
-    * 新しい`文字列`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
 
 ## バージョン 3 の変更点（リリース日：2025年10月8日）
 
@@ -155,41 +155,41 @@ tool: Currents
 * 新しいイベントタイプ `users.messages.rcs.Send` を追加しました。
 
 * イベントタイプ `users.messages.sms.Delivery` のフィールド変更:
-    * 新しい`ブール値`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。
+    * 新しい`boolean`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。
 
 * イベントタイプ `users.messages.sms.DeliveryFailure` のフィールド変更:
-    * 新しい`ブール値`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。
+    * 新しい`boolean`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。
 
 * イベントタイプ `users.messages.sms.Rejection` のフィールド変更:
-    * 新しい`ブール値`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。（イベントプロパティ）
+    * 新しい`boolean`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。（イベントプロパティ）
 
 * イベントタイプ `users.messages.whatsapp.Delivery` のフィールド変更:
-    * 新しい`文字列`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
-    * 新しい`文字列`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
-    * 新しい`文字列`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
 
 * イベントタイプ `users.messages.whatsapp.Failure` のフィールド変更:
-    * 新しい`文字列`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
-    * 新しい`文字列`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
-    * 新しい`文字列`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
 
 * イベントタイプ `users.messages.whatsapp.InboundReceive` のフィールド変更:
-    * 新しい`文字列`フィールド `catalog_id` を追加しました: インバウンドメッセージで製品が参照されている場合のカタログ ID。それ以外の場合は空です。
-    * 新しい`文字列`フィールド `product_id` を追加しました: インバウンドメッセージで製品が参照されている場合の製品 SKU。それ以外の場合は空です。
-    * 新しい`文字列`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
-    * 新しい`文字列`フィールド `flow_response_json` を追加しました: [PII] ユーザーが応答したフォームの値。ユーザーが WhatsApp Flow に応答している場合に存在します。
-    * 新しい`文字列`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
-    * 新しい`文字列`フィールド `in_reply_to` を追加しました: このメッセージが返信した元メッセージの message_id
+    * 新しい`string`フィールド `catalog_id` を追加しました: インバウンドメッセージで製品が参照されている場合のカタログ ID。それ以外の場合は空です。
+    * 新しい`string`フィールド `product_id` を追加しました: インバウンドメッセージで製品が参照されている場合の製品 SKU。それ以外の場合は空です。
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
+    * 新しい`string`フィールド `flow_response_json` を追加しました: [PII] ユーザーが応答したフォームの値。ユーザーが WhatsApp Flow に応答している場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `in_reply_to` を追加しました: このメッセージが返信した元メッセージの message_id
 
 * イベントタイプ `users.messages.whatsapp.Read` のフィールド変更:
-    * 新しい`文字列`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
-    * 新しい`文字列`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
-    * 新しい`文字列`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
 
 * イベントタイプ `users.messages.whatsapp.Send` のフィールド変更:
-    * 新しい`文字列`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
-    * 新しい`文字列`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
-    * 新しい`文字列`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
 
 ## バージョン 2 の変更点（リリース日なし）
 

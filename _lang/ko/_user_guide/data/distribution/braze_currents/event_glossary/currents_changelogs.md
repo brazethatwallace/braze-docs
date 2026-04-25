@@ -17,70 +17,70 @@ tool: Currents
 * 새로운 이벤트 유형 `users.messages.banner.Dismiss`가 추가되었습니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Abort`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Delivery`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Failure`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.InboundReceive`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 메시지를 수신한 사용자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 메시지를 수신한 사용자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
     * 필드 `user_phone_number`이 이제 *선택 사항*입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Read`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Retry`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Send`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
+    * 새로운 `string` 필드 `bsuid` 추가: 이 이벤트와 연결된 수신자의 WhatsApp 비즈니스 범위 사용자 ID입니다.
 
 ## 버전 7의 변경 사항 (릴리스 날짜 2026-04-01)
 
 ### 저장소에 대한 변경 사항:
 
 * 이벤트 유형 `users.messages.banner.Abort`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `canvas_name` 추가: Canvas의 이름
-    * 새로운 `문자열` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
-    * 새로운 `문자열` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
-    * 새로운 `문자열` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
-    * 새로운 `문자열` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
-    * 새로운 `문자열` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
-    * 새로운 `문자열` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
+    * 새로운 `string` 필드 `canvas_name` 추가: Canvas의 이름
+    * 새로운 `string` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
+    * 새로운 `string` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
+    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
 
 * 이벤트 유형 `users.messages.banner.Click`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
-    * 새로운 `문자열` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
-    * 새로운 `문자열` 필드 `canvas_name` 추가: Canvas의 이름
-    * 새로운 `문자열` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
-    * 새로운 `문자열` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
-    * 새로운 `문자열` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
-    * 새로운 `문자열` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
+    * 새로운 `string` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
+    * 새로운 `string` 필드 `canvas_name` 추가: Canvas의 이름
+    * 새로운 `string` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
+    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
 
 * 이벤트 유형 `users.messages.banner.Impression`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
-    * 새로운 `문자열` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
-    * 새로운 `문자열` 필드 `canvas_name` 추가: Canvas의 이름
-    * 새로운 `문자열` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
-    * 새로운 `문자열` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
-    * 새로운 `문자열` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
-    * 새로운 `문자열` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
+    * 새로운 `string` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
+    * 새로운 `string` 필드 `canvas_name` 추가: Canvas의 이름
+    * 새로운 `string` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
+    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
 
 ## 버전 6의 변경 사항 (릴리스 날짜 2026-03-04)
 
 ### 저장소에 대한 변경 사항:
 
 * 이벤트 유형 `agentconsole.AgentExecuted`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `error` 추가: 오류 설명
+    * 새로운 `string` 필드 `error` 추가: 오류 설명
 
 * 이벤트 유형 `agentconsole.ToolInvocation`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `request_id` 추가: 이 전체 LLM 요청 및 완전 실행을 위한 고유 ID
+    * 새로운 `string` 필드 `request_id` 추가: 이 전체 LLM 요청 및 완전 실행을 위한 고유 ID
 
 * 이벤트 유형 `users.messages.rcs.InboundReceive`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
 
 ## 버전 5의 변경 사항 (릴리스 날짜 2026-02-04)
 
@@ -110,23 +110,23 @@ tool: Currents
 ### 저장소에 대한 변경 사항:
 
 * 이벤트 유형 `users.behaviors.pushnotification.TokenStateChange`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `push_token` 추가: 이벤트의 푸시 토큰
+    * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
 
 * 이벤트 유형 `users.messages.pushnotification.Bounce`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `push_token` 추가: 이벤트의 푸시 토큰
+    * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
 
 * 이벤트 유형 `users.messages.pushnotification.Send`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `push_token` 추가: 이벤트의 푸시 토큰
+    * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
 
 * 이벤트 유형 `users.messages.rcs.Click`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
     * 필드 `user_phone_number`이 이제 *선택 사항*입니다.
 
 * 이벤트 유형 `users.messages.rcs.InboundReceive`에 대한 필드 변경 사항:
     * 필드 `user_id`이 이제 *선택 사항*입니다.
 
 * 이벤트 유형 `users.messages.rcs.Rejection`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
 
 ## 버전 3의 변경 사항 (릴리스 날짜 2025-10-08)
 
@@ -155,41 +155,41 @@ tool: Currents
 * 새로운 이벤트 유형 `users.messages.rcs.Send`가 추가되었습니다.
 
 * 이벤트 유형 `users.messages.sms.Delivery`에 대한 필드 변경 사항:
-    * 새로운 `부울` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 메시지는 전달, 전달 실패 또는 거부로 이어질 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다.
+    * 새로운 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 메시지는 전달, 전달 실패 또는 거부로 이어질 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다.
 
 * 이벤트 유형 `users.messages.sms.DeliveryFailure`에 대한 필드 변경 사항:
-    * 새로운 `부울` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 메시지는 전달, 전달 실패 또는 거부로 이어질 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다.
+    * 새로운 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 메시지는 전달, 전달 실패 또는 거부로 이어질 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다.
 
 * 이벤트 유형 `users.messages.sms.Rejection`에 대한 필드 변경 사항:
-    * 새로운 `부울` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 메시지는 전달, 전달 실패 또는 거부로 이어질 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다. (이벤트 속성정보)
+    * 새로운 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 메시지는 전달, 전달 실패 또는 거부로 이어질 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS 거부 이벤트에 연결할 수 있습니다. (이벤트 속성정보)
 
 * 이벤트 유형 `users.messages.whatsapp.Delivery`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
+    * 새로운 `string` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
+    * 새로운 `string` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
+    * 새로운 `string` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Failure`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
-    * 새로운 `문자열` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
+    * 새로운 `string` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
+    * 새로운 `string` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
+    * 새로운 `string` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
 
 * 이벤트 유형 `users.messages.whatsapp.InboundReceive`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `catalog_id` 추가: 수신 메시지에 제품이 참조된 경우 제품의 카탈로그 ID입니다. 그렇지 않으면 비어 있습니다.
-    * 새로운 `문자열` 필드 `product_id` 추가: 수신 메시지에 제품이 참조된 경우 제품 SKU입니다. 그렇지 않으면 비어 있습니다.
-    * 새로운 `문자열` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 사용자가 WhatsApp Flow에 응답하는 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `flow_response_json` 추가: [PII] 사용자가 응답한 양식 값입니다. 사용자가 WhatsApp Flow에 응답하는 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
-    * 새로운 `문자열` 필드 `in_reply_to` 추가: 이 메시지가 응답한 메시지의 message_id입니다.
+    * 새로운 `string` 필드 `catalog_id` 추가: 수신 메시지에 제품이 참조된 경우 제품의 카탈로그 ID입니다. 그렇지 않으면 비어 있습니다.
+    * 새로운 `string` 필드 `product_id` 추가: 수신 메시지에 제품이 참조된 경우 제품 SKU입니다. 그렇지 않으면 비어 있습니다.
+    * 새로운 `string` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 사용자가 WhatsApp Flow에 응답하는 경우 표시됩니다.
+    * 새로운 `string` 필드 `flow_response_json` 추가: [PII] 사용자가 응답한 양식 값입니다. 사용자가 WhatsApp Flow에 응답하는 경우 표시됩니다.
+    * 새로운 `string` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
+    * 새로운 `string` 필드 `in_reply_to` 추가: 이 메시지가 응답한 메시지의 message_id입니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Read`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
-    * 새로운 `문자열` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
+    * 새로운 `string` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
+    * 새로운 `string` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
+    * 새로운 `string` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Send`에 대한 필드 변경 사항:
-    * 새로운 `문자열` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
-    * 새로운 `문자열` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
+    * 새로운 `string` 필드 `flow_id` 추가: WhatsApp 매니저의 Flow 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하라는 CTA가 포함된 경우 표시됩니다.
+    * 새로운 `string` 필드 `template_name` 추가: [PII] WhatsApp 매니저의 템플릿 이름입니다. 템플릿 메시지를 보내는 경우 표시됩니다.
+    * 새로운 `string` 필드 `message_id` 추가: 이 메시지에 대해 Meta에서 생성한 고유 ID입니다.
 
 ## 버전 2의 변경 사항 (릴리스 날짜 없음)
 
