@@ -189,7 +189,7 @@ jobs:
       # orphan cleanup — PR #13327).
       - name: Check for duplicate YAML aliases
         id: aliases
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
+        if: ${{ steps.changes.outputs.count != '0' && steps.translate.outcome == 'success' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
         continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
