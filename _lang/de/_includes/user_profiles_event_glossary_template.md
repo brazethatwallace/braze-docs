@@ -17,9 +17,9 @@ Kontaktieren Sie Ihre Braze-Vertretung oder eröffnen Sie ein [Support-Ticket]({
 
 {% details Erläuterung der Event-Struktur für Nutzerprofil-Updates %}
 
-### Event-Struktur
+### Event-Struktur {#event-structure}
 
-Diese Aufschlüsselung von Kundenverhalten- und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Nutzerprofil-Update-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Daten-Metriken auszuwerten.
+Diese Aufschlüsselung von Kundenverhalten- und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Nutzerprofil-Update-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Metriken auszuwerten.
 
 {% alert important %}
 Speicherschemata gelten für Flat-File-Event-Daten, die an Data-Warehouse-Speicherpartner wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage gesendet werden. Einige der hier aufgeführten Event- und Zielkombinationen sind noch nicht allgemein verfügbar. Informationen zu unterstützten Events nach Partner finden Sie unter [Verfügbare Partner]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) und auf den zugehörigen Partnerseiten.

@@ -1,14 +1,14 @@
-## Migration des autorisations granulaires
+## Migration des autorisations granulaires {#granular-permissions-migration}
 
 {% alert important %}
 Les autorisations granulaires sont actuellement en accès anticipé. Lorsque la migration est planifiée pour votre entreprise, vos administrateurs Braze recevront des e-mails et des bannières sur le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
 {% endalert %}
 
-Les intégrations SCIM existantes et [les objets API SCIM hérités]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continueront de fonctionner après la migration des autorisations granulaires prévue fin avril. 
+Les intégrations SCIM existantes et [les objets API SCIM hérités]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continueront de fonctionner après la migration des autorisations granulaires prévue fin avril.
 
 Aucune action immédiate n'est requise de votre part. Cependant, nous vous recommandons de vérifier vos intégrations afin d'identifier les autorisations qui seront granularisées. Par exemple, si vous envoyez actuellement `basic_access` dans l'API, nous vous suggérons de mettre à jour votre intégration après la granularisation afin d'inclure les autorisations spécifiques (par exemple, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze continuera d'accepter les chaînes de caractères héritées, telles que `basic_access`, après la migration des autorisations granulaires, afin que les intégrations existantes ne soient pas interrompues.
 
-## Objet Autorisations
+## Objet Autorisations {#permissions-object}
 
 L'objet Autorisations est un champ présent dans certaines demandes et réponses lors de l'interaction avec la ressource utilisateur via les autorisations d'ID SCIM.
 
@@ -34,13 +34,13 @@ Un objet Autorisations valide est un objet JSON avec les paires clé-valeur suiv
 | `appGroup` | Requis | Tableau | Tableau d'[objets d'autorisations de l'espace de travail]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Objet d'autorisations de l'espace de travail
+### Objet d'autorisations de l'espace de travail {#workspace-permissions-object}
 
 Un objet d'autorisations de groupe d'applications valide est un objet JSON avec les paires clé-valeur suivantes :
 
 | Clé | Requis | Type de données | Description |
 | --- | --- | --- | --- |
-| `appGroupName`| Facultatif | Chaîne de caractères | Nom de l'espace de travail. Permet de spécifier l'espace de travail auquel s'appliquent les autorisations contenues dans cet objet. | 
+| `appGroupName`| Facultatif | Chaîne de caractères | Nom de l'espace de travail. Permet de spécifier l'espace de travail auquel s'appliquent les autorisations contenues dans cet objet. |
 | `appGroupId` | Requis si `appGroupName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'espace de travail. |
 | `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet Ensemble d'autorisations de l'espace de travail]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Requis | Tableau | Tableau de chaînes de caractères d'autorisations au niveau de l'espace de travail, issu du tableau [Chaînes de caractères des autorisations de l'espace de travail]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), dans lequel la présence de la chaîne de caractères indique que l'utilisateur dispose de l'autorisation correspondante pour l'espace de travail spécifié. |
@@ -57,7 +57,7 @@ Un objet Ensemble d'autorisations de l'espace de travail valide est un objet JSO
 | `appGroupPermissionSetID` | Requis si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'ensemble d'autorisations de l'espace de travail attribué à l'utilisateur pour cet espace de travail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Objet d'autorisations d'équipe
+### Objet d'autorisations d'équipe {#team-permissions-object}
 
 Un objet d'autorisations d'équipe valide est un objet JSON avec les paires clé-valeur suivantes :
 
@@ -68,7 +68,7 @@ Un objet d'autorisations d'équipe valide est un objet JSON avec les paires clé
 | `teamPermissions` | Requis | Tableau | Tableau de chaînes de caractères d'autorisations au niveau de l'équipe, issu du tableau des [chaînes de caractères d'autorisations d'équipe]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), dans lequel la présence de la chaîne de caractères indique que l'utilisateur dispose de l'autorisation correspondante pour l'équipe spécifiée. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Objet de rôle
+## Objet de rôle {#role-object}
 
 Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes :
 
@@ -78,24 +78,24 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | `roleId` | Requis si `roleName` est absent | Chaîne de caractères | ID du rôle, servant de méthode alternative pour spécifier le rôle. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Annexes
+## Annexes {#appendix}
 
 ### Chaînes de caractères d'autorisations de la société {#company}
 
 | Telles qu'affichées dans l'interface utilisateur | Chaîne de caractères API SCIM |
 | --- | --- |
 | Administrateur | `admin` |
-| Gérer les paramètres de la société | `manage_company_settings` |
-| Créer et supprimer des espaces de travail| `add_remove_app_groups` |
+| Gérer les paramètres de l'entreprise | `manage_company_settings` |
+| Créer et supprimer des espaces de travail | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Chaînes de caractères des autorisations de l'espace de travail {#workspace-strings}
 
 | Nom de l'autorisation | Chaîne de caractères API SCIM |
 | --- | --- |
-| Afficher les campagnes | `view_campaigns` |
-| Modifier les campagnes | `edit_campaigns` |
-| Archiver les campagnes | `archive_campaigns` |
+| Afficher les Campaigns | `view_campaigns` |
+| Modifier les Campaigns | `edit_campaigns` |
+| Archiver les Campaigns | `archive_campaigns` |
 | Afficher les Canvas | `view_canvases` |
 | Modifier les Canvas | `edit_canvases` |
 | Archiver les Canvas | `archive_canvases` |
@@ -103,17 +103,17 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Modifier les règles de limite de fréquence | `edit_frequency_caps` |
 | Afficher la priorisation des messages | `view_message_prioritization` |
 | Modifier la priorisation des messages | `edit_message_prioritization` |
-| Afficher les blocs de contenu | `view_content_blocks` |
-| Modifier les blocs de contenu | `edit_content_blocks` |
-| Archiver les blocs de contenu | `archive_content_blocks` |
+| Afficher les Content Blocks | `view_content_blocks` |
+| Modifier les Content Blocks | `edit_content_blocks` |
+| Archiver les Content Blocks | `archive_content_blocks` |
 | Afficher les indicateurs de fonctionnalité | `view_feature_flags` |
 | Modifier les indicateurs de fonctionnalité | `edit_feature_flags` |
 | Archiver les indicateurs de fonctionnalité | `archive_feature_flags` |
-| Afficher les segments | `view_segments` |
-| Modifier les segments | `edit_segments` |
-| Archiver les segments | `archive_segments` |
-| Afficher le groupe de contrôle global | `view_global_control_group` |
-| Modifier le groupe de contrôle global | `edit_global_control_group` |
+| Afficher les Segments | `view_segments` |
+| Modifier les Segments | `edit_segments` |
+| Archiver les Segments | `archive_segments` |
+| Afficher le Groupe de contrôle global | `view_global_control_group` |
+| Modifier le Groupe de contrôle global | `edit_global_control_group` |
 | Afficher les modèles IAM | `view_iam_templates` |
 | Modifier les modèles IAM | `edit_iam_templates` |
 | Archiver les modèles IAM | `archive_iam_templates` |
@@ -123,8 +123,8 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Afficher les modèles de webhook | `view_webhook_templates` |
 | Modifier les modèles de webhook | `edit_webhook_templates` |
 | Archiver les modèles de webhook | `archive_webhook_templates` |
-| Afficher les modèles de lien e-mail | `view_link_templates` |
-| Modifier les modèles de lien e-mail | `edit_link_templates` |
+| Afficher les modèles de liens d'e-mail | `view_link_templates` |
+| Modifier les modèles de liens d'e-mail | `edit_link_templates` |
 | Afficher les ressources de la bibliothèque multimédia | `view_media_library_assets` |
 | Afficher les emplacements | `view_locations` |
 | Modifier les emplacements | `edit_locations` |
@@ -140,12 +140,12 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Archiver les placements | `archive_placements` |
 | Afficher les modèles de bannières | `view_banner_templates` |
 | Afficher les paramètres multilingues | `view_multi_language_settings` |
-| Utiliser l'opérateur | `use_operator` |
+| Utiliser BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Afficher les agents de Decisioning Studio | `view_decisioning_studio_agents` |
-| Afficher l'audience de Decisioning Studio |`view_decisioning_studio_audience` |
+| Afficher l'audience de Decisioning Studio | `view_decisioning_studio_audience` |
 | Afficher l'événement de conversion de Decisioning Studio | `view_decisioning_studio_conversion_event` |
 | Afficher les garde-fous de Decisioning Studio | `view_decisioning_studio_guardrails` |
-| Lancer des campagnes | `launch_campaigns` |
+| Lancer des Campaigns | `launch_campaigns` |
 | Lancer des Canvas | `launch_canvases` |
 | Modifier les utilisateurs du tableau de bord | `edit_dashboard_users` |
 | Modifier les ressources de la bibliothèque multimédia | `edit_media_library_assets` |
@@ -167,12 +167,12 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Afficher les limites de l'API | `view_api_limits` |
 | Afficher les alertes d'utilisation de l'API | `view_api_usage_alerts` |
 | Modifier les alertes d'utilisation de l'API | `edit_api_usage_alerts` |
-| Afficher le débogueur SDK | `view_sdk_debugger` |
-| Modifier le débogueur SDK | `edit_sdk_debugger` |
-| Lancer des blocs de contenu | `launch_content_blocks` |
+| Afficher l'outil de débogage du SDK | `view_sdk_debugger` |
+| Modifier l'outil de débogage du SDK | `edit_sdk_debugger` |
+| Lancer des Content Blocks | `launch_content_blocks` |
 | Modifier l'ingestion de données cloud | `edit_cloud_data_ingestion` |
-| Afficher les paramètres de l'application | `view_app_settings` |
-| Modifier les paramètres de l'application | `edit_app_settings` |
+| Afficher les paramètres des applications | `view_app_settings` |
+| Modifier les paramètres des applications | `edit_app_settings` |
 | Afficher les paramètres des notifications push | `view_push_settings` |
 | Modifier les paramètres des notifications push | `edit_push_settings` |
 | Afficher les équipes | `view_teams` |
@@ -196,8 +196,8 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Afficher les étiquettes | `view_tags` |
 | Modifier les étiquettes | `edit_tags` |
 | Supprimer les étiquettes | `delete_tags` |
-| Afficher les paramètres d'e-mail	| `view_email_settings` |
-| Modifier les paramètres d'e-mail | `edit_email_settings` |
+| Afficher les paramètres des e-mails	| `view_email_settings` |
+| Modifier les paramètres des e-mails | `edit_email_settings` |
 | Afficher les catalogues | `view_catalogs` |
 | Modifier les catalogues	 | `edit_catalogs` |
 | Exporter les catalogues | `export_catalogs` |
@@ -210,9 +210,9 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 
 | Nom de l'autorisation | Chaîne de caractères API SCIM |
 | --- | --- |
-| Afficher les campagnes | `view_campaigns` |
-| Modifier les campagnes | `edit_campaigns` |
-| Archiver les campagnes | `archive_campaigns` |
+| Afficher les Campaigns | `view_campaigns` |
+| Modifier les Campaigns | `edit_campaigns` |
+| Archiver les Campaigns | `archive_campaigns` |
 | Afficher les Canvas | `view_canvases` |
 | Modifier les Canvas | `edit_canvases` |
 | Archiver les Canvas | `archive_canvases` |
@@ -220,13 +220,13 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Modifier les règles de limite de fréquence | `edit_frequency_caps` |
 | Afficher la priorisation des messages | `view_message_prioritization` |
 | Modifier la priorisation des messages | `edit_message_prioritization` |
-| Afficher les blocs de contenu | `view_content_blocks` |
+| Afficher les Content Blocks | `view_content_blocks` |
 | Afficher les indicateurs de fonctionnalité | `view_feature_flags` |
 | Modifier les indicateurs de fonctionnalité | `edit_feature_flags` |
 | Archiver les indicateurs de fonctionnalité | `archive_feature_flags` |
-| Afficher les segments | `view_segments` |
-| Modifier les segments | `edit_segments` |
-| Modifier le groupe de contrôle global | `edit_global_control_group` |
+| Afficher les Segments | `view_segments` |
+| Modifier les Segments | `edit_segments` |
+| Modifier le Groupe de contrôle global | `edit_global_control_group` |
 | Afficher les modèles IAM | `view_iam_templates` |
 | Modifier les modèles IAM | `edit_iam_templates` |
 | Archiver les modèles IAM | `archive_iam_templates` |
@@ -236,8 +236,8 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Afficher les modèles de webhook | `view_webhook_templates` |
 | Modifier les modèles de webhook | `edit_webhook_templates` |
 | Archiver les modèles de webhook | `archive_webhook_templates` |
-| Afficher les modèles de lien e-mail | `view_link_templates` |
-| Modifier les modèles de lien e-mail | `edit_link_templates` |
+| Afficher les modèles de liens d'e-mail | `view_link_templates` |
+| Modifier les modèles de liens d'e-mail | `edit_link_templates` |
 | Afficher les ressources de la bibliothèque multimédia | `view_media_library_assets` |
 | Afficher les emplacements | `view_locations` |
 | Modifier les emplacements | `edit_locations` |
@@ -252,23 +252,22 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Modifier les rapports | `edit_reports` |
 | Afficher les modèles de bannières | `view_banner_templates` |
 | Afficher les paramètres multilingues | `view_multi_language_settings` |
-| Utiliser l'opérateur | `use_operator` |
+| Utiliser BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Afficher les agents de Decisioning Studio | `view_decisioning_studio_agents` |
-| Afficher l'événement de conversion de Decisioning Studio | `view_decisioning_studio_conversion_event` |
-| Lancer des campagnes | `launch_campaigns` |
+| Lancer des Campaigns | `launch_campaigns` |
 | Lancer des Canvas | `launch_canvases` |
 | Modifier les utilisateurs du tableau de bord | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Chaînes de caractères de département
+### Chaînes de caractères de département {#department-strings}
 
 | Telles qu'affichées dans l'interface utilisateur | Chaîne de caractères API SCIM |
 | --- | --- |
-| Agence/tiers | `agency` |
-| BI/analytique | `bi` |
+| Agence / tiers | `agency` |
+| BI / analytique | `bi` |
 | Direction générale | `c_suite` |
 | Ingénierie | `engineering` |
 | Finance | `finance` |
-| Marketing/éditorial | `marketing` |
+| Marketing / éditorial | `marketing` |
 | Gestion des produits | `pm` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

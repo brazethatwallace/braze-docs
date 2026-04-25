@@ -6,7 +6,7 @@ WhatsApp 템플릿을 생성하기 전에 [WhatsApp 설정]({{site.baseurl}}/use
     - 사용자가 템플릿 빌더에서 새 템플릿을 생성하려면:
         - "View WhatsApp Message Templates"
         - "Edit WhatsApp Message Templates"
-    - 사용자가 캐러셀 템플릿으로 캠페인 또는 캔버스를 작성하려면:
+    - 사용자가 캐러셀 템플릿으로 Campaign 또는 Canvases를 작성하려면:
         - "View WhatsApp Message Templates"
 - Liquid 템플릿에 대한 이해(선택 사항, 동적 콘텐츠용)
 
