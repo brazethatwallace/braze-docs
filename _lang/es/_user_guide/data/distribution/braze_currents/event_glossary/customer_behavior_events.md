@@ -1,7 +1,7 @@
 ---
 nav_title: Comportamiento del cliente y eventos de los usuarios
 layout: customer_behavior_events_glossary
-page_order: 4
+page_order: 1
 excerpt_separator: ""
 page_type: glossary
 description: "Este glosario enumera los distintos eventos de comportamiento del cliente y del usuario que Braze puede rastrear y enviar a los almacenes de datos elegidos mediante Currents."
@@ -10,16 +10,16 @@ search_rank: 7
 ---
 
 {% alert tip %}
-Estos eventos también están disponibles como tablas SQL en el [generador de consultas]({{site.baseurl}}/user_guide/analytics/query_builder/), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para consultar los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables/).
+Estos eventos también están disponibles como tablas SQL en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para consultar los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}
 
-Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{site.baseurl}}/braze_support/) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en esta página, consulta nuestra [biblioteca de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{site.baseurl}}/braze_support/) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en esta página, consulta nuestra [biblioteca de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
-{% details Explanation of customer behavior and user event structure and platform values %}
+{% details Explicación de la estructura de eventos de comportamiento del cliente y del usuario, y valores de plataforma %}
 
 ### Estructura del evento
 
-Este desglose del comportamiento del cliente y de los eventos del usuario muestra qué tipo de información se incluye generalmente en un comportamiento del cliente o en un evento del usuario. Con una sólida comprensión de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos de Currents entrantes para elaborar informes y gráficos basados en datos, y aprovechar otras valiosas métricas de datos.
+Este desglose del comportamiento del cliente y de los eventos del usuario muestra qué tipo de información se incluye generalmente en un evento de comportamiento del cliente o del usuario. Con una sólida comprensión de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos de Currents entrantes para elaborar informes y gráficos basados en datos, y aprovechar otras valiosas métricas de datos.
 
 ![Desglose de un evento de usuario que muestra un evento de compra con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades específicas del comportamiento y propiedades específicas del dispositivo]({% image_buster /assets/img/customer_engagement_event.png %})
 
@@ -44,7 +44,7 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 {% enddetails %}
 
 {% alert important %}
-Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de datos (como Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Algunas combinaciones de eventos y destinos que figuran en esta lista aún no están disponibles de forma general. Para saber qué eventos cuentan con el soporte de distintos socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) y consulta sus respectivas páginas.<br><br>Además, ten en cuenta que Currents descartará los eventos con cargas útiles excesivamente grandes, superiores a 900&nbsp;KB.
+Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de datos (como Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Algunas combinaciones de eventos y destinos que figuran en esta lista aún no están disponibles de forma general. Para saber qué eventos cuentan con el soporte de distintos socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) y consulta sus respectivas páginas.<br><br>Además, ten en cuenta que Currents descartará los eventos con cargas útiles excesivamente grandes, superiores a 900&nbsp;KB.
 {% endalert %}
 
 {% api %}
@@ -54,7 +54,7 @@ Los esquemas de almacenamiento se aplican a los datos de eventos de archivos pla
 Random Bucket Number
 {% endapitags %}
 
-Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus campañas y variantes de campaña.
+Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus Campaigns y variantes de campaña.
 
 {% alert important %}
 Este evento de Currents solo está disponible para los clientes que hayan adquirido un «conector para todos los eventos» y solo está disponible para conectores de eventos de almacenamiento (como Amazon S3, Microsoft Azure y Google Cloud Storage).
@@ -203,9 +203,9 @@ Este evento se produce cuando se desencadena un evento personalizado específico
 
 #### Detalles de la propiedad
 
-- En el caso de los eventos personalizados, la carga útil también se completará con cualquier [propiedad del evento personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_events#custom-event-properties) asociada al evento.
+- En el caso de los eventos personalizados, la carga útil también se completará con cualquier [propiedad del evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties) asociada al evento.
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
 {% endapi %}
 
 {% api %}
@@ -438,7 +438,7 @@ Este evento se desencadena cuando un usuario visita una ubicación determinada. 
 #### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
 {% endapi %}
 
 {% api %}
@@ -576,9 +576,9 @@ Las compras son eventos personalizados especiales y vienen con una cadena codifi
 
 #### Detalles de la propiedad
 
-- En el caso de los eventos de compra, la carga útil también se completará con cualquier [propiedad del evento de compra]({{site.baseurl}}/user_guide/data/custom_data/purchase_events/#purchase-properties) asociada al evento.
+- En el caso de los eventos de compra, la carga útil también se completará con cualquier [propiedad del evento de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties) asociada al evento.
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
 {% endapi %}
 
 {% api %}
@@ -1285,7 +1285,7 @@ Este evento se produce cuando se inserta, actualiza o elimina un token de notifi
   - Si el usuario ha denegado explícitamente el permiso para las notificaciones push en su dispositivo, este valor será `true`, y el token solo podrá recibir notificaciones push en segundo plano.
   - Si el permiso push es desconocido, este campo estará vacío. De forma predeterminada, Braze intentará enviar notificaciones push en primer plano al token.
 - El campo `push_token_provisionally_opted_in` solo se aplica a los tokens de notificaciones push de iOS.
-  - Si tienes configurada la [autorización provisional]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#provisional-push), los tokens provisionales tendrán este campo establecido en `true`. El resto de tokens de notificaciones push serán `false`.
+  - Si tienes configurada la [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), los tokens provisionales tendrán este campo establecido en `true`. El resto de tokens de notificaciones push serán `false`.
 - El campo `sdk_version` solo se rellenará si el cambio de estado del token es iniciado por el SDK.
   - Si hay un evento `changeUser` del SDK que desencadena el traslado del token de un usuario a otro, se rellenará el campo `sdk_version`.
   - Si hay un rebote de push (por ejemplo, debido a una desinstalación), el campo `sdk_version` quedará en blanco.
@@ -1299,10 +1299,10 @@ Se ingesta un evento "add" cuando se registra un nuevo token. Esto ocurre cuando
 
 ##### Actualizar
 
-Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APN, claves de notificaciones push web, `provisionally_opted_in` o `device_id`.
+Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APNs, claves de notificaciones push web, `provisionally_opted_in` o `device_id`.
 
 {% alert note %}
-En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de campañas.
+En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de una Campaign.<br><br>
 
 Sería muy raro que solo cambiara el `device_id` sin que cambiara el `push_token` (esto requeriría que el sistema operativo devolviera la misma cadena de token después de la reinstalación).
 {% endalert %}
@@ -1311,15 +1311,15 @@ Sería muy raro que solo cambiara el `device_id` sin que cambiara el `push_token
 
 Se ingesta un evento independiente "remove" cuando Braze elimina un token. Esto puede ocurrir por varias razones:
 
-- Rebote de push (APN, FCM o HMS informan de que el token no es válido o ha caducado)
+- Rebote de push (APNs, FCM o HMS informan de que el token no es válido o ha caducado)
 - Detección de desinstalación mediante push silencioso
-- Token eliminado a través de la API REST o el servicio de feedback de APNs
+- Token eliminado a través de la REST API o el servicio de feedback de APNs
 
 ##### Pares de añadir y eliminar
 
 Los pares de añadir y eliminar se dividen en dos categorías:
 
-**Actualización de la cadena de token (mismo usuario):** El sistema operativo rota la cadena de token en el mismo dispositivo (por ejemplo, rotación de tokens APN o FCM). El evento "add" (nuevo token) y el evento "remove" (token antiguo) tienen el mismo `user_id`, el mismo `device_id`, diferente `push_token` e idéntico `time_ms`.
+**Actualización de la cadena de token (mismo usuario):** El sistema operativo rota la cadena de token en el mismo dispositivo (por ejemplo, rotación de tokens APNs o FCM). El evento "add" (nuevo token) y el evento "remove" (token antiguo) tienen el mismo `user_id`, el mismo `device_id`, diferente `push_token` e idéntico `time_ms`.
 
 **Movimiento de token entre usuarios:** Un token pasa de un usuario a otro. El evento "add" (nuevo usuario) y el evento "remove" (usuario antiguo) tienen diferente `user_id`, mismo `device_id`, mismo `push_token` y diferente `time_ms` (normalmente con una diferencia inferior a 100 milisegundos). Esto se desencadena por cualquiera de las siguientes causas:
 
@@ -1354,5 +1354,6 @@ FROM latest_token_state
 WHERE rn = 1
   AND PUSH_TOKEN_STATE_CHANGE_TYPE != 'remove';
 ```
+
 
 {% endapi %}
