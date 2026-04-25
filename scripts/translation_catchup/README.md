@@ -25,7 +25,7 @@ In GitHub Actions, run **Auto-translate** with:
 | Input | Value |
 |--------|--------|
 | `since_commit` | `3e2a7ea3cac0f973b2cf6a901954739e285c512e` (or your recomputed SHA) |
-| `skip_orphan_cleanup` | `true` for intermediate catch-up runs; `false` on the **final** run to delete stale `_lang/` mirrors |
+| `skip_orphan_cleanup` | `true` for intermediate catch-up runs; `false` on the **final** run to delete stale `_lang/` mirrors (ignored when `files` is set — the workflow never runs global orphan cleanup on explicit path batches; PR #13327) |
 
 This diffs that commit to the current ref and translates every changed English `.md` under `_docs/` and `_includes/`. `since_commit` takes precedence over `files` if both are set.
 

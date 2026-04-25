@@ -24,7 +24,10 @@ on:
       files:
         description: >
           Space-separated _docs/ or _includes/ paths to translate
-          (leave empty unless using since_commit or push-based detection)
+          (leave empty unless using since_commit or push-based detection).
+          When set, the workflow skips global orphan cleanup even if
+          skip_orphan_cleanup is false — partial batches must not delete
+          every locale mirror whose English path moved in IA (PR #13327).
         required: false
         type: string
       since_commit:
@@ -161,15 +164,19 @@ jobs:
           bundler-cache: true
 
       - name: Clean up orphaned translations
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true')) }}
+        # Never run after an explicit `files:` batch — cleanup compares every
+        # `_lang` path to current `_docs`/`_includes` and would mass-delete
+        # pre-IA mirrors still on disk until catch-up finishes (PR #13327).
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
         run: python scripts/clean_orphaned_translations.py
 
       # Alias check runs after orphan cleanup so stale duplicates from the
       # IA restructure don't fail the job. Skipped during catch-up batches
-      # (skip_orphan_cleanup=true) because cleanup is deferred to the final run.
+      # (skip_orphan_cleanup=true) or explicit `files:` batches (same guard as
+      # orphan cleanup — PR #13327).
       - name: Check for duplicate YAML aliases
         id: aliases
-        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || inputs.skip_orphan_cleanup != 'true') }}
+        if: ${{ steps.changes.outputs.count != '0' && (github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '')) }}
         continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
