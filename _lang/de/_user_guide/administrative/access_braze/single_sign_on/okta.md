@@ -27,7 +27,7 @@ description: "In diesem Artikel erfahren Sie, wie Sie Braze für die Verwendung 
 
 Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen** und schalten Sie den Abschnitt SAML SSO auf **EIN**.
 
-![Okta SAML SSO auf der Seite Sicherheitseinstellungen aktiviert.]({% image_buster/assets/img/Okta/okta1.png %})
+![Okta SAML SSO auf der Seite Sicherheitseinstellungen aktiviert.]({% image_buster /assets/img/Okta/okta1.png %})
 
 ### Schritt 1b: SAML SSO-Einstellungen bearbeiten
 
