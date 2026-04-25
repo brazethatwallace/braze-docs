@@ -2219,7 +2219,7 @@ def repair_triple_backtick_inline_code(content):
 
     Scope rules:
 
-    * Fence delimiter lines (``^\s*```lang$`` / ``^\s*```$``) are excluded
+    * Fence delimiter lines (``^\\s*```lang$`` / ``^\\s*```$``) are excluded
       via ``_CODE_FENCE_OPEN_RE`` / ``_CODE_FENCE_CLOSE_RE`` so we never
       touch a real fence opener or closer (including indented fences).
     * Lines *inside* an already-open fenced block are skipped so we
