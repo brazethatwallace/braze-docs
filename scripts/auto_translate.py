@@ -1033,6 +1033,101 @@ def repair_front_matter(english_content, translated_content):
     return translated_content, repairs
 
 
+def repair_front_matter_display_scalar_cleanup(translated_content):
+    """Normalize HTML entities and rare typos in display-oriented YAML keys.
+
+    Models sometimes emit ``&amp;`` in ``nav_title`` / ``article_title`` /
+    ``guide_top_header`` so the literal entity appears in the site chrome
+    (Copilot PR #13319). German ``Spam-Trap's`` in a title should be the
+    plural ``Spam-Traps``.
+    """
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    if "&amp;" not in tr_fm and "Spam-Trap's" not in tr_fm:
+        return translated_content, []
+
+    repairs = []
+    out_lines = []
+    for line in tr_fm.split("\n"):
+        if re.match(
+            r"^(nav_title|article_title|guide_top_header)\s*:.*&amp;",
+            line,
+        ):
+            nl = line.replace("&amp;", "&")
+            if nl != line:
+                repairs.append("fm — &amp; → & in display YAML key")
+            line = nl
+        out_lines.append(line)
+    new_fm = "\n".join(out_lines)
+    if "Spam-Trap's" in new_fm:
+        new_fm2 = new_fm.replace("Spam-Trap's", "Spam-Traps")
+        if new_fm2 != new_fm:
+            repairs.append("fm — Spam-Trap's → Spam-Traps")
+        new_fm = new_fm2
+    if not repairs:
+        return translated_content, []
+    return f"---\n{new_fm}\n---\n{tr_body}", repairs
+
+
+def repair_img_alt_inner_german_low9_closing_quote(
+    translated_path, translated_content
+):
+    """Fix ``alt="…„Word"…"`` where German low-9 quotes break the HTML attribute.
+
+    Models sometimes use ``„…"`` inside a double-quoted ``alt``; the inner
+    ASCII ``"`` closes ``alt`` early (Copilot PR #13319, pt-BR drag-and-drop).
+    Replace inner ``„Segment"``-style pairs with ASCII single quotes.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel or "„" not in translated_content:
+        return translated_content, []
+    if "<img" not in translated_content or "alt=\"" not in translated_content:
+        return translated_content, []
+
+    repairs = []
+    lines = translated_content.split("\n")
+    new_lines = []
+    for line in lines:
+        if "<img" in line and "alt=\"" in line and "„" in line:
+            new_line = re.sub(r"„([^\"„]+)\"", r"'\1'", line)
+            if new_line != line:
+                repairs.append(
+                    "img-alt — German „…\" inside double-quoted alt → ASCII quotes"
+                )
+            line = new_line
+        new_lines.append(line)
+    if not repairs:
+        return translated_content, []
+    return "\n".join(new_lines), repairs
+
+
+def repair_de_email_setup_whitelabel_dkim_spf_phrasing(
+    translated_path, translated_content, lang_key
+):
+    """Fix mistranslated *umgehen* (bypass) for DKIM/SPF auth checks on DE setup.
+
+    English means senders **pass** DKIM/SPF checks via whitelabeling, not
+    **circumvent** them (Copilot PR #13319).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/de/" not in rel or not rel.endswith("email_setup.md"):
+        return translated_content, []
+    needle = "Authentifizierungsprüfungen für DKIM und SPF umgehen"
+    if needle not in translated_content:
+        return translated_content, []
+    new = translated_content.replace(
+        needle,
+        "Authentifizierungsprüfungen für DKIM und SPF bestehen",
+        1,
+    )
+    return new, [
+        "de-email_setup — DKIM/SPF umgehen → bestehen (pass auth checks)"
+    ]
+
+
 def repair_front_matter_miscapitalized_tool_key(content):
     """Normalize ``Tool:`` / ``Tool :`` to ``tool:`` in YAML front matter.
 
@@ -3450,18 +3545,23 @@ def repair_same_page_anchor_ids(english_content, translated_content):
     We add an explicit ``{#slug}`` to the corresponding translated heading
     (matched by positional index) so the existing link targets keep working.
 
+    Also, when the translated heading text would auto-slug to something
+    **different** from the English heading (CJK and most localized titles),
+    we still add the English slug so **bookmark / cross-locale** ``#fragment``
+    URLs keep resolving (Copilot PR #13319 — JA drag-and-drop FAQ, AMP for
+    email).
+
     Conservative by design:
-      * Only adds IDs for slugs that are (a) referenced in this file and
-        (b) map 1:1 to an English heading via auto-slug.
+      * Slug always comes from the English (or explicit ``{#id}`` on English).
+      * Skips when the translated heading already has the same auto-slug as
+        English **and** the slug is not referenced in-file (avoids redundant
+        churn on all-ASCII pages).
       * Never overwrites an existing ``{#id}`` on the translated heading.
       * Skips the file if the English and translated heading counts differ
         (structure mismatch → too risky to auto-align).
     """
-    # Only operate on files that actually use same-page anchors.
     referenced = set(_ANCHOR_REF_RE.findall(english_content))
     referenced |= set(_ANCHOR_REF_RE.findall(translated_content))
-    if not referenced:
-        return translated_content, []
 
     en_headings = list(_iter_doc_headings(english_content))
     tr_headings = list(_iter_doc_headings(translated_content))
@@ -3470,16 +3570,19 @@ def repair_same_page_anchor_ids(english_content, translated_content):
 
     lines = translated_content.split("\n")
     repairs = []
-    for (_, _en_lvl, en_text, en_explicit), (tr_idx, _tr_lvl, _tr_text, tr_explicit) in zip(
+    for (_, _en_lvl, en_text, en_explicit), (tr_idx, _tr_lvl, tr_text, tr_explicit) in zip(
         en_headings, tr_headings
     ):
         slug = en_explicit or _auto_slug(en_text)
-        if not slug or slug not in referenced:
+        if not slug:
             continue
         if tr_explicit:
             continue
         existing = lines[tr_idx]
         if _EXPLICIT_ID_RE.search(existing):
+            continue
+        tr_auto = _auto_slug(tr_text)
+        if slug not in referenced and tr_auto == slug:
             continue
         new_line = existing.rstrip() + f" {{#{slug}}}"
         if new_line != existing:
@@ -3527,6 +3630,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_repairs)
 
+    translated_content, fm_display_repairs = repair_front_matter_display_scalar_cleanup(
+        translated_content
+    )
+    findings["repairs"].extend(fm_display_repairs)
+
     translated_content, gfl_repairs = repair_guide_featured_list_links(
         english_content, translated_content
     )
@@ -3536,6 +3644,18 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(anchor_id_repairs)
+
+    translated_content, img_alt_repairs = repair_img_alt_inner_german_low9_closing_quote(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(img_alt_repairs)
+
+    translated_content, de_dkim_repairs = (
+        repair_de_email_setup_whitelabel_dkim_spf_phrasing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_dkim_repairs)
 
     translated_content, inline_esc_repairs = repair_inline_code_escaped_quotes(
         translated_content
