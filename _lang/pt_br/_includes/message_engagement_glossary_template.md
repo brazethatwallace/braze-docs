@@ -20,15 +20,15 @@ Fale com o gerente da sua conta ou abra um [ticket de suporte]({{site.baseurl}}/
 
 {% details Explicação da estrutura de eventos de engajamento com mensagem e valores de plataforma %}
 
-### Estrutura do evento
+### Estrutura do evento {#event-structure}
 
-Este detalhamento do evento mostra que tipo de informação geralmente é incluído em um evento de engajamento com mensagem. Com uma sólida compreensão de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos do Currents recebidos para criar relatórios e gráficos orientados por dados e aproveitar outras métricas de dados valiosas.
+Este detalhamento do evento mostra que tipo de informação geralmente é incluído em um evento de engajamento com mensagem. Com uma compreensão sólida de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos recebidos do Currents para criar relatórios e gráficos orientados por dados, além de aproveitar outras métricas valiosas.
 
-![Detalhamento de um evento de engajamento com mensagem mostrando um evento de cancelamento de inscrição de e-mail com as propriedades listadas agrupadas por propriedades específicas do usuário, propriedades de rastreamento de campanha ou Canvas e propriedades específicas do evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Detalhamento de um evento de engajamento com mensagem mostrando um evento de cancelamento de inscrição de e-mail com as propriedades listadas agrupadas por propriedades específicas do usuário, propriedades de rastreamento de Campaign ou Canvas e propriedades específicas do evento]({% image_buster /assets/img/message_engagement_event.png %})
 
-Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de campanha/Canvas** e propriedades **específicas do evento**.
+Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de Campaign/Canvas** e propriedades **específicas do evento**.
 
-### Esquema de ID do usuário
+### Esquema de ID do usuário {#user-id-schema}
 
 Observe as convenções de nomenclatura para IDs de usuário.
 
@@ -38,7 +38,7 @@ Observe as convenções de nomenclatura para IDs de usuário.
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário, definido pelo cliente. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### Valores de plataforma
+### Valores de plataforma {#platform-values}
 
 Certos eventos retornam um valor `platform` que especifica a plataforma do dispositivo do usuário.
 <br>A tabela a seguir detalha os possíveis valores retornados:
@@ -65,7 +65,7 @@ Os objetos relacionados ao Canvas Flow têm IDs que podem ser usados para agrupa
 {% endalert %}
 
 {% alert note %}
-Alguns campos podem levar mais tempo para exibir seu estado mais recente após a atualização de uma campanha ou Canvas. Esses campos são:
+Alguns campos podem levar mais tempo para exibir seu estado mais recente após a atualização de uma Campaign ou Canvas. Esses campos são:
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>

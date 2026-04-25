@@ -6,7 +6,7 @@ Antes de criar modelos de WhatsApp, você deve concluir a [configuração do Wha
     - Para que os usuários criem novos modelos no Template Builder:
         - "View WhatsApp Message Templates"
         - "Edit WhatsApp Message Templates"
-    - Para que os usuários redijam campanhas ou Canvas com modelos de carrossel:
+    - Para que os usuários redijam campaigns ou Canvas com modelos de carrossel:
         - "View WhatsApp Message Templates"
 - Conhecimento de modelos Liquid (opcional, para conteúdo dinâmico)
 

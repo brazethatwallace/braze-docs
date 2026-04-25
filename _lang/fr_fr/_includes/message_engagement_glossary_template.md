@@ -20,7 +20,7 @@ Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site
 
 {% details Explication de la structure des événements d'engagement lié aux messages et des valeurs de plateforme %}
 
-### Structure d'événement
+### Structure d'événement {#event-structure}
 
 Cette ventilation des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Grâce à une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent exploiter les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs précieux.
 
@@ -28,7 +28,7 @@ Cette ventilation des événements montre le type d'informations généralement 
 
 Les événements d'engagement lié aux messages se composent de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi de campagne/Canvas** et de propriétés **spécifiques à l'événement**.
 
-### Schéma d'ID utilisateur
+### Schéma d'ID utilisateur {#user-id-schema}
 
 Notez les conventions de nommage pour les ID utilisateur.
 
@@ -38,7 +38,7 @@ Notez les conventions de nommage pour les ID utilisateur.
 | `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur, défini par le client. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### Valeurs de plateforme
+### Valeurs de plateforme {#platform-values}
 
 Certains événements renvoient une valeur `platform` qui spécifie la plateforme de l'appareil de l'utilisateur.
 <br>Le tableau suivant détaille les valeurs pouvant être renvoyées :
@@ -57,7 +57,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 {% enddetails %}
 
 {% alert important %}
-Currents abandonnera les événements dont le PAYLOAD est excessivement volumineux (supérieur à 900 Ko).
+Currents abandonnera les événements dont le payload est excessivement volumineux (supérieur à 900&nbsp;Ko).
 {% endalert %}
 
 {% alert note %}
@@ -65,7 +65,7 @@ Les objets liés à Canvas Flow possèdent des ID qui peuvent être utilisés po
 {% endalert %}
 
 {% alert note %}
-Certains champs peuvent mettre plus de temps à afficher leur état le plus récent après la mise à jour d'une campagne ou d'un canvas. Ces champs sont les suivants :
+Certains champs peuvent mettre plus de temps à afficher leur état le plus récent après la mise à jour d'une campagne ou d'un Canvas. Ces champs sont les suivants :
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>

@@ -1,14 +1,14 @@
-## Migración de permisos granulares
+## Migración de permisos granulares {#granular-permissions-migration}
 
 {% alert important %}
 Los permisos granulares se encuentran en fase de acceso anticipado. Cuando se planifique la migración para tu empresa, los administradores de Braze recibirán correos electrónicos y banners en el dashboard notificándoles la [migración de permisos granulares]({{site.baseurl}}/granular_permissions_migration/).
 {% endalert %}
 
-Las integraciones SCIM existentes y [los objetos API SCIM heredados]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) seguirán funcionando después de la migración de permisos granulares a finales de abril. 
+Las integraciones SCIM existentes y [los objetos API SCIM heredados]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) seguirán funcionando después de la migración de permisos granulares a finales de abril.
 
 No es necesario que tomes ninguna medida inmediata. Sin embargo, te recomendamos que revises tus integraciones para ver si hay permisos que vayan a ser granularizados. Por ejemplo, si actualmente estás enviando `basic_access` en la API, te sugerimos que actualices tu integración después de la granularización para incluir los permisos específicos (por ejemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze seguirá aceptando cadenas heredadas, como `basic_access`, después de la migración de permisos granulares, para que las integraciones existentes no se vean afectadas.
 
-## Objeto permisos
+## Objeto permisos {#permissions-object}
 
 El objeto permisos es un campo que se encuentra en algunas de las peticiones y respuestas cuando se interactúa con el recurso usuario a través de los permisos de ID SCIM.
 
@@ -34,13 +34,13 @@ Un objeto de permisos válido es un objeto JSON con los siguientes pares clave-v
 | `appGroup` | Obligatoria | Matriz | Matriz de [objetos de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Objeto de permisos del espacio de trabajo
+### Objeto de permisos del espacio de trabajo {#workspace-permissions-object}
 
 Un objeto de permisos del espacio de trabajo válido es un objeto JSON con los siguientes pares clave-valor:
 
 | Clave | Obligatoria | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
-| `appGroupName`| Opcional | Cadena | Nombre del espacio de trabajo. Sirve para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. | 
+| `appGroupName`| Opcional | Cadena | Nombre del espacio de trabajo. Sirve para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. |
 | `appGroupId` | Obligatorio si falta `appGroupName` | Cadena | ID del espacio de trabajo, que sirve como método alternativo para especificar el espacio de trabajo. |
 | `appGroupPermissionSets` | Opcional | Matriz | Matriz con un único [objeto de conjunto de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Obligatoria | Matriz | Matriz de cadenas de permisos a nivel del espacio de trabajo de la tabla de [cadenas de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |
@@ -57,7 +57,7 @@ Un objeto de conjunto de permisos del espacio de trabajo válido es un objeto JS
 | `appGroupPermissionSetID` | Obligatorio si falta `appGroupPermissionSetName` | Cadena | ID del espacio de trabajo, que sirve como método alternativo para especificar el conjunto de permisos del espacio de trabajo asignado al usuario para este espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Objeto de permisos del equipo
+### Objeto de permisos del equipo {#team-permissions-object}
 
 Un objeto de permisos del equipo válido es un objeto JSON con los siguientes pares clave-valor:
 
@@ -68,7 +68,7 @@ Un objeto de permisos del equipo válido es un objeto JSON con los siguientes pa
 | `teamPermissions` | Obligatoria | Matriz | Matriz de cadenas de permisos a nivel de equipo de la tabla de [cadenas de permisos del equipo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el equipo especificado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Objeto de rol
+## Objeto de rol {#role-object}
 
 Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 
@@ -78,7 +78,7 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | `roleId` | Obligatorio si falta `roleName` | Cadena | ID del rol, que sirve como método alternativo para especificar el rol. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Anexo
+## Anexo {#appendix}
 
 ### Cadenas de permisos de empresa {#company}
 
@@ -93,9 +93,9 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 
 | Nombre del permiso | Cadena API SCIM |
 | --- | --- |
-| Ver campañas | `view_campaigns` |
-| Editar campañas | `edit_campaigns` |
-| Archivar campañas | `archive_campaigns` |
+| Ver Campaigns | `view_campaigns` |
+| Editar Campaigns | `edit_campaigns` |
+| Archivar Campaigns | `archive_campaigns` |
 | Ver Canvas | `view_canvases` |
 | Editar Canvas | `edit_canvases` |
 | Archivar Canvas | `archive_canvases` |
@@ -103,17 +103,17 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Editar reglas de limitación de frecuencia | `edit_frequency_caps` |
 | Ver priorización de mensajes | `view_message_prioritization` |
 | Editar priorización de mensajes | `edit_message_prioritization` |
-| Ver bloques de contenido | `view_content_blocks` |
-| Editar bloques de contenido | `edit_content_blocks` |
-| Archivar bloques de contenido | `archive_content_blocks` |
+| Ver Content Blocks | `view_content_blocks` |
+| Editar Content Blocks | `edit_content_blocks` |
+| Archivar Content Blocks | `archive_content_blocks` |
 | Ver conmutadores de características | `view_feature_flags` |
 | Editar conmutadores de características | `edit_feature_flags` |
 | Archivar conmutadores de características | `archive_feature_flags` |
-| Ver segmentos | `view_segments` |
-| Editar segmentos | `edit_segments` |
-| Archivar segmentos | `archive_segments` |
-| Ver grupo de control global | `view_global_control_group` |
-| Editar grupo de control global | `edit_global_control_group` |
+| Ver Segments | `view_segments` |
+| Editar Segments | `edit_segments` |
+| Archivar Segments | `archive_segments` |
+| Ver Grupo de control global | `view_global_control_group` |
+| Editar Grupo de control global | `edit_global_control_group` |
 | Ver plantillas IAM | `view_iam_templates` |
 | Editar plantillas IAM | `edit_iam_templates` |
 | Archivar plantillas IAM | `archive_iam_templates` |
@@ -132,20 +132,19 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Ver códigos promocionales | `view_promotion_codes` |
 | Editar códigos promocionales | `edit_promotion_codes` |
 | Exportar códigos promocionales | `export_promotion_codes` |
-| Ver centros de preferencia | `view_preference_centers` |
-| Editar centros de preferencia | `edit_preference_centers` |
+| Ver centros de preferencias | `view_preference_centers` |
+| Editar centros de preferencias | `edit_preference_centers` |
 | Editar informes | `edit_reports` |
 | Ver colocaciones | `view_placements` |
 | Editar colocaciones | `edit_placements` |
 | Archivar colocaciones | `archive_placements` |
 | Ver plantillas de banners | `view_banner_templates` |
 | Ver configuración multilingüe | `view_multi_language_settings` |
-| Utilizar Operator | `use_operator` |
+| Utilizar BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Ver agentes de Decisioning Studio | `view_decisioning_studio_agents` |
 | Ver audiencia de Decisioning Studio |`view_decisioning_studio_audience` |
-| Ver evento de conversión de Decisioning Studio | `view_decisioning_studio_conversion_event` |
 | Ver protecciones de Decisioning Studio | `view_decisioning_studio_guardrails` |
-| Lanzar campañas | `launch_campaigns` |
+| Lanzar Campaigns | `launch_campaigns` |
 | Lanzar Canvas | `launch_canvases` |
 | Editar usuarios del dashboard | `edit_dashboard_users` |
 | Editar activos de la biblioteca de medios | `edit_media_library_assets` |
@@ -161,20 +160,20 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Editar grupos internos | `edit_internal_user_groups` |
 | Eliminar grupos internos | `delete_internal_user_groups` |
 | Ver registro de actividad de mensajes | `view_message_activity_log` |
-| Ver registro de usuarios del evento | `view_event_user_log` |
+| Ver registro de eventos de usuario | `view_event_user_log` |
 | Ver identificadores de API | `view_api_identifiers` |
 | Ver dashboard de uso de la API | `view_api_usage_dashboard` |
 | Ver límites de la API | `view_api_limits` |
 | Ver alertas de uso de la API | `view_api_usage_alerts` |
 | Editar alertas de uso de la API | `edit_api_usage_alerts` |
-| Ver depurador del SDK | `view_sdk_debugger` |
-| Editar depurador del SDK | `edit_sdk_debugger` |
-| Lanzar bloques de contenido | `launch_content_blocks` |
-| Editar ingesta de datos en la nube | `edit_cloud_data_ingestion` |
+| Ver Depurador de SDK | `view_sdk_debugger` |
+| Editar Depurador de SDK | `edit_sdk_debugger` |
+| Lanzar Content Blocks | `launch_content_blocks` |
+| Editar Ingesta de datos de Cloud | `edit_cloud_data_ingestion` |
 | Ver configuración de la aplicación | `view_app_settings` |
 | Editar configuración de la aplicación | `edit_app_settings` |
-| Ver configuración push | `view_push_settings` |
-| Editar configuración push | `edit_push_settings` |
+| Ver configuración de push | `view_push_settings` |
+| Editar configuración de push | `edit_push_settings` |
 | Ver equipos | `view_teams` |
 | Editar equipos | `edit_teams` |
 | Archivar equipos | `archive_teams` |
@@ -210,9 +209,9 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 
 | Nombre del permiso | Cadena API SCIM |
 | --- | --- |
-| Ver campañas | `view_campaigns` |
-| Editar campañas | `edit_campaigns` |
-| Archivar campañas | `archive_campaigns` |
+| Ver Campaigns | `view_campaigns` |
+| Editar Campaigns | `edit_campaigns` |
+| Archivar Campaigns | `archive_campaigns` |
 | Ver Canvas | `view_canvases` |
 | Editar Canvas | `edit_canvases` |
 | Archivar Canvas | `archive_canvases` |
@@ -220,13 +219,13 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Editar reglas de limitación de frecuencia | `edit_frequency_caps` |
 | Ver priorización de mensajes | `view_message_prioritization` |
 | Editar priorización de mensajes | `edit_message_prioritization` |
-| Ver bloques de contenido | `view_content_blocks` |
+| Ver Content Blocks | `view_content_blocks` |
 | Ver conmutadores de características | `view_feature_flags` |
 | Editar conmutadores de características | `edit_feature_flags` |
 | Archivar conmutadores de características | `archive_feature_flags` |
-| Ver segmentos | `view_segments` |
-| Editar segmentos | `edit_segments` |
-| Editar grupo de control global | `edit_global_control_group` |
+| Ver Segments | `view_segments` |
+| Editar Segments | `edit_segments` |
+| Editar Grupo de control global | `edit_global_control_group` |
 | Ver plantillas IAM | `view_iam_templates` |
 | Editar plantillas IAM | `edit_iam_templates` |
 | Archivar plantillas IAM | `archive_iam_templates` |
@@ -245,22 +244,21 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Ver códigos promocionales | `view_promotion_codes` |
 | Editar códigos promocionales | `edit_promotion_codes` |
 | Exportar códigos promocionales | `export_promotion_codes` |
-| Ver centros de preferencia | `view_preference_centers` |
-| Editar centros de preferencia | `edit_preference_centers` |
+| Ver centros de preferencias | `view_preference_centers` |
+| Editar centros de preferencias | `edit_preference_centers` |
 | Ver informes | `view_reports` |
 | Crear informes | `create_reports` |
 | Editar informes | `edit_reports` |
 | Ver plantillas de banners | `view_banner_templates` |
 | Ver configuración multilingüe | `view_multi_language_settings` |
-| Utilizar Operator | `use_operator` |
+| Utilizar BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | Ver agentes de Decisioning Studio | `view_decisioning_studio_agents` |
-| Ver evento de conversión de Decisioning Studio | `view_decisioning_studio_conversion_event` |
-| Lanzar campañas | `launch_campaigns` |
+| Lanzar Campaigns | `launch_campaigns` |
 | Lanzar Canvas | `launch_canvases` |
 | Editar usuarios del dashboard | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Cadenas del departamento
+### Cadenas del departamento {#department-strings}
 
 | Como se muestra en la IU | Cadena API SCIM |
 | --- | --- |

@@ -17,7 +17,7 @@ Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{
 
 {% details Explicación de la estructura de eventos de actualización de perfiles de usuario %}
 
-### Estructura de eventos
+### Estructura de eventos {#event-structure}
 
 Este desglose de eventos de comportamiento del cliente y de usuario muestra qué tipo de información se incluye generalmente en un evento de actualización de perfil de usuario. Con una comprensión sólida de sus componentes, tu equipo de desarrolladores y de estrategia de inteligencia empresarial puede utilizar los datos de eventos entrantes de Currents para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
