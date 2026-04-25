@@ -47,9 +47,11 @@ Se você ainda não fez isso, siga a [documentação da AWS](http://docs.aws.ama
 
 Se o seu cluster do Redshift estiver em uma VPC, você precisa configurar a VPC para permitir conexões do servidor em que está executando o carregador S3. Acesse o seu cluster do Redshift e selecione a entrada de grupos de segurança da VPC à qual deseja que o carregador se conecte. Em seguida, adicione uma nova regra de entrada: **Type** = Redshift, **Protocol** = TCP, **Port** = a porta do seu cluster, **Source** = o IP do servidor que executa o carregador (ou "Anywhere" para testes).
 
-### Usuário Identity and Access Management (IAM) com acesso total ao S3
+### Usuário do IAM (Identity and Access Management) com permissões mínimas ao S3
 
-O carregador S3 requer acesso de leitura aos arquivos que contêm seus dados do Currents e acesso total ao local dos arquivos de manifesto que ele gera para os comandos `COPY` do Redshift. Crie um novo usuário Identity and Access Management (IAM) com a permissão `AmazonS3FullAccess` no [console do IAM](https://console.aws.amazon.com/iam/home#/users). Salve as credenciais, pois você precisará passá-las ao carregador.
+O carregador S3 precisa de permissões de **leitura** (e, em geral, de **listagem**) nos objetos do bucket onde estão os arquivos do Currents, além de permissões de **gravação** (e leitura) no prefixo ou bucket em que ele grava os arquivos de manifesto usados nos comandos `COPY` do Redshift. Evite anexar a política administrada `AmazonS3FullAccess`: ela concede acesso amplo a todos os buckets e aumenta o risco se as credenciais forem expostas. Prefira uma **política IAM personalizada** que restrinja `s3:GetObject` e `s3:ListBucket` (com condição de prefixo em `s3:prefix`, quando aplicável) ao caminho dos dados do Currents e `s3:PutObject` / `s3:GetObject` (e `s3:DeleteObject`, se necessário) somente ao local do manifesto. Quando possível, use uma **função IAM** com credenciais temporárias em vez de chaves de longo prazo.
+
+Crie um usuário do IAM no [console do IAM](https://console.aws.amazon.com/iam/home#/users), anexe apenas essa política restrita e salve as credenciais, pois você precisará passá-las ao carregador.
 
 Você pode passar as credenciais de acesso ao carregador por meio de variáveis de ambiente, do arquivo de credenciais compartilhado (`~/.aws/credentials`) ou do [arquivo de configuração da AWS](http://boto3.readthedocs.io/en/latest/guide/configuration.html#configuring-credentials). Como alternativa, você pode incluí-las diretamente no carregador atribuindo-as aos campos `aws_access_key_id` e `aws_secret_access_key` dentro de um objeto `S3LoadJob`, mas não recomendamos codificar credenciais diretamente no seu código-fonte.
 

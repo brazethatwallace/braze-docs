@@ -1,5 +1,5 @@
 ---
-nav_title: Cómo utiliza Braze las corrientes
+nav_title: Cómo utiliza Braze Currents
 article_title: Cómo utiliza Braze Currents
 page_order: 6
 page_type: tutorial

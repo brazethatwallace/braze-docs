@@ -20,7 +20,7 @@ guide_featured_list:
   - name: 커런츠 이벤트 용어집
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary
     image: /assets/img/braze_icons/data.svg
-  - name: 활용 사례
+  - name: 사용 사례
     link: /docs/user_guide/data/distribution/braze_currents/use_cases
     image: /assets/img/braze_icons/expand-05.svg
   - name: FAQ

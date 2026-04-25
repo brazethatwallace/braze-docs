@@ -130,7 +130,7 @@ Para que a configuração do AWS SQS produza as tabelas corretas, você deve def
 {% endalert %}
 
 {% tabs %}
-  {% tab User Behavior Events %}
+  {% tab Eventos de comportamento do usuário %}
 
 1. Crie uma tabela `INTO` na qual carregaremos dados continuamente usando a seguinte estrutura do esquema do Currents:
 
@@ -194,7 +194,7 @@ Você deve repetir os comandos `CREATE TABLE` e `CREATE PIPE` para cada tipo de 
 {% endalert %}
 
  {% endtab %}
- {% tab Messaging Events %}
+ {% tab Eventos de envio de mensagens %}
 
 1. Crie uma tabela `INTO` na qual carregaremos dados continuamente usando a seguinte estrutura do esquema do Currents:
 
