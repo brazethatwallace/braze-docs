@@ -431,6 +431,13 @@ HTML tags, and markdown formatting are intact and unmodified.
 5. **Style guide**: Follow all rules in the language-specific style guide appended \
 below (gender conventions, register, terminology preferences, etc.).
 6. **Consistency**: Ensure consistent terminology and tone throughout the file.
+7. **Procedure UI labels**: In each numbered or bulleted procedure, bold \
+dashboard controls must not mix English with localized forms—either mirror \
+the English source bold strings verbatim for that whole list or localize \
+every control in that list per the style guide; fix any half-and-half lists.
+8. **Heading anchor parity**: If some section headings use explicit Kramdown \
+`{#id}` blocks, ensure peer headings that need stable deep links include the \
+expected `{#slug}` (especially multi-table `_includes`).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
