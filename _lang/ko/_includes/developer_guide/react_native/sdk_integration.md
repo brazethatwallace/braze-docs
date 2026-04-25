@@ -1,8 +1,8 @@
-## React Native Braze SDK 소개
+## React Native Braze SDK 소개 {#about-the-react-native-braze-sdk}
 
-React Native Braze SDK를 통합하면 기본 분석 기능을 제공하고 iOS 및 Android 모두에 대해 하나의 코드베이스로 인앱 메시지 및 콘텐츠 카드를 통합할 수 있습니다.
+React Native Braze SDK를 통합하면 기본 분석 기능을 제공하고 iOS 및 Android 모두에 대해 하나의 코드베이스로 인앱 메시지 및 Content Cards를 통합할 수 있습니다.
 
-## 새 아키텍처 호환성
+## 새 아키텍처 호환성 {#new-architecture-compatibility}
 
 다음 최소 SDK 버전은 [React Native의 새 아키텍처](https://reactnative.dev/docs/the-new-architecture/landing-page)를 사용하는 모든 앱과 호환됩니다:
 
@@ -14,13 +14,13 @@ SDK 버전 6.0.0부터 Braze는 React Native Turbo 모듈을 사용하며, 이�
 iOS 앱이 `RCTAppDelegate`를 준수하고 이전 `AppDelegate` 설정을 따르는 경우, Turbo 모듈에서 이벤트를 구독할 때 발생할 수 있는 충돌을 방지하기 위해 [완전한 네이티브 설정](#reactnative_step-2-complete-native-setup)의 샘플을 검토하세요.
 {% endalert %}
 
-## React Native SDK 통합하기
+## React Native SDK 통합하기 {#integrating-the-react-native-sdk}
 
-### 필수 조건
+### 필수 조건 {#prerequisites}
 
 SDK를 통합하려면 React Native 버전 0.71 이상이 필요합니다. 지원되는 버전의 전체 목록은 [React Native SDK GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)를 참조하세요.
 
-### 1단계: Braze 라이브러리 통합
+### 1단계: Braze 라이브러리 통합 {#step-1-integrate-the-braze-library}
 
 {% tabs local %}
 {% tab npm %}
@@ -37,7 +37,7 @@ yarn add @braze/react-native-sdk
 
 <a id="step-2-choose-a-setup-option"></a>
 <a id="reactnative_step-2-complete-native-setup"></a>
-### 2단계: 네이티브 설정 완료
+### 2단계: 네이티브 설정 완료 {#step-2-complete-native-setup}
 
 앱이 Expo를 사용하는 경우 [Expo 플러그인 사용](#reactnative-using-the-expo-plugin)을 참조하세요. 앱이 순수 React Native를 사용하는 경우 [React Native CLI 사용](#reactnative-using-react-native-cli)을 참조하세요.
 각 버전 탭에서 Expo 플러그인 또는 React Native CLI 중 하나의 설정 방법을 선택하세요.
@@ -47,7 +47,7 @@ yarn add @braze/react-native-sdk
 
 #### 방법 1: Expo 플러그인 사용 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expo 플러그인 설치
+##### 2.1 Braze Expo 플러그인 설치 {#21-install-the-braze-expo-plugin}
 
 Braze Expo 플러그인 버전이 4.1.0 이상인지 확인하세요. 지원되는 버전의 전체 목록은 [Braze Expo 플러그인 리포지토리](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)를 참조하세요.
 
@@ -57,7 +57,7 @@ Braze Expo 플러그인 버전이 4.1.0 이상인지 확인하세요. 지원되�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.json에 플러그인 추가
+##### 2.2 app.json에 플러그인 추가 {#22-add-the-plugin-to-your-appjson}
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. API 키와 엔드포인트는 더 이상 여기에서 설정하지 않습니다. JavaScript에서 `Braze.initialize()`를 통해 런타임에 제공하세요. 구현 요구 사항에 따라 다음 선택적 구성 매개변수를 추가하세요:
 
@@ -81,8 +81,8 @@ npx expo install @braze/expo-plugin
 | `androidNotificationSmallIcon`                | string  | Android 전용. Android 알림 작은 아이콘을 설정합니다.                                                                                                  |
 | `iosRequestPushPermissionsAutomatically`      | boolean | iOS 전용. 앱 실행 시 사용자에게 푸시 권한을 자동으로 요청할지 여부.                                                          |
 | `enableBrazeIosRichPush`                      | boolean | iOS 전용. iOS에 리치 푸시 기능을 활성화할지 여부.                                                                                                  |
-| `enableBrazeIosPushStories`                   | boolean | iOS 전용. iOS용 Braze 푸시 스토리를 활성화할지 여부.                                                                                                  |
-| `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS 푸시 스토리에 사용되는 앱 그룹.                                                                                                       |
+| `enableBrazeIosPushStories`                   | boolean | iOS 전용. iOS용 Braze Push Stories를 활성화할지 여부.                                                                                                  |
+| `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS Push Stories에 사용되는 앱 그룹.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -175,7 +175,7 @@ Braze Expo 플러그인은 Android `drawable` 디렉토리에서 아이콘 파�
 
 Android 알림 아이콘에 대한 자세한 내용은 [Android의 알림 아이콘 가이드라인](https://developer.android.com/develop/ui/views/notifications#icon)을 참조하세요.
 
-##### 2.3 애플리케이션 빌드 및 실행
+##### 2.3 애플리케이션 빌드 및 실행 {#23-build-and-run-your-application}
 
 애플리케이션을 프리빌드하면 Braze Expo 플러그인이 작동하는 데 필요한 네이티브 파일이 생성됩니다.
 
@@ -189,7 +189,7 @@ npx expo prebuild
 
 #### 방법 2: React Native CLI 사용 {#reactnative-using-react-native-cli}
 
-##### Android 설정
+##### Android 설정 {#set-up-android}
 
 **2.1 Kotlin Gradle 플러그인 추가**
 
@@ -288,7 +288,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS 설정
+##### iOS 설정 {#set-up-ios}
 
 **2.5 (선택 사항) 동적 XCFrameworks용 Podfile 구성**
 
@@ -401,9 +401,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 {% tab React Native SDK 19.1.0 이하 %}
 
-#### 방법 1: Expo 플러그인 사용
+#### 방법 1: Expo 플러그인 사용 {#method-1-using-the-expo-plugin}
 
-##### 2.1단계: Braze Expo 플러그인 설치
+##### 2.1단계: Braze Expo 플러그인 설치 {#step-21-install-the-braze-expo-plugin}
 
 Braze React Native SDK 버전이 1.37.0 이상인지 확인하세요. 지원되는 버전의 전체 목록은 [Braze React Native 리포지토리](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)를 참조하세요.
 
@@ -413,7 +413,7 @@ Braze React Native SDK 버전이 1.37.0 이상인지 확인하세요. 지원되�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2단계: app.json에 플러그인 추가
+##### 2.2단계: app.json에 플러그인 추가 {#step-22-add-the-plugin-to-your-appjson}
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. 다음 구성 옵션을 제공할 수 있습니다:
 
@@ -440,8 +440,8 @@ npx expo install @braze/expo-plugin
 | `androidNotificationSmallIcon`                | string  | Android 전용. Android 알림 작은 아이콘을 설정합니다.                                                                                                  |
 | `iosRequestPushPermissionsAutomatically`      | boolean | iOS 전용. 앱 실행 시 사용자에게 푸시 권한을 자동으로 요청할지 여부.                                                          |
 | `enableBrazeIosRichPush`                      | boolean | iOS 전용. iOS에 리치 푸시 기능을 활성화할지 여부.                                                                                                  |
-| `enableBrazeIosPushStories`                   | boolean | iOS 전용. iOS용 Braze 푸시 스토리를 활성화할지 여부.                                                                                                  |
-| `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS 푸시 스토리에 사용되는 앱 그룹.                                                                                                       |
+| `enableBrazeIosPushStories`                   | boolean | iOS 전용. iOS용 Braze Push Stories를 활성화할지 여부.                                                                                                  |
+| `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS Push Stories에 사용되는 앱 그룹.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). 활성화되면 SDK는 [앱에서 유니버설 링크 지원](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)에 정의된 시스템 메서드로 유니버설 링크를 자동으로 전달합니다. React Native SDK v11.1.0 및 Expo Plugin v3.2.0에서 도입되었습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -485,7 +485,7 @@ npx expo install @braze/expo-plugin
 }
 ```
 
-###### Android 푸시 알림 아이콘 구성
+###### Android 푸시 알림 아이콘 구성 {#configuring-android-push-notification-icons}
 
 `androidNotificationLargeIcon` 및 `androidNotificationSmallIcon`을 사용할 때 올바른 아이콘 표시를 위해 다음 모범 사례를 따르세요:
 
@@ -536,7 +536,7 @@ Braze Expo 플러그인은 Android `drawable` 디렉토리에서 아이콘 파�
 
 Android 알림 아이콘에 대한 자세한 내용은 [Android의 알림 아이콘 가이드라인](https://developer.android.com/develop/ui/views/notifications#icon)을 참조하세요.
 
-##### 2.3단계: 애플리케이션 빌드 및 실행
+##### 2.3단계: 애플리케이션 빌드 및 실행 {#step-23-build-and-run-your-application}
 
 애플리케이션을 프리빌드하면 Braze Expo 플러그인이 작동하는 데 필요한 네이티브 파일이 생성됩니다.
 
@@ -548,9 +548,9 @@ npx expo prebuild
 
 [Expo 문서](https://docs.expo.dev/workflow/customizing/)에 지정된 대로 애플리케이션을 실행하세요. 구성 옵션을 변경한 경우 애플리케이션을 다시 프리빌드하고 실행해야 합니다.
 
-#### 방법 2: React Native CLI 사용
+#### 방법 2: React Native CLI 사용 {#method-2-using-react-native-cli}
 
-##### Android 설정
+##### Android 설정 {#set-up-android}
 
 **2.1단계: Kotlin Gradle 플러그인 추가**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS 설정
+##### iOS 설정 {#set-up-ios}
 
 **2.5단계: (선택 사항) 동적 XCFrameworks용 Podfile 구성**
 
@@ -773,7 +773,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### 3단계: SDK 초기화
+### 3단계: SDK 초기화 {#step-3-initialize-the-sdk}
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
@@ -786,7 +786,7 @@ import Braze from "@braze/react-native-sdk";
 
 그런 다음 앱 식별자 API 키와 SDK 엔드포인트를 사용하여 `Braze.initialize()`를 호출하여 Braze 인스턴스를 생성하세요. 앱에서 이 메서드를 호출할 위치에 대해서는 아래 옵션을 참조하세요.
 
-#### 표준 초기화
+#### 표준 초기화 {#standard-initialization}
 
 다음 코드 스니펫은 `useEffect`에서 `Braze.initialize()`를 호출하여 앱 시작 시 SDK를 초기화하는 방법을 보여줍니다:
 
@@ -805,9 +805,9 @@ const App = () => {
 };
 ```
 
-#### 지연 초기화
+#### 지연 초기화 {#delayed-initialization}
 
-다음 코드 스니펫은 세션 후반까지 SDK 초기화를 지연하는 방법을 보여줍니다. 예를 들어 사용자가 동의하거나 로그인을 완료한 후:
+다음 코드 스니펫은 세션 후반까지 SDK 초기화를 지연하는 방법을 보여줍니다. 예를 들어 사용자가 동의하거나 로그인을 완료한 후에 초기화할 수 있습니다:
 
 ```javascript
 function onUserConsent() {
@@ -819,7 +819,7 @@ function onUserConsent() {
 iOS에서는 `Braze.initialize()` 전에 수신된 푸시 알림이 대기열에 추가되고 초기화 후에 처리됩니다. Android에서는 SDK가 초기화를 기다리는 동안 푸시 알림의 딥링크가 해결되지 않습니다. 앱이 실행 시 즉각적인 딥링크 처리에 의존하는 경우 [표준 초기화](#standard-initialization)를 대신 사용하세요.
 {% endalert %}
 
-#### 플랫폼별 API 키
+#### 플랫폼별 API 키 {#platform-specific-api-keys}
 
 다음 코드 스니펫은 Android와 iOS 앱이 서로 다른 API 키를 사용할 때 플랫폼 감지를 사용하는 방법을 보여줍니다:
 
@@ -835,7 +835,7 @@ const apiKey = Platform.select({
 Braze.initialize(apiKey, "YOUR-SDK-ENDPOINT");
 ```
 
-#### 재초기화
+#### 재초기화 {#re-initialization}
 
 세션 중에 다른 API 키와 엔드포인트로 SDK를 재초기화하기 위해 `Braze.initialize()`를 여러 번 호출할 수 있습니다. 각 호출은 이전 Braze 인스턴스를 해제하고 새 인스턴스를 생성합니다.
 
@@ -855,7 +855,7 @@ import Braze from "@braze/react-native-sdk";
 {% endtab %}
 {% endtabs %}
 
-### 4단계: 통합 테스트(선택 사항)
+### 4단계: 통합 테스트(선택 사항) {#step-4-test-the-integration-optional}
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
@@ -900,15 +900,15 @@ const App = () => {
   )
 ```
 
-Braze 대시보드에서 [사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search#using-user-search)으로 이동하여 `some-user-id`와 일치하는 ID를 가진 사용자를 찾으세요. 세션 및 기기 데이터가 기록되었는지 확인할 수 있습니다.
+Braze 대시보드에서 [사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search)으로 이동하여 `some-user-id`와 일치하는 ID를 가진 사용자를 찾으세요. 세션 및 기기 데이터가 기록되었는지 확인할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
 
-## 다음 단계
+## 다음 단계 {#next-steps}
 
 Braze SDK를 통합한 후 일반 메시징 기능을 구현할 수 있습니다:
 
 - [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/): 사용자에게 푸시 알림을 설정하고 전송하세요.
-- [인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/): 앱 내에서 상황별 메시지를 표시하세요.
+- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/): 앱 내에서 상황별 메시지를 표시하세요.
 - [배너]({{site.baseurl}}/developer_guide/banners/): 앱 인터페이스에 지속 배너를 표시하세요.

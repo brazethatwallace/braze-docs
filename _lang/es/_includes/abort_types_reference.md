@@ -15,11 +15,11 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `liquid_abort_message` | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/), por lo que se canceló el envío. |
 | `template_parse_error` | La plantilla del mensaje no se pudo analizar debido a un error de sintaxis o de renderizado, por lo que se canceló el envío. |
 | `rate_limit` | El mensaje se canceló porque superó el [límite de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) configurado. |
-| `campaign_disabled` | La campaña se desactivó antes de que se pudiera enviar el mensaje. |
-| `campaign_does_not_exist` | La campaña asociada a este mensaje ya no existe. |
-| `campaign_action_does_not_exist` | La acción de campaña asociada a este mensaje ya no existe. |
+| `campaign_disabled` | La Campaign se desactivó antes de que se pudiera enviar el mensaje. |
+| `campaign_does_not_exist` | La Campaign asociada a este mensaje ya no existe. |
+| `campaign_action_does_not_exist` | La acción de Campaign asociada a este mensaje ya no existe. |
 | `message_variation_does_not_exist` | La variación de mensaje asignada a este usuario ya no existe. |
-| `user_not_in_segment` | El usuario no está en el segmento objetivo, por lo que no se envió el mensaje. |
+| `user_not_in_segment` | El usuario no está en el Segment objetivo, por lo que no se envió el mensaje. |
 | `trigger_event_blacklisted` | El evento desencadenante está en la lista negra, por lo que no se envió el mensaje. |
 | `exhausted_retries` | No se pudo enviar el mensaje después del número máximo de intentos de reintento. |
 | `frequency_capped` | El usuario ya recibió el número máximo de mensajes permitidos por las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping) de tu espacio de trabajo. |
@@ -27,7 +27,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
-### Contenido y renderizado
+### Contenido y renderizado {#content-and-rendering}
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
@@ -48,7 +48,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 {% if ch == "all" or ch == "email" %}
 
-### Correo electrónico
+### Correo electrónico {#email}
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
@@ -127,21 +127,21 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Tarjetas de contenido
+### Content Cards
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
-| `content_card_size_exceeded` | La carga útil de la tarjeta de contenido supera el límite de tamaño máximo (2 KB). |
-| `content_card_content_invalid` | El contenido de la tarjeta de contenido no es válido o contiene caracteres no compatibles. |
-| `content_card_expiration_invalid` | La fecha de expiración de la tarjeta de contenido no es válida. |
-| `content_card_general` | No se pudo crear la tarjeta de contenido debido a un error general. |
+| `content_card_size_exceeded` | La carga útil de la Content Card supera el límite de tamaño máximo (2 KB). |
+| `content_card_content_invalid` | El contenido de la Content Card no es válido o contiene caracteres no compatibles. |
+| `content_card_expiration_invalid` | La fecha de expiración de la Content Card no es válida. |
+| `content_card_general` | No se pudo crear la Content Card debido a un error general. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endif %}
 
 {% if ch == "all" or ch == "inappmessage" %}
 
-### Mensajes dentro de la aplicación
+### Mensajes dentro de la aplicación {#in-app-messages}
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |

@@ -6,7 +6,7 @@ Le tableau suivant répertorie les valeurs possibles de `abort_type`. Un type d'
 {% assign ch = "all" %}
 {% endif %}
 
-### Général
+### Général {#general}
 
 Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
@@ -27,11 +27,11 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
-### Contenu et rendu
+### Contenu et rendu {#content-and-rendering}
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `exhausted_cc_retries` | Le Contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
 | `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
@@ -48,7 +48,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 {% if ch == "all" or ch == "email" %}
 
-### E-mail
+### E-mail {#email}
 
 | Valeur `abort_type` | Description |
 | --- | --- |
@@ -65,7 +65,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `invalid_push_payload` | Le PAYLOAD de la notification push est non valide ou mal formé. |
+| `invalid_push_payload` | Le payload de la notification push est non valide ou mal formé. |
 | `sdk_not_supported` | La version du SDK sur l'appareil de l'utilisateur ne prend pas en charge ce type de notification push. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -127,21 +127,21 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Cartes de contenu
+### Content Cards
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `content_card_size_exceeded` | Le PAYLOAD de la carte de contenu dépasse la taille maximale autorisée (2 Ko). |
-| `content_card_content_invalid` | Le contenu de la carte de contenu est non valide ou contient des caractères non pris en charge. |
-| `content_card_expiration_invalid` | La date d'expiration de la carte de contenu est non valide. |
-| `content_card_general` | La carte de contenu n'a pas pu être créée en raison d'une erreur générale. |
+| `content_card_size_exceeded` | Le payload de la Content Card dépasse la taille maximale autorisée (2 Ko). |
+| `content_card_content_invalid` | Le contenu de la Content Card est non valide ou contient des caractères non pris en charge. |
+| `content_card_expiration_invalid` | La date d'expiration de la Content Card est non valide. |
+| `content_card_general` | La Content Card n'a pas pu être créée en raison d'une erreur générale. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endif %}
 
 {% if ch == "all" or ch == "inappmessage" %}
 
-### Messages in-app
+### Messages in-app {#in-app-messages}
 
 | Valeur `abort_type` | Description |
 | --- | --- |

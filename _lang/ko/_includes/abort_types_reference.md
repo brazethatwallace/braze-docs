@@ -6,7 +6,7 @@
 {% assign ch = "all" %}
 {% endif %}
 
-### 기본설정
+### 기본설정 {#general}
 
 이러한 중단 유형은 모든 메시징 채널에서 발생할 수 있습니다.
 
@@ -15,11 +15,11 @@
 | `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) Liquid 태그가 호출되어 발송이 취소되었습니다. |
 | `template_parse_error` | 구문 또는 렌더링 오류로 인해 메시지 템플릿을 구문 분석할 수 없어 발송이 취소되었습니다. |
 | `rate_limit` | 설정된 [사용량 제한]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)을 초과하여 메시지가 중단되었습니다. |
-| `campaign_disabled` | 메시지가 발송되기 전에 캠페인이 비활성화되었습니다. |
-| `campaign_does_not_exist` | 이 메시지와 연결된 캠페인이 더 이상 존재하지 않습니다. |
-| `campaign_action_does_not_exist` | 이 메시지와 연결된 캠페인 동작이 더 이상 존재하지 않습니다. |
+| `campaign_disabled` | 메시지가 발송되기 전에 Campaign이 비활성화되었습니다. |
+| `campaign_does_not_exist` | 이 메시지와 연결된 Campaign이 더 이상 존재하지 않습니다. |
+| `campaign_action_does_not_exist` | 이 메시지와 연결된 Campaign 동작이 더 이상 존재하지 않습니다. |
 | `message_variation_does_not_exist` | 이 사용자에게 할당된 메시지 변형이 더 이상 존재하지 않습니다. |
-| `user_not_in_segment` | 사용자가 타겟 세그먼트에 포함되지 않아 메시지가 발송되지 않았습니다. |
+| `user_not_in_segment` | 사용자가 타겟 Segment에 포함되지 않아 메시지가 발송되지 않았습니다. |
 | `trigger_event_blacklisted` | 트리거 이벤트가 차단 목록에 있어 메시지가 발송되지 않았습니다. |
 | `exhausted_retries` | 최대 재시도 횟수를 초과한 후에도 메시지를 발송할 수 없었습니다. |
 | `frequency_capped` | 워크스페이스의 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping) 규칙에서 허용하는 최대 메시지 수를 사용자가 이미 수신했습니다. |
@@ -27,7 +27,7 @@
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
-### 콘텐츠 및 렌더링
+### 콘텐츠 및 렌더링 {#content-and-rendering}
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
@@ -48,7 +48,7 @@
 
 {% if ch == "all" or ch == "email" %}
 
-### 이메일
+### 이메일 {#email}
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
@@ -61,7 +61,7 @@
 
 {% if ch == "all" or ch == "push" %}
 
-### 푸시
+### 푸시 {#push}
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
@@ -127,7 +127,7 @@
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### 콘텐츠 카드
+### Content Cards
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
@@ -141,7 +141,7 @@
 
 {% if ch == "all" or ch == "inappmessage" %}
 
-### 인앱 메시지
+### 인앱 메시지 {#in-app-messages}
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
@@ -153,7 +153,7 @@
 
 {% if ch == "all" or ch == "webhook" %}
 
-### 웹훅
+### 웹훅 {#webhooks}
 
 | `abort_type` 값 | 설명 |
 | --- | --- |

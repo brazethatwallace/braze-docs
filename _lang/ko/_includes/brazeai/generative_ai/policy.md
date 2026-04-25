@@ -1,4 +1,4 @@
-## 내 데이터는 어떻게 사용되어 OpenAI로 전송되나요? {#ai-policy} 
+## 내 데이터는 어떻게 사용되어 OpenAI로 전송되나요? {#ai-policy}
 <!-- Braze Legal must approve any changes to this content. -->
 <!-- Note: Keep these comments under this H2 heading to avoid breaking how headings on certain pages are rendered. -->
 

@@ -1,22 +1,22 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Déclencheurs de messages
+## Déclencheurs de messages {#message-triggers}
 
-### Types de déclencheurs
+### Types de déclencheurs {#trigger-types}
 
 Les messages in-app sont automatiquement déclenchés lorsque le SDK enregistre l'un des types d'événements personnalisés suivants : `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` et `Push Click`. Notez que les déclencheurs `Specific Purchase` et `Custom Event` contiennent également des filtres de propriétés robustes.
 
 {% alert note %}
-Les messages in-app ne peuvent pas être déclenchés par l'API ou par des événements de l'API — uniquement par des événements personnalisés enregistrés par le SDK. Pour en savoir plus sur la journalisation, consultez [Journalisation des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+Les messages in-app ne peuvent pas être déclenchés par l'API ou par des événements de l'API — uniquement par des événements personnalisés enregistrés par le SDK. Pour en savoir plus sur la journalisation, consultez la section [Journalisation des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
-### Sémantique de distribution
+### Sémantique de distribution {#delivery-semantics}
 
-Tous les messages in-app éligibles sont envoyés sur l'appareil de l'utilisateur au début de sa session. À la réception, le SDK précharge les ressources afin qu'elles soient disponibles au moment du déclenchement, minimisant ainsi la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée sera distribué.
+Tous les messages in-app éligibles sont envoyés sur l'appareil de l'utilisateur au début de sa session. À la réception, le SDK précharge les ressources afin qu'elles soient disponibles au moment du déclenchement, ce qui minimise la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée sera distribué.
 
-Pour plus d'informations sur la sémantique de démarrage de session du SDK, consultez [Cycle de vie de la session]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android).
+Pour plus d'informations sur la sémantique de démarrage de session du SDK, consultez la section [Cycle de vie de la session]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android).
 
-### Limite de débit
+### Limite de débit {#rate-limit}
 
 Par défaut, le SDK limite le débit des messages in-app déclenchés à une fois toutes les 30 secondes afin de garantir une expérience utilisateur de qualité.
 
@@ -30,7 +30,7 @@ Pour remplacer cette valeur, définissez `com_braze_trigger_action_minimum_time_
   <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 
-## Paires clé-valeur
+## Paires clé-valeur {#key-value-pairs}
 
 Lorsque vous créez une campagne dans Braze, vous pouvez définir des paires clé-valeur en tant qu'`extras`, que l'objet de message in-app peut utiliser pour envoyer des données à votre application. Par exemple :
 
@@ -51,7 +51,7 @@ extras: Map<String, String>
 Pour plus d'informations, consultez le [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721).
 {% endalert %}
 
-## Désactivation des déclencheurs automatiques
+## Désactivation des déclencheurs automatiques {#disabling-automatic-triggers}
 
 Pour empêcher les messages in-app de se déclencher automatiquement :
 
@@ -62,15 +62,15 @@ Pour empêcher les messages in-app de se déclencher automatiquement :
 <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
 ```
 
-## Déclenchement manuel des messages
+## Déclenchement manuel des messages {#manually-triggering-messages}
 
 Par défaut, les messages in-app sont automatiquement déclenchés lorsque le SDK enregistre un événement personnalisé. Cependant, vous pouvez déclencher manuellement un message en utilisant les méthodes suivantes.
 
-### Utilisation d'un événement côté serveur
+### Utilisation d'un événement côté serveur {#using-a-server-side-event}
 
 Pour déclencher un message in-app à l'aide d'un événement envoyé par le serveur, envoyez une notification push silencieuse à l'appareil, ce qui permet à un rappel push personnalisé d'enregistrer un événement basé sur le SDK. Cet événement déclenchera ensuite le message in-app destiné à l'utilisateur.
 
-#### Étape 1 : Créer un rappel push pour recevoir la notification push silencieuse
+#### Étape 1 : Créer un rappel push pour recevoir la notification push silencieuse {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
 Enregistrez [votre rappel push personnalisé]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#push-callback) pour écouter une notification push silencieuse spécifique.
 
@@ -113,7 +113,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### Étape 2 : Créer une campagne de notification push
+#### Étape 2 : Créer une campagne de notification push {#step-2-create-a-push-campaign}
 
 Créez une [campagne de push silencieuse]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) déclenchée par l'événement envoyé par le serveur.
 
@@ -125,9 +125,9 @@ La campagne de notification push doit inclure des paires clé-valeur supplément
 
 Le code exemple de rappel push ci-dessus reconnaît les paires clé-valeur et enregistre l'événement personnalisé SDK approprié.
 
-Si vous souhaitez inclure des propriétés d'événement à joindre à votre événement « déclencheur de message in-app », vous pouvez les transmettre dans les paires clé-valeur du PAYLOAD push. Dans cet exemple, le nom de campagne du message in-app suivant a été inclus. Votre rappel push personnalisé peut ensuite transmettre la valeur comme paramètre de la propriété d'événement lors de l'enregistrement de l'événement personnalisé.
+Si vous souhaitez inclure des propriétés d'événement à joindre à votre événement « déclencheur de message in-app », vous pouvez les transmettre dans les paires clé-valeur du payload push. Dans cet exemple, le nom de la campagne du message in-app suivant a été inclus. Votre rappel push personnalisé peut ensuite transmettre la valeur comme paramètre de la propriété d'événement lors de l'enregistrement de l'événement personnalisé.
 
-#### Étape 3 : Créer une campagne de message in-app
+#### Étape 3 : Créer une campagne de message in-app {#step-3-create-an-in-app-message-campaign}
 
 Créez votre campagne de message in-app visible par l'utilisateur dans le tableau de bord de Braze. Cette campagne doit avoir une livraison par événement et être déclenchée par l'événement personnalisé enregistré depuis votre rappel push personnalisé.
 
@@ -137,7 +137,7 @@ Dans l'exemple suivant, le message in-app spécifique à déclencher a été con
 
 Si un événement envoyé par le serveur est enregistré alors que l'application n'est pas au premier plan, l'événement sera enregistré, mais le message in-app ne s'affichera pas. Si vous souhaitez que l'événement soit retardé jusqu'à ce que l'application soit au premier plan, une vérification doit être incluse dans votre récepteur push personnalisé pour rejeter ou retarder l'événement jusqu'à ce que l'application passe au premier plan.
 
-### Affichage d'un message prédéfini
+### Affichage d'un message prédéfini {#displaying-a-pre-defined-message}
 
 Pour afficher manuellement un message in-app prédéfini, utilisez la méthode suivante :
 
@@ -158,7 +158,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% endtab %}
 {% endtabs %}
 
-### Affichage d'un message en temps réel
+### Affichage d'un message en temps réel {#displaying-a-message-in-real-time}
 
 Vous pouvez également créer et afficher des messages in-app locaux en temps réel, en utilisant les mêmes options de personnalisation que celles disponibles sur le tableau de bord. Pour ce faire :
 

@@ -1,10 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## Standardattribute
+## Standard-Nutzerattribute {#default-user-attributes}
 
-### Vordefinierte Methoden
+### Vordefinierte Methoden {#predefined-methods}
 
-Braze bietet vordefinierte Methoden zum Setzen der folgenden Nutzerattribute mithilfe des `BrazeBinding`-Objekts. Weitere Informationen finden Sie in der [Braze Unity-Deklarationsdatei](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs).
+Braze stellt vordefinierte Methoden zur Verfügung, um die folgenden Nutzerattribute mithilfe des `BrazeBinding`-Objekts festzulegen. Weitere Informationen finden Sie in der [Braze Unity-Deklarationsdatei](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs).
 
 - Vorname
 - Nachname
@@ -17,9 +17,9 @@ Braze bietet vordefinierte Methoden zum Setzen der folgenden Nutzerattribute mit
 - Push-Abo
 - Telefonnummer
 
-### Standardattribute setzen
+### Standardattribute festlegen {#setting-default-attributes}
 
-Um ein Standardattribut zu setzen, rufen Sie die entsprechende Methode auf dem `BrazeBinding`-Objekt auf.
+Um ein Standardattribut festzulegen, rufen Sie die entsprechende Methode auf dem `BrazeBinding`-Objekt auf.
 
 {% tabs local %}
 {% tab First name %}
@@ -74,7 +74,7 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 {% endtab %}
 {% endtabs %}
 
-### Standardattribute zurücksetzen
+### Standardattribute zurücksetzen {#unsetting-default-attributes}
 
 Um ein Standardattribut zurückzusetzen, übergeben Sie `null` an die entsprechende Methode.
 
@@ -82,13 +82,13 @@ Um ein Standardattribut zurückzusetzen, übergeben Sie `null` an die entspreche
 BrazeBinding.SetUserFirstName(null);
 ```
 
-## Angepasste Nutzerattribute
+## Angepasste Nutzerattribute {#custom-user-attributes}
 
-Zusätzlich zu den Standardattributen ermöglicht Braze auch die Definition angepasster Attribute mit verschiedenen Datentypen. Weitere Informationen zu den Segmentierungsoptionen der einzelnen Attribute finden Sie unter [Datenerfassung]({{site.baseurl}}/developer_guide/analytics).
+Zusätzlich zu den Standard-Nutzerattributen ermöglicht Braze auch die Definition angepasster Attribute mit verschiedenen Datentypen. Weitere Informationen zu den Segmentierungsoptionen der einzelnen Attribute finden Sie unter [Datenerfassung]({{site.baseurl}}/developer_guide/analytics/).
 
-### Angepasste Attribute setzen
+### Angepasste Attribute festlegen {#setting-custom-attributes}
 
-Um ein angepasstes Attribut zu setzen, verwenden Sie die entsprechende Methode für den jeweiligen Attributtyp:
+Um ein angepasstes Attribut festzulegen, verwenden Sie die entsprechende Methode für den jeweiligen Attributtyp:
 
 {% tabs %}
 {% tab String %}
@@ -157,7 +157,7 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 Angepasste Attributwerte haben eine maximale Länge von 255 Zeichen; längere Werte werden abgeschnitten.
 {% endalert %}
 
-### Angepasste Attribute zurücksetzen
+### Angepasste Attribute zurücksetzen {#unsetting-custom-attributes}
 
 Um ein angepasstes Attribut zurückzusetzen, übergeben Sie den entsprechenden Attributschlüssel an die Methode `UnsetCustomUserAttribute`.
 
@@ -165,11 +165,11 @@ Um ein angepasstes Attribut zurückzusetzen, übergeben Sie den entsprechenden A
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### REST API verwenden
+### REST API verwenden {#using-the-rest-api}
 
 Sie können auch unsere REST API verwenden, um Nutzerattribute zu setzen oder zu entfernen. Weitere Informationen finden Sie unter [Endpunkte für Nutzerdaten]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Abos für Nutzer:innen einrichten
+## Abos für Nutzer:innen einrichten {#setting-user-subscriptions}
 
 Um ein E-Mail- oder Push-Abo für Ihre Nutzer:innen einzurichten, rufen Sie eine der folgenden Funktionen auf.
 
@@ -194,7 +194,7 @@ Beide Funktionen nehmen `Appboy.Models.AppboyNotificationSubscriptionType` als A
 Unter Windows ist kein explizites Opt-in erforderlich, um Nutzer:innen Push-Benachrichtigungen zu senden. Wenn Nutzer:innen für Push registriert sind, werden sie standardmäßig auf `SUBSCRIBED` statt auf `OPTED_IN` gesetzt. Mehr erfahren Sie in unserer Dokumentation zur [Implementierung von Abos und expliziten Opt-ins]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 {% endalert %}
 
-| Abo-Typ                        | Beschreibung |
+| Abo-Typ                                 | Beschreibung |
 |------------------------------------------|-------------|
 | `EmailNotificationSubscriptionType`      | Nutzer:innen werden beim Empfang einer gültigen E-Mail-Adresse automatisch auf `SUBSCRIBED` gesetzt. Wir empfehlen Ihnen jedoch, ein explizites Opt-in-Verfahren einzurichten und diesen Wert auf `OPTED_IN` zu setzen, sobald Sie die ausdrückliche Zustimmung erhalten haben. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von Nutzer-Abos]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
 | `PushNotificationSubscriptionType`       | Nutzer:innen werden bei einer gültigen Push-Registrierung automatisch auf `SUBSCRIBED` gesetzt. Wir empfehlen Ihnen jedoch, ein explizites Opt-in-Verfahren einzurichten und diesen Wert auf `OPTED_IN` zu setzen, sobald Sie die ausdrückliche Zustimmung erhalten haben. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von Nutzer-Abos]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
@@ -204,13 +204,13 @@ Unter Windows ist kein explizites Opt-in erforderlich, um Nutzer:innen Push-Bena
 Diese Typen gehören zu `Appboy.Models.AppboyNotificationSubscriptionType`.
 {% endalert %}
 
-### E-Mail-Abos einrichten
+### E-Mail-Abos einrichten {#setting-email-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
 ```
 
-### Push-Benachrichtigungs-Abos einrichten
+### Push-Benachrichtigungs-Abos einrichten {#setting-push-notification-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);

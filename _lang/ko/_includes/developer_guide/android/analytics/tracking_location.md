@@ -1,6 +1,6 @@
-## 현재 위치 로깅하기
+## 현재 위치 로깅하기 {#logging-the-current-location}
 
-연속 추적이 비활성화되어 있더라도 [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html) 방법을 사용하여 사용자의 현재 위치를 수동으로 기록할 수 있습니다.
+연속 추적이 비활성화되어 있더라도 [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html) 메서드를 사용하여 사용자의 현재 위치를 수동으로 기록할 수 있습니다.
 
 {% tabs %}
 {% tab JAVA %}
@@ -26,7 +26,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## 지속적인 위치 추적
+## 지속적인 위치 추적 {#continuously-tracking-the-location}
 
 {% alert important %}
 [Android Marshmallow부터는](https://developer.android.com/training/permissions/index.html) 사용자에게 위치 추적에 명시적으로 옵트인하도록 요청해야 합니다. 사용자가 옵트인하면 Braze는 다음 세션이 시작될 때 위치 추적을 시작할 수 있습니다. 이는 `AndroidManifest.xml`에서 위치 권한만 선언하면 되었던 이전 버전의 Android와는 다릅니다.
@@ -53,7 +53,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 </manifest>
 ```
 
-## 연속 추적 비활성화하기
+## 연속 추적 비활성화하기 {#disabling-continuous-tracking}
 
 컴파일 시간 또는 런타임에 연속 추적을 비활성화할 수 있습니다.
 
@@ -80,7 +80,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 

@@ -1,8 +1,8 @@
-## React Native Braze SDKについて
+## React Native Braze SDKについて {#about-the-react-native-braze-sdk}
 
-React Native Braze SDKを統合すると、基本的な分析機能を利用できます。さらに、iOSとAndroidの両プラットフォーム向けに、単一のコードベースでアプリ内メッセージとコンテンツカードを導入できます。
+React Native Braze SDKを統合すると、基本的な分析機能を利用できます。さらに、iOSとAndroidの両プラットフォーム向けに、単一のコードベースでアプリ内メッセージとContent Cardsを導入できます。
 
-## 新しいアーキテクチャの互換性
+## 新しいアーキテクチャの互換性 {#new-architecture-compatibility}
 
 以下の最小SDKバージョンは、[React Nativeの新しいアーキテクチャ](https://reactnative.dev/docs/the-new-architecture/landing-page)を使用するすべてのアプリと互換性があります。
 
@@ -14,13 +14,13 @@ SDKバージョン6.0.0以降、BrazeはReact Native Turbo Moduleを採用して
 iOSアプリが`RCTAppDelegate`に準拠し、以前の`AppDelegate`設定手順に従っている場合、Turbo Moduleでイベントを購読する際のクラッシュを防ぐため、[完全なネイティブ設定](#reactnative_step-2-complete-native-setup)のサンプルを確認してください。
 {% endalert %}
 
-## React Native SDKの統合
+## React Native SDKの統合 {#integrating-the-react-native-sdk}
 
-### 前提条件
+### 前提条件 {#prerequisites}
 
-SDKを統合するには、React Nativeバージョン0.71以降が必要です。サポートされているバージョンの完全なリストについては、[React Native SDK GitHub リポジトリ](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)を参照してください。
+SDKを統合するには、React Nativeバージョン0.71以降が必要です。サポートされているバージョンの完全なリストについては、[React Native SDK GitHubリポジトリ](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)を参照してください。
 
-### ステップ 1: Brazeライブラリーの統合
+### ステップ 1: Brazeライブラリーの統合 {#step-1-integrate-the-braze-library}
 
 {% tabs local %}
 {% tab npm %}
@@ -37,17 +37,17 @@ yarn add @braze/react-native-sdk
 
 <a id="step-2-choose-a-setup-option"></a>
 <a id="reactnative_step-2-complete-native-setup"></a>
-### ステップ 2: ネイティブ設定の完了
+### ステップ 2: ネイティブ設定の完了 {#step-2-complete-native-setup}
 
 アプリがExpoを使用している場合は、[Expoプラグインの使用](#reactnative-using-the-expo-plugin)を参照してください。アプリがピュアReact Nativeを使用している場合は、[React Native CLIの使用](#reactnative-using-react-native-cli)を参照してください。
-各バージョンタブで、Expoプラグインまたは React Native CLIのいずれかの設定方法を選択してください。
+各バージョンタブで、ExpoプラグインまたはReact Native CLIのいずれかの設定方法を選択してください。
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
 
 #### 方法 1: Expoプラグインの使用 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expoプラグインのインストール
+##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin}
 
 Braze Expoプラグインのバージョンが4.1.0以上であることを確認してください。サポートされているバージョンの完全なリストについては、[Braze Expoプラグインリポジトリ](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)を参照してください。
 
@@ -57,7 +57,7 @@ Braze Expoプラグインのバージョンが4.1.0以上であることを確�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.jsonにプラグインを追加する
+##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson}
 
 `app.json`で、Braze Expoプラグインを追加します。APIキーとエンドポイントはここでは設定しません。JavaScriptから`Braze.initialize()`を使用してランタイムで提供します。実装のニーズに応じて、以下のオプション設定パラメーターを追加してください。
 
@@ -175,7 +175,7 @@ Braze Expoプラグインは、Androidの`drawable`ディレクトリからア�
 
 Android通知アイコンの詳細については、[Androidの通知アイコンガイドライン](https://developer.android.com/develop/ui/views/notifications#icon)を参照してください。
 
-##### 2.3 アプリケーションのビルドおよび実行
+##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application}
 
 アプリケーションをプリビルドすると、Braze Expoプラグインが動作するために必要なネイティブファイルが生成されます。
 
@@ -189,7 +189,7 @@ npx expo prebuild
 
 #### 方法 2: React Native CLIの使用 {#reactnative-using-react-native-cli}
 
-##### Androidの設定
+##### Androidの設定 {#set-up-android}
 
 **2.1 Kotlin Gradleプラグインの追加**
 
@@ -288,7 +288,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOSの設定
+##### iOSの設定 {#set-up-ios}
 
 **2.5（オプション）ダイナミックXCFrameworkに関するPodfileの設定**
 
@@ -401,9 +401,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 {% tab React Native SDK 19.1.0以前 %}
 
-#### 方法 1: Expoプラグインの使用
+#### 方法 1: Expoプラグインの使用 {#method-1-using-the-expo-plugin}
 
-##### ステップ 2.1: Braze Expoプラグインのインストール
+##### ステップ 2.1: Braze Expoプラグインのインストール {#step-21-install-the-braze-expo-plugin}
 
 Braze React Native SDKのバージョンが1.37.0以上であることを確認してください。サポートされているバージョンの完全なリストについては、[Braze React Nativeリポジトリ](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)を参照してください。
 
@@ -413,7 +413,7 @@ Braze React Native SDKのバージョンが1.37.0以上であることを確認�
 npx expo install @braze/expo-plugin
 ```
 
-##### ステップ 2.2: app.jsonにプラグインを追加する
+##### ステップ 2.2: app.jsonにプラグインを追加する {#step-22-add-the-plugin-to-your-appjson}
 
 `app.json`で、Braze Expoプラグインを追加します。以下の設定オプションを指定できます。
 
@@ -485,7 +485,7 @@ npx expo install @braze/expo-plugin
 }
 ```
 
-###### Androidプッシュ通知アイコンの設定
+###### Androidプッシュ通知アイコンの設定 {#configuring-android-push-notification-icons}
 
 `androidNotificationLargeIcon`と`androidNotificationSmallIcon`を使用する際は、アイコンを正しく表示するために以下のベストプラクティスに従ってください。
 
@@ -536,7 +536,7 @@ Braze Expoプラグインは、Androidの`drawable`ディレクトリからア�
 
 Android通知アイコンの詳細については、[Androidの通知アイコンガイドライン](https://developer.android.com/develop/ui/views/notifications#icon)を参照してください。
 
-##### ステップ 2.3: アプリケーションのビルドおよび実行
+##### ステップ 2.3: アプリケーションのビルドおよび実行 {#step-23-build-and-run-your-application}
 
 アプリケーションをプリビルドすると、Braze Expoプラグインが動作するために必要なネイティブファイルが生成されます。
 
@@ -548,9 +548,9 @@ npx expo prebuild
 
 [Expoドキュメント](https://docs.expo.dev/workflow/customizing/)の指定に従い、アプリケーションを実行します。設定オプションを変更した場合は、アプリケーションを再度プリビルドして実行する必要があります。
 
-#### 方法 2: React Native CLIの使用
+#### 方法 2: React Native CLIの使用 {#method-2-using-react-native-cli}
 
-##### Androidの設定
+##### Androidの設定 {#set-up-android}
 
 **ステップ 2.1: Kotlin Gradleプラグインの追加**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOSの設定
+##### iOSの設定 {#set-up-ios}
 
 **ステップ 2.5:（オプション）ダイナミックXCFrameworkに関するPodfileの設定**
 
@@ -773,7 +773,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: SDKの初期化
+### ステップ 3: SDKの初期化 {#step-3-initialize-the-sdk}
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
@@ -786,7 +786,7 @@ import Braze from "@braze/react-native-sdk";
 
 次に、アプリ識別子APIキーとSDKエンドポイントを指定して`Braze.initialize()`を呼び出し、Brazeインスタンスを作成します。アプリ内でこのメソッドを呼び出す場所については、以下のオプションを参照してください。
 
-#### 標準初期化
+#### 標準初期化 {#standard-initialization}
 
 以下のコードスニペットは、`useEffect`内で`Braze.initialize()`を呼び出してアプリ起動時にSDKを初期化する方法です。
 
@@ -805,7 +805,7 @@ const App = () => {
 };
 ```
 
-#### 遅延初期化
+#### 遅延初期化 {#delayed-initialization}
 
 以下のコードスニペットは、セッション中の後のタイミングまでSDKの初期化を遅延させる方法です。例えば、ユーザーが同意を付与した後やログインを完了した後に初期化できます。
 
@@ -819,7 +819,7 @@ function onUserConsent() {
 iOSでは、`Braze.initialize()`の前に受信したプッシュ通知はキューに入れられ、初期化後に処理されます。Androidでは、SDKの初期化待ち中にプッシュ通知からのディープリンクは解決されません。アプリが起動時の即時ディープリンク処理に依存している場合は、代わりに[標準初期化](#standard-initialization)を使用してください。
 {% endalert %}
 
-#### プラットフォーム固有のAPIキー
+#### プラットフォーム固有のAPIキー {#platform-specific-api-keys}
 
 以下のコードスニペットは、AndroidとiOSのアプリで異なるAPIキーを使用する場合のプラットフォーム検出の方法です。
 
@@ -835,7 +835,7 @@ const apiKey = Platform.select({
 Braze.initialize(apiKey, "YOUR-SDK-ENDPOINT");
 ```
 
-#### 再初期化
+#### 再初期化 {#re-initialization}
 
 セッション中に異なるAPIキーとエンドポイントでSDKを再初期化するために、`Braze.initialize()`を複数回呼び出すことができます。呼び出すたびに、前のBrazeインスタンスが破棄され、新しいインスタンスが作成されます。
 
@@ -855,7 +855,7 @@ import Braze from "@braze/react-native-sdk";
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4: 統合のテスト（オプション）
+### ステップ 4: 統合のテスト（オプション） {#step-4-test-the-integration-optional}
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
@@ -900,12 +900,12 @@ const App = () => {
   )
 ```
 
-Brazeダッシュボードで[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search#using-user-search)に移動し、`some-user-id`と一致するIDのユーザーを検索してください。そこで、セッションとデバイスデータが記録されたことを確認できます。
+Brazeダッシュボードで[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search)に移動し、`some-user-id`と一致するIDのユーザーを検索してください。そこで、セッションとデバイスデータが記録されたことを確認できます。
 
 {% endtab %}
 {% endtabs %}
 
-## 次のステップ
+## 次のステップ {#next-steps}
 
 Braze SDKを統合した後、一般的なメッセージング機能の実装を開始できます。
 

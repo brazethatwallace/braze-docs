@@ -1,10 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## 기본 사용자 속성
+## 기본 사용자 속성 {#default-user-attributes}
 
-### 사전 정의된 메서드
+### 미리 정의된 메서드 {#predefined-methods}
 
-Braze는 `BrazeBinding` 오브젝트를 사용하여 다음 사용자 속성을 설정하기 위한 사전 정의된 메서드를 제공합니다. 자세한 내용은 [Braze Unity 선언 파일](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)을 참조하세요.
+Braze는 `BrazeBinding` 오브젝트를 사용하여 다음 사용자 속성을 설정하기 위한 미리 정의된 메서드를 제공합니다. 자세한 내용은 [Braze Unity 선언 파일](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)을 참조하세요.
 
 - 이름
 - 성
@@ -17,7 +17,7 @@ Braze는 `BrazeBinding` 오브젝트를 사용하여 다음 사용자 속성을 
 - 사용자 푸시 구독
 - 사용자 전화번호
 
-### 기본 속성 설정
+### 기본 속성 설정 {#setting-default-attributes}
 
 기본 속성을 설정하려면 `BrazeBinding` 오브젝트에서 관련 메서드를 호출하세요.
 
@@ -74,21 +74,21 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 {% endtab %}
 {% endtabs %}
 
-### 기본 속성 설정 해제
+### 기본 속성 해제 {#unsetting-default-attributes}
 
-기본 사용자 속성을 설정 해제하려면 관련 메서드에 `null`을 전달하세요.
+기본 사용자 속성을 해제하려면 관련 메서드에 `null`을 전달하세요.
 
 ```csharp
 BrazeBinding.SetUserFirstName(null);
 ```
 
-## 커스텀 사용자 속성
+## 커스텀 사용자 속성 {#custom-user-attributes}
 
-기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics)을 참조하세요.
+기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics/)을 참조하세요.
 
-### 커스텀 속성 설정
+### 커스텀 속성 설정 {#setting-custom-attributes}
 
-커스텀 속성을 설정하려면 속성 유형에 해당하는 메서드를 사용하세요: 
+커스텀 속성을 설정하려면 속성 유형에 해당하는 메서드를 사용하세요:
 
 {% tabs %}
 {% tab String %}
@@ -157,19 +157,19 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 커스텀 속성 값의 최대 길이는 255자이며, 이보다 긴 값은 잘립니다.
 {% endalert %}
 
-### 커스텀 속성 설정 해제
+### 커스텀 속성 해제 {#unsetting-custom-attributes}
 
-커스텀 속성을 설정 해제하려면 관련 속성 키를 `UnsetCustomUserAttribute` 메서드에 전달하세요. 
+커스텀 속성을 해제하려면 관련 속성 키를 `UnsetCustomUserAttribute` 메서드에 전달하세요.
 
 ```csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### REST API 사용
+### REST API 사용 {#using-the-rest-api}
 
-REST API를 사용하여 사용자 속성을 설정하거나 설정 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
+REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
 
-## 사용자 구독 설정
+## 사용자 구독 설정 {#setting-user-subscriptions}
 
 사용자의 이메일 또는 푸시 구독을 설정하려면 다음 함수 중 하나를 호출하세요.
 
@@ -204,13 +204,13 @@ Windows에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 
 이러한 유형은 `Appboy.Models.AppboyNotificationSubscriptionType`에 해당합니다.
 {% endalert %}
 
-### 이메일 구독 설정
+### 이메일 구독 설정 {#setting-email-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
 ```
 
-### 푸시 알림 구독 설정
+### 푸시 알림 구독 설정 {#setting-push-notification-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);

@@ -1,26 +1,26 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## メッセージトリガー
+## メッセージトリガー {#message-triggers}
 
-### トリガーの種類
+### トリガーの種類 {#trigger-types}
 
-アプリ内メッセージは、SDK が以下のカスタムイベントタイプのいずれかを記録した際に自動的にトリガーされます: `Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、および `Push Click`。なお、`Specific Purchase` および `Custom Event` トリガーには堅牢なプロパティフィルターも含まれています。
+アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかを記録した際に自動的にトリガーされます：`Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、および `Push Click`。なお、`Specific Purchase` および `Custom Event` トリガーには堅牢なプロパティフィルターも含まれています。
 
 {% alert note %}
-アプリ内メッセージは、API または API イベントによってトリガーすることはできません。SDK によって記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
+アプリ内メッセージは、APIまたはAPIイベントによってトリガーすることはできません。SDKによって記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
 {% endalert %}
 
-### 配信セマンティクス
+### 配信セマンティクス {#delivery-semantics}
 
-すべての適格なアプリ内メッセージは、ユーザーのセッション開始時にデバイスに配信されます。配信されると、SDK はアセットをプリフェッチするため、トリガー時にアセットが利用可能となり、表示の遅延を最小限に抑えます。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
+すべての適格なアプリ内メッセージは、ユーザーのセッション開始時にデバイスに配信されます。配信されると、SDKはアセットをプリフェッチするため、トリガー時にアセットが利用可能となり、表示の遅延を最小限に抑えます。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
 
-SDK のセッション開始セマンティクスについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)を参照してください。
+SDKのセッション開始の仕組みについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)を参照してください。
 
-### レート制限
+### レート制限 {#rate-limit}
 
-デフォルトでは、SDK はトリガーされるアプリ内メッセージのレート制限を30秒ごとに1回に設定して、質の高いユーザー体験をサポートしています。
+デフォルトでは、SDKはトリガーされたアプリ内メッセージを30秒に1回にレート制限しています。
 
-本番アプリでは、この値を10秒未満に設定しないでください。連続するアプリ内メッセージでユーザーが圧倒されてしまいます。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
+本番アプリでは、この値を10秒未満に設定しないでください。連続するアプリ内メッセージでユーザーが圧倒されるのを防ぐためです。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
 
 テスト用にこの間隔を `0` に設定することもできます。ただし、`0` 秒の間隔は複数のアプリ内メッセージを同時に表示させるものではありません。1つのメッセージがまだ表示されている場合、現在のメッセージが閉じられるまで次のメッセージは表示されません。
 
@@ -30,9 +30,9 @@ SDK のセッション開始セマンティクスについて詳しくは、[セ
   <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 
-## キーと値のペア
+## キーと値のペア {#key-value-pairs}
 
-Braze でキャンペーンを作成する際、キーと値のペアを `extras` として設定できます。これは、アプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
+BrazeでCampaignを作成する際、キーと値のペアを `extras` として設定できます。これは、アプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
 
 {% tabs %}
 {% tab JAVA %}
@@ -51,7 +51,7 @@ extras: Map<String, String>
 詳細については、[KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721) を参照してください。
 {% endalert %}
 
-## 自動トリガーを無効にする
+## 自動トリガーを無効にする {#disabling-automatic-triggers}
 
 アプリ内メッセージが自動的にトリガーされるのを防ぐには、以下の手順に従います。
 
@@ -62,15 +62,15 @@ extras: Map<String, String>
 <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
 ```
 
-## 手動でメッセージをトリガーする
+## 手動でメッセージをトリガーする {#manually-triggering-messages}
 
-デフォルトでは、アプリ内メッセージは SDK がカスタムイベントを記録したときに自動的にトリガーされます。ただし、以下の方法で手動でメッセージをトリガーすることもできます。
+デフォルトでは、アプリ内メッセージはSDKがカスタムイベントを記録したときに自動的にトリガーされます。ただし、以下の方法で手動でメッセージをトリガーすることもできます。
 
-### サーバー側のイベントを使用する
+### サーバー側のイベントを使用する {#using-a-server-side-event}
 
-サーバー送信イベントを使用してアプリ内メッセージをトリガーするには、サイレントプッシュ通知をデバイスに送信し、カスタムプッシュコールバックが SDK ベースのイベントを記録できるようにします。このイベントが、その後ユーザー向けのアプリ内メッセージをトリガーします。
+サーバー送信イベントを使用してアプリ内メッセージをトリガーするには、サイレントプッシュ通知をデバイスに送信し、カスタムプッシュコールバックがSDKベースのイベントを記録できるようにします。このイベントが、その後ユーザー向けのアプリ内メッセージをトリガーします。
 
-#### ステップ 1: サイレントプッシュを受信するプッシュコールバックを作成する
+#### ステップ 1: サイレントプッシュを受信するプッシュコールバックを作成する {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
 特定のサイレントプッシュ通知をリッスンするために、[カスタムプッシュイベントコールバック]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#push-callback)を登録します。
 
@@ -113,31 +113,31 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### ステップ 2: プッシュキャンペーンを作成する
+#### ステップ 2: プッシュCampaignを作成する {#step-2-create-a-push-campaign}
 
-サーバー送信イベントを介してトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を作成します。
+サーバー送信イベントを介してトリガーされる[サイレントプッシュCampaign]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を作成します。
 
 ![]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-プッシュキャンペーンには、このプッシュキャンペーンが SDK カスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントはアプリ内メッセージをトリガーするために使用されます。
+プッシュCampaignには、このプッシュCampaignがSDKカスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントはアプリ内メッセージをトリガーするために使用されます。
 
-![2組のキーと値のペア: IS_SERVER_EVENT が「true」に設定され、CAMPAIGN_NAME が「example campaign name」に設定されている。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![2組のキーと値のペア：IS_SERVER_EVENT が「true」に設定され、CAMPAIGN_NAME が「example campaign name」に設定されている。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
-前出のプッシュコールバックサンプルコードは、キーと値のペアを認識して、適切な SDK カスタムイベントを記録します。
+前出のプッシュコールバックサンプルコードは、キーと値のペアを認識して、適切なSDKカスタムイベントを記録します。
 
 「アプリ内メッセージトリガー」イベントに添付するイベントプロパティを含めたい場合は、プッシュペイロードのキーと値のペアでプロパティを渡すことで実現できます。この例では、後続のアプリ内メッセージのキャンペーン名が含められています。カスタムプッシュコールバックは、カスタムイベントを記録する際に、イベントプロパティのパラメーターとして値を渡すことができます。
 
-#### ステップ 3: アプリ内メッセージキャンペーンを作成する
+#### ステップ 3: アプリ内メッセージCampaignを作成する {#step-3-create-an-in-app-message-campaign}
 
-Braze ダッシュボードで、ユーザーに表示されるアプリ内メッセージキャンペーンを作成します。このキャンペーンにはアクションベースの配信を設定し、カスタムプッシュコールバック内から記録されたカスタムイベントからトリガーされるようにする必要があります。
+Brazeダッシュボードで、ユーザーに表示されるアプリ内メッセージCampaignを作成します。このCampaignにはアクションベースの配信を設定し、カスタムプッシュコールバック内から記録されたカスタムイベントからトリガーされるようにする必要があります。
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![アクションベースの配信キャンペーンで、「campaign_name」が「IAM campaign name example」と等しい場合にアプリ内メッセージがトリガーされる。]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![アクションベースの配信Campaignで、「campaign_name」が「IAM campaign name example」と等しい場合にアプリ内メッセージがトリガーされる。]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 アプリがフォアグラウンドにないときにサーバー送信イベントが記録されると、イベントは記録されますが、アプリ内メッセージは表示されません。アプリケーションがフォアグラウンドになるまでイベントを遅延させたい場合は、カスタムプッシュレシーバーにチェックを含めて、アプリがフォアグラウンドに入るまでイベントを無視または遅延させる必要があります。
 
-### 事前定義されたメッセージを表示する
+### 事前定義されたメッセージを表示する {#displaying-a-pre-defined-message}
 
 事前定義したアプリ内メッセージを手動で表示するには、以下の方法を使用します。
 
@@ -158,7 +158,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% endtab %}
 {% endtabs %}
 
-### リアルタイムでメッセージを表示する
+### リアルタイムでメッセージを表示する {#displaying-a-message-in-real-time}
 
 ダッシュボードで利用できるのと同じカスタマイズオプションを使って、ローカルのアプリ内メッセージをリアルタイムで作成・表示することもできます。そのためには、以下のようにします。
 

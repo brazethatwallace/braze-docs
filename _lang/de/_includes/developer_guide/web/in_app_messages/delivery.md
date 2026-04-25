@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %}
 
-## Nachrichten triggern
+## Nachrichten triggern {#message-triggers}
 
-## Trigger-Typen
+## Trigger-Typen {#trigger-types}
 
 In-App-Nachrichten werden automatisch getriggert, wenn das SDK einen der folgenden angepassten Event-Typen protokolliert: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` und `Push Click`. Beachten Sie, dass die Trigger `Specific Purchase` und `Custom Event` auch robuste Filter für Eigenschaften enthalten.
 
@@ -10,9 +10,9 @@ In-App-Nachrichten werden automatisch getriggert, wenn das SDK einen der folgend
 In-App-Nachrichten können nicht über die API oder durch API-Events getriggert werden – nur durch angepasste Events, die vom SDK protokolliert werden. Mehr über die Protokollierung erfahren Sie unter [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
-### Zustellungssemantik
+### Zustellungssemantik {#delivery-semantics}
 
-Alle infrage kommenden In-App-Nachrichten werden zu Beginn der Sitzung an das Gerät der Nutzer:innen zugestellt. Bei der Zustellung lädt das SDK die Assets vorab, damit sie zum Zeitpunkt des Triggerns verfügbar sind und die Anzeigelatenz minimiert wird. Wenn das triggernde Event mehr als eine infrage kommende In-App-Nachricht hat, wird nur die Nachricht mit der höchsten Priorität zugestellt.
+Alle infrage kommenden In-App-Nachrichten werden zu Beginn der Sitzung an das Gerät der Nutzer:innen zugestellt. Bei der Zustellung ruft das SDK die Assets im Voraus ab, damit sie zum Zeitpunkt des Triggerns verfügbar sind und die Anzeigelatenz minimiert wird. Wenn das triggernde Event mehr als eine infrage kommende In-App-Nachricht hat, wird nur die Nachricht mit der höchsten Priorität zugestellt.
 
 Weitere Informationen zur Sitzungsstart-Semantik des SDK finden Sie unter [Sitzungslebenszyklus]({{site.baseurl}}/developer_guide/platform_integration_guides/analytics/tracking_sessions/).
 
@@ -31,9 +31,9 @@ Um dies zu überschreiben, fügen Sie die folgende Eigenschaft zu Ihrer Braze-Ko
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
 ```
 
-## Schlüssel-Wert-Paare
+## Schlüssel-Wert-Paare {#key-value-pairs}
 
-Wenn Sie eine Kampagne in Braze erstellen, können Sie Schlüssel-Wert-Paare als `extras` festlegen, die das In-App-Messaging-Objekt verwenden kann, um Daten an Ihre App zu senden. Zum Beispiel:
+Wenn Sie eine Campaign in Braze erstellen, können Sie Schlüssel-Wert-Paare als `extras` festlegen, die das In-App-Messaging-Objekt verwenden kann, um Daten an Ihre App zu senden. Zum Beispiel:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -58,7 +58,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 });
 ```
 
-## Automatische Trigger deaktivieren
+## Automatische Trigger deaktivieren {#disabling-automatic-triggers}
 
 So verhindern Sie, dass In-App-Nachrichten automatisch getriggert werden:
 
@@ -68,14 +68,14 @@ Entfernen Sie den Aufruf von `braze.automaticallyShowInAppMessages()` aus Ihrem 
 braze.subscribeToInAppMessage(function(inAppMessage) {
   // control group messages should always be "shown"
   // this will log an impression and not show a visible message
-  
+
   if (inAppMessage.isControl) { // v4.5.0+, otherwise use  `inAppMessage instanceof braze.ControlMessage`
      return braze.showInAppMessage(inAppMessage);
   }
-  
+
   // Display the in-app message. You could defer display here by pushing this message to code within your own application.
   // If you don't want to use the Braze built-in display capabilities, you could alternatively pass the in-app message to your own display code here.
-  
+
   if ( should_show_the_message_according_to_your_custom_logic ) {
       braze.showInAppMessage(inAppMessage);
   } else {
@@ -92,9 +92,9 @@ Der Parameter `inAppMessage` ist eine [`braze.InAppMessage`](https://js.appboycd
 
 Es kann jeweils nur eine [`Modal`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=modal&sdktab=web)- oder [`Full`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=full&sdktab=web)-In-App-Nachricht angezeigt werden. Wenn Sie versuchen, eine zweite modale oder Vollbild-Nachricht anzuzeigen, während bereits eine sichtbar ist, gibt `braze.showInAppMessage` den Wert `false` zurück und die zweite Nachricht wird nicht angezeigt.
 
-## Manuelles Triggern von Nachrichten
+## Manuelles Triggern von Nachrichten {#manually-triggering-messages}
 
-### Eine Nachricht in Realtime anzeigen
+### Eine Nachricht in Realtime anzeigen {#displaying-a-message-in-real-time}
 
 In-App-Nachrichten können auch innerhalb Ihrer Website erstellt und lokal in Realtime angezeigt werden. Alle im Dashboard verfügbaren Anpassungsoptionen sind auch lokal verfügbar. Dies ist besonders nützlich, um Nachrichten anzuzeigen, die Sie in Realtime innerhalb der App triggern möchten. Analytics zu diesen lokal erstellten Nachrichten sind jedoch nicht im Braze-Dashboard verfügbar.
 
@@ -105,11 +105,11 @@ In-App-Nachrichten können auch innerhalb Ihrer Website erstellt und lokal in Re
   braze.showInAppMessage(message);
 ```
 
-## Exit-Intent-Nachrichten triggern
+## Exit-Intent-Nachrichten triggern {#triggering-exit-intent-messages}
 
 Exit-Intent-Nachrichten sind unaufdringliche In-App-Nachrichten, die dazu dienen, Besuchern wichtige Informationen mitzuteilen, bevor sie Ihre Website verlassen.
 
-Um Trigger für diese Nachrichtentypen einzurichten, implementieren Sie eine Exit-Intent-Bibliothek auf Ihrer Website (z. B. die [Open-Source-Bibliothek von ouibounce](https://github.com/carlsednaoui/ouibounce)) und verwenden Sie dann den folgenden Code, um `'exit intent'` als angepasstes Event in Braze zu protokollieren. Ihre zukünftigen In-App-Nachrichten-Kampagnen können diesen Nachrichtentyp dann als angepassten Event-Trigger verwenden.
+Um Trigger für diese Nachrichtentypen einzurichten, implementieren Sie eine Exit-Intent-Bibliothek auf Ihrer Website (z. B. die [Open-Source-Bibliothek von ouibounce](https://github.com/carlsednaoui/ouibounce)) und verwenden Sie dann den folgenden Code, um `'exit intent'` als angepasstes Event in Braze zu protokollieren. Ihre zukünftigen In-App-Nachrichten-Campaigns können diesen Nachrichtentyp dann als angepassten Event-Trigger verwenden.
 
 ```javascript
   var _ouibounce = ouibounce(false, {

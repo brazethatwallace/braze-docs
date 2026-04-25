@@ -15,9 +15,9 @@ Estos eventos también están disponibles como tablas SQL en el [Generador de co
 
 Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{site.baseurl}}/braze_support/) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en esta página, consulta nuestra [biblioteca de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
-{% details Explanation of customer behavior and user event structure and platform values %}
+{% details Explicación de la estructura de eventos de comportamiento del cliente y del usuario, y valores de plataforma %}
 
-### Estructura del evento
+### Estructura del evento {#event-structure}
 
 Este desglose del comportamiento del cliente y de los eventos del usuario muestra qué tipo de información se incluye generalmente en un evento de comportamiento del cliente o del usuario. Con una sólida comprensión de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos entrantes de Currents para elaborar informes y gráficos basados en datos, y aprovechar otras valiosas métricas de datos.
 
@@ -25,7 +25,7 @@ Este desglose del comportamiento del cliente y de los eventos del usuario muestr
 
 El comportamiento del cliente y los eventos del usuario se componen de propiedades **específicas del usuario**, propiedades **específicas del comportamiento** y propiedades **específicas del dispositivo**.
 
-### Valores de la plataforma
+### Valores de la plataforma {#platform-values}
 
 Algunos eventos devuelven un valor `platform` que especifica la plataforma del dispositivo del usuario.
 <br>La siguiente tabla detalla los posibles valores devueltos:

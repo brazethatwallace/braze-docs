@@ -12,15 +12,15 @@ page_type: reference
 layout: OPTIONAL_LAYOUT_FILE
 ---
 
-<!-- The title of your page, used to render the in-page title. -->
+<!-- Le titre de votre page, utilisé pour afficher le titre dans la page. -->
 # ARTICLE_TITLE
 
-<!-- The overview starts with a '>' character and discusses what will be covered. In an optional following paragraph, contextualize the topic at a high-level in an introduction. -->
+<!-- L'aperçu commence par un caractère '>' et décrit ce qui sera abordé. Dans un paragraphe suivant facultatif, contextualisez le sujet à un niveau général dans une introduction. -->
 > DESCRIPTION.
 
 INTRODUCTION.
 
-<!-- The prerequisites for this task. If no prerequisites are required, you can remove this section. -->
+<!-- Les conditions préalables pour cette tâche. Si aucune condition préalable n'est requise, vous pouvez supprimer cette section. -->
 ## Conditions préalables
 
 Avant de commencer, vous devez effectuer les actions suivantes :
@@ -29,48 +29,48 @@ Avant de commencer, vous devez effectuer les actions suivantes :
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 
-<!-- An optional, brief explanation of how the feature workflow looks. -->
+<!-- Une explication facultative et brève du fonctionnement de la fonctionnalité. -->
 ## Fonctionnement
 
 CONTENU.
 
-<!-- Walk a user through integrating and turning on the feature. -->
+<!-- Guidez l'utilisateur dans l'intégration et l'activation de la fonctionnalité. -->
  ## Intégration
 CONTENU.
 
-<!-- A how-to guide with nested steps. -->
+<!-- Un guide pratique avec des étapes imbriquées. -->
 ## TASK_TO_COMPLETE
 
-<!-- Optional overview of the task. -->
+<!-- Aperçu facultatif de la tâche. -->
 CONTENU.
 
-<!-- Action-oriented header that describes the step's goal. -->
+<!-- En-tête orienté action qui décrit l'objectif de l'étape. -->
 ### Étape 1 : ACTION_TO_COMPLETE
 
-<!-- Use number bullets or paragraphs to describe how to complete this action -->
+<!-- Utilisez des puces numérotées ou des paragraphes pour décrire comment effectuer cette action. -->
 CONTENU.
 
 ### Étape 2 : ACTION_TO_COMPLETE
 
 CONTENU.
-<!-- Optional references, such as supported data types, fields, definitions, and similar. -->
+<!-- Références facultatives, telles que les types de données pris en charge, les champs, les définitions et autres éléments similaires. -->
 ### REFERENCE_TO_ASSIST_WITH_ACTION
 
 CONTENU.
 
-<!-- For optional steps, add "(optional)" to the end of the header. -->
+<!-- Pour les étapes facultatives, ajoutez « (facultatif) » à la fin de l'en-tête. -->
 ### Étape 3 : OPTIONAL_ACTION_TO_COMPLETE (facultatif)
 
 CONTENU.
-<!-- An optional section for what is supported. Add nested headers to be more specific. -->
+<!-- Une section facultative pour ce qui est pris en charge. Ajoutez des en-têtes imbriqués pour plus de précision. -->
 ## Types de données pris en charge / Attributs pris en charge / Événements pris en charge / ETC. pris en charge
 CONTENU.
-<!-- An optional section with important considerations for users to review before using the feature. -->
+<!-- Une section facultative avec des considérations importantes que les utilisateurs doivent examiner avant d'utiliser la fonctionnalité. -->
 ## Considérations
 
 CONTENU.
 
-<!-- An optional section guiding users through troubleshooting common issues. -->
+<!-- Une section facultative guidant les utilisateurs dans la résolution des problèmes courants. -->
 ## Résolution des problèmes
 
 ### ISSUE_TO_TROUBLESHOOT

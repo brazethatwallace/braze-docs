@@ -1,32 +1,32 @@
 ## Le manifeste de confidentialité d'Apple {#privacy-manifest}
 
-### Qu'est-ce que les données de suivi ?
+### Qu'est-ce que les données de suivi ? {#what-is-tracking-data}
 
 Apple définit les « données de suivi » comme des données collectées dans votre application à propos d'un utilisateur final ou d'un appareil, liées à des données third-party (telles que la publicité ciblée) ou à un courtier en données. Pour une définition complète avec des exemples, consultez [Apple : Suivi](https://developer.apple.com/app-store/app-privacy-details/#user-tracking).
 
 Par défaut, le SDK Braze ne collecte pas de données de suivi. Cependant, selon la configuration de votre SDK Braze, vous pourriez être amené à répertorier les données spécifiques à Braze dans le manifeste de confidentialité de votre application.
 
-### Qu'est-ce qu'un manifeste de confidentialité ?
+### Qu'est-ce qu'un manifeste de confidentialité ? {#what-is-a-privacy-manifest}
 
 Un manifeste de confidentialité est un fichier dans votre projet Xcode qui décrit les raisons pour lesquelles votre application et les SDK tiers collectent des données, ainsi que leurs méthodes de collecte. Chacun de vos SDK tiers qui effectue un suivi des données nécessite son propre manifeste de confidentialité. Lorsque vous [créez le rapport de confidentialité de votre application](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187), ces fichiers de manifeste de confidentialité sont automatiquement agrégés en un seul rapport.
 
-### Domaines de données de suivi d'API
+### Domaines de données de suivi d'API {#api-tracking-data-domains}
 
-À partir d'iOS 17.2, Apple bloquera tous les endpoints de suivi déclarés dans votre application jusqu'à ce que l'utilisateur final accepte une [invite de transparence du suivi publicitaire (ATT)](https://support.apple.com/en-us/HT212025). Braze fournit des endpoints de suivi pour acheminer vos données de suivi, tout en vous permettant d'acheminer les données first-party non liées au suivi vers l'endpoint d'origine. 
+À partir d'iOS 17.2, Apple bloquera tous les endpoints de suivi déclarés dans votre application jusqu'à ce que l'utilisateur final accepte une [invite de transparence du suivi publicitaire (ATT)](https://support.apple.com/en-us/HT212025). Braze fournit des endpoints de suivi pour acheminer vos données de suivi, tout en vous permettant d'acheminer les données first-party non liées au suivi vers l'endpoint d'origine.
 
-## Déclaration des données de suivi Braze
+## Déclaration des données de suivi Braze {#declaring-braze-tracking-data}
 
 {% alert tip %}
 Pour un guide complet, consultez le [tutoriel sur les données de suivi de la confidentialité](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/).
 {% endalert %}
 
-### Conditions préalables
+### Conditions préalables {#prerequisites}
 
 La version suivante du SDK Braze est requise pour implémenter cette fonctionnalité :
 
 {% sdk_min_versions swift:9.0.0 %}
 
-### Étape 1 : Examinez vos politiques actuelles
+### Étape 1 : Examinez vos politiques actuelles {#step-1-review-your-current-policies}
 
 Examinez les politiques actuelles de collecte de données de votre SDK Braze avec votre équipe juridique pour déterminer si votre application collecte des données de suivi [telles que définies par Apple](#what-is-tracking-data). Si vous ne collectez aucune donnée de suivi, vous n'avez pas besoin de personnaliser votre manifeste de confidentialité pour le SDK Braze pour le moment. Pour plus d'informations sur les politiques de collecte de données du SDK Braze, consultez [Collecte de données SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
 
@@ -34,11 +34,11 @@ Examinez les politiques actuelles de collecte de données de votre SDK Braze ave
 Si l'un de vos SDK autres que Braze collecte des données de suivi, vous devrez examiner ces politiques séparément.
 {% endalert %}
 
-### Étape 2 : Créez un manifeste de confidentialité
+### Étape 2 : Créez un manifeste de confidentialité {#step-2-create-a-privacy-manifest}
 
 Commencez par vérifier si vous disposez déjà d'un manifeste de confidentialité en recherchant un fichier `PrivacyInfo.xcprivacy` dans votre projet Xcode. Si ce fichier existe déjà, vous pouvez passer à l'étape suivante. Sinon, consultez [Apple : Créer un manifeste de confidentialité](sdk-tracking.iad-01.braze.com).
 
-### Étape 3 : Ajoutez votre endpoint au manifeste de confidentialité
+### Étape 3 : Ajoutez votre endpoint au manifeste de confidentialité {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
 Dans votre projet Xcode, ouvrez le fichier `PrivacyInfo.xcprivacy` de votre application, puis faites un clic droit sur le tableau et cochez **Raw Keys and Values**.
 
@@ -56,13 +56,13 @@ Sous **App Privacy Configuration**, choisissez **NSPrivacyTrackingDomains**. Dan
 
 ![Le fichier « PrivacyInfo.xcprivacy » ouvert avec un endpoint de suivi Braze répertorié sous « NSPrivacyTrackingDomains ».]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
-### Étape 4 : Déclarez vos données de suivi
+### Étape 4 : Déclarez vos données de suivi {#step-4-declare-your-tracking-data}
 
 Ensuite, ouvrez `AppDelegate.swift` puis listez chaque [propriété de suivi](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) que vous souhaitez déclarer en créant une liste de suivi statique ou dynamique. Gardez à l'esprit qu'Apple bloquera ces propriétés jusqu'à ce que l'utilisateur final accepte l'invite ATT. Ne listez donc que les propriétés que vous et votre équipe juridique considérez comme relevant du suivi. Par exemple :
 
 {% tabs %}
 {% tab static example %}
-Dans l'exemple suivant, `dateOfBirth`, `customEvent` et `customAttribute` sont déclarés comme données de suivi dans une liste statique. 
+Dans l'exemple suivant, `dateOfBirth`, `customEvent` et `customAttribute` sont déclarés comme données de suivi dans une liste statique.
 
 ```swift
 import UIKit
@@ -114,7 +114,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 {% endtab %}
 {% endtabs %}
 
-### Étape 5 : Empêchez les boucles de réessai infinies
+### Étape 5 : Empêchez les boucles de réessai infinies {#step-5-prevent-infinite-retry-loops}
 
 Pour empêcher le SDK d'entrer dans une boucle de réessai infinie, utilisez la méthode `set(adTrackingEnabled: enableAdTracking)` pour gérer les autorisations ATT. La propriété `adTrackingEnabled` dans votre méthode doit être gérée de manière similaire à ce qui suit :
 
@@ -129,11 +129,11 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 }
 ```
 
-## Désactivation du suivi des données
+## Désactivation du suivi des données {#disabling-data-tracking}
 
-Pour désactiver le suivi des données sur le SDK Swift, définissez la propriété [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) sur `false` sur votre instance Braze. Lorsque `enabled` est défini sur `false`, le SDK Braze ignore tous les appels à l'API publique. Le SDK annule également toutes les actions en cours, telles que les requêtes réseau, le traitement des événements, etc. 
+Pour désactiver le suivi des données sur le SDK Swift, définissez la propriété [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) sur `false` sur votre instance Braze. Lorsque `enabled` est défini sur `false`, le SDK Braze ignore tous les appels à l'API publique. Le SDK annule également toutes les actions en cours, telles que les requêtes réseau, le traitement des événements, etc.
 
-## Effacement des données précédemment stockées
+## Effacement des données précédemment stockées {#wiping-previously-stored-data}
 
 Vous pouvez utiliser la méthode [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) pour effacer complètement les données SDK stockées localement sur l'appareil d'un utilisateur.
 
@@ -141,11 +141,11 @@ Vous pouvez utiliser la méthode [`wipeData()`](https://braze-inc.github.io/braz
 
 Si vous utilisez l'intégration manuelle des notifications push et que votre application appelle `wipeData()` puis réactive le SDK au cours de la même session, appelez à nouveau `registerForRemoteNotifications()` pour que Braze puisse recevoir un jeton d'appareil actualisé. Pour plus d'informations, consultez [Configuration des notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
-## Reprise du suivi des données
+## Reprise du suivi des données {#resuming-data-tracking}
 
 Pour reprendre la collecte de données, définissez [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) sur `true`. Gardez à l'esprit que cela ne restaurera pas les données précédemment effacées.
 
-## Collecte de l'IDFV
+## Collecte de l'IDFV {#idfv-collection}
 
 Dans les versions antérieures du SDK iOS de Braze, le champ IDFV (Identifier for Vendor) était automatiquement collecté comme identifiant d'appareil de l'utilisateur. À partir du SDK Swift `v5.7.0`, le champ IDFV pouvait être désactivé de manière facultative, et Braze définissait à la place un UUID aléatoire comme identifiant d'appareil. À partir du SDK Swift `v7.0.0`, le champ IDFV n'est plus collecté par défaut, et un UUID est défini comme identifiant d'appareil à la place.
 
@@ -153,30 +153,30 @@ La fonctionnalité `useUUIDAsDeviceId` configure le [SDK Swift](https://github.c
 
 Si vous souhaitez toujours collecter l'IDFV séparément, vous pouvez utiliser [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
 
-### Considérations
+### Considérations {#considerations}
 
-#### Version du SDK
+#### Version du SDK {#sdk-version}
 
 Dans le SDK Swift `v7.0.0+`, lorsque `useUUIDAsDeviceId` est activé (par défaut), tous les nouveaux utilisateurs créés se voient attribuer un identifiant d'appareil aléatoire. Tous les utilisateurs existants conservent leur valeur d'identifiant d'appareil actuelle, qui peut avoir été un IDFV.
 
 Lorsque cette fonctionnalité n'est pas activée, les appareils continuent de se voir attribuer l'IDFV lors de leur création.
 
-#### En aval 
+#### En aval {#downstream}
 
 **Partenaires technologiques** : lorsque cette fonctionnalité est activée, les partenaires technologiques qui dérivent la valeur IDFV de l'identifiant d'appareil Braze n'auront plus accès à cette donnée. Si la valeur IDFV dérivée de l'appareil est nécessaire pour l'intégration de votre partenaire, nous vous recommandons de définir cette fonctionnalité sur `false`.
 
 **Currents** : lorsque `useUUIDAsDeviceId` est défini sur true, l'identifiant d'appareil envoyé dans Currents ne correspondra plus à la valeur IDFV.
 
-### Foire aux questions
+### Foire aux questions {#frequently-asked-questions}
 
-#### Ce changement aura-t-il un impact sur mes utilisateurs existants dans Braze ?
+#### Ce changement aura-t-il un impact sur mes utilisateurs existants dans Braze ? {#will-this-change-impact-my-existing-users-in-braze}
 
 Non. Lorsqu'elle est activée, cette fonctionnalité n'écrase aucune donnée utilisateur dans Braze. Les nouveaux identifiants d'appareil UUID ne seront créés que pour les nouveaux appareils ou lorsque `wipedata()` est appelé.
 
-#### Puis-je désactiver cette fonctionnalité après l'avoir activée ?
+#### Puis-je désactiver cette fonctionnalité après l'avoir activée ? {#can-i-turn-this-feature-off-after-turning-it-on}
 
 Oui, cette fonctionnalité peut être activée et désactivée à votre discrétion. Les identifiants d'appareil précédemment stockés ne seront jamais écrasés.
 
-#### Puis-je toujours collecter la valeur IDFV via Braze par un autre moyen ?
+#### Puis-je toujours collecter la valeur IDFV via Braze par un autre moyen ? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
 
 Oui, vous pouvez toujours collecter l'IDFV de manière facultative via le SDK Swift (la collecte est désactivée par défaut).

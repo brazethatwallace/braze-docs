@@ -2,7 +2,7 @@
 
 > Com Banners, você pode criar mensagens personalizadas para seus usuários, enquanto amplia o alcance de seus outros canais, como e-mail ou notificações por push. Você pode incorporar Banners diretamente no seu app ou site, o que permite interagir com os usuários por meio de uma experiência que parece natural.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 A disponibilidade de Banners depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
 
@@ -10,7 +10,7 @@ Antes de começar, certifique-se de ter [posicionamentos de Banner]({{site.baseu
 
 ![Um exemplo de Banner exibido em um dispositivo.]({% image_buster /assets/img/banners/sample_banner.png %})
 
-## Por que usar Banners?
+## Por que usar Banners? {#why-use-banners}
 
 Os Banners permitem que as equipes de marketing e produto personalizem o conteúdo do app ou site dinamicamente, refletindo a elegibilidade e o comportamento do usuário em tempo real. Eles exibem mensagens de forma persistente e inline, proporcionando experiências contextualmente relevantes e não intrusivas que podem ser atualizadas no início de uma sessão ou durante a sessão, quando seu app ou site solicita explicitamente.
 
@@ -24,7 +24,7 @@ Depois que os Banners são integrados a um app ou site, os profissionais de mark
 | Vendas e promoções | Destaque conteúdo em destaque, produtos em tendência e campanhas de marca em andamento de forma persistente e direta na sua página inicial, sem interromper a experiência do usuário. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Recursos
+## Recursos {#features}
 
 Os recursos dos Banners incluem:
 
@@ -58,7 +58,7 @@ Se vários Banners estiverem definidos com a mesma prioridade, o Banner mais rec
 
 {% multi_lang_include banners/placement_requests.md %}
 
-### Entrega de mensagens
+### Entrega de mensagens {#message-delivery}
 
 As mensagens de Banner são entregues ao seu app ou site como conteúdo HTML, tipicamente renderizado dentro de um iframe. Isso garante que seus Banners sejam renderizados de forma consistente em diferentes dispositivos e ajuda a manter seus estilos e scripts separados do restante do seu código.
 
@@ -66,7 +66,7 @@ Os iframes permitem atualizações de conteúdo dinâmico e personalizado que n�
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
-### Dimensões e tamanhos
+### Dimensões e tamanhos {#dimensions-and-sizing}
 
 Aqui está o que você precisa saber sobre dimensões e tamanhos de Banners:
 
@@ -74,7 +74,7 @@ Aqui está o que você precisa saber sobre dimensões e tamanhos de Banners:
 - O HTML ocupa toda a largura do contêiner em que é renderizado.
 - Recomendamos criar um elemento de dimensão fixa e testar essas dimensões no criador.
 
-## Limitações
+## Limitações {#limitations}
 
 Cada espaço de trabalho pode suportar até 200 campanhas de Banner ativas. Se esse limite for atingido, você precisará [arquivar ou desativar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) uma campanha existente antes de criar uma nova.
 
@@ -90,11 +90,11 @@ Além disso, as mensagens de Banner não suportam os seguintes recursos:
 Permitir que os usuários dispensem manualmente um Banner está em acesso antecipado. Consulte [Configurar comportamento de dispensa]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para mais detalhes. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
-## Próximos passos
+## Próximos passos {#next-steps}
 
 - [Criar posicionamentos de Banner no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements/)
 - [Criar uma campanha de Banner na Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
-- [Tutorial: Exibindo um Banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Tutorial: Exibindo um Banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
 
 {% alert tip %}
 Quer ajudar a priorizar o que vem a seguir? Entre em contato com [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
