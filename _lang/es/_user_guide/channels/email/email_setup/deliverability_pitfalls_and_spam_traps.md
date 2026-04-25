@@ -1,6 +1,6 @@
 ---
-nav_title: Problemas de capacidad de entrega y trampas de correo no deseado
-article_title: Problemas de capacidad de entrega y trampas de correo no deseado
+nav_title: Trampas de capacidad de entrega y trampas de correo no deseado
+article_title: Trampas de capacidad de entrega y trampas de correo no deseado
 page_order: 7
 page_type: reference
 description: "Este artículo de referencia cubre los posibles problemas de capacidad de entrega de correo electrónico, las trampas de correo no deseado y cómo evitarlos."
@@ -8,16 +8,18 @@ channel: email
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability){: style="float:right;width:120px;border:0;" class="noimgborder"}Problemas de capacidad de entrega y trampas de correo no deseado
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability){: style="float:right;width:120px;border:0;" class="noimgborder"}Trampas de capacidad de entrega y trampas de correo no deseado
 
-Tu capacidad de entrega de correo electrónico puede verse afectada por cualquiera de las siguientes trampas de correo no deseado:
+> Este artículo cubre los problemas comunes de capacidad de entrega de correo electrónico, las trampas de correo no deseado y cómo evitarlos.
+
+La capacidad de entrega de tu correo electrónico puede verse afectada por cualquiera de las siguientes trampas de correo no deseado:
 
 | Tipo de trampa | Descripción |
 |---|---|
 | Trampas prístinas | Direcciones de correo electrónico y dominios que nunca se han utilizado. |
 | Trampas recicladas | Direcciones de correo electrónico que originalmente pertenecían a usuarios reales, pero que ahora están inactivas. |
-| Trampas de errores tipográficos | Direcciones de correo electrónico que contienen errores tipográficos comunes. |
-| Quejas de correo no deseado | Cuando un cliente marca tu correo electrónico como correo no deseado. |
+| Trampas tipográficas | Direcciones de correo electrónico que contienen erratas comunes. |
+| Denuncias de correo no deseado | Cuando un cliente marca tu correo electrónico como correo no deseado. |
 | Tasa de rebote alta | Cuando tu correo electrónico no se puede entregar de forma consistente porque la dirección del destinatario no es válida. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -36,9 +38,9 @@ Los equipos de éxito del cliente y capacidad de entrega de Braze pueden ayudart
 ## Quitar una dirección de correo electrónico de tu lista de rebotes o correo no deseado
 
 Puedes quitar los correos electrónicos rebotados y los correos electrónicos de tu lista de correo no deseado de Braze con los siguientes puntos de conexión:
-- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
-- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
+- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)
+- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/)
 
 ## Mejorar la capacidad de entrega de correo electrónico
 
-Para conocer las prácticas recomendadas para mejorar tu capacidad de entrega de correo electrónico, consulta [Mejorar la capacidad de entrega de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).
+Para conocer las prácticas recomendadas para mejorar la capacidad de entrega de tu correo electrónico, consulta [Mejorar la capacidad de entrega de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).

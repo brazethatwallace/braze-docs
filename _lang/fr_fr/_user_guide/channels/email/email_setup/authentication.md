@@ -1,36 +1,36 @@
 ---
-nav_title: Authentification des e-mails
-article_title: Authentification des e-mails
+nav_title: Authentification par e-mail
+article_title: Authentification par e-mail
 page_order: 2
 page_type: reference
-description: "Cet article de référence traite de l'authentification des e-mails, un ensemble de techniques visant à doter vos e-mails d'informations vérifiables sur leur origine."
+description: "Le présent article de référence couvre l'authentification par e-mail, un ensemble de techniques visant à équiper votre e-mail d'informations vérifiables sur son origine."
 channel: email
 
 ---
 
-# Authentification des e-mails
+# Authentification par e-mail
 
-> L'authentification des e-mails est un ensemble de techniques qui dotent vos e-mails d'informations vérifiables sur leur origine.<br><br>Une authentification correcte est essentielle pour que les fournisseurs de services Internet (ISP) vous reconnaissent comme expéditeur d'e-mails légitimes et distribuent votre courrier immédiatement. Sans authentification, vos communications sont présumées frauduleuses.
+> L'authentification par e-mail est un ensemble de techniques visant à équiper votre e-mail d'informations vérifiables sur son origine.<br><br>Une authentification correcte est primordiale pour que les fournisseurs de services Internet (ISP) reconnaissent votre qualité d'expéditeur d'e-mails légitimes et les distribuent immédiatement. Sans authentification, vos communications sont présumées frauduleuses.
 
 {% alert note %}
-Aucune coordination particulière avec Braze n'est nécessaire pour **BIMI** (Brand Indicators for Message Identification). Les enregistrements DNS et les certificats requis sont gérés de votre côté.
+Aucune coordination particulière avec Braze n'est nécessaire pour **BIMI** (Brand Indicators for Message Identification). Les enregistrements dns et les certificats requis sont gérés de votre côté.
 {% endalert %}
 
 ## Méthodes d'authentification
 
-### Sender Policy Framework (SPF)
+### Cadre de politique de l'expéditeur (SPF)
 
-Cette méthode confirme que l'adresse IP d'envoi d'e-mails de Braze est autorisée à envoyer du courrier en votre nom. SPF constitue votre authentification de base et s'effectue en publiant des enregistrements texte dans les paramètres DNS. Le serveur de réception vérifie les enregistrements DNS et détermine s'ils sont authentiques. Cette méthode est conçue pour valider l'expéditeur de l'e-mail.
+Cette méthode confirme que votre adresse IP d'envoi d'e-mail Braze est autorisée à envoyer un courrier en votre nom. SPF est votre authentification de base et est réalisée en publiant les enregistrements de texte dans les paramètres DNS. Le serveur de réception vérifie les enregistrements DNS et détermine s'ils sont authentiques ou non. Cette méthode est conçue pour valider l'expéditeur de l'e-mail.
 
-Braze configure votre enregistrement SPF lors de la mise en place de vos adresses IP et domaines. En dehors de l'ajout des enregistrements DNS que nous fournissons, aucune action supplémentaire n'est requise de votre part.
+Braze configure votre enregistrement SPF lorsque nous configurons vos adresses IP et vos domaines. En plus d'ajouter les enregistrements dns que nous fournissons, aucune autre action n'est requise de votre part.
 
-### Domain Keys Identified Mail (DKIM)
+### E-mail identifié des clés de domaine (DKIM)
 
-Cette méthode confirme que votre domaine d'envoi d'e-mails Braze est autorisé à envoyer du courrier en votre nom. Elle est conçue pour valider l'authenticité de l'expéditeur et garantir que l'intégrité du message est préservée. Elle utilise également des signatures numériques cryptographiques individuelles afin que les ISP puissent s'assurer que le courrier qu'ils distribuent est bien celui que vous avez envoyé.
+Cette méthode confirme que votre domaine d'envoi d'e-mail Braze est autorisé à envoyer un courrier en votre nom. Cette méthode permet de valider l'authenticité de l'expéditeur et de s'assurer que l'intégrité du message est préservée. Elle utilise également des signatures numériques cryptographiques individuelles afin que les ISP puissent s'assurer que le courrier qu'ils distribuent est bien celui que vous avez envoyé.
 
-Braze signe le courrier avec votre clé privée secrète. Les ISP vérifient la signature à l'aide de votre clé publique, stockée dans votre enregistrement DNS personnalisé. Aucune signature n'est exactement identique à une autre, et seule votre clé publique peut vérifier avec succès la signature de votre clé privée.
+Braze signe le courrier avec votre clé privée secrète. Les ISP vérifient la signature à l'aide de votre clé publique, stockée dans votre enregistrement dns personnalisé. Aucune signature n'est exactement identique à une autre, et seule votre clé publique peut vérifier avec succès la signature de votre clé privée.
 
-Braze configure votre enregistrement DKIM lors de la mise en place de vos adresses IP et domaines. En dehors de l'ajout des enregistrements DNS que nous fournissons, aucune action supplémentaire n'est requise de votre part.
+Braze configure votre enregistrement DKIM lorsque nous configurons vos adresses IP et vos domaines. En plus d'ajouter les enregistrements dns que nous fournissons, aucune autre action n'est requise de votre part.
 
 ### Domain-based Message Authentication, Reporting, and Conformance (DMARC)
 
@@ -51,7 +51,7 @@ Définissez une politique DMARC sur le domaine racine afin qu'elle s'applique à
 | None | Indique au fournisseur de messagerie de ne prendre aucune mesure contre les messages en échec. |
 | Quarantine | Indique au fournisseur de messagerie d'envoyer les messages en échec dans le dossier spam. |
 | Reject | Indique au fournisseur de messagerie que les messages en échec iront dans le dossier spam et doivent être bloqués. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Comment vérifier l'authentification DMARC de votre domaine
 

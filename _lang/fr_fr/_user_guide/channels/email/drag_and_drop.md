@@ -12,7 +12,7 @@ tool:
 
 # Créer un e-mail par glisser-déposer
 
-> L'éditeur par glisser-déposer vous permet de créer des e-mails entièrement personnalisés pour vos campagnes ou Canvas, sans avoir à utiliser de HTML pour construire le corps de votre e-mail.
+> L'éditeur par glisser-déposer vous permet de créer des e-mails entièrement personnalisés pour vos Campaigns ou Canvas, sans avoir à utiliser de HTML pour construire le corps de votre e-mail.
 
 ## À propos de l'éditeur {#about-the-editor}
 
@@ -65,7 +65,7 @@ Bien que l'éditeur par glisser-déposer simplifie votre flux de travail avec ce
 
 ### Lignes {#rows}
 
-Les **Lignes** sont des unités structurelles qui définissent la composition horizontale d'une section du message à l'aide de colonnes. Vous pouvez utiliser des lignes vides ou des [Blocs de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). L'utilisation de plusieurs colonnes vous permet de placer différents éléments de contenu côte à côte. Vous pouvez ainsi ajouter tous les éléments structurels nécessaires à votre message, quel que soit le modèle sélectionné au départ.
+Les **Lignes** sont des unités structurelles qui définissent la composition horizontale d'une section du message à l'aide de colonnes. Vous pouvez utiliser des lignes vides ou des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). L'utilisation de plusieurs colonnes vous permet de placer différents éléments de contenu côte à côte. Vous pouvez ainsi ajouter tous les éléments structurels nécessaires à votre message, quel que soit le modèle sélectionné au départ.
 
 #### Style Cartes
 
@@ -73,7 +73,7 @@ Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un es
 
 ## Utiliser l'éditeur par glisser-déposer
 
-Vous ne savez pas si votre e-mail doit être envoyé via une campagne ou un Canvas ? Les campagnes sont plus adaptées aux envois de messages ciblés ponctuels, tandis que les Canvas conviennent mieux aux parcours utilisateur en plusieurs étapes.
+Vous ne savez pas si votre e-mail doit être envoyé via une campagne ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés ponctuels, tandis que les Canvas conviennent mieux aux parcours utilisateur en plusieurs étapes.
 
 Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
 
@@ -192,7 +192,7 @@ La taille moyenne de nos données HTML exportées a été réduite, ce qui entra
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
 - Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table>` standard
-- Les [blocs de l'éditeur]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) ont été recodés pour plus de concision
+- Les [blocs éditeur]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) ont été recodés pour plus de concision
 - Le code HTML final est compressé pour supprimer les espaces entre les balises
 - Les séparateurs transparents sont automatiquement convertis en remplissage de contenu
 {% enddetails %}

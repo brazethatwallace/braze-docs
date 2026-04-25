@@ -19,7 +19,7 @@ channel:
 
 {% api %}
 
-### Variante
+### Variação
 
 {% apitags %}
 Count
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### Elegível para e-mail
+### Envio de e-mail
 
 {% apitags %}
 Count
@@ -47,7 +47,7 @@ Count
 
 {% api %}
 
-### % do público
+### % de público
 
 {% apitags %}
 Percentage
@@ -165,7 +165,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o endereço de e-mail como inválido, mas não atualiza o [status de inscrição]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) do usuário. A Braze interrompe qualquer envio futuro para esse endereço de e-mail. Para remover um endereço de e-mail da sua lista de hard bounce, use o [endpoint Remover e-mails com hard bounce]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o endereço de e-mail como inválido, mas não atualiza o [status de inscrição]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) do usuário. A Braze interrompe qualquer envio futuro para esse endereço de e-mail. Para remover um endereço de e-mail da sua lista de hard bounce, use o [endpoint Remover e-mails com hard bounce]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/).
 
 <span class="calculation-line">Cálculo: Contagem </span>
 

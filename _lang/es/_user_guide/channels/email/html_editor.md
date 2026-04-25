@@ -22,9 +22,9 @@ Si es la primera vez que creas una campaña de correo electrónico, te recomenda
 - [Proyecto: Construir un programa básico de marketing por correo electrónico](https://learning.braze.com/project-build-a-basic-email-marketing-program)
 {% endalert %}
 
-## Paso 1: Elige dónde crear tu mensaje
+## Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
-Usa campañas para mensajes simples y únicos. Usa Canvas para recorridos de usuario con múltiples pasos.
+Usa Campaigns para mensajes simples y únicos. Usa Canvas para recorridos de usuario con múltiples pasos.
 
 {% tabs %}
 {% tab Campaign %}
@@ -37,7 +37,7 @@ Usa campañas para mensajes simples y únicos. Usa Canvas para recorridos de usu
 5. Añade y nombra tantas variantes como necesites para tu campaña. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
+Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Añadir variante**.
 {% endalert %}
 {% endtab %}
 {% tab Canvas %}
@@ -45,7 +45,7 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando el compositor de Canvas.
 2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Dale a tu paso un nombre claro y significativo.
 3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) y especifica un retraso según sea necesario.
-4. Filtra tu audiencia para este paso, según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso, en el momento en que se envíen los mensajes.
+4. Filtra tu audiencia para este paso, según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando Segments y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso, en el momento en que se envíen los mensajes.
 5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Elige cualquier otro canal de mensajería que desees combinar con tu mensaje.
 {% endtab %}
@@ -75,7 +75,7 @@ Recomendamos seleccionar una experiencia de edición por campaña de correo elec
 
 Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico donde puedes ir directamente al editor de pantalla completa para redactar tu correo, cambiar tu información de envío y ver advertencias sobre capacidad de entrega o cumplimiento legal. Puedes alternar entre las pestañas HTML, clásica, texto plano y [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) mientras redactas.
 
-![El botón "Regenerar desde HTML".]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
+![El botón «Regenerar desde HTML».]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
 Braze actualiza automáticamente la versión de texto plano a partir de la versión HTML hasta que detecta una edición en el texto plano. Después de que Braze detecta una edición, deja de actualizar el texto plano porque asume que realizaste cambios intencionales. Para restaurar la sincronización automática, ve a **Plaintext** y selecciona **Regenerate from HTML** (visible solo cuando el texto plano no se está sincronizando).
 
@@ -239,7 +239,7 @@ Antes de enviar, el editor señala problemas comunes:
 - Direcciones de remitente o responder a no válidas
 - Claves de encabezado duplicadas
 - Errores de sintaxis Liquid
-- Bloques de contenido que incluyen un `<!DOCTYPE html>` completo
+- Content Blocks que incluyen un `<!DOCTYPE html>` completo
 - El cuerpo del correo electrónico supera los 400&nbsp;KB
   - Apunta a [menos de 102&nbsp;KB]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#email-size) para evitar recortes.
 - Cuerpo o asunto en blanco
@@ -264,7 +264,7 @@ También puedes establecer la duración de la campaña, especificar [horas tranq
 
 #### Elige los usuarios objetivo
 
-A continuación, [dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros. Braze muestra una vista previa en vivo de la población del segmento, incluyendo cuántos usuarios son alcanzables por correo electrónico. La membresía exacta del segmento se calcula justo antes del envío.
+A continuación, [dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo Segments o filtros. Braze muestra una vista previa en vivo de la población del segmento, incluyendo cuántos usuarios son alcanzables por correo electrónico. La membresía exacta del segmento se calcula justo antes del envío.
 
 {% multi_lang_include target_audiences.md %}
 
@@ -284,7 +284,7 @@ Para campañas multicanal dirigidas tanto a canales de correo electrónico como 
 - **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibe el push.
 - **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
 
-Para hacerlo, en **Audience Summary**, selecciona enviar esta campaña a "opted-in users only". Esta opción verificará que solo los usuarios que hayan optado recibirán tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
+Para hacerlo, en **Resumen de audiencia**, selecciona enviar esta campaña a «opted-in users only». Esta opción verificará que solo los usuarios que hayan optado recibirán tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
 
 {% alert important %}
 Con esta configuración, no incluyas ningún filtro en el paso **Target Audiences** que limite la audiencia a un solo canal (por ejemplo, `Foreground Push Enabled = True` o `Email Subscription = Opted-In`).

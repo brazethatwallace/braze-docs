@@ -10,37 +10,37 @@ description: "Cet article pratique vous explique comment configurer vos adresses
 
 # Configurer les adresses IP et les domaines
 
-{% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
+> Cet article vous guide à travers les exigences et les étapes nécessaires pour configurer vos adresses IP et vos pools, ainsi que les domaines et sous-domaines requis avant de pouvoir commencer à envoyer des e-mails avec Braze.
 
-> Cet article présente les exigences et les étapes nécessaires pour configurer vos adresses IP et vos pools, ainsi que les domaines et sous-domaines requis avant de pouvoir commencer à envoyer des e-mails avec Braze. <br><br>Bien que la majeure partie de la configuration soit effectuée par Braze, nous avons décrit les exigences et les éléments nécessaires pour cette configuration.
+{% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
 
 <br>
 
 {% alert important %}
-Vous pouvez utiliser SendGrid, SparkPost ou Amazon Simple Email Service (SES) comme fournisseur de services d'e-mailing (ESP) partenaire. À partir de 2026, Braze utilise Amazon SES comme ESP par défaut pour les nouvelles configurations d'e-mail. Pour plus de détails, consultez [Configuration d'Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
+Vous pouvez utiliser SendGrid, SparkPost ou Amazon Simple Email Service (SES) comme fournisseur de services d'e-mailing (ESP) partenaire. À partir de 2026, Braze utilise Amazon SES comme ESP par défaut pour les nouvelles configurations d'e-mail. Pour plus de détails, consultez [Configuration d'Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
 {% endalert %}
 
-## Méthode 1 : Coordination avec Braze (recommandé)
+## Méthode 1 : Coordonner avec Braze (recommandé)
 
-### Étape 1 : Fournir les informations
+### Étape 1 : Informations détaillées
 
 Envoyez les informations suivantes à votre conseiller Braze :
 
-* Vos domaines et sous-domaines choisis
-* Le nombre approximatif d'e-mails que vous enverrez chaque mois, ce qui aidera à déterminer le nombre d'adresses IP dont vous aurez besoin
-* Comment vous préférez associer vos domaines d'envoi à vos adresses IP allouées
+* Les domaines et sous-domaines de votre choix
+* Le nombre approximatif d'e-mails que vous enverrez chaque mois, ce qui nous aidera à déterminer le nombre d'adresses IP dont vous aurez besoin
+* La manière dont vous préférez mapper vos domaines d'envoi vers l'adresse IP qui vous a été attribuée
 
 ### Étape 2 : Braze configure les informations
 
-Après réception de votre e-mail, nous commencerons à configurer vos adresses IP, domaines et sous-domaines, ainsi que vos pools d'adresses IP.
+Après avoir reçu votre e-mail, nous allons travailler pour configurer vos adresses IP, domaines et sous-domaines, ainsi que vos pools d'adresses IP.
 
-### Étape 3 : Ajouter les enregistrements DNS
+### Étape 3 : Ajouter des enregistrements DNS
 
 Une fois vos adresses IP, domaines, sous-domaines et pools d'adresses IP configurés, nous vous enverrons une liste d'enregistrements DNS. Demandez à vos ingénieurs et développeurs d'ajouter ces enregistrements DNS là où c'est nécessaire, et une fois qu'ils ont été ajoutés, informez-en l'équipe d'onboarding de Braze.
 
 {% multi_lang_include dns_records.md %}
 
-Dès que Braze vous fournit vos enregistrements DNS, ajoutez-les dès que votre équipe DNS ou informatique est en mesure de le faire. La vérification de domaine est limitée dans le temps, et si les enregistrements sont ajoutés trop tard, la vérification peut échouer même si les enregistrements DNS se résolvent correctement par la suite. Si vos enregistrements DNS semblent corrects mais que la vérification échoue, contactez l'équipe d'onboarding ou d'assistance de Braze pour relancer la vérification.
+Dès que Braze vous fournit vos enregistrements DNS, ajoutez-les dès que votre équipe DNS ou informatique est en mesure de le faire. La vérification de domaine est limitée dans le temps : si les enregistrements sont ajoutés trop tard, la vérification peut échouer même si les enregistrements DNS se résolvent correctement par la suite. Si vos enregistrements DNS semblent corrects mais que la vérification échoue, contactez l'équipe d'onboarding ou d'assistance de Braze pour relancer la vérification.
 
 ### Étapes suivantes
 

@@ -22,9 +22,9 @@ Se esta é a primeira vez que você cria uma campanha de e-mail, recomendamos fo
 - [Projeto: Crie um programa básico de e-mail marketing](https://learning.braze.com/project-build-a-basic-email-marketing-program)
 {% endalert %}
 
-## Etapa 1: Escolha onde criar sua mensagem
+## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Use campanhas para envio de mensagens simples e únicas. Use Canvas para jornadas de usuário com múltiplas etapas.
+Use Campaigns para envio de mensagens simples e únicas. Use Canvas para jornadas de usuário com múltiplas etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -45,7 +45,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
 3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique uma postergação conforme necessário.
-4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
+4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
 {% endtab %}
@@ -71,11 +71,11 @@ Se você usar o editor de HTML e precisar que as cores de fundo permaneçam cons
 Recomendamos selecionar uma experiência de edição por campanha de e-mail. Por exemplo, escolha **HTML Classic** ou **Block editor** em uma única campanha de e-mail em vez de alternar entre editores.
 {% endalert %}
 
-## Etapa 3: Redija seu e-mail
+## Etapa 3: Redija seu e-mail {#step-3-compose-your-email}
 
 Depois de selecionar seu modelo, você verá uma visão geral do seu e-mail onde pode ir diretamente ao editor em tela cheia para redigir seu e-mail, alterar suas informações de envio e visualizar avisos sobre entregabilidade ou conformidade legal. Você pode alternar entre as guias HTML, clássico, texto simples e [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) enquanto redige.
 
-![O botão "Regenerate from HTML".]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
+![O botão "Regenerar a partir do HTML".]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
 A Braze atualiza automaticamente a versão em texto simples a partir da versão HTML até detectar uma edição no texto simples. Depois que a Braze detecta uma edição, ela para de atualizar o texto simples porque assume que você fez alterações intencionais. Para restaurar a sincronização automática, acesse **Plaintext** e selecione **Regenerate from HTML** (visível apenas quando o texto simples não está sincronizando).
 
@@ -117,7 +117,7 @@ Essa abordagem não se aplica de forma confiável apenas a elementos `<table>`, 
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
 
-### Etapa 3.1: Adicione suas informações de envio
+### Etapa 3.1: Adicione suas informações de envio {#step-31-add-your-sending-information}
 
 Depois de terminar de projetar e construir sua mensagem de e-mail, adicione suas informações de envio em **Sending Settings**.
 
@@ -130,13 +130,13 @@ Depois de terminar de projetar e construir sua mensagem de e-mail, adicione suas
 
 Uma pré-visualização no painel à direita será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Avançado
+#### Avançado {#advanced}
 
 Em **Sending Settings** > **Advanced**, ative **inline CSS** para o suporte mais amplo de clientes. Se as mensagens forem cortadas ou as imagens se esticarem até a altura da linha, tente desativar o inline CSS **temporariamente**. Alguns modelos funcionam melhor sem inlining.
 
 Você também pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail para enviar dados adicionais de volta para outros prestadores de serviço de e-mail.
 
-##### Cabeçalhos de e-mail
+##### Cabeçalhos de e-mail {#email-headers}
 
 Para adicionar cabeçalhos de e-mail, selecione **Add New Header**. Os cabeçalhos de e-mail contêm informações sobre o e-mail sendo enviado. Esses [pares de chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) geralmente incluem informações sobre remetente, destinatário, protocolo de autenticação e roteamento. A Braze adiciona automaticamente as informações de cabeçalho exigidas pela RFC para que os e-mails cheguem aos provedores de caixa de entrada.
 
@@ -188,7 +188,7 @@ Evite usar as seguintes chaves:
 </tbody>
 </table>
 
-##### Adicionando extras de e-mail
+##### Adicionando extras de e-mail {#adding-email-extras}
 
 Os extras de e-mail permitem enviar dados adicionais de volta para outros prestadores de serviço de e-mail. Isso é aplicável apenas para casos de uso avançados, então você só deve usar extras de e-mail se sua empresa já tiver isso configurado.
 
@@ -231,7 +231,7 @@ Clientes de e-mail que suportam texto de pré-visualização sempre puxam caract
 Para o editor de arrastar e soltar, adicione apenas os zero-width non-joiners (‌`&zwnj;`) sem a formatação `<div>` diretamente no pré-cabeçalho na seção **Sending Settings**.
 {% endalert %}
 
-### Etapa 3.3: Verifique erros de e-mail
+### Etapa 3.3: Verifique erros de e-mail {#step-33-check-for-email-errors}
 
 Antes do envio, o editor sinaliza problemas comuns:
 
@@ -239,46 +239,46 @@ Antes do envio, o editor sinaliza problemas comuns:
 - Endereços de remetente ou resposta inválidos
 - Chaves de cabeçalho duplicadas
 - Erros de sintaxe Liquid
-- Blocos de conteúdo que incluem um `<!DOCTYPE html>` completo
+- Content Blocks que incluem um `<!DOCTYPE html>` completo
 - Corpo do e-mail acima de 400&nbsp;KB
   - Procure manter [menos de 102&nbsp;KB]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#email-size) para evitar cortes.
 - Corpo ou assunto em branco
 - Link de cancelamento de inscrição ausente
 - Domínio do remetente não na lista de permissões (envios fortemente limitados)
 
-## Etapa 4: Construa o restante da sua campanha ou Canvas
+## Etapa 4: Construa o restante da sua campanha ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 Em seguida, construa o restante da sua campanha. Consulte as seções a seguir para detalhes sobre como usar as ferramentas da Braze para construir sua campanha de e-mail.
 
-#### Escolha o cronograma de entrega ou gatilho
+#### Escolha o cronograma de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
 
 Entregue e-mails com base em um horário programado, uma ação ou um gatilho de API. Para saber mais, consulte [Programando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
 {% alert note %}
-Para campanhas disparadas por API, quando a ação-gatilho é definida como **Interact With Campaign**, selecionar uma opção **Receive** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a campanha selecionada como enviada, mesmo que essa mensagem sofra bounce ou falhe na entrega.
+Para Campaigns disparadas por API, quando a ação-gatilho é definida como **Interact With Campaign**, selecionar uma opção **Receive** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a campanha selecionada como enviada, mesmo que essa mensagem sofra bounce ou falhe na entrega.
 {% endalert %}
 
 Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Escolha os usuários-alvo
+#### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros. A Braze mostra uma pré-visualização ao vivo da população do segmento, incluindo quantos usuários são alcançáveis por e-mail. A associação exata ao segmento é calculada logo antes do envio.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros. A Braze mostra uma pré-visualização ao vivo da população do Segment, incluindo quantos usuários são alcançáveis por e-mail. A associação exata ao Segment é calculada logo antes do envio.
 
 {% multi_lang_include target_audiences.md %}
 
 Você também pode optar por enviar sua campanha apenas para usuários que tenham um [status de inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions/) específico, como aqueles que estão inscritos e optaram por receber e-mail.
 
-Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do segmento, ou permitir que os usuários recebam a mesma mensagem duas vezes em caso de recorrência da campanha.
+Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment, ou permitir que os usuários recebam a mesma mensagem duas vezes em caso de recorrência da campanha.
 
 {% alert note %}
 Ao criar uma nova campanha de e-mail, o grupo de controle é definido como 20% por padrão e pode ser ajustado ou removido conforme necessário para sua campanha.
 {% endalert %}
 
-##### Campanhas multicanal com e-mail e push
+##### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
 
-Para campanhas multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua campanha para que apenas os usuários que explicitamente optaram por receber a mensagem (excluindo usuários inscritos ou com inscrição cancelada). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
+Para Campaigns multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua campanha para que apenas os usuários que explicitamente optaram por receber a mensagem (excluindo usuários inscritos ou com inscrição cancelada). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
 - **Usuário A** está inscrito em e-mail e tem push ativado. Este usuário não recebe o e-mail, mas receberá o push.
 - **Usuário B** optou por receber e-mail, mas não tem push ativado. Este usuário receberá o e-mail, mas não receberá o push.
@@ -290,7 +290,7 @@ Para fazer isso, em **Audience Summary**, selecione enviar esta campanha para "o
 Com esta configuração, não inclua nenhum filtro na etapa **Target Audiences** que limite o público a um único canal (por exemplo, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Escolha eventos de conversão
+#### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite rastrear com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma campanha. Você pode especificar qualquer uma das seguintes ações como evento de conversão:
 
@@ -307,7 +307,7 @@ Se ainda não o fez, conclua as seções restantes dos seus componentes de Canva
 {% endtab %}
 {% endtabs %}
 
-## Etapa 5: Revise e implante
+## Etapa 5: Revise e implante {#step-5-review-and-deploy}
 
 A seção final resume a campanha que você projetou. Confirme todos os detalhes relevantes e selecione **Launch Campaign**.
 

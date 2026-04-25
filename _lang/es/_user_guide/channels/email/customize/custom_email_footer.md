@@ -1,6 +1,6 @@
 ---
-nav_title: Personalizar pie de página de correo electrónico
-article_title: Personalizar pie de página de correo electrónico
+nav_title: Pie de página de correo electrónico personalizado
+article_title: Pie de página de correo electrónico personalizado
 page_order: 6.5
 description: "Este artículo describe cómo configurar un pie de página de correo electrónico personalizado para todo el espacio de trabajo."
 channel:
@@ -8,11 +8,11 @@ channel:
 
 ---
 
-# Personalizar pie de página de correo electrónico
+# Pie de página de correo electrónico personalizado
 
 > Puedes configurar un pie de página de correo electrónico personalizado para todo el espacio de trabajo, que puedes incluir como plantilla en cada correo electrónico usando el atributo Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Al usar pies de página de correo electrónico personalizados, ya no necesitas crear un nuevo pie de página para cada plantilla de correo electrónico o campaña de correo electrónico que utilices. Todas las campañas de correo electrónico nuevas y existentes reflejan los cambios que realices en tu pie de página personalizado. Recuerda que el cumplimiento de la [Ley CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) requiere que incluyas una dirección física de tu empresa y un enlace para cancelar suscripción en tus correos electrónicos.
+Al usar pies de página de correo electrónico personalizados, ya no necesitas crear un nuevo pie de página para cada plantilla de correo electrónico o Campaign que utilices. Todas las Campaigns de correo electrónico nuevas y existentes reflejan los cambios que realices en tu pie de página personalizado. Recuerda que el cumplimiento de la [Ley CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) requiere que incluyas una dirección física de tu empresa y un enlace para cancelar suscripción en tus correos electrónicos.
 
 {% alert warning %}
 Es tu responsabilidad asegurarte de que tu pie de página personalizado cumpla con los requisitos mencionados anteriormente.
@@ -46,9 +46,9 @@ Aquí hay una advertencia en el compositor de correo electrónico:
 
 ![Ejemplo de correo electrónico redactado sin pie de página.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Aquí hay una advertencia en el compositor de campañas:
+Aquí hay una advertencia en el compositor de Campaign:
 
-![Composición de campaña sin pie de página.]({% image_buster /assets/img_archive/no_footer_test.png %})
+![Composición de Campaign sin pie de página.]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### Agregar un enlace personalizado para cancelar suscripción
 

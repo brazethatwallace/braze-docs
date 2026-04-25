@@ -24,10 +24,10 @@ guide_featured_list:
   - name: "Politiques de désengagement"
     link: /docs/user_guide/channels/email/best_practices/sunset_policies
     image: /assets/img/braze_icons/sun-setting-03.svg
-  - name: "Envoi de messages de test"
+  - name: "Envoyer des messages de test"
     link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email
     image: /assets/img/braze_icons/mail-01.svg
-  - name: "À savoir avant d'envoyer"
+  - name: "À savoir avant l'envoi"
     link: /docs/know_before_send/
     image: /assets/img/braze_icons/send-01.svg
   - name: "Livrabilité des e-mails"

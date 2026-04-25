@@ -1,6 +1,6 @@
 ---
 nav_title: Enviar e-mails para o Apple Private Relay
-article_title: Enviar e-mails para o Apple Private Relay
+article_title: Envio de e-mails para o Apple Private Relay
 alias: /email_relay/
 page_order: 0
 description: "Este artigo aborda o processo de envio de e-mails para o Apple Private Relay."
@@ -11,20 +11,20 @@ toc_headers: h2
 
 # Enviar e-mails para o Apple Private Relay
 
-> O recurso de login único (SSO) da Apple permite que seus usuários compartilhem seus endereços de e-mail (`example@icloud.com`) ou ocultem seus endereços de e-mail, mascarando o que é fornecido às marcas (`tq1234snin@privaterelay.appleid.com`) em vez de seu endereço de e-mail pessoal. A Apple então encaminha as mensagens enviadas para os endereços de relay para o endereço de e-mail real do usuário.
+> O recurso de login único (SSO) da Apple permite que seus usuários compartilhem seus endereços de e-mail (`example@icloud.com`) ou ocultem seus endereços de e-mail mascarando o que é fornecido às marcas (`tq1234snin@privaterelay.appleid.com`) em vez do endereço de e-mail pessoal. A Apple encaminhará as mensagens enviadas para os endereços de relay para o endereço de e-mail real do usuário.
 
-Para enviar e-mails para o relay de e-mail privado da Apple, registre seus domínios de envio na Apple. Se você não configurar seus domínios na Apple, os e-mails enviados para endereços de relay resultarão em bounces.
+Para enviar e-mails para o relay de e-mail privado da Apple, registre seus domínios de envio com a Apple. Se você não configurar seus domínios com a Apple, os e-mails enviados para endereços de relay resultarão em bounces.
 
-Se um usuário decidir desativar o encaminhamento de e-mail para o e-mail de relay do seu app, a Braze receberá as informações de bounce de e-mail normalmente. Esses usuários podem gerenciar apps que usam o recurso Iniciar sessão com a Apple na página de configurações do Apple ID (consulte a [documentação da Apple](https://support.apple.com/en-us/HT210426)).
+Se um usuário decidir desativar o encaminhamento de e-mail para o e-mail de relay do seu app, a Braze receberá informações de bounce de e-mail normalmente. Esses usuários podem gerenciar os apps que usam o login com a Apple na página de configurações do Apple ID (consulte a [documentação da Apple](https://support.apple.com/en-us/HT210426)).
 
-## Configure seu provedor de e-mail
+## Configurar o provedor de e-mail
 
 {% tabs %}
 {% tab SendGrid %}
 
 Se você usa o SendGrid como provedor de e-mail, pode enviar e-mails para a Apple sem fazer alterações no DNS.
 
-1. Faça login no [Apple Developer Portal](https://developer.apple.com/)
+1. Faça login no [Portal do desenvolvedor da Apple](https://developer.apple.com/)
 2. Acesse a página **Certificates, Identifiers & Profiles**.
 3. Selecione **Services** > **Sign in with Apple for Email Communication**.
 4. Na seção **Email Sources**, adicione os domínios e subdomínios.
@@ -47,10 +47,10 @@ Se um domínio de envio também for usado como domínio de bounce, você não po
 
 1. Se o domínio já tiver sido verificado no SparkPost, você **deve** criar registros MX e TXT:
 
-| Instância | Registro MX                  | Registro TXT                                   |
-|-----------|------------------------------|-------------------------------------------------|
-| US        | `smtp.sparkpostmail.com`     | `"v=spf1 redirect=_spf.sparkpostmail.com"`      |
-| EU        | `smtp.eu.sparkpostmail.com`  | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"`   |
+| Instância | Registro MX                   | Registro TXT                                    |
+|-----------|-------------------------------|-------------------------------------------------|
+| US        | `smtp.sparkpostmail.com`      | `"v=spf1 redirect=_spf.sparkpostmail.com"`      |
+| EU        | `smtp.eu.sparkpostmail.com`   | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"`   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 {% alert important %}

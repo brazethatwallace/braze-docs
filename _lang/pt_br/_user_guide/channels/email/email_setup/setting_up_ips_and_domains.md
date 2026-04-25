@@ -1,28 +1,28 @@
 ---
 nav_title: Configurar IPs e domínios
-article_title: Configurar IPs e domínios
+article_title: Configurar IPs e Domínios
 page_order: 0
 page_type: tutorial
 channel: email
-description: "Este artigo tutorial vai orientar você sobre como configurar seus IPs e domínios para enviar e-mails pela Braze."
+description: "Este artigo explica como configurar seus IPs e domínios para o envio de e-mails pela Braze."
 
 ---
 
 # Configurar IPs e domínios
 
-{% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
+> Este artigo apresenta os requisitos e as etapas necessárias para configurar seus endereços IP e pools de IP, além dos domínios e subdomínios necessários antes de começar a enviar e-mails com a Braze.
 
-> Este artigo apresenta os requisitos e as etapas necessárias para configurar seus endereços IP e pools de IP, além dos domínios e subdomínios necessários antes de começar a enviar e-mails com a Braze. <br><br>Embora a maior parte do processo de configuração seja feita pela Braze, descrevemos os requisitos e materiais para essa configuração.
+{% multi_lang_include video.html id="iTm3yQkJ0UU" align="right"  %}
 
 <br>
 
 {% alert important %}
-Você pode usar SendGrid, SparkPost ou Amazon Simple Email Service (SES) como seu parceiro de prestador de serviço de e-mail (ESP). A partir de 2026, a Braze usa o Amazon SES como ESP padrão para novas configurações de e-mail. Para mais detalhes, consulte [Configuração do Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
+Você pode usar SendGrid, SparkPost ou Amazon Simple Email Service (SES) como seu parceiro de prestador de serviço de e-mail (ESP). A partir de 2026, a Braze usa o Amazon SES como ESP padrão para novas configurações de e-mail. Para mais detalhes, consulte [Configuração do Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
 {% endalert %}
 
 ## Método 1: Coordenar com a Braze (recomendado)
 
-### Etapa 1: Descrever as informações
+### Etapa 1: Informações gerais
 
 Envie as seguintes informações ao seu representante da Braze:
 
@@ -40,7 +40,7 @@ Após a configuração dos seus IPs, domínios, subdomínios e pools de IP, envi
 
 {% multi_lang_include dns_records.md %}
 
-Após a Braze fornecer seus registros DNS, adicione-os assim que sua equipe de DNS ou de TI puder. A verificação de domínio tem prazo limitado, e se os registros forem adicionados tarde demais, a verificação pode falhar mesmo que os registros DNS sejam resolvidos corretamente depois. Se seus registros DNS parecerem corretos, mas a verificação falhar, entre em contato com a equipe de integração ou suporte da Braze para reiniciar a verificação.
+Após a Braze fornecer seus registros DNS, adicione-os assim que sua equipe de DNS ou de TI puder. A verificação de domínio tem prazo limitado, e se os registros forem adicionados tarde demais, a verificação pode falhar mesmo que os registros DNS sejam resolvidos corretamente depois. Se seus registros DNS parecerem corretos, mas a verificação falhar, entre em contato com a equipe de integração ou o suporte da Braze para reiniciar a verificação.
 
 ### Próximas etapas
 

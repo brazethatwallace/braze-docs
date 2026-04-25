@@ -1,6 +1,6 @@
 ---
 nav_title: Criar um e-mail
-article_title: Criar um e-mail com arrastar e soltar
+article_title: Crie um e-mail com arrastar e soltar
 alias: "/dnd/overview/"
 noindex: true
 layout: redirect

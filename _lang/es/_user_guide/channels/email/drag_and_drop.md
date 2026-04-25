@@ -12,7 +12,7 @@ tool:
 
 # Crear un correo electrónico con arrastrar y soltar
 
-> Con el editor de arrastrar y soltar, puedes crear mensajes de correo electrónico completamente personalizados para campañas o Canvas, todo sin usar HTML para construir el cuerpo de tu correo electrónico.
+> Con el editor de arrastrar y soltar, puedes crear mensajes de correo electrónico completamente personalizados para Campaigns o Canvas, todo sin usar HTML para construir el cuerpo de tu correo electrónico.
 
 ## Acerca del editor {#about-the-editor}
 
@@ -65,7 +65,7 @@ Aunque el editor de arrastrar y soltar simplifica tu flujo de trabajo con estos 
 
 ### Filas {#rows}
 
-Las **filas** son unidades estructurales que definen la composición horizontal de una sección del mensaje mediante columnas. Puedes usar filas vacías o [Bloques de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar más de una columna te permite colocar diferentes elementos de contenido uno al lado del otro. De esta manera, puedes añadir todos los elementos estructurales que necesites a tu mensaje, independientemente de la plantilla que hayas seleccionado al comenzar.
+Las **filas** son unidades estructurales que definen la composición horizontal de una sección del mensaje mediante columnas. Puedes usar filas vacías o [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar más de una columna te permite colocar diferentes elementos de contenido uno al lado del otro. De esta manera, puedes añadir todos los elementos estructurales que necesites a tu mensaje, independientemente de la plantilla que hayas seleccionado al comenzar.
 
 #### Estilo de tarjetas
 
@@ -73,7 +73,7 @@ Las **filas** son unidades estructurales que definen la composición horizontal 
 
 ## Uso del editor de arrastrar y soltar
 
-¿No tienes claro si tu mensaje de correo electrónico debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para campañas de mensajería únicas y dirigidas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
+¿No tienes claro si tu mensaje de correo electrónico debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
 Una vez que hayas seleccionado dónde construir tu mensaje, veamos los pasos para crear un correo electrónico con arrastrar y soltar.
 
@@ -112,7 +112,7 @@ Cuando estés listo, usa los bloques de contenido de arrastrar y soltar para con
 
 Consulta [Otras personalizaciones](#other-customizations) para conocer otras formas de personalizar aún más tu correo electrónico de arrastrar y soltar.
 
-A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea receptivo, y puedes hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea responsivo, y puedes hacer los ajustes necesarios sobre la marcha.
 
 {% alert tip %}
 ¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
@@ -192,7 +192,7 @@ El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a 
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
 - Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table>`
-- Los [bloques del editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) han sido recodificados para mayor concisión
+- Los [bloques de editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido
 {% enddetails %}
@@ -242,7 +242,7 @@ Liquid básico es compatible con el editor de correo electrónico de arrastrar y
 1. Selecciona **Personalización** en la sección **Contenido**.
 2. Selecciona el tipo de personalización. Esto incluye atributos predeterminados (estándar), atributos de dispositivo, atributos personalizados y más.
 3. Busca el atributo que deseas añadir.
-4. Copia el fragmento de Liquid generado y pégalo en el cuerpo de tu correo electrónico.
+4. Copia el fragmento de código Liquid generado y pégalo en el cuerpo de tu correo electrónico.
 
 La personalización con Liquid no es compatible con los bloques de imagen ni con los campos de tipo de enlace de botón.
 

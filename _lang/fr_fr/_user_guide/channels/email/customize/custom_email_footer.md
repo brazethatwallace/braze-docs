@@ -2,7 +2,7 @@
 nav_title: Pied de page personnalisé
 article_title: Pied de page personnalisé pour les e-mails
 page_order: 6.5
-description: "Cet article décrit comment configurer un pied de page personnalisé pour les e-mails à l'échelle de l'espace de travail."
+description: "Cet article explique comment configurer un pied de page d'e-mail personnalisé à l'échelle de l'espace de travail."
 channel:
   - email
 
@@ -10,20 +10,20 @@ channel:
 
 # Pied de page personnalisé pour les e-mails
 
-> Vous pouvez définir un pied de page personnalisé pour les e-mails à l'échelle de l'espace de travail, que vous pouvez intégrer dans chaque e-mail à l'aide de l'attribut Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
+> Vous pouvez définir un pied de page d'e-mail personnalisé pour l'ensemble de l'espace de travail, que vous pouvez intégrer dans chaque e-mail à l'aide de l'attribut Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Grâce aux pieds de page personnalisés, vous n'avez plus besoin de créer un nouveau pied de page pour chaque modèle d'e-mail ou campagne e-mail. Toutes les campagnes e-mail, nouvelles et existantes, reflètent les modifications apportées à votre pied de page personnalisé. N'oubliez pas que la conformité avec la [loi CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) exige d'inclure une adresse physique pour votre entreprise et un lien de désabonnement dans vos e-mails.
+En utilisant des pieds de page d'e-mail personnalisés, vous n'avez plus besoin de créer un nouveau pied de page pour chaque modèle d'e-mail ou campagne d'e-mail que vous utilisez. Toutes les campagnes d'e-mail existantes et nouvelles reflètent les modifications apportées à votre pied de page personnalisé. N'oubliez pas que le respect de la [loi CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) vous oblige à inclure une adresse physique pour votre entreprise et un lien de désabonnement dans vos e-mails.
 
 {% alert warning %}
-Il est de votre responsabilité de vous assurer que votre pied de page personnalisé respecte les exigences mentionnées ci-dessus.
+Il est de votre responsabilité de vous assurer que votre pied de page personnalisé répond aux exigences susmentionnées.
 {% endalert %}
 
-## Créer votre pied de page personnalisé
+## Création de votre pied de page personnalisé
 
 Pour créer ou modifier votre pied de page personnalisé, procédez comme suit :
 
-1. Accédez à **Paramètres** > **Préférences des e-mails** > **Pages et pieds de page de désabonnement**.
-2. Accédez à la section **Pied de page personnalisé** et activez les pieds de page personnalisés.
+1. Allez dans **Paramètres** > **Préférences des e-mails** > **Pages et pieds de page de désabonnement**.
+2. Allez dans la section **Pied de page personnalisé** et activez les pieds de page personnalisés.
 3. Sélectionnez **Modifier**, puis modifiez votre pied de page dans la section **Rédiger**.
 4. Sélectionnez **Prévisualisation** pour voir à quoi ressemblera votre pied de page dans la boîte de réception d'un client. Vous pouvez également sélectionner **Copier le lien de prévisualisation** pour générer et copier un lien de prévisualisation partageable montrant le rendu de l'e-mail pour un utilisateur aléatoire. Ce lien est valide pendant sept jours, après quoi il doit être régénéré.
 5. Envoyez un message de test.

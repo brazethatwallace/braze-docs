@@ -12,12 +12,12 @@ channel: email
 > Cet article décrit comment configurer les liens universels Apple et les Android App Links.
 
 {% alert tip %}
-Pour une comparaison des types de liens sur tous les canaux de communication et des conseils sur les cas où un fichier AASA est nécessaire, consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
+Pour une comparaison des types de liens sur tous les canaux de communication et des conseils sur les cas où un fichier AASA est nécessaire, consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
 {% endalert %}
 
 Les liens universels Apple et les Android App Links sont des mécanismes conçus pour offrir une transition fluide entre le contenu web et les applications mobiles. Alors que les liens universels sont spécifiques à iOS, les Android App Links remplissent la même fonction pour les applications Android.
 
-## Fonctionnement des liens universels et des App Links
+## Fonctionnement des liens universels et des App Links {#how-universal-links-and-app-links-work}
 
 Les liens universels (iOS) et les App Links (Android) sont des liens web standard (`http://mydomain.com`) qui pointent à la fois vers une page web et vers un contenu à l'intérieur d'une application.
 
@@ -35,24 +35,24 @@ Ce tableau présente les principales différences entre les liens universels et 
 | Installation de l'application       | Ouvre l'application si elle est installée, sinon ouvre le contenu web | Nécessite que l'application soit installée |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
 Les liens universels et les App Links sont le plus souvent utilisés pour les campagnes par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
 
-Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les messages in-app et les cartes de contenu doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
+Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les messages in-app et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
 
 {% alert note %}
 Les Android App Links nécessitent un `IBrazeDeeplinkHandler` personnalisé avec une logique pour gérer les liens de leurs domaines séparément des autres URL web. Il peut être plus simple d'utiliser des liens profonds à la place et de maintenir des pratiques de liens uniformes pour les canaux autres que l'e-mail.
 {% endalert %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour utiliser les liens universels et les App Links :
 
 - Votre site web doit être accessible via HTTPS
 - Votre application doit être disponible sur l'App Store (iOS) ou le Google Play Store (Android)
 
-## Configuration des liens universels et des App Links
+## Configuration des liens universels et des App Links {#setting-up-universal-links-and-app-links}
 
 Pour que les applications prennent en charge les liens universels ou les App Links, iOS et Android nécessitent tous deux qu'un fichier de permissions spécial soit hébergé sur le domaine du lien. Ce fichier contient les définitions des applications autorisées à ouvrir les liens de ce domaine et, pour iOS, les chemins que ces applications sont autorisées à ouvrir :
 
@@ -219,7 +219,7 @@ Enfin, vous pouvez tester vos liens profonds. Envoyez-vous un lien via une appli
 {% endtab %}
 {% endtabs %}
 
-## Liens universels, App Links et suivi des clics
+## Liens universels, App Links et suivi des clics {#universal-links-app-links-and-click-tracking}
 
 {% alert note %}
 Les liens de suivi des clics sont généralement configurés dans le cadre de votre onboarding pour l'e-mail. Si cela n'a pas été effectué lors de l'onboarding client, contactez votre gestionnaire de compte pour obtenir de l'aide.
@@ -269,7 +269,7 @@ Par exemple :
 
 Ensuite, assurez-vous que votre application est configurée pour gérer correctement le chemin personnalisé. Consultez l'article de SparkPost sur l'[utilisation du suivi des clics SparkPost sur les liens profonds](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Cet article contient des exemples de code pour [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) et [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
 
-### Désactiver le suivi des clics lien par lien
+### Désactiver le suivi des clics lien par lien {#turning-off-click-tracking-on-a-link-to-link-basis}
 
 Vous pouvez désactiver le suivi des clics pour des liens spécifiques en ajoutant du code HTML à votre message e-mail pour l'éditeur HTML ou à un bloc HTML pour l'éditeur par glisser-déposer.
 
@@ -339,7 +339,7 @@ Sélectionnez les éléments suivants pour l'attribut personnalisé :
 
 ![Un attribut personnalisé pour un bouton.]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
 
-### Résolution des problèmes liés aux liens universels avec suivi des clics
+### Résolution des problèmes liés aux liens universels avec suivi des clics {#troubleshooting-universal-links-with-click-tracking}
 
 Si vos liens universels ne fonctionnent pas comme prévu dans vos e-mails, par exemple en redirigeant le destinataire de son application de messagerie vers le navigateur web avant de finalement rediriger vers l'application, consultez ces conseils pour résoudre les problèmes de configuration de vos liens universels.
 

@@ -3,7 +3,7 @@ nav_title: Calentamiento de IP
 article_title: Calentamiento de IP
 page_order: 1
 page_type: reference
-description: "Este artículo de referencia cubre el tema del calentamiento de IP y las mejores prácticas."
+description: "Este artículo de referencia trata el tema del calentamiento de IP y las buenas prácticas."
 channel: email
 local_redirect:
   automated-ip-warming: '/docs/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming'
@@ -11,15 +11,15 @@ local_redirect:
 
 # Calentamiento de IP
 
-> El calentamiento de IP es la práctica de acostumbrar a los proveedores de buzones de entrada de correo electrónico a recibir mensajes desde tus direcciones IP dedicadas. Es una parte extremadamente importante del envío de correo electrónico con cualquier proveedor de servicios de correo electrónico (ESP) y una práctica estándar en Braze para confirmar que tus mensajes llegan a los buzones de entrada de destino a una tasa consistentemente alta.
+> El calentamiento de IP es la práctica de acostumbrar a los proveedores de buzones de correo electrónico a recibir mensajes desde tus direcciones IP dedicadas. Es una parte extremadamente importante del envío de correo electrónico con cualquier proveedor de servicios de correo electrónico (ESP) y una práctica estándar en Braze para confirmar que tus mensajes llegan a los buzones de entrada de destino a una tasa consistentemente alta.
 
-El calentamiento de IP está diseñado para ayudarte a establecer una reputación positiva con los proveedores de servicios de Internet (ISP). Cada vez que se utiliza una nueva dirección IP para enviar un correo electrónico, los ISP monitorean programáticamente esos correos electrónicos para verificar que no se estén utilizando para enviar correo no deseado a los usuarios. Piensa en la reputación de tu IP y dominio como una puntuación crediticia: los ISP utilizan esta reputación para determinar si tu correo llega al buzón de entrada o a la carpeta de correo no deseado. Al igual que una puntuación crediticia, lleva tiempo construir una reputación positiva y aún más tiempo reconstruir una mala.
+El calentamiento de IP está diseñado para ayudarte a establecer una reputación positiva con los proveedores de servicios de Internet (ISP). Cada vez que se utiliza una nueva dirección IP para enviar un correo electrónico, los ISP supervisan programáticamente esos correos para verificar que no se estén utilizando para enviar correo no deseado a los usuarios. Piensa en la reputación de tu IP y dominio como una puntuación crediticia: los ISP utilizan esta reputación para determinar si tu correo llega al buzón de entrada o a la carpeta de correo no deseado. Al igual que una puntuación crediticia, lleva tiempo construir una reputación positiva y aún más tiempo reconstruir una mala.
 
 ## Entrega y capacidad de entrega del correo electrónico
 
 La **entrega** es la proporción de correos electrónicos que fueron aceptados y no tuvieron un rebote duro. La **capacidad de entrega** se refiere a si el correo llega al buzón de entrada en lugar de a correo no deseado; los proveedores de buzones no exponen eso como una métrica única.
 
-Una tasa de entrega saludable suele estar alrededor del 99% entregado con una tasa de rebote no superior al 1% aproximadamente. Las tasas pueden parecer sólidas en papel y aún así ocultar problemas (por ejemplo, muchos rebotes de un solo dominio, o correo entregado pero filtrado a correo no deseado). Observa las aperturas y los clics, no solo la entrega. Incluso una pequeña tasa reportada de correo no deseado puede justificar una revisión más profunda.
+Una tasa de entrega saludable suele estar alrededor del 99 % entregado con una tasa de rebote no superior al 1 % aproximadamente. Las tasas pueden parecer sólidas en papel y aún así ocultar problemas (por ejemplo, muchos rebotes de un solo dominio, o correo entregado pero filtrado a correo no deseado). Observa las aperturas y los clics, no solo la entrega. Incluso una pequeña tasa reportada de correo no deseado puede justificar una revisión más profunda.
 
 ### Recomendaciones antes del calentamiento de IP
 
@@ -111,7 +111,7 @@ Día | Número de correos electrónicos a enviar
 {% tab Agresivo %}
 
 {% alert important %}
-El programa agresivo es el enfoque más rápido y solo se recomienda para remitentes con un historial de envío establecido y positivo y métricas de capacidad de entrega que se alineen con las mejores prácticas, incluyendo altas tasas de apertura, altas tasas de clics y bajas tasas de rebote. Usar este programa sin un historial comprobado puede dañar tu reputación como remitente.
+El programa agresivo es el enfoque más rápido y solo se recomienda para remitentes con un historial de envío establecido y positivo y métricas de capacidad de entrega que se alineen con las buenas prácticas, incluyendo altas tasas de apertura, altas tasas de clics y bajas tasas de rebote. Usar este programa sin un historial comprobado puede dañar tu reputación como remitente.
 {% endalert %}
 
 Día | Número de correos electrónicos a enviar
@@ -151,11 +151,11 @@ La mayoría de los ISP solo almacenan datos de reputación durante 30 días. Si 
 
 ### Direcciones IP
 
-Después de tres meses sin uso, Braze puede reciclar y reasignar direcciones IP. Independientemente del historial previo de una dirección IP, se recomienda un calentamiento de IP completo para todas las IP recién asignadas, ya que la mayoría de los ISP solo almacenan datos de reputación durante 30 días. Para la mayoría de los ISP, esto significa que un período de inactividad de tres meses restablece efectivamente la reputación. Si tienes más preguntas sobre el historial de una dirección IP específica, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Después de tres meses sin uso, Braze puede reciclar y reasignar direcciones IP. Independientemente del historial previo de una dirección IP, se recomienda un calentamiento de IP completo para todas las IP recién asignadas, ya que la mayoría de los ISP solo almacenan datos de reputación durante 30 días. Para la mayoría de los ISP, esto significa que un período de inactividad de tres meses restablece efectivamente la reputación. Si tienes más preguntas sobre el historial de una dirección IP específica, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 ## Cómo limitar los envíos durante el calentamiento
 
-Nuestra función integrada de limitación de usuarios sirve como una herramienta útil para ayudarte con el calentamiento de tu dirección IP. Después de elegir los segmentos de mensajería deseados durante la creación de la campaña, en el paso [Usuarios objetivo]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), selecciona el desplegable **Opciones avanzadas** para limitar tus usuarios. A medida que continúa tu programa de calentamiento, puedes aumentar gradualmente este límite para incrementar el volumen de correos electrónicos que envías.
+Nuestra función integrada de limitación de usuarios sirve como una herramienta útil para ayudarte con el calentamiento de tu dirección IP. Después de elegir los Segments de mensajería deseados durante la creación de la Campaign, en el paso [Usuarios objetivo]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), selecciona el desplegable **Opciones avanzadas** para limitar tus usuarios. A medida que continúa tu programa de calentamiento, puedes aumentar gradualmente este límite para incrementar el volumen de correos electrónicos que envías.
 
 ![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
@@ -169,13 +169,13 @@ La segmentación de subdominios es especialmente importante para remitentes de g
 
 Recomendamos segmentar tus dominios de modo que el correo corporativo se envíe a través de tu dominio de nivel superior, y el correo de marketing y transaccional se envíe a través de diferentes dominios o subdominios.
 
-## Mejores prácticas
+## Buenas prácticas
 
-Puedes evitar todas las consecuencias de no calentar las IP siguiendo estas mejores prácticas:
+Puedes evitar todas las consecuencias de no calentar las IP siguiendo estas buenas prácticas:
 
 ### Comienza con volúmenes pequeños de envío de correo electrónico
 
-Aumenta la cantidad que envías cada día de la forma más gradual posible. Las campañas de correo electrónico abruptas y de alto volumen son vistas con mayor escepticismo por los ISP. Por lo tanto, debes comenzar enviando pequeñas cantidades de correo electrónico y escalar gradualmente hacia el volumen de correo electrónico que finalmente pretendes enviar. Ten en cuenta que estás calentando tu IP en cada ISP individualmente: los ISP no comparten datos de reputación entre sí. Al planificar tus volúmenes de calentamiento, asegúrate de no aumentar el volumen demasiado rápido en ningún ISP individual. Independientemente del volumen, sugerimos calentar tu IP para estar seguro. Consulta los [programas de calentamiento de IP](#ip-warming-schedules).
+Aumenta la cantidad que envías cada día de la forma más gradual posible. Las Campaigns de correo electrónico abruptas y de alto volumen son vistas con mayor escepticismo por los ISP. Por lo tanto, debes comenzar enviando pequeñas cantidades de correo electrónico y escalar gradualmente hacia el volumen de correo electrónico que finalmente pretendes enviar. Ten en cuenta que estás calentando tu IP en cada ISP individualmente: los ISP no comparten datos de reputación entre sí. Al planificar tus volúmenes de calentamiento, asegúrate de no aumentar el volumen demasiado rápido en ningún ISP individual. Independientemente del volumen, sugerimos calentar tu IP para estar seguro. Consulta los [programas de calentamiento de IP](#ip-warming-schedules).
 
 ### Ten contenido introductorio atractivo
 
@@ -194,12 +194,12 @@ Confirma que tu lista de correo electrónico esté limpia y no tenga correos ele
 ### Monitorea tu reputación como remitente
 
 Al realizar el proceso de calentamiento de IP, asegúrate de monitorear cuidadosamente tu reputación como remitente. Estas métricas específicas son importantes de observar:
-- **Tasas de rebote:** Si alguna campaña rebota a más del 3-5%, debes evaluar la limpieza de tu lista siguiendo las directrices de nuestro artículo [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/). Además, debes considerar implementar una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) para dejar de enviar correos electrónicos a direcciones de correo electrónico no comprometidas o inactivas.
-- **Informes de correos no deseados:** Si alguna campaña es reportada como correo no deseado a una tasa superior al 0,08%, debes reevaluar el contenido que estás enviando, verificar que esté dirigido a una audiencia interesada y asegurarte de que tus correos electrónicos estén redactados adecuadamente para despertar su interés.
-- **Tasas de apertura:** Las tasas de apertura son un indicador útil de la ubicación en el buzón de entrada. Si tus tasas de apertura únicas superan el 25%, es probable que estés experimentando una alta ubicación en el buzón de entrada, lo que indica una reputación positiva como remitente.
+- **Tasas de rebote:** Si alguna Campaign rebota a más del 3-5 %, debes evaluar la limpieza de tu lista siguiendo las directrices de nuestro artículo [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/). Además, debes considerar implementar una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) para dejar de enviar correos electrónicos a direcciones de correo electrónico no comprometidas o inactivas.
+- **Informes de correos no deseados:** Si alguna Campaign es reportada como correo no deseado a una tasa superior al 0,08 %, debes reevaluar el contenido que estás enviando, verificar que esté dirigido a una audiencia interesada y asegurarte de que tus correos electrónicos estén redactados adecuadamente para despertar su interés.
+- **Tasas de apertura:** Las tasas de apertura son un indicador útil de la ubicación en el buzón de entrada. Si tus tasas de apertura únicas superan el 25 %, es probable que estés experimentando una alta ubicación en el buzón de entrada, lo que indica una reputación positiva como remitente.
 
 {% alert tip %}
-Braze no recomienda usar [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) para calentar tus IP. Dado que las campañas de calentamiento de IP son algunas de las primeras campañas que envías, Braze no tendrá suficiente información sobre tus usuarios para calcular un momento de envío óptimo. En este caso, todos los mensajes con Intelligent Timing se enviarían por defecto a la hora alternativa y se enviarían al mismo tiempo de todos modos.
+Braze no recomienda usar [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) para calentar tus IP. Dado que las Campaigns de calentamiento de IP son algunas de las primeras Campaigns que envías, Braze no tendrá suficiente información sobre tus usuarios para calcular un momento de envío óptimo. En este caso, todos los mensajes con Intelligent Timing se enviarían por defecto a la hora alternativa y se enviarían al mismo tiempo de todos modos.
 {% endalert %}
 
 {% alert tip %}

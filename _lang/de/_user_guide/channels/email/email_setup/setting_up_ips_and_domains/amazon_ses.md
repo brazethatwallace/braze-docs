@@ -18,7 +18,7 @@ Bevor Sie mit der Einrichtung von Amazon SES beginnen, stellen Sie sicher, dass 
 - Versand-Domain-Namen
 - IP-Pool-Namen (z. B. Marketing, Transaktion, Staging)
 - Die Zahl der IP-Adressen für jeden IP-Pool
-- Bevorzugter Anhang für Klick-Tracking-Domains (z. B. „clicks" oder „click", „links" oder „link")
+- Bevorzugter Anhang für Klick-Tracking-Domains (z. B. „clicks“ oder „click“, „links“ oder „link“)
 
 ## Einrichtungsbeispiel
 
@@ -69,10 +69,10 @@ Dies basiert auf der Regel, dass die Klick-Tracking-Domain mindestens einer Vers
 - Jedem Konfigurationsset kann jeweils nur ein IP-Pool zugewiesen werden, aber es können mehrere Konfigurationssets erstellt werden, die denselben IP-Pool mit unterschiedlichen Versand-Domains verwenden.
 - Amazon SES verwaltet rDNS- und A-Records intern, da enge Beziehungen zu Posteingang-Anbietern bestehen, um IP-Adressen erkennen zu können.
 - Jeder Versand-Domain ist ein MAIL FROM-Bezeichner zugeordnet, der bei SPF-Validierungen hilft.
-    - Der Wert für jede Versand-Domain ist „e".
+    - Der Wert für jede Versand-Domain ist „e“.
     - Der MAIL FROM-Wert ändert nicht die Absenderadresse, die Ihre Kund:innen sehen.
 - Wenn Amazon SES Ihr E-Mail-Anbieter ist, wird Microsoft Smart Network Data Services (SNDS) nicht unterstützt.
 
 ## Nächste Schritte
 
-- [SSL einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)
+- [SSL einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)

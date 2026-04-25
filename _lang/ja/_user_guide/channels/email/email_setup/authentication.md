@@ -16,7 +16,7 @@ channel: email
 **BIMI**（Brand Indicators for Message Identification）については、Braze との特別な調整は必要ありません。必要な DNS レコードと証明書はお客様側で管理します。
 {% endalert %}
 
-## 認証の方法
+## 認証方法
 
 ### Sender Policy Framework（SPF）
 
@@ -51,7 +51,7 @@ DMARC レコードは、DMARC レコードに記載されたレポート用メ�
 | None | 失敗したメッセージに対してアクションを実行しないようメールボックスプロバイダーに指示します。 |
 | Quarantine | 失敗したメッセージをスパムフォルダーに送信するようメールボックスプロバイダーに指示します。 |
 | Reject | 失敗したメッセージはスパムフォルダーに送られ、ブロックされるべきであるとメールボックスプロバイダーに指示します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### ドメインの DMARC 認証を確認する方法
 

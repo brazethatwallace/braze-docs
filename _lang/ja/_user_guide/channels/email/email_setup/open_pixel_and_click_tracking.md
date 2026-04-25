@@ -9,7 +9,7 @@ description: "この参照記事では、開封ピクセルとクリックトラ
 
 # メールの開封ピクセルとクリックトラッキング
 
-> [開封ピクセルトラッキング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel)とクリックトラッキングは、各ユーザープロファイルごとにオンまたはオフにできます。この柔軟性により、地域のプライバシー法に準拠できます。個々のユーザープロファイルがトラッキングを望まないことを示す場合に対応できます。
+> [開封ピクセルトラッキング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel)とクリックトラッキングは、各ユーザープロファイルごとにオンまたはオフにできます。この柔軟性により、地域のプライバシー法に準拠できます。個々のユーザープロファイルがトラッキングを望まないことを示している場合にも対応できます。
 
 ## 開封ピクセルまたはクリックトラッキングをオンにする
 

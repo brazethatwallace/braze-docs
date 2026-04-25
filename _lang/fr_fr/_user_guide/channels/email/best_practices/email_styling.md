@@ -1,28 +1,28 @@
 ---
-nav_title: Mise en forme des e-mails
-article_title: Mise en forme des e-mails
+nav_title: Style des e-mails
+article_title: Style des e-mails
 page_order: 2
 page_type: reference
-description: "Cet article présente les bonnes pratiques de mise en forme des e-mails à consulter lors de la création de vos campagnes e-mail."
+description: "Cet article présente les bonnes pratiques de style des e-mails à consulter lors de la création de vos campagnes par e-mail."
 channel: email
 
 ---
 
-# Mise en forme des e-mails
+# Style des e-mails
 
-> Cet article présente les bonnes pratiques de mise en forme des e-mails, notamment les lignes d'objet, le texte d'accroche, la taille des e-mails et les recommandations relatives aux images.
+> Cet article présente les bonnes pratiques de style des e-mails, notamment les lignes d'objet, le texte d'accroche, la taille des e-mails et les recommandations relatives aux images.
 
-## Mise en forme de l'adresse
+## Style de l'adresse
 
-La ligne d'objet est l'un des premiers éléments que les destinataires voient lorsqu'ils reçoivent votre message. Un objet de 6 à 10 mots génère les meilleurs taux d'ouverture.
+La **ligne d'objet** est l'une des premières choses que les destinataires verront en recevant votre message. Les lignes d'objet de 6 à 10 mots génèrent les meilleurs taux d'ouverture.
 
-Il existe différentes approches pour rédiger une bonne ligne d'objet : poser une question pour éveiller la curiosité du lecteur, adopter un ton plus direct, ou encore la personnaliser pour engager votre clientèle. Ne vous limitez pas à une seule ligne d'objet : utilisez les [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) pour en essayer de nouvelles et évaluer leur efficacité. Les lignes d'objet ne doivent pas dépasser 35 caractères pour s'afficher correctement sur mobile.
+Il existe différentes approches pour créer une bonne ligne d'objet : poser une question pour susciter l'intérêt du lecteur, être plus direct, la personnaliser pour mieux engager votre clientèle… Ne vous contentez pas d'une seule ligne d'objet, tirez parti des [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) pour en essayer de nouvelles et évaluer leur efficacité. Pour s'afficher correctement sur mobile, les lignes d'objet ne doivent pas dépasser 35 caractères.
 
-Le champ « De » doit indiquer clairement qui est l'expéditeur. Évitez d'utiliser le nom d'une personne ou une abréviation peu courante. Préférez un nom reconnaissable, comme le nom de votre marque. Si l'utilisation d'un nom de personne correspond aux méthodes de personnalisation de votre marque, restez cohérent afin de développer une relation avec le destinataire. Le nom de l'expéditeur ne doit pas dépasser 25 caractères pour s'afficher correctement sur mobile.
+Le champ « De » doit indiquer clairement qui est l'expéditeur. Évitez d'utiliser le nom d'une personne ou une abréviation peu courante. Privilégiez plutôt un nom reconnaissable, comme celui de votre marque. Si l'utilisation du nom d'une personne correspond aux méthodes de personnalisation des e-mails de votre marque, restez cohérent afin de développer une relation avec les destinataires. Pour s'afficher correctement sur mobile, le nom du champ « De » ne doit pas comporter plus de 25 caractères.
 
-### Adresses sans réponse
+### Adresses « noreply »
 
-Les adresses e-mail sans réponse (no-reply) sont généralement déconseillées pour plusieurs raisons, car elles désengagent vos lecteurs. De nombreux destinataires répondent à l'e-mail pour se désabonner ; s'ils ne peuvent pas le faire, l'action suivante consiste le plus souvent à signaler l'e-mail comme courrier indésirable.
+Les adresses e-mail sans réponse sont généralement déconseillées pour plusieurs raisons, car elles désengagent vos lecteurs. De nombreux destinataires répondent à l'e-mail pour se désabonner ; s'ils ne peuvent pas le faire, l'action suivante consiste le plus souvent à signaler l'e-mail comme courrier indésirable.
 
 Recevoir des réponses automatiques d'absence peut en réalité fournir des informations précieuses, améliorer les taux d'ouverture et réduire les signalements de courrier indésirable (en retirant ceux qui ne souhaitent pas recevoir d'e-mails). Sur un plan personnel, une adresse sans réponse peut paraître impersonnelle aux yeux des destinataires et les dissuader de recevoir d'autres e-mails de votre entreprise.
 
@@ -102,7 +102,7 @@ Pour réduire le risque de troncature :
 - Compressez les images et les ressources HTML.
 
 {% alert note %}
-Pour enregistrer votre campagne e-mail ou votre modèle, assurez-vous que le corps de l'e-mail ne dépasse pas 400&nbsp;Ko.
+Pour enregistrer votre campagne par e-mail ou votre modèle, assurez-vous que le corps de l'e-mail ne dépasse pas 400&nbsp;Ko.
 {% endalert %}
 
 ### Qu'est-ce qui peut augmenter la taille finale de l'e-mail ?
@@ -143,7 +143,7 @@ Avec les notifications push et les messages in-app, un [lien profond]({{site.bas
 
 Utilisez plutôt les [liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), qui fonctionnent comme des URL standard. Vous pouvez les configurer pour ouvrir l'application ou diriger les utilisateurs vers une page spécifique. Ils peuvent également rediriger vers l'app store ou afficher une page web de secours lorsque l'application n'est pas installée.
 
-## Blocs de contenu avec images transparentes
+## Content Blocks avec images transparentes
 
 Lorsqu'un bloc de contenu contient une image avec un arrière-plan transparent (par exemple, un logo) et qu'il est inséré via une étiquette Liquid, une couleur d'arrière-plan peut apparaître derrière l'image. Cette couleur provient des [paramètres de style global de l'e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) de l'éditeur par glisser-déposer, plus précisément de la **couleur d'arrière-plan de l'e-mail**. Si vos paramètres de style global utilisent une couleur autre que le blanc, cette couleur apparaîtra à la place.
 

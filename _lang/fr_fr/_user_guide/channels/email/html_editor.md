@@ -75,7 +75,7 @@ Nous recommandons de sélectionner une seule expérience d'édition par campagne
 
 Après avoir sélectionné votre modèle, vous verrez un aperçu de votre e-mail où vous pouvez accéder directement à l'éditeur en plein écran pour rédiger votre e-mail, modifier vos informations d'envoi et consulter les avertissements relatifs à la livrabilité ou à la conformité légale. Vous pouvez basculer entre les onglets HTML, classique, texte brut et [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) pendant la rédaction.
 
-![Le bouton « Regenerate from HTML ».]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
+![Le bouton « Régénérer à partir du HTML ».]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
 Braze met automatiquement à jour la version en texte brut à partir de la version HTML jusqu'à ce qu'une modification du texte brut soit détectée. Dès qu'une modification est détectée, Braze cesse de mettre à jour le texte brut, considérant que vous avez effectué des changements intentionnels. Pour restaurer la synchronisation automatique, accédez à **Plaintext** et sélectionnez **Regenerate from HTML** (visible uniquement lorsque le texte brut n'est pas synchronisé).
 
@@ -132,7 +132,7 @@ Un aperçu dans le panneau de droite se remplira avec les informations d'envoi q
 
 #### Avancé
 
-Sous **Sending Settings** > **Advanced**, activez **inline CSS** pour la compatibilité la plus large avec les clients de messagerie. Si les messages sont tronqués ou si les images s'étirent à la hauteur de la ligne, essayez de désactiver temporairement le CSS inline. Certains modèles fonctionnent mieux sans intégration inline.
+Sous **Sending Settings** > **Advanced**, activez l'**insertion CSS** pour la compatibilité la plus large avec les clients de messagerie. Si les messages sont tronqués ou si les images s'étirent à la hauteur de la ligne, essayez de désactiver temporairement l'insertion CSS. Certains modèles fonctionnent mieux sans insertion.
 
 Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mail et des extras d'e-mail pour renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing.
 
@@ -239,7 +239,7 @@ Avant l'envoi, l'éditeur signale les problèmes courants :
 - Adresses d'expéditeur ou de réponse invalides
 - Clés d'en-tête en double
 - Erreurs de syntaxe Liquid
-- Blocs de contenu qui incluent un `<!DOCTYPE html>` complet
+- Content Blocks qui incluent un `<!DOCTYPE html>` complet
 - Le corps de l'e-mail dépasse 400&nbsp;Ko
   - Visez [moins de 102&nbsp;Ko]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#email-size) pour éviter la troncature.
 - Corps ou objet vide

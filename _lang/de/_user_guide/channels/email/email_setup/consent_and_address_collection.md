@@ -1,29 +1,29 @@
 ---
-nav_title: Einwilligung und Adresserfassung
-article_title: Einwilligung und Adresserfassung
+nav_title: Einverständnis & Adresserfassung
+article_title: Einverständnis & Adresserfassung
 page_order: 6
 page_type: reference
-description: "Dieser Referenzartikel behandelt Best Practices für die Einholung von Einwilligungen und die Erfassung von E-Mail-Adressen und definiert die verschiedenen möglichen Abo-Status von Nutzer:innen."
+description: "Dieser Referenzartikel behandelt Best Practices für die Einholung von Zustimmungen und E-Mail-Adressen von Nutzer:innen und definiert die verschiedenen möglichen Statusangaben von Nutzer:innen, die sich für den Newsletter angemeldet haben."
 channel: email
 
 ---
 
-# Einwilligung und Adresserfassung
+# Zustimmung und Adressenerfassung
 
-> Bevor Sie Ihre ersten E-Mails versenden, ist es wichtig, zunächst die Erlaubnis Ihrer Kund:innen einzuholen. Das ist eine Frage der Höflichkeit und wirkt Wunder für Ihre Öffnungsraten!
+> Bevor Sie Ihre ersten E-Mails verschicken, sollten Sie zunächst die Erlaubnis Ihrer Kunden einholen. Das ist eine Frage der Höflichkeit und wirkt sich positiv auf Ihre Öffnungsraten aus!
 
-## Abo-Status
+## Statusangaben von Abonnent:innen
 
-Es gibt drei E-Mail-Abo-Status für Nutzer:innen: **Opted In**, **Subscribed** und **Unsubscribed**. Um den Abo-Status von Nutzer:innen zu ändern, lesen Sie unseren Artikel zum [Ändern von Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) oder nutzen Sie unsere [Subscription-APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Es gibt drei Zustände des E-Mail-Abonnements für einen Benutzer: **angemeldet**, **abonniert** und **abgemeldet**. Um den Abonnementstatus eines Benutzers zu ändern, lesen Sie unseren Artikel zum [Ändern von Abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) oder verwenden Sie unsere [Abonnement-APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 
-| Abo-Status | Beschreibung |
+| Statusangaben von Abonnent:innen | Beschreibung |
 |---|---|
-| Opted In | Diese Kund:innen haben auf den Link in einer Bestätigungs-E-Mail geklickt und sich aktiv für den Empfang Ihrer Nachrichten entschieden. |
-| Subscribed | Standardmäßig sind Nutzer:innen für E-Mails abonniert, solange eine gültige E-Mail-Adresse in ihrem Profil hinterlegt ist. Nutzer:innen bleiben abonniert, bis sie sich abmelden oder ein Opt-in durchführen. |
-| Unsubscribed | Um als abgemeldet markiert zu werden, hat sich ein:e Kund:in entweder ausdrücklich von Ihren E-Mails abgemeldet oder eine E-Mail als Spam markiert. |
+| Opt-in | Diese Kunden haben auf den Link in einer Bestätigungs-E-Mail geklickt und sich aktiv für den Erhalt Ihrer Nachrichten entschieden. |
+| Abonniert | Standardmäßig sind Nutzer:innen für E-Mails angemeldet, solange sie eine gültige E-Mail-Adresse in ihrem Profil gespeichert haben. Nutzer:innen bleiben angemeldet, bis sie sich abmelden oder sich anmelden. |
+| Abgemeldet | Um als abgemeldet markiert zu werden, hat sich ein:e Kund:in entweder ausdrücklich von Ihren E-Mails abgemeldet oder eine E-Mail als Spam markiert. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Methoden zur Adresserfassung
+## Methoden zur Adressenerfassung
 
 Neben der Einholung der Erlaubnis Ihrer Nutzer:innen vor dem Versand gibt es verschiedene Methoden zur Erfassung von E-Mail-Adressen, die sich auf Ihre Zustellbarkeit auswirken können.
 
@@ -39,9 +39,9 @@ Co-Registrierung bezeichnet eine Vereinbarung zwischen Unternehmen zur Erfassung
 
 Vorab aktiviertes Opt-in ist eine E-Mail-Registrierungsmethode, bei der das Kontrollkästchen für die E-Mail-Registrierung bereits aktiviert ist, damit Abonnent:innen Ihre E-Mails erhalten. Indem das Kontrollkästchen aktiviert bleibt, stimmen Abonnent:innen zu und geben ihre Einwilligung zum Empfang Ihrer E-Mails. Diese Methode neigt dazu, Menschen zu verärgern (und ist zudem für E-Mails, die nach oder innerhalb von Kanada gesendet werden, illegal). Sie erhalten möglicherweise eine ansehnliche E-Mail-Liste, können aber nicht sicher sein, dass diese Nutzer:innen Ihre Marketing-E-Mails tatsächlich erhalten möchten.
 
-### Single Opt-in
+### Single-Opt-in
 
-Ein Single Opt-in erfolgt, wenn sich Abonnent:innen über ein Registrierungsformular anmelden und sofort zu Ihrer E-Mail-Liste hinzugefügt werden. Bei dieser Methode führen Nutzer:innen einen einzigen Schritt zur Registrierung durch, z. B. die Eingabe ihrer E-Mail-Adresse in ein Erfassungsfeld oder das Aktivieren eines Kontrollkästchens im Rahmen einer Transaktion.
+Ein Single-Opt-in erfolgt, wenn sich Abonnent:innen über ein Registrierungsformular anmelden und sofort zu Ihrer E-Mail-Liste hinzugefügt werden. Bei dieser Methode führen Nutzer:innen einen einzigen Schritt zur Registrierung durch, z. B. die Eingabe ihrer E-Mail-Adresse in ein Erfassungsfeld oder das Aktivieren eines Kontrollkästchens im Rahmen einer Transaktion.
 
 ### Bestätigtes Opt-in
 

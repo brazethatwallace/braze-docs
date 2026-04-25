@@ -12,7 +12,7 @@ channel: email
 > 이 문서에서는 Apple 유니버설 링크와 Android 앱 링크를 설정하는 방법을 설명합니다.
 
 {% alert tip %}
-모든 메시징 채널에서의 링크 유형 비교와 AASA 파일이 필요한 시점에 대한 안내는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)를 참조하세요.
+모든 메시징 채널에서의 링크 유형 비교와 AASA 파일이 필요한 시점에 대한 안내는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)를 참조하세요.
 {% endalert %}
 
 Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 앱 간의 원활한 전환을 제공하기 위해 고안된 메커니즘입니다. 유니버설 링크는 iOS에 특화되어 있으며, Android 앱 링크는 Android 애플리케이션에서 동일한 목적을 수행합니다.
@@ -37,9 +37,9 @@ Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 �
 
 ## 사용 사례
 
-유니버설 링크와 앱 링크는 이메일 캠페인에서 가장 일반적으로 사용됩니다. 이메일은 데스크탑과 모바일 기기 모두에서 열고 클릭할 수 있기 때문입니다.
+유니버설 링크와 앱 링크는 이메일 Campaign에서 가장 일반적으로 사용됩니다. 이메일은 데스크탑과 모바일 기기 모두에서 열고 클릭할 수 있기 때문입니다.
 
-일부 채널은 이러한 링크와 잘 작동하지 않습니다. 예를 들어, 푸시 알림, 인앱 메시지, 콘텐츠 카드는 스킴 기반 딥링크(`mydomain://`)를 사용해야 합니다.
+일부 채널은 이러한 링크와 잘 작동하지 않습니다. 예를 들어, 푸시 알림, 인앱 메시지, Content Cards는 스킴 기반 딥링크(`mydomain://`)를 사용해야 합니다.
 
 {% alert note %}
 Android 앱 링크는 해당 도메인의 링크를 다른 웹 URL과 별도로 처리하는 로직이 포함된 커스텀 `IBrazeDeeplinkHandler`가 필요합니다. 딥링크를 사용하고 이메일 이외의 채널에서 링크 사용 방식을 통일하는 것이 더 쉬울 수 있습니다.

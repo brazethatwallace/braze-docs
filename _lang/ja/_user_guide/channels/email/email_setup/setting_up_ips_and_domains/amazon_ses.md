@@ -75,4 +75,4 @@ Amazon SES のセットアップを開始する前に、以下を確認してく
 
 ## 次のステップ
 
-- [SSL のセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)
+- [SSL のセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)

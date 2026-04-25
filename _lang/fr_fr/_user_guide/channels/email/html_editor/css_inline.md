@@ -1,22 +1,22 @@
 ---
-nav_title: Insertion CSS
-article_title: Insertion CSS
+nav_title: Inclusion CSS
+article_title: Inclusion CSS
 page_order: 5.1
-description: "Cet article de référence explique comment activer l'insertion CSS et présente quelques bonnes pratiques."
+description: "Cet article de référence explique comment activer l'inclusion CSS et présente quelques bonnes pratiques."
 channel:
   - email
 
 ---
 
-# Insertion CSS
+# Inclusion CSS
 
-> L'insertion CSS est une forme de prétraitement des e-mails qui déplace les styles d'une feuille de style CSS dans le corps d'un e-mail HTML. Le terme « insertion » (inlining) fait référence au fait que les styles sont appliqués « en ligne » aux éléments HTML individuels.
+> L'inclusion CSS est une forme de prétraitement des e-mails qui déplace les styles d'une feuille de style CSS dans le corps d'un e-mail HTML. Le terme « inlining » désigne le fait que les styles sont appliqués « inline » aux éléments HTML individuels.
 
-Pour certains clients de messagerie, l'insertion CSS peut améliorer le rendu des e-mails et vous aider à confirmer que vos e-mails s'affichent comme prévu. Si la majorité de votre CSS est déjà insérée en ligne ou si vous êtes sûr que votre HTML et votre CSS sont compatibles avec les exigences de la plupart des clients de messagerie, il n'est peut-être pas nécessaire d'activer cette fonctionnalité. Elle peut provoquer des conflits entre les styles intégrés dynamiquement et vos styles en ligne existants, et modifier le rendu attendu de la prévisualisation et de l'e-mail.
+Pour certains clients de messagerie, l'insertion CSS peut améliorer le rendu des e-mails et vous aider à confirmer que vos e-mails s'affichent comme prévu. Si la majorité de votre CSS est déjà insérée en ligne ou si vous êtes certain que votre HTML et votre CSS sont compatibles avec les exigences de la plupart des clients de messagerie, il n'est peut-être pas nécessaire d'activer cette fonctionnalité. Les styles incorporés dynamiquement peuvent entrer en conflit avec vos styles en ligne existants et modifier le rendu attendu de la prévisualisation et de l'e-mail.
 
-## Utiliser l'insertion CSS
+## Utilisation de l'inclusion CSS
 
-Vous pouvez activer ou désactiver l'insertion CSS pour n'importe quel e-mail à l'aide du bouton **Activer l'insertion CSS** dans l'onglet **Envoi en cours** de l'éditeur HTML.
+Vous pouvez activer ou désactiver l'insertion CSS pour n'importe quel e-mail à l'aide de la bascule **Activer l'insertion CSS** dans l'onglet **Informations d'envoi** de l'éditeur HTML.
 
 ![Case à cocher pour gérer l'insertion CSS dans le compositeur HTML.]({% image_buster /assets/img_archive/css-inline2.png %}){: style="max-width:40%;"}
 

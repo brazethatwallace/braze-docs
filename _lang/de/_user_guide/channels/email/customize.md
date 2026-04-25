@@ -4,10 +4,10 @@ article_title: Anpassen
 page_order: 4
 layout: dev_guide
 guide_top_header: "Anpassen"
-guide_top_text: "Passen Sie das Erscheinungsbild und Verhalten Ihrer E-Mails mit globalen Stileinstellungen, angepassten Fußzeilen, AMP-Unterstützung und universellen Links an."
+guide_top_text: "Passen Sie das Erscheinungsbild und Verhalten Ihrer E-Mails mit globalen Stileinstellungen, angepassten Fußzeilen, AMP-Unterstützung und Universal Links an."
 
 page_type: landing
-description: "Passen Sie globale E-Mail-Stileinstellungen, Fußzeilen, AMP und universelle Links in Braze an."
+description: "Passen Sie globale E-Mail-Stileinstellungen, Fußzeilen, AMP und Universal Links in Braze an."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
@@ -20,7 +20,7 @@ guide_featured_list:
   - name: AMP für E-Mail
     link: /docs/user_guide/channels/email/customize/amp_for_email
     image: /assets/img/braze_icons/zap.svg
-  - name: Universelle Links und App-Links
+  - name: Universal Links und App Links
     link: /docs/user_guide/channels/email/customize/universal_links_and_app_links
     image: /assets/img/braze_icons/link-03.svg
 ---

@@ -1,29 +1,31 @@
 ---
-nav_title: Pièges de livrabilité et spam traps
-article_title: Pièges de livrabilité et spam traps
+nav_title: Pièges de la livrabilité et pièges à spam
+article_title: Écueils de livrabilité et pièges à spam
 page_order: 7
 page_type: reference
-description: "Cet article de référence aborde les pièges potentiels liés à la livrabilité des e-mails, les spam traps et comment les éviter."
+description: "Le présent article de référence couvre les écueils de livrabilité des e-mails potentiels, les pièges à spam et la manière de les éviter."
 channel: email
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability){: style="float:right;width:120px;border:0;" class="noimgborder"}Pièges de livrabilité et spam traps
+# [![Braze cours d'apprentissage]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability){: style="float:right;width:120px;border:0;" class="noimgborder"}Pièges de la livrabilité et pièges à spam
 
-La livrabilité de vos e-mails peut être affectée par l'un des spam traps suivants :
+> Cet article couvre les écueils courants de livrabilité des e-mails, les pièges à spam et la manière de les éviter.
+
+Votre livrabilité par e-mail peut être affectée par l'un des pièges à spam suivants :
 
 | Type de piège | Description |
 |---|---|
-| Pristine Traps | Adresses e-mail et domaines qui n'ont jamais été utilisés. |
-| Recycled Traps | Adresses e-mail qui appartenaient à de vrais utilisateurs, mais qui sont désormais inactives. |
-| Typo Traps | Adresses e-mail contenant des fautes de frappe courantes. |
-| Plaintes pour spam | Lorsque votre e-mail est signalé comme spam par un client. |
-| Taux de rebond élevé | Lorsque votre e-mail échoue systématiquement à être livré parce que l'adresse du destinataire est invalide. |
+| Pièges vierges | Adresses e-mail et domaines qui n'ont jamais été utilisés. |
+| Pièges recyclés | Adresses e-mail qui étaient des utilisateurs réels, mais qui sont désormais dormants. |
+| Pièges Typo | Adresses e-mail contenant des fautes de frappe communes. |
+| Plaintes indésirables | Lorsque votre e-mail est marqué comme spam par un client. |
+| Taux de rebond élevé | Lorsque votre e-mail ne parvient pas systématiquement au destinataire parce que l'adresse du destinataire n'est pas valide. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Comment éviter les spam traps
+## Comment éviter les pièges à spam
 
-Ces pièges peuvent être évités en mettant en place un processus d'abonnement confirmé. En envoyant un premier e-mail d'abonnement et en demandant aux clients de vérifier qu'ils souhaitent recevoir vos messages, vous vous assurez que vos destinataires veulent avoir de vos nouvelles et que vous envoyez vos e-mails à des adresses réelles et valides. Voici d'autres moyens d'éviter les spam traps :
+Ces pièges peuvent être évités si vous configurez un processus d'abonnement confirmé. En envoyant un e-mail d'abonnement initial et en demandant aux clients de vérifier qu'ils souhaitent recevoir vos messages, vous vous assurez que vos destinataires souhaitent avoir de vos nouvelles et que vous envoyez à des adresses réelles et valides. Voici d'autres moyens d'éviter les pièges à spam :
 
 1. Envoyez un e-mail de double abonnement. Il s'agit d'un e-mail qui demande aux utilisateurs de confirmer leurs choix d'abonnement en cliquant sur un lien.
 2. En tant que bonne pratique, mettez en place une [politique de temporisation]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/).
@@ -36,8 +38,8 @@ Les équipes de satisfaction client et de livrabilité de Braze peuvent vous aid
 ## Supprimer une adresse e-mail de votre liste de rebonds ou de spam
 
 Vous pouvez supprimer les e-mails ayant rebondi et les e-mails figurant sur votre liste de spam Braze à l'aide des endpoints suivants :
-- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
-- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
+- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)
+- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/)
 
 ## Améliorer la livrabilité des e-mails
 

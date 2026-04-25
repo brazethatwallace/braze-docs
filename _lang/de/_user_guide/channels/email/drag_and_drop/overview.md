@@ -1,6 +1,6 @@
 ---
-nav_title: E-Mail erstellen
-article_title: E-Mail mit Drag-and-Drop erstellen
+nav_title: Eine E-Mail erstellen
+article_title: Erstellen Sie eine E-Mail per Drag-and-Drop
 alias: "/dnd/overview/"
 noindex: true
 layout: redirect

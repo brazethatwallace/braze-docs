@@ -2,7 +2,7 @@
 nav_title: Angepasste E-Mail-Fußzeile
 article_title: Angepasste E-Mail-Fußzeile
 page_order: 6.5
-description: "Dieser Artikel beschreibt, wie Sie eine Workspace-weite angepasste E-Mail-Fußzeile einrichten."
+description: "Dieser Artikel beschreibt, wie Sie eine arbeitsbereichsweite angepasste E-Mail-Fußzeile einrichten können."
 channel:
   - email
 
@@ -10,22 +10,22 @@ channel:
 
 # Angepasste E-Mail-Fußzeile
 
-> Sie können eine Workspace-weite angepasste E-Mail-Fußzeile einrichten, die Sie mit dem Liquid-Attribut {% raw %}`{{${email_footer}}}`{% endraw %} in jede E-Mail einbinden können.
+> Sie können eine arbeitsbereichsweite angepasste E-Mail-Fußzeile festlegen, die Sie mit dem Liquid-Attribut {% raw %}`{{${email_footer}}}`{% endraw %} als Template in jede E-Mail einfügen können.
 
-Durch die Verwendung angepasster E-Mail-Fußzeilen müssen Sie nicht mehr für jedes E-Mail-Template oder jede E-Mail-Kampagne eine neue Fußzeile erstellen. Alle neuen und bestehenden E-Mail-Kampagnen übernehmen die Änderungen, die Sie an Ihrer angepassten Fußzeile vornehmen. Beachten Sie, dass die Einhaltung des [CAN-SPAM Act von 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) erfordert, dass Sie eine physische Adresse Ihres Unternehmens und einen Abmeldelink in Ihren E-Mails angeben.
+Durch die Verwendung angepasster E-Mail-Fußzeilen müssen Sie nicht mehr für jedes E-Mail-Template oder jede E-Mail-Campaign eine neue Fußzeile erstellen. Alle neuen und bestehenden E-Mail-Campaigns übernehmen die Änderungen, die Sie an Ihrer angepassten Fußzeile vornehmen. Beachten Sie, dass die Einhaltung des [CAN-SPAM Act von 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) erfordert, dass Sie eine physische Adresse Ihres Unternehmens und einen Abmeldelink in Ihren E-Mails angeben.
 
 {% alert warning %}
-Es liegt in Ihrer Verantwortung sicherzustellen, dass Ihre angepasste Fußzeile die oben genannten Anforderungen erfüllt.
+Es liegt in Ihrer Verantwortung, sicherzustellen, dass Ihre angepasste Fußzeile die oben genannten Anforderungen erfüllt.
 {% endalert %}
 
-## Ihre angepasste Fußzeile erstellen
+## Erstellen Ihrer angepassten Fußzeile
 
 Um Ihre angepasste Fußzeile zu erstellen oder zu bearbeiten, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Abo-Seiten und -Fußzeilen**.
 2. Gehen Sie zum Abschnitt **Angepasste Fußzeile** und aktivieren Sie angepasste Fußzeilen.
 3. Wählen Sie **Bearbeiten** und bearbeiten Sie dann Ihre Fußzeile im Abschnitt **Verfassen**.
-4. Wählen Sie **Vorschau**, um eine Vorschau Ihrer E-Mail-Fußzeile im Posteingang einer Kund:in anzuzeigen. Optional können Sie **Vorschaulink kopieren** auswählen, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
+4. Wählen Sie **Vorschau**, um eine Vorschau Ihrer E-Mail-Fußzeile im Posteingang anzuzeigen. Optional können Sie **Vorschaulink kopieren** auswählen, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
 5. Senden Sie eine Testnachricht.
 
 ![Ein Beispiel für eine angepasste Fußzeile.]({% image_buster /assets/img_archive/custom_footer.png %})
@@ -46,9 +46,9 @@ Hier ist eine Warnung im E-Mail-Composer:
 
 ![Beispiel einer E-Mail, die ohne Fußzeile verfasst wurde.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Hier ist eine Warnung im Kampagnen-Composer:
+Hier ist eine Warnung im Campaign-Composer:
 
-![Kampagnenerstellung ohne Fußzeile.]({% image_buster /assets/img_archive/no_footer_test.png %})
+![Campaign-Erstellung ohne Fußzeile.]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### Einen angepassten Abmeldelink hinzufügen
 
@@ -59,7 +59,7 @@ Um einen angepassten Abmeldelink hinzuzufügen, können Sie den Abmeldelink in d
 
 Rufen Sie anschließend den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) auf, um den Abo-Status der Nutzer:in zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von E-Mail-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
 
-Speichern Sie dann diesen neuen Link. Der Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} muss in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken" – entweder durch Platzierung des Tags in einem Kommentar oder in einem versteckten `<div>`-Tag.
+Speichern Sie dann diesen neuen Link. Der Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} muss in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem versteckten `<div>`-Tag.
 
 ## Best Practices
 
@@ -90,4 +90,4 @@ Sie können auch eine angepasste Fußzeile für Nur-Text-E-Mails im Tab **Abo-Se
 
 Wenn Sie keine Nur-Text-Fußzeile angeben, erstellt Braze automatisch eine aus der HTML-Fußzeile. Wenn Ihre angepassten Fußzeilen Ihren Vorstellungen entsprechen, wählen Sie **Speichern**.
 
-![E-Mail mit ausgewählter Option „Angepasste Nur-Text-Fußzeile festlegen".]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
+![E-Mail mit ausgewählter Option „Angepasste Nur-Text-Fußzeile festlegen“.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }

@@ -16,7 +16,7 @@ tool:
 
 ### Puis-je prévisualiser l'apparence de mon e-mail en mode sombre ?
 
-Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **Dark mode**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
+Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **mode sombre**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
 
 ### Comment concevoir des e-mails pour le mode sombre et le mode clair ?
 
@@ -24,13 +24,13 @@ Les e-mails n'ont pas besoin d'être envoyés dans des mises en page distinctes 
 
 ### Comment modifier le padding de l'e-mail sur mobile sans mettre à jour le padding dans la vue web ?
 
-Vous ne pouvez pas modifier le padding séparément pour les vues mobile et web, toute modification est donc reflétée dans les deux vues. Cependant, vous pouvez ajouter une logique CSS dans l'éditeur HTML qui définit le padding en fonction des différentes tailles d'écran. Cette fonctionnalité n'est pas prise en charge dans l'éditeur par glisser-déposer, vous pouvez donc exporter le fichier HTML et utiliser l'éditeur HTML à la place.
+Il n'est pas possible de modifier le padding séparément pour les vues mobile et web : toute modification est donc reflétée dans les deux vues. Vous pouvez toutefois ajouter une logique CSS dans l'éditeur HTML qui définit le padding en fonction des différentes tailles d'écran. Cette fonctionnalité n'étant pas prise en charge dans l'éditeur par glisser-déposer, vous pouvez exporter le fichier HTML et utiliser l'éditeur HTML à la place.
 
 ### Comment optimiser une ligne de boutons pour qu'elle reste horizontale sur ordinateur de bureau et mobile ?
 
-Lorsque vous créez un e-mail avec l'éditeur par glisser-déposer, si vous créez une ligne horizontale de boutons d'appel à l'action, vous constaterez peut-être que les boutons passent en orientation verticale sur mobile.
+Lorsque vous créez un e-mail avec l'éditeur par glisser-déposer et que vous disposez une ligne horizontale de boutons d'appel à l'action, vous constaterez peut-être que les boutons passent en orientation verticale sur mobile.
 
-Pour conserver le même format sur les différentes tailles d'appareil, nous vous recommandons de créer une ligne distincte avec des boutons d'appel à l'action dont le padding est optimisé pour le mobile et de configurer cette ligne pour qu'elle soit masquée sur un ordinateur de bureau. Avoir deux lignes distinctes vous permet de définir le padding souhaité pour un rendu optimal du texte sur ordinateur de bureau et sur appareil mobile.
+Pour conserver le même format sur les différentes tailles d'appareil, nous vous recommandons de créer une ligne distincte avec des boutons d'appel à l'action dont le padding est optimisé pour le mobile, et de configurer cette ligne pour qu'elle soit masquée sur un ordinateur de bureau. Avoir deux lignes distinctes vous permet de définir le padding souhaité pour un rendu optimal du texte sur ordinateur de bureau et sur appareil mobile.
 
 
 ### Puis-je ajuster la hauteur des lignes dans l'éditeur par glisser-déposer ?

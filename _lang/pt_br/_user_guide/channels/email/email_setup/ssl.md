@@ -3,26 +3,26 @@ nav_title: SSL na Braze
 article_title: Visão geral do SSL
 page_order: 5
 page_type: reference
-description: "Este artigo de referência aborda o SSL, para que ele é usado e como é utilizado na Braze."
+description: "Este artigo de referência aborda o SSL, para que ele é usado e como é usado na Braze."
 channel: email
 
 ---
 
 # SSL na Braze
 
-{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
+> Uma camada de soquete seguro (SSL) criptografa uma URL com HTTPS em vez de HTTP. HTTPS indica que um certificado SSL ou TLS válido e confiável existe e que o site é seguro para visitar.
 
-> Uma camada de soquete seguro (SSL) criptografa uma URL com HTTPS em vez de HTTP. O HTTPS indica que existe um certificado SSL ou TLS válido e confiável e que o site é seguro para visitar.
+{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
 ## Por que o SSL é importante?
 
-A maioria dos domínios não exige SSL, mas a Braze recomenda fortemente o uso de SSL pelos seguintes motivos.
+A maioria dos domínios não requer SSL, mas a Braze recomenda fortemente o uso de SSL por essas razões.
 
-Proteger seu site e links com SSL é uma prática comum, mesmo para empresas que não lidam diretamente com informações sensíveis de clientes. Os usuários confiam mais em links protegidos com SSL, e a camada adicional de autenticação ajuda a proteger seus dados.
+Proteger seu site e seus links com SSL é uma prática comum, mesmo para empresas que não lidam diretamente com informações confidenciais de clientes. Os usuários confiam mais em links protegidos com SSL, e a camada adicional de autenticação ajuda a proteger seus dados.
 
 ### Necessário para rastreamento de cliques e aberturas
 
-A Braze transforma seus links usando seu subdomínio de rastreamento de links com marca para rastrear cliques e aberturas. Por padrão, esses links começam com HTTP. Usuários com navegadores ou extensões que restringem tráfego não seguro podem ter dificuldade em passar pelo redirecionamento antes da URL de destino, mesmo que a URL seja segura. Isso pode causar imagens quebradas e rastreamento impreciso. Aplique SSL ao subdomínio de rastreamento de links para garantir redirecionamentos seguros.
+A Braze transforma seus links usando seu subdomínio de rastreamento de links da marca para rastrear cliques e aberturas. Por padrão, esses links começam com HTTP. Usuários com navegadores ou extensões que restringem tráfego não seguro podem ter dificuldade em passar pelo redirecionamento antes da URL de destino, mesmo que a URL seja segura. Isso pode causar imagens quebradas e rastreamento impreciso. Aplique SSL ao subdomínio de rastreamento de links para confirmar redirecionamentos seguros.
 
 ### Requisito dos navegadores
 
@@ -100,7 +100,7 @@ Embora você deva lidar com a configuração do CDN, certificados e problemas de
 
 ### Baixas taxas de abertura de e-mail
 
-Se você está experimentando repentinamente baixas taxas de abertura de e-mail, confirme que o certificado SSL está atualizado. Se estiver expirado, você deve renovar o certificado SSL com seu CDN ou provedor de certificados.
+Se você está com taxas de abertura de e-mail repentinamente baixas, confirme que o certificado SSL está atualizado. Se estiver expirado, renove o certificado SSL com seu CDN ou provedor de certificados.
 
 ### Problemas no registro de domínio
 

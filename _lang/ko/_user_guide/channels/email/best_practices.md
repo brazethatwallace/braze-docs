@@ -7,7 +7,7 @@ guide_top_header: "이메일 모범 사례"
 guide_top_text: "이메일 메시지를 발송하기 전에, 알아두어야 할 사항과 확인해야 할 내용을 다음 문서에서 참고하세요."
 
 page_type: landing
-description: "이 랜딩 페이지는 이메일 모범 사례를 모아둔 곳입니다. 이메일 메시징을 개선하기 위한 팁, 활용 사례, 모범 사례를 확인할 수 있습니다."
+description: "이 랜딩 페이지에서는 이메일 모범 사례를 확인할 수 있습니다. 이메일 메시징을 개선하기 위한 팁, 활용 사례, 모범 사례를 확인할 수 있습니다."
 channel: email
 
 guide_featured_title: "섹션 문서"
@@ -24,10 +24,10 @@ guide_featured_list:
   - name: "선셋 정책"
     link: /docs/user_guide/channels/email/best_practices/sunset_policies
     image: /assets/img/braze_icons/sun-setting-03.svg
-  - name: "테스트 메시지 발송"
+  - name: "테스트 메시지 보내기"
     link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email
     image: /assets/img/braze_icons/mail-01.svg
-  - name: "발송 전 확인 사항"
+  - name: "보내기 전에 알아두어야 할 사항"
     link: /docs/know_before_send/
     image: /assets/img/braze_icons/send-01.svg
   - name: "이메일 전달 가능성"

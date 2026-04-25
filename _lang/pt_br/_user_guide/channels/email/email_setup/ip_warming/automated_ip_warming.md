@@ -3,7 +3,7 @@ nav_title: Aquecimento de IP automatizado
 article_title: Aquecimento de IP automatizado
 page_order: 1
 page_type: reference
-description: "Este artigo de referência aborda o aquecimento de IP automatizado e como monitorar seu aquecimento de IP."
+description: "Este artigo de referência cobre o aquecimento de IP automatizado e como monitorar seu aquecimento de IP."
 channel: email
 ---
 
@@ -15,9 +15,9 @@ channel: email
 
 ## Como funciona
 
-Você pode usar o aquecimento de IP automatizado para aumentar gradualmente seu volume de envio diário, permitindo que os provedores de caixa de entrada aprendam e confiem nos seus padrões de envio. Ao adicionar um domínio ao seu espaço de trabalho, você pode selecionar o bloco **Automated IP Warming** na seção **Pick up where you left off** do seu dashboard inicial. Esse bloco permanece disponível por 60 dias.
+Você pode usar o aquecimento de IP automatizado para aumentar gradualmente seu volume diário de envios, permitindo que os provedores de caixa de entrada aprendam e confiem em seus padrões de envio. Quando você adiciona um domínio ao seu espaço de trabalho, pode selecionar o tile **Automated IP Warming** na seção **Continue de onde parou** do seu dashboard inicial, e esse tile permanece lá por 60 dias.
 
-A Braze envia primeiro para seus inscritos com maior engajamento, o que permite que o volume diário cresça em um ritmo que segue as melhores práticas. Em seguida, a Braze monitora sinais de engajamento e entregabilidade. Se a Braze detectar algum problema, o sistema ajusta sua programação automaticamente.
+A Braze envia primeiro para seus assinantes mais engajados, o que permite que o volume diário cresça em um ritmo alinhado às melhores práticas. Em seguida, a Braze rastreia sinais de engajamento e entregabilidade. Se a Braze detectar algum problema, o sistema ajusta automaticamente sua programação.
 
 {% alert note %}
 Você pode realizar apenas um aquecimento de IP.
@@ -25,7 +25,7 @@ Você pode realizar apenas um aquecimento de IP.
 
 ## Pré-requisitos
 
-Para realizar o aquecimento de IP automatizado, você precisa ter o seguinte:
+Para realizar o aquecimento de IP automatizado, você deve ter o seguinte:
 
 - Subdomínio verificado e endereços IP ativos
 - Permissões para visualizar e iniciar um aquecimento de IP
@@ -33,7 +33,7 @@ Para realizar o aquecimento de IP automatizado, você precisa ter o seguinte:
     - "View Email Templates" para visualizar e selecionar os modelos de e-mail para o aquecimento de IP
     - "Manage Email Settings" para iniciar o aquecimento de IP
 - "Access Campaigns"
-- "Approve and Deny Campaigns" se o fluxo de aprovação para campanhas estiver ativado
+- "Approve and Deny Campaigns" se o fluxo de aprovação para Campaigns estiver ativado
     - A Braze aprova automaticamente as campanhas criadas a partir do aquecimento de IP automatizado em seu nome.
 
 ## Configurar um plano de aquecimento de IP automatizado
@@ -48,13 +48,13 @@ Para realizar o aquecimento de IP automatizado, você precisa ter o seguinte:
 
 ![Exemplo de detalhes da programação.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
 
-### Etapa 2: Selecionar e classificar segmentos
+### Etapa 2: Selecionar e classificar Segments
 
-1. Em seguida, selecione os segmentos a serem direcionados. Durante o aquecimento de IP, a Braze começa enviando para seus usuários com maior engajamento e aumenta gradualmente o volume de envio ao longo do tempo, adicionando lentamente segmentos com menor engajamento.
-2. Depois, arraste e solte os segmentos para classificá-los de alto a baixo engajamento. Alto engajamento inclui destinatários que abrem e clicam consistentemente nos seus e-mails. Baixo engajamento inclui destinatários que são inconsistentes no engajamento com seus e-mails ou que não interagem com seus e-mails há muito tempo.
+1. Em seguida, selecione os Segments a serem direcionados. Durante o aquecimento de IP, a Braze começa enviando para seus usuários com maior engajamento e aumenta gradualmente o volume de envio ao longo do tempo, adicionando lentamente Segments com menor engajamento.
+2. Depois, arraste e solte os Segments para classificá-los de alto a baixo engajamento. Alto engajamento inclui destinatários que abrem e clicam consistentemente nos seus e-mails. Baixo engajamento inclui destinatários que são inconsistentes no engajamento com seus e-mails ou que não interagem com seus e-mails há muito tempo.
 3. Selecione **Next: Messages** para continuar a configuração.
 
-![Dois segmentos selecionados como alvo para o aquecimento de IP automatizado.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
+![Dois Segments selecionados como alvo para o aquecimento de IP automatizado.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
 
 ### Etapa 3: Selecionar as mensagens a enviar
 
@@ -64,7 +64,7 @@ Para realizar o aquecimento de IP automatizado, você precisa ter o seguinte:
 4. Após adicionar o número necessário de modelos, selecione **Next: Summary**.
 
 {% alert important %}
-Alterações feitas nas campanhas criadas a partir da ferramenta de aquecimento de IP (como alterar a data programada, segmento ou volume) não são refletidas na página **Summary** do aquecimento de IP.
+Alterações feitas nas campanhas criadas a partir da ferramenta de aquecimento de IP (como alterar a data programada, Segment ou volume) não são refletidas na página **Summary** do aquecimento de IP.
 {% endalert %}
 
 ### Etapa 4: Selecionar eventos de conversão
@@ -109,7 +109,7 @@ No entanto, quando parado, o aquecimento de IP não pode ser retomado. Em vez di
 
 - Baixe os dados existentes do seu plano parado para manter em seus registros, pois ao iniciar um novo aquecimento de IP, o rastreador anterior será removido
 - Atualize o **Current daily send volume** para o volume mais recente
-- Adicione um filtro a um segmento se você planeja usar o mesmo segmento do último aquecimento de IP, excluindo usuários que já receberam campanhas anteriores
+- Adicione um filtro a um Segment se você planeja usar o mesmo Segment do último aquecimento de IP, excluindo usuários que já receberam campanhas anteriores
 
 ## Quando um aquecimento de IP é concluído
 
