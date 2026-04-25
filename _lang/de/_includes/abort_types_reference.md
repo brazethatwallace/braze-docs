@@ -127,7 +127,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Content Cards
+### Content Cards {#content-cards}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
