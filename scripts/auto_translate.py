@@ -431,6 +431,13 @@ HTML tags, and markdown formatting are intact and unmodified.
 5. **Style guide**: Follow all rules in the language-specific style guide appended \
 below (gender conventions, register, terminology preferences, etc.).
 6. **Consistency**: Ensure consistent terminology and tone throughout the file.
+7. **Navigation label parity**: For user-guide landing/overview docs (home, channels, \
+get_started, messaging, analytics, onboarding_faq), keep locale-established card \
+labels, headings, and common nouns aligned with the locale's linked pages; avoid \
+introducing English variants where that locale already uses translated labels.
+8. **UI label policy**: In step-by-step procedures, use one consistent policy for \
+bold dashboard controls in the same list (either exact English controls or the \
+locale's established dashboard labels) and avoid mixed half-translated control sets.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
