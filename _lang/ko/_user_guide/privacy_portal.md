@@ -48,7 +48,7 @@ guide_featured_list:
 - name: 기본값 및 최소 SDK 데이터 수집
   link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
   image: /assets/img/braze_icons/settings-01.svg
-- name: 캔버스 오디언스 동기화 데이터 프라이버시 고려 사항
+- name: Canvas 오디언스 동기화 데이터 프라이버시 고려 사항
   link: /docs/partners/canvas_audience_sync/overview/#data-privacy-considerations
   image: /assets/img/braze_icons/fingerprint-03.svg
 - name: Braze 데이터 보존

@@ -431,18 +431,22 @@ HTML tags, and markdown formatting are intact and unmodified.
 5. **Style guide**: Follow all rules in the language-specific style guide appended \
 below (gender conventions, register, terminology preferences, etc.).
 6. **Consistency**: Ensure consistent terminology and tone throughout the file.
-7. **Procedure UI labels**: In each numbered or bulleted procedure, bold \
+7. **Navigation label parity**: For user-guide landing/overview docs (home, channels, \
+get_started, messaging, analytics, onboarding_faq), keep locale-established card \
+labels, headings, and common nouns aligned with the locale's linked pages; avoid \
+introducing English variants where that locale already uses translated labels.
+8. **Procedure UI labels**: In each numbered or bulleted procedure, bold \
 dashboard controls must not mix English with localized forms—either mirror \
 the English source bold strings verbatim for that whole list or localize \
 every control in that list per the style guide; fix any half-and-half lists.
-8. **Heading anchor parity**: If some section headings use explicit Kramdown \
+9. **Heading anchor parity**: If some section headings use explicit Kramdown \
 `{#id}` blocks, ensure peer headings that need stable deep links include the \
 expected `{#slug}` (especially multi-table `_includes`).
-9. **A/B terminology precision**: In A/B testing docs, keep *variant* \
+10. **A/B terminology precision**: In A/B testing docs, keep *variant* \
 terminology precise (never translate it to words meaning “variable”) and keep \
 the locale's chosen “winning variant” term consistent across headings, prose, \
 tables, and image alts.
-10. **Heading punctuation parity**: Do not introduce trailing punctuation on \
+11. **Heading punctuation parity**: Do not introduce trailing punctuation on \
 localized headings when the English heading line has none.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
