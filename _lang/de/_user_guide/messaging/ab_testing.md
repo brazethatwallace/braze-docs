@@ -1,10 +1,10 @@
 ---
-nav_title: "A/B-Tests"
+nav_title: A/B-Tests
 article_title: "A/B-Tests"
 page_order: 6
 layout: dev_guide
 guide_top_header: "A/B-Tests"
-guide_top_text: "Führen Sie Experimente durch, um Ihr Messaging zu optimieren. Ein A/B-Test vergleicht die Reaktionen von Nutzer:innen auf mehrere Versionen derselben Kampagne, während ein multivariater Test dies auf zwei oder mehr Variablen erweitert. In Braze werden die Begriffe synonym verwendet, da der Einrichtungsprozess identisch ist. Nutzen Sie A/B-Tests mit <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligenter Auswahl</a>, um Ihre Ergebnisse automatisch zu optimieren."
+guide_top_text: "Führen Sie Experimente durch, um Ihr Messaging zu optimieren. Ein A/B-Test vergleicht die Reaktionen von Nutzer:innen auf mehrere Versionen derselben Campaign, während ein multivariater Test dies auf zwei oder mehr Variablen erweitert. In Braze werden die Begriffe synonym verwendet, da der Einrichtungsprozess identisch ist. Nutzen Sie A/B-Tests mit <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligente Auswahl</a>, um Ihre Ergebnisse automatisch zu optimieren."
 
 page_type: landing
 description: "Richten Sie A/B-Tests und multivariate Experimente in Braze ein und analysieren Sie diese."
@@ -31,7 +31,7 @@ guide_featured_list:
 ## Wann Sie A/B-Tests einsetzen sollten {#when-to-use-ab-tests}
 
 - **Einen neuen Nachrichtentyp ausprobieren:** Experimentieren Sie und finden Sie heraus, was bei Ihren Nutzer:innen ankommt.
-- **Onboarding-Kampagnen oder wiederkehrende Sendungen:** Stellen Sie sicher, dass Kampagnen mit hohem Traffic so effektiv wie möglich sind.
+- **Onboarding-Campaigns oder wiederkehrende Sendungen:** Stellen Sie sicher, dass Campaigns mit hohem Traffic so effektiv wie möglich sind.
 - **Mehrere Ideen für Nachrichten:** Führen Sie einen Test durch und treffen Sie eine datengestützte Entscheidung.
 - **Annahmen hinterfragen:** Testen Sie, ob konventionelle Marketing-Taktiken tatsächlich für Ihre spezifische Zielgruppe funktionieren.
 
@@ -41,5 +41,5 @@ guide_featured_list:
 - **Randomisieren Sie die Testgruppen**, damit unterschiedliche Antwortquoten auf Unterschiede in den Nachrichten zurückzuführen sind – nicht auf Unterschiede in den Stichproben.
 - **Wissen Sie, was Sie testen.** Die Isolierung einer einzelnen Änderung zeigt, welches Element den größten Einfluss hatte; das Testen mehrerer Unterschiede ermöglicht den Vergleich umfassenderer Ansätze.
 - **Legen Sie die Testdauer im Voraus fest** und beenden Sie den Test nicht vorzeitig, auch wenn frühe Ergebnisse vielversprechend aussehen.
-- **Fügen Sie Tests vor dem Start hinzu.** Das Hinzufügen eines Tests zu einer laufenden Kampagne führt zu ungenauen Ergebnissen. Klonen Sie die Kampagne, stoppen Sie das Original und fügen Sie den Test dem Klon hinzu.
+- **Fügen Sie Tests vor dem Start hinzu.** Das Hinzufügen eines Tests zu einer laufenden Campaign führt zu ungenauen Ergebnissen. Klonen Sie die Campaign, stoppen Sie das Original und fügen Sie den Test dem Klon hinzu.
 - **Schließen Sie eine [Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#including-a-control-group) ein**, um die Wirkung im Vergleich zum Nicht-Senden einer Nachricht zu messen.
