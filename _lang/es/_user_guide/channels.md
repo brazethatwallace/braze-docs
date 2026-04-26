@@ -52,20 +52,20 @@ guide_menu_list:
     image: /assets/img/braze_icons/whatsapp.svg
 ---
 
-## Elegir un canal de mensajería
+## Elegir un canal de mensajería {#choosing-a-message-channel}
 
-Al determinar qué canal de mensajería es el más adecuado para tus campañas y Canvas, piensa siempre en el contenido y la urgencia de tu mensaje:
+Al determinar qué canal de mensajería es el más adecuado para tus Campaigns y Canvas, piensa siempre en el contenido y la urgencia de tu mensaje:
 
 - **Contenido** se refiere a lo visualmente atractivo que es tu mensaje. Puedes añadir multimedia y otros activos a tu texto para enriquecer tu contenido.
 - **Urgencia** es una medida de la rapidez con la que un mensaje puede notificar a tu usuario y captar su atención. Las notificaciones que el usuario puede ver de inmediato tienen una urgencia alta, mientras que los mensajes que requieren que el usuario inicie sesión en tu aplicación tienen una urgencia baja.
 
 La matriz de mensajería de Braze simplifica la selección de canales al mapear la **complejidad del contenido** frente a la **urgencia de entrega**. Al equilibrar estos dos factores, puedes ayudar a que tu mensaje conecte en lugar de interrumpir.
 
-![Las notificaciones push en móvil/web son contenido simple, urgencia alta; los correos electrónicos son contenido enriquecido, urgencia alta; los mensajes dentro de la aplicación/navegador son contenido simple, urgencia baja; las Tarjetas de contenido son urgencia baja, contenido enriquecido]({% image_buster /assets/img_archive/messaging_matrix.png %})
+![Las notificaciones push en móvil/web son contenido simple, urgencia alta; los correos electrónicos son contenido enriquecido, urgencia alta; los mensajes dentro de la aplicación/navegador son contenido simple, urgencia baja; las Content Cards son urgencia baja, contenido enriquecido]({% image_buster /assets/img_archive/messaging_matrix.png %})
 
 Aunque la matriz destaca los canales principales, es adaptable: SMS y WhatsApp, por ejemplo, son herramientas de alta urgencia que escalan hacia contenido enriquecido cuando se utilizan formatos multimedia. Para saber más sobre cómo puedes aprovechar esta matriz, consulta nuestro curso de Braze Learning sobre [mensajería de canales cruzados](https://learning.braze.com/cross-channel-messaging).
 
-## Recursos de accesibilidad
+## Recursos de accesibilidad {#accessibility-resources}
 
 Puedes usar Braze para crear campañas de mensajería accesibles en cada canal. Trabaja con tus ingenieros para asegurarte de cumplir con los estándares de accesibilidad en tu implementación. Si deseas orientación adicional, te recomendamos:
 

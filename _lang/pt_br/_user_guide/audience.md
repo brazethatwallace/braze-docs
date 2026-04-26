@@ -4,10 +4,10 @@ article_title: Público
 page_order: 4
 layout: dev_guide
 guide_top_header: "Público"
-guide_top_text: "Crie e gerencie os públicos que impulsionam seu envio de mensagens. Crie segmentos com base no comportamento e nos atributos dos usuários, gerencie perfis de usuário e inscrições, e organize os dados do seu público para um direcionamento preciso em Campanhas e Canvas. Para informações sobre coleta e gerenciamento de dados de usuários, consulte <a href='/docs/user_guide/data/unification/user_data'>Dados de usuários</a>."
+guide_top_text: "Crie e gerencie os públicos que impulsionam seu envio de mensagens. Crie Segments com base no comportamento e nos atributos dos usuários, gerencie perfis de usuário e inscrições, e organize os dados do seu público para um direcionamento preciso em Campaigns e Canvas. Para informações sobre coleta e gerenciamento de dados de usuários, consulte <a href='/docs/user_guide/data/unification/user_data'>Dados de usuários</a>."
 
 page_type: landing
-description: "Esta seção aborda o gerenciamento de público na Braze — segmentos, perfis de usuário, preferências de inscrição e direcionamento por local."
+description: "Esta seção aborda o gerenciamento de público na Braze — Segments, perfis de usuário, preferências de inscrição e direcionamento por local."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
@@ -17,7 +17,7 @@ guide_featured_list:
   - name: Gerenciar público
     link: /docs/user_guide/audience/manage_audience
     image: /assets/img/braze_icons/users-edit.svg
-  - name: Segmentos
+  - name: Segments
     link: /docs/user_guide/audience/segments
     image: /assets/img/braze_icons/pie-chart-01.svg
   - name: Locais e geofences

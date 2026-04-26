@@ -4,7 +4,7 @@ article_title: Audiencia
 page_order: 4
 layout: dev_guide
 guide_top_header: "Audiencia"
-guide_top_text: "Crea y gestiona las audiencias que impulsan tu mensajería. Crea segmentos basados en el comportamiento y los atributos de los usuarios, gestiona perfiles de usuario y suscripciones, y organiza los datos de tu audiencia para una segmentación precisa en campañas y Canvas. Para obtener información sobre la recopilación y gestión de datos de usuario, consulta <a href='/docs/user_guide/data/unification/user_data'>Datos de usuario</a>."
+guide_top_text: "Crea y gestiona las audiencias que impulsan tu mensajería. Crea segmentos basados en el comportamiento y los atributos de los usuarios, gestiona perfiles de usuario y suscripciones, y organiza los datos de tu audiencia para una segmentación precisa en Campaigns y Canvas. Para obtener información sobre la recopilación y gestión de datos de usuario, consulta <a href='/docs/user_guide/data/unification/user_data'>Datos de usuario</a>."
 
 page_type: landing
 description: "Esta sección cubre la gestión de audiencias en Braze: segmentos, perfiles de usuario, preferencias de suscripción y segmentación por ubicación."
@@ -17,7 +17,7 @@ guide_featured_list:
   - name: Gestionar audiencia
     link: /docs/user_guide/audience/manage_audience
     image: /assets/img/braze_icons/users-edit.svg
-  - name: Segmentos
+  - name: Segments
     link: /docs/user_guide/audience/segments
     image: /assets/img/braze_icons/pie-chart-01.svg
   - name: Ubicaciones y geovallas

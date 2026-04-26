@@ -4,7 +4,7 @@ article_title: Audience
 page_order: 4
 layout: dev_guide
 guide_top_header: "Audience"
-guide_top_text: "Créez et gérez les audiences qui alimentent vos envois de messages. Créez des segments basés sur le comportement et les attributs des utilisateurs, gérez les profils utilisateur et les abonnements, et organisez les données de votre audience pour un ciblage précis dans vos campagnes et Canvas. Pour en savoir plus sur la collecte et la gestion des données utilisateur, consultez <a href='/docs/user_guide/data/unification/user_data'>Données utilisateur</a>."
+guide_top_text: "Créez et gérez les audiences qui alimentent vos envois de messages. Créez des segments basés sur le comportement et les attributs des utilisateurs, gérez les profils utilisateur et les abonnements, et organisez les données de votre audience pour un ciblage précis dans vos Campaigns et Canvas. Pour en savoir plus sur la collecte et la gestion des données utilisateur, consultez <a href='/docs/user_guide/data/unification/user_data'>Données utilisateur</a>."
 
 page_type: landing
 description: "Cette section couvre la gestion de l'audience dans Braze : segments, profils utilisateur, préférences d'abonnement et ciblage par localisation."

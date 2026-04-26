@@ -6,17 +6,17 @@ page_type: reference
 description: "Este artículo explica cómo ver e interpretar los resultados de una campaña multivariante o A/B."
 ---
 
-# Análisis de pruebas multivariantes y A/B
+# Análisis de pruebas multivariantes y A/B {#multivariate-and-ab-test-analytics}
 
 > Este artículo explica cómo ver los resultados de una prueba multivariante o A/B. Si aún no has configurado tu prueba, consulta [Crear pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) para ver los pasos.
 
-Después de que tu campaña se haya lanzado, puedes comprobar el rendimiento de cada variante seleccionando tu campaña en la sección **Campañas** del dashboard.
+Después de que tu campaña se haya lanzado, puedes comprobar el rendimiento de cada variante seleccionando tu campaña en la sección **Campaigns** del dashboard.
 
-## Análisis por opción de optimización
+## Análisis por opción de optimización {#analytics-by-optimization-option}
 
 Tu vista de análisis variará dependiendo de si seleccionaste una [optimización]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) durante la configuración inicial.
 
-### Sin optimización
+### Sin optimización {#no-optimization}
 
 Si seleccionaste **Sin optimización** al configurar tu campaña, tu vista de análisis permanecerá igual. La página **Análisis de campaña** de tu campaña mostrará el rendimiento de tus variantes en comparación con tu grupo de control, si incluiste uno.
 
@@ -24,7 +24,7 @@ Si seleccionaste **Sin optimización** al configurar tu campaña, tu vista de an
 
 Para más detalles, consulta el artículo [Análisis de campaña]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) para tu canal de mensajería.
 
-### Variante ganadora
+### Variante ganadora {#winning-variant}
 
 Si seleccionaste **Variante ganadora** como optimización al configurar tu campaña, tienes acceso a una pestaña adicional en el análisis de tu campaña llamada **Resultado de la prueba A/B**. Después de que la variante ganadora se envíe a los usuarios restantes de tu prueba, esta pestaña muestra los resultados de ese envío.
 
@@ -41,7 +41,7 @@ Si ninguna variante supera a todas las demás con un 95 % de confianza y elegist
 
 ![Resultados de una prueba inicial enviada para determinar la variante ganadora donde ninguna variante tuvo un rendimiento mejor que las demás con suficiente confianza para alcanzar el umbral del 95 por ciento de confianza para significancia estadística.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
-#### Cómo se selecciona la variante ganadora
+#### Cómo se selecciona la variante ganadora {#how-the-winning-variant-is-selected}
 
 Braze compara todas las variantes entre sí con [pruebas chi-cuadrado de Pearson](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Esto mide si una variante supera estadísticamente a todas las demás con un nivel de significancia de p < 0,05, o lo que denominamos significancia del 95 %. Si es así, la variante ganadora se indica con la etiqueta "Ganadora".
 
@@ -138,7 +138,7 @@ En general, se necesita una confianza de al menos el 95 % para demostrar que tus
 
 La confianza no describe si una variante es mejor que las demás. Es puramente una medida de cuán seguros estamos de que las dos (o más) tasas de conversión son realmente diferentes entre sí. Esto es solo una función del tamaño de la muestra y las diferencias entre las tasas de conversión aparentes. Que las tasas generales sean altas o bajas no afecta la fuerza de la medida de confianza. Es posible que una variante tenga una tasa de conversión muy diferente a otra y aun así no tenga un 95 % o más de confianza. También es posible que dos conjuntos de variantes tengan tasas de conversión/incremento similares y, sin embargo, diferente confianza.
 
-### Resultados estadísticamente no significativos
+### Resultados estadísticamente no significativos {#statistically-insignificant-results}
 
 Una prueba que no tiene un 95 % de confianza aún puede contener información importante. Aquí hay algunas cosas que puedes aprender de una prueba con resultados estadísticamente no significativos:
 
@@ -149,7 +149,7 @@ Una prueba que no tiene un 95 % de confianza aún puede contener información im
 
 Ya sea que tu prueba tenga un ganador claro o no, puede ser útil ejecutar una [prueba de seguimiento](#recommended-follow-ups) para confirmar tus resultados o aplicar tus hallazgos a un escenario ligeramente diferente.
 
-## Discrepancias entre el grupo de control y la variante
+## Discrepancias entre el grupo de control y la variante {#discrepancies-between-the-control-group-and-variant}
 
 En campañas de mensajes dentro de la aplicación, la forma en que se hace el seguimiento de los usuarios y cómo se registran las impresiones puede causar discrepancias en la división esperada entre el grupo de control y la variante. Esto se debe a que las impresiones reales registradas pueden no reflejar esta división, y Braze en última instancia no tiene control sobre el comportamiento individual del usuario respecto a quién realizará la acción desencadenante.
 
@@ -159,7 +159,7 @@ Los 100 usuarios en la variante reciben la carga útil del mensaje dentro de la 
 
 A pesar de la división inicial 50/50, las impresiones únicas registradas no están equilibradas. El grupo de la variante tiene 50 impresiones, mientras que el grupo de control tiene 75 impresiones.
 
-### Retrasos en mensajes dentro de la aplicación
+### Retrasos en mensajes dentro de la aplicación {#in-app-message-delays}
 
 Para campañas de mensajes dentro de la aplicación desencadenados que incluyen visualizaciones retrasadas, las impresiones del grupo de control se registrarán cuando el usuario final habría recibido originalmente el mensaje dentro de la aplicación. Por ejemplo, si una campaña está configurada para retrasar la visualización una hora, las impresiones del grupo de control no se registrarán hasta que haya pasado el retraso de una hora. Esto ayuda con el seguimiento preciso de las impresiones relacionadas con el momento previsto de la entrega del mensaje.
 
@@ -167,34 +167,34 @@ Para campañas de mensajes dentro de la aplicación desencadenados que incluyen 
 
 Una prueba multivariante y A/B puede (¡y debería!) inspirar ideas para futuras pruebas, así como guiarte hacia cambios en tu estrategia de mensajería. Las posibles acciones de seguimiento incluyen las siguientes:
 
-#### Cambiar tu estrategia de mensajería basándote en los resultados de la prueba
+#### Cambiar tu estrategia de mensajería basándote en los resultados de la prueba {#change-your-messaging-strategy-based-on-test-results}
 
 Tus resultados multivariantes pueden llevarte a cambiar la forma en que redactas o formateas tu mensajería.
 
-#### Cambiar la forma en que entiendes a tus usuarios
+#### Cambiar la forma en que entiendes a tus usuarios {#change-the-way-you-understand-your-users}
 
-Cada prueba arrojará luz sobre los comportamientos de tus usuarios, cómo responden los usuarios a diferentes canales de mensajería y las diferencias (y similitudes) entre tus segmentos.
+Cada prueba arrojará luz sobre los comportamientos de tus usuarios, cómo responden a diferentes canales de mensajería y las diferencias (y similitudes) entre tus segmentos.
 
-#### Mejorar la forma en que estructuras futuras pruebas
+#### Mejorar la forma en que estructuras futuras pruebas {#improve-the-way-you-structure-future-tests}
 
 ¿Tu tamaño de muestra fue demasiado pequeño? ¿Las diferencias entre tus variantes fueron demasiado sutiles? Cada prueba brinda una oportunidad para aprender cómo mejorar futuras pruebas. Si tu confianza es baja, tu tamaño de muestra es demasiado pequeño y debería ampliarse para futuras pruebas. Si no encuentras una diferencia clara entre el rendimiento de tus variantes, es posible que las diferencias fueran demasiado sutiles para tener un efecto perceptible en las respuestas de los usuarios.
 
-#### Ejecutar una prueba de seguimiento con un tamaño de muestra mayor
+#### Ejecutar una prueba de seguimiento con un tamaño de muestra mayor {#run-a-follow-up-test-with-a-larger-sample-size}
 
 Las muestras más grandes aumentarán las posibilidades de detectar pequeñas diferencias entre variantes.
 
-#### Ejecutar una prueba de seguimiento usando un canal de mensajería diferente
+#### Ejecutar una prueba de seguimiento usando un canal de mensajería diferente {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 Si descubres que una estrategia particular es muy efectiva en un canal, es posible que quieras probar esa estrategia en otros canales. Si un tipo de mensaje es efectivo en un canal pero no en otro, puedes concluir que ciertos canales son más propicios para ciertos tipos de mensajes. O quizás hay una diferencia entre los usuarios que son más propensos a habilitar las notificaciones push y aquellos que son más propensos a prestar atención a los mensajes dentro de la aplicación. En última instancia, ejecutar este tipo de prueba te ayudará a aprender cómo tu audiencia interactúa con tus diferentes canales de comunicación.
 
-#### Ejecutar una prueba de seguimiento en un segmento diferente de usuarios
+#### Ejecutar una prueba de seguimiento en un segmento diferente de usuarios {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 Para hacer esto, crea otra prueba con el mismo canal de mensajería y variantes, pero elige un segmento diferente de usuarios. Por ejemplo, si un tipo de mensajería fue extremadamente efectivo para usuarios activos, puede ser útil investigar su efecto en usuarios inactivos. Es posible que los usuarios inactivos respondan de manera similar, o que prefieran otra de las otras variantes. Esta prueba te ayudará a aprender más sobre tus diferentes segmentos y cómo responden a diferentes tipos de mensajes. ¿Por qué hacer suposiciones sobre tus segmentos cuando puedes basar tu estrategia en datos?
 
-#### Ejecutar una prueba de seguimiento basada en información de una prueba anterior
+#### Ejecutar una prueba de seguimiento basada en información de una prueba anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 Usa la información que recopilas de pruebas anteriores para guiar las futuras. ¿Una prueba anterior sugiere que una técnica de mensajería es más efectiva? ¿No estás seguro de qué aspecto específico de una variante la hizo mejor? Ejecutar pruebas de seguimiento basadas en estas preguntas te ayudará a generar hallazgos valiosos sobre tus usuarios.
 
-#### Comparar el impacto a largo plazo de diferentes variantes
+#### Comparar el impacto a largo plazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
 
 Si estás realizando pruebas A/B de mensajes de reactivación de la interacción, no olvides comparar el impacto a largo plazo de diferentes variantes usando [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). Puedes usar los informes de retención para analizar cómo cada variante impactó cualquier comportamiento de usuario de tu elección días, semanas o un mes después de la recepción del mensaje, y ver si hay incremento.

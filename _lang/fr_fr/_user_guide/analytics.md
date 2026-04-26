@@ -6,7 +6,7 @@ layout: dev_guide
 
 guide_top_header: "Analyse"
 guide_top_text: "Braze propose un ensemble complet d'indicateurs et d'outils de reporting pour mesurer les performances de vos campagnes, suivre l'engagement des utilisateurs et prendre des décisions fondées sur les données. Vous pouvez également compléter vos analyses avec <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, un outil d'exportation de flux de données qui vous permet d'exploiter de grandes quantités de données client granulaires dans vos propres plateformes d'aide à la décision."
-description: "Utilisez les outils d'analyse de Braze pour mesurer les performances de vos campagnes, suivre l'engagement des utilisateurs et accéder à des rapports et tableaux de bord détaillés."
+description: "Utilisez les outils d'analytique de Braze pour mesurer les performances de vos campagnes, suivre l'engagement des utilisateurs et accéder à des rapports et tableaux de bord détaillés."
 
 guide_featured_title: "Articles de cette section"
 guide_featured_list:

@@ -51,7 +51,7 @@ guide_featured_list:
 - name: "Canvas Audience Sync – Überlegungen zum Datenschutz"
   link: /docs/partners/canvas_audience_sync/overview/#data-privacy-considerations
   image: /assets/img/braze_icons/fingerprint-03.svg
-- name: Braze Datenaufbewahrung
+- name: Braze-Datenaufbewahrung
   link: /docs/api/data_retention/
   image: /assets/img/braze_icons/database-01.svg
 - name: Nutzerarchivierung
@@ -75,7 +75,7 @@ guide_menu_list:
 - name: Standardvertragsklauseln
   link: https://www.braze.com/company/legal/scc
   image: /assets/img/braze_icons/briefcase-02.svg
-- name: Braze Unterauftragsverarbeiter
+- name: Braze-Unterauftragsverarbeiter
   link: https://www.braze.com/company/legal/subprocessors
   image: /assets/img/braze_icons/dataflow-04.svg
 - name: Transparenzbericht
@@ -99,11 +99,12 @@ guide_menu_list2:
 - name: "Datenblatt zu Sicherheit, Datenschutz und Architektur"
   link: https://www.braze.com/company/legal/security-schedule
   image: /assets/img/braze_icons/lock-01.svg
-- name: Braze Sicherheitszertifizierungen
+- name: Braze-Sicherheitszertifizierungen
   link: /docs/developer_guide/disclosures/security_qualifications/
   image: /assets/img/braze_icons/lock-01.svg
 
 ---
+
 {% alert important %}
 **Rechtlicher Hinweis**<br>
 Die hier bereitgestellten Informationen dienen ausschließlich zu Bildungszwecken und sind nicht als Rechtsberatung zu verstehen. Braze empfiehlt allen Kund:innen, sich eigenständig rechtlich beraten zu lassen, um die Nutzung von Braze in Übereinstimmung mit den geltenden Datenschutzgesetzen und -vorschriften sicherzustellen.
