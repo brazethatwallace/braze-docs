@@ -6,19 +6,19 @@ alias: /deploying-agents/
 page_order: 2
 ---
 
-# Implantar agentes personalizados
+# Implantar agentes personalizados {#deploy-custom-agents}
 
 > Aprenda como utilizar agentes personalizados em etapas do Canvas ou campos do catálogo após criá-los. Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/).
 
-## Agentes no Canvas  
+## Agentes no Canvas {#agents-in-canvas}
 
-Você pode usar agentes como etapas em uma jornada para personalizar mensagens ou guiar decisões em tempo real. Para etapas de configuração detalhadas, consulte [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Você pode usar agentes como etapas em uma jornada para personalizar mensagens ou guiar decisões em tempo real. Para etapas de configuração detalhadas, consulte [Etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Casos de uso
+### Casos de uso {#use-cases}
 
 | Caso de uso | Descrição |
 | --- | --- |
-| Pontuação e qualificação de leads | Use uma etapa de Agente para avaliar leads recebidos em uma escala (por exemplo, 1-10). Direcione usuários com pontuação acima de um limite para jornadas de nutrição e desqualifique leads com baixo potencial. |
+| Pontuação e qualificação de leads | Use uma etapa de agente para avaliar leads recebidos em uma escala (por exemplo, 1-10). Direcione usuários com pontuação acima de um limite para jornadas de nutrição e desqualifique leads com baixo potencial. |
 | Personalização dinâmica de mensagens | Faça um agente gerar linhas de assunto, recomendações de produtos ou textos de mensagens com base em atributos do usuário ou comportamentos recentes. A resposta pode ser inserida diretamente em uma etapa de Mensagem. |
 | Tratamento de feedback do cliente | Passe comentários dos clientes para um agente analisar o sentimento e gerar mensagens de acompanhamento empáticas. Para usuários de alto valor, o agente pode escalar a resposta ou incluir benefícios. |
 | Roteamento inteligente | Use saídas do agente (booleanas ou numéricas) para dividir usuários em diferentes jornadas do Canvas. Por exemplo, classifique usuários como "em risco" ou "saudáveis" e ajuste a cadência das mensagens de acordo. |
@@ -26,11 +26,11 @@ Você pode usar agentes como etapas em uma jornada para personalizar mensagens o
 | Raciocínio em múltiplas etapas | Configure um agente para combinar campos de contexto e tomar decisões complexas, como recomendar a próxima melhor ação (e-mail, SMS ou contato humano) com base em múltiplos atributos do usuário. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Agentes em catálogos  
+## Agentes em catálogos {#agents-in-catalogs}
 
-Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule automaticamente valores para cada linha. O agente também será executado em novas linhas que forem adicionadas ao catálogo no futuro. 
+Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule automaticamente valores para cada linha. O agente também será executado em novas linhas que forem adicionadas ao catálogo no futuro.
 
-### Casos de uso
+### Casos de uso {#use-cases}
 
 | Caso de uso | Descrição |
 | --- | --- |
@@ -42,39 +42,39 @@ Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule 
 | Resumir avaliações ou feedback | Resuma sentimentos ou feedback em um novo campo, como atribuir pontuações de sentimento (Positivo, Neutro ou Negativo) ou criar um resumo curto como "A maioria dos clientes elogia o ajuste, mas menciona o envio lento." |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Etapas
+### Etapas {#steps}
 
-![Uma etapa de Agente em um campo de catálogo.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Uma etapa de agente em um campo de catálogo.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 Para adicionar um agente ao seu campo de catálogo:
 
-1. No seu catálogo, adicione um novo campo.  
-2. Selecione **Aplicar agente IA**.
-3. Atribua um agente a este campo.  
-4. Selecione quais colunas devem ser passadas como entrada. Se nenhuma for selecionada, o agente terá acesso a todas as colunas do catálogo.  
+1. No seu catálogo, adicione um novo campo.
+2. Selecione **Apply AI agent**.
+3. Atribua um agente a este campo.
+4. Selecione quais colunas devem ser passadas como entrada. Se nenhuma for selecionada, o agente terá acesso a todas as colunas do catálogo.
 5. Decida se o agente deve recalcular os campos quando as linhas do catálogo forem atualizadas. Se você não selecionar esta opção, o agente será executado apenas uma vez por linha.
-6. Selecione **Adicionar campos** para implantar o agente e revisar as estimativas de custo. O modal de **Estimativa de custo** mostra quantas vezes o agente será executado neste catálogo, aproximadamente igual ao número total de linhas. Para continuar, selecione **Confirmar**.
+6. Selecione **Add fields** para implantar o agente e revisar as estimativas de custo. O modal **Cost estimation** mostra quantas vezes o agente será executado neste catálogo, aproximadamente igual ao número total de linhas. Para continuar, selecione **Confirm**.
 
-### Como os agentes de catálogo funcionam  
+### Como os agentes de catálogo funcionam {#how-catalog-agents-run}
 
-Após o lançamento, o agente executa e avalia cada linha, usando as colunas selecionadas como contexto para produzir uma saída. Os agentes são executados em todas as novas linhas adicionadas após a implantação. Se você selecionou **Recalcular quando as linhas do catálogo forem atualizadas**, todos os valores desse campo serão atualizados quando os campos de origem existentes mudarem.
+Após o lançamento, o agente executa e avalia cada linha, usando as colunas selecionadas como contexto para produzir uma saída. Os agentes são executados em todas as novas linhas adicionadas após a implantação. Se você selecionou **Recalculate when catalog rows update**, todos os valores desse campo serão atualizados quando os campos de origem existentes mudarem.
 
-Você pode atualizar e editar os campos do catálogo que usam agentes. Para remover um agente de uma coluna, desmarque **Aplicar agente IA**. Isso reverte a coluna para uma coluna não agente, e os campos mantêm os últimos valores que o agente aplicou na última execução no catálogo.
+Você pode atualizar e editar os campos do catálogo que usam agentes. Para remover um agente de uma coluna, desmarque **Apply AI agent**. Isso reverte a coluna para uma coluna não agente, e os campos mantêm os últimos valores que o agente aplicou na última execução no catálogo.
 
 Referências circulares em catálogos não são suportadas. Portanto, o seguinte cenário não pode ocorrer:
 
 - A Coluna Agente 1 usa a Coluna Agente 2 como entrada
 - A Coluna Agente 2 usa a Coluna Agente 1 como entrada
 
-![A opção de selecionar "Aplicar agente IA" para um campo de catálogo.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
+![A opção de selecionar "Apply AI agent" para um campo de catálogo.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 Agentes de catálogo estão limitados a processar valores de entrada de até 25 KB por linha.
 {% endalert %}
 
-#### Definir campos de resposta
+#### Definir campos de resposta {#define-response-fields}
 
-Se o seu agente usar [fields]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de saída, você pode selecionar, no campo **Response Field**, o campo correspondente do agente para usar no campo do catálogo. 
+Se o seu agente usar [campos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de saída, você pode selecionar, no campo **Response Field**, o campo correspondente do agente para usar no campo do catálogo.
 
 Digamos que você tenha um agente que adiciona descrições de produtos a um catálogo com os seguintes campos para estruturar o formato de saída:
 
@@ -88,15 +88,15 @@ Você pode adicionar um campo chamado **product_description** a um catálogo e s
 
 ![Um campo "product_description" com o agente "Descriptor" aplicado. A saída "description" é selecionada como o campo de resposta.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
 
-Você também pode substituir manualmente a célula gerada pelo agente selecionando **Editar item** e atualizando a descrição gerada pelo agente com suas edições. Para reverter à descrição gerada pelo agente, selecione o símbolo de atualizar na célula.
+Você também pode substituir manualmente a célula gerada pelo agente selecionando **Edit Item** e atualizando a descrição gerada pelo agente com suas edições. Para reverter à descrição gerada pelo agente, selecione o símbolo de atualizar na célula.
 
-### Tratamento de erros em catálogos  
+### Tratamento de erros em catálogos {#error-handling-in-catalogs}
 
 - Invocações de catálogo com falha não são tentadas novamente.
 - Se a chamada de API para o provedor do modelo fundamental retornar qualquer erro, como chave de API inválida ou limite de taxa, o valor do campo não é atualizado.
 - Você pode revisar os registros do agente para ver detalhes sobre execuções com falha.
 
-## Monitore seu agente
+## Monitore seu agente {#monitor-your-agent}
 
 Na seção **Usage** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
 
@@ -114,7 +114,7 @@ Selecione **View** em uma chamada de agente específica para ver a entrada, a sa
 
 ![O painel de detalhes para um agente de Atribuição Aleatória de Esportes que mostra o prompt de entrada, a resposta de saída e um ID de usuário associado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 
-### Use o Currents
+### Use o Currents {#use-currents}
 
 Você também pode usar esses eventos do Currents para acessar os esquemas de registro do Kafka:
 
@@ -123,7 +123,7 @@ Você também pode usar esses eventos do Currents para acessar os esquemas de re
 
 Consulte o [glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) para mais detalhes.
 
-## Artigos relacionados  
+## Artigos relacionados {#related-articles}
 
 - [Referência para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
