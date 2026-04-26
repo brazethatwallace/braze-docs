@@ -4,10 +4,10 @@ article_title: "AB テストのコンセプト"
 page_order: 1
 layout: dev_guide
 guide_top_header: "AB テストのコンセプト"
-guide_top_text: "Braze における AB テストの背景にある統計的・実験的コンセプトについて、ランダムバケット番号、コンバージョン相関、競合などを含めて理解しましょう。"
+guide_top_text: "Brazeにおける AB テストの背景にある統計的・実験的コンセプトについて、ランダムバケット番号、コンバージョン相関、競合などを含めて理解しましょう。"
 
 page_type: landing
-description: "Braze での AB テストと実験に関するコアコンセプトです。"
+description: "Brazeでの AB テストと実験に関するコアコンセプトです。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
