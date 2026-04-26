@@ -6,7 +6,7 @@ page_type: reference
 description: "Découvrez comment utiliser la variante gagnante ou la variante personnalisée lors de la création de tests multivariés et de tests A/B."
 ---
 
-# Optimisez les tests A/B avec la variante gagnante ou les variantes personnalisées. {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
+# Optimisez les tests A/B avec la variante gagnante ou les variantes personnalisées {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
 
 > Découvrez comment utiliser la variante gagnante ou la variante personnalisée lors de la création de tests multivariés et de tests A/B.
 

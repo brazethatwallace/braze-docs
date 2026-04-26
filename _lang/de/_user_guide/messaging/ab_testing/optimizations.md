@@ -1,20 +1,20 @@
 ---
 nav_title: Optimierungen
-article_title: Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten
+article_title: Optimieren Sie A/B-Tests mit Gewinnervarianten oder personalisierten Varianten
 page_order: 1
 page_type: reference
-description: "Erfahren Sie, wie Sie die Varianten „Gewinnvariante“ oder „Personalisierte Variante“ bei der Erstellung von multivariaten und A/B-Tests verwenden können."
+description: "Erfahren Sie, wie Sie die Varianten „Gewinnervariante“ oder „Personalisierte Variante“ bei der Erstellung von multivariaten und A/B-Tests verwenden können."
 ---
 
-# Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
+# Optimieren Sie A/B-Tests mit Gewinnervarianten oder personalisierten Varianten {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
 
-> Erfahren Sie, wie Sie die Varianten „Gewinnvariante“ oder „Personalisierte Variante“ bei der Erstellung von multivariaten und A/B-Tests verwenden können.
+> Erfahren Sie, wie Sie die Varianten „Gewinnervariante“ oder „Personalisierte Variante“ bei der Erstellung von multivariaten und A/B-Tests verwenden können.
 
-Bei der [Erstellung eines A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) für E-Mail-, Push-, Webhook-, SMS- und WhatsApp-Kampagnen, die für einen einmaligen Versand geplant sind, können Sie eine Optimierung auswählen. Es gibt zwei Optimierungsmöglichkeiten: **Gewinnende Variante** und **Personalisierte Variante**.
+Bei der [Erstellung eines A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) für E-Mail-, Push-, Webhook-, SMS- und WhatsApp-Kampagnen, die für einen einmaligen Versand geplant sind, können Sie eine Optimierung auswählen. Es gibt zwei Optimierungsmöglichkeiten: **Gewinnervariante** und **Personalisierte Variante**.
 
-![Optimierungsoptionen, die im Abschnitt „A/B-Tests“ aufgeführt sind, wenn Sie Ihre Zielgruppe auswählen. Es werden drei Optionen aufgeführt: Keine Optimierung, Gewinnende Variante und Personalisierte Variante. Personalisierte Variante ist ausgewählt.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
+![Optimierungsoptionen, die im Abschnitt „A/B-Tests“ aufgeführt sind, wenn Sie Ihre Zielgruppe auswählen. Es werden drei Optionen aufgeführt: Keine Optimierung, Gewinnervariante und Personalisierte Variante. Personalisierte Variante ist ausgewählt.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 
-Beide Optionen funktionieren, indem Sie einen ersten Test an einen Prozentsatz Ihres Zielsegments senden. Nach Beendigung des Tests wird den verbleibenden Nutzern Ihrer Zielgruppe entweder die Variante mit der besten Leistung (Gewinnvariante) oder die Variante, mit der sie sich am ehesten beschäftigen werden (personalisierte Variante), zugesandt.
+Beide Optionen funktionieren, indem Sie einen ersten Test an einen Prozentsatz Ihres Zielsegments senden. Nach Beendigung des Tests wird den verbleibenden Nutzern Ihrer Zielgruppe entweder die Variante mit der besten Leistung (Gewinnervariante) oder die Variante, mit der sie sich am ehesten beschäftigen werden (personalisierte Variante), zugesandt.
 
 {% alert tip %}
 Optimierungen finden Sie im Schritt **Zielgruppen** bei der Kampagnenerstellung unter **A/B-Tests**.
@@ -22,9 +22,9 @@ Optimierungen finden Sie im Schritt **Zielgruppen** bei der Kampagnenerstellung 
 
 ## Gewinnervariante {#winning-variant}
 
-Das Versenden der Gewinner-Variante ist ähnlich wie ein normaler A/B-Test. Nutzer:innen in dieser Gruppe erhalten die Gewinnervariante, sobald der erste Test abgeschlossen ist.
+Das Versenden der Gewinnervariante ist ähnlich wie ein normaler A/B-Test. Nutzer:innen in dieser Gruppe erhalten die Gewinnervariante, sobald der erste Test abgeschlossen ist.
 
-1. Wählen Sie **Gewinnende Variante** aus und legen Sie fest, welcher Prozentsatz Ihrer Kampagnenzielgruppe der Gewinnervarianten-Gruppe zugewiesen werden soll.
+1. Wählen Sie **Gewinnervariante** aus und legen Sie fest, welcher Prozentsatz Ihrer Kampagnenzielgruppe der Gewinnervarianten-Gruppe zugewiesen werden soll.
 2. Konfigurieren Sie die folgenden zusätzlichen Einstellungen.
 
 | Feld | Beschreibung |
