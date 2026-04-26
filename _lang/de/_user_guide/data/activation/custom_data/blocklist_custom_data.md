@@ -6,11 +6,11 @@ page_type: reference
 description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events und Attribute in Braze auf die Blocklist setzen und löschen können."
 ---
 
-# Angepasste Daten auf die Blocklist setzen
+# Angepasste Daten auf die Blocklist setzen {#blocklist-custom-data}
 
 > Verwenden Sie die Blocklist, um das Tracking angepasster Daten zu stoppen, die nicht mehr nützlich sind. Verwenden Sie die Löschfunktion, um angepasste Events und Attribute nach dem Blocklisting dauerhaft aus Nutzerprofilen zu entfernen. Informationen zum Vorausfüllen, Verwalten von Eigenschaften und Konfigurieren von Datentypen finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
 
-## Angepasste Daten auf die Blocklist setzen
+## Angepasste Daten auf die Blocklist setzen {#blocklisting-custom-data}
 
 Gelegentlich identifizieren Sie möglicherweise angepasste Attribute, angepasste Events oder Kauf-Events, die entweder zu viele Datenpunkte protokollieren, für Ihre Marketing-Strategie nicht mehr nützlich sind oder versehentlich erfasst wurden.
 
@@ -66,10 +66,10 @@ Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigun
 
 Daten auf der Blocklist werden nicht vom SDK gesendet, und das Braze-Dashboard verarbeitet keine Blocklist-Daten aus anderen Quellen (z. B. der API). Blocklisting entfernt jedoch keine Daten aus Nutzerprofilen und reduziert auch nicht rückwirkend die Anzahl der Datenpunkte, die für dieses angepasste Datenobjekt angefallen sind. Daten auf der Blocklist sind ausgeblendet, können aber weiterhin für Liquid-Templating verwendet werden.
 
-### Angepasste Attribute, angepasste Events und Produkte auf die Blocklist setzen
+### Angepasste Attribute, angepasste Events und Produkte auf die Blocklist setzen {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segmente, Kampagnen oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
+Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segments, Campaigns oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
 {% endalert %}
 
 Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu stoppen, gehen Sie wie folgt vor:
@@ -78,7 +78,7 @@ Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu 
 2. Wählen Sie das angepasste Attribut, Event oder Produkt aus. Bei angepassten Attributen und Events können Sie bis zu 100 gleichzeitig für die Blocklist auswählen.
 3. Wählen Sie **Blocklist**.
 
-![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Angepasste Attribute" auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
+![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Angepasste Attribute“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
 Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection).
 
@@ -96,15 +96,15 @@ Wenn ein angepasstes Event oder Attribut auf die Blocklist gesetzt wird, gilt Fo
 
 Um dies zu erreichen, sendet Braze die Blocklist-Informationen an jedes Gerät. Dies ist wichtig, wenn Sie eine große Anzahl von Events und Attributen (Hunderttausende oder Millionen) auf die Blocklist setzen möchten, da dies eine datenintensive Operation wäre.
 
-### Überlegungen zum Blocklisting
+### Überlegungen zum Blocklisting {#considerations-for-blocklisting}
 
 Das Blocklisting einer großen Anzahl von Events und Attributen ist möglich, aber nicht empfehlenswert. Denn jedes Mal, wenn ein Event ausgeführt oder ein Attribut (potenziell) an Braze gesendet wird, muss dieses Event oder Attribut gegen die gesamte Blocklist geprüft werden.
 
 Bis zu 300 Einträge werden an das SDK für das Blocklisting gesendet. Wenn Sie mehr als 300 Einträge auf die Blocklist setzen, werden diese Daten vom SDK gesendet. Wenn Sie das Event oder Attribut in Zukunft nicht mehr benötigen, sollten Sie es bei Ihrem nächsten Release aus Ihrem App-Code entfernen. Änderungen an der Blocklist können einige Minuten benötigen, um wirksam zu werden. Sie können jedes Event oder Attribut auf der Blocklist jederzeit wieder aktivieren.
 
-## Angepasste Daten löschen
+## Angepasste Daten löschen {#deleting-custom-data}
 
-Beim Erstellen gezielter Kampagnen und Segmente stellen Sie möglicherweise fest, dass Sie ein angepasstes Event oder angepasstes Attribut nicht mehr benötigen. Wenn Sie beispielsweise ein bestimmtes angepasstes Attribut als Teil einer einmaligen Kampagne verwendet haben, können Sie diese Daten nach dem [Blocklisting](#blocklisting-custom-attributes-custom-events-and-products) löschen und die Verweise darauf aus Ihrer App entfernen. Sie können alle Datentypen löschen (z. B. Strings, Zahlen und verschachtelte angepasste Attribute).
+Beim Erstellen gezielter Campaigns und Segments stellen Sie möglicherweise fest, dass Sie ein angepasstes Event oder angepasstes Attribut nicht mehr benötigen. Wenn Sie beispielsweise ein bestimmtes angepasstes Attribut als Teil einer einmaligen Campaign verwendet haben, können Sie diese Daten nach dem [Blocklisting](#blocklisting-custom-attributes-custom-events-and-products) löschen und die Verweise darauf aus Ihrer App entfernen. Sie können alle Datentypen löschen (z. B. Strings, Zahlen und verschachtelte angepasste Attribute).
 
 {% alert important %}
 Sie müssen [Braze-Admin]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) sein, um angepasste Daten zu löschen.
@@ -116,7 +116,7 @@ Um ein angepasstes Event oder angepasstes Attribut zu löschen, gehen Sie wie fo
 2. Gehen Sie zu den angepassten Daten und wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Aktionen** > **Blocklist**.
 3. Nachdem Ihre angepassten Daten 7 Tage lang auf der Blocklist waren, wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Aktionen** > **Löschen**.
 
-### Wie die Löschung funktioniert
+### Wie die Löschung funktioniert {#how-deletion-works}
 
 Wenn Sie angepasste Daten löschen, geschieht Folgendes:
 
@@ -127,12 +127,12 @@ Wenn ein Attribut oder Event zur Löschung ausgewählt wird, ändert sich sein S
 
 Die Löschung verhindert nicht die zusätzliche Erfassung der angepassten Datenobjekte in Nutzerprofilen. Stellen Sie daher sicher, dass die angepassten Daten nicht mehr erfasst werden, bevor Sie das Event oder Attribut löschen.
 
-### Wichtige Hinweise
+### Wichtige Hinweise {#things-to-know}
 
 Beachten Sie beim Löschen angepasster Daten die folgenden Details:
 
 * **Die Löschung ist dauerhaft.** Daten können nicht wiederhergestellt werden.
 * Daten werden von der Braze-Plattform und aus Nutzerprofilen entfernt.
-* Sie können den Namen des angepassten Attributs oder angepassten Events nach der Löschung „wiederverwenden". Wenn Sie also bemerken, dass angepasste Daten nach der Löschung in Braze „wieder auftauchen", kann dies durch eine Integration verursacht werden, die nicht gestoppt wurde und Daten mit demselben angepassten Datennamen sendet.
+* Sie können den Namen des angepassten Attributs oder angepassten Events nach der Löschung „wiederverwenden“. Wenn Sie also bemerken, dass angepasste Daten nach der Löschung in Braze „wieder auftauchen“, kann dies durch eine Integration verursacht werden, die nicht gestoppt wurde und Daten mit demselben angepassten Datennamen sendet.
 * Möglicherweise müssen Sie einen Eintrag erneut auf die Blocklist setzen, wenn Ihre Löschung dazu führt, dass angepasste Daten wieder auftauchen. Der Blocklist-Status wird nicht beibehalten, da die angepassten Daten gelöscht wurden.
-* Das Löschen angepasster Daten protokolliert keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points) und erzeugt auch keine neuen Datenpunkte.
+* Das Löschen angepasster Daten protokolliert keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) und erzeugt auch keine neuen Datenpunkte.

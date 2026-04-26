@@ -7,17 +7,17 @@ page_type: reference
 description: "Dieser Referenzartikel behandelt die Verwendung eines Arrays von Objekten als Datentyp für angepasste Attribute, einschließlich Einschränkungen und Anwendungsbeispielen."
 ---
 
-# Array von Objekten
+# Array von Objekten {#array-of-objects}
 
-> Diese Seite beschreibt, wie Sie ein Array von Objekten verwenden, um zusammengehörige Attribute zu gruppieren. Sie können beispielsweise eine Gruppe von Haustier-Objekten, Song-Objekten und Konto-Objekten haben, die alle zu einem/einer einzelnen Nutzer:in gehören. Diese Arrays von Objekten können verwendet werden, um Ihr Messaging mit Liquid zu personalisieren oder Zielgruppen-Segmente zu erstellen, wenn ein beliebiges Element innerhalb eines Objekts den Kriterien entspricht.
+> Auf dieser Seite erfahren Sie, wie Sie ein Array von Objekten verwenden können, um verwandte Attribute zu gruppieren. Sie können z. B. eine Gruppe von Haustierobjekten, Liedobjekten und Kontoobjekten haben, die alle zu einem/einer Nutzer:in gehören. Diese Arrays von Objekten können verwendet werden, um Ihr Messaging mit Liquid zu personalisieren oder Zielgruppen-Segmente zu erstellen, wenn irgendein Element innerhalb eines Objekts den Kriterien entspricht.
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Hinweise
+## Hinweise {#considerations}
 
 - Arrays von Objekten sind für angepasste Attribute vorgesehen, die über die API gesendet werden. CSV-Uploads werden nicht unterstützt. Das liegt daran, dass Kommas in der CSV-Datei als Spaltentrennzeichen interpretiert werden und Kommas in Werten zu Parsing-Fehlern führen.
 - Arrays von Objekten haben keine Begrenzung der Anzahl von Elementen, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update (z.&nbsp;B. `$add` oder `$update`) dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert. Die API-Anfrage gibt dennoch eine Erfolgsantwort zurück. Um das Array unter dem Limit zu halten, damit neue Elemente hinzugefügt werden können, verwenden Sie `$remove`, um zuerst Elemente aus dem Array zu löschen.
-- Nicht alle Braze-Partner unterstützen Arrays von Objekten. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home), um zu prüfen, ob die Integration dieses Feature unterstützt.
+- Nicht alle Braze-Partner unterstützen Arrays von Objekten. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home/), um zu prüfen, ob die Integration dieses Feature unterstützt.
 
 Das Aktualisieren oder Entfernen von Elementen in einem Array erfordert die Identifizierung des Elements anhand von Schlüssel und Wert. Erwägen Sie daher, jedem Element im Array einen eindeutigen Bezeichner hinzuzufügen. Die Eindeutigkeit bezieht sich nur auf das Array und ist nützlich, wenn Sie bestimmte Objekte aus Ihrem Array aktualisieren und entfernen möchten. Dies wird von Braze nicht erzwungen.
 
@@ -29,7 +29,7 @@ Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte 
 Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzer:innen-Attribut-Objekte finden Sie unter [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
 {% endalert %}
 
-## API-Beispiel
+## API-Beispiel {#api-example}
 
 {% tabs local %}
 {% tab Create %}
@@ -174,7 +174,7 @@ Das folgende Beispiel zeigt das Entfernen aller Objekte im `pets`-Array, die ein
 {% endtab %}
 {% endtabs %}
 
-### Verarbeitungsreihenfolge
+### Verarbeitungsreihenfolge {#processing-order}
 
 Wenn eine einzelne `/users/track`-Anfrage `$add`-, `$remove`- und `$update`-Operationen für dasselbe Array-Attribut enthält, verarbeitet Braze diese in folgender Reihenfolge:
 
@@ -184,7 +184,7 @@ Wenn eine einzelne `/users/track`-Anfrage `$add`-, `$remove`- und `$update`-Oper
 
 Da `$add` vor `$remove` ausgeführt wird, können Sie `$remove` gefolgt von `$add` nicht als Upsert-Mechanismus innerhalb einer einzelnen Anfrage verwenden. `$add` wird zuerst verarbeitet, dann löscht `$remove` das Element. Für einen Upsert senden Sie `$remove` in einer separaten Anfrage vor `$add`.
 
-### Zeitstempel
+### Zeitstempel {#timestamps}
 
 Wenn Sie Felder wie Zeitstempel in einem Array von Objekten einschließen, verwenden Sie das `$time`-Format anstelle von einfachen Strings oder Unix-Epoch-Ganzzahlen.
 
@@ -211,7 +211,7 @@ Wenn Sie Felder wie Zeitstempel in einem Array von Objekten einschließen, verwe
 Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
 {% endalert %}
 
-## SDK-Beispiel
+## SDK-Beispiel {#sdk-example}
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -525,17 +525,17 @@ Sie können dieses `pets`-Array verwenden, um eine Nachricht zu personalisieren.
 
 {% raw %}
 ```liquid
-{% assign pets = {{custom_attribute.${pets}}} %} 
- 
+{% assign pets = {{custom_attribute.${pets}}} %}
+
 {% for pet in pets %}
 I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
-{% endfor %} 
+{% endfor %}
 ```
 {% endraw %}
 
 In diesem Szenario können Sie Liquid verwenden, um das `pets`-Array zu durchlaufen und für jedes Haustier eine Aussage auszugeben. [Weisen Sie eine Variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) dem angepassten Attribut `pets` zu und verwenden Sie die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts an, gefolgt von einem Punkt `.`, gefolgt vom Eigenschaftsnamen.
 
-## Segmentierung
+## Segmentierung {#segmentation}
 
 Wenn Sie Nutzer:innen basierend auf Arrays von Objekten segmentieren, qualifiziert sich eine Nutzer:in für das Segment, wenn ein beliebiges Objekt im Array den Kriterien entspricht.
 
@@ -548,7 +548,7 @@ Verwenden Sie die Punkt-Notation, um anzugeben, welches Feld im Array von Objekt
 Wenn Sie beispielsweise ein `top_3_movies`-Array von Objekten basierend auf dem Feld `type` filtern möchten, geben Sie `[].type` ein und wählen Sie die Filme aus, nach denen gefiltert werden soll, z.&nbsp;B. `Fantasy Movie`.
 
 
-### Verschachtelungsebenen
+### Verschachtelungsebenen {#levels-of-nesting}
 
 Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstellen (Array innerhalb eines anderen Arrays). Angenommen, Sie haben die folgenden Attribute: Sie können ein Segment für `pets[].name` enthält `Gus` erstellen, aber Sie können kein Segment für `pets[].nicknames[]` enthält `Gugu` erstellen.
 
@@ -586,7 +586,7 @@ Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstell
 ```
 {% endraw %}
 
-## Datenpunkte
+## Datenpunkte {#data-points}
 
 Datenpunkte werden unterschiedlich protokolliert, je nachdem, ob Sie eine Eigenschaft erstellen, aktualisieren oder entfernen.
 

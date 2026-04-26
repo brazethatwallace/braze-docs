@@ -1,16 +1,16 @@
 ---
 nav_title: Katalog erstellen
-article_title: Erstellen Sie einen Katalog
+article_title: Katalog erstellen
 alias: "/catalogs/"
 page_order: 1
 description: "In diesem Referenzartikel erfahren Sie, wie Sie Kataloge erstellen, die über Liquid auf Nicht-Nutzerdaten in Ihren Braze-Kampagnen verweisen."
 ---
 
-# Katalog erstellen
+# Katalog erstellen {#create-a-catalog}
 
 > Um einen Katalog zu erstellen, importieren Sie eine CSV-Datei mit Nicht-Nutzerdaten in Braze. Anschließend können Sie auf diese Informationen zugreifen, um Ihre Nachrichten anzureichern. Sie können jede Art von Daten in einen Katalog einbringen. Bei diesen Daten handelt es sich in der Regel um Metadaten Ihres Unternehmens, z. B. Produktinformationen für ein E-Commerce-Unternehmen oder Kursinformationen für einen Bildungsanbieter.
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
 Häufige Anwendungsfälle für Kataloge sind unter anderem:
 
@@ -27,13 +27,13 @@ Nachdem diese Informationen importiert wurden, können Sie in Nachrichten darauf
 
 Informationen zu unterstützten Katalogdatentypen, Beschreibungen, Erstellungs- und Aktualisierungsmöglichkeiten (CSV vs. API und CDI) sowie Format und Beispiele finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
-## Einen Katalog erstellen
+## Einen Katalog erstellen {#creating-a-catalog}
 
 Um einen Katalog zu erstellen, navigieren Sie zu **Dateneinstellungen** > **Kataloge**, wählen Sie **Neuen Katalog erstellen** und wählen Sie eine der folgenden Optionen:
 
 {% tabs local %}
 {% tab Upload CSV %}
-### 1. Schritt: Überprüfen Sie Ihre CSV-Datei
+### 1. Schritt: Überprüfen Sie Ihre CSV-Datei {#step-1-review-your-csv-file}
 
 Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden Anforderungen erfüllt:
 
@@ -53,7 +53,7 @@ Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden A
 Benötigen Sie mehr Platz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze Account Manager, um weitere Informationen über Katalog-Upgrades zu erhalten.
 {% endalert %}
 
-### 2. Schritt: CSV hochladen
+### 2. Schritt: CSV hochladen {#step-2-upload-csv}
 
 Ziehen Sie Ihre Datei per Drag-and-Drop in die Upload-Zone, oder wählen Sie **CSV hochladen** und wählen Sie Ihre Datei aus.
 
@@ -74,18 +74,18 @@ Geben Sie einen Namen und optional eine Beschreibung für Ihren Katalog ein. Bea
   - Darf nur Zahlen, Buchstaben, Bindestriche und Unterstriche enthalten
 
 {% alert tip %}
-Sie können auch [Templates in einem Katalognamen verwenden](#template-catalog-names), um Katalognamen basierend auf Variablen wie Sprache oder Kampagne dynamisch zu generieren.
+Sie können auch [Templates in einem Katalognamen verwenden](#template-catalog-names), um Katalognamen basierend auf Variablen wie Sprache oder Campaign dynamisch zu generieren.
 {% endalert %}
 
-![Ein Katalog mit dem Namen „my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![Ein Katalog mit dem Namen „my_catalog“.]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 Wählen Sie **Katalog verarbeiten**, um den Katalog zu erstellen.
 
 {% alert important %}
-Ihre CSV-Datei kann abgelehnt werden, wenn Sie Ihre [Tarifstufe](#tiers) überschreiten. 
+Ihre CSV-Datei kann abgelehnt werden, wenn Sie Ihre [Tarifstufe](#tiers) überschreiten.
 {% endalert %}
 
-### Anleitung: Erstellen eines Katalogs aus einer CSV-Datei
+### Anleitung: Erstellen eines Katalogs aus einer CSV-Datei {#tutorial-creating-a-catalog-from-a-csv-file}
 
 In dieser Anleitung verwenden wir einen Katalog, der zwei Spiele mit Preisangaben und einem Bildlink enthält.
 
@@ -119,25 +119,25 @@ In dieser Anleitung verwenden wir einen Katalog, der zwei Spiele mit Preisangabe
 </tbody>
 </table>
 
-Wir erstellen den Katalog, indem wir eine CSV-Datei hochladen. Die Datentypen für `id`, `title`, `price` und `image_link` sind String, String, Zahl und String. 
+Wir erstellen den Katalog, indem wir eine CSV-Datei hochladen. Die Datentypen für `id`, `title`, `price` und `image_link` sind String, String, Zahl und String.
 
 {% alert note %}
 Dieser Datentyp kann nicht mehr bearbeitet werden, nachdem Sie Ihren Katalog eingerichtet haben.
 {% endalert %}
 
-![Vier Katalogspaltennamen: „id", „title", „price", „image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
+![Vier Katalogspaltennamen: „id“, „title“, „price“, „image_link“.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-Als Nächstes benennen wir diesen Katalog „games_catalog" und wählen den Button **Katalog verarbeiten**. Anschließend prüft Braze den Katalog vor der Erstellung auf eventuelle Fehler.
+Als Nächstes benennen wir diesen Katalog „games_catalog“ und wählen den Button **Katalog verarbeiten**. Anschließend prüft Braze den Katalog vor der Erstellung auf eventuelle Fehler.
 
-![Ein Katalog mit dem Namen „games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
+![Ein Katalog mit dem Namen „games_catalog“.]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 Beachten Sie, dass Sie diesen Namen nicht mehr ändern können, nachdem der Katalog erstellt wurde. Sie können einen Katalog löschen und eine aktualisierte Version unter demselben Katalognamen erneut hochladen.
 
-Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Kampagne zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Campaign zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
 {% tab Create in browser %}
-### Voraussetzungen
+### Voraussetzungen {#prerequisites}
 
 Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für Ihren Workspace:
 
@@ -148,7 +148,7 @@ Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie 
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-### 1. Schritt: Katalogdetails eingeben
+### 1. Schritt: Katalogdetails eingeben {#step-1-enter-catalog-details}
 
 Geben Sie einen Namen und optional eine Beschreibung für Ihren Katalog ein. Beachten Sie bei der Benennung Ihres Katalogs die folgenden Anforderungen:
 
@@ -157,23 +157,23 @@ Geben Sie einen Namen und optional eine Beschreibung für Ihren Katalog ein. Bea
 - Darf nur Zahlen, Buchstaben, Bindestriche und Unterstriche enthalten
 
 {% alert tip %}
-Sie können auch [Templates in einem Katalognamen verwenden](#template-catalog-names), um Katalognamen basierend auf Variablen wie Sprache oder Kampagne dynamisch zu generieren.
+Sie können auch [Templates in einem Katalognamen verwenden](#template-catalog-names), um Katalognamen basierend auf Variablen wie Sprache oder Campaign dynamisch zu generieren.
 {% endalert %}
 
-![Ein Katalog mit dem Namen „my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![Ein Katalog mit dem Namen „my_catalog“.]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-### 2. Schritt: Ihren Katalog erstellen
+### 2. Schritt: Ihren Katalog erstellen {#step-2-create-your-catalog}
 
 Wählen Sie Ihren Katalog aus der Liste aus und wählen Sie anschließend **Katalog aktualisieren** > **Felder hinzufügen**. Geben Sie den **Feldnamen** ein und wählen Sie den Datentyp aus dem Dropdown-Menü aus. Wiederholen Sie den Vorgang nach Bedarf.
 
-![Zwei Beispielfelder „rating" und „name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
+![Zwei Beispielfelder „rating“ und „name“.]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
 Wählen Sie **Katalog aktualisieren** > **Artikel hinzufügen**, um einen Artikel zu Ihrem Katalog hinzuzufügen, indem Sie die Informationen auf der Grundlage der zuvor hinzugefügten Felder eingeben. Wählen Sie dann **Artikel speichern** oder **Speichern und weiteren hinzufügen**, um mit dem Hinzufügen Ihrer Artikel fortzufahren.
 
 ![Einen Katalogartikel hinzufügen.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
-Braze verarbeitet Zeitwerte basierend auf dem Zeitstempel des Dashboards. Wenn eine Spalte z. B. den Wert „03/13/2024" aufweist und Ihre Zeitzone die pazifische Zeitzone ist, wird dieser Zeitwert in Braze als „12. März 2024, 17:00 Uhr" importiert.
+Braze verarbeitet Zeitwerte basierend auf dem Zeitstempel des Dashboards. Wenn eine Spalte z. B. den Wert „03/13/2024“ aufweist und Ihre Zeitzone die pazifische Zeitzone ist, wird dieser Zeitwert in Braze als „12. März 2024, 17:00 Uhr“ importiert.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -182,7 +182,7 @@ Informationen zu Katalogdatentypen mit Format und Beispielen finden Sie unter [D
 
 ## Verwendung von Templates in Katalognamen {#template-catalog-names}
 
-Bei der Benennung Ihres Katalogs können Sie auch Templates in einem Katalognamen verwenden. Auf diese Weise können Sie Katalognamen dynamisch auf der Grundlage von Variablen wie Sprache oder Kampagne generieren. Sie können zum Beispiel Folgendes verwenden:
+Bei der Benennung Ihres Katalogs können Sie auch Templates in einem Katalognamen verwenden. Auf diese Weise können Sie Katalognamen dynamisch auf der Grundlage von Variablen wie Sprache oder Campaign generieren. Sie können zum Beispiel Folgendes verwenden:
 
 {% raw %}
 ```liquid
@@ -193,25 +193,25 @@ Bei der Benennung Ihres Katalogs können Sie auch Templates in einem Katalogname
 ```
 {% endraw %}
 
-## Verwaltung von Katalogen
+## Verwaltung von Katalogen {#managing-catalogs}
 
-### Im Dashboard
+### Im Dashboard {#in-the-dashboard}
 
 Um Ihren Katalog nach dem Hochladen einer CSV-Datei oder dem Erstellen eines Katalogs im Browser zu aktualisieren, wählen Sie **Katalog aktualisieren** > **CSV hochladen** und legen Sie anschließend fest, ob Sie Artikel in Ihrem Katalog aktualisieren, hinzufügen oder löschen möchten.
 
-### Verwendung der REST API
+### Verwendung der REST API {#using-the-rest-api}
 
-Wenn Sie mehr Kataloge erstellen, können Sie auch den [Endpunkt „Kataloge auflisten"]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) verwenden, um eine Liste der Kataloge in einem Workspace abzurufen.
+Wenn Sie mehr Kataloge erstellen, können Sie auch den [Endpunkt „Kataloge auflisten“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) verwenden, um eine Liste der Kataloge in einem Workspace abzurufen.
 
 Die REST API unterstützt alle [Katalogdatentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), einschließlich JSON-Objekte und String-Arrays. JSON-Objekte und String-Arrays können ausschließlich über die REST API erstellt oder aktualisiert werden.
 
-### Nutzung der Cloud-Datenaufnahme
+### Nutzung der Cloud-Datenaufnahme {#using-cloud-data-ingestion}
 
 Sie können Kataloge über die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) verwalten, indem Sie Katalogdaten direkt aus Ihrem Data Warehouse (wie Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric oder S3) nach einem festgelegten Zeitplan synchronisieren.
 
-## Katalogartikel verwalten
+## Katalogartikel verwalten {#managing-catalog-items}
 
-Neben der Verwaltung Ihrer Kataloge können Sie auch asynchrone und synchrone Endpunkte zur Verwaltung der Katalogartikel verwenden. Dazu gehört die Möglichkeit, Katalogartikel zu bearbeiten und zu löschen sowie Details zu Katalogartikeln aufzulisten. 
+Neben der Verwaltung Ihrer Kataloge können Sie auch asynchrone und synchrone Endpunkte zur Verwaltung der Katalogartikel verwenden. Dazu gehört die Möglichkeit, Katalogartikel zu bearbeiten und zu löschen sowie Details zu Katalogartikeln aufzulisten.
 
 Wenn Sie zum Beispiel einen einzelnen Katalogartikel bearbeiten möchten, können Sie den [`/catalogs/catalog_name/items/item_id`-Endpunkt]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/) verwenden.
 
@@ -223,15 +223,15 @@ Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgr�
 Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager.
 {% endalert %}
 
-#### Kostenlose Version
+#### Kostenlose Version {#free-version}
 
-Die Speichergröße der kostenlosen Version von Catalogs beträgt bis zu 100&nbsp;MB. Sie können eine unbegrenzte Anzahl von Artikeln haben, solange sie unter 100&nbsp;MB bleiben. 
+Die Speichergröße der kostenlosen Version von Catalogs beträgt bis zu 100&nbsp;MB. Sie können eine unbegrenzte Anzahl von Artikeln haben, solange sie unter 100&nbsp;MB bleiben.
 
 #### Catalogs Pro
 
 Bei Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
-## Spezifikationen
+## Spezifikationen {#specifications}
 
 Die folgende Tabelle fasst die Spezifikationen zusammen, die für Kataloge gelten.
 

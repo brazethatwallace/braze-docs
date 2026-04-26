@@ -7,29 +7,29 @@ page_type: reference
 description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter angepasster Attribute als Datentyp für angepasste Attribute, einschließlich Einschränkungen und Anwendungsbeispielen."
 ---
 
-# Verschachtelte angepasste Attribute
+# Verschachtelte angepasste Attribute {#nested-custom-attributes}
 
-> Diese Seite behandelt verschachtelte angepasste Attribute, mit denen Sie eine Reihe von Attributen als Eigenschaft eines anderen Attributs definieren können. Anders ausgedrückt: Wenn Sie ein angepasstes Attribut-Objekt definieren, können Sie eine Reihe zusätzlicher Attribute für dieses Objekt festlegen.
+> Diese Seite behandelt verschachtelte angepasste Attribute, die es Ihnen ermöglichen, eine Reihe von Attributen als Eigenschaft eines anderen Attributs zu definieren. Mit anderen Worten: Wenn Sie ein angepasstes Attribut-Objekt definieren, können Sie eine Reihe von zusätzlichen Attributen für dieses Objekt festlegen.
 
 {% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Hinweise
+## Beschränkungen {#considerations}
 
-- Verschachtelte angepasste Attribute sind für angepasste Attribute vorgesehen, die über das Braze SDK oder die API gesendet werden.
+- Verschachtelte angepasste Attribute sind für angepasste Attribute gedacht, die über das Braze SDK oder die API gesendet werden.
 - Objekte haben eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Objekt 100&nbsp;KB überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.
-- Schlüsselnamen und String-Werte haben ein Größenlimit von 255 Zeichen.
+- Schlüsselnamen und String-Werte dürfen maximal 255 Zeichen lang sein.
 - Schlüsselnamen dürfen keine Leerzeichen enthalten.
-- Punkte (`.`) und Dollarzeichen (`$`) werden in einem API-Payload nicht unterstützt, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
-- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home), um zu prüfen, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
-- Verschachtelte angepasste Attribute können nicht als Filter bei einem Connected Audience API-Aufruf verwendet werden.
+- Punkte (`.`) und Dollarzeichen (`$`) sind keine unterstützten Zeichen in einer API-Nutzlast, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
+- Nicht alle Braze Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
+- Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
 
-## API-Beispiel
+## API-Beispiel {#api-example}
 
 {% tabs local %}
 {% tab Create %}
-Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song"-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekt-Eigenschaften auflistet.
+Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song“-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekt-Eigenschaften auflistet.
 
 ```json
 {
@@ -111,7 +111,7 @@ Dieser Ansatz kann nicht verwendet werden, um einen verschachtelten Schlüssel i
 {% endtab %}
 {% endtabs %}
 
-## SDK-Beispiel
+## SDK-Beispiel {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
 
@@ -225,9 +225,9 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 {% endtab %}
 {% endtabs %}
 
-## Datumsangaben als Objekt-Eigenschaften erfassen
+## Datumsangaben als Objekt-Eigenschaften erfassen {#capturing-dates-as-object-properties}
 
-Um Datumsangaben als Objekt-Eigenschaften zu erfassen, müssen Sie den Schlüssel `$time` verwenden. Im folgenden Beispiel wird ein „Important Dates"-Objekt verwendet, um die Objekt-Eigenschaften `birthday` und `wedding_anniversary` zu erfassen. Der Wert für diese Datumsangaben ist ein Objekt mit einem `$time`-Schlüssel, der kein Null-Wert sein darf.
+Um Datumsangaben als Objekt-Eigenschaften zu erfassen, müssen Sie den Schlüssel `$time` verwenden. Im folgenden Beispiel wird ein „Important Dates“-Objekt verwendet, um die Objekt-Eigenschaften `birthday` und `wedding_anniversary` zu erfassen. Der Wert für diese Datumsangaben ist ein Objekt mit einem `$time`-Schlüssel, der kein Null-Wert sein darf.
 
 {% alert note %}
 Wenn Sie Datumsangaben nicht von Anfang an als Objekt-Eigenschaften erfasst haben, empfehlen wir, diese Daten mit dem `$time`-Schlüssel für alle Nutzer:innen erneut zu senden. Andernfalls kann dies zu unvollständigen Segmenten bei der Verwendung des `$time`-Attributs führen. Wenn der Wert für `$time` in einem verschachtelten angepassten Attribut jedoch nicht korrekt formatiert ist, wird das gesamte verschachtelte angepasste Attribut nicht aktualisiert.
@@ -235,7 +235,7 @@ Wenn Sie Datumsangaben nicht von Anfang an als Objekt-Eigenschaften erfasst habe
 
 ```json
 {
-  "attributes": [ 
+  "attributes": [
     {
       "external_id": "time_with_nca_test",
       "important_dates": {
@@ -258,14 +258,14 @@ Das folgende Liquid-Templating-Beispiel zeigt, wie Sie die angepassten Attribut-
 Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts (und die Position im Array, wenn Sie ein Objekt-Array referenzieren) an, gefolgt von einem Punkt, gefolgt vom Eigenschaftsnamen.
 
 {% raw %}
-`{{custom_attribute.${most_played_song}[0].artist_name}}` — „Miles Davis"
-<br> `{{custom_attribute.${most_played_song}[0].song_name}}` — „Solea"
-<br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — „1000"
+`{{custom_attribute.${most_played_song}[0].artist_name}}` — „Miles Davis“
+<br> `{{custom_attribute.${most_played_song}[0].song_name}}` — „Solea“
+<br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — „1000“
 {% endraw %}
 
 ![Verwendung von Liquid zum Einfügen eines Songnamens und der Anzahl der Wiedergaben in eine Nachricht]({% image_buster /assets/img_archive/nca_liquid_2.png %})
 
-### Personalisierung
+### Personalisierung {#personalization}
 
 Über das Modal **Personalisierung hinzufügen** können Sie auch verschachtelte angepasste Attribute in Ihr Messaging einfügen. Wählen Sie **Verschachtelte angepasste Attribute** als Personalisierungstyp aus. Wählen Sie dann das übergeordnete Attribut und den Attribut-Schlüssel aus.
 
@@ -296,15 +296,15 @@ Um das Schema für ein Objekt-Array mit einem vorhandenen Objekt zurückzusetzen
 
 Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, wird das Attribut möglicherweise nicht häufig genug erfasst. Nutzerdaten werden auf Basis zuvor an Braze gesendeter Daten für das jeweilige verschachtelte Attribut gesampelt. Wenn das Attribut nicht häufig genug erfasst wird, wird es nicht für das Schema berücksichtigt.
 
-## Änderungen an verschachtelten angepassten Attributen triggern
+## Änderungen an verschachtelten angepassten Attributen triggern {#trigger-nested-custom-attribute-changes}
 
 Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
 
-In einer aktionsbasierten Kampagne können Sie beispielsweise eine neue Aktion triggern für **Angepassten Attributwert ändern**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
+In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Angepassten Attributwert ändern**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
-![Aktionsbasierte Kampagnen-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
-## Segmentierungsverhalten bei Objekt-Arrays
+## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 
 Wenn Sie mehrere `Nested Custom Attribute`-Filter mit UND-Logik verwenden, um auf einem Objekt-Array zu segmentieren, wird jeder Filter unabhängig über alle Elemente im Array ausgewertet. Eine Nutzer:in qualifiziert sich für das Segment, wenn _irgendein_ Element im Array jeden einzelnen Filter erfüllt – die Filter müssen nicht auf _dasselbe_ Element zutreffen.
 
@@ -324,11 +324,11 @@ Ein Segment mit den folgenden UND-Filtern:
 - `orders[].price` ist größer als 50
 - `orders[].price` ist kleiner als 30
 
-Diese Nutzer:in würde sich qualifizieren, da der erste Filter auf das „Shoes"-Element zutrifft (80 > 50) und der zweite Filter auf das „Hat"-Element zutrifft (25 < 30). Obwohl kein einzelnes Element beide Bedingungen erfüllt, wird die Nutzer:in dennoch in das Segment aufgenommen.
+Diese Nutzer:in würde sich qualifizieren, da der erste Filter auf das „Shoes“-Element zutrifft (80 > 50) und der zweite Filter auf das „Hat“-Element zutrifft (25 < 30). Obwohl kein einzelnes Element beide Bedingungen erfüllt, wird die Nutzer:in dennoch in das Segment aufgenommen.
 
 Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multi-Kriterien-Segmentierung](#multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
 
-## Datenpunkte
+## Datenpunkte {#data-points}
 
 Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Beispielsweise verbraucht dieses im Nutzerprofil initialisierte Objekt sieben (7) Datenpunkte:
 

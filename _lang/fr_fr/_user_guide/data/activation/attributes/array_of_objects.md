@@ -4,22 +4,22 @@ article_title: Tableau d'objets
 alias: "/array_of_objects/"
 page_order: 2
 page_type: reference
-description: "Cet article de référence explique comment utiliser un tableau d'objets comme type de données pour les attributs personnalisés, y compris les limitations et des exemples d'utilisation."
+description: "Cet article de référence couvre l'utilisation d'un tableau d'objets comme type de données pour les attributs personnalisés, y compris les limitations et les exemples d'utilisation."
 ---
 
-# Tableau d'objets
+# Tableau d'objets {#array-of-objects}
 
-> Cette page explique comment utiliser un tableau d'objets pour regrouper des attributs liés. Par exemple, vous pouvez avoir un groupe d'objets animaux de compagnie, d'objets chansons et d'objets comptes appartenant tous à un même utilisateur. Ces tableaux d'objets peuvent être utilisés pour personnaliser vos messages avec Liquid, ou pour créer des segments d'audience si un élément d'un objet correspond aux critères.
+> Cette page explique comment utiliser un tableau d'objets pour regrouper des attributs connexes. Vous pouvez, par exemple, avoir un groupe d'objets « animaux de compagnie », un groupe d'objets « chansons » et un groupe d'objets « Compte » pour le même utilisateur. Ces tableaux d'objets peuvent être utilisés pour personnaliser votre envoi de messages avec Liquid, ou segmenter votre audience si un élément d'un objet correspond aux critères.
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Considérations
+## Restrictions {#considerations}
 
-- Les tableaux d'objets sont destinés aux attributs personnalisés envoyés via l'API. Les imports CSV ne sont pas pris en charge, car les virgules dans le fichier CSV sont interprétées comme des séparateurs de colonnes, et les virgules dans les valeurs provoquent des erreurs d'analyse.
+- Les tableaux d'objets sont destinés aux attributs personnalisés envoyés par l'API. Les téléchargements de fichiers CSV ne sont pas pris en charge, car les virgules dans le fichier CSV sont interprétées comme des séparateurs de colonnes, et les virgules dans les valeurs provoquent des erreurs d'analyse.
 - Les tableaux d'objets n'ont pas de limite quant au nombre d'éléments, mais leur taille maximale est de 100&nbsp;Ko. Si une mise à jour (comme `$add` ou `$update`) fait dépasser cette limite au tableau, Braze rejette la mise à jour et l'attribut reste inchangé. La requête API renvoie tout de même une réponse de succès. Pour maintenir le tableau sous la limite afin de pouvoir ajouter de nouveaux éléments, utilisez `$remove` pour supprimer des éléments du tableau au préalable.
-- Tous les partenaires Braze ne prennent pas en charge les tableaux d'objets. Consultez la [documentation partenaire]({{site.baseurl}}/partners/home) pour vérifier si l'intégration prend en charge cette fonctionnalité.
+- Tous les partenaires de Braze ne prennent pas en charge les tableaux d'objets. Consultez la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si l'intégration prend en charge cette fonctionnalité.
 
-La mise à jour ou la suppression d'éléments dans un tableau nécessite d'identifier l'élément par clé et valeur. Pensez donc à inclure un identifiant unique pour chaque élément du tableau. L'unicité est limitée au tableau et s'avère utile si vous souhaitez mettre à jour ou supprimer des objets spécifiques. Cela n'est pas imposé par Braze.
+La mise à jour ou la suppression d'éléments d'un tableau nécessite l'identification de l'élément par sa clé et sa valeur ; pensez donc à inclure un identifiant unique pour chaque élément du tableau. L'unicité est limitée au tableau et s'avère utile si vous souhaitez mettre à jour ou supprimer des objets spécifiques de votre tableau. Cela n'est pas imposé par Braze.
 
 {% alert important %}
 Lorsqu'un attribut personnalisé imbriqué dans votre requête contient des valeurs invalides (comme des formats de date/heure incorrects ou des valeurs `null`), Braze rejette toutes les mises à jour d'attributs personnalisés imbriqués de la requête. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi. Pour en savoir plus, consultez [Créer et mettre à jour des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
@@ -29,7 +29,7 @@ Lorsqu'un attribut personnalisé imbriqué dans votre requête contient des vale
 Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
 {% endalert %}
 
-## Exemple d'API
+## Exemple d'API {#api-example}
 
 {% tabs local %}
 {% tab Create %}
@@ -174,7 +174,7 @@ L'exemple suivant montre la suppression de tout objet du tableau `pets` dont l'`
 {% endtab %}
 {% endtabs %}
 
-### Ordre de traitement
+### Ordre de traitement {#processing-order}
 
 Lorsqu'une seule requête `/users/track` inclut des opérations `$add`, `$remove` et `$update` pour le même attribut de tableau, Braze les traite dans cet ordre :
 
@@ -184,7 +184,7 @@ Lorsqu'une seule requête `/users/track` inclut des opérations `$add`, `$remove
 
 Comme `$add` s'exécute avant `$remove`, vous ne pouvez pas utiliser un `$remove` suivi d'un `$add` comme mécanisme d'upsert au sein d'une même requête. Le `$add` est traité en premier, puis le `$remove` supprime l'élément. Pour effectuer un upsert, envoyez le `$remove` dans une requête séparée avant le `$add`.
 
-### Horodatages
+### Horodatages {#timestamps}
 
 Lorsque vous incluez des champs comme des horodatages dans un tableau d'objets, utilisez le format `$time` au lieu de chaînes de caractères simples ou d'entiers d'époque Unix.
 
@@ -211,7 +211,7 @@ Lorsque vous incluez des champs comme des horodatages dans un tableau d'objets, 
 Pour en savoir plus, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
 {% endalert %}
 
-## Exemple SDK
+## Exemple SDK {#sdk-example}
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -519,17 +519,17 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endtab %}
 {% endtabs %}
 
-## Modèles Liquid
+## Modèles Liquid {#liquid-templating}
 
 Vous pouvez utiliser ce tableau `pets` pour personnaliser un message. L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans vos messages.
 
 {% raw %}
 ```liquid
-{% assign pets = {{custom_attribute.${pets}}} %} 
- 
+{% assign pets = {{custom_attribute.${pets}}} %}
+
 {% for pet in pets %}
 I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
-{% endfor %} 
+{% endfor %}
 ```
 {% endraw %}
 
@@ -548,7 +548,7 @@ Utilisez la notation par points pour spécifier quel champ du tableau d'objets v
 Par exemple, si vous souhaitez filtrer un tableau d'objets `top_3_movies` en fonction du champ `type`, saisissez `[].type` et choisissez les films à filtrer, comme `Fantasy Movie`.
 
 
-### Niveaux d'imbrication
+### Niveaux d'imbrication {#levels-of-nesting}
 
 Vous pouvez créer un segment avec un seul niveau d'imbrication de tableau (un tableau à l'intérieur d'un autre tableau). Par exemple, avec les attributs suivants, vous pouvez créer un segment pour `pets[].name` contient `Gus`, mais vous ne pouvez pas créer un segment pour `pets[].nicknames[]` contient `Gugu`.
 
@@ -586,7 +586,7 @@ Vous pouvez créer un segment avec un seul niveau d'imbrication de tableau (un t
 ```
 {% endraw %}
 
-## Points de donnée
+## Points de donnée {#data-points}
 
 Les points de donnée sont comptabilisés différemment selon que vous créez, mettez à jour ou supprimez une propriété.
 

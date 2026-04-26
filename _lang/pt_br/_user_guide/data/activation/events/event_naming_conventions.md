@@ -3,36 +3,36 @@ nav_title: Convenções de nomenclatura de eventos
 article_title: Convenções de nomenclatura de eventos
 page_order: 4
 page_type: reference
-description: "Este artigo de referência aborda as convenções de nomenclatura de eventos e as melhores práticas."
+description: "Este artigo de referência aborda as convenções adequadas de nomenclatura de eventos e as práticas recomendadas."
 
 ---
 
-# Convenções de nomenclatura de eventos
+# Convenções de nomenclatura de eventos {#event-naming-conventions}
 
-> Esta página aborda as convenções de nomenclatura de eventos e as melhores práticas. Ao manter a consistência na taxonomia de eventos e atributos, seus dados permanecerão limpos e utilizáveis para usuários novos e existentes da plataforma Braze. Isso ajuda a evitar problemas futuros, como disparar uma campanha para o público errado ou gerar resultados incorretos ao usar o evento errado.
+> Esta página aborda as convenções adequadas de nomenclatura de eventos e as práticas recomendadas. Ao manter a consistência em sua taxonomia de eventos e atribuições, você manterá seus dados limpos e utilizáveis por usuários novos e existentes da plataforma Braze. Isso ajuda a evitar problemas posteriores, como disparar uma campanha para o público errado ou gerar resultados errados depois de usar o evento errado.
 
-## Melhores práticas
+## Melhores práticas {#best-practices}
 
 - Mantenha sua convenção de nomenclatura clara.
-- Use formatação e caixa (maiúsculas/minúsculas) consistentes nos nomes dos eventos.
-- Evite dar nomes semelhantes a eventos diferentes.
-- Evite strings longas de atributos de eventos, pois elas serão truncadas ou cortadas no dashboard da Braze.
+- Use letras maiúsculas e minúsculas e formatação consistentes nos nomes dos eventos.
+- Evite dar nomes semelhantes aos eventos.
+- Evite longas strings de atribuições de eventos, que serão truncadas ou cortadas no dashboard da Braze.
 
-## Convenções de nomenclatura
+## Convenções de nomenclatura {#naming-conventions}
 
-### Use grupos de eventos
+### Usar grupos de eventos {#use-event-groups}
 
-Use grupos para diferenciar partes do seu produto ao nomear eventos. Ao categorizar seu produto em grupos, qualquer usuário pode entender claramente a que o evento se refere e o que ele faz.
+Use grupos para diferenciar partes de seu produto para nomear eventos. Ao categorizar seu produto em grupos, qualquer usuário pode entender claramente a que o evento se refere e o que ele faz.
 
-### Estrutura de nomenclatura de eventos
+### Estrutura de nomenclatura de eventos {#event-naming-structure}
 
-A estrutura de nomenclatura mais comum é `group_noun_action`. Todos os eventos devem estar em letras minúsculas para evitar erros de instrumentação de caixa e para facilitar a identificação de propriedades.
+A estrutura de nomes mais comum é `group_noun_action`. Os eventos devem ser todos em letras minúsculas para evitar erros de instrumentação e identificação de propriedades.
 
-### Propriedades
+### Propriedades {#properties}
 
-Crie uma tag para um evento e depois identifique as diferenças usando propriedades. Isso é útil para eventos que são essencialmente iguais, mas possuem pequenas diferenças, como canais de uma campanha. Dessa forma, também podemos ver facilmente como os usuários fluem pelos eventos. Consulte o [objeto de propriedades de evento]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) para ver um exemplo e obter mais contexto.
+Tag um evento e, em seguida, identifique as diferenças usando as propriedades. Isso é útil para eventos que são inerentemente iguais, mas têm pequenas diferenças, como canais de uma campanha. Dessa forma, também podemos ver facilmente como os usuários fluem pelos eventos. Consulte o [objeto de propriedades de evento]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) para ver um exemplo e obter mais contexto.
 
-## Exemplos
+## Exemplos {#examples}
 
 Digamos que você faz parte de uma empresa de eCommerce e deseja rastrear quando os clientes se cadastraram no seu app e quando se inscreveram na sua newsletter. Aqui estão exemplos de nomes de eventos eficazes:
 

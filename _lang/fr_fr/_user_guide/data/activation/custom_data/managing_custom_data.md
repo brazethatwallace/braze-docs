@@ -6,13 +6,13 @@ page_type: reference
 description: "Cet article de référence explique comment gérer les événements et attributs personnalisés : pré-remplissage, ajout de descriptions et d'étiquettes, gestion des propriétés d'événement, forçage des types de données et marquage des attributs comme données personnelles."
 ---
 
-# Gérer les données personnalisées
+# Gérer les données personnalisées {#manage-custom-data}
 
 > Cette page explique comment pré-remplir les données personnalisées dans vos campagnes et segments, gérer les événements et attributs personnalisés ainsi que leurs propriétés, et configurer les types de données. Pour le blocage et la suppression de données personnalisées, consultez [Bloquer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
 Pour savoir comment gérer les attributs personnalisés en particulier (ajout de descriptions, ajout d'étiquettes et marquage des attributs comme données personnelles), reportez-vous à la section [Gestion des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes).
 
-## Pré-remplissage des données personnalisées
+## Pré-remplissage des données personnalisées {#pre-populate-custom-data}
 
 Il peut arriver que vous souhaitiez implémenter des campagnes et des segments à l'aide de données personnalisées avant que votre équipe de développement n'ait intégré ces données. Braze vous permet de pré-renseigner des événements et des attributs personnalisés sur le tableau de bord avant que ne commence le suivi de ces données, pour que ces événements et attributs soient disponibles dans les menus déroulants et durant le processus de création de campagnes.
 
@@ -20,17 +20,17 @@ Pour pré-remplir les événements et attributs personnalisés, procédez comme 
 
 1. Allez dans **Paramètres des données** > **Événements personnalisés** ou **Attributs personnalisés** ou **Produits**.
 
-![Naviguez jusqu'à Attributs personnalisés ou Événements personnalisés ou Produits.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
+![Naviguez jusqu'à Attributs personnalisés, Événements personnalisés ou Produits.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
 2. Pour ajouter un attribut personnalisé, un événement personnalisé ou un produit, rendez-vous sur la page correspondante et sélectionnez **Ajouter des attributs personnalisés**, **Ajouter des événements personnalisés** ou **Ajouter des produits**.<br><br>Pour les attributs personnalisés, sélectionnez un [type de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) pour cet attribut (par exemple, valeur booléenne ou chaîne de caractères). Le type de données d'un attribut détermine les filtres de segmentation disponibles pour cet attribut. <br><br>![Ajouter un nouvel attribut ou événement]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
 3. Sélectionnez **Enregistrer**.
 
-### Attribution de noms aux événements et attributs personnalisés
+### Attribution de noms aux événements et attributs personnalisés {#naming-custom-events-and-custom-attributes}
 
 Les événements personnalisés et les attributs personnalisés sont sensibles à la casse. Gardez cela à l'esprit lorsque votre équipe de développement intégrera ultérieurement ces événements et attributs personnalisés. Les noms doivent correspondre exactement à ceux que vous avez définis ici, sinon Braze générera un événement ou un attribut personnalisé différent.
 
-## Gestion des propriétés
+## Gestion des propriétés {#managing-properties}
 
 Après avoir créé un événement personnalisé ou un produit, sélectionnez **Gérer les propriétés** de cet événement ou de ce produit pour ajouter de nouvelles propriétés, bloquer des propriétés existantes et afficher les campagnes ou les Canvas qui utilisent cette propriété dans un [événement déclencheur]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
@@ -42,7 +42,7 @@ Pour assurer la traçabilité des attributs personnalisés, événements, produi
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
-## Détection du type de données selon les environnements
+## Détection du type de données selon les environnements {#data-type-detection-across-environments}
 
 Braze détecte automatiquement le type de données d'un attribut personnalisé en fonction de la première valeur reçue. Si votre environnement de développement envoie d'abord une valeur numérique comme `100`, l'attribut est stocké en tant que nombre. Si la première valeur provenant de votre environnement de production arrive sous forme de chaîne de caractères (par exemple `"100"` entre guillemets), l'attribut est stocké en tant que chaîne de caractères.
 
@@ -66,13 +66,13 @@ Le forçage des types de données ne s'applique pas aux propriétés d'événeme
 Si vous choisissez de forcer le type de données d'un attribut, toute donnée entrante qui n'est pas du type spécifié sera contrainte dans ce type. Si une telle coercition est impossible (par exemple, une chaîne de caractères contenant des lettres convertie en nombre), les données seront ignorées. Toutes les données ingérées avant le changement de type continueront d'être stockées sous l'ancien type (et ne pourront donc pas être segmentées), et un avertissement apparaîtra à côté de l'attribut sur les profils des utilisateurs concernés.
 {% endalert %}
 
-### Données existantes après un changement de type
+### Données existantes après un changement de type {#existing-data-after-a-type-change}
 
 Forcer un changement de type de données n'affecte que les nouvelles données entrantes dans Braze. Toutes les données ingérées avant le changement de type continuent d'être stockées sous l'ancien type et peuvent ne pas être segmentables avec les filtres du nouveau type. Un avertissement apparaît sur les profils des utilisateurs concernés. Pour les nouvelles données entrantes, si une valeur ne correspond pas au type forcé, Braze peut la contraindre dans le type forcé (par exemple, la chaîne de caractères `"100"` vers le nombre `100`) ; les valeurs qui ne peuvent pas être contraintes sont ignorées et ne mettent pas à jour l'attribut.
 
 Si vous avez besoin que toutes les données utilisateur existantes correspondent au nouveau type, vous devez renvoyer les valeurs de l'attribut pour ces utilisateurs via le SDK, l'API ou un import CSV. Il n'existe pas de conversion automatique en masse pour les données existantes.
 
-### Coercition de type de données
+### Coercition de type de données {#data-type-coercion}
 
 | Type de données forcé | Description |
 |------------------|-------------|
@@ -84,5 +84,5 @@ Si vous avez besoin que toutes les données utilisateur existantes correspondent
 Pour plus d'informations sur les options de filtrage spécifiques exposées par les différentes comparaisons de types de données, consultez la section [Configuration des rapports]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Pour plus d'informations sur les différents types de données disponibles, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
 
 {% alert note %}
-Les données envoyées à Braze sont immuables et ne peuvent être ni supprimées ni modifiées après leur réception. Cependant, vous pouvez recourir à l'une des méthodes décrites dans les sections précédentes pour contrôler ce que vous suivez dans votre tableau de bord. Pour bloquer ou supprimer des données personnalisées, consultez [Bloquer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+Les données envoyées à Braze sont immuables et ne peuvent être ni supprimées ni modifiées après leur réception par Braze. Cependant, vous pouvez recourir à l'une des méthodes décrites dans les sections précédentes pour contrôler ce que vous suivez dans votre tableau de bord. Pour bloquer ou supprimer des données personnalisées, consultez [Bloquer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 {% endalert %}
