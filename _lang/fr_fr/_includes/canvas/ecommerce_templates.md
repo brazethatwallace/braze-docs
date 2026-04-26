@@ -1,44 +1,44 @@
 {% tabs %}
 {% tab Abandoned browse %}
 
-### Navigation abandonnée
+### Navigation abandonnée {#abandoned-browse}
 
 Utilisez le modèle **Abandon de navigation** pour engager les utilisateurs qui ont consulté des produits sans les ajouter à leur panier ni passer de commande.
 
-![Un modèle Canvas « Abandoned Browse » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/abandoned_browse.png %})
+![Un modèle Canvas « Abandon de navigation » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/abandoned_browse.png %})
 
-#### Configuration
+#### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Abandon de navigation**. 
+Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Abandon de navigation**.
 
-##### Paramètres par défaut
+##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
-- Bases 
+- Bases
     - Nom du Canvas : **Navigation abandonnée**
     - Événement de conversion : `ecommerce.order placed`
-        - Date limite de conversion : 3 jours 
-- Planification d'entrée 
+        - Date limite de conversion : 3 jours
+- Planification d'entrée
     - Basé sur l'action lorsqu'un utilisateur effectue l'événement `ecommerce.product_viewed`
-    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br> 
-- Audience cible 
-    - Audience d'entrée 
+    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br>
+- Audience cible
+    - Audience d'entrée
         - L'e-mail **n'est pas vide**
         - Vous pouvez également modifier les critères de l'audience d'entrée pour répondre aux besoins de votre entreprise
     - Contrôles d'entrée
         - Les utilisateurs peuvent réintégrer ce Canvas une fois sa durée totale écoulée
-    - Critères de sortie 
-        - Effectue `ecommerce.cart_updated`, `ecommerce.checkout_started` ou `ecommerce.order_placed`<br><br>![Contrôles d'entrée et critères de sortie pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry_exit.png %})<br><br> 
-- Paramètres d'envoi 
-    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in) 
+    - Critères de sortie
+        - Effectue `ecommerce.cart_updated`, `ecommerce.checkout_started` ou `ecommerce.order_placed`<br><br>![Contrôles d'entrée et critères de sortie pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry_exit.png %})<br><br>
+- Paramètres d'envoi
+    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in)
 - Étape de délai
-    - Délai de 1 heure
-- Étape de message 
+    - Délai d'une heure
+- Étape de message
     - Consultez le modèle d'e-mail et le bloc HTML avec un exemple de modèle Liquid pour ajouter des produits à votre message dans le modèle préconstruit. Si vous utilisez votre propre modèle d'e-mail, vous pouvez également vous référer aux [variables Liquid](#message-personalization), comme illustré dans la section suivante.
 
-#### Personnalisation des produits pour les e-mails de navigation abandonnée 
+#### Personnalisation des produits pour les e-mails de navigation abandonnée {#abandoned-browse-product-personalization-for-emails}
 
-Voici un exemple montrant comment ajouter un bloc HTML de produit à votre e-mail de navigation abandonnée. 
+Voici un exemple montrant comment ajouter un bloc HTML de produit à votre e-mail de navigation abandonnée.
 
 {% raw %}
 ```java
@@ -56,53 +56,53 @@ Voici un exemple montrant comment ajouter un bloc HTML de produit à votre e-mai
 ```
 {% endraw %}
 
-##### URL du produit
+##### URL du produit {#product-url}
 
 {% raw %}
 ```liquid
 {{context.${product_url}}}
 ```
-{% endraw %}    
+{% endraw %}
 
 {% endtab %}
 {% tab Abandoned cart %}
 
-### Panier abandonné
+### Panier abandonné {#abandoned-cart}
 
-Utilisez le modèle **Panier abandonné** pour récupérer les ventes potentiellement perdues de clients ayant ajouté des produits à leur panier sans poursuivre vers le paiement ni passer de commande. 
+Utilisez le modèle **Panier abandonné** pour récupérer les ventes potentiellement perdues de clients ayant ajouté des produits à leur panier sans poursuivre vers le paiement ni passer de commande.
 
-![Un modèle Canvas « Abandoned Cart » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/abandoned_cart.png %})
+![Un modèle Canvas « Panier abandonné » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### Configuration
+#### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Panier abandonné**. 
+Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Panier abandonné**.
 
-##### Paramètres par défaut
+##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
-- Bases 
+- Bases
     - Nom du Canvas : **Panier abandonné**
     - Événement de conversion : `ecommerce.order_placed`
-        - Date limite de conversion : 3 jours 
-- Planification d'entrée 
+        - Date limite de conversion : 3 jours
+- Planification d'entrée
     - Déclencheur basé sur l'action lorsqu'un utilisateur déclenche l'événement **Perform Cart Updated Event** (situé dans la liste déroulante)
-    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br> 
-- Audience cible 
-    - Audience d'entrée 
-        - A utilisé ces applications **plus de 0** fois 
+    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
+- Audience cible
+    - Audience d'entrée
+        - A utilisé ces applications **plus de 0** fois
         - L'e-mail **n'est pas vide**
     - Contrôles d'entrée
         - Les utilisateurs sont immédiatement rééligibles pour entrer dans le Canvas
-    - Critères de sortie 
-        - Effectue `ecommerce.cart_updated`, `ecommerce.checkout_started` ou `ecommerce.order_placed`<br><br>![Contrôles d'entrée et critères de sortie pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry_exit.png %})<br><br> 
-- Paramètres d'envoi 
-    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in) 
+    - Critères de sortie
+        - Effectue `ecommerce.cart_updated`, `ecommerce.checkout_started` ou `ecommerce.order_placed`<br><br>![Contrôles d'entrée et critères de sortie pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry_exit.png %})<br><br>
+- Paramètres d'envoi
+    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in)
 - Étape de délai
      - Délai de 4 heures
-- Étape de message 
+- Étape de message
     - Consultez le modèle d'e-mail et le bloc HTML avec un exemple de modèle Liquid pour ajouter des produits à votre message dans le modèle préconstruit. Si vous utilisez votre propre modèle d'e-mail, vous pouvez également vous référer aux [variables Liquid](#message-personalization), comme illustré dans la section suivante.
 
-#### Fonctionnement de la logique de réentrée pour le panier abandonné
+#### Fonctionnement de la logique de réentrée pour le panier abandonné {#how-abandoned-cart-re-entry-logic-works}
 
 Lorsqu'un utilisateur commence le processus de paiement, son panier est marqué comme `checkout_started`. À partir de ce moment, toute mise à jour ultérieure du panier avec le même ID de panier ne permettra pas à l'utilisateur de réintégrer le parcours de panier abandonné.
 
@@ -115,9 +115,9 @@ Lorsque les utilisateurs passent au parcours de paiement, ils sont ciblés par l
 
 #### Personnalisation des produits du panier abandonné pour les e-mails {#abandoned-cart-checkout}
 
-Les parcours de panier abandonné nécessitent une étiquette Liquid spéciale `shopping_cart` pour la personnalisation des produits. 
+Les parcours de panier abandonné nécessitent une étiquette Liquid spéciale `shopping_cart` pour la personnalisation des produits.
 
-Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liquid `shopping_cart` pour intégrer des produits dans votre e-mail. 
+Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liquid `shopping_cart` pour intégrer des produits dans votre e-mail.
 
 {% raw %}
 ```java
@@ -144,10 +144,10 @@ Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liq
 {% endraw %}
 
 {% alert note %}
-Si vous utilisez Shopify, ajoutez le nom de votre catalogue pour obtenir l'URL de l'image de la variante. 
+Si vous utilisez Shopify, ajoutez le nom de votre catalogue pour obtenir l'URL de l'image de la variante.
 {% endalert %}
 
-##### URL du panier en HTML
+##### URL du panier en HTML {#html-cart-url}
 
 Si vous souhaitez rediriger les utilisateurs vers leur panier, vous pouvez ajouter une propriété d'événement imbriquée sous l'objet de métadonnées, par exemple :
 
@@ -161,54 +161,54 @@ Si vous utilisez Shopify, créez l'URL de votre panier en utilisant ce modèle L
 
 {% raw %}
 ```liquid
-{{context.${source}}}/checkouts/cn/{{context.${cart_id}}} 
+{{context.${source}}}/checkouts/cn/{{context.${cart_id}}}
 ```
 {% endraw %}
 
 {% endtab %}
 {% tab Abandoned checkout %}
 
-### Paiement abandonné
+### Paiement abandonné {#abandoned-checkout}
 
-Utilisez le modèle **Paiement abandonné** pour cibler les clients qui ont commencé le processus de paiement mais sont partis avant de passer leur commande. 
+Utilisez le modèle **Paiement abandonné** pour cibler les clients qui ont commencé le processus de paiement mais sont partis avant de passer leur commande.
 
-![Un modèle Canvas « Abandoned Checkout » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
+![Un modèle Canvas « Paiement abandonné » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### Configuration
+#### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Paiement abandonné**. 
+Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Paiement abandonné**.
 
-##### Paramètres par défaut
+##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 
-- Bases 
+- Bases
     - Nom du Canvas : **Paiement abandonné**
     - Événement de conversion : `ecommerce.order_placed`
-        - Date limite de conversion : 3 jours 
-- Planification d'entrée 
+        - Date limite de conversion : 3 jours
+- Planification d'entrée
     - Déclencheur basé sur l'action lorsqu'un utilisateur effectue l'événement `ecommerce.checkout_started`
     - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
-- Audience cible 
-    - Audience d'entrée 
-        - A utilisé ces applications **plus de 0** fois 
+- Audience cible
+    - Audience d'entrée
+        - A utilisé ces applications **plus de 0** fois
         - L'e-mail **n'est pas vide**
     - Contrôles d'entrée
         - Les utilisateurs sont immédiatement rééligibles pour entrer dans le Canvas
-        - Critères de sortie 
+        - Critères de sortie
             - Effectue les événements `ecommerce.order_placed`<br><br>![Contrôles d'entrée et critères de sortie pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
-- Paramètres d'envoi 
-    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in) 
+- Paramètres d'envoi
+    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in)
 - Étape de délai
     - Délai de 4 heures
-- Étape de message 
+- Étape de message
     - Consultez le modèle d'e-mail et le bloc HTML avec un exemple de modèle Liquid pour ajouter des produits à votre message dans le modèle préconstruit. Si vous utilisez votre propre modèle d'e-mail, vous pouvez également vous référer aux [variables Liquid](#message-personalization), comme illustré dans la section suivante.
 
-#### Personnalisation des e-mails de paiement abandonné
+#### Personnalisation des e-mails de paiement abandonné {#abandoned-checkout-personalization-for-emails}
 
-Les parcours de paiement abandonné nécessitent une étiquette Liquid spéciale `shopping_cart` pour la personnalisation des produits. 
+Les parcours de paiement abandonné nécessitent une étiquette Liquid spéciale `shopping_cart` pour la personnalisation des produits.
 
-Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liquid `shopping_cart` pour intégrer des produits dans votre e-mail. 
+Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liquid `shopping_cart` pour intégrer des produits dans votre e-mail.
 
 {% raw %}
 ```java
@@ -245,7 +245,7 @@ Le paramètre `abort_if_not_abandoned` est spécifique au cas d'usage du paiemen
 
 Définissez `abort_if_not_abandoned` sur `false` lorsque vous souhaitez envoyer le rappel de paiement indépendamment du fait que le panier soit encore considéré comme abandonné au moment de l'envoi. Si vous omettez le paramètre ou le définissez sur `true`, Braze annule le message pour les utilisateurs ayant déjà finalisé leur achat.
 
-##### URL de paiement
+##### URL de paiement {#checkout-url}
 
 {% raw %}
 ```liquid
@@ -256,41 +256,41 @@ Définissez `abort_if_not_abandoned` sur `false` lorsque vous souhaitez envoyer 
 {% endtab %}
 {% tab Order confirmation and feedback survey %}
 
-### Confirmation de commande et enquête de satisfaction
+### Confirmation de commande et enquête de satisfaction {#order-confirmation-and-feedback-survey}
 
 Utilisez le modèle **Confirmation de commande et enquête de satisfaction** pour confirmer les commandes réussies et améliorer la satisfaction des clients.
 
-![Un modèle Canvas « Order confirmation » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
+![Un modèle Canvas « Confirmation de commande » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### Configuration
+#### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Confirmation de commande et enquête de satisfaction**. 
+Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Confirmation de commande et enquête de satisfaction**.
 
-##### Paramètres par défaut
+##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 
-- Bases 
+- Bases
     - Nom du Canvas : **Confirmation de commande avec enquête de satisfaction**
     - Événement de conversion : `ecommerce.session_start`
-        - Date limite de conversion : 10 jours 
-- Planification d'entrée 
+        - Date limite de conversion : 10 jours
+- Planification d'entrée
     - Déclencheur basé sur l'action lorsqu'un utilisateur effectue l'événement `ecommerce.cart_updated`
     - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
-- Audience cible 
-    - Audience d'entrée 
-        - A utilisé ces applications **plus de 0** fois 
+- Audience cible
+    - Audience d'entrée
+        - A utilisé ces applications **plus de 0** fois
         - L'e-mail **n'est pas vide**
     - Contrôles d'entrée
         - Les utilisateurs sont immédiatement rééligibles pour entrer dans le Canvas
-    - Critères de sortie 
+    - Critères de sortie
         - Sans objet<br><br>![Filtres supplémentaires et contrôles d'entrée pour le Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry_exit.png %})<br><br>
-- Paramètres d'envoi 
-    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in) 
-- Étape de message 
+- Paramètres d'envoi
+    - Utilisateurs abonnés ou ayant donné leur accord explicite (opt-in)
+- Étape de message
     - Consultez le modèle d'e-mail et le bloc HTML avec un exemple de modèle Liquid pour ajouter des produits à votre message dans le modèle préconstruit. Si vous utilisez votre propre modèle d'e-mail, vous pouvez également vous référer aux [variables Liquid](#message-personalization), comme illustré dans la section suivante.
 
-#### Personnalisation des e-mails de confirmation de commande
+#### Personnalisation des e-mails de confirmation de commande {#order-confirmation-personalization-for-emails}
 
 Voici un exemple montrant comment ajouter un bloc HTML de produit à votre confirmation de commande après qu'une commande a été passée.
 
@@ -314,7 +314,7 @@ Voici un exemple montrant comment ajouter un bloc HTML de produit à votre confi
 ```
 {% endraw %}
 
-##### URL du statut de la commande
+##### URL du statut de la commande {#order-status-url}
 
 {% raw %}
 ```liquid

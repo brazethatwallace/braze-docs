@@ -142,21 +142,21 @@ table td {
 {% if include.variable_name == "email" %}
 
 | Tipo de correo electrónico | Propiedades máximas recomendadas |
-| --- | --- | 
+| --- | --- |
 | Solo texto | 25 KB |
 | Texto con imágenes | 60 KB |
 | Anchura del correo electrónico | 600 px |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Especificaciones de imagen | Propiedades máximas recomendadas |
-| --- | --- | 
+| --- | --- |
 | Tamaño | 5 MB |
 | Ancho | Encabezado: 600 px<br>Cuerpo: 480 px |
 | Tipos de archivo | PNG, JPEG, GIF<br><br> La compatibilidad con imágenes WebP varía según el cliente de correo electrónico. Para garantizar una visualización fiable, convierte las imágenes WebP a PNG o JPEG antes de añadirlas a los mensajes de correo electrónico. |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Especificaciones del texto | Propiedades máximas recomendadas |
-| --- | --- | 
+| --- | --- |
 | Longitud de la línea del asunto | 35 caracteres<br>De 6 a 10 palabras |
 | Longitud de `"From: Name"` | 25 caracteres |
 | Longitud del preencabezado | 85 caracteres |
@@ -173,7 +173,7 @@ table td {
 | Banner    | Cualquier relación de aspecto | 600&nbsp;px de anchura mínima |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
 
-Para más información, consulta [Detalles creativos de las tarjetas de contenido]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
 
 {% endif %}
 

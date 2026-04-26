@@ -6,25 +6,25 @@ page_type: reference
 description: "Este artigo explica como visualizar e interpretar os resultados de uma campanha multivariante ou de testes A/B."
 ---
 
-# Análise de dados de testes multivariantes e A/B
+# Análise de dados de testes multivariantes e A/B {#multivariate-and-ab-test-analytics}
 
 > Este artigo explica como visualizar os resultados de um teste multivariante ou A/B. Se você ainda não configurou seu teste, consulte [Criar testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) para ver o passo a passo.
 
 Após o lançamento da sua campanha, você pode verificar o desempenho de cada variante selecionando sua campanha na seção **Campaigns** do dashboard.
 
-## Análise de dados por opção de otimização
+## Análise de dados por opção de otimização {#analytics-by-optimization-option}
 
 A visualização da análise de dados varia dependendo da [otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) selecionada durante a configuração inicial.
 
-### Sem otimização
+### Sem otimização {#no-optimization}
 
 Se você selecionou **No optimization** ao configurar sua campanha, a visualização da análise de dados permanecerá a mesma. A página **Campaign Analytics** da sua campanha mostrará o desempenho das suas variantes em comparação com o grupo de controle, caso você tenha incluído um.
 
-![Seção de performance da página Campaign Analytics para uma campanha de e-mail com múltiplas variantes. A tabela lista diversas métricas de performance para cada variante, como destinatários, bounces, cliques e conversões.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
+![Seção de desempenho da página Campaign Analytics para uma campanha de e-mail com múltiplas variantes. A tabela lista diversas métricas de desempenho para cada variante, como destinatários, bounces, cliques e conversões.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-Para mais detalhes, consulte o artigo [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) do seu canal de envio de mensagens.
+Para mais detalhes, consulte o artigo [Análise de dados de campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) do seu canal de envio de mensagens.
 
-### Variante vencedora
+### Variante vencedora {#winning-variant}
 
 Se você selecionou **Winning Variant** como otimização ao configurar sua campanha, você terá acesso a uma guia adicional na análise de dados da campanha chamada **A/B Test Result**. Após a variante vencedora ser enviada aos usuários restantes do seu teste, essa guia mostra os resultados desse envio.
 
@@ -41,7 +41,7 @@ Se nenhuma variante superou todas as outras com 95% de intervalo de confiança e
 
 ![Resultados de um teste inicial enviado para determinar a variante vencedora, onde nenhuma variante teve desempenho melhor que as outras com intervalo de confiança suficiente para atingir o limite de 95% de significância estatística.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
-#### Como a variante vencedora é selecionada
+#### Como a variante vencedora é selecionada {#how-the-winning-variant-is-selected}
 
 A Braze testa todas as variantes entre si usando [testes qui-quadrado de Pearson](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Isso mede se uma variante supera estatisticamente todas as outras em um nível de significância de p < 0,05, ou o que chamamos de 95% de significância. Se sim, a variante vencedora é indicada com o rótulo "Winner".
 
@@ -138,7 +138,7 @@ Em geral, um intervalo de confiança de pelo menos 95% é necessário para demon
 
 O intervalo de confiança não indica se uma variante é melhor que as outras. É puramente uma medida de quão certos estamos de que as duas (ou mais) taxas de conversão são realmente diferentes entre si. Isso depende apenas do tamanho da amostra e das diferenças entre as taxas de conversão aparentes. Se as taxas gerais são altas ou baixas não afeta a força da medida de intervalo de confiança. É possível que uma variante tenha uma taxa de conversão muito diferente de outra e ainda assim não tenha um intervalo de confiança de 95% ou mais. Também é possível que dois conjuntos de variantes tenham taxas de conversão/aumento semelhantes, mas intervalos de confiança diferentes.
 
-### Resultados estatisticamente insignificantes
+### Resultados estatisticamente insignificantes {#statistically-insignificant-results}
 
 Um teste que não atinge 95% de intervalo de confiança ainda pode conter insights importantes. Veja algumas coisas que você pode aprender com um teste com resultados estatisticamente insignificantes:
 
@@ -149,7 +149,7 @@ Um teste que não atinge 95% de intervalo de confiança ainda pode conter insigh
 
 Independentemente de o seu teste ter uma vencedora clara, pode ser útil executar um [teste de acompanhamento](#recommended-follow-ups) para confirmar seus resultados ou aplicar suas descobertas a um cenário ligeiramente diferente.
 
-## Discrepâncias entre o grupo de controle e a variante
+## Discrepâncias entre o grupo de controle e a variante {#discrepancies-between-the-control-group-and-variant}
 
 Em campanhas de mensagens no app, a forma como os usuários são rastreados e como as impressões são registradas pode causar discrepâncias na divisão esperada entre o grupo de controle e a variante. Isso acontece porque as impressões reais registradas podem não refletir essa divisão, e a Braze não tem controle sobre o comportamento individual do usuário em relação a quem realizará o gatilho.
 
@@ -159,7 +159,7 @@ Os 100 usuários na variante recebem a carga útil da mensagem no app, e 50 dele
 
 Apesar da divisão inicial de 50/50, as impressões únicas registradas não são equilibradas. O grupo da variante tem 50 impressões, enquanto o grupo de controle tem 75 impressões.
 
-### Postergações de mensagens no app
+### Postergações de mensagens no app {#in-app-message-delays}
 
 Para campanhas de mensagens no app disparadas que incluem exibições com postergação, as impressões do grupo de controle serão registradas quando o usuário final teria originalmente recebido a mensagem no app. Por exemplo, se uma campanha estiver configurada para postergar a exibição em uma hora, as impressões do grupo de controle não serão registradas até que a postergação de uma hora tenha passado. Isso ajuda no rastreamento preciso de impressões relacionadas ao momento pretendido da entrega da mensagem.
 
@@ -167,34 +167,34 @@ Para campanhas de mensagens no app disparadas que incluem exibições com poster
 
 Um teste multivariante e A/B pode (e deve!) inspirar ideias para testes futuros, além de orientar mudanças na sua estratégia de envio de mensagens. Possíveis ações de acompanhamento incluem:
 
-#### Mudar sua estratégia de envio de mensagens com base nos resultados do teste
+#### Mudar sua estratégia de envio de mensagens com base nos resultados do teste {#change-your-messaging-strategy-based-on-test-results}
 
 Os resultados do seu teste multivariante podem levar você a mudar a forma como redige ou formata suas mensagens.
 
-#### Mudar a forma como você entende seus usuários
+#### Mudar a forma como você entende seus usuários {#change-the-way-you-understand-your-users}
 
 Cada teste esclarece os comportamentos dos seus usuários, como eles respondem a diferentes canais de envio de mensagens e as diferenças (e semelhanças) entre seus segmentos.
 
-#### Melhorar a forma como você estrutura testes futuros
+#### Melhorar a forma como você estrutura testes futuros {#improve-the-way-you-structure-future-tests}
 
 O tamanho da sua amostra era muito pequeno? As diferenças entre suas variantes eram muito sutis? Cada teste oferece uma oportunidade de aprender como melhorar testes futuros. Se seu intervalo de confiança é baixo, o tamanho da amostra é muito pequeno e deve ser aumentado para testes futuros. Se você não encontrar uma diferença clara entre o desempenho das suas variantes, é possível que as diferenças fossem muito sutis para ter um efeito perceptível nas respostas dos usuários.
 
-#### Executar um teste de acompanhamento com um tamanho de amostra maior
+#### Executar um teste de acompanhamento com um tamanho de amostra maior {#run-a-follow-up-test-with-a-larger-sample-size}
 
 Amostras maiores aumentam as chances de detectar pequenas diferenças entre variantes.
 
-#### Executar um teste de acompanhamento usando um canal de envio de mensagens diferente
+#### Executar um teste de acompanhamento usando um canal de envio de mensagens diferente {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 Se você descobrir que uma estratégia específica é muito eficaz em um canal, pode querer testar essa estratégia em outros canais. Se um tipo de mensagem é eficaz em um canal, mas não em outro, você pode concluir que certos canais são mais propícios a certos tipos de mensagens. Ou talvez haja uma diferença entre usuários que são mais propensos a ativar notificações por push e aqueles que são mais propensos a prestar atenção em mensagens no app. Em última análise, executar esse tipo de teste ajudará você a aprender como seu público interage com seus diferentes canais de comunicação.
 
-#### Executar um teste de acompanhamento em um segmento diferente de usuários
+#### Executar um teste de acompanhamento em um segmento diferente de usuários {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 Para fazer isso, crie outro teste com o mesmo canal de envio de mensagens e variantes, mas escolha um segmento diferente de usuários. Por exemplo, se um tipo de mensagem foi extremamente eficaz para usuários engajados, pode ser útil investigar seu efeito em usuários inativos. É possível que os usuários inativos respondam de forma semelhante, ou podem preferir outra variante. Esse teste ajudará você a aprender mais sobre seus diferentes segmentos e como eles respondem a diferentes tipos de mensagens. Por que fazer suposições sobre seus segmentos quando você pode basear sua estratégia em dados?
 
-#### Executar um teste de acompanhamento baseado em insights de um teste anterior
+#### Executar um teste de acompanhamento baseado em insights de um teste anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 Use os insights que você obteve de testes anteriores para orientar os futuros. Um teste anterior sugere que uma técnica de envio de mensagens é mais eficaz? Você não tem certeza sobre qual aspecto específico de uma variante a tornou melhor? Executar testes de acompanhamento baseados nessas perguntas ajudará você a gerar descobertas valiosas sobre seus usuários.
 
-#### Comparar o impacto de longo prazo de diferentes variantes
+#### Comparar o impacto de longo prazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
 
 Se você está fazendo testes A/B em mensagens de reengajamento, não se esqueça de comparar o impacto de longo prazo de diferentes variantes usando [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). Você pode usar os relatórios de retenção para analisar como cada variante impactou qualquer comportamento de usuário de sua escolha dias, semanas ou um mês após o recebimento da mensagem, e verificar se houve aumento.

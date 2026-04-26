@@ -1,44 +1,44 @@
 {% tabs %}
 {% tab Abandoned browse %}
 
-### 閲覧の放棄
+### 閲覧の放棄 {#abandoned-browse}
 
 製品を閲覧したが、カートへの追加や注文を行わなかったユーザーにエンゲージするには、**閲覧の放棄**テンプレートを使用します。
 
-![「閲覧の放棄」キャンバステンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_browse.png %})
+![「閲覧の放棄」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_browse.png %})
 
-#### 設定
+#### 設定 {#setup}
 
-キャンバスページで [**キャンバステンプレートを使用**] > [**Braze テンプレート**] を選択し、**閲覧の放棄**テンプレートを適用します。 
+Canvasページで **Canvasテンプレートを使用** > **Brazeテンプレート** を選択し、**閲覧の放棄**テンプレートを適用します。
 
-##### デフォルト設定
+##### デフォルト設定 {#default-settings}
 
-キャンバスでは、以下の設定が事前に構成されています。
-- 基本情報 
-    - キャンバス名: **閲覧の放棄**
+Canvasでは、以下の設定が事前に構成されています。
+- 基本情報
+    - Canvas名: **閲覧の放棄**
     - コンバージョンイベント: `ecommerce.order placed`
-        - コンバージョン期限: 3日間 
-- エントリスケジュール 
+        - コンバージョン期限: 3日間
+- エントリスケジュール
     - ユーザーが `ecommerce.product_viewed` イベントを実行した場合のアクションベース
-    - 開始時刻はキャンバステンプレートを作成した時点です<br><br>![キャンバスの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br> 
-- ターゲットオーディエンス 
-    - エントリオーディエンス 
+    - 開始時刻はCanvasテンプレートを作成した時点です<br><br>![Canvasの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br>
+- ターゲットオーディエンス
+    - エントリオーディエンス
         - メールが**空白ではない**
         - ビジネスニーズに合わせてエントリオーディエンスの条件を変更することもできます
     - エントリコントロール
-        - キャンバスの全期間が完了した後、ユーザーはこのキャンバスに再エントリできます
-    - 終了条件 
-        - `ecommerce.cart_updated`、`ecommerce.checkout_started`、または `ecommerce.order_placed` を実行<br><br>![キャンバスのエントリコントロールと終了条件。]({% image_buster /assets/img/ecommerce/abandoned_browse_entry_exit.png %})<br><br> 
-- 送信設定 
-    - 購読中またはオプトイン済みのユーザー 
+        - Canvasの全期間が完了した後、ユーザーはこのCanvasに再エントリできます
+    - 終了条件
+        - `ecommerce.cart_updated`、`ecommerce.checkout_started`、または `ecommerce.order_placed` を実行<br><br>![Canvasのエントリコントロールと終了条件。]({% image_buster /assets/img/ecommerce/abandoned_browse_entry_exit.png %})<br><br>
+- 送信設定
+    - 購読中またはオプトイン済みのユーザー
 - 遅延ステップ
     - 1時間の遅延
-- メッセージステップ 
-    - メールテンプレートと HTML ブロックを確認し、Liquid テンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように [Liquid 変数](#message-personalization)を参照することもできます。
+- メッセージステップ
+    - メールテンプレートとHTMLブロックを確認し、Liquidテンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように[Liquid変数](#message-personalization)を参照することもできます。
 
-#### メール向けの閲覧放棄の製品パーソナライゼーション 
+#### メール向けの閲覧放棄の製品パーソナライゼーション {#abandoned-browse-product-personalization-for-emails}
 
-閲覧放棄メール用の HTML 製品ブロックを追加する方法の例を以下に示します。 
+閲覧放棄メール用のHTML製品ブロックを追加する方法の例を以下に示します。
 
 {% raw %}
 ```java
@@ -56,68 +56,68 @@
 ```
 {% endraw %}
 
-##### 製品 URL
+##### 製品URL {#product-url}
 
 {% raw %}
 ```liquid
 {{context.${product_url}}}
 ```
-{% endraw %}    
+{% endraw %}
 
 {% endtab %}
 {% tab Abandoned cart %}
 
-### カート放棄
+### カート放棄 {#abandoned-cart}
 
-カートに製品を追加したが、購入手続きや注文に進まなかった顧客からの潜在的な売上損失に対応するには、**カート放棄**テンプレートを使用します。 
+カートに製品を追加したが、購入手続きや注文に進まなかった顧客からの潜在的な売上損失に対応するには、**カート放棄**テンプレートを使用します。
 
-![「放棄カート」キャンバステンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_cart.png %})
+![「カート放棄」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### 設定
+#### 設定 {#setup}
 
-キャンバスページで [**キャンバステンプレートを使用**] > [**Braze テンプレート**] を選択し、**カート放棄**テンプレートを適用します。 
+Canvasページで **Canvasテンプレートを使用** > **Brazeテンプレート** を選択し、**カート放棄**テンプレートを適用します。
 
-##### デフォルト設定
+##### デフォルト設定 {#default-settings}
 
-キャンバスでは、以下の設定が事前に構成されています。
-- 基本情報 
-    - キャンバス名: **カート放棄**
+Canvasでは、以下の設定が事前に構成されています。
+- 基本情報
+    - Canvas名: **カート放棄**
     - コンバージョンイベント: `ecommerce.order_placed`
-        - コンバージョン期限: 3日間 
-- エントリスケジュール 
+        - コンバージョン期限: 3日間
+- エントリスケジュール
     - ユーザーが（ドロップダウンにある）**カート更新イベントの実行**をトリガーした場合のアクションベースのトリガー
-    - 開始時刻はキャンバステンプレートを作成した時点です<br><br>![キャンバスの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br> 
-- ターゲットオーディエンス 
-    - エントリオーディエンス 
-        - これらのアプリを **1回以上**使用したことがある 
+    - 開始時刻はCanvasテンプレートを作成した時点です<br><br>![Canvasの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
+- ターゲットオーディエンス
+    - エントリオーディエンス
+        - これらのアプリを**1回以上**使用したことがある
         - メールが**空白ではない**
     - エントリコントロール
-        - ユーザーは即時にキャンバスへの再エントリが可能です
-    - 終了条件 
-        - `ecommerce.cart_updated`、`ecommerce.checkout_started`、または `ecommerce.order_placed` を実行<br><br>![キャンバスのエントリコントロールと終了条件。]({% image_buster /assets/img/ecommerce/abandoned_cart_entry_exit.png %})<br><br> 
-- 送信設定 
-    - 購読中またはオプトイン済みのユーザー 
+        - ユーザーは即時にCanvasへの再エントリが可能です
+    - 終了条件
+        - `ecommerce.cart_updated`、`ecommerce.checkout_started`、または `ecommerce.order_placed` を実行<br><br>![Canvasのエントリコントロールと終了条件。]({% image_buster /assets/img/ecommerce/abandoned_cart_entry_exit.png %})<br><br>
+- 送信設定
+    - 購読中またはオプトイン済みのユーザー
 - 遅延ステップ
      - 4時間の遅延
-- メッセージステップ 
-    - メールテンプレートと HTML ブロックを確認し、Liquid テンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように [Liquid 変数](#message-personalization)を参照することもできます。
+- メッセージステップ
+    - メールテンプレートとHTMLブロックを確認し、Liquidテンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように[Liquid変数](#message-personalization)を参照することもできます。
 
-#### カート放棄の再エントリロジックの仕組み
+#### カート放棄の再エントリロジックの仕組み {#how-abandoned-cart-re-entry-logic-works}
 
-ユーザーがチェックアウトプロセスを開始すると、そのカートは `checkout_started` としてマークされます。その時点以降、同じカート ID によるカート更新では、ユーザーはカート放棄のユーザージャーニーに再エントリする資格を得られません。
+ユーザーがチェックアウトプロセスを開始すると、そのカートは `checkout_started` としてマークされます。その時点以降、同じカートIDによるカート更新では、ユーザーはカート放棄のユーザージャーニーに再エントリする資格を得られません。
 
-1. ユーザーが商品をカートに追加すると、キャンバスにエントリします。
-2. 商品を追加または更新するたびに、キャンバスに再エントリします。これにより、カートデータとメッセージングが常に最新の状態に保たれます。
-3. ユーザーがチェックアウトプロセスを開始すると、そのカートは `checkout_started` としてタグ付けされ、ユーザーはキャンバスを退出します。
-4. 同じカート ID を使用した以降のカート更新は、このカートがすでにチェックアウト段階に移行しているため、再エントリをトリガーしません。
+1. ユーザーが商品をカートに追加すると、Canvasにエントリします。
+2. 商品を追加または更新するたびに、Canvasに再エントリします。これにより、カートデータとメッセージングが常に最新の状態に保たれます。
+3. ユーザーがチェックアウトプロセスを開始すると、そのカートは `checkout_started` としてタグ付けされ、ユーザーはCanvasを退出します。
+4. 同じカートIDを使用した以降のカート更新は、このカートがすでにチェックアウト段階に移行しているため、再エントリをトリガーしません。
 
-ユーザーがチェックアウトのユーザージャーニーに移行すると、代わりに[購入手続き放棄キャンバス](#abandoned-checkout)のターゲットになります。これは購入プロセスのより先の段階にいるユーザー向けに設計されています。
+ユーザーがチェックアウトのユーザージャーニーに移行すると、代わりに[購入手続き放棄Canvas](#abandoned-checkout)のターゲットになります。これは購入プロセスのより先の段階にいるユーザー向けに設計されています。
 
 #### メール向けのカート放棄の製品パーソナライゼーション {#abandoned-cart-checkout}
 
-カート放棄のユーザージャーニーでは、製品のパーソナライゼーションに特別な `shopping_cart` Liquid タグが必要です。 
+カート放棄のユーザージャーニーでは、製品のパーソナライゼーションに特別な `shopping_cart` Liquidタグが必要です。
 
-以下の例は、`shopping_cart` Liquid タグを使用して HTML ブロックを追加し、製品をメールに追加する方法を示しています。 
+以下の例は、`shopping_cart` Liquidタグを使用してHTMLブロックを追加し、製品をメールに追加する方法を示しています。
 
 {% raw %}
 ```java
@@ -144,10 +144,10 @@
 {% endraw %}
 
 {% alert note %}
-Shopify を使用する場合は、カタログ名を追加してバリアント画像 URL を取得します。 
+Shopifyを使用する場合は、カタログ名を追加してバリアント画像URLを取得します。
 {% endalert %}
 
-##### HTML カート URL
+##### HTMLカートURL {#html-cart-url}
 
 ユーザーをカートに戻したい場合は、メタデータオブジェクトの下にネストされたイベントプロパティを追加できます。例:
 
@@ -157,58 +157,58 @@ Shopify を使用する場合は、カタログ名を追加してバリアント
 ```
 {% endraw %}
 
-Shopify を使用する場合は、次の Liquid テンプレートを使用してカート URL を作成します。
+Shopifyを使用する場合は、次のLiquidテンプレートを使用してカートURLを作成します。
 
 {% raw %}
 ```liquid
-{{context.${source}}}/checkouts/cn/{{context.${cart_id}}} 
+{{context.${source}}}/checkouts/cn/{{context.${cart_id}}}
 ```
 {% endraw %}
 
 {% endtab %}
 {% tab Abandoned checkout %}
 
-### 購入手続き放棄
+### 購入手続き放棄 {#abandoned-checkout}
 
-**購入手続き放棄**テンプレートを使用して、チェックアウトプロセスを開始したが注文前に離脱した顧客をターゲットにします。 
+**購入手続き放棄**テンプレートを使用して、チェックアウトプロセスを開始したが注文前に離脱した顧客をターゲットにします。
 
-![「購入手続き放棄」キャンバステンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_checkout.png %})
+![「購入手続き放棄」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### 設定
+#### 設定 {#setup}
 
-キャンバスページで [**キャンバステンプレートを使用**] > [**Braze テンプレート**] を選択し、**購入手続き放棄**テンプレートを適用します。 
+Canvasページで **Canvasテンプレートを使用** > **Brazeテンプレート** を選択し、**購入手続き放棄**テンプレートを適用します。
 
-##### デフォルト設定
+##### デフォルト設定 {#default-settings}
 
-キャンバスでは、以下の設定が事前に構成されています。
+Canvasでは、以下の設定が事前に構成されています。
 
-- 基本情報 
-    - キャンバス名: **購入手続き放棄**
+- 基本情報
+    - Canvas名: **購入手続き放棄**
     - コンバージョンイベント: `ecommerce.order_placed`
-        - コンバージョン期限: 3日間 
-- エントリスケジュール 
+        - コンバージョン期限: 3日間
+- エントリスケジュール
     - ユーザーが `ecommerce.checkout_started` イベントを実行した場合のアクションベースのトリガー
-    - 開始時刻はキャンバステンプレートを作成した時点です<br><br>![キャンバスの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
-- ターゲットオーディエンス 
-    - エントリオーディエンス 
-        - これらのアプリを **1回以上**使用したことがある 
+    - 開始時刻はCanvasテンプレートを作成した時点です<br><br>![Canvasの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
+- ターゲットオーディエンス
+    - エントリオーディエンス
+        - これらのアプリを**1回以上**使用したことがある
         - メールが**空白ではない**
     - エントリコントロール
-        - ユーザーは即時にキャンバスへの再エントリが可能です
-        - 終了条件 
-            - `ecommerce.order_placed` イベントを実行<br><br>![キャンバスのエントリコントロールと終了条件。]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
-- 送信設定 
-    - 購読中またはオプトイン済みのユーザー 
+        - ユーザーは即時にCanvasへの再エントリが可能です
+        - 終了条件
+            - `ecommerce.order_placed` イベントを実行<br><br>![Canvasのエントリコントロールと終了条件。]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
+- 送信設定
+    - 購読中またはオプトイン済みのユーザー
 - 遅延ステップ
     - 4時間の遅延
-- メッセージステップ 
-    - メールテンプレートと HTML ブロックを確認し、Liquid テンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように [Liquid 変数](#message-personalization)を参照することもできます。
+- メッセージステップ
+    - メールテンプレートとHTMLブロックを確認し、Liquidテンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように[Liquid変数](#message-personalization)を参照することもできます。
 
-#### メール向けの購入手続き放棄のパーソナライゼーション
+#### メール向けの購入手続き放棄のパーソナライゼーション {#abandoned-checkout-personalization-for-emails}
 
-購入手続き放棄のユーザージャーニーでは、製品のパーソナライゼーションに特別な `shopping_cart` Liquid タグが必要です。 
+購入手続き放棄のユーザージャーニーでは、製品のパーソナライゼーションに特別な `shopping_cart` Liquidタグが必要です。
 
-以下の例は、`shopping_cart` Liquid タグを使用して HTML ブロックを追加し、製品をメールに追加する方法を示しています。 
+以下の例は、`shopping_cart` Liquidタグを使用してHTMLブロックを追加し、製品をメールに追加する方法を示しています。
 
 {% raw %}
 ```java
@@ -235,7 +235,7 @@ Shopify を使用する場合は、次の Liquid テンプレートを使用し�
 
 ##### `abort_if_not_abandoned` {#abort-if-not-abandoned}
 
-`abort_if_not_abandoned` パラメーターは購入手続き放棄のユースケースに固有のもので、`ecommerce.checkout_started` イベントと組み合わせて `shopping_cart` Liquid タグでのみ使用されます。
+`abort_if_not_abandoned` パラメーターは購入手続き放棄のユースケースに固有のもので、`ecommerce.checkout_started` イベントと組み合わせて `shopping_cart` Liquidタグでのみ使用されます。
 
 | 値 | 動作 |
 | ----- | -------- |
@@ -243,9 +243,9 @@ Shopify を使用する場合は、次の Liquid テンプレートを使用し�
 | `false` | カートが放棄状態でなくてもメッセージが送信され、現在のチェックアウトステータスに関係なくメールにカートの詳細を含めることができます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-送信時にカートがまだ放棄状態と見なされているかどうかに関係なくチェックアウトリマインダーを送信したい場合は、`abort_if_not_abandoned` を `false` に設定します。パラメーターを省略するか `true` に設定すると、Braze はすでに購入を完了したユーザーへのメッセージを中止します。
+送信時にカートがまだ放棄状態と見なされているかどうかに関係なくチェックアウトリマインダーを送信したい場合は、`abort_if_not_abandoned` を `false` に設定します。パラメーターを省略するか `true` に設定すると、Brazeはすでに購入を完了したユーザーへのメッセージを中止します。
 
-##### チェックアウト URL
+##### チェックアウトURL {#checkout-url}
 
 {% raw %}
 ```liquid
@@ -256,43 +256,43 @@ Shopify を使用する場合は、次の Liquid テンプレートを使用し�
 {% endtab %}
 {% tab Order confirmation and feedback survey %}
 
-### 注文確認とフィードバック調査
+### 注文確認とフィードバック調査 {#order-confirmation-and-feedback-survey}
 
 **注文確認＆フィードバック調査**テンプレートを使用して、注文の成功を確認し、顧客満足度を向上させます。
 
-![「注文確認」キャンバステンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
+![「注文確認」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### 設定
+#### 設定 {#setup}
 
-キャンバスページで [**キャンバステンプレートを使用**] > [**Braze テンプレート**] を選択し、**注文確認＆フィードバック調査**テンプレートを適用します。 
+Canvasページで **Canvasテンプレートを使用** > **Brazeテンプレート** を選択し、**注文確認＆フィードバック調査**テンプレートを適用します。
 
-##### デフォルト設定
+##### デフォルト設定 {#default-settings}
 
-キャンバスでは、以下の設定が事前に構成されています。
+Canvasでは、以下の設定が事前に構成されています。
 
-- 基本情報 
-    - キャンバス名: **注文確認とフィードバック調査**
+- 基本情報
+    - Canvas名: **注文確認とフィードバック調査**
     - コンバージョンイベント: `ecommerce.session_start`
-        - コンバージョン期限: 10日間 
-- エントリスケジュール 
+        - コンバージョン期限: 10日間
+- エントリスケジュール
     - ユーザーが `ecommerce.cart_updated` イベントを実行した場合のアクションベースのトリガー
-    - 開始時刻はキャンバステンプレートを作成した時点です<br><br>![キャンバスの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
-- ターゲットオーディエンス 
-    - エントリオーディエンス 
-        - これらのアプリを **1回以上**使用したことがある 
+    - 開始時刻はCanvasテンプレートを作成した時点です<br><br>![Canvasの「アクションベースのオプション」。]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
+- ターゲットオーディエンス
+    - エントリオーディエンス
+        - これらのアプリを**1回以上**使用したことがある
         - メールが**空白ではない**
     - エントリコントロール
-        - ユーザーは即時にキャンバスへの再エントリが可能です
-    - 終了条件 
-        - 該当しない<br><br>![キャンバスの追加フィルターとエントリコントロール。]({% image_buster /assets/img/ecommerce/feedback_entry_exit.png %})<br><br>
-- 送信設定 
-    - 購読中またはオプトイン済みのユーザー 
-- メッセージステップ 
-    - メールテンプレートと HTML ブロックを確認し、Liquid テンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように [Liquid 変数](#message-personalization)を参照することもできます。
+        - ユーザーは即時にCanvasへの再エントリが可能です
+    - 終了条件
+        - 該当しない<br><br>![Canvasの追加のフィルターとエントリコントロール。]({% image_buster /assets/img/ecommerce/feedback_entry_exit.png %})<br><br>
+- 送信設定
+    - 購読中またはオプトイン済みのユーザー
+- メッセージステップ
+    - メールテンプレートとHTMLブロックを確認し、Liquidテンプレートの例を使用して事前構築済みテンプレートのメッセージに製品を追加します。独自のメールテンプレートを使用する場合は、次のセクションで示すように[Liquid変数](#message-personalization)を参照することもできます。
 
-#### メール向けの注文確認のパーソナライゼーション
+#### メール向けの注文確認のパーソナライゼーション {#order-confirmation-personalization-for-emails}
 
-注文完了後に注文確認メールへ HTML 製品ブロックを追加する方法の例を以下に示します。
+注文完了後に注文確認メールへHTML製品ブロックを追加する方法の例を以下に示します。
 
 {% raw %}
 ```json
@@ -314,7 +314,7 @@ Shopify を使用する場合は、次の Liquid テンプレートを使用し�
 ```
 {% endraw %}
 
-##### 注文ステータス URL
+##### 注文ステータスURL {#order-status-url}
 
 {% raw %}
 ```liquid

@@ -1,14 +1,14 @@
-# Nutzer-IDs festlegen
- 
+# Nutzer-IDs festlegen {#setting-user-ids}
+
 > Dieser Referenzartikel zeigt Ihnen, wie Sie Nutzer-IDs in Ihrer Android- oder FireOS-App festlegen, welche Namenskonventionen für Nutzer-IDs empfohlen werden und einige Best Practices.
 
 {% multi_lang_include archive/setting_user_ids/setting_user_ids.md %}
 
-## Empfohlene Namenskonvention für Nutzer-IDs
+## Empfohlene Namenskonvention für Nutzer-IDs {#suggested-user-id-naming-convention}
 
 {% multi_lang_include archive/setting_user_ids/naming_convention.md %}
 
-### Zuweisen einer Nutzer-ID
+### Zuweisen einer Nutzer-ID {#assigning-a-user-id}
 
 Sie sollten den folgenden Aufruf tätigen, sobald die Nutzer:in identifiziert wurde (in der Regel nach der Anmeldung), um die Nutzer-ID festzulegen:
 
@@ -37,7 +37,7 @@ Außerdem empfehlen wir, die Nutzer-ID bei der Abmeldung **nicht** zu ändern, d
 
 Weitere Informationen finden Sie in der [`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)-Dokumentation.
 
-### Abonnieren von Nutzerwechsel-Events
+### Abonnieren von Nutzerwechsel-Events {#subscribing-to-user-change-events}
 
 Verwenden Sie [`subscribeToChangeUserEvents`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-change-user-events.html), um Logik auszuführen, wenn Ihre App mit `changeUser()` die Nutzer:in wechselt. Diese Methode ist ab Android SDK 40.0.0 verfügbar.
 
@@ -67,10 +67,10 @@ Braze.getInstance(context).subscribeToChangeUserEvents { event ->
 {% endtab %}
 {% endtabs %}
 
-## Best Practices und Hinweise zur Nutzer-ID-Integration
+## Best Practices und Hinweise zur Nutzer-ID-Integration {#user-id-integration-best-practices-and-notes}
 
 {% multi_lang_include archive/setting_user_ids/best_practices.md %}
 
-## Nutzer-Aliasing
+## Nutzer-Aliasing {#aliasing-users}
 
 {% multi_lang_include archive/setting_user_ids/aliasing.md platform="Android" %}

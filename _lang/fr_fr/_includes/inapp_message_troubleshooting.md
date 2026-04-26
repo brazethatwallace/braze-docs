@@ -1,6 +1,6 @@
-## Contrôles de base
+## Contrôles de base {#basic-checks}
 
-### Mon message in-app ne s'est pas affiché pour un utilisateur
+### Mon message in-app ne s'est pas affiché pour un utilisateur {#my-in-app-message-wasnt-shown-for-one-user}
 
 1. L'utilisateur était-il dans le segment au début de la session, lorsque le SDK demande de nouveaux messages in-app ?
 2. L'utilisateur était-il éligible ou rééligible pour recevoir le message in-app conformément aux règles de ciblage de la campagne ?
@@ -10,14 +10,14 @@
 6. Mon appareil était-il dans l'orientation correcte spécifiée par la campagne ?
 7. Mon message a-t-il été supprimé par l'intervalle de temps minimum de 30 secondes par défaut entre les déclencheurs, imposé par le SDK ?
 
-### Mon message in-app ne s'est pas affiché pour tous les utilisateurs sur cette plateforme
+### Mon message in-app ne s'est pas affiché pour tous les utilisateurs sur cette plateforme {#my-in-app-message-wasnt-shown-to-all-users-on-this-platform}
 
 1. Votre campagne est-elle configurée pour cibler les applications mobiles ou les navigateurs web, selon le cas ? Par exemple, si votre campagne ne cible que les navigateurs web, elle ne sera pas envoyée aux appareils Android.
-2. Avez-vous mis en place une interface utilisateur personnalisée et fonctionne-t-elle comme prévu ? Y a-t-il d'autres traitements ou suppressions personnalisés côté application qui pourraient interférer avec l'affichage ? 
+2. Avez-vous mis en place une interface utilisateur personnalisée et fonctionne-t-elle comme prévu ? Y a-t-il d'autres traitements ou suppressions personnalisés côté application qui pourraient interférer avec l'affichage ?
 3. Cette plateforme et cette version de l'application en particulier ont-elles déjà affiché avec succès des messages in-app ?
 4. Le déclencheur a-t-il eu lieu localement sur l'appareil ? Notez qu'un appel REST ne peut pas être utilisé pour déclencher un message in-app dans le SDK.
 
-### Mon message in-app ne s'est pas affiché pour tous les utilisateurs
+### Mon message in-app ne s'est pas affiché pour tous les utilisateurs {#my-in-app-message-wasnt-shown-for-all-users}
 
 1. L'action de déclenchement a-t-elle été configurée correctement dans le tableau de bord, ainsi que dans l'intégration de l'application ?
 2. Un message in-app différent et plus prioritaire s'est-il affiché à la place du message attendu ?
@@ -25,7 +25,7 @@
 4. Les sessions ont-elles été intégrées correctement dans votre intégration ? L'analytique des sessions fonctionne-t-elle pour cette application ?
 5. Utilisez-vous une bibliothèque de composants personnalisée qui pourrait interférer avec l'affichage des messages in-app ?
 
-### Mon message in-app a mis beaucoup de temps à s'afficher
+### Mon message in-app a mis beaucoup de temps à s'afficher {#my-in-app-message-took-a-lot-of-time-to-appear}
 
 1. Si vous diffusez des images ou des vidéos volumineuses à partir de votre réseau de diffusion de contenu dans un message in-app basé sur HTML, vérifiez que vos fichiers sont optimisés pour être aussi légers que possible et que votre réseau de diffusion de contenu est performant.
 2. Vérifiez si vous avez configuré un `delay` pour votre message in-app sur le tableau de bord.
@@ -36,18 +36,18 @@
 
 Pour une discussion plus approfondie de ces scénarios, consultez <a id="troubleshooting-in-app-advanced">la section sur la résolution avancée des problèmes</a>.
 
-## Problèmes d'analytique des impressions et des clics
+## Problèmes d'analytique des impressions et des clics {#issues-with-impressions-and-click-analytics}
 
 {% if include.sdk == "iOS" %}
-### Les impressions et les clics ne sont pas enregistrés
+### Les impressions et les clics ne sont pas enregistrés {#impressions-and-clicks-arent-being-logged}
 
 Si vous avez défini un délégué de message in-app pour gérer manuellement l'affichage du message ou les actions de clic, vous devez consigner manuellement les [clics](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/logclick(buttonid:using:)) et les [impressions](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/logimpression(using:)) sur le message in-app.
 {% elsif include.sdk == "Android" %}
-### Les impressions et les clics ne sont pas enregistrés
+### Les impressions et les clics ne sont pas enregistrés {#impressions-and-clicks-arent-being-logged}
 Si vous avez défini un délégué de message in-app pour gérer manuellement l'affichage du message ou les actions de clic, vous devez consigner manuellement les clics et les impressions sur le message in-app.
 {% endif %}
 
-### Les *impressions* sont supérieures aux *impressions uniques*
+### Les *impressions* sont supérieures aux *impressions uniques* {#impressions-are-greater-than-unique-impressions}
 
 Ce comportement est attendu et peut se produire dans les cas suivants :
 
@@ -56,13 +56,13 @@ Ce comportement est attendu et peut se produire dans les cas suivants :
 
 Pour plus d'informations sur la rééligibilité, consultez [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/reeligibility/).
 
-### Les impressions sont inférieures à la valeur attendue
+### Les impressions sont inférieures à la valeur attendue {#impressions-are-lower-than-expected}
 
 1. Les déclencheurs mettent du temps à se synchroniser avec l'appareil au démarrage de la session. Il peut donc y avoir une condition de concurrence si les utilisateurs enregistrent un événement ou un achat juste après avoir démarré une session. Une solution possible serait de modifier la campagne pour qu'elle se déclenche au démarrage de la session, puis de segmenter en fonction de l'événement ou de l'achat souhaité. Notez que cela enverrait le message in-app au prochain démarrage de session après que l'événement se soit produit.
 
 2. Si la campagne est déclenchée par un début de session ou un événement personnalisé, vous devez vous assurer que cet événement ou cette session se produit suffisamment fréquemment pour déclencher le message. Vérifiez ces données sur les pages [Aperçu]({{site.baseurl}}/user_guide/data_and_analytics/analytics/understanding_your_app_usage_data/#understanding-your-app-usage-data) (pour les données de session) ou [Événements personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/configuring_reporting/#configuring-reporting) :
 
-![Page Événements personnalisés affichant un graphique du nombre de fois où l'événement personnalisé Added to Favorites s'est produit sur une période d'un mois]({% image_buster /assets/img_archive/trouble5.png %})
+![Page Événements personnalisés affichant un graphique du nombre de fois où l'événement personnalisé « Added to Favorites » s'est produit sur une période d'un mois]({% image_buster /assets/img_archive/trouble5.png %})
 
 Autres raisons possibles :
 
@@ -70,7 +70,7 @@ Autres raisons possibles :
 - Plusieurs messages in-app s'interceptent mutuellement (par exemple, plusieurs messages à haute priorité).
 - Si le message se trouve dans un Canvas, les utilisateurs peuvent entrer dans une étape de délai plus longue que le délai d'expiration de session avant de recevoir le message in-app.
 
-### Les impressions sont plus faibles qu'auparavant
+### Les impressions sont plus faibles qu'auparavant {#impressions-are-lower-than-they-used-to-be}
 
 1. Assurez-vous que personne n'a modifié involontairement le segment ou la campagne depuis le lancement. Nos journaux des modifications des segments et des campagnes vous informeront sur les changements effectués, qui les a faits et quand.
 
@@ -87,7 +87,7 @@ La plupart des problèmes de messages in-app peuvent être répartis en deux cat
 
 Le SDK demande des messages in-app aux serveurs Braze au démarrage de la session. Pour vérifier si les messages in-app sont bien distribués à votre appareil, vous devez vous assurer qu'ils sont à la fois demandés par le SDK et renvoyés par les serveurs Braze.
 
-#### Vérifier si les messages sont demandés et renvoyés
+#### Vérifier si les messages sont demandés et renvoyés {#check-if-messages-are-requested-and-returned}
 
 1. Ajoutez-vous en tant qu'[utilisateur test]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users) sur le tableau de bord.
 2. Configurez une campagne de messages in-app ciblée pour votre utilisateur.
@@ -97,13 +97,13 @@ Le SDK demande des messages in-app aux serveurs Braze au démarrage de la sessio
   - Si votre application était censée demander des messages in-app originaux, vous devriez voir `in_app` dans le champ **Réponses demandées** sous **Données de réponse**.
 5. Utilisez le [journal des événements utilisateurs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) pour vérifier si les messages in-app appropriés sont renvoyés dans les données de réponse.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
-##### Résoudre les problèmes de messages non demandés
+##### Résoudre les problèmes de messages non demandés {#troubleshoot-messages-not-being-requested}
 
 Si vos messages in-app ne sont pas demandés, il est possible que votre application ne suive pas correctement les sessions, car les messages in-app sont actualisés au démarrage de la session. Assurez-vous également que votre application démarre réellement une session en fonction de la sémantique du délai d'expiration de session de votre application :
 
 ![La requête SDK trouvée dans le journal des événements utilisateurs affichant un événement de démarrage de session réussi.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
 
-##### Résoudre les problèmes de messages non renvoyés
+##### Résoudre les problèmes de messages non renvoyés {#troubleshoot-messages-not-being-returned}
 
 Si les messages in-app ne sont pas renvoyés, vous rencontrez probablement un problème de ciblage de campagne :
 

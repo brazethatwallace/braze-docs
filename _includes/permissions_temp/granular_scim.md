@@ -143,6 +143,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | View Decisioning Studio Agents | `view_decisioning_studio_agents` |
 | View Decisioning Studio Audience |`view_decisioning_studio_audience` |
+| View Decisioning Studio Conversion Event | `view_decisioning_studio_conversion_event` |
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |

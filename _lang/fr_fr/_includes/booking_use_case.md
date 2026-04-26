@@ -1,25 +1,25 @@
-# Cas d'utilisation : Système d'e-mail de rappel de réservation
+# Cas d'usage : système d'e-mails de rappel de réservation {#use-case-booking-reminder-email-system}
 
-> Braze est une plateforme complète d'engagement client conçue pour être hautement programmable. Dans ce cas d'utilisation, nous vous montrons quelques-unes des façons dont Braze met à votre disposition des fonctionnalités que vous pouvez intégrer à des cas d'utilisation situés à l'intersection du produit et du marketing, comme les systèmes de réservation.
+> Braze est une plateforme complète d'engagement client conçue pour être hautement programmable. Dans ce cas d'usage, nous vous montrons quelques-unes des façons dont Braze met à votre disposition des fonctionnalités que vous pouvez intégrer à des cas d'usage situés à l'intersection du produit et du marketing, comme les systèmes de réservation.
 
-Ce cas d'utilisation montre comment utiliser les fonctionnalités de Braze pour créer un service d'envoi d'e-mails de rappel de réservation. Ce service permettra aux utilisateurs de prendre des rendez-vous et leur enverra des rappels concernant leurs rendez-vous à venir. Bien que ce cas d'utilisation repose sur des e-mails, vous pouvez envoyer des messages sur n'importe quel canal, ou sur plusieurs à la fois, à partir d'une seule mise à jour du profil utilisateur.
+Ce cas d'usage montre comment utiliser les fonctionnalités de Braze pour créer un service d'envoi de messages de rappel par e-mail. Ce service permettra aux utilisateurs de prendre des rendez-vous et leur enverra des rappels concernant leurs rendez-vous à venir. Bien que ce cas d'usage repose sur des e-mails, vous pouvez envoyer des messages sur n'importe quel canal, ou sur plusieurs à la fois, à partir d'une seule mise à jour du profil utilisateur.
 
 Autres avantages de la création de ce service :
-- Les messages envoyés bénéficient d'un suivi et d'un rapport complets.
+- Les messages envoyés bénéficient d'un suivi et d'un reporting complets.
 - Les utilisateurs non techniques de l'entreprise peuvent mettre à jour le contenu des messages.
-- Les messages respectent les statuts d'abonnement et de désabonnement définis sur les profils utilisateurs selon la configuration de la campagne.
+- Les messages respectent les statuts d'abonnement et de désabonnement définis sur les profils utilisateurs selon la configuration de la Campaign.
 - Vous pouvez exploiter à la fois les données de réservation et les données d'interaction avec les messages pour segmenter et cibler les utilisateurs en vue de messages supplémentaires. Par exemple, vous pouvez recibler les personnes qui n'ouvrent pas le rappel initial en leur envoyant un rappel supplémentaire avant leur rendez-vous.
 
-Suivez ces étapes pour mettre en œuvre ce cas d'utilisation :
+Suivez ces étapes pour mettre en œuvre ce cas d'usage :
 1. [Écrire les données de réservation à venir dans un profil utilisateur Braze](#step-1)
 2. [Configurer et lancer un message de rappel de réservation](#step-2)
 3. [Gérer les mises à jour de réservation et les annulations](#step-3)
 
 ## Étape 1 : Écrire les données de réservation à venir dans un profil utilisateur Braze {#step-1}
 
-Utilisez l'endpoint Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour écrire un [attribut personnalisé imbriqué]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) dans le profil d'un utilisateur à chaque réservation. Assurez-vous que l'attribut personnalisé imbriqué contient toutes les informations nécessaires pour envoyer et personnaliser le message de rappel. Dans ce cas d'utilisation, nous nommerons l'attribut personnalisé imbriqué « trips ».
+Utilisez l'endpoint Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour écrire un [attribut personnalisé imbriqué]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) dans le profil d'un utilisateur à chaque réservation. Assurez-vous que l'attribut personnalisé imbriqué contient toutes les informations nécessaires pour envoyer et personnaliser le message de rappel. Dans ce cas d'usage, nous nommerons l'attribut personnalisé imbriqué « trips ».
 
-### Ajouter une réservation
+### Ajouter une réservation {#add-booking}
 
 Lorsqu'un utilisateur crée une réservation, utilisez la structure suivante pour le tableau d'objets afin d'envoyer les données à Braze via l'endpoint `/users/track`.
 
@@ -44,7 +44,7 @@ L'attribut personnalisé imbriqué « trips » s'affichera dans le profil utilis
 
 ![Deux attributs personnalisés imbriqués pour un voyage à Londres et un voyage à Sydney.]({% image_buster /assets/img/use_cases/2_nested_attributes.png %}){: style="max-width:70%;"}
 
-### Mettre à jour une réservation
+### Mettre à jour une réservation {#update-booking}
 Lorsqu'un utilisateur met à jour une réservation, utilisez la structure suivante pour le tableau d'objets afin d'envoyer les données à Braze via l'endpoint `/users/track`.
 
 {% raw %}
@@ -69,11 +69,11 @@ Lorsqu'un utilisateur met à jour une réservation, utilisez la structure suivan
 ```
 {% endraw %}
 
-### Supprimer une réservation
+### Supprimer une réservation {#remove-booking}
 
 {% tabs %}
 {% tab /users/track endpoint %}
-#### Envoyer des données via l'endpoint `/users/track`
+#### Envoyer des données via l'endpoint `/users/track` {#send-data-through-the-userstrack-endpoint}
 Lorsqu'un utilisateur supprime une réservation, utilisez la structure suivante pour le tableau d'objets afin d'envoyer les données à Braze via l'endpoint `/users/track`.
 
 {% raw %}
@@ -99,7 +99,7 @@ Lorsqu'un utilisateur supprime une réservation, utilisez la structure suivante 
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
-#### Écrire des attributs imbriqués dans les profils utilisateurs via le SDK
+#### Écrire des attributs imbriqués dans les profils utilisateurs via le SDK {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
 Si vous collectez des réservations de rendez-vous avec votre application, votre site web ou les deux, et que vous souhaitez écrire ces données directement dans un profil utilisateur, vous pouvez utiliser le SDK Braze pour transmettre ces informations. Voici un exemple avec le SDK Web :
 
@@ -126,7 +126,7 @@ Braze supprime la réservation spécifiée de l'attribut personnalisé imbriqué
 
 ## Étape 2 : Configurer et lancer un message de rappel de réservation {#step-2}
 
-### Étape 2a : Créer une audience cible
+### Étape 2a : Créer une audience cible {#step-2a-create-a-target-audience}
 Créez une audience cible pour recevoir les rappels à l'aide d'une segmentation multicritères. Par exemple, si vous souhaitez envoyer un rappel deux jours avant la date de réservation, sélectionnez les critères suivants :
 
 - Une date de début **dans plus d'un jour** et
@@ -134,7 +134,7 @@ Créez une audience cible pour recevoir les rappels à l'aide d'une segmentation
 
 ![Un attribut personnalisé imbriqué « trips » avec des critères pour une date de début comprise entre un jour et deux jours.]({% image_buster /assets/img/use_cases/custom_nested_attribute.png %})
 
-### Étape 2b : Créer votre message
+### Étape 2b : Créer votre message {#step-2b-create-your-message}
 
 Créez le message de rappel par e-mail en suivant les étapes décrites dans [Création d'un e-mail avec HTML personnalisé]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/). Utilisez Liquid pour personnaliser le message avec les données de l'attribut personnalisé que vous avez créé (« trips »), comme dans cet exemple.
 
@@ -146,30 +146,30 @@ Créez le message de rappel par e-mail en suivant les étapes décrites dans [Cr
 You have the following booked in 2 days! Check the information below:
 {% for date in dates %}
 {% if date.start_date == two_days %}
-{{date.trip_id}} 
+{{date.trip_id}}
 {{date.name}}
 {% endif %}
 {% endfor %}
 ```
 {% endraw %}
 
-### Étape 2c : Lancer votre campagne
+### Étape 2c : Lancer votre Campaign {#step-2c-launch-your-campaign}
 
-Lancez la campagne pour le message de rappel par e-mail. Désormais, chaque fois que Braze reçoit l'attribut personnalisé « trips », Braze planifie un message en fonction des données incluses dans l'objet de la réservation correspondante.
+Lancez la Campaign pour le message de rappel par e-mail. Désormais, chaque fois que Braze reçoit l'attribut personnalisé « trips », Braze planifie un message en fonction des données incluses dans l'objet de la réservation correspondante.
 
 ## Étape 3 : Gérer les mises à jour de réservation et les annulations {#step-3}
 
 Maintenant que vous envoyez des messages de rappel, vous pouvez configurer des messages de confirmation à envoyer lorsque des réservations sont mises à jour ou annulées.
 
-### Étape 3a : Envoyer les données mises à jour
+### Étape 3a : Envoyer les données mises à jour {#step-3a-send-updated-data}
 
 {% tabs %}
 {% tab /users/track %}
 
-#### Envoyer des données via l'endpoint `/users/track`
+#### Envoyer des données via l'endpoint `/users/track` {#send-data-through-the-userstrack-endpoint}
 Utilisez l'endpoint Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour envoyer un événement personnalisé lorsqu'un utilisateur met à jour ou annule une réservation. Intégrez les données nécessaires dans les propriétés d'événement pour confirmer la modification.
 
-Supposons que dans ce cas d'utilisation, un utilisateur ait mis à jour la date de son voyage à Sydney. L'événement se présenterait ainsi :
+Supposons que dans ce cas d'usage, un utilisateur ait mis à jour la date de son voyage à Sydney. L'événement se présenterait ainsi :
 
 {% raw %}
 ```json
@@ -193,13 +193,13 @@ Supposons que dans ce cas d'utilisation, un utilisateur ait mis à jour la date 
 {% endtab %}
 {% tab SDK %}
 
-#### Écrire des attributs imbriqués dans les profils utilisateurs via le SDK
+#### Écrire des attributs imbriqués dans les profils utilisateurs via le SDK {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
 Envoyez des événements personnalisés au profil utilisateur via le SDK. Par exemple, si vous utilisez le SDK Web, vous pouvez envoyer :
 
 {% raw %}
 ```json
-braze.logCustomEvent("trip_updated", { 
+braze.logCustomEvent("trip_updated", {
   id: 2,
   name: "Sydney Trip",
   old_time: "2025-11-12",
@@ -210,9 +210,9 @@ braze.logCustomEvent("trip_updated", {
 {% endtab %}
 {% endtabs %}
 
-### Étape 3b : Créer un message pour confirmer la mise à jour
+### Étape 3b : Créer un message pour confirmer la mise à jour {#step-3b-create-a-message-to-confirm-the-update}
 
-Créez une [campagne basée sur des actions]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) pour envoyer à l'utilisateur une confirmation de sa réservation mise à jour. Vous pouvez [utiliser Liquid pour intégrer les propriétés d'événement]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) qui reflètent le nom, l'ancienne date et la nouvelle date de la réservation (ou uniquement le nom en cas d'annulation) directement dans le message.
+Créez une [Campaign basée sur des actions]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) pour envoyer à l'utilisateur une confirmation de sa réservation mise à jour. Vous pouvez [utiliser Liquid pour intégrer les propriétés d'événement]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) qui reflètent le nom, l'ancienne date et la nouvelle date de la réservation (ou uniquement le nom en cas d'annulation) directement dans le message.
 
 Par exemple, vous pouvez rédiger le message suivant :
 
@@ -222,13 +222,13 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 ```
 {% endraw %}
 
-### Étape 3c : Modifier le profil utilisateur pour refléter la mise à jour
+### Étape 3c : Modifier le profil utilisateur pour refléter la mise à jour {#step-3c-modify-the-user-profile-to-reflect-the-update}
 
 Enfin, pour que les rappels de réservation des étapes 1 et 2 s'appuient sur les données les plus récentes, mettez à jour les attributs personnalisés imbriqués afin de refléter la modification ou l'annulation de la réservation.
 
-#### Réservation mise à jour
+#### Réservation mise à jour {#updated-booking}
 
-Si l'utilisateur de ce cas d'utilisation a mis à jour son voyage à Sydney, vous utiliseriez l'endpoint `/users/track` pour modifier la date avec un appel comme celui-ci :
+Si l'utilisateur de ce cas d'usage a mis à jour son voyage à Sydney, vous utiliseriez l'endpoint `/users/track` pour modifier la date avec un appel comme celui-ci :
 
 {% raw %}
 ```json
@@ -254,9 +254,9 @@ Si l'utilisateur de ce cas d'utilisation a mis à jour son voyage à Sydney, vou
 ```
 {% endraw %}
 
-#### Réservation annulée
+#### Réservation annulée {#cancelled-booking}
 
-Si l'utilisateur de ce cas d'utilisation a annulé son voyage à Sydney, vous enverriez l'appel suivant à l'endpoint `/users/track` :
+Si l'utilisateur de ce cas d'usage a annulé son voyage à Sydney, vous enverriez l'appel suivant à l'endpoint `/users/track` :
 
 {% raw %}
 ```json

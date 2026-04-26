@@ -5,42 +5,42 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集では、Braze が追跡し、Currents を使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧にしています。"
+description: "この用語集では、Brazeが追跡し、Currentsを使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧にしています。"
 tool: Currents
 search_rank: 6
 ---
 
-ストレージスキーマは、データウェアハウスストレージパートナー (Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage) に送信するフラットファイルイベントデータに適用されます。他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
+ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQL セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および [Snowflake データ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)で SQL テーブルとしても利用できます。SQL テーブルスキーマとカラムの詳細については、[SQL テーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
 {% endalert %}
 
-追加のイベント権限へのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または [Currents サンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベント権限へのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
 
 {% details メッセージエンゲージメントイベントの構造とプラットフォーム値の説明 %}
 
-### イベントの構造
+### イベントの構造 {#event-structure}
 
-このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示しています。構成要素をしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信した Currents イベントデータを使用してデータドリブン型のレポートやグラフを作成し、その他の貴重なデータ指標を活用できます。
+このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示しています。構成要素をしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやグラフを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、キャンペーンまたはキャンバストラッキングプロパティ、イベント固有のプロパティごとにグループ化されています。]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、CampaignまたはCanvasトラッキングプロパティ、イベント固有のプロパティごとにグループ化されています。]({% image_buster /assets/img/message_engagement_event.png %})
 
-メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン / キャンバストラッキング**プロパティ、および**イベント固有**のプロパティで構成されます。
+メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**Campaign/Canvasトラッキング**プロパティ、および**イベント固有**のプロパティで構成されます。
 
-### ユーザー ID スキーマ
+### ユーザーIDスキーマ {#user-id-schema}
 
-ユーザー ID の命名規則に注意してください。
+ユーザーIDの命名規則に注意してください。
 
-| Braze スキーマ | Currents スキーマ | 説明 |
+| Brazeスキーマ | Currentsスキーマ | 説明 |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Braze によって自動的に割り当てられるユニークな識別子です。 |
+| `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニークな識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されたユーザープロファイルのユニークな識別子です。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### プラットフォームの値
+### プラットフォームの値 {#platform-values}
 
-特定のイベントは、ユーザーのデバイスのプラットフォームを示す `platform` 値を返します。
+特定のイベントは、ユーザーのデバイスのプラットフォームを示す`platform`値を返します。
 <br>次の表に、返される可能性のある値の詳細を示します。
 
 | ユーザーデバイス | プラットフォーム値 |
@@ -57,15 +57,15 @@ search_rank: 6
 {% enddetails %}
 
 {% alert important %}
-Currents は、900&nbsp;KB を超える過度に大きなペイロードを持つイベントをドロップします。
+Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
 {% endalert %}
 
 {% alert note %}
-キャンバスフローに関連するオブジェクトには、グループ化に使用できる ID があり、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を通じて人間が読める名前に変換できます。
+キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を通じて人間が読める名前に変換できます。
 {% endalert %}
 
 {% alert note %}
-キャンペーンやキャンバスの更新後、特定のフィールドが最新の状態を表示するまでに時間がかかる場合があります。対象のフィールドは以下のとおりです。
+CampaignやCanvasの更新後、特定のフィールドが最新の状態を表示するまでに時間がかかる場合があります。対象のフィールドは以下のとおりです。
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>

@@ -10,10 +10,10 @@
 
 테스트 배너를 검토하면서 다음 사항을 확인하세요:
 
-- 배너 캠페인이 배치에 할당되어 있나요?
+- 배너 Campaign이 배치에 할당되어 있나요?
 - 이미지와 미디어가 타겟 기기 유형 및 화면 크기에서 예상대로 표시되고 작동하나요?
 - 링크와 버튼이 사용자를 올바른 위치로 안내하나요?
 - Liquid가 예상대로 작동하나요? Liquid가 정보를 반환하지 않는 경우를 대비하여 기본 속성 값을 설정했나요?
 - 문구가 명확하고 간결하며 정확한가요?
 
-추가 정보는 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)를 참조하세요.
+자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)를 참조하세요.

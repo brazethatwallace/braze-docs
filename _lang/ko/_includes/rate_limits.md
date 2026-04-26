@@ -111,7 +111,7 @@ Braze는 이 엔드포인트에 3초당 3,000건의 요청이라는 기본 속�
 Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_limits/#batching-api-requests)를 지원합니다. 메시징 엔드포인트에 대한 단일 요청은 다음 중 하나에 해당할 수 있습니다:
 
 - 최대 50개의 특정 `external_ids`(각각 개별 메시지 매개변수 포함)
-- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 세그먼트
+- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 Segment
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
@@ -158,8 +158,8 @@ Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_
 Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_limits/#batching-api-requests)를 지원합니다. 메시징 엔드포인트에 대한 단일 요청은 다음 중 하나에 해당할 수 있습니다:
 
 - 최대 50개의 특정 `external_ids`(각각 개별 메시지 매개변수 포함)
-- Braze 대시보드에서 생성된 모든 규모의 세그먼트(`segment_id`로 지정)
-- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 세그먼트
+- Braze 대시보드에서 생성된 모든 규모의 Segment(`segment_id`로 지정)
+- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 Segment
 
 {% endif %}
 
@@ -168,7 +168,7 @@ Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_
 Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_limits/#batching-api-requests)를 지원합니다. 메시징 엔드포인트에 대한 단일 요청은 다음 중 하나에 해당할 수 있습니다:
 
 - 최대 50개의 특정 `external_ids`(각각 개별 메시지 매개변수 포함)
-- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 세그먼트
+- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 Segment
 
 {% endif %}
 
@@ -187,8 +187,8 @@ Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_
 Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_limits/#batching-api-requests)를 지원합니다. 메시징 엔드포인트에 대한 단일 요청은 다음 중 하나에 해당할 수 있습니다:
 
 - 최대 50개의 특정 `external_ids`
-- Braze 대시보드에서 생성된 모든 규모의 세그먼트(`segment_id`로 지정)
-- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 세그먼트
+- Braze 대시보드에서 생성된 모든 규모의 Segment(`segment_id`로 지정)
+- 요청에서 [Connected 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 오브젝트로 정의된 모든 규모의 오디언스 Segment
 
 {% endif %}
 

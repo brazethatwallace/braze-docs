@@ -142,21 +142,21 @@ table td {
 {% if include.variable_name == "email" %}
 
 | E-Mail-Typ | Empfohlene Maximalwerte |
-| --- | --- | 
+| --- | --- |
 | Nur Text | 25 KB |
 | Text mit Bildern | 60 KB |
 | E-Mail-Breite | 600 px |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Bildspezifikationen | Empfohlene Maximalwerte |
-| --- | --- | 
+| --- | --- |
 | Größe | 5 MB |
 | Breite | Header: 600 px<br>Text: 480 px |
 | Dateitypen | PNG, JPEG, GIF<br><br> Die Unterstützung für WebP-Bilder variiert je nach E-Mail-Client. Um eine zuverlässige Darstellung zu gewährleisten, konvertieren Sie WebP-Bilder in das PNG- oder JPEG-Format, bevor Sie sie zu E-Mail-Nachrichten hinzufügen. |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Textspezifikationen | Empfohlene Maximalwerte |
-| --- | --- | 
+| --- | --- |
 | Länge der Betreffzeile | 35 Zeichen<br>6 bis 10 Wörter |
 | `"From: Name"` Länge | 25 Zeichen |
 | Preheader-Länge | 85 Zeichen |
@@ -173,7 +173,7 @@ table td {
 | Banner    | Beliebiges Seitenverhältnis | 600&nbsp;px Mindestbreite |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
 
-Weitere Informationen finden Sie unter [Kreative Details für Content-Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
 
 {% endif %}
 

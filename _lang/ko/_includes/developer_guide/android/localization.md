@@ -1,12 +1,12 @@
-# 현지화
+# 현지화 {#localization}
 
 > 현지화는 Braze Android SDK 내에서 지원됩니다. Braze는 영어 외에도 기본 제공 SDK 메시지에 대해 여러 언어를 지원합니다. 이는 Braze와 통합된 애플리케이션에 표시되는 기본 메시지와 관련이 있으며, 연결 문제가 발생했을 때 앱에 표시되는 메시지 등이 해당됩니다(예: "네트워크 연결을 설정할 수 없습니다. 나중에 다시 시도해 주세요.").
 
 휴대폰 언어가 지원되는 언어 중 하나로 설정되어 있으면, 통합 애플리케이션 내에서 트리거되는 모든 Braze 기본 문자열이 자동으로 해당 언어로 표시됩니다.
 
-사용자 프로필에 속성으로 지정할 수 있는 지원 언어의 전체 목록은 [사용자 언어 목록]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/)을 참조하세요.
+프로필에서 사용자에게 속성을 지정할 수 있는 지원되는 언어의 전체 목록을 보려면 [사용자 언어 목록]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/)을 참조하세요.
 
-## 지원 언어
+## 지원 언어 {#languages-supported}
 
 - 아프리칸스어
 - 아그햄어
