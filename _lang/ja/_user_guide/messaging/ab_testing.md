@@ -4,10 +4,10 @@ article_title: "AB テスト"
 page_order: 6
 layout: dev_guide
 guide_top_header: "AB テスト"
-guide_top_text: "実験を行ってメッセージングを最適化しましょう。AB テストでは、同じキャンペーンの複数のバージョンに対するユーザーの応答を比較します。多変量テストでは、これを2つ以上の変数に拡張します。Braze では、セットアッププロセスが同じであるため、これらの用語は同じ意味で使用されます。AB テストと<a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>インテリジェントセレクション</a>を組み合わせて、結果を自動的に最適化しましょう。"
+guide_top_text: "実験を行ってメッセージングを最適化しましょう。AB テストでは、同じキャンペーンの複数のバージョンに対するユーザーの応答を比較します。多変量テストでは、これを2つ以上の変数に拡張します。Brazeでは、セットアッププロセスが同じであるため、これらの用語は同じ意味で使用されます。AB テストと<a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>インテリジェントセレクション</a>を組み合わせて、結果を自動的に最適化しましょう。"
 
 page_type: landing
-description: "Braze で AB テストと多変量実験をセットアップし、分析します。"
+description: "Brazeで AB テストと多変量実験をセットアップし、分析します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -28,14 +28,14 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## AB テストを使用するタイミング
+## AB テストを使用するタイミング {#when-to-use-ab-tests}
 
 - **新しいメッセージングタイプを試す場合:** 実験を行い、ユーザーに響くものを学びましょう。
 - **オンボーディングキャンペーンや定期送信:** トラフィックの多いキャンペーンを可能な限り効果的にしましょう。
 - **複数のメッセージアイデアがある場合:** テストを実行し、データドリブン型の意思決定を行いましょう。
 - **前提を検証する場合:** 従来のマーケティング戦術が特定のオーディエンスに実際に効果があるかどうかをテストしましょう。
 
-## 効果的なテストを実行するためのヒント
+## 効果的なテストを実行するためのヒント {#tips-for-running-effective-tests}
 
 - **大きなサンプルサイズを使用して**、結果が平均的なユーザーを反映し、外れ値に左右されないようにしましょう。
 - **テストグループをランダム化して**、応答率の違いがサンプルの違いではなく、メッセージの違いを反映するようにしましょう。

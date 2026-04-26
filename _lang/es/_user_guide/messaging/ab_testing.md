@@ -28,14 +28,14 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Cuándo usar pruebas A/B
+## Cuándo usar pruebas A/B {#when-to-use-ab-tests}
 
 - **Probar un nuevo tipo de mensajería:** experimenta y descubre qué conecta con tus usuarios.
 - **Campañas de incorporación o envíos recurrentes:** asegúrate de que las campañas de alto tráfico sean lo más efectivas posible.
 - **Múltiples ideas de mensaje:** ejecuta una prueba y toma una decisión basada en datos.
 - **Cuestionar suposiciones:** comprueba si las tácticas de marketing convencionales realmente funcionan para tu audiencia específica.
 
-## Consejos para ejecutar pruebas efectivas
+## Consejos para ejecutar pruebas efectivas {#tips-for-running-effective-tests}
 
 - **Usa muestras grandes** para asegurarte de que los resultados reflejen a tu usuario promedio y no estén sesgados por valores atípicos.
 - **Aleatoriza los grupos de prueba** para que las diferencias en las tasas de respuesta reflejen diferencias en los mensajes, no en las muestras.

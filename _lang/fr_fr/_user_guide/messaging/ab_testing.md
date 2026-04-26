@@ -28,14 +28,14 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Quand utiliser les tests A/B
+## Quand utiliser les tests A/B {#when-to-use-ab-tests}
 
 - **Essayer un nouveau type de message :** Expérimentez et découvrez ce qui parle à vos utilisateurs.
 - **Campagnes d'onboarding ou envois récurrents :** Assurez-vous que vos campagnes à fort trafic sont aussi efficaces que possible.
 - **Plusieurs idées de messages :** Lancez un test et prenez une décision fondée sur les données.
 - **Remettre en question les hypothèses :** Vérifiez si les tactiques marketing classiques fonctionnent réellement pour votre audience spécifique.
 
-## Conseils pour mener des tests efficaces
+## Conseils pour mener des tests efficaces {#tips-for-running-effective-tests}
 
 - **Utilisez des échantillons de grande taille** pour vous assurer que les résultats reflètent votre utilisateur moyen et ne sont pas faussés par des valeurs aberrantes.
 - **Randomisez les groupes de test** afin que les différences de taux de réponse reflètent des différences de messages, et non des différences d'échantillons.

@@ -4,7 +4,7 @@ article_title: "A/B-Tests"
 page_order: 6
 layout: dev_guide
 guide_top_header: "A/B-Tests"
-guide_top_text: "Führen Sie Experimente durch, um Ihr Messaging zu optimieren. Ein A/B-Test vergleicht die Reaktionen von Nutzer:innen auf mehrere Versionen derselben Kampagne, während ein multivariater Test dies auf zwei oder mehr Variablen erweitert. In Braze werden die Begriffe synonym verwendet, da der Einrichtungsprozess identisch ist. Nutzen Sie A/B-Tests mit <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligente Auswahl</a>, um Ihre Ergebnisse automatisch zu optimieren."
+guide_top_text: "Führen Sie Experimente durch, um Ihr Messaging zu optimieren. Ein A/B-Test vergleicht die Reaktionen von Nutzer:innen auf mehrere Versionen derselben Kampagne, während ein multivariater Test dies auf zwei oder mehr Variablen erweitert. In Braze werden die Begriffe synonym verwendet, da der Einrichtungsprozess identisch ist. Nutzen Sie A/B-Tests mit <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligenter Auswahl</a>, um Ihre Ergebnisse automatisch zu optimieren."
 
 page_type: landing
 description: "Richten Sie A/B-Tests und multivariate Experimente in Braze ein und analysieren Sie diese."
@@ -28,14 +28,14 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Wann Sie A/B-Tests einsetzen sollten
+## Wann Sie A/B-Tests einsetzen sollten {#when-to-use-ab-tests}
 
 - **Einen neuen Nachrichtentyp ausprobieren:** Experimentieren Sie und finden Sie heraus, was bei Ihren Nutzer:innen ankommt.
 - **Onboarding-Kampagnen oder wiederkehrende Sendungen:** Stellen Sie sicher, dass Kampagnen mit hohem Traffic so effektiv wie möglich sind.
 - **Mehrere Ideen für Nachrichten:** Führen Sie einen Test durch und treffen Sie eine datengestützte Entscheidung.
 - **Annahmen hinterfragen:** Testen Sie, ob konventionelle Marketing-Taktiken tatsächlich für Ihre spezifische Zielgruppe funktionieren.
 
-## Tipps für effektive Tests
+## Tipps für effektive Tests {#tips-for-running-effective-tests}
 
 - **Verwenden Sie große Stichproben**, um sicherzustellen, dass die Ergebnisse Ihre durchschnittlichen Nutzer:innen widerspiegeln und nicht durch Ausreißer verzerrt werden.
 - **Randomisieren Sie die Testgruppen**, damit unterschiedliche Antwortquoten auf Unterschiede in den Nachrichten zurückzuführen sind – nicht auf Unterschiede in den Stichproben.
