@@ -4,7 +4,7 @@ article_title: チャネル
 page_order: 5
 layout: dev_guide
 guide_top_header: "チャネル"
-guide_top_text: "適切なタイミングで適切なチャネルを通じてユーザーにリーチしましょう。アプリ内メッセージ、Content Cards、バナーなどのプロダクト内チャネルや、プッシュ、メール、SMS、WhatsAppなどのプロダクト外チャネルから選択できます。"
+guide_top_text: "適切なタイミングで適切なチャネルを通じてユーザーにリーチしましょう。アプリ内メッセージ、コンテンツカード、バナーなどのプロダクト内チャネルや、プッシュ、メール、SMS、WhatsAppなどのプロダクト外チャネルから選択できます。"
 
 page_type: landing
 description: "Brazeのプロダクト内およびプロダクト外のメッセージングチャネルを通じてユーザーにリーチしましょう。"

@@ -151,7 +151,7 @@ El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y di
 Segments
 {% endapitags %}
 
-Ve a la página **Segments**, en Interacción, para ver todos tus segmentos de usuarios actuales. En esta página puedes crear y nombrar nuevos segmentos. Para empezar, haz clic en **Crear segmento** y asigna un nombre a tu segmento.
+Ve a la página **Segmentos**, en Interacción, para ver todos tus segmentos de usuarios actuales. En esta página puedes crear y nombrar nuevos segmentos. Para empezar, haz clic en **Crear segmento** y asigna un nombre a tu segmento.
 
 Una vez que hayas creado tu segmento, añade un filtro `Most Recent Location` para dirigirte a los usuarios por el último lugar en el que utilizaron tu aplicación. Puedes resaltar a los usuarios en una región circular estándar o crear una región poligonal personalizada.
 
@@ -218,7 +218,7 @@ Por último, una vez creada una extensión, puedes utilizarla como filtro al cre
 Campaigns
 {% endapitags %}
 
-Para crear una campaña multicanal, ve a la página **Campaigns**, selecciona **Crear campaña** y luego **Campaña multicanal**. Cuando estés dentro de una campaña multicanal, selecciona **Añadir canal de mensajería** en la pestaña de composición para añadir los canales que desees. Haz clic en los iconos de canal que aparecen para alternar entre los distintos compositores de mensajes a medida que elaboras el texto de tu campaña para los distintos canales.
+Para crear una campaña multicanal, ve a la página **Campaigns**, selecciona **Create Campaign** y luego **Multichannel Campaign**. Cuando estés dentro de una campaña multicanal, selecciona **Add Messaging Channel** en la pestaña de composición para añadir los canales que desees. Haz clic en los iconos de canal que aparecen para alternar entre los distintos compositores de mensajes a medida que elaboras el texto de tu campaña para los distintos canales.
 
 {% endapi %}
 {% api %}

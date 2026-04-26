@@ -4,7 +4,7 @@ article_title: Canaux
 page_order: 5
 layout: dev_guide
 guide_top_header: "Canaux"
-guide_top_text: "Atteignez vos utilisateurs via le bon canal au bon moment. Choisissez parmi les canaux intégrés au produit comme les messages in-app, les Content Cards et les bannières, ou les canaux externes comme les notifications push, les e-mails, les SMS et WhatsApp."
+guide_top_text: "Atteignez vos utilisateurs via le bon canal au bon moment. Choisissez parmi les canaux intégrés au produit comme les messages in-app, les Cartes de contenu et les bannières, ou les canaux externes comme les notifications push, les e-mails, les SMS et WhatsApp."
 
 page_type: landing
 description: "Atteignez vos utilisateurs via les canaux de communication intégrés au produit et externes dans Braze."
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Messages in-app
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: Content Cards
+  - name: Cartes de contenu
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Bannières

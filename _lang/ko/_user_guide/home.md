@@ -36,7 +36,7 @@ popular_topic_list:
     link: /docs/user_guide/data/unification/cloud_ingestion/
   - name: 인앱 메시지
     link: /docs/user_guide/channels/in_app_messages/
-  - name: Content Cards
+  - name: 콘텐츠 카드
     link: /docs/user_guide/channels/content_cards/
   - name: 메시지 참여 이벤트
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/

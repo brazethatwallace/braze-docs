@@ -36,7 +36,7 @@ popular_topic_list:
     link: /docs/user_guide/data/unification/cloud_ingestion/
   - name: Messages in-app
     link: /docs/user_guide/channels/in_app_messages/
-  - name: Content Cards
+  - name: Cartes de contenu
     link: /docs/user_guide/channels/content_cards/
   - name: Événements d'engagement liés aux messages
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/

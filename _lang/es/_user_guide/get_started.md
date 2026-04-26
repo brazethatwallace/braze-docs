@@ -41,7 +41,7 @@ Los segmentos son dinámicos: los usuarios pueden entrar y salir de ellos en tie
 
 Para más información, consulta: [Cómo empezar: Usuarios y segmentos]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
 
-## Campaigns y Canvas {#campaigns-and-canvases}
+## Campañas y Canvas {#campaigns-and-canvases}
 
 Las campañas y los Canvas son la forma de enviar mensajes a tus usuarios.
 

@@ -4,10 +4,10 @@ article_title: Envio de mensagens
 page_order: 4.5
 layout: dev_guide
 guide_top_header: "Envio de mensagens"
-guide_top_text: "Crie, gerencie e otimize o envio de mensagens em Campaigns e Canvas. Aprenda os fundamentos do envio de mensagens, personalize conteúdo, configure testes A/B e crie landing pages para escalar suas comunicações."
+guide_top_text: "Crie, gerencie e otimize o envio de mensagens em Campanhas e Canvas. Aprenda os fundamentos do envio de mensagens, personalize conteúdo, configure testes A/B e crie landing pages para escalar suas comunicações."
 
 page_type: landing
-description: "Crie, gerencie e otimize o envio de mensagens em Campaigns e Canvas na Braze."
+description: "Crie, gerencie e otimize o envio de mensagens em Campanhas e Canvas na Braze."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

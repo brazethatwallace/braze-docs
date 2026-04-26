@@ -4,10 +4,10 @@ article_title: Mensajería
 page_order: 4.5
 layout: dev_guide
 guide_top_header: "Mensajería"
-guide_top_text: "Crea, administra y optimiza tu mensajería en campaigns y Canvas. Aprende los fundamentos de la mensajería, personaliza contenido, configura pruebas A/B y crea páginas de inicio para escalar tus comunicaciones."
+guide_top_text: "Crea, administra y optimiza tu mensajería en campañas y Canvas. Aprende los fundamentos de la mensajería, personaliza contenido, configura pruebas A/B y crea páginas de inicio para escalar tus comunicaciones."
 
 page_type: landing
-description: "Crea, administra y optimiza la mensajería en campaigns y Canvas en Braze."
+description: "Crea, administra y optimiza la mensajería en campañas y Canvas en Braze."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:

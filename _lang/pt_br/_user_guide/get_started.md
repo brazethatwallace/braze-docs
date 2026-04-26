@@ -27,25 +27,25 @@ A Braze é uma plataforma de engajamento com clientes que ajuda marcas de todos 
 Não se esqueça de [adicionar seus colegas à Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) para que possam explorar a plataforma com você.
 {% endalert %}
 
-## Usuários e Segments {#users-and-segments}
+## Usuários e segmentos {#users-and-segments}
 
 Os usuários são seus clientes — as pessoas que recebem as mensagens que você envia usando a Braze. Todos os dados que você coleta sobre um usuário e ingere na Braze são armazenados no perfil do usuário, como dados demográficos, informações pessoais, preferências e comportamentos. Essas informações alimentam o envio de mensagens e permitem que você personalize suas mensagens para o usuário certo.
 
 ![]({% image_buster /assets/img/getting_started/user_profile.png %})
 
-Os Segments dividem sua base de clientes em grupos menores que podem ser direcionados com mensagens específicas. Você pode usar diferentes variáveis para criar Segments, desde características como gênero, local e idade até comportamentos como padrões de interação com campanhas anteriores ou em que ponto da jornada do cliente eles se encontram.
+Os segmentos dividem sua base de clientes em grupos menores que podem ser direcionados com mensagens específicas. Você pode usar diferentes variáveis para criar segmentos, desde características como gênero, local e idade até comportamentos como padrões de interação com campanhas anteriores ou em que ponto da jornada do cliente eles se encontram.
 
-Os Segments são dinâmicos — os usuários podem entrar e sair dos Segments em tempo real com base em seu comportamento e em sua relação com a sua marca. Isso garante que seus clientes recebam as mensagens mais relevantes para eles em qualquer momento. Você pode criar quantos Segments forem necessários para fins de direcionamento e envio de mensagens.
+Os segmentos são dinâmicos — os usuários podem entrar e sair dos segmentos em tempo real com base em seu comportamento e em sua relação com a sua marca. Isso garante que seus clientes recebam as mensagens mais relevantes para eles em qualquer momento. Você pode criar quantos segmentos forem necessários para fins de direcionamento e envio de mensagens.
 
 ![]({% image_buster /assets/img/getting_started/segment.png %})
 
-Para saber mais, confira: [Primeiros passos: Usuários e Segments]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
+Para saber mais, confira: [Primeiros passos: Usuários e segmentos]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
 
 ## Campanhas e Canvas {#campaigns-and-canvases}
 
 Campanhas e Canvas são as formas de enviar mensagens aos seus usuários.
 
-As campanhas são ideais para mensagens individuais enviadas a um Segment específico de público em vários canais. Você pode usar qualquer um dos nossos canais de envio de mensagens compatíveis na sua campanha (e-mail, push, mensagens no app, SMS e muito mais).
+As campanhas são ideais para mensagens individuais enviadas a um segmento específico de público em vários canais. Você pode usar qualquer um dos nossos canais de envio de mensagens compatíveis na sua campanha (e-mail, push, mensagens no app, SMS e muito mais).
 
 Os Canvas são fluxos de trabalho avançados de campanha que permitem automatizar e orquestrar jornadas personalizadas de clientes em vários canais. Em um Canvas, você pode configurar lógica de ramificação, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Os Canvas ajudam a garantir uma comunicação consistente e contínua em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
 
@@ -53,7 +53,7 @@ Para saber mais, confira: [Primeiros passos: Campanhas e Canvas]({{site.baseurl}
 
 ## Espaços de trabalho {#workspaces}
 
-Os espaços de trabalho agrupam seus dados — usuários, Segments, campanhas e Canvas — em um único local. As informações não são compartilhadas entre espaços de trabalho, então tenha isso em mente ao adicionar sites e apps aos seus espaços de trabalho. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
+Os espaços de trabalho agrupam seus dados — usuários, segmentos, campanhas e Canvas — em um único local. As informações não são compartilhadas entre espaços de trabalho, então tenha isso em mente ao adicionar sites e apps aos seus espaços de trabalho. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
 
 Exemplos de usos para espaços de trabalho incluem:
 

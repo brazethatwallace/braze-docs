@@ -27,33 +27,33 @@ Braze ist eine Customer-Engagement-Plattform, die Marken jeder Größe dabei hil
 Stellen Sie sicher, dass Sie [Ihre Kolleg:innen zu Braze hinzufügen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), damit sie die Plattform gemeinsam mit Ihnen erkunden können.
 {% endalert %}
 
-## Nutzer:innen und Segments {#users-and-segments}
+## Nutzer:innen und Segmente {#users-and-segments}
 
 Nutzer:innen sind Ihre Kund:innen – die Personen, die die Nachrichten erhalten, die Sie mit Braze versenden. Alle Daten, die Sie über eine:n Nutzer:in sammeln und in Braze aufnehmen, werden in deren Nutzerprofil gespeichert, z. B. demografische Daten, persönliche Informationen, Vorlieben und Verhaltensweisen. Diese Informationen bilden die Grundlage für Ihr Messaging und ermöglichen es Ihnen, Ihre Nachrichten auf die richtigen Nutzer:innen zuzuschneiden.
 
 ![]({% image_buster /assets/img/getting_started/user_profile.png %})
 
-Segments unterteilen Ihren Kundenstamm in kleinere Gruppen, die Sie dann mit spezifischem Messaging ansprechen können. Sie können verschiedene Variablen verwenden, um Segments zu erstellen – von Merkmalen wie Geschlecht, Standort und Alter bis hin zu Verhaltensweisen wie Interaktionsmustern mit früheren Campaigns oder der Position in der Customer Journey.
+Segmente unterteilen Ihren Kundenstamm in kleinere Gruppen, die Sie dann mit spezifischem Messaging ansprechen können. Sie können verschiedene Variablen verwenden, um Segmente zu erstellen – von Merkmalen wie Geschlecht, Standort und Alter bis hin zu Verhaltensweisen wie Interaktionsmustern mit früheren Campaigns oder der Position in der Customer Journey.
 
-Segments sind dynamisch – Nutzer:innen können in Echtzeit in Segments ein- und ausgegliedert werden, basierend auf ihrem Verhalten und ihrer Beziehung zu Ihrer Marke. So stellen Sie sicher, dass Ihre Kund:innen jederzeit die für sie relevantesten Nachrichten erhalten. Sie können so viele Segments erstellen, wie Sie für Ihr Targeting und Messaging benötigen.
+Segmente sind dynamisch – Nutzer:innen können in Echtzeit in Segmente ein- und ausgegliedert werden, basierend auf ihrem Verhalten und ihrer Beziehung zu Ihrer Marke. So stellen Sie sicher, dass Ihre Kund:innen jederzeit die für sie relevantesten Nachrichten erhalten. Sie können so viele Segmente erstellen, wie Sie für Ihr Targeting und Messaging benötigen.
 
 ![]({% image_buster /assets/img/getting_started/segment.png %})
 
-Mehr dazu finden Sie hier: [Erste Schritte: Nutzer:innen und Segments]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
+Mehr dazu finden Sie hier: [Erste Schritte: Nutzer:innen und Segmente]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
 
-## Campaigns und Canvases {#campaigns-and-canvases}
+## Kampagnen und Canvases {#campaigns-and-canvases}
 
-Campaigns und Canvases sind die Werkzeuge, mit denen Sie Nachrichten an Ihre Nutzer:innen senden.
+Kampagnen und Canvases sind die Werkzeuge, mit denen Sie Nachrichten an Ihre Nutzer:innen senden.
 
-Campaigns eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppen-Segment gesendet werden. Sie können jeden unserer unterstützten Messaging-Kanäle in Ihrer Campaign nutzen (E-Mail, Push, In-App-Nachrichten, SMS und mehr).
+Kampagnen eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppen-Segment gesendet werden. Sie können jeden unserer unterstützten Messaging-Kanäle in Ihrer Kampagne nutzen (E-Mail, Push, In-App-Nachrichten, SMS und mehr).
 
-Canvases sind fortschrittliche Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Engagement und Conversion.
+Canvases sind fortschrittliche Kampagnen-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Engagement und Conversion.
 
 Mehr dazu finden Sie hier: [Erste Schritte: Kampagnen und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 
 ## Workspaces
 
-Workspaces fassen Ihre Daten – Nutzer:innen, Segments, Campaigns und Canvases – an einem Ort zusammen. Informationen werden nicht zwischen Workspaces geteilt. Behalten Sie das im Hinterkopf, wenn Sie Websites und Apps zu Ihren Workspaces hinzufügen. Als Best Practice empfehlen wir, nur verschiedene Versionen derselben oder sehr ähnlicher Apps in einem Workspace zusammenzufassen.
+Workspaces fassen Ihre Daten – Nutzer:innen, Segmente, Kampagnen und Canvases – an einem Ort zusammen. Informationen werden nicht zwischen Workspaces geteilt. Behalten Sie das im Hinterkopf, wenn Sie Websites und Apps zu Ihren Workspaces hinzufügen. Als Best Practice empfehlen wir, nur verschiedene Versionen derselben oder sehr ähnlicher Apps in einem Workspace zusammenzufassen.
 
 Beispiele für die Verwendung von Workspaces:
 
@@ -72,7 +72,7 @@ Braze ist so konzipiert, dass Sie schnell und einfach loslegen können. Unsere d
 
 Hier ist das Braze-Framework zur Einschätzung der Dauer Ihrer Integration, basierend auf vier Komponenten, an denen Sie parallel arbeiten können. Die typische Spanne liegt zwischen 30 und 180 Tagen, wobei die meisten Konten ihre Integration innerhalb von 45 bis 60 Tagen abschließen.
 
-- **Komplexitätsgrad der Campaign-Migration:** Die Zeit für die Migration von Campaigns hängt davon ab, wie viele Sie haben, wie personalisiert sie sind und welche Ressourcen Ihnen zur Verfügung stehen. Wenn Sie weniger als zehn Campaigns migrieren müssen, dauert es weniger als 60 Tage. Bei mehr als 100 Campaigns wird es komplizierter. Wenn nur eine Person 100 Campaigns migriert, ist das etwas anderes, als wenn 10 Personen 100 migrieren.
+- **Komplexitätsgrad der Kampagnen-Migration:** Die Zeit für die Migration von Kampagnen hängt davon ab, wie viele Sie haben, wie personalisiert sie sind und welche Ressourcen Ihnen zur Verfügung stehen. Wenn Sie weniger als zehn Kampagnen migrieren müssen, dauert es weniger als 60 Tage. Bei mehr als 100 Kampagnen wird es komplizierter. Wenn nur eine Person 100 Kampagnen migriert, ist das etwas anderes, als wenn 10 Personen 100 migrieren.
 
 {% alert tip %}
 Benötigen Sie Hilfe bei Ihrer Migration? Unsere [zertifizierten Braze-Partner](https://www.braze.com/partners/solutions-partners) können Sie unterstützen!
