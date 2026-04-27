@@ -4,31 +4,31 @@ article_title: Empfohlene E-Commerce-Events
 page_type: reference
 alias: /ecommerce_events/
 toc_headers: h2
-description: "Dieser Referenzartikel beschreibt empfohlene E-Commerce-Events und -Eigenschaften, deren Verwendung, Segmentierung, wo Sie relevante Analytics einsehen können und mehr."
+description: "Dieser Referenzartikel beschreibt empfohlene E-Commerce-Events und -Eigenschaften, deren Verwendung, Segmentierung, wo Sie die relevanten Analytics einsehen können und mehr."
 ---
 
-# Empfohlene E-Commerce-Events
+# Empfohlene E-Commerce-Events {#ecommerce-recommended-events}
 
-> Diese Seite behandelt empfohlene E-Commerce-Events und -Eigenschaften. Diese Events wurden entwickelt, um wichtige Einkaufsverhaltensweisen zu erfassen, die Marketer benötigen, um effektives Messaging auszulösen – beispielsweise das Targeting von Warenkorb-Abbrüchen.
+> Diese Seite behandelt empfohlene E-Commerce-Events und -Eigenschaften. Diese Events werden erstellt, um wichtige Einkaufsverhaltensweisen zu erfassen, die Marketer benötigen, um effektives Messaging zu triggern – beispielsweise das Targeting von Warenkorb-Abbrüchen.
 
 {% alert important %}
-Empfohlene E-Commerce-Events befinden sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind. <br><br>Wenn Sie den neuen [Shopify-Konnektor]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector) verwenden, stehen diese empfohlenen Events automatisch über die Integration zur Verfügung.
+Empfohlene E-Commerce-Events befinden sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager bei Braze, wenn Sie an diesem Early Access teilnehmen möchten. <br><br>Wenn Sie den neuen [Shopify-Konnektor]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector) verwenden, stehen diese empfohlenen Events automatisch über die Integration zur Verfügung.
 {% endalert %}
 
-Braze weiß, dass Datenplanung Zeit braucht. Wir empfehlen unseren Kund:innen, ihre Entwicklungsteams einzubeziehen und jetzt mit dem Senden dieser Events zu beginnen. Auch wenn einige Features möglicherweise nicht sofort mit den empfohlenen E-Commerce-Events verfügbar sind, können Sie sich auf die Einführung neuer Produkte im Laufe des Jahres 2025 freuen, die Ihre E-Commerce-Fähigkeiten erweitern werden.
+Braze weiß, dass die Planung von Daten Zeit braucht. Wir ermutigen unsere Kund:innen, ihre Entwickler:innen-Teams damit vertraut zu machen und jetzt mit dem Versand dieser Events zu beginnen. Auch wenn einige Features bei den empfohlenen E-Commerce-Events nicht sofort verfügbar sind, können Sie sich auf die Einführung neuer Produkte im Laufe des Jahres 2025 freuen, die Ihre E-Commerce-Funktionen erweitern werden.
 
-## Typen empfohlener E-Commerce-Events
+## Arten empfohlener E-Commerce-Events {#types-of-ecommerce-recommended-events}
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-Alle Nicht-USD-Währungen werden in Braze basierend auf dem Wechselkurs am Tag der Meldung in USD angezeigt. Um eine Währungsumrechnung zu vermeiden, codieren Sie die Währung fest auf USD.
+Alle gemeldeten Nicht-USD-Währungen werden in Braze auf Basis des Wechselkurses am Tag der Meldung in USD angezeigt. Um eine Währungsumrechnung zu vermeiden, codieren Sie die Währung fest auf USD.
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-Sie können das Event „Produkt angesehen" verwenden, um auszulösen, wenn ein:e Kund:in eine Produktdetailseite aufruft.
+Sie können das Event „Produkt angesehen“ verwenden, um zu triggern, wenn ein:e Kund:in eine Produktdetailseite aufruft.
 
-#### Eigenschaften
+#### Eigenschaften {#properties}
 
 | Eigenschaftsname | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
@@ -38,14 +38,14 @@ Sie können das Event „Produkt angesehen" verwenden, um auszulösen, wenn ein:
 | `image_url` | Nein | String | URL des Produktbilds. |
 | `product_url` | Nein | String | URL zur Produktseite für weitere Details. |
 | `price` | Ja | Gleitkommazahl | Der Variantenstückpreis des Produkts zum Zeitpunkt der Ansicht. |
-| `currency` | Ja | String | Die Währung, in der der Produktpreis angegeben ist (z. B. „USD" oder „EUR") im [ISO 4217-Format](https://www.iso.org/iso-4217-currency-codes.html). |
+| `currency` | Ja | String | Die Währung, in der der Produktpreis angegeben ist (z. B. „USD“ oder „EUR“) im [ISO 4217-Format](https://www.iso.org/iso-4217-currency-codes.html). |
 | `source` | Ja | String | Quelle, aus der das Event stammt. (Für Shopify ist dies die Storefront). |
-| `type` | Nein | Objekt | Funktioniert mit [Wieder-verfügbar-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications). |
+| `type` | Nein | Objekt | Funktioniert mit [Wieder-verfügbar-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/). |
 | `metadata` | Nein | Objekt | |
 | `sku` | Nein | String | (Nur Shopify) Shopify-SKU. Dies kann als Katalog-ID-Feld konfiguriert werden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Beispielobjekte
+#### Beispielobjekte {#example-objects}
 
 {% subtabs %}
 {% subtab Web SDK %}
@@ -55,8 +55,8 @@ Sie können das Event „Produkt angesehen" verwenden, um auszulösen, wenn ein:
 Bei neueren SDK-Versionen rufen Sie `logEcommerceEvent()` auf:
 
 ```javascript
-braze.logEcommerceEvent({ 
-    "name": "ecommerce.product_viewed", 
+braze.logEcommerceEvent({
+    "name": "ecommerce.product_viewed",
     "properties": {
         "product_id": "4111176",
         "product_name": "Torchie runners",
@@ -190,7 +190,7 @@ Sie können den Trigger **Warenkorb-Aktualisierung durchführen** verwenden, um 
 - Der Warenkorb hat den Checkout-Prozess noch nicht begonnen.
 - Das `products`-Array ist nicht leer.
 
-#### Warenkorb-Mapping-Objekt
+#### Warenkorb-Mapping-Objekt {#carts-mapping-object}
 
 Das `ecommerce.cart_updated`-Event hat ein Warenkorb-Mapping-Objekt. Dieses Objekt wird für das Nutzerprofil erstellt und enthält eine Zuordnung von Warenkörben mit allen Produkten im Warenkorb der Käufer:in. Sie können über den Liquid-Tag auf die Produkte im Warenkorb zugreifen:
 
@@ -208,20 +208,20 @@ Wenn ein Warenkorb nicht aktualisiert wird und innerhalb von 30 Tagen nicht zu e
 Produkte pro Warenkorb sind bei Braze nicht begrenzt. Shopifys Limit liegt jedoch bei 500.
 {% endalert %}
 
-#### Warenkorb-Verhalten beim Zusammenführen von Nutzerprofilen
+#### Warenkorb-Verhalten beim Zusammenführen von Nutzerprofilen {#cart-behavior-when-merging-user-profiles}
 
 Wenn zwei Warenkörbe vorhanden sind, werden beide zum zusammengeführten Nutzerprofil hinzugefügt. Der Canvas wird erneut in die Warteschlange gestellt – unabhängig davon, ob es sich um denselben oder einen anderen Warenkorb handelt –, um eine Nachricht mit den aktuellsten Warenkorb-Informationen zu senden. Das `ecommerce.cart_updated`-Event enthält die neueste Warenkorb-ID und die neuesten Produkte im Warenkorb.
 
-#### Eigenschaften
+#### Eigenschaften {#properties}
 
 | Eigenschaftsname | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `cart_id` | Ja | String | Wenn Sie keine Drittanbieter-Plattform verwenden, die eine `cart_id` bereitstellt, können Sie die [Braze-Session-ID]({{site.baseurl}}/developer_guide/analytics/tracking_sessions) verwenden. |
+| `cart_id` | Ja | String | Wenn Sie keine Drittanbieter-Plattform verwenden, die eine `cart_id` bereitstellt, können Sie die [Braze-Session-ID]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/) verwenden. |
 | `total_value` | Ja | Gleitkommazahl | Gesamter Geldwert des Warenkorbs. |
 | `subtotal_value` | Nein | Gleitkommazahl | Zwischensumme des Warenkorbs nach Rabatten und vor Steuern und Versand. |
 | `tax` | Nein | Gleitkommazahl | Gesamte auf den Warenkorb angewandte Steuer. |
 | `shipping` | Nein | Gleitkommazahl | Gesamte Versandkosten für den Warenkorb. |
-| `currency` | Ja | String | Die Währung, in der der Produktpreis angegeben ist (z. B. „USD" oder „EUR") im [ISO 4217-Format](https://www.iso.org/iso-4217-currency-codes.html). |
+| `currency` | Ja | String | Die Währung, in der der Produktpreis angegeben ist (z. B. „USD“ oder „EUR“) im [ISO 4217-Format](https://www.iso.org/iso-4217-currency-codes.html). |
 | `products` | Ja | Array |  |
 | `product_id` | Ja | String | Ein eindeutiger Bezeichner für das angesehene Produkt. <br> Dieser Wert kann die Produkt-ID oder SKU sein. |
 | `product_name` | Ja | String | Der Name des angesehenen Produkts. |
@@ -236,7 +236,7 @@ Wenn zwei Warenkörbe vorhanden sind, werden beide zum zusammengeführten Nutzer
 | `metadata` | Nein | Objekt | Zusätzliches Metadatenfeld über das Produkt, das die Kund:in für ihre Anwendungsfälle hinzufügen möchte. Für Shopify wird die SKU hinzugefügt. <br> Dieses Feld hat ein Limit basierend auf unserem allgemeinen Event-Eigenschaften-Limit von 50 KB. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Beispielobjekte
+#### Beispielobjekte {#example-objects}
 
 {% subtabs %}
 {% subtab Web SDK %}
@@ -246,8 +246,8 @@ Wenn zwei Warenkörbe vorhanden sind, werden beide zum zusammengeführten Nutzer
 Bei neueren SDK-Versionen rufen Sie `logEcommerceEvent()` auf:
 
 ```javascript
-braze.logEcommerceEvent({ 
-    "name": "ecommerce.cart_updated", 
+braze.logEcommerceEvent({
+    "name": "ecommerce.cart_updated",
     "properties": {
         "cart_id": "cart_12345",
         "currency": "USD",
@@ -426,7 +426,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.cart_updated", properties: pr
 {% endtab %}
 {% tab ecommerce.checkout_started %}
 
-Sie können das Event „Checkout gestartet" verwenden, um Kund:innen erneut anzusprechen, die den Checkout-Prozess begonnen, aber keine Bestellung aufgegeben haben.
+Sie können das Event „Checkout gestartet“ verwenden, um Kund:innen erneut anzusprechen, die den Checkout-Prozess begonnen, aber keine Bestellung aufgegeben haben.
 
 Ähnlich wie das `ecommerce.cart_updated`-Event ermöglicht Ihnen dieses Event, den Warenkorb-Liquid-Tag zu nutzen, um auf alle Produkte im Warenkorb für Nachrichten bei abgebrochenem Checkout zuzugreifen:
 
@@ -438,12 +438,12 @@ Sie können das Event „Checkout gestartet" verwenden, um Kund:innen erneut anz
 ```
 {%endraw%}
 
-#### Eigenschaften
+#### Eigenschaften {#properties}
 
 | Eigenschaftsname | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `checkout_id` | Ja | String | Eindeutiger Bezeichner für den Checkout. |
-| `cart_id` | Nein | String | Wenn Sie keine Drittanbieter-Plattform verwenden, die eine `cart_id` bereitstellt, können Sie die [Braze-Session-ID]({{site.baseurl}}/developer_guide/analytics/tracking_sessions) verwenden. |
+| `cart_id` | Nein | String | Wenn Sie keine Drittanbieter-Plattform verwenden, die eine `cart_id` bereitstellt, können Sie die [Braze-Session-ID]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/) verwenden. |
 | `total_value` | Ja | Gleitkommazahl | Gesamter Geldwert des Warenkorbs. |
 | `subtotal_value` | Nein | Gleitkommazahl | Zwischensumme des Warenkorbs nach Rabatten und vor Steuern und Versand. |
 | `tax` | Nein | Gleitkommazahl | Gesamte auf den Warenkorb angewandte Steuer. |
@@ -464,7 +464,7 @@ Sie können das Event „Checkout gestartet" verwenden, um Kund:innen erneut anz
 | `checkout_url` | Nein | String | URL für die Checkout-Seite. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Beispielobjekte
+#### Beispielobjekte {#example-objects}
 
 {% subtabs %}
 {% subtab Web SDK %}
@@ -474,8 +474,8 @@ Sie können das Event „Checkout gestartet" verwenden, um Kund:innen erneut anz
 Bei neueren SDK-Versionen rufen Sie `logEcommerceEvent()` auf:
 
 ```javascript
-braze.logEcommerceEvent({ 
-    "name": "ecommerce.checkout_started", 
+braze.logEcommerceEvent({
+    "name": "ecommerce.checkout_started",
     "properties": {
         "checkout_id": "checkout_abc123",
         "cart_id": "cart_12345",
@@ -653,14 +653,14 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.checkout_started", properties
 {% endtab %}
 {% tab ecommerce.order_placed %}
 
-Sie können das Event „Bestellung aufgegeben" verwenden, um auszulösen, wenn ein:e Kund:in den Checkout-Prozess erfolgreich abschließt und eine Bestellung aufgibt.
+Sie können das Event „Bestellung aufgegeben“ verwenden, um zu triggern, wenn ein:e Kund:in den Checkout-Prozess erfolgreich abschließt und eine Bestellung aufgibt.
 
-#### Eigenschaften
+#### Eigenschaften {#properties}
 
 | Eigenschaftsname | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `order_id` | Ja | String | Eindeutiger Bezeichner für die aufgegebene Bestellung. |
-| `cart_id` | Nein | String | Wenn Sie keine Drittanbieter-Plattform verwenden, die eine `cart_id` bereitstellt, können Sie die [Braze-Session-ID]({{site.baseurl}}/developer_guide/analytics/tracking_sessions) verwenden. |
+| `cart_id` | Nein | String | Wenn Sie keine Drittanbieter-Plattform verwenden, die eine `cart_id` bereitstellt, können Sie die [Braze-Session-ID]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/) verwenden. |
 | `total_value` | Ja | Gleitkommazahl | Gesamter Geldwert des Warenkorbs. |
 | `subtotal_value` | Nein | Gleitkommazahl | Zwischensumme der Bestellung nach Rabatten und vor Steuern und Versand. |
 | `tax` | Nein | Gleitkommazahl | Gesamte auf die Bestellung angewandte Steuer. |
@@ -686,7 +686,7 @@ Sie können das Event „Bestellung aufgegeben" verwenden, um auszulösen, wenn 
 | `payment_gateway_names` | Nein | Array | (Nur Shopify) Zahlungssystem-Quelle (z. B. Point of Sale oder Mobilgerät). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Beispielobjekte
+#### Beispielobjekte {#example-objects}
 
 {% subtabs %}
 {% subtab Web SDK %}
@@ -696,8 +696,8 @@ Sie können das Event „Bestellung aufgegeben" verwenden, um auszulösen, wenn 
 Bei neueren SDK-Versionen rufen Sie `logEcommerceEvent()` auf:
 
 ```javascript
-braze.logEcommerceEvent({ 
-    "name": "ecommerce.order_placed", 
+braze.logEcommerceEvent({
+    "name": "ecommerce.order_placed",
     "properties": {
         "order_id": "order_67890",
         "cart_id": "cart_12345",
@@ -932,11 +932,11 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_placed", properties: pr
 {% endtab %}
 {% tab ecommerce.order_refunded %}
 
-Sie können das Event „Bestellung erstattet" verwenden, um auszulösen, wenn eine Bestellung teilweise oder vollständig erstattet wird.
+Sie können das Event „Bestellung erstattet“ verwenden, um zu triggern, wenn eine Bestellung teilweise oder vollständig erstattet wird.
 
-#### Eigenschaften
+#### Eigenschaften {#properties}
 
-| Eigenschaftsname | Erforderlich | Datentyp | Beschreibung |
+| Eigenschaftsname       | Erforderlich | Datentyp | Beschreibung   |
 |---------------|---------|-----------|-------------------------|
 | `order_id`            | Ja      | String    | Eindeutiger Bezeichner für die aufgegebene Bestellung.        |
 | `total_value`         | Ja      | Gleitkommazahl     | Gesamter Geldwert des Warenkorbs.    |
@@ -961,7 +961,7 @@ Sie können das Event „Bestellung erstattet" verwenden, um auszulösen, wenn e
 | `tags`             | Nein       | Array     | (Nur Shopify) Bestell-Tags.  |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Beispielobjekte
+#### Beispielobjekte {#example-objects}
 
 {% subtabs %}
 {% subtab Web SDK %}
@@ -1140,11 +1140,11 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% tab ecommerce.order_cancelled %}
 
-Sie können das Event „Bestellung storniert" verwenden, um auszulösen, wenn ein:e Kund:in eine Bestellung storniert.
+Sie können das Event „Bestellung storniert“ verwenden, um zu triggern, wenn ein:e Kund:in eine Bestellung storniert.
 
-#### Eigenschaften
+#### Eigenschaften {#properties}
 
-| Eigenschaftsname | Erforderlich | Datentyp | Beschreibung |
+| Eigenschaftsname      | Erforderlich | Datentyp | Beschreibung       |
 |---------------------|----------|-----------|-------------------|
 | `order_id`            | Ja      | String    | Eindeutiger Bezeichner für die aufgegebene Bestellung.              |
 | `cancel_reason`       | Ja      | String    | Grund, warum die Bestellung storniert wurde.           |
@@ -1172,7 +1172,7 @@ Sie können das Event „Bestellung storniert" verwenden, um auszulösen, wenn e
 | `tags`                | Nein       | Array     | (Nur Shopify) Bestell-Tags.            |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Beispielobjekte
+#### Beispielobjekte {#example-objects}
 
 {% subtabs %}
 {% subtab Web SDK %}
@@ -1364,58 +1364,58 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_cancelled", properties:
 {% endtab %}
 {% endtabs %}
 
-## E-Commerce Canvas-Templates
+## E-Commerce Canvas-Templates {#ecommerce-canvas-templates}
 
 Braze hat vorgefertigte Canvas-Templates erstellt, die von empfohlenen E-Commerce-Events unterstützt werden – beispielsweise das Targeting von Kund:innen, die den Checkout-Prozess begonnen, aber vor der Bestellung abgebrochen haben. Sie können diese Events nutzen, um fundierte Entscheidungen zu treffen, Ihre User Journey zu verbessern, Messaging zu personalisieren und bestimmte Zielgruppen anzusprechen.
 
 Schauen Sie sich unsere speziellen [E-Commerce-Anwendungsfälle]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) an, um weitere Möglichkeiten zu entdecken, wie Sie diese Events mit Canvas-Templates verwenden können.
 
-## Berechnete Nutzerfelder
+## Berechnete Nutzerfelder {#user-calculated-fields}
 
 Wir verwenden standardisierte Nutzerfeldberechnungen für die folgenden Felder:
 
 - **Gesamtumsatz** = Summe des Gesamtwerts aufgegebener Bestellungen - Summe des Gesamtwerts erstatteter Bestellungen
-- **Gesamtanzahl Bestellungen** = Anzahl der eindeutigen Events „Bestellung aufgegeben" - Anzahl der eindeutigen Stornierungen
+- **Gesamtanzahl Bestellungen** = Anzahl der eindeutigen Events „Bestellung aufgegeben“ - Anzahl der eindeutigen Stornierungen
 - **Gesamter Erstattungswert** = Summe des Gesamtwerts erstatteter Bestellungen
 
 Diese berechneten Nutzerfelder sind auch im Tab **Transaktionen** der Nutzerprofile enthalten.
 
-![Der Tab „Transaktionen" mit berechneten Nutzerfeldern.]({% image_buster /assets/img/Shopify/transactions_tab.png %}){: style="max-width:70%;"}
+![Der Tab „Transaktionen“ mit berechneten Nutzerfeldern.]({% image_buster /assets/img/Shopify/transactions_tab.png %}){: style="max-width:70%;"}
 
-## Häufig gestellte Fragen
+## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wo kann ich Kaufdaten auf Produktebene einsehen?
+### Wo kann ich Kaufdaten auf Produktebene einsehen? {#where-can-i-view-product-level-purchase-data}
 
 Der Tab **Transaktionen** des Nutzerprofils zeigt übergeordnete berechnete Felder (wie Gesamtumsatz und Gesamtbestellungen). Um produktbezogene Details für eine bestimmte Nutzer:in einzusehen, verwenden Sie den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), um E-Commerce-Event-Daten abzufragen, oder exportieren Sie Event-Daten über [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/).
 
 Im Gegensatz zu Legacy-Kauf-Events speichern empfohlene E-Commerce-Events Produktdetails als verschachtelte Event-Eigenschaften innerhalb des `products`-Arrays. Diese Eigenschaften sind im Messaging über Liquid und in der Segmentierung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) verfügbar.
 
-### Wie segmentiere ich Nutzer:innen nach einem bestimmten Produkt?
+### Wie segmentiere ich Nutzer:innen nach einem bestimmten Produkt? {#how-do-i-segment-users-by-a-specific-product}
 
-Der Segmenter ermöglicht es Ihnen, nach der Anzahl der Male zu filtern, die eine Nutzer:in ein E-Commerce-Event ausgeführt hat. Um nach bestimmten Produkteigenschaften (wie `product_id` oder `product_name`) zu filtern, verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), die das Filtern nach verschachtelten Event-Eigenschaften unterstützen. So können Sie beispielsweise alle Nutzer:innen finden, die das Produkt „SKU-123" in den letzten 90 Tagen gekauft haben.
+Der Segmenter ermöglicht es Ihnen, nach der Anzahl der Male zu filtern, die eine Nutzer:in ein E-Commerce-Event ausgeführt hat. Um nach bestimmten Produkteigenschaften (wie `product_id` oder `product_name`) zu filtern, verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), die das Filtern nach verschachtelten Event-Eigenschaften unterstützen. So können Sie beispielsweise alle Nutzer:innen finden, die das Produkt „SKU-123“ in den letzten 90 Tagen gekauft haben.
 
-### Was ist der Unterschied zwischen Legacy-Kauf-Events und empfohlenen E-Commerce-Events?
+### Was ist der Unterschied zwischen Legacy-Kauf-Events und empfohlenen E-Commerce-Events? {#whats-the-difference-between-legacy-purchase-events-and-ecommerce-recommended-events}
 
 Legacy-Kauf-Events verwenden das Braze [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) und erfassen einzelne Produktkäufe mit einer `product_id` und einem `price`. Empfohlene E-Commerce-Events (wie `ecommerce.order_placed`) verwenden angepasste Event-Eigenschaften und erfassen den vollständigen Bestellkontext, einschließlich mehrerer Produkte, Rabatte und Metadaten in einem einzigen Event.
 
 Mit der Einführung der empfohlenen E-Commerce-Events wird Braze das Legacy-Kauf-Event in Zukunft auslaufen lassen. Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig benachrichtigt. In der Zwischenzeit können Sie Kauf-Events bis zum offiziellen Abschaltungsdatum weiter verwenden. Weitere Details finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
 
-### Kann ich angepasste Eigenschaften zu empfohlenen E-Commerce-Events hinzufügen?
+### Kann ich angepasste Eigenschaften zu empfohlenen E-Commerce-Events hinzufügen? {#can-i-add-custom-properties-to-ecommerce-recommended-events}
 
 Empfohlene E-Commerce-Events haben ein definiertes Schema mit erforderlichen und optionalen Feldern. Sie können zusätzliche angepasste Daten innerhalb des `metadata`-Objekts für jedes Event einfügen. Allerdings werden angepasste Tags auf Bestellebene oder proprietäre Felder (wie Kaufkanal oder Informationen zum Einzelhandelsgeschäft) nicht als Top-Level-Eigenschaften unterstützt. Wenn Sie diese Felder für die Segmentierung benötigen, senden Sie sie weiterhin als separate angepasste Events zusammen mit Ihren E-Commerce-Events.
 
-### Muss ich eine external_id beim Senden von E-Commerce-Events angeben?
+### Muss ich eine external_id beim Senden von E-Commerce-Events angeben? {#do-i-need-to-include-externalid-when-sending-ecommerce-events}
 
 Das hängt davon ab, wie Sie die Events senden:
 
 - **Über das SDK**: Nein. Wenn Sie ein Braze SDK verwenden, werden Events automatisch mit dem aktuellen Nutzerkontext des SDK (anonym oder identifiziert) verknüpft. Sie müssen bei jedem Event-Aufruf keinen Nutzerbezeichner übergeben; stattdessen können Sie die Nutzer:in für diesen Kontext mit Methoden wie `changeUser` identifizieren.
-- **Über die REST API** (`/users/track`): Ja. Jede API-Anfrage muss einen Nutzerbezeichner enthalten, wie `external_id`, `braze_id`, `user_alias`, `email` oder `phone`, da die API keinen „aktuellen Nutzer"-Kontext hat.
+- **Über die REST API** (`/users/track`): Ja. Jede API-Anfrage muss einen Nutzerbezeichner enthalten, wie `external_id`, `braze_id`, `user_alias`, `email` oder `phone`, da die API keinen „aktuellen Nutzer“-Kontext hat.
 
-### Warum erscheinen verschachtelte Produkteigenschaften nicht im Dropdown der KI-Artikelempfehlungen-Einrichtung?
+### Warum erscheinen verschachtelte Produkteigenschaften nicht im Dropdown der KI-Artikelempfehlungen-Einrichtung? {#why-dont-nested-product-properties-appear-in-the-ai-recommendations-setup-dropdown}
 
 Bei der Konfiguration von [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) listet das Dropdown **Eigenschaftsname** nur Top-Level-Event-Eigenschaften auf (wie `order_id`, `total_value` und `currency`). Verschachtelte Eigenschaften innerhalb des `products`-Arrays (z. B. `products.product_id` oder `products.variant_id`) erscheinen möglicherweise nicht in dieser Liste, aber Sie können sie manuell mit Punkt-Notation in das Feld eingeben. Für die meisten E-Commerce-Implementierungen empfiehlt Braze, `products.product_id` als Artikelbezeichner zu verwenden und ihn mit einem [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) zu kombinieren, dessen Artikel-IDs mit Ihren `product_id`- oder `variant_id`-Werten übereinstimmen.
 
-### Warum werden einige meiner E-Commerce-Events nicht in Braze angezeigt?
+### Warum werden einige meiner E-Commerce-Events nicht in Braze angezeigt? {#why-are-some-of-my-ecommerce-events-not-appearing-in-braze}
 
 Wenn Events nicht in Nutzerprofilen oder Logs erscheinen, überprüfen Sie Folgendes:
 

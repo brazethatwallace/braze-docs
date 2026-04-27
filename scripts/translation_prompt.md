@@ -137,6 +137,12 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 - **Internal doc links**: Keep product names per the glossary (**Canvas** stays English). In the same markdown **link anchor**, translate ordinary words that are not fixed product tokens—e.g. use **Campañas** / **Campagnes** in “Getting started: … and Canvas” style anchors when the surrounding sentence is localized; do not leave raw English *Campaigns* inside an otherwise Spanish or French phrase.
 - **German image alts**: Use the full German pair `„` … `“` inside `![…](…)` alt text (see style guide). Do not close a `„` phrase with a straight ASCII `"` before words like *als ausgewähltem*.
 
+### A/B testing landing (`_user_guide/messaging/ab_testing.md`)
+
+- **`nav_title` parity with sibling config**: Keep `nav_title` exactly aligned with the locale's existing `_partners/data_and_analytics/ab_testing.md` value (same wording and quoting style) to avoid navigation drift.
+- **Campaign token readability in CJK prose**: When glossary/QC requires English **Campaign** / **Campaigns** in Japanese or Korean running prose, introduce a local gloss on first mention (for example `Campaign(キャンペーン)` or `Campaign(캠페인)`) and then keep usage consistent in that section.
+- **pt-BR sentence case for common nouns**: In Portuguese running prose, keep generic mentions in sentence case (for example `testes A/B` inside a sentence, not `Testes A/B`) unless the phrase is a heading or official UI label.
+
 ### A/B testing docs (`_user_guide/messaging/ab_testing/`)
 
 - **Variant terminology must stay “variant”**: In optimization and analytics pages, translate *variant* with the locale's established equivalent (for example German *Variante*, French *variante*, Korean *배리언트*). Do **not** switch to words meaning *variable* (for example Korean *변수*) in this context.
@@ -161,6 +167,9 @@ A style guide for the target language may be appended to the end of these instru
 - **French — elision apostrophe**: Use the typographic apostrophe **’** (U+2019) in elisions — **d’utilisation**, **l’e-mail**, **l’utilisateur**, **n’**, **j’**, **qu’** — not the ASCII typewriter apostrophe **'** (U+0027). This matches established `fr_fr` navigation and body copy (Copilot on PR #13314).
 - **Brazilian Portuguese — quotes in image alt text**: Do **not** use the German low-9 double quote **„** (U+201E) in pt-BR alts or prose. For nested quoted email/UI strings inside ``![...](...)``, use a consistent ASCII **"** pair or Brazilian-style **“ ”** — never **„** paired with straight **"** (PR #13314). QC may rewrite **„** → **"** under ``_lang/pt_br/``.
 - **German — parallel section headings**: When a page mirrors English under ``_user_guide/channels/…`` and a same-topic ``message_building_by_channel`` sibling already exists in German, keep **``##`` heading text** aligned with the English source and that sibling (e.g. **Social**, not ad-hoc **Social Media**, when English uses **Social** — PR #13314).
+- **German — analytics *events* vs *Veranstaltungen***: In data, SDK, and taxonomy docs, English *events* (logged or tracked user actions) must **not** become *Veranstaltungen* (real-world conferences or occasions). Prefer *Ereignis* / *Ereignisse* or *Event(s)* consistent with the page title and sibling docs under ``_user_guide/data/`` so technical meaning stays correct (auto-translate PR #13340).
+- **German — morphology around product terms**: When you localize articles, adjectives, or quantifiers around Braze concepts, use **correct German plurals** (*alle Segmente*, *Kampagnen*, *Canvase*) or keep **full English UI-style labels** unchanged—never hybrid mistakes such as *Segments*, *Campaigns*, or *Canvases* dropped into otherwise German sentence grammar (PR #13340).
+- **German — user-permission bullet lists**: When the English source lists permissions as markdown bullets like ``- View Campaigns`` / ``- Edit Segments`` inside ``{% details %}`` blocks, translate each line into the **same German permission phrasing** used elsewhere in ``_lang/de`` (for example *Kampagnen anzeigen*, *Segmente bearbeiten*, *Canvase archivieren*)—do **not** paste the English lines verbatim; that triggers QC “verbatim English block” findings and reads inconsistent next to localized headings (PR #13340).
 
 ## Formatting rules
 
