@@ -92,7 +92,7 @@ John is a busy professional who relies on a delivery app to order food from his 
 
 The next day, John orders lunch and dinner through the app, performing the conversion event twice.
 
-**Results:** *Total Conversions* for John increments by one, and *Total Impressions* increments by two. Because re-eligibility is on, the conversion is assigned to the latest in-app message John received (the second impression). A conversion can only be logged once for each in-app message delivery.
+**Results:** *Total Conversions* for John increments by one, and *Total Impressions* increments by two. Because re-eligibility is on, the conversion is assigned to the latest in-app message John received (the second impression). A conversion can be logged only once for each in-app message delivery.
 
 {% endtab %}
 {% endtabs %}
