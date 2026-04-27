@@ -16,7 +16,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 - [간단한 리드 스코어링](#simple-lead-scoring)
 - [외부 리드 스코어링](#external-lead-scoring)
 
-2. 웹훅 캠페인을 만들어 자격을 갖춘 리드를 영업 팀에 전달합니다.
+2. 웹훅 Campaign을 만들어 자격을 갖춘 리드를 영업 팀에 전달합니다.
 - [리드 핸드오프: 마케팅 적격 리드(MQL)에서 영업으로](#lead-handoff)
 
 ## 간단한 리드 스코어링 {#simple-lead-scoring}
@@ -39,11 +39,11 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 ### 3단계: 타겟 오디언스 식별 {#step-3-identify-your-target-audience}
 
-#### 3a단계: 세그먼트 선택 {#step-3a-select-segments}
+#### 3a단계: Segment 선택 {#step-3a-select-segments}
 
-모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [세그먼트]({{site.baseurl}}/user_guide/audience/segments/)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
+모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [Segment]({{site.baseurl}}/user_guide/audience/segments/)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
 
-![세그먼트와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Segment와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### 3b단계: Canvas 재진입 자격 설정 {#step-3b-set-canvas-re-eligibility}
 
@@ -103,8 +103,8 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 | 필드 | 동작 |
 | --- | --- |
 | **속성 이름** | 2단계에서 선택한 리드 점수 속성(`lead score`)을 선택합니다. |
-| **동작** | 경로가 점수를 증가시키면 **증가**로, 경로가 점수를 감소시키면 **감소**로 변경합니다. |
-| **증가** 또는 **감소** | 리드 점수에서 증가하거나 감소할 포인트 수를 입력합니다. |
+| **동작** | 경로가 점수를 증가시키면 **Increment By**로, 경로가 점수를 감소시키면 **Decrement By**로 변경합니다. |
+| **Increment By** 또는 **Decrement By** | 리드 점수에서 증가하거나 감소할 포인트 수를 입력합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
@@ -126,7 +126,7 @@ Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다�
 #### 통합 클라우드 데이터 웨어하우스 {#integrated-cloud-data-warehouse}
 
 {% tabs %}
-{% tab Braze as a data source %}
+{% tab 데이터 소스로서의 Braze %}
 
 마케팅 도구로서 Braze는 팀의 내부 리드 스코어 모델을 보완할 수 있는 매우 관련성 높은 데이터를 포함하고 있습니다.
 
@@ -136,7 +136,7 @@ Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다�
 - [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
 
 {% endtab %}
-{% tab Braze as a destination %}
+{% tab 대상으로서의 Braze %}
 
 내부 팀이 리드 스코어링 모델을 생성하고 실행한 후, 해당 데이터를 Braze로 다시 가져와서 관련 메시징을 위해 리드를 더 잘 세분화하고 타겟팅할 수 있습니다. [Braze 클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 사용하면 됩니다.
 
@@ -151,13 +151,13 @@ Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다�
 
 Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려면 트리거된 웹훅 템플릿을 사용하는 것을 권장합니다.
 
-### 1단계: 웹훅 캠페인 생성 {#step-1-create-a-webhook-campaign}
+### 1단계: 웹훅 Campaign 생성 {#step-1-create-a-webhook-campaign}
 
 ### 2단계: 웹훅 구성 {#step-2-configure-your-webhook}
 
 #### 2a단계: 웹훅 작성 {#step-2a-compose-webhook}
 
-1. 웹훅 캠페인에 "Salesforce > MQL로 리드 업데이트"와 같은 이름을 지정합니다.
+1. 웹훅 Campaign에 "Salesforce > MQL로 리드 업데이트"와 같은 이름을 지정합니다.
 
 2. {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} 형식으로 웹훅 URL을 입력합니다. {% raw %}`{{${user_id}}}`{% endraw %}의 Braze 사용자 ID는 Salesforce 연락처 ID와 일치해야 합니다. 일치하지 않으면 {% raw %}`{{${user_id}}}`{% endraw %} 대신 별칭을 사용하세요.
 
@@ -190,7 +190,7 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 
 #### 2b단계: 웹훅 발송 예약 {#step-2b-schedule-webhook-sends}
 
-이 캠페인은 사용자의 리드 점수가 변경될 때마다 트리거되어야 합니다. 이 캠페인은 점수가 변경된 모든 사용자에 대해 트리거되지만, 현재 MQL이 아니고 이전 단계에서 설정한 임계값을 초과한 사용자에게만 영향을 미칩니다.
+이 Campaign은 사용자의 리드 점수가 변경될 때마다 트리거되어야 합니다. 이 Campaign은 점수가 변경된 모든 사용자에 대해 트리거되지만, 현재 MQL이 아니고 이전 단계에서 설정한 임계값을 초과한 사용자에게만 영향을 미칩니다.
 
 **전달 예약** 단계에서 다음을 선택합니다.
 - **행동 기반** 전달 유형
@@ -202,6 +202,6 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 
 !["lead_status"가 "MQL"이 아닌 필터가 적용된 웹훅 타겟팅 옵션.]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### 3단계: 캠페인 시작 {#step-3-launch-campaign}
+### 3단계: Campaign 시작 {#step-3-launch-campaign}
 
 **시작**을 선택하고 고객이 MQL 리드 점수 임계값을 초과할 때 Salesforce에서 리드 상태가 변경되는 것을 확인하세요.

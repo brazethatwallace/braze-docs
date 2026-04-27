@@ -86,7 +86,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | --- | --- |
 | Administrator | `admin` |
 | Unternehmenseinstellungen verwalten | `manage_company_settings` |
-| Workspaces erstellen und löschen| `add_remove_app_groups` |
+| Workspaces erstellen und löschen | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Workspace-Berechtigungsstrings {#workspace-strings}
@@ -142,7 +142,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Mehrsprachige Einstellungen anzeigen | `view_multi_language_settings` |
 | BrazeAI Operator<sup>TM</sup> verwenden | `use_operator` |
 | Decisioning-Studio-Agenten anzeigen | `view_decisioning_studio_agents` |
-| Decisioning-Studio-Zielgruppe anzeigen |`view_decisioning_studio_audience` |
+| Decisioning-Studio-Zielgruppe anzeigen | `view_decisioning_studio_audience` |
 | Decisioning-Studio-Konversions-Event anzeigen | `view_decisioning_studio_conversion_event` |
 | Decisioning-Studio-Leitlinien anzeigen | `view_decisioning_studio_guardrails` |
 | Campaigns starten | `launch_campaigns` |
@@ -151,7 +151,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Medienbibliothek-Assets bearbeiten | `edit_media_library_assets` |
 | Medienbibliothek-Assets löschen | `delete_media_library_assets` |
 | Importierte Nutzer:innen anzeigen | `view_import_users` |
-| Nutzer:innen importieren	| `import_users` |
+| Nutzer:innen importieren | `import_users` |
 | Nutzerdaten bearbeiten | `edit_user_data` |
 | Zusammengeführte Nutzerdatensätze anzeigen | `view_user_merge_records` |
 | Doppelte Nutzer:innen zusammenführen | `merge_duplicate_users` |
@@ -183,23 +183,23 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Sperrliste für angepasste Attribute | `blocklist_custom_attributes` |
 | Angepasste Attribute löschen | `delete_custom_attributes` |
 | Angepasste Attribute exportieren | `export_custom_attributes` |
-| Angepasste Events anzeigen	 | `view_custom_events` |
+| Angepasste Events anzeigen | `view_custom_events` |
 | Angepasste Events bearbeiten | `edit_custom_events` |
 | Sperrliste für angepasste Events | `blocklist_custom_events` |
 | Angepasste Events löschen | `delete_custom_events` |
 | Angepasste Events exportieren | `export_custom_events` |
 | Segmentierung von angepassten Event-Eigenschaften bearbeiten | `edit_custom_event_property_segmentation` |
 | Produkte anzeigen | `view_products` |
-| Produkte bearbeiten	 | `edit_products` |
+| Produkte bearbeiten | `edit_products` |
 | Sperrliste für Produkte | `blocklist_products` |
 | Segmentierung von Kaufeigenschaften bearbeiten | `edit_purchase_property_segmentation` |
 | Tags anzeigen | `view_tags` |
 | Tags bearbeiten | `edit_tags` |
 | Tags löschen | `delete_tags` |
-| E-Mail-Einstellungen anzeigen	| `view_email_settings` |
+| E-Mail-Einstellungen anzeigen | `view_email_settings` |
 | E-Mail-Einstellungen bearbeiten | `edit_email_settings` |
 | Kataloge anzeigen | `view_catalogs` |
-| Kataloge bearbeiten	 | `edit_catalogs` |
+| Kataloge bearbeiten | `edit_catalogs` |
 | Kataloge exportieren | `export_catalogs` |
 | Kataloge löschen | `delete_catalogs` |
 | WhatsApp-Einstellungen anzeigen | `view_whatsapp_settings` |

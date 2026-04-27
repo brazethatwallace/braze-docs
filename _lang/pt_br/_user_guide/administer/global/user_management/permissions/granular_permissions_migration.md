@@ -8,7 +8,7 @@ description: "Este artigo de referência cobre como se preparar para a migraçã
 tool: Dashboard
 ---
 
-# Migrando para permissões granulares
+# Migrando para permissões granulares {#migrating-to-granular-permissions}
 
 > Gerenciar quem pode acessar sua conta e realizar ações específicas é fundamental tanto para a segurança quanto para a eficiência operacional. Para dar a você mais controle, a Braze está introduzindo permissões granulares, uma maneira mais flexível e precisa de gerenciar o acesso dos usuários em toda a sua conta.
 
@@ -17,7 +17,7 @@ A migração inclui estes benefícios:
 - **Controle mais preciso:** Permissões granulares oferecem mais controle, melhor segurança e supervisão mais clara. Os usuários recebem apenas o acesso de que precisam.
 - **Mapeamento automático:** Todas as permissões atuais são mapeadas automaticamente para seus [equivalentes granulares](#legacy-to-granular-permissions-mapping). Seus usuários mantêm o mesmo nível de acesso, a menos que você o altere.
 
-## O que analisar
+## O que analisar {#what-to-review}
 
 Quando a migração for planejada para sua empresa, os administradores da Braze receberão e-mails e banners no dashboard notificando-os sobre a migração de permissões granulares. Para se preparar para a migração, recomendamos que um administrador da Braze faça o seguinte.
 
@@ -101,12 +101,12 @@ Esta tabela mostra como cada permissão legada é mapeada para as permissões gr
 | Team | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Segments |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-## Perguntas frequentes
+## Perguntas frequentes {#frequently-asked-questions}
 
-### Posso cancelar ou reverter a migração?
+### Posso cancelar ou reverter a migração? {#can-i-opt-out-of-or-revert-the-migration}
 
 A Braze não oferece suporte à reversão da migração. Daremos suporte a você durante a migração e a monitoraremos de perto para resolver rapidamente quaisquer problemas.
 
-### Os usuários existentes perderão acesso à Braze durante a migração?
+### Os usuários existentes perderão acesso à Braze durante a migração? {#will-existing-users-lose-access-to-braze-during-the-migration}
 
 Não, não haverá indisponibilidade da Braze durante a migração. No entanto, as atualizações de permissões serão bloqueadas durante a migração. Estimamos que a migração leve até 15 minutos para ser concluída.

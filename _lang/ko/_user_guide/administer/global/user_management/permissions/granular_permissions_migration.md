@@ -8,7 +8,7 @@ description: "이 참조 문서에서는 Braze에서 세분화된 사용자 권�
 tool: Dashboard
 ---
 
-# 세분화된 권한으로 마이그레이션
+# 세분화된 권한으로 마이그레이션 {#migrating-to-granular-permissions}
 
 > 계정에 접근하고 특정 동작을 수행할 수 있는 사용자를 관리하는 것은 보안과 운영 효율성 모두에 매우 중요합니다. Braze는 더 많은 제어를 제공하기 위해, 계정 전반에서 사용자 접근을 보다 유연하고 정밀하게 관리할 수 있는 세분화된 권한을 도입하고 있습니다.
 
@@ -17,7 +17,7 @@ tool: Dashboard
 - **보다 정밀한 제어:** 세분화된 권한은 더 많은 제어, 더 나은 보안, 더 명확한 감독을 제공합니다. 사용자는 필요한 접근 권한만 부여받습니다.
 - **자동 매핑:** 모든 기존 권한은 [세분화된 동등 권한](#legacy-to-granular-permissions-mapping)에 자동으로 매핑됩니다. 변경하지 않는 한 사용자의 접근 수준은 동일하게 유지됩니다.
 
-## 검토할 사항
+## 검토할 사항 {#what-to-review}
 
 귀사의 마이그레이션이 계획되면, Braze 관리자에게 세분화된 권한 마이그레이션을 알리는 이메일과 대시보드 내 배너가 전송됩니다. 마이그레이션을 준비하기 위해 Braze 관리자가 다음을 수행할 것을 권장합니다.
 
@@ -101,12 +101,12 @@ tool: Dashboard
 | Teams | Campaigns, Canvases 전송 | Campaigns 보기<br>Canvases 편집<br>Campaigns 시작<br>Canvases 보기<br>Campaigns 편집<br>Canvases 시작<br>캔버스 템플릿 보기<br>Segments 보기 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-## 자주 묻는 질문
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-### 마이그레이션을 거부하거나 되돌릴 수 있나요?
+### 마이그레이션을 거부하거나 되돌릴 수 있나요? {#can-i-opt-out-of-or-revert-the-migration}
 
 Braze는 마이그레이션 되돌리기를 지원하지 않습니다. 마이그레이션 과정에서 지원을 제공하며, 문제가 발생하면 신속하게 해결할 수 있도록 마이그레이션을 면밀히 모니터링합니다.
 
-### 마이그레이션 중에 기존 사용자가 Braze에 접근할 수 없게 되나요?
+### 마이그레이션 중에 기존 사용자가 Braze에 접근할 수 없게 되나요? {#will-existing-users-lose-access-to-braze-during-the-migration}
 
 아니요, 마이그레이션 중에 Braze 중단 시간은 없습니다. 다만, 마이그레이션 중에는 권한 업데이트가 잠깁니다. 마이그레이션은 완료까지 최대 15분이 소요될 것으로 예상됩니다.

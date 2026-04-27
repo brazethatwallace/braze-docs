@@ -125,7 +125,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 [バナーの優先度]({{site.baseurl}}/user_guide/channels/banners/#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。優先度を手動で設定するには：
 
-1. **Set exact priority** を選択します。
+1. **正確な優先度を設定**を選択します。
 2. Campaignをドラッグ＆ドロップして正しい優先度に並べ替えます。
 3. **Apply Sort** を選択します。
 

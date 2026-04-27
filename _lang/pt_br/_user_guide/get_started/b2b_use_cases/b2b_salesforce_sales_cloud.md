@@ -28,7 +28,9 @@ Essa integração serve exclusivamente para atualizar o Salesforce a partir da B
 
 ## Pré-requisitos {#prerequisites}
 
-Essa integração exige que você crie um app conectado no Salesforce Sales Cloud seguindo as etapas da documentação do Salesforce: [Configure um aplicativo conectado para o fluxo de credenciais de cliente OAuth 2.0](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+Antes de prosseguir com essa integração, o Suporte da Salesforce precisa conceder a você a capacidade de criar apps conectados. Você pode solicitar isso enviando uma [solicitação de suporte da Salesforce](https://help.salesforce.com/s/articleView?id=005167035&type=1).
+
+Depois que o Suporte da Salesforce conceder a você a capacidade de criar um app conectado no Salesforce Sales Cloud, siga as etapas da documentação da Salesforce: [Configure um aplicativo conectado para o fluxo de credenciais de cliente OAuth 2.0](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 Ao definir as configurações de OAuth necessárias para o app conectado, mantenha todas as configurações de OAuth com seus valores e seleções padrão, exceto as seguintes:
 1. Selecione **Enable for device flow**. Você pode deixar o **Callback URL** em branco, pois o padrão será um espaço reservado.
@@ -147,18 +149,18 @@ Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicit
 
 Você pode adicionar rapidamente seus modelos aos seus fluxos de trabalho operacionais na Braze, como:
 
-1. Parte de uma [campanha de novo lead](#new-lead) que cria um lead no Salesforce
+1. Parte de uma [Campaign de novo lead](#new-lead) que cria um lead no Salesforce
 2. Parte de um [Canvas de pontuação de leads](#lead-scoring) que atualiza os usuários que ultrapassaram seu limite de MQL para "MQL" e que atualiza o Salesforce Sales Cloud com as mesmas informações
 
-### Campanha de novo lead {#new-lead}
+### Campaign de novo lead {#new-lead}
 
-Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
+Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma Campaign que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
 
-![Etapa 2 da criação de uma campanha baseada em ação e com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Etapa 2 da criação de uma Campaign baseada em ação e com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Canvas de pontuação de leads para ultrapassar o limite de Marketing Qualified Lead (MQL) {#lead-scoring}
 
-Esse webhook é abordado no caso de uso de [pontuação de leads]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mas você também pode verificar MQLs e atualizar diretamente o Salesforce dentro do Canvas de pontuação de leads (em vez de criar uma campanha de webhook separada):
+Esse webhook é abordado no caso de uso de [pontuação de leads]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mas você também pode verificar MQLs e atualizar diretamente o Salesforce dentro do Canvas de pontuação de leads (em vez de criar uma Campaign de webhook separada):
 
 Adicione uma etapa subsequente à sua atualização de usuário para verificar se um usuário ultrapassou o limite de MQL definido. Se tiver ultrapassado, atualize o status do usuário para "MQL" e, em seguida, atualize o Salesforce com o mesmo status "MQL" usando esse modelo de webhook. O Salesforce cuida do resto, encaminhando esse lead para as equipes de vendas apropriadas usando suas regras de roteamento de leads definidas.
 

@@ -28,10 +28,12 @@ Braze는 현재 다음 사용 사례를 위해 Salesforce Sales Cloud에 두 가
 
 ## 필수 조건 {#prerequisites}
 
-이 통합을 사용하려면 Salesforce 설명서의 단계에 따라 Salesforce Sales Cloud에서 연결된 앱을 만들어야 합니다: [OAuth 2.0 클라이언트 자격 증명 흐름에 대해 연결된 앱 구성하기](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+이 통합을 진행하기 전에 Salesforce 고객지원에서 연결된 앱을 만들 수 있는 권한을 부여받아야 합니다. [Salesforce 고객지원 요청](https://help.salesforce.com/s/articleView?id=005167035&type=1)을 제출하여 요청할 수 있습니다.
+
+Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만들 수 있는 권한을 부여한 후, Salesforce 설명서의 단계를 따르세요: [OAuth 2.0 클라이언트 자격 증명 흐름에 대해 연결된 앱 구성하기](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 연결된 앱에 필요한 OAuth 설정을 구성할 때 다음을 제외한 모든 OAuth 설정은 기본값과 선택 항목을 그대로 유지합니다:
-1. **Enable for device** 흐름을 선택합니다. **Callback URL**은 기본적으로 플레이스홀더로 설정되므로 비워 둘 수 있습니다.
+1. **Enable for device** 흐름을 선택합니다. **Callback URL**은 기본적으로 입력 안내로 설정되므로 비워 둘 수 있습니다.
 2. 선택한 **OAuth Scopes**에 **Manage user data via APIs (api)**를 추가합니다.
 3. **Enable Client Credentials Flow**를 선택합니다.
 
@@ -50,9 +52,9 @@ Braze는 현재 다음 사용 사례를 위해 Salesforce Sales Cloud에 두 가
 
 템플릿을 사용하면 Braze 플랫폼 전반에서 이 웹훅을 빠르게 재사용할 수 있습니다.
 
-1. Braze에서 **템플릿**으로 이동하여 **웹훅 템플릿**을 선택한 다음 **+ 웹훅 템플릿 만들기**를 선택합니다.
-2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > 리드 생성").
-3. **작성** 탭에서 다음 세부 정보를 입력합니다:
+1. Braze에서 **Templates**로 이동하여 **Webhook Templates**를 선택한 다음 **+ Create Webhook Template**을 선택합니다.
+2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > Create Lead").
+3. **Compose** 탭에서 다음 세부 정보를 입력합니다:
 
 #### 웹훅 작성 {#compose-webhook}
 
@@ -106,9 +108,9 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ### 2단계: 웹훅 템플릿 설정하기 {#step-2-set-up-your-webhook-template}
 
-1. Braze에서 **템플릿**으로 이동하여 **웹훅 템플릿**을 선택한 다음 **+ 웹훅 템플릿 만들기**를 선택합니다.
-2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > 리드를 MQL로 업데이트").
-3. **작성** 탭에서 다음 세부 정보를 입력합니다:
+1. Braze에서 **Templates**로 이동하여 **Webhook Templates**를 선택한 다음 **+ Create Webhook Template**을 선택합니다.
+2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > Update Lead to MQL").
+3. **Compose** 탭에서 다음 세부 정보를 입력합니다:
 
 #### 웹훅 작성 {#compose-webhook}
 
@@ -147,18 +149,18 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 다음과 같이 Braze의 운영 워크플로에 템플릿을 빠르게 추가할 수 있습니다:
 
-1. Salesforce에서 리드를 생성하는 [신규 리드 캠페인](#new-lead)의 일부
+1. Salesforce에서 리드를 생성하는 [신규 리드 Campaign](#new-lead)의 일부
 2. MQL 임계값을 넘은 사용자를 "MQL"로 업데이트하고 동일한 정보로 Salesforce Sales Cloud를 업데이트하는 [리드 스코어링 Canvas](#lead-scoring)의 일부
 
-### 새로운 리드 캠페인 {#new-lead}
+### 새로운 리드 Campaign {#new-lead}
 
-사용자가 이메일 주소를 제공할 때 Salesforce에서 리드를 생성하려면 "리드 업데이트" 웹훅 템플릿을 사용하고 사용자가 이메일 주소를 추가할 때(예: 웹 양식 작성) 트리거되는 캠페인을 만들 수 있습니다.
+사용자가 이메일 주소를 제공할 때 Salesforce에서 리드를 생성하려면 "Update Lead" 웹훅 템플릿을 사용하고 사용자가 이메일 주소를 추가할 때(예: 웹 양식 작성) 트리거되는 Campaign을 만들 수 있습니다.
 
-![액션 기반이며 트리거 동작이 "이메일 주소 추가"인 캠페인 생성 2단계.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![액션 기반이며 트리거 동작이 "Add an Email Address"인 Campaign 생성 2단계.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### MQL(마케팅 적격 리드) 임계값 초과를 위한 리드 스코어링 Canvas {#lead-scoring}
 
-이 웹훅은 [리드 스코어링]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) 사용 사례에서 다루고 있지만, 별도의 웹훅 캠페인을 만드는 대신 리드 스코어링 Canvas 내에서 직접 MQL을 확인하고 Salesforce를 업데이트할 수도 있습니다:
+이 웹훅은 [리드 스코어링]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) 사용 사례에서 다루고 있지만, 별도의 웹훅 Campaign을 만드는 대신 리드 스코어링 Canvas 내에서 직접 MQL을 확인하고 Salesforce를 업데이트할 수도 있습니다:
 
 사용자 업데이트에 후속 단계를 추가하여 사용자가 정의한 MQL 임계값을 넘었는지 확인하세요. 임계값을 넘었다면 사용자의 상태를 "MQL"로 업데이트한 다음, 이 웹훅 템플릿을 사용하여 동일한 "MQL" 상태로 Salesforce를 업데이트합니다. Salesforce는 정의된 리드 라우팅 규칙에 따라 이 리드를 적절한 영업 팀으로 라우팅하여 나머지 작업을 처리합니다.
 

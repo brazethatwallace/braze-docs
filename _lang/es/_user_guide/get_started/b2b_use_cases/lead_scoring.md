@@ -23,7 +23,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 
 ### Paso 1: Crear un Canvas {#step-1-create-a-canvas}
 
-1. Ve a **Mensajería** > **Canvas** y selecciona **Crear Canvas**, y luego rellena los datos básicos de tu Canvas.
+1. Ve a **Messaging** > **Canvas** y selecciona **Create Canvas**, y luego rellena los datos básicos de tu Canvas.
 
 2. Dale a tu Canvas un nombre relevante como "Lead Scoring Canvas" y, para encontrarlo más fácilmente, etiquétalo con algo como "Lead Management".<br><br>![Paso 1 de la creación de un Canvas con el nombre "Lead Scoring Canvas" y la etiqueta "Lead Management".]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 

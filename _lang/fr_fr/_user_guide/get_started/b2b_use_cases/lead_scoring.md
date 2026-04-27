@@ -138,7 +138,7 @@ Par exemple, les données d'engagement des messages (ouvertures et clics d'e-mai
 {% endtab %}
 {% tab Braze as a destination %}
 
-Une fois que vos équipes internes ont créé et exécuté votre modèle d'évaluation des prospects, vous pouvez réintégrer ces données dans Braze afin de mieux segmenter et cibler les prospects avec des messages pertinents. Pour cela, utilisez l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) de Braze.
+Une fois que vos équipes internes ont créé et exécuté votre modèle d'évaluation des prospects, vous pouvez réintégrer ces données dans Braze afin de mieux segmenter et cibler les prospects avec des messages pertinents. Pour cela, utilisez l'[Ingestion de données cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
 
 Avec l'Ingestion de données cloud, vos équipes internes créeront une nouvelle table ou vue contenant vos identifiants utilisateur, les derniers scores des prospects et les horodatages de mise à jour des scores. Braze récupérera la table ou la vue et ajoutera les scores des prospects aux profils utilisateurs.
 

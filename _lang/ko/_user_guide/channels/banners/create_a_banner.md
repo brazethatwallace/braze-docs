@@ -31,7 +31,7 @@ channel:
 1. **Messaging** > **Campaigns**로 이동하여 **Create Campaign**을 선택합니다.
 2. **Banner**를 선택합니다.
 3. 캠페인에 명확하고 의미 있는 이름을 지정합니다.
-4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다. 태그를 사용하면 Campaigns를 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, 보고서 빌더를 사용할 때 관련 태그로 필터링할 수 있습니다.
+4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다. 태그를 사용하면 캠페인을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, 보고서 빌더를 사용할 때 관련 태그로 필터링할 수 있습니다.
 5. 이전에 생성한 배치를 선택하여 캠페인에 연결합니다.
 6. 필요에 따라 배리언트를 추가합니다. 각 배리언트에 대해 다른 메시지 유형과 레이아웃을 선택할 수 있습니다. 배리언트에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 7. 배너 캠페인의 시작 날짜와 시간을 선택합니다. 기본적으로 배너는 무기한 지속됩니다. **End Time**을 선택하고 종료 날짜와 시간을 지정하여 이를 변경할 수 있습니다.
@@ -116,7 +116,7 @@ channel:
 
 ![키가 color이고 값이 #FF0000인 문자열 등록정보가 있는 등록정보 페이지.]({% image_buster /assets/img/banners/example_property.png %})
 
-### 4단계: Campaign 또는 Canvas의 나머지 부분 구축 {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### 4단계: 캠페인 또는 Canvas의 나머지 부분 구축 {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -125,26 +125,26 @@ channel:
 
 [배너 우선순위]({{site.baseurl}}/user_guide/channels/banners/#priority)는 동일한 배치를 공유하는 배너가 표시되는 순서를 결정합니다. 우선순위를 수동으로 설정하려면:
 
-1. **Set exact priority**를 선택합니다.
-2. Campaigns를 드래그 앤 드롭하여 올바른 우선순위로 정렬합니다.
+1. **상세 우선순위 지정**을 선택합니다.
+2. 캠페인을 드래그 앤 드롭하여 올바른 우선순위로 정렬합니다.
 3. **Apply Sort**를 선택합니다.
 
 {% alert tip %}
-동일한 배치 ID를 사용하는 배너 Campaigns가 여러 개인 경우, 드래그 앤 드롭 우선순위 정렬기를 사용하여 정확한 우선순위를 정의하는 것을 권장합니다.
+동일한 배치 ID를 사용하는 배너 캠페인이 여러 개인 경우, 드래그 앤 드롭 우선순위 정렬기를 사용하여 정확한 우선순위를 정의하는 것을 권장합니다.
 {% endalert %}
 
 #### 오디언스 선택 {#choose-your-audience}
 
-1. **Target Audiences**에서 Segments 또는 필터를 선택하여 오디언스를 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 제공됩니다. 정확한 Segment 멤버십은 메시지가 발송되기 전에 계산됩니다.
+1. **타겟 오디언스**에서 Segments 또는 필터를 선택하여 오디언스를 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 제공됩니다. 정확한 Segment 멤버십은 메시지가 발송되기 전에 계산됩니다.
 
 {% multi_lang_include target_audiences.md %}
 
 {:start="2"}
-2. **Assign Conversions**에서 전환 이벤트를 정의하여 Campaign을 수신한 후 사용자가 특정 행동을 수행하는 빈도를 추적합니다. 해당 행동을 전환으로 집계하기 위한 최대 30일의 기간을 설정할 수 있습니다.
+2. **Assign Conversions**에서 전환 이벤트를 정의하여 캠페인을 수신한 후 사용자가 특정 행동을 수행하는 빈도를 추적합니다. 해당 행동을 전환으로 집계하기 위한 최대 30일의 기간을 설정할 수 있습니다.
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 
-Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 행동을 수행하는 빈도인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 추적할 수 있습니다. 사용자가 지정된 행동을 취하면 전환으로 집계되는 최대 30일의 기간을 허용하는 옵션이 있습니다.
+Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 행동을 수행하는 빈도인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 추적할 수 있습니다. 사용자가 지정된 행동을 취하면 전환으로 집계되는 최대 30일의 기간을 허용하는 옵션이 있습니다.
 
 {% endtab %}
 
@@ -161,4 +161,4 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 행동을 �
 
 ### 6단계: 검토 및 배포 {#step-6-review-and-deploy}
 
-Campaign 또는 Canvas 구축을 완료한 후 세부 정보를 검토하고, [테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)한 다음, 준비가 되면 발송하세요.
+캠페인 또는 Canvas 구축을 완료한 후 세부 정보를 검토하고, [테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)한 다음, 준비가 되면 발송하세요.
