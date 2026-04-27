@@ -38,7 +38,7 @@ valid_partner_list:
 - name: Clarisights
   url: /docs/partners/clarisights/
 - name: Heap
-  url: /docs/partners/heap/ 
+  url: /docs/partners/heap/
 - name: Datadog
   url: /docs/partners/datadog/
 - name: ThoughtSpot
@@ -143,6 +143,8 @@ valid_partner_list:
   url: /docs/partners/talonone/
 - name: FriendBuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY®
+  url: /docs/partners/lji/
 - name: Kognitiv Inspire
   url: /docs/partners/kognitiv/
 - name: Punchh
