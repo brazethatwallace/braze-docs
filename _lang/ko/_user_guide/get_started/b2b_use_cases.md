@@ -17,7 +17,7 @@ guide_featured_list:
   - name: 리드 스코어링
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/user-plus-01.svg
-  - name: Salesforce Sales Cloud로 리드 관리
+  - name: Salesforce Sales Cloud로 리드 관리하기
     link: /docs/user_guide/get_started/b2b_use_cases/b2b_salesforce_sales_cloud
     image: /assets/img/braze_icons/user-plus-01.svg
   - name: 랜딩 페이지

@@ -3,7 +3,7 @@ nav_title: "Cas d'utilisation B2B"
 page_order: 11
 layout: dev_guide
 guide_top_header: "Cas d'utilisation B2B"
-guide_top_text: "Braze dispose d'une puissante suite d'engagement client qui offre des moyens inédits d'interagir avec vos prospects et clients, des stratégies d'acquisition de prospects aux initiatives de vente et de croissance axées sur le produit, en passant par la prévention de l'attrition.<br><br>Cette section explique comment configurer Braze pour les cas d'utilisation interentreprises (B2B) : création du modèle de données initial, segmentation basée sur les comptes, campagnes opérationnelles comme le lead scoring, et bien plus encore."
+guide_top_text: "Braze dispose d'une puissante suite d'engagement client qui offre des moyens inédits d'interagir avec vos prospects et clients, des stratégies d'acquisition de prospects aux initiatives de vente et de croissance axées sur le produit, en passant par la prévention de l'attrition.<br><br>Cette section explique comment configurer Braze pour les cas d'utilisation interentreprises (B2B) : création du modèle de données initial, segmentation basée sur les comptes, campagnes opérationnelles comme l'évaluation des prospects, et bien plus encore."
 description: "Découvrez les différentes façons d'utiliser Braze pour répondre à vos cas d'utilisation B2B."
 
 guide_featured_title: "Cas d'utilisation à la une"
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Segmentation basée sur les comptes
     link: /docs/user_guide/get_started/b2b_use_cases/account_based_segmentation
     image: /assets/img/braze_icons/users-01.svg
-  - name: Notation des prospects
+  - name: Évaluation des prospects
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/user-plus-01.svg
   - name: Gérer les prospects avec Salesforce Sales Cloud
