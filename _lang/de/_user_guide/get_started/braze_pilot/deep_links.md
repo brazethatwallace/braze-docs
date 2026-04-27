@@ -6,13 +6,13 @@ page_type: reference
 description: "Dieser Referenzartikel beschreibt kurz die erforderlichen Integrationsschritte für Ihre Entwickler:innen."
 ---
 
-# Navigations-Deeplinks in Braze Pilot
+# Navigations-Deeplinks in Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
 > Braze Pilot unterstützt Deeplinking von Braze-Messaging zu bestimmten Bereichen der Pilot-App. So können Sie Engagement-Anwendungsfälle erstellen und Nutzer:innen in verschiedene Bereiche der Pilot-Anwendung leiten. Sie können auch optionale Deeplink-Parameter verwenden, um den Inhalt bestimmter Seiten in der App für die Nutzer:innen anzupassen. Weitere Informationen zum Deeplinking finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
-## Allgemein
+## Allgemein {#general}
 
-Dies sind die Deeplinks für die Hauptnavigationsseiten in der Pilot-App. 
+Dies sind die Deeplinks für die Hauptnavigationsseiten in der Pilot-App.
 
 | Bildschirm | Deeplink |
 | --- | --- |
@@ -24,25 +24,24 @@ Dies sind die Deeplinks für die Hauptnavigationsseiten in der Pilot-App.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Steppington
-
 Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 
-### Beispiel-Deeplink
+### Beispiel-Deeplink {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### Deeplinks ohne Parameter
+### Deeplinks ohne Parameter {#steppington-deep-links-without-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
-| Begrüßungsbildschirm | `braze-pilot://navigation/steppington/splash` |
+| Startbildschirm | `braze-pilot://navigation/steppington/splash` |
 | Home | `braze-pilot://navigation/steppington/home` |
 | Steppington+-Seite | `braze-pilot://navigation/steppington/plus` |
 | Zielbildschirm | `braze-pilot://navigation/steppington/goals` |
 | Ziele-ändern-Bildschirm | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deeplinks mit Parametern
+### Deeplinks mit Parametern {#steppington-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
@@ -50,7 +49,7 @@ Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 | Aktives Training | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Akzeptierte Parameter
+#### Akzeptierte Parameter {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -195,7 +194,7 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### Symboloptionen
+##### Symboloptionen {#icon-options}
 
 | Symbol | Bild |
 | --- | --- |
@@ -208,32 +207,31 @@ th:nth-child(6), td:nth-child(6) {
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## PantsLabyrinth
-
 Dies sind die Deeplinks für die App der fiktiven Marke PantsLabyrinth in Pilot.
 
-### Beispiel-Deeplink
+### Beispiel-Deeplink {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### Deeplinks ohne Parameter
+### Deeplinks ohne Parameter {#pantslabyrinth-deep-links-without-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
-| Begrüßungsbildschirm | `braze-pilot://navigation/pantslabyrinth/splash` |
+| Startbildschirm | `braze-pilot://navigation/pantslabyrinth/splash` |
 | Willkommensbildschirm | `braze-pilot://navigation/pantslabyrinth/welcome` |
 | Auflistungsbildschirm | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Warenkorbseite | `braze-pilot://navigation/pantslabyrinth/cart` |
 | Wunschliste | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deeplinks mit Parametern
+### Deeplinks mit Parametern {#pantslabyrinth-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
 | Artikeldetailseite | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Akzeptierte Parameter
+#### Akzeptierte Parameter {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -347,36 +345,35 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
-
 Dies sind die Deeplinks für die App der fiktiven Marke MovieCanon in Pilot.
 
-### Beispiel-Deeplink
+### Beispiel-Deeplink {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### Deeplinks ohne Parameter
+### Deeplinks ohne Parameter {#moviecanon-deep-links-without-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
-| Begrüßungsbildschirm | `braze-pilot://navigation/moviecannon/splash` |
+| Startbildschirm | `braze-pilot://navigation/moviecannon/splash` |
 | Willkommensbildschirm | `braze-pilot://navigation/moviecannon/welcome` |
 | Filmübersichtsseite | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deeplinks mit Parametern
+### Deeplinks mit Parametern {#moviecanon-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
 | Filmdetailseite | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Akzeptierte Parameter
+#### Akzeptierte Parameter {#moviecanon-accepted-parameters}
 
 | Parameter | Beschreibung | Erforderlich | Typ | Beispiel |
 | --- | --- | --- | --- | --- |
 | `id` | Die ID des Films. | Ja | Zahl | 1 |
 | `title` | Der Titel des Films. | Ja | String | Jaws |
-| `thumbnail` | Die Internet-URL des Vorschaubilds, das vor dem Film angezeigt wird. | Ja | String | `https://picsum.photos/400` |
+| `thumbnail` | Die Web-URL des Vorschaubilds, das vor dem Film angezeigt wird. | Ja | String | `https://picsum.photos/400` |
 | `video` | Der Index in der Liste der anzuzeigenden Videos. | Nein | Zahl | 0 |
 | `description` | Die Beschreibung des Videos. | Ja | String | `This%20video%20is%20awesome%21` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }

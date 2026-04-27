@@ -6,13 +6,13 @@ page_type: reference
 description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필요한 통합 단계를 간략하게 설명합니다."
 ---
 
-# Braze Pilot의 내비게이션 딥링크
+# Braze Pilot의 내비게이션 딥링크 {#navigation-deep-links-in-braze-pilot}
 
 > Braze Pilot은 Braze 메시징에서 Pilot 앱의 특정 부분으로의 딥링킹을 지원합니다. 이를 통해 참여 사용 사례를 생성하여 사용자를 Pilot 애플리케이션의 다양한 부분으로 유도할 수 있습니다. 선택 사항인 딥링크 매개변수를 사용하여 앱 내 특정 페이지의 콘텐츠를 사용자에 맞게 커스텀할 수도 있습니다. 딥링킹에 대한 자세한 내용은 [인앱 콘텐츠로 딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)을 참조하세요.
 
-## 기본설정
+## 기본설정 {#general}
 
-다음은 Pilot 앱의 주요 내비게이션 페이지에 대한 딥링크입니다. 
+다음은 Pilot 앱의 주요 내비게이션 페이지에 대한 딥링크입니다.
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -24,14 +24,13 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Steppington
-
 다음은 Pilot 내 Steppington 가상 브랜드 앱의 딥링크입니다.
 
-### 예시 딥링크
+### 예시 딥링크 {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### 매개변수가 없는 딥링크
+### 매개변수가 없는 딥링크 {#steppington-deep-links-without-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -42,7 +41,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 | 목표 변경 화면 | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### 매개변수가 있는 딥링크
+### 매개변수가 있는 딥링크 {#steppington-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -50,7 +49,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 | 활성 운동 | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 허용되는 매개변수
+#### 허용되는 매개변수 {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -195,7 +194,7 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### 아이콘 옵션
+##### 아이콘 옵션 {#icon-options}
 
 | 아이콘 | 이미지 |
 | --- | --- |
@@ -208,14 +207,13 @@ th:nth-child(6), td:nth-child(6) {
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## PantsLabyrinth
-
 다음은 Pilot 내 PantsLabyrinth 가상 브랜드 앱의 딥링크입니다.
 
-### 예시 딥링크
+### 예시 딥링크 {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### 매개변수가 없는 딥링크
+### 매개변수가 없는 딥링크 {#pantslabyrinth-deep-links-without-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -226,14 +224,14 @@ th:nth-child(6), td:nth-child(6) {
 | 위시리스트 페이지 | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### 매개변수가 있는 딥링크
+### 매개변수가 있는 딥링크 {#pantslabyrinth-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 상품 상세 페이지 | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 허용되는 매개변수
+#### 허용되는 매개변수 {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -347,14 +345,13 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
-
 다음은 Pilot 내 MovieCanon 가상 브랜드 앱의 딥링크입니다.
 
-### 예시 딥링크
+### 예시 딥링크 {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### 매개변수가 없는 딥링크
+### 매개변수가 없는 딥링크 {#moviecanon-deep-links-without-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
@@ -363,14 +360,14 @@ th:nth-child(6), td:nth-child(6) {
 | 영화 목록 페이지 | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### 매개변수가 있는 딥링크
+### 매개변수가 있는 딥링크 {#moviecanon-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 영화 상세 페이지 | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 허용되는 매개변수
+#### 허용되는 매개변수 {#moviecanon-accepted-parameters}
 
 | 매개변수 | 설명 | 필수 | 유형 | 예시 |
 | --- | --- | --- | --- | --- |
