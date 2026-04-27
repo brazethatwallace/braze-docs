@@ -143,3 +143,11 @@ You can share a dashboard link to the report by selecting **Share** and one of t
 3. Select whether you want to create a new dashboard or add to an existing dashboard.<br><br>![Window with options to select if you want to add the report to a new or existing dashboard.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
 4. Follow the steps in [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) to learn more about building a dashboard.
 
+## Troubleshooting
+
+### Report shows no sends for a campaign or Canvas
+
+A campaign or Canvas appears in the report when its **Last sent** date falls in the **Last sent** window you configured. **Sends** and other metrics only populate for activity inside the **Show data for** date range. If the message didn't send during **Show data for**, the row can still list the campaign or Canvas with zero sends.
+
+For example, suppose **Last sent** is 1/1/25 through 4/14/25 so a campaign is included, but **Show data for** is 12/1/24 through 1/14/25. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
+
