@@ -24,14 +24,13 @@ Dies sind die Deeplinks für die Hauptnavigationsseiten in der Pilot-App.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Steppington
-
 Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 
-### Beispiel-Deeplink {#example-deep-link}
+### Beispiel-Deeplink {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### Deeplinks ohne Parameter {#deep-links-without-parameters}
+### Deeplinks ohne Parameter {#steppington-deep-links-without-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
@@ -42,7 +41,7 @@ Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 | Ziele-ändern-Bildschirm | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deeplinks mit Parametern {#deep-links-with-parameters}
+### Deeplinks mit Parametern {#steppington-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
@@ -50,7 +49,7 @@ Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 | Aktives Training | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Akzeptierte Parameter {#accepted-parameters}
+#### Akzeptierte Parameter {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -208,14 +207,13 @@ th:nth-child(6), td:nth-child(6) {
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## PantsLabyrinth
-
 Dies sind die Deeplinks für die App der fiktiven Marke PantsLabyrinth in Pilot.
 
-### Beispiel-Deeplink {#example-deep-link}
+### Beispiel-Deeplink {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### Deeplinks ohne Parameter {#deep-links-without-parameters}
+### Deeplinks ohne Parameter {#pantslabyrinth-deep-links-without-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
@@ -226,14 +224,14 @@ Dies sind die Deeplinks für die App der fiktiven Marke PantsLabyrinth in Pilot.
 | Wunschliste | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deeplinks mit Parametern {#deep-links-with-parameters}
+### Deeplinks mit Parametern {#pantslabyrinth-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
 | Artikeldetailseite | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Akzeptierte Parameter {#accepted-parameters}
+#### Akzeptierte Parameter {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -347,14 +345,13 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
-
 Dies sind die Deeplinks für die App der fiktiven Marke MovieCanon in Pilot.
 
-### Beispiel-Deeplink {#example-deep-link}
+### Beispiel-Deeplink {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### Deeplinks ohne Parameter {#deep-links-without-parameters}
+### Deeplinks ohne Parameter {#moviecanon-deep-links-without-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
@@ -363,14 +360,14 @@ Dies sind die Deeplinks für die App der fiktiven Marke MovieCanon in Pilot.
 | Filmübersichtsseite | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deeplinks mit Parametern {#deep-links-with-parameters}
+### Deeplinks mit Parametern {#moviecanon-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
 | Filmdetailseite | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Akzeptierte Parameter {#accepted-parameters}
+#### Akzeptierte Parameter {#moviecanon-accepted-parameters}
 
 | Parameter | Beschreibung | Erforderlich | Typ | Beispiel |
 | --- | --- | --- | --- | --- |

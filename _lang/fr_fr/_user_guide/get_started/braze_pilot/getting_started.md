@@ -31,7 +31,7 @@ Il existe deux méthodes pour configurer la connexion au SDK dans Pilot : les co
 
 ### Méthode 1 : Codes QR de démonstration {#method-1-demo-qr-codes}
 
-Scannez un code QR contenant toutes les informations nécessaires pour initialiser le SDK, créer votre profil utilisateur et vous rediriger via un lien profond vers une simulation d'application spécifique dans Braze Pilot. Les codes QR de démonstration sont affichés dans le tiroir associé à certaines Campaign de démonstration de votre essai gratuit.
+Scannez un code QR contenant toutes les informations nécessaires pour initialiser le SDK, créer votre profil utilisateur et vous rediriger via un lien profond vers une simulation d'application spécifique dans Braze Pilot. Les codes QR de démonstration sont affichés dans le tiroir associé à certaines campagnes de démonstration de votre essai gratuit.
 
 | Pilot pour Android | Pilot pour iOS |
 | --- | --- |
@@ -47,7 +47,7 @@ Suivez le guide étape par étape pour initialiser la connexion avec votre espac
 
 ![Étape 1 de l'assistant de configuration de Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Cette connexion est spécifique à l'espace de travail. Autrement dit, si vous initialisez la connexion depuis l'espace de travail de démonstration, puis basculez vers l'espace de travail en production dans votre tableau de bord d'essai gratuit, vous devrez réinitialiser le SDK depuis cet espace de travail pour recevoir les Campaign qui y sont lancées.
+Cette connexion est spécifique à l'espace de travail. Autrement dit, si vous initialisez la connexion depuis l'espace de travail de démonstration, puis basculez vers l'espace de travail en production dans votre tableau de bord d'essai gratuit, vous devrez réinitialiser le SDK depuis cet espace de travail pour recevoir les campagnes qui y sont lancées.
 
 ![Le menu déroulant de l'espace de travail dans le tableau de bord de Braze avec « Demo - Braze » sélectionné comme espace de travail actif.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 

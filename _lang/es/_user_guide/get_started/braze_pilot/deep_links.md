@@ -10,7 +10,7 @@ description: "Este artículo de referencia cubre brevemente los pasos de integra
 
 > Braze Pilot admite vinculación en profundidad desde la mensajería de Braze a partes concretas de la aplicación Pilot. Esto te permite crear casos de uso de interacción, dirigiendo a los usuarios a diversas partes de la aplicación Pilot. También puedes utilizar parámetros opcionales de vínculos profundos para personalizar el contenido de páginas concretas de la aplicación para el usuario. Para obtener más información sobre la vinculación en profundidad, consulta [Vínculo profundo a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
-## General
+## General {#general}
 
 Estos son los vínculos profundos para las páginas de navegación principales de la aplicación Pilot.
 
@@ -24,14 +24,13 @@ Estos son los vínculos profundos para las páginas de navegación principales d
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Steppington
-
 Estos son los vínculos profundos para la aplicación de la marca ficticia Steppington en Pilot.
 
-### Ejemplo de vínculo profundo {#example-deep-link}
+### Ejemplo de vínculo profundo {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### Vínculos profundos sin parámetros {#deep-links-without-parameters}
+### Vínculos profundos sin parámetros {#steppington-deep-links-without-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
@@ -42,7 +41,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Stepp
 | Pantalla de cambiar objetivos | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Vínculos profundos con parámetros {#deep-links-with-parameters}
+### Vínculos profundos con parámetros {#steppington-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
@@ -50,7 +49,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Stepp
 | Entrenamiento activo | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Parámetros aceptados {#accepted-parameters}
+#### Parámetros aceptados {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -208,14 +207,13 @@ th:nth-child(6), td:nth-child(6) {
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## PantsLabyrinth
-
 Estos son los vínculos profundos para la aplicación de la marca ficticia PantsLabyrinth en Pilot.
 
-### Ejemplo de vínculo profundo {#example-deep-link}
+### Ejemplo de vínculo profundo {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### Vínculos profundos sin parámetros {#deep-links-without-parameters}
+### Vínculos profundos sin parámetros {#pantslabyrinth-deep-links-without-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
@@ -226,14 +224,14 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Pants
 | Página de lista de deseos | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Vínculos profundos con parámetros {#deep-links-with-parameters}
+### Vínculos profundos con parámetros {#pantslabyrinth-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Página de detalles del artículo | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Parámetros aceptados {#accepted-parameters}
+#### Parámetros aceptados {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -347,14 +345,13 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
-
 Estos son los vínculos profundos para la aplicación de la marca ficticia MovieCanon en Pilot.
 
-### Ejemplo de vínculo profundo {#example-deep-link}
+### Ejemplo de vínculo profundo {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### Vínculos profundos sin parámetros {#deep-links-without-parameters}
+### Vínculos profundos sin parámetros {#moviecanon-deep-links-without-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
@@ -363,14 +360,14 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Movie
 | Página de listado de películas | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Vínculos profundos con parámetros {#deep-links-with-parameters}
+### Vínculos profundos con parámetros {#moviecanon-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Página de detalles de la película | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Parámetros aceptados {#accepted-parameters}
+#### Parámetros aceptados {#moviecanon-accepted-parameters}
 
 | Parámetro | Descripción | Obligatorio | Tipo | Ejemplo |
 | --- | --- | --- | --- | --- |

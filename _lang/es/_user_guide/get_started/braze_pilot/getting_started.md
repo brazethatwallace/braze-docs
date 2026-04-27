@@ -43,7 +43,7 @@ Escanea un código QR que incluye todos los detalles necesarios para inicializar
 
 ### Método 2: Asistente de configuración {#method-2-setup-wizard}
 
-Sigue una guía paso a paso para inicializar la conexión con el espacio de trabajo de tu dashboard desde la página **App Settings** en tu panel de Braze.
+Sigue una guía paso a paso para inicializar la conexión con el espacio de trabajo de tu dashboard desde la página **Configuración de la aplicación** en tu panel de Braze.
 
 ![Paso 1 del asistente de configuración de Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
