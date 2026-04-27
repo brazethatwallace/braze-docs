@@ -448,6 +448,16 @@ the locale's chosen “winning variant” term consistent across headings, prose
 tables, and image alts.
 11. **Heading punctuation parity**: Do not introduce trailing punctuation on \
 localized headings when the English heading line has none.
+12. **BrazeAI agents docs hygiene**: Fix duplicate explicit IDs when two \
+subsections reused the same `{#use-cases}` (use distinct canvas vs catalog \
+slugs). Fix `…/agents/reference/#examples` links to \
+`#canvas-agent-examples` (or `#catalog-agent-examples` when intended). Fix \
+German **Segments** in German clauses (**Segmente**). In French \
+`reference.md`, localize **Save** and thinking-level row labels (**Faible**, \
+**Moyen**, **Élevé**). In Korean `deploying_agents.md` monitoring copy, \
+localize **Usage**/**Logs**/**Export CSV**/**View** and **Canvases** phrasing. \
+Add `{#general}` to Spanish `agents/faq.md` **General** heading when peers \
+have it (auto-translate PR #13342).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
