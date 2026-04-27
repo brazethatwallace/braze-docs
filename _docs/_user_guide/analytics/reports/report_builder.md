@@ -149,5 +149,5 @@ You can share a dashboard link to the report by selecting **Share** and one of t
 
 A campaign or Canvas appears in the report when its **Last sent** date falls in the **Last sent** window you configured. **Sends** and other metrics only populate for activity inside the **Show data for** date range. If the message didn't send during **Show data for**, the row can still list the campaign or Canvas with zero sends.
 
-For example, suppose **Last sent** is 1/1/25 through 4/14/25 so a campaign is included, but **Show data for** is 12/1/24 through 1/14/25. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
+For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a campaign is included, but **Show data for** is December 1, 2024–January 14, 2025. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
 

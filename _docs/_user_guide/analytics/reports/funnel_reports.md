@@ -9,7 +9,7 @@ tool: Reports
 
 # Funnel reports
 
-> The **Funnel Report** page offers a visual report that allows you to analyze the journeys your customers take after receiving a campaign or Canvas, including the different actions cusomters take on their path to conversion and where drop-offs occur. ![Funnel Report 2]({% image_buster /assets/img/funnel_report/funnel_report2.png %}){: style="float:right;max-width:15%;margin-bottom:15px; border: 0"}
+> The **Funnel Report** page offers a visual report that allows you to analyze the journeys your customers take after receiving a campaign or Canvas, including the different actions customers take on their path to conversion and where drop-offs occur. ![Screenshot of the Funnel Report page showing a conversion funnel for campaign or Canvas performance]({% image_buster /assets/img/funnel_report/funnel_report2.png %}){: style="float:right;max-width:15%;margin-bottom:15px; border: 0"}
 
 If your campaign or Canvas uses a control group or multiple variants, you can understand how the different variants have impacted the conversion funnel at a more granular level and optimize based on this data.
 
@@ -111,7 +111,7 @@ There isn't a hard limit, but four to six events covers most use cases. Very lon
 
 ### What channels support the **Interacted with Step** funnel event?
 
-**Interacted with Step** is available for Canvas steps that use **email**, **push**, or **in-app message** channels.
+**Interacted with Step** is available for Canvas steps that use **email** or **push** channels.
 
 ### Why is my funnel report taking a long time to load?
 
