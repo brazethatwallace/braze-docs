@@ -1,19 +1,19 @@
 ---
 nav_title: "Windows-Objekt"
-article_title: Windows Messaging Objekt
+article_title: Windows-Messaging-Objekt
 page_order: 14
 page_type: reference
 channel: push
 platform:
   - Windows Universal
-description: "Dieser Artikel referenziert und erklärt die verschiedenen Windows-Objekte, die bei Braze verwendet werden."
+description: "Dieser Referenzartikel listet und erklärt die verschiedenen Windows-Objekte, die bei Braze verwendet werden."
 hidden: true
 ---
-# Windows Objekt-Spezifikation
+# Windows-Objekt-Spezifikation {#windows-object-specification}
 
-Die Objekte `windows_phone8_push` und `windows_universal_push` werden verwendet, um Informationen in Bezug auf Windows Phone 8 Push und Windows Universal Push Inhalte über unsere [Messaging Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zu definieren oder anzufragen.
+Die Objekte `windows_phone8_push` und `windows_universal_push` werden verwendet, um Informationen zu Windows Phone 8 Push- und Windows Universal Push-Inhalten über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) zu definieren oder abzufragen.
 
-## Windows Phone 8 Push-Objekt
+## Windows Phone 8 Push-Objekt {#windows-phone-8-push-object}
 
 ```json
 {
@@ -26,9 +26,9 @@ Die Objekte `windows_phone8_push` und `windows_universal_push` werden verwendet,
 }
 ```
 
-## Windows Universal Push-Objekt
+## Windows Universal Push-Objekt {#windows-universal-push-object}
 
-Einzelheiten zu den Optionen für `push_type` finden Sie im Windows Universal [Toast-Vorlagenkatalog](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx).
+Einzelheiten zu den Optionen für `push_type` finden Sie im Windows Universal [Toast-Template-Katalog](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx).
 
 ```json
 {
@@ -42,5 +42,4 @@ Einzelheiten zu den Optionen für `push_type` finden Sie im Windows Universal [T
 }
 ```
 
-Weitere Informationen zur Verwendung des Parameters `extra_launch_string` für [Deeplinks]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking) finden Sie unter [Deeplinks setzen mit Windows Universal.]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)
-
+Weitere Informationen zur Verwendung des Parameters `extra_launch_string` für [Deeplinking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking) finden Sie unter [Deeplinking mit Windows Universal.]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)

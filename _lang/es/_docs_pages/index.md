@@ -12,13 +12,13 @@ description: "Esta es la página de inicio del sitio de documentación de Braze.
 doc_top_header: "Documentación de Braze"
 doc_top_text: ""
 
-braze_learning: "Términos y conceptos técnicos explicados mediante una mezcla de videos, lecciones y ejercicios interactivos."
+braze_learning: Términos y conceptos técnicos explicados mediante una mezcla de videos, lecciones y ejercicios interactivos.
 
 doc_menu_list:
   - name: Guía del usuario
     bg_color: '#3accdd'
     image: /assets/img/braze_icons/users-01.svg
-    link: /docs/user_guide/introduction/
+    link: /docs/user_guide/home/
     description: "Aprende a utilizar la plataforma Braze para fomentar una experiencia del cliente más impactante."
   - name: Guía del desarrollador
     bg_color: '#f7918e'
@@ -34,7 +34,7 @@ doc_menu_list:
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/code-browser.svg
     link: /docs/api/home/
-    description: "Braze ofrece una API REST de alto rendimiento que te permite rastrear usuarios, enviar mensajes, exportar datos y más."
+    description: "Braze ofrece una REST API de alto rendimiento que te permite rastrear usuarios, enviar mensajes, exportar datos y más."
   - name: Novedades
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/annotation-dots.svg
@@ -47,22 +47,22 @@ doc_menu_list:
     description: "La documentación de conformidad describe las condiciones específicas aplicables a tu producto o servicio adquirido."
 
 popular_topic_list:
-  - name: Diccionario de la API de Braze
-    link: /docs/api/home/
+  - name: Seguimiento de ubicación
+    link: /docs/user_guide/audience/locations_and_geofences/location_tracking/
+  - name: "POST: Punto de conexión de rastreo de usuarios"
+    link: /docs/api/endpoints/user_data/post_user_track/
   - name: Resumen de la API
     link: /docs/api/basics/
-  - name: "POST&#58; Punto de conexión de rastreo de usuarios"
-    link: /docs/api/endpoints/user_data/post_user_track/
-  - name: Importación de usuarios
-    link: /docs/user_guide/data/user_data_collection/user_import/
-  - name: Configuración del SDK Web
+  - name: Integrar el SDK de Braze
     link: /docs/developer_guide/sdk_integration/?sdktab=web
-  - name: Eventos personalizados
-    link: /docs/user_guide/data/custom_data/custom_events/
-  - name: Atributos personalizados
-    link: /docs/user_guide/data/custom_data/custom_attributes/
-  - name: Braze Currents
-    link: /docs/user_guide/data/braze_currents/
+  - name: Objeto de atributos de usuario
+    link: /docs/api/objects_filters/user_attributes_object/
+  - name: Braze Agents
+    link: /docs/user_guide/brazeai/agents/
+  - name: Currents
+    link: /docs/user_guide/data/distribution/braze_currents/
+  - name: Ingesta de datos de Cloud
+    link: /docs/user_guide/data/unification/cloud_ingestion/
 
 helpful_resources_list:
   - name: Declaración de innovación
