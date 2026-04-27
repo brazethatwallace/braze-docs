@@ -6,73 +6,73 @@ page_type: reference
 description: "Braze를 사용하여 간단한 리드 스코어링, 외부 리드 스코어링 및 리드 핸드오프를 수행하는 방법을 알아보세요."
 ---
 
-# 리드 스코어링 워크플로 생성
+# 리드 스코어링 워크플로 생성 {#create-a-lead-scoring-workflow}
 
 > 이 사용 사례는 Braze를 사용하여 실시간으로 사용자 리드 점수를 업데이트하고 자동으로 리드를 영업 팀에 전달하는 방법을 보여줍니다.
 
 Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단계가 있습니다.
 
-1. Braze에서 리드 스코어링 캔버스를 만들거나 외부 리드 스코어링 도구를 통합합니다.
+1. Braze에서 리드 스코어링 Canvas를 만들거나 외부 리드 스코어링 도구를 통합합니다.
 - [간단한 리드 스코어링](#simple-lead-scoring)
 - [외부 리드 스코어링](#external-lead-scoring)
 
 2. 웹훅 캠페인을 만들어 자격을 갖춘 리드를 영업 팀에 전달합니다.
 - [리드 핸드오프: 마케팅 적격 리드(MQL)에서 영업으로](#lead-handoff)
 
-## 간단한 리드 스코어링
+## 간단한 리드 스코어링 {#simple-lead-scoring}
 
-### 1단계: 캔버스 만들기
+### 1단계: Canvas 만들기 {#step-1-create-a-canvas}
 
-1. **메시징** > **캔버스**로 이동하여 **캔버스 생성**을 선택한 다음 캔버스 기본 사항을 입력합니다.
+1. **메시징** > **Canvas**로 이동하여 **Canvas 만들기**를 선택한 다음 Canvas 기본 사항을 입력합니다.
 
-2. 캔버스에 "리드 스코어링 캔버스"와 같은 관련 이름을 지정하고, 검색 편의를 위해 "리드 관리"와 같은 태그를 지정하세요.<br><br>![캔버스 이름을 "리드 스코어링 캔버스"로 하고 태그를 "리드 관리"로 하여 캔버스를 만드는 1단계.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
+2. Canvas에 "Lead Scoring Canvas"와 같은 관련 이름을 지정하고, 검색 편의를 위해 "Lead Management"와 같은 태그를 지정하세요.<br><br>![Canvas 이름을 "Lead Scoring Canvas"로 하고 태그를 "Lead Management"로 하여 Canvas를 만드는 1단계.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
-### 2단계: 진입 기준 설정
+### 2단계: 진입 기준 설정 {#step-2-set-up-your-entry-criteria}
 
-1. **진입 스케줄** 단계로 이동하여 **행동 기반** 진입 스케줄을 선택합니다. 사용자가 특정 동작을 수행하면 캔버스에 진입하게 됩니다.
+1. **진입 스케줄** 단계로 이동하여 **행동 기반** 진입 스케줄을 선택합니다. 사용자가 특정 동작을 수행하면 Canvas에 진입하게 됩니다.
 
 2. **행동 기반 옵션**에서 다음 두 가지 동작을 추가합니다.
-    - 리드 스코어링 속성 이름(예: `lead score`)으로 **커스텀 속성 값 변경**. 아직 리드 스코어링 속성을 만들지 않았다면 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)의 단계를 따르세요. 이렇게 하면 리드 점수가 변경될 때마다 사용자가 캔버스에 진입합니다.
+    - 리드 스코어링 속성 이름(예: `lead score`)으로 **커스텀 속성 값 변경**. 아직 리드 스코어링 속성을 만들지 않았다면 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)의 단계를 따르세요. 이렇게 하면 리드 점수가 변경될 때마다 사용자가 Canvas에 진입합니다.
     - **이메일 주소 추가**
 
-!["행동 기반" 진입 스케줄과 커스텀 속성 "lead score" 변경 및 이메일 주소 추가의 행동 기반 옵션으로 캔버스를 만드는 2단계.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
+!["행동 기반" 진입 스케줄과 커스텀 속성 "lead score" 변경 및 이메일 주소 추가의 행동 기반 옵션으로 Canvas를 만드는 2단계.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
-### 3단계: 타겟 오디언스 식별
+### 3단계: 타겟 오디언스 식별 {#step-3-identify-your-target-audience}
 
-#### 3a단계: 세그먼트 선택
+#### 3a단계: 세그먼트 선택 {#step-3a-select-segments}
 
 모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [세그먼트]({{site.baseurl}}/user_guide/audience/segments/)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
 
-![세그먼트와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 캔버스 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![세그먼트와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
-#### 3b단계: 캔버스 재진입 자격 설정
+#### 3b단계: Canvas 재진입 자격 설정 {#step-3b-set-canvas-re-eligibility}
 
-사용자는 라이프사이클 동안 이 캔버스를 여러 번 거치게 되므로, 이전에 나간 것만큼 빠르게 다시 진입할 수 있도록 해야 합니다. 이는 재진입 자격 설정을 통해 달성할 수 있습니다.
+사용자는 라이프사이클 동안 이 Canvas를 여러 번 거치게 되므로, 이전에 나간 것만큼 빠르게 다시 진입할 수 있도록 해야 합니다. 이는 재진입 자격 설정을 통해 달성할 수 있습니다.
 
 **진입 제어**에서 다음을 수행합니다.
-- **사용자가 이 캔버스에 다시 진입할 수 있도록 허용**을 선택합니다.
+- **사용자가 이 Canvas에 다시 진입할 수 있도록 허용**을 선택합니다.
 - **지정된 기간**을 선택합니다.
 - 재진입 자격을 "0" **초**로 설정합니다.
 
-!["진입 제어" 섹션에서 "지정된 기간" 0초 동안 "사용자가 이 캔버스에 다시 진입할 수 있도록 허용"이 선택되어 있습니다.]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
+!["진입 제어" 섹션에서 "지정된 기간" 0초 동안 "사용자가 이 Canvas에 다시 진입할 수 있도록 허용"이 선택되어 있습니다.]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
 
-#### 3c단계: 발송 설정 업데이트
+#### 3c단계: 발송 설정 업데이트 {#step-3c-update-send-settings}
 
-이 캔버스의 운영 특성과 사용자에게 메시지가 발송되지 않는다는 점을 감안하면, 구독 상태를 준수할 필요가 없습니다.
+이 Canvas의 운영 특성과 사용자에게 메시지가 발송되지 않는다는 점을 감안하면, 구독 상태를 준수할 필요가 없습니다.
 
 **구독 설정**에서 **이 사용자에게 보내기:** **구독 취소한 사용자를 포함한 모든 사용자**를 선택합니다.
 
-![메시지 발송 옵션을 설정하는 캔버스 생성 4단계.]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
+![메시지 발송 옵션을 설정하는 Canvas 생성 4단계.]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
 
-### 4단계: 캔버스 구축
+### 4단계: Canvas 구축 {#step-4-build-your-canvas}
 
-#### 4a단계: 행동 경로 추가
+#### 4a단계: 행동 경로 추가 {#step-4a-add-an-action-path}
 
 배리언트 아래에서 더하기 아이콘을 선택한 다음 **행동 경로**를 선택합니다.
 
-![더하기 아이콘으로 열린 메뉴에 "행동 경로"가 표시된 캔버스.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
+![더하기 아이콘으로 열린 메뉴에 "행동 경로"가 표시된 Canvas.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
-#### 4b단계: 행동 그룹 만들기
+#### 4b단계: 행동 그룹 만들기 {#step-4b-create-action-groups}
 
 각 행동 그룹은 동일한 포인트 증가 또는 감소로 이어지는 모든 동작을 나타냅니다. 최대 8개의 행동 그룹을 설정할 수 있습니다. 이 시나리오에서는 네 개의 그룹을 설정합니다.
 
@@ -85,17 +85,17 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 ![1점, 5점, 10점 추가, 1점과 10점 차감, "다른 모든 사용자"에 대한 행동 그룹을 포함하는 행동 경로.]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
 
-#### 4c단계: 각 그룹에 관련 이벤트를 포함하도록 구성
+#### 4c단계: 각 그룹에 관련 이벤트를 포함하도록 구성 {#step-4c-configure-each-group-to-include-the-relevant-events}
 
 각 행동 그룹에서 **트리거 선택**을 선택하고 해당 행동 그룹에 대한 포인트 수를 추가할 이벤트를 선택합니다. 리드 점수를 1점씩 증가시키는 모든 이벤트를 포함하도록 트리거를 추가하세요. 예를 들어, 사용자가 앱에서 세션을 시작하거나 커스텀 이벤트(예: 등록 또는 웨비나 참여)를 수행할 때 점수를 1점 올릴 수 있습니다.
 
 !["모든 앱에서 세션 시작" 및 "커스텀 이벤트 수행" 트리거가 있는 포인트 추가용 행동 그룹.]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
 
-#### 4d단계: 사용자 업데이트 단계 추가
+#### 4d단계: 사용자 업데이트 단계 추가 {#step-4d-add-user-update-steps}
 
-행동 경로 아래에 생성된 각 캔버스 경로에 사용자 업데이트 단계를 추가합니다.
+행동 경로 아래에 생성된 각 Canvas 경로에 사용자 업데이트 단계를 추가합니다.
 
-![각 행동 그룹에 대한 분기된 사용자 업데이트 경로가 있는 행동 경로를 표시하는 캔버스.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![각 행동 그룹에 대한 분기된 사용자 업데이트 경로가 있는 행동 경로를 표시하는 Canvas.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 각 사용자 업데이트 단계의 **작성** 탭에서 해당 필드에 대해 다음을 수행합니다.
@@ -107,23 +107,23 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 | **증가** 또는 **감소** | 리드 점수에서 증가하거나 감소할 포인트 수를 입력합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### 5단계: 캔버스 시작
+### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
 
-이것으로 끝입니다! 리드 스코어링 캔버스를 시작할 준비가 되었습니다.
+이것으로 끝입니다! 리드 스코어링 Canvas를 시작할 준비가 되었습니다.
 
-## 외부 리드 스코어링
+## 외부 리드 스코어링 {#external-lead-scoring}
 
 [기술 파트너]({{site.baseurl}}/partners/home/), 자체 내부 리드 스코어링 모델, 머신 러닝 또는 다른 리드 스코어링 도구를 사용하든, 여러 가지 옵션이 있습니다.
 
-### 외부 파트너
+### 외부 파트너 {#external-partners}
 
-[기술 파트너]({{site.baseurl}}/partners/home)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API 엔드포인트를 호출하여 통합할 수 있습니다.
+[기술 파트너]({{site.baseurl}}/partners/home/)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users) API 엔드포인트를 호출하여 통합할 수 있습니다.
 
-### 내부 리드 스코어링 데이터 모델
+### 내부 리드 스코어링 데이터 모델 {#internal-lead-scoring-data-models}
 
 Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다양한 방식으로 통합할 수 있습니다. 아래에서 고객들이 Braze와 통합한 일반적인 예시를 확인하세요.
 
-#### 통합 클라우드 데이터 웨어하우스
+#### 통합 클라우드 데이터 웨어하우스 {#integrated-cloud-data-warehouse}
 
 {% tabs %}
 {% tab Braze as a data source %}
@@ -151,11 +151,11 @@ Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다�
 
 Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려면 트리거된 웹훅 템플릿을 사용하는 것을 권장합니다.
 
-### 1단계: 웹훅 캠페인 생성
+### 1단계: 웹훅 캠페인 생성 {#step-1-create-a-webhook-campaign}
 
-### 2단계: 웹훅 구성
+### 2단계: 웹훅 구성 {#step-2-configure-your-webhook}
 
-#### 2a단계: 웹훅 작성
+#### 2a단계: 웹훅 작성 {#step-2a-compose-webhook}
 
 1. 웹훅 캠페인에 "Salesforce > MQL로 리드 업데이트"와 같은 이름을 지정합니다.
 
@@ -188,20 +188,20 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 
 ![Salesforce 웹훅 URL, PATCH HTTP 메서드, 원시 텍스트 요청 본문 및 요청 헤더로 구성되는 웹훅.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
-#### 2b단계: 웹훅 발송 예약
+#### 2b단계: 웹훅 발송 예약 {#step-2b-schedule-webhook-sends}
 
-캠페인은 사용자의 리드 점수가 변경될 때마다 트리거되어야 합니다. 이 캠페인은 점수가 변경된 모든 사용자에 대해 트리거되지만, 현재 MQL이 아니고 이전 단계에서 설정한 임계값을 초과한 사용자에게만 영향을 미칩니다.
+이 캠페인은 사용자의 리드 점수가 변경될 때마다 트리거되어야 합니다. 이 캠페인은 점수가 변경된 모든 사용자에 대해 트리거되지만, 현재 MQL이 아니고 이전 단계에서 설정한 임계값을 초과한 사용자에게만 영향을 미칩니다.
 
 **전달 예약** 단계에서 다음을 선택합니다.
 - **행동 기반** 전달 유형
 - 리드 스코어링 속성 이름과 **새로운 값** 동작으로 **커스텀 속성 값 변경** 트리거 동작
 
-#### 2c단계: 타겟 오디언스 식별
+#### 2c단계: 타겟 오디언스 식별 {#step-2c-identify-target-audience}
 
 **타겟 오디언스** 단계에서 리드 상태가 이미 MQL 이상인 사용자를 제외하는 필터를 포함합니다. 예를 들어 "`lead_status` `is none of` `MQL`"과 같습니다.
 
 !["lead_status"가 "MQL"이 아닌 필터가 적용된 웹훅 타겟팅 옵션.]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### 3단계: 캠페인 시작
+### 3단계: 캠페인 시작 {#step-3-launch-campaign}
 
 **시작**을 선택하고 고객이 MQL 리드 점수 임계값을 초과할 때 Salesforce에서 리드 상태가 변경되는 것을 확인하세요.
