@@ -11,7 +11,7 @@ description: "Learn how to use Braze webhooks to create and update leads in Sale
 > [Salesforce](https://www.salesforce.com/) is one of the world’s leading cloud-based Customer Relationship Management (CRM) platforms designed to help businesses manage their entire sales process, including lead generation, opportunity tracking, and account management.<br><br>This page demonstrates how to use Braze webhooks to create and update leads in Salesforce Sales Cloud through a community-submitted integration.
 
 {% alert important %}
-This is a community-submitted integration and isn’t directly supported by Braze. Only official Braze-provided webhook templates are supported by Braze. 
+This is a community-submitted integration and isn’t directly supported by Braze. Only official Braze-provided webhook templates are supported by Braze.
 {% endalert %}
 
 ## How it works
@@ -27,6 +27,10 @@ This integration is purely to update Salesforce from Braze as part of your lead 
 {% endalert %}
 
 ## Prerequisites
+
+{% alert important %}
+Before you can proceed with this integration, Salesforce Support must give you the ability to create connected apps. You can request this by submitting a [Salesforce Support request](https://help.salesforce.com/s/articleView?id=005167035&type=1).
+{% endalert %}
 
 This integration requires you to create a connected app in Salesforce Sales Cloud by following the steps in the Salesforce documentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
