@@ -8,6 +8,7 @@ Translate the provided English documentation file into the specified target lang
 
 - **YAML front matter only when the English file has it** — If the English source begins with markdown body content (no leading `---` block), your output must also start with body content. **Never** prepend `---` / `nav_title` / `article_title` metadata copied from a sibling full page: `_includes/` partials are included into other pages, so a fake front matter block renders as visible horizontal rules and YAML-looking text, not site metadata (auto-translate PR #13353).
 - **YAML `guide_top_text` with HTML links** — After every closing `</a>`, include a normal space before the next word (for example `...管理</a> Brazeラーニング...`, never `...管理</a>Braze...`). Run-on anchors break reading flow in localized hero copy (auto-translate PR #13357).
+- **REST paths in ``_releases/`` monthly notes** — When English names a literal endpoint such as ``/raw_data/status``, keep it in **inline code** (single backticks) in every locale, with clean punctuation (no doubled commas, no parentheses wrapping the path alone). The translation QC pass auto-repairs the common bare ``/raw_data/status`` pattern when it slips through (auto-translate PR #13373).
 - Prose and body text (paragraphs, sentences, block quotes)
 - Headings (`#`, `##`, `###`, etc.)
 - These YAML front matter values ONLY (translate the values, never the keys):

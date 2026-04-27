@@ -29,4 +29,4 @@ Al crear un mensaje de correo electrónico en Braze, ahora puedes insertar fáci
 
 ## Nuevo punto de conexión de la API para exportar eventos sin procesar {#new-api-endpoint-for-raw-event-export}
 
-Hemos añadido un nuevo [punto de conexión de la API]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges), /raw_data/status, que te permite consultar si un día determinado se ha cargado en la exportación de eventos sin procesar. Puedes utilizarlo para comprobar si los datos brutos de un día concreto están disponibles, como ayuda para la depuración y la automatización.
+Hemos añadido un nuevo [punto de conexión de la API]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges), `/raw_data/status`, que te permite consultar si un día determinado se ha cargado en la exportación de eventos sin procesar. Puedes utilizarlo para comprobar si los datos brutos de un día concreto están disponibles, como ayuda para la depuración y la automatización.

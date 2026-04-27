@@ -29,4 +29,4 @@ Wenn Sie eine E-Mail-Nachricht in Braze erstellen, können Sie jetzt ganz einfac
 
 ## Neuer API-Endpunkt für den Export von Rohdaten {#new-api-endpoint-for-raw-event-export}
 
-Wir haben einen neuen [API-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges) hinzugefügt, /raw_data/status, mit dem Sie abfragen können, ob ein bestimmter Tag in den Raw Event Export geladen wurde. Sie können damit überprüfen, ob die Rohdaten eines bestimmten Tages verfügbar sind, um die Fehlersuche und Automatisierung zu erleichtern.
+Wir haben einen neuen [API-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges) hinzugefügt, `/raw_data/status`, mit dem Sie abfragen können, ob ein bestimmter Tag in den Raw Event Export geladen wurde. Sie können damit überprüfen, ob die Rohdaten eines bestimmten Tages verfügbar sind, um die Fehlersuche und Automatisierung zu erleichtern.

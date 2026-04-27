@@ -29,4 +29,4 @@ description: "이 문서에는 2017년 9월의 릴리스 노트가 포함되어 
 
 ## 원시 이벤트 내보내기를 위한 새로운 API 엔드포인트 {#new-api-endpoint-for-raw-event-export}
 
-특정 날짜가 원시 이벤트 내보내기에 로드되었는지 쿼리할 수 있는 새로운 [API 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges)인 /raw_data/status를 추가했습니다. 특정 날짜의 원시 데이터를 사용할 수 있는지 확인하여 디버깅 및 자동화에 활용할 수 있습니다.
+특정 날짜가 원시 이벤트 내보내기에 로드되었는지 쿼리할 수 있는 새로운 [API 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges)인 `/raw_data/status`를 추가했습니다. 특정 날짜의 원시 데이터를 사용할 수 있는지 확인하여 디버깅 및 자동화에 활용할 수 있습니다.

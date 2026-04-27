@@ -29,4 +29,4 @@ Lors de la création d'un e-mail dans Braze, vous pouvez désormais facilement i
 
 ## Nouvel endpoint d'API pour l'exportation d'événements bruts {#new-api-endpoint-for-raw-event-export}
 
-Nous avons ajouté un nouvel [endpoint d'API]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges), /raw_data/status, qui vous permet de vérifier si les données d'un jour donné ont été chargées dans l'exportation d'événements bruts (Raw Event Export). Vous pouvez l'utiliser pour vérifier si les données brutes d'un jour particulier sont disponibles, afin de faciliter le débogage et l'automatisation.
+Nous avons ajouté un nouvel [endpoint d'API]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges), `/raw_data/status`, qui vous permet de vérifier si les données d'un jour donné ont été chargées dans l'exportation d'événements bruts (Raw Event Export). Vous pouvez l'utiliser pour vérifier si les données brutes d'un jour particulier sont disponibles, afin de faciliter le débogage et l'automatisation.
