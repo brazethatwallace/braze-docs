@@ -1,18 +1,18 @@
 ---
 nav_title: ナビゲーションディープリンク
-article_title: Braze Pilot のナビゲーションディープリンク
+article_title: Braze Pilotのナビゲーションディープリンク
 page_order: 4
 page_type: reference
 description: "この参照記事では、エンジニアや開発者に必要な統合ステップを簡単に説明します。"
 ---
 
-# Braze Pilot のナビゲーションディープリンク
+# Braze Pilotのナビゲーションディープリンク {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot は、Braze メッセージングから Pilot アプリの特定の部分へのディープリンクをサポートしています。これにより、エンゲージメントのユースケースを作成し、ユーザーを Pilot アプリケーションのさまざまな部分に誘導できます。また、オプションのディープリンクパラメーターを使用して、アプリ内の特定のページのコンテンツをユーザーに合わせてカスタマイズすることもできます。ディープリンクの詳細については、[アプリ内コンテンツへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
+> Braze Pilotは、Brazeメッセージングからpilotアプリの特定の部分へのディープリンクをサポートしています。これにより、エンゲージメントのユースケースを作成し、ユーザーをPilotアプリケーションのさまざまな部分に誘導できます。また、オプションのディープリンクパラメーターを使用して、アプリ内の特定のページのコンテンツをユーザーに合わせてカスタマイズすることもできます。ディープリンクの詳細については、[アプリ内コンテンツへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
 
-## 全般
+## 全般 {#general}
 
-これらは、Pilot アプリのメインナビゲーションページのディープリンクです。 
+これらは、Pilotアプリのメインナビゲーションページのディープリンクです。
 
 | 画面 | ディープリンク |
 | --- | --- |
@@ -25,24 +25,24 @@ description: "この参照記事では、エンジニアや開発者に必要な
 
 ## Steppington
 
-これらは、Pilot における Steppington 架空ブランドアプリのディープリンクです。
+これらは、PilotにおけるSteppington架空ブランドアプリのディープリンクです。
 
-### ディープリンクの例
+### ディープリンクの例 {#example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### パラメーターなしのディープリンク
+### パラメーターなしのディープリンク {#deep-links-without-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
 | スプラッシュスクリーン | `braze-pilot://navigation/steppington/splash` |
 | ホーム | `braze-pilot://navigation/steppington/home` |
-| Steppington+ ページ | `braze-pilot://navigation/steppington/plus` |
+| Steppington+ページ | `braze-pilot://navigation/steppington/plus` |
 | 目標画面 | `braze-pilot://navigation/steppington/goals` |
 | 目標変更画面 | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### パラメーター付きのディープリンク
+### パラメーター付きのディープリンク {#deep-links-with-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
@@ -50,7 +50,7 @@ description: "この参照記事では、エンジニアや開発者に必要な
 | アクティブワークアウト | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 使用可能なパラメーター
+#### 使用可能なパラメーター {#accepted-parameters}
 
 <style>
 table td {
@@ -106,7 +106,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>image</code></td>
-            <td>アイテムの画像の URL です。</td>
+            <td>アイテムの画像のURLです。</td>
             <td>はい</td>
             <td></td>
             <td>文字列</td>
@@ -122,7 +122,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>workout</code></td>
-            <td>ワークアウトの名前です。<code>st_completed_class</code> イベントで送信されます。</td>
+            <td>ワークアウトの名前です。<code>st_completed_class</code>イベントで送信されます。</td>
             <td>はい</td>
             <td></td>
             <td>数値</td>
@@ -130,15 +130,15 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>calories</code></td>
-            <td>アクティブワークアウト画面に表示されるカロリー数です。<code>st_completed_class</code> イベントで送信されます。</td>
+            <td>アクティブワークアウト画面に表示されるカロリー数です。<code>st_completed_class</code>イベントで送信されます。</td>
             <td>いいえ</td>
-            <td>500〜1,250 のランダムな数値</td>
+            <td>500〜1,250のランダムな数値</td>
             <td>数値</td>
             <td>600</td>
         </tr>
         <tr>
             <td><code>length</code></td>
-            <td>ワークアウトの長さです。<code>st_completed_class</code> イベントで送信されます。</td>
+            <td>ワークアウトの長さです。<code>st_completed_class</code>イベントで送信されます。</td>
             <td>いいえ</td>
             <td></td>
             <td>数値</td>
@@ -195,7 +195,7 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### アイコンオプション
+##### アイコンオプション {#icon-options}
 
 | アイコン | 画像 |
 | --- | --- |
@@ -209,13 +209,13 @@ th:nth-child(6), td:nth-child(6) {
 
 ## PantsLabyrinth
 
-これらは、Pilot における PantsLabyrinth 架空ブランドアプリのディープリンクです。
+これらは、PilotにおけるPantsLabyrinth架空ブランドアプリのディープリンクです。
 
-### ディープリンクの例
+### ディープリンクの例 {#example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### パラメーターなしのディープリンク
+### パラメーターなしのディープリンク {#deep-links-without-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
@@ -226,14 +226,14 @@ th:nth-child(6), td:nth-child(6) {
 | ウィッシュリストページ | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### パラメーター付きのディープリンク
+### パラメーター付きのディープリンク {#deep-links-with-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
 | アイテム詳細ページ | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 使用可能なパラメーター
+#### 使用可能なパラメーター {#accepted-parameters}
 
 <style>
 table td {
@@ -289,7 +289,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>image</code></td>
-            <td>アイテムの画像の URL です。</td>
+            <td>アイテムの画像のURLです。</td>
             <td>はい</td>
             <td></td>
             <td>文字列</td>
@@ -348,13 +348,13 @@ th:nth-child(6), td:nth-child(6) {
 
 ## MovieCanon
 
-これらは、Pilot における MovieCanon 架空ブランドアプリのディープリンクです。
+これらは、PilotにおけるMovieCanon架空ブランドアプリのディープリンクです。
 
-### ディープリンクの例
+### ディープリンクの例 {#example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### パラメーターなしのディープリンク
+### パラメーターなしのディープリンク {#deep-links-without-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
@@ -363,20 +363,20 @@ th:nth-child(6), td:nth-child(6) {
 | 映画一覧ページ | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### パラメーター付きのディープリンク
+### パラメーター付きのディープリンク {#deep-links-with-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
 | 映画詳細ページ | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 使用可能なパラメーター
+#### 使用可能なパラメーター {#accepted-parameters}
 
 | パラメーター | 説明 | 必須 | 型 | 例 |
 | --- | --- | --- | --- | --- |
-| `id` | 映画の ID です。 | はい | 数値 | 1 |
+| `id` | 映画のIDです。 | はい | 数値 | 1 |
 | `title` | 映画のタイトルです。 | はい | 文字列 | Jaws |
-| `thumbnail` | 映画の再生前に表示されるサムネイルの Web URL です。 | はい | 文字列 | `https://picsum.photos/400` |
+| `thumbnail` | 映画の再生前に表示されるサムネイルのWeb URLです。 | はい | 文字列 | `https://picsum.photos/400` |
 | `video` | 表示する動画リスト内のインデックスです。 | いいえ | 数値 | 0 |
 | `description` | 動画の説明です。 | はい | 文字列 | `This%20video%20is%20awesome%21` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }

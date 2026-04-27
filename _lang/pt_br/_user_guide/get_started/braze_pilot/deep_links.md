@@ -6,13 +6,13 @@ page_type: reference
 description: "Este artigo de referência aborda brevemente as etapas de integração necessárias por parte dos seus engenheiros ou desenvolvedores."
 ---
 
-# Deep links de navegação no Braze Pilot
+# Deep links de navegação no Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
 > O Braze Pilot oferece suporte a deep linking a partir do envio de mensagens da Braze para partes específicas do app Pilot. Isso permite criar casos de uso de engajamento, direcionando os usuários para diversas partes do aplicativo Pilot. Você também pode usar parâmetros opcionais de deep link para personalizar o conteúdo em páginas específicas do app para o usuário. Para saber mais sobre deep linking, consulte [Deep link para conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
-## Geral
+## Geral {#general}
 
-Estes são os deep links para as principais páginas de navegação no app Pilot. 
+Estes são os deep links para as principais páginas de navegação no app Pilot.
 
 | Tela | Deep link |
 | --- | --- |
@@ -27,11 +27,11 @@ Estes são os deep links para as principais páginas de navegação no app Pilot
 
 Estes são os deep links para o app da marca fictícia Steppington no Pilot.
 
-### Exemplo de deep link
+### Exemplo de deep link {#example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### Deep links sem parâmetros
+### Deep links sem parâmetros {#deep-links-without-parameters}
 
 | Tela | Deep link |
 | --- | --- |
@@ -42,7 +42,7 @@ Estes são os deep links para o app da marca fictícia Steppington no Pilot.
 | Tela de alteração de metas | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deep links com parâmetros
+### Deep links com parâmetros {#deep-links-with-parameters}
 
 | Tela | Deep link |
 | --- | --- |
@@ -50,7 +50,7 @@ Estes são os deep links para o app da marca fictícia Steppington no Pilot.
 | Treino ativo | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Parâmetros aceitos
+#### Parâmetros aceitos {#accepted-parameters}
 
 <style>
 table td {
@@ -195,7 +195,7 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### Opções de ícone
+##### Opções de ícone {#icon-options}
 
 | Ícone | Imagem |
 | --- | --- |
@@ -211,11 +211,11 @@ th:nth-child(6), td:nth-child(6) {
 
 Estes são os deep links para o app da marca fictícia PantsLabyrinth no Pilot.
 
-### Exemplo de deep link
+### Exemplo de deep link {#example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### Deep links sem parâmetros
+### Deep links sem parâmetros {#deep-links-without-parameters}
 
 | Tela | Deep link |
 | --- | --- |
@@ -226,14 +226,14 @@ Estes são os deep links para o app da marca fictícia PantsLabyrinth no Pilot.
 | Página de desejos | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deep links com parâmetros
+### Deep links com parâmetros {#deep-links-with-parameters}
 
 | Tela | Deep link |
 | --- | --- |
 | Página de detalhes do item | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Parâmetros aceitos
+#### Parâmetros aceitos {#accepted-parameters}
 
 <style>
 table td {
@@ -350,11 +350,11 @@ th:nth-child(6), td:nth-child(6) {
 
 Estes são os deep links para o app da marca fictícia MovieCanon no Pilot.
 
-### Exemplo de deep link
+### Exemplo de deep link {#example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### Deep links sem parâmetros
+### Deep links sem parâmetros {#deep-links-without-parameters}
 
 | Tela | Deep link |
 | --- | --- |
@@ -363,14 +363,14 @@ Estes são os deep links para o app da marca fictícia MovieCanon no Pilot.
 | Página de listagem de filmes | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Deep links com parâmetros
+### Deep links com parâmetros {#deep-links-with-parameters}
 
 | Tela | Deep link |
 | --- | --- |
 | Página de detalhes do filme | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Parâmetros aceitos
+#### Parâmetros aceitos {#accepted-parameters}
 
 | Parâmetro | Descrição | Obrigatório | Tipo | Exemplo |
 | --- | --- | --- | --- | --- |
