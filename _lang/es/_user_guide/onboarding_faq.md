@@ -45,7 +45,7 @@ Para importar usuarios previamente identificados, puedes cargar un CSV en Braze 
 
 #### CSV
 
-Puedes cargar y actualizar perfiles de usuario mediante archivos CSV desde **Audiencia** > **Importar usuarios**. Al importar los datos de tus clientes, deberás especificar el identificador único de cada cliente, también conocido como `external_id`.
+Puedes cargar y actualizar perfiles de usuario mediante archivos CSV desde **Audience** > **Import Users**. Al importar los datos de tus clientes, deberás especificar el identificador único de cada cliente, también conocido como `external_id`.
 
 Antes de iniciar la importación de CSV, es importante que tu equipo de ingeniería entienda cómo se identificarán los usuarios en Braze. Normalmente se trata de un ID de base de datos utilizado internamente. Esto debería alinearse con la forma en que los usuarios serán identificados por el SDK de Braze en móviles y web, de modo que cada cliente tendrá un único perfil de usuario dentro de Braze en todos sus dispositivos. Obtén más información sobre el [ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) de Braze.
 
@@ -83,7 +83,7 @@ Por defecto, para que tu usuario reciba tus mensajes a través de push, su estad
 |---|---|
 |Suscrito| Estado predeterminado de la suscripción push cuando se crea un perfil de usuario en Braze. |
 |Adhesión voluntaria| Un usuario ha expresado explícitamente su preferencia por recibir notificaciones push. Braze cambiará automáticamente el estado de adhesión voluntaria de un usuario a `Opted-In` si acepta un aviso push a nivel del sistema operativo.<br><br>Esto no se aplica a usuarios con Android 12 o inferior.|
-|No suscrito| Un usuario se da de baja explícitamente de push a través de tu aplicación o de otros métodos que tu marca proporciona. Por defecto, las Campaigns push de Braze solo se dirigen a los usuarios que están en `Subscribed` o `Opted-in` para push.|
+|No suscrito| Un usuario se da de baja explícitamente de push a través de tu aplicación o de otros métodos que tu marca proporciona. Por defecto, las campañas push de Braze solo se dirigen a los usuarios que están en `Subscribed` o `Opted-in` para push.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}
@@ -108,7 +108,7 @@ Te recomendamos que primero importes los nuevos perfiles de usuario con el `exte
 
 Algunas cosas adicionales a tener en cuenta:
 
-- Cualquier dato de interacción (como Campaigns o Canvas recibidos) en perfiles de usuario duplicados se perderá. La única forma de conservar el contexto histórico de interacción es añadirlo como atributo personalizado (como un atributo personalizado de matriz de todas las Campaigns o Canvas recibidos).
+- Cualquier dato de interacción (como campañas o Canvas recibidos) en perfiles de usuario duplicados se perderá. La única forma de conservar el contexto histórico de interacción es añadirlo como atributo personalizado (como un atributo personalizado de matriz de todas las campañas o Canvas recibidos).
 - Al migrar perfiles de usuario, también depende de tu equipo decidir qué perfil de usuario de los duplicados se conservará. Braze no puede decidir ni proporcionarte una lista de perfiles que eliminar.
 - En última instancia, será importante que tu equipo evalúe el proceso de registro desde la experiencia de los usuarios y se asegure de que solo se llama al método `changeUser()` cuando un usuario se identifica.
 
@@ -123,11 +123,11 @@ Algunas cosas adicionales a tener en cuenta:
 Segments
 {% endapitags %}
 
-Para importar tu archivo CSV, ve a la página **Importación de usuarios** en la sección Usuarios. La tabla de **importaciones recientes** muestra hasta veinte de las importaciones más recientes, sus nombres de archivo, el número de líneas del archivo, el número de líneas importadas correctamente, el total de líneas de cada archivo y el estado de cada importación.
+Para importar tu archivo CSV, ve a la página **User Import** en la sección Users. La tabla de **Recent Imports** muestra hasta veinte de las importaciones más recientes, sus nombres de archivo, el número de líneas del archivo, el número de líneas importadas correctamente, el total de líneas de cada archivo y el estado de cada importación.
 
-El panel **Importar CSV** contiene instrucciones de importación y un botón para iniciar la importación. Haz clic en **Seleccionar archivo CSV** y selecciona el archivo que te interese. A continuación, antes de hacer clic en **Iniciar importación**, tienes la opción de indicar a Braze qué hacer con esta lista en «Qué deseas que hagamos con los usuarios de este CSV».
+El panel **Import CSV** contiene instrucciones de importación y un botón para iniciar la importación. Haz clic en **Select CSV File** y selecciona el archivo que te interese. A continuación, antes de hacer clic en **Start Import**, tienes la opción de indicar a Braze qué hacer con esta lista en «What do you want us to do with the users in this CSV».
 
-Selecciona **Importar usuarios en este CSV y hacer posible también reorientar este lote específico de usuarios como un grupo**, y luego selecciona **Generar automáticamente un segmento a partir de los usuarios que se importan de este CSV**. Tras hacer clic en **Iniciar importación**, Braze cargará el archivo, comprobará los encabezados de columna y los tipos de datos de cada columna, y creará un segmento.
+Selecciona **Import Users in this CSV and also make it possible to retarget this specific batch of users as a group**, y luego selecciona **Automatically generate a segment from the users who are imported from this CSV**. Tras hacer clic en **Start Import**, Braze cargará el archivo, comprobará los encabezados de columna y los tipos de datos de cada columna, y creará un segmento.
 
 Para descargar una plantilla CSV, consulta [importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv).
 
@@ -151,7 +151,7 @@ El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y di
 Segments
 {% endapitags %}
 
-Ve a la página **Segmentos**, en Interacción, para ver todos tus segmentos de usuarios actuales. En esta página puedes crear y nombrar nuevos segmentos. Para empezar, haz clic en **Crear segmento** y asigna un nombre a tu segmento.
+Ve a la página **Segments**, en Engagement, para ver todos tus segmentos de usuarios actuales. En esta página puedes crear y nombrar nuevos segmentos. Para empezar, haz clic en **Create Segment** y asigna un nombre a tu segmento.
 
 Una vez que hayas creado tu segmento, añade un filtro `Most Recent Location` para dirigirte a los usuarios por el último lugar en el que utilizaron tu aplicación. Puedes resaltar a los usuarios en una región circular estándar o crear una región poligonal personalizada.
 
@@ -175,14 +175,14 @@ Segments
 
 Puedes crear hasta 10 extensiones de segmento por espacio de trabajo. Una vez generadas estas listas de extensiones, pueden incluirse o excluirse como filtro en tus segmentos. Al crear una extensión de segmento, también puedes especificar que la lista se regenere una vez cada 24 horas.
 
-1. En Interacción, expande **Segments** y haz clic en **Extensión de segmento**.
-2. En la tabla de extensiones de segmento, haz clic en **+ Crear nueva extensión**.
+1. En Engagements, expande **Segments** y haz clic en **Segment Extension**.
+2. En la tabla de extensiones de segmento, haz clic en **+ Create New Extension**.
 3. Nombra tu extensión de segmento describiendo el tipo de usuarios que pretendes filtrar. Esto garantizará que esta extensión pueda descubrirse fácilmente y con precisión al aplicarla como filtro en tu segmento.
 4. Selecciona entre un criterio de compra o de evento personalizado para la segmentación.
 5. Elige qué artículo comprado o evento personalizado específico deseas segmentar para tu lista de usuarios.
 6. Elige cuántas veces (más, menos o igual) el usuario tendría que haber completado el evento, y cuántos días mirar hacia atrás, hasta 365 días.
 
-Para aumentar la precisión de la segmentación, puedes seleccionar **Añadir filtros de propiedades** y segmentar en función de las propiedades específicas de tu compra o evento personalizado. Braze admite la segmentación de propiedades de eventos basada en objetos de cadena, numéricos, booleanos y temporales.
+Para aumentar la precisión de la segmentación, puedes seleccionar **Add Property Filters** y segmentar en función de las propiedades específicas de tu compra o evento personalizado. Braze admite la segmentación de propiedades de eventos basada en objetos de cadena, numéricos, booleanos y temporales.
 
 También admitimos la segmentación basada en [propiedades de eventos anidados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 
@@ -201,11 +201,11 @@ El uso de propiedades de eventos dentro de las extensiones de segmento no afecta
 Segments
 {% endapitags %}
 
-Puedes especificar si quieres que esta extensión represente una instantánea en el tiempo, o si quieres que la extensión se regenere a diario. Tu extensión siempre comenzará a procesarse después del guardado inicial. Si deseas que la extensión se regenere diariamente, selecciona **Regenerar extensión diariamente** y la regeneración comenzará a procesarse alrededor de la medianoche de cada día en la zona horaria de tu empresa.
+Puedes especificar si quieres que esta extensión represente una instantánea en el tiempo, o si quieres que la extensión se regenere a diario. Tu extensión siempre comenzará a procesarse después del guardado inicial. Si deseas que la extensión se regenere diariamente, selecciona **Regenerate Extension Daily** y la regeneración comenzará a procesarse alrededor de la medianoche de cada día en la zona horaria de tu empresa.
 
-Cuando hayas terminado, haz clic en **Guardar**. Tu extensión comenzará a procesarse. El tiempo que se tarda en generar la extensión depende del número de usuarios que tengas, de cuántos eventos personalizados o de compra estés capturando y de cuántos días estés mirando hacia atrás en el historial.
+Cuando hayas terminado, haz clic en **Save**. Tu extensión comenzará a procesarse. El tiempo que se tarda en generar la extensión depende del número de usuarios que tengas, de cuántos eventos personalizados o de compra estés capturando y de cuántos días estés mirando hacia atrás en el historial.
 
-Por último, una vez creada una extensión, puedes utilizarla como filtro al crear un segmento o definir una audiencia para una campaña o Canvas. Para empezar, selecciona `Braze Segment Extension` en la lista de filtros de la sección **Atributos de usuario**. En la lista de filtros de extensión de segmento de Braze, elige la extensión que deseas incluir o excluir en este segmento. Para ver los criterios de extensión, haz clic en **Ver detalles de extensión**. Ahora puedes proceder como de costumbre con la creación de tu segmento.
+Por último, una vez creada una extensión, puedes utilizarla como filtro al crear un segmento o definir una audiencia para una campaña o Canvas. Para empezar, selecciona `Braze Segment Extension` en la lista de filtros de la sección **User Attributes**. En la lista de filtros de Braze Segment Extension, elige la extensión que deseas incluir o excluir en este segmento. Para ver los criterios de extensión, haz clic en **View Extension Details**. Ahora puedes proceder como de costumbre con la creación de tu segmento.
 
 {% endapi %}
 {% api %}
@@ -279,7 +279,7 @@ Puedes comprobar la zona horaria de tu empresa en la [configuración de empresa]
 Campaigns
 {% endapitags %}
 
-Al programar una campaña, debes elegir enviarla a una hora determinada y luego seleccionar **Enviar campaña a los usuarios en su zona horaria local**.
+Al programar una campaña, debes elegir enviarla a una hora determinada y luego seleccionar **Send campaign to users in their local time zone**.
 
 Braze recomienda encarecidamente que todas las campañas en zona horaria local se programen con 24 horas de antelación. Dado que una campaña de este tipo debe enviarse a lo largo de todo un día, programarlas con 24 horas de antelación permite que tu mensaje llegue a todo tu segmento. Sin embargo, puedes programar estas campañas con menos de 24 horas de antelación si es necesario. Ten en cuenta que Braze no enviará mensajes a los usuarios que hayan superado la hora de envío en más de 1 hora.
 
@@ -539,7 +539,7 @@ Dependiendo del canal, Braze mide una variedad de métricas que te permiten dete
 Analytics
 {% endapitags %}
 
-En la página **Ingresos**, puedes ver datos sobre ingresos o compras durante periodos de tiempo específicos, para un producto concreto, o los ingresos o compras totales de tu aplicación. Estas cifras de ingresos se generan a partir de las compras realizadas por los destinatarios de la campaña dentro de un determinado periodo de conversión.
+En la página **Revenue**, puedes ver datos sobre ingresos o compras durante periodos de tiempo específicos, para un producto concreto, o los ingresos o compras totales de tu aplicación. Estas cifras de ingresos se generan a partir de las compras realizadas por los destinatarios de la campaña dentro de un determinado periodo de conversión.
 
 Dicho esto, es importante tener en cuenta que Braze es una herramienta de marketing y no de gestión de ingresos. Nuestro [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) no admite reembolsos ni cancelaciones, por lo que es posible que aparezcan discrepancias al comparar los datos con otras herramientas.
 
@@ -567,8 +567,8 @@ Analytics
 
 Para programar un informe de interacción recurrente, haz lo siguiente:
 
-1. En tu cuenta del dashboard, ve a **Informes de participación**, en **Datos**.
-2. Haz clic en **+ Crear informe nuevo**.
+1. En tu cuenta del dashboard, ve a **Engagement Reports**, en **Data**.
+2. Haz clic en **+ Create New Report**.
 3. Añade las [campañas y los mensajes de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente o [por etiqueta]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que desees compilar en tu informe.
 4. [Añade estadísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) a tu informe.
 5. Selecciona la compresión y el delimitador para tu informe.

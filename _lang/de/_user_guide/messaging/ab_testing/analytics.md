@@ -33,7 +33,7 @@ Das **A/B Test Result** ist in zwei Tabs unterteilt: **Initial Test** und **Winn
 {% tabs local %}
 {% tab Initial Test %}
 
-Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde. Sie können eine Zusammenfassung sehen, wie alle Varianten abgeschnitten haben und ob es während des Tests einen Gewinner gab.
+Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde. Sie können eine Zusammenfassung sehen, wie alle Varianten abgeschnitten haben und ob es während des Tests eine Gewinnervariante gab.
 
 Wenn eine Variante alle anderen mit einer [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence) von mehr als 95 % übertroffen hat, kennzeichnet Braze diese Variante mit dem Label „Winner“.
 
@@ -173,7 +173,7 @@ Ihre multivariaten Ergebnisse können Sie dazu veranlassen, die Art und Weise zu
 
 #### Ändern Sie die Art, wie Sie Ihre Nutzer:innen verstehen {#change-the-way-you-understand-your-users}
 
-Jeder Test beleuchtet das Verhalten Ihrer Nutzer:innen, wie Nutzer:innen auf verschiedene Messaging-Kanäle reagieren und die Unterschiede (und Gemeinsamkeiten) zwischen Ihren Segments.
+Jeder Test beleuchtet das Verhalten Ihrer Nutzer:innen, wie Nutzer:innen auf verschiedene Messaging-Kanäle reagieren und die Unterschiede (und Gemeinsamkeiten) zwischen Ihren Segmenten.
 
 #### Verbessern Sie die Strukturierung zukünftiger Tests {#improve-the-way-you-structure-future-tests}
 
@@ -189,7 +189,7 @@ Wenn Sie feststellen, dass eine bestimmte Strategie in einem Kanal sehr effektiv
 
 #### Führen Sie einen Folgetest mit einem anderen Segment von Nutzer:innen durch {#run-a-follow-up-test-on-a-different-segment-of-users}
 
-Erstellen Sie dazu einen weiteren Test mit demselben Messaging-Kanal und denselben Varianten, wählen Sie aber ein anderes Segment von Nutzer:innen. Wenn beispielsweise eine Art von Messaging bei engagierten Nutzer:innen äußerst effektiv war, kann es nützlich sein, die Wirkung auf inaktive Nutzer:innen zu untersuchen. Es ist möglich, dass die inaktiven Nutzer:innen ähnlich reagieren, oder sie bevorzugen möglicherweise eine der anderen Varianten. Dieser Test hilft Ihnen, mehr über Ihre verschiedenen Segments zu erfahren und wie sie auf verschiedene Arten von Nachrichten reagieren. Warum Annahmen über Ihre Segments treffen, wenn Sie Ihre Strategie auf Daten basieren können?
+Erstellen Sie dazu einen weiteren Test mit demselben Messaging-Kanal und denselben Varianten, wählen Sie aber ein anderes Segment von Nutzer:innen. Wenn beispielsweise eine Art von Messaging bei engagierten Nutzer:innen äußerst effektiv war, kann es nützlich sein, die Wirkung auf inaktive Nutzer:innen zu untersuchen. Es ist möglich, dass die inaktiven Nutzer:innen ähnlich reagieren, oder sie bevorzugen möglicherweise eine der anderen Varianten. Dieser Test hilft Ihnen, mehr über Ihre verschiedenen Segmente zu erfahren und wie sie auf verschiedene Arten von Nachrichten reagieren. Warum Annahmen über Ihre Segmente treffen, wenn Sie Ihre Strategie auf Daten basieren können?
 
 #### Führen Sie einen Folgetest basierend auf Erkenntnissen aus einem früheren Test durch {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 

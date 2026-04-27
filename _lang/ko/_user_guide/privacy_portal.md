@@ -45,7 +45,7 @@ guide_featured_list:
 - name: 메시지 아카이브
   link: /docs/user_guide/data/distribution/export_braze_data/message_archiving/
   image: /assets/img/braze_icons/clock-rewind.svg
-- name: 기본값 및 최소 SDK 데이터 수집
+- name: 기본 및 최소 SDK 데이터 수집
   link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
   image: /assets/img/braze_icons/settings-01.svg
 - name: Canvas 오디언스 동기화 데이터 프라이버시 고려 사항

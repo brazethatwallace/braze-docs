@@ -18,7 +18,7 @@ guide_featured_list:
 - name: Technische Unterstützung beim Datenschutz für Anfragen betroffener Personen
   link: /docs/dp-technical-assistance/
   image: /assets/img/braze_icons/settings-01.svg
-- name: E-Mail-Open-Pixel und Click-Tracking
+- name: E-Mail-Open-Pixel und Klick-Tracking
   link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking/
   image: /assets/img/braze_icons/mail-01.svg
 - name: E-Mail-Abos

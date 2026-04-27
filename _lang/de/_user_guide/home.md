@@ -36,9 +36,9 @@ popular_topic_list:
     link: /docs/user_guide/data/unification/cloud_ingestion/
   - name: In-App-Nachrichten
     link: /docs/user_guide/channels/in_app_messages/
-  - name: Content-Cards
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards/
-  - name: Nachrichten-Engagement-Events
+  - name: Nachrichten-Engagement-Ereignisse
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/
   - name: Angepasste Attribute
     link: /docs/user_guide/data/activation/attributes/custom_attributes/

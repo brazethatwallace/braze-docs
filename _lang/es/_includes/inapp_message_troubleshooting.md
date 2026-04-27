@@ -72,7 +72,7 @@ Otras razones incluyen:
 
 ### Las impresiones son más bajas que antes {#impressions-are-lower-than-they-used-to-be}
 
-1. Asegúrate de que nadie haya alterado involuntariamente el Segment o la Campaign desde su lanzamiento. Nuestros registros de cambios de Segments y Campaigns te darán información sobre los cambios que se han hecho, quién los hizo y cuándo ocurrieron.
+1. Asegúrate de que nadie haya alterado involuntariamente el segmento o la Campaign desde su lanzamiento. Nuestros registros de cambios de segmentos y Campaigns te darán información sobre los cambios que se han hecho, quién los hizo y cuándo ocurrieron.
 
 ![Enlace para ver el registro de cambios en la página Detalles de la Campaign con siete cambios desde la última vez que el usuario vio la Campaign]({% image_buster /assets/img_archive/trouble4.png %})
 
@@ -93,8 +93,8 @@ El SDK solicita mensajes dentro de la aplicación a los servidores de Braze al i
 2. Configura una Campaign de mensajes dentro de la aplicación dirigida a tu usuario.
 3. Asegúrate de que se produce una nueva sesión en tu aplicación.
 4. Utiliza los [registros de eventos de usuario]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar que tu dispositivo solicita mensajes dentro de la aplicación al inicio de la sesión. Busca la solicitud del SDK asociada al evento de inicio de sesión de tu usuario de prueba.
-  - Si tu aplicación debía solicitar mensajes dentro de la aplicación desencadenados, deberías ver `trigger` en el campo **Respuestas solicitadas**, en **Datos de respuesta**.
-  - Si tu aplicación debía solicitar mensajes originales dentro de la aplicación, deberías ver `in_app` en el campo **Respuestas solicitadas**, en **Datos de respuesta**.
+  - Si tu aplicación debía solicitar mensajes dentro de la aplicación desencadenados, deberías ver `trigger` en el campo **Requested Responses**, en **Response Data**.
+  - Si tu aplicación debía solicitar mensajes originales dentro de la aplicación, deberías ver `in_app` en el campo **Requested Responses**, en **Response Data**.
 5. Utiliza los [registros de eventos de usuario]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar si los mensajes correctos dentro de la aplicación se devuelven en los datos de respuesta.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### Solución de problemas de mensajes no solicitados {#troubleshoot-messages-not-being-requested}
@@ -107,14 +107,14 @@ Si tus mensajes dentro de la aplicación no se solicitan, es posible que tu apli
 
 Si tus mensajes dentro de la aplicación no se devuelven, es probable que estés experimentando un problema de segmentación de la Campaign:
 
-1. Tu Segment no contiene a tu usuario.
-  - Comprueba la pestaña [**Interacción**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) de tu usuario para ver si el Segment correcto aparece en **Segments**.
+1. Tu segmento no contiene a tu usuario.
+  - Comprueba la pestaña [**Interacción**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) de tu usuario para ver si el segmento correcto aparece en **Segments**.
 2. Tu usuario ha recibido previamente el mensaje dentro de la aplicación y no era reelegible para volver a recibirlo.
-  - Comprueba la [configuración de reelegibilidad de la Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) en el paso **Entrega** del **Compositor de Campaigns** y asegúrate de que la configuración de reelegibilidad se ajusta a tu configuración de prueba.
+  - Comprueba la [configuración de reelegibilidad de la Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) en el paso **Delivery** del **Campaign Composer** y asegúrate de que la configuración de reelegibilidad se ajusta a tu configuración de prueba.
 3. Tu usuario alcanzó el límite de frecuencia de la Campaign.
   - Comprueba la [configuración de límite de frecuencia]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping) de la Campaign y asegúrate de que se ajusta a tu configuración de prueba.
 4. Si había un grupo de control en la Campaign, tu usuario puede haber caído en el grupo de control.
-  - Puedes comprobar si esto ha ocurrido creando un Segment con un filtro de variante de Campaign recibida, en el que la variante de Campaign esté configurada como **Control**, y comprobando si tu usuario cayó en ese Segment.
+  - Puedes comprobar si esto ha ocurrido creando un segmento con un filtro de variante de Campaign recibida, en el que la variante de Campaign esté configurada como **Control**, y comprobando si tu usuario cayó en ese segmento.
   - Cuando crees Campaigns para realizar pruebas de integración, asegúrate de no añadir un grupo de control.
 
 

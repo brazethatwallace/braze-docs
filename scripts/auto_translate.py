@@ -503,6 +503,41 @@ on one heading line. If the English file has **no** YAML `---` front matter at \
 the top (typical for `_includes/` partials), do not add a translated \
 `nav_title`/`article_title` block—strip it so the file starts like the English \
 body (auto-translate PR #13353).
+22. **Markdown tables + permission code cells**: In table rows, keep a **space** \
+after each ``|`` before an opening ``\``...\`` inline code token (never ``||``\`slug\```). \
+**Spanish** ``_includes/whatsapp/template_prerequisites.md``: keep quoted \
+WhatsApp permission bullets exactly as English (**View/Edit WhatsApp Message Templates**). \
+**Portuguese (Brazil)**: use **um** ``delay`` (not *uma*) before the borrowed \
+``delay`` token in in-app troubleshooting; keep **Campaigns** as the Braze \
+product token in link-shortening includes when the rest of the file uses \
+English **Campaign**/**Campaigns** (auto-translate PR #13356).
+23. **Hub pages (`messaging.md`, `data.md`, `administer.md`)**: In YAML \
+``guide_top_text`` / long HTML strings, never glue ``</a>`` directly to the \
+next word—insert a normal space. **pt-BR** ``messaging`` featured list: the \
+Canvas card must read **Canvas**, not *Canva*, when the link targets \
+``/messaging/canvas``. **``data.md``**: English uses lowercase *segments* as \
+a common noun in the activate paragraph—**pt-BR** should use *segmentos*, not \
+capitalized English **Segments**; **JA/KO** should use bold **Segments** for \
+the Braze product token in that sentence when English means the product \
+surface (auto-translate PR #13357).
+24. **A/B testing subtree** (`_user_guide/messaging/ab_testing/`): **Spanish** \
+``race_conditions``—use **Escenario** for numbered scenario headings (never \
+**Supuesto**); use **Condiciones de carrera** for *race conditions*, not \
+*Condiciones de la carrera*. **Spanish** ``ab_test_projection``—keep dashboard \
+labels **Target Audience**, **A/B Testing**, **Run Projection** in English bold. \
+**Spanish** ``variant_distribution``—use *campaña* for generic multivariate \
+sends, not lowercase English *campaign*. **Spanish** ``random_bucket_numbers`` \
+step copy—use **Target Audiences** when English does. **Portuguese** \
+``concepts``—keep **bucket** for random-bucket terminology (never *baldes*); \
+``optimizations``—parallel plural titles and *na etapa **Públicos-alvo***. \
+**Korean** ``optimizations``—**WhatsApp Campaigns** when listing channels in \
+plural series. **Japanese** ``create_tests``—**Messaging** > **Campaigns**, \
+**Create Campaign** for US UI paths; ``ab_test_projection``—use **予測を実行** \
+consistently for “run projection”. **German** ``optimizations``—**Gewinnervariante** \
+/**Personalisierte Variante** (no **Winning Variant** / **Winning-Varianten**); \
+``conversion_correlation``—**Nutzer:innen** / **Nutzerattribute** consistently \
+(no **Benutzer** mix). **French** ``conversion_correlation``—**campagnes** in \
+French prose, not English **Campaigns** mid-sentence (auto-translate PR #13359).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -2639,6 +2674,149 @@ def repair_duplicate_adjacent_target_audiences_include(content):
     return content, []
 
 
+# ``</a>`` immediately followed by a letter (CJK/Latin) without whitespace.
+_ANCHOR_LETTER_RUNON_AFTER_CLOSE_RE = re.compile(
+    r"</a>([A-Za-z\u00C0-\u024F\u3040-\u9FFF\uAC00-\uD7A3])"
+)
+
+
+def repair_missing_space_after_html_anchor_close(translated_content):
+    """Insert a missing space after ``</a>`` when the next character starts a word.
+
+    Prevents ``.../a>Word`` run-ons in YAML ``guide_top_text`` and prose
+    (Copilot / auto-translate PR #13357).
+    """
+    new, n = _ANCHOR_LETTER_RUNON_AFTER_CLOSE_RE.subn(r"</a> \1", translated_content)
+    if n:
+        return new, [f"html — space after </a> before word run-on ({n}x)"]
+    return translated_content, []
+
+
+def repair_user_guide_messaging_data_hub_copy(
+    translated_path, translated_content, lang_key
+):
+    """Fix recurring hub-page copy drift (messaging featured list, data landing).
+
+    Covers the Copilot patterns from auto-translate PR #13357.
+    """
+    lang_info = LANGUAGES.get(lang_key)
+    if not lang_info:
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    data_suffix = f"_lang/{lang_info['dir']}/_user_guide/data.md"
+    repairs = []
+    new = translated_content
+
+    if lang_key == "pt-br" and rel.endswith("_lang/pt_br/_user_guide/messaging.md"):
+        block = (
+            "name: Canva\n"
+            "    link: /docs/user_guide/messaging/canvas"
+        )
+        if block in new:
+            new = new.replace(
+                block,
+                "name: Canvas\n"
+                "    link: /docs/user_guide/messaging/canvas",
+            )
+            repairs.append("pt-messaging — Canva → Canvas (guide_featured_list)")
+
+    if rel.endswith(data_suffix):
+        if lang_key == "pt-br" and " e Segments." in new:
+            new = new.replace(" e Segments.", " e segmentos.")
+            repairs.append("pt-data — Segments → segmentos (EN segments parity)")
+        if lang_key == "ja" and "プロファイルとSegmentを使用して" in new:
+            new = new.replace(
+                "プロファイルとSegmentを使用して",
+                "プロファイルと**Segments**を使用して",
+            )
+            repairs.append("ja-data — Segment → **Segments** (product token)")
+        if lang_key == "ko" and "프로필과 Segment를" in new:
+            new = new.replace(
+                "프로필과 Segment를",
+                "프로필과 **Segments**를",
+            )
+            repairs.append("ko-data — Segment → **Segments** (product token)")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
+# Table row where the cell separator ``|`` touches the opening backtick of an
+# inline code span (``||``\`view_foo_bar\```). Kramdown still parses, but layout
+# and reviews flag it (Copilot / auto-translate PR #13356).
+_TABLE_PIPE_TOUCHING_CODE_SPAN_RE = re.compile(
+    r"\|\`([a-z][a-z0-9_]*(?:_[a-z0-9_]+)+)`"
+)
+
+
+def repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content):
+    """Insert a space between ``|`` and ``\``...\`` when a slug-style code token follows."""
+    repairs = []
+    lines_out = []
+    for line in translated_content.split("\n"):
+        if not line.lstrip().startswith("|"):
+            lines_out.append(line)
+            continue
+        new_line, n = _TABLE_PIPE_TOUCHING_CODE_SPAN_RE.subn(r"| `\1`", line)
+        if n:
+            repairs.append(
+                "md-table — space before inline code cell after `|` "
+                f"({n} on one line)"
+            )
+        lines_out.append(new_line)
+    new_content = "\n".join(lines_out)
+    if new_content != translated_content:
+        return new_content, repairs
+    return translated_content, []
+
+
+def repair_es_whatsapp_template_prerequisites_permission_bullets(
+    translated_path, translated_content, lang_key
+):
+    """Restore English dashboard permission strings in ES WhatsApp prerequisites.
+
+    Spanish pages keep these quoted labels verbatim so they match the Braze
+    dashboard and sibling ``carousel_template_prerequisites`` (PR #13356).
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_includes/whatsapp/template_prerequisites.md"):
+        return translated_content, []
+    replacements = (
+        ('- "Ver plantillas de mensajes de WhatsApp"', '- "View WhatsApp Message Templates"'),
+        ('- "Editar plantillas de mensajes de WhatsApp"', '- "Edit WhatsApp Message Templates"'),
+    )
+    new = translated_content
+    applied = 0
+    for wrong, right in replacements:
+        if wrong in new:
+            new = new.replace(wrong, right)
+            applied += 1
+    if not applied:
+        return translated_content, []
+    return new, [
+        "es_whatsapp — restored English permission bullet strings "
+        f"({applied} pattern(s))"
+    ]
+
+
+def repair_pt_inapp_message_troubleshooting_loanword_delay(
+    translated_path, translated_content, lang_key
+):
+    """Fix Portuguese article gender before borrowed ``delay`` (in-app troubleshooting)."""
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "inapp_message_troubleshooting" not in rel:
+        return translated_content, []
+    new = translated_content.replace("uma `delay`", "um `delay`")
+    if new != translated_content:
+        return new, ["pt_br — uma `delay` → um `delay` (PR #13356)"]
+    return translated_content, []
+
+
 def repair_pt_br_banners_reporting_performance(translated_path, translated_content):
     """Prefer ``desempenho`` over English *performance* in PT-BR banner reporting."""
     rel = Path(translated_path).as_posix().replace("\\", "/")
@@ -4034,6 +4212,161 @@ def repair_trailing_whitespace(translated_content: str):
     return translated_content, []
 
 
+def repair_messaging_ab_testing_locale_drift(
+    translated_path, translated_content, lang_key
+):
+    """Fix recurring A/B testing subtree copy drift (auto-translate PR #13359)."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "messaging/ab_testing" not in rel:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    def _apply(old, new_s, label):
+        nonlocal new, repairs
+        if old in new:
+            new = new.replace(old, new_s)
+            repairs.append(label)
+
+    if lang_key == "pt-br":
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts.md"):
+            _apply(
+                "números aleatórios de baldes",
+                "números de bucket aleatórios",
+                "pt_ab_concepts — baldes → bucket (random bucket copy)",
+            )
+            _apply(
+                "Números aleatórios de baldes",
+                "Números de bucket aleatórios",
+                "pt_ab_concepts — featured list bucket label",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+            _apply(
+                "localizadas na **Etapa de Públicos-alvo**",
+                "localizadas na etapa **Públicos-alvo**",
+                "pt_ab_optim — Target Audiences step wording",
+            )
+            _apply(
+                "article_title: Otimize os Testes A/B com variante vencedora ou personalizadas\n",
+                "article_title: Otimize os testes A/B com variantes vencedoras ou personalizadas\n",
+                "pt_ab_optim — article_title plural parallelism",
+            )
+            _apply(
+                "# Otimize os Testes A/B com Variante vencedora ou Variantes personalizadas ",
+                "# Otimize os testes A/B com variantes vencedoras ou personalizadas ",
+                "pt_ab_optim — H1 plural parallelism",
+            )
+
+    if lang_key == "es":
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/race_conditions.md"):
+            _apply("nav_title: Condiciones de la carrera\n", "nav_title: Condiciones de carrera\n", "es_race — nav race-condition term")
+            _apply("\n# Condiciones de la carrera {#race-conditions}", "\n# Condiciones de carrera {#race-conditions}", "es_race — H1 race-condition term")
+            for n in (1, 2, 3):
+                _apply(f"## Supuesto {n}:", f"## Escenario {n}:", f"es_race — Supuesto {n} → Escenario")
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts.md"):
+            _apply(
+                "  - name: Condiciones de la carrera\n",
+                "  - name: Condiciones de carrera\n",
+                "es_ab_concepts — race conditions card label",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/variant_distribution.md"):
+            _apply(" una campaign ", " una campaña ", "es_variant_dist — campaign → campaña")
+            _apply("una campaign multivariante", "una campaña multivariante", "es_variant_dist — campaign multivariante")
+            _apply("tu campaign tiene", "tu campaña tiene", "es_variant_dist — tu campaign → tu campaña")
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/random_bucket_numbers.md"):
+            _apply(
+                "En la sección **Público objetivo** de tu campaña",
+                "En la sección **Target Audiences** de tu campaña",
+                "es_random_bucket — UI Target Audiences",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
+            _apply(
+                "ve al paso **Público objetivo** del flujo",
+                "ve al paso **Target Audience** del flujo",
+                "es_ab_projection — Target Audience UI",
+            )
+            _apply(
+                "En el panel **Pruebas A/B**, selecciona **Run Projection**.",
+                "En el panel **A/B Testing**, selecciona **Run Projection**.",
+                "es_ab_projection — A/B Testing panel UI",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+            _apply(
+                "article_title: Optimiza las pruebas A/B con Variantes Ganadoras o Variantes Personalizadas\n",
+                "article_title: Optimiza las pruebas A/B con variantes ganadoras o variantes personalizadas\n",
+                "es_ab_optim — sentence-case article_title",
+            )
+            _apply(
+                "# Optimiza las pruebas A/B con Variantes Ganadoras o Variantes Personalizadas ",
+                "# Optimiza las pruebas A/B con variantes ganadoras o variantes personalizadas ",
+                "es_ab_optim — sentence-case H1",
+            )
+            _apply("\n## Variante Ganadora {#winning-variant}", "\n## Variante ganadora {#winning-variant}", "es_ab_optim — sentence-case H2 winning")
+            _apply(
+                "\n## Variante Personalizada {#personalized-variant}",
+                "\n## Variante personalizada {#personalized-variant}",
+                "es_ab_optim — sentence-case H2 personalized",
+            )
+
+    if lang_key == "ko" and rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+        _apply("WhatsApp Campaign에", "WhatsApp Campaigns에", "ko_ab_optim — WhatsApp Campaigns plural")
+
+    if lang_key == "ja":
+        if rel.endswith("_user_guide/messaging/ab_testing/create_tests.md"):
+            _apply(
+                "1. **メッセージング** > **Campaigns**に移動します。",
+                "1. **Messaging** > **Campaigns**に移動します。",
+                "ja_ab_create — Messaging UI path",
+            )
+            _apply(
+                "2. **キャンペーンを作成**を選択し、",
+                "2. **Create Campaign**を選択し、",
+                "ja_ab_create — Create Campaign UI",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
+            _apply("**投影の実行**", "**予測を実行**", "ja_ab_projection — run projection verb parity")
+
+    if lang_key == "de":
+        if rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+            _apply(
+                "article_title: Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten\n",
+                "article_title: Optimieren Sie A/B-Tests mit Gewinnervariante oder personalisierten Varianten\n",
+                "de_ab_optim — article_title German winner term",
+            )
+            _apply(
+                "# Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten ",
+                "# Optimieren Sie A/B-Tests mit Gewinnervariante oder personalisierten Varianten ",
+                "de_ab_optim — H1 German winner term",
+            )
+            _apply("**Gewinnende Variante**", "**Gewinnervariante**", "de_ab_optim — Gewinnende → Gewinnervariante")
+            _apply("Gewinnende Variante und Personalisierte", "Gewinnervariante und Personalisierte", "de_ab_optim — alt Gewinnende")
+            _apply("**Winning Variant**", "**Gewinnervariante**", "de_ab_optim — Winning Variant UI")
+            _apply("**Personalized Variant**", "**Personalisierte Variante**", "de_ab_optim — Personalized Variant UI")
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/conversion_correlation.md"):
+            _apply(
+                "welche Benutzerattribute und Verhaltensweisen die von Ihnen",
+                "welche Nutzerattribute und Verhaltensweisen von Nutzer:innen die von Ihnen",
+                "de_ab_convcorr — callout Nutzerattribute / Nutzer:innen",
+            )
+            _apply(
+                "eine Liste von Attributen und Benutzerverhalten und berechnet, ob Benutzer statistisch",
+                "eine Liste von Attributen und dem Verhalten von Nutzer:innen und berechnet, ob Nutzer:innen statistisch",
+                "de_ab_convcorr — overview Benutzer → Nutzer:innen",
+            )
+
+    if lang_key == "fr" and rel.endswith("_user_guide/messaging/ab_testing/concepts/conversion_correlation.md"):
+        _apply(
+            "- Les Campaigns et Canvas reçus",
+            "- Les campagnes et Canvas reçus",
+            "fr_ab_convcorr — campagnes not English Campaigns",
+        )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def qc_check_file(english_path, translated_path, lang_key):
     """Run all QC checks on one file pair. Auto-repairs are written back."""
     english_content = Path(english_path).read_text()
@@ -4174,6 +4507,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(data_dist_repairs)
+
+    translated_content, ab_testing_repairs = repair_messaging_ab_testing_locale_drift(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ab_testing_repairs)
 
     translated_content, canvas_hub_repairs = (
         repair_messaging_canvas_hub_titles_from_engagement_tools(
@@ -4373,6 +4711,23 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(wire_repairs)
 
+    translated_content, anchor_space_repairs = (
+        repair_missing_space_after_html_anchor_close(translated_content)
+    )
+    findings["repairs"].extend(anchor_space_repairs)
+
+    translated_content, table_pipe_code_repairs = (
+        repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content)
+    )
+    findings["repairs"].extend(table_pipe_code_repairs)
+
+    translated_content, wa_es_perm_repairs = (
+        repair_es_whatsapp_template_prerequisites_permission_bullets(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(wa_es_perm_repairs)
+
     translated_content, dup_inc_repairs = (
         repair_duplicate_adjacent_target_audiences_include(translated_content)
     )
@@ -4382,6 +4737,18 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content
     )
     findings["repairs"].extend(pt_rep_repairs)
+
+    translated_content, hub_copy_repairs = repair_user_guide_messaging_data_hub_copy(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(hub_copy_repairs)
+
+    translated_content, pt_delay_repairs = (
+        repair_pt_inapp_message_troubleshooting_loanword_delay(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_delay_repairs)
 
     translated_content, banner_ui_repairs = repair_banners_create_a_banner_verbatim_ui(
         translated_path, translated_content

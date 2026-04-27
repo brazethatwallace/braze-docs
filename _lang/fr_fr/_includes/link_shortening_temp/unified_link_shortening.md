@@ -1,6 +1,6 @@
 Le raccourcissement de liens vous permet de raccourcir automatiquement les URL contenues dans les messages SMS ou RCS et de collecter des données analytiques sur le taux de clics, fournissant ainsi des indicateurs d'engagement supplémentaires pour mieux comprendre comment les utilisateurs interagissent avec vos campagnes.
 
-Le raccourcissement de liens peut être activé au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas. Lorsque le raccourcissement de liens est activé, les clics génèrent un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) envoyé via Currents.
+Le raccourcissement de liens peut être activé au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) dans les campagnes comme dans les Canvas. Lorsque le raccourcissement de liens est activé, les clics génèrent un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) envoyé via Currents.
 
 Les liens sont raccourcis à l'aide de notre domaine court partagé (`brz.ai`) ou de votre domaine de raccourcissement de liens personnalisé, et sont valides pendant 9 semaines à compter de leur date de création. Un exemple d'URL raccourcie ressemble à `https://brz.ai/8jshX2dj`.
 

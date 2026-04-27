@@ -4,7 +4,7 @@
 
 URL의 길이는 활성화된 추적 유형에 따라 결정됩니다:
 - **기본 추적**은 Campaign 수준의 클릭 추적을 활성화합니다. 정적 URL의 길이는 20자이며, 개인화된 URL의 길이는 25자입니다.
-- **고급 추적**은 Campaign 수준 및 사용자 수준의 클릭 추적을 활성화하고, 클릭에 의존하는 세분화 및 리타겟팅 기능을 사용할 수 있게 합니다. 클릭은 Currents를 통해 전송되는 [SMS 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)도 생성합니다. 고급 추적이 적용된 정적 URL의 길이는 27-28자이며, URL을 클릭한 사용자의 Segment를 생성할 수 있습니다. 개인화된 URL의 길이는 32-33자입니다.
+- **고급 추적**은 Campaign 수준 및 사용자 수준의 클릭 추적을 활성화하고, 클릭에 의존하는 세분화 및 리타겟팅 기능을 사용할 수 있게 합니다. 클릭은 Currents를 통해 전송되는 [SMS 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)도 생성합니다. 고급 추적이 적용된 정적 URL의 길이는 27-28자이며, URL을 클릭한 사용자의 세그먼트를 생성할 수 있습니다. 개인화된 URL의 길이는 32-33자입니다.
 
 링크는 공유 단축 도메인(`brz.ai`) 또는 커스텀 링크 단축 도메인을 사용하여 단축됩니다. URL 예시는 다음과 같습니다: `https://brz.ai/8jshX`(기본, 정적) 또는 `https://brz.ai/p/8jshX/2dj8d`(고급, 개인화). 자세한 내용은 [테스트](#testing)를 참조하세요.
 
@@ -64,7 +64,7 @@ Liquid로 렌더링된 URL은 API 트리거 등록정보에 포함된 URL도 포
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 |`link_shortening_enabled`| 선택 사항 | 부울 | `link_shortening_enabled`를 `true`로 설정하면 링크 단축 및 Campaign 수준의 클릭 추적이 활성화됩니다. 추적을 사용하려면 `campaign_id`와 `message_variation_id`가 있어야 합니다.|
-|`user_click_tracking_enabled`| 선택 사항 | 부울 | `user_click_tracking_enabled`를 `true`로 설정하면 링크 단축, Campaign 수준 및 사용자 수준의 클릭 추적이 활성화됩니다. 추적된 데이터를 사용하여 URL을 클릭한 사용자의 Segment를 생성할 수 있습니다.<br><br> 이 매개변수를 사용하려면 `link_shortening_enabled`가 `true`여야 하며, `campaign_id`와 `message_variation_id`가 있어야 합니다. |
+|`user_click_tracking_enabled`| 선택 사항 | 부울 | `user_click_tracking_enabled`를 `true`로 설정하면 링크 단축, Campaign 수준 및 사용자 수준의 클릭 추적이 활성화됩니다. 추적된 데이터를 사용하여 URL을 클릭한 사용자의 세그먼트를 생성할 수 있습니다.<br><br> 이 매개변수를 사용하려면 `link_shortening_enabled`가 `true`여야 하며, `campaign_id`와 `message_variation_id`가 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 전체 요청 매개변수 목록은 [요청 매개변수]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)를 참조하세요.

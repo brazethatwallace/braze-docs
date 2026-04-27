@@ -37,7 +37,7 @@ Informationen dazu, wie Sie URLs direkt im Braze-Editor dynamisch erstellen, dyn
 
 Bevor Sie Ihre Campaign oder Ihr Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine SMS- oder RCS-Nachricht an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) oder eine:n einzelne:n Nutzer:in in der Vorschau anzuzeigen und zu senden.
 
-Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL aktualisiert. Die Zeichenanzahl und die [abrechenbaren Segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) werden ebenfalls aktualisiert, um die gerenderte Personalisierung und die gekürzte URL widerzuspiegeln.
+Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL aktualisiert. Die Zeichenanzahl und die [abrechenbaren Segmente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) werden ebenfalls aktualisiert, um die gerenderte Personalisierung und die gekürzte URL widerzuspiegeln.
 
 Stellen Sie sicher, dass Sie die Campaign oder das Canvas speichern, bevor Sie eine Testnachricht senden, um eine Darstellung der gekürzten URL zu erhalten, die in Ihrer Nachricht versendet wird. Wenn die Campaign oder das Canvas vor dem Testversand nicht gespeichert wird, enthält der Testversand eine Platzhalter-URL.
 

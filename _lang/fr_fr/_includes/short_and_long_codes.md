@@ -13,9 +13,9 @@ RCS est un système d'envoi de messages moderne qui offre davantage de fonctionn
 
 ##### Détails {#details}
 
-| Composants visuels | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Composants visuels | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
-| - Nom de marque<br>- logo<br>- légende facultative<br> - badge vérifié | 4 à 6 semaines pour l'approbation de l'opérateur | Le débit et la réception/distribution dépendent de la connexion de données active du destinataire (données mobiles ou Wi-Fi). Le RCS ne dépend pas des limites imposées par les réseaux fixes comme le font les SMS ; les messages RCS sont envoyés via des réseaux de données plutôt que via les canaux de signalisation cellulaire traditionnels utilisés par les SMS. | S.O. | Bidirectionnel |
+| - Nom de marque<br>- logo<br>- légende facultative<br> - badge vérifié | 4 à 6 semaines pour l'approbation de l'opérateur | Le débit et la distribution dépendent de la connexion de données active du destinataire (données mobiles ou Wi-Fi). Le RCS ne dépend pas des limites imposées par les réseaux fixes comme le font les SMS ; les messages RCS sont envoyés via des réseaux de données plutôt que via les canaux de signalisation cellulaire traditionnels utilisés par les SMS. | S.O. | Bidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ##### Avantages et inconvénients {#pros-and-cons}
@@ -43,9 +43,9 @@ Certains pays vous permettent de choisir un numéro spécifique moyennant des fr
 
 ##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
-| 5-6 chiffres | Demande de 4 à 12 semaines| 100 messages par seconde ou plus | Oui | Bidirectionnel |
+| 5-6 chiffres | Demande de 4 à 12 semaines | 100 messages par seconde ou plus | Oui | Bidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ##### Avantages et inconvénients {#pros-and-cons}
@@ -72,7 +72,7 @@ Un code long est un numéro de téléphone standard utilisé pour envoyer et rec
 
 ##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 10 chiffres | Demande de 4 à 6 semaines (peut être plus courte ou plus longue selon les pays) | Aux États-Unis, le débit des codes longs dépend de votre score de confiance 10DLC ; sur les marchés internationaux, le débit peut varier ou augmenter dans certaines circonstances, mais il commence généralement autour de 10 segments de message par seconde (MPS). | Oui | Bidirectionnel (en fonction de l'endroit où vous envoyez) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
@@ -102,7 +102,7 @@ Ils peuvent comporter jusqu'à 11 caractères et contenir des lettres majuscules
 
 ##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | Jusqu'à 11 caractères | Disponible immédiatement si aucune préinscription n'est requise. Dans la plupart des pays où l'enregistrement est obligatoire, le délai est généralement de 1 à 4 semaines. | Varie selon le pays | Non | Unidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
@@ -124,7 +124,7 @@ Les numéros gratuits ont des indicatifs régionaux distincts à trois chiffres 
 
 ##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 10 chiffres	 | Demande de 2 à 4 semaines | Commence à 3 MPS (segments par seconde), possibilité d'augmentation moyennant des frais supplémentaires | Oui | Bidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}

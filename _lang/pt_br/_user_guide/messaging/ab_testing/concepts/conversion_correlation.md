@@ -10,6 +10,7 @@ tool:
   - Reports
 
 ---
+
 # Correlação de conversão {#conversion-correlation}
 
 > A análise de correlação de conversão na página **Análise de dados da campanha** oferece insight sobre quais atributos e comportamentos do usuário ajudam ou prejudicam os resultados definidos para as campanhas.
@@ -33,7 +34,7 @@ Verificamos os seguintes atributos tratando-os como variáveis categóricas. Em 
 Também verificamos se os seguintes fatores afetam a taxa de conversão:
 
 - Realização de qualquer evento personalizado
-- Campanhas e Canvas recebidos nos últimos 30 dias (exceto a campanha sendo avaliada no momento)
+- Campaigns e Canvas recebidos nos últimos 30 dias (exceto a campanha sendo avaliada no momento)
 
 Por fim, verificamos diversas variáveis comportamentais que podem assumir múltiplos valores. Dividimos as seguintes variáveis em quatro grupos ou quartis e, em seguida, medimos a associação de estar naquele quartil com aumentos ou reduções na conversão:
 

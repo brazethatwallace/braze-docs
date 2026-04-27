@@ -91,9 +91,9 @@ Estas características son:
 - **Frecuencia:** Con qué frecuencia tienen sesiones
 - **Antigüedad:** Cuánto tiempo llevan siendo usuarios
 
-Por ejemplo, la prueba puede encontrar que la mayoría de los usuarios prefieren la Variante A, pero los usuarios que tuvieron una sesión hace aproximadamente 3-12 días, tienen entre 1-12 días entre sesiones y fueron creados en los últimos 67-577 días tienden a preferir la Variante B. Por lo tanto, los usuarios en esa subpoblación recibieron la Variante B en el segundo envío, mientras que el resto recibió la Variante A.
+Por ejemplo, la prueba puede encontrar que la mayoría de los usuarios prefieren la variante A, pero los usuarios que tuvieron una sesión hace aproximadamente 3-12 días, tienen entre 1-12 días entre sesiones y fueron creados en los últimos 67-577 días tienden a preferir la variante B. Por lo tanto, los usuarios en esa subpoblación recibieron la variante B en el segundo envío, mientras que el resto recibió la variante A.
 
-![La tabla de características de usuario, que muestra qué usuarios se predice que preferirán la Variante A y la Variante B basándose en los tres contenedores en los que se encuentran para recencia, frecuencia y antigüedad.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
+![La tabla de características de usuario, que muestra qué usuarios se predice que preferirán la variante A y la variante B basándose en los tres contenedores en los que se encuentran para recencia, frecuencia y antigüedad.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
 
 **Cómo se seleccionan las variantes personalizadas**<br>
 Con este método, el mensaje recomendado para un usuario individual es la suma de los efectos de su recencia, frecuencia y antigüedad específicas. La recencia, la frecuencia y la antigüedad se dividen en contenedores, como se ilustra en la tabla de **Características de usuario**. El rango de tiempo de cada contenedor se determina por los datos de los usuarios en cada campaña individual y cambiará de campaña a campaña.
@@ -130,7 +130,7 @@ La confianza es la medida estadística de cuán seguros estamos de que una difer
 ¿No ves la confianza en tus resultados? La confianza solo aparecerá si tienes un grupo de control.
 {% endalert %}
 
-Una parte importante de tus resultados es la confianza de los mismos. Por ejemplo, ¿qué pasa si el grupo de control tuvo una tasa de conversión del 20 % y la Variante A tuvo una tasa de conversión del 25 %? Esto parece indicar que enviar la Variante A es más efectivo que no enviar ningún mensaje. Tener una confianza del 95 % significa que la diferencia entre las dos tasas de conversión probablemente se debe a una diferencia real en las respuestas de los usuarios y que solo hay un 5 % de probabilidad de que la diferencia haya ocurrido por azar.
+Una parte importante de tus resultados es la confianza de los mismos. Por ejemplo, ¿qué pasa si el grupo de control tuvo una tasa de conversión del 20 % y la variante A tuvo una tasa de conversión del 25 %? Esto parece indicar que enviar la variante A es más efectivo que no enviar ningún mensaje. Tener una confianza del 95 % significa que la diferencia entre las dos tasas de conversión probablemente se debe a una diferencia real en las respuestas de los usuarios y que solo hay un 5 % de probabilidad de que la diferencia haya ocurrido por azar.
 
 Braze compara la tasa de conversión de cada variante con la tasa de conversión del grupo de control mediante un procedimiento estadístico llamado [prueba Z](https://en.wikipedia.org/wiki/Z-test). Un resultado con un 95 % o más de confianza, como en el ejemplo anterior, indica que la diferencia es estadísticamente significativa. Esto aplica en cualquier lugar donde veas una métrica de confianza en el dashboard de Braze que describa la diferencia entre dos mensajes o poblaciones de usuarios.
 

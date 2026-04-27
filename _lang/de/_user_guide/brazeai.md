@@ -13,7 +13,7 @@ guide_top_text: "BrazeAI<sup>TM</sup> bietet eine Sammlung von leicht zugänglic
 
 guide_featured_title: "Features"
 guide_featured_list:
-  - name: Agenten
+  - name: Agentenkonsole
     link: /docs/user_guide/brazeai/agents
     image: /assets/img/braze_icons/star-06.svg
   - name: Braze MCP Server
@@ -31,7 +31,7 @@ guide_featured_list:
   - name: Intelligence Suite
     link: /docs/user_guide/brazeai/intelligence_suite
     image: /assets/img/braze_icons/clock.svg
-  - name: Artikel-Empfehlungen
+  - name: Artikelempfehlungen
     link: /docs/user_guide/brazeai/item_recommendations
     image: /assets/img/braze_icons/hearts.svg
   - name: Operator
@@ -50,4 +50,5 @@ guide_featured_list:
     link: /docs/user_guide/messaging/ab_testing/optimizations
     image: /assets/img/braze_icons/trophy-01.svg
 ---
+
 <br>

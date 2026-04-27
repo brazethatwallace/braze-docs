@@ -4,7 +4,7 @@ article_title: Canaux
 page_order: 5
 layout: dev_guide
 guide_top_header: "Canaux"
-guide_top_text: "Atteignez vos utilisateurs via le bon canal au bon moment. Choisissez parmi les canaux intégrés au produit comme les messages in-app, les Cartes de contenu et les bannières, ou les canaux externes comme les notifications push, les e-mails, les SMS et WhatsApp."
+guide_top_text: "Atteignez vos utilisateurs via le bon canal au bon moment. Choisissez parmi les canaux intégrés au produit comme les messages in-app, les Content Cards et les bannières, ou les canaux externes comme les notifications push, les e-mails, les SMS et WhatsApp."
 
 page_type: landing
 description: "Atteignez vos utilisateurs via les canaux de communication intégrés au produit et externes dans Braze."
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Messages in-app
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: Cartes de contenu
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Bannières
@@ -72,4 +72,4 @@ Vous pouvez utiliser Braze pour créer des campagnes de communication accessible
 - [Fondamentaux de la communication accessible](https://learning.braze.com/accessible-messaging-foundations) : apprenez les principes fondamentaux de l'accessibilité applicables aux communications de marque dans ce cours d'apprentissage Braze.
 - [Créer des messages accessibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) : découvrez comment ajouter du texte alternatif et structurer votre contenu pour les technologies d'assistance directement dans Braze.
 
-Si vous avez des retours sur l'accessibilité de Braze ou des messages envoyés depuis Braze, nous serions ravis de vous entendre. Ouvrez le menu **Assistance** dans l'en-tête global et sélectionnez **Share feedback** pour nous faire part de vos remarques.
+Si vous avez des retours sur l'accessibilité de Braze ou des messages envoyés depuis Braze, nous serions ravis de vous entendre. Ouvrez le menu **Support** dans l'en-tête global et sélectionnez **Share feedback** pour nous faire part de vos remarques.
