@@ -28,7 +28,7 @@
 ### Minha mensagem no app demorou muito para aparecer {#my-in-app-message-took-a-lot-of-time-to-appear}
 
 1. Se estiver servindo arquivos grandes de imagem ou vídeo da CDN para uma mensagem no app baseada em HTML, verifique se os arquivos estão otimizados para serem os menores possíveis e se a CDN tem bom desempenho.
-2. Verifique se você configurou uma `delay` para sua mensagem no app no dashboard.
+2. Verifique se você configurou um `delay` para sua mensagem no app no dashboard.
 {% case include.sdk %}
   {% when "iOS", "Android" %}
 3. Dependendo das circunstâncias, as mensagens no app baixarão ou carregarão imagens relevantes do disco antes de serem exibidas. Se estiver em uma conexão de rede lenta ou em dispositivos de desempenho muito baixo, esse processo poderá demorar. Certifique-se de que suas imagens sejam otimizadas para serem tão pequenas quanto possível.

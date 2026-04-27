@@ -1,4 +1,4 @@
-O encurtamento de links permite encurtar automaticamente URLs contidas em mensagens SMS ou RCS e coletar análise de dados de taxa de cliques, fornecendo métricas de engajamento adicionais para ajudar a entender como os usuários estão interagindo com suas campanhas.
+O encurtamento de links permite encurtar automaticamente URLs contidas em mensagens SMS ou RCS e coletar análise de dados de taxa de cliques, fornecendo métricas de engajamento adicionais para ajudar a entender como os usuários estão interagindo com suas Campaigns.
 
 O encurtamento de links pode ser ativado no [nível da variante de mensagem]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto em Campaigns quanto em Canvas. Quando o encurtamento de links está ativado, os cliques geram um [evento de clique de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) enviado pelo Currents.
 

@@ -1,4 +1,4 @@
-O encurtamento de links e o rastreamento de cliques permitem que você encurte automaticamente URLs contidos em mensagens SMS ou RCS e colete análise de dados de taxa de cliques, fornecendo métricas de engajamento adicionais para ajudar a entender como os usuários estão interagindo com suas campanhas.
+O encurtamento de links e o rastreamento de cliques permitem que você encurte automaticamente URLs contidos em mensagens SMS ou RCS e colete análise de dados de taxa de cliques, fornecendo métricas de engajamento adicionais para ajudar a entender como os usuários estão interagindo com suas Campaigns.
 
 O encurtamento de links e o rastreamento de cliques podem ser ativados no [nível da variante de mensagem]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto em Campaigns quanto em Canvas.
 
