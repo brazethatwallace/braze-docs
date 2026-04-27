@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /campaigns/list
 {% endapimethod %}
 
-> Usa este punto de conexión para exportar una lista de campañas, cada una de las cuales incluirá su nombre, el identificador de API de Campaign, si se trata de una campaña de API y las etiquetas asociadas a la campaña.
+> Usa este punto de conexión para exportar una lista de campañas, cada una de las cuales incluirá su nombre, el identificador de API de la campaña, si se trata de una campaña de API y las etiquetas asociadas a la campaña.
 
 Las campañas se devuelven en grupos de 100 ordenadas por fecha de creación (de la más antigua a la más reciente, por defecto).
 
