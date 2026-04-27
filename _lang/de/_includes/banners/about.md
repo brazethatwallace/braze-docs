@@ -21,7 +21,7 @@ Nach der Integration von Bannern in eine App oder Website können Marketer die B
 | Ankündigungen | Halten Sie Ankündigungen wie bevorstehende Veranstaltungen oder Änderungen der Richtlinien im Vordergrund Ihres App-Erlebnisses. |
 | Personalisierung von Angeboten | Zeigen Sie personalisierte Aktionen und Anreize auf der Grundlage des Browserverlaufs, des Warenkorb-Inhalts, der Abo-Stufe und des Treuestatus jedes Nutzers bzw. jeder Nutzerin. |
 | Targeting für das Engagement neuer Nutzer:innen | Führen Sie neue Nutzer:innen durch Onboarding-Abläufe und die Kontoeinrichtung. |
-| Verkäufe und Aktionen | Heben Sie besondere Inhalte, aktuelle Produkte und laufende Kampagnen Ihrer Marke persistent und direkt auf Ihrer Homepage hervor, ohne das Nutzererlebnis zu stören. |
+| Verkäufe und Aktionen | Heben Sie besondere Inhalte, aktuelle Produkte und laufende Markenkampagnen persistent und direkt auf Ihrer Homepage hervor, ohne das Nutzererlebnis zu stören. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Features
@@ -80,7 +80,7 @@ Jeder Workspace kann bis zu 200 aktive Banner-Kampagnen unterstützen. Wenn dies
 
 Außerdem unterstützen Banner-Nachrichten die folgenden Features nicht:
 
-- API-getriggerte und aktionsbasierte Campaigns
+- API-getriggerte und aktionsbasierte Kampagnen
 - Connected-Content
 - Aktionscodes
 - `catalog_items` unter Verwendung des [`:rerender`-Tags]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)

@@ -1,6 +1,6 @@
 # よくある質問 {#frequently-asked-questions}
 
-> これらは、Braze のバナーに関するよくある質問への回答です。より一般的な情報については、[バナーについて]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners{% endif %}/)を参照してください。
+> これらは、Brazeのバナーに関するよくある質問への回答です。より一般的な情報については、[バナーについて]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners{% endif %}/)を参照してください。
 
 ## バナーの更新はいつユーザーに表示されますか？ {#when-do-banner-updates-appear-for-users}
 

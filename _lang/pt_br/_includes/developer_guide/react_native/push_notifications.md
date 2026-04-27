@@ -129,7 +129,7 @@ Para obter uma lista completa dos campos de notificação por push, consulte a t
 | `is_silent`        | booleano   | Se `true`, a carga útil é recebida silenciosamente. Para detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
 | `is_braze_internal`| booleano   | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de geofences, sincronização de Feature Flags ou rastreamento de desinstalação. A carga útil é recebida silenciosamente para o usuário. |
 | `image_url`        | String    | Especifica a URL associada à imagem da notificação. |
-| `braze_properties` | Objeto    | Representa as propriedades da Braze associadas à campaign (pares chave-valor). |
+| `braze_properties` | Objeto    | Representa as propriedades da Braze associadas à Campaign (pares chave-valor). |
 | `ios`              | Objeto    | Representa campos específicos do iOS. |
 | `android`          | Objeto    | Representa campos específicos do Android. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -462,10 +462,10 @@ A partir do macOS 13, em determinados dispositivos, você pode testar as notific
 {% endalert %}
 
 1. Defina um usuário ativo no aplicativo React Native chamando o método `Braze.changeUserId('your-user-id')`.
-2. Acesse **Campaigns** e crie uma nova campaign de notificação por push. Escolha as plataformas que você gostaria de testar.
+2. Acesse **Campaigns** e crie uma nova Campaign de notificação por push. Escolha as plataformas que você gostaria de testar.
 3. Crie sua notificação de teste e vá para a guia **Test**. Adicione o mesmo `user-id` como usuário teste e clique em **Send Test**. Você deverá receber a notificação no seu dispositivo em breve.
 
-![Uma campaign push da Braze mostrando que você pode adicionar seu próprio ID de usuário como destinatário de teste para testar sua notificação por push.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
+![Uma Campaign push da Braze mostrando que você pode adicionar seu próprio ID de usuário como destinatário de teste para testar sua notificação por push.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
 ## Usando o plugin do Expo {#using-the-expo-plugin}
 

@@ -4,7 +4,7 @@
 
 ## 트리거 유형 {#trigger-types}
 
-SDK가 다음 커스텀 이벤트 유형 중 하나를 기록하면 인앱 메시지가 자동으로 트리거됩니다: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event`, `Push Click`. `Specific Purchase` 및 `Custom Event` 트리거에는 강력한 속성 필터도 포함되어 있습니다.
+SDK가 다음 커스텀 이벤트 유형 중 하나를 기록하면 인앱 메시지가 자동으로 트리거됩니다: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event`, `Push Click`. `Specific Purchase` 및 `Custom Event` 트리거에는 강력한 등록정보 필터도 포함되어 있습니다.
 
 {% alert note %}
 인앱 메시지는 API 또는 API 이벤트를 통해 트리거할 수 없으며&#8212;SDK에서 기록한 커스텀 이벤트만 트리거할 수 있습니다. 로깅에 대해 자세히 알아보려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)을 참조하세요.
@@ -24,7 +24,7 @@ SDK의 세션 시작 의미 체계에 대한 자세한 내용은 [세션 수명 
 
 테스트를 위해 이 간격을 `0`으로 설정할 수 있습니다. 그러나 `0`초 간격이 여러 인앱 메시지를 동시에 표시하도록 강제하지는 않습니다. 다른 모달 또는 전체 인앱 메시지가 이미 표시되고 있는 경우 `braze.showInAppMessage`는 `false`를 반환하고 새 메시지는 표시되지 않습니다.
 
-이를 재정의하려면 Braze 인스턴스가 초기화되기 전에 Braze 구성에 다음 속성을 추가하세요. 음이 아닌 정수 값으로 설정할 수 있으며, 이는 초 단위의 최소 시간 간격을 나타냅니다. 예를 들어:
+이를 재정의하려면 Braze 인스턴스가 초기화되기 전에 Braze 구성에 다음 등록정보를 추가하세요. 음이 아닌 정수 값으로 설정할 수 있으며, 이는 초 단위의 최소 시간 간격을 나타냅니다. 예를 들어:
 
 ```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30

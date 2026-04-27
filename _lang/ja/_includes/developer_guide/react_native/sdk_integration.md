@@ -550,7 +550,7 @@ npx expo prebuild
 
 #### 方法 2: React Native CLIの使用 {#method-2-using-react-native-cli}
 
-##### Androidの設定 {#set-up-android}
+##### Androidの設定 {#set-up-android-1}
 
 **ステップ 2.1: Kotlin Gradleプラグインの追加**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOSの設定 {#set-up-ios}
+##### iOSの設定 {#set-up-ios-1}
 
 **ステップ 2.5:（オプション）ダイナミックXCFrameworkに関するPodfileの設定**
 

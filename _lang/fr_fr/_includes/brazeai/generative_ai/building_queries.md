@@ -8,11 +8,11 @@ Vous aurez besoin des [autorisations « Voir les informations confidentielles »
 
 ### Étape 1 : Créer une requête SQL {#step-1-create-an-sql-query}
 
-Pour créer une nouvelle requête, accédez à **Analytics** > **Générateur de requêtes**, puis sélectionnez **Créer une requête SQL**.
+Pour créer une nouvelle requête, accédez à **Analytics** > **Query Builder**, puis sélectionnez **Create SQL Query**.
 
-![Les options « Modèle de requête » et « Éditeur SQL » se trouvent dans la liste déroulante « Créer une requête SQL ».]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
+![Les options « Query Template » et « SQL Editor » se trouvent dans la liste déroulante « Create SQL Query ».]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
-Si vous avez besoin d'inspiration ou d'aide pour rédiger votre requête, choisissez **Modèle de requête** et sélectionnez un [modèle préétabli]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). Pour commencer avec une requête vierge, sélectionnez **Éditeur SQL**.
+Si vous avez besoin d'inspiration ou d'aide pour rédiger votre requête, choisissez **Query Template** et sélectionnez un [modèle préétabli]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). Pour commencer avec une requête vierge, sélectionnez **SQL Editor**.
 
 Votre rapport reçoit automatiquement un nom basé sur la date et l'heure actuelles. Survolez le nom et sélectionnez <i class="fas fa-pencil" alt="Modifier"></i> pour donner un nom pertinent à votre requête SQL.
 
@@ -26,9 +26,9 @@ Lors de la création de votre requête, vous pouvez choisir de vous faire aider 
 {% tab Using BrazeAI %}
 Le générateur de requêtes par IA s'appuie sur [GPT](https://openai.com/gpt-4) d'OpenAI pour recommander du SQL adapté à votre requête. Pour générer du SQL avec le générateur de requêtes par IA :
 
-1. Après avoir créé un rapport dans le Générateur de requêtes, sélectionnez l'onglet **Générateur de requêtes par IA**.
-2. Saisissez votre prompt ou sélectionnez un exemple de prompt, puis sélectionnez **Générer** pour le traduire en SQL.
-3. Vérifiez le SQL généré pour vous assurer qu'il est correct, puis sélectionnez **Insérer dans l'éditeur**.
+1. Après avoir créé un rapport dans le Générateur de requêtes, sélectionnez l'onglet **AI Query Builder**.
+2. Saisissez votre prompt ou sélectionnez un exemple de prompt, puis sélectionnez **Generate** pour le traduire en SQL.
+3. Vérifiez le SQL généré pour vous assurer qu'il est correct, puis sélectionnez **Insert into Editor**.
 
 ![Le générateur de requêtes SQL par intelligence artificielle.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
@@ -46,9 +46,9 @@ Rédigez votre requête SQL en utilisant la [syntaxe Snowflake](https://docs.sno
 
 Pour afficher les détails d'une table dans le Générateur de requêtes :
 
-1. Depuis la page **Générateur de requêtes**, ouvrez le panneau **Référence** et sélectionnez **Tables de données disponibles** pour afficher les tables de données disponibles et leurs noms.
-3. Sélectionnez <i class="fas fa-chevron-down" alt=""></i> **Voir les détails** pour afficher la description de la table et des informations sur ses colonnes, comme les types de données.
-4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copier le nom de la table dans l'éditeur SQL"></i>.
+1. Depuis la page **Query Builder**, ouvrez le panneau **Reference** et sélectionnez **Available Data Tables** pour afficher les tables de données disponibles et leurs noms.
+3. Sélectionnez <i class="fas fa-chevron-down" alt=""></i> **See Details** pour afficher la description de la table et des informations sur ses colonnes, comme les types de données.
+4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
 
 Restreindre votre requête à une période spécifique vous aidera à obtenir des résultats plus rapidement. Voici un exemple de requête qui récupère le nombre d'achats et le chiffre d'affaires généré au cours de la dernière heure.
 
@@ -70,9 +70,9 @@ Si vous effectuez une requête sur `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CA
 
 | Nom de l'ID | Colonne de nom associée |
 | --- | --- |
-| `CANVAS_ID` | Nom du Canvas |
-| `CANVAS_VARIATION_API_ID` | Nom de la variante du Canvas |
-| `CAMPAIGN_ID` | Nom de la Campaign |
+| `CANVAS_ID` | Canvas Name |
+| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CAMPAIGN_ID` | Campaign Name |
 {: .reset-td-br-1 .reset-td-br-2 }
 
 Cette requête récupère les trois ID et leurs colonnes de noms associées, avec un maximum de 100 lignes :
@@ -96,11 +96,11 @@ Votre requête peut échouer pour l'une des raisons suivantes :
 
 ### Étape 3 : Générer votre rapport {#step-3-generate-your-report}
 
-Une fois votre requête finalisée, sélectionnez **Exécuter la requête**. En l'absence d'erreurs ou de [dépassements de délai](#report-timeouts), un fichier CSV sera généré à partir de la requête.
+Une fois votre requête finalisée, sélectionnez **Run Query**. En l'absence d'erreurs ou de [dépassements de délai](#report-timeouts), un fichier CSV sera généré à partir de la requête.
 
-Pour télécharger le rapport CSV, sélectionnez **Exporter**.
+Pour télécharger le rapport CSV, sélectionnez **Export**.
 
-![Générateur de requêtes affichant les résultats de la requête modélisée « Engagement et chiffre d'affaires des canaux pour les 30 derniers jours ».]({% image_buster /assets/img_archive/query_builder.png %})
+![Générateur de requêtes affichant les résultats de la requête modélisée « Channel engagement and revenue for the last 30 days ».]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
 Chaque rapport ne peut générer des résultats qu'une seule fois par jour. Si vous exécutez le même rapport plusieurs fois au cours d'une même journée calendaire, vous obtiendrez les mêmes résultats à chaque fois.

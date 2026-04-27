@@ -106,7 +106,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Divider`.
 |Ausrichtung| Verschiebt die Linie nach links, in die Mitte oder nach rechts. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Spacer
+### Spacer {#spacer}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Spacer`.
 
@@ -129,7 +129,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Image`. Für 
 |URL| Legen Sie ein Bild über die Adresse fest, unter der es gehostet wird. |
 |Alternativer Text| Eine kurze Beschreibung des Bildes, die den Nutzer:innen die gleichen Informationen liefert, die auch auf dem Bild zu sehen sind. Dies ist für die Barrierefreiheit von Screenreadern oder für den Fall, dass das Bild nicht geladen werden kann, unerlässlich. |
 |Bild mit abgerundeten Ecken| Rendert das Bild mit abgerundeten Ecken. Standardmäßig werden Bilder mit eckigen Ecken gerendert. |
-|Aktion| Löst eine Aktion aus, wenn die Nutzer:in auf das Bild klickt.|
+|Aktion| Löst eine Aktion aus, wenn Nutzer:innen auf das Bild klicken.|
 |Blockoptionen| Legt das Padding um den Bildblock fest. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -139,7 +139,7 @@ Für `Auto Width` wählt die automatische Bildgrößenanpassung die beste Größ
 - Bei Bildern, die kleiner sind als der verfügbare Platz, wird die natürliche Größe des Bildes verwendet, um Verzerrungseffekte oder unscharfe Bilder zu vermeiden.
 {% endalert %}
 
-### Video
+### Video {#video}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Video`.
 
@@ -156,7 +156,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Video`.
 Videos, die von Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich eingestellt sind. Alle anderen Sicherheitseinstellungen, die in Vimeo verfügbar sind (z. B. „Vor Vimeo.com verbergen“), generieren ein anderes Linkformat, das von diesem Content-Block nicht unterstützt wird. Diese Arten von Links werden vom Builder geändert, wodurch Braze keine Miniaturansicht erstellen kann.
 {% endalert %}
 
-### Social
+### Social {#social}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Social`.
 
@@ -168,7 +168,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Social`.
 |Symbolabstand| Bestimmt den Abstand zwischen den einzelnen Social-Media-Symbolen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Icons
+### Icons {#icons}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Icons`.
 
@@ -186,7 +186,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Icons`.
 |Symbol-Padding| Ändert das Padding des Symbols. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### HTML
+### HTML {#html}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `HTML`.
 
@@ -217,9 +217,9 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Menu`.
 
 ## Aktionen {#actions}
 
-Sie können eine Aktion zuweisen, die ausgeführt wird, wenn eine Nutzer:in auf einen Button, einen Link oder ein Bild in der Nachricht tippt. Sie können auch [Liquid]({{site.baseurl}}/liquid/) verwenden, um die Aktionen zu personalisieren. Einzelheiten zu den Aktionen der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
+Sie können eine Aktion zuweisen, die ausgeführt wird, wenn Nutzer:innen auf einen Button, einen Link oder ein Bild in der Nachricht tippen. Sie können auch [Liquid]({{site.baseurl}}/liquid/) verwenden, um die Aktionen zu personalisieren. Einzelheiten zu den Aktionen der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
 
-### Button
+### Button {#button}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Button`.
 
@@ -227,9 +227,9 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Button`.
 |---|---|
 |Link-Typ| Legt die Aktion beim Klicken auf den Button fest und stellt das entsprechende Protokoll ein. |
 |URL| Dynamisch basierend auf dem Link-Typ **Webseite öffnen**.|
-|Empfänger:in, Betreff und Text| Für den Link-Typ **E-Mail senden** werden hier die E-Mail-Adresse der Empfänger:in, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf angezeigt werden, wenn die Nutzer:in den Button auswählt.|
-|Tel.| Für die Link-Typen **Anruf tätigen** und **SMS senden** wird hier die Telefonnummer festgelegt, die die Nutzer:in anruft oder per SMS kontaktiert, wenn sie den Button auswählt.|
-|Nachricht| Für den Link-Typ **SMS senden** legt dies den Inhalt fest, der in einem SMS-Entwurf angezeigt wird, wenn die Nutzer:in den Button auswählt.|
+|Empfänger:in, Betreff und Text| Für den Link-Typ **E-Mail senden** werden hier die E-Mail-Adresse der Empfänger:in, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf angezeigt werden, wenn Nutzer:innen den Button auswählen.|
+|Tel.| Für die Link-Typen **Anruf tätigen** und **SMS senden** wird hier die Telefonnummer festgelegt, die Nutzer:innen anrufen oder per SMS kontaktieren, wenn sie den Button auswählen.|
+|Nachricht| Für den Link-Typ **SMS senden** legt dies den Inhalt fest, der in einem SMS-Entwurf angezeigt wird, wenn Nutzer:innen den Button auswählen.|
 |Button-Optionen| Legt verschiedene Button-Optionen fest, wie beispielsweise Schriftart, Breite, Farbe und andere.|
-|Button-Hover| Der Stil des Buttons, wenn eine Nutzer:in mit der Maus oder dem Trackpad darüber fährt. Dazu gehören die Hintergrundfarbe des Buttons, die Schriftfarbe und der Rahmenstil.|
+|Button-Hover| Der Stil des Buttons, wenn Nutzer:innen mit der Maus oder dem Trackpad darüber fahren. Dazu gehören die Hintergrundfarbe des Buttons, die Schriftfarbe und der Rahmenstil.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

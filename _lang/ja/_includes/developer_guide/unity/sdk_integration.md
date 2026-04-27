@@ -1,6 +1,6 @@
 ## Unity Braze SDKについて {#about-the-unity-braze-sdk}
 
-型、関数、変数などの完全なリストについては、[Unity 宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。また、すでにUnityをiOS用に手動で統合している場合は、代わりに[自動統合に切り替える](#unity_automated-integration)ことができます。
+型、関数、変数などの完全なリストについては、[Unity宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。また、すでにUnityをiOS用に手動で統合している場合は、代わりに[自動統合に切り替える](#unity_automated-integration)ことができます。
 
 ## Unity SDKを統合する {#integrating-the-unity-sdk}
 
@@ -247,7 +247,7 @@ Unityエディターで詳細ログを有効にするには、以下の手順を
 Prime31プラグインでBraze Unityプラグインを使用するには、Prime31互換のActivityクラスを使用するようにプロジェクトの`AndroidManifest.xml`を編集します。以下のすべての参照を変更してください。
 `com.braze.unity.BrazeUnityPlayerActivity`を`com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`に変更します。
 
-### Amazon Device Messaging (ADM)
+### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
 
 Brazeは、Unityアプリへの[ADMプッシュ](https://developer.amazon.com/public/apis/engage/device-messaging)の統合をサポートしています。ADMプッシュを統合する場合は、ADM APIキーを含む`api_key.txt`というファイルを作成し、`Plugins/Android/assets/`フォルダーに配置してください。ADMとBrazeの統合の詳細については、[ADMプッシュ統合の説明]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity)を参照してください。
 

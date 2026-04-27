@@ -631,7 +631,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 #### ディープリンクの追加 {#adding-deep-links}
 
-Brazeダッシュボードは、プッシュ通知CampaignやCanvasで、通知がクリックされたときに開くディープリンクまたはWeb URLの設定をサポートしています。
+Brazeダッシュボードではプッシュ通知のCampaignやCanvasで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
 
 ![Brazeダッシュボードの「クリック時の動作」設定で、ドロップダウンから「アプリケーションへのディープリンク」を選択している状態。]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 

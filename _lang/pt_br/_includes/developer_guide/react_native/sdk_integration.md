@@ -550,7 +550,7 @@ Execute seu aplicativo conforme especificado nos [documentos da Expo](https://do
 
 #### Método 2: Usando React Native CLI {#method-2-using-react-native-cli}
 
-##### Configurar o Android {#set-up-android}
+##### Configurar o Android {#set-up-android-1}
 
 **Etapa 2.1: Adicione o plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configurar o iOS {#set-up-ios}
+##### Configurar o iOS {#set-up-ios-1}
 
 **Etapa 2.5: (Opcional) Configure o Podfile para XCFrameworks dinâmicos**
 

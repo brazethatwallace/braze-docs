@@ -84,7 +84,7 @@ La siguiente tabla explica cuándo se utiliza cada etiqueta y qué significa.
 | **Audiencia actual** | Braze puede calcular la estadística predeterminada con un escaneo completo de los perfiles del espacio de trabajo, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para más detalles sobre el comportamiento de muestreo, **Calcular estadísticas exactas** y la segmentación de **Usuarios alcanzables**, consulta [Medir el tamaño del Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+Para más detalles sobre el comportamiento de muestreo, **Calcular estadísticas exactas** y la segmentación de **Usuarios alcanzables**, consulta [Medir el tamaño del segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -444,7 +444,7 @@ Diferido o aplazamiento es cuando un correo electrónico no se entregó inmediat
 
 Los _Aplazamientos_ difieren de los _Rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
 
-Ten en cuenta que los _Aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el Generador de consultas, Segment SQL, Snowflake Data Sharing). Si quieres incluirlo en los análisis de campaña o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+Ten en cuenta que los _Aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el Generador de consultas, Segment SQL, Snowflake Data Sharing). Si quieres incluirlo en los análisis de Campaign o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
 
 ##### Estimación de la tasa de apertura real {#estimated-real-open-rate}
 
@@ -458,7 +458,7 @@ Normalmente se necesitan unos 10 000 correos electrónicos entregados para que l
 
 ###### Consideraciones {#considerations}
 
-La estimación de la tasa de apertura real solo está disponible en campañas y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
+La estimación de la tasa de apertura real solo está disponible en Campaigns y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
 
 ##### Gestión del aumento de las tasas de clics {#handling-increases-in-click-rates}
 
@@ -560,7 +560,7 @@ Aquí tienes algunas métricas clave de KakaoTalk que puedes ver en tus análisi
 | Clics totales | El número total de veces que los usuarios hicieron clic en los mensajes de KakaoTalk enviados. |
 | Errores | _Errores_ es el número de errores devueltos por el proveedor de KakaoTalk (se incrementa durante el proceso de envío). |
 | Ingresos | _Ingresos_ son los ingresos en dólares de los destinatarios de la campaña dentro de la ventana de conversión primaria establecida. |
-| Conversiones primarias | _Conversiones primarias_ es el número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una campaña de Braze. Este evento definido lo determinas tú al crear la campaña. |
+| Conversiones primarias | _Conversiones primarias_ es el número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% elsif include.channel == "push" %}
@@ -602,27 +602,27 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
 
 ##### Seguimiento de cancelaciones de suscripción {#tracking-unsubscribes}
 
-Las cancelaciones de suscripción push no se incluyen como métrica en los análisis de campañas y dependen de las actualizaciones del estado push de los usuarios por parte de proveedores como Apple o Google. Estas actualizaciones pueden ser poco frecuentes e impredecibles. Como resultado, las cancelaciones de suscripción push no se incluyen como métrica en los análisis de las campañas push.
+Las cancelaciones de suscripción push no se incluyen como métrica en los análisis de Campaigns y dependen de las actualizaciones del estado push de los usuarios por parte de proveedores como Apple o Google. Estas actualizaciones pueden ser poco frecuentes e impredecibles. Como resultado, las cancelaciones de suscripción push no se incluyen como métrica en los análisis de las campañas push.
 
-Sin embargo, el seguimiento manual de las cancelaciones de suscripción push puede proporcionar información valiosa sobre la respuesta de los usuarios a la frecuencia de tus notificaciones y la relevancia del contenido. Aquí tienes dos opciones para realizar el seguimiento de las cancelaciones de suscripción push: usando filtros de Segment o filtros personalizados.
+Sin embargo, el seguimiento manual de las cancelaciones de suscripción push puede proporcionar información valiosa sobre la respuesta de los usuarios a la frecuencia de tus notificaciones y la relevancia del contenido. Aquí tienes dos opciones para realizar el seguimiento de las cancelaciones de suscripción push: usando filtros de segmento o filtros personalizados.
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Filtros de segmento %}
 
-Puedes crear un Segment para identificar a los usuarios que no tienen habilitada la función push, lo que significa que no están suscritos ni han dado su adhesión voluntaria y no tienen un [token de notificaciones push en primer plano]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens). Por ejemplo, para ver el número de cancelaciones de suscripción en tu aplicación, utilizarías una combinación "O" de los siguientes Segments:
+Puedes crear un segmento para identificar a los usuarios que no tienen habilitada la función push, lo que significa que no están suscritos ni han dado su adhesión voluntaria y no tienen un [token de notificaciones push en primer plano]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens). Por ejemplo, para ver el número de cancelaciones de suscripción en tu aplicación, utilizarías una combinación "O" de los siguientes segmentos:
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
 
-![La sección del generador de Segments con el filtro "Background or Foreground Push Enabled for App" para una aplicación es falso, y el filtro "Has Uninstalled" están seleccionados.]({% image_buster /assets/img/push_unsub_segment_example.png %})
+![La sección del generador de segmentos con el filtro "Background or Foreground Push Enabled for App" para una aplicación es falso, y el filtro "Has Uninstalled" están seleccionados.]({% image_buster /assets/img/push_unsub_segment_example.png %})
 
 Ten en cuenta que los filtros de segmentación son aproximados y no pueden vincularse específicamente a una fecha y una campaña.
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab Filtros personalizados %}
 
 {% alert important %}
-Al registrar un evento personalizado para el cambio de suscripción, se registrarán [puntos de datos]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Alternativamente, utiliza filtros de Segment para identificar y dirigirte a los usuarios que no están habilitados para push.
+Al registrar un evento personalizado para el cambio de suscripción, se registrarán [puntos de datos]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Alternativamente, utiliza filtros de segmento para identificar y dirigirte a los usuarios que no están habilitados para push.
 {% endalert %}
 
 Para una solución diferente, también recomendamos crear un evento personalizado para las cancelaciones de suscripción push en función de si el estado de habilitación push de un usuario es `true` o `false`, con el fin de hacer un seguimiento de esta métrica.
@@ -638,7 +638,7 @@ Aunque _Direct Opens_ e _Influenced Opens_ incluyen la palabra "opens" (apertura
 
 El número de _Envíos_ puede superar el número de _Destinatarios únicos_ debido a las siguientes razones:
 
-- **La reelegibilidad está activada:** Cuando se habilita la reelegibilidad en la configuración de tu campaña o Canvas, los usuarios que cumplan los criterios de Segment y entrega pueden recibir la misma notificación push varias veces. El resultado es un mayor número de envíos totales.
+- **La reelegibilidad está activada:** Cuando se habilita la reelegibilidad en la configuración de tu Campaign o Canvas, los usuarios que cumplan los criterios de segmento y entrega pueden recibir la misma notificación push varias veces. El resultado es un mayor número de envíos totales.
 - **Los usuarios tienen varios dispositivos:** Si no se habilita la reelegibilidad, la diferencia puede explicarse porque los usuarios tienen varios dispositivos asociados a su perfil. Por ejemplo, un usuario puede tener un smartphone y una tableta, y la notificación push se envía a todos los dispositivos registrados. Cada entrega cuenta como un envío, pero solo se registra un destinatario único.
 - **Los usuarios están asignados a varias aplicaciones:** Si los usuarios están asociados a más de una aplicación (como cuando prueban una aplicación nueva), pueden recibir la misma notificación push en cada aplicación. Esto contribuye a un mayor número de envíos.
 
@@ -649,7 +649,7 @@ El número de _Envíos_ puede superar el número de _Destinatarios únicos_ debi
 
 Los rebotes se producen en los servicios de notificaciones push de Apple (APNs) cuando una notificación push intenta entregarse a un dispositivo que no tiene instalada la aplicación prevista. APNs también tiene derecho a cambiar los tokens de los dispositivos arbitrariamente. Si intentas enviar al dispositivo de un usuario en el que su token de notificaciones push ha cambiado entre el momento en que registramos previamente su token (como al principio de cada sesión, cuando registramos a un usuario para obtener un token push) y el momento del envío, se produciría un rebote.
 
-Si un usuario desactiva push en la configuración de su dispositivo, al abrir la aplicación posteriormente el SDK detectará que se ha desactivado push y lo notificará a Braze. En este punto actualizaremos el estado de habilitación de push para que esté deshabilitado. Cuando un usuario deshabilitado recibe una campaña push antes de tener una nueva sesión, la campaña se enviaría correctamente y aparecería como entregada. El push no rebotará para este usuario. Tras una sesión posterior, cuando intentas enviar un push al usuario, Braze ya sabe si tenemos un token de primer plano, por lo que no se envía ninguna notificación.
+Si un usuario desactiva push en la configuración de su dispositivo, al abrir la aplicación posteriormente el SDK detectará que se ha desactivado push y lo notificará a Braze. En este punto actualizaremos el estado de habilitación de push para que esté deshabilitado. Cuando un usuario deshabilitado recibe una Campaign push antes de tener una nueva sesión, la campaña se enviaría correctamente y aparecería como entregada. El push no rebotará para este usuario. Tras una sesión posterior, cuando intentas enviar un push al usuario, Braze ya sabe si tenemos un token de primer plano, por lo que no se envía ninguna notificación.
 
 Las notificaciones push que caducan antes de la entrega no se consideran fallidas y no se registrarán como rebotadas.
 
@@ -822,11 +822,11 @@ Si seleccionas enviar solo a usuarios que puedan ver la última versión de Braz
 
 El panel **Respuestas a palabras clave** te muestra una cronología de las palabras clave entrantes con las que los usuarios respondieron tras recibir tu mensaje.
 
-![Panel de respuestas a palabras clave SMS/MMS/RCS a nivel de campaña que incluye un gráfico lineal de la distribución de palabras clave a lo largo del tiempo y una sección de categorías de palabras clave con casillas de verificación seleccionadas para adhesión voluntaria, cancelación de suscripción, ayuda, otros, más y asesoramiento.]({% image_buster /assets/img/sms/keyword_responses.png %})
+![Panel de respuestas a palabras clave SMS/MMS/RCS a nivel de Campaign que incluye un gráfico lineal de la distribución de palabras clave a lo largo del tiempo y una sección de categorías de palabras clave con casillas de verificación seleccionadas para adhesión voluntaria, cancelación de suscripción, ayuda, otros, más y asesoramiento.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/) y [crear un Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/) cómodamente.
+Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/) y [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/) cómodamente.
 
-![La tabla situada debajo del gráfico de líneas tiene columnas para Categoría de palabras clave, Distribución de respuestas y Reorientación, donde se te ofrece la opción de crear un Segment con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![La tabla situada debajo del gráfico de líneas tiene columnas para Categoría de palabras clave, Distribución de respuestas y Reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -846,7 +846,7 @@ El panel **Correlación de conversión** te da información sobre qué atributos
 
 ## Generador de informes {#report-builder}
 
-También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus campañas de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo campañas de KakaoTalk seleccionando **KakaoTalk** en **Canales**, o filtrando por cualquier etiqueta que hayas aplicado a tus campañas de KakaoTalk.
+También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para crear informes personalizados para tus Campaigns de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo Campaigns de KakaoTalk seleccionando **KakaoTalk** en **Canales**, o filtrando por cualquier etiqueta que hayas aplicado a tus Campaigns de KakaoTalk.
 
 {% endif %}
 
@@ -874,11 +874,11 @@ Los mensajes entrantes se truncan a partir de 1600 caracteres.
 
 ## Informe de retención {#retention-report}
 
-Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una campaña específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/).
+Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una Campaign específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/).
 
 ## Informe de embudo {#funnel-report}
 
-Los informes de embudo ofrecen un informe visual que te permite analizar los recorridos que realizan tus clientes después de recibir una campaña{% if include.channel != "banner" %} o Canvas{% endif %}. Si tu campaña {% if include.channel != "banner" %}o Canvas {% endif %}utiliza un grupo de control o varias variantes, podrás comprender cómo las diferentes variantes han influido en el embudo de conversión a un nivel más detallado y optimizar en función de estos datos.
+Los informes de embudo ofrecen un informe visual que te permite analizar los recorridos que realizan tus clientes después de recibir una Campaign{% if include.channel != "banner" %} o Canvas{% endif %}. Si tu Campaign {% if include.channel != "banner" %}o Canvas {% endif %}utiliza un grupo de control o varias variantes, podrás comprender cómo las diferentes variantes han influido en el embudo de conversión a un nivel más detallado y optimizar en función de estos datos.
 
 Para más información, consulta [Informes de embudo]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports/).
 

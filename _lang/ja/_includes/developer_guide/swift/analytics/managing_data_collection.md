@@ -61,7 +61,7 @@ Xcodeプロジェクトでアプリの`PrivacyInfo.xcprivacy`ファイルを開�
 次に`AppDelegate.swift`を開き、静的または動的トラッキングリストを作成して、宣言する各[トラッキングプロパティ](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)をリストします。Appleはエンドユーザーが ATTプロンプトを受け入れるまでこれらのプロパティをブロックするため、あなたと法務チームがトラッキングと見なすプロパティのみをリストしてください。以下に例を示します。
 
 {% tabs %}
-{% tab static example %}
+{% tab 静的な例 %}
 以下の例では、`dateOfBirth`、`customEvent`、および`customAttribute`が静的リスト内でトラッキングデータとして宣言されています。
 
 ```swift
@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 {% endtab %}
 
-{% tab dynamic example %}
+{% tab 動的な例 %}
 以下の例では、エンドユーザーがATTプロンプトを受け入れた後、トラッキングリストが自動的に更新されます。
 
 ```swift
@@ -131,13 +131,13 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ## データトラッキングを無効にする {#disabling-data-tracking}
 
-Swift SDKのデータトラッキングアクティビティを無効にするには、Brazeインスタンスの[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled)プロパティを`false`に設定します。`enabled`が`false`に設定されると、Braze SDKはパブリックAPIへの呼び出しをすべて無視します。また、SDKはネットワークリクエストやイベント処理など、進行中のすべてのアクションもキャンセルします。
+Swift SDKのデータトラッキングアクティビティを無効にするには、Brazeインスタンスの[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled)プロパティを`false`に設定します。`enabled`を`false`に設定すると、Braze SDKはパブリックAPIへの呼び出しをすべて無視します。また、SDKはネットワークリクエストやイベント処理など、進行中のすべてのアクションもキャンセルします。
 
 ## 以前に保存したデータを消去する {#wiping-previously-stored-data}
 
 [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata())メソッドを使用すると、ユーザーのデバイスにローカルに保存されたSDKデータを完全に消去できます。
 
-Braze Swiftバージョン7.0.0以降では、SDKと`wipeData()`メソッドがデバイスIDのUUIDをランダムに生成します。ただし、`useUUIDAsDeviceId`が`false`に設定されている場合、*または*Swift SDKバージョン5.7.0以前を使用している場合は、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)へのPOSTリクエストも行う必要があります。これは、IDFVがそのユーザーのデバイスIDとして自動的に使用されるためです。
+Braze Swiftバージョン7.0.0以降では、SDKと`wipeData()`メソッドがデバイスIDのUUIDをランダムに生成します。ただし、`useUUIDAsDeviceId`が`false`に設定されている場合、_または_ Swift SDKバージョン5.7.0以前を使用している場合は、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)へのPOSTリクエストも行う必要があります。これは、IDFV（Identifier for Vendors）がそのユーザーのデバイスIDとして自動的に使用されるためです。
 
 手動プッシュ連携を使用していて、アプリが`wipeData()`を呼び出した後、同じアプリ実行中にSDKを再度有効にする場合は、`registerForRemoteNotifications()`を再度呼び出して、Brazeが更新されたデバイストークンを受信できるようにしてください。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
 
@@ -165,7 +165,7 @@ Swift SDK `v7.0.0+`で`useUUIDAsDeviceId`が有効（デフォルト）の場合
 
 **テクノロジーパートナー**: この機能を有効にすると、BrazeデバイスIDからIDFV値を取得するテクノロジーパートナーは、このデータにアクセスできなくなります。パートナー連携にデバイスから得られるIDFV値が必要な場合は、この機能を`false`に設定することを推奨します。
 
-**Currents**: `useUUIDAsDeviceId`がtrueに設定されている場合、Currentsで送信されるデバイスIDはIDFV値と等しくなくなります。
+**Currents**: `useUUIDAsDeviceId`をtrueに設定すると、Currentsで送信されるデバイスIDはIDFV値と等しくなくなります。
 
 ### よくある質問 {#frequently-asked-questions}
 

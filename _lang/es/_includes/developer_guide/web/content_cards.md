@@ -83,10 +83,10 @@ Todas las Content Cards tienen estas propiedades compartidas:
 | `expiresAt` | La marca de tiempo UNIX de la fecha de caducidad de la tarjeta.|
 | `extras`| (Opcional) Datos de par clave-valor formateados como un objeto de cadena con una cadena de valor. |
 | `id` | (Opcional) El ID de la tarjeta. Se comunicará a Braze con eventos para fines de análisis. |
-| `pinned` | Esta propiedad refleja si la tarjeta se configuró como "anclada" en el dashboard.|
+| `pinned` | Esta propiedad refleja si la tarjeta se configuró como «anclada» en el dashboard.|
 | `updated` | La marca de tiempo UNIX de la última vez que se modificó esta tarjeta. |
 | `viewed` | Esta propiedad refleja si el usuario ha visto la tarjeta o no.|
-| `isControl` | Esta propiedad es `true` cuando una tarjeta es un grupo de "control" dentro de una prueba A/B.|
+| `isControl` | Esta propiedad es `true` cuando una tarjeta es un grupo de «control» dentro de una prueba A/B.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Solo imagen {#image-only}

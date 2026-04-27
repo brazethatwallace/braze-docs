@@ -32,7 +32,7 @@ Para anular este valor, configura `com_braze_trigger_action_minimum_time_interva
 
 ## Pares clave-valor {#key-value-pairs}
 
-Cuando creas una Campaign en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación. Por ejemplo:
+Cuando creas una campaña en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación. Por ejemplo:
 
 {% tabs %}
 {% tab JAVA %}
@@ -113,27 +113,27 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### Paso 2: Crea una Campaign push {#step-2-create-a-push-campaign}
+#### Paso 2: Crea una campaña push {#step-2-create-a-push-campaign}
 
-Crea una [Campaign push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) desencadenada a través del evento enviado por el servidor.
+Crea una [campaña push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) desencadenada a través del evento enviado por el servidor.
 
 ![]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-La Campaign push debe incluir extras de pares clave-valor que indiquen que esta Campaign push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
+La campaña push debe incluir extras de pares clave-valor que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
 
 ![Dos conjuntos de pares clave-valor: IS_SERVER_EVENT establecido en "true" y CAMPAIGN_NAME establecido en "nombre de campaña de ejemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 El código de ejemplo de devolución de llamada push anterior reconoce los pares clave-valor y registra el evento personalizado del SDK apropiado.
 
-Si quieres incluir propiedades del evento para adjuntarlas a tu evento "desencadenante de mensaje dentro de la aplicación", puedes hacerlo pasándolas en los pares clave-valor de la carga útil push. En este ejemplo, se ha incluido el nombre de la Campaign del mensaje dentro de la aplicación posterior. Tu devolución de llamada push personalizada puede entonces pasar el valor como parámetro de la propiedad del evento al registrar el evento personalizado.
+Si quieres incluir propiedades del evento para adjuntarlas a tu evento "desencadenante de mensaje dentro de la aplicación", puedes hacerlo pasándolas en los pares clave-valor de la carga útil push. En este ejemplo, se ha incluido el nombre de la campaña del mensaje dentro de la aplicación posterior. Tu devolución de llamada push personalizada puede entonces pasar el valor como parámetro de la propiedad del evento al registrar el evento personalizado.
 
-#### Paso 3: Crea una Campaign de mensajes dentro de la aplicación {#step-3-create-an-in-app-message-campaign}
+#### Paso 3: Crea una campaña de mensajes dentro de la aplicación {#step-3-create-an-in-app-message-campaign}
 
-Crea tu Campaign de mensajes dentro de la aplicación visible para el usuario en el dashboard de Braze. Esta Campaign debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado desde dentro de tu devolución de llamada push personalizada.
+Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en el dashboard de Braze. Esta campaña debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado desde dentro de tu devolución de llamada push personalizada.
 
 En el siguiente ejemplo, el mensaje específico dentro de la aplicación que se va a desencadenar se ha configurado enviando la propiedad del evento como parte del push silencioso inicial.
 
-![Una Campaign de entrega basada en acciones en la que se desencadenará un mensaje dentro de la aplicación cuando "campaign_name" sea igual a "ejemplo de nombre de Campaign IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Una campaña de entrega basada en acciones en la que se desencadenará un mensaje dentro de la aplicación cuando "campaign_name" sea igual a "ejemplo de nombre de campaña IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 Si se registra un evento enviado por el servidor mientras la aplicación no está en primer plano, el evento se registrará, pero no se mostrará el mensaje dentro de la aplicación. Si quieres que el evento se retrase hasta que la aplicación esté en primer plano, debes incluir una comprobación en tu receptor push personalizado para descartar o retrasar el evento hasta que la aplicación haya entrado en primer plano.
 

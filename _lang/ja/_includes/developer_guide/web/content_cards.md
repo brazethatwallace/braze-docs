@@ -2,13 +2,13 @@
 
 ## 前提条件 {#prerequisites}
 
-Content Cardsを使用するには、[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) をアプリに統合する必要があります。ただし、追加のセットアップは必要ありません。代わりに独自の UI を構築するには、[コンテンツカードカスタマイズガイド]({{site.baseurl}}/developer_guide/content_cards/)を参照してください。
+Content Cardsを使用するには、[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)をアプリに統合する必要があります。ただし、追加のセットアップは必要ありません。代わりに独自のUIを構築するには、[コンテンツカードカスタマイズガイド]({{site.baseurl}}/developer_guide/content_cards/)を参照してください。
 
 {% alert note %}
-一部の広告ブロッカーやブラウザーのプライバシー拡張機能は、Braze Web SDKスクリプトや関連するネットワークリクエストをブロックすることがあり、Content Cardsの読み込みが妨げられる場合があります。CDN統合方法を使用している場合は、[NPM 統合方法]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)への切り替えを検討してください。この方法ではSDKライブラリをWebサイトにローカルで保存するため、広告ブロッカー関連の問題を回避できる場合があります。
+一部の広告ブロッカーやブラウザーのプライバシー拡張機能は、Braze Web SDKスクリプトや関連するネットワークリクエストをブロックすることがあり、Content Cardsの読み込みが妨げられる場合があります。CDN統合方法を使用している場合は、[NPM統合方法]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)への切り替えを検討してください。この方法ではSDKライブラリをWebサイトにローカルで保存するため、広告ブロッカー関連の問題を回避できる場合があります。
 {% endalert %}
 
-## 標準フィード UI {#standard-feed-ui}
+## 標準フィードUI {#standard-feed-ui}
 
 付属のContent Cards UIを使用するには、Webサイト上のどこにフィードを表示するかを指定する必要があります。
 
@@ -61,14 +61,14 @@ Content Cardsの切り替えに関する詳細は、[SDKリファレンスドキ
 
 1. Content Cards Campaignを作成し、テストユーザーをターゲットにします。
 2. Web SDKが統合されているWebサイトにログインします。
-3. ブラウザーのコンソールを開きます。Chrome の場合、ページを右クリックし、**検証**を選択してから、**Console** タブを選択します。
+3. ブラウザーのコンソールを開きます。Chromeの場合、ページを右クリックし、**検証**を選択してから、**Console** タブを選択します。
 4. コンソールで以下のコマンドを実行します。
    - `window.braze.getCachedContentCards()`
    - `window.braze.toggleContentCards()`
 
 ## カードの種類とプロパティ {#card-types-and-properties}
 
-Content CardsデータモデルはWeb SDKで利用でき、次のContent Cardsタイプを提供します。[ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)、[CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)、[ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html) です。各タイプはベースモデル [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) から共通のプロパティを継承し、以下の追加プロパティを持ちます。
+Content CardsデータモデルはWeb SDKで利用でき、次のContent Cardsタイプを提供します。[ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)、[CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)、[ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html)です。各タイプはベースモデル [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) から共通のプロパティを継承し、以下の追加プロパティを持ちます。
 
 {% alert tip %}
 Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)を参照してください。
@@ -155,11 +155,11 @@ Content CardsがA/Bテストのコントロールグループにあるかどう�
 
 ### デフォルトフィードメソッド {#default-feed-methods}
 
-Brazeのデフォルトフィード UI を使用してContent Cardsを表示する場合は、以下のメソッドを使用します。
+Brazeのデフォルトフィード UIを使用してContent Cardsを表示する場合は、以下のメソッドを使用します。
 
 |メソッド | 説明 |
 |---|---|
-|[`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards)| デフォルトのContent Cardsフィードを表示します。指定された `parentNode` HTML 要素にカードをレンダリングします。要素が指定されていない場合は、ページ右側の固定位置サイドバーとして表示されます。オプションの `filterFunction` を使用して、表示前にカードをソートまたはフィルターできます。 |
+|[`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards)| デフォルトのContent Cardsフィードを表示します。指定された `parentNode` HTML要素にカードをレンダリングします。要素が指定されていない場合は、ページ右側の固定位置サイドバーとして表示されます。オプションの `filterFunction` を使用して、表示前にカードをソートまたはフィルターできます。 |
 |[`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards)| 現在表示されているデフォルトのContent Cardsフィードを非表示にします。 |
 |[`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards)| デフォルトのContent Cardsフィードが非表示の場合は表示し、表示されている場合は非表示にします。複数のContent Cardsフィードを同時に表示する必要がある場合は、代わりに `showContentCards` と `hideContentCards` を使用してください。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -173,10 +173,10 @@ Brazeのデフォルトフィード UI を使用してContent Cardsを表示す�
 |[`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates)| 現在のユーザーのContent Cardsが更新されるたびに（セッション開始時など）呼び出されるコールバック関数を登録します。カスタムフィード用のカードデータを受信する主要な方法として使用してください。初回セッションの更新を受信するには、`openSession()` の前に呼び出す必要があります。 |
 |[`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards)| 最新のContent Cards更新から、現在利用可能なすべてのカードを返します。新しいサーバーリクエストを待たずにページ読み込み時にカードを即座に表示する場合に使用します（例：アクティブなセッション中にユーザーがページに戻った場合）。 |
 |[`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh)| BrazeサーバーからContent Cardsの即時更新をリクエストします。デフォルトでは、カードはセッション開始時およびデフォルトフィードが再度開かれたときに更新されます。特定のユーザーアクション後など、他のタイミングで強制的に更新する場合に使用します。[レート制限]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit)に注意してください。 |
-|[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| カードの配列に対してインプレッションイベントを記録します。カードがレンダリングされ、ユーザーに表示されたときに呼び出します。カスタム UI を使用する場合、デフォルトフィード以外ではインプレッションが自動的に追跡されないため、正確なCampaignレポートに必要です。 |
-|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| 単一のカードに対してクリックイベントを記録します。カスタム UI でユーザーがカードを操作したときに呼び出します。デフォルトフィード以外ではクリックが自動的に追跡されないため、正確なCampaignレポートに必要です。 |
-|[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| カードの URL を処理し、設定されたクリック時アクション（Brazeアクション（`brazeActions://` URL）や標準 URL ナビゲーションなど）を実行します。Brazeダッシュボードで設定されたクリック時の動作が実行されるように、カードのクリックハンドラーで呼び出してください。 |
-|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| プログラムでカードを却下し、ユーザーのフィードから削除します。カスタム UI でユーザーがカードを却下できるようにする場合に使用します。 |
+|[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| カードの配列に対してインプレッションイベントを記録します。カードがレンダリングされ、ユーザーに表示されたときに呼び出します。カスタムUIを使用する場合、デフォルトフィード以外ではインプレッションが自動的に追跡されないため、正確なCampaignレポートに必要です。 |
+|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| 単一のカードに対してクリックイベントを記録します。カスタムUIでユーザーがカードを操作したときに呼び出します。デフォルトフィード以外ではクリックが自動的に追跡されないため、正確なCampaignレポートに必要です。 |
+|[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| カードのURLを処理し、設定されたクリック時アクション（Brazeアクション（`brazeActions://` URL）や標準URLナビゲーションなど）を実行します。Brazeダッシュボードで設定されたクリック時の動作が実行されるように、カードのクリックハンドラーで呼び出してください。 |
+|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| プログラムでカードを却下し、ユーザーのフィードから削除します。カスタムUIでユーザーがカードを却下できるようにする場合に使用します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 詳細については、[SDKリファレンスドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)を参照してください。
@@ -268,11 +268,11 @@ braze.subscribeToContentCardsUpdates((updates) => {
 
 ### カスタムフィードの分析を記録する {#log-analytics-for-custom-feeds}
 
-カスタム UI を使用する場合、インプレッション、クリック、却下は自動的に追跡されません。各イベントを手動で記録する必要があります。
+カスタムUIを使用する場合、インプレッション、クリック、却下は自動的に追跡されません。各イベントを手動で記録する必要があります。
 
 - **インプレッション:** カードがユーザーに表示されたときに、カードオブジェクトの配列を指定して `logContentCardImpressions([card1, card2, ...])` を呼び出します。
 - **クリック:** ユーザーがカードを操作したときに `logContentCardClick(card)` を呼び出します。
-- **クリック時の動作:** カードに設定されたクリック時アクション（URL へのナビゲーションやカスタムイベントの記録など）を実行するために `handleBrazeAction(card.url)` を呼び出します。
+- **クリック時の動作:** カードに設定されたクリック時アクション（URLへのナビゲーションやカスタムイベントの記録など）を実行するために `handleBrazeAction(card.url)` を呼び出します。
 
 {% alert warning %}
 `logContentCardClick()` に渡す引数は、オリジナルの Braze `Card` オブジェクトである必要があります。カードデータを変換または再構築した場合（例：シリアライズとデシリアライズ）、クリックは記録されず、「card must be a Card object.」というエラーが表示されます。
@@ -286,7 +286,7 @@ Google Tag Managerは、[Braze CDN]({{site.baseurl}}/developer_guide/platform_in
 
 {% tabs local %}
 {% tab google tag manager %}
-Content Cardsフィードを標準的に統合するには、Google Tag Managerで**カスタム HTML** タグを使用できます。以下をカスタム HTML タグに追加すると、標準のContent Cardsフィードが有効になります。
+Content Cardsフィードを標準的に統合するには、Google Tag Managerで**カスタムHTML**タグを使用できます。以下をカスタムHTMLタグに追加すると、標準のContent Cardsフィードが有効になります。
 
 ```html
 <script>
@@ -294,19 +294,19 @@ Content Cardsフィードを標準的に統合するには、Google Tag Manager�
 </script>
 ```
 
-![Content Cardsフィードを表示するカスタム HTML タグの Google Tag Manager でのタグ設定]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
+![Content Cardsフィードを表示するカスタムHTMLタグのGoogle Tag Managerでのタグ設定]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
 {% endtab %}
 
 {% tab manual %}
-Content Cardsとそのフィードの外観をより自由にカスタマイズするために、Content CardsをネイティブWebサイトに直接統合できます。これには、標準フィード UI を使用する方法と、カスタムフィード UI を作成する方法の2つのアプローチがあります。
+Content Cardsとそのフィードの外観をより自由にカスタマイズするために、Content CardsをネイティブWebサイトに直接統合できます。これには、標準フィードUIを使用する方法と、カスタムフィードUIを作成する方法の2つのアプローチがあります。
 
 {% subtabs local %}
 {% subtab standard feed %}
-[標準フィード UI]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration/#standard-feed-ui) を実装する場合、Brazeメソッドの先頭に `window.` を追加する必要があります。たとえば、`braze.showContentCards` の代わりに `window.braze.showContentCards` を使用します。
+[標準フィードUI]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration/#standard-feed-ui)を実装する場合、Brazeメソッドの先頭に `window.` を追加する必要があります。たとえば、`braze.showContentCards` の代わりに `window.braze.showContentCards` を使用します。
 {% endsubtab %}
 
 {% subtab custom feed %}
-[カスタムフィード]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)のスタイリングについては、GTM なしで SDKを統合した場合と同じステップです。たとえば、Content Cardsフィードの幅をカスタマイズする場合は、以下を CSS ファイルに貼り付けます。
+[カスタムフィード]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)のスタイリングについては、GTMなしでSDKを統合した場合と同じステップです。たとえば、Content Cardsフィードの幅をカスタマイズする場合は、以下をCSSファイルに貼り付けます。
 
 {% raw %}
 ```css
@@ -325,41 +325,41 @@ body .ab-feed {
 Braze Web SDKの最新バージョンにアップグレードするには、Google Tag Managerダッシュボードで次の3つのステップを実行します。
 
 1. **タグテンプレートを更新する**<br>ワークスペース内の**テンプレート**ページに移動します。更新が利用可能であることを示すアイコンが表示されます。<br><br>![更新が利用可能であることを示すテンプレートページ]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>そのアイコンをクリックし、変更を確認した後、**Accept Update** をクリックします。<br><br>![新旧のタグテンプレートを比較した画面と「Accept Update」ボタン]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
-2. **バージョン番号を更新する**<br>タグテンプレートが更新されたら、Braze初期化タグを編集し、SDKバージョンを最新の `major.minor` バージョンに更新します。たとえば、最新バージョンが `4.1.2` の場合、`4.1` と入力します。SDKのバージョン一覧は[変更ログ](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)で確認できます。<br><br>![SDK バージョンを変更するための入力フィールドを持つ Braze 初期化テンプレート]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **QA および公開**<br>Google Tag Managerの[デバッグツール](https://support.google.com/tagmanager/answer/6107056?hl=en)を使用して、新しい SDK バージョンが動作していることを確認してから、タグコンテナーに更新を公開します。
+2. **バージョン番号を更新する**<br>タグテンプレートが更新されたら、Braze初期化タグを編集し、SDKバージョンを最新の `major.minor` バージョンに更新します。たとえば、最新バージョンが `4.1.2` の場合、`4.1` と入力します。SDKのバージョン一覧は[変更ログ](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)で確認できます。<br><br>![SDKバージョンを変更するための入力フィールドを持つBraze初期化テンプレート]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
+3. **QAおよび公開**<br>Google Tag Managerの[デバッグツール](https://support.google.com/tagmanager/answer/6107056?hl=en)を使用して、新しいSDKバージョンが動作していることを確認してから、タグコンテナーに更新を公開します。
 
 ### トラブルシューティング {#troubleshooting}
 
 #### タグデバッグを有効にする {#debugging}
 
-それぞれの Braze タグテンプレートにはオプションの **GTM Tag Debugging** チェックボックスがあり、Web ページの JavaScript コンソールにデバッグメッセージを記録するために使用できます。
+それぞれのBrazeタグテンプレートにはオプションの**GTM Tag Debugging**チェックボックスがあり、WebページのJavaScriptコンソールにデバッグメッセージを記録するために使用できます。
 
-![Google Tag Manager のデバッグツール]({% image_buster /assets/img/web-gtm/gtm-tag-debugging.png %})
+![Google Tag Managerのデバッグツール]({% image_buster /assets/img/web-gtm/gtm-tag-debugging.png %})
 
 #### デバッグモードに入る {#enter-debug-mode}
 
 Google Tag Managerの統合をデバッグするもう1つの方法は、Googleの[プレビューモード](https://support.google.com/tagmanager/answer/6107056)機能を使用することです。
 
-これにより、Webページのデータレイヤーからトリガーされた各 Braze タグに送信されている値を特定できるほか、トリガーされたタグとトリガーされなかったタグについても確認できます。
+これにより、Webページのデータレイヤーからトリガーされた各Brazeタグに送信されている値を特定できるほか、トリガーされたタグとトリガーされなかったタグについても確認できます。
 
-![Braze 初期化タグの概要ページには、どのタグがトリガーされたかを含むタグの概要が表示されます。]({% image_buster /assets/img/web-gtm/gtm-debug-mode.png %})
+![Braze初期化タグの概要ページには、どのタグがトリガーされたかを含むタグの概要が表示されます。]({% image_buster /assets/img/web-gtm/gtm-debug-mode.png %})
 
 #### カスタムイベントのタグシーケンスを確認する {#tag-sequencing}
 
-カスタムイベントやその他のアクションが Braze に記録されない場合、よくある原因は競合です。アクションタグ（**Custom Event** や **Purchase** など）が **Braze Initialization** タグの完了前に発火してしまうことがあります。これを修正するには、GTM で[タグシーケンス](https://support.google.com/tagmanager/answer/6238868)を設定します。
+カスタムイベントやその他のアクションがBrazeに記録されない場合、よくある原因は競合です。アクションタグ（**Custom Event**や**Purchase**など）が**Braze Initialization**タグの完了前に発火してしまうことがあります。これを修正するには、GTMで[タグシーケンス](https://support.google.com/tagmanager/answer/6238868)を設定します。
 
 1. 正しく記録されていないアクションタグを開きます。
-2. **Advanced Settings** > **Tag Sequencing** で、**A tag that fires before \[this tag\]** を選択します。
-3. セットアップタグとして **Braze Initialization** タグを選択します。
+2. **Advanced Settings** > **Tag Sequencing**で、**A tag that fires before \[this tag\]** を選択します。
+3. セットアップタグとして**Braze Initialization**タグを選択します。
 
-これにより、アクションタグが Braze にデータを送信する前に、SDKが完全に初期化されることが保証されます。
+これにより、アクションタグがBrazeにデータを送信する前に、SDKが完全に初期化されることが保証されます。
 
 #### 詳細ログの有効化 {#enable-verbose-logging}
 
-トラブルシューティング用の詳細なログをキャプチャするには、Google Tag Manager統合で詳細ログを有効にできます。これらのログは、ブラウザーの[開発者ツール](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)の **Console** タブに表示されます。
+トラブルシューティング用の詳細なログをキャプチャするには、Google Tag Manager統合で詳細ログを有効にできます。これらのログは、ブラウザーの[開発者ツール](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)の**Console**タブに表示されます。
 
-Google Tag Manager統合で、Braze初期化タグに移動し、**Enable Web SDK Logging** を選択します。
+Google Tag Manager統合で、Braze初期化タグに移動し、**Enable Web SDK Logging**を選択します。
 
-![Braze 初期化タグの概要ページで、Web SDK ログを有効にするオプションがオンになっています。]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
+![Braze初期化タグの概要ページで、Web SDKログを有効にするオプションがオンになっています。]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
 [changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md

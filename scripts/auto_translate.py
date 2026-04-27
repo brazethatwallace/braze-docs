@@ -498,6 +498,11 @@ uses `{#…}`, keep the **`?`** before the brace when English does. French—fix
 mid-sentence **Décision**-style caps on common nouns (*décision*). \
 Japanese—use **Canvasステップ** consistently with other **Canvas** tokens on \
 the page, not **キャンバスステップ** (auto-translate PR #13346).
+21. **Heading explicit IDs and includes**: Never put the same `{#slug}` twice \
+on one heading line. If the English file has **no** YAML `---` front matter at \
+the top (typical for `_includes/` partials), do not add a translated \
+`nav_title`/`article_title` block—strip it so the file starts like the English \
+body (auto-translate PR #13353).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1132,6 +1137,28 @@ def repair_front_matter(english_content, translated_content):
         translated_content = f"---\n{repaired_fm}\n---\n{tr_body}"
 
     return translated_content, repairs
+
+
+def repair_spurious_front_matter_when_english_has_none(
+    english_content, translated_content
+):
+    """Strip YAML front matter from translation when the English source has none.
+
+    Includes (``_includes/``) and a few body-only snippets start with markdown
+    directly. Models sometimes prepend a ``---`` block copied from sibling
+    pages; Jekyll does not treat that as front matter in an include, so it
+    renders as stray rules and visible keys (Copilot / auto-translate PR #13353).
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    if en_fm:
+        return translated_content, []
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    return tr_body, [
+        "front_matter — removed (English source has no YAML block; "
+        "includes must not start with ---)"
+    ]
 
 
 def repair_front_matter_display_scalar_cleanup(translated_content):
@@ -3906,6 +3933,36 @@ def _iter_doc_headings(text):
         yield i, m.group(1), heading_text, explicit
 
 
+_DUPLICATE_ADJACENT_EXPLICIT_ANCHOR_RE = re.compile(
+    r"(\{#[A-Za-z][A-Za-z0-9_\-:\.]*\})(?:\s+\1)+"
+)
+
+
+def repair_duplicate_adjacent_explicit_heading_anchors(translated_content):
+    """Collapse repeated identical ``{#id}`` tokens on the same markdown heading.
+
+    The model (or anchor repair + model) sometimes emits ``## Title {#x} {#x}``,
+    which duplicates HTML ``id`` attributes (Copilot / auto-translate PR #13353).
+    Only heading lines (``#`` … at SOL) are modified.
+    """
+    repairs = []
+    lines = translated_content.split("\n")
+    out_lines = []
+    for line in lines:
+        if re.match(r"^#{1,6}\s+", line):
+            new_line, n = _DUPLICATE_ADJACENT_EXPLICIT_ANCHOR_RE.subn(r"\1", line)
+            if n:
+                repairs.append(
+                    f"heading_anchor — collapsed duplicate explicit {{#…}} ({n})"
+                )
+                line = new_line
+        out_lines.append(line)
+    new_content = "\n".join(out_lines)
+    if new_content != translated_content:
+        return new_content, repairs
+    return translated_content, []
+
+
 def repair_same_page_anchor_ids(english_content, translated_content):
     """Preserve English same-page anchor slugs on localized headings.
 
@@ -3995,6 +4052,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(tool_key_repairs)
 
+    translated_content, fm_strip_repairs = (
+        repair_spurious_front_matter_when_english_has_none(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(fm_strip_repairs)
+
     translated_content, fm_repairs = repair_front_matter(
         english_content, translated_content
     )
@@ -4009,6 +4073,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(gfl_repairs)
+
+    translated_content, dup_anchor_repairs = (
+        repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
+    )
+    findings["repairs"].extend(dup_anchor_repairs)
 
     translated_content, anchor_id_repairs = repair_same_page_anchor_ids(
         english_content, translated_content

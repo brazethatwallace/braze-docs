@@ -6,7 +6,7 @@ Apple은 "추적 데이터"를 서드파티 데이터(예: 타겟 광고) 또는
 
 기본적으로 Braze SDK는 추적 데이터를 수집하지 않습니다. 하지만 Braze SDK 구성에 따라 앱의 개인정보 보호 매니페스트에 Braze 관련 데이터를 나열해야 할 수도 있습니다.
 
-### 개인정보 보호 매니페스트란? {#what-is-a-privacy-manifest}
+### 개인정보 보호 매니페스트란 {#what-is-a-privacy-manifest}
 
 개인정보 보호 매니페스트는 앱 및 서드파티 SDK가 데이터를 수집하는 이유와 데이터 수집 방법을 설명하는 Xcode 프로젝트의 파일입니다. 데이터를 추적하는 각 서드파티 SDK에는 자체 개인정보 보호 매니페스트가 필요합니다. [앱의 프라이버시 보고서를 생성](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187)하면 이러한 개인정보 보호 매니페스트 파일이 단일 보고서로 자동 집계됩니다.
 
@@ -46,15 +46,15 @@ Xcode 프로젝트에서 앱의 `PrivacyInfo.xcprivacy` 파일을 연 다음, �
 
 {% endalert %}
 
-![컨텍스트 메뉴가 열려 있고 "Raw Keys and Values"가 강조 표시된 Xcode 프로젝트입니다.]({% image_buster /assets/img/apple/privacy_manifest/check_raw_keys_and_values.png %})
+![컨텍스트 메뉴가 열려 있고 'Raw Keys and Values'가 강조 표시된 Xcode 프로젝트.]({% image_buster /assets/img/apple/privacy_manifest/check_raw_keys_and_values.png %})
 
 **App Privacy Configuration**에서 **NSPrivacyTracking**을 선택하고 값을 **YES**로 설정합니다.
 
-!["NSPrivacyTracking"이 "YES"로 설정된 상태로 열린 'PrivacyInfo.xcprivacy' 파일입니다.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytracking.png %})
+!['NSPrivacyTracking'이 'YES'로 설정된 상태로 열린 'PrivacyInfo.xcprivacy' 파일.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytracking.png %})
 
 **App Privacy Configuration**에서 **NSPrivacyTrackingDomains**를 선택합니다. 도메인 배열에서 새 요소를 추가하고 [이전에 `AppDelegate`에 추가]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration/#update-your-app-delegate)한 엔드포인트에 `sdk-tracking` 접두사를 붙인 값으로 설정합니다.
 
-!["NSPrivacyTrackingDomains" 아래에 Braze 추적 엔드포인트가 나열된 상태로 열린 'PrivacyInfo.xcprivacy' 파일입니다.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
+!['NSPrivacyTrackingDomains' 아래에 Braze 추적 엔드포인트가 나열된 상태로 열린 'PrivacyInfo.xcprivacy' 파일.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
 ### 4단계: 추적 데이터 선언하기 {#step-4-declare-your-tracking-data}
 
@@ -169,14 +169,14 @@ Swift SDK `v7.0.0+`에서 `useUUIDAsDeviceId`를 활성화(기본값)하면 새�
 
 ### 자주 묻는 질문 {#frequently-asked-questions}
 
-#### 이 변경 사항이 Braze의 기존 사용자에게 영향을 주나요? {#will-this-change-impact-my-existing-users-in-braze}
+#### 이 변경 사항이 Braze의 기존 사용자에게 영향을 주나요 {#will-this-change-impact-my-existing-users-in-braze}
 
 아니요. 이 기능을 활성화해도 Braze의 사용자 데이터를 덮어쓰지 않습니다. 새 UUID 기기 ID는 새 기기에 대해서만 또는 `wipedata()`를 호출할 때만 생성됩니다.
 
-#### 이 기능을 켠 후에 끌 수 있나요? {#can-i-turn-this-feature-off-after-turning-it-on}
+#### 이 기능을 켠 후에 끌 수 있나요 {#can-i-turn-this-feature-off-after-turning-it-on}
 
 예, 이 기능은 재량에 따라 켜고 끌 수 있습니다. 이전에 저장된 기기 ID는 덮어쓰지 않습니다.
 
-#### 다른 곳에서도 Braze를 통해 IDFV 값을 캡처할 수 있나요? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### 다른 곳에서도 Braze를 통해 IDFV 값을 캡처할 수 있나요 {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
 
 예, 선택적으로 Swift SDK를 통해 IDFV를 수집할 수 있습니다(기본적으로 수집은 비활성화되어 있습니다).

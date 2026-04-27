@@ -20,7 +20,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `campaign_action_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign-Aktion existiert nicht mehr. |
 | `message_variation_does_not_exist` | Die diesem/dieser Nutzer:in zugewiesene Nachrichtenvariante existiert nicht mehr. |
 | `user_not_in_segment` | Der/die Nutzer:in befindet sich nicht im Zielsegment, daher wurde die Nachricht nicht gesendet. |
-| `trigger_event_blacklisted` | Das Trigger-Event ist auf der Sperrliste, daher wurde die Nachricht nicht gesendet. |
+| `trigger_event_blacklisted` | Das Trigger-Ereignis ist auf der Sperrliste, daher wurde die Nachricht nicht gesendet. |
 | `exhausted_retries` | Die Nachricht konnte nach der maximalen Anzahl von Wiederholungsversuchen nicht gesendet werden. |
 | `frequency_capped` | Der/die Nutzer:in hat bereits die maximale Anzahl an Nachrichten erhalten, die durch die [Frequency-Capping]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping)-Regeln Ihres Workspace erlaubt sind. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -61,7 +61,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "push" %}
 
-### Push
+### Push {#push}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -73,7 +73,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "sms" %}
 
-### SMS/MMS
+### SMS/MMS {#smsmms}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -91,7 +91,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "whatsapp" %}
 
-### WhatsApp
+### WhatsApp {#whatsapp}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -105,7 +105,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "line" %}
 
-### LINE
+### LINE {#line}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -116,7 +116,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "kakao" %}
 
-### Kakao
+### Kakao {#kakao}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -153,7 +153,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "webhook" %}
 
-### Webhooks
+### Webhooks {#webhooks}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |

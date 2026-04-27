@@ -4,14 +4,15 @@
 
 {% alert tip %}
 보고서에 나열된 용어와 측정기준의 정의를 찾고 계신가요?
-  {% if include.channel == "email" %}[이메일 분석 용어집]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)을 참조하세요.
-  {% elsif include.channel == "banner" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 배너로 필터링하세요.
-  {% elsif include.channel == "Content Card" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 Content Cards로 필터링하세요.
-  {% elsif include.channel == "in-app message" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 인앱 메시지로 필터링하세요.
-  {% elsif include.channel == "push" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 푸시로 필터링하세요.
-  {% elsif include.channel == "SMS" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 SMS/MMS 및 RCS로 필터링하세요.
-  {% elsif include.channel == "whatsapp" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 WhatsApp으로 필터링하세요.
-  {% elsif include.channel == "webhook" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 웹훅으로 필터링하세요.{% endif %}
+  {% if include.channel == "email" %}[이메일 분석 용어집]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)을
+  {% elsif include.channel == "banner" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 배너로 필터링하여
+  {% elsif include.channel == "Content Card" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 Content Cards로 필터링하여
+  {% elsif include.channel == "in-app message" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 인앱 메시지로 필터링하여
+  {% elsif include.channel == "push" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 푸시로 필터링하여
+  {% elsif include.channel == "SMS" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 SMS/MMS 및 RCS로 필터링하여
+  {% elsif include.channel == "whatsapp" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 WhatsApp으로 필터링하여
+  {% elsif include.channel == "webhook" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 웹훅으로 필터링하여{% endif %}
+  참조하세요.
 {% endalert %}
 
 **캠페인 분석** 탭에서 일련의 패널을 통해 보고서를 확인할 수 있습니다. 아래 섹션에 나열된 것보다 더 많거나 적은 항목이 표시될 수 있지만, 각각 유용한 목적이 있습니다.
@@ -606,7 +607,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 하지만 수동으로 푸시 구독 취소를 추적하면 알림 빈도와 콘텐츠 관련성에 대한 사용자 반응에 관한 귀중한 인사이트를 얻을 수 있습니다. 푸시 구독 취소를 추적하는 두 가지 방법은 Segment 필터 또는 커스텀 필터를 사용하는 것입니다.
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Segment 필터 %}
 
 푸시가 활성화되지 않은 사용자, 즉 구독하지 않았거나 옵트인하지 않았으며 [포그라운드 푸시 토큰]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens)이 없는 사용자를 식별하기 위해 Segment를 생성할 수 있습니다. 예를 들어, 앱에서 구독 취소 수를 확인하려면 다음 Segment의 "OR" 조합을 사용합니다:
 
@@ -618,7 +619,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 세분화 필터는 대략적이며 특정 날짜나 캠페인에 정확히 연결할 수 없습니다.
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab 커스텀 필터 %}
 
 {% alert important %}
 구독 변경에 대한 커스텀 이벤트를 기록하면 [데이터 포인트]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count)가 소비됩니다. 또는 Segment 필터를 사용하여 푸시가 활성화되지 않은 사용자를 식별하고 타겟팅할 수 있습니다.

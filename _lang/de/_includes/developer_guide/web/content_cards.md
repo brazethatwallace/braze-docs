@@ -55,7 +55,7 @@ Wenn Sie die Methoden `toggleContentCards(parentNode, filterFunction)` und `show
 
 In der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) finden Sie weitere Informationen zum Umschalten von Content Cards.
 
-## Content Cards im Internet testen {#testing-content-cards-on-the-web}
+## Content Cards im Web testen {#testing-content-cards-on-the-web}
 
 Sie können Ihre Content-Cards-Integration mit den Entwicklertools Ihres Browsers testen.
 
@@ -155,7 +155,7 @@ Um festzustellen, ob sich eine Content Card in der Kontrollgruppe für einen A/B
 
 ### Standard-Feed-Methoden {#default-feed-methods}
 
-Verwenden Sie diese Methoden, wenn Sie Content Cards mit dem standardmäßigen Braze-Feed-UI anzeigen:
+Verwenden Sie diese Methoden, wenn Sie Content Cards mit der standardmäßigen Braze-Feed-UI anzeigen:
 
 |Methode | Beschreibung |
 |---|---|
@@ -166,17 +166,17 @@ Verwenden Sie diese Methoden, wenn Sie Content Cards mit dem standardmäßigen B
 
 ### Methoden für angepasste Feeds {#custom-feed-methods}
 
-Verwenden Sie diese Methoden, wenn Sie Ihr eigenes Content-Card-UI erstellen:
+Verwenden Sie diese Methoden, wenn Sie Ihre eigene Content-Card-UI erstellen:
 
 |Methode | Beschreibung |
 |---|---|
 |[`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates)| Registriert eine Callback-Funktion, die aufgerufen wird, wenn Content Cards für die:den aktuelle:n Nutzer:in aktualisiert werden, z. B. beim Sitzungsstart. Verwenden Sie dies als primäre Methode, um Kartendaten für Ihren angepassten Feed zu erhalten. Muss vor `openSession()` aufgerufen werden, um Updates bei der ersten Sitzung zu erhalten. |
 |[`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards)| Gibt alle aktuell verfügbaren Karten von der letzten Content-Cards-Aktualisierung zurück. Verwenden Sie dies, um Karten beim Seitenaufruf sofort anzuzeigen, ohne auf eine neue Serveranfrage zu warten, z. B. wenn die:der Nutzer:in während einer aktiven Sitzung zu einer Seite zurückkehrt. |
 |[`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh)| Fordert eine sofortige Aktualisierung der Content Cards von den Braze-Servern an. Standardmäßig werden Karten beim Sitzungsstart und beim erneuten Öffnen des Standard-Feeds aktualisiert. Verwenden Sie dies, um eine Aktualisierung zu anderen Zeitpunkten zu erzwingen, z. B. nach einer bestimmten Nutzeraktion. Beachten Sie die [Rate-Limits]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit). |
-|[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| Protokolliert Impression-Events für ein Array von Karten. Rufen Sie dies auf, wenn Karten gerendert und für die:den Nutzer:in sichtbar sind. Erforderlich für genaues Campaign-Reporting bei Verwendung eines angepassten UI, da Impressionen außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
-|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| Protokolliert ein Klick-Event für eine einzelne Karte. Rufen Sie dies auf, wenn eine:ein Nutzer:in mit einer Karte in Ihrem angepassten UI interagiert. Erforderlich für genaues Campaign-Reporting, da Klicks außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
+|[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| Protokolliert Impression-Events für ein Array von Karten. Rufen Sie dies auf, wenn Karten gerendert und für die:den Nutzer:in sichtbar sind. Erforderlich für genaues Kampagnen-Reporting bei Verwendung einer angepassten UI, da Impressionen außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
+|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| Protokolliert ein Klick-Event für eine einzelne Karte. Rufen Sie dies auf, wenn eine:ein Nutzer:in mit einer Karte in Ihrer angepassten UI interagiert. Erforderlich für genaues Kampagnen-Reporting, da Klicks außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
 |[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| Verarbeitet die URL einer Karte und führt die konfigurierte Klick-Aktion aus, einschließlich Braze-Aktionen (`brazeActions://`-URLs) und Standard-URL-Navigation. Rufen Sie dies in Ihrem Karten-Klick-Handler auf, um sicherzustellen, dass im Braze-Dashboard konfigurierte Klick-Verhaltensweisen ausgeführt werden. |
-|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Schließt eine Karte programmatisch und entfernt sie aus dem Feed der:des Nutzer:in. Verwenden Sie dies, um Nutzer:innen das Schließen von Karten in Ihrem angepassten UI zu ermöglichen. |
+|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Schließt eine Karte programmatisch und entfernt sie aus dem Feed der:des Nutzer:in. Verwenden Sie dies, um Nutzer:innen das Schließen von Karten in Ihrer angepassten UI zu ermöglichen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Weitere Einzelheiten finden Sie in der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
@@ -268,7 +268,7 @@ braze.subscribeToContentCardsUpdates((updates) => {
 
 ### Analytics für angepasste Feeds protokollieren {#log-analytics-for-custom-feeds}
 
-Bei Verwendung eines angepassten UI werden Impressionen, Klicks und Schließungen nicht automatisch getrackt. Sie müssen jedes Event manuell protokollieren:
+Bei Verwendung einer angepassten UI werden Impressionen, Klicks und Schließungen nicht automatisch getrackt. Sie müssen jedes Event manuell protokollieren:
 
 - **Impressionen:** Rufen Sie `logContentCardImpressions([card1, card2, ...])` mit einem Array von Kartenobjekten auf, wenn Karten für die:den Nutzer:in sichtbar werden.
 - **Klicks:** Rufen Sie `logContentCardClick(card)` auf, wenn eine:ein Nutzer:in mit einer Karte interagiert.
@@ -324,7 +324,7 @@ body .ab-feed {
 
 Um ein Upgrade auf die neueste Version des Braze Web SDK durchzuführen, führen Sie die folgenden drei Schritte im Google Tag Manager-Dashboard aus:
 
-1. **Tag-Template aktualisieren**<br>Rufen Sie die Seite **Templates** in Ihrem Workspace auf. Hier sollten Sie ein Symbol sehen, das anzeigt, dass ein Update verfügbar ist.<br><br>![Templates-Seite zeigt an, dass ein Update verfügbar ist]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Klicken Sie auf dieses Symbol und klicken Sie nach Überprüfung der Änderung auf **Update akzeptieren**.<br><br>![Ein Bildschirm, der die alten und neuen Tag-Templates vergleicht, mit einem Button „Update akzeptieren“]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
+1. **Tag-Template aktualisieren**<br>Rufen Sie die Seite **Templates** in Ihrem Workspace auf. Hier sollten Sie ein Symbol sehen, das anzeigt, dass ein Update verfügbar ist.<br><br>![Templates-Seite zeigt an, dass ein Update verfügbar ist]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Klicken Sie auf dieses Symbol und klicken Sie nach Überprüfung der Änderung auf **Accept Update**.<br><br>![Ein Bildschirm, der die alten und neuen Tag-Templates vergleicht, mit einem Button „Accept Update“]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **Versionsnummer aktualisieren**<br>Nachdem Sie das Tag-Template aktualisiert haben, bearbeiten Sie das Braze-Initialisierungs-Tag und aktualisieren die SDK-Version auf die neueste Version im Format `major.minor`. Wenn die neueste Version beispielsweise `4.1.2` ist, geben Sie `4.1` ein. Sie können eine Liste der SDK-Versionen in unserem [Changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) einsehen.<br><br>![Braze-Initialisierungs-Template mit einem Eingabefeld zum Ändern der SDK-Version]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
 3. **QA und Veröffentlichung**<br>Vergewissern Sie sich, dass die neue SDK-Version funktioniert, indem Sie das [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager verwenden, bevor Sie ein Update für Ihren Tag-Container veröffentlichen.
 
@@ -346,17 +346,17 @@ Auf diese Weise können Sie feststellen, welche Werte von der Datenebene Ihrer W
 
 #### Tag-Reihenfolge für angepasste Events überprüfen {#tag-sequencing}
 
-Wenn angepasste Events oder andere Aktionen nicht in Braze protokolliert werden, ist eine häufige Ursache eine Race-Condition, bei der ein Aktions-Tag (z. B. **Custom Event** oder **Purchase**) vor dem **Braze-Initialisierungs**-Tag ausgelöst wird. Um dies zu beheben, konfigurieren Sie die [Tag-Reihenfolge](https://support.google.com/tagmanager/answer/6238868) in GTM:
+Wenn angepasste Events oder andere Aktionen nicht in Braze protokolliert werden, ist eine häufige Ursache eine Race-Condition, bei der ein Aktions-Tag (z. B. **Custom Event** oder **Purchase**) vor dem **Braze Initialization**-Tag ausgelöst wird. Um dies zu beheben, konfigurieren Sie die [Tag-Reihenfolge](https://support.google.com/tagmanager/answer/6238868) in GTM:
 
 1. Öffnen Sie das Aktions-Tag, das nicht korrekt protokolliert wird.
-2. Wählen Sie unter **Erweiterte Einstellungen** > **Tag-Reihenfolge** die Option **Ein Tag, das vor \[diesem Tag\] ausgelöst wird**.
-3. Wählen Sie Ihr **Braze-Initialisierungs**-Tag als Setup-Tag.
+2. Wählen Sie unter **Advanced Settings** > **Tag Sequencing** die Option **A tag that fires before \[this tag\]**.
+3. Wählen Sie Ihr **Braze Initialization**-Tag als Setup-Tag.
 
 Dies stellt sicher, dass das SDK vollständig initialisiert ist, bevor Aktions-Tags versuchen, Daten an Braze zu senden.
 
 #### Ausführliche Protokollierung aktivieren {#enable-verbose-logging}
 
-Um detaillierte Protokolle für die Fehlerbehebung zu erfassen, können Sie die ausführliche Protokollierung in Ihrer Google Tag Manager-Integration aktivieren. Diese Protokolle erscheinen im Tab **Konsole** der [Entwicklertools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) Ihres Browsers.
+Um detaillierte Protokolle für die Fehlerbehebung zu erfassen, können Sie die ausführliche Protokollierung in Ihrer Google Tag Manager-Integration aktivieren. Diese Protokolle erscheinen im Tab **Console** der [Entwicklertools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) Ihres Browsers.
 
 Navigieren Sie in Ihrer Google Tag Manager-Integration zu Ihrem Braze-Initialisierungs-Tag und wählen Sie **Enable Web SDK Logging**.
 

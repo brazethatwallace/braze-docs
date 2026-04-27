@@ -11,7 +11,7 @@
 
 {% if include.variable_name == "payload size" %}
 
-Nous recommandons les tailles de payload suivantes :
+Nous recommandons les tailles de payloads suivantes :
 
 | Système d'envoi de messages | Payload recommandé |
 | --- | --- |
@@ -166,7 +166,7 @@ table td {
 
 {% if include.variable_name == "content cards" %}
 
-| Type de carte | Rapport hauteur/largeur     | Qualité de l'image       |
+| Type de carte | Rapport hauteur/largeur | Qualité de l'image |
 | --------- | ---------------- | ------------------- |
 | Classique   | Format 1:1 | 60 x 60&nbsp;px        |
 | Avec légende | Format 4:3 | Largeur minimale de 600&nbsp;px |

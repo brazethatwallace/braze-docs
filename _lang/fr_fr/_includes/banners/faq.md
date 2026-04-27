@@ -33,8 +33,8 @@ Le compositeur de bannières standard prend en charge les images, le texte et le
 Bien que les bannières ne prennent pas en charge la [livraison par événement]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/), vous pouvez cibler les utilisateurs en fonction de leurs actions passées à l'aide de la segmentation et de la priorité.
 
 Par exemple, pour afficher une bannière spéciale uniquement aux utilisateurs ayant effectué un événement `purchase` :
-1. **Ciblage :** Dans votre campagne, ciblez un segment d'utilisateurs ayant effectué l'événement personnalisé `purchase` au moins une fois.
-2. **Priorité :** Si vous disposez d'une bannière générale pour tous les utilisateurs et d'une bannière spécifique pour les acheteurs ciblant le même emplacement, définissez la priorité de la bannière spécifique sur **Élevée** et celle de la bannière générale sur **Moyenne** ou **Faible**.
+1. **Ciblage :** dans votre campagne, ciblez un segment d'utilisateurs ayant effectué l'événement personnalisé `purchase` au moins une fois.
+2. **Priorité :** si vous disposez d'une bannière générale pour tous les utilisateurs et d'une bannière spécifique pour les acheteurs ciblant le même emplacement, définissez la priorité de la bannière spécifique sur **High** et celle de la bannière générale sur **Medium** ou **Low**.
 
 Lorsque l'utilisateur démarre une nouvelle session ou actualise les bannières après avoir effectué l'action, Braze évalue son éligibilité. S'il correspond au segment « Achat », la bannière à priorité élevée sera affichée.
 
@@ -69,8 +69,8 @@ Non. Cependant, la plupart des étiquettes Liquid sont prises en charge pour les
 
 Oui. La manière dont les événements de clic sont capturés dépend de la façon dont votre bannière est rendue :
 
-- **Composants standard de l'éditeur :** Si votre bannière utilise des composants d'éditeur standard (images, boutons, texte), les clics sont automatiquement suivis lorsque vous utilisez les méthodes d'insertion du SDK.
-- **Blocs de code personnalisés :** Si vous souhaitez suivre les clics sur les éléments d'un bloc éditeur de code personnalisé, vous devez appeler `brazeBridge.logClick()` depuis votre HTML personnalisé pour enregistrer les clics. Cela s'applique également lorsque vous utilisez les méthodes du SDK pour insérer et afficher la bannière. Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge).
-- **Interface utilisateur personnalisée (headless) :** Si vous créez une interface utilisateur entièrement personnalisée en utilisant les propriétés personnalisées de la bannière au lieu d'afficher le HTML de la bannière, appelez `logClick()` sur l'objet Banner depuis le code de votre application.
+- **Composants standard de l'éditeur :** si votre bannière utilise des composants d'éditeur standard (images, boutons, texte), les clics sont automatiquement suivis lorsque vous utilisez les méthodes d'insertion du SDK.
+- **Blocs de code personnalisés :** si vous souhaitez suivre les clics sur les éléments d'un bloc éditeur de code personnalisé, vous devez appeler `brazeBridge.logClick()` depuis votre HTML personnalisé pour enregistrer les clics. Cela s'applique également lorsque vous utilisez les méthodes du SDK pour insérer et afficher la bannière. Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge).
+- **Interface utilisateur personnalisée (headless) :** si vous créez une interface utilisateur entièrement personnalisée en utilisant les propriétés personnalisées de la bannière au lieu d'afficher le HTML de la bannière, appelez `logClick()` sur l'objet Banner depuis le code de votre application.
 
 Pour plus d'informations, consultez [Enregistrement des clics]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks).

@@ -63,9 +63,9 @@ Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do
 |Família da fonte| Esse é o estilo da fonte do texto do parágrafo. |
 |Peso da fonte| Esse é o grau de negrito da fonte. |
 |Tamanho da fonte| Determina o tamanho do seu texto. |
-|Cor do texto| Modifica a cor do título. |
+|Cor do texto| Modifica a cor do texto. |
 |Cor do link| Modifica a cor do link. |
-|Alinhar| Move o título para a esquerda, centro ou direita. |
+|Alinhar| Move o texto para a esquerda, centro ou direita. |
 |Espaçamento de parágrafo| Modifica o espaço entre os parágrafos. |
 |Altura da linha| Modifica a distância entre as linhas de texto. |
 |Espaçamento entre letras| Modifica a distância entre cada caractere. |
@@ -84,9 +84,9 @@ Consulte a tabela a seguir para obter detalhes sobre as propriedades do bloco do
 |Família da fonte| Esse é o estilo da fonte do texto do parágrafo. |
 |Peso da fonte| Esse é o grau de negrito da fonte. |
 |Tamanho da fonte| Determina o tamanho do seu texto. |
-|Cor do texto| Modifica a cor do título. |
+|Cor do texto| Modifica a cor do texto. |
 |Cor do link| Modifica a cor do link. |
-|Alinhar| Move o título para a esquerda, centro ou direita. |
+|Alinhar| Move o texto para a esquerda, centro ou direita. |
 |Espaçamento dos itens da lista| Modifica o espaço entre os itens da lista. |
 |Recuo dos itens da lista| Modifica o recuo dos itens da lista. |
 |Altura da linha| Modifica a distância entre as linhas de texto. |
@@ -177,7 +177,7 @@ Consulte a tabela a seguir para obter detalhes sobre o bloco do editor `Icons`.
 |Família da fonte| Esse é o estilo da fonte do texto do parágrafo. |
 |Peso da fonte| Esse é o grau de negrito da fonte. |
 |Tamanho da fonte| Determina o tamanho do seu texto. |
-|Cor do texto| Modifica a cor do título. |
+|Cor do texto| Modifica a cor do texto. |
 |Cor do link| Modifica a cor do link. |
 |Alinhar| Move o ícone para a esquerda, centro ou direita. |
 |Espaçamento entre letras| Modifica a distância entre cada caractere. |

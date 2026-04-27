@@ -7,7 +7,7 @@ Os seguintes recursos estão integrados ao SDK Android da Braze. Para usar quais
 |Recurso|Descrição|
 |-------|-----------|
 |Push Stories|As Push Stories do Android estão integradas ao SDK Android da Braze por padrão. Para saber mais, veja [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Push Primers|Campanhas de push primer incentivam seus usuários a ativar notificações por push no dispositivo para seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
+|Push Primers|Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ## Sobre o ciclo de vida da notificação por push {#push-notification-lifecycle}

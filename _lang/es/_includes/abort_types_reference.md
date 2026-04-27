@@ -20,7 +20,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `campaign_action_does_not_exist` | La acción de Campaign asociada a este mensaje ya no existe. |
 | `message_variation_does_not_exist` | La variación de mensaje asignada a este usuario ya no existe. |
 | `user_not_in_segment` | El usuario no está en el Segment objetivo, por lo que no se envió el mensaje. |
-| `trigger_event_blacklisted` | El evento desencadenante está en la lista negra, por lo que no se envió el mensaje. |
+| `trigger_event_blacklisted` | El evento desencadenante está en la lista de bloqueo, por lo que no se envió el mensaje. |
 | `exhausted_retries` | No se pudo enviar el mensaje después del número máximo de intentos de reintento. |
 | `frequency_capped` | El usuario ya recibió el número máximo de mensajes permitidos por las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping) de tu espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -31,11 +31,11 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
-| `exhausted_cc_retries` | El Contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
+| `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
 | `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | La URL del medio está en la lista negra y no se puede usar en mensajes. |
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
 | `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
 | `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |{% endif %}
 {% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | Ocurrió un error SSL al realizar una solicitud. |

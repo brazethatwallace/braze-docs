@@ -4,7 +4,7 @@ Antes de poder utilizar este método de integración, deberás [crear una cuenta
 
 ### Paso 1: Abre la galería de plantillas de etiquetas {#step-1-open-the-tag-template-gallery}
 
-En [Google Tag Manager](https://tagmanager.google.com/), elige tu espacio de trabajo y, a continuación, selecciona **Plantillas**. En el panel **Plantilla de etiqueta**, selecciona **Buscar galería**.
+En [Google Tag Manager](https://tagmanager.google.com/), elige tu espacio de trabajo y, a continuación, selecciona **Templates**. En el panel **Tag Template**, selecciona **Search Gallery**.
 
 ![La página de plantillas para un espacio de trabajo de ejemplo en Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -20,9 +20,9 @@ Selecciona **Add to workspace** > **Add**.
 
 ### Paso 3: Configura la etiqueta {#step-3-configure-the-tag}
 
-En la sección **Plantillas**, selecciona la plantilla que acabas de añadir.
+En la sección **Templates**, selecciona la plantilla que acabas de añadir.
 
-![La página "Plantillas" en Google Tag Manager mostrando la plantilla Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![La página "Templates" en Google Tag Manager mostrando la plantilla Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
 Selecciona el icono del lápiz para abrir el menú desplegable **Tag Configuration**.
 
@@ -32,9 +32,9 @@ Introduce la información mínima requerida:
 
 | Campo         | Descripción |
 | ------------- | ----------- |
-| **Clave de API**   | Tu [clave de API de Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), que se encuentra en el panel de Braze en **Configuración** > **Configuración de la aplicación**. |
-| **Punto de conexión de API** | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
-| **Versión del SDK**  | La versión `MAJOR.MINOR` más reciente del SDK Web de Braze que aparece en el [registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por ejemplo, si la última versión es `4.1.2`, introduce `4.1`. Para más información, consulta [Acerca de la gestión de versiones del SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
+| **API Key**   | Tu [clave de API de Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), que se encuentra en el panel de Braze en **Settings** > **App Settings**. |
+| **API Endpoint** | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+| **SDK Version**  | La versión `MAJOR.MINOR` más reciente del SDK Web de Braze que aparece en el [registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por ejemplo, si la última versión es `4.1.2`, introduce `4.1`. Para más información, consulta [Acerca de la gestión de versiones del SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 Para configuraciones de inicialización adicionales, selecciona **Braze Initialization Options** y elige las opciones que necesites.

@@ -4,7 +4,7 @@
 
 ### トリガーの種類 {#trigger-types}
 
-アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかを記録した際に自動的にトリガーされます: `Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、および `Push Click`。なお、`Specific Purchase` および `Custom Event` トリガーには堅牢なプロパティフィルターも含まれています。
+アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかを記録した際に自動的にトリガーされます：`Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、および `Push Click`。なお、`Specific Purchase` および `Custom Event` トリガーには堅牢なプロパティフィルターも含まれています。
 
 {% alert note %}
 アプリ内メッセージは、APIまたはAPIイベントによってトリガーすることはできません。SDKによって記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)を参照してください。
@@ -14,13 +14,13 @@
 
 すべての適格なアプリ内メッセージは、ユーザーのセッション開始時にデバイスに配信されます。配信されると、SDKはアセットをプリフェッチするため、トリガー時にアセットが利用可能となり、表示の遅延を最小限に抑えます。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
 
-SDKのセッション開始セマンティクスについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift)を参照してください。
+SDKのセッション開始の仕組みについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift)を参照してください。
 
 ### デフォルトのレート制限 {#default-rate-limit}
 
 デフォルトでは、SDKはトリガーされたアプリ内メッセージを30秒に1回にレート制限しています。
 
-本番アプリでは、この値を10秒未満に設定しないでください。連続するアプリ内メッセージでユーザーが圧倒されてしまいます。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
+本番アプリでは、この値を10秒未満に設定しないでください。連続するアプリ内メッセージでユーザーが圧倒されるのを防ぐためです。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
 
 テスト用にこの間隔を `0` に設定することもできます。ただし、`0` 秒の間隔は複数のアプリ内メッセージを同時に表示させるものではありません。1つのメッセージが表示されている場合、別のトリガーされたメッセージはアプリ内メッセージスタックで待機し、メッセージが表示可能になるまで待ちます。
 
@@ -56,7 +56,7 @@ AppDelegate.braze = braze;
 
 ## キーと値のペア {#key-value-pairs}
 
-Brazeでキャンペーンを作成する際、キーと値のペアを `extras` として設定できます。これはアプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
+BrazeでCampaignを作成する際、キーと値のペアを `extras` として設定できます。これはアプリ内メッセージングオブジェクトがアプリにデータを送信する際に使用できます。以下に例を示します。
 
 {% tabs %}
 {% tab swift %}
@@ -173,7 +173,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 
 ### リアルタイムでメッセージを表示する {#displaying-a-message-in-real-time}
 
-ローカルのアプリ内メッセージをリアルタイムで表示することもできます。`inAppMessagePresenter`の [`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/present(message:)) メソッドを手動で呼び出します。以下に例を示します。
+ローカルのアプリ内メッセージをリアルタイムで表示することもできます。`inAppMessagePresenter`の[`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/present(message:))メソッドを手動で呼び出します。以下に例を示します。
 
 {% tabs %}
 {% tab swift %}
@@ -219,7 +219,7 @@ customInAppMessage.themes = @{
 
 アプリ内メッセージのトリガーイベントが発生すると、そのメッセージは「スタック」に配置されます。複数のアプリ内メッセージがスタック内にあり、表示を待機している場合、Brazeは最後に受信したアプリ内メッセージを最初に表示します（後入れ先出し）。
 
-ユーザーにアプリ内メッセージを受信する資格がある場合、`BrazeInAppMessagePresenter` がアプリ内メッセージスタックから最新のアプリ内メッセージをリクエストします。スタックはメモリに保存されたアプリ内メッセージのみを保持し、一時停止モードからのアプリ起動間でクリアされます。
+ユーザーにアプリ内メッセージを受信する資格がある場合、`BrazeInAppMessagePresenter`がアプリ内メッセージスタックから最新のアプリ内メッセージをリクエストします。スタックはメモリに保存されたアプリ内メッセージのみを保持し、一時停止モードからのアプリ起動間でクリアされます。
 
 ### アプリ内メッセージをスタックに返す {#returning-in-app-messages-to-the-stack}
 

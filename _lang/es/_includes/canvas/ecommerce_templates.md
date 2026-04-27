@@ -85,7 +85,7 @@ Los siguientes ajustes están preconfigurados en tu Canvas:
     - Evento de conversión: `ecommerce.order_placed`
         - Fecha límite de conversión: 3 días
 - Horario de entrada
-    - Desencadenador basado en acciones cuando un usuario desencadena el evento **Realizar actualización del carrito** (ubicado en el menú desplegable)
+    - Desencadenador basado en acciones cuando un usuario desencadena el evento **Perform Cart Updated Event** (ubicado en el menú desplegable)
     - La hora de inicio es cuando creas la plantilla de Canvas<br><br>!["Opciones basadas en acciones" para el Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
 - Público objetivo
     - Audiencia de entrada

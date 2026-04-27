@@ -70,9 +70,9 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 | ID 이름 | 연관된 이름 열 |
 | --- | --- |
-| `CANVAS_ID` | Canvas 이름 |
-| `CANVAS_VARIATION_API_ID` | 캔버스 배리언트 이름 |
-| `CAMPAIGN_ID` | Campaign 이름 |
+| `CANVAS_ID` | Canvas Name |
+| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CAMPAIGN_ID` | Campaign Name |
 {: .reset-td-br-1 .reset-td-br-2 }
 
 이 쿼리는 최대 100개의 행으로 세 개의 ID와 연관된 이름 열을 모두 조회합니다:

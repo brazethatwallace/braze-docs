@@ -1,6 +1,6 @@
-# Definir IDs de usuário {#setting-user-ids}
+# Definir IDs de usuários {#setting-user-ids}
 
-> Este artigo de referência mostra como definir IDs de usuário no seu app para Android ou FireOS, convenções de nomenclatura de IDs de usuário sugeridas e algumas práticas recomendadas.
+> Este artigo de referência mostra como definir IDs de usuários no seu app para Android ou FireOS, convenções de nomenclatura de IDs de usuários sugeridas e algumas práticas recomendadas.
 
 {% multi_lang_include archive/setting_user_ids/setting_user_ids.md %}
 

@@ -32,7 +32,7 @@ Para substituir esse valor, defina `com_braze_trigger_action_minimum_time_interv
 
 ## Pares de chave-valor {#key-value-pairs}
 
-Quando você cria uma Campaign na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagem no app pode usar para enviar dados ao seu app. Por exemplo:
+Quando você cria uma campaign na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagem no app pode usar para enviar dados ao seu app. Por exemplo:
 
 {% tabs %}
 {% tab JAVA %}
@@ -113,27 +113,27 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### Etapa 2: Crie uma Campaign de push {#step-2-create-a-push-campaign}
+#### Etapa 2: Crie uma campaign de push {#step-2-create-a-push-campaign}
 
-Crie uma [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) disparada pelo evento enviado pelo servidor.
+Crie uma [campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) disparada pelo evento enviado pelo servidor.
 
 ![]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-A Campaign de push deve incluir extras de pares de chave-valor que indiquem que essa Campaign de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
+A campaign de push deve incluir extras de pares de chave-valor que indiquem que essa campaign de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
 
 ![Dois conjuntos de pares de chave-valor: IS_SERVER_EVENT definido como "true" e CAMPAIGN_NAME definido como "nome da campanha de exemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 O código de exemplo do retorno de chamada push anterior reconhece os pares de chave-valor e registra o evento personalizado apropriado do SDK.
 
-Se você quiser incluir propriedades de evento para anexar ao seu evento "gatilho de mensagem no app", passe-as nos pares de chave-valor da carga útil do push. Neste exemplo, o nome da Campaign da mensagem no app subsequente foi incluído. Seu retorno de chamada de push personalizado pode então passar o valor como parâmetro da propriedade do evento ao registrar o evento personalizado.
+Se você quiser incluir propriedades de evento para anexar ao seu evento "gatilho de mensagem no app", passe-as nos pares de chave-valor da carga útil do push. Neste exemplo, o nome da campaign da mensagem no app subsequente foi incluído. Seu retorno de chamada de push personalizado pode então passar o valor como parâmetro da propriedade do evento ao registrar o evento personalizado.
 
-#### Etapa 3: Crie uma Campaign de mensagem no app {#step-3-create-an-in-app-message-campaign}
+#### Etapa 3: Crie uma campaign de mensagem no app {#step-3-create-an-in-app-message-campaign}
 
-Crie sua Campaign de mensagem no app visível para o usuário no dashboard da Braze. Essa Campaign deve ter uma entrega baseada em ação e ser disparada a partir do evento personalizado registrado dentro do seu retorno de chamada push personalizado.
+Crie sua campaign de mensagem no app visível para o usuário no dashboard da Braze. Essa campaign deve ter uma entrega baseada em ação e ser disparada a partir do evento personalizado registrado dentro do seu retorno de chamada push personalizado.
 
 No exemplo a seguir, a mensagem no app específica a ser disparada foi configurada enviando a propriedade do evento como parte do push silencioso inicial.
 
-![Uma Campaign de entrega baseada em ação onde uma mensagem no app será disparada quando "campaign_name" for igual a "exemplo de nome da Campaign IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Uma campaign de entrega baseada em ação onde uma mensagem no app será disparada quando "campaign_name" for igual a "exemplo de nome da campaign IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 Se um evento enviado pelo servidor for registrado enquanto o app não estiver em primeiro plano, o evento será registrado, mas a mensagem no app não será exibida. Se você quiser que o evento seja postergado até que o aplicativo esteja em primeiro plano, uma verificação deve ser incluída no seu receptor de push personalizado para dispensar ou postergar o evento até que o app entre em primeiro plano.
 

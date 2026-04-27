@@ -229,7 +229,7 @@ Um die Vorteile der automatisierten iOS-Integration des Braze Unity SDK zu nutze
 
 1. Entfernen Sie den gesamten Braze-bezogenen Code aus der `UnityAppController`-Unterklasse Ihres Xcode-Projekts.
 2. Entfernen Sie die Braze iOS-Bibliotheken aus Ihrem Unity- oder Xcode-Projekt (z. B. `Appboy_iOS_SDK.framework` und `SDWebImage.framework`).
-3. Importieren Sie das Braze Unity-Paket erneut in Ihr Projekt. Eine vollständige Anleitung finden Sie unter [Schritt 2: Paket importieren](#unity_step-2-import-the-package).
+3. Importieren Sie das Braze Unity-Paket erneut in Ihr Projekt. Eine vollständige Anleitung finden Sie unter [2. Schritt: Paket importieren](#unity_step-2-import-the-package).
 4. Legen Sie Ihren API-Schlüssel erneut fest. Eine vollständige Anleitung finden Sie unter [Schritt 3.1: API-Schlüssel festlegen](#unity_step-31-set-your-api-key).
 
 ## Optionale Konfigurationen {#optional-configurations}
@@ -247,7 +247,7 @@ Um die ausführliche Protokollierung im Unity-Editor zu aktivieren, gehen Sie wi
 Um das Braze Unity-Plugin mit Prime31-Plugins zu verwenden, bearbeiten Sie die `AndroidManifest.xml` Ihres Projekts, um die mit Prime31 kompatiblen Activity-Klassen zu verwenden. Ändern Sie alle Referenzen von
 `com.braze.unity.BrazeUnityPlayerActivity` zu `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM)
+### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
 
 Braze unterstützt die Integration von [ADM Push](https://developer.amazon.com/public/apis/engage/device-messaging) in Unity-Apps. Wenn Sie ADM Push integrieren möchten, erstellen Sie eine Datei namens `api_key.txt`, die Ihren ADM-API-Schlüssel enthält, und legen Sie sie im Ordner `Plugins/Android/assets/` ab. Weitere Informationen zur Integration von ADM mit Braze finden Sie in unserer [Anleitung zur ADM-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 
