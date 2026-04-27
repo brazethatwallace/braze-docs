@@ -5,7 +5,7 @@ page_order: 2
 layout: dev_guide
 
 guide_top_header: "管理"
-guide_top_text: "ワークスペース、ユーザー権限、セキュリティ、請求など、Brazeダッシュボードのセットアップと管理を行います。パーソナル設定では個人のアカウントアクセスと環境設定を管理し、グローバル設定では会社全体またはワークスペース全体に影響する設定を管理します。<br><br>このセクションに含まれるトピックや記事に加えて、<a href='https://learning.braze.com/admin-dashboard-management/'>Admin and Dashboard Management</a> Brazeラーニングコースもご確認ください。ユーザーアクセスの管理方法やダッシュボードメンテナンスのベストプラクティスについて学ぶことができます。"
+guide_top_text: "ワークスペース、ユーザー権限、セキュリティ、請求など、Brazeダッシュボードのセットアップと管理を行います。パーソナル設定では個人のアカウントアクセスと環境設定を管理し、グローバル設定では会社全体またはワークスペース全体に影響する設定を管理します。<br><br>このセクションに含まれるトピックや記事に加えて、<a href='https://learning.braze.com/admin-dashboard-management/'>管理者とダッシュボードの管理</a>Brazeラーニングコースもご確認ください。ユーザーアクセスの管理方法やダッシュボードメンテナンスのベストプラクティスについて学ぶことができます。"
 description: "ワークスペース、ユーザー権限、セキュリティ、請求など、Brazeダッシュボードのセットアップと管理を行います。"
 
 guide_featured_title: "クイックリンク"

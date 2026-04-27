@@ -21,7 +21,7 @@ Les données utilisateur affluent dans Braze par de nombreux points d'entrée. C
 
 ### Activer vos données {#activate-your-data}
 
-Nettoyez, organisez et préparez vos données pour les exploiter. Cela implique de comprendre les comportements et les préférences de vos clients en temps réel grâce aux profils utilisateurs et aux segments. Consultez le [glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) lorsque vous créez des messages ciblés, et utilisez les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) pour enrichir vos messages avec des données produit ou de contenu. Identifiez comment vos clients réagissent à ces expériences personnalisées.
+Nettoyez, organisez et préparez vos données pour les exploiter. Cela implique de comprendre les comportements et les préférences de vos clients en temps réel grâce aux profils utilisateurs et aux segments. Consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) lorsque vous créez des messages ciblés, et utilisez les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) pour enrichir vos messages avec des données produit ou de contenu. Identifiez comment vos clients réagissent à ces expériences personnalisées.
 
 ### Distribuer vos données {#distribute-your-data}
 

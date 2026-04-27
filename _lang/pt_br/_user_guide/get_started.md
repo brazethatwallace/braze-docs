@@ -47,7 +47,7 @@ Campanhas e Canvas são as formas de enviar mensagens aos seus usuários.
 
 As campanhas são ideais para mensagens individuais enviadas a um segmento específico de público em vários canais. Você pode usar qualquer um dos nossos canais de envio de mensagens compatíveis na sua campanha (e-mail, push, mensagens no app, SMS e muito mais).
 
-Os Canvas são fluxos de trabalho avançados de campanha que permitem automatizar e orquestrar jornadas personalizadas de clientes em vários canais. Em um Canvas, você pode configurar lógica de ramificação, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Os Canvas ajudam a garantir uma comunicação consistente e contínua em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
+Os Canvas são fluxos de trabalho avançados que permitem automatizar e orquestrar jornadas personalizadas de clientes em vários canais. Em um Canvas, você pode configurar lógica de ramificação, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Os Canvas ajudam a garantir uma comunicação consistente e contínua em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
 
 Para saber mais, confira: [Primeiros passos: Campanhas e Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 

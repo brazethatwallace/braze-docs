@@ -21,7 +21,7 @@ Lassen Sie uns gemeinsam die Möglichkeiten von Braze entdecken.
 
 ## So funktioniert Braze {#how-braze-works}
 
-Braze ist eine Customer-Engagement-Plattform, die Marken jeder Größe dabei hilft, personalisierte und gezielte Campaigns über verschiedene Kanäle zu erstellen. Braze gibt Ihnen die Möglichkeit, Ihren Kund:innen zuzuhören, zu verstehen, was ihr Verhalten signalisiert, und dann zu handeln, indem Sie die richtige Nachricht über den richtigen Kanal zur richtigen Zeit senden.
+Braze ist eine Customer-Engagement-Plattform, die Marken jeder Größe dabei hilft, personalisierte und gezielte Kampagnen über verschiedene Kanäle zu erstellen. Braze gibt Ihnen die Möglichkeit, Ihren Kund:innen zuzuhören, zu verstehen, was ihr Verhalten signalisiert, und dann zu handeln, indem Sie die richtige Nachricht über den richtigen Kanal zur richtigen Zeit senden.
 
 {% alert tip %}
 Stellen Sie sicher, dass Sie [Ihre Kolleg:innen zu Braze hinzufügen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), damit sie die Plattform gemeinsam mit Ihnen erkunden können.
@@ -33,7 +33,7 @@ Nutzer:innen sind Ihre Kund:innen – die Personen, die die Nachrichten erhalten
 
 ![]({% image_buster /assets/img/getting_started/user_profile.png %})
 
-Segmente unterteilen Ihren Kundenstamm in kleinere Gruppen, die Sie dann mit spezifischem Messaging ansprechen können. Sie können verschiedene Variablen verwenden, um Segmente zu erstellen – von Merkmalen wie Geschlecht, Standort und Alter bis hin zu Verhaltensweisen wie Interaktionsmustern mit früheren Campaigns oder der Position in der Customer Journey.
+Segmente unterteilen Ihren Kundenstamm in kleinere Gruppen, die Sie dann mit spezifischem Messaging ansprechen können. Sie können verschiedene Variablen verwenden, um Segmente zu erstellen – von Merkmalen wie Geschlecht, Standort und Alter bis hin zu Verhaltensweisen wie Interaktionsmustern mit früheren Kampagnen oder der Position in der Customer Journey.
 
 Segmente sind dynamisch – Nutzer:innen können in Echtzeit in Segmente ein- und ausgegliedert werden, basierend auf ihrem Verhalten und ihrer Beziehung zu Ihrer Marke. So stellen Sie sicher, dass Ihre Kund:innen jederzeit die für sie relevantesten Nachrichten erhalten. Sie können so viele Segmente erstellen, wie Sie für Ihr Targeting und Messaging benötigen.
 
