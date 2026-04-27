@@ -20,7 +20,7 @@ guide_featured_list:
   - name: Campanhas
     link: /docs/user_guide/messaging/campaigns
     image: /assets/img/braze_icons/send-01.svg
-  - name: Canva
+  - name: Canvas
     link: /docs/user_guide/messaging/canvas
     image: /assets/img/braze_icons/dataflow-04.svg
   - name: Design e edição

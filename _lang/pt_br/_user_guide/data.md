@@ -21,7 +21,7 @@ Os dados de usuários fluem para a Braze por muitos pontos de entrada. Colete e 
 
 ### Ative seus dados {#activate-your-data}
 
-Limpe, organize e prepare seus dados para uso. Isso envolve entender os comportamentos e preferências dos seus clientes em tempo real com perfis de usuário e Segments. Consulte o [Glossário de métricas de relatórios]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) ao criar mensagens direcionadas e use [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) para enriquecer suas mensagens com dados de produtos ou conteúdo. Identifique como seus clientes estão respondendo a essas experiências personalizadas.
+Limpe, organize e prepare seus dados para uso. Isso envolve entender os comportamentos e preferências dos seus clientes em tempo real com perfis de usuário e segmentos. Consulte o [Glossário de métricas de relatórios]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) ao criar mensagens direcionadas e use [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) para enriquecer suas mensagens com dados de produtos ou conteúdo. Identifique como seus clientes estão respondendo a essas experiências personalizadas.
 
 ### Distribua seus dados {#distribute-your-data}
 
