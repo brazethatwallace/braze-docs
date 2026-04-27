@@ -2,16 +2,16 @@
 nav_title: Lista de bloqueo de países SMS
 article_title: Lista de bloqueo de países SMS
 hidden: true
-permalink: /sms_country_blocklist/ 
+permalink: /sms_country_blocklist/
 ---
 
-# Lista de bloqueo de países SMS
+# Lista de bloqueo de países SMS {#sms-country-blocklist}
 
-En un esfuerzo por proteger a nuestros clientes contra el bombeo de tráfico SMS, Braze mantiene actualmente una lista de países bloqueados, tanto para los países sujetos a embargo por EE.UU., como para los países conocidos por su alto riesgo de bombeo de tráfico. Por defecto, Braze no enviará SMS a estos países: 
+En un esfuerzo por proteger a nuestros clientes contra el bombeo de tráfico SMS, Braze mantiene actualmente una lista de países bloqueados, tanto para los países sujetos a embargo por EE.UU., como para los países conocidos por su riesgo alto de bombeo de tráfico. De forma predeterminada, Braze no enviará SMS a estos países:
 
 - "AF" # Afganistán
 - "AO" # Angola
-- "AZ # Azerbaiyán
+- "AZ" # Azerbaiyán
 - "BD" # Bangladesh
 - "BI" # Burundi
 - "CF" # República Centroafricana
@@ -20,18 +20,18 @@ En un esfuerzo por proteger a nuestros clientes contra el bombeo de tráfico SMS
 - "CV" # Cabo Verde
 - "DZ" # Argelia
 - "GM" # Gambia
-- "GT # Guatemala
+- "GT" # Guatemala
 - "ID" # Indonesia
 - "IR" # Irán
-- “IQ” # Iraq
+- "IQ" # Iraq
 - "JE" # Jersey
-- "LY # Libia
+- "LY" # Libia
 - "KE" # Kenia
 - "KG" # Kirguizistán
 - "KH" # Camboya
 - "KI" # Kiribati
 - "KP" # Corea del Norte
-- "LK # Sri Lanka
+- "LK" # Sri Lanka
 - "MA" # Marruecos
 - "ML" # Mali
 - "MM" # Myanmar
@@ -40,7 +40,7 @@ En un esfuerzo por proteger a nuestros clientes contra el bombeo de tráfico SMS
 - "MW" # Malawi
 - "NE" # Níger
 - "NF" # Isla Norfolk
-- "NG" # Nigera
+- "NG" # Nigeria
 - "NU" # Niue
 - "OM" # Omán
 - "PK" # Pakistán
@@ -60,7 +60,7 @@ En un esfuerzo por proteger a nuestros clientes contra el bombeo de tráfico SMS
 - "UA" # Ucrania
 - "UZ" # Uzbekistán
 - "VN" # Vietnam
-- "WF" # Wallis y Fortuna
+- "WF" # Wallis y Futuna
 - "YE" # Yemen
 - "ZB" # Zimbabue
 - "ZM" # Zambia

@@ -210,6 +210,7 @@ A style guide for the target language may be appended to the end of these instru
 - **German — analytics *events* vs *Veranstaltungen***: In data, SDK, and taxonomy docs, English *events* (logged or tracked user actions) must **not** become *Veranstaltungen* (real-world conferences or occasions). Prefer *Ereignis* / *Ereignisse* or *Event(s)* consistent with the page title and sibling docs under ``_user_guide/data/`` so technical meaning stays correct (auto-translate PR #13340).
 - **German — morphology around product terms**: When you localize articles, adjectives, or quantifiers around Braze concepts, use **correct German plurals** (*alle Segmente*, *Kampagnen*, *Canvase*) or keep **full English UI-style labels** unchanged—never hybrid mistakes such as *Segments*, *Campaigns*, or *Canvases* dropped into otherwise German sentence grammar (PR #13340).
 - **German — user-permission bullet lists**: When the English source lists permissions as markdown bullets like ``- View Campaigns`` / ``- Edit Segments`` inside ``{% details %}`` blocks, translate each line into the **same German permission phrasing** used elsewhere in ``_lang/de`` (for example *Kampagnen anzeigen*, *Segmente bearbeiten*, *Canvase archivieren*)—do **not** paste the English lines verbatim; that triggers QC “verbatim English block” findings and reads inconsistent next to localized headings (PR #13340).
+- **German — SDK *Storage* (device persistence)**: On developer-guide pages where English **Storage** means data the SDK keeps on the device (for example ``_developer_guide/storage.md``), use **Speicher** or **Speicherung** in ``nav_title``, ``article_title``, and the H1—not **Lagerung**, which reads like physical warehousing, not software storage (auto-translate PR #13366).
 
 ## Formatting rules
 
@@ -235,6 +236,10 @@ A style guide for the target language may be appended to the end of these instru
 ## Special file handling
 
 The file `_includes/rate_limits.md` uses Liquid conditionals with include parameters (e.g., `{% if include.category == "..." %}`, `{% elsif include.endpoint == "..." %}`). These Liquid conditionals and their parameters must be preserved exactly. Only translate the prose content between the conditional blocks.
+
+### `_hidden` archived layout templates (`_hidden/archived_layouts/`)
+
+These paths are **internal templates**, but localized copies still need readable headings. Translate **every** markdown section heading the English file exposes (including short labels such as **Extra**) into the target language when YAML and body copy are already localized—do not leave raw English ``## Extra`` in Korean, Spanish, or similar locales (auto-translate PR #13366). When other locales use an explicit fragment such as ``{#extra}`` on the localized heading for anchor parity, match that pattern.
 
 ### Glossary and filterable pages (apitags)
 
