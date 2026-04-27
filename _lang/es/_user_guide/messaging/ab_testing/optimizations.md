@@ -1,12 +1,12 @@
 ---
 nav_title: Optimizaciones
-article_title: Optimiza las pruebas A/B con Variantes Ganadoras o Variantes Personalizadas
+article_title: Optimiza las pruebas A/B con variantes ganadoras o variantes personalizadas
 page_order: 1
 page_type: reference
 description: "Aprende a utilizar la Variante Ganadora o la Variante Personalizada al crear pruebas multivariante y pruebas A/B."
 ---
 
-# Optimiza las pruebas A/B con Variantes Ganadoras o Variantes Personalizadas {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
+# Optimiza las pruebas A/B con variantes ganadoras o variantes personalizadas {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
 
 > Aprende a utilizar la Variante Ganadora o la Variante Personalizada al crear pruebas multivariante y pruebas A/B.
 
@@ -20,7 +20,7 @@ Ambas opciones funcionan enviando una prueba inicial a un porcentaje de tu segme
 Las optimizaciones se encuentran en el paso **Públicos objetivo** de la creación de campañas, en **Pruebas A/B**.
 {% endalert %}
 
-## Variante Ganadora {#winning-variant}
+## Variante ganadora {#winning-variant}
 
 Enviar la Variante Ganadora es similar a una prueba A/B estándar. Los usuarios de este grupo recibirán la Variante Ganadora cuando se complete la prueba inicial.
 
@@ -34,7 +34,7 @@ Enviar la Variante Ganadora es similar a una prueba A/B estándar. Los usuarios 
 | Si no se puede determinar una Variante Ganadora | Qué sucede si ninguna variante gana por un margen estadísticamente significativo. Elige entre enviar la variante con mejor rendimiento de todos modos o finalizar la prueba y no enviar más mensajes. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Variante Personalizada {#personalized-variant}
+## Variante personalizada {#personalized-variant}
 
 Usa las Variantes Personalizadas para enviar a cada usuario de tu segmento objetivo la variante con la que es más probable que interactúe.
 

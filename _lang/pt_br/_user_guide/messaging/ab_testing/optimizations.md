@@ -1,12 +1,12 @@
 ---
 nav_title: Otimizações
-article_title: Otimize os Testes A/B com variante vencedora ou personalizadas
+article_title: Otimize os testes A/B com variantes vencedoras ou personalizadas
 page_order: 1
 page_type: reference
 description: "Aprenda a usar Variante Vencedora ou Variante Personalizada ao criar testes multivariantes e A/B."
 ---
 
-# Otimize os Testes A/B com Variante vencedora ou Variantes personalizadas {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
+# Otimize os testes A/B com variantes vencedoras ou personalizadas {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
 
 > Aprenda a usar Variante Vencedora ou Variante Personalizada ao criar testes multivariantes e A/B.
 
@@ -17,7 +17,7 @@ Ao [criar um teste A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_
 Ambas as opções funcionam enviando um teste inicial para uma porcentagem do seu segmento alvo. Após o teste terminar, os usuários restantes em seu público recebem a variante de melhor desempenho (Variante Vencedora) ou a variante com a qual eles têm mais probabilidade de se engajar (Variante Personalizada).
 
 {% alert tip %}
-As otimizações estão localizadas na **Etapa de Públicos-alvo** da criação da campanha, em **Testes A/B**.
+As otimizações estão localizadas na etapa **Públicos-alvo** da criação da campanha, em **Testes A/B**.
 {% endalert %}
 
 ## Variante vencedora {#winning-variant}

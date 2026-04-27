@@ -34,7 +34,7 @@ Nous vérifions les attributs suivants en les traitant comme des variables caté
 Nous vérifions également si les éléments suivants affectent le taux de conversion :
 
 - L'exécution d'événements personnalisés
-- Les Campaigns et Canvas reçus au cours des 30 derniers jours (à l'exception de la campagne en cours d'évaluation)
+- Les campagnes et Canvas reçus au cours des 30 derniers jours (à l'exception de la campagne en cours d'évaluation)
 
 Enfin, nous examinons plusieurs variables comportementales pouvant prendre différentes valeurs. Nous répartissons les éléments suivants en quatre compartiments ou quartiles, puis mesurons l'association entre l'appartenance à un quartile donné et l'augmentation ou la diminution de la conversion :
 

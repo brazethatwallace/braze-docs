@@ -1,5 +1,5 @@
 ---
-nav_title: Condiciones de la carrera
+nav_title: Condiciones de carrera
 article_title: Race conditions
 alias: /race_conditions/
 page_order: 9
@@ -8,7 +8,7 @@ description: "Este artículo cubre las mejores prácticas para evitar que las co
 toc_headers: h2
 ---
 
-# Condiciones de la carrera {#race-conditions}
+# Condiciones de carrera {#race-conditions}
 
 > Una condición de carrera se produce cuando un resultado depende de la secuencia o sincronización de varios acontecimientos. Por ejemplo, si la secuencia deseada de acontecimientos es "Acontecimiento A" y luego "Acontecimiento B", pero a veces el "Acontecimiento A" llega primero, y otras veces el "Acontecimiento B" llega primero, eso se conoce como condición de carrera. Esto puede provocar resultados inesperados o errores, porque estos eventos compiten por acceder a recursos o datos compartidos.
 
@@ -26,7 +26,7 @@ Los tipos más comunes de condiciones de carrera pueden ocurrir cuando haces lo 
 
 Considera los siguientes escenarios y aplica las mejores prácticas para evitar estas condiciones de carrera.
 
-## Supuesto 1: Segmentar a nuevos usuarios {#scenario-1-targeting-new-users}
+## Escenario 1: Segmentar a nuevos usuarios {#scenario-1-targeting-new-users}
 
 En Braze, una de las condiciones de carrera más comunes se produce con los mensajes dirigidos a usuarios recién creados. El orden esperado de eventos es:
 
@@ -51,7 +51,7 @@ Por ejemplo, después de que un usuario se registre en tu aplicación, puedes en
 
 También puedes añadir este retraso en el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/) para el evento personalizado específico que desencadena que un nuevo usuario entre en un Canvas.
 
-## Supuesto 2: Usar múltiples puntos finales de API {#scenario-2-using-multiple-api-endpoints}
+## Escenario 2: Usar múltiples puntos finales de API {#scenario-2-using-multiple-api-endpoints}
 
 {% alert important %}
 Usamos procesamiento asíncrono para maximizar la velocidad y la flexibilidad. Esto significa que cuando las llamadas a la API se nos envían por separado, no podemos garantizar que se procesen en el orden en que fueron enviadas.
@@ -88,7 +88,7 @@ Usa el [punto final `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_da
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
-## Supuesto 3: Hacer coincidir desencadenadores basados en acciones y filtros de audiencia {#scenario-3-matching-action-based-triggers-and-audience-filters}
+## Escenario 3: Hacer coincidir desencadenadores basados en acciones y filtros de audiencia {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
 Otra condición de carrera común puede ocurrir si configuras una campaña o Canvas basado en acciones con el mismo desencadenador que el filtro de audiencia (como un atributo cambiado o un evento personalizado realizado). El usuario puede no estar en la audiencia en el momento en que realiza el evento desencadenador, lo que significa que no recibirá la campaña ni entrará en el Canvas.
 

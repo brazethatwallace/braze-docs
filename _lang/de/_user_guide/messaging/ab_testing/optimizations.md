@@ -1,18 +1,18 @@
 ---
 nav_title: Optimierungen
-article_title: Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten
+article_title: Optimieren Sie A/B-Tests mit Gewinnervariante oder personalisierten Varianten
 page_order: 1
 page_type: reference
 description: "Erfahren Sie, wie Sie die Varianten „Gewinnvariante“ oder „Personalisierte Variante“ bei der Erstellung von multivariaten und A/B-Tests verwenden können."
 ---
 
-# Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
+# Optimieren Sie A/B-Tests mit Gewinnervariante oder personalisierten Varianten {#optimize-ab-tests-with-winning-variant-or-personalized-variants}
 
 > Erfahren Sie, wie Sie die Varianten „Gewinnvariante“ oder „Personalisierte Variante“ bei der Erstellung von multivariaten und A/B-Tests verwenden können.
 
-Bei der [Erstellung eines A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) für E-Mail-, Push-, Webhook-, SMS- und WhatsApp-Kampagnen, die für einen einmaligen Versand geplant sind, können Sie eine Optimierung auswählen. Es gibt zwei Optimierungsmöglichkeiten: **Gewinnende Variante** und **Personalisierte Variante**.
+Bei der [Erstellung eines A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) für E-Mail-, Push-, Webhook-, SMS- und WhatsApp-Kampagnen, die für einen einmaligen Versand geplant sind, können Sie eine Optimierung auswählen. Es gibt zwei Optimierungsmöglichkeiten: **Gewinnervariante** und **Personalisierte Variante**.
 
-![Optimierungsoptionen, die im Abschnitt „A/B-Tests“ aufgeführt sind, wenn Sie Ihre Zielgruppe auswählen. Es werden drei Optionen aufgeführt: Keine Optimierung, Gewinnende Variante und Personalisierte Variante. Personalisierte Variante ist ausgewählt.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
+![Optimierungsoptionen, die im Abschnitt „A/B-Tests“ aufgeführt sind, wenn Sie Ihre Zielgruppe auswählen. Es werden drei Optionen aufgeführt: Keine Optimierung, Gewinnervariante und Personalisierte Variante. Personalisierte Variante ist ausgewählt.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 
 Beide Optionen funktionieren, indem Sie einen ersten Test an einen Prozentsatz Ihres Zielsegments senden. Nach Beendigung des Tests wird den verbleibenden Nutzer:innen Ihrer Zielgruppe entweder die Variante mit der besten Leistung (Gewinnvariante) oder die Variante, mit der sie sich am ehesten beschäftigen werden (personalisierte Variante), zugesandt.
 
@@ -24,7 +24,7 @@ Optimierungen finden Sie im Schritt **Zielgruppen** bei der Kampagnenerstellung 
 
 Das Versenden der Gewinner-Variante ist ähnlich wie ein normaler A/B-Test. Nutzer:innen in dieser Gruppe erhalten die Gewinnervariante, sobald der erste Test abgeschlossen ist.
 
-1. Wählen Sie **Winning Variant** aus und legen Sie fest, welcher Prozentsatz Ihrer Kampagnenzielgruppe der Gewinnervarianten-Gruppe zugewiesen werden soll.
+1. Wählen Sie **Gewinnervariante** aus und legen Sie fest, welcher Prozentsatz Ihrer Kampagnenzielgruppe der Gewinnervarianten-Gruppe zugewiesen werden soll.
 2. Konfigurieren Sie die folgenden zusätzlichen Einstellungen.
 
 | Feld | Beschreibung |
@@ -40,7 +40,7 @@ Verwenden Sie personalisierte Varianten, um jeder Person in Ihrem Zielsegment di
 
 Um die beste Variante für jede Person zu bestimmen, sendet Braze zunächst einen Test an einen Teil Ihrer Zielgruppe, um Zusammenhänge zwischen Nutzermerkmalen und Nachrichtenpräferenzen zu ermitteln. Basierend darauf, wie Nutzer:innen auf die einzelnen Varianten im ersten Test reagieren, werden diese Merkmale verwendet, um zu bestimmen, welche verbleibenden Nutzer:innen welche Variante erhalten. Wenn keine Zusammenhänge gefunden werden und keine Personalisierung möglich ist, wird die Gewinnervariante automatisch an die verbleibenden Nutzer:innen gesendet. Weitere Informationen darüber, wie personalisierte Varianten bestimmt werden, finden Sie unter [Analytics für multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#personalized-variant).
 
-1. Wählen Sie **Personalized Variant** aus und legen Sie fest, welcher Prozentsatz Ihrer Kampagnenzielgruppe der Gruppe für personalisierte Varianten zugewiesen werden soll.
+1. Wählen Sie **Personalisierte Variante** aus und legen Sie fest, welcher Prozentsatz Ihrer Kampagnenzielgruppe der Gruppe für personalisierte Varianten zugewiesen werden soll.
 2. Konfigurieren Sie die folgenden zusätzlichen Einstellungen.
 
 | Feld | Beschreibung |
