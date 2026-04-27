@@ -64,6 +64,6 @@ El reingreso aleatorio de audiencia puede ser útil para [pruebas A/B]({{site.ba
 
 1. [Crea tu segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 2. Define los contenedores aleatorios. En tu campaña o Canvas, usa el filtro de contenedor aleatorio para dividir tu audiencia en diferentes grupos. Por ejemplo, puedes especificar exactamente dos contenedores aleatorios para dividir tu audiencia (50 % de usuarios por contenedor).
-3. En la sección **Target Audiences** de tu campaña o Canvas, especifica la configuración de contenedores aleatorios. Esto permite que Braze asigne automáticamente a los usuarios a los contenedores apropiados según los porcentajes definidos.
+3. En la sección **Público objetivo** de tu campaña o Canvas, especifica la configuración de contenedores aleatorios. Esto permite que Braze asigne automáticamente a los usuarios a los contenedores apropiados según los porcentajes definidos.
 4. Configura una lógica que permita a los usuarios reingresar al segmento. Por ejemplo, puedes permitir que los usuarios reingresen al segmento si no han interactuado con una aplicación durante 15 días.
 5. Lanza tu campaña y monitorea el rendimiento de cada contenedor. Puedes analizar métricas como tasas de interacción y tasas de conversión para determinar qué tan efectivo es el reingreso aleatorio de audiencia en tu caso de uso.

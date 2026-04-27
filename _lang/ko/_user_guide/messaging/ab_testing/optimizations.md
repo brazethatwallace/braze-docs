@@ -1,6 +1,6 @@
 ---
 nav_title: 최적화
-article_title: 성공적인 배리언트 또는 개인화된 배리언트로 A/B 테스트 최적화하기
+article_title: 위닝 배리언트 또는 개인화된 배리언트로 A/B 테스트 최적화하기
 page_order: 1
 page_type: reference
 description: "다변량 및 A/B 테스트를 만들 때 위닝 배리언트 또는 개인화된 배리언트를 사용하는 방법을 알아보세요."
@@ -10,7 +10,7 @@ description: "다변량 및 A/B 테스트를 만들 때 위닝 배리언트 또�
 
 > 다변량 및 A/B 테스트를 만들 때 위닝 배리언트 또는 개인화된 배리언트를 사용하는 방법을 알아보세요.
 
-1회 발송으로 스케줄된 이메일, 푸시, 웹훅, SMS, WhatsApp Campaigns에 대해 [A/B 테스트를 생성]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/)할 때 최적화를 선택할 수 있습니다. 최적화 옵션은 **위닝 배리언트**와 **개인화된 배리언트** 두 가지가 있습니다.
+1회 발송으로 스케줄된 이메일, 푸시, 웹훅, SMS, WhatsApp Campaign에 대해 [A/B 테스트를 생성]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/)할 때 최적화를 선택할 수 있습니다. 최적화 옵션은 **위닝 배리언트**와 **개인화된 배리언트** 두 가지가 있습니다.
 
 ![타겟 오디언스를 선택할 때 A/B 테스트 섹션에 나열된 최적화 옵션. 최적화 없음, 위닝 배리언트, 개인화된 배리언트의 세 가지 옵션이 나열되어 있습니다. 개인화된 배리언트가 선택되어 있습니다.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 

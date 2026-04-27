@@ -20,7 +20,7 @@ guide_featured_list:
   - name: Correlación de conversión
     link: /docs/user_guide/messaging/ab_testing/concepts/conversion_correlation
     image: /assets/img/braze_icons/trend-up-01.svg
-  - name: Condiciones de carrera
+  - name: Condiciones de la carrera
     link: /docs/user_guide/messaging/ab_testing/concepts/race_conditions
     image: /assets/img/braze_icons/alert-triangle.svg
 ---

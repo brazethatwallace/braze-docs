@@ -26,7 +26,7 @@ Los tipos más comunes de condiciones de carrera pueden ocurrir cuando haces lo 
 
 Considera los siguientes escenarios y aplica las mejores prácticas para evitar estas condiciones de carrera.
 
-## Escenario 1: Segmentar a nuevos usuarios {#scenario-1-targeting-new-users}
+## Supuesto 1: Segmentar a nuevos usuarios {#scenario-1-targeting-new-users}
 
 En Braze, una de las condiciones de carrera más comunes se produce con los mensajes dirigidos a usuarios recién creados. El orden esperado de eventos es:
 
@@ -51,7 +51,7 @@ Por ejemplo, después de que un usuario se registre en tu aplicación, puedes en
 
 También puedes añadir este retraso en el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/) para el evento personalizado específico que desencadena que un nuevo usuario entre en un Canvas.
 
-## Escenario 2: Usar múltiples puntos finales de API {#scenario-2-using-multiple-api-endpoints}
+## Supuesto 2: Usar múltiples puntos finales de API {#scenario-2-using-multiple-api-endpoints}
 
 {% alert important %}
 Usamos procesamiento asíncrono para maximizar la velocidad y la flexibilidad. Esto significa que cuando las llamadas a la API se nos envían por separado, no podemos garantizar que se procesen en el orden en que fueron enviadas.
@@ -88,7 +88,7 @@ Usa el [punto final `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_da
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
-## Escenario 3: Hacer coincidir desencadenadores basados en acciones y filtros de audiencia {#scenario-3-matching-action-based-triggers-and-audience-filters}
+## Supuesto 3: Hacer coincidir desencadenadores basados en acciones y filtros de audiencia {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
 Otra condición de carrera común puede ocurrir si configuras una campaña o Canvas basado en acciones con el mismo desencadenador que el filtro de audiencia (como un atributo cambiado o un evento personalizado realizado). El usuario puede no estar en la audiencia en el momento en que realiza el evento desencadenador, lo que significa que no recibirá la campaña ni entrará en el Canvas.
 
@@ -98,7 +98,7 @@ Otra condición de carrera común puede ocurrir si configuras una campaña o Can
 
 Para evitar usar filtros de audiencia que contengan los criterios del desencadenador, te recomendamos verificar tu audiencia antes de la entrega. Por ejemplo, puedes [usar validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) en los pasos de mensaje de Canvas como una verificación adicional para confirmar que tu audiencia cumple los criterios de entrega en el momento del envío del mensaje. También puedes aprovechar los criterios de salida de Canvas para hacer salir a cualquier usuario en cualquier punto del recorrido del usuario si cumple tus criterios.
 
-Para campañas, puedes usar eventos de salida para permitir que las campañas con un evento desencadenador cancelen mensajes a usuarios que realicen el evento de salida mientras están en el retraso.
+Para las campañas, puedes usar eventos de salida para permitir que las campañas con un evento desencadenador cancelen mensajes a usuarios que realicen el evento de salida mientras están en el retraso.
 
 #### Usa filtros únicos con el evento desencadenador {#use-unique-filters-with-the-trigger-event}
 
