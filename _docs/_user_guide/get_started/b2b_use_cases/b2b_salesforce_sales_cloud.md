@@ -30,7 +30,7 @@ This integration is purely to update Salesforce from Braze as part of your lead 
 
 Before you can proceed with this integration, Salesforce Support must give you the ability to create connected apps. You can request this by submitting a [Salesforce Support request](https://help.salesforce.com/s/articleView?id=005167035&type=1).
 
-This integration requires you to create a connected app in Salesforce Sales Cloud by following the steps in the Salesforce documentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+After Salesforce Support grants you the ability to create a connected app in Salesforce Sales Cloud, follow the steps in the Salesforce documentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 When you configure the necessary OAuth settings for the connected app, keep all oAuth settings with their default values and selections except for the following:
 1. Select **Enable for device** flow. You can leave **Callback URL** blank, as it will default to a placeholder.
