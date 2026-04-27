@@ -302,7 +302,7 @@ module Jekyll
                   unless item.empty?
                     items << "<div class='#{ @nav_active_page_class } nav_item_row'  data-parent='parent_#{@nav_prefix}_#{parent_key}'>"
                     if is_active
-                      items << "<span class='#{@nav_title_class}'>#{page_title_escaped}</span>"
+                      items << "<span class='#{@nav_title_class}' aria-current='page'>#{page_title_escaped}</span>"
                     else
                       items << "<a href='#{ cur_url }' class='#{@nav_item_link_class}' data-parent='parent_#{@nav_prefix}_#{parent_key}' aria-label='#{page_title_escaped}'>#{page_title_escaped}</a>"
                     end
@@ -313,7 +313,7 @@ module Jekyll
                   else
                     items << "<div class='#{ @nav_active_basic_class }'  data-parent='parent_#{@nav_prefix}_#{parent_key}'><div class='#{ @nav_title_block}'>"
                     if is_active
-                      items << "<div class='#{@nav_title_class}'  data-parent='parent_#{@nav_prefix}_#{parent_key}'>#{page_title_escaped}</div>"
+                      items << "<div class='#{@nav_title_class}' aria-current='page' data-parent='parent_#{@nav_prefix}_#{parent_key}'>#{page_title_escaped}</div>"
                     else
                       items << "<a href='#{ cur_url }' class='#{@nav_item_link_class}' data-parent='parent_#{@nav_prefix}_#{parent_key}' aria-label='#{page_title_escaped}'><div class='#{@nav_title_class}'>#{page_title_escaped}</div></a>"
                     end
