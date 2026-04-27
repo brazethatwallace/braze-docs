@@ -229,6 +229,11 @@ jobs:
     if: ${{ needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    permissions:
+      contents: write
+      pull-requests: write
+      # Narrow scope: only PR-creation pushes can need this (workflow ref policy).
+      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -328,6 +333,10 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: write
+      pull-requests: write
+      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
