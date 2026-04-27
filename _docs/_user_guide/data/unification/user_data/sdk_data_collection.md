@@ -54,7 +54,7 @@ Calculated metrics include channel-based metrics (listed in the [Report metrics 
 | Received message from campaign                 | Boolean. This filter targets users based on whether they have received a previous campaign. |
 | Received message from campaign with tag        | Boolean. This filter targets users based on whether they have received a campaign that currently has a tag. |
 | Retarget campaign                              | Boolean. This filter targets users based on whether they have opened or clicked on a specific email, push, or in-app message in the past. |
-| Uninstalled                                    | Boolean and time |
+| Uninstalled                                    | Boolean and time                                                     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert important %}
