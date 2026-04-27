@@ -4,7 +4,7 @@ article_title: AB テスト予測
 page_order: 20
 hidden: true
 page_type: reference
-description: "この記事では、AB テスト予測の仕組み、予測の実行方法、Brazeがデータをどのように使用するかについて説明します。"
+description: "この記事では、AB テスト予測の仕組み、予測の実行方法、Braze がデータをどのように使用するかについて説明します。"
 ---
 
 # AB テスト予測 {#ab-test-projection}
@@ -31,10 +31,10 @@ AIが最も効果的と予測した件名には、「**予想される勝者**�
 [クイックプッシュキャンペーン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/quick_push_messages/)では、複数のプラットフォームを選択した場合にABテストがサポートされます。
 {% endalert %}
 
-### 予測の精度はどの程度ですか？ {#how-accurate-are-the-projections}
+### 予測の精度はどの程度でしょうか。 {#how-accurate-are-the-projections}
 
 テストでは、実際のABテストにおけるメッセージのペアから勝者を選ぶ際に、予測の精度は約70%であることがわかりました。モデルが勝者と予測するメッセージを解釈する際には、この点を考慮してください。
 
-### データはどのように使用されますか？ {#how-do-we-use-your-data}
+### データはどのように利用されるのか？ {#how-do-we-use-your-data}
 
 この機能は、Brazeで過去に実施されたABテストから学習します。お客様や他のBraze顧客のメッセージの実際のコピーがモデルに提供されることはありません。まず、ABテストで勝者メッセージを予測する高レベルの言語パターンを抽出します。次に、それらのパターンをAIに提供し、優れた件名を構成する言語的特徴を識別できるように学習させます。

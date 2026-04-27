@@ -17,11 +17,11 @@ description: "Cet article répond aux questions fréquemment posées sur les tes
 
 #### Test A/B {#ab-testing}
 
-Dans un test A/B, le marketeur expérimente une seule variable au sein de la campagne (comme la ligne d'objet d'un e-mail ou l'heure d'envoi du message). Cela consiste à diviser aléatoirement un sous-ensemble de l'audience en deux groupes ou plus, à présenter à chaque groupe une variation différente, puis à observer quelle variation affiche le taux de conversion le plus élevé. En général, la variation la plus performante est ensuite envoyée au reste de l'audience.
+Dans un test A/B, le marketeur expérimente une seule variable au sein de la campagne (comme la ligne d'objet d'un e-mail ou l'heure d'envoi du message). Cela consiste à diviser aléatoirement un sous-ensemble de l'audience en deux groupes ou plus, à présenter à chaque groupe une variante différente, puis à observer laquelle affiche le taux de conversion le plus élevé. En général, la variante la plus performante est ensuite envoyée au reste de l'audience.
 
 #### Test multivarié {#multivariate-testing}
 
-Le test multivarié est une extension du test A/B qui permet au marketeur de tester plusieurs variables simultanément afin de déterminer la combinaison la plus efficace. Par exemple, vous pourriez tester la ligne d'objet de votre e-mail, l'image qui accompagne votre texte et la couleur du bouton d'appel à l'action. Ce type de test vous permet d'explorer davantage de variables et de combinaisons de variations au sein d'une seule expérience, et d'obtenir des informations plus rapidement et de manière plus complète qu'avec un test A/B. Cependant, tester plus de variables et de combinaisons au sein d'une seule expérience nécessite une audience plus large pour atteindre une significativité statistique.
+Le test multivarié est une extension du test A/B qui permet au marketeur de tester plusieurs variables simultanément afin de déterminer la combinaison la plus efficace. Par exemple, vous pourriez tester la ligne d'objet de votre e-mail, l'image qui accompagne votre texte et la couleur du bouton d'appel à l'action. Ce type de test vous permet d'explorer davantage de variables et de combinaisons de variantes au sein d'une seule expérience, et d'obtenir des informations plus rapidement et de manière plus complète qu'avec un test A/B. Cependant, tester plus de variables et de combinaisons au sein d'une seule expérience nécessite une audience plus large pour atteindre une significativité statistique.
 
 ### Comment les résultats d'un test A/B sont-ils calculés ? {#how-are-ab-test-results-calculated}
 
@@ -75,4 +75,4 @@ Pour affecter les utilisateurs aux variantes de message, aux variantes de Canvas
 
 ### Pourquoi ne puis-je pas utiliser la limite de débit avec un groupe de contrôle ? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze ne prend actuellement pas en charge la limite de débit avec les tests A/B comportant un groupe de contrôle. En effet, la limite de débit ne s'applique pas au groupe de contrôle de la même manière qu'aux variantes, ce qui introduit un biais. Envisagez plutôt d'utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), qui ajuste automatiquement le pourcentage d'utilisateurs recevant chaque variante en fonction de l'analytique et de la performance de la campagne.
+Braze ne prend actuellement pas en charge la limite de débit avec les tests A/B comportant un groupe de contrôle. En effet, la limite de débit ne s'applique pas au groupe de contrôle de la même manière qu'aux variantes, ce qui introduit un biais. Envisagez plutôt d'utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), qui ajuste automatiquement le pourcentage d'utilisateurs recevant chaque variante en fonction des analyses et de la performance de la campagne.

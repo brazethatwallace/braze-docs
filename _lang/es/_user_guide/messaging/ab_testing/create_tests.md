@@ -118,7 +118,7 @@ Como guía, probablemente necesites alrededor de 15 000 usuarios por variante (i
 
 Una pregunta común sobre las asignaciones de grupos de control y de prueba es si pueden introducir sesgo en tus pruebas. Otros a veces se preguntan cómo sabemos si estas asignaciones son verdaderamente aleatorias.
 
-Los usuarios se asignan a variantes de mensaje, variantes en Canvas o sus respectivos grupos de control concatenando su ID de usuario (generado aleatoriamente) con el ID de campaña o Canvas (generado aleatoriamente), tomando el módulo de ese valor con 100 y luego ordenando a los usuarios en segmentos que corresponden a las asignaciones de porcentaje para las variantes y el control opcional elegidos en el dashboard. Por lo tanto, no hay una forma práctica en que los comportamientos de los usuarios antes de crear una campaña o Canvas particular puedan variar sistemáticamente entre variantes y control. Tampoco es práctico ser más aleatorio (o más precisamente, pseudoaleatorio) que esta implementación.
+Los usuarios se asignan a variantes de mensaje, variantes en Canvas o sus respectivos grupos de control concatenando su ID de usuario (generado aleatoriamente) con el ID de la campaña o Canvas (generado aleatoriamente), tomando el módulo de ese valor con 100 y luego ordenando a los usuarios en segmentos que corresponden a las asignaciones de porcentaje para las variantes y el control opcional elegidos en el dashboard. Por lo tanto, no hay una forma práctica en que los comportamientos de los usuarios antes de crear una campaña o Canvas particular puedan variar sistemáticamente entre variantes y control. Tampoco es práctico ser más aleatorio (o más precisamente, pseudoaleatorio) que esta implementación.
 
 #### Errores a evitar {#mistakes-to-avoid}
 

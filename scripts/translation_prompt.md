@@ -173,6 +173,19 @@ This folder-specific guidance **supplements** items 8 (**Procedure UI labels**) 
 - **Variant terminology must stay “variant”**: In optimization and analytics pages, translate *variant* with the locale's established equivalent (for example German *Variante*, French *variante*, Korean *배리언트*). Do **not** switch to words meaning *variable* (for example Korean *변수*) in this context.
 - **Use one locale-preferred winner term per file**: Keep the “winning variant” label consistent across title, description, body, tables, and image alt text within the same file (for example German **Gewinnervariante**), instead of mixing multiple near-synonyms.
 - **pt-BR conversion-correlation wording**: In `conversion_correlation` content, translate *attributes* as **atributos** (not *atribuições*), and in FAQ/prose use **campanha/campanhas** for common nouns unless the text is an exact English UI control label.
+- **Portuguese `concepts.md` (random bucket numbers)**: Keep the English loan **bucket** in hero copy and card labels (*números de bucket aleatórios*)—do not paraphrase as *baldes* (auto-translate PR #13359).
+- **Portuguese `optimizations.md`**: Keep `article_title` and the main `#` heading in **parallel plural** when English pairs two variant types (*variantes vencedoras ou personalizadas*). In tips, write *na etapa **Públicos-alvo*** (lowercase *etapa*, bold step name)—not *Etapa de Públicos-alvo* as a faux title (PR #13359).
+- **Spanish `race_conditions.md`**: Scenario sections are **Escenario 1/2/3**, never **Supuesto** (“assumption”). For *race conditions*, use **Condiciones de carrera** in `nav_title`, `#` headings, and `guide_featured_list` cards—not *Condiciones de la carrera* (PR #13359).
+- **Spanish `ab_test_projection.md`**: In procedures, keep English UI labels exactly as in the dashboard: **Target Audience**, **A/B Testing**, **Run Projection** (PR #13359).
+- **Spanish `variant_distribution.md`**: For generic “a multivariate campaign send”, use *campaña* / *campañas*—do not leave lowercase English *campaign* in Spanish prose (PR #13359).
+- **Spanish `random_bucket_numbers.md`**: When English uses **Target Audiences** as the section name, keep that bold English string (PR #13359).
+- **Spanish `optimizations.md`**: Use Braze docs **sentence case** for `article_title`, the main `#` title, and `##` section headings unless the string is an exact verbatim UI control (PR #13359).
+- **Korean `optimizations.md`**: In comma lists of scheduled channels, use **WhatsApp Campaigns** when it sits beside other plural channel types (PR #13359).
+- **Japanese `create_tests.md`**: For the standard US dashboard path and primary action, keep **Messaging** > **Campaigns** and **Create Campaign** in English bold (PR #13359).
+- **Japanese `ab_test_projection.md`**: Use one consistent phrase for running a projection—**予測を実行**—do not alternate with **投影の実行** in the same flow (PR #13359).
+- **German `optimizations.md`**: Do not output **Winning-Varianten**, **Winning Variant**, or **Personalized Variant** in German copy—use **Gewinnervariante** / **Personalisierte Variante** everywhere that names the optimization, including image alt text (PR #13359).
+- **German `conversion_correlation.md`**: Prefer **Nutzer:innen** and **Nutzerattribute** throughout—avoid mixing **Benutzer** / **Benutzerverhalten** with **Nutzer:innen** in the same article (PR #13359).
+- **French `conversion_correlation.md`**: In running lists, use **campagnes**—do not splice English **Campaigns** into French sentences (PR #13359).
 
 An "Approved terminology" table may be appended to the end of these instructions with file-specific term translations. When present, use those approved translations. If an English term maps to itself in the table, keep it in English.
 

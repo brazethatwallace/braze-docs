@@ -1,5 +1,5 @@
 ---
-nav_title: Condiciones de la carrera
+nav_title: Condiciones de carrera
 article_title: Race conditions
 alias: /race_conditions/
 page_order: 9
@@ -8,7 +8,7 @@ description: "Este artículo cubre las mejores prácticas para evitar que las co
 toc_headers: h2
 ---
 
-# Condiciones de la carrera {#race-conditions}
+# Condiciones de carrera {#race-conditions}
 
 > Una condición de carrera se produce cuando un resultado depende de la secuencia o sincronización de varios acontecimientos. Por ejemplo, si la secuencia deseada de acontecimientos es "Acontecimiento A" y luego "Acontecimiento B", pero a veces el "Acontecimiento A" llega primero, y otras veces el "Acontecimiento B" llega primero, eso se conoce como condición de carrera. Esto puede provocar resultados inesperados o errores, porque estos eventos compiten por acceder a recursos o datos compartidos.
 
@@ -98,7 +98,7 @@ Otra condición de carrera común puede ocurrir si configuras una campaña o Can
 
 Para evitar usar filtros de audiencia que contengan los criterios del desencadenador, te recomendamos verificar tu audiencia antes de la entrega. Por ejemplo, puedes [usar validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) en los pasos de mensaje de Canvas como una verificación adicional para confirmar que tu audiencia cumple los criterios de entrega en el momento del envío del mensaje. También puedes aprovechar los criterios de salida de Canvas para hacer salir a cualquier usuario en cualquier punto del recorrido del usuario si cumple tus criterios.
 
-Para campañas, puedes usar eventos de salida para permitir que las campañas con un evento desencadenador cancelen mensajes a usuarios que realicen el evento de salida mientras están en el retraso.
+Para las campañas, puedes usar eventos de salida para permitir que las campañas con un evento desencadenador cancelen mensajes a usuarios que realicen el evento de salida mientras están en el retraso.
 
 #### Usa filtros únicos con el evento desencadenador {#use-unique-filters-with-the-trigger-event}
 

@@ -1,6 +1,6 @@
 ---
 nav_title: 최적화
-article_title: 성공적인 배리언트 또는 개인화된 배리언트로 A/B 테스트 최적화하기
+article_title: 위닝 배리언트 또는 개인화된 배리언트로 A/B 테스트 최적화하기
 page_order: 1
 page_type: reference
 description: "다변량 및 A/B 테스트를 만들 때 위닝 배리언트 또는 개인화된 배리언트를 사용하는 방법을 알아보세요."

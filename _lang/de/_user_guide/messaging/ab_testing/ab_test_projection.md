@@ -33,7 +33,7 @@ Für [Quick-Push-Campaigns]({{site.baseurl}}/user_guide/channels/push/create_a_p
 
 ### Wie genau sind die Projektionen? {#how-accurate-are-the-projections}
 
-In Tests haben wir festgestellt, dass die Projektionen bei der Auswahl zwischen Nachrichtenpaaren in echten A/B-Tests eine Genauigkeit von etwa 70 % aufweisen. Berücksichtigen Sie dies bei der Interpretation der Nachrichten, die das Modell als Gewinner projiziert.
+In Tests haben wir festgestellt, dass die Projektionen bei der Auswahl zwischen Nachrichtenpaaren in echten A/B-Tests eine Genauigkeit von etwa 70 % aufweisen. Berücksichtigen Sie dies bei der Interpretation der Nachrichten, die das Modell als Gewinner-Variante projiziert.
 
 ### Wie verwenden wir Ihre Daten? {#how-do-we-use-your-data}
 

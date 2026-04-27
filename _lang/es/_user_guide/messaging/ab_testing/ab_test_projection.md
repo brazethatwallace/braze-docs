@@ -19,11 +19,11 @@ Esta característica se encuentra actualmente en acceso anticipado. Ponte en con
 
 En la composición de la campaña, inserta tus variantes de mensaje y sus líneas del asunto en el editor. Cuando estés listo, ve al paso **Target Audience** del flujo de creación de campañas. En el panel **A/B Testing**, selecciona **Run Projection**.
 
-<img width="518" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
+<img width="518" alt="imagen" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 
 Se abrirá un modal con las líneas del asunto de cualquier variante de mensaje que ya hayas creado. Opcionalmente, puedes insertar líneas del asunto adicionales (hasta un máximo de diez) introduciéndolas manualmente en el campo y ejecutando la proyección. Selecciona **Run Projection**.
 
-<img width="722" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
+<img width="722" alt="imagen" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
 
 La línea del asunto que nuestra IA predice como la mejor se resaltará con una etiqueta de **Projected Winner**.
 

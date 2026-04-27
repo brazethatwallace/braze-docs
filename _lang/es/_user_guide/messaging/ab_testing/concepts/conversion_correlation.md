@@ -5,11 +5,12 @@ alias: /conversion_correlation/
 page_order: 3
 
 page_type: reference
-description: "Este artículo de referencia explica el análisis de correlación de conversiones en la página de Campaign Analytics."
+description: "Este artículo de referencia explica el análisis de correlación de conversiones en la página de Análisis de campañas."
 tool:
   - Reports
 
 ---
+
 # Correlación de conversión {#conversion-correlation}
 
 > El análisis de correlación de conversiones en la página **Análisis de campañas** te ofrece información sobre qué atributos y comportamientos de los usuarios favorecen o perjudican los resultados que has establecido para las campañas.
