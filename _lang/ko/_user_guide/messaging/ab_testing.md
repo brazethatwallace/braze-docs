@@ -1,6 +1,6 @@
 ---
-nav_title: A/B 테스트
-article_title: A/B 테스트
+nav_title: A/B Testing
+article_title: "A/B 테스트"
 page_order: 6
 layout: dev_guide
 guide_top_header: "A/B 테스트"
@@ -31,7 +31,7 @@ guide_featured_list:
 ## A/B 테스트를 사용해야 하는 경우 {#when-to-use-ab-tests}
 
 - **새로운 메시징 유형을 시도할 때:** 실험을 통해 사용자에게 어떤 메시지가 공감을 얻는지 알아보세요.
-- **온보딩 Campaign 또는 반복 발송:** 트래픽이 높은 Campaign이 최대한 효과적인지 확인하세요.
+- **온보딩 Campaigns(캠페인) 또는 반복 발송:** 트래픽이 높은 Campaigns(캠페인)가 최대한 효과적인지 확인하세요.
 - **여러 메시지 아이디어가 있을 때:** 테스트를 실행하고 데이터 중심의 의사결정을 내리세요.
 - **기존 가정에 도전할 때:** 기존의 마케팅 전략이 실제로 특정 오디언스에게 효과가 있는지 테스트하세요.
 
