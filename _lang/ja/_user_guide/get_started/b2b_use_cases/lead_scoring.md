@@ -16,7 +16,7 @@ Brazeでリードスコアリングワークフローを作成するには、次
 - [シンプルなリードスコアリング](#simple-lead-scoring)
 - [外部リードスコアリング](#external-lead-scoring)
 
-2. 適格なリードを営業チームに送信するWebhook Campaignを作成します。
+2. 適格なリードを営業チームに送信するWebhookキャンペーンを作成します。
 - [リードの引き継ぎ: マーケティング適格リード (MQL) を営業へ](#lead-handoff)
 
 ## シンプルなリードスコアリング {#simple-lead-scoring}
@@ -39,11 +39,11 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 ### ステップ 3: ターゲットオーディエンスを特定する {#step-3-identify-your-target-audience}
 
-#### ステップ 3a: Segmentを選択する {#step-3a-select-segments}
+#### ステップ 3a: セグメントを選択する {#step-3a-select-segments}
 
-すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[Segment]({{site.baseurl}}/user_guide/audience/segments/)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
+すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[セグメント]({{site.baseurl}}/user_guide/audience/segments/)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
 
-![Segmentとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるCanvasの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![セグメントとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるCanvasの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### ステップ 3b: Canvasの再適格性を設定する {#step-3b-set-canvas-re-eligibility}
 
@@ -151,13 +151,13 @@ Brazeは、リードスコアリングモデルを含む内部データモデル
 
 BrazeのリードステータスでSalesforceのリードレコードを更新するには、トリガー型のWebhookテンプレートを使用することをお勧めします。
 
-### ステップ 1: Webhook Campaignを作成する {#step-1-create-a-webhook-campaign}
+### ステップ 1: Webhookキャンペーンを作成する {#step-1-create-a-webhook-campaign}
 
 ### ステップ 2: Webhookを設定する {#step-2-configure-your-webhook}
 
 #### ステップ 2a: Webhookを作成する {#step-2a-compose-webhook}
 
-1. Webhook Campaignに「Salesforce > リードをMQLに更新」などの名前を付けます。
+1. Webhookキャンペーンに「Salesforce > リードをMQLに更新」などの名前を付けます。
 
 2. Webhook URLを{% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %}の形式で入力します。{% raw %}`{{${user_id}}}`{% endraw %}のBrazeユーザーIDは、Salesforceの連絡先IDと一致する必要があります。一致しない場合は、{% raw %}`{{${user_id}}}`{% endraw %}の代わりにエイリアスを使用してください。
 
@@ -190,7 +190,7 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 
 #### ステップ 2b: Webhookの送信をスケジュールする {#step-2b-schedule-webhook-sends}
 
-このCampaignは、ユーザーのリードスコアが変更されるたびにトリガーされる必要があります。スコアが変化したすべてのユーザーに対してトリガーされますが、現在MQLではなく、前のステップで設定したしきい値を超えたユーザーにのみ影響します。
+このキャンペーンは、ユーザーのリードスコアが変更されるたびにトリガーされる必要があります。スコアが変化したすべてのユーザーに対してトリガーされますが、現在MQLではなく、前のステップで設定したしきい値を超えたユーザーにのみ影響します。
 
 **配信スケジュール**ステップで、以下を選択します。
 - **アクションベース**の配信タイプ
@@ -202,6 +202,6 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 
 ![「lead_status」が「MQL」のいずれでもないフィルターを持つWebhookターゲティングオプション。]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### ステップ 3: Campaignを起動する {#step-3-launch-campaign}
+### ステップ 3: キャンペーンを起動する {#step-3-launch-campaign}
 
 **起動** を選択し、顧客がMQLリードスコアのしきい値を超えたときにSalesforceでリードステータスが変化するのを確認しましょう。

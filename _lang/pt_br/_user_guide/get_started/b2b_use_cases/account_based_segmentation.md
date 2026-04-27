@@ -25,8 +25,8 @@ Para ajudar você a começar, criamos modelos SQL básicos para segmentação si
 
 Digamos que você queira segmentar os usuários que são colaboradores de uma conta corporativa alvo.
 
-1. Acesse **Público** > **Extensões de segmento** > **Criar nova extensão** > **Iniciar com um modelo** e selecione o modelo **Catálogo de segmento para eventos**. <br><br> ![Modal "Selecione um modelo" com opções de segmento de catálogo para eventos ou compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>O editor SQL é preenchido automaticamente com um modelo que une os dados de eventos de usuários com os dados do catálogo para segmentar os usuários que se engajam com determinados itens do catálogo. <br><br>![Um editor SQL para uma nova extensão com a guia "Variables" aberta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
-2. Use a guia **Variables** para fornecer os campos necessários para seu modelo antes de gerar seu segmento.<br><br>Para que a Braze identifique os usuários com base no engajamento deles com os itens do catálogo, é necessário fazer o seguinte:
+1. Acesse **Público** > **Extensões de segmento** > **Criar nova extensão** > **Iniciar com um modelo** e selecione o modelo **Catálogo de segmento para eventos**. <br><br> ![Modal "Selecione um modelo" com opções de segmento de catálogo para eventos ou compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>O editor SQL é preenchido automaticamente com um modelo que une os dados de eventos de usuários com os dados do catálogo para segmentar os usuários que se engajam com determinados itens do catálogo. <br><br>![Um editor SQL para uma nova extensão com a guia "Variáveis" aberta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
+2. Use a guia **Variáveis** para fornecer os campos necessários para seu modelo antes de gerar seu segmento.<br><br>Para que a Braze identifique os usuários com base no engajamento deles com os itens do catálogo, é necessário fazer o seguinte:
 - Selecionar um catálogo que contenha um campo de catálogo
 - Selecionar um evento personalizado que contenha uma propriedade de evento
 - Corresponder os valores do campo do catálogo e da propriedade do evento
@@ -112,4 +112,4 @@ Para o básico sobre como usar fontes conectadas na segmentação, consulte [Ext
 
 ## Usando sua extensão baseada em conta em um segmento {#using-your-account-based-extension-in-a-segment}
 
-Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com Campaigns anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
+Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).

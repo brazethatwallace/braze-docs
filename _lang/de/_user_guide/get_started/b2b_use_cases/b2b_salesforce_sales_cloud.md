@@ -147,18 +147,18 @@ Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
 
 Sie können Ihre Templates schnell zu Ihren operativen Workflows in Braze hinzufügen, z. B.:
 
-1. Als Teil einer [Campaign für neue Leads](#new-lead), die einen Lead in Salesforce erstellt
+1. Als Teil einer [Kampagne für neue Leads](#new-lead), die einen Lead in Salesforce erstellt
 2. Als Teil eines [Lead-Scoring-Canvas](#lead-scoring), der Nutzer:innen, die Ihren MQL-Schwellenwert überschritten haben, auf „MQL“ aktualisiert und Salesforce Sales Cloud mit denselben Informationen aktualisiert
 
-### Campaign für neue Leads {#new-lead}
+### Kampagne für neue Leads {#new-lead}
 
-Um einen Lead in Salesforce zu erstellen, wenn Nutzer:innen ihre E-Mail-Adresse angeben, können Sie eine Campaign erstellen, die das Webhook-Template „Update Lead“ verwendet und getriggert wird, wenn Nutzer:innen ihre E-Mail-Adresse hinzufügen (z. B. ein Webformular ausfüllen).
+Um einen Lead in Salesforce zu erstellen, wenn Nutzer:innen ihre E-Mail-Adresse angeben, können Sie eine Kampagne erstellen, die das Webhook-Template „Update Lead“ verwendet und getriggert wird, wenn Nutzer:innen ihre E-Mail-Adresse hinzufügen (z. B. ein Webformular ausfüllen).
 
-![Schritt 2 der Erstellung einer aktionsbasierten Campaign mit der Aktion „Eine E-Mail-Adresse hinzufügen“ als Trigger.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Schritt 2 der Erstellung einer aktionsbasierten Kampagne mit der Aktion „Eine E-Mail-Adresse hinzufügen“ als Trigger.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Lead-Scoring-Canvas für das Überschreiten des Marketing-Qualified-Lead-(MQL)-Schwellenwerts {#lead-scoring}
 
-Dieser Webhook wird im Anwendungsfall [Lead-Scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) behandelt, aber Sie können auch direkt innerhalb des Lead-Scoring-Canvas nach MQLs suchen und Salesforce aktualisieren (anstatt eine separate Webhook-Campaign zu erstellen):
+Dieser Webhook wird im Anwendungsfall [Lead-Scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) behandelt, aber Sie können auch direkt innerhalb des Lead-Scoring-Canvas nach MQLs suchen und Salesforce aktualisieren (anstatt eine separate Webhook-Kampagne zu erstellen):
 
 Fügen Sie Ihrer Nutzeraktualisierung einen weiteren Schritt hinzu, um zu prüfen, ob Nutzer:innen den von Ihnen definierten MQL-Schwellenwert überschritten haben. Wenn ja, aktualisieren Sie den Status auf „MQL“ und aktualisieren dann Salesforce mit demselben „MQL“-Status über dieses Webhook-Template. Salesforce kümmert sich um den Rest, indem es diesen Lead anhand Ihrer definierten Lead-Routing-Regeln an die entsprechenden Vertriebsteams weiterleitet.
 

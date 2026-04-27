@@ -23,7 +23,7 @@ Há duas etapas principais para criar um fluxo de trabalho de pontuação de lea
 
 ### Etapa 1: Criar um Canvas {#step-1-create-a-canvas}
 
-1. Acesse **Messaging** > **Canvas** e selecione **Create Canvas** e, em seguida, preencha os dados básicos do Canvas.
+1. Acesse **Mensagens** > **Canvas** e selecione **Criar Canvas** e, em seguida, preencha os dados básicos do Canvas.
 
 2. Dê ao seu Canvas um nome relevante, como "Lead Scoring Canvas" e, para facilitar a localização, adicione uma tag como "Lead Management".<br><br>![Etapa 1 da criação de um Canvas com o nome "Lead Scoring Canvas" e a tag "Lead Management".]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
@@ -39,11 +39,11 @@ Há duas etapas principais para criar um fluxo de trabalho de pontuação de lea
 
 ### Etapa 3: Identifique seu público-alvo {#step-3-identify-your-target-audience}
 
-#### Etapa 3a: Selecione os Segments {#step-3a-select-segments}
+#### Etapa 3a: Selecione os segmentos {#step-3a-select-segments}
 
-Todos os usuários são elegíveis para a pontuação de leads, então você pode adicionar regras específicas da empresa sobre quem pontuar, selecionando quais [Segments]({{site.baseurl}}/user_guide/audience/segments/) de usuários direcionar e aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) adicionais. Por exemplo, é possível excluir colaboradores, usuários que já são clientes e similares.
+Todos os usuários são elegíveis para a pontuação de leads, então você pode adicionar regras específicas da empresa sobre quem pontuar, selecionando quais [segmentos]({{site.baseurl}}/user_guide/audience/segments/) de usuários direcionar e aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) adicionais. Por exemplo, é possível excluir colaboradores, usuários que já são clientes e similares.
 
-![Etapa 3 da criação de um Canvas com opções para selecionar Segments e filtros para restringir o público de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Etapa 3 da criação de um Canvas com opções para selecionar segmentos e filtros para restringir o público de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### Etapa 3b: Definir reelegibilidade do Canvas {#step-3b-set-canvas-re-eligibility}
 
@@ -202,6 +202,6 @@ Na etapa **Público-alvo**, inclua um filtro que exclua usuários cujos status d
 
 ![Opções de direcionamento do webhook com o filtro de "lead_status" não é nenhum dos "MQL".]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### Etapa 3: Lance a Campaign {#step-3-launch-campaign}
+### Etapa 3: Lance a campanha {#step-3-launch-campaign}
 
-Selecione **Launch** e veja o status do seu lead mudar no Salesforce à medida que seus clientes ultrapassam o limite de pontuação de lead MQL.
+Selecione **Lançar** e veja o status do seu lead mudar no Salesforce à medida que seus clientes ultrapassam o limite de pontuação de lead MQL.

@@ -1,5 +1,5 @@
 ---
-nav_title: Evaluation des prospects
+nav_title: Évaluation des prospects
 article_title: Créer un workflow d'évaluation des prospects
 page_order: 1
 page_type: reference

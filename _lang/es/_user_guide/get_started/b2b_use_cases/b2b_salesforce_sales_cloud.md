@@ -147,18 +147,18 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 
 Puedes añadir rápidamente tus plantillas a tus flujos de trabajo operativos en Braze, por ejemplo:
 
-1. Como parte de una [Campaign de nuevo cliente potencial](#new-lead) que crea un cliente potencial en Salesforce
+1. Como parte de una [campaña de nuevo cliente potencial](#new-lead) que crea un cliente potencial en Salesforce
 2. Como parte de un [Canvas de puntuación de clientes potenciales](#lead-scoring) que actualiza a los usuarios que han superado tu umbral de MQL a "MQL", y que actualiza Salesforce Sales Cloud con la misma información
 
-### Campaign de nuevo cliente potencial {#new-lead}
+### Campaña de nuevo cliente potencial {#new-lead}
 
-Para crear un cliente potencial en Salesforce cuando un usuario proporcione su dirección de correo electrónico, puedes crear una Campaign que utilice la plantilla de webhook "Actualizar cliente potencial" y se desencadene cuando un usuario añada su dirección de correo electrónico (por ejemplo, al rellenar un formulario web).
+Para crear un cliente potencial en Salesforce cuando un usuario proporcione su dirección de correo electrónico, puedes crear una campaña que utilice la plantilla de webhook "Actualizar cliente potencial" y se desencadene cuando un usuario añada su dirección de correo electrónico (por ejemplo, al rellenar un formulario web).
 
-![Paso 2 de la creación de una Campaign basada en acciones con la acción desencadenante "Add an Email Address".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Paso 2 de la creación de una campaña basada en acciones con la acción desencadenante "Añadir una dirección de correo electrónico".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Canvas de puntuación de clientes potenciales para superar el umbral de Marketing Qualified Lead (MQL) {#lead-scoring}
 
-Este webhook se trata en el caso de uso de [puntuación de clientes potenciales]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), pero también puedes comprobar los MQL y actualizar directamente Salesforce dentro del Canvas de puntuación de clientes potenciales (en lugar de crear una Campaign de webhook independiente):
+Este webhook se trata en el caso de uso de [puntuación de clientes potenciales]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), pero también puedes comprobar los MQL y actualizar directamente Salesforce dentro del Canvas de puntuación de clientes potenciales (en lugar de crear una campaña de webhook independiente):
 
 Añade un paso posterior a tu actualización de usuario para comprobar si un usuario ha superado el umbral de MQL que hayas definido. Si lo ha superado, actualiza el estado del usuario a "MQL" y luego actualiza Salesforce con el mismo estado "MQL" utilizando esta plantilla de webhook. Salesforce se encarga del resto, enrutando este cliente potencial a los equipos de ventas adecuados mediante las reglas de enrutamiento de clientes potenciales que hayas definido.
 

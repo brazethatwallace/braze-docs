@@ -147,18 +147,18 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 다음과 같이 Braze의 운영 워크플로에 템플릿을 빠르게 추가할 수 있습니다:
 
-1. Salesforce에서 리드를 생성하는 [신규 사용자 Campaign](#new-lead)의 일부
+1. Salesforce에서 리드를 생성하는 [신규 리드 캠페인](#new-lead)의 일부
 2. MQL 임계값을 넘은 사용자를 "MQL"로 업데이트하고 동일한 정보로 Salesforce Sales Cloud를 업데이트하는 [리드 스코어링 Canvas](#lead-scoring)의 일부
 
-### 새로운 리드 Campaign {#new-lead}
+### 새로운 리드 캠페인 {#new-lead}
 
-사용자가 이메일 주소를 제공할 때 Salesforce에서 리드를 생성하려면 "리드 업데이트" 웹훅 템플릿을 사용하고 사용자가 이메일 주소를 추가할 때(예: 웹 양식 작성) 트리거되는 Campaign을 만들 수 있습니다.
+사용자가 이메일 주소를 제공할 때 Salesforce에서 리드를 생성하려면 "리드 업데이트" 웹훅 템플릿을 사용하고 사용자가 이메일 주소를 추가할 때(예: 웹 양식 작성) 트리거되는 캠페인을 만들 수 있습니다.
 
-![액션 기반이며 트리거 동작이 "이메일 주소 추가"인 Campaign 생성 2단계.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![액션 기반이며 트리거 동작이 "이메일 주소 추가"인 캠페인 생성 2단계.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### MQL(마케팅 적격 리드) 임계값 초과를 위한 리드 스코어링 Canvas {#lead-scoring}
 
-이 웹훅은 [리드 스코어링]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) 사용 사례에서 다루고 있지만, 별도의 웹훅 Campaign을 만드는 대신 리드 스코어링 Canvas 내에서 직접 MQL을 확인하고 Salesforce를 업데이트할 수도 있습니다:
+이 웹훅은 [리드 스코어링]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) 사용 사례에서 다루고 있지만, 별도의 웹훅 캠페인을 만드는 대신 리드 스코어링 Canvas 내에서 직접 MQL을 확인하고 Salesforce를 업데이트할 수도 있습니다:
 
 사용자 업데이트에 후속 단계를 추가하여 사용자가 정의한 MQL 임계값을 넘었는지 확인하세요. 임계값을 넘었다면 사용자의 상태를 "MQL"로 업데이트한 다음, 이 웹훅 템플릿을 사용하여 동일한 "MQL" 상태로 Salesforce를 업데이트합니다. Salesforce는 정의된 리드 라우팅 규칙에 따라 이 리드를 적절한 영업 팀으로 라우팅하여 나머지 작업을 처리합니다.
 

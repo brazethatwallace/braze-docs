@@ -16,7 +16,7 @@ Essas recomendações podem mudar com o tempo, à medida que a Braze desenvolve 
 
 Antes de falarmos sobre como configurar seu modelo de dados B2B, vamos abordar alguns conceitos e termos que você deve conhecer.
 
-Há quatro objetos principais de B2B necessários para executar Campaigns B2B.
+Há quatro objetos principais de B2B necessários para executar campanhas B2B.
 
 | Objeto | Descrição |
 | --- | --- |
