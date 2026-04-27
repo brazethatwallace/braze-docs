@@ -6,7 +6,7 @@ page_type: reference
 description: "Saiba como usar vários recursos da Braze para potencializar seus casos de uso de segmentação baseada em contas B2B."
 ---
 
-# Configurar segmentação baseada em conta
+# Configurar segmentação baseada em conta {#set-up-account-based-segmentation}
 
 > Esta página mostra como usar vários recursos da Braze para potencializar seus casos de uso de segmentação baseada em contas B2B.
 
@@ -15,23 +15,23 @@ Você pode fazer a segmentação baseada em contas B2B de duas maneiras, depende
 - Ao usar [catálogos para seus objetos de negócios](#option-1-when-using-catalogs-for-your-business-objects)
 - Ao usar [fontes conectadas para seus objetos de negócios](#option-2-when-using-connected-sources-for-your-business-objects)
 
-## Configuração da segmentação baseada em contas B2B
+## Configuração da segmentação baseada em contas B2B {#setting-up-b2b-account-based-segmentation}
 
-### Opção 1: Ao usar catálogos para seus objetos de negócios
+### Opção 1: Ao usar catálogos para seus objetos de negócios {#option-1-when-using-catalogs-for-your-business-objects}
 
-#### Segmentação básica com modelos SQL
+#### Segmentação básica com modelos SQL {#basic-sql-template-segmentation}
 
 Para ajudar você a começar, criamos modelos SQL básicos para segmentação simples baseada em contas.
 
-Digamos que você queira segmentar os usuários que são colaboradores de uma conta corporativa alvo. 
+Digamos que você queira segmentar os usuários que são colaboradores de uma conta corporativa alvo.
 
-1. Acessar **Público** > **Extensões de segmento** > **Criar nova extensão** > **Iniciar com um modelo** e selecione o modelo **Catálogo de segmento para eventos**. <br><br> ![Modal "Selecione um modelo" com opções de segmento de catálogo para eventos ou compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>O editor SQL é preenchido automaticamente com um modelo que une os dados de eventos de usuários com os dados do catálogo para segmentar os usuários que se engajam com determinados itens do catálogo. <br><br>![Um editor SQL para uma nova extensão com a guia "Variables" aberta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
+1. Acesse **Público** > **Extensões de segmento** > **Criar nova extensão** > **Iniciar com um modelo** e selecione o modelo **Catálogo de segmento para eventos**. <br><br> ![Modal "Selecione um modelo" com opções de segmento de catálogo para eventos ou compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>O editor SQL é preenchido automaticamente com um modelo que une os dados de eventos de usuários com os dados do catálogo para segmentar os usuários que se engajam com determinados itens do catálogo. <br><br>![Um editor SQL para uma nova extensão com a guia "Variables" aberta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
 2. Use a guia **Variables** para fornecer os campos necessários para seu modelo antes de gerar seu segmento.<br><br>Para que a Braze identifique os usuários com base no engajamento deles com os itens do catálogo, é necessário fazer o seguinte:
 - Selecionar um catálogo que contenha um campo de catálogo
 - Selecionar um evento personalizado que contenha uma propriedade de evento
 - Corresponder os valores do campo do catálogo e da propriedade do evento
 
-##### Diretrizes de variáveis para casos de uso B2B
+##### Diretrizes de variáveis para casos de uso B2B {#variables-guidelines-for-b2b-use-cases}
 
 Selecione as seguintes variáveis para um caso de uso de segmentação baseada em contas B2B:
 
@@ -45,7 +45,7 @@ Selecione as seguintes variáveis para um caso de uso de segmentação baseada e
 | (Em Filtrar resultados SQL) Valor | Enterprise |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Segmentação SQL sofisticada
+#### Segmentação SQL sofisticada {#sophisticated-sql-segmentation}
 
 Para uma segmentação mais sofisticada ou complexa, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). Para ajudar você a começar, aqui estão alguns modelos SQL que podem dar uma vantagem inicial com a segmentação baseada em contas B2B:
 
@@ -68,7 +68,7 @@ ON TRY_PARSE_JSON(events.properties):account_id::STRING = salesforce_accounts.id
 WHERE events.name = 'account_linked'
 AND salesforce_accounts.Industry = 'Restaurants'
 AND salesforce_accounts.Classification = 'Enterprise'
-; 
+;
 ```
 
 {: start="2"}
@@ -106,10 +106,10 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 ;
 ```
 
-### Opção 2: Ao usar fontes conectadas para seus objetos de negócios
+### Opção 2: Ao usar fontes conectadas para seus objetos de negócios {#option-2-when-using-connected-sources-for-your-business-objects}
 
 Para o básico sobre como usar fontes conectadas na segmentação, consulte [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/). Use os modelos abordados em [Ao usar catálogos](#option-1-when-using-catalogs-for-your-business-objects) como inspiração para formatar as tabelas de origem, já que você pode formatá-las da maneira que quiser.
 
-## Usando sua extensão baseada em conta em um segmento
+## Usando sua extensão baseada em conta em um segmento {#using-your-account-based-extension-in-a-segment}
 
-Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento em campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).
+Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com Campaigns anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
