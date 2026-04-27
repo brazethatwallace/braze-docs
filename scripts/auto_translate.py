@@ -554,6 +554,19 @@ PR #13373).
 parse front matter). Use **spaces** (for example two spaces) for nested \
 markdown bullets, not tab characters, so lists render consistently (auto-translate \
 PR #13374).
+28. **YAML `nav_title` / `article_title` — ampersand as “and”**: When English \
+joins two ordinary words or concepts with `&` (for example **Shopify checkout & \
+Liquid**), localized YAML must **not** keep a bare `&` as shorthand for *and* \
+unless the English string is a **verbatim** customer-visible UI label that \
+actually shows `&`. Spell it out per locale (*und*, *et*, *e*, *y*, *と*, \
+*및*/*와*, etc.). Technical spellings like `checkout.liquid` stay literal \
+(auto-translate PR #13375).
+29. **Release notes (`_releases/`) — bold export/UI lead-ins**: When English \
+uses bullets such as `* **Rows with errors:** …` / `* **All rows:** …` that \
+**describe** dashboard export choices (not wire identifiers), translate the \
+**bold lead-in** to the target language so the line is not half English. Keep \
+tokens such as **Error** when English uses them as a literal status label \
+(auto-translate PR #13375).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
