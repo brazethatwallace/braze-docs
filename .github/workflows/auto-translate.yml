@@ -239,6 +239,12 @@ jobs:
         id: merge-artifacts
         run: python scripts/merge_translation_matrix_artifacts.py matrix-out
 
+      # Linux allows two paths that differ only by case; Git on macOS/Windows
+      # cannot represent both—status shows endless "modified" noise (PR #13372).
+      - name: Fail on case-only path collisions
+        if: steps.merge-artifacts.outcome == 'success'
+        run: python scripts/auto_translate.py check-path-case-collisions
+
       - name: Clean up orphaned translations
         id: orphan
         if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}

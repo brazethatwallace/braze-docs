@@ -1,20 +1,29 @@
 ---
-nav_title: "Atribuições do perfil do usuário"
-article_title: Visualizações de atribuição de usuário no Snowflake 
+nav_title: "Atributos do perfil de usuário"
+article_title: Visualizações de atributos de usuário no Snowflake
 page_order: 10
 page_type: partner
 search_tag: Partner
+toc_headers: h2
 ---
 
-# Atribuições do perfil do usuário
+# Atributos do perfil de usuário {#user-profile-attributes}
 
-> Esta página serve como referência para as visualizações de atributos padrão e personalizados no Snowflake. Há três visualizações para atributos padrão e três visualizações para atributos personalizados, cada uma projetada para um caso de uso específico com suas próprias considerações de performance.
+> Esta página serve como referência para as visualizações de atributos padrão e personalizados no Snowflake. Há três visualizações para atributos padrão e três visualizações para atributos personalizados, cada uma projetada para um caso de uso específico com suas próprias considerações de desempenho.
 
 {% alert important %}
-Os atributos de perfil de usuário estão atualmente em versão beta para os clientes do Snowflake Data Sharing. Se estiver usando o Snowflake Data Sharing e quiser ter acesso a essa versão beta, entre em contato com o gerente de sucesso do cliente ou com o suporte da Braze.
+Os atributos de perfil de usuário estão atualmente em versão beta para os clientes do Snowflake Data Sharing. Se você está usando o Snowflake Data Sharing e deseja ter acesso a essa versão beta, entre em contato com o seu gerente de sucesso do cliente ou com o suporte da Braze.
 {% endalert %}
 
-# Visualizações disponíveis
+## Paridade de dados com o dashboard {#data-parity-with-the-dashboard}
+
+Em circunstâncias raras, os valores de atributos padrão e personalizados nas visualizações do Snowflake nesta página podem não corresponder ao que você vê no perfil de um usuário no dashboard da Braze.
+
+Durante a versão beta, podem ocorrer discrepâncias. Por exemplo, um atributo pode aparecer como `NULL` no Snowflake enquanto o dashboard mostra um valor para aquele usuário.
+
+Se você perceber incompatibilidades generalizadas, entre em contato com o seu gerente de sucesso do cliente ou com o suporte da Braze.
+
+## Visualizações disponíveis {#available-views}
 
 <table>
   <thead>
@@ -28,7 +37,7 @@ Os atributos de perfil de usuário estão atualmente em versão beta para os cli
     <tr>
       <td rowspan="3">Atributo padrão</td>
       <td><code>USER_DEFAULT_ATTRIBUTES_VIEW_SHARED</code></td>
-      <td>Instantâneos do perfil do usuário</td>
+      <td>Instantâneos do perfil de usuário</td>
     </tr>
     <tr>
       <td><code>USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED</code></td>
@@ -41,7 +50,7 @@ Os atributos de perfil de usuário estão atualmente em versão beta para os cli
     <tr>
       <td rowspan="3">Atributo personalizado</td>
       <td><code>USER_CUSTOM_ATTRIBUTES_VIEW_SHARED</code></td>
-      <td>Instantâneos do perfil do usuário</td>
+      <td>Instantâneos do perfil de usuário</td>
     </tr>
     <tr>
       <td><code>USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED</code></td>
@@ -55,23 +64,32 @@ Os atributos de perfil de usuário estão atualmente em versão beta para os cli
 </table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-## Instantâneos do perfil do usuário
+## Instantâneos do perfil de usuário {#user-profile-snapshots}
 
-Essas exibições fornecem instantâneos periódicos das atribuições do perfil do usuário. Os dados são postergados em até 12 horas, o que os torna úteis para consultas que não exigem atualizações em tempo real. 
+Essas visualizações fornecem instantâneos periódicos dos atributos do perfil de usuário. Os dados têm um atraso de até 12 horas, o que os torna úteis para consultas que não exigem atualizações em tempo real.
 
  - `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`
- - `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`  
+ - `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`
 
-### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`
+### Uso {#usage}
 
-#### Esquema
+* Fornece um instantâneo dos atributos de usuário com um **atraso de até 12 horas**.
+* Apresenta bom desempenho para consultas que não exigem precisão em tempo real.
+* Execução de consulta mais rápida, especialmente ao filtrar por atributos diferentes de `USER_ID`.
+* **Limitação:** os dados não são atualizados em tempo real.
+
+{% alert note %}
+O campo `TIME` representa o momento da atualização do perfil de usuário. Para dados preenchidos retroativamente, o `TIME` é o momento do preenchimento retroativo.
+{% endalert %}
+
+### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#userdefaultattributesviewshared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | NÚMERO |
+| `TIME` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `EXTERNAL_ID` | VARCHAR |
@@ -88,44 +106,47 @@ Essas exibições fornecem instantâneos periódicos das atribuições do perfil
 {: .reset-td-br-1 .reset-td-br-2 role="presentation}
 
 
-### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`
-
-#### Esquema
+### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#usercustomattributesviewshared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | NÚMERO |
+| `TIME` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `CUSTOM_ATTRIBUTES` | VARIÁVEL |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}  
+| `CUSTOM_ATTRIBUTES` | VARIANT |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation}
 
-### Instantâneos do perfil do usuário - notas de uso
+## Visualizações do perfil de usuário em tempo real {#real-time-user-profile-views}
 
-* Fornece um instantâneo das atribuições do usuário com uma **postergação** de até **12 horas**.
-* Apresenta bom desempenho para consultas que não exigem precisão em tempo real.
-* Execução mais rápida da consulta, especialmente ao filtrar por atribuições diferentes de `USER_ID`.
-* **Limitação:** Os dados não são atualizados em tempo real.
+Essas visualizações fornecem atualizações quase em tempo real sobre os atributos do perfil de usuário, com um atraso de dados de até 10 minutos após a ocorrência de uma atualização na Braze.
 
-## Visualizações do perfil do usuário em tempo real
+  - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
+  - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-Essas exibições fornecem atualizações quase em tempo real sobre as atribuições do perfil do usuário, com postergação de dados de até 10 minutos após a ocorrência de uma atualização no Braze.
+### Uso {#usage}
 
-  - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 
-  - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` 
+* Fornece atributos de usuário atualizados com atraso mínimo (~10 minutos).
+* Útil para análises em tempo real e cenários em que dados recentes são necessários.
+* **Considerações de desempenho:**
+    * Consultas sobre usuários individuais são mais rápidas (menos de um minuto usando um warehouse grande).
+    * Consultas sem filtros de USER_ID exigem agregação em todos os usuários, o que leva a tempos de execução significativamente mais longos.
+    * Consultas em um grande conjunto de dados (como mais de 100 milhões de usuários) podem levar muitos minutos.
 
-### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
-#### Esquema
+{% alert note %}
+O campo `TIME` representa o momento da atualização do perfil de usuário. Para dados preenchidos retroativamente, o `TIME` é o momento do preenchimento retroativo.
+{% endalert %}
+
+### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#userlateststatedefaultattributesviewshared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | NÚMERO |
+| `TIME` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_ID` | VARCHAR |
@@ -141,46 +162,44 @@ Essas exibições fornecem atualizações quase em tempo real sobre as atribuiç
 | `TIME_ZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation}
 
-### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
-#### Esquema
+### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#userlateststatecustomattributeviewshared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | NÚMERO |
+| `TIME` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
-| `CUSTOM_ATTRIBUTES` | OBJETO |
+| `CUSTOM_ATTRIBUTES` | OBJECT |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation}
 
+## Registros históricos de alterações {#historical-change-logs}
 
-### Visualizações do perfil do usuário em tempo real - notas de uso
+Essas visualizações armazenam registros históricos de alterações de atributos de usuário, capturando mudanças com granularidade de 12 horas.
 
-* Fornece atribuições atualizadas do usuário com postergação mínima (~10 minutos).
-* Útil para análises em tempo real e cenários em que são necessários dados recentes.
-* **Considerações sobre a performance:**
-    * As consultas sobre usuários individuais são mais rápidas (menos de um minuto usando um grande armazém).
-    * As consultas sem os filtros USER_ID exigem agregação em todos os usuários, o que leva a tempos de execução significativamente mais longos.
-    * As consultas em um grande conjunto de dados (como mais de 100 milhões de usuários) podem levar muitos minutos.
+- `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-## Registros históricos de alterações
+### Uso {#usage}
 
-Essas exibições armazenam registros históricos de alterações de atribuições do usuário, capturando alterações com granularidade de 12 horas.
+* Fornece um registro de alterações históricas nos atributos de usuário.
+* Os dados são capturados a cada 12 horas, o que significa que várias atualizações nesse período são combinadas em um único registro. Alterações individuais dentro desse intervalo não são mantidas separadamente.
+* `EFF_DT` e `END_DT` marcam o início e o fim do estado de um atributo do usuário.
 
-- `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 
-- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` 
+{% alert note %}
+O campo `TIME` representa o momento da atualização do perfil de usuário. Para dados preenchidos retroativamente, o `TIME` é o momento do preenchimento retroativo.
+{% endalert %}
 
-### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
-#### Esquema
+### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#userdefaultattributeshistoryviewshared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
-| `TIME` | NÚMERO |
+| `TIME` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `EXTERNAL_ID` | VARCHAR |
@@ -198,43 +217,34 @@ Essas exibições armazenam registros históricos de alterações de atribuiçõ
 | `END_DT` | TIMESTAMP_NTZ |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation}
 
-### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
-#### Esquema
+### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#usercustomattributeshistoryviewshared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
-| `TIME` | NÚMERO |
+| `TIME` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `CUSTOM_ATTRIBUTES` | VARIÁVEL |
+| `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation}
 
-### Registros históricos de alterações - notas de uso
+## Melhores práticas {#best-practices}
 
-* Fornece um registro de alterações históricas nas atribuições do usuário.
-* Os dados são capturados a cada 12 horas, o que significa que várias atualizações nessa janela são combinadas em um único registro. As alterações individuais dentro desse período não são mantidas separadamente.
-* `EFF_DT` e `END_DT` marcam o início e o fim do estado de atribuição de um usuário.
-
-# Melhores práticas
-
-## Uso recomendado da consulta
+### Uso recomendado de consultas {#recommended-query-usage}
 
 | Caso de uso                                               | Visualizações recomendadas                                   | Notas                                                                 |
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
 | **Consultas gerais** que não requerem atualizações recentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Execução rápida, com dados de até 12 horas.                          |
-| Consultas que exigem as **atribuições mais recentes do usuário**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fornece atualizações quase em tempo real, mas pode ser mais lento para grandes conjuntos de dados. |
-| **Rastreamento histórico** de alterações de atribuições           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Armazena alterações de atribuições com granularidade de 12 horas.                     |
+| Consultas que exigem os **atributos de usuário mais recentes**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fornece atualizações quase em tempo real, mas pode ser mais lento para grandes conjuntos de dados. |
+| **Rastreamento histórico** de alterações de atributos           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Armazena alterações de atributos com granularidade de 12 horas.                     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
 
-## Considerações sobre performance
+### Considerações de desempenho {#performance-considerations}
 
-* As consultas em `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` devem retornar em menos de 10 segundos para grandes conjuntos de dados (~1 bilhão de usuários) em um grande armazém.
-* As consultas em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` para um único usuário retornam em menos de um minuto, mas são mal dimensionadas sem a filtragem `USER_ID`.
+* Consultas em `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` devem retornar em menos de 10 segundos para grandes conjuntos de dados (~1 bilhão de usuários) em um warehouse grande.
+* Consultas em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` para um único usuário retornam em menos de um minuto, mas escalam mal sem a filtragem por `USER_ID`.
 * Consultas sobre mais de 100 milhões de usuários em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` podem levar vários minutos devido à agregação por usuário.
-
-
