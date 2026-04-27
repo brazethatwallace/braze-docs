@@ -47,6 +47,15 @@ on:
         required: false
         type: string
         default: "false"
+      orphan_cleanup_only:
+        description: >
+          If true, skip translation: run repo-wide orphan deletion +
+          duplicate-alias check and open a _lang/ PR only. Leave files and
+          since_commit empty. Use after batched catch-up (cannot combine with
+          files or since_commit).
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -78,10 +87,19 @@ jobs:
       - name: Identify changed English files
         id: changes
         run: |
+          if [ "${{ inputs.orphan_cleanup_only }}" = "true" ]; then
+            if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ]; then
+              echo "::error::orphan_cleanup_only must be used with empty files and since_commit inputs."
+              exit 1
+            fi
+            echo "orphan_cleanup_only mode — no English files to translate."
+            echo "count=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
              [ -z "${{ inputs.since_commit }}" ] && \
              [ -z "${{ inputs.files }}" ]; then
-            echo "workflow_dispatch requires since_commit (catch-up diff) and/or files (explicit paths)."
+            echo "workflow_dispatch requires since_commit (catch-up diff) and/or files (explicit paths), unless orphan_cleanup_only is true."
             exit 1
           fi
           if [ -n "${{ inputs.since_commit }}" ]; then
@@ -282,6 +300,92 @@ jobs:
 
       - name: Request Copilot review
         if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set +e
+          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
+            echo "Requested Copilot review via gh CLI shortcut."
+            exit 0
+          fi
+          echo "gh CLI shortcut failed; falling back to REST API bot login..."
+          if gh api --method POST \
+            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
+            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
+            echo "Requested Copilot review via REST API fallback."
+            exit 0
+          fi
+          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
+
+  # --------------------------------------------------------------------------
+  # Orphan cleanup only (no translation; after batched catch-up)
+  # --------------------------------------------------------------------------
+  orphan-cleanup-only:
+    needs: prepare
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install anthropic pyyaml
+
+      - name: Fail on case-only path collisions
+        run: python scripts/auto_translate.py check-path-case-collisions
+
+      - name: Clean up orphaned translations
+        id: orphan
+        env:
+          ORPHAN_CLEANUP_MAX_DELETES: "500"
+        run: python scripts/clean_orphaned_translations.py
+
+      - name: Check for duplicate YAML aliases
+        id: aliases
+        run: python scripts/auto_translate.py check-aliases
+
+      - name: Write PR body
+        run: |
+          cat > translation_pr_body.md <<'EOF'
+          ## Orphan localization cleanup
+
+          This PR removes localized markdown that has no matching English source under `_docs/` or `_includes/` (`clean_orphaned_translations.py`), and runs the duplicate-alias check from the Auto-translate workflow.
+
+          **No English files were translated in this run.**
+          EOF
+
+      - name: Create pull request
+        id: create-pr
+        if: steps.orphan.outcome == 'success' && steps.aliases.outcome == 'success'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto-translate/${{ github.run_id }}
+          base: develop
+          title: "chore: orphan translation cleanup"
+          body-path: translation_pr_body.md
+          labels: |
+            auto-translation
+            In Review
+          commit-message: "chore: remove orphaned localized markdown"
+          delete-branch: true
+          add-paths: |
+            _lang/
+
+      - name: Request Copilot review
+        if: steps.create-pr.outputs.pull-request-number
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
