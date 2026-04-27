@@ -4,7 +4,7 @@ article_title: Amazon S3
 alias: /partners/amazon_s3/
 description: "이 참조 문서에서는 Amazon Web Services에서 제공하는 확장성이 뛰어난 스토리지 시스템인 Amazon S3와 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 

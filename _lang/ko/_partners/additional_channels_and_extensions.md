@@ -1,5 +1,5 @@
 ---
-nav_title: "Additional channels and extensions"
+nav_title: "추가 채널 및 확장"
 article_title: 추가 채널 및 확장
 page_order: 11
 

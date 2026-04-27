@@ -4,7 +4,7 @@ article_title: Inkit
 alias: /partners/inkit/
 description: "이 참조 문서에서는 Braze와 Inkit 간의 파트너십에 대해 설명합니다. 이 파트너십을 통해 다이렉트 메일 캠페인을 자동화하여 시간과 노력을 절약하고, 오프라인 고객을 온라인으로 다시 유도할 수 있습니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 

@@ -4,7 +4,7 @@ article_title: AppsFlyer Audiences
 alias: /partners/appsflyer_audiences/
 description: "이 참조 문서에서는 Braze와 AppsFlyer Audiences 간의 파트너십에 대해 설명합니다. AppsFlyer Audiences는 AppsFlyer 플랫폼의 기능으로, 오디언스 세그먼트를 효율적으로 구축하고 파트너 네트워크에 연결할 수 있습니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 
