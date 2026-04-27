@@ -2,7 +2,7 @@
 
 > Con Banners, puedes crear mensajes personalizados para tus usuarios, al tiempo que amplías el alcance de tus otros canales, como el correo electrónico o las notificaciones push. Puedes integrar Banners directamente en tu aplicación o sitio web, lo que te permite interactuar con los usuarios a través de una experiencia que resulta natural.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 La disponibilidad de los Banners depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador del éxito del cliente para empezar.
 
@@ -10,7 +10,7 @@ Antes de empezar, asegúrate de haber [creado ubicaciones de Banner]({{site.base
 
 ![Ejemplo de Banner mostrado en un dispositivo.]({% image_buster /assets/img/banners/sample_banner.png %})
 
-## ¿Por qué utilizar Banners?
+## ¿Por qué utilizar Banners? {#why-use-banners}
 
 Los Banners permiten a los equipos de marketing y de producto personalizar de forma dinámica el contenido de las aplicaciones o los sitios web, reflejando la elegibilidad y el comportamiento de los usuarios en tiempo real. Muestran mensajes de forma persistente en línea, proporcionando experiencias no intrusivas y contextualmente relevantes que pueden actualizarse al inicio de una sesión o a mitad de sesión cuando tu aplicación o sitio web lo solicita explícitamente.
 
@@ -19,12 +19,12 @@ Una vez que los Banners están integrados en una aplicación o sitio web, los es
 | Caso de uso | Explicación |
 | --- | --- |
 | Anuncios | Mantén los anuncios, como los próximos eventos o los cambios en las políticas, en un lugar destacado de la experiencia de la aplicación. |
-| Personalizar ofertas | Muestra promociones e incentivos personalizados basados en el historial de navegación, el contenido del carrito, el nivel de suscripción y el estado de fidelización de cada usuario. |
-| Dirigirse a la interacción de nuevos usuarios | Guía a los nuevos usuarios a través de los flujos de incorporación y la configuración de la cuenta. |
+| Personalización de ofertas | Muestra promociones e incentivos personalizados basados en el historial de navegación, el contenido del carrito, el nivel de suscripción y el estado de fidelización de cada usuario. |
+| Interacción con nuevos usuarios | Guía a los nuevos usuarios a través de los flujos de incorporación y la configuración de la cuenta. |
 | Ventas y promociones | Destaca el contenido destacado, los productos de tendencia y las campañas de marca en curso de forma persistente y directa en tu página de inicio sin interrumpir la experiencia del usuario. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Características
+## Características {#features}
 
 Las características de los Banners incluyen:
 
@@ -50,7 +50,7 @@ Evita modificar los ID de ubicación después de lanzar una campaña de Banner.
 
 ### Prioridad del Banner {#priority}
 
-Cuando varios mensajes de Banner hacen referencia al mismo ID de ubicación, los Banners se muestran por orden de prioridad: alta, media o baja. De forma predeterminada, los Banners están configurados en media, pero puedes [establecer manualmente la prioridad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) cuando crees o edites tu campaña de Banner. 
+Cuando varios mensajes de Banner hacen referencia al mismo ID de ubicación, los Banners se muestran por orden de prioridad: alta, media o baja. De forma predeterminada, los Banners están configurados en media, pero puedes [establecer manualmente la prioridad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) cuando crees o edites tu campaña de Banner.
 
 Si varios Banners tienen la misma prioridad, se mostrará primero el Banner más reciente para el que el usuario sea elegible.
 
@@ -58,7 +58,7 @@ Si varios Banners tienen la misma prioridad, se mostrará primero el Banner más
 
 {% multi_lang_include banners/placement_requests.md %}
 
-### Entrega de mensajes
+### Entrega de mensajes {#message-delivery}
 
 Los mensajes de Banner se entregan a tu aplicación o sitio web como contenido HTML, normalmente representado dentro de un iframe. Esto garantiza que tus Banners se muestren de forma coherente en todos los dispositivos y te ayuda a mantener sus estilos y scripts separados del resto del código.
 
@@ -66,7 +66,7 @@ Los iframes permiten actualizaciones de contenido dinámicas y personalizadas qu
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
-### Dimensiones y tamaños
+### Dimensiones y tamaños {#dimensions-and-sizing}
 
 Esto es lo que debes saber sobre las dimensiones y el tamaño de los Banners:
 
@@ -74,7 +74,7 @@ Esto es lo que debes saber sobre las dimensiones y el tamaño de los Banners:
 - El HTML ocupa todo el ancho del contenedor en el que se representa.
 - Recomendamos crear un elemento de dimensiones fijas y probar esas dimensiones en el compositor.
 
-## Limitaciones
+## Limitaciones {#limitations}
 
 Cada espacio de trabajo puede admitir hasta 200 campañas activas de Banner. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) una campaña existente antes de crear una nueva.
 
@@ -90,11 +90,11 @@ Además, los mensajes de Banner no admiten las siguientes características:
 Permitir que los usuarios descarten manualmente un Banner está en acceso anticipado. Consulta [Configurar el comportamiento de descarte]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para más detalles. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
 - [Crear ubicaciones de Banner en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/)
 - [Crear una campaña de Banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
-- [Tutorial: Mostrar un Banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Tutorial: Mostrar un Banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
 
 {% alert tip %}
 ¿Quieres ayudar a priorizar lo que viene después? Contacta con [banners-feedback@braze.com](mailto:banners-feedback@braze.com).

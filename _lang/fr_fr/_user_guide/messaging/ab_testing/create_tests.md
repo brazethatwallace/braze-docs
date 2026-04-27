@@ -15,12 +15,12 @@ local_redirect: #optimizations
 
 ![Le menu déroulant qui s'affiche lorsque vous sélectionnez le bouton « Créer une campagne » pour choisir entre multicanal et canal unique.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
-## Étape 1 : Créer votre campagne
+## Étape 1 : Créer votre campagne {#step-1-create-your-campaign}
 
-1. Accédez à **Envoi de messages** > **Campagnes**.
-2. Sélectionnez **Créer une campagne** et choisissez un canal pour la campagne dans la section qui permet les tests multivariés et A/B. Pour une documentation détaillée sur chaque canal de communication, consultez [Créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+1. Accédez à **Messaging** > **Campaigns**.
+2. Sélectionnez **Create campaign** et choisissez un canal pour la campagne dans la section qui permet les tests multivariés et A/B. Pour une documentation détaillée sur chaque canal de communication, consultez [Créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
 
-## Étape 2 : Rédiger vos variantes
+## Étape 2 : Rédiger vos variantes {#step-2-compose-your-variants}
 
 Vous pouvez créer jusqu'à huit variantes de votre message, en différenciant les titres, le contenu, les images, et plus encore. Le nombre de différences entre les messages détermine s'il s'agit d'un test multivarié ou d'un test A/B. Un test A/B examine l'effet de la modification d'une seule variable, tandis qu'un test multivarié en examine deux ou plus.
 
@@ -28,7 +28,7 @@ Pour des idées sur la façon de différencier vos variantes, consultez [Conseil
 
 ![Sélection de « Ajouter une variante » pour une campagne.]({% image_buster /assets/img/ab_create_2.png %})
 
-## Étape 3 : Planifier votre campagne
+## Étape 3 : Planifier votre campagne {#step-3-schedule-your-campaign}
 
 La planification de votre campagne multivariée fonctionne de la même manière que pour toute autre campagne Braze. Tous les [types de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/) standard sont disponibles.
 
@@ -38,7 +38,7 @@ Une fois qu'un test multivarié a commencé, vous ne pouvez plus modifier la cam
 Pour utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) (disponible pour certains canaux), planifiez votre campagne pour un envoi unique. Les optimisations ne sont pas disponibles pour les campagnes récurrentes ou celles pour lesquelles la rééligibilité est activée.
 {% endalert %}
 
-## Étape 4 : Choisir un segment et répartir vos utilisateurs entre les variantes
+## Étape 4 : Choisir un segment et répartir vos utilisateurs entre les variantes {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
 Sélectionnez les segments à cibler, puis répartissez les membres entre vos variantes sélectionnées et le [groupe de contrôle](#including-a-control-group) facultatif. Pour les bonnes pratiques concernant le choix d'un segment pour vos tests, consultez [Choisir un segment](#choosing-a-segment).
 
@@ -56,25 +56,25 @@ Lorsque vous consultez vos résultats, vous pouvez comparer les taux de conversi
 L'utilisation d'un groupe de contrôle pour déterminer un gagnant par les *ouvertures* ou les *clics* n'est pas recommandée. Étant donné que le groupe de contrôle ne reçoit pas le message, ces utilisateurs ne peuvent effectuer aucune ouverture ni aucun clic. Par conséquent, le taux de conversion de ce groupe est de 0 % par définition et ne constitue pas une comparaison pertinente avec les variantes.
 {% endalert %}
 
-#### Groupes de contrôle avec les tests A/B
+#### Groupes de contrôle avec les tests A/B {#control-groups-with-ab-testing}
 
 Lorsque vous utilisez une limite de débit avec un test A/B, la limite de débit n'est pas appliquée au groupe de contrôle de la même manière qu'au groupe de test, ce qui constitue une source potentielle de biais temporel. Utilisez des fenêtres de conversion appropriées pour éviter ce biais.
 
-#### Groupes de contrôle avec la Sélection intelligente
+#### Groupes de contrôle avec la Sélection intelligente {#control-groups-with-intelligent-selection}
 
 La taille du groupe de contrôle pour une campagne avec la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) est basée sur le nombre de variantes. Si chaque variante est envoyée à plus de 20 % des utilisateurs, le groupe de contrôle représente 20 % et les variantes sont réparties équitablement sur les 80 % restants. Cependant, si vous avez suffisamment de variantes pour que chacune soit envoyée à moins de 20 % des utilisateurs, le groupe de contrôle doit être réduit. Lorsque la Sélection intelligente commence à analyser les performances de votre test, le groupe de contrôle augmente ou diminue en fonction des résultats.
 
-## Étape 5 : Définir un événement de conversion (facultatif)
+## Étape 5 : Définir un événement de conversion (facultatif) {#step-5-designate-a-conversion-event-optional}
 
 Définir un événement de conversion pour une campagne vous permet de voir combien de destinataires de cette campagne ont effectué une action particulière après l'avoir reçue.
 
-Cela n'affecte le test que si vous avez choisi **Taux de conversion principal** dans les étapes précédentes. Pour plus d'informations, consultez [Événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Cela n'affecte le test que si vous avez choisi **Primary Conversion Rate** dans les étapes précédentes. Pour plus d'informations, consultez [Événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
 
-## Étape 6 : Vérifier et lancer
+## Étape 6 : Vérifier et lancer {#step-6-review-and-launch}
 
 Sur la page de confirmation, vérifiez les détails de votre campagne multivariée et lancez le test ! Ensuite, découvrez comment [comprendre les résultats de votre test]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/).
 
-## Bon à savoir
+## Bon à savoir {#things-to-know}
 
 Si votre expérience a déjà commencé l'envoi et que vous modifiez le message, l'expérience est invalidée et tous les résultats de l'expérience sont supprimés.
 
@@ -89,7 +89,7 @@ Selon le canal que vous sélectionnez, vous pouvez tester différents composants
 | ---------------------| --------------- | ------------- |
 | Push | Texte <br> Utilisation d'images et d'emojis <br> Liens profonds <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
 | E-mail | Objet <br> Nom d'affichage <br> Formule de salutation <br> Corps du texte <br> Utilisation d'images et d'emojis <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
-| Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clics <br> Taux de conversion |
+| Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Clics <br> Taux de conversion |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% alert tip %}
@@ -114,13 +114,13 @@ De plus, lorsque vous choisissez le segment sur lequel effectuer votre test, ass
 À titre indicatif, vous avez probablement besoin d'environ 15 000 utilisateurs par variante (y compris le groupe de contrôle) pour atteindre un niveau de confiance de 95 % dans les résultats de votre test. Cependant, le nombre exact d'utilisateurs nécessaires peut être supérieur ou inférieur, selon votre cas particulier. Pour des indications plus précises sur la taille des échantillons par variante, envisagez d'utiliser un [calculateur de taille d'échantillon](https://www.calculator.net/sample-size-calculator.html).
 {% endalert %}
 
-### Biais et randomisation
+### Biais et randomisation {#bias-and-randomization}
 
 Une question fréquente concernant l'affectation aux groupes de contrôle et de test est de savoir si cela peut introduire un biais dans vos tests. D'autres se demandent parfois comment nous savons si ces affectations sont véritablement aléatoires.
 
 Les utilisateurs sont affectés aux variantes de message, aux variantes de Canvas ou à leurs groupes de contrôle respectifs en concaténant leur ID utilisateur (généré aléatoirement) avec l'ID de la campagne ou du Canvas (également généré aléatoirement), en prenant le modulo 100 de cette valeur, puis en classant les utilisateurs dans des tranches correspondant aux pourcentages d'affectation des variantes et du groupe de contrôle facultatif définis dans le tableau de bord. Il n'y a donc aucun moyen pratique pour que les comportements des utilisateurs avant la création d'une campagne ou d'un Canvas particulier varient systématiquement entre les variantes et le groupe de contrôle. Il n'est pas non plus possible d'être plus aléatoire (ou plus précisément, pseudo-aléatoire) que cette implémentation.
 
-#### Erreurs à éviter
+#### Erreurs à éviter {#mistakes-to-avoid}
 
 Il existe certaines erreurs courantes qui peuvent créer l'apparence de différences basées sur le canal de communication si les audiences ne sont pas correctement filtrées.
 

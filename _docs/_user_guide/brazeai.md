@@ -38,7 +38,7 @@ guide_featured_list:
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
   - name: Predictive Suite
-    link: /docs/user_guide/brazeai
+    link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: Personalized Paths
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths

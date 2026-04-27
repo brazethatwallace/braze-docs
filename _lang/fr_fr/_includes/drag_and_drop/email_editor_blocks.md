@@ -1,4 +1,4 @@
-## Utilisation des blocs éditeurs d'e-mails
+## Utilisation des blocs éditeurs d'e-mails {#using-email-editor-blocks}
 
 Les blocs éditeurs se trouvent dans la section **Contenu** des messages e-mail. Pour utiliser un bloc éditeur, glissez-le à l'intérieur d'une colonne dans l'éditeur par glisser-déposer. Il s'ajuste automatiquement à la largeur de la colonne. Chaque bloc éditeur possède ses propres paramètres, comme le contrôle granulaire de la marge intérieure.
 
@@ -14,35 +14,35 @@ Le tableau suivant décrit comment les utilisateurs peuvent exploiter chaque typ
 
 | Nom | Description |
 |---|---|
-|Titre| Ajoute du texte pour les en-têtes dans l'e-mail. | 
-|Paragraphe| Permet de saisir du texte dans le message. Une barre d'outils facilite la mise en forme des polices et du texte. | 
+|Titre| Ajoute du texte pour les en-têtes dans l'e-mail. |
+|Paragraphe| Permet de saisir du texte dans le message. Une barre d'outils facilite la mise en forme des polices et du texte. |
 |Liste| Ajoute une liste à puces. |
-|Bouton| Ajoute un bouton standard. Les propriétés de ce bloc permettent de modifier et de configurer facilement les liens. | 
+|Bouton| Ajoute un bouton standard. Les propriétés de ce bloc permettent de modifier et de configurer facilement les liens. |
 |Ligne de séparation| Insère une ligne continue, en pointillés ou en tirets pour faciliter l'espacement.|
 |Espaceur| Ajoute de l'espace, ou une « marge intérieure », entre les autres blocs. |
-|Image| Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). | 
+|Image| Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
 |Vidéo| Crée un lien vers le contenu vidéo. |
 |Réseaux sociaux| Insère l'icône d'une plateforme de réseaux sociaux. Vous pouvez télécharger des images personnalisées pour les icônes spécifiques à votre marque. |
 |Icônes| Insère une icône. Vous pouvez télécharger des images personnalisées. Braze utilise une icône de marque substitutive surdimensionnée jusqu'à ce que vous téléchargiez une image. |
-|HTML| Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid/), comme le Contenu connecté ou les instructions conditionnelles. | 
+|HTML| Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid/), comme le Contenu connecté ou les instructions conditionnelles. |
 |Menu| Crée un menu flexible pour le message que vous concevez. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Personnalisation dans les e-mails
+### Personnalisation dans les e-mails {#personalization-in-email}
 
 - **Liquid :** Sous **Contenu** > **Personnalisation**, sélectionnez un attribut, copiez l'extrait de code et collez-le dans un bloc de texte (Liquid de base) ou un bloc HTML (Liquid avancé). De manière générale, bien que vous puissiez utiliser du Liquid de base dans les blocs de texte, nous recommandons d'utiliser les blocs HTML pour les logiques plus complexes afin d'éviter les problèmes de mise en page. Notez que Liquid n'est pas pris en charge dans les blocs d'image ni dans les champs d'URL des boutons.
 - **Contenu connecté :** Ajoutez un bloc **HTML** et placez-y votre appel {% raw %}`{% connected_content %}`{% endraw %}.
 
-## Propriétés
+## Propriétés {#properties}
 
 Les détails des propriétés de chaque bloc éditeur sont fournis dans les tableaux suivants.
 
-### Titre
+### Titre {#title}
 Reportez-vous au tableau suivant pour plus de détails sur les propriétés du bloc éditeur `Title`.
 
 | Propriétés | Description |
 |---|---|
-|Titre| Sélectionne le style de titre. | 
+|Titre| Sélectionne le style de titre. |
 |Famille de polices| Le style de police de votre titre. |
 |Graisse de la police| L'épaisseur globale de la police. |
 |Taille de police| Détermine la taille de votre texte. |
@@ -50,11 +50,11 @@ Reportez-vous au tableau suivant pour plus de détails sur les propriétés du b
 |Couleur du lien| Modifie la couleur du lien. |
 |Alignement| Déplace le titre vers la gauche, le centre ou la droite. |
 |Hauteur de ligne| Modifie l'espace entre les lignes de texte. |
-|Espacement des lettres| Modifie l'espace entre chaque caractère. |
+|Espacement des lignes| Modifie l'espace entre chaque caractère. |
 |Sens du texte| Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Paragraphe
+### Paragraphe {#paragraph}
 
 Reportez-vous au tableau suivant pour plus de détails sur les propriétés du bloc éditeur `Paragraph`.
 
@@ -72,7 +72,7 @@ Reportez-vous au tableau suivant pour plus de détails sur les propriétés du b
 |Sens du texte| Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Liste
+### Liste {#list}
 
 Reportez-vous au tableau suivant pour plus de détails sur les propriétés du bloc éditeur `List`.
 
@@ -94,7 +94,7 @@ Reportez-vous au tableau suivant pour plus de détails sur les propriétés du b
 |Sens du texte| Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Ligne de séparation
+### Ligne de séparation {#divider}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Divider`.
 
@@ -106,7 +106,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Div
 |Alignement| Déplace la ligne vers la gauche, le centre ou la droite. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Espaceur
+### Espaceur {#spacer}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Spacer`.
 
@@ -139,7 +139,7 @@ Pour `Auto Width`, le redimensionnement automatique choisit la meilleure taille 
 - Les images plus petites que l'espace disponible utiliseront leur taille naturelle pour éviter les effets de distorsion ou les images floues.
 {% endalert %}
 
-### Vidéo
+### Vidéo {#video}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Video`.
 
@@ -156,7 +156,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Vid
 Les vidéos hébergées par Vimeo ne fonctionneront que si elles sont définies comme publiques. Tous les autres paramètres de sécurité disponibles dans Vimeo (par exemple, « Masquer sur Vimeo.com ») génèrent un format de lien différent qui n'est pas pris en charge par ce bloc de contenu. Ces types de liens sont modifiés par le générateur, ce qui empêche Braze de générer une miniature.
 {% endalert %}
 
-### Réseaux sociaux
+### Réseaux sociaux {#social}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Social`.
 
@@ -168,7 +168,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Soc
 |Espacement des icônes| Détermine l'espacement entre chaque icône sociale. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Icônes
+### Icônes {#icons}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Icons`.
 
@@ -219,7 +219,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Men
 
 Vous pouvez affecter une action qui se déclenche lorsqu'un utilisateur appuie sur un bouton, un lien ou une image dans le message. Vous pouvez également utiliser [Liquid]({{site.baseurl}}/liquid/) pour personnaliser les actions. Les tableaux suivants détaillent les actions de chaque bloc éditeur.
 
-### Bouton
+### Bouton {#button}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Button`.
 

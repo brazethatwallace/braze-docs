@@ -6,7 +6,7 @@ Antes de crear plantillas de WhatsApp, debes completar la [configuración de Wha
     - Para que los usuarios creen nuevas plantillas en el constructor de plantillas:
         - "View WhatsApp Message Templates"
         - "Edit WhatsApp Message Templates"
-    - Para que los usuarios redacten campañas o Canvas con plantillas de carrusel:
+    - Para que los usuarios redacten campaigns o Canvas con plantillas de carrusel:
         - "View WhatsApp Message Templates"
 - Conocimiento de plantillas Liquid (opcional, para contenido dinámico)
 

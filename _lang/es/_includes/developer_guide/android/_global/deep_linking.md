@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Creación de un delegado universal
+## Creación de un delegado universal {#creating-a-universal-delegate}
 
-El SDK de Android ofrece la posibilidad de establecer un único objeto delegado para gestionar de forma personalizada todos los vínculos profundos abiertos por Braze a través de Tarjetas de contenido, mensajes dentro de la aplicación y notificaciones push.
+El SDK de Android ofrece la posibilidad de establecer un único objeto delegado para gestionar de forma personalizada todos los vínculos profundos abiertos por Braze a través de Content Cards, mensajes dentro de la aplicación y notificaciones push.
 
 Tu objeto delegado debe implementar la interfaz [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) y configurarse mediante [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html). En la mayoría de los casos, el delegado debe establecerse en el `Application.onCreate()` de tu aplicación.
 
@@ -86,7 +86,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## Vinculación en profundidad a la configuración de la aplicación
+## Vinculación en profundidad a la configuración de la aplicación {#deep-linking-to-app-settings}
 
 Para permitir que los vínculos profundos abran directamente la configuración de tu aplicación, necesitarás un `BrazeDeeplinkHandler` personalizado. En el siguiente ejemplo, la presencia de un par clave-valor personalizado llamado `open_notification_page` hará que el vínculo profundo abra la página de configuración de la aplicación:
 
@@ -185,7 +185,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 Si los vínculos profundos de las notificaciones push no funcionan en Android, prueba los siguientes pasos:
 
@@ -194,7 +194,7 @@ Si los vínculos profundos de las notificaciones push no funcionan en Android, p
 3. **Verifica tu delegado de gestión de vínculos profundos.** Si configuraste un `IBrazeDeeplinkHandler` personalizado, confirma que tu implementación de `gotoUri` gestiona la URI y no la descarta.
 4. **Prueba en distintos canales.** Si el mismo vínculo profundo funciona en un mensaje dentro de la aplicación pero no desde push, es probable que el problema esté en la gestión de vínculos profundos de push, no en el vínculo profundo en sí.
 
-## Uso de Jetpack Compose
+## Uso de Jetpack Compose {#using-jetpack-compose}
 
 Para gestionar vínculos profundos cuando usas Jetpack Compose con NavHost:
 

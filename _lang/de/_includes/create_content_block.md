@@ -7,7 +7,7 @@
 5. Nachdem Sie Ihren Content-Block erstellt haben, wählen Sie **Fertig**.
 6. Geben Sie Ihrem Content-Block einen Namen. Dieser Name wird automatisch als Teil des **Content-Block-Liquid-Tags** übernommen.
 7. (Optional) Fügen Sie eine Beschreibung hinzu.
-8. Wählen Sie den Tab **Vorschau**, um zu sehen, wie Ihr Content-Block aussehen wird. Optional können Sie **Vorschau-Link kopieren** auswählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für einen zufälligen Nutzer aussehen wird. Der Link ist sieben Tage lang gültig und muss danach neu generiert werden.<br><br> ![Tab „Vorschau" für den Drag-and-Drop-Content-Block-Composer.]({% image_buster /assets/img_archive/dnd_content_block_preview_link.png %})<br><br>
+8. Wählen Sie den Tab **Vorschau**, um zu sehen, wie Ihr Content-Block aussehen wird. Optional können Sie **Vorschau-Link kopieren** auswählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für einen zufälligen Nutzer aussehen wird. Der Link ist sieben Tage lang gültig und muss danach neu generiert werden.<br><br> ![Tab „Vorschau“ für den Drag-and-Drop-Content-Block-Composer.]({% image_buster /assets/img_archive/dnd_content_block_preview_link.png %})<br><br>
 9. Wählen Sie **Content-Block starten**.
 
 {% elsif include.location == "html" %}
@@ -17,7 +17,7 @@
 3. Nachdem Sie Ihren Content-Block erstellt haben, wählen Sie **Fertig**.
 4. Geben Sie einen Namen für Ihren Content-Block ein. Dieser Name wird automatisch als Teil des **Content-Block-Liquid-Tags** übernommen.
 5. (Optional) Fügen Sie eine Beschreibung hinzu.
-6. Wählen Sie den Tab **Vorschau**, um zu sehen, wie Ihr Content-Block aussehen wird. Optional können Sie **Vorschau-Link kopieren** auswählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für einen zufälligen Nutzer aussehen wird. Der Link ist sieben Tage lang gültig und muss danach neu generiert werden.<br><br> ![Tab „Vorschau" für den HTML-Code-Editor-Composer.]({% image_buster /assets/img_archive/content_block_html_preview_link.png %})<br><br>
+6. Wählen Sie den Tab **Vorschau**, um zu sehen, wie Ihr Content-Block aussehen wird. Optional können Sie **Vorschau-Link kopieren** auswählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für einen zufälligen Nutzer aussehen wird. Der Link ist sieben Tage lang gültig und muss danach neu generiert werden.<br><br> ![Tab „Vorschau“ für den HTML-Code-Editor-Composer.]({% image_buster /assets/img_archive/content_block_html_preview_link.png %})<br><br>
 7. Wählen Sie **Content-Block starten**.
 
 {% endif %}

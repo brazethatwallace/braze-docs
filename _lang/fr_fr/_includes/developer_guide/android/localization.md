@@ -1,4 +1,4 @@
-# Localisation
+# Localisation {#localization}
 
 > La localisation est prise en charge au sein du SDK Braze pour Android. En plus de l'anglais, Braze prend en charge plusieurs langues pour les messages intégrés au SDK. Ces messages correspondent aux textes par défaut affichés dans les applications intégrées à Braze, par exemple lorsque des problèmes de connectivité surviennent (comme « Impossible d'établir la connexion réseau. Veuillez réessayer plus tard. »).
 
@@ -6,7 +6,7 @@ Si la langue du téléphone est définie sur l'une des langues prises en charge,
 
 Si vous recherchez la liste complète des langues prises en charge que vous pouvez attribuer à vos utilisateurs dans leurs profils, consultez notre [liste des langues des utilisateurs]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Langues prises en charge
+## Langues prises en charge {#languages-supported}
 
 - Afrikaans
 - Aghem

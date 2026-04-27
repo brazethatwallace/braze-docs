@@ -17,12 +17,12 @@ Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseu
 
 {% details Explication de la structure des événements de mise à jour de profil utilisateur %}
 
-### Structure des événements
+### Structure des événements {#event-structure}
 
 Cette analyse des événements de comportement client et des événements utilisateur présente le type d'informations généralement incluses dans un événement de mise à jour de profil utilisateur. En comprenant bien ses composants, vos équipes de développement et d'aide à la décision pourront exploiter les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs précieux.
 
 {% alert important %}
 Les schémas de stockage s'appliquent aux données d'événements en fichiers plats envoyées aux partenaires de stockage en entrepôt de données, tels que Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage. Certaines combinaisons d'événements et de destinations répertoriées ici ne sont pas encore disponibles de manière générale. Pour en savoir plus sur les événements pris en charge par partenaire, consultez les [partenaires disponibles]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) et les pages partenaire associées.
 
-Currents supprime les événements dont le PAYLOAD dépasse 900 Ko.
+Currents supprime les événements dont le payload dépasse 900 Ko.
 {% endalert %}

@@ -1,4 +1,4 @@
-## Registro de la ubicación actual
+## Registro de la ubicación actual {#logging-the-current-location}
 
 Aunque el seguimiento continuo esté desactivado, puedes registrar manualmente la ubicación actual del usuario utilizando el método [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html).
 
@@ -26,7 +26,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## Seguimiento continuo de la ubicación
+## Seguimiento continuo de la ubicación {#continuously-tracking-the-location}
 
 {% alert important %}
 [A partir de Android Marshmallow](https://developer.android.com/training/permissions/index.html), debes pedir a tus usuarios que acepten explícitamente la adhesión voluntaria al seguimiento de ubicación. Una vez que lo hagan, Braze puede empezar a rastrear su ubicación al inicio de la siguiente sesión. Esto difiere de las versiones anteriores de Android, en las que solo era necesario declarar los permisos de ubicación en tu `AndroidManifest.xml`.
@@ -34,7 +34,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 Para realizar un seguimiento continuo de la ubicación de un usuario, tendrás que declarar la intención de tu aplicación de recopilar datos de ubicación añadiendo al menos uno de los siguientes permisos a tu archivo `AndroidManifest.xml`.
 
-|Permiso|Descripción|
+| Permiso | Descripción |
 |---|---|
 | `ACCESS_COARSE_LOCATION` | Utiliza el proveedor no GPS que consume menos batería (como una red doméstica). Normalmente, esto es suficiente para la mayoría de las necesidades de datos de ubicación. Según el modelo de permisos en tiempo de ejecución, conceder el permiso de ubicación autoriza implícitamente la recopilación de datos de ubicación precisa. |
 | `ACCESS_FINE_LOCATION`   | Incluye datos GPS para una ubicación más precisa. Según el modelo de permisos en tiempo de ejecución, conceder el permiso de ubicación también cubre el acceso a la ubicación precisa. |
@@ -53,7 +53,7 @@ Tu `AndroidManifest.xml` debe ser similar al siguiente:
 </manifest>
 ```
 
-## Desactivar el seguimiento continuo
+## Desactivar el seguimiento continuo {#disabling-continuous-tracking}
 
 Puedes desactivar el seguimiento continuo en tiempo de compilación o de ejecución.
 
@@ -80,7 +80,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 

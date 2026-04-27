@@ -26,6 +26,25 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 
+# Single source of truth for the Braze product-name allowlist — shared with
+# ``scripts/auto_translate.py``'s runtime glossary override so the two
+# scripts can't drift apart. The previous "keep in sync" duplication was
+# flagged by Copilot on PR #13303.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
+
+
+def _protected_value(term, lang_key):
+    """Canonical glossary value for a protected product term, or ``None``.
+
+    Returns ``None`` if ``term`` is not in the protected allowlist; the
+    locale-specific override if one exists (e.g. ``Canvases`` → ``Canvas``
+    in Romance locales); otherwise falls back to the English term.
+    """
+    if term not in PROTECTED_PRODUCT_TERMS:
+        return None
+    return PROTECTED_PRODUCT_TERMS[term].get(lang_key, term)
+
 LANG_MAP = {
     "de":    {"platform": "de",    "android": "values-de",  "swift": "de",    "grapesjs": "de"},
     "es":    {"platform": "es",    "android": "values-es",  "swift": "es",    "grapesjs": "es"},
@@ -448,6 +467,18 @@ def apply_fixes(report):
         for term, term_mismatches in mismatches_by_term.items():
             if term not in glossary:
                 continue
+            # Never let an upstream dashboard/SDK translation override a
+            # protected Braze product term (e.g. 'Segment' → 'Segmento
+            # faturável', 'Canvas' → 'キャンバス'). These would silently
+            # re-introduce the glossary drift that translation_prompt.md
+            # specifically forbids.
+            protected = _protected_value(term, lang_key)
+            if protected is not None and glossary[term] == protected:
+                print(
+                    f"  {lang_key}: skipping '{term}' — protected product "
+                    f"term; translation_prompt requires English."
+                )
+                continue
             source_values = {m["source_value"] for m in term_mismatches}
             if len(source_values) == 1:
                 new_val = term_mismatches[0]["source_value"]
@@ -476,7 +507,12 @@ def apply_fixes(report):
         for m in lang_data.get("missing", []):
             term = m["term"]
             if term.lower() not in glossary_lower:
-                glossary[term] = m["source_translation"]
+                # Protected product terms always land as their English
+                # canonical, regardless of what the upstream source says.
+                protected = _protected_value(term, lang_key)
+                glossary[term] = (
+                    protected if protected is not None else m["source_translation"]
+                )
                 glossary_lower.add(term.lower())
                 lang_added += 1
 

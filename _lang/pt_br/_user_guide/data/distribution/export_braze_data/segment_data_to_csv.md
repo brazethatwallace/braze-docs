@@ -1,7 +1,7 @@
 ---
-nav_title: Exportar dados do segmento para CSV
-article_title: Exportar dados do segmento para CSV
-page_order: 2
+nav_title: Dados do Segment
+article_title: Exportar dados do Segment
+page_order: 4
 page_type: reference
 description: "Este artigo de referência aborda como exportar dados de segmento para CSV."
 
@@ -15,9 +15,9 @@ Para exportar dados de segmento para um CSV, selecione o menu suspenso **User Da
 
 ![Seção de informações do segmento com o menu suspenso User Data mostrando opções de exportação.]({% image_buster /assets/img_archive/csvexport.png %})
 
-Você também pode solicitar uma exportação CSV na página principal de **Segmentos**, selecionando o menu suspenso <i class="fas fa-gear"></i> **Configurações** de um segmento:
+Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear"></i> **Configurações** de um segmento:
 
-![Menu suspenso Configurações na página principal de Segmentos.]({% image_buster /assets/img_archive/csvexport2.png %})
+![Menu suspenso Configurações na página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
 Para exportar dados de todos os seus perfis de usuários, crie um segmento sem filtros e solicite uma exportação CSV.
@@ -33,18 +33,18 @@ Se você tiver vinculado suas [credenciais do Amazon S3]({{site.baseurl}}/partne
 
 {% multi_lang_include alerts/important_alerts.md alert='S3 file bucket export' %}
 
-## Dados incluídos na exportação
+## Dados incluídos na exportação {#data-included-in-export}
 
 Os itens a seguir estão incluídos na sua exportação, dependendo da sua seleção.
 
-### Exportação de dados de usuários em CSV
+### Exportar dados de usuários em CSV {#csv-export-user-data}
 
 | Nome do campo                  | Descrição                                              |
 | --------------------------- | -------------------------------------------------------- |
 | Appboy ID                   | ID interna (não pode ser alterada)                           |
 | country                     | País                                    |
 | created_at                  | Data e hora em que o perfil do usuário foi criado                   |
-| created_from                | Método usado para criar o perfil do usuário (por exemplo, API REST, SDK ou importação CSV)         |
+| created_from                | Método usado para criar o perfil do usuário (por exemplo, REST API, SDK ou importação CSV)         |
 | devices                     | Informações sobre o dispositivo                           |
 | date_of_birth               | Data de nascimento                                            |
 | email                       | Endereço de e-mail                                            |
@@ -68,7 +68,7 @@ Os itens a seguir estão incluídos na sua exportação, dependendo da sua sele�
 | number_of_roku_ad_ids       | Contagem de IDs de publicidade Roku associados                 |
 | number_of_windows_ad_ids    | Contagem de IDs de publicidade do Windows associados              |
 | phone_number                | Número de telefone                                             |
-| opted_into_push_at          | Data de aceitação das notificações por push                       |
+| opted_into_push_at          | Data de opt-in nas notificações por push                       |
 | unsubscribed_from_push_at   | Data de cancelamento da inscrição nas notificações por push                |
 | random_bucket               | Número aleatório do bucket                                 |
 | roku_ad_ids                 | IDs de publicidade da Roku                          |
@@ -81,7 +81,7 @@ Os itens a seguir estão incluídos na sua exportação, dependendo da sua sele�
 | Atributos personalizados           | Com base na seleção na exportação                             |
 {: .reset-td-br-1 .reset-td-br-2 }
 
-### Exportar endereços de e-mail em CSV
+### Exportar endereços de e-mail em CSV {#csv-export-email-addresses}
 
 | Nome do campo                  | Descrição            |
 | --------------------------- | ---------------------- |
@@ -90,29 +90,29 @@ Os itens a seguir estão incluídos na sua exportação, dependendo da sua sele�
 | last_name                   | Sobrenome              |
 | email                       | E-mail                  |
 | unsubscribed_from_emails_at | Data de cancelamento da inscrição do e-mail |
-| opted_in_to_emails_at       | Data de aceitação do e-mail      |
+| opted_in_to_emails_at       | Data de opt-in do e-mail      |
 | user_aliases                | Aliases de usuário, se houver   |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Para obter ajuda com exportações CSV e API, visite nosso artigo de [solução de problemas]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
-{% endalert %} 
+Para obter ajuda com exportações CSV e API, visite nosso artigo de [solução de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+{% endalert %}
 
-## Exportação de segmentos grandes
+## Exportação de segmentos grandes {#exporting-large-segments}
 
 Há vários métodos para exportar um segmento grande de usuários que contém mais de 500.000 usuários.
 
 {% tabs %}
 {% tab Multiple segments %}
 
-Você pode dividir um segmento grande em segmentos menores e, em seguida, exportar cada um dos segmentos menores da Braze. 
+Você pode dividir um segmento grande em segmentos menores e, em seguida, exportar cada um dos segmentos menores da Braze.
 
 {% endtab %}
 {% tab Random bucket numbers %}
 
-Você também pode usar [números aleatórios de bucket]({{site.baseurl}}/user_guide/engagement_tools/testing/random_bucket_numbers/) para dividir sua base de usuários em vários segmentos e combiná-los após a exportação. Por exemplo, se você precisar dividir seu segmento em dois segmentos diferentes, poderá fazer isso com os seguintes filtros:
-- Segmento 1: O número do bucket aleatório é menor que 5000 (inclui 0-4999)
-- Segmento 2: O número do bucket aleatório é maior que 4999 (inclui 5000-9999)
+Você também pode usar [números aleatórios de bucket]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) para dividir sua base de usuários em vários segmentos e combiná-los após a exportação. Por exemplo, se você precisar dividir seu segmento em dois segmentos diferentes, poderá fazer isso com os seguintes filtros:
+- Segment 1: O número do bucket aleatório é menor que 5000 (inclui 0-4999)
+- Segment 2: O número do bucket aleatório é maior que 4999 (inclui 5000-9999)
 
 {% endtab %}
 {% tab Endpoints %}

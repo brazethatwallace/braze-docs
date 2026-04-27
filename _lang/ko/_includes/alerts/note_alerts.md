@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-콘텐츠 카드에는 최대 게재빈도 설정이 적용되지 않습니다.
+Content Cards에는 최대 게재빈도 설정이 적용되지 않습니다.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하지 않으므로 아직 앱을 열지 않은 사용자를 타겟팅할 수 없습니다.
+Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하지 않으므로, 아직 앱을 열지 않은 사용자를 타겟팅할 수 없습니다.
 {% endalert %}
 
 {% endif %}

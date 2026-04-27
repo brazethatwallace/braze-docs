@@ -1,4 +1,4 @@
-## Verwendung von E-Mail-Editor-Blöcken
+## Verwendung von E-Mail-Editor-Blöcken {#using-email-editor-blocks}
 
 Die Editor-Blöcke befinden sich im Abschnitt **Inhalt** für E-Mail-Nachrichten. Um einen Editor-Block zu verwenden, ziehen Sie im Drag-and-Drop-Editor einen Editor-Block in eine Spalte. Er passt sich automatisch an die Spaltenbreite an. Jeder Editor-Block hat seine eigenen Einstellungen, wie z. B. die granulare Steuerung des Paddings.
 
@@ -8,41 +8,41 @@ Weitere Informationen zur Verwendung und Anpassung dieser Editor-Blöcke in Ihre
 Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
 {% endalert %}
 
-## Typen
+## Typen {#types}
 
 In der folgenden Tabelle wird beschrieben, wie Nutzer:innen die einzelnen Editor-Block-Typen verwenden können.
 
 | Name | Beschreibung |
 |---|---|
-|Titel| Fügt Text für Überschriften innerhalb der E-Mail hinzu. | 
-|Absatz| Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Textbearbeitung. | 
+|Titel| Fügt Text für Überschriften innerhalb der E-Mail hinzu. |
+|Absatz| Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Textbearbeitung. |
 |Liste| Fügt eine Aufzählungsliste hinzu. |
-|Button| Fügt einen Standard-Button hinzu. Die Eigenschaften dieses Blocks ermöglichen das einfache Bearbeiten und Setzen von Links. | 
+|Button| Fügt einen Standard-Button hinzu. Die Eigenschaften dieses Blocks ermöglichen das einfache Bearbeiten und Setzen von Links. |
 |Trennlinie| Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um die Abstände zu vergrößern.|
-|Spacer| Fügt Leerraum oder „Padding" zwischen anderen Blöcken hinzu. |
-|Bild| Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) ein. | 
+|Spacer| Fügt Leerraum oder „Padding“ zwischen anderen Blöcken hinzu. |
+|Bild| Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) ein. |
 |Video| Erstellt einen Link zum Video-Inhalt. |
 |Social| Fügt ein Social-Media-Plattform-Symbol ein. Sie können angepasste Bilder für markenspezifische Symbole hochladen. |
 |Icons| Fügt ein Symbol ein. Sie können angepasste Bilder hochladen. Braze verwendet ein übergroßes Platzhalter-Symbol, bis Sie ein Bild hochladen. |
-|HTML| Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid/), wie beispielsweise Connected-Content oder bedingte Anweisungen. | 
+|HTML| Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid/), wie beispielsweise Connected-Content oder bedingte Anweisungen. |
 |Menü| Erstellt ein flexibles Menü für die Nachricht, die Sie entwerfen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Personalisierung in E-Mails
+### Personalisierung in E-Mails {#personalization-in-email}
 
 - **Liquid:** Wählen Sie unter **Inhalt** > **Personalisierung** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen Textblock (einfaches Liquid) oder HTML-Block (erweitertes Liquid) ein. Generell können Sie zwar einfaches Liquid in Textblöcken verwenden, wir empfehlen jedoch HTML-Blöcke für komplexere Logik, um Layout-Probleme zu vermeiden. Beachten Sie, dass Liquid in Bildblöcken oder in Button-URL-Feldern nicht unterstützt wird.
 - **Connected-Content:** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.
 
-## Eigenschaften
+## Eigenschaften {#properties}
 
 Einzelheiten zu den Eigenschaften der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
 
-### Titel
+### Titel {#title}
 In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor-Blocks `Title`.
 
 | Eigenschaften | Beschreibung |
 |---|---|
-|Titel| Wählt den Überschriftenstil aus. | 
+|Titel| Wählt den Überschriftenstil aus. |
 |Schriftfamilie| Dies ist der Schriftstil für Ihren Titel. |
 |Schriftschnitt| Dies ist die allgemeine Stärke der Schriftart. |
 |Schriftgröße| Bestimmt die Größe Ihres Textes. |
@@ -54,7 +54,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor
 |Textrichtung| Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Absatz
+### Absatz {#paragraph}
 
 In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor-Blocks `Paragraph`.
 
@@ -72,7 +72,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor
 |Textrichtung| Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Liste
+### Liste {#list}
 
 In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor-Blocks `List`.
 
@@ -94,13 +94,13 @@ In der folgenden Tabelle finden Sie Einzelheiten zu den Eigenschaften des Editor
 |Textrichtung| Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Trennlinie
+### Trennlinie {#divider}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Divider`.
 
 | Eigenschaften | Beschreibung |
 |---|---|
-|Transparent| Wenn aktiviert, werden die Optionen „Linie" und „Breite" entfernt. |
+|Transparent| Wenn aktiviert, werden die Optionen „Linie“ und „Breite“ entfernt. |
 |Linie| Die verschiedenen Linienformate, ob gestrichelt, gepunktet oder durchgezogen. Darüber hinaus können Sie die Dicke und Farbe der Trennlinie ändern. |
 |Breite| Passt die Ausdehnung der Trennlinie in 5er-Schritten an. |
 |Ausrichtung| Verschiebt die Linie nach links, in die Mitte oder nach rechts. |
@@ -115,7 +115,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Spacer`.
 |Höhe| Passt die Höhe des Spacer-Blocks an. Der Standardwert ist 60px.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Bild
+### Bild {#image}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Image`. Für dynamische Bilder (Bilder mit Liquid oder Connected-Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Informationen zu Bildspezifikationen finden Sie in unseren [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
 
@@ -153,7 +153,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Video`.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Videos, die von Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich eingestellt sind. Alle anderen Sicherheitseinstellungen, die in Vimeo verfügbar sind (z. B. „Vor Vimeo.com verbergen"), generieren ein anderes Linkformat, das von diesem Content-Block nicht unterstützt wird. Diese Arten von Links werden vom Builder geändert, wodurch Braze keine Miniaturansicht erstellen kann.
+Videos, die von Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich eingestellt sind. Alle anderen Sicherheitseinstellungen, die in Vimeo verfügbar sind (z. B. „Vor Vimeo.com verbergen“), generieren ein anderes Linkformat, das von diesem Content-Block nicht unterstützt wird. Diese Arten von Links werden vom Builder geändert, wodurch Braze keine Miniaturansicht erstellen kann.
 {% endalert %}
 
 ### Social
@@ -195,7 +195,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `HTML`.
 |HTML-Editor| Geben Sie das rohe HTML ein. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Menü
+### Menü {#menu}
 
 In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Menu`.
 
@@ -215,7 +215,7 @@ In der folgenden Tabelle finden Sie Einzelheiten zum Editor-Block `Menu`.
 |Alle Seiten| Legt ein einheitliches Padding fest, wenn das Element-Padding deaktiviert ist. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Aktionen
+## Aktionen {#actions}
 
 Sie können eine Aktion zuweisen, die ausgeführt wird, wenn eine Nutzer:in auf einen Button, einen Link oder ein Bild in der Nachricht tippt. Sie können auch [Liquid]({{site.baseurl}}/liquid/) verwenden, um die Aktionen zu personalisieren. Einzelheiten zu den Aktionen der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
 

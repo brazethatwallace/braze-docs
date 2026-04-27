@@ -17,7 +17,7 @@ Janelas de navegação privada não oferecem suporte a push para a web.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Adicionar um endereço BCC à sua campanha ou Canvas resulta na duplicação dos seus e-mails faturáveis para a campanha ou componente do Canvas, já que a Braze envia uma mensagem para o seu usuário e uma para o seu endereço BCC.
+Adicionar um endereço BCC à sua Campaign ou Canvas resulta na duplicação dos seus e-mails faturáveis para a Campaign ou componente do Canvas, já que a Braze envia uma mensagem para o seu usuário e uma para o seu endereço BCC.
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ O evento de compra legado entrará em estado de descontinuação (modo de manute
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Quando isso acontecer, os filtros de Segment não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -78,14 +78,14 @@ O evento de compra legado entrará em estado de descontinuação (modo de manute
 
 {% alert important %}
 Os arquivos exportados armazenados em buckets S3 são automaticamente excluídos após o link de download expirar (quatro horas a partir do envio do e-mail de exportação, a menos que indicado de outra forma).
-{% endalert %} 
+{% endalert %}
 
 {% endif %}
 
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-A integração do Shopify oferece suporte a webhooks de criação e atualização de clientes do Shopify, que estão localizados nas suas configurações de dados. Quando um perfil de usuário é criado ou atualizado no Shopify, um perfil de usuário correspondente na Braze será criado ou atualizado. <br><br>Essas ações não disparam eventos personalizados na Braze e são usadas exclusivamente para [sincronizar dados de usuários do Shopify com a Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Os dados sincronizados incluem [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) e, se ativado na sua configuração, [estados de grupo de inscrições]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+A integração do Shopify oferece suporte a webhooks de criação e atualização de clientes do Shopify, que estão localizados nas suas configurações de dados. Quando um perfil de usuário é criado ou atualizado no Shopify, um perfil de usuário correspondente na Braze será criado ou atualizado. <br><br>Essas ações não disparam eventos personalizados na Braze e são usadas exclusivamente para [sincronizar dados de usuários do Shopify com a Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Os dados sincronizados incluem [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) e, se ativado na sua configuração, [estados de grupo de inscrições]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ A integração do Shopify oferece suporte a webhooks de criação e atualizaçã
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object).
+As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -166,7 +166,7 @@ Mensagens multilíngues e traduções por localidade estão atualmente em acesso
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
-Cartões de conteúdo, mensagens no app, Banners e Feature Flags dependem da conectividade do dispositivo para sincronizar com os servidores da Braze. Como as condições de rede podem variar, existe a possibilidade de que o conteúdo ou as atualizações não sejam sincronizados, exibidos ou removidos imediatamente (por exemplo, se o usuário estiver offline). Recomendamos evitar esses canais para atualizações críticas e urgentes.
+Content Cards, mensagens no app, Banners e Feature Flags dependem da conectividade do dispositivo para sincronizar com os servidores da Braze. Como as condições de rede podem variar, existe a possibilidade de que o conteúdo ou as atualizações não sejam sincronizados, exibidos ou removidos imediatamente (por exemplo, se o usuário estiver offline). Recomendamos evitar esses canais para atualizações críticas e urgentes.
 {% endalert %}
 
 {% endif %}
@@ -174,7 +174,7 @@ Cartões de conteúdo, mensagens no app, Banners e Feature Flags dependem da con
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
+Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
 {% endalert %}
 
 {% endif %}

@@ -58,7 +58,7 @@ CONTENT.
 
 CONTENT.
 
-<!-- Fügen Sie bei optionalen Schritten „(optional)" am Ende der Überschrift hinzu. -->
+<!-- Fügen Sie bei optionalen Schritten „(optional)“ am Ende der Überschrift hinzu. -->
 ### 3. Schritt: OPTIONAL_ACTION_TO_COMPLETE (optional)
 
 CONTENT.

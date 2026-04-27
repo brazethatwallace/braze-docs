@@ -14,7 +14,7 @@ Toutes les URL statiques commençant par `http://` ou `https://` sont raccourcie
 Si vous prévoyez d'utiliser le [filtre de canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) BrazeAI<sup>TM</sup> et souhaitez que les canaux SMS et RCS soient sélectionnables, activez le raccourcissement de liens avec le suivi avancé.
 {% endalert %}
 
-## Utiliser le raccourcissement de liens
+## Utiliser le raccourcissement de liens {#using-link-shortening}
 
 Pour utiliser le raccourcissement de liens, assurez-vous que le bouton de raccourcissement de liens dans le composeur de messages est activé. Choisissez ensuite d'utiliser le suivi basique ou avancé.
 
@@ -24,15 +24,15 @@ Braze ne reconnaît que les URL commençant par `http://` ou `https://`. Lorsqu'
 
 ![Composeur de messages avec une longue URL dans le champ « Message » et un lien raccourci généré dans la prévisualisation.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
 
-### Ajouter des paramètres UTM
+### Ajouter des paramètres UTM {#adding-utm-parameters}
 
 {% multi_lang_include analytics/click_tracking.md section='UTM parameters' %}
 
-## Personnalisation Liquid dans les URL
+## Personnalisation Liquid dans les URL {#liquid-personalization-in-urls}
 
 Vous pouvez construire dynamiquement votre URL directement dans le composeur Braze, ce qui vous permet d'ajouter des paramètres UTM dynamiques à vos URL ou d'envoyer aux utilisateurs des liens uniques (par exemple pour les rediriger vers leur panier abandonné ou vers un produit spécifique de nouveau en stock).
 
-### Créer une URL avec des balises de personnalisation Liquid prises en charge
+### Créer une URL avec des balises de personnalisation Liquid prises en charge {#create-a-url-with-supported-liquid-personalization-tags}
 
 Les URL peuvent être générées dynamiquement grâce à l'utilisation de n'importe quelle [balise de personnalisation Liquid prise en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
 
@@ -44,7 +44,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 
 Nous prenons également en charge le raccourcissement de variables Liquid personnalisées. Voici quelques exemples :
 
-### Créer une URL à l'aide de variables Liquid
+### Créer une URL à l'aide de variables Liquid {#create-a-url-using-liquid-variables}
 
 {% raw %}
 ```liquid
@@ -53,11 +53,11 @@ https://example.com/{{url_var}}
 ```
 {% endraw %}
 
-### Raccourcir les URL générées par des variables Liquid
+### Raccourcir les URL générées par des variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
 Nous raccourcissons les URL générées par Liquid, y compris celles incluses dans les propriétés de déclenchement API. Par exemple, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} représente une URL valide, nous raccourcissons et suivons cette URL avant l'envoi du message.
 
-### Raccourcir les URL dans l'endpoint `/messages/send`
+### Raccourcir les URL dans l'endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
 Le raccourcissement de liens est également activé pour les messages API uniquement via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Pour activer également le suivi basique ou avancé, utilisez les paramètres de requête `link_shortening_enabled` ou `user_click_tracking_enabled`.
 
@@ -69,9 +69,9 @@ Le raccourcissement de liens est également activé pour les messages API unique
 
 Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 
-## Tests
+## Tests {#testing}
 
-Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à un utilisateur individuel.
+Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou à un utilisateur individuel.
 
 Cet aperçu se met à jour avec la personnalisation pertinente et l'URL raccourcie. Le nombre de caractères et les [segments facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) sont également mis à jour pour refléter la personnalisation rendue et l'URL raccourcie.
 
@@ -89,7 +89,7 @@ Si un brouillon est créé au sein d'un Canvas actif, aucune URL raccourcie ne s
 La personnalisation Liquid et les URL raccourcies sont générées dans l'onglet **Test** après la sélection d'un utilisateur. Assurez-vous de sélectionner un utilisateur pour obtenir un décompte de caractères précis.
 {% endalert %}
 
-## Suivi des clics
+## Suivi des clics {#click-tracking}
 
 Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total des clics** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
@@ -97,7 +97,7 @@ Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/
 
 Les tableaux **Performances historiques** et **Performances SMS/MMS/RCS** incluent également une option pour le **Total des clics** et affichent une série temporelle quotidienne des événements de clic. Les clics sont incrémentés lors de la redirection (par exemple lorsqu'un utilisateur visite un lien) et peuvent être incrémentés plus d'une fois par utilisateur.
 
-## Recibler les utilisateurs
+## Recibler les utilisateurs {#retargeting-users}
 
 Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/#filter-by-advanced-tracking-links).
 
@@ -105,11 +105,11 @@ Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_
 
 {% multi_lang_include analytics/click_tracking.md section='Frequently Asked Questions' %}
 
-### Puis-je savoir quels utilisateurs individuels cliquent sur une URL ?
+### Puis-je savoir quels utilisateurs individuels cliquent sur une URL ? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
 Oui. Lorsque le **suivi avancé** est activé, vous pouvez recibler les utilisateurs ayant cliqué sur des URL en utilisant les [filtres de reciblage SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) ou les événements de clic SMS (`users.messages.sms.ShortLinkClick`) envoyés par Currents.
 
-### Le raccourcissement de liens fonctionne-t-il avec les liens profonds ou les liens universels ?
+### Le raccourcissement de liens fonctionne-t-il avec les liens profonds ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
 Le raccourcissement de liens ne fonctionne pas avec les liens profonds. En revanche, vous pouvez raccourcir les liens universels provenant de fournisseurs tiers tels que Branch ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
 
@@ -117,7 +117,7 @@ Le raccourcissement de liens ne fonctionne pas avec les liens profonds. En revan
 Testez l'expérience utilisateur avant d'implémenter le raccourcissement de liens avec des liens universels pour vous assurer qu'il répond à vos attentes.
 {% endalert %}
 
-### Les `send_ids` sont-ils associés aux événements de clic SMS ?
+### Les `send_ids` sont-ils associés aux événements de clic SMS ? {#are-sendids-associated-with-sms-click-events}
 
 Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attribuer les `send_ids` aux événements de clic en utilisant le [Générateur de requêtes]({{site.baseurl}}/query_builder/) pour interroger les données Currents avec cette requête :
 
@@ -125,7 +125,7 @@ Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attr
 SELECT c.*, s.send_id
 FROM USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED AS c
   INNER JOIN USERS_MESSAGES_SMS_SEND_SHARED AS s
-    ON s.user_id = c.user_id 
+    ON s.user_id = c.user_id
       AND (s.message_variation_id = c.message_variation_id OR s.canvas_step_message_variation_id = c.canvas_step_message_variation_id)
-WHERE s.send_id IS NOT NULL; 
+WHERE s.send_id IS NOT NULL;
 ```

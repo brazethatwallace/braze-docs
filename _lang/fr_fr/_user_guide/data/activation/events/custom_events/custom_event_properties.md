@@ -6,7 +6,7 @@ page_type: reference
 description: "Cet article décrit les propriétés d'événement personnalisé, leur format attendu, comment les utiliser et le stockage des propriétés d'événement personnalisé."
 ---
 
-# Propriétés d'événement personnalisé
+# Propriétés d'événement personnalisé {#custom-event-properties}
 
 > Cet article décrit les propriétés d'événement personnalisé, leur format attendu, comment les utiliser pour l'envoi de messages et la segmentation, ainsi que le stockage des propriétés d'événement personnalisé.
 
@@ -20,25 +20,25 @@ Chaque événement personnalisé ou achat peut comporter jusqu'à 256 propriét�
 
 ## Format attendu {#expected-format}
 
-Les valeurs des propriétés doivent être un objet : les clés sont les noms des propriétés (chaînes de caractères non vides, 255 caractères maximum, sans `$` en début), et les valeurs sont les valeurs des propriétés. Pour les types de données pris en charge, les exigences de format et les limites de PAYLOAD, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types).
+Les valeurs des propriétés doivent être un objet : les clés sont les noms des propriétés (chaînes de caractères non vides, 255 caractères maximum, sans `$` en début), et les valeurs sont les valeurs des propriétés. Pour les types de données pris en charge, les exigences de format et les limites de payload, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types).
 
 Vous pouvez modifier le type de données de votre propriété d'événement personnalisé, mais soyez conscient des impacts du [changement de type de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type) après la collecte des données.
 
-### Clés réservées
+### Clés réservées {#reserved-keys}
 
 Vous ne pouvez pas utiliser de clés réservées comme noms de propriétés d'événement. L'utilisation d'une clé réservée dans l'objet `properties` renvoie l'erreur « Invalid 'properties' field ».
 
 | Propriété | Clé réservée |
 | --- | --- |
-| Événements personnalisés | `time` et `event_name` | 
-| Événements d'achat |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` | 
+| Événements personnalisés | `time` et `event_name` |
+| Événements d'achat |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Utilisation des propriétés d'événement personnalisé
+## Utilisation des propriétés d'événement personnalisé {#using-custom-event-properties}
 
 Les propriétés d'événement personnalisé peuvent être utilisées pour qualifier les déclencheurs de campagne, suivre les conversions et personnaliser les messages.
 
-### Déclencher des messages
+### Déclencher des messages {#trigger-messages}
 
 Utilisez les propriétés d'événement personnalisé pour affiner davantage votre audience pour une campagne ou un Canvas particulier. Par exemple, si vous avez une application e-commerce et souhaitez envoyer un message à un utilisateur lorsqu'il abandonne son panier, vous pouvez ajouter une propriété d'événement personnalisé `price` pour améliorer votre audience cible et permettre une personnalisation accrue de la campagne.
 
@@ -48,7 +48,7 @@ Les propriétés d'événement personnalisé imbriquées sont également prises 
 
 ![Filtres de propriétés d'événement personnalisé pour un panier abandonné. Un filtre est sélectionné si un article du panier a un prix supérieur à 100 dollars.]({% image_buster /assets/img_archive/customEventPropertiesNested.png %} "customEventPropertiesNested.png"){: style="max-width:70%;"}
 
-### Personnaliser les messages
+### Personnaliser les messages {#personalize-messages}
 
 Vous pouvez également utiliser les propriétés d'événement personnalisé pour la personnalisation dans le modèle de message. Toute campagne utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) avec un événement déclencheur peut utiliser les propriétés d'événement personnalisé de cet événement pour la personnalisation des messages.
 
@@ -72,7 +72,7 @@ Si l'utilisateur n'a pas de connexion internet, les messages in-app déclenchés
 
 Pour une liste complète des étiquettes Liquid qui entraînent la distribution des messages in-app en tant que messages in-app modélisés, consultez la [Foire aux questions]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages/).
 
-#### Considérations relatives aux filtres
+#### Considérations relatives aux filtres {#considerations-with-filters}
 
 - **Appels API :** Lors d'appels API utilisant le filtre « est vide », une propriété d'événement personnalisé est considérée comme « vide » si elle est exclue de l'appel. Par exemple, si vous incluez `"event_property": ""`, vos utilisateurs seront considérés comme « non vide ».
 - **Nombres entiers :** Lors du filtrage sur une propriété d'événement personnalisé de type nombre dont la valeur est très grande, n'utilisez pas le filtre « exactement ». Si un nombre est trop grand, il peut être arrondi à une certaine longueur, et votre filtre ne fonctionnera pas comme prévu.
@@ -83,9 +83,9 @@ Utilisez la segmentation par propriétés d'événement pour cibler les utilisat
 
 Les propriétés d'événement pour les événements personnalisés sont mises à jour en temps réel pour tout segment qui les utilise. Vous pouvez gérer les propriétés en accédant à **Paramètres des données** > **Événements personnalisés** et en sélectionnant **Gérer les propriétés** pour l'événement personnalisé associé. Les propriétés d'événement personnalisé utilisées dans certains filtres de segment ont un historique de consultation maximum de 30 jours.
 
-#### Ajouter des propriétés d'événement pour la segmentation
+#### Ajouter des propriétés d'événement pour la segmentation {#adding-event-properties-for-segmentation}
 
-Vous avez besoin de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage) « Edit Custom Event Property Segmentation » pour créer des segments basés sur la récence et la fréquence des propriétés d'événement.
+Vous avez besoin de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) « Edit Custom Event Property Segmentation » pour créer des segments basés sur la récence et la fréquence des propriétés d'événement.
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
@@ -106,14 +106,14 @@ Les filtres de segmentation par propriétés d'événement incluent :
 
 Les données ne sont enregistrées pour une propriété d'événement donnée qu'après son activation, et les propriétés d'événement ne sont disponibles qu'à partir de cette date.
 
-#### Points de donnée
+#### Points de donnée {#data-points}
 
 En ce qui concerne l'utilisation de l'abonnement, les propriétés d'événement personnalisé activées pour la segmentation avec les filtres suivants sont toutes comptées comme des points de donnée distincts, en plus du point de donnée comptabilisé par l'événement personnalisé lui-même :
 
 - `X Custom Event Property in Y Days`
 - `X Purchase Property in Y Days`
 
-### Propriétés d'entrée Canvas et propriétés d'événement
+### Propriétés d'entrée Canvas et propriétés d'événement {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas_entry_event_properties.md %}
 
@@ -123,7 +123,7 @@ Vous pouvez utiliser des objets imbriqués (des objets à l'intérieur d'un autr
 
 Pour en savoir plus, consultez notre page dédiée aux [Objets imbriqués]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 
-## Stockage des propriétés d'événement personnalisé
+## Stockage des propriétés d'événement personnalisé {#custom-event-property-storage}
 
 Les propriétés d'événement personnalisé sont conçues pour vous aider à augmenter la précision du ciblage et rendre les messages encore plus personnalisés. Les propriétés d'événement personnalisé peuvent être stockées dans Braze à court et à long terme.
 

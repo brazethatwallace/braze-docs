@@ -6,7 +6,7 @@ Die folgende Tabelle listet die möglichen `abort_type`-Werte auf. Ein Abbruchty
 {% assign ch = "all" %}
 {% endif %}
 
-### Allgemein
+### Allgemein {#general}
 
 Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
@@ -14,10 +14,10 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | --- | --- |
 | `liquid_abort_message` | Der Liquid-Tag [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) wurde aufgerufen, daher wurde der Versand abgebrochen. |
 | `template_parse_error` | Das Nachrichten-Template konnte aufgrund eines Syntax- oder Rendering-Fehlers nicht geparst werden, daher wurde der Versand abgebrochen. |
-| `rate_limit` | Die Nachricht wurde abgebrochen, weil das konfigurierte [Rate-Limit]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) überschritten wurde. |
-| `campaign_disabled` | Die Kampagne wurde deaktiviert, bevor die Nachricht gesendet werden konnte. |
-| `campaign_does_not_exist` | Die mit dieser Nachricht verknüpfte Kampagne existiert nicht mehr. |
-| `campaign_action_does_not_exist` | Die mit dieser Nachricht verknüpfte Kampagnenaktion existiert nicht mehr. |
+| `rate_limit` | Die Nachricht wurde abgebrochen, weil die konfigurierten [Rate-Limits]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) überschritten wurden. |
+| `campaign_disabled` | Die Campaign wurde deaktiviert, bevor die Nachricht gesendet werden konnte. |
+| `campaign_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign existiert nicht mehr. |
+| `campaign_action_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign-Aktion existiert nicht mehr. |
 | `message_variation_does_not_exist` | Die diesem/dieser Nutzer:in zugewiesene Nachrichtenvariante existiert nicht mehr. |
 | `user_not_in_segment` | Der/die Nutzer:in befindet sich nicht im Zielsegment, daher wurde die Nachricht nicht gesendet. |
 | `trigger_event_blacklisted` | Das Trigger-Event ist auf der Sperrliste, daher wurde die Nachricht nicht gesendet. |
@@ -27,7 +27,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
-### Inhalt und Rendering
+### Inhalt und Rendering {#content-and-rendering}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -48,7 +48,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "email" %}
 
-### E-Mail
+### E-Mail {#email}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -127,7 +127,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Content-Cards
+### Content Cards {#content-cards}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
@@ -141,7 +141,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 {% if ch == "all" or ch == "inappmessage" %}
 
-### In-App-Nachrichten
+### In-App-Nachrichten {#in-app-messages}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |

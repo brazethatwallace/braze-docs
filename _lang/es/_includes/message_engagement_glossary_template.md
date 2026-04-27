@@ -20,15 +20,15 @@ Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{sit
 
 {% details Explicación de la estructura de eventos de interacción con mensajes y valores de plataforma %}
 
-### Estructura del evento
+### Estructura del evento {#event-structure}
 
 Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos entrantes de Currents para elaborar informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
-![Desglose de un evento de interacción con un mensaje que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de campaña o Canvas y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Desglose de un evento de interacción con un mensaje que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
 
-Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de campaña/Canvas** y propiedades **específicas del evento**.
+Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de Campaign/Canvas** y propiedades **específicas del evento**.
 
-### Esquema de ID de usuario
+### Esquema de ID de usuario {#user-id-schema}
 
 Ten en cuenta las convenciones de nomenclatura para los ID de usuario.
 
@@ -38,7 +38,7 @@ Ten en cuenta las convenciones de nomenclatura para los ID de usuario.
 | `external_id` | `"EXTERNAL_USER_ID"` | El identificador único del perfil de un usuario configurado por el cliente. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### Valores de plataforma
+### Valores de plataforma {#platform-values}
 
 Algunos eventos devuelven un valor `platform` que especifica la plataforma del dispositivo del usuario.
 <br>La siguiente tabla detalla los posibles valores devueltos:
@@ -61,7 +61,7 @@ Currents descartará los eventos con cargas útiles excesivamente grandes, super
 {% endalert %}
 
 {% alert note %}
-Los objetos relacionados con el flujo de Canvas tienen ID que pueden utilizarse para agrupar y traducirse a nombres legibles mediante el [punto de conexión Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+Los objetos relacionados con Canvas Flow tienen ID que pueden utilizarse para agrupar y traducirse a nombres legibles mediante el [punto de conexión Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
 {% endalert %}
 
 {% alert note %}

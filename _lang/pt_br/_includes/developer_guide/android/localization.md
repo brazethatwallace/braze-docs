@@ -1,4 +1,4 @@
-# Localização
+# Localização {#localization}
 
 > A localização é compatível com o SDK da Braze para Android. Além do inglês, a Braze oferece suporte a vários idiomas para as mensagens integradas do SDK. Essas mensagens se referem aos textos padrão exibidos em apps integrados à Braze, como avisos de problemas de conectividade (por exemplo, "Não é possível estabelecer conexão de rede. Por favor, tente novamente mais tarde.").
 
@@ -6,7 +6,7 @@ Se o idioma do telefone estiver definido como um dos idiomas suportados, qualque
 
 Se estiver procurando uma lista completa dos idiomas suportados que podem ser atribuídos aos seus usuários nos perfis deles, consulte nossa [lista de idiomas do usuário]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Idiomas suportados
+## Idiomas suportados {#languages-supported}
 
 - Africâner
 - Aghem

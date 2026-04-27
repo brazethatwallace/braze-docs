@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## 범용 델리게이트 만들기
+## 범용 델리게이트 만들기 {#creating-a-universal-delegate}
 
-Android SDK는 콘텐츠 카드, 인앱 메시지, 푸시 알림에서 Braze가 여는 모든 딥링크를 커스텀 처리하도록 단일 델리게이트 오브젝트를 설정할 수 있는 기능을 제공합니다.
+Android SDK는 Content Cards, 인앱 메시지, 푸시 알림에서 Braze가 여는 모든 딥링크를 커스텀 처리하도록 단일 델리게이트 오브젝트를 설정할 수 있는 기능을 제공합니다.
 
 델리게이트 오브젝트는 [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) 인터페이스를 구현하고 [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html)를 사용하여 설정해야 합니다. 대부분의 경우 델리게이트는 앱의 `Application.onCreate()`에서 설정해야 합니다.
 
@@ -86,7 +86,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## 앱 설정으로 딥링킹
+## 앱 설정으로 딥링킹 {#deep-linking-to-app-settings}
 
 딥링크가 앱 설정을 직접 열 수 있도록 하려면 커스텀 `BrazeDeeplinkHandler`가 필요합니다. 다음 예제에서는 `open_notification_page`라는 커스텀 키-값 페어가 있으면 딥링크가 앱 설정 페이지를 엽니다.
 
@@ -185,7 +185,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
 푸시 알림의 딥링크가 Android에서 작동하지 않는 경우 다음 단계를 시도해 보세요.
 
@@ -194,7 +194,7 @@ Braze.configure(this, brazeConfig)
 3. **딥링크 핸들러 델리게이트를 확인합니다.** 커스텀 `IBrazeDeeplinkHandler`를 설정한 경우, `gotoUri` 구현이 URI를 올바르게 처리하고 누락시키지 않는지 확인하세요.
 4. **채널 간 테스트를 수행합니다.** 동일한 딥링크가 인앱 메시지에서는 작동하지만 푸시에서는 작동하지 않는 경우, 문제는 딥링크 자체가 아니라 푸시 딥링크 처리에 있을 가능성이 높습니다.
 
-## Jetpack Compose 사용하기
+## Jetpack Compose 사용하기 {#using-jetpack-compose}
 
 NavHost와 함께 Jetpack Compose를 사용할 때 딥링크를 처리하려면:
 

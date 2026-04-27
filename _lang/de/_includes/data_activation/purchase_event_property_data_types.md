@@ -12,4 +12,4 @@ Eigenschaftswerte können einen der folgenden Datentypen haben:
 | Objekt | Werden als Strings aufgenommen (keine verschachtelten Objekte). Verwenden Sie für verschachtelte Daten einen String-Wert (z.&nbsp;B. JSON-serialisiert). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Die folgenden Schlüssel sind reserviert und können nicht als Eigenschaftsnamen verwendet werden: `time`, `product_id`, `quantity`, `event_name`, `price` und `currency`. Die Verwendung eines reservierten Schlüssels im `properties`-Objekt gibt den Fehler „Ungültiges ‚properties'-Feld" zurück.
+Die folgenden Schlüssel sind reserviert und können nicht als Eigenschaftsnamen verwendet werden: `time`, `product_id`, `quantity`, `event_name`, `price` und `currency`. Die Verwendung eines reservierten Schlüssels im `properties`-Objekt gibt den Fehler „Ungültiges ‚properties'-Feld“ zurück.
