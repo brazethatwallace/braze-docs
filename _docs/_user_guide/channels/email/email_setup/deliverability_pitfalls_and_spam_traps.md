@@ -10,6 +10,8 @@ channel: email
 
 # [![Braze Learning course]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability){: style="float:right;width:120px;border:0;" class="noimgborder"}Deliverability pitfalls and spam traps
 
+> This article covers common email deliverability pitfalls, spam traps, and how to avoid them.
+
 Your email deliverability can be affected by any of the following spam traps:
 
 | Trap Type | Description |

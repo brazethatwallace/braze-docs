@@ -1,7 +1,7 @@
 <!---DEFAULT RATE LIMIT-->
 
 {% if include.endpoint == "default" %}
-[API レート制限]({{site.baseurl}}/api/api_limits/)に記載されているように、このエンドポイントにはデフォルトの Braze レート制限（1時間あたり250,000リクエスト）が適用されます。
+[API レート制限]({{site.baseurl}}/api/api_limits/)に記載されているように、このエンドポイントにはデフォルトのBrazeレート制限（1時間あたり250,000リクエスト）が適用されます。
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "update dashboard user" %}
@@ -32,9 +32,9 @@
 <!---/users/track-->
 
 {% elsif include.endpoint == "users track" %}
-Braze はこのエンドポイントに対して、3秒あたり3,000リクエストという基本速度制限を適用します。各 `/users/track` リクエストには、`attributes`、`events`、`purchases` を合わせて最大75個のオブジェクトを含めることができます。各オブジェクトは1人のユーザーを更新できます。単一のユーザープロファイルを複数のオブジェクトで更新することも可能です。
+Brazeはこのエンドポイントに対して、3秒あたり3,000リクエストという基本速度制限を適用します。各 `/users/track` リクエストには、`attributes`、`events`、`purchases` を合わせて最大75個のオブジェクトを含めることができます。各オブジェクトは1人のユーザーを更新できます。単一のユーザープロファイルを複数のオブジェクトで更新することも可能です。
 
-Monthly Active Users CY 24-25、Universal MAU、Web MAU、または Mobile MAU を購入された顧客には、追加のレート制限が適用されます。詳細については、[Monthly Active Users CY 24-25 制限]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)を参照してください。
+Monthly Active Users CY 24-25、Universal MAU、Web MAU、または Mobile MAUを購入された顧客には、追加のレート制限が適用されます。詳細については、[Monthly Active Users CY 24-25 制限]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)を参照してください。
 
 {% details レガシーレート制限 %}
 レガシーレート制限が適用される顧客の場合、各 `/users/track` リクエストには最大75個の属性オブジェクト、75個のイベントオブジェクト、75個の購入オブジェクトを含めることができます。各オブジェクトは1人のユーザーを更新でき、1リクエストあたり最大225個のオブジェクトを組み合わせることができます。単一のユーザープロファイルを複数のオブジェクトで更新することも可能です。
@@ -45,11 +45,11 @@ Monthly Active Users CY 24-25、Universal MAU、Web MAU、または Mobile MAU �
 <!---/users/export/ids-->
 
 {% elsif include.endpoint == "users export ids" %}
-2024年8月22日以降に Braze にオンボーディングした場合、このエンドポイントには、[API レート制限]({{site.baseurl}}/api/api_limits/)に記載されているように、1分あたり250リクエストのレート制限が適用されます。
+2024年8月22日以降にBrazeにオンボーディングした場合、このエンドポイントには、[API レート制限]({{site.baseurl}}/api/api_limits/)に記載されているように、1分あたり250リクエストのレート制限が適用されます。
 
 以下の要件を満たすことで、このエンドポイントのレート制限を1秒あたり40リクエストまで引き上げることもできます。
 
-- ワークスペースにデフォルトのレート制限（1分あたり250リクエスト）が有効になっていること。既存のレート制限の解除についてサポートが必要な場合は、担当の Braze アカウントマネージャーにお問い合わせください。
+- ワークスペースにデフォルトのレート制限（1分あたり250リクエスト）が有効になっていること。既存のレート制限の解除についてサポートが必要な場合は、担当のBrazeアカウントマネージャーにお問い合わせください。
 - リクエストに、受け取りたいすべてのフィールドを列挙する `fields_to_export` パラメーターが含まれていること。
 
 {% alert important %}
@@ -106,17 +106,17 @@ Monthly Active Users CY 24-25、Universal MAU、Web MAU、または Mobile MAU �
 <!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
-リクエストで Connected Audience フィルターを使用する場合、このエンドポイントには1分あたり250リクエストのレート制限が適用されます。それ以外の場合、`external_id` を指定すると、[API レート制限]({{site.baseurl}}/api/api_limits/)に記載されているように、`/messages/send`、`/campaigns/trigger/send`、および `/canvas/trigger/send` 間で共有される1時間あたり250,000リクエストのデフォルトのレート制限が適用されます。
+リクエストでConnected Audienceフィルターを使用する場合、このエンドポイントには1分あたり250リクエストのレート制限が適用されます。それ以外の場合、`external_id` を指定すると、[API レート制限]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits)に記載されているエンドポイント間で共有される1時間あたり250,000リクエストのデフォルトのレート制限が適用されます。
 
-Braze のエンドポイントは API リクエストのバッチ処理をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
+Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の `external_ids`
-- リクエスト内で Connected Audience オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- リクエスト内で[Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
 {% elsif include.endpoint == "transactional email" %}
-`/transactional/v1/campaigns/{campaign_id}/send` エンドポイントは有料のエンドポイントであり、単位は時間あたりです（例：パッケージに応じて1時間あたり50,000）。エンドポイントごとの個別のレート制限は存在しません。割り当てられた容量を超えて送信することは可能ですが、SLA の対象となるのは割り当てられた容量のみです。このエンドポイントへのリクエストは[全体の外部 API レート制限]({{site.baseurl}}/api/api_limits/)にカウントされます。その制限（例：全エンドポイントで1時間あたり250,000リクエスト）を超えると、Braze は 429 を返し、リクエストはスロットリングされます。トランザクション量のカウントは毎時リセットされるため、1時間後には新たな割り当てが利用可能になります。SLA の対象範囲内では、メールの99.9%が1分以内に送信されます。
+`/transactional/v1/campaigns/{campaign_id}/send` エンドポイントは有料のエンドポイントであり、単位は時間あたりです（例：パッケージに応じて1時間あたり50,000）。エンドポイントごとの個別のレート制限は存在しません。割り当てられた容量を超えて送信することは可能ですが、SLAの対象となるのは割り当てられた容量のみです。このエンドポイントへのリクエストは[全体の外部APIレート制限]({{site.baseurl}}/api/api_limits/)にカウントされます。その制限（例：全エンドポイントで1時間あたり250,000リクエスト）を超えると、Brazeは429を返し、リクエストはスロットリングされます。トランザクション量のカウントは毎時リセットされるため、1時間後には新たな割り当てが利用可能になります。SLAの対象範囲内では、メールの99.9%が1分以内に送信されます。
 
 <!---POST /preference_center/v1 and PUT /preference_center/v1/{preferenceCenterExternalID}-->
 {% elsif include.endpoint == "post or put preference center" %}
@@ -155,20 +155,20 @@ Braze のエンドポイントは API リクエストのバッチ処理をサポ
 
 {% if include.category == "message endpoints" %}
 
-Braze のエンドポイントは [API リクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
+Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の `external_ids`
-- `segment_id` で指定される、Braze ダッシュボードで作成された任意のサイズのセグメント
-- リクエストで [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- `segment_id` で指定される、Brazeダッシュボードで作成された任意のサイズのSegment
+- リクエスト内で[Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
 
 {% if include.category == "send messages endpoints" %}
 
-Braze のエンドポイントは [API リクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
+Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の `external_ids`
-- リクエストで [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- リクエスト内で[Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
 
@@ -184,11 +184,11 @@ Braze のエンドポイントは [API リクエストのバッチ処理]({{site
 
 {% if include.category == "message send endpoint" %}
 
-Braze のエンドポイントは [API リクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
+Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - 最大50個の特定の `external_ids`
-- `segment_id` で指定される、Braze ダッシュボードで作成された任意のサイズのセグメント
-- リクエストで [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
+- `segment_id` で指定される、Brazeダッシュボードで作成された任意のサイズのSegment
+- リクエスト内で[Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
 

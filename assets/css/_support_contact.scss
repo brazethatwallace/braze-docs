@@ -1,0 +1,50 @@
+.operator-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: $white;
+  border: 1px solid #E4E7EC; // no exact token match; closest is $grey-ghost (#dddde2)
+  border-left: 4px solid $braze-purple;
+  border-radius: 8px;
+  padding: 19px 18px 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.operator-callout-content {
+  flex: 1;
+}
+
+.operator-callout-title {
+  font-size: 16px;
+  color: $black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.operator-callout-badge {
+  display: inline-block;
+  background: linear-gradient(80deg, $braze-orange 0%, #FFB3D1 50%, $braze-purple-light 100%); // middle stop has no token
+  color: $black;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 2px 9px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.operator-callout-body {
+  font-size: 16px;
+  line-height: 1.3;
+  color: $black-shark;
+  margin: 0;
+}
+
+.operator-callout-body a {
+  @include braze-link;
+}

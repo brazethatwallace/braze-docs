@@ -4,7 +4,7 @@ article_title: Prévisualisation des chemins utilisateur
 page_order: 0.3
 alias: /preview_user_paths/
 description: "Cette page explique comment prévisualiser les parcours des utilisateurs dans Canvas."
-Tool:
+tool:
   - Canvas
 ---
 

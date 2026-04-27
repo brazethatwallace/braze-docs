@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-フリークエンシーキャップは、コンテンツカードには適用されません。
+フリークエンシーキャップは、Content Cardsには適用されません。
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@
 {% if include.alert == 'Manage custom data storage' %}
 
 {% alert note %}
-ユーザープロファイルのすべてのデータ (カスタムイベント、カスタム属性、カスタムデータ) は、それらのプロファイルがアクティブである限り保存されます。
+ユーザープロファイルのすべてのデータ（カスタムイベント、カスタム属性、カスタムデータ）は、それらのプロファイルがアクティブである限り保存されます。
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-Braze は、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、アプリをまだ開封していないユーザーをターゲットにすることはできません。
+Brazeは、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,15 @@ Braze は、ユーザーが初めてアプリを使用するまでプロファ�
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-すべての属性のソースは Braze REST API です。
+すべての属性のソースはBraze REST APIです。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+1つのワークスペースにつき、最大350のサブスクリプショングループを追加できます。
 {% endalert %}
 
 {% endif %}

@@ -9,7 +9,7 @@ description: "This article provides an overview of the different ways you can se
 
 # Get started: Campaigns and Canvases
 
-In Braze, you can send messages either through a [campaign](#campaigns) or a [Canvas](#canvas).
+> This article provides an overview of the different ways you can send messages with Braze. In Braze, you can send messages either through a [campaign](#campaigns) or a [Canvas](#canvas).
 
 - For sending a single targeted message to a group of users, choose a campaign. A campaign is a single message step to connect with your users on various messaging channels.
 - For sending a series of ongoing messages in an overarching customer journey, choose Canvas, our journey orchestration tool. While campaigns are good for sending simple, targeted messages, Canvases are where you take your relationships with customers to the next level.

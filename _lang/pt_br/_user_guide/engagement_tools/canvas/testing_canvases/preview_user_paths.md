@@ -4,7 +4,7 @@ article_title: Prévia das jornadas do usuário
 page_order: 0.3
 alias: /preview_user_paths/
 description: "Esta página aborda como é possível fazer a prévia das jornadas do usuário no canva."
-Tool:
+tool:
   - Canvas
 ---
 
