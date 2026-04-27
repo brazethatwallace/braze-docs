@@ -6,13 +6,13 @@ page_type: reference
 description: "Cet article de référence présente brièvement les étapes d'intégration requises de la part de vos ingénieurs ou développeurs."
 ---
 
-# Liens profonds de navigation dans Braze Pilot
+# Liens profonds de navigation dans Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
 > Braze Pilot prend en charge la création de liens profonds depuis l'envoi de messages Braze vers des sections spécifiques de l'application Pilot. Cela vous permet de créer des cas d'utilisation engageants, incitant les utilisateurs à explorer différentes parties de l'application Pilot. Vous pouvez également utiliser des paramètres de lien profond facultatifs pour personnaliser le contenu de certaines pages de l'application pour l'utilisateur. Pour en savoir plus sur la création de liens profonds, consultez [Création de liens profonds vers du contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
-## Général
+## Général {#general}
 
-Voici les liens profonds vers les principales pages de navigation de l'application Pilot. 
+Voici les liens profonds vers les principales pages de navigation de l'application Pilot.
 
 | Écran | Lien profond |
 | --- | --- |
@@ -24,14 +24,13 @@ Voici les liens profonds vers les principales pages de navigation de l'applicati
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Steppington
-
 Voici les liens profonds pour l'application de la marque fictive Steppington dans Pilot.
 
-### Exemple de lien profond
+### Exemple de lien profond {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### Liens profonds sans paramètres
+### Liens profonds sans paramètres {#steppington-deep-links-without-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
@@ -42,7 +41,7 @@ Voici les liens profonds pour l'application de la marque fictive Steppington dan
 | Écran de modification des objectifs | `braze-pilot://navigation/steppington/changegoals` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Liens profonds avec paramètres
+### Liens profonds avec paramètres {#steppington-deep-links-with-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
@@ -50,7 +49,7 @@ Voici les liens profonds pour l'application de la marque fictive Steppington dan
 | Entraînement actif | `braze-pilot://navigation/steppington/activeworkout` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Paramètres acceptés
+#### Paramètres acceptés {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -195,7 +194,7 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### Options d'icônes
+##### Options d'icônes {#icon-options}
 
 | Icône | Image |
 | --- | --- |
@@ -208,14 +207,13 @@ th:nth-child(6), td:nth-child(6) {
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## PantsLabyrinth
-
 Voici les liens profonds pour l'application de la marque fictive PantsLabyrinth dans Pilot.
 
-### Exemple de lien profond
+### Exemple de lien profond {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### Liens profonds sans paramètres
+### Liens profonds sans paramètres {#pantslabyrinth-deep-links-without-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
@@ -226,14 +224,14 @@ Voici les liens profonds pour l'application de la marque fictive PantsLabyrinth 
 | Page de la liste de souhaits | `braze-pilot://navigation/pantslabyrinth/wishlist` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Liens profonds avec paramètres
+### Liens profonds avec paramètres {#pantslabyrinth-deep-links-with-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
 | Page de détails de l'article | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Paramètres acceptés
+#### Paramètres acceptés {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -347,14 +345,13 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
-
 Voici les liens profonds pour l'application de la marque fictive MovieCanon dans Pilot.
 
-### Exemple de lien profond
+### Exemple de lien profond {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### Liens profonds sans paramètres
+### Liens profonds sans paramètres {#moviecanon-deep-links-without-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
@@ -363,14 +360,14 @@ Voici les liens profonds pour l'application de la marque fictive MovieCanon dans
 | Page de liste des films | `braze-pilot://navigation/moviecannon/moviecannon` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Liens profonds avec paramètres
+### Liens profonds avec paramètres {#moviecanon-deep-links-with-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
 | Page de détails du film | `braze-pilot://navigation/moviecannon/moviedetails` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Paramètres acceptés
+#### Paramètres acceptés {#moviecanon-accepted-parameters}
 
 | Paramètre | Description | Requis | Type | Exemple |
 | --- | --- | --- | --- | --- |
