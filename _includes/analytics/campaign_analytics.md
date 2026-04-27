@@ -195,7 +195,7 @@ Using heatmaps, you can see how successful different links in a single email cam
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
 
 {% alert note %}
-If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to map them, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
+If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
 {% endalert %}
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
