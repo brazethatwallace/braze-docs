@@ -194,25 +194,25 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 
 {% if include.endpoint == "asynchronous catalog item" %}
 
-Esse endpoint tem um limite de taxa compartilhado de 16.000 solicitações por minuto entre todos os endpoints assíncronos de itens de Catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Esse endpoint tem um limite de taxa compartilhado de 16.000 solicitações por minuto entre todos os endpoints assíncronos de itens de catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 {% endif %}
 
 {% if include.endpoint == "synchronous catalog item" %}
 
-Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints síncronos de itens de Catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints síncronos de itens de catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 {% endif %}
 
 {% if include.endpoint == "synchronous catalog" %}
 
-Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints de Catálogo síncronos, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints de catálogo síncronos, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 {% endif %}
 
 {% if include.endpoint == "asynchronous catalog fields" or include.endpoint == "asynchronous catalog selections" %}
 
-Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints assíncronos de campos e seleções de Catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
+Esse endpoint tem um limite de taxa compartilhado de 50 solicitações por minuto entre todos os endpoints assíncronos de campos e seleções de catálogo, conforme documentado em [Limites de taxa da API]({{site.baseurl}}/api/api_limits/).
 
 {% endif %}
 

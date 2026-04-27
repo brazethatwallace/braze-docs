@@ -4,7 +4,7 @@ O encurtamento de links e o rastreamento de cliques podem ser ativados no [níve
 
 O comprimento da URL é determinado pelo tipo de rastreamento que está ativado:
 - **Rastreamento básico** ativa o rastreamento de cliques no nível da Campaign. URLs estáticas terão um comprimento de 20 caracteres, e URLs personalizadas terão um comprimento de 25 caracteres.
-- **Rastreamento avançado** ativa o rastreamento de cliques no nível da Campaign e no nível do usuário, e permite o uso de recursos de segmentação e redirecionamento que dependem de cliques. Os cliques também gerarão um [evento de clique de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) enviado pelo Currents. URLs estáticas com rastreamento avançado terão um comprimento de 27-28 caracteres, permitindo que você crie Segments de usuários que clicaram em URLs. URLs personalizadas terão um comprimento de 32-33 caracteres.
+- **Rastreamento avançado** ativa o rastreamento de cliques no nível da Campaign e no nível do usuário, e permite o uso de recursos de segmentação e redirecionamento que dependem de cliques. Os cliques também gerarão um [evento de clique de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) enviado pelo Currents. URLs estáticas com rastreamento avançado terão um comprimento de 27-28 caracteres, permitindo que você crie segmentos de usuários que clicaram em URLs. URLs personalizadas terão um comprimento de 32-33 caracteres.
 
 Os links são encurtados usando nosso domínio curto compartilhado (`brz.ai`) ou seu domínio personalizado de encurtamento de links. Um exemplo de URL pode ser algo como: `https://brz.ai/8jshX` (básico, estático) ou `https://brz.ai/p/8jshX/2dj8d` (avançado, personalizado). Consulte [Testes](#testing) para mais informações.
 
@@ -64,7 +64,7 @@ O encurtamento de links também é ativado para mensagens somente via API por me
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 |`link_shortening_enabled`| Opcional | booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign. Para usar o rastreamento, um `campaign_id` e `message_variation_id` devem estar presentes.|
-|`user_click_tracking_enabled`| Opcional | booleano | Defina `user_click_tracking_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign e do usuário. Você pode usar os dados rastreados para criar Segments de usuários que clicaram em URLs.<br><br> Para usar este parâmetro, `link_shortening_enabled` deve ser `true`, e um `campaign_id` e `message_variation_id` devem estar presentes. |
+|`user_click_tracking_enabled`| Opcional | booleano | Defina `user_click_tracking_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign e do usuário. Você pode usar os dados rastreados para criar segmentos de usuários que clicaram em URLs.<br><br> Para usar este parâmetro, `link_shortening_enabled` deve ser `true`, e um `campaign_id` e `message_variation_id` devem estar presentes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 Para uma lista completa de parâmetros de solicitação, acesse [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).

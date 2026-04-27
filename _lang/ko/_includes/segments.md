@@ -1,10 +1,10 @@
 {% if include.section == "Differing audience size" %}
 
-캠페인이나 Canvas에 표시되는 대상 집단 규모는 추가 필터 없이 해당 Segment를 캠페인이나 Canvas에 직접 추가하는 경우에도 해당 [Segment의 도달 가능한 오디언스 규모]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation)와 다를 수 있습니다.
+캠페인이나 Canvas에 표시되는 대상 집단 규모는 추가 필터 없이 해당 세그먼트를 캠페인이나 Canvas에 직접 추가하는 경우에도 해당 [세그먼트의 도달 가능한 오디언스 규모]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation)와 다를 수 있습니다.
 이는 여러 가지 이유로 발생할 수 있습니다:
 
 - 글로벌 컨트롤 그룹이 Campaign 또는 Canvas에 적용되면 해당 글로벌 컨트롤 그룹에 속한 사용자는 도달 가능 사용자 수에서 제외됩니다.
-- Campaign 또는 Canvas의 대상 집단 규모는 다양한 메시지 채널을 통해 연락할 수 없는 사용자를 제외하며, 동작은 채널마다 다릅니다. 예를 들어, Campaign 또는 Canvas의 도달 가능한 오디언스에는 탈퇴했거나 스팸으로 표시된 사용자(이메일의 경우) 또는 하드바운스된 사용자(이메일의 경우)가 제외됩니다. 그러나 Segment 자체는 예상 이메일 도달 가능 사용자 수를 표시할 때만 옵트아웃을 제외합니다.
+- Campaign 또는 Canvas의 대상 집단 규모는 다양한 메시지 채널을 통해 연락할 수 없는 사용자를 제외하며, 동작은 채널마다 다릅니다. 예를 들어, Campaign 또는 Canvas의 도달 가능한 오디언스에는 탈퇴했거나 스팸으로 표시된 사용자(이메일의 경우) 또는 하드바운스된 사용자(이메일의 경우)가 제외됩니다. 그러나 세그먼트 자체는 예상 이메일 도달 가능 사용자 수를 표시할 때만 옵트아웃을 제외합니다.
 - Braze는 선택한 구독 그룹에 속한 사용자에게만 SMS 메시지를 보내므로 Campaign 또는 Canvas의 SMS 대상 집단에서도 선택한 구독 그룹에 속하지 않은 사용자는 제외됩니다.
 
 {% endif %}
@@ -22,7 +22,7 @@
 {% alert important %}
 데이터 관리를 최적화하기 위해 사용되지 않는 세그먼트 확장에 대해서는 새로고침 설정이 자동으로 해제됩니다. 세그먼트 확장은 다음과 같은 경우 사용되지 않는 것으로 간주됩니다:
 
-- 활성 또는 비활성(초안, 중지됨, 아카이브됨) Campaign, Canvas 또는 Segment에서 사용되지 않는 경우
+- 활성 또는 비활성(초안, 중지됨, 아카이브됨) Campaign, Canvas 또는 세그먼트에서 사용되지 않는 경우
 - 7일 이상 수정되지 않은 경우
 
 이 설정이 해제되면 Braze는 회사 연락처 및 확장 생성자에게 알림을 보냅니다. 매일 확장을 재생성하는 옵션은 언제든지 다시 활성화할 수 있습니다.
@@ -57,14 +57,14 @@
 세그먼트 확장이 오래되면 스케줄된 새로고침이 자동으로 비활성화됩니다. 세그먼트 확장은 다음 기준을 충족하는 경우 오래된 것으로 간주됩니다:
 
 - 활성 Campaign이나 Canvas에서 사용되지 않음
-- 활성 Campaign 또는 Canvas에 있는 Segment에서 사용되지 않음
-- [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 켜져 있는 Segment에서 사용되지 않음
+- 활성 Campaign 또는 Canvas에 있는 세그먼트에서 사용되지 않음
+- [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 켜져 있는 세그먼트에서 사용되지 않음
 - 7일 이상 수정되지 않음
-- 7일 이상 Campaign이나 Canvas(초안 포함) 또는 Segment에 추가되지 않음
+- 7일 이상 Campaign이나 Canvas(초안 포함) 또는 세그먼트에 추가되지 않음
 
 세그먼트 확장에 대해 스케줄된 새로고침이 비활성화되면 해당 확장에 이를 알리는 알림이 표시됩니다.
 
-!["이 확장은 활성 Campaign, Canvas 또는 Segment에서 사용되지 않기 때문에 스케줄된 새로고침이 해제되었습니다. 세그먼트 확장은 2025년 2월 23일 오전 12:00에 비활성화되었습니다."라는 알림이 표시됩니다.]({% image_buster /assets/img/segment/segment_extension_disabled.png %})
+!["이 확장은 활성 Campaign, Canvas 또는 세그먼트에서 사용되지 않기 때문에 스케줄된 새로고침이 해제되었습니다. 세그먼트 확장은 2025년 2월 23일 오전 12:00에 비활성화되었습니다."라는 알림이 표시됩니다.]({% image_buster /assets/img/segment/segment_extension_disabled.png %})
 
 오래된 세그먼트 확장을 사용할 준비가 되면 새로고침 설정을 검토하고 사용 사례에 맞는 새로고침 일정을 선택한 다음 수정 사항을 저장하세요.
 

@@ -503,6 +503,14 @@ on one heading line. If the English file has **no** YAML `---` front matter at \
 the top (typical for `_includes/` partials), do not add a translated \
 `nav_title`/`article_title` block—strip it so the file starts like the English \
 body (auto-translate PR #13353).
+22. **Markdown tables + permission code cells**: In table rows, keep a **space** \
+after each ``|`` before an opening ``\``...\`` inline code token (never ``||``\`slug\```). \
+**Spanish** ``_includes/whatsapp/template_prerequisites.md``: keep quoted \
+WhatsApp permission bullets exactly as English (**View/Edit WhatsApp Message Templates**). \
+**Portuguese (Brazil)**: use **um** ``delay`` (not *uma*) before the borrowed \
+``delay`` token in in-app troubleshooting; keep **Campaigns** as the Braze \
+product token in link-shortening includes when the rest of the file uses \
+English **Campaign**/**Campaigns** (auto-translate PR #13356).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -2639,6 +2647,81 @@ def repair_duplicate_adjacent_target_audiences_include(content):
     return content, []
 
 
+# Table row where the cell separator ``|`` touches the opening backtick of an
+# inline code span (``||``\`view_foo_bar\```). Kramdown still parses, but layout
+# and reviews flag it (Copilot / auto-translate PR #13356).
+_TABLE_PIPE_TOUCHING_CODE_SPAN_RE = re.compile(
+    r"\|\`([a-z][a-z0-9_]*(?:_[a-z0-9_]+)+)`"
+)
+
+
+def repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content):
+    """Insert a space between ``|`` and ``\``...\`` when a slug-style code token follows."""
+    repairs = []
+    lines_out = []
+    for line in translated_content.split("\n"):
+        if not line.lstrip().startswith("|"):
+            lines_out.append(line)
+            continue
+        new_line, n = _TABLE_PIPE_TOUCHING_CODE_SPAN_RE.subn(r"| `\1`", line)
+        if n:
+            repairs.append(
+                "md-table — space before inline code cell after `|` "
+                f"({n} on one line)"
+            )
+        lines_out.append(new_line)
+    new_content = "\n".join(lines_out)
+    if new_content != translated_content:
+        return new_content, repairs
+    return translated_content, []
+
+
+def repair_es_whatsapp_template_prerequisites_permission_bullets(
+    translated_path, translated_content, lang_key
+):
+    """Restore English dashboard permission strings in ES WhatsApp prerequisites.
+
+    Spanish pages keep these quoted labels verbatim so they match the Braze
+    dashboard and sibling ``carousel_template_prerequisites`` (PR #13356).
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_includes/whatsapp/template_prerequisites.md"):
+        return translated_content, []
+    replacements = (
+        ('- "Ver plantillas de mensajes de WhatsApp"', '- "View WhatsApp Message Templates"'),
+        ('- "Editar plantillas de mensajes de WhatsApp"', '- "Edit WhatsApp Message Templates"'),
+    )
+    new = translated_content
+    applied = 0
+    for wrong, right in replacements:
+        if wrong in new:
+            new = new.replace(wrong, right)
+            applied += 1
+    if not applied:
+        return translated_content, []
+    return new, [
+        "es_whatsapp — restored English permission bullet strings "
+        f"({applied} pattern(s))"
+    ]
+
+
+def repair_pt_inapp_message_troubleshooting_loanword_delay(
+    translated_path, translated_content, lang_key
+):
+    """Fix Portuguese article gender before borrowed ``delay`` (in-app troubleshooting)."""
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "inapp_message_troubleshooting" not in rel:
+        return translated_content, []
+    new = translated_content.replace("uma `delay`", "um `delay`")
+    if new != translated_content:
+        return new, ["pt_br — uma `delay` → um `delay` (PR #13356)"]
+    return translated_content, []
+
+
 def repair_pt_br_banners_reporting_performance(translated_path, translated_content):
     """Prefer ``desempenho`` over English *performance* in PT-BR banner reporting."""
     rel = Path(translated_path).as_posix().replace("\\", "/")
@@ -4373,6 +4456,18 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(wire_repairs)
 
+    translated_content, table_pipe_code_repairs = (
+        repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content)
+    )
+    findings["repairs"].extend(table_pipe_code_repairs)
+
+    translated_content, wa_es_perm_repairs = (
+        repair_es_whatsapp_template_prerequisites_permission_bullets(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(wa_es_perm_repairs)
+
     translated_content, dup_inc_repairs = (
         repair_duplicate_adjacent_target_audiences_include(translated_content)
     )
@@ -4382,6 +4477,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content
     )
     findings["repairs"].extend(pt_rep_repairs)
+
+    translated_content, pt_delay_repairs = (
+        repair_pt_inapp_message_troubleshooting_loanword_delay(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_delay_repairs)
 
     translated_content, banner_ui_repairs = repair_banners_create_a_banner_verbatim_ui(
         translated_path, translated_content

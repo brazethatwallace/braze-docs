@@ -53,7 +53,7 @@ Algunos países te permiten elegir un número específico por una tarifa adicion
 | Pros |
 | ---- |
 | **Velocidad y escalabilidad**<br> Los códigos abreviados están diseñados específicamente para tráfico de gran volumen. Pueden enviar mensajes a tasas más rápidas que los códigos largos y, dado que son previamente verificados directamente por los operadores, tienen el menor riesgo de ser marcados por los filtros automáticos de correo no deseado. |
-| **Fácil de recordar para «llamada a la acción»**<br> Para las Campaigns de marketing (por ejemplo, «Envía WIN al 55555»), un código abreviado es mucho más fácil de recordar y escribir para los usuarios que un número de 10 dígitos. Esto convierte a los códigos abreviados en el estándar de referencia para los anuncios de radio, televisión y vallas publicitarias, donde el usuario solo tiene unos segundos para ver u oír el número. |
+| **Fácil de recordar para «llamada a la acción»**<br> Para las campañas de marketing (por ejemplo, «Envía WIN al 55555»), un código abreviado es mucho más fácil de recordar y escribir para los usuarios que un número de 10 dígitos. Esto convierte a los códigos abreviados en el estándar de referencia para los anuncios de radio, televisión y vallas publicitarias, donde el usuario solo tiene unos segundos para ver u oír el número. |
 {: .reset-td-br-1 role="presentation"}
 
 | Contras |
@@ -88,7 +88,7 @@ Un código largo es un número de teléfono estándar que se utiliza para enviar
 | Contras |
 | --- |
 | **Velocidades de envío más lentas y límites diarios de mensajería**<br> Los códigos largos no están diseñados para el marketing masivo como lo están los códigos abreviados. Si intentas enviar una venta flash urgente a 100 000 personas a la vez desde un código largo, podría tardar horas en entregar todos los mensajes. En EE. UU., operadores como T-Mobile también pueden imponer límites diarios de envío para 10DLC en función de la puntuación de confianza de tu marca. |
-| **Riesgo de filtrado más estricto**<br> Dado que los códigos largos se parecen a los números de teléfono personales, los operadores los supervisan de cerca para evitar que los números «de persona a persona» se utilicen para enviar correo no deseado. Incluso con una Campaign 10DLC registrada, si el contenido de tu mensaje es demasiado «spam» o no sigue un formato estricto, corres un riesgo mucho mayor de ser bloqueado por los operadores en comparación con un código abreviado preaprobado. |
+| **Riesgo de filtrado más estricto**<br> Dado que los códigos largos se parecen a los números de teléfono personales, los operadores los supervisan de cerca para evitar que los números «de persona a persona» se utilicen para enviar correo no deseado. Incluso con una campaña 10DLC registrada, si el contenido de tu mensaje es demasiado «spam» o no sigue un formato estricto, corres un riesgo mucho mayor de ser bloqueado por los operadores en comparación con un código abreviado preaprobado. |
 {: .reset-td-br-1 role="presentation"}
 
 {% endtab %}
@@ -204,7 +204,7 @@ Si ya tienes tu propio código abreviado, ponte en contacto con tu administrador
 
 En muchos países, la configuración de códigos largos (también llamados «10DLC» o «códigos largos de 10 dígitos») y números gratuitos para el envío de SMS ha pasado de ser un proceso «plug and play» a un sistema de verificación regulado. Los operadores quieren saber exactamente quién eres y qué planeas decir antes de que envíes.
 
-Durante el proceso de configuración del código largo, puedes esperar que te pidan compartir detalles sobre la identidad de tu marca y la intención de tu Campaign.
+Durante el proceso de configuración del código largo, puedes esperar que te pidan compartir detalles sobre la identidad de tu marca y la intención de tu campaña.
 
 #### Identidad de marca {#brand-identity}
 
@@ -213,7 +213,7 @@ Durante el proceso de configuración del código largo, puedes esperar que te pi
 - **Presencia digital:** Un sitio web activo y funcional. Los operadores pueden comprobarlo para confirmar que no eres una empresa «ficticia».
 - **Contacto autorizado:** Nombre, correo electrónico y número de teléfono de la persona responsable de la cuenta.
 
-#### Intención de la Campaign {#campaign-intent}
+#### Intención de la campaña {#campaign-intent}
 
 - **Caso de uso:** Indica si envías códigos 2FA, recordatorios de citas, promociones de marketing u otros.
 - **Mensajes de ejemplo:** Proporciona entre 2 y 5 ejemplos de lo que enviarás.
