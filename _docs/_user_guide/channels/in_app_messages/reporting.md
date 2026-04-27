@@ -81,7 +81,7 @@ Tom is a regular customer of an eCommerce app. He receives an in-app message pro
 
 Alex recently downloaded an arcade app. One day, Alex receives an in-app message encouraging them to complete a level in a new game. Alex clicks the message but gets distracted and doesn't complete a level. The next day, Alex completes two levels in the same game.
 
-**Results:** Since completing a level is the conversion event, Alex converted twice on the second day. However, because they only received one in-app message, *Total Conversions* and *Total Impressions* for Alex each increment by one.
+**Results:** Because completing a level is the conversion event, Alex converted twice on the second day. However, because they received only one in-app message, *Total Conversions* and *Total Impressions* for Alex each increment by one.
 
 {% endtab %}
 {% tab Scenario 5 %}
