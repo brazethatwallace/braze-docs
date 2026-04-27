@@ -28,7 +28,7 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Quando usar Testes A/B {#when-to-use-ab-tests}
+## Quando usar testes A/B {#when-to-use-ab-tests}
 
 - **Experimentando um novo tipo de mensagem:** Teste e descubra o que funciona melhor com seus usuários.
 - **Campaigns de integração ou envios recorrentes:** Garanta que Campaigns de alto tráfego sejam o mais eficazes possível.

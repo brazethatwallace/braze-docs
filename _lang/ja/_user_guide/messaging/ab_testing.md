@@ -1,13 +1,13 @@
 ---
-nav_title: A/B テスト
+nav_title: AB テスト
 article_title: "AB テスト"
 page_order: 6
 layout: dev_guide
 guide_top_header: "AB テスト"
-guide_top_text: "実験を行ってメッセージングを最適化しましょう。AB テストでは、同じCampaignの複数のバージョンに対するユーザーの応答を比較します。多変量テストでは、これを2つ以上の変数に拡張します。Braze では、セットアッププロセスが同じであるため、これらの用語は同じ意味で使用されます。AB テストと<a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>インテリジェントセレクション</a>を組み合わせて、結果を自動的に最適化しましょう。"
+guide_top_text: "実験を行ってメッセージングを最適化しましょう。ABテストでは、同じCampaignの複数のバージョンに対するユーザーの応答を比較します。多変量テストでは、これを2つ以上の変数に拡張します。Brazeでは、セットアッププロセスが同じであるため、これらの用語は同じ意味で使用されます。ABテストと<a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>インテリジェントセレクション</a>を組み合わせて、結果を自動的に最適化しましょう。"
 
 page_type: landing
-description: "Brazeで AB テストと多変量実験をセットアップし、分析します。"
+description: "BrazeでABテストと多変量実験をセットアップし、分析します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -28,10 +28,10 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## AB テストを使用するタイミング {#when-to-use-ab-tests}
+## ABテストを使用するタイミング {#when-to-use-ab-tests}
 
 - **新しいメッセージングタイプを試す場合:** 実験を行い、ユーザーに響くものを学びましょう。
-- **オンボーディングCampaignsや定期送信:** トラフィックの多いCampaignsを可能な限り効果的にしましょう。
+- **オンボーディングCampaignや定期送信:** トラフィックの多いCampaignを可能な限り効果的にしましょう。
 - **複数のメッセージアイデアがある場合:** テストを実行し、データドリブン型の意思決定を行いましょう。
 - **前提を検証する場合:** 従来のマーケティング戦術が特定のオーディエンスに実際に効果があるかどうかをテストしましょう。
 
