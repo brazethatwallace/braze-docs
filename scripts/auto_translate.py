@@ -2924,6 +2924,156 @@ def repair_es_braze_pilot_deep_links_splash_vs_welcome(
     return translated_content, repairs
 
 
+def repair_braze_pilot_deep_links_section_anchor_ids(
+    translated_path: str, translated_content: str
+):
+    """Assign unique Kramdown ``{#…}`` slugs per Steppington / PantsLabyrinth / MovieCanon block.
+
+    English ``deep_links.md`` repeats the same H3 titles under three ``##`` brand
+    sections without explicit ids. Locale files often reuse one slug (for
+    example ``{#example-deep-link}``) in every block, which duplicates HTML ids
+    (Copilot PR #13350). Prefix anchors: ``steppington-``, ``pantslabyrinth-``,
+    ``moviecanon-`` for the four parallel headings in each block.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel or not rel.endswith(
+        "_user_guide/get_started/braze_pilot/deep_links.md"
+    ):
+        return translated_content, []
+
+    if "## Steppington" not in translated_content:
+        return translated_content, []
+
+    pattern = r"^## (Steppington|PantsLabyrinth|MovieCanon)\s*\n"
+    parts = re.split(pattern, translated_content, flags=re.MULTILINE)
+    if len(parts) != 7:
+        return translated_content, []
+
+    preamble, s1, body_s, s2, body_p, s3, body_m = parts
+    if (s1, s2, s3) != ("Steppington", "PantsLabyrinth", "MovieCanon"):
+        return translated_content, []
+
+    prefixes = {
+        "Steppington": "steppington",
+        "PantsLabyrinth": "pantslabyrinth",
+        "MovieCanon": "moviecanon",
+    }
+    slug_pairs = (
+        ("{#example-deep-link}", "-example-deep-link}"),
+        ("{#deep-links-without-parameters}", "-deep-links-without-parameters}"),
+        ("{#deep-links-with-parameters}", "-deep-links-with-parameters}"),
+        ("{#accepted-parameters}", "-accepted-parameters}"),
+    )
+
+    repairs = []
+    rebuilt = [preamble]
+    for sec_name, body in ((s1, body_s), (s2, body_p), (s3, body_m)):
+        prefix = prefixes[sec_name]
+        new_body = body
+        if "{#example-deep-link}" in new_body:
+            for old, suffix_tail in slug_pairs:
+                if old not in new_body:
+                    return translated_content, []
+                new_slug = "{#" + prefix + suffix_tail
+                new_body = new_body.replace(old, new_slug, 1)
+            repairs.append(
+                f"braze-pilot-deep_links — unique explicit ids for {sec_name} block"
+            )
+        rebuilt.append(f"## {sec_name}\n")
+        rebuilt.append(new_body)
+
+    new_content = "".join(rebuilt)
+    if new_content != translated_content:
+        return new_content, repairs
+    return translated_content, []
+
+
+def repair_es_braze_pilot_deep_links_general_heading(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Add ``{#general}`` to Spanish ``## General`` for anchor parity (PR #13350)."""
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/es/_user_guide/get_started/braze_pilot/deep_links.md"):
+        return translated_content, []
+
+    if not re.search(r"^## General\s*$", translated_content, flags=re.MULTILINE):
+        return translated_content, []
+
+    new = re.sub(
+        r"^## General\s*$",
+        "## General {#general}",
+        translated_content,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    return new, ["es-braze-pilot-deep_links — added {#general} to General heading"]
+
+
+def repair_es_braze_pilot_getting_started_app_settings_bold(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    r"""Localize raw **App Settings** in Spanish Pilot getting started (PR #13350)."""
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/es/_user_guide/get_started/braze_pilot/getting_started.md"):
+        return translated_content, []
+
+    if "**App Settings**" not in translated_content:
+        return translated_content, []
+
+    return translated_content.replace(
+        "**App Settings**",
+        "**Configuración de la aplicación**",
+    ), ["es-braze-pilot-getting_started — App Settings → Configuración de la aplicación"]
+
+
+def repair_fr_braze_pilot_getting_started_campaign_inline_french(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Replace English *Campaign* tokens in French demo-send prose (PR #13350)."""
+    if lang_key != "fr":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/fr_fr/_user_guide/get_started/braze_pilot/getting_started.md"):
+        return translated_content, []
+
+    new = translated_content
+    for wrong, right in (
+        ("certaines Campaign de démonstration", "certaines campagnes de démonstration"),
+        ("les Campaign qui y sont lancées", "les campagnes qui y sont lancées"),
+    ):
+        if wrong in new:
+            new = new.replace(wrong, right)
+
+    if new != translated_content:
+        return new, [
+            "fr-braze-pilot-getting_started — Campaign → campagne(s) in demo/prose"
+        ]
+    return translated_content, []
+
+
+def repair_ja_braze_pilot_deep_links_pilot_brand_casing(
+    translated_path: str, translated_content: str, lang_key: str
+):
+    """Normalize ``pilotアプリ`` → ``Pilotアプリ`` in JA Pilot deep links intro."""
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/ja/_user_guide/get_started/braze_pilot/deep_links.md"):
+        return translated_content, []
+
+    if "pilotアプリ" not in translated_content:
+        return translated_content, []
+
+    return translated_content.replace(
+        "pilotアプリ",
+        "Pilotアプリ",
+    ), ["ja-braze-pilot-deep_links — Pilot product casing (pilotアプリ)"]
+
+
 def repair_braze_pilot_getting_started_campaigns_in_link_anchor(
     translated_path: str, translated_content: str, lang_key: str
 ):
@@ -3789,6 +3939,41 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(anchor_id_repairs)
+
+    translated_content, pilot_dl_anchor_repairs = (
+        repair_braze_pilot_deep_links_section_anchor_ids(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(pilot_dl_anchor_repairs)
+
+    translated_content, es_pilot_general_repairs = (
+        repair_es_braze_pilot_deep_links_general_heading(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(es_pilot_general_repairs)
+
+    translated_content, es_pilot_app_settings_repairs = (
+        repair_es_braze_pilot_getting_started_app_settings_bold(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(es_pilot_app_settings_repairs)
+
+    translated_content, fr_pilot_campaign_repairs = (
+        repair_fr_braze_pilot_getting_started_campaign_inline_french(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(fr_pilot_campaign_repairs)
+
+    translated_content, ja_pilot_brand_repairs = (
+        repair_ja_braze_pilot_deep_links_pilot_brand_casing(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_pilot_brand_repairs)
 
     translated_content, img_alt_repairs = repair_img_alt_inner_german_low9_closing_quote(
         translated_path, translated_content
