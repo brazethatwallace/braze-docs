@@ -60,10 +60,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  # Lets GITHUB_TOKEN push auto-translate/* PR branches when GitHub applies
-  # workflow-related ref rules to the push (merge-and-publish otherwise can
-  # fail with "refusing … workflows … without workflows permission").
-  workflows: write
 
 # One run at a time: overlapping dispatches can race on the same branch,
 # duplicate PRs, and multiply Anthropic spend. Queued runs start when the
@@ -233,6 +229,11 @@ jobs:
     if: ${{ needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    permissions:
+      contents: write
+      pull-requests: write
+      # Narrow scope: only PR-creation pushes can need this (workflow ref policy).
+      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -332,6 +333,10 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: write
+      pull-requests: write
+      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
