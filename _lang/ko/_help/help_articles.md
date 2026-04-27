@@ -12,30 +12,30 @@ description: "이 랜딩 페이지에는 Braze 사용 시 문제를 해결하고
 guide_featured_title: "주제"
 guide_featured_list:
   - name: 계정
-    link: /docs/user_guide/administrative/access_braze/troubleshooting/
+    link: /docs/user_guide/administer/personal/accessing_your_account/
     image: /assets/img/braze_icons/user-circle.svg
   - name: API
     link: /docs/help/help_articles/api/
     image: /assets/img/braze_icons/terminal-square.svg
-  - name: 캠페인 및 Canvas
-    link: /docs/help/help_articles/campaigns_and_canvas/
+  - name: Campaign 및 Canvas
+    link: /docs/user_guide/messaging/
     image: /assets/img/braze_icons/annotation.svg
-  - name: 콘텐츠 카드
-    link: /docs/help/help_articles/content_cards/
+  - name: Content Cards
+    link: /docs/user_guide/channels/content_cards/
     image: /assets/img/braze_icons/sticker-square.svg
   - name: 데이터
     link: /docs/help/help_articles/data/
     image: /assets/img/braze_icons/line-chart-up-01.svg
   - name: 문서
-    link: /docs/help/help_articles/docs/
+    link: /docs/user_guide/
     image: /assets/img/braze_icons/file-06.svg
   - name: 이메일
-    link: /docs/help/help_articles/email/
+    link: /docs/user_guide/channels/email/
     image: /assets/img/braze_icons/mail-01.svg
   - name: 푸시
-    link: /docs/help/help_articles/push/
+    link: /docs/user_guide/channels/push/
     image: /assets/img/braze_icons/message-square-02.svg
-  - name: 세그먼트
-    link: /docs/help/help_articles/segments/
+  - name: Segments
+    link: /docs/user_guide/audience/segments/
     image: /assets/img/braze_icons/users-01.svg
 ---
