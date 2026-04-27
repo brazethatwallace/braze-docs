@@ -435,7 +435,7 @@ $nav-nesting-border: $grey-manatee;
 			color: $black-shark;
 			font-weight: 700;
 			width: fit-content;
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			border-bottom-width: 2px;
 			border-color: $braze-link-color;
 			text-decoration: none;
@@ -463,7 +463,7 @@ $nav-nesting-border: $grey-manatee;
 		}
 		background-color: white;
 		opacity: 0.7;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		&:hover,
 		&:focus {
 			opacity: 1;
@@ -589,7 +589,7 @@ $nav-nesting-border: $grey-manatee;
 		}
 		.status-title {
 			display: block;
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			margin-left: 15px;
 			opacity: 0.7;
 			letter-spacing: 0.46px;
@@ -597,7 +597,7 @@ $nav-nesting-border: $grey-manatee;
 		}
 		.color-description {
 			padding-top: 0px;
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			color: $black-shark;
 			opacity: 0.7;
 			display: inline-block;

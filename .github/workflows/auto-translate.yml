@@ -1,0 +1,437 @@
+# Translates English docs into all supported languages using Claude.
+#
+# Trigger: workflow_dispatch only (push-to-main trigger temporarily disabled
+# during catch-up; re-enable after cleanup — restore the `push` block below).
+#
+# When enabled, push runs after deploy merges to main for changed _docs/ and
+# _includes/ markdown files.
+#
+# Flow:
+#   1. Identify _docs/ and _includes/ markdown files changed in the push
+#   2. Matrix: translate each changed file into one language per job (6 jobs),
+#      then QC + Jekyll verify that locale only (avoids a single 6×locale step
+#      hitting the translate timeout on very large pages)
+#   3. Merge _lang/ trees + translation_results.json + qc_results.json, then
+#      orphan cleanup + alias check (full-repo only; skipped for explicit
+#      workflow_dispatch `files:` batches — PR #13327)
+#   4. Open one PR targeting develop with all locales
+name: Auto-translate
+
+on:
+  # push:
+  #   branches: [main]
+  #   paths: ['_docs/**', '_includes/**']
+  workflow_dispatch:
+    inputs:
+      files:
+        description: >
+          Space-separated _docs/ or _includes/ paths to translate
+          (leave empty unless using since_commit or push-based detection).
+          When set, skips global orphan cleanup and duplicate-YAML-alias check
+          even if skip_orphan_cleanup is false — partial batches must not
+          delete or gate the whole _lang tree after IA moves (PR #13327).
+        required: false
+        type: string
+      since_commit:
+        description: >
+          Optional commit SHA: diff this commit..current ref for all changed
+          English .md under _docs/ and _includes/ (catch-up; ignores files input)
+        required: false
+        type: string
+      skip_orphan_cleanup:
+        description: >
+          If true, skip clean_orphaned_translations and duplicate-YAML-alias
+          check on workflow_dispatch (use for intermediate catch-up; false on
+          final full-repo run). Ignored for those two steps when files is
+          non-empty — explicit path batches never run them (PR #13327).
+        required: false
+        type: string
+        default: "false"
+      orphan_cleanup_only:
+        description: >
+          If true, skip translation: run repo-wide orphan deletion +
+          duplicate-alias check and open a _lang/ PR only. Leave files and
+          since_commit empty. Use after batched catch-up (cannot combine with
+          files or since_commit).
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# One run at a time: overlapping dispatches can race on the same branch,
+# duplicate PRs, and multiply Anthropic spend. Queued runs start when the
+# previous workflow finishes (cancel-in-progress stays false so partial work
+# is not killed mid-flight).
+concurrency:
+  group: auto-translate-${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  # --------------------------------------------------------------------------
+  # Detect changes once; matrix jobs download changed_files.txt
+  # --------------------------------------------------------------------------
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{ steps.changes.outputs.count }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Identify changed English files
+        id: changes
+        run: |
+          if [ "${{ inputs.orphan_cleanup_only }}" = "true" ]; then
+            if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ]; then
+              echo "::error::orphan_cleanup_only must be used with empty files and since_commit inputs."
+              exit 1
+            fi
+            echo "orphan_cleanup_only mode — no English files to translate."
+            echo "count=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+             [ -z "${{ inputs.since_commit }}" ] && \
+             [ -z "${{ inputs.files }}" ]; then
+            echo "workflow_dispatch requires since_commit (catch-up diff) and/or files (explicit paths), unless orphan_cleanup_only is true."
+            exit 1
+          fi
+          if [ -n "${{ inputs.since_commit }}" ]; then
+            echo "Using since_commit=${{ inputs.since_commit }}..${{ github.sha }}"
+            git diff --find-renames --name-only --diff-filter=ACMR \
+              "${{ inputs.since_commit }}" "${{ github.sha }}" \
+              -- '_docs/' '_includes/' > changed_files.txt
+          elif [ -n "${{ inputs.files }}" ]; then
+            echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
+          elif [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+            git diff --name-only --diff-filter=ACMR \
+              ${{ github.event.before }} ${{ github.sha }} \
+              -- '_docs/' '_includes/' > changed_files.txt
+          else
+            git diff --name-only --diff-filter=ACMR \
+              HEAD~1 HEAD \
+              -- '_docs/' '_includes/' > changed_files.txt
+          fi
+
+          grep '\.md$' changed_files.txt > filtered.txt 2>/dev/null || true
+          mv filtered.txt changed_files.txt
+
+          echo "Changed files:"
+          cat changed_files.txt
+
+          count=$(wc -l < changed_files.txt | tr -d ' ')
+          echo "count=${count}" >> "$GITHUB_OUTPUT"
+
+      - name: Note when there is nothing to translate
+        if: steps.changes.outputs.count == '0'
+        run: echo "No English markdown changes detected — nothing to translate."
+
+      - name: Upload changed-files list
+        if: steps.changes.outputs.count != '0'
+        uses: actions/upload-artifact@v7
+        with:
+          name: changed-files-list
+          path: changed_files.txt
+
+  # --------------------------------------------------------------------------
+  # One translate+QC+verify job per language (parallel matrix)
+  # --------------------------------------------------------------------------
+  translate-locale:
+    needs: prepare
+    if: needs.prepare.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lang: fr
+            lang_dir: fr_fr
+          - lang: ja
+            lang_dir: ja
+          - lang: ko
+            lang_dir: ko
+          - lang: pt-br
+            lang_dir: pt_br
+          - lang: es
+            lang_dir: es
+          - lang: de
+            lang_dir: de
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Download changed-files list
+        uses: actions/download-artifact@v8
+        with:
+          name: changed-files-list
+          path: .
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install anthropic pyyaml
+
+      - name: Ensure locale directory exists for artifact upload
+        run: mkdir -p "_lang/${{ matrix.lang_dir }}"
+
+      - name: Translate changed files (this locale only)
+        id: translate
+        timeout-minutes: 165
+        run: >-
+          python scripts/auto_translate.py translate
+          --changed-files changed_files.txt
+          --languages ${{ matrix.lang }}
+
+      - name: Run translation QC checks
+        id: qc
+        run: python scripts/auto_translate.py qc
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Verify builds and fix errors
+        id: verify
+        run: python scripts/auto_translate.py verify --max-attempts 3
+
+      - name: Upload locale artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: translate-${{ matrix.lang }}
+          path: |
+            translation_results.json
+            qc_results.json
+            _lang/${{ matrix.lang_dir }}
+
+  # --------------------------------------------------------------------------
+  # Merge all locales, repo-wide gates, single PR
+  # --------------------------------------------------------------------------
+  merge-and-publish:
+    needs: [prepare, translate-locale]
+    if: ${{ needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      pull-requests: write
+      # Narrow scope: only PR-creation pushes can need this (workflow ref policy).
+      workflows: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # Same toolchain as translate-locale: merge + check-aliases + summary run
+      # auto_translate.py (PyYAML + lazy Anthropic import paths).
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install anthropic pyyaml
+
+      - name: Download all locale artifacts
+        uses: actions/download-artifact@v8
+        with:
+          pattern: translate-*
+          path: matrix-out
+          merge-multiple: false
+
+      - name: Merge matrix outputs into workspace
+        id: merge-artifacts
+        run: python scripts/merge_translation_matrix_artifacts.py matrix-out
+
+      # Linux allows two paths that differ only by case; Git on macOS/Windows
+      # cannot represent both—status shows endless "modified" noise (PR #13372).
+      - name: Fail on case-only path collisions
+        if: steps.merge-artifacts.outcome == 'success'
+        run: python scripts/auto_translate.py check-path-case-collisions
+
+      - name: Clean up orphaned translations
+        id: orphan
+        if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
+        env:
+          ORPHAN_CLEANUP_MAX_DELETES: "500"
+        run: python scripts/clean_orphaned_translations.py
+
+      - name: Check for duplicate YAML aliases
+        id: aliases
+        if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
+        continue-on-error: true
+        run: python scripts/auto_translate.py check-aliases
+
+      - name: Generate PR summary
+        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
+        run: python scripts/auto_translate.py summary
+
+      - name: Create pull request
+        id: create-pr
+        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') }}
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto-translate/${{ github.run_id }}
+          base: develop
+          title: "Auto-translations — ${{ github.event.head_commit.message || 'manual run' }}"
+          body-path: translation_pr_body.md
+          labels: |
+            auto-translation
+            In Review
+          commit-message: "chore: auto-translate changed English docs"
+          delete-branch: true
+          add-paths: |
+            _lang/
+
+      - name: Request Copilot review
+        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set +e
+          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
+            echo "Requested Copilot review via gh CLI shortcut."
+            exit 0
+          fi
+          echo "gh CLI shortcut failed; falling back to REST API bot login..."
+          if gh api --method POST \
+            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
+            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
+            echo "Requested Copilot review via REST API fallback."
+            exit 0
+          fi
+          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
+
+  # --------------------------------------------------------------------------
+  # Orphan cleanup only (no translation; after batched catch-up)
+  # --------------------------------------------------------------------------
+  orphan-cleanup-only:
+    needs: prepare
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      pull-requests: write
+      workflows: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install anthropic pyyaml
+
+      - name: Fail on case-only path collisions
+        run: python scripts/auto_translate.py check-path-case-collisions
+
+      - name: Clean up orphaned translations
+        id: orphan
+        env:
+          ORPHAN_CLEANUP_MAX_DELETES: "500"
+        run: python scripts/clean_orphaned_translations.py
+
+      - name: Check for duplicate YAML aliases
+        id: aliases
+        run: python scripts/auto_translate.py check-aliases
+
+      - name: Write PR body
+        run: |
+          cat > translation_pr_body.md <<'EOF'
+          ## Orphan localization cleanup
+
+          This PR removes localized markdown that has no matching English source under `_docs/` or `_includes/` (`clean_orphaned_translations.py`), and runs the duplicate-alias check from the Auto-translate workflow.
+
+          **No English files were translated in this run.**
+          EOF
+
+      - name: Create pull request
+        id: create-pr
+        if: steps.orphan.outcome == 'success' && steps.aliases.outcome == 'success'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto-translate/${{ github.run_id }}
+          base: develop
+          title: "chore: orphan translation cleanup"
+          body-path: translation_pr_body.md
+          labels: |
+            auto-translation
+            In Review
+          commit-message: "chore: remove orphaned localized markdown"
+          delete-branch: true
+          add-paths: |
+            _lang/
+
+      - name: Request Copilot review
+        if: steps.create-pr.outputs.pull-request-number
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set +e
+          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
+            echo "Requested Copilot review via gh CLI shortcut."
+            exit 0
+          fi
+          echo "gh CLI shortcut failed; falling back to REST API bot login..."
+          if gh api --method POST \
+            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
+            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
+            echo "Requested Copilot review via REST API fallback."
+            exit 0
+          fi
+          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
+
+  report-failures:
+    needs: [prepare, translate-locale, merge-and-publish]
+    if: |
+      always() &&
+      needs.prepare.outputs.count != '0' && (
+        needs.translate-locale.result == 'failure' ||
+        (
+          needs.translate-locale.result == 'success' &&
+          needs.merge-and-publish.result == 'failure'
+        )
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report failures
+        run: |
+          echo "::warning::One or more translation workflow jobs failed."
+          echo "  prepare:            ${{ needs.prepare.result }}"
+          echo "  translate-locale:   ${{ needs.translate-locale.result }}"
+          echo "  merge-and-publish:  ${{ needs.merge-and-publish.result }}"
+          exit 1

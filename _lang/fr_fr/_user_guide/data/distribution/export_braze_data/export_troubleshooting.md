@@ -1,52 +1,70 @@
 ---
-nav_title: Résolution des problèmes d’exportation
-article_title: Résolution des problèmes d’exportation
-page_order: 10
+nav_title: Résolution des problèmes
+article_title: Résolution des problèmes d'exportation
+page_order: 6
 page_type: reference
-description: "Cet article de référence couvre certains scénarios de résolution des problèmes courants pour les exportations API et CSV."
-
+description: "Cet article de référence traite des scénarios de résolution des problèmes courants pour les exportations dans les flux de travail CSV et API."
 ---
 
-# Résolution des problèmes d’exportation
+# Résolution des problèmes d'exportation
 
-> Cette page répertorie les messages d'erreur que vous pouvez rencontrer lors de l'exportation de données via CSV ou API depuis Braze.
+> Cette page traite des scénarios de résolution des problèmes courants pour les exportations dans les flux de travail CSV et API.
 
-## Erreurs courantes
+Utilisez les onglets pour indiquer si vous exportez vers le **compartiment S3 par défaut de Braze** ou vers un **partenaire de stockage cloud**.
 
-### « AccessDenied » (Accès Refusé) 
+{% sdktabs %}
+{% sdktab Default export %}
 
-#### Si vous utilisez votre propre compartiment S3
+Si aucun partenaire de stockage n'est défini comme destination d'exportation par défaut, Braze utilise son propre compartiment Amazon S3 pour stocker vos fichiers d'exportation. Les fichiers dans cette configuration sont temporaires et expirent après quatre heures.
 
-Si vous utilisez **votre propre compartiment S3**, cela peut se produire parce que :
+## Exportations CSV
+Lorsque vous exportez un fichier CSV depuis le tableau de bord, Braze envoie un lien de téléchargement par e-mail à l'utilisateur connecté. Ce lien renvoie vers un fichier ZIP hébergé dans le compartiment S3 de Braze. Le fichier ZIP contient plusieurs fichiers plus petits qui, ensemble, constituent votre exportation.
 
-- L’objet attendu n’est plus dans le compartiment S3 ; voyez avec vos ingénieurs.
-- Les identifiants S3 configurés dans le tableau de bord de Braze ne disposent pas des bonnes autorisations ; confirmez les identifiants appropriés auprès de votre équipe.
+Vous devez être connecté au tableau de bord de Braze pour utiliser le lien, et le fichier n'est disponible que pendant quatre heures. Passé ce délai, le lien ne fonctionne plus et les données sont supprimées. Si vous rencontrez des échecs répétés avec des exportations très volumineuses (plus de 500 000 utilisateurs), l'exportation peut échouer. Dans ce cas, essayez de diviser votre exportation en groupes ou champs plus petits, ou envisagez de configurer un partenaire de stockage.
 
-#### Lors de l'utilisation d'un compartiment S3 de Braze
+### Erreurs courantes
 
-Si vous utilisez un **compartiment S3 de Braze**, cela peut se produire pour les raisons suivantes :
+- Si vous rencontrez une erreur `AccessDenied`, il est possible que le fichier ait déjà expiré ou que vous ayez tenté de l'ouvrir avant qu'il ne soit prêt. Les rapports volumineux prennent plus de temps à générer ; patientez quelques minutes et réessayez.
+- Une erreur `ExpiredToken` indique que le délai de quatre heures est écoulé. Relancez l'exportation afin de générer un nouveau lien.
+- Le message `Looks like the file doesn't exist anymore` apparaît généralement lorsque l'e-mail est envoyé, mais que le fichier n'a pas encore fini d'être chargé vers S3. Patienter quelques minutes résout généralement le problème.
+- Les apostrophes ajoutées au début de certains champs (tels que `-`, `=`, `+` ou `@`) sont un comportement attendu. Par exemple, `-1943` devient `'-1943` dans le fichier CSV. Braze procède ainsi afin d'éviter que les tableurs n'interprètent incorrectement les données. Cela ne s'applique pas aux exportations JSON, telles que celles renvoyées par l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
-- L’objet n’est plus là. Cela peut se produire si vous avez cliqué sur un lien pour une exportation qui a expiré, car les fichiers sont automatiquement supprimés de S3 lorsque le lien de téléchargement expire. Sauf indication contraire, les fichiers sont retirés au bout de quatre heures. Si c’est le cas, relancez votre exportation.
-- Vous avez sélectionné le lien de téléchargement immédiatement, avant que le S3 ne soit prêt à servir l'objet. Attendez quelques minutes et réessayez. Les rapports volumineux prendront généralement plus de temps. 
-- L’exportation est trop grande, notre serveur a donc manqué de mémoire en essayant de créer ce fichier zip. Nous enverrons automatiquement un e-mail à l’utilisateur qui a lancé l’exportation si cela se produit. Si vous êtes constamment confronté à ce problème, nous vous recommandons d’utiliser vos propres compartiments S3 à l’avenir.
+## Exportations API
+Lorsque vous effectuez une exportation via les API d'exportation sans stockage cloud, Braze enregistre les fichiers dans son compartiment S3. Vous ne recevez pas d'e-mail ; la réponse de l'API inclut à la place une URL de téléchargement temporaire. L'exportation se présente sous la forme d'un fichier ZIP contenant plusieurs fichiers JSON, chacun avec un utilisateur par ligne.
 
-### « ExpiredToken » (Jeton Expiré)
+Comme pour les exportations CSV, les liens provenant de l'API expirent au bout de quatre heures. Si vous cliquez sur le lien trop tôt, des erreurs peuvent apparaître car le fichier n'est pas encore prêt. Vous pouvez fournir un `callback_endpoint` dans votre requête si vous souhaitez que Braze vous notifie lorsque le fichier est disponible.
 
-Cela se produit si l'e-mail a été envoyé il y a suffisamment longtemps pour que le fichier S3 ait expiré. Sauf indication contraire, les fichiers sont retirés au bout de quatre heures. Exécutez à nouveau l'exportation et téléchargez-la avant que le fichier n'expire.
+Les exportations API volumineuses peuvent également expirer. Dans ce cas, essayez de réduire la taille de vos requêtes ou connectez un partenaire de stockage pour gérer le volume.
 
-Cela pourrait également se produire si Braze n’a plus accès au compartiment S3 vers lequel vous téléchargez les données. Assurez-vous d’avoir mis à jour vos informations d’identification S3 en utilisant ces étapes.
+### Erreurs courantes
+- `AccessDenied` ou `ExpiredToken` signifie généralement que le lien a expiré ou n'était pas encore prêt. Relancez l'exportation ou patientez un peu plus longtemps.
 
-### "Il semble que le fichier n'existe plus, veuillez vérifier que rien ne supprime les objets de votre compartiment".
+{% endsdktab %}
 
-Il peut y avoir un léger décalage entre le moment où l’e-mail de Braze avec l’exportation est envoyé et le moment où S3 est véritablement prêt à servir l’objet. Si vous voyez cette erreur, attendez quelques minutes avant de réessayer.
+{% sdktab Cloud storage connected %}
 
-### Apostrophes ajoutées aux champs
+Lorsque vous connectez un partenaire de stockage (tel qu'Amazon S3, Google Cloud Storage ou Azure Blob) et que vous le désignez comme destination d'exportation par défaut depuis la page **Partenaires technologiques** du tableau de bord, Braze enregistre vos exportations directement dans votre compartiment. Cette configuration est généralement plus fiable pour les exportations volumineuses.
 
-Braze ajoutera automatiquement une apostrophe à un champ dans l'exportation CSV si le champ commence par l'un des caractères suivants :
+## Exportations CSV
+Avec les exportations CSV, Braze vous envoie un lien de téléchargement par e-mail. Ce lien expire après un court délai (généralement environ quatre heures). Lorsqu'un partenaire de stockage est connecté et défini comme destination d'exportation par défaut, Braze envoie également une copie de l'exportation vers votre compartiment connecté. Cette copie réside dans votre propre infrastructure, où l'expiration et la conservation sont régies par vos politiques de stockage.
 
-- -
-- =
-- +
-- @
+Dans le stockage cloud, les exportations CSV sont regroupées dans un fichier ZIP. Le fichier ZIP contient plusieurs fichiers CSV de plus petite taille. Les exportations volumineuses sont souvent divisées en lots (par exemple, environ 5 000 utilisateurs chacun), et la taille des lots peut varier. Des fichiers plus petits n'indiquent pas nécessairement des données manquantes. Si le lien envoyé par e-mail ne fonctionne pas mais que la copie dans votre espace de stockage est disponible, vous pouvez toujours récupérer vos données directement depuis votre compartiment.
 
-Par exemple, le champ "-1943" sera exporté sous la forme "'-1943". Cela ne s'applique pas aux exportations JSON, telles que celles renvoyées par l' [endpoint`/users/export/segment` ]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
+### Erreurs courantes
+
+- `AccessDenied` signifie que Braze n'a pas pu écrire dans votre compartiment. Vérifiez que vos identifiants et autorisations sont toujours valides.
+- `ExpiredToken` apparaît si Braze n'a plus accès à votre compartiment. Mettez à jour vos identifiants dans le tableau de bord de Braze.
+- Si certains fichiers semblent plus petits que prévu, c'est un comportement normal. Le processus d'exportation divise intentionnellement les fichiers pour des raisons de stabilité.
+- Les apostrophes ajoutées au début de certains champs (tels que `-`, `=`, `+` ou `@`) sont un comportement attendu. Par exemple, `-1943` devient `'-1943` dans le fichier CSV. Braze procède ainsi afin d'éviter que les tableurs n'interprètent incorrectement les données. Cela ne s'applique pas aux exportations JSON, telles que celles renvoyées par l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
+
+## Exportations API
+Lorsque vous exportez des données via les API avec un partenaire de stockage connecté, les fichiers exportés sont enregistrés dans votre compartiment. Aucun e-mail n'est envoyé. Les objets sous-jacents résident dans votre espace de stockage et respectent vos paramètres de conservation, même si les URL de téléchargement fournies par Braze peuvent être limitées dans le temps. Chaque fichier ZIP contient des objets JSON, un par ligne. Les exportations volumineuses peuvent être divisées en plusieurs fichiers ZIP au lieu d'un seul, ce qui rend généralement cette méthode plus fiable pour les exportations lourdes.
+
+### Erreurs courantes
+
+- `AccessDenied` survient lorsque Braze ne parvient pas à écrire dans votre compartiment ou lorsque les objets ont été supprimés par la suite. Vérifiez les autorisations et assurez-vous qu'aucun processus externe ne supprime les fichiers.
+- `ExpiredToken` signifie que les identifiants d'accès de Braze à votre compartiment sont obsolètes. Actualisez-les dans le tableau de bord.
+- Si des fichiers sont manquants ou plus petits que prévu, vérifiez d'abord qu'aucun processus extérieur à Braze ne supprime des objets. Des fichiers de taille réduite sont un comportement attendu.
+
+{% endsdktab %}
+{% endsdktabs %}

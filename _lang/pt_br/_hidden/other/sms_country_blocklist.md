@@ -2,12 +2,12 @@
 nav_title: Lista de bloqueio de países para SMS
 article_title: Lista de bloqueio de países para SMS
 hidden: true
-permalink: /sms_country_blocklist/ 
+permalink: /sms_country_blocklist/
 ---
 
-# Lista de bloqueio de países para SMS
+# Lista de bloqueio de países para SMS {#sms-country-blocklist}
 
-Em um esforço para proteger nossos clientes contra o traffic pumping de SMS, o Braze mantém atualmente uma lista de bloqueio de países, tanto para os países embargados pelos EUA quanto para os países conhecidos como de alto risco para traffic pumping. Por padrão, o Braze não enviará SMS para esses países: 
+Para proteger nossos clientes contra o traffic pumping de SMS, a Braze mantém uma lista de bloqueio de países, tanto para países embargados pelos EUA quanto para países conhecidos como de risco alto para traffic pumping. Por padrão, a Braze não enviará SMS para esses países:
 
 - "AF" # Afeganistão
 - "AO" # Angola
@@ -60,7 +60,7 @@ Em um esforço para proteger nossos clientes contra o traffic pumping de SMS, o 
 - "UA" # Ucrânia
 - "UZ" # Uzbequistão
 - "VN" # Vietnã
-- "WF" # Wallis e Fortuna
+- "WF" # Wallis e Futuna
 - "YE" # Iêmen
 - "ZB" # Zimbábue
 - "ZM" # Zâmbia

@@ -2,83 +2,82 @@
 nav_title: Console des agents
 article_title: Agents Braze
 page_order: 1
-description: "Les agents Braze peuvent générer du contenu, prendre des décisions intelligentes et enrichir vos données afin que vous puissiez proposer des expériences client plus personnalisées."
+description: "Les agents Braze peuvent générer du contenu, prendre des décisions intelligentes et enrichir vos données afin que vous puissiez offrir des expériences client plus personnalisées."
 ---
 
-# Agents de Braze dans la console des agents
+# Agents Braze dans la Console des agents {#braze-agents-in-agent-console}
 
-> Les agents Braze sont des assistants dotés d'une intelligence artificielle que vous pouvez créer à l'intérieur de Braze. Les agents peuvent générer du contenu, prendre des décisions intelligentes et enrichir vos données afin que vous puissiez proposer des expériences client plus personnalisées.
+> Les agents Braze sont des assistants alimentés par l'intelligence artificielle que vous pouvez créer dans Braze. Ils peuvent générer du contenu, prendre des décisions intelligentes et enrichir vos données pour vous permettre d'offrir des expériences client plus personnalisées.
 
 {% alert important %}
-Les Braze Currents sont actuellement en version bêta. Pour obtenir de l'aide, contactez votre gestionnaire satisfaction client.
+Des crédits de message sont nécessaires pour accéder aux agents Braze et les utiliser. Si vous ne disposez pas actuellement de crédits de message et souhaitez utiliser les agents Braze, contactez votre gestionnaire de compte pour connaître la marche à suivre.
 {% endalert %}
 
-## Pourquoi utiliser des agents de Braze ?
+Regardez cette vidéo pour un aperçu des agents Braze dans la Console des agents.
 
-Les Teams de Braze aident votre équipe à proposer des expériences plus intelligentes et plus personnalisées, sans ajouter de travail supplémentaire. Ils agissent comme des assistants intelligents qui ne se contentent pas de répondre à des invites, mais qui comprennent le contexte, prennent des décisions et agissent pour atteindre un objectif.
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
 
-En pratique, les agents peuvent créer automatiquement des messages, tels que des lignes d'objet ou des textes dans les produits, afin que chaque client reçoive une communication qui lui soit adaptée. Ils peuvent également s'adapter en temps réel, en orientant les personnes vers différents chemins de Canvas en fonction de leurs préférences, de leurs comportements ou d'autres données.
+## Pourquoi utiliser les agents Braze ? {#why-use-braze-agents}
 
-Au-delà de l'envoi de messages, les agents peuvent enrichir vos catalogues en calculant ou en générant des valeurs de champs de produits et de profils, ce qui permet de conserver des données fraîches et dynamiques. En prenant en charge les tâches répétitives ou complexes, ils libèrent votre équipe pour qu'elle se concentre sur la stratégie et la créativité plutôt que sur la configuration manuelle. Les agents Braze agissent davantage comme des collaborateurs que comme des processus d'arrière-plan - ils vous aident à résoudre des problèmes et à avoir un impact à grande échelle.
+Les agents Braze aident votre équipe à proposer des expériences plus intelligentes et personnalisées, sans travail supplémentaire. Ils agissent comme des agents autonomes qui ne se contentent pas de répondre à des invites : ils comprennent le contexte, prennent des décisions et agissent pour atteindre un objectif.
 
-### Quand utiliser les agents Braze par rapport aux autres fonctionnalités de BrazeAI ?
+En pratique, les agents peuvent générer automatiquement des messages — comme des lignes d'objet ou du texte intégré au produit — afin que chaque client reçoive une communication qui semble faite sur mesure. Ils peuvent également s'adapter en temps réel, en orientant les utilisateurs vers différents parcours Canvas en fonction de leurs préférences, comportements ou autres données.
 
-Agents d'utilisation pour personnaliser le contenu à la volée en fonction du contexte spécifique de l'utilisateur. Par exemple, si un agent sait que le parfum de glace préféré d'un utilisateur est le chocolat et que sa garniture préférée est un ourson en gélatine, il peut proposer à cet utilisateur un message push spécifique à cette combinaison lors de son passage dans le Canvas.
+Au-delà de l'envoi de messages, les agents peuvent enrichir vos catalogues en calculant ou en générant des valeurs de champs pour les produits et les profils, ce qui permet de maintenir vos données à jour et dynamiques. En prenant en charge les tâches répétitives ou complexes, ils permettent à votre équipe de se concentrer sur la stratégie et la créativité plutôt que sur la configuration manuelle. Les agents Braze fonctionnent davantage comme des collaborateurs que comme des processus en arrière-plan : ils vous aident à résoudre des problèmes et à avoir un impact à grande échelle.
 
-Cependant, l'agent n'apprend pas par essais et erreurs, et il n'a aucune idée d'un objectif marketing ultime qu'il cherche à mesurer et à maximiser. Même si vous lui demandez de rédiger des textes qui génèrent des conversions, il ne dispose d'aucun mécanisme lui permettant de "surveiller" l'impact de ses écrits sur les conversions et d'intégrer ces données dans ses futurs appels d'offres. Vous pouvez considérer qu'il s'agit d'une prise de décision "vibratoire", et non d'une prise de décision d'intelligence artificielle basée sur la récompense.
+### Quand utiliser les agents Braze plutôt que d'autres fonctionnalités BrazeAI {#when-to-use-braze-agents-versus-other-brazeai-features}
 
-En revanche, d'autres outils de BrazeAI sont conçus pour maximiser les indicateurs qu'ils mesurent. Par exemple, les agents sont très doués pour évaluer qualitativement la façon dont les caractéristiques d'un utilisateur influent sur sa probabilité ou sa propension à participer à un certain événement ou à aimer un certain produit. Cependant, comme l'agent n'apprend pas par essais et erreurs, il n'a aucune idée de la manière de mesurer sa précision dans la prédiction des prédictions et l'amélioration du signal au fil du temps. Ainsi, l'utilisation de la Predictive Suite est plus performante que l'étape de l'Agent si l'on en juge par la précision de ses prédictions et les améliorations qu'elle apporte au fil du temps.
+Utilisez les agents pour personnaliser du contenu à la volée en fonction du contexte spécifique d'un utilisateur. Par exemple, si un agent sait que le parfum de glace préféré d'un utilisateur est le chocolat et que sa garniture préférée est les oursons en gélatine, il peut rédiger un message push spécifique à cette combinaison pour cet utilisateur lorsqu'il passe par le Canvas.
 
-## Fonctionnalités
+Cependant, l'agent n'apprend pas par essais et erreurs et n'a aucune notion d'un objectif marketing ultime qu'il chercherait à mesurer et à maximiser. Même si vous lui demandez de rédiger des textes qui favorisent les conversions, il ne dispose d'aucun mécanisme pour « surveiller » l'impact de ses textes sur les conversions et intégrer ces données dans ses futures exécutions. Considérez cela comme une prise de décision basée sur l'« intuition », et non comme une décision automatisée par IA basée sur la récompense.
 
-Les fonctionnalités des agents de Braze sont les suivantes :
+En revanche, les autres outils BrazeAI sont conçus pour optimiser les indicateurs qu'ils mesurent. Par exemple, les agents sont très compétents pour évaluer qualitativement comment les caractéristiques d'un utilisateur influencent sa probabilité ou sa propension à réaliser une certaine action ou à apprécier un certain produit. Cependant, comme l'agent n'apprend pas par essais et erreurs, il ne sait pas comment mesurer la précision de ses prédictions ni améliorer le signal au fil du temps. C'est pourquoi la Predictive Suite surpasse l'étape Agent lorsqu'on évalue la précision des prédictions et les améliorations dans la durée.
 
-- **Configuration flexible :** Utilisez un LLM fourni par Braze ou connectez votre propre fournisseur de modèle (comme OpenAI, Anthropic, Google Gemini ou AWS Bedrock).
-- **Intégration fluide/sans heurts :** Déployez des agents directement dans les étapes du canvas ou les champs du catalogue.
-- **Outils de test et d'enregistrement :** Prévisualisez le résultat de votre agent en le testant avec des échantillons d'entrées avant de le lancer. Consultez les journaux à chaque fois que l'agent s'exécute, y compris les données d'entrée et de sortie pour cette exécution.
-- **Contrôle de l'utilisation :** Les limites journalières permettent de gérer les performances et les coûts.
+## Fonctionnalités {#features}
 
-## À propos des agents de Braze
+Les fonctionnalités des agents Braze comprennent :
 
-Les agents sont configurés avec des instructions (invites du système) qui définissent leur comportement. Lorsqu'un agent s'exécute, il utilise vos instructions ainsi que les données que vous lui transmettez pour générer une réponse. 
+- **Configuration flexible :** Utilisez un LLM fourni par Braze ou connectez vos propres [fournisseurs de modèles d'intelligence artificielle]({{site.baseurl}}/partners/ai_model_providers/) (tels qu'OpenAI, Anthropic ou Google Gemini).
+- **Intégration fluide :** Déployez les agents directement dans les étapes du Canvas ou les champs du catalogue.
+- **Outils de test et de journalisation :** Prévisualisez les résultats de votre agent en effectuant des tests avec des exemples d'entrées avant le lancement. Consultez les journaux de chaque exécution de l'agent, y compris les entrées et sorties correspondantes.
+- **Contrôles d'utilisation :** Les limites quotidiennes facilitent la gestion des performances et des coûts.
 
-### Concepts clés
+## À propos des agents Braze {#about-braze-agents}
+
+Les agents sont configurés avec des instructions (invites système) qui définissent leur comportement. Lorsqu'un agent s'exécute, il utilise vos instructions ainsi que toutes les données que vous lui transmettez pour générer une réponse. Ils ne peuvent pas accéder aux données utilisateur au-delà de ce qui est fourni par le contexte et les instructions sélectionnés.
+
+### Concepts clés {#key-concepts}
 
 | Terme | Définition |
 | --- | --- |
-| [Modèle :]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) | Le "cerveau" de l'agent, en l'occurrence un grand modèle linguistique (LLM). Il interprète les entrées, génère des réponses et effectue des raisonnements. Un modèle plus solide (formé sur des données plus pertinentes) rend l'agent plus capable et plus polyvalent. |
-| [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | Les règles ou directives que vous donnez à l'agent (invite du système). Ils définissent le comportement de l'agent à chaque fois qu'il s'exécute. Des prédictions claires rendent l'agent plus fiable et plus prévisible. |
-| Contexte | Données transmises à l'agent au moment de l'exécution, quel que soit l'endroit où il est déployé, telles que les champs du profil utilisateur ou les lignes du catalogue. Ces données fournissent les informations que l'agent utilise pour générer des résultats. |
-| [Variable de sortie]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/#step-3-define-the-output-variable) | Le résultat produit par l'agent lorsqu'il est utilisé dans les étapes du canvas. Les variables de sortie stockent le résultat de l'agent pour personnaliser le contenu ou guider les chemins de flux de travail. Les variables de sortie peuvent être des chaînes de caractères, des nombres ou des données booléennes.  |
-| [Exécution](#limitations) | Une seule exécution de l'agent. Cela est pris en compte dans vos limites journalières. |
-| [Format de sortie]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-select-the-output) | La structure de données prédéfinie de la réponse de l'agent. |
-| [Température]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Le niveau d'écart pour la production de l'agent. Cela définit le degré de précision ou de créativité de votre agent. |
+| [Modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) | Le « cerveau » de l'agent, en l'occurrence un grand modèle de langage (LLM). Il interprète les entrées, génère des réponses et effectue des raisonnements. Un modèle plus performant (entraîné sur des données plus pertinentes) rend l'agent plus efficace et polyvalent. |
+| [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | Les règles ou directives que vous fournissez à l'agent (invite système). Elles définissent comment l'agent doit se comporter à chaque exécution. Des instructions claires rendent l'agent plus fiable et prévisible. |
+| Contexte | Données transmises à l'agent lors de l'exécution, quel que soit son lieu de déploiement, telles que les champs du profil utilisateur ou les lignes du catalogue. Ces entrées fournissent les informations que l'agent utilise pour générer ses sorties. |
+| [Variables de contexte Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Données temporaires que vous pouvez créer et utiliser dans le parcours d'un utilisateur au sein d'un Canvas spécifique. |
+| [Variable de sortie]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Le résultat généré par l'agent lorsqu'il est utilisé dans les étapes du Canvas. Les variables de sortie enregistrent le résultat de l'agent afin de personnaliser le contenu ou de guider les parcours du workflow. Les variables de sortie peuvent être de type chaîne de caractères, nombre ou valeur booléenne. |
+| [Exécution](#limitations) | Une seule exécution de l'agent. Celle-ci est décomptée de vos limites quotidiennes. |
+| [Format de sortie]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | La structure de données prédéfinie de la réponse de l'agent. |
+| [Température]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Le niveau de déviation de la sortie de l'agent. Ce paramètre détermine le degré de précision ou de créativité de votre agent. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Restrictions
+## Restrictions {#limitations}
 
-Pendant la période bêta, les limitations suivantes s'appliquent :
+Les restrictions suivantes s'appliquent :
 
-- Chaque agent a une limite d'exécution quotidienne par défaut de 50 000 exécutions, qui peut être augmentée jusqu'à un maximum de 100 000 exécutions par jour.
-- Par défaut, chaque exécution doit se terminer dans les 15 secondes. Après 15 secondes, l'agent renvoie une réponse `null` à l'endroit où il est utilisé.
-    - Si vos agents dépassent régulièrement le temps imparti, contactez votre gestionnaire de compte Braze pour augmenter cette limite.
-- Les données d'entrée sont limitées à 25 Ko par demande. Les entrées plus longues sont tronquées.
+- Chaque agent dispose d'une limite d'exécution quotidienne par défaut de 250 000 exécutions, qui peut être augmentée jusqu'à un maximum de 1 000 000 exécutions par jour. Contactez votre gestionnaire de la satisfaction client si vous souhaitez augmenter cette limite.
+- Par défaut, chaque exécution doit se terminer dans un délai de 15 secondes. Passé ce délai, l'agent renvoie une réponse `null` là où il est utilisé.
+    - Si vos agents dépassent régulièrement le délai imparti, contactez votre gestionnaire de compte Braze pour augmenter cette limite.
+- Les données d'entrée sont limitées à 25 Ko par requête. Les entrées plus longues sont tronquées.
 
-## Étapes suivantes
+## Comment mes données sont-elles utilisées et transmises aux LLM fournis par Braze ? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 
-Maintenant que vous connaissez les agents Braze, vous êtes prêt pour les étapes suivantes :
+Afin de générer des résultats d'intelligence artificielle via les fonctionnalités d'intelligence artificielle de Braze identifiées comme exploitant les LLM fournis par Braze (« Résultats »), Braze enverra votre invite système ou toute autre entrée, selon le cas (« Entrée »), au LLM fourni par Braze. Les données transmises au LLM fourni par Braze ne sont pas utilisées pour entraîner ou améliorer ledit modèle. Entre vous et Braze, les Résultats constituent votre propriété intellectuelle. Braze ne fera valoir aucun droit d'auteur sur ces Résultats. Braze n'offre aucune garantie de quelque nature que ce soit concernant tout contenu généré par l'intelligence artificielle en général, y compris les Résultats.
+
+Le LLM fourni par Braze pour les agents Braze, identifié comme « Auto », utilise les modèles Google Gemini. Google conserve les Entrées et Résultats soumis via Braze pendant 55 jours, après quoi les données sont supprimées.
+
+## Étapes suivantes {#next-steps}
+
+Maintenant que vous connaissez les agents Braze, vous êtes prêt pour la suite :
 
 - [Créer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
 - [Déployer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
-
-## Modèles de fournisseurs en tant que sous-traitants secondaires ou fournisseurs tiers
-
-Lorsque le Client utilise une intégration avec des modèles fournis par Braze par le biais des Services de Braze (" LLM fourni par Braze "), les fournisseurs de ces LLM fournis par Braze agiront en tant que Sous-traitants de Braze, sous réserve des termes de l'Addendum au traitement des données (DPA) entre le Client et Braze. 
-
-Si le Client choisit d'apporter sa propre clé API pour s'intégrer aux fonctionnalités de l'intelligence artificielle de Braze, le fournisseur de l'abonnement LLM du Client sera considéré comme un Fournisseur tiers, tel que défini dans le contrat entre le Client et Braze. 
-
-### Comment mes données sont-elles utilisées et envoyées aux centres d'éducation et de formation tout au long de la vie fournis par Braze ?
-
-Afin de générer une sortie d'intelligence artificielle par le biais des fonctionnalités d'intelligence artificielle de Braze que Braze identifie comme exploitant les LLM fournis par Braze ("Sortie"), Braze enverra votre invite système ou toute autre entrée, selon le cas ("Entrée"), au LLM fourni par Braze. Les données envoyées au LLM applicable fourni par Braze ne sont pas utilisées pour former ou améliorer le LLM fourni par Braze. Entre vous et Braze, le produit est votre propriété intellectuelle. Braze ne revendiquera pas la propriété des droits d'auteur sur ces sorties. Braze n'offre aucune garantie de quelque nature que ce soit en ce qui concerne le contenu généré par l'intelligence artificielle en général, y compris la sortie.
-
-Le LLM fourni par Braze pour les agents de Braze, identifié comme "Auto", utilise les modèles de Google Gemini. Google conserve les entrées et sorties soumises par l'intermédiaire de Braze pendant 55 jours, après quoi les données sont supprimées.

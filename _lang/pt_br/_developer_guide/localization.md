@@ -1,22 +1,22 @@
 ---
 nav_title: Localização
-article_title: Localização para o SDK Swift do Braze
+article_title: Localização
 page_order: 3.50
-description: "Saiba mais sobre localização para o SDK do Braze."
+description: "Saiba mais sobre a localização para o SDK da Braze."
 platform:
   - Android
   - FireOS
   - Swift
 ---
 
-# Localização
+# Localização {#localization}
 
-> Saiba mais sobre localização e idiomas suportados para o SDK do Braze, para que você possa se conectar com seus usuários em todo o mundo. Para orientações sobre como configurar mensagens localizadas, consulte [Localização]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/) em nossa seção de fundamentos de envio de mensagens.
+> Saiba mais sobre localização e idiomas suportados pelo SDK da Braze, para que você possa se conectar com seus usuários em todo o mundo. Para obter orientações sobre como configurar mensagens localizadas, consulte [Localização]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) em nossa seção Fundamentos do envio de mensagens.
 
-## Sobre localização
+## Sobre a localização {#about-localization}
 
-Além do inglês, o Braze suporta vários idiomas para mensagens do SDK exibidas em seu app. 
+Além do inglês, a Braze oferece suporte a vários idiomas para mensagens do SDK exibidas no seu app.
 
-Quando o idioma do telefone de um usuário está definido para um dos idiomas suportados, as mensagens do SDK que estão incluídas por padrão para o canal de envio de mensagens serão traduzidas para esse idioma. Por exemplo, se seu app exibe uma mensagem sobre problemas de conectividade, ela será traduzida para o idioma escolhido pelo usuário.
+Quando o idioma do telefone do usuário estiver definido como um dos idiomas suportados, as mensagens do SDK incluídas por padrão no canal de envio de mensagens serão traduzidas para esse idioma. Por exemplo, se o seu app exibir uma mensagem sobre problemas de conectividade, ela será traduzida para o idioma escolhido pelo usuário.
 
 {% multi_lang_include supported_language_codes.md %}

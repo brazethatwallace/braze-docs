@@ -1,36 +1,36 @@
 ---
-nav_title: "PUBLICAR: Envía campañas mediante entrega desencadenada por API"
-article_title: "PUBLICAR: Enviar campañas mediante entrega desencadenada por API"
-search_tag: Endpoint
+nav_title: "POST: Enviar campañas utilizando la entrega desencadenada por API"
+article_title: "POST: Enviar campañas mediante entrega desencadenada por API"
+search_tag: Punto de conexión
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artículo describe en detalle el punto final Braze de envío de campañas mediante entrega desencadenada por API."
+description: "Este artículo describe en detalle el punto final de Braze para enviar campañas mediante entrega desencadenada por API."
 
 ---
 {% api %}
-# Envía mensajes de campaña utilizando la entrega desencadenada por API
+# Envía mensajes de Campaign utilizando la entrega desencadenada por API {#send-campaign-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
 > Utiliza este punto final para enviar mensajes inmediatos y puntuales a usuarios designados utilizando la entrega desencadenada por la API.
 
-La entrega desencadenada por API te permite alojar el contenido de los mensajes dentro del panel Braze, al tiempo que dictas cuándo se envía un mensaje y a quién mediante tu API.
+La entrega desencadenada por API te permite alojar el contenido de los mensajes dentro del panel de Braze, al tiempo que dictas cuándo se envía un mensaje y a quién mediante tu API.
 
-Si te diriges a un segmento, se almacena un registro de tu solicitud en la [Consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Para enviar mensajes con este punto final, debes tener un [ID de campaña](https://www.braze.com/docs/api/identifier_types/) creado al crear una [campaña desencadenada por la API]({{site.baseurl}}/api/api_campaigns/).
+Si te diriges a un Segment, se almacena un registro de tu solicitud en la [Consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Para enviar mensajes con este punto final, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types/) creado al crear una [Campaign desencadenada por la API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto final, deberás generar una clave de API con el permiso `campaigns.trigger.send`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='send endpoints' category='send messages endpoints' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -68,25 +68,55 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatoria | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`|Obligatoria|Cadena|Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
-|`send_id`| Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types/). |
-|`trigger_properties`| Opcional | Objeto | Ver [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Los pares clave-valor de personalización se aplican a todos los usuarios de esta solicitud. |
-|`broadcast`| Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado como falso (a 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
-|`audience`| Opcional | Objeto de audiencia conectado| Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-|`recipients`| Opcional | Matriz | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Si `send_to_existing_only` es `false`, debe incluirse un objeto de atributo.<br><br>Si no se proporciona `recipients` y `broadcast` está configurado como verdadero, el mensaje se envía a todo el segmento al que se dirige la campaña. <br><br> Si `email` es el identificador, debes incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) en el objeto destinatario. |
-|`attachments`| Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. |
+| `campaign_id` | Obligatoria | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types/). |
+| `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types/). |
+| `trigger_properties` | Opcional | Objeto | Ver [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Los pares clave-valor de personalización se aplican a todos los usuarios de esta solicitud. |
+| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a todo el Segment configurado como audiencia objetivo de la Campaign en el panel de Braze. Este parámetro está predeterminado como falso (a 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
+| `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). Cuando incluyes `audience`, el mensaje solo se envía a los usuarios que coinciden con los filtros definidos, como los atributos personalizados y los estados de suscripción. |
+| `recipients` | Opcional | Matriz | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Si `send_to_existing_only` es `false`, debe incluirse un objeto `attributes`.<br><br>Puedes actualizar el estado del grupo de suscripción de un usuario incluyendo `subscription_groups` en el objeto `attributes` anidado. Para más detalles, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Si no se proporciona `recipients` y `broadcast` se establece en verdadero, el mensaje se envía a todo el Segment configurado como audiencia objetivo de la Campaign en el panel de Braze.<br><br>Si `email` es el identificador, debes incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) en el objeto de destinatarios. |
+| `attachments` | Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-- La matriz de destinatarios puede contener hasta 50 objetos, cada uno de ellos con una única cadena `external_user_id` y un objeto `trigger_properties`.
-- Cuando `send_to_existing_only` es `true` (predeterminado), Braze envía el mensaje sólo a los usuarios existentes. Cuando se establece en `false` y se proporciona un objeto de atributos, Braze crea un nuevo usuario si no existe ninguno. Ten en cuenta que la configuración de `send_to_existing_only` en `false` no es compatible con los alias de usuario: no se pueden crear nuevos usuarios sólo de alias a través de este punto final. Para enviar a un usuario sólo con alias, el usuario ya debe existir en Braze.
+### Comportamiento de resolución de destinatarios {#recipient-resolution-behavior}
 
-El estado del grupo de suscripción de un usuario puede actualizarse mediante la inclusión de un parámetro `subscription_groups` dentro del objeto `attributes`. Para más detalles, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).
+Esta sección explica cómo Braze selecciona un perfil de usuario para el envío y qué sucede cuando no se selecciona un perfil.
 
-## Ejemplo de solicitud
+El estado del grupo de suscripción de un usuario puede actualizarse mediante la inclusión de un parámetro `subscription_groups` dentro del objeto `attributes`. Para más detalles, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+
+#### Límites de destinatarios y creación de perfiles {#recipient-limits-and-profile-creation}
+
+Obtén más información sobre cómo funcionan los límites de destinatarios y la creación de perfiles para este punto final.
+
+- La matriz `recipients` puede contener hasta 50 objetos, cada uno con una única cadena `external_user_id` y un objeto `trigger_properties`.
+- Cuando `send_to_existing_only` es `true` (el valor predeterminado), Braze envía el mensaje solo a los usuarios existentes.
+- Cuando `send_to_existing_only` es `false` y se proporciona un objeto `attributes`, Braze crea un nuevo usuario si no existe ninguno.
+- Configurar `send_to_existing_only` en `false` no es compatible con los alias de usuario. No se pueden crear nuevos usuarios solo con alias a través de este punto final. Para enviar a un usuario que solo tiene un alias de usuario, este debe existir ya en Braze.
+
+#### Identificador de correo electrónico y empates de priorización {#email-identifier-and-prioritization-ties}
+
+Cuando identificas destinatarios por correo electrónico, Braze utiliza `prioritization`. Braze envía solo cuando `prioritization` devuelve un perfil.
+
+- Si utilizas `email` como identificador, Braze resuelve el destinatario usando `prioritization`.
+- Si `prioritization` devuelve un empate, Braze no envía.
+- Braze envía después de que se resuelva el empate y `prioritization` devuelva un perfil. Por ejemplo, si las actualizaciones de perfil cambian los campos de ordenación de un usuario, Braze envía una vez que `prioritization` pueda identificar de forma única un perfil (consulta [Comportamiento de reintentos y `send_to_existing_only`](#retry-behavior-and-send_to_existing_only)).
+- Braze tampoco envía cuando `prioritization` no devuelve ningún perfil.
+
+#### Comportamiento de reintentos y send_to_existing_only {#retry-behavior-and-sendtoexistingonly}
+
+Descubre qué sucede cuando `prioritization` no devuelve exactamente un perfil.
+
+- Cuando `prioritization` no devuelve exactamente un perfil de usuario, Braze reintenta la resolución hasta 40 veces. Este comportamiento de reintento es esperado.
+- La configuración de `send_to_existing_only` no cambia el comportamiento de empate de `prioritization`. El mismo comportamiento de empate y reintento se aplica tanto si esta configuración es `true` como `false`.
+
+{% alert note %}
+El parámetro `segment_id` no es compatible con este punto final. Para dirigirte a un Segment, configúralo en los ajustes de audiencia objetivo de la Campaign en el panel de Braze y utiliza `"broadcast": true`, o bien utiliza el parámetro `audience` con los filtros de [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/).
+{% endalert %}
+
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/send' \
 --header 'Content-Type: application/json' \
@@ -166,15 +196,15 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 }'
 ```
 
-## Detalles de la respuesta
+## Detalles de la respuesta {#response-details}
 
-Las respuestas del punto final de envío de mensajes incluyen la dirección `dispatch_id` del mensaje para que sirva de referencia al envío del mensaje. El `dispatch_id` es el ID del envío del mensaje, un ID único para cada transmisión enviada desde Braze. Al utilizar este punto final, recibes un único `dispatch_id` para todo un conjunto de usuarios por lotes. Para más información sobre `dispatch_id`, consulta nuestra documentación sobre [el comportamiento de Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Las respuestas de los puntos finales de envío de mensajes incluyen el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, un ID único para cada transmisión enviada desde Braze. Al utilizar este punto final, recibes un único `dispatch_id` para todo un conjunto de usuarios por lotes. Para más información sobre `dispatch_id`, consulta nuestra documentación sobre [el comportamiento de Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
 
 Si tu solicitud encuentra un error fatal, consulta [Errores y respuestas]({{site.baseurl}}/api/errors/#fatal-errors) para ver el código de error y la descripción.
 
-## Objeto de atribución para campañas
+## Objeto de atributos para Campaigns {#attributes-object-for-campaigns}
 
-Braze tiene un objeto de mensajería llamado `attributes` que te permite añadir, crear o actualizar atributos y valores de un usuario antes de enviarle una campaña desencadenada por la API. Al utilizar el punto final `campaign/trigger/send`, esta llamada a la API procesa el objeto de atributos del usuario antes de procesar y enviar la campaña. Esto ayuda a minimizar el riesgo de que se produzcan problemas causados por [condiciones de carrera]({{site.baseurl}}/user_guide/engagement_tools/testing/race_conditions/).
+Braze tiene un objeto de mensajería llamado `attributes` que te permite añadir, crear o actualizar atributos y valores para un usuario antes de enviarle una Campaign desencadenada por API. Usar el punto final `campaign/trigger/send` como esta llamada a la API procesa el objeto de atributos de usuario antes de procesar y enviar la Campaign. Esto ayuda a minimizar el riesgo de que se produzcan problemas causados por [condiciones de carrera]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
 
 {% alert tip %}
 ¿Buscas la versión Canvas de este punto final? Echa un vistazo a [Enviar mensajes Canvas utilizando la entrega desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#create-send-endpoint).

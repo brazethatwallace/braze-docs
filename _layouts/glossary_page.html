@@ -54,15 +54,16 @@ hide_breadcrumb: false
 {% endfor %}
 
 
-{%- comment -%} Data order: 0 name, 1 description,2 metric,3 calculation,4 field, 5 tags {%- endcomment -%}
+{%- comment -%} Data order: 0 id (slugified name), 1 display name, 2 description, 3 metric, 4 calculation, 5 field, 6 tags {%- endcomment -%}
 {%- assign glossary_list = '' -%}
 {%- for glossary in page.glossaries -%}
   {%- if glossary_list != '' -%}
     {%- assign glossary_list = glossary_list | append: ','  -%}
   {%- endif -%}
+  {%- assign glossary_display = glossary['display_name'] | default: glossary['name'] -%}
   {%- capture glossary_list -%}
   {{ glossary_list }}
-  "{{ glossary['name'] | downcase | replace: '"', '\\"' }}": ["{{ glossary['name'] | slugify | downcase | replace: '"', '\\"' }}","{{ glossary['name'] | replace: '"', '\\"' }}","{{ glossary['description'] | replace: '"', '\\"' }}","{{ glossary['metric'] | replace: '"', '\\"' }}","{{ glossary['calculation'] | replace: '"', '\\"' }}","{{ glossary['field'] | replace: '"', '\\"' }}",
+  "{{ glossary['name'] | downcase | replace: '"', '\\"' }}": ["{{ glossary['name'] | slugify | downcase | replace: '"', '\\"' }}","{{ glossary_display | replace: '"', '\\"' }}","{{ glossary['description'] | replace: '"', '\\"' }}","{{ glossary['metric'] | replace: '"', '\\"' }}","{{ glossary['calculation'] | replace: '"', '\\"' }}","{{ glossary['field'] | replace: '"', '\\"' }}",
   {%- endcapture -%}
   {%- assign glossary_tag = '' -%}
   {%- assign glossary_list = glossary_list | append: '['  -%}
@@ -82,13 +83,12 @@ var glossaries_list = {
 
 var glossary_map = {
   'id': 0,
-  'name': 1,
+  'display_name': 1,
   'description': 2,
   'metric': 3,
   'calculation': 4,
   'field': 5,
   'tags': 6,
-  'glossary_tags': 7,
 }
 $(document).ready(function() {
   function string_to_slug(str) {
@@ -213,7 +213,7 @@ $(document).ready(function() {
 
   $.each(glossaries_list,function(k,v) {
     glossary_hash['data'][k] = v;
-    glossary_hash['search'][k] = v.join(' ').toLowerCase();
+    glossary_hash['search'][k] = k + ' ' + v.join(' ').toLowerCase();
     if (matchterms('all', v[glossary_map['tags']]) ) {
       glossary_hash['search'][k] += ' ' + alltags.join(' ');
     }
@@ -238,10 +238,11 @@ $(document).ready(function() {
   $('#glossary_search').on('keyup',function(e){
     generate_glossarys(glossary_hash);
   });
-  if (location.hash && $(location.hash.replace('%20','-').replace('+','-')).offset()) {
+  var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
+  if (location_hash && $(location_hash).offset()) {
     // Scroll to generated hash
     $('html, body').animate({
-      scrollTop: $(location.hash).offset().top
+      scrollTop: $(location_hash).offset().top
     });
   }
 });
@@ -263,11 +264,12 @@ $(document).ready(function() {
     <div id="breadcrumb">
     </div>
     {%- endunless -%}
+    {% include ai_translation_banner.html %}
     <h1> {{ page.glossary_top_header }} </h1>
     <p class="glossary_text">  {{ page.glossary_top_text }} </p>
 
     <div id="glossary_filter">
-        <label for="glossary_search" id="glossary_label">&#8205;<input id="glossary_search" type="search" placeholder="Search" /></label>
+        <label for="glossary_search" id="glossary_label"><span class="sr-only">Search glossary</span><input id="glossary_search" type="search" placeholder="Search" /></label>
         <div id="glossary_filter_title">{{ page.glossary_filter_text }}</div>
         {%- for tag in page.glossary_tags -%}
         <div class="glossary_filter_div">
@@ -284,11 +286,12 @@ $(document).ready(function() {
       {%- assign glossary_sorted = page.glossaries | sort: 'name' -%}
       {%- for glossary in glossary_sorted -%}
       {%- assign glossary_id = glossary['name'] | slugify | downcase -%}
+      {%- assign glossary_title = glossary['display_name'] | default: glossary['name'] -%}
         <span id="filter_{{ glossary_id }}" class="term">
           <div id="{{ glossary_id }}" class="anchor"></div>
-          <div class="content"><p class="title">{{ glossary['name'] }} <a class="glossary_share" data-clipboard-text="#{{ glossary_id }}" id="cp_{{glossary_id}}"><i class="fas fa-link"></i></a><span id="dv_cp_{{glossary_id}}"></span></p>
+          <div class="content"><p class="title">{{ glossary_title }} <a class="glossary_share" data-clipboard-text="#{{ glossary_id }}" id="cp_{{glossary_id}}"><i class="fas fa-link"></i></a><span id="dv_cp_{{glossary_id}}"></span></p>
             {%- if glossary['image'] -%}
-            <img src="{{ glossary['image'] }}" alt="{{ glossary['name'] }} image" />
+            <img src="{{ glossary['image'] }}" alt="{{ glossary_title }} image" />
             {%- endif -%}
             <p class="desc">{{ glossary['description'] }}</p>
             {%- if glossary['metric'] -%}

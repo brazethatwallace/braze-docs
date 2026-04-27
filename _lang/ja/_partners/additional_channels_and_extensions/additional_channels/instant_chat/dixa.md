@@ -12,70 +12,121 @@ search_tag: Partner
 
 > [Dixa](https://www.dixa.com/) は、チャット、メール、電話、ソーシャルメディアなどのコミュニケーションチャネルを単一のインターフェイスに統合することで、サポート体験を向上させるように設計された顧客サービスプラットフォームです。インテリジェントなルーティング、オートメーション、リアルタイムのパフォーマンスインサイトを通じて、企業が顧客満足度と効率性を向上させるのを支援します。
 
-Braze と Dixa の統合により、カスタマーサービス担当者にリアルタイムの Braze データを提供することで、すべてのユーザーをより良く把握することができます。
+Braze と Dixa の統合により、カスタマーサービス担当者にリアルタイムのBrazeデータを提供することで、すべてのユーザーをより良く把握することができます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-開始する前に、次のものが必要になります。
+開始する前に、以下が必要です。
 
 | 前提条件          | 説明                                                                                                                                                       |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dixa のアカウント        | このパートナーシップを活用するには、Dixa 管理者アカウントが必要です。                                                                                           |
-| Braze REST API キー  | `users.export.ids` および`email.status` 権限を持つBraze REST API キー。<br><br> これは、Brazeダッシュボードの**「設定」**>「**APIキー**」から作成できる。 |
-| Braze RESTエンドポイント | [RESTエンドポイントのURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。お客様のエンドポイントは、お客様のインスタンスのBraze URLに依存します。              |
+| Dixaアカウント        | このパートナーシップを活用するには、Dixa 管理者アカウントが必要です。                                                                                           |
+| Braze REST APIキー  | `users.export.ids` および `email.status` 権限を持つ Braze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントのURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お客様のインスタンスのBraze URLに依存します。              |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-メール、メッセンジャー、チャットなどのさまざまな通信チャネルでユーザーと通信しているときに、Braze データを顧客サービスエージェントビューに表示します。
+メール、Messenger、チャットなどのさまざまな通信チャネルでユーザーとコミュニケーションしている間に、Brazeデータをカスタマーサービスエージェントビューに表示します。さらに、Brazeのデータ変換を使用してDixaからBrazeにデータを送信し、ユーザーの問題を解決している間はマーケティングを一時停止することもできます。
 
-## 統合
+## 統合 {#integration}
 
-Dixa 内で統合を設定するには、Dixa 管理者である必要があります。Brazeとの統合は、Dixaの**「設定」**＞「**統合**」＞「**Braze**」と進む。
+Dixa内で統合を設定するには、Dixa管理者である必要があります。Brazeとの統合は、Dixaで**Settings** > **Integrations** > **Braze**に移動します。
 
-![]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
+![Dixaの Braze ウィジェット作成ページ。ウィジェット名、API URL、APIキーを入力します。]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
 
-### ステップ 1: Dixaで統合を作成する
+### ステップ 1:Dixaで統合を作成する {#step-1-create-the-integration-in-dixa}
 
-**Brazeウィジェットの作成**ページで、以下の必須フィールドに入力して統合を作成する：
+**Create Braze widget**ページで、以下の必須フィールドに入力して統合を作成します。
 
-- **ウィジェット名：**これは、後に会話サイドバーでタイトルとして使用される統合の名前である。
-- **API URL:**インスタンスのBraze REST APIエンドポイントURLである。
-- **API Key:**これは、前提条件で作成したBraze APIキーである。
+- **Widget name:**これは、後に会話サイドバーでタイトルとして使用される統合の名前です。
+- **API URL:**インスタンスのBraze REST APIエンドポイントURLです。
+- **API Key:**これは、前提条件で作成したBraze APIキーです。
 
-### ステップ2:統合を設定する
+### ステップ 2:統合を設定する {#step-2-configure-the-integration}
 
-次に、BrazeとDixaの統合を設定する。会話サイドバーのBrazeウィジェットの表示を調整するには、以下のオプションから選択する。
+次に、Braze と Dixa の統合を設定します。会話サイドバーのBrazeウィジェットの表示を調整するには、以下のオプションから選択します。
 
-#### 会話サイドバーにウィジェットを表示する
+#### 会話サイドバーにウィジェットを表示する {#show-the-widget-in-the-conversation-sidebar}
 
-この設定は、Dixa の会話サイドバー内の統合全体を表示または非表示にします。 
+この設定は、Dixaの会話サイドバー内の統合全体を表示または非表示にします。
 
-統合の設定を行っている場合は、必須フィールドに入力する間、これをオフにすることをお勧めします。設定が完了したら、再びオンにすることで、Dixa のエージェントが統合を使用できるようになります。
+統合の設定を行っている場合は、必須フィールドに入力する間、これをオフにすることをお勧めします。設定が完了したら、再びオンにすることで、Dixaのエージェントが統合を使用できるようになります。
 
-#### 顧客の詳細を表示する
+#### 顧客の詳細を表示する {#display-customer-details}
 
-ユーザーの詳細を表示するか非表示にするかを選択する。詳細には、位置情報、Eメール、電話番号、メールサブスクリプションの状態、プッシュ通知サブスクリプションの状態、Brazeの会員期間に関するデータが含まれる。 
+ユーザーの詳細を表示するか非表示にするかを選択します。詳細には、ロケーション、メール、電話番号、メールサブスクリプションの状態、プッシュ通知サブスクリプションの状態、Brazeの会員期間に関するデータが含まれます。
 
-#### メールサブスクリプションの状態を変更するボタンを表示する
+#### メールサブスクリプションの状態を変更するボタンを表示する {#display-the-button-to-change-the-email-subscription-state}
 
-ボタンは、`subscribed`、`opted-in`、`unsubscribed` という Braze の3つの購読状態のいずれかに基づいています。ユーザーが`subscribed`の場合、エージェントは`opt-in`または`unsubscribe`を選択できます。ユーザーが`opted-in` または`unsubscribed` の場合のみ、切り替えることができる。
+ボタンは、`subscribed`、`opted-in`、`unsubscribed` というBrazeの3つのサブスクリプション状態のいずれかに基づいています。ユーザーが `subscribed` の場合、エージェントは `opt-in` または `unsubscribe` を選択できます。ユーザーが `opted-in` または `unsubscribed` の場合、エージェントはこの2つの間でのみ切り替えることができます。
 
-#### カスタム属性のリストを表示する
+#### カスタム属性のリストを表示する {#display-a-list-of-custom-attributes}
 
-ユーザーのカスタムBraze属性の表示/非表示を選択する。
+ユーザーのBrazeカスタム属性の表示・非表示を選択します。
 
-#### カスタムイベントのリストを表示する
+#### カスタムイベントのリストを表示する {#display-a-list-of-custom-events}
 
-ユーザーのカスタムBrazeイベントの表示/非表示を選択する。
+ユーザーのBrazeカスタムイベントの表示・非表示を選択します。
 
-#### 購入リストを表示する
+#### 購入リストを表示する {#display-a-list-of-purchases}
 
-ユーザーが購入した商品リストの表示・非表示を選択する。ここでは、ユーザーが何回その商品を購入したかを見ることができる。最初の購入日と最後の購入日を表示するには、アイテムにカーソルを合わせる。 
+ユーザーが購入した製品リストの表示・非表示を選択します。ここでは、ユーザーがその製品を何回購入したかを確認できます。最初の購入日と最後の購入日を表示するには、アイテムにカーソルを合わせます。
 
-### 統合の例
+### 統合の例 {#example-integration}
 
-以下に統合の例を示す：
+以下に統合の例を示します。
 
-![ユーザーのメール購読状態、カスタム属性、カスタムイベント、購入を表示する Dixa での Braze と Dixa の統合。]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
+![ユーザーのメールサブスクリプション状態、カスタム属性、カスタムイベント、購入を表示するDixaでのBraze と Dixa の統合。]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
 
+## データ変換ツール {#data-transformation-tool}
+
+Dixaはwebhookを使用してBrazeにデータを送信します。webhookを設定するには、Dixa管理者である必要があります。
+
+最初のステップは、Brazeでデータ変換を作成することです。
+
+1. **データ設定** > **データ変換** > **変換を作成**に移動します。
+2. **ゼロから開始**を選択し、送信先として **POST: Track Users** を選択して、**変換を作成**を選択します。
+3. 変換エディターで、以下の**データ変換ツールの例**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL** をコピーして、Dixaを開きます。
+4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
+5. Webhook設定ページで、Brazeからコピーした URL を貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created** は、顧客の会話を追跡するための良い出発点です。
+6. **Save**を選択してDixaのセットアップを完了します。
+
+### データ変換ツールの例 {#example-transformation-tool}
+
+```js
+// Transforming the provided payload to match Braze /users/track endpoint specifications.
+
+// Extracting necessary details from the payload
+const requester = payload.data.conversation.requester;
+const event = payload.data.conversation;
+
+// Defining user attributes based on the provided payload, prioritizing email if available.
+const userAttributes = {
+  email: requester.email, // Prioritizing email over external_id and user_alias
+  _update_existing_only: false, // Set to false to create or update user profiles when identified by email
+  organization: payload.organization.name, // Including an additional attribute for demonstration
+};
+
+// Defining event attributes based on the provided payload.
+const eventAttributes = {
+  email: requester.email, // Prioritizing email over external_id and user_alias
+  name: payload.event_fqn, // The name of the event
+  time: event.created_at, // ISO 8601 datetime format
+  properties: { // Including additional event properties
+    event_version: payload.event_version,
+    conversation_status: event.status,
+    conversation_channel: event.channel
+  },
+  _update_existing_only: false // Set to false to create or update user profiles when identified by email
+};
+
+// Constructing the final object to match Braze /users/track endpoint schema
+const brazecall = {
+  attributes: [userAttributes], // Wrapping userAttributes in an array as per specifications
+  events: [eventAttributes] // Wrapping eventAttributes in an array as per specifications
+};
+
+// Returning the transformed data
+return brazecall;
+```

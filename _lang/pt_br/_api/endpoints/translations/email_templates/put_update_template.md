@@ -1,52 +1,50 @@
 ---
 nav_title: "PUT: Atualizar traduções para um modelo de e-mail"
-article_title: "PUT: Atualizar traduções de um modelo de e-mail"
+article_title: "PUT: Atualizar traduções para um modelo de e-mail"
 search_tag: Endpoint
 page_order: 4
 
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre as traduções de atualização para um endpoint de modelo de e-mail."
+description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduções para um modelo de e-mail."
 ---
 
 {% api %}
-# Atualizar traduções para um modelo de e-mail
+# Atualizar traduções para um modelo de e-mail {#update-translations-for-an-email-template}
 {% apimethod put %}
 /templates/email/translations/
 {% endapimethod %}
 
-> Use esse ponto de extremidade para atualizar as traduções de um [modelo de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates). Consulte [Localidades nas mensagens]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para obter mais informações sobre os recursos de tradução.
+> Use este endpoint para atualizar traduções para um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulte [Localizações em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
-{% alert important %}
-Esse ponto de extremidade está atualmente em acesso antecipado. Entre em contato com seu gerente de conta Braze se estiver interessado em participar do acesso antecipado.
-{% endalert %}
+{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `templates.translations.update`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `templates.translations.update`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros da jornada
+## Parâmetros de caminho {#path-parameters}
 
-Não há parâmetros de jornada para este endpoint.
+Não há parâmetros de caminho para este endpoint.
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `template_id` | Obrigatória | String | O ID de seu modelo de e-mail. |
+| `template_id` | Obrigatória | String | O ID do seu modelo de e-mail. |
 | `locale_id` | Obrigatória | String | O ID da localização. |
-| `translations_map` | Obrigatória | String | O mapa das traduções de seu modelo de e-mail. |
+| `translations_map` | Obrigatória | String | O mapa das traduções para o seu modelo de e-mail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Todas as IDs de tradução são consideradas identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do ponto de extremidade GET.
+Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.
 {% endalert %}
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```json
 {
@@ -60,11 +58,11 @@ Todas as IDs de tradução são consideradas identificadores únicos universais 
 }
 ```
 
-## Resposta
+## Resposta {#response}
 
-Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404`, e `429`.
+Há quatro respostas de código de status para este endpoint: `200`, `400`, `404` e `429`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 ```json
 {
@@ -72,9 +70,9 @@ Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `400` pode retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para mais informações sobre os erros que você pode encontrar.
 
 ```json
 {

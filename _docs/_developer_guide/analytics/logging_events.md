@@ -73,6 +73,27 @@ braze.logCustomEvent('YOUR_EVENT_NAME');
 ```
 {% endtab %}
 
+{% tab cordova %}
+Use the Braze Cordova plugin method:
+
+```javascript
+BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
+```
+
+The `logCustomEvent` API accepts:
+- `eventName` (required string): Use up to 255 characters. Do not start the name with `$`. Use alphanumeric characters and punctuation.
+- `eventProperties` (optional object): Add key-value pairs for event metadata. Use keys up to 255 characters, and do not start keys with `$`.
+
+For property values, use `string` (up to 255 characters), `numeric`, `boolean`, arrays, or nested JSON objects.
+
+For implementation details, see the Braze Cordova SDK source:
+- [`www/BrazePlugin.js` `logCustomEvent` method (lines 138-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
+- [`www/BrazePlugin.js` JSDoc (lines 128-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
+- [Android handler in `src/android/BrazePlugin.kt` (lines 108-115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
+- [iOS handler in `src/ios/BrazePlugin.m` (lines 308-313)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.m#L308-L313)
+- [iOS method declaration in `src/ios/BrazePlugin.h` (line 24)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.h#L24)
+{% endtab %}
+
 {% tab infillion %}
 If you've integrated [Infillion Beacons](https://infillion.com/software/beacons/) into your Android app, you can optionally use `visit.getPlace()` to log location-specific events. `requestImmediateDataFlush` verifies that your event will log even if your app is in the background.
 
@@ -226,6 +247,61 @@ braze.logCustomEvent('custom_event_with_properties', properties: {
 ```
 {% endtab %}
 
+{% tab cordova %}
+Log custom events with a properties object:
+
+```javascript
+var properties = {};
+properties["key1"] = "value1";
+properties["key2"] = ["value2", "value3"];
+properties["key3"] = false;
+BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", properties);
+```
+
+You can also pass properties inline:
+
+```javascript
+BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", {
+  "key": "value",
+  "amount": 42,
+});
+```
+
+The official Cordova sample app includes string, numeric, boolean, array, and nested object properties:
+- [`sample-project/www/js/index.js` (lines 230-251)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/sample-project/www/js/index.js#L230-L251)
+
+Sample project excerpt:
+
+```javascript
+var properties = {};
+properties["One"] = "That's the Way of the World";
+properties["Two"] = "After the Love Has Gone";
+properties["Three"] = "Can't Hide Love";
+BrazePlugin.logCustomEvent("cordovaCustomEventWithProperties", properties);
+BrazePlugin.logCustomEvent("cordovaCustomEventWithoutProperties");
+BrazePlugin.logCustomEvent("cordovaCustomEventWithFloatProperties", {
+  "Cart Value": 4.95,
+  "Cart Item Name": "Spicy Chicken Bites 5 pack"
+});
+BrazePlugin.logCustomEvent("cordovaCustomEventWithNestedProperties", {
+  "array key": [1, "2", false],
+  "object key": {
+    "k1": "1",
+    "k2": 2,
+    "k3": false,
+  },
+  "deep key": {
+    "key": [1, "2", true]
+  }
+});
+```
+
+For API and native bridge details, see:
+- [`www/BrazePlugin.js` JSDoc (lines 128-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
+- [Android handler in `src/android/BrazePlugin.kt` (lines 108-115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
+- [iOS handler in `src/ios/BrazePlugin.m` (lines 308-313)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.m#L308-L313)
+{% endtab %}
+
 {% tab react native %}
 ```javascript
 Braze.logCustomEvent("custom_event_with_properties", {
@@ -285,4 +361,31 @@ After [adding your user as a test user]({{site.baseurl}}/user_guide/administrati
 
 1. Perform the custom event within the app.
 2. Wait for roughly 10 seconds for the data to flush.
-3. Refresh the [Event User Log]({{site.baseurl}}/user_guide/administrative/app_settings/event_user_log_tab/) to view the custom event and the event property value that was passed with it.
+3. Refresh the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) to view the custom event and the event property value that was passed with it.
+
+## Troubleshooting custom events
+
+Use these scenarios to troubleshoot custom event logging across SDKs.
+
+### Verifying the custom event trigger
+
+If a custom event doesn't appear, the tracked action in your app may not match the action you're testing.
+
+- Confirm with your developer team which app action triggers the custom event.
+- Check for deprecated code paths after SDK upgrades, such as references to `appboy` instead of `braze`.
+
+### Custom events are logged to an anonymous profile
+
+If you don't identify a user before logging a custom event, Braze can associate that event with an anonymous profile.
+
+- Call `changeUser()` before performing the custom event so Braze logs it to an identified user profile.
+- Test with an identified test user, then review the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/).
+
+### Verifying custom event logging setup
+
+If custom events aren't appearing as expected, confirm that your developer team has implemented custom event logging for the right app action.
+
+- Ask your developer team to verify that the event is logged correctly and triggered from the expected user action.
+- When your team opens a ticket with Braze Support, include [verbose logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) and relevant code snippets.
+- If your app uses Swift or Android, your developer team can use the [SDK debugger prerequisites](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) to help generate verbose logs.
+- If your developer team can't identify the issue, open a [Braze Support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).

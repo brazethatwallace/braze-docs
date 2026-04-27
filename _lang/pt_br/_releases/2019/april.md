@@ -6,13 +6,13 @@ page_type: update
 description: "Este artigo contém notas de versão para abril de 2019."
 ---
 
-# Abril de 2019
+# Abril de 2019 {#april-2019}
 
-## Eventos e campos da New Currents
+## Novos eventos e campos do Currents {#new-currents-events-fields}
 
-Além de algumas correções na seção, um novo [Evento de assinatura]({{ site.baseurl}}/user_guide/data_and_analytics/braze_currents/message_engagement_events/#subscription-events) foi adicionado à página Eventos de envolvimento com mensagens. 
+Além de algumas correções na seção, um novo [Evento de inscrição]({{ site.baseurl}}/user_guide/data_and_analytics/braze_currents/message_engagement_events/#subscription-events) foi adicionado à página de eventos de engajamento com mensagem.
 
-Agora você pode exportar os dados de alteração de estado do grupo de inscrições da Braze para o [Segment]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents/#integration-details) e [o mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mParticle/mparticle_for_currents/), bem como para os eventos de atribuição de instalação no [Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/).
+Agora você pode exportar os dados de alteração de estado do grupo de inscrições da Braze para o [Segment]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents/#integration-details) e o [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/), bem como esses dados e os eventos de atribuição da instalação no [Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/).
 
 Além disso, a propriedade `canvas_step_id` foi adicionada aos [eventos de conversão]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/message_engagement_events/#conversion-events) disponíveis.
 
@@ -20,6 +20,6 @@ Além disso, a propriedade `canvas_step_id` foi adicionada aos [eventos de conve
 Para aproveitar essas atualizações, será necessário editar as configurações do conector do Currents e ativar os eventos que deseja usar. Entre em contato com o gerente da sua conta se tiver alguma dúvida.
 {% endalert %}
 
-## Arquivamento de grupos de inscrições
+## Arquivamento de grupos de inscrições {#subscription-groups-archiving}
 
-Agora você pode [arquivar grupos de inscrições]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#archiving-groups)! Os grupos de inscrições arquivados não podem ser editados e não aparecerão mais nos filtros de segmentos.  Se tentar arquivar um grupo que esteja sendo usado como Filtro de segmento em qualquer e-mail, campanha ou Canva, você receberá uma mensagem de erro que o impedirá de arquivar o grupo até que remova todos os usos dele.
+Agora você pode [arquivar grupos de inscrições]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#archiving-groups)! Os grupos de inscrições arquivados não podem ser editados e não aparecerão mais nos filtros de Segment. Se você tentar arquivar um grupo que esteja sendo usado como filtro de Segment em qualquer e-mail, Campaign ou Canvas, receberá uma mensagem de erro que impedirá o arquivamento do grupo até que todos os usos dele sejam removidos.

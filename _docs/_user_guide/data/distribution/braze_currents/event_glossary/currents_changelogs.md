@@ -1,13 +1,90 @@
 ---
-nav_title: Currents Event Changelogs
-page_order: 6
+nav_title: Currents changelog
+article_title: Currents changelog
+page_order: 3
 description: "This page includes the event changes for each Currents release."
 tool: Currents
 ---
 
 # Currents changelog
 
+> This page lists event and schema changes for each Braze Currents release.
+
+## Changes in Version 8 (release date 2026-05-06)
+
+### Changes for Storage:
+
+* Added new event type `users.messages.banner.Dismiss`.
+
+* Field changes to event type `users.messages.whatsapp.Abort`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the recipient associated with this event.
+
+* Field changes to event type `users.messages.whatsapp.Delivery`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the recipient associated with this event.
+
+* Field changes to event type `users.messages.whatsapp.Failure`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the recipient associated with this event.
+
+* Field changes to event type `users.messages.whatsapp.InboundReceive`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the user from which the message was received.
+    * Field `user_phone_number` is now *optional*.
+
+* Field changes to event type `users.messages.whatsapp.Read`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the recipient associated with this event.
+
+* Field changes to event type `users.messages.whatsapp.Retry`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the recipient associated with this event.
+
+* Field changes to event type `users.messages.whatsapp.Send`:
+    * Added new `string` field `bsuid`: The WhatsApp Business-Scoped User ID of the recipient associated with this event.
+
+## Changes in Version 7 (release date 2026-04-01)
+
+### Changes for Storage:
+
+* Field changes to event type `users.messages.banner.Abort`:
+    * Added new `string` field `canvas_name`: Name of the Canvas
+    * Added new `string` field `canvas_step_name`: Name of the Canvas step
+    * Added new `string` field `canvas_variation_name`: Name of the Canvas variation this user received
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+    * Added new `string` field `canvas_step_id`: API ID of the Canvas step this event belongs to
+    * Added new `string` field `canvas_step_message_variation_id`: API ID of the Canvas step message variation this user received
+    * Added new `string` field `canvas_variation_id`: API ID of the Canvas variation this event belongs to
+
+* Field changes to event type `users.messages.banner.Click`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+    * Added new `string` field `canvas_step_id`: API ID of the Canvas step this event belongs to
+    * Added new `string` field `canvas_name`: Name of the Canvas
+    * Added new `string` field `canvas_step_name`: Name of the Canvas step
+    * Added new `string` field `canvas_step_message_variation_id`: API ID of the Canvas step message variation this user received
+    * Added new `string` field `canvas_variation_id`: API ID of the Canvas variation this event belongs to
+    * Added new `string` field `canvas_variation_name`: Name of the Canvas variation this user received
+
+* Field changes to event type `users.messages.banner.Impression`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+    * Added new `string` field `canvas_step_id`: API ID of the Canvas step this event belongs to
+    * Added new `string` field `canvas_name`: Name of the Canvas
+    * Added new `string` field `canvas_step_name`: Name of the Canvas step
+    * Added new `string` field `canvas_step_message_variation_id`: API ID of the Canvas step message variation this user received
+    * Added new `string` field `canvas_variation_id`: API ID of the Canvas variation this event belongs to
+    * Added new `string` field `canvas_variation_name`: Name of the Canvas variation this user received
+
+## Changes in Version 6 (release date 2026-03-04)
+
+### Changes for Storage:
+
+* Field changes to event type `agentconsole.AgentExecuted`:
+    * Added new `string` field `error`: Description of error
+
+* Field changes to event type `agentconsole.ToolInvocation`:
+    * Added new `string` field `request_id`: Unique ID for this overall LLM request and complete execution
+
+* Field changes to event type `users.messages.rcs.InboundReceive`:
+    * Added new `string` field `canvas_variation_name`: Name of the Canvas variation this user received
+
 ## Changes in Version 5 (release date 2026-02-04)
+
+### Changes for Storage:
 
 * Added new event type `agentconsole.AgentExecuted`.
 
@@ -26,10 +103,11 @@ tool: Currents
 * Added new event type `users.messages.whatsapp.Retry`.
 
 * Field changes to event type `users.behaviors.pushnotification.TokenStateChange`:
-    * Added new `long` field `time_ms`: Time in millisecond when the event happened
+    * Added new `long` field `time_ms`: Time in milliseconds when the event happened
 
+## Changes in Version 4 (release date 2026-01-07)
 
-## Changes in Version 4 (release date 2026-01-08)
+### Changes for Storage:
 
 * Field changes to event type `users.behaviors.pushnotification.TokenStateChange`:
     * Added new `string` field `push_token`: Push token of the event
@@ -50,8 +128,9 @@ tool: Currents
 * Field changes to event type `users.messages.rcs.Rejection`:
     * Added new `string` field `canvas_step_message_variation_id`: API ID of the Canvas step message variation this user received
 
-
 ## Changes in Version 3 (release date 2025-10-08)
+
+### Changes for Storage:
 
 * Added new event type `users.messages.line.Abort`.
 
@@ -76,13 +155,13 @@ tool: Currents
 * Added new event type `users.messages.rcs.Send`.
 
 * Field changes to event type `users.messages.sms.Delivery`:
-    * Added new `boolean` field `is_sms_fallback`: Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID
+    * Added new `boolean` field `is_sms_fallback`: Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID
 
 * Field changes to event type `users.messages.sms.DeliveryFailure`:
-    * Added new `boolean` field `is_sms_fallback`: Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID
+    * Added new `boolean` field `is_sms_fallback`: Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID
 
 * Field changes to event type `users.messages.sms.Rejection`:
-    * Added new `boolean` field `is_sms_fallback`: Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID It can be linked to the RCS Rejection event via a send ID and dispatch ID. (Event property)
+    * Added new `boolean` field `is_sms_fallback`: Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID It can be linked to the RCS Rejection event via a send ID and dispatch ID. (Event property)
 
 * Field changes to event type `users.messages.whatsapp.Delivery`:
     * Added new `string` field `flow_id`: The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow
@@ -112,3 +191,146 @@ tool: Currents
     * Added new `string` field `template_name`: [PII] Name of the template in the WhatsApp Manager. Present if sending a Template Message
     * Added new `string` field `message_id`: The unique ID generated by Meta for this message
 
+## Changes in Version 2 (release date null)
+
+### Changes for Storage:
+
+* Added new event type `users.behaviors.app.FirstSession`.
+
+* Added new event type `users.behaviors.app.SessionEnd`.
+
+* Added new event type `users.behaviors.app.SessionStart`.
+
+* Added new event type `users.behaviors.CustomEvent`.
+
+* Added new event type `users.behaviors.InstallAttribution`.
+
+* Added new event type `users.behaviors.liveactivity.PushToStartTokenChange`.
+
+* Added new event type `users.behaviors.liveactivity.UpdateTokenChange`.
+
+* Added new event type `users.behaviors.Location`.
+
+* Added new event type `users.behaviors.Purchase`.
+
+* Added new event type `users.behaviors.pushnotification.TokenStateChange`.
+
+* Added new event type `users.behaviors.subscription.GlobalStateChange`.
+
+* Added new event type `users.behaviors.subscriptiongroup.StateChange`.
+
+* Added new event type `users.behaviors.Uninstall`.
+
+* Added new event type `users.campaigns.Conversion`.
+
+* Added new event type `users.campaigns.EnrollInControl`.
+
+* Added new event type `users.canvas.Conversion`.
+
+* Added new event type `users.canvas.Entry`.
+
+* Added new event type `users.canvas.exit.MatchedAudience`.
+
+* Added new event type `users.canvas.exit.PerformedEvent`.
+
+* Added new event type `users.canvas.experimentstep.Conversion`.
+
+* Added new event type `users.canvas.experimentstep.SplitEntry`.
+
+* Added new event type `users.canvasstep.Progression`.
+
+* Added new event type `users.messages.banner.Abort`.
+
+* Added new event type `users.messages.banner.Click`.
+
+* Added new event type `users.messages.banner.Impression`.
+
+* Added new event type `users.messages.contentcard.Abort`.
+
+* Added new event type `users.messages.contentcard.Click`.
+
+* Added new event type `users.messages.contentcard.Dismiss`.
+
+* Added new event type `users.messages.contentcard.Impression`.
+
+* Added new event type `users.messages.contentcard.Send`.
+
+* Added new event type `users.messages.email.Abort`.
+
+* Added new event type `users.messages.email.Bounce`.
+
+* Added new event type `users.messages.email.Click`.
+
+* Added new event type `users.messages.email.Deferral`.
+
+* Added new event type `users.messages.email.Delivery`.
+
+* Added new event type `users.messages.email.MarkAsSpam`.
+
+* Added new event type `users.messages.email.Open`.
+
+* Added new event type `users.messages.email.Send`.
+
+* Added new event type `users.messages.email.SoftBounce`.
+
+* Added new event type `users.messages.email.Unsubscribe`.
+
+* Added new event type `users.messages.featureflag.Impression`.
+
+* Added new event type `users.messages.inappmessage.Abort`.
+
+* Added new event type `users.messages.inappmessage.Click`.
+
+* Added new event type `users.messages.inappmessage.Impression`.
+
+* Added new event type `users.messages.liveactivity.Outcome`.
+
+* Added new event type `users.messages.liveactivity.Send`.
+
+* Added new event type `users.messages.pushnotification.Abort`.
+
+* Added new event type `users.messages.pushnotification.Bounce`.
+
+* Added new event type `users.messages.pushnotification.IosForeground`.
+
+* Added new event type `users.messages.pushnotification.Open`.
+
+* Added new event type `users.messages.pushnotification.Send`.
+
+* Added new event type `users.messages.sms.Abort`.
+
+* Added new event type `users.messages.sms.CarrierSend`.
+
+* Added new event type `users.messages.sms.Delivery`.
+
+* Added new event type `users.messages.sms.DeliveryFailure`.
+
+* Added new event type `users.messages.sms.InboundReceive`.
+
+* Added new event type `users.messages.sms.Rejection`.
+
+* Added new event type `users.messages.sms.Send`.
+
+* Added new event type `users.messages.sms.ShortLinkClick`.
+
+* Added new event type `users.messages.webhook.Abort`.
+
+* Added new event type `users.messages.webhook.Failure`.
+
+* Added new event type `users.messages.webhook.Send`.
+
+* Added new event type `users.messages.whatsapp.Abort`.
+
+* Added new event type `users.messages.whatsapp.Click`.
+
+* Added new event type `users.messages.whatsapp.Delivery`.
+
+* Added new event type `users.messages.whatsapp.Failure`.
+
+* Added new event type `users.messages.whatsapp.InboundReceive`.
+
+* Added new event type `users.messages.whatsapp.Read`.
+
+* Added new event type `users.messages.whatsapp.Send`.
+
+* Added new event type `users.RandomBucketNumberUpdate`.

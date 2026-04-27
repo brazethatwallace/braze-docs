@@ -3,24 +3,24 @@ nav_title: Définir des attributs personnalisés
 article_title: Définir des attributs personnalisés pour iOS
 platform: iOS
 page_order: 3
-description: "Cet article de référence montre comment définir des attributs personnalisés dans votre application iOS.."
+description: "Cet article de référence montre comment définir des attributs personnalisés dans votre application iOS."
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Définir des attributs personnalisés pour iOS
+# Définir des attributs personnalisés pour iOS {#set-custom-attributes-for-ios}
 
-Braze fournit des méthodes pour assigner des attributs aux utilisateurs. Vous pourrez filtrer et segmenter vos utilisateurs en fonction de ces attributs sur le tableau de bord.
+Braze fournit des méthodes pour assigner des attributs aux utilisateurs. Vous pourrez ensuite filtrer et segmenter vos utilisateurs en fonction de ces attributs depuis le tableau de bord.
 
-Avant la mise en œuvre, assurez-vous de consulter des exemples des options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [meilleures pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), ainsi que nos notes sur les [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/custom_data/event_naming_conventions/).
+Avant de procéder à l'implémentation, pensez à consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), ainsi que nos notes sur les [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
 
-## Affecter des attributs utilisateur par défaut
+## Affecter des attributs utilisateur par défaut {#assigning-default-user-attributes}
 
-Pour attribuer des attributs utilisateur, vous devez définir le champ approprié sur les objets `ABKUser` partagés.
+Pour attribuer des attributs utilisateur, vous devez définir le champ approprié sur l'objet partagé `ABKUser`.
 
-Voici un exemple de définition de l’attribut de nom :
+Voici un exemple de définition de l'attribut de prénom :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -39,7 +39,7 @@ Appboy.sharedInstance()?.user.firstName = "first_name"
 {% endtab %}
 {% endtabs %}
 
-Les attributs suivants doivent être définis sur l’objet `ABKUser` :
+Les attributs suivants doivent être définis sur l'objet `ABKUser` :
 
 - `firstName`
 - `lastName`
@@ -52,11 +52,11 @@ Les attributs suivants doivent être définis sur l’objet `ABKUser` :
 - `userID`
 - `gender`
 
-## Affecter des attributs utilisateur personnalisés
+## Affecter des attributs utilisateur personnalisés {#assigning-custom-user-attributes}
 
-En plus des attributs utilisateur par défaut, Braze vous permet également de définir des attributs personnalisés en utilisant plusieurs types de données différents. Consultez notre [collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics/) pour plus d'informations sur les options de segmentation que chacun de ces attributs vous offrira.
+Au-delà des attributs utilisateur par défaut, Braze vous permet de définir des attributs personnalisés avec plusieurs types de données. Consultez notre documentation sur la [collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics/) pour en savoir plus sur les options de segmentation offertes par chacun de ces attributs.
 
-### Attribut personnalisé avec une valeur de chaîne de caractères
+### Attribut personnalisé avec une valeur de chaîne de caractères {#custom-attribute-with-a-string-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -75,7 +75,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Attribut personnalisé avec une valeur de nombre entier
+### Attribut personnalisé avec une valeur entière {#custom-attribute-with-an-integer-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -94,9 +94,9 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Attribut personnalisé avec une valeur double
+### Attribut personnalisé avec une valeur double {#custom-attribute-with-a-double-value}
 
-Braze traite les valeurs `float` et `double` de la même manière dans notre base de données.
+Braze traite les valeurs `float` et `double` de la même manière dans sa base de données.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -115,7 +115,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Attribut personnalisé avec une valeur booléenne
+### Attribut personnalisé avec une valeur booléenne {#custom-attribute-with-a-boolean-value}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -134,9 +134,9 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Attribut personnalisé avec une valeur de date
+### Attribut personnalisé avec une valeur de date {#custom-attribute-with-a-date-value}
 
-Les dates passées à Braze avec cette méthode doivent être soit au format [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (e.g `2013-07-16T19:20:30+01:00`) soit au format `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (`2016-12-14T13:32:31.601-0800`).
+Les dates transmises à Braze avec cette méthode doivent être au format [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (par ex. `2013-07-16T19:20:30+01:00`) ou au format `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (`2016-12-14T13:32:31.601-0800`).
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -155,9 +155,9 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 {% endtab %}
 {% endtabs %}
 
-### Attribut personnalisé avec une valeur de tableau
+### Attribut personnalisé avec une valeur de tableau {#custom-attribute-with-an-array-value}
 
-Le nombre maximum d'éléments dans les [tableaux d'attributs personnalisés]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#arrays) est par défaut de 25. Les tableaux dépassant le nombre maximum d’éléments seront tronqués pour contenir le nombre maximum d’éléments. Le maximum pour les tableaux individuels peut être augmenté jusqu’à 100. Si vous souhaitez que ce maximum soit augmenté, contactez votre gestionnaire de service à la clientèle. 
+Le nombre maximum d'éléments par défaut dans un tableau est de 500. Vous pouvez modifier le nombre maximum d'éléments dans le tableau de bord de Braze, sous **Paramètres des données** > **Attributs personnalisés**. Les tableaux dépassant le nombre maximum d'éléments sont tronqués pour ne conserver que le nombre maximum d'éléments.
 
 
 {% tabs %}
@@ -189,9 +189,9 @@ Appboy.sharedInstance()?.user.removeFromCustomAttributeArrayWithKey("array_name"
 {% endtab %}
 {% endtabs %}
 
-### Enlever la configuration d’un attribut personnalisé
+### Réinitialiser un attribut personnalisé {#unsetting-a-custom-attribute}
 
-Les attributs personnalisés peuvent également être annulés à l’aide de la méthode suivante :
+Il est également possible de réinitialiser un attribut personnalisé à l'aide de la méthode suivante :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -210,9 +210,9 @@ Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 {% endtab %}
 {% endtabs %}
 
-### Incrémenter ou décrémenter les attributs personnalisés
+### Incrémenter ou décrémenter des attributs personnalisés {#incrementingdecrementing-custom-attributes}
 
-Ce code est un exemple d’incrémentation d’un attribut personnalisé. Vous pouvez incrémenter la valeur d’un attribut personnalisé avec n’importe quel entier positif ou négatif ou valeur longue :
+Ce code illustre l'incrémentation d'un attribut personnalisé. Vous pouvez incrémenter la valeur d'un attribut personnalisé avec n'importe quel entier positif ou négatif, ou valeur longue :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -231,35 +231,35 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 {% endtab %}
 {% endtabs %}
 
-### Définir un attribut personnalisé via l’API REST
+### Définir un attribut personnalisé via la REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-Vous pouvez également utiliser notre API REST pour définir les attributs utilisateur. Reportez-vous à la [Documentation de l'API utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) pour plus de détails.
+Vous pouvez également utiliser notre REST API pour définir les attributs utilisateur. Reportez-vous à la [documentation de l'API utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) pour plus de détails.
 
-### Limites de valeur d’attribut personnalisé
+### Limites de valeur des attributs personnalisés {#custom-attribute-value-limits}
 
-Les valeurs d’attribut personnalisé ont une longueur maximale de 255 caractères ; les valeurs plus longues seront tronquées.
+Les valeurs d'attribut personnalisé ont une longueur maximale de 255 caractères ; les valeurs plus longues seront tronquées.
 
-#### Informations supplémentaires
+#### Informations supplémentaires {#additional-information}
 
 - Vous trouverez plus de détails dans le fichier [`ABKUser.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h).
 - Reportez-vous à la [documentation `ABKUser`](http://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_user.html) pour plus d'informations.
 
-## Configuration des abonnements utilisateur
+## Configuration des abonnements utilisateur {#setting-up-user-subscriptions}
 
-Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification push), appelez les fonctions `setEmailNotificationSubscriptionType` ou `setPushNotificationSubscriptionType`, respectivement. Ces deux fonctions considèrent le type de enum `ABKNotificationSubscriptionType` comme arguments. Ce type a trois états différents :
+Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification push), appelez respectivement les fonctions `setEmailNotificationSubscriptionType` ou `setPushNotificationSubscriptionType`. Ces deux fonctions prennent le type enum `ABKNotificationSubscriptionType` comme argument. Ce type comporte trois états :
 
-| Statut d’abonnement | Définition |
+| État de l'abonnement | Définition |
 | ------------------- | ---------- |
-| `ABKOptedin` | Inscrit et explicitement abonné |
-| `ABKSubscribed` | Inscrit et pas explicitement abonné |
-| `ABKUnsubscribed` | Désinscrit ou explicitement désabonné |
+| `ABKOptedin` | Abonné, avec consentement explicite |
+| `ABKSubscribed` | Abonné, sans consentement explicite |
+| `ABKUnsubscribed` | Désabonné ou refus explicite |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Les utilisateurs qui autorisent une application à leur envoyer des notifications push ont par défaut le statut `ABKOptedin`, car iOS nécessite un abonnement explicite.
+Les utilisateurs qui autorisent une application à leur envoyer des notifications push ont par défaut le statut `ABKOptedin`, car iOS exige un consentement explicite.
 
-Les utilisateurs seront automatiquement définis sur `ABKSubscribed` dès la réception d’une adresse e-mail valide ; cependant, nous vous suggérons d’établir un processus d’abonnement explicite et de définir cette valeur sur `OptedIn` dès réception du consentement explicite de votre utilisateur. Reportez-vous à [Gérer les inscriptions des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) pour plus de détails.
+Les utilisateurs sont automatiquement définis sur `ABKSubscribed` dès la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'abonnement explicite et de définir cette valeur sur `OptedIn` dès réception du consentement explicite de votre utilisateur. Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions/) pour plus de détails.
 
-### Définir des inscriptions par e-mail
+### Définir les abonnements par e-mail {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -278,7 +278,7 @@ Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificati
 {% endtab %}
 {% endtabs %}
 
-### Définition des abonnements par notification push
+### Définir les abonnements aux notifications push {#setting-push-notification-subscriptions}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -297,5 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Reportez-vous à [Gérer les inscriptions des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) pour plus de détails.
-
+Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions/) pour plus de détails.

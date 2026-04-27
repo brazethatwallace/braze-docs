@@ -1,0 +1,165 @@
+---
+name: braze-docs
+description: >
+  Use when drafting, editing, or reviewing markdown under `_docs/` or root
+  `_includes/` in the braze-docs repo — including fixing broken links, updating
+  cross-references, adding Liquid formatting (alerts, tabs, images), or resolving
+  merge conflicts in documentation branches. English canonical source only;
+  `_lang/` is out of scope unless the user explicitly requests locale work.
+---
+
+# Braze Docs
+
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only HEAD`
+
+## Mode detection
+
+Detect mode from $ARGUMENTS first, then modified files, then ask.
+
+| Signal | Mode | Load |
+|--------|------|------|
+| $ARGUMENTS: "conflict", "merge", "resolve" | **Conflict** | *(workflow is in this file)* |
+| $ARGUMENTS: "link", "redirect", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
+| $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
+| $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
+| Modified files include `broken_redirect_list.js` | **Links** | [site-conventions.md](references/site-conventions.md) |
+| Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
+| Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
+
+If mode is still ambiguous, ask: "What are you working on?"
+
+If AskUserQuestion is available:
+- **Writing or editing content** — Drafting new articles or updating existing ones
+- **Fixing broken links** — Broken links, redirects, or cross-references
+- **Resolving merge conflicts** — Conflicts between branches
+- **Reviewing for style** — Checking existing content against style standards
+
+Otherwise ask: "What are you working on? (1) Writing/editing content, (2) Fixing broken links, (3) Resolving merge conflicts, (4) Reviewing for style"
+
+## Overview
+
+Writing, structuring, and linking Braze documentation. References load by mode
+(see above). For the canonical source of truth on any topic, consult the style
+guide files listed below.
+
+## Gotchas
+
+- **Don't resolve merge conflicts in bulk without an approved written plan**, because conflict resolution must match the PR's intent and the user must stay in control. Do the full **Merge conflicts** workflow below instead of guessing.
+- **Don't draft new content before searching `_docs/` (and root `_includes/`) for existing coverage**, because duplicate or rephrased prose drifts, bloats the site, and hides the single source of truth. When coverage exists, tighten or correct that content or add a short cross-link instead.
+- **Don't write comprehensive speculative copy to fill gaps you haven't verified**, because confident-sounding filler drives hallucinations. Prefer the smallest accurate edit; when you draw on another article, style guide section, or product/SDK behavior, cite the source inline — for example: `[_docs/_user_guide/path/to/page.md]` or article title in brackets — so the author can confirm. Omit internal paths from public PR descriptions.
+- **Don't treat `_lang/` as the place to fix English canonical issues**, because the translation pipeline owns localized files. See **Locale and English source** for the exception.
+
+## Merge conflicts
+
+When the user is in a merge conflict (or asks for help with one):
+
+1. **Gather context** — Use the feature branch name, changed files, and the PR title/description or the user's stated goal so you know what the change is trying to achieve.
+2. **Summarize conflicts** — For each conflicted file (or region), state what each side is doing (for example "main added X; our branch moved Y") in plain language, not only conflict markers.
+3. **Propose a resolution plan** — Tie recommendations to the end goal: what to keep, what to merge, what to drop, and any follow-up edits (links, redirects, style). Call out risky spots (redirect lists, shared `_includes/`, generated or high-churn files).
+
+**Wait gate:** Do not proceed to step 4 until the user responds with explicit approval of the plan.
+
+4. **Apply all resolutions** — Resolve every conflict agreed in the plan in one comprehensive pass. Do not stop mid-conflict or ask for re-confirmation; the approval above covers the full plan. Run a consistency pass (links, frontmatter, style) and report what changed file-by-file.
+
+If the user wants only analysis, stop after step 3.
+
+## Style guide source files
+
+| Path | Use for |
+|------|---------|
+| `docs/contributing/style_guide.md` | Parent index — start here |
+| `docs/contributing/style_guide/writing_style_guide.md` | Writing style, voice, tone, grammar, punctuation, formatting |
+| `docs/contributing/style_guide/image_style_guide.md` | Image styling, cropping, alt text, screenshots |
+| `docs/contributing/style_guide/alerts.md` | Important, Note, Tip, Warning alerts — when and how to use |
+| `docs/contributing/style_guide/api_endpoint_guidelines.md` | API endpoint article structure and formatting |
+
+When the full style guide has specific guidance on a topic, defer to the source file over this summary.
+
+## Writing style summary
+
+The Braze voice is **straightforward**, **empowering**, and **human**. Key rules:
+
+- Active voice. Present tense. Second person ("you"). Imperative for instructions.
+- Standard contractions (you're, can't). No noun+verb contractions (Braze'll).
+- Oxford comma required. Sentence case for headings.
+- Never use "simple", "simply", "just", "easy" in instructions.
+- Use "customers" for brands, "consumers" for their end users, "company users" for platform users. Never "clients".
+- Descriptive link text. Never "Learn more", "here", "click here".
+- Use gender-neutral pronouns. Avoid ableist language.
+
+For the complete writing rules, load [references/writing-style.md](references/writing-style.md) (loaded automatically in Write and Review modes).
+
+## Site structure
+
+Jekyll site. Collections dir: `_docs/`. Base URL: `/docs`.
+
+| Collection | Folder | Content |
+|---|---|---|
+| user_guide | `_user_guide/` | Product docs for dashboard users |
+| developer_guide | `_developer_guide/` | SDK integration and developer docs |
+| api | `_api/` | REST API endpoint docs |
+| partners | `_partners/` | Technology partner integrations |
+| releases | `_releases/` | Release notes |
+| help | `_help/` | Troubleshooting and support |
+
+Contributor handbook (not a Jekyll collection): `docs/contributing/` in this repository.
+
+Permalink pattern: `./:collection/:path/` (pretty URLs, trailing slash).
+
+## Locale and English source
+
+- **Routine work:** Edit markdown under `_docs/` (all collections) and root `_includes/` for shared snippets. Do not create, edit, move, rename, or delete files under `_lang/` during normal article updates, link fixes, redirects follow-up, or style edits.
+- **Why:** Localized pages are updated by Braze's separate translation process; editing `_lang/` in the same PR as English changes risks drift or conflicts with that pipeline.
+- **Broken links and verification:** When resolving links for English pages, treat canonical targets as `_docs/...` and root `_includes/...` as appropriate. Reading `_lang/` for comparison or existence checks is fine; **writes** to `_lang/` stay off limits unless the user asked for that scope.
+- **Exception:** If the user clearly asks to update a specific locale, fix a translation bug, or work only in `_lang/`, follow that instruction for that task.
+
+## YAML frontmatter
+
+Every doc file requires YAML frontmatter. Required fields:
+
+```yaml
+---
+nav_title: Permissions
+article_title: Company user permissions
+page_order: 1
+page_type: reference
+description: "This reference article covers how user permissions work at Braze."
+---
+```
+
+| Field | Purpose | Notes |
+|---|---|---|
+| `nav_title` | Sidebar navigation label | Short, scannable |
+| `article_title` | Page title (H1) | Descriptive, sentence case |
+| `page_order` | Sort position in nav | Integer, lower = higher |
+| `page_type` | Content type | `reference`, `glossary`, `landing`, `solution` |
+| `description` | SEO meta description | Wrap in quotes |
+
+Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `search_rank`.
+
+## Internal linking
+
+```markdown
+[Link text]({{site.baseurl}}/user_guide/path/to/page/)
+```
+
+- Always use `{{site.baseurl}}` (resolves to `/docs`). Trailing slash required.
+- Anchor links: `{{site.baseurl}}/user_guide/path/to/page/#heading-slug`
+- Same-page anchors: `[heading text](#heading-slug)`
+- Never use "Learn more", "here", or "click here" as link text.
+- Standard cross-reference phrase: "To learn more, refer to [Topic](...)." or "For more information, see [Topic](...)."
+
+For broken link detection, redirect rules, Liquid syntax, and page anatomy, load [references/site-conventions.md](references/site-conventions.md) (loaded automatically in Links mode).
+
+## Key glossary
+
+- **Canvas** — Always capitalized. Plural: Canvases.
+- **workspace** — Not "app group" (deprecated term).
+- **capacity** — Use instead of "limit" for custom data constraints.
+- **eCommerce** — Not "ecommerce" or "e-commerce".
+- Avoid: "via" (use "through"), "e.g." (use "for example"), "i.e." (use "that is").
+- Avoid: "out-of-the-box" (use "default"), "whitelist" (use "allowlist"), "blacklist" (use "blocklist").
+
+For the full glossary, load [references/glossary.md](references/glossary.md) (loaded automatically in Review mode).

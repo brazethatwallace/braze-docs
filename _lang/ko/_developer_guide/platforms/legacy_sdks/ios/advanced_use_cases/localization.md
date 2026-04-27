@@ -10,13 +10,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 현지화
+# 현지화 {#localization}
 
-현지화는 Braze iOS SDK 내에서 지원됩니다. Braze는 영어 외에도 기본 제공 SDK 메시지에 대해 여러 언어를 지원합니다. Braze에 통합된 애플리케이션에 표시되는 기본 메시지와 관련이 있습니다. 예를 들어, 연결 문제가 있을 때 앱에서의 위치와 같습니다. (예: '네트워크 연결을 설정할 수 없습니다. 나중에 다시 시도하세요."). 휴대폰 언어가 지원되는 언어 중 하나로 설정되어 있으면 통합 애플리케이션 내에서 트리거되는 모든 Braze 기본 문자열이 자동으로 해당 언어로 표시됩니다.
+현지화는 Braze iOS SDK 내에서 지원됩니다. Braze는 영어 외에도 기본 제공 SDK 메시지에 대해 여러 언어를 지원합니다. 이러한 메시지는 Braze와 통합된 애플리케이션에 표시되는 기본 메시지와 관련이 있으며, 예를 들어 연결 문제가 있을 때 앱에 표시되는 메시지가 해당됩니다(예: "네트워크 연결을 설정할 수 없습니다. 나중에 다시 시도하세요."). 휴대폰 언어가 지원되는 언어 중 하나로 설정되어 있으면, 통합 애플리케이션 내에서 트리거되는 모든 Braze 기본 문자열이 자동으로 해당 언어로 표시됩니다.
 
-프로필에서 사용자에게 속성을 지정할 수 있는 지원되는 언어의 전체 목록을 보려면 [사용자 언어 목록을]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/) 참조하세요.
+프로필에서 사용자에게 속성을 지정할 수 있는 지원되는 언어의 전체 목록을 보려면 [사용자 언어 목록]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/)을 참조하세요.
 
-## 지원 언어
+## 지원 언어 {#languages-supported}
 - 아랍어
 - 버마어
 - 카탈루냐어
@@ -35,7 +35,7 @@ noindex: true
 - 독일어
 - 그리스어
 - 히브리어
-- 힌두어
+- 힌디어
 - 헝가리어
 - 인도네시아어
 - 아일랜드어
@@ -46,7 +46,7 @@ noindex: true
 - 노르웨이어
 - 뉘노르스크어
 - 폴란드어
-- 포르투갈어 
+- 포르투갈어
 - 러시아어
 - 스페인어
 - 스웨덴어
@@ -55,4 +55,3 @@ noindex: true
 - 베트남어
 
 자세한 내용은 [Apple 현지화](https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFLocaleRef/) 문서 및 [LOC 표준 언어 목록](http://www.loc.gov/standards/iso639-2/php/English_list.php)을 참조하세요.
-

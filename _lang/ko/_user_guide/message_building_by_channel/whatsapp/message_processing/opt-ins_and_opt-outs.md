@@ -12,7 +12,7 @@ alias: /user_guide/message_building_by_channel/whatsapp/opt-ins_and_opt-outs/
 
 # 옵트인 및 옵트아웃
 
-> WhatsApp 옵트인 및 옵트아웃 처리는 중요합니다. WhatsApp은 [전화번호 품질 등급](https://www.facebook.com/business/help/896873687365001)을 모니터링하며, 낮은 등급은 메시지 한도가 줄어들 수 있습니다. <br><br>고품질 등급을 구축하는 한 가지 방법은 사용자가 귀하의 비즈니스를 차단하거나 신고하지 못하도록 하는 것입니다. 이것은 [고품질 메시징](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits)(사용자에게 가치를 제공하는 것과 같은), 메시지 빈도를 제어하고, 고객이 향후 통신 수신을 거부할 수 있도록 허용함으로써 수행할 수 있습니다. <br><br>이 페이지에서는 옵트인 및 옵트아웃 설정 방법과 "정규식" 및 "is" 수정자 간의 차이를 다룹니다.
+> WhatsApp 옵트인 및 옵트아웃 처리는 중요합니다. WhatsApp은 [전화번호 품질 등급](https://www.facebook.com/business/help/896873687365001)을 모니터링하며, 낮은 등급은 메시지 한도가 줄어들 수 있습니다. <br><br>고품질 등급을 구축하는 한 가지 방법은 사용자가 귀하의 비즈니스를 차단하거나 신고하지 못하도록 하는 것입니다. 이것은 [고품질 메시징](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits)(사용자에게 가치를 제공하는 것과 같은), 메시지 빈도를 제어하고, 고객이 향후 통신 수신을 거부할 수 있도록 허용함으로써 수행할 수 있습니다. <br><br>이 페이지에서는 옵트인 및 옵트아웃 설정 방법과 "정규식" 및 "is" 수정자의 차이를 다룹니다.
 
 옵트인은 외부 소스 또는 SMS나 인앱 및 브라우저 내 메시지와 같은 Braze 방법에서 올 수 있습니다. 수신 거부는 Braze 및 WhatsApp 마케팅 버튼에 설정된 키워드를 사용하여 처리할 수 있습니다. 다음 방법을 참조하여 옵트인 및 옵트아웃 설정에 대한 지침을 확인하십시오.
 
@@ -139,7 +139,7 @@ WhatsApp에 대해 "시작" 및 "중지" 키워드 응답 워크플로를 구성
 ![메시지 본문이 "START"인 WhatsApp 메시지 단계.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message.png %}){: style="max-width:80%;"}
 
 {: start="2"}
-2\. 캔버스에서 **사용자 업데이트 설정** 단계를 만들고 **작업**에 대해 **고급 JSON 편집기**를 선택합니다. <br><br>!["고급 JSON 편집기"의 작업이 있는 사용자 업데이트 단계.]({% image_buster /assets/img/whatsapp/user_update.png %})<br><br>
+2\. 캔버스에서 **사용자 업데이트 설정** 단계를 만들고 **작업**에 대해 **고급 JSON 편집기**를 선택합니다. <br><br>!["고급 JSON 편집기" 작업이 있는 사용자 업데이트 단계.]({% image_buster /assets/img/whatsapp/user_update.png %})<br><br>
 3\. 다음 JSON 페이로드로 **사용자 업데이트 개체**를 채우고 `XXXXXXXXXXX`를 구독 그룹 ID로 바꿉니다:
 
 {% raw %}
@@ -220,14 +220,14 @@ STOP 메시지에는 이 방법을 사용할 필요가 없습니다. 확인 메�
 - 캔버스 API 트리거 JSON 페이로드 내에서 속성 업데이트는 아직 지원되지 않으므로 WhatsApp 응답 메시지에 대한 WhatsApp 캠페인만 트리거할 수 있습니다(2단계에서와 같이).
 - WhatsApp 템플릿은 응답 메시지로 보내기 위해 승인되어야 합니다. 이것은 빠른 응답이 동일한 캠페인 또는 캔버스 내에 인바운드 메시지 트리거가 있어야 하기 때문입니다. [사용자 업데이트 단계](#user-update-step)를 사용하면 Meta의 승인을 받지 않고도 빠른 응답 메시지를 보낼 수 있습니다.
 
-## "정규식"과 "is" 수정자 간의 차이를 이해하기
+## "정규식"과 "is" 수정자의 차이를 이해하기
 
-이 표에서 `STOP`은 수정자가 작동하는 방식을 보여주기 위해 예시 트리거 단어로 사용됩니다.
+이 표에서 `STOP`은 수정자가 작동하는 방식을 보여주기 위한 예제 트리거 단어로 사용됩니다.
 
 | 수정자 | 트리거 단어 | Action |
 | --- | --- | --- |
-| `Is` | `STOP` | 대소문자에 관계없이 "stop"의 전체 단어 사용을 포착합니다. 예를 들어, 이것은 "stop"을 포착하지만 "please stop"은 포착하지 않습니다. |
-| `Matches regex` | `STOP` | 정확한 대문자 "STOP"의 모든 사용을 포착합니다. 예를 들어, 이것은 "STOP"과 "PLEASE STOP"을 포착하지만 "stop"은 포착하지 않습니다. |
-| `Matches regex` | `(?i)STOP(?-i)` | 모든 대문자에서 "STOP"의 모든 사용을 포착합니다. 예를 들어, 이것은 "stop", "please stop", 그리고 "절대 나에게 메시지를 보내는 것을 멈추지 마세요"를 포착합니다. |
+| `Is` | `STOP` | 대소문자에 관계없이 "stop"의 전체 단어 사용을 포착합니다. 예를 들어, 이것은 "정지"를 잡지만 "제발 정지"는 잡지 않습니다. |
+| `Matches regex` | `STOP` | 정확한 대문자에서 "정지"의 모든 사용을 잡습니다. 예를 들어, 이것은 "정지"와 "제발 정지"를 잡지만 "정지"는 잡지 않습니다. |
+| `Matches regex` | `(?i)STOP(?-i)` | 모든 대문자에서 "정지"의 모든 사용을 잡습니다. 예를 들어, 이것은 "정지", "제발 정지", 그리고 "메시지를 보내는 것을 절대 멈추지 마세요"를 잡습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 

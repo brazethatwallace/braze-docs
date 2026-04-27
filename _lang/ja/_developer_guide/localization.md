@@ -1,22 +1,22 @@
 ---
 nav_title: ローカライゼーション
-article_title: Braze Swift SDKのローカライズ
+article_title: ローカライゼーション
 page_order: 3.50
-description: "Braze SDK のローカライズについて説明します。"
+description: "Braze SDKのローカライゼーションについて説明します。"
 platform:
   - Android
   - FireOS
   - Swift
 ---
 
-# ローカライゼーション
+# ローカライゼーション {#localization}
 
-> Braze SDK のローカライズおよびサポートされている言語について学習します。これにより、世界中のユーザーと接続できます。ローカライズされたメッセージの設定については、メッセージングの基本セクションの[ローカライゼーションを]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/)参照のこと。
+> Braze SDKのローカライゼーションおよびサポートされている言語について説明します。これにより、世界中のユーザーとつながることができます。ローカライズされたメッセージの設定方法については、メッセージングの基本セクションの[ローカライゼーション]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)を参照してください。
 
-## ローカライズについて
+## ローカライゼーションについて {#about-localization}
 
-Brazeは、アプリ内に表示されるSDKメッセージについて、英語以外に複数の言語をサポートしている。 
+英語に加えて、Brazeはアプリに表示されるSDKメッセージについて複数の言語をサポートしています。
 
-ユーザーの電話言語がサポートされている言語のいずれかに設定されている場合、メッセージングチャネルにデフォルトで含まれているSDKメッセージは、その言語に翻訳される。例えば、アプリが接続性の問題に対するメッセージを表示する場合、ユーザーの選択した言語に翻訳される。
+ユーザーのスマートフォンの言語がサポートされている言語のいずれかに設定されている場合、メッセージングチャネルにデフォルトで含まれるSDKメッセージはその言語に翻訳されます。たとえば、アプリが接続の問題に関するメッセージを表示する場合、ユーザーが選択した言語に翻訳されます。
 
 {% multi_lang_include supported_language_codes.md %}

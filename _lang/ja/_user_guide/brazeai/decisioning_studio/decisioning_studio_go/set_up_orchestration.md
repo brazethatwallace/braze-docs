@@ -1,558 +1,380 @@
 ---
-nav_title: オーケストレーションの設定
-article_title: オーケストレーションの設定
+nav_title: オーケストレーションを設定する
+article_title: オーケストレーションを設定する
 page_order: 2
-description: "BrazeAI Decisioning Studio Goをカスタマーエンゲージメントプラットフォームに接続し、パーソナライズされたコミュニケーションを可能にする方法を学習。"
+description: "BrazeAI Decisioning Studio Goをカスタマーエンゲージメントプラットフォームに接続して、パーソナライズされたコミュニケーションを実現する方法を説明します。"
 toc_headers: h2
 ---
 
-# オーケストレーションの設定
+# オーケストレーションを設定する
 
-> BrazeAI Decisioning Studio™ Goは、カスタマーエンゲージメントプラットフォーム(CEP)に接続して、パーソナライズされたコミュニケーションをオーケストレーションする必要がある。この記事では、サポートされているCEPごとに統合を設定する方法を説明する。
+> BrazeAI Decisioning Studio™ Goは、パーソナライズされたコミュニケーションをオーケストレーションするために、カスタマーエンゲージメントプラットフォーム（CEP）に接続する必要があります。この記事では、サポートされている各CEPの統合設定方法を説明します。
 
-## サポートされるCEP
+## サポートされているCEP
 
-Decisioning Studio Goは以下のカスタマーエンゲージメントプラットフォームをサポートしている：
+Decisioning Studio Goは、以下のカスタマーエンゲージメントプラットフォームをサポートしています。
 
 | CEP | 統合タイプ | 主要な機能 |
 |-----|-----------------|--------------|
-| **Braze** | API トリガーキャンペーン | ネイティブ統合、リアルタイムトリガー |
-| **セールスフォース・マーケティングクラウド** | APIイベントを使ったジャーニービルダー | SQLクエリーのオートメーション、データ拡張 |
-| **クラビオ** | メトリックトリガーを持つフロー | テンプレートベース、トリガー分割 |
+| **Braze** | APIトリガーキャンペーン | ネイティブ統合、リアルタイムトリガー |
+| **Salesforce Marketing Cloud** | APIイベント付きJourney Builder | SQLクエリのオートメーション、データエクステンション |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-以下からCEPを選択し、統合設定を開始する。
+以下からCEPを選択して、統合設定を開始しましょう。
 
 {% tabs %}
 {% tab Braze %}
 
-## Brazeとの統合設定
+## Braze統合を設定する
 
-Decisioning Studio GoとBrazeを統合するには、APIキーを作成し、APIトリガーキャンペーンを設定し、必要な識別子をDecisioning Studio Goポータルに提供する。
+Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、APIトリガーキャンペーンを設定し、必要な識別子をDecisioning Studio Goポータルに提供します。
 
 ### ステップ 1: REST APIキーを作成する
 
-1. ダッシュボードで、**設定**＞**APIと識別子**＞**APIキーに**進む。
-2. [**API キーを作成**] を選択します。
-3. APIキーの名前を入力する。例えば、"DecisioningStudioGoEmail "である。
-4. 以下のカテゴリーに基づいて権限を選択する：
-    - **ユーザーデータ：** `users.track`,`users.delete`,`users.export.ids` を選択する、 `users.export.segment`
-    - **メッセージング：**選択する `messages.send`
-    - **キャンペーン：**リストアップされた権限をすべて選択する。
-    - **キャンバス：**リストアップされた権限をすべて選択する。
-    - **セグメンテーション：**リストされたすべての権限を選択する。
-    - **テンプレート：**リストされた権限をすべて選択する。
+1. Brazeダッシュボードで、**設定** > **APIと識別子** > **APIキー**に移動します。
+2. **APIキーを作成**を選択します。
+3. APIキーの名前を入力します。例：「DecisioningStudioGoEmail」
+4. 以下のカテゴリに基づいて権限を選択します。
+    - **ユーザーデータ：** `users.track`、`users.delete`、`users.export.ids`、`users.export.segment` を選択
+    - **メッセージ：** `messages.send` を選択
+    - **キャンペーン：**リストされているすべての権限を選択
+    - **キャンバス：**リストされているすべての権限を選択
+    - **セグメント：**リストされているすべての権限を選択
+    - **テンプレート：**リストされているすべての権限を選択
 
 {: start="5"}
-5. [**API キーを作成**] を選択します。
-6. APIキーをコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付ける。
+5. **APIキーを作成**を選択します。
+6. APIキーをコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます。
 
-### ステップ 2:メールの表示名を探す
+### ステップ 2: メールの表示名を確認する
 
-1. Brazeダッシュボードで、**設定**>**メール設定に**進む。
-2. BrazeAI Decisioning Studio™ Goで使用する表示名を探す。
-3. **送信元表示名**」をコピーし、「**メール表示名**」としてBrazeAI Decisioning Studio™ Goポータルに貼り付ける。
-4. 関連するメールアドレスをコピーして、BrazeAI Decisioning Studio™ Goポータルの**Fromメールアドレスに**貼り付ける。
+1. Brazeダッシュボードで、**設定** > **メール設定**に移動します。
+2. BrazeAI Decisioning Studio™ Goで使用する表示名を確認します。
+3. **From Display Name**をコピーし、BrazeAI Decisioning Studio™ Goポータルに**Email Display Name**として貼り付けます。
+4. 関連するメールアドレスをコピーし、BrazeAI Decisioning Studio™ Goポータルに**送信元メールアドレス**として貼り付けます。このメールアドレスはローカル部分とドメインを組み合わせたものです。
 
-### ステップ 3:BrazeのURLとアプリIDを探す
+### ステップ 3: BrazeのURLとApp IDを見つける
 
-**BrazeのURLを見つける：**
-1. Brazeのダッシュボードに行く。
-2. ブラウザのウィンドウでは、BrazeのURLは`https://` で始まり、`braze.com` で終わる。BrazeのURLの例は`https://dashboard-01.braze.com` 。
+**BrazeのURLを見つけるには：**
+1. Brazeダッシュボードに移動します。
+2. ブラウザウィンドウで、BrazeのURLは`https://`で始まり`braze.com`で終わります。BrazeのURLの例：`https://dashboard-01.braze.com`
 
-**アプリID（APIキー）を調べる：**
+**App ID（APIキー）を見つけるには：**
 
 {% alert note %}
-Brazeは、アプリID（BrazeダッシュボードではAPIキーと呼ばれる）を提供しており、アクティビティをワークスペース内の特定のアプリに関連付けるなど、トラッキング追跡に使用できる。アプリIDを使用する場合、BrazeAI Decisioning Studio™ Goは、各実験者にアプリIDを関連付けることをサポートしている。<br><br>アプリIDを使用しない場合は、プレースホルダーとして任意の文字列を入力できる。
+BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれます）を提供しており、トラッキング目的で使用できます。例えば、ワークスペース内の特定のアプリにアクティビティを関連付けることができます。アプリIDを使用する場合、BrazeAI Decisioning Studio™ Goは各実験担当者にアプリIDを関連付けることをサポートします。<br><br>アプリIDを使用しない場合は、プレースホルダーとして任意の文字列を入力できます。
 {% endalert %}
 
-1. Brazeダッシュボードで、**設定**>**アプリ設定に**進む。
-2. トラッキングしたいアプリにアクセスする。
-3. **APIキーを**コピーして、BrazeAI Decisioning Studio™ Goポータルに貼り付ける。
+1. Brazeダッシュボードで、**設定** > **アプリ設定**に移動します。
+2. トラッキングしたいアプリに移動します。
+3. **APIキー**をコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます。
 
 ### ステップ 4: APIトリガーキャンペーンを作成する
 
-1. Brazeのダッシュボードで、「**メッセージング**」>「キャンペーン」と進む。
-2. **キャンペーンの作成を**選択する。
-3. キャンペーンタイプは**APIキャンペーンを**選択する。
-4. キャンペーン名を入力します。例えば、「決定戦スタジオ囲碁メール」である。
+1. Brazeダッシュボードで、**メッセージング** > **キャンペーン**に移動します。
+2. **キャンペーンを作成**を選択します。
+3. キャンペーンタイプとして、**APIキャンペーン**を選択します。
+4. キャンペーン名を入力します。例：「Decisioning Studio Go Email」
 
-![決裁スタジオGoメール」というAPIキャンペーン。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
+![「Decisioning Studio Go Email」という名前のAPIキャンペーン。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
 
 {: start="5"}
-5. メッセージング・チャネルには、**メールを**選択する。
+5. メッセージングチャネルとして、**メール**を選択します。
 
 ![APIキャンペーンのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. **Additional Optionsで**、**Allow users to become re-eligible to receive campaign**チェックボックスを選択する。
-7. 再資格となるまでの時間は、「**1**」を入力し、ドロップダウンから**「時間」を**選択する。
+6. **追加オプション**で、**ユーザーがキャンペーンの受信資格を再取得できるようにする**チェックボックスを選択します。
+7. 再資格取得までの時間として、**1**を入力し、ドロップダウンから**時間**を選択します。
 
-![選択したAPIキャンペーンの再資格。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
+![APIキャンペーンの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. **キャンペーンを保存を**選択する。
+8. **キャンペーンを保存**を選択します。
 
-### ステップ 5: キャンペーンIDとメッセージIDをコピーする。
+### ステップ 5: キャンペーンIDとメッセージIDをコピーする
 
-1. APIキャンペーンで、**キャンペーンIDを**コピーする。次に、BrazeAI Decisioning Studio™ Goポータルに行き、**キャンペーンIDを**貼り付ける。
+1. APIキャンペーンで、**キャンペーンID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**キャンペーンID**を貼り付けます。
 
-![コピー＆ペーストするメッセージバリエーションIDの例。]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
+![コピーして貼り付けるメッセージバリエーションIDの例。]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 
 {: start="2"}
-2\.**メッセージバリエーション ID** をコピーする。次に、BrazeAI Decisioning Studio™ Goポータルに行き、**メッセージバリエーションIDを**貼り付ける。
+2. **メッセージバリエーションID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**メッセージバリエーションID**を貼り付けます。
 
-### ステップ 6: テストユーザーIDを探す
+### ステップ 6: テストユーザーIDを確認する
 
-統合をテストするには、ユーザーIDが必要だ：
+統合をテストするには、ユーザーIDが必要です。
 
-1. Brazeダッシュボードで、**オーディエンス**>**ユーザーを検索する**。
-2. 外部ユーザーID、ユーザーエイリアス、メール、電話番号、プッシュトークンでユーザーを検索する。
-3. ユーザーIDをコピーしてセットアップで参照する。
+ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
 
-![ユーザーIDとユーザープロファイルの例。]({% image_buster /assets/img/decisioning_studio_go/user_id.png %})
+1. Brazeダッシュボードで、**オーディエンス** > **ユーザーを検索**に移動します。
+2. 外部ユーザーID、ユーザーエイリアス、メール、電話番号、またはプッシュトークンでユーザーを検索します。
+3. 設定で参照するためにユーザーIDをコピーします。
+
+![ユーザーIDでユーザーを検索した際のユーザープロファイルの例。]({% image_buster /assets/img/decisioning_studio_go/user_id.png %})
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
-## SFMC統合の設定
+## SFMC統合を設定する
 
-Decisioning Studio GoとSalesforce Marketing Cloudを統合するには、アプリパッケージを設定し、データクエリーオートメーションを作成し、トリガー送信を処理するジャーニーを構築する。
+Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプリパッケージを設定し、データクエリオートメーションを作成し、トリガー送信を処理するJourneyを構築します。
 
-### パート 1:SFMCアプリパッケージを設定する
+### パート1: SFMCアプリパッケージを設定する
 
-1. マーケティングクラウドのホームページにアクセスする。
-2. グローバルヘッダーでメニューを開封し、**セットアップを**選択する。
-3. サイドパネルのナビゲーションの「**Platform Tools**」にある「**Apps**」を開き、「**Installed Packages**」を選択する。
-4. アプリ・パッケージを作成するには「**新規**」を選択する。
-5. アプリパッケージに名前と説明をつける。
+1. Marketing Cloudのホームページに移動します。
+2. グローバルヘッダーのメニューを開き、**Setup**を選択します。
+3. サイドパネルナビゲーションの**Platform Tools**にある**Apps**に移動し、**Installed Packages**を選択します。
+4. **New**を選択してアプリパッケージを作成します。
+5. アプリパッケージに名前と説明を付けます。
 
-![Experimenter 1 - Test 5」という名前のアプリパッケージ。]({% image_buster /assets/img/decisioning_studio_go/sfmc_app_package1.png %})
+![「Experimenter 1 - Test 5」という名前のアプリパッケージ。]({% image_buster /assets/img/decisioning_studio_go/sfmc_app_package1.png %})
 
 {: start="6"}
-6. **Add Componentを**選択する。
-7. **Component Type（コンポーネント・タイプ**）」で「**API Integration（API統合）**」を選択する。次に**「Next」を**選択する。
-8. **Integration Type（統合タイプ**）」で「**Server-to-server（サーバー間）**」を選択する。次に**「Next」を**選択する。
-9\.アプリパッケージにのみ、以下の推奨スコープを選択する：
-    \- チャネル > メール > 読み取り、書き込み、送信
-    \- チャンネル > OTT > 読む
-    \- チャネル > プッシュ > リード
-    \- チャネル > SMS > 読む
-    \- チャネル > ソーシャル > 読む
-    \- チャンネル > ウェブ > 読む
-    \- 資産 > ドキュメントと画像写真 > 読み取り、書き込み
-    \- 資産 > 保存されたコンテンツ > 読み取り、書き込み
-    \- オートメーション > オートメーション > 読み取り、書き込み、実行
-    \- オートメーション > ジャーニー > 読み取り、書き込み、実行、アクティベート／停止／一時停止／送信／スケジュール
-    \- コンタクト >オーディエンス > 読む
-    \- 連絡先 > リストとサブスクライバー > 読み取り、書き込み
-    \- Cross Cloud Platform > マーケットオーディエンス > ビュー
-    \- Cross Cloud Platform > マーケットオーディエンス > ビュー
-    \- Cross Cloud Platform > Marketing Cloud Connect > 読む
-    \- データ > データ拡張 > 読み取り、書き込み
-    \- データ > ファイルの場所 > 読み込み
-    \- データ > イベントトラッキング > 読み取り、書き込み
-    \- イベント通知 > コールバック > 読み取り
-    \- イベント通知 > サブスクリプション > 読む
+6. **Add Component**を選択します。
+7. **Component Type**で、**API Integration**を選択します。次に、**Next**を選択します。
+8. **Integration Type**で、**Server-to-server**を選択します。次に、**Next**を選択します。
+9. アプリパッケージに対してのみ、以下の推奨スコープを選択します。
+    - Channels > Email > Read, Write, Send
+    - Channels > OTT > Read
+    - Channels > Push > Read
+    - Channels > SMS > Read
+    - Channels > Social > Read
+    - Channels > Web > Read
+    - Assets > Documents and Images > Read, Write
+    - Assets > Saved Content > Read, Write
+    - Automation > Automations > Read, Write, Execute
+    - Automation > Journeys > Read, Write, Execute, Activate/Stop/Pause/Send/Schedule
+    - Contacts > Audiences > Read
+    - Contacts > List and Subscribers > Read, Write
+    - Cross Cloud Platform > Market Audience > View
+    - Cross Cloud Platform > Market Audience Member > View
+    - Cross Cloud Platform > Marketing Cloud Connect > Read
+    - Data > Data Extensions > Read, Write
+    - Data > File Locations > Read
+    - Data > Tracking Events > Read, Write
+    - Event notifications > Callbacks > Read
+    - Event notifications > Subscriptions > Read
 
-{% details Show image of recommended scopes %}
+{% details 推奨スコープの画像を表示 %}
 
 ![Salesforce Marketing Cloudアプリパッケージの推奨スコープ。]({% image_buster /assets/img/decisioning_studio_go/app_package_scopes.png %})
 
 {% enddetails %}
 
 {: start="10"}
-10\.[**保存**] を選択します。
-11\.以下のフィールドをコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付ける：**クライアント ID**、**クライアント秘密鍵**、**認証ベース URI**、**REST ベース URI**、**SOAP ベース URI**。
+10. **Save**を選択します。
+11. 以下のフィールドをコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます：**Client Id**、**Client Secret**、**Authentication Base URI**、**REST Base URI**、**SOAP Base URI**。
 
-### パート 2:データクエリーオートメーションの設定
+### パート2: データクエリオートメーションを設定する
 
 #### ステップ 1: 新しいオートメーションを作成する
 
-1. Salesforce Marketing Cloudのホームから**Journey Builderに**移動し、**オートメーションスタジオを**選択する。
+1. Salesforce Marketing Cloudのホームから、**Journey Builder**に移動し、**Automation Studio**を選択します。
 
-![ジャーニービルダーのナビゲーションにオートメーションスタジオオプションがある。]({% image_buster /assets/img/decisioning_studio_go/query13.png %})
+![Journey Builderナビゲーションにあるオートメーションスタジオのオプション。]({% image_buster /assets/img/decisioning_studio_go/query13.png %})
 
 {: start="2"}
-2\.**新しいオートメーション**」を選択する。
-3\.**スケジュール**ノードを**開始ソースとして**ドラッグ＆ドロップする。
+2. **New Automation**を選択します。
+3. **Schedule**ノードをドラッグ＆ドロップして**Starting Source**とします。
 
-!["スケジュール "を旅の出発点とする。]({% image_buster /assets/img/decisioning_studio_go/query14.png %})
+![「Schedule」をJourneyの開始ソースとする。]({% image_buster /assets/img/decisioning_studio_go/query14.png %})
 
 {: start="4"}
-4. **スケジュール**ノードで、**Configureを**選択する。
-5. スケジュールには以下を設定する：
-    **\- 開始日**明日のカレンダー
-    **\- 時間だ：****12:00 AM**
-    **\- タイムゾーン：****(GMT-05:00) 東部 (米国& カナダ)**
-6. **Repeatでは**、**Dailyを**選択する。
-7. このスケジュールは終わらないように設定する。
-8. **完了を**選択してスケジュールを保存する。
+4. **Schedule**ノードで、**Configure**を選択します。
+5. スケジュールに以下を設定します。
+    - **Start Date：**翌日の日付
+    - **Time：****12:00 AM**
+    - **Time Zone：****(GMT-05:00) Eastern (US & Canada)**
+6. **Repeat**で、**Daily**を選択します。
+7. このスケジュールを終了しないように設定します。
+8. **Done**を選択してスケジュールを保存します。
 
-![スケジュール例は2024年1月25日午前12時（東部標準時）、毎日繰り返される。]({% image_buster /assets/img/decisioning_studio_go/query12.png %})
+![2024年1月25日午前0時（米国東部時間）に定義されたスケジュール例。毎日繰り返されます。]({% image_buster /assets/img/decisioning_studio_go/query12.png %})
 
-#### ステップ 2:SQLクエリを作成する
+#### ステップ 2: SQLクエリを作成する
 
-次に、サブスクライバークエリーとエンゲージメントクエリーの2つのSQLクエリーを作成する。これらのクエリにより、BrazeAI Decisioning Studio™ Goはデータを取得してオーディエンスに入力し、エンゲージメントイベントを取り込むことができる。
+次に、2つのSQLクエリを作成します。サブスクライバークエリとエンゲージメントクエリです。これらのクエリにより、BrazeAI Decisioning Studio™ Goはオーディエンスを構成するデータの取得とエンゲージメントイベントの取り込みが可能になります。
 
-**サブスクライバーからの問い合わせだ：**
+**サブスクライバークエリ：**
 
-1. **SQLクエリを**キャンバスにドラッグ＆ドロップする。
-2. 選択**する**。
-3. **Create New Query Activityを**選択する。
-4. クエリーに名前と外部キーを付ける。BrazeAI Decisioning Studio™ Goポータルで提供されるサブスクライバークエリーの推奨される名前と外部キーを使用することを推奨する。
+1. **SQL Query**をキャンバスにドラッグ＆ドロップします。
+2. **Choose**を選択します。
+3. **Create New Query Activity**を選択します。
+4. クエリに名前と外部キーを付けます。BrazeAI Decisioning Studio™ Goポータルで提供されているサブスクライバークエリ用の推奨名と外部キーを使用することをお勧めします。
 
-!["OFE_Subscribers_query_Test5" と内部キーの例。]({% image_buster /assets/img/decisioning_studio_go/query11.png %})
+![「OFE_Subscribers_query_Test5」と外部キーの例。]({% image_buster /assets/img/decisioning_studio_go/query11.png %})
 
 {: start="5"}
-5. [**次へ**] を選択します。
-6. BrazeAI Decisioning Studio™ Goポータルで、**サブスクライバー・クエリ・リソースの**下にあるシステムデータSQLクエリを探す。
-7. クエリをコピーしてテキストボックスに貼り付け、**「Next**」を選択する。
+5. **Next**を選択します。
+6. BrazeAI Decisioning Studio™ Goポータルで、**Subscriber Query Resources**の下にあるシステムデータSQLクエリを確認します。
+7. クエリをテキストボックスにコピーして貼り付け、**Next**を選択します。
 
-![SQLクエリーセクションのクエリー例。]({% image_buster /assets/img/decisioning_studio_go/query10.png %})
+![SQL Queryセクションのクエリ例。]({% image_buster /assets/img/decisioning_studio_go/query10.png %})
 
 {: start="8"}
-8. BrazeAI Decisioning Studio™ Goポータルの「**使用するリソース**」セクションで、対象データ拡張子の外部キーを探す。そして、検索バーに貼り付けて検索する。
+8. BrazeAI Decisioning Studio™ Goポータルの**Resources to use**セクションで、ターゲットデータエクステンションの外部キーを確認します。次に、検索バーに貼り付けて検索します。
 
 ![検索バーに貼り付けられた外部キー]({% image_buster /assets/img/decisioning_studio_go/query9.png %})
 
 {: start="9"}
-9\.検索した外部キーに一致するデータ拡張子を選択する。BrazeAI Decisioning Studio™ Goポータルで相互参照するために、ターゲットデータの拡張子名も提供される。サブスクライバークエリーの**Data Extensionは**、`BASE_AUDIENCE_DATA` のサフィックスで終わるべきである。
+9. 検索した外部キーに一致するデータエクステンションを選択します。ターゲットデータエクステンション名は、BrazeAI Decisioning Studio™ Goポータルでも参照用に提供されています。サブスクライバークエリの**Data Extension**は、`BASE_AUDIENCE_DATA`サフィックスで終わるはずです。
 
-![外部キーの例と一致するデータ拡張子名。]({% image_buster /assets/img/decisioning_studio_go/query8.png %})
+![外部キーの例に一致するデータエクステンション名。]({% image_buster /assets/img/decisioning_studio_go/query8.png %})
 
 {: start="10"}
-10\.**Overwriteを**選択し、**Nextを**選択する。
+10. **Overwrite**を選択し、次に**Next**を選択します。
 
-**エンゲージメントの問い合わせだ：**
+**エンゲージメントクエリ：**
 
-1. **SQLクエリを**キャンバスにドラッグ＆ドロップする。
+1. **SQL Query**をキャンバスにドラッグ＆ドロップします。
 
-![ジャーニーのアクティビティに「SQLクエリ」が追加された。]({% image_buster /assets/img/decisioning_studio_go/query7.png %})
+![「SQL Query」がJourneyのアクティビティとして追加された状態。]({% image_buster /assets/img/decisioning_studio_go/query7.png %})
 
 {: start="2"}
-2\.選択**する**。
-3\.**Create New Query Activityを**選択する。
-4. クエリーに名前と外部キーを付ける。BrazeAI Decisioning Studio™ Goポータルで提供されるエンゲージメントクエリの推奨される名前と外部キーを使用することを推奨する。
+2. **Choose**を選択します。
+3. **Create New Query Activity**を選択します。
+4. クエリに名前と外部キーを付けます。BrazeAI Decisioning Studio™ Goポータルで提供されているエンゲージメントクエリ用の推奨名と外部キーを使用することをお勧めします。
 
-!["OFE_Engagement_query" と内部キーの例。]({% image_buster /assets/img/decisioning_studio_go/query6.png %})
+![「OFE_Engagement_query」と外部キーの例。]({% image_buster /assets/img/decisioning_studio_go/query6.png %})
 
 {: start="5"}
-5. [**次へ**] を選択します。
-6. BrazeAI Decisioning Studio™ Goポータルで、**Engagement Query Resourcesの**下にSystem data SQLクエリを見つける。
-7. クエリをコピーしてテキストボックスに貼り付け、**「Next**」を選択する。
+5. **Next**を選択します。
+6. BrazeAI Decisioning Studio™ Goポータルで、**Engagement Query Resources**の下にあるシステムデータSQLクエリを確認します。
+7. クエリをテキストボックスにコピーして貼り付け、**Next**を選択します。
 
-![SQLクエリーセクションのクエリー例。]({% image_buster /assets/img/decisioning_studio_go/query5.png %})
+![SQL Queryセクションのクエリ例。]({% image_buster /assets/img/decisioning_studio_go/query5.png %})
 
 {: start="8"}
-8. BrazeAI Decisioning Studio™ Goポータルで指定したエンゲージメントクエリーのターゲットData Extensionを探し、選択する。
+8. BrazeAI Decisioning Studio™ Goポータルで指定されたエンゲージメントクエリのターゲットデータエクステンションを確認し、選択します。
 
 {% alert tip %}
-BrazeAI Decisioning Studio™ Goポータルで相互参照するために、ターゲットデータの拡張子名も提供される。エンゲージメント・クエリーのターゲットとなるData Extensionを見ていることを確認する。エンゲージメント・クエリーの**Data Extensionは**、ENGAGEMENT_DATA というサフィックスで終わる必要がある。
+ターゲットデータエクステンション名は、BrazeAI Decisioning Studio™ Goポータルでも参照用に提供されています。エンゲージメントクエリのターゲットデータエクステンションを確認していることを確認してください。エンゲージメントクエリの**Data Extension**は、ENGAGEMENT_DATAサフィックスで終わるはずです。
 {% endalert %}
 
 {: start="9"}
-9\.**Overwriteを**選択し、**Nextを**選択する。
+9. **Overwrite**を選択し、次に**Next**を選択します。
 
-![外部キーの例と一致するデータ拡張子名。]({% image_buster /assets/img/decisioning_studio_go/query4.png %})
+![外部キーの例に一致するデータエクステンション名。]({% image_buster /assets/img/decisioning_studio_go/query4.png %})
 
-#### ステップ 3:オートメーションを実行する
+#### ステップ 3: オートメーションを実行する
 
-1. オートメーションに名前をつけ、**Saveを**選択する。
+1. オートメーションに名前を付け、**Save**を選択します。
 
-![オートメーションの例"OFE_Experimenter_Test5_Automation".]({% image_buster /assets/img/decisioning_studio_go/query3.png %})
+![オートメーションの例「OFE_Experimenter_Test5_Automation」。]({% image_buster /assets/img/decisioning_studio_go/query3.png %})
 
 {: start="2"}
-2\.次に、「**Run Once**」を選択して、すべてが期待通りに動いていることを確認する。
-3\.両方のクエリーを選択し、**Runを**選択する。
+2. 次に、**Run Once**を選択して、すべてが期待通りに動作していることを確認します。
+3. 両方のクエリを選択し、**Run**を選択します。
 
-![オートメーション"OFE_Experimenter_Test5_Automation" 、実行するSQLクエリ・アクティビティを選択したリストがある。]({% image_buster /assets/img/decisioning_studio_go/query2.png %})
+![実行するSQLクエリアクティビティの選択リストを持つ「OFE_Experimenter_Test5_Automation」オートメーション。]({% image_buster /assets/img/decisioning_studio_go/query2.png %})
 
 {: start="4"}
-4. **今すぐ実行**」を選択する。
+4. **Run Now**を選択します。
 
-![選択されたSQLクエリのアクティビティ。]({% image_buster /assets/img/decisioning_studio_go/query1.png %})
+![選択されたSQLクエリアクティビティ。]({% image_buster /assets/img/decisioning_studio_go/query1.png %})
 
-これで、オートメーションが正常に実行されていることを確認できる。オートメーションが期待通りに作動しない場合は、Brazeサポートに問い合わせること。
+これで、オートメーションが正常に動作しているか確認できます。オートメーションが期待通りに動作しない場合は、Brazeサポートに連絡して追加の支援を受けてください。
 
-### パート3：SFMCの旅を創造する
+### パート3: SFMC Journeyを作成する
 
-#### ステップ 1: 旅の設定
+#### ステップ 1: Journeyを設定する
 
-1. Salesforce Marketing Cloudで、**Journey Builder**>**Journey Builderに**進む。
-2. **Create New Journeyを**選択する。
-3. ジャーニーのタイプで「**Multi-Step Journey（マルチステップ・ジャーニー）**」を選択し、「**Create（作成）**」を選択する。
+1. Salesforce Marketing Cloudで、**Journey Builder** > **Journey Builder**に移動します。
+2. **Create New Journey**を選択します。
+3. Journeyタイプとして**Multi-Step Journey**を選択し、**Create**を選択します。
 
-![条件分岐ノードと複数のメールノードに接続されたAPIイベントエントリソース。]({% image_buster /assets/img/decisioning_studio_go/journey1.png %})
+![API Eventエントリソースが条件分岐ノードと複数のメールノードに接続されている。]({% image_buster /assets/img/decisioning_studio_go/journey1.png %})
 
-#### ステップ 2:旅を構築する
+#### ステップ 2: Journeyを構築する
 
 **エントリソースを作成する：**
 
-1. エントリーのソースとして、**APIイベントを**ジャーニービルダーにドラッグする。
+1. エントリソースとして、**API Event**をJourney Builderにドラッグします。
 
-![エントリーソースとして "APIイベント "を選択した。]({% image_buster /assets/img/decisioning_studio_go/journey2.png %})
+![「API Event」がエントリソースとして選択された状態。]({% image_buster /assets/img/decisioning_studio_go/journey2.png %})
 
 {: start="2"}
-2\.**API Eventで**、**Create an eventを**選択する。
+2. **API Event**で、**Create an event**を選択します。
 
-![API Eventの "create an event "オプション。]({% image_buster /assets/img/decisioning_studio_go/journey3.png %})
+![API Eventの「create an event」オプション。]({% image_buster /assets/img/decisioning_studio_go/journey3.png %})
 
 {: start="3"}
-3\.**Select Data Extensionを**選択する。BrazeAI Decisioning Studio™ Goがレコメンデーションを書き込むデータエクステンションを探し、選択する。
-4. **Summaryを**選択して変更を保存する。
-5. **Doneを**選択してAPIイベントを保存する。
+3. **Select Data Extension**を選択します。BrazeAI Decisioning Studio™ Goがレコメンデーションを書き込むデータエクステンションを確認し、選択します。
+4. **Summary**を選択して変更を保存します。
+5. **Done**を選択してAPIイベントを保存します。
 
-![APIイベントの概要。]({% image_buster /assets/img/decisioning_studio_go/journey4.png %}){: style="max-width:80%;"}
+![APIイベントのサマリー。]({% image_buster /assets/img/decisioning_studio_go/journey4.png %}){: style="max-width:80%;"}
 
 **条件分岐を追加する：**
 
-1. **APIエントリイベントの**後に**条件分岐を**ドラッグ＆ドロップする。
-2. **条件分岐の**詳細で、最初のパスの**編集を**選択する。
+1. **API Entry Event**の後に**条件分岐**をドラッグ＆ドロップします。
+2. **条件分岐**の詳細で、最初のパスの**Edit**を選択します。
 
-![編集」ボタンで条件分岐の詳細を決定する。]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
+![「Edit」ボタンがある条件分岐の詳細。]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
 
 {: start="3"}
-3\.レコメンデーションデータエクステンションから渡されたテンプレートIDを使用するように、**条件分岐を**更新する。**Journey Dataの**下にある適切なフィールドを探す。
+3. レコメンデーションデータエクステンションから渡されるテンプレートIDを使用するように**条件分岐**を更新します。**Journey Data**の下にある適切なフィールドを確認します。
 
-![条件分岐のパス1にあるジャーニー・データのセクション。]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
+![条件分岐のパス1にあるJourney Dataセクション。]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
 
 {: start="4"}
-4. エントリイベントを選択し、目的のテンプレートIDフィールドを探し、ワークスペースにドラッグする。
+4. エントリイベントを選択し、目的のテンプレートIDフィールドを確認して、ワークスペースにドラッグします。
 
-![含まれるメールテンプレートID。]({% image_buster /assets/img/decisioning_studio_go/journey7.png %})
+![含めるメールテンプレートID。]({% image_buster /assets/img/decisioning_studio_go/journey7.png %})
 
 {: start="5"}
-5. 最初のメールテンプレートのテンプレートIDを入力し、「**完了**」を選択する。
-6. このパスを保存するには「**Summary**」を選択する。
-7. 各メールテンプレートのパスを追加し、上記のステップ4～6を繰り返して、テンプレートIDが各テンプレートのID値と一致するようにフィルター条件を設定する。
-8. **Doneを**選択して**条件分岐**ノードを保存する。
+5. 最初のメールテンプレートのテンプレートIDを入力し、**Done**を選択します。
+6. **Summary**を選択してこのパスを保存します。
+7. 各メールテンプレートにパスを追加し、上記のステップ4〜6を繰り返してフィルター条件を設定します。テンプレートIDが各テンプレートのID値と一致するようにしてください。
+8. **Done**を選択して**条件分岐**ノードを保存します。
 
-![各メールテンプレートIDに対して、条件分岐で2つのパスを設定する。]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
+![各メールテンプレートIDに対応する条件分岐の2つのパス。]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
 
-**条件分岐ごとにメールを追加する：**
+**各条件分岐にメールを追加する：**
 
-1. **条件分岐の**各パスに**メール**ノードをドラッグする。
-2. **メールを**選択し、各パスに入る適切なテンプレートを選択する（つまり、ID値を持つテンプレートが条件分岐のロジックと一致する必要がある）。
+1. **条件分岐**の各パスに**Email**ノードをドラッグします。
+2. **Email**を選択し、各パスに適用すべき適切なテンプレートを選択します（つまり、ID値を持つテンプレートが条件分岐のロジックと一致する必要があります）。
 
-![ジャーニーに追加されたメールノード。]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
+![Journeyに追加されたメールノード。]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
 
-#### ステップ 3:旅を活性化する
+#### ステップ 3: Journeyを有効化する
 
-Journeyの設定後、Journeyを有効化し、以下の詳細をBrazeAI Decisioning Studio™ Goチームと共有する：
+Journeyを設定したら、有効化して以下の詳細をBrazeAI Decisioning Studio™ Goチームと共有します。
 
-* 旅のID
-* 旅程名
+* Journey ID
+* Journey名
 * APIイベント定義キー
-* 推奨データ拡張外部キー
+* レコメンデーションデータエクステンション外部キー
 
 {% alert note %}
-BrazeAI Decisioning Studio™ Goポータルには、1日1回サブスクライバーとエンゲージメントデータをエクスポートするためにプロビジョニングしたSFMCオートメーションが表示される。SFMCでこのオートメーションを開封したら、必ず一時停止を解除し、ライブに戻すこと。
+BrazeAI Decisioning Studio™ Goポータルには、サブスクライバーとエンゲージメントデータを1日1回エクスポートするためにプロビジョニングされたSFMCオートメーションが表示されます。このオートメーションをSFMCで開く場合は、必ず一時停止を解除してライブ状態に戻してください。
 {% endalert %}
 
-1. BrazeAI Decisioning Studio™ Goポータルで、**ジャーニー名を**コピーする。
-2. 次に、Salesforce Marketing Cloud Journey Builderで、ジャーニー名を検索バーに貼り付ける。
-3. ジャーニー名を選択する。なお、「旅」は現在ドラフトステータスである。
-4. **Validateを**選択する。
+1. BrazeAI Decisioning Studio™ Goポータルで、**Journey名**をコピーします。
+2. 次に、Salesforce Marketing Cloud Journey Builderで、Journey名を検索バーに貼り付けます。
+3. Journey名を選択します。なお、Journeyは現在下書きステータスです。
+4. **Validate**を選択します。
 
-![完成した活性化への旅。]({% image_buster /assets/img/decisioning_studio_go/activate3.png %})
+![有効化する完成したJourney。]({% image_buster /assets/img/decisioning_studio_go/activate3.png %})
 
 {: start="5"}
-5. その後、検証結果を確認し、**Activateを**選択する。
+5. 検証結果を確認し、**Activate**を選択します。
 
-![バリデーションルールのセクションに記載されている推奨事項。]({% image_buster /assets/img/decisioning_studio_go/activate1.png %}){: style="max-width:60%;"}
-
-{: start="6"}
-6. **Activate Journey**要約で、再度**Activateを**選択する。
-
-![旅のまとめ]({% image_buster /assets/img/decisioning_studio_go/activate2.png %}){: style="max-width:85%;"}
-
-すべて完了しました。BrazeAI Decisioning Studio™ Goでトリガーを開始できる。
-
-{% endtab %}
-{% tab Klaviyo %}
-
-## Klaviyoとの統合を設定する
-
-Decisioning Studio GoとKlaviyoを統合するには、APIキーを設定し、プレースホルダテンプレートフローを作成し、トリガー送信を処理するフローを構築する。
-
-### パート 1:KlaviyoのAPIキーを設定する
-
-1. Klaviyoで、**設定**>**APIキーに**行く。
-2. **Create Private API Keyを**選択する。
-3. APIキーの名前を入力する。例えば、"決定力のあるスタジオ・エクスペリメンター "だ。
-4. APIキーに対して以下の権限を選択する：
-    - キャンペーン:アクセスを読む
-    - データのプライバシーフルアクセス
-    - イベントだ：フルアクセス
-    - フローだ：フルアクセス
-    - 画像、写真：アクセスを読む
-    - リストを見てみよう：フルアクセス
-    - 指標:フルアクセス
-    - プロファイルだ：フルアクセス
-    - セグメント:アクセスを読む
-    - テンプレートだ：フルアクセス
-    - Webhookだ：アクセスを読む
-
-![選択した権限を持つKlaviyo APIキー。]({% image_buster /assets/img/decisioning_studio_go/klaviyo_api_key.png %})
-
-{: start="5"}
-5. [**作成**] を選択します。
-6. このAPIキーをコピーして、BrazeAI Decisioning Studio™ Goポータルにペーストする。
-
-### パート 2:Klaviyoでプレースホルダーテンプレートを作成する
-
-BrazeAI Decisioning Studio™ Goは、Klaviyoアカウントの既存のフローに関連付けられたテンプレートをインポートする。どのフローにも関連付けられていないテンプレートを使用するには、使用したいテンプレートを含むプレースホルダーフローを作成すればよい。流れは下書きとして残しておくことができる。
-
-{% alert note %}
-このプレースホルダーフローの目的は、希望するコンテンツをBrazeAI Decisioning Studio™ Goにインポートすることである。後のステップで別のフローを作成する必要があり、BrazeAI Decisioning Studio™ Goは、実験者がライブになった時点で、このフローを使ってアクティベーションをトリガーする。
-{% endalert %}
-
-**ステップ 1:流れを設定する**
-
-1. Klaviyoで、**Flowsを**選択する。
-2. **フローを作成**>**ゼロから作成を**選択する。
-3. プレースホルダーフローにわかりやすい名前を付け、「**フローを作成**」を選択する。
-
-![OFEプレースホルダーフロー」という名前のフロー。]({% image_buster /assets/img/decisioning_studio_go/create_flow.png %})
-
-{: start="4"}
-4. 任意のトリガーを選択し、フローを保存する。
-5. **Confirmを**選択**し、保存する**。
-
-**ステップ 2:プレースホルダー・テンプレートを作成する**
-
-1. **トリガーの**後に**メール**ノードをドラッグ＆ドロップする。
-
-![トリガーノードの後にメールノードが続くフロー。]({% image_buster /assets/img/decisioning_studio_go/set_up_email_node.png %})
-
-{: start="2"}
-2\.**メール」**ノードで、「**テンプレートの選択**」を選択する。
-3\.次に、使用するテンプレートを選択し、**Use templateを**選択する。
-4. **Save**>**Doneを**選択する。
-5. (オプション) BrazeAI Decisioning Studio™ Goで使用するテンプレートをさらに追加するには、別の**メール**ノードを追加し、ステップ2～4を繰り返す。
-6. すべてのメールを**下書き**モードにしたまま、フローを終了する。
-
-BrazeAI Decisioning Studio™ Goポータルでは、テンプレートはプレースホルダーフローの下で選択できるはずである。
-
-![Decisioning Studio GoポータルのプレースホルダーKlaviyoテンプレートの例。]({% image_buster /assets/img/decisioning_studio_go/placeholder_flow.png %})
-
-### パート3：Klaviyoでフローを作成する
-
-{% alert important %}
-新しい実験者を設定するごとに、Klaviyoで新しいフローを作成しなければならない。テンプレートをインポートするためのプレースホルダーフローを以前に作成した場合は、新しいフローを作成する必要があり、以前のプレースホルダーフローを再利用することはできない。
-{% endalert %}
-
-Klaviyoでフローを作成する前に、BrazeAI Decisioning Studio™ Goポータルから以下の詳細を参照できるようにしておく必要がある：
-
-- フロー名
-- トリガーイベント名
-
-#### ステップ 1: 流れを設定する
-
-1. Klaviyoで、**フロー**>**フローの作成を**選択する。
-2. **自分で作る**」を選択する。
-3. **Nameには**、BrazeAI Decisioning Studio™ Goポータルのフロー名を入力する。次に、**Create manuallyを**選択する。
-
-![フロー例で「手動で作成」オプションを選択した。]({% image_buster /assets/img/decisioning_studio_go/flow1.png %}){: style="max-width:50%;"}
-
-{: start="4"}
-4. トリガーを選択する。
-5. BrazeAI Decisioning Studio™ Goポータルから、メトリック名とトリガーイベント名を一致させる。
-
-![トリガー・イベント名にマッチするメトリクス名の例"OFE_TEST_CASE_API_EVENT_TRIGGER".]({% image_buster /assets/img/decisioning_studio_go/flow2.png %})
+![Validation Rulesセクションに記載されたレコメンデーション。]({% image_buster /assets/img/decisioning_studio_go/activate1.png %}){: style="max-width:60%;"}
 
 {: start="6"}
-6. [**保存**] を選択します。
+6. **Activate Journey**のサマリーで、もう一度**Activate**を選択します。
 
-{% alert note %}
-ベーステンプレートが1つしかない場合は、ステップ2に進む。実験者が2つ以上のベーステンプレートを持っている場合は、[ステップ3にスキップする：](#step-3-add-a-trigger-split-to-your-flow) あなたのフローにトリガースプリットを追加する。
-{% endalert %}
+![Journeyのサマリー。]({% image_buster /assets/img/decisioning_studio_go/activate2.png %}){: style="max-width:85%;"}
 
-#### ステップ 2:フローにメールを追加する（単一テンプレート）
-
-1. **トリガー・**ノードの後に**メール・**ノードをドラッグ＆ドロップする。
-2. **メールの詳細**で、**テンプレートの選択を**選択する。
-
-!["メールの詳細 "セクションで "テンプレートを選択 "オプションを選択する。]({% image_buster /assets/img/decisioning_studio_go/flow3.png %})
-
-{: start="3"}
-3\.ベースとなるテンプレートを探し、選択する。BrazeAI Decisioning Studio™ Goポータルの**使用するリソース**セクションで、テンプレート名からテンプレートを検索できる。
-
-![Klaviyoのベーステンプレートの例。]({% image_buster /assets/img/decisioning_studio_go/flow4.png %})
-
-{: start="4"}
-4. **テンプレートを使用**＞**保存を**選択する。
-5. **件名には** {% raw %}`{{event.SubjectLine}}`{% endraw %} と入力する。
-6. **Sender name（送信者名**）と**Sender email address（送信者メールアドレス**）には、使用したい詳細を入力する。
-
-![メール1」の件名、送信者名、送信者メールアドレスの例。]({% image_buster /assets/img/decisioning_studio_go/flow5.png %})
-
-{: start="7"}
-7. ［**完了**] を選択します。
-8. **最近メールしたプロファイルをスキップする**]チェックボックスの選択を外し、[**保存]**を選択する。
-9\.メールノードで、モードを**下書きから** **本番に**更新する。
-
-![Klaviyoフローエディターでは、トリガーノードがメールノードに接続されている。]({% image_buster /assets/img/decisioning_studio_go/flow6.png %})
-
-すべて完了しました。BrazeAI Decisioning Studio™ Goでトリガーできるようになった。
-
-#### ステップ 3:フローにトリガー・スプリットを追加する（複数のテンプレート）
-
-1. **トリガー** **ノードの**後に**トリガースプリットノードを**ドラッグ＆ドロップする。
-2. **トリガー分割**ノードを選択し、**ディメンションを** **EmailTemplateID** に設定する。
-
-![Klaviyoのフロー図は、ディメンションEmailTemplateIDで設定されたトリガースプリットにトリガーノードをフィードしている。]({% image_buster /assets/img/decisioning_studio_go/flow7.png %})
-
-**メールテンプレートを追加する：**
-
-1. BrazeAI Decisioning Studio™ Goポータルで、**使用するリソース**セクションの下にある、最初の**テンプレートのメールテンプレートIDを**見つける。**Dimension**フィールドに**メールテンプレートIDを**入力し、**Saveを**選択する。
-2. **Eメール**ノードを**トリガースプリットの** **Yes**ブランチにドラッグ＆ドロップする。
-
-![トリガー分岐ノードを持つKlaviyoフローで、Yes分岐はメールノードにつながり、No分岐は別のトリガー分岐につながる。]({% image_buster /assets/img/decisioning_studio_go/flow8.png %})
-
-{: start="3"}
-3\.**メールの詳細**で、**テンプレートの選択を**選択する。
-4. ベースとなるテンプレートを探し、選択する。BrazeAI Decisioning Studio™ Goポータルの**使用するリソース**セクションで、ベーステンプレート名からテンプレートを検索できる。
-5. **テンプレートを使用**＞**保存を**選択する。
-6. **件名には** {% raw %}`{{event.SubjectLine}}`{% endraw %} と入力する。
-7. **Sender name（送信者名**）と**Sender email address（送信者メールアドレス**）には、使用したい詳細を入力する。
-
-![選択されたメールテンプレートと、件名、送信者名、送信者メールアドレスのフィールド。]({% image_buster /assets/img/decisioning_studio_go/flow5.png %})
-
-{: start="8"}
-8. ［**完了**] を選択します。
-9\.**最近メールしたプロファイルをスキップする**]チェックボックスの選択を外し、[**保存]**を選択する。
-10\.メールノードで、モードを**下書きから** **本番に**更新する。
-
-**追加のテンプレートごとに新しいトリガースプリットを追加する：**
-
-1. 別の**トリガー分割**ノードを、前の**トリガー分割**ノードの**No**Branchにドラッグ＆ドロップする。
-2. **Dimensionを** **EmailTemplateIDに**設定し、設定するベース**テンプレートのメールテンプレートIDを** **Dimensionの**値に記入する。
-3. [**保存**] を選択します。
-
-![Klaviyoフローエディターの図。トリガーノードがトリガースプリットにつながっている。トリガースプリットには、メールノードにつながるYesブランチと、追加のメールノードにつながる別のトリガースプリットに接続するNoブランチがある。]({% image_buster /assets/img/decisioning_studio_go/flow9.png %})
-
-{: start="4"}
-4. 新しいトリガースプリットの**Yes**Branchに**Email**ノードをドラッグ＆ドロップする。
-5. 上記のメールテンプレート設定ステップを繰り返し、対応するテンプレートを選択する。
-6. **件名を** {% raw %}`{{event.SubjectLine}}`{% endraw %} に設定し、**最近メールしたプロファイルをスキップする**チェックボックスのチェックを外す。
-7. 実験者が使用しているベーステンプレートごとに、**トリガー分割**ノードと**メール**ノードが1つずつできるまで、このプロセスを繰り返す。最後のトリガー・スプリットでは、"No "ブランチには何も入っていないはずだ。
-
-![複数のメールノードに分岐する複数のトリガー分岐ノードを持つKlaviyoフロー。]({% image_buster /assets/img/decisioning_studio_go/flow10.png %})
-
-{: start="8"}
-8. **各Eメール**ノードで、モードを**下書きから** **ライブに**更新する。
-
-![ノードのステータスを「ライブ」に更新するオプション。]({% image_buster /assets/img/decisioning_studio_go/flow11.png %})
-
-すべて完了しました。BrazeAI Decisioning Studio™ Goでトリガーできるようになった。
+これで設定は完了です。BrazeAI Decisioning Studio™ Goを通じて送信をトリガーできるようになりました。
 
 {% endtab %}
 {% endtabs %}
 
 ## 次のステップ
 
-オーケストレーションの設定ができたところで、エージェントの設計に進む：
+オーケストレーションの設定が完了したら、次にエージェントの設計に進みましょう。
 
-- [エージェントの設計]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)

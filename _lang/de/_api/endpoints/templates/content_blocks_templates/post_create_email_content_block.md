@@ -1,31 +1,31 @@
 ---
 nav_title: "POST: Content-Block erstellen"
 article_title: "POST: Content-Block erstellen"
-search_tag: Endpoint
+search_tag: Endpunkt
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Content-Blöcke erstellen in Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Content-Block erstellen“."
 
 ---
 {% api %}
-# Content-Block erstellen
+# Content-Block erstellen {#create-content-block}
 {% apimethod post %}
 /content_blocks/create
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) zu erstellen.
+> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) zu erstellen.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `content_blocks.create`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,7 +42,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
@@ -50,11 +50,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | Optional | String | Beschreibung des Content-Blocks. Muss weniger als 250 Zeichen umfassen. |
 | `content` | Erforderlich | String | HTML- oder Textinhalt innerhalb des Content-Blocks. |
 | `state` | Optional | String | Wählen Sie `active` oder `draft`. Der Standardwert ist `active`, wenn nichts angegeben wird. |
-| `tags` | Optional | String-Array | [Tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) müssen bereits existieren. |
+| `tags` | Optional | String-Array | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) müssen bereits existieren. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Beispiel Anfrage
-```json
+## Beispielanfrage {#example-request}
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -67,7 +67,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {
@@ -78,23 +78,23 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `Content cannot be blank` | |
 | `Content must be a string` | Achten Sie darauf, dass Ihr Inhalt in Anführungszeichen (`""`) eingeschlossen ist. |
 | `Content must be smaller than 50kb` | Der Inhalt Ihres Content-Blocks muss insgesamt weniger als 50 KB groß sein. |
-| `Content contains malformed liquid` | Das angegebene Liquid ist ungültig oder nicht parsbar. Versuchen Sie es erneut mit einem gültigen Liquid oder kontaktieren Sie den Support. |
+| `Content contains malformed liquid` | Das angegebene Liquid ist ungültig oder nicht parsbar. Bitte versuchen Sie es erneut mit gültigem Liquid oder wenden Sie sich an den Support. |
 | `Content Block cannot be referenced within itself` | |
 | `Content Block description cannot be blank` | |
 | `Content Block description must be a string` | Achten Sie darauf, dass die Beschreibung Ihres Content-Blocks in Anführungszeichen (`""`) eingeschlossen ist. |
 | `Content Block description must be shorter than 250 characters` | |
 | `Content Block name cannot be blank` | |
 | `Content Block name must be shorter than 100 characters` | |
-| `Content Block name can only contain alphanumeric characters` | Content-Block-Namen können jedes der folgenden Zeichen enthalten: die Buchstaben (groß- oder kleingeschrieben) `A` bis `Z`, die Zahlen `0` bis `9`, Bindestriche `-` und Unterstriche `_`. Er kann keine nicht-alphanumerischen Zeichen wie Emojis, `!`, `@`, `~`, `&` und andere "Sonderzeichen" enthalten. |
+| `Content Block name can only contain alphanumeric characters` | Content-Block-Namen können jedes der folgenden Zeichen enthalten: die Buchstaben (groß- oder kleingeschrieben) `A` bis `Z`, die Zahlen `0` bis `9`, Bindestriche `-` und Unterstriche `_`. Sie können keine nicht-alphanumerischen Zeichen wie Emojis, `!`, `@`, `~`, `&` und andere „Sonderzeichen“ enthalten. |
 | `Content Block with this name already exists` | Versuchen Sie einen anderen Namen. |
 | `Content Block state must be either active or draft` | |
 | `Tags must be an array` | Tags müssen als String-Array formatiert werden, zum Beispiel `["marketing", "promotional", "transactional"]`. | |

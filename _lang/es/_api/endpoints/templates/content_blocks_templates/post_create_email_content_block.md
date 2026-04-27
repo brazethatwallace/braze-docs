@@ -1,31 +1,31 @@
 ---
-nav_title: "PUBLICAR: Crear bloque de contenido"
-article_title: "PUBLICAR: Crear bloque de contenido"
-search_tag: Endpoint
+nav_title: "POST: Crear bloque de contenido"
+article_title: "POST: Crear bloque de contenido"
+search_tag: Punto de conexión
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Crear bloques de contenido de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Crear Content Blocks de Braze."
 
 ---
 {% api %}
-# Crear bloque de contenido
+# Crear bloque de contenido {#create-content-block}
 {% apimethod post %}
 /content_blocks/create
 {% endapimethod %}
 
-> Utiliza este punto final para crear un [Bloque de contenido]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/).
+> Utiliza este punto de conexión para crear un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
-## Requisitos previos
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.create`.
+## Requisitos previos {#prerequisites}
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.create`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,19 +42,19 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatoria | Tipo de datos | Descripción |
 |---|---|---|---|
 | `name` | Obligatoria | Cadena | Nombre del bloque de contenido. Debe tener menos de 100 caracteres. |
 | `description` | Opcional | Cadena | Descripción del bloque de contenido. Debe tener menos de 250 caracteres. |
-| `content` | Obligatoria | Cadena | Contenido HTML o de texto dentro del Bloque de contenido. |
-| `state` | Opcional | Cadena | Elige `active` o `draft`. Predetermina `active` si no se especifica. |
-| `tags` | Opcional | Matriz de cadenas | [Las etiquetas]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) ya deben existir. |
+| `content` | Obligatoria | Cadena | Contenido HTML o de texto dentro del bloque de contenido. |
+| `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
+| `tags` | Opcional | Matriz de cadenas | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/) ya deben existir. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Ejemplo de solicitud
-```json
+## Ejemplo de solicitud {#example-request}
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -67,7 +67,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -78,7 +78,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
@@ -87,19 +87,19 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `Content cannot be blank` | |
 | `Content must be a string` | Asegúrate de que tu contenido está entre comillas (`""`). |
 | `Content must be smaller than 50kb` | El contenido de tu bloque de contenido debe ser inferior a 50 KB en total. |
-| `Content contains malformed liquid` | El Liquid proporcionado no es válido ni analizable. Inténtalo de nuevo con Liquid válido o ponte en contacto con el servicio de asistencia. |
+| `Content contains malformed liquid` | El Liquid proporcionado no es válido ni analizable. Vuelve a intentarlo con un Liquid válido o ponte en contacto con soporte. |
 | `Content Block cannot be referenced within itself` | |
 | `Content Block description cannot be blank` | |
 | `Content Block description must be a string` | Asegúrate de que la descripción de tu bloque de contenido está entre comillas (`""`). |
 | `Content Block description must be shorter than 250 characters` | |
 | `Content Block name cannot be blank` | |
 | `Content Block name must be shorter than 100 characters` | |
-| `Content Block name can only contain alphanumeric characters` | Los nombres de los bloques de contenido pueden incluir cualquiera de los siguientes caracteres: las letras (mayúsculas o minúsculas) `A` a `Z`, los números `0` a `9`, guiones `-` y guiones bajos `_`. No puede contener caracteres no alfanuméricos como emojis, `!`, `@`, `~`, `&` y otros caracteres "especiales". |
+| `Content Block name can only contain alphanumeric characters` | Los nombres de los bloques de contenido pueden incluir cualquiera de los siguientes caracteres: las letras (mayúsculas o minúsculas) `A` a `Z`, los números `0` a `9`, guiones `-` y guiones bajos `_`. No pueden contener caracteres no alfanuméricos como emojis, `!`, `@`, `~`, `&` y otros caracteres "especiales". |
 | `Content Block with this name already exists` | Prueba con otro nombre. |
 | `Content Block state must be either active or draft` | |
 | `Tags must be an array` | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
-| `Some tags could not be found` | Para añadir una etiqueta al crear un Bloque de contenido, la etiqueta debe existir ya en Braze. |
+| `Some tags could not be found` | Para añadir una etiqueta al crear un bloque de contenido, la etiqueta debe existir ya en Braze. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

@@ -1,12 +1,14 @@
 ---
 nav_title: Geofences
-article_title: Geofences for the Braze Swift SDK
+article_title: Geofences
 page_order: 3.51
 description: "Learn how to set up geofences for the Braze SDK."
 platform:
   - Android
   - FireOS
   - Swift
+  - Xamarin
+  - React Native
 Tool:
   - Location
 ---
@@ -22,5 +24,13 @@ Tool:
 
 {% sdktab swift %}
 {% multi_lang_include developer_guide/swift/geofences.md %}
+{% endsdktab %}
+
+{% sdktab .NET MAUI (Xamarin) %}
+{% multi_lang_include developer_guide/xamarin/geofences.md %}
+{% endsdktab %}
+
+{% sdktab React Native %}
+{% multi_lang_include developer_guide/react_native/geofences.md %}
 {% endsdktab %}
 {% endsdktabs %}

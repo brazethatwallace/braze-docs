@@ -1,44 +1,44 @@
 {% tabs %}
 {% tab Abandoned browse %}
 
-### Verlassenes Stöbern
+### Abgebrochenes Stöbern {#abandoned-browse}
 
-Verwenden Sie das Template **Abgebrochenes Stöbern**, um Nutzer:innen zu engagieren, die sich Produkte angesehen, aber nicht in den Warenkorb gelegt oder eine Bestellung aufgegeben haben.
+Verwenden Sie das Template **Abgebrochenes Stöbern**, um Nutzer:innen anzusprechen, die sich Produkte angesehen, aber weder in den Warenkorb gelegt noch eine Bestellung aufgegeben haben.
 
-![Ein angewandtes "Abandoned Browse" Canvas Template mit erweiterten "Eingangsregeln".]({% image_buster /assets/img_archive/abandoned_browse.png %})
+![Ein angewandtes „Abandoned Browse“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/abandoned_browse.png %})
 
-#### Einrichtung
+#### Einrichtung {#setup}
 
-Wählen Sie auf der Seite Canvas **eine Canvas-Vorlage verwenden** > **Braze-Vorlagen** und wenden Sie dann die Vorlage **Verlassenes Durchsuchen** an. 
+Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Abandoned browse** an.
 
-##### Standard Einstellungen
+##### Standardeinstellungen {#default-settings}
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
-- Grundlagen 
-    - Canvas Name: **Verlassenes Stöbern**
+- Grundlagen
+    - Canvas-Name: **Abandoned browse**
     - Konversions-Event: `ecommerce.order placed`
-        - Frist für die Konversion: 3 Tage 
-- Entry-Zeitplan 
-    - Aktionsbasiert, wenn ein Nutzer:innen das Ereignis `ecommerce.product_viewed` ausführt
-    - Startzeitpunkt ist der Zeitpunkt, an dem Sie die Canvas-Vorlage erstellen<br><br>!["Aktionsbasierte Optionen" für den Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br> 
-- Zielgruppen 
-    - Entry-Zielgruppe 
+        - Conversion-Frist: 3 Tage
+- Entry-Zeitplan
+    - Aktionsbasiert, wenn ein:e Nutzer:in das Event `ecommerce.product_viewed` ausführt
+    - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br>
+- Zielgruppe
+    - Entry-Zielgruppe
         - E-Mail **ist nicht leer**
-        - Sie können die Kriterien für den Eingang der Zielgruppe auch an Ihre geschäftlichen Anforderungen anpassen
+        - Sie können die Kriterien für die Entry-Zielgruppe auch an Ihre geschäftlichen Anforderungen anpassen
     - Eingangskontrollen
-        - Nutzer:innen sind berechtigt, diesen Canvas nach Ablauf der gesamten Dauer des Canvas erneut zu betreten.
-    - Ausstiegskriterien 
-        - Führt `ecommerce.cart_updated`, `ecommerce.checkout_started`, oder `ecommerce.order_placed`<br><br>![Eingangskontrollen und Ausgangskriterien für den Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry_exit.png %})<br><br> 
-- Einstellungen senden 
-    - Nutzer:innen, die Abonnent:in sind oder ein Opt-in haben 
-- Verzögerungsstufe
+        - Nutzer:innen können diesen Canvas erneut betreten, nachdem die gesamte Dauer des Canvas abgelaufen ist
+    - Ausstiegskriterien
+        - Führt `ecommerce.cart_updated`, `ecommerce.checkout_started` oder `ecommerce.order_placed` aus<br><br>![Eingangskontrollen und Ausstiegskriterien für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry_exit.png %})<br><br>
+- Sendeeinstellungen
+    - Nutzer:innen, die abonniert oder per Opt-in angemeldet sind
+- Verzögerungsschritt
     - 1 Stunde Verzögerung
-- Nachrichtenschritt 
-    - Sehen Sie sich die E-Mail-Vorlage und den HTML-Block mit einem Liquid-Templating-Beispiel an, um Ihrer Nachricht in der vorgefertigten Vorlage Produkte hinzuzufügen. Wenn Sie Ihr eigenes Template für E-Mails verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt wird.
+- Nachrichtenschritt
+    - Überprüfen Sie das E-Mail-Template und den HTML-Block mit einem Liquid-Templating-Beispiel, um Produkte zu Ihrer Nachricht im vorgefertigten Template hinzuzufügen. Wenn Sie Ihr eigenes E-Mail-Template verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt.
 
-#### Personalisierung von Produkten für E-Mails (Abandoned browse) 
+#### Produktpersonalisierung für E-Mails bei abgebrochenem Stöbern {#abandoned-browse-product-personalization-for-emails}
 
-Hier sehen Sie ein Beispiel dafür, wie Sie einen HTML-Produktblock für Ihre E-Mail "Abandoned Browse" hinzufügen können. 
+Hier sehen Sie ein Beispiel, wie Sie einen HTML-Produktblock für Ihre E-Mail bei abgebrochenem Stöbern hinzufügen.
 
 {% raw %}
 ```java
@@ -56,68 +56,68 @@ Hier sehen Sie ein Beispiel dafür, wie Sie einen HTML-Produktblock für Ihre E-
 ```
 {% endraw %}
 
-##### Produkt-URL
+##### Produkt-URL {#product-url}
 
 {% raw %}
 ```liquid
 {{context.${product_url}}}
 ```
-{% endraw %}    
+{% endraw %}
 
 {% endtab %}
 {% tab Abandoned cart %}
 
-### Warenkorb-Abbruch
+### Warenkorb-Abbruch {#abandoned-cart}
 
-Verwenden Sie das Template **Abgebrochener Warenkorb-Abbruch**, um potenzielle entgangene Umsätze von Kunden zu decken, die Produkte in ihren Warenkorb gelegt haben, aber nicht zur Kasse gegangen sind oder eine Bestellung aufgegeben haben. 
+Verwenden Sie das Template **Warenkorb-Abbruch**, um potenzielle entgangene Umsätze von Kund:innen abzufangen, die Produkte in ihren Warenkorb gelegt, aber weder zur Kasse gegangen sind noch eine Bestellung aufgegeben haben.
 
-![Ein angewandtes "Warenkorb-Abbruch" Canvas Template mit erweiterten "Eingangsregeln".]({% image_buster /assets/img_archive/abandoned_cart.png %})
+![Ein angewandtes „Abandoned Cart“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### Einrichtung
+#### Einrichtung {#setup}
 
-Wählen Sie auf der Canvas-Seite **Canvas-Vorlage verwenden** > **Braze-Templates** und wenden Sie dann das Template **Abgebrochener Warenkorb-Abbruch** an. 
+Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Abandoned cart** an.
 
-##### Standard Einstellungen
+##### Standardeinstellungen {#default-settings}
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
-- Grundlagen 
-    - Canvas Name: **Warenkorb-Abbruch**
+- Grundlagen
+    - Canvas-Name: **Abandoned cart**
     - Konversions-Event: `ecommerce.order_placed`
-        - Frist für die Konversion: 3 Tage 
-- Entry-Zeitplan 
-    - Aktionsbasierter Auslöser, wenn ein Nutzer:innen das **Ereignis Warenkorb aktualisiert ausführen** auslöst (im Dropdown-Menü)
-    - Startzeitpunkt ist der Zeitpunkt, an dem Sie die Canvas-Vorlage erstellen<br><br>!["Aktionsbasierte Optionen" für den Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br> 
-- Zielgruppe 
-    - Entry-Zielgruppe 
-        - Hat diese Apps **mehr als 0** Mal benutzt 
+        - Conversion-Frist: 3 Tage
+- Entry-Zeitplan
+    - Aktionsbasierter Trigger, wenn ein:e Nutzer:in das **Perform Cart Updated Event** auslöst (im Dropdown-Menü)
+    - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
+- Zielgruppe
+    - Entry-Zielgruppe
+        - Hat diese Apps **mehr als 0** Mal verwendet
         - E-Mail **ist nicht leer**
     - Eingangskontrollen
-        - Nutzer:innen sind sofort wieder für den Eingang in Canvas zugelassen.
-    - Ausstiegskriterien 
-        - Führt `ecommerce.cart_updated`, `ecommerce.checkout_started`, oder `ecommerce.order_placed`<br><br>![Eingangskontrollen und Ausgangskriterien für den Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry_exit.png %})<br><br> 
-- Einstellungen senden 
-    - Nutzer:innen, die Abonnent:in sind oder ein Opt-in haben 
-- Verzögerungsstufe
+        - Nutzer:innen sind sofort wieder für den Canvas-Eingang berechtigt
+    - Ausstiegskriterien
+        - Führt `ecommerce.cart_updated`, `ecommerce.checkout_started` oder `ecommerce.order_placed` aus<br><br>![Eingangskontrollen und Ausstiegskriterien für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry_exit.png %})<br><br>
+- Sendeeinstellungen
+    - Nutzer:innen, die abonniert oder per Opt-in angemeldet sind
+- Verzögerungsschritt
      - 4 Stunden Verzögerung
-- Nachrichtenschritt 
-    - Sehen Sie sich die E-Mail-Vorlage und den HTML-Block mit einem Liquid-Templating-Beispiel an, um Ihrer Nachricht in der vorgefertigten Vorlage Produkte hinzuzufügen. Wenn Sie Ihr eigenes Template für E-Mails verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt wird.
+- Nachrichtenschritt
+    - Überprüfen Sie das E-Mail-Template und den HTML-Block mit einem Liquid-Templating-Beispiel, um Produkte zu Ihrer Nachricht im vorgefertigten Template hinzuzufügen. Wenn Sie Ihr eigenes E-Mail-Template verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt.
 
-#### So funktioniert die Logik für den Wiedereintritt in den Warenkorb-Abbruch
+#### So funktioniert die Re-Entry-Logik bei Warenkorb-Abbrüchen {#how-abandoned-cart-re-entry-logic-works}
 
-Wenn ein Nutzer:in den Kassiervorgang einsteigt, wird sein Warenkorb als `checkout_started` markiert. Ab diesem Zeitpunkt kann der Nutzer:innen bei jedem weiteren Update des Warenkorbs mit der gleichen ID nicht mehr in den Warenkorb-Abbruch einsteigen.
+Wenn ein:e Nutzer:in den Checkout-Prozess startet, wird der Warenkorb als `checkout_started` markiert. Ab diesem Zeitpunkt berechtigen weitere Warenkorb-Updates mit derselben Warenkorb-ID die Nutzer:innen nicht mehr dazu, die Journey für Warenkorb-Abbrüche erneut zu betreten.
 
-1. Wenn ein Nutzer:innen einen Artikel in seinen Warenkorb legt, betritt er das Canvas.
-2. Jedes Mal, wenn sie Artikel hinzufügen oder aktualisieren, geben sie den Canvas erneut ein - so bleiben die Daten ihres Warenkorbs und das Messaging auf dem neuesten Stand.
-3. Wenn der Nutzer:innen zur Kasse geht, wird sein Warenkorb als `checkout_started` getaggt, und er verlässt den Canvas.
-4. Künftige Updates des Warenkorbs mit der gleichen ID triggern keinen erneuten Eingang, da dieser Warenkorb bereits in die Checkout-Phase übergegangen ist.
+1. Wenn ein:e Nutzer:in einen Artikel in den Warenkorb legt, betritt er/sie den Canvas.
+2. Bei jeder Hinzufügung oder Aktualisierung von Artikeln erfolgt ein erneuter Eintritt in den Canvas – so bleiben Warenkorb-Daten und Messaging stets aktuell.
+3. Wenn der/die Nutzer:in den Checkout-Prozess startet, wird der Warenkorb mit `checkout_started` getaggt und er/sie verlässt den Canvas.
+4. Zukünftige Warenkorb-Updates mit derselben Warenkorb-ID triggern keinen erneuten Eintritt, da dieser Warenkorb bereits in die Checkout-Phase übergegangen ist.
 
-Wenn Nutzer:innen zur Kaufabwicklung übergehen, werden sie stattdessen mit dem [Canvas für abgebrochene Kaufabwicklungen](#abandoned-checkout) targetiert, das für Nutzer:innen gedacht ist, die sich weiter in der Kaufabwicklung befinden.
+Wenn Nutzer:innen zur Checkout-Journey übergehen, werden sie stattdessen vom [Canvas für abgebrochene Checkouts](#abandoned-checkout) angesprochen, der für Nutzer:innen konzipiert ist, die sich bereits weiter im Kaufprozess befinden.
 
-#### Personalisierung von Produkten aus abgebrochenen Einkäufen für E-Mails {#abandoned-cart-checkout}
+#### Produktpersonalisierung für E-Mails bei Warenkorb-Abbruch {#abandoned-cart-checkout}
 
-Nutzer:innen mit abgebrochenem Warenkorb benötigen einen speziellen `shopping_cart` Liquid-Tag für die Personalisierung von Produkten. 
+Journeys bei Warenkorb-Abbruch erfordern einen speziellen `shopping_cart` Liquid-Tag für die Produktpersonalisierung.
 
-Hier sehen Sie ein Beispiel dafür, wie Sie mit Ihrem `shopping_cart` Liquid-Tag einen HTML-Block hinzufügen, um Produkte in Ihre E-Mail aufzunehmen. 
+Hier sehen Sie ein Beispiel, wie Sie mit Ihrem `shopping_cart` Liquid-Tag einen HTML-Block hinzufügen, um Produkte in Ihre E-Mail aufzunehmen.
 
 {% raw %}
 ```java
@@ -144,12 +144,12 @@ Hier sehen Sie ein Beispiel dafür, wie Sie mit Ihrem `shopping_cart` Liquid-Tag
 {% endraw %}
 
 {% alert note %}
-Wenn Sie Shopify verwenden, fügen Sie Ihren Katalognamen hinzu, um die URL der Variante zu erhalten.
+Wenn Sie Shopify verwenden, fügen Sie Ihren Katalognamen hinzu, um die Varianten-Bild-URL abzurufen.
 {% endalert %}
 
-##### HTML-URL des Warenkorbs
+##### HTML-Warenkorb-URL {#html-cart-url}
 
-Wenn Sie Nutzer:in zurück zu ihrem Warenkorb leiten möchten, können Sie eine verschachtelte Event-Eigenschaft unter dem Metadaten-Objekt hinzufügen, wie z.B.:
+Wenn Sie Nutzer:innen zurück zu ihrem Warenkorb leiten möchten, können Sie eine verschachtelte Event-Eigenschaft unter dem Metadaten-Objekt hinzufügen, zum Beispiel:
 
 {% raw %}
 ```liquid
@@ -157,58 +157,58 @@ Wenn Sie Nutzer:in zurück zu ihrem Warenkorb leiten möchten, können Sie eine 
 ```
 {% endraw %}
 
-Wenn Sie Shopify verwenden, erstellen Sie die URL Ihres Warenkorbs mit Hilfe dieses Liquid Templates:
+Wenn Sie Shopify verwenden, erstellen Sie Ihre Warenkorb-URL mit diesem Liquid-Template:
 
 {% raw %}
 ```liquid
-{{context.${source}}}/checkouts/cn/{{context.${cart_id}}} 
+{{context.${source}}}/checkouts/cn/{{context.${cart_id}}}
 ```
 {% endraw %}
 
 {% endtab %}
 {% tab Abandoned checkout %}
 
-### Abgebrochene Kasse
+### Abgebrochener Checkout {#abandoned-checkout}
 
-Verwenden Sie das **Abandoned Checkout** Template, um Kunden:in anzusprechen, die den Checkout-Prozess begonnen, aber vor dem Abschicken der Bestellung verlassen haben. 
+Verwenden Sie das Template **Abgebrochener Checkout**, um Kund:innen anzusprechen, die den Checkout-Prozess begonnen, aber vor der Bestellung abgebrochen haben.
 
-![Ein angewandtes "Abgebrochene Kasse" Canvas Template mit erweiterten "Eingangsregeln".]({% image_buster /assets/img_archive/abandoned_checkout.png %})
+![Ein angewandtes „Abandoned Checkout“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### Einrichtung
+#### Einrichtung {#setup}
 
-Wählen Sie auf der Canvas-Seite **Canvas-Vorlage verwenden** > **Braze-Vorlagen** und wenden Sie dann die Vorlage **Abgebrochene Kasse** an. 
+Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Abandoned checkout** an.
 
-##### Standard Einstellungen
+##### Standardeinstellungen {#default-settings}
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
 
-- Grundlagen 
-    - Canvas Name: **Abgebrochene Kasse**
+- Grundlagen
+    - Canvas-Name: **Abandoned checkout**
     - Konversions-Event: `ecommerce.order_placed`
-        - Frist für die Konversion: 3 Tage 
-- Entry-Zeitplan 
-    - Aktionsbasierter Trigger, wenn ein Nutzer:innen das Ereignis `ecommerce.checkout_started` ausführt
-    - Startzeitpunkt ist der Zeitpunkt, an dem Sie die Canvas-Vorlage erstellen<br><br>!["Aktionsbasierte Optionen" für den Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
-- Zielgruppen 
-    - Entry-Zielgruppe 
-        - Hat diese Apps **mehr als 0** Mal benutzt 
+        - Conversion-Frist: 3 Tage
+- Entry-Zeitplan
+    - Aktionsbasierter Trigger, wenn ein:e Nutzer:in das Event `ecommerce.checkout_started` ausführt
+    - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
+- Zielgruppe
+    - Entry-Zielgruppe
+        - Hat diese Apps **mehr als 0** Mal verwendet
         - E-Mail **ist nicht leer**
     - Eingangskontrollen
-        - Nutzer:innen sind sofort wieder für den Eingang in Canvas zugelassen.
-        - Ausstiegskriterien 
-            - Führt die Ereignisse `ecommerce.order_placed` aus.<br><br>![Eingangskontrollen und Ausgangskriterien für den Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
-- Einstellungen senden 
-    - Nutzer:innen, die Abonnent:in sind oder ein Opt-in haben 
-- Verzögerungsstufe
+        - Nutzer:innen sind sofort wieder für den Canvas-Eingang berechtigt
+        - Ausstiegskriterien
+            - Führt die Events `ecommerce.order_placed` aus<br><br>![Eingangskontrollen und Ausstiegskriterien für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
+- Sendeeinstellungen
+    - Nutzer:innen, die abonniert oder per Opt-in angemeldet sind
+- Verzögerungsschritt
     - 4 Stunden Verzögerung
-- Nachrichtenschritt 
-    - Sehen Sie sich die E-Mail-Vorlage und den HTML-Block mit einem Liquid-Templating-Beispiel an, um Ihrer Nachricht in der vorgefertigten Vorlage Produkte hinzuzufügen. Wenn Sie Ihr eigenes Template für E-Mails verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt wird.
+- Nachrichtenschritt
+    - Überprüfen Sie das E-Mail-Template und den HTML-Block mit einem Liquid-Templating-Beispiel, um Produkte zu Ihrer Nachricht im vorgefertigten Template hinzuzufügen. Wenn Sie Ihr eigenes E-Mail-Template verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt.
 
-#### Personalisierung von E-Mails für abgebrochene Kaufabschlüsse
+#### Personalisierung für E-Mails bei abgebrochenem Checkout {#abandoned-checkout-personalization-for-emails}
 
-Nutzer:innen, die die Kasse verlassen haben, benötigen einen speziellen `shopping_cart` Liquid-Tag für die Personalisierung ihrer Produkte. 
+Journeys bei abgebrochenem Checkout erfordern einen speziellen `shopping_cart` Liquid-Tag für die Produktpersonalisierung.
 
-Hier sehen Sie ein Beispiel dafür, wie Sie mit Ihrem `shopping_cart` Liquid-Tag einen HTML-Block hinzufügen, um Produkte in Ihre E-Mail aufzunehmen. 
+Hier sehen Sie ein Beispiel, wie Sie mit Ihrem `shopping_cart` Liquid-Tag einen HTML-Block hinzufügen, um Produkte in Ihre E-Mail aufzunehmen.
 
 {% raw %}
 ```java
@@ -233,7 +233,19 @@ Hier sehen Sie ein Beispiel dafür, wie Sie mit Ihrem `shopping_cart` Liquid-Tag
 ```
 {% endraw %}
 
-##### Kassen-URL
+##### `abort_if_not_abandoned` {#abort-if-not-abandoned}
+
+Der Parameter `abort_if_not_abandoned` ist spezifisch für den Anwendungsfall des abgebrochenen Checkouts und wird ausschließlich mit dem `shopping_cart` Liquid-Tag in Verbindung mit dem Event `ecommerce.checkout_started` verwendet.
+
+| Wert | Verhalten |
+| ----- | -------- |
+| `true` (Standard) | Die Nachricht wird abgebrochen, wenn der Warenkorb nicht verlassen wurde – das heißt, wenn der/die Nutzer:in die Bestellung inzwischen abgeschlossen hat. |
+| `false` | Die Nachricht wird auch dann gesendet, wenn sich der Warenkorb nicht im abgebrochenen Zustand befindet. So kann die E-Mail Warenkorb-Details enthalten, unabhängig vom aktuellen Checkout-Status. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+Setzen Sie `abort_if_not_abandoned` auf `false`, wenn Sie die Checkout-Erinnerung unabhängig davon senden möchten, ob der Warenkorb zum Sendezeitpunkt noch als abgebrochen gilt. Wenn Sie den Parameter weglassen oder auf `true` setzen, bricht Braze die Nachricht für Nutzer:innen ab, die ihren Kauf bereits abgeschlossen haben.
+
+##### Checkout-URL {#checkout-url}
 
 {% raw %}
 ```liquid
@@ -244,43 +256,43 @@ Hier sehen Sie ein Beispiel dafür, wie Sie mit Ihrem `shopping_cart` Liquid-Tag
 {% endtab %}
 {% tab Order confirmation and feedback survey %}
 
-### Auftragsbestätigung und Umfrage
+### Bestellbestätigung und Feedback-Umfrage {#order-confirmation-and-feedback-survey}
 
-Verwenden Sie die Vorlage für die **Feedback-Umfrage zur Bestellbestätigung & **, um erfolgreiche Bestellungen zu bestätigen und die Kundenzufriedenheit zu erhöhen.
+Verwenden Sie das Template **Bestellbestätigung & Feedback-Umfrage**, um erfolgreiche Bestellungen zu bestätigen und die Kundenzufriedenheit zu steigern.
 
-![Eine angewandte "Auftragsbestätigung" Canvas-Vorlage mit erweiterten "Eingangsregeln".]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
+![Ein angewandtes „Order confirmation“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### Einrichtung
+#### Einrichtung {#setup}
 
-Wählen Sie auf der Canvas-Seite **Canvas-Vorlage verwenden** > **Braze-Vorlagen** und wenden Sie dann die Vorlage für die **Umfrage zur Bestellbestätigung & ** an. 
+Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Order confirmation & feedback survey** an.
 
-##### Standard Einstellungen
+##### Standardeinstellungen {#default-settings}
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
 
-- Grundlagen 
-    - Canvas Name: **Auftragsbestätigung mit Umfrage**
+- Grundlagen
+    - Canvas-Name: **Order confirmation with feedback survey**
     - Konversions-Event: `ecommerce.session_start`
-        - Frist für die Konversion: 10 Tage 
-- Entry-Zeitplan 
-    - Aktionsbasierter Trigger, wenn ein Nutzer:innen das Ereignis `ecommerce.cart_updated` ausführt
-    - Startzeitpunkt ist der Zeitpunkt, an dem Sie die Canvas-Vorlage erstellen<br><br>!["Aktionsbasierte Optionen" für den Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
-- Zielgruppen 
-    - Entry-Zielgruppe 
-        - Hat diese Apps **mehr als 0** Mal benutzt 
+        - Conversion-Frist: 10 Tage
+- Entry-Zeitplan
+    - Aktionsbasierter Trigger, wenn ein:e Nutzer:in das Event `ecommerce.cart_updated` ausführt
+    - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
+- Zielgruppe
+    - Entry-Zielgruppe
+        - Hat diese Apps **mehr als 0** Mal verwendet
         - E-Mail **ist nicht leer**
     - Eingangskontrollen
-        - Nutzer:innen sind sofort wieder für den Eingang in Canvas zugelassen.
-    - Ausstiegskriterien 
-        - --<br><br>![Zusätzliche Filter und Eingangskontrollen für den Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry_exit.png %})<br><br>
-- Einstellungen senden 
-    - Nutzer:innen, die Abonnent:in sind oder ein Opt-in haben 
-- Nachrichtenschritt 
-    - Sehen Sie sich die E-Mail-Vorlage und den HTML-Block mit einem Liquid-Templating-Beispiel an, um Ihrer Nachricht in der vorgefertigten Vorlage Produkte hinzuzufügen. Wenn Sie Ihr eigenes Template für E-Mails verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt wird.
+        - Nutzer:innen sind sofort wieder für den Canvas-Eingang berechtigt
+    - Ausstiegskriterien
+        - Nicht zutreffend<br><br>![Zusätzliche Filter und Eingangskontrollen für das Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry_exit.png %})<br><br>
+- Sendeeinstellungen
+    - Nutzer:innen, die abonniert oder per Opt-in angemeldet sind
+- Nachrichtenschritt
+    - Überprüfen Sie das E-Mail-Template und den HTML-Block mit einem Liquid-Templating-Beispiel, um Produkte zu Ihrer Nachricht im vorgefertigten Template hinzuzufügen. Wenn Sie Ihr eigenes E-Mail-Template verwenden, können Sie auch [Liquid-Variablen](#message-personalization) referenzieren, wie im folgenden Abschnitt gezeigt.
 
-#### Personalisierung der Auftragsbestätigung für E-Mails
+#### Personalisierung der Bestellbestätigung für E-Mails {#order-confirmation-personalization-for-emails}
 
-Hier ist ein Beispiel dafür, wie Sie einen HTML-Produktblock in Ihre Auftragsbestätigung einfügen, nachdem eine Bestellung aufgegeben wurde.
+Hier sehen Sie ein Beispiel, wie Sie einen HTML-Produktblock zu Ihrer Bestellbestätigung hinzufügen, nachdem eine Bestellung aufgegeben wurde.
 
 {% raw %}
 ```json
@@ -302,7 +314,7 @@ Hier ist ein Beispiel dafür, wie Sie einen HTML-Produktblock in Ihre Auftragsbe
 ```
 {% endraw %}
 
-##### Auftragsstatus URL
+##### Auftragsstatus-URL {#order-status-url}
 
 {% raw %}
 ```liquid

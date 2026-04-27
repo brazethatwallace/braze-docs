@@ -1,27 +1,25 @@
 ---
-nav_title: "GET: Alle Übersetzungen für eine Kampagne anzeigen"
-article_title: "GET: Alle Übersetzungen für eine Kampagne anzeigen"
-search_tag: Endpoint
+nav_title: "GET: Alle Übersetzungen für eine Campaign anzeigen"
+article_title: "GET: Alle Übersetzungen für eine Campaign anzeigen"
+search_tag: Endpunkt
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Funktion Alle Übersetzungen für einen Endpunkt einer Kampagne anzeigen."
+description: "Dieser Artikel beschreibt den Endpunkt „Alle Übersetzungen für eine Campaign anzeigen“."
 ---
 
 {% api %}
-# Alle Übersetzungen für eine Kampagne anzeigen
+# Alle Übersetzungen für eine Campaign anzeigen {#view-all-translations-for-a-campaign}
 {% apimethod get %}
-/kampagnen/übersetzungen
+/campaigns/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um alle Übersetzungen für jede Variante einer Nachricht in einer Kampagne anzuzeigen. Weitere Informationen zu den Features für die Übersetzung finden Sie unter [Lokalisierung in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/).
+> Verwenden Sie diesen Endpunkt, um alle Übersetzungen für jede Nachrichtenvariante in einer Campaign anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% alert important %}
-Dieser Endpunkt befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Braze-Account Manager, wenn Sie sich für die Teilnahme am Early Access interessieren.
-{% endalert %}
+{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.translations.get`.
 
@@ -29,21 +27,21 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Abfrageparameter
+## Abfrageparameter {#query-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Erforderlich | String | Die ID Ihrer Kampagne. |
-|`message_variation_id`| Erforderlich | String | Die ID Ihrer Nachrichtenvariation. |
-|`locale_id`| Optional | String | Eine Lokalisierungs-UUID zum Filtern der Antworten. |
-| `post_launch_draft_version`| Optional | Boolesch | Wenn `true` die letzte Entwurfsversion anstelle der letzten live veröffentlichten Version zurückgibt. Der Standardwert ist `false`, der die letzte Live-Version zurückgibt.|
+| `campaign_id` | Erforderlich | String | Die ID Ihrer Campaign. |
+| `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
+| `locale_id` | Optional | String | Eine Locale-UUID zum Filtern der Antworten. |
+| `post_launch_draft_version` | Optional | Boolescher Wert | Bei `true` wird die neueste Entwurfsversion anstelle der zuletzt veröffentlichten Live-Version zurückgegeben. Standardmäßig `false`, wodurch die aktuellste Live-Version zurückgegeben wird. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Alle Übersetzungs-IDs werden als universelle eindeutige Bezeichner (UUIDs) betrachtet, die in der Antwort des GET-Endpunkts zu finden sind.
+Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translations?campaign_id={campaign_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
@@ -51,13 +49,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Response Header und Body zurückgeben.
+Der Statuscode `200` könnte den folgenden Antwort-Header und -Body zurückgeben.
 
 ```json
 {
@@ -94,9 +92,9 @@ Der Status Code `200` könnte den folgenden Response Header und Body zurückgebe
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `400` könnte den folgenden Antwort-Body zurückgeben.
 
 ```json
 {

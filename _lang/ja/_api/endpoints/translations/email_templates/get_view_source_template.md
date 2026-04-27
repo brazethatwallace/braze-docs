@@ -1,42 +1,40 @@
 ---
-nav_title: "取得:メールテンプレートのソース翻訳を表示する"
-article_title: "取得:メールテンプレートのソース翻訳を表示"
+nav_title: "GET: メールテンプレートのソース翻訳を表示"
+article_title: "GET: メールテンプレートのソース翻訳を表示"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「メールテンプレートのソース翻訳を表示」エンドポイントについて詳しく説明します。"
+description: "この記事では、メールテンプレートのソース翻訳を表示するエンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# メールテンプレートのソース翻訳を表示
+# メールテンプレートのソース翻訳を表示 {#view-the-source-translations-for-an-email-template}
 {% apimethod get %}
-/テンプレート/メール/翻訳/ソース
+/templates/email/translations/source
 {% endapimethod %}
 
-> [メールテンプレートの]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates)ソース翻訳を表示するには、このエンドポイントを使用します。翻訳機能の詳細については、[メッセージのローカライゼーションを]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)参照のこと。
+> このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)のソース翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-{% alert important %}
-このエンドポイントは現在早期アクセス中である。早期アクセスへの参加に興味がある方は、Brazeのアカウントマネージャーに連絡を。
-{% endalert %}
+{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`templates.email.info`の権限が必要です。
+このエンドポイントを使用するには、`templates.email.info` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## クエリーパラメーター
+## クエリパラメーター {#query-parameters}
 
-| パラメータ     | required | データ型 | 説明                     |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | 必須 | string    | メールテンプレートの ID。 |
+| `template_id` | 必須 | 文字列 | メールテンプレートのID。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/translations/source?template_id={template_id}'
@@ -46,11 +44,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 ---template_id: "6ad1507f-ca10-44c4-95bf-aj39fm10fm1ps"
 ```
 
-## 応答
+## 応答 {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` という 4 つのステータスコードの応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
 
@@ -66,9 +64,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 }
 ```
 
-### エラー応答例
+### エラー応答の例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。遭遇する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照のこと。
+ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

@@ -1,35 +1,39 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %}
 
-## メッセージトリガー
+## メッセージトリガー {#message-triggers}
 
-## トリガーの種類
+## トリガーの種類 {#trigger-types}
 
-アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかを記録すると自動的にトリガーされる：`Any Purchase` `Specific Purchase` 、`Session Start` 、`Custom Event` 、`Push Click` 。`Specific Purchase` 、`Custom Event` のトリガーには、ロバストなプロパティフィルターも含まれている。
+アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかを記録した際に自動的にトリガーされます：`Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、および `Push Click`。なお、`Specific Purchase` および `Custom Event` トリガーには堅牢なプロパティフィルターも含まれています。
 
 {% alert note %}
-アプリ内メッセージは、API または API イベントによってトリガーすることはできません。SDK によってログに記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
+アプリ内メッセージは、APIまたはAPIイベントによってトリガーすることはできません。SDKによって記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
 {% endalert %}
 
-### 配信セマンティクス
+### 配信セマンティクス {#delivery-semantics}
 
-対象となるアプリ内メッセージはすべて、セッション開始時にユーザーの端末に配信される。SDKは配信時にアセットをプリフェッチするため、トリガー時にアセットを利用でき、表示レイテンシを最小限に抑えることができる。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
+すべての適格なアプリ内メッセージは、ユーザーのセッション開始時にデバイスに配信されます。配信されると、SDKはアセットをプリフェッチするため、トリガー時にアセットが利用可能となり、表示の遅延を最小限に抑えます。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
 
-SDKのセッション開始セマンティクスの詳細については、セッション[ライフサイクルを]({{site.baseurl}}/developer_guide/platform_integration_guides/analytics/tracking_sessions/)参照のこと。
+SDKのセッション開始セマンティクスについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/platform_integration_guides/analytics/tracking_sessions/)を参照してください。
 
-### レート制限
+### レート制限 {#rate-limits}
 
-デフォルトでは、アプリ内メッセージは 30 秒に 1 回送信できます。
+デフォルトでは、SDKはトリガーされたアプリ内メッセージを30秒に1回にレート制限しています。
 
-これをオーバーライドするには、Brazeインスタンスが初期化される前に、次のプロパティをBraze設定に追加する。任意の正の整数に設定することができ、これは最小時間間隔を秒単位で表す。以下に例を示します。
+本番アプリでは、この値を10秒未満に設定しないでください。連続するアプリ内メッセージでユーザーが圧倒されるのを防ぐためです。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
+
+テスト用にこの間隔を `0` に設定することもできます。ただし、`0` 秒の間隔は複数のアプリ内メッセージを同時に表示させるものではありません。別のモーダルまたはフルアプリ内メッセージがすでに表示されている場合、`braze.showInAppMessage` は `false` を返し、新しいメッセージは表示されません。
+
+これを上書きするには、Brazeインスタンスが初期化される前に、Braze設定に以下のプロパティを追加します。任意の非負の整数に設定でき、最小の時間間隔を秒単位で表します。以下に例を示します。
 
 ```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
 ```
 
-## キーと値のペア
+## キーと値のペア {#key-value-pairs}
 
-Braze でキャンペーンを作成する場合は、キーと値のペアを `extras` として設定できます。これは、アプリ内メッセージングオブジェクトがアプリにデータを送信するために使用できます。以下に例を示します。
+BrazeでCampaignを作成する際、キーと値のペアを `extras` として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。以下に例を示します。
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -54,24 +58,24 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 });
 ```
 
-## 自動トリガーを無効にする
+## 自動トリガーを無効にする {#disabling-automatic-triggers}
 
-アプリ内メッセージが自動的にトリガーされないようにする：
+アプリ内メッセージが自動的にトリガーされるのを防ぐには：
 
-読み込むスニペット内の`braze.automaticallyShowInAppMessages()` への呼び出しを削除し、アプリ内メッセージの表示/非表示を処理するカスタムロジックを作成する。
+読み込みスニペット内の `braze.automaticallyShowInAppMessages()` 呼び出しを削除し、アプリ内メッセージの表示・非表示を処理するカスタムロジックを作成します。
 
 ```javascript
 braze.subscribeToInAppMessage(function(inAppMessage) {
   // control group messages should always be "shown"
   // this will log an impression and not show a visible message
-  
+
   if (inAppMessage.isControl) { // v4.5.0+, otherwise use  `inAppMessage instanceof braze.ControlMessage`
      return braze.showInAppMessage(inAppMessage);
   }
-  
+
   // Display the in-app message. You could defer display here by pushing this message to code within your own application.
   // If you don't want to use the Braze built-in display capabilities, you could alternatively pass the in-app message to your own display code here.
-  
+
   if ( should_show_the_message_according_to_your_custom_logic ) {
       braze.showInAppMessage(inAppMessage);
   } else {
@@ -81,18 +85,18 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 ```
 
 {% alert important %}
-Webサイトから`braze.automaticallyShowInAppMessages()` を削除せず、`braze.showInAppMessage` 、メッセージが何度も表示されることがある。
+Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `braze.showInAppMessage` を呼び出すと、メッセージが複数回表示される可能性があります。
 {% endalert %}
 
-`inAppMessage` パラメータは [`braze.InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html) サブクラスまたは [`braze.ControlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.controlmessage.html) オブジェクトになり、それぞれにさまざまライフサイクルイベントのサブスクリプション方式があります。完全なドキュメントについては、[JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html) を参照してください。
+`inAppMessage` パラメータは [`braze.InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html) サブクラスまたは [`braze.ControlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.controlmessage.html) オブジェクトになり、それぞれにさまざまなライフサイクルイベントのサブスクリプションメソッドがあります。完全なドキュメントについては、[JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html)を参照してください。
 
-つだけである。 [`Modal`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=modal&sdktab=web)または [`Full`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=full&sdktab=web)アプリ内メッセージは一度に一つしか表示できない。すでに1つのモーダルまたはフル・メッセージが表示されているときに、2つ目のモーダルまたはフル・メッセージを表示しようとすると、`braze.showInAppMessage` はfalseを返し、2つ目のメッセージは表示されない。
+[`Modal`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=modal&sdktab=web) または [`Full`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=full&sdktab=web) アプリ内メッセージは一度に1つしか表示できません。すでに1つのモーダルまたはフルメッセージが表示されているときに2つ目を表示しようとすると、`braze.showInAppMessage` はfalseを返し、2つ目のメッセージは表示されません。
 
-## 手動でメッセージをトリガーする
+## 手動でメッセージをトリガーする {#manually-triggering-messages}
 
-### リアルタイムでメッセージを表示する
+### リアルタイムでメッセージを表示する {#displaying-a-message-in-real-time}
 
-アプリ内メッセージはサイト内で作成し、リアルタイムでローカルに表示することもできます。ダッシュボードで使用できるすべてのカスタマイズオプションはローカルでも使用できます。これは、アプリ内でトリガーしたいメッセージをリアルタイムで表示する場合に特に便利です。ただし、これらのローカルで作成されたメッセージの分析は、Brazeのダッシュボードでは利用できない。
+アプリ内メッセージはサイト内で作成し、リアルタイムでローカルに表示することもできます。ダッシュボードで使用できるすべてのカスタマイズオプションはローカルでも使用できます。これは、アプリ内でトリガーしたいメッセージをリアルタイムで表示する場合に特に便利です。ただし、これらのローカルで作成されたメッセージの分析は、Brazeダッシュボードでは利用できません。
 
 ```javascript
   // Displays a slideup type in-app message.
@@ -101,11 +105,11 @@ Webサイトから`braze.automaticallyShowInAppMessages()` を削除せず、`br
   braze.showInAppMessage(message);
 ```
 
-## 退団メッセージのトリガー
+## 離脱意図メッセージのトリガー {#triggering-exit-intent-messages}
 
-終了意図メッセージは、サイトを離れる前に訪問者に重要な情報を伝えるために使用される、中断のないアプリ内メッセージである。
+離脱意図メッセージとは、訪問者がサイトを離れる前に重要な情報を伝えるために使用される、邪魔にならないアプリ内メッセージです。
 
-これらのメッセージタイプのトリガーを設定するには、Webサイトにexit-intentライブラリ（[ouibounceのオープンソースライブラリなど](https://github.com/carlsednaoui/ouibounce)）を実装し、次のコードを使ってBrazeのカスタムイベントとして`'exit intent'` 。これで、今後のアプリ内メッセージキャンペーンでは、このメッセージタイプをカスタムイベントトリガーとして使うことができる。
+これらのメッセージタイプにトリガーを設定するには、Webサイトに離脱意図ライブラリー（[ouibounceのオープンソースライブラリー](https://github.com/carlsednaoui/ouibounce)など）を実装し、以下のコードを使用してBrazeでカスタムイベントとして `'exit intent'` を記録します。これにより、今後のアプリ内メッセージCampaignでこのメッセージタイプをカスタムイベントトリガーとして使用できます。
 
 ```javascript
   var _ouibounce = ouibounce(false, {

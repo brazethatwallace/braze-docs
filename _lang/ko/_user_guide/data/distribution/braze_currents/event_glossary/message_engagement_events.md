@@ -1,45 +1,49 @@
 ---
-nav_title: 메시지 인게이지먼트 이벤트
+nav_title: 메시지 참여 이벤트
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
-page_order: 5
+page_order: 2
 excerpt_separator: ""
 page_type: glossary
-description: "이 용어집에는 Braze가 커런트를 사용하여 추적하고 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 참여 이벤트가 나열되어 있습니다."
+description: "이 용어집에는 Braze가 Currents를 사용하여 추적하고 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 참여 이벤트가 나열되어 있습니다."
 tool: Currents
 search_rank: 6
 ---
 
-스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) 목록을 참조하여 해당 페이지를 확인하세요.
+스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하여 해당 페이지를 확인하세요.
 
-Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_support/) if you need access to additional event entitlements. 이 문서에서 필요한 내용을 찾을 수 없는 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/) 또는 [커런츠 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
+{% alert tip %}
+이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부 정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요.
+{% endalert %}
 
-{% details Explanation of message engagement event structure and platform values %}
+추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요. 이 문서에서 필요한 내용을 찾을 수 없는 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
 
-### 이벤트 구조
+{% details 메시지 참여 이벤트 구조 및 플랫폼 값 설명 %}
 
-이 이벤트 분석은 일반적으로 메시지 인게이지먼트 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성 요소에 대한 확실한 이해를 바탕으로 개발자와 비즈니스 인텔리전스 전략 팀은 수신되는 Currents 이벤트 데이터를 사용하여 데이터 기반 보고서와 차트를 만들고 다른 유용한 데이터 메트릭을 활용할 수 있습니다.
+### 이벤트 구조 {#event-structure}
 
-![사용자별 속성, 캠페인 또는 캔버스 추적 속성, 이벤트별 속성별로 그룹화된 나열된 속성과 함께 이메일 탈퇴 이벤트를 보여주는 메시지 참여 이벤트의 세부 정보]({% image_buster /assets/img/message_engagement_event.png %})
+이 이벤트 분석은 일반적으로 메시지 참여 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성요소에 대한 확실한 이해를 바탕으로 개발자와 비즈니스 인텔리전스 전략 팀은 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 다른 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-메시지 참여 이벤트는 **사용자별** 속성, **캠페인/캔버스 추적** 속성, **이벤트별** 속성으로 구성됩니다.
+![사용자별 속성, Campaign 또는 캔버스 추적 속성, 이벤트별 속성으로 그룹화된 이메일 탈퇴 이벤트를 보여주는 메시지 참여 이벤트의 분석]({% image_buster /assets/img/message_engagement_event.png %})
 
-### User ID schema
+메시지 참여 이벤트는 **사용자별** 속성, **Campaign/캔버스 추적** 속성, **이벤트별** 속성으로 구성됩니다.
+
+### 사용자 ID 스키마 {#user-id-schema}
 
 사용자 ID의 이름 지정 규칙에 유의하세요.
 
-| Braze schema | 전류 스키마 | 설명 |
+| Braze 스키마 | Currents 스키마 | 설명 |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | The unique identifier that is automatically assigned by Braze. |
-| `external_id` | `"EXTERNAL_USER_ID"` | The unique identifier of a user's profile that is set by the customer. |
+| `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
+| `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 고객 프로필의 고유 식별자입니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### 플랫폼 가치
+### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
 <br>다음 표에서는 반환 가능한 값을 자세히 설명합니다:
 
-| 사용자 디바이스 | 플랫폼 가치 |
+| 사용자 기기 | 플랫폼 값 |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -53,15 +57,15 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% enddetails %}
 
 {% alert important %}
-현재 페이로드가 900KB를 초과하는 지나치게 큰 이벤트는 삭제됩니다.
+Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드를 가진 이벤트를 삭제합니다.
 {% endalert %}
 
 {% alert note %}
-캔버스 흐름과 관련된 개체에는 그룹화에 사용할 수 있는 ID가 있으며 [캔버스 세부 정보 내보내기 엔드포인트를]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
+Canvas Flow과 관련된 오브젝트에는 그룹화에 사용할 수 있는 ID가 있으며 [캔버스 세부 정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
 {% endalert %}
 
 {% alert note %}
-특정 필드는 캠페인이나 캔버스가 업데이트된 후 가장 최근 상태를 표시하는 데 시간이 더 걸릴 수 있습니다. 이러한 필드는 다음과 같습니다:
+Campaign이나 Canvas가 업데이트된 후 특정 필드는 가장 최근 상태를 표시하는 데 시간이 더 걸릴 수 있습니다. 이러한 필드는 다음과 같습니다:
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>
@@ -75,13 +79,14 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endalert %}
 
 {% api %}
-## 에이전트가 실행한 이벤트 {#agent-executed-events}
+
+## 에이전트 실행 이벤트 {#agent-executed-events}
 
 {% apitags %}
-에이전트
+Agent
 {% endapitags %}
 
-이것은 에이전트 콘솔 에이전트가 실행될 때를 위한 Kafka 레코드 스키마입니다.
+에이전트 콘솔 에이전트가 실행될 때의 Kafka 레코드 스키마입니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -101,6 +106,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "completion_tokens" : "(required, int) how many completion tokens this request used",
   "duration" : "(required, int) how long the invocation took in milliseconds",
+  "error" : "(optional, string) Description of error",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "input" : "(optional, string) [PII] input to the LLM",
@@ -129,10 +135,10 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 ## 도구 호출 이벤트 {#tool-invocation-events}
 
 {% apitags %}
-에이전트
+Agent
 {% endapitags %}
 
-이것은 도구가 실행될 때를 위한 Kafka 레코드 스키마입니다.
+도구가 실행될 때의 Kafka 레코드 스키마입니다. 도구는 목표를 달성하기 위해 LLM에 제공되는 함수입니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -146,8 +152,9 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "id" : "(required, string) Globally unique ID for this event",
   "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
   "is_error" : "(required, boolean) whether or not this request errored out",
+  "request_id" : "(optional, string) unique id for this overall LLM request and complete execution",
   "time" : "(required, long) unix timestamp at which this event is logged",
-  "tool_arguments" : "(required, string) [PII] JSON of the tool arguments",
+  "tool_arguments" : "(required, string) JSON of the tool arguments",
   "tool_call_id" : "(required, string) globally unique id for this tool call",
   "tool_name" : "(required, string) Name of the Tool"
 }
@@ -158,16 +165,16 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 이벤트 제거 {#uninstall-events}
+## 제거 이벤트 {#uninstall-events}
 
 {% apitags %}
-제거
+Uninstall
 {% endapitags %}
 
-이 이벤트는 사용자가 앱을 제거할 때 발생합니다. 이 데이터를 사용하여 사용자가 앱을 삭제하는 시기를 추적하세요. 현재는 메시지 인게이지먼트 이벤트이지만, 향후에는 사용자 행동 이벤트로 변경될 예정입니다.
+이 이벤트는 사용자가 앱을 제거할 때 발생합니다. 이 데이터를 사용하여 사용자가 앱을 제거하는 시기를 추적할 수 있습니다. 현재는 메시지 참여 이벤트이지만, 향후 고객 행동 이벤트로 변경될 예정입니다.
 
 {% alert important %}
-이 이벤트는 사용자가 실제로 앱을 삭제할 때 발생하지 않으며, 이는 정확한 추적이 불가능하기 때문입니다. Braze는 사용자의 디바이스에 앱이 여전히 존재하는지 확인하기 위해 매일 무음 푸시를 보내며, 무음 푸시에서 오류가 발생하면 앱이 삭제된 것으로 간주합니다.
+이 이벤트는 사용자가 실제로 앱을 제거할 때 발생하지 않습니다. 정확한 추적이 불가능하기 때문입니다. Braze는 사용자의 기기에 앱이 여전히 존재하는지 확인하기 위해 매일 무음 푸시를 보내며, 해당 무음 푸시에서 오류가 발생하면 앱이 제거된 것으로 간주합니다.
 {% endalert %}
 
 {% tabs %}
@@ -182,7 +189,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -264,7 +271,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Application Uninstalled (users.behaviors.Uninstall)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -287,13 +294,13 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 글로벌 구독 상태 변경 이벤트 {#global-subscription-state-change-events}
+## 전역 구독 상태 변경 이벤트 {#global-subscription-state-change-events}
 
 {% apitags %}
-구독
+Subscription
 {% endapitags %}
 
-이 이벤트는 Braze가 사용자의 글로벌 구독 상태 업데이트 요청을 수신할 때 발생합니다.
+이 이벤트는 Braze가 사용자의 전역 구독 상태를 업데이트하라는 요청을 수신할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -322,7 +329,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "subscription_status" : "(required, string) Subscription status: 'Subscribed', 'Unsubscribed' or 'Opted In'",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -450,7 +457,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Global Subscription State Changed (users.behaviors.subscription.GlobalStateChange)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -486,26 +493,27 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부정보 {#property-details}
 
-- `state_change_source` 은 전체 소스 이름의 문자열을 반환합니다. 예를 들어 소스 CSV 가져오기는 `CSV Import`라는 문자열을 반환합니다. 사용 가능한 소스는 아래에 나열되어 있습니다:
+- `state_change_source`는 전체 소스 이름의 문자열을 반환합니다. 예를 들어, CSV 가져오기 소스는 `CSV Import`라는 문자열을 반환합니다. 사용 가능한 소스는 아래에 나열되어 있습니다.
 
 | 소스 | 설명 |
 | --- | --- |
 | SDK | SDK 엔드포인트 |
-| 대시보드 | 대시보드의 **사용자 프로필** 페이지에서 사용자의 구독 상태가 업데이트되는 경우 |
-| 구독 페이지 | 사용자가 환경 설정 센터가 아닌 이메일 링크를 통해 구독을 취소하는 경우 |
+| 대시보드 | 대시보드의 **고객 프로필** 페이지에서 사용자의 구독 상태가 업데이트되는 경우 |
+| 구독 페이지 | 사용자가 환경설정 센터가 아닌 이메일 링크를 통해 구독을 취소하는 경우 |
 | REST API | REST API 엔드포인트 |
 | CSV 가져오기 | CSV 사용자 가져오기 |
 | 환경설정 센터 | 환경설정 센터에서 사용자가 업데이트되는 경우 |
-| 인바운드 메시지 | 최종 사용자가 SMS와 같은 채널을 통해 인바운드 메시지를 통해 사용자를 업데이트하는 경우 |
+| 인바운드 메시지 | 최종 사용자가 SMS 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우 |
 | 마이그레이션 | 내부 마이그레이션 또는 유지 관리 스크립트에 의해 사용자가 업데이트되는 경우 |
 | 사용자 병합 | 사용자 병합 프로세스에 의해 사용자가 업데이트되는 경우 |
-| 캔버스 사용자 업데이트 단계 | 캔버스 사용자 업데이트 단계에 의해 사용자가 업데이트된 경우 |
-| Push Token Registration | When a user is updated by the token registration process |
-| 목록 구독취소 | 사용자가 Braze 메일로 또는 원클릭 목록 수신 거부 헤더를 통해 구독을 취소하는 경우 |
-| Other | Includes any other sources, such as demo or provider sync jobs, or SMS and Whatsapp event callbacks |
+| Canvas 사용자 업데이트 단계 | Canvas 사용자 업데이트 단계에 의해 사용자가 업데이트되는 경우 |
+| 푸시 토큰 등록 | 토큰 등록 프로세스에 의해 사용자가 업데이트되는 경우 |
+| 목록 수신 거부 | 사용자가 Braze mailto 또는 원클릭 목록 수신 거부 헤더를 통해 구독을 취소하는 경우 |
+| 기타 | 데모 또는 공급자 동기화 작업, SMS 및 WhatsApp 이벤트 콜백 등 기타 소스를 포함합니다 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
 
 {% endapi %}
 
@@ -513,13 +521,13 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 ## 구독 그룹 상태 변경 이벤트 {#subscription-group-state-change-events}
 
 {% apitags %}
-구독
+Subscription
 {% endapitags %}
 
-이 이벤트는 구독 그룹에 속한 사용자의 구독 상태가 변경될 때 발생합니다.
+이 이벤트는 구독 그룹 내 사용자의 구독 상태가 변경될 때 발생합니다.
 
 {% alert important %}
-현재 구독 그룹은 이메일, SMS, RCS 및 WhatsApp 채널에만 사용할 수 있습니다.
+현재 구독 그룹은 이메일, SMS, RCS 및 WhatsApp 채널에서만 사용할 수 있습니다.
 {% endalert %}
 
 {% tabs %}
@@ -553,7 +561,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "subscription_status" : "(required, string) Subscription status: 'Subscribed' or 'Unsubscribed'",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -692,7 +700,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Subscription Group State Changed (users.behaviors.subscriptiongroup.StateChange)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -731,26 +739,23 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보 {#property-details}
-{% include currents/property_details_dispatch_state_source.md %}
+#### 속성 세부정보 {#property-details}
+{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+
 
 {% endapi %}
 
 {% api %}
-## 캠페인 전환 이벤트 {#campaign-conversion-events}
+## Campaign 전환 이벤트 {#campaign-conversion-events}
 
 {% apitags %}
-캠페인, 전환
+Campaign, Conversion
 {% endapitags %}
 
-이 이벤트는 사용자가 캠페인에서 전환 이벤트로 설정된 작업을 수행할 때 발생합니다.
-
-{% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
-{% endalert %}
+이 이벤트는 사용자가 Campaign에서 전환 이벤트로 설정된 동작을 수행할 때 발생합니다.
 
 {% alert important %}
-전환 이벤트는 `conversion_behavior` 필드에 인코딩되며, 여기에는 전환 이벤트 유형, 기간(기간) 및 전환 이벤트 유형에 따른 추가 정보가 포함됩니다. `conversion_behavior_index` 필드는 어떤 전환 이벤트(예: 0 = A, 1 = B, 2 = C, 3 = D)를 나타내는 필드입니다.
+전환 이벤트는 `conversion_behavior` 필드에 인코딩되며, 여기에는 전환 이벤트 유형, 기간(타임프레임) 및 전환 이벤트 유형에 따른 추가 정보가 포함됩니다. `conversion_behavior_index` 필드는 전환 이벤트를 나타내며, 0 = A, 1 = B, 2 = C, 3 = D입니다.
 {% endalert %}
 
 {% tabs %}
@@ -772,7 +777,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -879,7 +884,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Campaign Converted (users.campaigns.Conversion)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -910,17 +915,13 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 캠페인 대조군 등록 이벤트 {#campaign-control-group-enrollment-events}
+## Campaign 대조군 등록 이벤트 {#campaign-control-group-enrollment-events}
 
 {% apitags %}
-캠페인, 응모
+Campaign, Entry
 {% endapitags %}
 
-이 이벤트는 사용자가 멀티 배리언트 캠페인에 설정된 컨트롤 배리언트에 등록될 때 발생합니다. 이 사용자에 대한 채널 보내기 이벤트가 없으므로 이 이벤트가 생성됩니다.
-
-{% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
-{% endalert %}
+이 이벤트는 사용자가 멀티 배리언트 Campaign에 설정된 대조군 배리언트에 등록될 때 발생합니다. 이 사용자에 대한 채널 발송 이벤트가 없으므로 이 이벤트가 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -939,7 +940,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1040,7 +1041,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Campaign Control Group Entered (users.campaigns.EnrollInControl)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -1069,16 +1070,17 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 캔버스 전환 이벤트 {#canvas-conversion-events}
+
+## Canvas 전환 이벤트 {#canvas-conversion-events}
 
 {% apitags %}
-캔버스, 전환
+Canvas, Conversion
 {% endapitags %}
 
-이 이벤트는 사용자가 캔버스에서 전환 이벤트로 설정된 작업을 수행할 때 발생합니다.
+이 이벤트는 사용자가 Canvas에서 전환 이벤트로 설정된 동작을 수행할 때 발생합니다.
 
 {% alert important %}
-전환 이벤트는 `conversion_behavior` 필드에 인코딩되며, 여기에는 전환 이벤트 유형, 기간(기간) 및 전환 이벤트 유형에 따른 추가 정보가 포함됩니다. `conversion_behavior_index` 필드는 어떤 전환 이벤트(예: 0 = A, 1 = B, 2 = C, 3 = D)를 나타내는 필드입니다.
+전환 이벤트는 `conversion_behavior` 필드에 인코딩되며, 여기에는 전환 이벤트 유형, 기간(타임프레임) 및 전환 이벤트 유형에 따른 추가 정보가 포함됩니다. `conversion_behavior_index` 필드는 어떤 전환 이벤트인지를 나타냅니다(예: 0 = A, 1 = B, 2 = C, 3 = D).
 {% endalert %}
 
 {% tabs %}
@@ -1101,7 +1103,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1208,7 +1210,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Canvas Converted (users.canvas.Conversion)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -1239,13 +1241,13 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 캔버스 응모 이벤트 {#canvas-entry-events}
+## Canvas 진입 이벤트 {#canvas-entry-events}
 
 {% apitags %}
-캔버스, 엔트리
+Canvas, Entry
 {% endapitags %}
 
-이 이벤트는 사용자가 캔버스에 들어갈 때 발생합니다. 이 이벤트는 사용자가 어떤 배리언트 상품을 입력했는지 알려줍니다.
+이 이벤트는 사용자가 Canvas에 진입할 때 발생합니다. 이 이벤트를 통해 사용자가 어떤 배리언트에 진입했는지 알 수 있습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1265,7 +1267,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1367,7 +1369,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Canvas Entered (users.canvas.Entry)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -1396,13 +1398,13 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 경기 종료 오디언스 이벤트 {#exit-match-audience-events}
+## 퇴출 오디언스 일치 이벤트 {#exit-match-audience-events}
 
 {% apitags %}
-종료, 캔버스
+Exit, Canvas
 {% endapitags %}
 
-이 이벤트는 사용자가 오디언스를 매칭하여 캔버스를 종료할 때 발생합니다.
+이 이벤트는 사용자가 오디언스 일치 조건을 충족하여 Canvas에서 퇴출될 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1424,7 +1426,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1518,7 +1520,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Exit Matched Audience (users.canvas.exit.MatchedAudience)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -1545,13 +1547,13 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 {% endapi %}
 
 {% api %}
-## 성능/성과 이벤트 종료 이벤트 {#exit-perform-event-events}
+## 퇴출 이벤트 수행 이벤트 {#exit-perform-event-events}
 
 {% apitags %}
-종료, 캔버스
+Exit, Canvas
 {% endapitags %}
 
-이 이벤트는 사용자가 이벤트를 수행하여 캔버스를 종료할 때 발생합니다.
+이 이벤트는 사용자가 이벤트를 수행하여 Canvas에서 퇴출될 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1573,7 +1575,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1667,7 +1669,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 // Exit Performed Event (users.canvas.exit.PerformedEvent)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -1700,7 +1702,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 Canvas
 {% endapitags %}
 
-이 이벤트는 사용자가 캔버스 실험 단계를 위해 전환할 때 발생합니다.
+이 이벤트는 사용자가 Canvas 실험 단계에서 전환할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1723,7 +1725,7 @@ Canvas
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1831,7 +1833,7 @@ Canvas
 // Experiment Step Converted (users.canvas.experimentstep.Conversion)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -1863,13 +1865,13 @@ Canvas
 {% endapi %}
 
 {% api %}
-## 실험 분할 참가 이벤트 {#experiment-split-entry-events}
+## 실험 분할 진입 이벤트 {#experiment-split-entry-events}
 
 {% apitags %}
 Canvas
 {% endapitags %}
 
-이 이벤트는 사용자가 캔버스 실험 단계 경로를 입력할 때 발생합니다.
+이 이벤트는 사용자가 Canvas 실험 단계 경로에 진입할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1890,7 +1892,7 @@ Canvas
   "id" : "(required, string) Globally unique ID for this event",
   "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1993,7 +1995,7 @@ Canvas
 // Experiment Split Entered (users.canvas.experimentstep.SplitEntry)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -2023,13 +2025,14 @@ Canvas
 {% endapi %}
 
 {% api %}
+
 ## 캔버스 단계 진행 이벤트 {#canvas-step-progression-events}
 
 {% apitags %}
-캔버스, 프로그레션
+Canvas, Progression
 {% endapitags %}
 
-이 이벤트는 사용자가 캔버스의 단계를 진행하여 어떤 결과를 얻을 때 발생합니다. 이 이벤트는 단계를 입력하거나 종료할 때는 발생하지 않습니다. 현재는 분할된 단계(대상 경로, 의사 결정 분할, 작업 경로, 실험)와 사전 결과만 단계 진행 이벤트를 생성합니다.
+이 이벤트는 사용자가 Canvas의 단계를 진행하여 어떤 결과를 얻을 때 발생합니다. 이 이벤트는 단계에 진입하거나 종료할 때는 발생하지 않습니다. 현재는 분할 단계(오디언스 경로, 결정 분할, 행동 경로, 실험)와 진행 결과만 단계 진행 이벤트를 생성합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2053,7 +2056,7 @@ Canvas
   "next_step_id" : "(optional, string) API ID of the next step in the canvas",
   "progression_type" : "(required, string) What type of step progression event this is",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -2167,7 +2170,7 @@ Canvas
 // Canvas Step Progression (users.canvasstep.Progression)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -2200,13 +2203,13 @@ Canvas
 {% endapi %}
 
 {% api %}
-## 배너 이벤트 중단 {#banner-abort-events}
+## 배너 중단 이벤트 {#banner-abort-events}
 
 {% apitags %}
 Banner, Abort
 {% endapitags %}
 
-This event occurs when an originally scheduled banner message was aborted for some reason.
+이 이벤트는 원래 스케줄된 배너 메시지가 어떤 이유로 중단되었을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2225,6 +2228,13 @@ This event occurs when an originally scheduled banner message was aborted for so
   "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -2241,7 +2251,7 @@ This event occurs when an originally scheduled banner message was aborted for so
   "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -2265,6 +2275,13 @@ This event occurs when an originally scheduled banner message was aborted for so
     "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2301,6 +2318,13 @@ This event occurs when an originally scheduled banner message was aborted for so
     "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -2344,6 +2368,13 @@ This event occurs when an originally scheduled banner message was aborted for so
           "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+          "canvas_name" : "(optional, string) Name of the Canvas",
+          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the Canvas step",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2371,7 +2402,7 @@ This event occurs when an originally scheduled banner message was aborted for so
 // Banner Aborted (users.messages.banner.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device"
@@ -2392,6 +2423,13 @@ This event occurs when an originally scheduled banner message was aborted for so
     "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
@@ -2404,20 +2442,22 @@ This event occurs when an originally scheduled banner message was aborted for so
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 Banner messages every 1 week`
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- `abort_type`은 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `frequency_capped`가 됩니다.
+- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 Banner messages every 1 week`
+
 {% endapi %}
 
 {% api %}
 ## 배너 클릭 이벤트 {#banner-click-events}
 
 {% apitags %}
-배너, 클릭 수
+Banner, Clicks
 {% endapitags %}
 
-This event occurs when a user clicks a banner.
+이 이벤트는 사용자가 배너를 클릭할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2435,6 +2475,13 @@ This event occurs when a user clicks a banner.
   "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -2451,7 +2498,7 @@ This event occurs when a user clicks a banner.
   "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -2474,6 +2521,13 @@ This event occurs when a user clicks a banner.
     "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2509,6 +2563,13 @@ This event occurs when a user clicks a banner.
     "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -2551,6 +2612,13 @@ This event occurs when a user clicks a banner.
           "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+          "canvas_name" : "(optional, string) Name of the Canvas",
+          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the Canvas step",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2578,7 +2646,7 @@ This event occurs when a user clicks a banner.
 // Banner Clicked (users.messages.banner.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device"
@@ -2598,6 +2666,13 @@ This event occurs when a user clicks a banner.
     "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
@@ -2613,13 +2688,14 @@ This event occurs when a user clicks a banner.
 {% endapi %}
 
 {% api %}
-## 배너 노출 횟수 이벤트 {#banner-impression-events}
+
+## 배너 노출 이벤트 {#banner-impression-events}
 
 {% apitags %}
 Banner, Impressions
 {% endapitags %}
 
-This event occurs when a user views a banner.
+이 이벤트는 사용자가 배너를 조회할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2636,6 +2712,13 @@ This event occurs when a user views a banner.
   "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -2652,7 +2735,7 @@ This event occurs when a user views a banner.
   "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -2674,6 +2757,13 @@ This event occurs when a user views a banner.
     "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2708,6 +2798,13 @@ This event occurs when a user views a banner.
     "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -2749,6 +2846,13 @@ This event occurs when a user views a banner.
           "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+          "canvas_name" : "(optional, string) Name of the Canvas",
+          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the Canvas step",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2776,7 +2880,7 @@ This event occurs when a user views a banner.
 // Banner Viewed (users.messages.banner.Impression)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device"
@@ -2795,6 +2899,13 @@ This event occurs when a user views a banner.
     "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
@@ -2810,13 +2921,13 @@ This event occurs when a user views a banner.
 {% endapi %}
 
 {% api %}
-## 콘텐츠 카드 이벤트 중단 {#content-card-abort-events}
+## Content Cards 중단 이벤트 {#content-card-abort-events}
 
 {% apitags %}
-중단, 콘텐츠 카드
+Abort, Content Cards
 {% endapitags %}
 
-이 이벤트는 Liquid 중단 등에 따라 콘텐츠 카드 메시지가 중단된 경우에 발생합니다.
+이 이벤트는 Liquid 중단 등에 따라 Content Cards 메시지가 중단된 경우에 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2845,7 +2956,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -2968,7 +3079,7 @@ This event occurs when a user views a banner.
 // Content Card Aborted (users.messages.contentcard.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -3001,25 +3112,23 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 Content Card messages every 1 week`
+- `dispatch_id`는 Campaign 발송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하고, 해당 발송의 푸시 메시지 라이프사이클(발송, 반송, 열기 등)을 상관 분석할 수 있습니다.
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- `abort_type`은 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `frequency_capped`가 됩니다.
+- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 Content Card messages every 1 week`
+
 {% endapi %}
 
 {% api %}
-## 콘텐츠 카드 클릭 이벤트 {#content-card-click-events}
+## Content Cards 클릭 이벤트 {#content-card-click-events}
 
 {% apitags %}
-콘텐츠 카드, 클릭
+Content Cards, Clicks
 {% endapitags %}
 
-이 이벤트는 사용자가 콘텐츠 카드를 클릭할 때 발생합니다.
-
-{% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
-{% endalert %}
+이 이벤트는 사용자가 Content Cards를 클릭할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -3052,7 +3161,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -3196,7 +3305,7 @@ This event occurs when a user views a banner.
 // Content Card Clicked (users.messages.contentcard.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -3235,24 +3344,21 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우 계정 매니저에게 문의하여 `ad_id` 전송을 활성화하세요.
 {% endapi %}
 
 {% api %}
-## 콘텐츠 카드 방출 이벤트 {#content-card-dismiss-events}
+
+## Content Cards 해제 이벤트 {#content-card-dismiss-events}
 
 {% apitags %}
-콘텐츠 카드, 방출
+Content Cards, Dismissal
 {% endapitags %}
 
-이 이벤트는 사용자가 콘텐츠 카드를 해지할 때 발생합니다.
-
-{% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
-{% endalert %}
+이 이벤트는 사용자가 Content Cards를 해제할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -3285,7 +3391,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -3429,7 +3535,7 @@ This event occurs when a user views a banner.
 // Content Card Dismissed (users.messages.contentcard.Dismiss)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -3468,24 +3574,20 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우 고객 성공 매니저에게 문의하여 `ad_id` 전송을 활성화하세요.
 {% endapi %}
 
 {% api %}
-## 콘텐츠 카드 노출 횟수 이벤트 {#content-card-impression-events}
+## Content Cards 노출 이벤트 {#content-card-impression-events}
 
 {% apitags %}
-콘텐츠 카드, 노출
+Content Cards, Impressions
 {% endapitags %}
 
-이 이벤트는 사용자가 콘텐츠 카드를 볼 때 발생합니다.
-
-{% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
-{% endalert %}
+이 이벤트는 사용자가 Content Cards를 볼 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -3518,7 +3620,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -3662,7 +3764,7 @@ This event occurs when a user views a banner.
 // Content Card Viewed (users.messages.contentcard.Impression)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -3701,24 +3803,20 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우 고객 성공 매니저에게 문의하여 `ad_id` 전송을 활성화하세요.
 {% endapi %}
 
 {% api %}
-## 콘텐츠 카드 이벤트 보내기 {#content-card-send-events}
+## Content Cards 전송 이벤트 {#content-card-send-events}
 
 {% apitags %}
-콘텐츠 카드, 보내기
+Content Cards, Sends
 {% endapitags %}
 
-이 이벤트는 콘텐츠 카드가 사용자에게 전송될 때 발생합니다.
-
-{% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
-{% endalert %}
+이 이벤트는 Content Cards가 사용자에게 전송될 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -3745,7 +3843,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -3868,7 +3966,7 @@ This event occurs when a user views a banner.
 // Content Card Sent (users.messages.contentcard.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -3901,16 +3999,17 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `message_extras` 를 사용하면 연결된 콘텐츠의 동적 데이터, 사용자 지정 속성(예: 언어 또는 국가) 및 캔버스 항목 속성을 사용하여 보내기 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가]({{site.baseurl}}/message_extras_tag/) 정보를 참조하세요.
+- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어 또는 국가) 및 Canvas 진입 속성으로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
+
 {% endapi %}
 
 {% api %}
-## 이메일 이벤트 중단 {#email-abort-events}
+## 이메일 중단 이벤트 {#email-abort-events}
 
 {% apitags %}
-중단, 이메일
+Abort, Email
 {% endapitags %}
 
 이 이벤트는 Liquid 중단 등에 따라 이메일 메시지가 중단된 경우에 발생합니다.
@@ -3944,7 +4043,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -4073,7 +4172,7 @@ This event occurs when a user views a banner.
 // Email Aborted (users.messages.email.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -4109,21 +4208,24 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 email messages every 1 week`
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 생애 주기를 그룹화하고 상관관계를 설정할 수 있습니다(예: 전송, 반송 및 열기).
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 email messages every 1 week`
+
 {% endapi %}
 
 {% api %}
+
 ## 이메일 반송 이벤트 {#email-bounce-events}
 
 {% apitags %}
-이메일, 반송
+Email, Bounce
 {% endapitags %}
 
-이 이벤트는 인터넷 서비스 공급자가 하드바운스를 반환할 때 발생합니다. 하드 바운스는 영구적인 전달 가능성 실패를 의미합니다.
+이 이벤트는 인터넷 서비스 공급자가 하드바운스를 반환할 때 발생합니다. 하드바운스는 영구적인 전달 가능성 실패를 의미합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4155,7 +4257,7 @@ This event occurs when a user views a banner.
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -4290,7 +4392,7 @@ This event occurs when a user views a banner.
 // Email Bounced (users.messages.email.Bounce)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -4328,20 +4430,21 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+
 {% endapi %}
 
 {% api %}
 ## 이메일 클릭 이벤트 {#email-click-events}
 
 {% apitags %}
-이메일, 클릭
+Email, Clicks
 {% endapitags %}
 
-이 이벤트는 사용자가 이메일을 클릭할 때 발생합니다. 사용자가 여러 번 클릭하거나 이메일 내의 다른 링크를 클릭하면 동일한 캠페인에 대해 여러 이벤트가 생성될 수 있습니다.
+이 이벤트는 사용자가 이메일을 클릭할 때 발생합니다. 사용자가 여러 번 클릭하거나 이메일 내의 다른 링크를 클릭하면 동일한 Campaign에 대해 여러 이벤트가 생성될 수 있습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4382,7 +4485,7 @@ This event occurs when a user views a banner.
   "timezone" : "(optional, string) Time zone of the user",
   "url" : "(optional, string) URL that the user clicked on",
   "user_agent" : "(optional, string) User agent on which the click occurred",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -4546,7 +4649,7 @@ This event occurs when a user views a banner.
 // Email Link Clicked (users.messages.email.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device"
@@ -4595,20 +4698,21 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+
 {% endapi %}
 
 {% api %}
-## 이메일 연기 이벤트 {#email-deferral-events}
+## 이메일 지연 이벤트 {#email-deferral-events}
 
 {% apitags %}
-이메일, 연기
+Email, Deferral
 {% endapitags %}
 
-이 이벤트는 인터넷 서비스 제공업체가 하드 반송되지 않은 이메일 주소로 이메일을 즉시 전달하지 않고 Braze가 최대 72시간 동안 이메일을 재시도할 때 발생합니다. 일반적인 지연 사유로는 받은 편지함 제공업체의 평판 기반 이메일 용량 제한, 일시적인 연결 문제, 수신자의 사서함이 꽉 찼거나 DNS 오류 등이 있습니다.
+이 이벤트는 인터넷 서비스 공급자가 하드바운스되지 않은 이메일 주소로 이메일을 즉시 전달하지 않고 Braze가 최대 72시간 동안 이메일을 재시도할 때 발생합니다. 일반적인 지연 사유로는 받은 편지함 공급자의 평판 기반 이메일 발송량 제한, 일시적인 연결 문제, 수신자의 사서함이 꽉 찬 경우, DNS 오류 등이 있습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4642,7 +4746,7 @@ This event occurs when a user views a banner.
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -4776,7 +4880,7 @@ This event occurs when a user views a banner.
 // Email Deferred (users.messages.email.Deferral)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -4814,17 +4918,19 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
+
 {% endapi %}
 
 {% api %}
+
 ## 이메일 전달 이벤트 {#email-delivery-events}
 
 {% apitags %}
-이메일, 배달
+Email, Delivery
 {% endapitags %}
 
 이 이벤트는 전송된 이메일이 최종 사용자의 받은 편지함에 성공적으로 도착했을 때 발생합니다.
@@ -4857,7 +4963,7 @@ This event occurs when a user views a banner.
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -4986,7 +5092,7 @@ This event occurs when a user views a banner.
 // Email Delivered (users.messages.email.Delivery)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -5022,20 +5128,21 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
+
 {% endapi %}
 
 {% api %}
 ## 이메일 스팸으로 표시 이벤트 {#email-mark-as-spam-events}
 
 {% apitags %}
-이메일, 스팸
+Email, Spam
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 이메일의 '스팸' 버튼을 누를 때 발생합니다. Braze는 이를 추적하지 않으므로 이메일이 스팸 폴더로 이동한 사실을 나타내지 않습니다.
+이 이벤트는 최종 사용자가 이메일의 "스팸" 버튼을 누를 때 발생합니다. Braze는 이메일이 스팸 폴더로 이동했는지 여부를 추적하지 않으므로, 이 이벤트가 스팸 폴더 이동을 나타내는 것은 아닙니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5065,7 +5172,7 @@ This event occurs when a user views a banner.
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_agent" : "(optional, string) User agent on which the spam report occurred",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -5197,7 +5304,7 @@ This event occurs when a user views a banner.
 // Email Marked as Spam (users.messages.email.MarkAsSpam)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -5234,23 +5341,24 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
+
 {% endapi %}
 
 {% api %}
-## 이메일 이벤트 열기 {#email-open-events}
+## 이메일 열기 이벤트 {#email-open-events}
 
 {% apitags %}
-이메일, 열기
+Email, Opens
 {% endapitags %}
 
-이 이벤트는 사용자가 이메일을 열 때 발생합니다. 사용자가 이메일을 여러 번 열면 동일한 캠페인에 대해 여러 개의 이벤트가 생성될 수 있습니다.
+이 이벤트는 사용자가 이메일을 열 때 발생합니다. 사용자가 이메일을 여러 번 열면 동일한 Campaign에 대해 여러 이벤트가 생성될 수 있습니다.
 
 {% alert important %}
-이메일 열기 이벤트 필드 `device_model` 및 `mailbox_provider` 가 비어 있는 것은 알려진 동작입니다. 지금은 무시해도 됩니다.
+이메일 열기 이벤트 필드 `device_model` 및 `mailbox_provider`가 비어 있는 것은 알려진 동작입니다. 현재로서는 이를 무시해도 됩니다.
 {% endalert %}
 
 {% tabs %}
@@ -5486,20 +5594,21 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다.
+
 {% endapi %}
 
 {% api %}
 ## 이메일 재시도 이벤트 {#email-retry-events}
 
 {% apitags %}
-이메일, 재시도
+Email, Retry
 {% endapitags %}
 
-이 이벤트는 메시지의 우선 순위가 떨어지거나 최대 게재빈도가 설정된 경우 발생하며 나중에 구성된 재시도 기간 내에 재시도됩니다. 메시지 우선순위 지정 베타 고객만 사용할 수 있습니다.
+이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 구성된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5702,13 +5811,14 @@ This event occurs when a user views a banner.
 {% endapi %}
 
 {% api %}
-## 이메일 이벤트 보내기 {#email-send-events}
+
+## 이메일 전송 이벤트 {#email-send-events}
 
 {% apitags %}
-이메일, 보내기
+Email, Sends
 {% endapitags %}
 
-이 이벤트는 이메일 전송 요청이 Braze와 SendGrid 간에 성공적으로 전달되었을 때 발생합니다. 그러나 이것이 사용자의 받은편지함에 이메일이 수신되었음을 의미하지는 않습니다. 이메일 이벤트와 연결된 이메일과 사용자 ID가 모두 일치하지 않는 경우 이벤트가 사용자 프로필이나 커런츠 대상(예: Snowflake)에 이벤트가 기록되지 않습니다.
+이 이벤트는 이메일 전송 요청이 Braze와 SendGrid 간에 성공적으로 전달되었을 때 발생합니다. 그러나 이것이 이메일이 사용자의 받은편지함에 수신되었다는 것을 의미하지는 않습니다. Braze는 이벤트가 이메일 이벤트와 관련된 이메일 및 사용자 ID 모두에 일치하지 않는 경우 사용자 프로필이나 Currents 대상(예: Snowflake)에 이벤트를 기록하지 않습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5736,7 +5846,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -5864,7 +5974,7 @@ This event occurs when a user views a banner.
 // Email Sent (users.messages.email.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -5901,21 +6011,22 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
-- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 캔버스 항목 속성을 사용하여 보내기 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가]({{site.baseurl}}/message_extras_tag/) 정보를 참조하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 예약 가능한 진입 단계를 제외한 캔버스 단계를 예약된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 Canvas 진입 등록정보로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
+
 {% endapi %}
 
 {% api %}
-## 이메일 소프트 바운스 이벤트 {#email-soft-bounce-events}
+## 이메일 소프트바운스 이벤트 {#email-soft-bounce-events}
 
 {% apitags %}
-이메일, 반송
+Email, Bounce
 {% endapitags %}
 
-이 이벤트는 인터넷 서비스 제공업체가 소프트 바운스를 반환할 때 발생합니다. 소프트반송은 일시적인 전달 가능성의 실패로 인해 이메일을 전달할 수 없음을 의미합니다.
+이 이벤트는 인터넷 서비스 공급자가 소프트바운스를 반환할 때 발생합니다. 소프트바운스는 일시적인 전달 가능성 실패로 인해 이메일을 전달할 수 없음을 의미합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5946,7 +6057,7 @@ This event occurs when a user views a banner.
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -6078,7 +6189,7 @@ This event occurs when a user views a banner.
 // Email Soft Bounced (users.messages.email.SoftBounce)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -6115,23 +6226,24 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 예약 가능한 진입 단계를 제외한 캔버스 단계를 예약된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+
 {% endapi %}
 
 {% api %}
-## 이벤트 탈퇴 이메일 보내기 {#email-unsubscribe-events}
+## 이메일 탈퇴 이벤트 {#email-unsubscribe-events}
 
 {% apitags %}
-이메일, 구독
+Email, Subscription
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 이메일에서 "수신 거부"를 클릭한 경우에 발생합니다.
+이 이벤트는 최종 사용자가 이메일에서 "수신 거부"를 클릭했을 때 발생합니다.
 
 {% alert important %}
-`Unsubscribe` 이벤트는 사용자가 이메일의 수신 거부 링크(이메일 본문이나 바닥글에 있는 일반 수신 거부 링크 또는 [목록 수신 거부 헤더를]({{site.baseurl}}/user_guide/administrative/app_settings/manage_app_group/email_settings#include-a-list-unsubscribe-header) 사용)를 클릭할 때 발생하는 특수 클릭 이벤트로 간주되며, 사용자가 수신 거부로 상태를 변경할 때 발생하는 것이 아니라 사용자가 이메일의 수신 거부 링크를 클릭할 때 발생합니다. 구독 상태 변경이 API를 통해 전송되거나 커스텀(비 Braze) 구독 취소 링크가 포함된 경우, 커런츠에서 이메일 구독 취소 이벤트가 트리거되지 않습니다.
+`Unsubscribe` 이벤트는 사용자가 이메일의 탈퇴 링크(이메일 본문 또는 바닥글 내의 일반 탈퇴 링크 또는 [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header) 사용)를 클릭할 때 발생하는 특수 클릭 이벤트로 간주되며, 사용자가 탈퇴 상태로 변경될 때 발생하는 것이 아닙니다. 구독 상태 변경이 API를 통해 전송되거나 커스텀(비-Braze) 탈퇴 링크로 전송되는 경우 Currents에서 이메일 탈퇴 이벤트가 트리거되지 않습니다.
 {% endalert %}
 
 {% tabs %}
@@ -6159,7 +6271,7 @@ This event occurs when a user views a banner.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -6282,7 +6394,7 @@ This event occurs when a user views a banner.
 // Unsubscribed (users.messages.email.Unsubscribe)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -6316,20 +6428,21 @@ This event occurs when a user views a banner.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-  - `dispatch_id`의 동작은 캔버스와 캠페인 간에 다르며, 이는 예약된 경우에도 Braze가 예약 가능한 진입 단계를 제외한 캔버스 단계를 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
+  - `dispatch_id`의 동작은 Canvas와 Campaign 간에 다릅니다. Braze는 예약 가능한 진입 단계를 제외한 캔버스 단계를 예약된 경우에도 트리거된 이벤트로 취급하기 때문입니다. [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+
 {% endapi %}
 
 {% api %}
-## 기능 플래그 실험 노출 횟수 이벤트 {#feature-flag-experiment-impression-events}
+## 기능 플래그 실험 노출 이벤트 {#feature-flag-experiment-impression-events}
 
 {% apitags %}
-기능 플래그, 노출 횟수
+Feature Flags, Impressions
 {% endapitags %}
 
-이 이벤트는 사용자가 기능과 상호 작용할 기회가 있었거나 기능이 비활성화되어 있을 경우 상호 작용할 수 있었던 경우(A/B 테스트의 대조군의 경우) 발생합니다.
+이 이벤트는 사용자가 기능과 상호작용할 기회를 가졌거나, 기능이 비활성화된 경우(A/B 테스트의 대조군인 경우) 상호작용할 수 있었을 때 발생합니다.
 
 기능 플래그 노출은 세션당 한 번만 기록됩니다.
 
@@ -6369,7 +6482,7 @@ This event occurs when a user views a banner.
   "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -6498,7 +6611,7 @@ This event occurs when a user views a banner.
 // Feature Flag Experiment Impressed (users.messages.featureflag.Impression)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -6536,13 +6649,14 @@ This event occurs when a user views a banner.
 {% endapi %}
 
 {% api %}
+
 ## 인앱 메시지 중단 이벤트 {#in-app-message-abort-events}
 
 {% apitags %}
 In-App Messages, Abort
 {% endapitags %}
 
-This event occurs when an originally scheduled in-app message was aborted.
+이 이벤트는 원래 예약된 인앱 메시지가 중단되었을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -6582,7 +6696,7 @@ This event occurs when an originally scheduled in-app message was aborted.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "version" : "(required, string) Which version of in-app message, legacy or triggered"
 }
 ```
@@ -6731,7 +6845,7 @@ This event occurs when an originally scheduled in-app message was aborted.
 // In-App Message Aborted (users.messages.inappmessage.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -6772,10 +6886,11 @@ This event occurs when an originally scheduled in-app message was aborted.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 in-app messages every 1 week`
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 메시지가 전역 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 in-app messages every 1 week`
 
 {% endapi %}
 
@@ -6783,13 +6898,13 @@ This event occurs when an originally scheduled in-app message was aborted.
 ## 인앱 메시지 클릭 이벤트 {#in-app-message-click-events}
 
 {% apitags %}
-인앱 메시지, 클릭
+In-App Messages, Clicks
 {% endapitags %}
 
 이 이벤트는 사용자가 인앱 메시지를 클릭할 때 발생합니다.
 
 {% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
+인앱 메시지의 경우 `dispatch_id`는 `null`을 반환합니다.
 {% endalert %}
 
 {% tabs %}
@@ -6824,7 +6939,7 @@ This event occurs when an originally scheduled in-app message was aborted.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -6971,7 +7086,7 @@ This event occurs when an originally scheduled in-app message was aborted.
 // In-App Message Clicked (users.messages.inappmessage.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -7011,23 +7126,23 @@ This event occurs when an originally scheduled in-app message was aborted.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우 계정 매니저에게 문의하여 `ad_id` 전송을 활성화하세요.
 {% endapi %}
 
 {% api %}
-## 인앱 메시지 노출 횟수 이벤트 {#in-app-message-impression-events}
+## 인앱 메시지 노출 이벤트 {#in-app-message-impression-events}
 
 {% apitags %}
-인앱 메시지, 노출
+In-App Messages, Impressions
 {% endapitags %}
 
 이 이벤트는 사용자가 인앱 메시지를 볼 때 발생합니다.
 
 {% alert note %}
-`dispatch_id` is deprecated and will be removed in the next Currents release.
+인앱 메시지의 경우 `dispatch_id`는 `null`을 반환합니다.
 {% endalert %}
 
 {% tabs %}
@@ -7063,7 +7178,7 @@ This event occurs when an originally scheduled in-app message was aborted.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -7213,7 +7328,7 @@ This event occurs when an originally scheduled in-app message was aborted.
 // In-App Message Viewed (users.messages.inappmessage.Impression)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -7254,20 +7369,21 @@ This event occurs when an originally scheduled in-app message was aborted.
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우 계정 매니저에게 문의하여 `ad_id` 전송을 활성화하세요.
 {% endapi %}
 
 {% api %}
-## LINE 이벤트 중단 {#line-abort-events}
+
+## LINE 중단 이벤트 {#line-abort-events}
 
 {% apitags %}
-LINE, 중단
+LINE, Abort
 {% endapitags %}
 
-이 이벤트는 예약된 LINE 메시지를 전송하기 전에 LINE에 전달할 수 없는 경우에 발생합니다.
+이 이벤트는 예약된 LINE 메시지가 LINE으로 전송되기 전에 전달할 수 없을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7297,7 +7413,7 @@ LINE, 중단
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -7424,7 +7540,7 @@ LINE, 중단
 // Aborted (users.messages.line.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -7458,11 +7574,12 @@ LINE, 중단
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 LINE messages every 1 week`
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 LINE messages every 1 week`
 
 {% endapi %}
 
@@ -7470,7 +7587,7 @@ LINE, 중단
 ## LINE 클릭 이벤트 {#line-click-events}
 
 {% apitags %}
-LINE, 클릭
+LINE, Clicks
 {% endapitags %}
 
 이 이벤트는 사용자가 LINE 메시지에서 링크의 도메인이 클릭 추적 도메인과 일치하는 링크를 클릭할 때 발생합니다.
@@ -7505,7 +7622,7 @@ LINE, 클릭
   "timezone" : "(optional, string) Time zone of the user",
   "url" : "(required, string) URL that the user clicked on",
   "user_agent" : "(optional, string) User agent on which the click occurred",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -7638,7 +7755,7 @@ LINE, 클릭
 // Clicked (users.messages.line.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -7673,19 +7790,20 @@ LINE, 클릭
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## LINE 인바운드 수신 이벤트 {#line-inbound-receive-events}
 
 {% apitags %}
-LINE, 인바운드 수신
+LINE, Inbound Received
 {% endapitags %}
 
-이 이벤트는 사용자로부터 LINE 메시지를 수신할 때 발생합니다.
+이 이벤트는 사용자로부터 LINE 메시지가 수신될 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7715,7 +7833,7 @@ LINE, 인바운드 수신
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -7842,7 +7960,7 @@ LINE, 인바운드 수신
 // LINE Inbound Received (users.messages.line.InboundReceive)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -7876,19 +7994,20 @@ LINE, 인바운드 수신
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## LINE 재시도 이벤트 {#line-retry-events}
 
 {% apitags %}
-LINE, 재시도
+LINE, Retry
 {% endapitags %}
 
-이 이벤트는 메시지의 우선 순위가 떨어지거나 최대 게재빈도가 설정된 경우 발생하며 나중에 구성된 재시도 기간 내에 재시도됩니다. 메시지 우선순위 지정 베타 고객만 사용할 수 있습니다.
+이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 설정된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8082,13 +8201,14 @@ LINE, 재시도
 {% endapi %}
 
 {% api %}
-## LINE 이벤트 보내기 {#line-send-events}
+
+## LINE 전송 이벤트 {#line-send-events}
 
 {% apitags %}
-LINE, 보내기
+LINE, Sends
 {% endapitags %}
 
-이 이벤트는 LINE에 메시징이 전송될 때 발생합니다.
+이 이벤트는 LINE 메시지가 LINE으로 전송될 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8117,7 +8237,7 @@ LINE, 보내기
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -8241,7 +8361,7 @@ LINE, 보내기
 // Sent (users.messages.line.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -8274,9 +8394,10 @@ LINE, 보내기
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
@@ -8286,7 +8407,7 @@ LINE, 보내기
 Live Activity, Outcome
 {% endapitags %}
 
-This event occurs when Braze receives a response from a third party provider (e.g. APNs) after the Live Activity send
+이 이벤트는 실시간 활동 전송 후 Braze가 서드파티 공급자(예: APNs)로부터 응답을 수신할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8305,7 +8426,7 @@ This event occurs when Braze receives a response from a third party provider (e.
   "push_to_start_token" : "(optional, string) Live Activity push to start token",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "update_token" : "(optional, string) Live Activity update token",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -8402,7 +8523,7 @@ This event occurs when Braze receives a response from a third party provider (e.
 // Live Activity Outcome (users.messages.liveactivity.Outcome)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -8430,13 +8551,13 @@ This event occurs when Braze receives a response from a third party provider (e.
 {% endapi %}
 
 {% api %}
-## 실시간 활동 이벤트 보내기 {#live-activity-send-events}
+## 실시간 활동 전송 이벤트 {#live-activity-send-events}
 
 {% apitags %}
 Live Activity, Sends
 {% endapitags %}
 
-이 이벤트는 Braze 시스템이 라이브 활동과 관련하여 제공업체에 요청할 때 발생합니다.
+이 이벤트는 Braze 시스템이 실시간 활동에 대해 공급자에게 요청을 할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8454,7 +8575,7 @@ Live Activity, Sends
   "push_to_start_token" : "(optional, string) Live Activity push to start token",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "update_token" : "(optional, string) Live Activity update token",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -8548,7 +8669,7 @@ Live Activity, Sends
 // Live Activity Sent (users.messages.liveactivity.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -8578,7 +8699,7 @@ Live Activity, Sends
 ## 푸시 알림 중단 이벤트 {#push-notification-abort-events}
 
 {% apitags %}
-중단, 푸시
+Abort, Push
 {% endapitags %}
 
 이 이벤트는 Liquid 중단 등에 따라 푸시 알림 메시지가 중단된 경우에 발생합니다.
@@ -8612,7 +8733,7 @@ Live Activity, Sends
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -8741,7 +8862,7 @@ Live Activity, Sends
 // Push Notification Aborted (users.messages.pushnotification.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -8776,21 +8897,23 @@ Live Activity, Sends
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 push messages every 1 week`
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 push messages every 1 week`
+
 {% endapi %}
 
 {% api %}
 ## 푸시 알림 반송 이벤트 {#push-notification-bounce-events}
 
 {% apitags %}
-푸시, 전송, 바운스
+Push, Sends, Bounce
 {% endapitags %}
 
-이 이벤트는 Apple 푸시 알림 서비스 또는 Fire 클라우드 메시징에서 오류가 수신될 때 발생합니다. 이는 푸시 메시지가 반송되어 사용자의 기기에 전달되지 않았음을 의미합니다.
+이 이벤트는 Apple 푸시 알림 서비스 또는 Fire Cloud Messaging에서 오류가 수신될 때 발생합니다. 이는 푸시 메시지가 반송되어 사용자의 기기에 전달되지 않았음을 의미합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8822,7 +8945,7 @@ Live Activity, Sends
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -8961,7 +9084,7 @@ Live Activity, Sends
 // Push Notification Bounced (users.messages.pushnotification.Bounce)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -8998,20 +9121,22 @@ Live Activity, Sends
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- Kafka를 사용하여 [커런츠]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자 또는 계정 매니저에게 문의하여 `ad_id` 으로 전송하기 위한 기능 플리퍼를 인에이블먼트하세요.
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
-## 푸시 알림 iOS 포그라운드 이벤트 열기 {#push-notification-ios-foreground-open-events}
+
+## 푸시 알림 iOS 포그라운드 열기 이벤트 {#push-notification-ios-foreground-open-events}
 
 {% apitags %}
-푸시, iOS, 보내기
+Push, iOS, Sends
 {% endapitags %}
 
-이 이벤트는 [Swift SDK](https://github.com/braze-inc/braze-swift-sdk)에서 지원되지 않으며 현재 [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)에서 더 이상 사용되지 않습니다.
+이 이벤트는 [Swift SDK](https://github.com/braze-inc/braze-swift-sdk)에서 지원되지 않으며, [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)에서는 현재 더 이상 사용되지 않습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9042,7 +9167,7 @@ Live Activity, Sends
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -9129,7 +9254,7 @@ Live Activity, Sends
 // Ios Foreground Push Opened (users.messages.pushnotification.IosForeground)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -9167,26 +9292,27 @@ Live Activity, Sends
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저에게 연락하여 `ad_id` 전송을 활성화하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
-## 푸시 알림 이벤트 열기 {#push-notification-open-events}
+## 푸시 알림 열기 이벤트 {#push-notification-open-events}
 
 {% apitags %}
-푸시, 열기
+Push, Opens
 {% endapitags %}
 
-이 이벤트는 사용자가 푸시 알림을 직접 클릭하여 애플리케이션을 열 때 발생합니다. 현재 푸시 열기 이벤트는 "총 열기"가 아닌 "직접 열기"를 구체적으로 지칭합니다. 여기에는 "영향받은 오픈"의 캠페인 수준 통계는 사용자 수준에서 어트리뷰션되지 않으므로 포함되지 않습니다.
+이 이벤트는 사용자가 푸시 알림을 직접 클릭하여 애플리케이션을 열 때 발생합니다. 현재 푸시 열기 이벤트는 "총 열기"가 아닌 "직접 열기"를 구체적으로 지칭합니다. 여기에는 사용자 수준에서 기여도가 부여되지 않는 "영향받은 열기"의 Campaign 수준 통계는 포함되지 않습니다.
 
 {% alert note %}
-드물지만 다음과 같은 이유로 인해 커런츠 데이터에서 해당 푸시 전송 이벤트보다 먼저 푸시 오픈이 나타날 수 있습니다:
-- 소프트웨어 개발 키트에 잘못된 시계가 있습니다.
-- 높은 일괄 쓰기 지연 시간. 기록된 전송 시간은 조기 전달보다 늦어질 수 있으므로 배치의 최종 전송 타임스탬프가 기록되기 전에 매우 빠른 열림이 기록될 수 있습니다. 대량 전송은 일괄적으로 발송되고 기록됩니다.
+드물게, Currents 데이터에서 푸시 열기가 해당 푸시 전송 이벤트보다 먼저 나타날 수 있습니다. 그 이유는 다음과 같습니다.
+- SDK의 시계가 정확하지 않습니다.
+- 높은 배치 쓰기 지연 시간. 기록된 전송 시간이 조기 전달에 비해 지연될 수 있으므로, 매우 빠른 열기가 배치의 최종 전송 타임스탬프가 기록되기 전에 로깅될 수 있습니다. 대량 전송은 배치로 발송되고 기록됩니다.
 {% endalert %}
 
 {% tabs %}
@@ -9223,7 +9349,7 @@ Live Activity, Sends
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -9364,7 +9490,7 @@ Live Activity, Sends
 // Push Notification Tapped (users.messages.pushnotification.Open)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : {
       "model" : "(optional, string) Model of the device",
@@ -9402,21 +9528,22 @@ Live Activity, Sends
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저에게 연락하여 `ad_id` 전송을 활성화하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## 푸시 알림 재시도 이벤트 {#push-notification-retry-events}
 
 {% apitags %}
-푸시, 재시도
+Push, Retry
 {% endapitags %}
 
-이 이벤트는 메시지의 우선 순위가 떨어지거나 최대 게재빈도가 설정된 경우 발생하며 나중에 구성된 재시도 기간 내에 재시도됩니다. 메시지 우선순위 지정 베타 고객만 사용할 수 있습니다.
+이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 구성된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9617,13 +9744,13 @@ Live Activity, Sends
 {% endapi %}
 
 {% api %}
-## 푸시 알림 이벤트 보내기 {#push-notification-send-events}
+## 푸시 알림 전송 이벤트 {#push-notification-send-events}
 
 {% apitags %}
-푸시, 보내기
+Push, Sends
 {% endapitags %}
 
-이 이벤트는 Braze가 사용자를 위한 푸시 메시지를 처리하여 이를 Apple 푸시 알림 서비스 또는 Fire 클라우드 메시징에 전달할 때 발생합니다. 이는 푸시가 디바이스에 전달되었다는 의미가 아니라 메시지가 전송되었다는 의미입니다.
+이 이벤트는 Braze가 사용자를 위한 푸시 메시지를 처리하여 Apple Push Notification Service 또는 Fire Cloud Messaging에 전달할 때 발생합니다. 이는 푸시가 기기에 전달되었다는 의미가 아니라 메시지가 전송되었다는 의미입니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9657,7 +9784,7 @@ Live Activity, Sends
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -9802,7 +9929,7 @@ Live Activity, Sends
 // Push Notification Sent (users.messages.pushnotification.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -9841,22 +9968,24 @@ Live Activity, Sends
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `ad_id`, `ad_id_type`, `ad_tracking_enabled` 의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. Learn more about this setup for [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) and [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) 데이터를 수집하는 경우 고객 성공 관리자에게 문의하여 `ad_id` 으로 전송을 활성화하세요.
-- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 캔버스 항목 속성을 사용하여 보내기 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가]({{site.baseurl}}/message_extras_tag/) 정보를 참조하세요.
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
+- Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저에게 연락하여 `ad_id` 전송을 활성화하세요.
+- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 Canvas 진입 속성으로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
-## RCS 이벤트 중단 {#rcs-abort-events}
+
+## RCS 중단 이벤트 {#rcs-abort-events}
 
 {% apitags %}
-RCS, 중단
+RCS, Abort
 {% endapitags %}
 
-이 이벤트는 Braze 내에서 오류가 감지되어 RCS 전송이 중단되고 메시징이 삭제될 때 생성됩니다.
+이 이벤트는 Braze 내에서 감지된 오류로 인해 RCS 전송이 중단되고 메시지가 삭제될 때 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9881,7 +10010,7 @@ RCS, 중단
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -9993,7 +10122,7 @@ RCS, 중단
 // Aborted (users.messages.rcs.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -10023,20 +10152,22 @@ RCS, 중단
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 RCS messages every 1 week`
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 메시지가 전역 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 RCS messages every 1 week`
+
 {% endapi %}
 
 {% api %}
 ## RCS 클릭 이벤트 {#rcs-click-events}
 
 {% apitags %}
-RCS, 클릭 수
+RCS, Clicks
 {% endapitags %}
 
-사용자가 UI 요소를 탭하거나 클릭하는 등의 방식으로 RCS 메시지와 상호 작용할 때 생성되는 이벤트입니다.
+사용자가 UI 요소를 탭하거나 클릭하는 방식으로 RCS 메시지와 상호작용할 때 생성되는 이벤트입니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10069,7 +10200,7 @@ RCS, 클릭 수
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "url" : "(optional, string) The full URL that the user clicked on",
   "user_agent" : "(optional, string) User agent on which the click occurred",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
 ```
@@ -10211,7 +10342,7 @@ RCS, 클릭 수
 // Clicked (users.messages.rcs.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -10256,10 +10387,10 @@ RCS, 클릭 수
 ## RCS 전달 이벤트 {#rcs-delivery-events}
 
 {% apitags %}
-RCS, 전달
+RCS, Delivery
 {% endapitags %}
 
-이 이벤트는 RCS 메시지가 사용자의 모바일 기기에 성공적으로 전달될 때 생성됩니다.
+이 이벤트는 RCS 메시지가 사용자의 모바일 기기로 성공적으로 전달될 때 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10287,7 +10418,7 @@ RCS, 전달
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -10411,7 +10542,7 @@ RCS, 전달
 // Delivered (users.messages.rcs.Delivery)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -10445,19 +10576,20 @@ RCS, 전달
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## RCS 인바운드 수신 이벤트 {#rcs-inbound-received-events}
 
 {% apitags %}
-RCS, 인바운드 수신
+RCS, Inbound Received
 {% endapitags %}
 
-이 이벤트는 사용자가 보낸 RCS 메시지를 Braze가 수신할 때 생성됩니다.
+이 이벤트는 Braze가 사용자로부터 발생한 RCS 메시지를 수신할 때 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10474,6 +10606,7 @@ RCS, 인바운드 수신
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
   "canvas_step_name" : "(optional, string) Name of the Canvas step",
   "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "media_urls" : "(optional, array of string) Media URLs from the user",
@@ -10484,7 +10617,7 @@ RCS, 인바운드 수신
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "to_rcs_sender" : "(required, string) The inbound RCS sender that the message was sent to",
-  "user_id" : "(optional, string) Braze user ID of the user who performed this event",
+  "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
 }
 ```
@@ -10504,6 +10637,7 @@ RCS, 인바운드 수신
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -10538,6 +10672,7 @@ RCS, 인바운드 수신
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "media_urls" : "(optional, array of string) Media URLs from the user",
@@ -10574,6 +10709,7 @@ RCS, 인바운드 수신
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "message_body" : "(optional, string) Typed response from the user",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -10606,7 +10742,7 @@ RCS, 인바운드 수신
 // Inbound Received (users.messages.rcs.InboundReceive)
 
 {
-  "anonymousId" : "(optional, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -10624,6 +10760,7 @@ RCS, 인바운드 수신
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -10643,13 +10780,14 @@ RCS, 인바운드 수신
 {% endapi %}
 
 {% api %}
+
 ## RCS 읽기 이벤트 {#rcs-read-events}
 
 {% apitags %}
-RCS, 읽기
+RCS, Read
 {% endapitags %}
 
-이 이벤트는 사용자가 기기에서 RCS 메시지를 열면 메시지 내용을 보거나 읽었음을 나타내는 이벤트가 생성됩니다.
+이 이벤트는 사용자가 기기에서 RCS 메시지를 열 때 생성되며, 메시지 콘텐츠를 보았거나 읽었음을 나타냅니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10672,7 +10810,7 @@ RCS, 읽기
   "message_variation_name" : "(optional, string) Name of the message variation",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -10779,7 +10917,7 @@ RCS, 읽기
 // Read (users.messages.rcs.Read)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -10814,10 +10952,10 @@ RCS, 읽기
 ## RCS 거부 이벤트 {#rcs-rejection-events}
 
 {% apitags %}
-RCS, 거부
+RCS, Rejection
 {% endapitags %}
 
-통신사의 개입으로 인해 RCS 메시지가 사용자의 모바일 기기에 전달되지 못했을 때 생성되는 이벤트입니다.
+RCS 메시지가 통신사의 개입으로 인해 사용자의 모바일 기기로 전달되지 못할 때 생성되는 이벤트입니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10840,7 +10978,7 @@ RCS, 거부
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
   "id" : "(required, string) Globally unique ID for this event",
-  "is_sms_fallback" : "(optional, boolean) Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event",
+  "is_sms_fallback" : "(optional, boolean) Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "provider_error_code" : "(optional, string) The error code from the provider",
@@ -10871,7 +11009,7 @@ RCS, 거부
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
-    "is_sms_fallback" : "(optional, boolean) Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event",
+    "is_sms_fallback" : "(optional, boolean) Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "provider_error_code" : "(optional, string) The error code from the provider",
@@ -10910,7 +11048,7 @@ RCS, 거부
     "error" : "(optional, string) Error name",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
     "$insert_id" : "(required, string) Globally unique ID for this event",
-    "is_sms_fallback" : "(optional, boolean) Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event",
+    "is_sms_fallback" : "(optional, boolean) Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "provider_error_code" : "(optional, string) The error code from the provider",
@@ -10949,7 +11087,7 @@ RCS, 거부
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "error" : "(optional, string) Error name",
           "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
-          "is_sms_fallback" : "(optional, boolean) Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event",
+          "is_sms_fallback" : "(optional, boolean) Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "provider_error_code" : "(optional, string) The error code from the provider",
@@ -11003,7 +11141,7 @@ RCS, 거부
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
-    "is_sms_fallback" : "(optional, boolean) Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event",
+    "is_sms_fallback" : "(optional, boolean) Indicates that a SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "provider_error_code" : "(optional, string) The error code from the provider",
@@ -11021,13 +11159,13 @@ RCS, 거부
 {% endapi %}
 
 {% api %}
-## RCS 이벤트 보내기 {#rcs-send-events}
+## RCS 전송 이벤트 {#rcs-send-events}
 
 {% apitags %}
-RCS, 전송
+RCS, Sends
 {% endapitags %}
 
-이 이벤트는 Braze에서 라스트마일 배송 파트너에게 RCS 메시지가 전송될 때 생성됩니다.
+이 이벤트는 RCS 메시지가 Braze에서 최종 전달 파트너에게 전송될 때 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11057,7 +11195,7 @@ RCS, 전송
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -11187,7 +11325,7 @@ RCS, 전송
 // Sent (users.messages.rcs.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -11223,16 +11361,17 @@ RCS, 전송
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
-## SMS 이벤트 중단 {#sms-abort-events}
+## SMS 중단 이벤트 {#sms-abort-events}
 
 {% apitags %}
-중단, SMS
+Abort, SMS
 {% endapitags %}
 
 이 이벤트는 Liquid 중단 등에 따라 SMS 메시지가 중단된 경우에 발생합니다.
@@ -11261,7 +11400,7 @@ RCS, 전송
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -11376,7 +11515,7 @@ RCS, 전송
 // SMS Aborted (users.messages.sms.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -11407,23 +11546,26 @@ RCS, 전송
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 SMS messages every 1 week`
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 SMS messages every 1 week`
+
 {% endapi %}
 
 {% api %}
-## SMS 통신사 이벤트 보내기 {#sms-carrier-send-events}
+
+## SMS 통신사 전송 이벤트 {#sms-carrier-send-events}
 
 {% apitags %}
-SMS, 보내기
+SMS, Sends
 {% endapitags %}
 
-이 이벤트는 SMS가 이동 통신사로 전송될 때 발생합니다.
+이 이벤트는 SMS가 통신사로 전송될 때 발생합니다.
 
 {% alert important %}
-`CarrierSend` 는 레거시 인프라를 사용하는 사용자에게만 지원됩니다.
+`CarrierSend`는 레거시 인프라를 사용하는 사용자에게만 지원됩니다.
 {% endalert %}
 
 {% tabs %}
@@ -11452,7 +11594,7 @@ SMS, 보내기
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -11579,7 +11721,7 @@ SMS, 보내기
 // SMS Sent to Carrier (users.messages.sms.CarrierSend)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -11614,16 +11756,17 @@ SMS, 보내기
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## SMS 전달 이벤트 {#sms-delivery-events}
 
 {% apitags %}
-SMS, 배달
+SMS, Delivery
 {% endapitags %}
 
 이 이벤트는 SMS가 사용자의 휴대폰으로 성공적으로 전달되었을 때 발생합니다.
@@ -11821,19 +11964,20 @@ SMS, 배달
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## SMS 전달 실패 이벤트 {#sms-delivery-failure-events}
 
 {% apitags %}
-SMS, 배달
+SMS, Delivery
 {% endapitags %}
 
-이 이벤트는 SMS에 배달 실패가 발생할 때 발생합니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전송 관련 문제를 해결하세요.
+이 이벤트는 SMS 전달에 실패했을 때 발생합니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전달 관련 문제를 해결하세요.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12033,23 +12177,30 @@ SMS, 배달
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## SMS 인바운드 수신 이벤트 {#sms-inbound-received-events}
 
 {% apitags %}
-SMS, 인바운드 수신
+SMS, Inbound Received
 {% endapitags %}
 
-이 이벤트는 사용자 중 한 명이 Braze SMS 구독 그룹 중 하나에 있는 전화번호로 SMS를 보낼 때 발생합니다.
+이 이벤트는 사용자 중 한 명이 Braze SMS 구독 그룹의 전화번호로 SMS를 보낼 때 발생합니다.
 
-Braze가 인바운드 SMS를 수신하면 해당 전화번호를 공유하는 모든 사용자에게 해당 인바운드 메시지의 어트리뷰션이 이루어집니다. 따라서 Braze 인스턴스의 여러 사용자가 동일한 전화번호를 공유하는 경우 인바운드 메시지당 여러 개의 이벤트를 수신할 수 있습니다. 해당 사용자에게 전송된 이전 메시지를 기반으로 특정 사용자 아이디를 어트리뷰션해야 하는 경우, SMS 전달됨 이벤트를 사용하여 가장 최근에 Braze 번호로 메시지를 수신한 사용자 아이디에 인바운드 수신 이벤트를 어트리뷰션할 수 있습니다.
+Braze는 해당 전화번호를 공유하는 모든 사용자에게 각 인바운드 SMS를 기여합니다. 따라서 Braze 인스턴스에서 여러 사용자가 동일한 전화번호를 공유하는 경우 인바운드 메시지당 여러 이벤트를 수신할 수 있습니다. 해당 사용자에게 이전에 전송된 메시지를 기반으로 특정 사용자 ID에 기여해야 하는 경우, SMS 전달 이벤트를 사용하여 가장 최근에 Braze 번호로부터 메시지를 수신한 사용자 ID에 인바운드 수신 이벤트를 기여할 수 있습니다.
 
-이 인바운드 메시지가 Braze에서 보낸 아웃바운드 캠페인 또는 캔버스 구성 요소에 대한 회신인 경우, 캠페인 또는 캔버스 메타데이터도 이벤트에 포함됩니다. Braze는 답장을 아웃바운드 메시지로부터 4시간 이내에 도착하는 인바운드 메시지로 정의합니다. 그러나 마지막으로 수신한 아웃바운드 SMS의 어트리뷰션 캠페인 정보에 대한 1분 캐시가 있습니다.
+Braze가 이 인바운드 메시지가 아웃바운드 Campaign 또는 Canvas 구성요소에 대한 답장임을 감지하면, Campaign 또는 Canvas 메타데이터도 이벤트에 포함됩니다. Braze는 마지막 터치 기여 모델을 사용합니다. 인바운드 SMS가 수신되면 Braze는 4시간 이내에 해당 전화번호로 전송된 가장 최근의 아웃바운드 메시지를 찾아 인바운드 메시지를 해당 Campaign 또는 Canvas에 기여합니다. 기여 기간 동안 아웃바운드 메시지를 전송한 Campaign 목록은 메시징 서비스당 1분 동안 캐시되므로, 새로 시작된 Campaign이 기여 결과에 나타나기까지 최대 1분이 걸릴 수 있습니다.
+
+`campaign_id`, `canvas_id` 및 관련 속성은 아웃바운드 메시지를 기여할 수 없는 경우 비어 있습니다. 일반적인 시나리오는 다음과 같습니다:
+
+- 사용자가 자발적으로 대화를 시작한 경우(예: 웹사이트나 광고판에서 홍보된 키워드를 문자로 보낸 경우).
+- 사용자가 4시간 기여 기간 외에 답장하거나 키워드를 보낸 경우.
+- 해당 전화번호에 대한 이전 아웃바운드 메시지가 없는 경우.
 
 
 {% tabs %}
@@ -12077,7 +12228,7 @@ Braze가 인바운드 SMS를 수신하면 해당 전화번호를 공유하는 �
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(optional, string) Braze user ID of the user who performed this event",
+  "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
 }
 ```
@@ -12202,7 +12353,7 @@ Braze가 인바운드 SMS를 수신하면 해당 전화번호를 공유하는 �
 // SMS Inbound Received (users.messages.sms.InboundReceive)
 
 {
-  "anonymousId" : "(optional, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -12240,13 +12391,14 @@ Braze가 인바운드 SMS를 수신하면 해당 전화번호를 공유하는 �
 {% endapi %}
 
 {% api %}
-## SMS 수신 거부 이벤트 {#sms-rejection-events}
+
+## SMS 거부 이벤트 {#sms-rejection-events}
 
 {% apitags %}
-SMS, 거부
+SMS, Rejection
 {% endapitags %}
 
-이 이벤트는 이동 통신사에 의해 SMS 전송이 거부될 때 발생합니다. 이는 여러 가지 이유로 발생할 수 있습니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전송 관련 문제를 해결하세요.
+이 이벤트는 SMS 전송이 통신사에 의해 거부될 때 발생합니다. 이는 여러 가지 이유로 발생할 수 있습니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전달 관련 문제를 해결하세요.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12451,19 +12603,20 @@ SMS, 거부
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## SMS 재시도 이벤트 {#sms-retry-events}
 
 {% apitags %}
-SMS, 재시도
+SMS, Retry
 {% endapitags %}
 
-이 이벤트는 메시지의 우선 순위가 떨어지거나 최대 게재빈도가 설정된 경우 발생하며 나중에 구성된 재시도 기간 내에 재시도됩니다. 메시지 우선순위 지정 베타 고객만 사용할 수 있습니다.
+이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 설정된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12638,10 +12791,10 @@ SMS, 재시도
 {% endapi %}
 
 {% api %}
-## SMS 이벤트 보내기 {#sms-send-events}
+## SMS 전송 이벤트 {#sms-send-events}
 
 {% apitags %}
-SMS, 보내기
+SMS, Sends
 {% endapitags %}
 
 이 이벤트는 사용자가 SMS를 보낼 때 발생합니다.
@@ -12673,7 +12826,7 @@ SMS, 보내기
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -12803,7 +12956,7 @@ SMS, 보내기
 // SMS Sent (users.messages.sms.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -12839,20 +12992,21 @@ SMS, 보내기
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 캔버스 항목 속성을 사용하여 보내기 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가]({{site.baseurl}}/message_extras_tag/) 정보를 참조하세요.
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 Canvas 진입 속성으로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
-## SMS 짧은 링크 클릭 이벤트 {#sms-short-link-click-events}
+## SMS 단축 링크 클릭 이벤트 {#sms-short-link-click-events}
 
 {% apitags %}
-SMS, 클릭
+SMS, Clicks
 {% endapitags %}
 
-이 이벤트는 사용자가 SMS 짧은 링크를 클릭할 때 발생합니다.
+이 이벤트는 사용자가 SMS 단축 링크를 클릭할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12880,7 +13034,7 @@ SMS, 클릭
   "timezone" : "(optional, string) Time zone of the user",
   "url" : "(required, string) URL that the user clicked on",
   "user_agent" : "(optional, string) User agent on which the click occurred",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
 ```
@@ -13010,7 +13164,7 @@ SMS, 클릭
 // SMS Short Link Clicked (users.messages.sms.ShortLinkClick)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -13049,13 +13203,14 @@ SMS, 클릭
 {% endapi %}
 
 {% api %}
-## 웹훅 이벤트 중단하기 {#webhook-abort-events}
+
+## 웹훅 중단 이벤트 {#webhook-abort-events}
 
 {% apitags %}
-중단, 웹훅
+Abort, Webhooks
 {% endapitags %}
 
-이 이벤트는 Liquid 중단 등에 따라 웹훅 메시지가 중단된 경우에 발생합니다.
+이 이벤트는 Liquid 중단 등의 이유로 웹훅 메시지가 중단된 경우에 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13084,7 +13239,7 @@ SMS, 클릭
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -13207,7 +13362,7 @@ SMS, 클릭
 // Webhook Aborted (users.messages.webhook.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -13240,21 +13395,24 @@ SMS, 클릭
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 webhook messages every 1 week`
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 webhook messages every 1 week`
+
 {% endapi %}
 
 {% api %}
+
 ## 웹훅 실패 이벤트 {#webhook-failure-events}
 
 {% apitags %}
 Failure, Webhooks
 {% endapitags %}
 
-This event occurs if a webhook message was delivered but failed with an error response from the endpoint.
+이 이벤트는 웹훅 메시지가 전달되었지만 엔드포인트에서 오류 응답을 반환하여 실패한 경우에 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13287,7 +13445,7 @@ This event occurs if a webhook message was delivered but failed with an error re
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "url_path" : "(optional, string) The path of the webhook URL that returned a failure response",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "webhook_duration" : "(optional, int) Total duration of this request in milliseconds",
   "webhook_failure_source" : "(optional, string) To tell whether an error was created by Braze or by the endpoint itself. The source field could be External Endpoint, Treat no status code to host unreachable"
 }
@@ -13431,7 +13589,7 @@ This event occurs if a webhook message was delivered but failed with an error re
 // Webhook Failed (users.messages.webhook.Failure)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -13471,19 +13629,21 @@ This event occurs if a webhook message was delivered but failed with an error re
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 속성 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
+
 ## 웹훅 재시도 이벤트 {#webhook-retry-events}
 
 {% apitags %}
-웹훅, 재시도
+Webhooks, Retry
 {% endapitags %}
 
-이 이벤트는 메시지의 우선 순위가 떨어지거나 최대 게재빈도가 설정된 경우 발생하며 나중에 구성된 재시도 기간 내에 재시도됩니다. 메시지 우선순위 지정 베타 고객만 사용할 수 있습니다.
+이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 설정된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13675,13 +13835,14 @@ This event occurs if a webhook message was delivered but failed with an error re
 {% endapi %}
 
 {% api %}
-## 웹훅 이벤트 보내기 {#webhook-send-events}
+
+## 웹훅 전송 이벤트 {#webhook-send-events}
 
 {% apitags %}
-웹훅, 보내기
+Webhooks, Sends
 {% endapitags %}
 
-이 이벤트는 웹훅이 처리되어 해당 웹훅에 지정된 타사로 전송될 때 발생합니다. 이는 요청이 수신되었는지 여부를 의미하지는 않습니다.
+이 이벤트는 웹훅이 처리되어 해당 웹훅에 지정된 서드파티로 전송될 때 발생합니다. 이는 요청이 수신되었는지 여부를 나타내지는 않습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13707,7 +13868,7 @@ This event occurs if a webhook message was delivered but failed with an error re
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -13827,7 +13988,7 @@ This event occurs if a webhook message was delivered but failed with an error re
 // Webhook Sent (users.messages.webhook.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : { }
@@ -13859,17 +14020,19 @@ This event occurs if a webhook message was delivered but failed with an error re
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `message_extras` 를 사용하면 연결된 콘텐츠의 동적 데이터, 사용자 지정 속성(예: 언어 또는 국가) 및 캔버스 항목 속성을 사용하여 보내기 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가]({{site.baseurl}}/message_extras_tag/) 정보를 참조하세요.
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어 또는 국가) 및 Canvas 진입 등록정보로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
-## WhatsApp 이벤트 중단 {#whatsapp-abort-events}
+
+## WhatsApp 중단 이벤트 {#whatsapp-abort-events}
 
 {% apitags %}
-WhatsApp, 중단
+WhatsApp, Abort
 {% endapitags %}
 
 이 이벤트는 Liquid 중단 등에 따라 WhatsApp 메시지가 중단된 경우에 발생합니다.
@@ -13902,7 +14065,7 @@ WhatsApp, 중단
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -14029,7 +14192,7 @@ WhatsApp, 중단
 // WhatsApp Aborted (users.messages.whatsapp.Abort)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -14064,21 +14227,23 @@ WhatsApp, 중단
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
-- `abort_type` 는 글로벌 최대 게재빈도 설정 규칙으로 인해 메시징이 중단된 경우 `frequency_capped` 가 됩니다. 
-- `abort_log` 에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예를 들면 다음과 같습니다: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 설정할 수 있습니다.
+- `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
+- 메시지가 전역 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+
 {% endapi %}
 
 {% api %}
 ## WhatsApp 추적 링크 클릭 이벤트 {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
-WhatsApp, 클릭
+WhatsApp, Clicks
 {% endapitags %}
 
-This event occurs when a user clicks a link or button in a WhatsApp message where the link's domain matches the click tracking domain.
+이 이벤트는 사용자가 WhatsApp 메시지에서 링크의 도메인이 클릭 추적 도메인과 일치하는 링크 또는 버튼을 클릭할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14106,7 +14271,7 @@ This event occurs when a user clicks a link or button in a WhatsApp message wher
   "timezone" : "(optional, string) Time zone of the user",
   "url" : "(required, string) URL that the user clicked on",
   "user_agent" : "(optional, string) User agent on which the click occurred",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
 ```
@@ -14232,7 +14397,7 @@ This event occurs when a user clicks a link or button in a WhatsApp message wher
 // WhatsApp Tracked Link Clicked (users.messages.whatsapp.Click)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -14271,10 +14436,10 @@ This event occurs when a user clicks a link or button in a WhatsApp message wher
 ## WhatsApp 전달 이벤트 {#whatsapp-delivery-events}
 
 {% apitags %}
-WhatsApp, 배달
+WhatsApp, Delivery
 {% endapitags %}
 
-이 이벤트는 전송된 WhatsApp 메시지가 사용자의 기기에 성공적으로 도달했을 때 발생합니다.
+이 이벤트는 전송된 WhatsApp 메시지가 사용자의 기기로 성공적으로 전달되었을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14307,7 +14472,7 @@ WhatsApp, 배달
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -14443,7 +14608,7 @@ WhatsApp, 배달
 // WhatsApp Delivered (users.messages.whatsapp.Delivery)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -14481,19 +14646,20 @@ WhatsApp, 배달
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 설정할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## WhatsApp 실패 이벤트 {#whatsapp-failure-events}
 
 {% apitags %}
-WhatsApp, 실패
+WhatsApp, Failure
 {% endapitags %}
 
-이 이벤트는 WhatsApp이 사용자에게 메시지를 전달할 수 없을 때 발생합니다. 하드 바운스는 영구적인 전달 가능성 실패를 의미합니다.
+이 이벤트는 WhatsApp이 사용자에게 메시지를 전달할 수 없을 때 발생합니다. 하드바운스는 영구적인 전달 가능성 실패를 의미합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14528,7 +14694,7 @@ WhatsApp, 실패
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -14670,7 +14836,7 @@ WhatsApp, 실패
 // WhatsApp Failed (users.messages.whatsapp.Failure)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -14710,19 +14876,21 @@ WhatsApp, 실패
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 설정할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp 인바운드 수신 이벤트 {#whatsapp-inbound-received-events}
 
 {% apitags %}
-WhatsApp, 인바운드 수신
+WhatsApp, Inbound Received
 {% endapitags %}
 
-이 이벤트는 사용자 중 한 명이 Braze WhatsApp 가입 그룹 중 하나에 있는 전화번호로 WhatsApp 메시지를 보낼 때 발생합니다.
+이 이벤트는 사용자 중 한 명이 Braze WhatsApp 구독 그룹 중 하나에 있는 전화번호로 WhatsApp 메시지를 보낼 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14759,7 +14927,7 @@ WhatsApp, 인바운드 수신
   "subscription_group_id" : "(optional, string) Subscription group API ID",
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(optional, string) Braze user ID of the user who performed this event",
+  "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
 }
 ```
@@ -14910,7 +15078,7 @@ WhatsApp, 인바운드 수신
 // WhatsApp Inbound Received (users.messages.whatsapp.InboundReceive)
 
 {
-  "anonymousId" : "(optional, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -14959,10 +15127,10 @@ WhatsApp, 인바운드 수신
 ## WhatsApp 읽기 이벤트 {#whatsapp-read-events}
 
 {% apitags %}
-WhatsApp, 읽기
+WhatsApp, Read
 {% endapitags %}
 
-이 이벤트는 사용자가 WhatsApp 메시지를 읽을 때 발생합니다.
+이 이벤트는 사용자가 WhatsApp 메시지를 읽었을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14995,7 +15163,7 @@ WhatsApp, 읽기
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -15131,7 +15299,7 @@ WhatsApp, 읽기
 // WhatsApp Read (users.messages.whatsapp.Read)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -15169,19 +15337,20 @@ WhatsApp, 읽기
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}
 
 {% api %}
 ## WhatsApp 재시도 이벤트 {#whatsapp-retry-events}
 
 {% apitags %}
-WhatsApp, 재시도
+WhatsApp, Retry
 {% endapitags %}
 
-이 이벤트는 메시지의 우선 순위가 떨어지거나 최대 게재빈도가 설정된 경우 발생하며 나중에 구성된 재시도 기간 내에 재시도됩니다. 메시지 우선순위 지정 베타 고객만 사용할 수 있습니다.
+이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 설정된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15377,13 +15546,14 @@ WhatsApp, 재시도
 {% endapi %}
 
 {% api %}
-## WhatsApp 이벤트 보내기 {#whatsapp-send-events}
+
+## WhatsApp 전송 이벤트 {#whatsapp-send-events}
 
 {% apitags %}
-WhatsApp, 보내기
+WhatsApp, Sends
 {% endapitags %}
 
-이 이벤트는 Braze와 WhatsApp 간에 전송 요청이 성공적으로 전달되었을 때 발생합니다. 그렇다고 해서 사용자가 메시지를 수신했다는 의미는 아닙니다.
+이 이벤트는 Braze와 WhatsApp 간에 전송 요청이 성공적으로 전달되었을 때 발생합니다. 다만, 이것이 사용자가 메시지를 수신했음을 의미하지는 않습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15416,7 +15586,7 @@ WhatsApp, 보내기
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
-  "user_id" : "(required, string) Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -15555,7 +15725,7 @@ WhatsApp, 보내기
 // WhatsApp Sent (users.messages.whatsapp.Send)
 
 {
-  "anonymousId" : "(required, string) Braze user ID of the user who performed this event",
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "context" : {
     "device" : { },
     "traits" : {
@@ -15594,7 +15764,8 @@ WhatsApp, 보내기
 {% endtab %}
 {% endtabs %}
 
-#### 부동산 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
-- `dispatch_id` 는 캠페인 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 `dispatch_id`. `dispatch_id` 을 사용하여 동일한 발송에 속하는 이벤트를 그룹화하여 해당 발송의 푸시 메시지 수명 주기(예: 보내기, 반송, 열기)를 그룹화하고 상호 연관시킬 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+
 {% endapi %}

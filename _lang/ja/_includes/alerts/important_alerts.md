@@ -1,7 +1,7 @@
 {% if include.alert == "Shopify deprecation" %}
 
 {% alert important %}
-[新バージョンのShopifyインテグレーション]({{site.baseurl}}/partners/shopify/#new-shopify-integration)は、2025年4月から段階的にリリースされます。フェーズは、Shopify ストアのタイプと、初期統合のセットアップに使用される外部ID に基づきます。<br><br>**旧バージョンの統合は、2025年8月28日以降は利用できなくなります。この日付より前の新しいバージョンに更新すると、問題なく統合を使用し続けます。**
+[Shopify連携の新バージョン]({{site.baseurl}}/partners/shopify/#new-shopify-integration)は、2025年4月から段階的にリリースされます。フェーズは、Shopifyストアのタイプと、初期連携のセットアップに使用されるexternal IDに基づきます。<br><br>**旧バージョンの連携は、2025年8月28日以降利用できなくなります。問題なく連携を引き続き使用するには、この日付までに新バージョンに更新してください。**
 {% endalert %}
 
 {% endif %}
@@ -9,7 +9,7 @@
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
-プライベートブラウズウィンドウはWeb プッシュに対応していません。
+プライベートブラウジングウィンドウはWeb プッシュをサポートしていません。
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-キャンペーンまたはキャンバスにBCCアドレスを追加すると、キャンペーンまたはキャンバスコンポーネントの請求可能メールが倍になります。これは、Brazeがユーザーに1つのメッセージを送信し、BCCアドレスに1つのメッセージを送信するためです。
+CampaignまたはCanvasにBCCアドレスを追加すると、請求対象となるメール数が倍増します。これは、Brazeがユーザー宛てに1通、BCCアドレス宛てに1通のメッセージを送信するためです。
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@
 {% if include.alert == 'Android notification priority' %}
 
 {% alert important %}
-通知ディスプレイの優先順位設定は、Android O 以降を実行している機器では使用されなくなりました。これらの機器では、[通知 チャネル設定](https://developer.android.com/training/notify-user/channels#importance)でプライオリティを設定します。
+通知表示優先度の設定は、Android O以降を実行するデバイスでは使用されなくなりました。これらのデバイスでは、[通知チャネルの設定](https://developer.android.com/training/notify-user/channels#importance)を通じて優先度を設定してください。
 {% endalert %}
 
 {% endif %}
@@ -33,11 +33,11 @@
 {% if include.alert == "Email via SMS" %}
 
 {% alert important %}
-法的に要求されているトランザクションメールを SMS ゲートウェイに送信しないでください。これらのメールは配信されない可能性が高いためです。
+法的に要求されるトランザクションメールをSMSゲートウェイに送信しないでください。これらのメールは配信されない可能性が高いためです。
 <br><br>
-電話番号とプロバイダーのゲートウェイドメイン（MM3として知られている）を使用して送信したメールは、SMS（テキスト）メッセージとして受信される可能性があるが、一部のメールプロバイダーはこの動作をサポートしていない。例えば、T-モバイルの電話番号（"9999999999@tmomail.net"など）にメールを送った場合、SMSメッセージはT-モバイル・ネットワークでその電話番号を所有している人に送信される。
+電話番号とプロバイダーのゲートウェイドメイン（MM3として知られている）を使用して送信したメールは、SMS（テキスト）メッセージとして受信される可能性がありますが、一部のメールプロバイダーはこの動作をサポートしていません。例えば、T-Mobileの電話番号（「9999999999@tmomail.net」など）にメールを送信した場合、SMSメッセージはT-Mobileネットワークでその電話番号を所有している人に送信されます。
 <br><br>
-これらのメールがSMSゲートウェイに配信されなくても、メール課金にはカウントされることを覚えておいてほしい。サポートされていないゲートウェイへのメール送信を避けるには、[サポートされていないゲートウェイのドメイン名のリスト](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)を確認します。
+これらのメールがSMSゲートウェイに配信されなくても、メール課金にはカウントされることにご注意ください。サポートされていないゲートウェイへのメール送信を避けるには、[サポートされていないゲートウェイのドメイン名のリスト](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)を確認してください。
 {% endalert %}
 
 {% endif %}
@@ -45,7 +45,7 @@
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-さらにセキュリティを高めるために、ユーザーの偽装やなりすましを防ぐ[SDK認証]({{site.baseurl}}/developer_guide/authentication/)機能を追加することをお勧めする。
+さらにセキュリティを高めるために、ユーザーのなりすましを防ぐ[SDK認証]({{site.baseurl}}/developer_guide/authentication/)機能を追加することをお勧めします。
 {% endalert %}
 
 {% endif %}
@@ -53,7 +53,7 @@
 {% if include.alert == 'Preference Center warning' %}
 
 {% alert important %}
-Naver Android や iOS アプリなど、Braze のユーザー設定センターをサポートしていないブラウザもあります。一部のユーザーがこれらのブラウザを使用することが予想される場合は、ユーザーがメールの環境設定を管理するための代替方法を提供することを検討してください。
+NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定センターをサポートしていないブラウザがあります。一部のユーザーがこれらのブラウザを使用することが予想される場合は、メール設定を管理するための代替方法を提供することを検討してください。
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Naver Android や iOS アプリなど、Braze のユーザー設定センター�
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-購入イベントの段階的廃止計画は、2026年に発表される予定である。最終的に、購入イベントは新しい[eCommerce推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)に置き換えられます。このイベントには、セグメンテーション、レポートリング、分析などの機能が強化されています。ただし新しい e コマースイベントでは、購入イベントに関連する既存の機能 (キャンバスまたはキャンペーンでの生涯価値 (LTV) または収益の報告など) はサポートされません。購入イベントに関連する機能の完全なリストについては、[購入イベントの記録]({{site.baseurl}}/user_guide/data/activation/custom_data/purchase_events/#logging-purchase-events)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)が優先されるため、購入イベントの上に新しい機能が構築されることはありません。現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ Naver Android や iOS アプリなど、Braze のユーザー設定センター�
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-購入イベントの段階的廃止計画は、2026年に発表される予定である。最終的に、購入イベントは新しい[eCommerce推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)に置き換えられます。このイベントには、セグメンテーション、レポートリング、分析などの機能が強化されています。この置き換えが行われると、セグメントフィルターでは、購入動作でデータが入力されることがなくなります。購入イベントの完全なリストについては、[購入イベントの記録]({{site.baseurl}}/user_guide/data/custom_data/purchase_events/#logging-purchase-events)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、Segmentフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -77,15 +77,15 @@ Naver Android や iOS アプリなど、Braze のユーザー設定センター�
 {% if include.alert == 'S3 file bucket export' %}
 
 {% alert important %}
-S3 バケットに保存されているエクスポートファイルは、ダウン読み込むの有効期限が切れた後(特に指定がない限り、エクスポートメールが送信されてから 4 時間後)に自動的に削除されます。
-{% endalert %} 
+S3バケットに保存されたエクスポートファイルは、ダウンロードリンクの有効期限が切れた後（特に記載がない限り、エクスポートメール送信から4時間後）、自動的に削除されます。
+{% endalert %}
 
 {% endif %}
 
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Shopifyインテグレーションでは、データコンフィギュレーション設定にあるShopify 顧客の作成と顧客 更新 webhookがサポートされます。ユーザープロファイルが作成されるか、更新dがShopifyで作成されると、対応するBrazeのユーザープロファイルが作成されるか、更新dが作成されます。<br><br>これらのアクションはBrazeではs をトリガー カスタムイベントせず、[Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works) との同期Shopify ユーザーデータにのみ使用されます。同期されるデータには、[カスタム属性s]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes)、[標準属性項目s]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes)が含まれ、設定内で有効になっている場合は、[サブスクリプショングループステート]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
+Shopify連携は、Shopifyの顧客作成と顧客更新のwebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[サブスクリプショングループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,15 @@ Shopifyインテグレーションでは、データコンフィギュレーシ�
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-キャンバスコンテキストの初期アクセスに参加している場合、キャンバスエントリのプロパティはキャンバスコンテキスト変数の一部です。これは、`canvas_entry_properties` が`context` として参照されることを意味します。各コンテキスト変数には、名前、データ型、およびLiquid を含めることができる値が含まれます。現在、`canvas_entry_properties` は下位互換性があります。詳しくは、[コンテキスト]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works)および[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/)を参照してください。
+Canvasのエントリプロパティは、Canvasコンテキスト変数の一部です。つまり、`canvas_entry_properties`は`context`として参照されます。各`context`変数には、名前、データタイプ、およびLiquidを含めることができる値が含まれます。現在、`canvas_entry_properties`は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works)と[Canvasコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object/)を参照してください。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Braze Agents' %}
+
+{% alert important %}
+このパートナーは、[Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/)が有効になっている場合のみ、**テクノロジーパートナー**ページに表示されます。利用開始に関するサポートが必要な場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 {% endif %}
@@ -101,14 +109,72 @@ Shopifyインテグレーションでは、データコンフィギュレーシ�
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**"Day of year"および"Time"フィルタータイプ**:日付を含むコンテキスト変数をフィルターする場合は、日付が毎年繰り返されるかどうかに基づいて正しい比較型を選択します。
+**「Day of year」と「Time」のフィルタータイプの選択について**：日付を含むコンテキスト変数をフィルタリングする際は、その日付が毎年繰り返されるかどうかに基づいて、適切な比較タイプを選択してください。
 
-- ** "Day of year"** 日付が毎年繰り返される場合(誕生日、記念日、クリスマスのような休日など)。この比較タイプは、年のコンポーネントを無視して、年の日付(1-365/366) に基づいて計算されます。
-- **"Time"** 日付が繰り返されない絶対日付の場合(契約終了日、アプリ軟膏の日付、サブスクリプション更新日など)を使用します。この比較タイプは、年を含む完全なタイムスタンプに基づいて計算されます。
+- **毎年繰り返される日付（誕生日、記念日、クリスマスなどの祝日など）には「Day of year」を使用してください。**この比較タイプは、年の要素を無視し、その年の日数（1〜365/366）に基づいて計算します。
+- **繰り返されない絶対日付（契約終了日、予約日、サブスクリプションの更新日など）には「Time」を使用してください。**この比較タイプは、年を含む完全なタイムスタンプに基づいて計算します。
 
-"Day of year"を使用すると、絶対日付の場合、計算では年コンポーネントが無視されるため、誤った結果または予期しない結果が生成されることがあります。例えば、4月の将来の契約終了日を比較して、63日以内かどうかを判断する場合、"Day of year&quotを使用します。4月が実際には188日離れていることを考慮せずに、日数(119対359)のみを比較するため、日付が正しく一致しない可能性があります。
+絶対日付に「Day of year」を使用すると、計算が年の要素を無視するため、誤った結果や予期しない結果が生じることがあります。例えば、4月の将来の契約終了日が63日以内かどうかを判断する場合、「Day of year」を使用すると、日付番号（119対359）のみを比較し、実際には4月まで188日あることを考慮しないため、誤った一致が生じる可能性があります。
 
-**一般ガイドライン**:その日付は毎年繰り返されますか?**はい** → &quot を使用;年の日付とクォート;。**No**→"Time"を使用します。
+**一般的な指針**：その日付は毎年繰り返されますか？**はい** → 「Day of year」を使用してください。**いいえ** → 「Time」を使用してください。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'granular permissions ea' %}
+
+{% alert important %}
+詳細な権限設定は早期アクセス中です。会社の移行が計画された場合、Brazeの管理者はメールとダッシュボード上のバナーで[詳細な権限の移行]({{site.baseurl}}/granular_permissions_migration/)に関する通知を受け取ります。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'WhatsApp audio and documents' %}
+
+{% alert note %}
+[Brazeメディアライブラリ]({{site.baseurl}}/media_library/)は画像と動画のみをサポートしています。オーディオファイルと文書は、ホストされたURLを通じて参照する必要があります。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Meta MP4 video issue' %}
+
+{% alert important %}
+Metaには、特定のエンコーディングやコンテナ設定が原因で、一部のMP4動画がAndroidデバイスで再生できなくなる既知の問題があります。恒久的な修正が利用可能になるまで、MP4ファイルを再フォーマットすることで、ほとんどの送信者の問題が解決します。すべての動画をAndroidデバイスでテストして、正しく配信されることを確認してください。<br><br>MP4ファイルを再フォーマットするには、[CloudConvert](https://cloudconvert.com/mp4-converter)などのWebツールを使用します。MP4ファイルをツールにアップロードし、再度MP4に変換してから、変換されたファイルをダウンロードしてください。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Shopify cart token alias' %}
+
+{% alert important %}
+この連携では、BrazeがWebhookを正しいユーザープロファイルに一致させるために、ユーザーエイリアスは以下の形式を使用する必要があります。<br><br>
+- `alias_label`: `shopify_cart_${cartToken}`
+- `alias_name`: `shopify_cart_token`
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'multi-language ea' %}
+
+{% alert important %}
+多言語メッセージとロケール翻訳は現在早期アクセス中です。この早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'network dependency' %}
+
+{% alert important %}
+Content Cards、アプリ内メッセージ、バナー、およびフィーチャーフラグは、Brazeサーバーとの同期にデバイスの接続性に依存しています。ネットワーク状況は変動する可能性があるため、コンテンツや更新がすぐに同期、表示、またはクリアされない場合があります（例えば、ユーザーがオフラインの場合）。重要な時間的制約のある更新には、これらのチャネルの使用を避けることをお勧めします。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'dynamic image URL' %}
+
+{% alert important %}
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)や[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用すると、アプリがクラッシュします。
 {% endalert %}
 
 {% endif %}

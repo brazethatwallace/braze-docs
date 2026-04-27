@@ -49,13 +49,13 @@ Next, select the message engagement events you would like to export. Reference t
 
 Keep in mind, Braze only sends event data for users without an `external_user_id` if **Include events from anonymous users** is checked.
 
-{% include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![List of all available message engagement events on the Segment Currents page in Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
 Lastly, select **Launch Current**.
 
-{% include alerts/warning_alerts.md alert='Segment Currents multiple connectors' %}
+{% multi_lang_include alerts/warning_alerts.md alert='Segment Currents multiple connectors' %}
 
 To read more, visit Segment [documentation](https://segment.com/docs/connections/sources/catalog/cloud-apps/braze/).
 
@@ -65,7 +65,7 @@ To read more, visit Segment [documentation](https://segment.com/docs/connections
 
 ## Supported Currents events
 
-Braze supports exporting the following data listed in the Currents [user behavior]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/) and [message engagement]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) event glossaries to Segment:
+Braze supports exporting the following data listed in the Currents [user behavior]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) and [message engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) event glossaries to Segment:
  
 ### Behaviors
 - Uninstall: `users.behaviors.Uninstall`

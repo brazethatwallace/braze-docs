@@ -5,30 +5,30 @@ search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o o endpoint da Braze \"Mesclar usuários\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Mesclar usuários\"."
 
 ---
 {% api %}
-# Mesclar usuários
+# Mesclar usuários {#merge-users}
 {% apimethod post %}
 /users/merge
 {% endapimethod %}
 
-> Use esse ponto de extremidade para mesclar um usuário em outro usuário.
+> Use este endpoint para mesclar um usuário em outro usuário.
 
-Até 50 mesclagens podem ser especificadas por solicitação. Esse ponto de extremidade é assíncrono.
+Até 50 mesclagens podem ser especificadas por solicitação. Este endpoint é assíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d262b86d-cf84-46e2-b9d0-f882bb7078de {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.merge`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.merge`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users merge' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -41,26 +41,26 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `merge_updates` | Obrigatória | Vetor | Um vetor de objetos. Cada objeto deve conter um objeto `identifier_to_merge` e um objeto `identifier_to_keep`, cada um dos quais deve fazer referência a um usuário por `external_id`, `user_alias`, `phone` ou `email`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-### Comportamento de mesclagem
+### Comportamento de mesclagem {#merge-behavior}
 
-O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As fusões de usuários não serão refletidas na guia **Histórico de mensagens**, Extensões de segmento, Criador de consultas e Currents.
+O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, Extensões de segmento, Criador de consultas e Currents.
 
 {% alert important %}
-O endpoint não garante que a sequência de objetos `merge_updates` seja atualizada.
+O endpoint não garante a sequência de atualização dos objetos `merge_updates`.
 {% endalert %}
 
-Esse ponto de extremidade mescla os seguintes campos se eles não forem encontrados no usuário de direcionamento.
+Este endpoint mescla os seguintes campos se eles não forem encontrados no usuário alvo.
 
 - Nome
 - Sobrenome
-- Endereços de e-mail (a menos que sejam [criptografados]({{site.baseurl}}/user_guide/data/field_level_encryption/))
+- Endereços de e-mail (a menos que estejam [criptografados]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
 - Gênero
 - Data de nascimento
 - Número de telefone
@@ -70,57 +70,57 @@ Esse ponto de extremidade mescla os seguintes campos se eles não forem encontra
 - Idioma
 - Informações sobre o dispositivo
 - Contagem de sessões (a soma das sessões de ambos os perfis)
-- Data da primeira sessão (o Braze escolhe a data mais cedo entre as duas datas)
-- Data da última sessão (o Braze escolhe a última data entre as duas datas)
-- Atributos personalizados (o Braze retém os atributos personalizados existentes no perfil de destino e inclui atributos personalizados que não existiam no perfil de destino)
+- Data da primeira sessão (a Braze escolhe a data mais antiga das duas)
+- Data da última sessão (a Braze escolhe a data mais recente das duas)
+- Atributos personalizados (a Braze mantém os atributos personalizados existentes no perfil alvo e inclui atributos personalizados que não existiam no perfil alvo)
 - Dados de eventos personalizados e de eventos de compra
-- Propriedades de eventos personalizados e de eventos de compra para a segmentação "X vezes em Y dias" (onde X<=50 e Y<=30)
+- Propriedades de evento personalizado e de compra para segmentação "X vezes em Y dias" (onde X<=50 e Y<=30)
 - Resumo dos eventos personalizados segmentáveis
   - Contagem de eventos (a soma de ambos os perfis)
-  - O evento ocorreu pela primeira vez (o Braze escolhe a data mais antiga entre as duas datas)
-  - Evento ocorrido pela última vez (o Braze escolhe a data mais recente entre as duas datas)
+  - O evento ocorreu pela primeira vez (a Braze escolhe a data mais antiga das duas)
+  - O evento ocorreu pela última vez (a Braze escolhe a data mais recente das duas)
 - Total de compras no app em centavos (a soma de ambos os perfis)
 - Número total de compras (a soma de ambos os perfis)
-- Data da primeira compra (o Braze escolhe a data mais antiga entre as duas datas)
-- Data da última compra (o Braze escolhe a data mais recente das duas datas)
+- Data da primeira compra (a Braze escolhe a data mais antiga das duas)
+- Data da última compra (a Braze escolhe a data mais recente das duas)
 - Resumos do app
-- Last_X_at campos (o Braze atualiza os campos se os campos do perfil órfão forem mais recentes)
-- Dados de interação da campanha (o Braze seleciona os campos de data mais recentes)
-- Resumos do fluxo de trabalho (o Braze seleciona os campos de data mais recentes)
+- Campos Last_X_at (a Braze atualiza os campos se os campos do perfil órfão forem mais recentes)
+- Dados de interação de Campaign (a Braze escolhe os campos de data mais recentes)
+- Resumos de fluxo de trabalho (a Braze escolhe os campos de data mais recentes)
 - Histórico de mensagens e de engajamento com mensagens
-- O Braze mescla os dados da sessão somente se o app existir em ambos os perfis de usuário.
+- A Braze mescla dados de sessão apenas se o app existir em ambos os perfis de usuário.
 
 {% alert note %}
-Ao mesclar usuários, o uso do endpoint `/users/merge` funciona da mesma forma que o [método`changeUser()` ](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
+Ao mesclar usuários, o uso do endpoint `/users/merge` funciona da mesma forma que o [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-#### Comportamento da data do evento personalizado e da data do evento de compra
+#### Comportamento da data do evento personalizado e da data do evento de compra {#custom-event-date-and-purchase-event-date-behavior}
 
-Esses campos mesclados atualizam os filtros "para X eventos em Y dias". Para eventos de compra, esses filtros incluem "número de compras em Y dias" e "dinheiro gasto nos últimos Y dias".
+Esses campos mesclados atualizam filtros "para X eventos em Y dias". Para eventos de compra, esses filtros incluem "número de compras em Y dias" e "dinheiro gasto nos últimos Y dias".
 
-### Envio de usuários por e-mail ou número de telefone
+### Mesclando usuários por e-mail ou número de telefone {#merging-users-by-email-or-phone-number}
 
-Se um `email` ou `phone` for especificado como um identificador, você deverá incluir um valor `prioritization` adicional no identificador. O `prioritization` deve ser uma matriz ordenada que especifica qual usuário deve ser mesclado se forem encontrados vários usuários. Isso significa que, se mais de um usuário corresponder a uma priorização, a mesclagem não ocorrerá.
+Se um `email` ou `phone` for especificado como identificador, você deve incluir um valor adicional `prioritization` no identificador. O `prioritization` deve ser um vetor ordenado especificando qual usuário mesclar se múltiplos usuários forem encontrados. Isso significa que, se mais de um usuário corresponder a uma priorização, a mesclagem não ocorre.
 
-Os valores permitidos para a matriz são:
+Os valores permitidos para o vetor são:
 
 - `identified`
 - `unidentified`
-- `most_recently_updated` (refere-se à priorização do usuário atualizado mais recentemente)
-- `least_recently_updated` (refere-se à priorização do usuário atualizado menos recentemente)
+- `most_recently_updated` (refere-se a priorizar o usuário atualizado mais recentemente)
+- `least_recently_updated` (refere-se a priorizar o usuário atualizado menos recentemente)
 
-Somente uma das opções a seguir pode existir na matriz de priorização por vez:
+Somente uma das opções a seguir pode existir no vetor de priorização por vez:
 
-- `identified` refere-se à priorização de um usuário com uma `external_id`
+- `identified` refere-se à priorização de um usuário com um `external_id`
 - `unidentified` refere-se à priorização de um usuário sem um `external_id`
 
-## Exemplos de solicitações
+## Exemplos de solicitações {#example-requests}
 
-### Solicitação básica
+### Solicitação básica {#basic-request}
 
-Esse é um corpo de solicitação básico para mostrar o padrão da solicitação.
+Este é um corpo de solicitação básico para mostrar o padrão da solicitação.
 
-```json
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -163,11 +163,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Mesclando usuário não identificado
+### Mesclando usuário não identificado {#merging-unidentified-user}
 
-A solicitação a seguir mesclaria o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com` no usuário com um ID externo `john`. Neste exemplo, o uso de `most_recently_updated` filtra a consulta para um usuário não identificado. Portanto, se houvesse dois usuários não identificados com esse endereço de e-mail, apenas um seria mesclado com o usuário que tem um ID externo `john`.
+A seguinte solicitação mesclaria o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com` no usuário com ID externo `john`. Neste exemplo, usar `most_recently_updated` filtra a consulta para um usuário não identificado. Portanto, se houvesse dois usuários não identificados com este endereço de e-mail, apenas um seria mesclado no usuário que tem o ID externo `john`.
 
-```json
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -187,13 +187,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Mesclando usuário não identificado com usuário identificado
+### Mesclando usuário não identificado com usuário identificado {#merging-unidentified-user-into-identified-user}
 
-O próximo exemplo mescla o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com` com o usuário identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com`.
+Este próximo exemplo mescla o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com` no usuário identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com`.
 
 Usar `most_recently_updated` filtra as consultas para um usuário (um usuário não identificado para `identifier_to_merge` e um usuário identificado para `identifier_to_keep`).
 
-```json
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -214,11 +214,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Mesclar um usuário não identificado sem incluir a priorização most_recently_updated 
+### Mesclando um usuário não identificado sem incluir a priorização most_recently_updated {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
 
-Se houver dois usuários não identificados com o endereço de e-mail `john.smith@braze.com`, essa solicitação de exemplo não mesclará nenhum usuário porque há dois usuários não identificados com esse endereço de e-mail. Essa solicitação só funciona se houver apenas um usuário não identificado com o endereço de e-mail `john.smith@braze.com`.
+Se houver dois usuários não identificados com o endereço de e-mail `john.smith@braze.com`, este exemplo de solicitação não mescla nenhum usuário porque há dois usuários não identificados com esse endereço de e-mail. Esta solicitação só funciona se houver apenas um usuário não identificado com o endereço de e-mail `john.smith@braze.com`.
 
-```json
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -238,11 +238,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-## Resposta
+## Resposta {#response}
 
 Existem dois códigos de status para este endpoint: `202` e `400`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 O código de status `202` poderia retornar o seguinte corpo de resposta.
 
@@ -252,9 +252,9 @@ O código de status `202` poderia retornar o seguinte corpo de resposta.
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para saber mais sobre os erros que você pode encontrar.
 
 ```json
 {
@@ -262,16 +262,16 @@ O código de status `400` poderia retornar o seguinte corpo de resposta. Consult
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista as possíveis mensagens de erro que podem ocorrer.
 
 | Erro | Solução de problemas |
-| --- |
+| --- | --- |
 | `'merge_updates' must be an array of objects` | Verifique se `merge_updates` é um vetor de objetos. |
 | `a single request may not contain more than 50 merge updates` | Você só pode especificar até 50 atualizações de mesclagem em uma única solicitação. |
-| `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Verifique os identificadores em sua solicitação. |
-| `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Verifique se o site `merge_updates` contém apenas os dois objetos `identifier_to_merge` e `identifier_to_keep`. |
+| `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Verifique os identificadores na sua solicitação. |
+| `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Verifique se `merge_updates` contém apenas os dois objetos `identifier_to_merge` e `identifier_to_keep`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

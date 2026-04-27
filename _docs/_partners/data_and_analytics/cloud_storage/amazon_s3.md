@@ -18,7 +18,7 @@ If you're switching between cloud storage providers, contact your Braze customer
 
 The Braze and Amazon S3 integration features two integration strategies:
 
-- Leverage [Currents]({{site.baseurl}}/user_guide/data/braze_currents/), enabling you to store data there until you want to connect it to other platforms, tools, and locations.
+- Leverage [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), enabling you to store data there until you want to connect it to other platforms, tools, and locations.
 - Use dashboard data exports (such as CSV exports and engagement reports).
 
 ## Prerequisites
@@ -37,7 +37,9 @@ To create a bucket for your app, do the following:
 1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3/) and follow the instructions to **Sign in** or **Create an Account with AWS**. 
 2. After signing in, select **S3** from the **Storage & Content Delivery** category. 
 3. Select **Create Bucket** on the next screen. 
-4. You're prompted to create your bucket and select a region.
+4. When prompted, create your bucket and select an AWS Region.
+
+Braze does not let you choose or configure a region in the dashboard. The AWS Region is fixed by where you create the bucket in the AWS console. The integration sends data to the bucket name you provide, and AWS automatically routes requests to the bucket's region. If your connector tries to connect to a different region than you want (for example, `eu-west-1` instead of `eu-central-1`), create or use an S3 bucket in your desired region in AWS. There is nothing to change on the Braze side.
 
 {% alert note %}
 Currents does not support buckets with [Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) configured.
@@ -45,7 +47,7 @@ Currents does not support buckets with [Object Lock](https://docs.aws.amazon.com
 
 ## Integration
 
-Braze has two different integration strategies with Amazon S3—one for [Braze Currents]({{site.baseurl}}/user_guide/data/braze_currents/) and one for all dashboard data exports (such as CSV exports or engagement reports). Both integrations support two different authentication or authorization methods:
+Braze has two different integration strategies with Amazon S3—one for [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) and one for all dashboard data exports (such as CSV exports or engagement reports). Both integrations support two different authentication or authorization methods:
 
 - [AWS secret access key method](#aws-secret-key-auth-method)
 - [AWS role ARN method](#aws-role-arn-auth-method)
@@ -140,9 +142,9 @@ If you're only setting up message archiving, follow the steps in the **Dashboard
 {% tabs %}
 {% tab Braze Currents %}
 
-In Braze, go to **Partner Integrations** > **Data Export**.
+In Braze, go to **Partner Integrations** > **Currents**.
 
-Next, select **Create Current** then **Amazon S3 Data Export**.
+Next, select **Create New Current** then **Amazon S3 Data Export**.
 
 Name your Current. In the **Credentials** section, make sure **AWS Secret Access Key** is selected, then input your S3 access ID, AWS secret access key, and AWS S3 bucket name in the designated fields.
 
@@ -257,8 +259,9 @@ Within the same IAM section of the console, select **Roles** > **Create Role**.
 ![]({{site.baseurl}}/assets/img/create_role_1_list.png)
 
 Retrieve your Braze account ID and external ID from your Braze account:
-- **Currents**: In Braze, go to **Partner Integrations** > **Data Export**. Next, select **Create Current** then **Amazon S3 Data Export**. Here you'll find the identifiers needed to create your role.
-- **Dashboard data export**: In Braze, go to **Partner Integrations** > **Technology Partners** and select **Amazon S3**. Here you'll find the identifiers needed to create your role. (Create your roles here if you're only setting up message archiving.)
+
+- **Currents:** In Braze, go to **Partner Integrations** > **Currents**. Next, select **Create New Current** then **Amazon S3 Data Export**. Here you'll find the identifiers needed to create your role.
+- **Dashboard data export:** In Braze, go to **Partner Integrations** > **Technology Partners** and select **Amazon S3**. Here you'll find the identifiers needed to create your role. (Create your roles here if you're only setting up message archiving.)
 
 Back on the AWS Console, select **Another AWS Account** as the trusted entity selector type. Provide your Braze account ID, check the **Require external ID** box, and enter the Braze external ID. Select **Next** when complete.
 
@@ -295,7 +298,7 @@ If you're only setting up message archiving, follow the steps in the **Dashboard
 {% tabs %}
 {% tab Braze Currents %}
 
-In Braze, go to the **Currents** page under **Integrations**. Next, select **Create Current** and select **Amazon S3 Data Export**
+In Braze, go to **Partner Integrations** > **Currents**. Next, select **Create New Current** and select **Amazon S3 Data Export**
 
 ![]({{site.baseurl}}/assets/img/currents-role-arn.png)
 
@@ -309,7 +312,7 @@ You can also add the following customization based on your needs:
 Select **Launch Current** to continue. A notification indicates if your credentials have been successfully validated. AWS S3 is now set up for Braze Currents.
 
 {% alert important %}
-If you receive an "S3 credentials are invalid" error, this may be due to integrating too quickly after creating a role in AWS. Wait and try again. 
+If you receive an "S3 credentials are invalid" error, this may be due to integrating too quickly after creating a role in AWS. Wait and try again. If the message mentions `PutObject` access or server-side encryption on dashboard data exports, see [Troubleshooting S3 credential errors](#troubleshooting).
 {% endalert %}
 
 {% endtab %}
@@ -338,7 +341,7 @@ Users who have integrated a cloud data storage solution and export APIs, dashboa
 - All dashboard reports and CSV reports are sent to the user's email for download (no storage permissions required) and backed up on Data Storage.
 
 {% alert important %}
-**JSON format requirement**: For JSON exports, Braze uses JSONL (newline-delimited JSON) format, where each line contains a separate JSON object. This format differs from standard JSON, which is a single JSON array or object. Each line in the exported file is a valid JSON object, but the file as a whole is not a single valid JSON document. When processing these files, parse each line individually as a separate JSON object rather than attempting to parse the entire file as a single JSON document.
+**JSON format requirement:** For JSON exports, Braze uses JSONL (newline-delimited JSON) format, where each line contains a separate JSON object. This format differs from standard JSON, which is a single JSON array or object. Each line in the exported file is a valid JSON object, but the file as a whole is not a single valid JSON document. When processing these files, parse each line individually as a separate JSON object rather than attempting to parse the entire file as a single JSON document.
 
 Currents exports use Apache Avro format (`.avro` files), not JSON. This JSON format requirement applies to dashboard data exports and API exports.
 {% endalert %}
@@ -349,4 +352,35 @@ If you intend to create more than one Currents connector to send to your S3 buck
 
 If you plan on using the same S3 bucket for both Currents and data exports, you need to create two separate policies as each integration requires different permissions.
 
+## Troubleshooting
+
+### Error: Account does not have `PutObject` access
+
+If you see the following error when saving Amazon S3 credentials for dashboard data exports, it may be due to incorrect permissions or server-side encryption settings.
+
+```
+S3 Credentials are invalid because this account does not have 'PutObject access'. Please check the permissions and ensure that this key has access to 'PutObject' in the 'CUSTOMER-BUCKET-HERE' bucket.
+```
+
+To resolve this issue, check the following areas.
+
+#### Incorrect bucket policy
+
+Confirm that you created a policy with the correct permissions as outlined in [Amazon S3 integration](#integration) (use the **Dashboard Data Export** policy for your authentication method).
+
+#### Server-side encryption
+
+```
+User: arn:aws:sts::XXX:assumed-role/braze-iam-role/braze is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:XXX because no identity-based policy allows the kms:GenerateDataKey action
+```
+
+If you receive this error message from [Braze Support]({{site.baseurl}}/braze_support/) or in your AWS logs, your S3 bucket is configured with AWS Key Management Service (SSE-KMS) encryption. Braze does not support SSE-KMS for Currents or dashboard data exports. To resolve this, disable SSE-KMS in your S3 bucket.
+
+{% alert note %}
+Braze supports server-side encryption using S3 managed keys (SSE-S3), which is compatible with both Currents and dashboard data exports.
+{% endalert %}
+
+#### Check additional permissions
+
+Make sure you have the necessary permissions, including `s3:GetBucketLocation` and `s3:PutObject`.
 

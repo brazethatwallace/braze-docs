@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-La limite de fréquence ne s'applique pas aux cartes de contenu.
+La limite de fréquence ne s'applique pas aux Content Cards.
 {% endalert %}
 
 {% endif %}
@@ -9,7 +9,7 @@ La limite de fréquence ne s'applique pas aux cartes de contenu.
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-Une chaîne de caractères de date telle que "12-1-2021" ou "12/1/2021" sera convertie en objet datetime et traitée comme un [attribut time]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Une chaîne de caractères de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut time]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Une chaîne de caractères de date telle que "12-1-2021" ou "12/1/2021" sera con
 {% if include.alert == 'Manage custom data storage' %}
 
 {% alert note %}
-Toutes les données des profils utilisateurs (événements personnalisés, attributs personnalisés, données personnalisées) sont stockées tant que ces profils sont actifs.
+Toutes les données de profil utilisateur (événements personnalisés, attributs personnalisés, données personnalisées) sont conservées tant que ces profils sont actifs.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,23 @@ Toutes les données des profils utilisateurs (événements personnalisés, attri
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-Braze ne crée pas de profils pour les utilisateurs tant qu’ils n’ont pas utilisé l’application une première fois, ce qui signifie que vous ne pouvez pas cibler des utilisateurs qui n’ont pas encore ouvert votre application.
+Braze ne crée pas de profil pour un utilisateur tant qu'il n'a pas utilisé l'application une première fois. Vous ne pouvez donc pas cibler des utilisateurs qui n'ont pas encore ouvert votre application.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Shopify attributes REST API' %}
+
+{% alert note %}
+Tous les attributs proviennent de la REST API de Braze.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+Vous pouvez ajouter jusqu'à 350 groupes d'abonnement par espace de travail.
 {% endalert %}
 
 {% endif %}
