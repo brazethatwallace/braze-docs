@@ -549,6 +549,11 @@ REST path such as ``/raw_data/status``, keep it in **inline code** (backticks) \
 in every locale—including after localized ``[API endpoint](…)`` link text—and \
 avoid doubled commas or stray parentheses around the path (auto-translate \
 PR #13373).
+27. **Monthly release notes** (``_releases/``): The file must start with YAML \
+``---`` on line 1—never a decorative ``----`` rule above it (Jekyll will not \
+parse front matter). Use **spaces** (for example two spaces) for nested \
+markdown bullets, not tab characters, so lists render consistently (auto-translate \
+PR #13374).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1242,6 +1247,52 @@ def repair_front_matter_display_scalar_cleanup(translated_content):
     if not repairs:
         return translated_content, []
     return f"---\n{new_fm}\n---\n{tr_body}", repairs
+
+
+def repair_releases_spurious_leading_fm_rule(translated_path, translated_content):
+    """Remove a stray ``----`` line before YAML when it blocks Jekyll front matter.
+
+    Models sometimes emit a horizontal-rule line immediately before ``---``;
+    the page then loses front matter parsing (Copilot PR #13374).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_releases/" not in rel or not rel.endswith(".md"):
+        return translated_content, []
+    if translated_content.startswith("----\n---"):
+        return translated_content[5:], [
+            "releases_fm — removed stray ---- before YAML front matter (PR #13374)"
+        ]
+    if translated_content.startswith("----\r\n---"):
+        return translated_content[6:], [
+            "releases_fm — removed stray ---- before YAML (CRLF) (PR #13374)"
+        ]
+    return translated_content, []
+
+
+def repair_releases_tab_indented_markdown_bullets(translated_path, translated_content):
+    """Normalize tab-indented nested list lines to two-space indents.
+
+    Tab-indented ``-`` items render inconsistently across Markdown tooling
+    (Copilot PR #13374).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_releases/" not in rel or not rel.endswith(".md"):
+        return translated_content, []
+    lines = translated_content.split("\n")
+    new_lines = []
+    changed = 0
+    for line in lines:
+        if line.startswith("\t- "):
+            new_lines.append("  - " + line[3:])
+            changed += 1
+        else:
+            new_lines.append(line)
+    if not changed:
+        return translated_content, []
+    return "\n".join(new_lines), [
+        f"releases_md — tab-indented nested list → spaces ({changed} line(s); "
+        "PR #13374)"
+    ]
 
 
 def repair_releases_bare_raw_data_status_endpoint(translated_path, translated_content):
@@ -4589,6 +4640,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_display_repairs)
 
+    translated_content, rel_fm_rule_repairs = repair_releases_spurious_leading_fm_rule(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(rel_fm_rule_repairs)
+
     translated_content, raw_status_repairs = (
         repair_releases_bare_raw_data_status_endpoint(
             translated_path, translated_content
@@ -4600,6 +4656,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(ja_rel_fm_repairs)
+
+    translated_content, rel_tab_list_repairs = (
+        repair_releases_tab_indented_markdown_bullets(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(rel_tab_list_repairs)
 
     translated_content, gfl_repairs = repair_guide_featured_list_links(
         english_content, translated_content
