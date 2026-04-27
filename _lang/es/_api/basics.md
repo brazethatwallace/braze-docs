@@ -7,81 +7,81 @@ page_type: reference
 alias: /api/api_key/
 ---
 
-# Resumen de la API
+# Resumen de la API {#api-overview}
 
 > Este artículo de referencia cubre los conceptos básicos de la API, incluida la terminología común y un resumen de las claves de la API REST, los permisos y cómo mantenerlas seguras.
 
-## Colección API REST de Braze
+## Colección API REST de Braze {#braze-rest-api-collection}
 
-| Colección                                                                 | Propósito                                                                               |
+| Colección                                                                  | Propósito                                                                               |
 |----------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| [Catálogos]({{site.baseurl}}/api/endpoints/catalogs/)                       | Crea y administra catálogos y artículos de catálogo para referenciarlos en tus campañas de Braze.    |
-| [Ingesta de datos en la nube]({{site.baseurl}}/api/endpoints/cdi/)                | Gestiona las integraciones y sincronizaciones de tu almacén de datos.                                    |
+| [Catálogos]({{site.baseurl}}/api/endpoints/catalogs/)                       | Crea y administra catálogos y artículos de catálogo para referenciarlos en tus Campaigns de Braze.    |
+| [Ingesta de datos de Cloud]({{site.baseurl}}/api/endpoints/cdi/)                | Gestiona las integraciones y sincronizaciones de tu almacén de datos.                                    |
 | [Listas y direcciones de correo electrónico]({{site.baseurl}}/api/endpoints/email/)         | Configura y gestiona la sincronización bidireccional entre Braze y tus sistemas de correo electrónico.           |
-| [Exportar]({{site.baseurl}}/api/endpoints/export/)                           | Accede y exporta varios detalles de tus campañas, Canvas, KPIs y mucho más.        |
+| [Exportar]({{site.baseurl}}/api/endpoints/export/)                           | Accede y exporta varios detalles de tus Campaigns, Canvas, KPI y mucho más.        |
 | [Biblioteca de medios]({{site.baseurl}}/api/endpoints/media_library/)             | Administra los activos dentro de Braze.                                                           |
-| [Mensajes]({{site.baseurl}}/api/endpoints/messaging/)                      | Programa, envía y gestiona tus campañas y Canvas.                               |
+| [Mensajes]({{site.baseurl}}/api/endpoints/messaging/)                      | Programa, envía y gestiona tus Campaigns y Canvas.                               |
 | [Centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/)     | Construye tu centro de preferencias y actualiza su estilo.                            |
 | [SCIM]({{site.baseurl}}/api/endpoints/scim/)                               | Administra las identidades de los usuarios en aplicaciones y servicios basados en la nube.                      |
 | [SMS]({{site.baseurl}}/api/endpoints/sms/)                                 | Gestiona los números de teléfono de tus usuarios en tus grupos de suscripción.                         |
 | [Grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/) | Enumera y actualiza los grupos de suscripción por SMS y correo electrónico almacenados en el panel de Braze. |
-| [Plantillas]({{site.baseurl}}/api/endpoints/templates/)                     | Crea y actualiza plantillas para mensajes por correo electrónico y bloques de contenido.                   |
+| [Plantillas]({{site.baseurl}}/api/endpoints/templates/)                     | Crea y actualiza plantillas para mensajes por correo electrónico y Content Blocks.                   |
 | [Datos de usuario]({{site.baseurl}}/api/endpoints/user_data/)                     | Identifica, rastrea y administra a tus usuarios.                                               |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Definiciones de la API
+## Definiciones de la API {#api-definitions}
 
 A continuación encontrarás un resumen de los términos que puedes ver en la documentación de la API REST de Braze.
 
-### Puntos finales
+### Puntos finales {#endpoints}
 
 Braze gestiona varias instancias diferentes para nuestro dashboard y puntos finales REST. Cuando tu cuenta esté aprovisionada, iniciarás sesión en una de las siguientes URL. Utiliza el punto final REST correcto en función de la instancia a la que estés aprovisionado. Si no estás seguro, abre un [ticket de soporte]({{site.baseurl}}/braze_support/) o utiliza la siguiente tabla para emparejar la URL del dashboard que utilizas con el punto final REST correcto.
 
 Para encontrar tu punto final REST en Braze:
 
-1. Inicia sesión en Braze y ve a **Configuración** > **API e identificadores** > **Claves de API**.
-2. Selecciona una clave de API existente o selecciona **Crear clave de API** para crear una nueva.
+1. Inicia sesión en Braze y ve a **Settings** > **APIs and Identifiers** > **API Keys**.
+2. Selecciona una clave de API existente o selecciona **Create API Key** para crear una nueva.
 3. Copia el punto final REST que se muestra en esta pestaña y utilízalo para tus solicitudes de API.
 
 {% alert important %}
 Cuando utilices puntos finales para las llamadas a la API, utiliza el punto final REST.
 
-Para la integración de SDK, utiliza el [punto final de SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/), no el punto final REST.
+Para la integración de SDK, utiliza el [punto final de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), no el punto final REST.
 {% endalert %}
 
 {% multi_lang_include data_centers.md datacenters='instances' %}
 
-### Límites de la API
+### Límites de la API {#api-limits}
 
-Para la mayoría de las API, Braze tiene un límite de velocidad predeterminado de 250 000 solicitudes por hora. Sin embargo, ciertos tipos de solicitudes tienen su propio límite de velocidad para gestionar mejor los grandes volúmenes de datos de la base de clientes. Para más detalles, consulta los [límites de velocidad de la API]({{site.baseurl}}/api/api_limits/)
+Para la mayoría de las API, Braze tiene un límite de velocidad predeterminado de 250 000 solicitudes por hora. Sin embargo, ciertos tipos de solicitudes tienen su propio límite de velocidad para gestionar mejor los grandes volúmenes de datos de la base de clientes. Para más detalles, consulta los [límites de velocidad de la API]({{site.baseurl}}/api/api_limits/).
 
-### ID de usuario
+### ID de usuario {#user-ids}
 
 - **ID externo de usuario**: El `external_id` sirve como identificador único del usuario cuyos datos envías. Este identificador debe ser el mismo que el que estableciste en el SDK de Braze para evitar crear varios perfiles para el mismo usuario.
-- **ID de usuario de Braze**: `braze_id` sirve como identificador único de usuario establecido por Braze. Puedes utilizar este identificador para eliminar usuarios a través de la API REST, además de los external_ids.
+- **ID de usuario de Braze**: `braze_id` sirve como identificador único de usuario establecido por Braze. Puedes utilizar este identificador para eliminar usuarios a través de la REST API, además de los external_ids.
 
-Para más información, consulta los siguientes artículos en función de tu plataforma: [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/) y [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/).
+Para más información, consulta los siguientes artículos en función de tu plataforma: [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android) y [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web).
 
-## Acerca de las claves de API REST
+## Acerca de las claves de API REST {#about-rest-api-keys}
 
-Una clave de API REST (clave de interfaz de programación de aplicaciones REST) es un código único que se pasa a una API para autenticar la llamada e identificar la aplicación o el usuario que realiza la llamada. Accedes a la API mediante solicitudes web HTTPS al punto final de la API REST de tu empresa. Las claves de API REST funcionan en conjunto con las claves identificadoras de aplicaciones para realizar el seguimiento, acceder, enviar, exportar y analizar datos con el fin de garantizar que todo funcione correctamente.
+Una clave de API REST (clave de interfaz de programación de aplicaciones REST) es un código único que se pasa a una API para autenticar la llamada e identificar la aplicación o el usuario que realiza la llamada. Accedes a la API mediante solicitudes web HTTPS al punto final de la REST API de tu empresa. Las claves de API REST funcionan en conjunto con las claves identificadoras de aplicaciones para realizar el seguimiento, acceder, enviar, exportar y analizar datos con el fin de garantizar que todo funcione correctamente.
 
-Los espacios de trabajo y las claves de API van de la mano en Braze. Los espacios de trabajo están diseñados para albergar versiones de la misma aplicación en varias plataformas. Muchos clientes también utilizan espacios de trabajo para contener versiones gratuitas y premium de sus aplicaciones en la misma plataforma. Como puedes observar, estos espacios de trabajo también utilizan la API REST y tienen sus propias claves de API REST. Se puede definir individualmente el ámbito de estas claves para que incluyan acceso a puntos finales específicos de la API. Cada llamada a la API tiene que incluir una clave con acceso al punto final correspondiente.
+Los espacios de trabajo y las claves de API van de la mano en Braze. Los espacios de trabajo están diseñados para albergar versiones de la misma aplicación en varias plataformas. Muchos clientes también utilizan espacios de trabajo para contener versiones gratuitas y premium de sus aplicaciones en la misma plataforma. Como puedes observar, estos espacios de trabajo también utilizan la REST API y tienen sus propias claves de API REST. Se puede definir individualmente el ámbito de estas claves para que incluyan acceso a puntos finales específicos de la API. Cada llamada a la API tiene que incluir una clave con acceso al punto final correspondiente.
 
-Nos referimos tanto a la clave de la API REST como a la clave de la API del espacio de trabajo como `api_key`. El `api_key` se incluye en cada solicitud como encabezado de solicitud y actúa como clave de autenticación que te permite utilizar nuestras API REST. Estas API REST se utilizan para rastrear usuarios, enviar mensajes, exportar datos de usuario, etc. Cuando crees una nueva clave de API REST, debes darle acceso a puntos finales específicos. Al asignar permisos específicos a una clave de API, puedes limitar exactamente qué llamadas puede autenticar dicha clave.
+Nos referimos tanto a la clave de la API REST como a la clave de la API del espacio de trabajo como `api_key`. El `api_key` se incluye en cada solicitud como encabezado de solicitud y actúa como clave de autenticación que te permite utilizar nuestras REST API. Estas REST API se utilizan para rastrear usuarios, enviar mensajes, exportar datos de usuario, etc. Cuando crees una nueva clave de API REST, debes darle acceso a puntos finales específicos. Al asignar permisos específicos a una clave de API, puedes limitar exactamente qué llamadas puede autenticar dicha clave.
 
 ![Panel de claves de API REST en la pestaña Claves de API.]({% image_buster /assets/img_archive/rest-api-key.png %})
 
 {% alert tip %}
-Además de las claves de API REST, también existe un tipo de clave llamada clave identificadora que puede utilizarse para hacer referencia a elementos concretos como aplicaciones, plantillas, Canvas, campañas, Tarjetas de contenido y segmentos desde la API. Para más información, consulta [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types/).
+Además de las claves de API REST, también existe un tipo de clave llamada clave identificadora que puede utilizarse para hacer referencia a elementos concretos como aplicaciones, plantillas, Canvas, Campaigns, Content Cards y Segments desde la API. Para más información, consulta [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types/).
 {% endalert %}
 
-### Crear claves de API REST
+### Crear claves de API REST {#creating-rest-api-keys}
 
 Para crear una nueva clave de API REST:
 
-1. Ve a **Configuración** > **API e identificadores**.
-2. Selecciona **Crear clave de API**.
+1. Ve a **Settings** > **APIs and Identifiers**.
+2. Selecciona **Create API Key**.
 3. Asigna un nombre a tu nueva clave para identificarla de un vistazo.
 4. Especifica [las direcciones IP y subredes permitidas](#api-ip-allowlisting) para la nueva clave.
 5. Selecciona los [permisos](#rest-api-key-permissions) que quieres asociar a tu nueva clave.
@@ -90,9 +90,9 @@ Para crear una nueva clave de API REST:
 Ten en cuenta que después de crear una nueva clave de API, no puedes editar el alcance de los permisos ni las IP permitidas. Esta limitación se aplica por motivos de seguridad. Si necesitas cambiar el alcance de una clave, crea una nueva con los permisos actualizados e implementa esa clave en lugar de la anterior. Cuando hayas completado la implementación, puedes eliminar la clave antigua.
 {% endalert %}
 
-### Permisos de la clave de API REST
+### Permisos de la clave de API REST {#rest-api-key-permissions}
 
-Los permisos de clave de API son permisos que puedes asignar a un usuario o grupo para limitar su acceso a determinadas llamadas de API. Para ver tu lista de permisos de clave de API, ve a **Configuración** > **API e identificadores** y selecciona tu clave de API.
+Los permisos de clave de API son permisos que puedes asignar a un usuario o grupo para limitar su acceso a determinadas llamadas de API. Para ver tu lista de permisos de clave de API, ve a **Settings** > **APIs and Identifiers** y selecciona tu clave de API.
 
 {% tabs %}
 {% tab User Data %}
@@ -101,15 +101,15 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 |---|---|---|
 | `users.track` | [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) | Registra atributos de usuario, eventos personalizados y compras. |
 | `users.delete` | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) | Elimina cualquier usuario. |
-| `users.alias.new` | [`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias/) |Crea un nuevo alias para un usuario existente. |
-| `users.identify` | [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) |Identifica a un usuario de solo alias con un ID externo. |
-| `users.export.ids` | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |Consulta la información del perfil de usuario por ID de usuario. |
-| `users.export.segment` | [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |Consulta la información del perfil de usuario por segmento. |
+| `users.alias.new` | [`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias/) | Crea un nuevo alias para un usuario existente. |
+| `users.identify` | [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) | Identifica a un usuario de solo alias con un ID externo. |
+| `users.export.ids` | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) | Consulta la información del perfil de usuario por ID de usuario. |
+| `users.export.segment` | [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) | Consulta la información del perfil de usuario por Segment. |
 | `users.merge` | [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) | Fusiona dos usuarios existentes entre sí. |
 | `users.external_ids.rename` | [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/) | Cambia el ID externo de un usuario existente. |
 | `users.external_ids.remove` | [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/) | Elimina el ID externo de un usuario existente. |
 | `users.alias.update` | [`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update/) | Actualiza un alias para un usuario existente. |
-| `users.export.global_control_group` | [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) | Consulta la información del perfil de usuario en el grupo de control global. |
+| `users.export.global_control_group` | [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) | Consulta la información del perfil de usuario en el Grupo de control global. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
  {% endtab %}
@@ -143,16 +143,16 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 
 | Permiso | Punto de conexión | Descripción |
 |---|---|---|
-| `campaigns.trigger.send` | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) | Desencadena el envío de una campaña existente. |
-| `campaigns.trigger.schedule.create` | [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/) | Programa el envío de una campaña con entrega desencadenada por API. |
-| `campaigns.trigger.schedule.update` | [`/campaigns/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/) | Actualiza una campaña programada con entrega desencadenada por API. |
-| `campaigns.trigger.schedule.delete` | [`/campaigns/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/) |Elimina una campaña programada con entrega desencadenada por API. |
-| `campaigns.list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | Consulta una lista de campañas. |
-| `campaigns.data_series` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | Consulta los análisis de la campaña en un intervalo de tiempo. |
-| `campaigns.details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | Consulta los detalles de una campaña concreta. |
+| `campaigns.trigger.send` | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) | Desencadena el envío de una Campaign existente. |
+| `campaigns.trigger.schedule.create` | [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/) | Programa el envío de una Campaign con entrega desencadenada por API. |
+| `campaigns.trigger.schedule.update` | [`/campaigns/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/) | Actualiza una Campaign programada con entrega desencadenada por API. |
+| `campaigns.trigger.schedule.delete` | [`/campaigns/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/) | Elimina una Campaign programada con entrega desencadenada por API. |
+| `campaigns.list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | Consulta una lista de Campaigns. |
+| `campaigns.data_series` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | Consulta los análisis de una Campaign en un intervalo de tiempo. |
+| `campaigns.details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | Consulta los detalles de una Campaign concreta. |
 | `sends.data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | Consulta los análisis de envío de mensajes a lo largo de un intervalo de tiempo. |
 | `sends.id.create` | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/) | Crea un ID de envío para el seguimiento de la difusión de mensajes. |
-| `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Consulta los detalles de la URL de una variación de mensaje concreta dentro de una campaña. |
+| `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Consulta los detalles de la URL de una variación de mensaje concreta dentro de una Campaign. |
 | `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/) | Permite enviar mensajes transaccionales utilizando el punto final de mensajería transaccional. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -164,7 +164,7 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 | `canvas.trigger.send` | [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) | Desencadena el envío de un Canvas existente. |
 | `canvas.trigger.schedule.create` | [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/) | Programa el envío de un Canvas con entrega desencadenada por API. |
 | `canvas.trigger.schedule.update` | [`/canvas/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/) | Actualiza un Canvas programado con entrega desencadenada por API. |
-| `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/)| Elimina un Canvas programado con entrega desencadenada por API. |
+| `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/) | Elimina un Canvas programado con entrega desencadenada por API. |
 | `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |  Consulta una lista de Canvas. |
 | `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Consulta los análisis de Canvas a lo largo de un intervalo de tiempo. |
 | `canvas.details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | Consulta los detalles de un Canvas concreto. |
@@ -177,9 +177,9 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 
 | Permiso | Punto de conexión | Descripción |
 |---|---|---|
-| `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | Consulta una lista de segmentos. |
-| `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Consulta los análisis de segmentos en un intervalo de tiempo. |
-| `segments.details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | Consulta los detalles de un segmento concreto. |
+| `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | Consulta una lista de Segments. |
+| `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Consulta los análisis de Segments en un intervalo de tiempo. |
+| `segments.details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | Consulta los detalles de un Segment concreto. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% endtab %}
@@ -235,9 +235,9 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 {% tab SSO %}
 
 | Permiso | Descripción |
-|---|---|---|
-| `sso.saml.login` | Configura el inicio de sesión iniciado por el proveedor de identidad. Para más información, consulta el [inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administrative/access_braze/single_sign_on/set_up/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| --- | --- |
+| `sso.saml.login` | Configura el inicio de sesión iniciado por el proveedor de identidad. Para más información, consulta el [inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/). |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
 {% tab Content Blocks %}
@@ -245,9 +245,9 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 | Permiso | Punto de conexión | Descripción |
 |---|---|---|
 | `content_blocks.info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | Consulta información sobre una plantilla concreta. |
-| `content_blocks.list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | Consulta una lista de bloques de contenido. |
-| `content_blocks.create` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | Crea un nuevo bloque de contenido en el dashboard. |
-| `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | Actualiza un bloque de contenido existente en el dashboard. |
+| `content_blocks.list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | Consulta una lista de Content Blocks. |
+| `content_blocks.create` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | Crea un nuevo Content Block en el dashboard. |
+| `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | Actualiza un Content Block existente en el dashboard. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% endtab %}
@@ -255,10 +255,10 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 
 | Permiso | Punto de conexión | Descripción |
 |---|---|---|
-| `preference_center.get` | [`/preference_center/v1/{preferenceCenterExternalId}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | Obtiene un centro de preferencias. |
+| `preference_center.get` | [`/preference_center/v1/{preferenceCenterExternalId}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | Obtiene un centro de preferencias. |
 | `preference_center.list` | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | Lista los centros de preferencias. |
-| `preference_center.update` | [`/preference_center/v1`]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center)<br><br>[`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/) | Crea o actualiza un centro de preferencias. |
-| `preference_center.user.get` | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) | Obtiene un enlace al centro de preferencias para un usuario. |
+| `preference_center.update` | [`/preference_center/v1`]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/)<br><br>[`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/) | Crea o actualiza un centro de preferencias. |
+| `preference_center.user.get` | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) | Obtiene un enlace al centro de preferencias para un usuario. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% endtab %}
@@ -287,7 +287,7 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 |---|---|---|
 | `catalogs.add_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk/) | Añade varios elementos a un catálogo existente. |
 | `catalogs.update_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/patch_catalog_items_bulk/) | Actualiza varios elementos en un catálogo existente. |
-| `catalogs.delete_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk) | Elimina varios elementos de un catálogo existente. |
+| `catalogs.delete_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk/) | Elimina varios elementos de un catálogo existente. |
 | `catalogs.get_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | Obtiene un elemento único de un catálogo existente. |
 | `catalogs.update_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item/) | Actualiza un elemento único en un catálogo existente. |
 | `catalogs.create_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/post_create_catalog_item/) | Crea un elemento único en un catálogo existente. |
@@ -305,66 +305,66 @@ Los permisos de clave de API son permisos que puedes asignar a un usuario o grup
 
 | Permiso | Punto de conexión | Descripción |
 |---|---|---|
-| `sdk_authentication.create` | [`/app_group/sdk_authentication/create`]({{site.baseurl}}/api/endpoints/sdk_authentication/post_create_sdk_authentication_key) | Crea una nueva clave de autenticación de SDK para tu aplicación. |
-| `sdk_authentication.primary` | [`/app_group/sdk_authentication/primary`]({{site.baseurl}}/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key/) | Marca una clave de autenticación de SDK como clave principal para tu aplicación. |
-| `sdk_authentication.delete` | [`/app_group/sdk_authentication/delete`]({{site.baseurl}}/api/endpoints/sdk_authentication/delete_sdk_authentication_key) | Elimina una clave de autenticación de SDK para tu aplicación. |
-| `sdk_authentication.keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys) | Obtiene todas las claves de autenticación de SDK para tu aplicación. |
+| `sdk_authentication.create` | [`/app_group/sdk_authentication/create`]({{site.baseurl}}/api/endpoints/sdk_authentication/post_create_sdk_authentication_key/) | Crea una nueva clave de Autenticación SDK para tu aplicación. |
+| `sdk_authentication.primary` | [`/app_group/sdk_authentication/primary`]({{site.baseurl}}/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key/) | Marca una clave de Autenticación SDK como clave principal para tu aplicación. |
+| `sdk_authentication.delete` | [`/app_group/sdk_authentication/delete`]({{site.baseurl}}/api/endpoints/sdk_authentication/delete_sdk_authentication_key/) | Elimina una clave de Autenticación SDK para tu aplicación. |
+| `sdk_authentication.keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | Obtiene todas las claves de Autenticación SDK para tu aplicación. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% endtab %}
 {% endtabs %}
 
-### Gestión de claves de API REST
+### Gestión de claves de API REST {#managing-rest-api-keys}
 
-Puedes ver los detalles de las claves de API REST existentes o eliminarlas desde **Configuración** > **API e identificadores** > pestaña **Claves de API**. Ten en cuenta que no puedes editar las claves de API REST después de crearlas.
+Puedes ver los detalles de las claves de API REST existentes o eliminarlas desde **Settings** > **APIs and Identifiers** > pestaña **API Keys**. Ten en cuenta que no puedes editar las claves de API REST después de crearlas.
 
-La pestaña **Claves de API** incluye la siguiente información para cada clave:
+La pestaña **API Keys** incluye la siguiente información para cada clave:
 
 | Campo        | Descripción                                                                                                         |
 | ------------ | :------------------------------------------------------------------------------------------------------------------ |
 | Nombre de clave de API | El nombre dado a la clave en el momento de su creación.                                                                            |
 | Identificador   | La clave de API.                                                                                                        |
-| Creación a cargo de   | La dirección de correo electrónico del usuario que creó la clave. Este campo aparece como «N/A» para las claves creadas antes de junio de 2023. |
+| Creada por   | La dirección de correo electrónico del usuario que creó la clave. Este campo aparece como «N/A» para las claves creadas antes de junio de 2023. |
 | Fecha de creación | La fecha de creación de esta clave.                                                                                      |
 | Visto por última vez    | La fecha en que se utilizó esta clave por última vez. Este campo aparece como «N/A» para las claves que nunca se han utilizado.                  |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para ver los detalles de una clave de API, pasa el cursor por encima de la clave y selecciona <i class="fa-solid fa-eye" alt="View"></i> **Ver**. Esto incluye todos los permisos que tiene esta clave, las IP de la lista blanca (si las hay) y si esta clave está incluida en la lista blanca de IP de Braze.
+Para ver los detalles de una clave de API, pasa el cursor por encima de la clave y selecciona <i class="fa-solid fa-eye" alt="View"></i> **View**. Esto incluye todos los permisos que tiene esta clave, las IP de la lista blanca (si las hay) y si esta clave está incluida en la lista blanca de IP de Braze.
 
 ![La lista de permisos de la clave de API en el panel de Braze.]({% image_buster /assets/img_archive/view-api-key.png %})
 
-Ten en cuenta que, al [eliminar un usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/), Braze no elimina las claves de API asociadas que ese usuario haya creado. Para eliminar una clave, pasa el cursor sobre ella y selecciona <i class="fa-solid fa-trash-can" alt="Delete"></i> **Eliminar**.
+Ten en cuenta que, al [eliminar un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), Braze no elimina las claves de API asociadas que ese usuario haya creado. Para eliminar una clave, pasa el cursor sobre ella y selecciona <i class="fa-solid fa-trash-can" alt="Delete"></i> **Delete**.
 
-![Una clave de API llamada "Visto por última vez" con el icono de la papelera resaltado, mostrando "Eliminar".]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
+![Una clave de API llamada «Last Seen» con el icono de la papelera resaltado, mostrando «Delete».]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
 
-### Seguridad de la clave de API REST
+### Seguridad de la clave de API REST {#rest-api-key-security}
 
 Las claves de API se utilizan para autenticar una llamada a la API. Cuando creas una nueva clave de API REST, es necesario darle acceso a puntos finales específicos. Al asignar permisos específicos a una clave de API, puedes limitar exactamente qué llamadas puede autenticar dicha clave.
 
-Dado que las claves de API REST permiten acceder a puntos finales de API REST potencialmente sensibles, protege estas claves y compártelas solo con socios de confianza. Nunca deben quedar expuestas públicamente. Por ejemplo, no utilices esta clave para hacer llamadas AJAX desde tu sitio web ni la expongas de ninguna otra forma pública.
+Dado que las claves de API REST permiten acceder a puntos finales de REST API potencialmente sensibles, protege estas claves y compártelas solo con socios de confianza. Nunca deben quedar expuestas públicamente. Por ejemplo, no utilices esta clave para hacer llamadas AJAX desde tu sitio web ni la expongas de ninguna otra forma pública.
 
 Una buena práctica de seguridad es asignar a un usuario solo el acceso necesario para completar su trabajo: este principio también puede aplicarse a las claves de API asignando permisos a cada clave. Estos permisos te proporcionan mayor seguridad y control sobre las distintas áreas de tu cuenta.
 
 {% alert warning %}
-Dado que las claves de API REST permiten acceder a puntos finales de API REST potencialmente sensibles, asegúrate de que se almacenan y utilizan de forma segura. Por ejemplo, no utilices esta clave para hacer llamadas AJAX desde tu sitio web ni la expongas de ninguna otra forma pública.
+Dado que las claves de API REST permiten acceder a puntos finales de REST API potencialmente sensibles, asegúrate de que se almacenan y utilizan de forma segura. Por ejemplo, no utilices esta clave para hacer llamadas AJAX desde tu sitio web ni la expongas de ninguna otra forma pública.
 {% endalert %}
 
 Si expones una clave accidentalmente, puedes eliminarla de la consola para desarrolladores. Para obtener ayuda con este proceso, abre un [ticket de soporte]({{site.baseurl}}/braze_support/).
 
-### Seguridad de las claves de API REST y las claves de API de SDK
+### Seguridad de las claves de API REST y las claves de API de SDK {#security-of-rest-api-keys-and-sdk-api-keys}
 
 Las claves de API REST y las claves de API de SDK tienen perfiles de seguridad diferentes.
 
 | | Claves de API REST | Claves de API de SDK |
 |---|---|---|
-| Propósito | Autenticación del lado del servidor para la API REST (envío de mensajes, exportación de datos, gestión de usuarios) | Identificación del lado del cliente para el SDK de Braze (ingesta de datos, mensajes dentro de la aplicación, Tarjetas de contenido) |
+| Propósito | Autenticación del lado del servidor para la REST API (envío de mensajes, exportación de datos, gestión de usuarios) | Identificación del lado del cliente para el SDK de Braze (ingesta de datos, mensajes dentro de la aplicación, Content Cards) |
 | Visibilidad | **Deben permanecer privadas**. Nunca las expongas en código del lado del cliente, repositorios públicos o aplicaciones de usuario. | Diseñadas para ser públicas. Se incluyen dentro del binario de tu aplicación o son visibles en el JavaScript del navegador web, de forma similar a un ID de seguimiento de Google Analytics. |
-| Solución si se exponen | Revoca la clave inmediatamente y crea un reemplazo en **Configuración** > **API e identificadores** > **Claves de API**. Una clave de API REST expuesta puede usarse para enviar mensajes, exportar datos de usuario o modificar la configuración de la cuenta. | No se requiere ninguna acción. Una clave de API de SDK solo puede ingerir datos y recuperar mensajería del lado del cliente (como mensajes dentro de la aplicación y Tarjetas de contenido). No puede exportar datos de usuario, enviar mensajes en tu nombre ni modificar campañas. |
+| Solución si se exponen | Revoca la clave inmediatamente y crea un reemplazo en **Settings** > **APIs and Identifiers** > **API Keys**. Una clave de API REST expuesta puede usarse para enviar mensajes, exportar datos de usuario o modificar la configuración de la cuenta. | No se requiere ninguna acción. Una clave de API de SDK solo puede ingerir datos y recuperar mensajería del lado del cliente (como mensajes dentro de la aplicación y Content Cards). No puede exportar datos de usuario, enviar mensajes en tu nombre ni modificar Campaigns. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Lista de direcciones IP permitidas de la API
+### Lista de direcciones IP permitidas de la API {#api-ip-allowlisting}
 
-Para mayor seguridad, puedes especificar una lista de direcciones IP y subredes a las que se permite realizar solicitudes de API REST para una clave de API REST determinada. Esto se denomina lista permitida o lista blanca. Para permitir direcciones IP o subredes específicas, añádelas a la sección **IPs de la lista blanca** al crear una nueva clave de API REST:
+Para mayor seguridad, puedes especificar una lista de direcciones IP y subredes a las que se permite realizar solicitudes de REST API para una clave de API REST determinada. Esto se denomina lista permitida o lista blanca. Para permitir direcciones IP o subredes específicas, añádelas a la sección **Whitelist IPs** al crear una nueva clave de API REST:
 
 ![Opción para permitir IPs al crear una clave de API.]({% image_buster /assets/img_archive/api-key-ip-whitelisting.png %})
 
@@ -374,11 +374,11 @@ Si no especificas ninguna, las solicitudes pueden enviarse desde cualquier direc
 Si estás creando un webhook de Braze a Braze y utilizas listas de permitidos, consulta la lista de [direcciones IP que debes incluir en la lista blanca]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#ip-whitelisting).
 {% endalert %}
 
-## Autenticación y seguridad de la API
+## Autenticación y seguridad de la API {#api-authentication-and-security}
 
-### Autenticación mediante token de portador
+### Autenticación mediante token de portador {#bearer-token-authentication}
 
-Braze autentica las solicitudes de la API REST utilizando la clave de API REST pasada como token Bearer en el encabezado de solicitud `Authorization`. Cuando envíes una solicitud, incluye tu clave de API en el siguiente formato:
+Braze autentica las solicitudes de la REST API utilizando la clave de API REST pasada como token Bearer en el encabezado de solicitud `Authorization`. Cuando envíes una solicitud, incluye tu clave de API en el siguiente formato:
 
 ```bash
 Authorization: Bearer YOUR_REST_API_KEY
@@ -391,9 +391,9 @@ En cada solicitud, Braze realiza las siguientes comprobaciones de validación de
 
 Si la autenticación falla, la API devuelve una respuesta de error con un código de estado HTTP. Por ejemplo, `401 Unauthorized` indica una clave no válida o ausente, mientras que `403 Forbidden` indica que la clave no tiene permiso para el punto final solicitado. Para obtener más información, consulta [Errores de API]({{site.baseurl}}/api/errors/).
 
-### Seguridad a nivel de red
+### Seguridad a nivel de red {#network-level-security}
 
-Las solicitudes de API REST a Braze están protegidas por el cifrado Transport Layer Security (TLS) en toda la ruta de la solicitud. La siguiente tabla describe el flujo de red para una solicitud de API desde tu servidor a Braze:
+Las solicitudes de REST API a Braze están protegidas por el cifrado Transport Layer Security (TLS) en toda la ruta de la solicitud. La siguiente tabla describe el flujo de red para una solicitud de API desde tu servidor a Braze:
 
 | Paso | Componente | Descripción |
 | --- | --- | --- |
@@ -406,13 +406,13 @@ Las solicitudes de API REST a Braze están protegidas por el cifrado Transport L
 
 El cifrado TLS cubre todos los eslabones de la cadena. Tu servidor se conecta a Cloudflare a través de TLS, y Cloudflare establece una conexión TLS independiente a través del NLB con el ingreso NGINX, por lo que tu clave de API y los datos de la solicitud permanecen cifrados durante la transmisión.
 
-## Recursos adicionales
+## Recursos adicionales {#additional-resources}
 
-### Biblioteca cliente Ruby
+### Biblioteca cliente Ruby {#ruby-client-library}
 
 Si estás implementando Braze con Ruby, puedes utilizar la [biblioteca de clientes Ruby](https://github.com/braze-inc/braze-api-client-ruby) para reducir el tiempo de importación de datos. Una biblioteca cliente es una colección de código específico de un lenguaje de programación —en este caso, Ruby— que facilita el uso de una API.
 
-La biblioteca cliente Ruby admite los [puntos finales de usuario]({{site.baseurl}}/api/endpoints/user_data).
+La biblioteca cliente Ruby admite los [puntos finales de usuario]({{site.baseurl}}/api/endpoints/user_data/).
 
 {% alert important %}
 Esta biblioteca de clientes se encuentra en fase beta. Para ayudar a mejorar esta biblioteca, envía tus comentarios a [smb-product@braze.com](mailto:smb-product@braze.com).

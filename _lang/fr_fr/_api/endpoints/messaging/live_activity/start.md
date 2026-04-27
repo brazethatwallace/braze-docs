@@ -10,7 +10,7 @@ description: "Cet article présente les détails de l'endpoint Démarrer une act
 
 ---
 {% api %}
-# Démarrer une activité en direct
+# Démarrer une activité en direct {#start-live-activity}
 {% apimethod post %}
 /messages/live_activity/start
 {% endapimethod %}
@@ -19,13 +19,13 @@ description: "Cet article présente les détails de l'endpoint Démarrer une act
 
 Après avoir créé une activité en direct, vous pouvez effectuer une requête POST pour démarrer à distance votre activité pour n'importe quel segment donné. Pour en savoir plus sur les activités en direct d'Apple, consultez [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
-Si `content-available` n'est pas défini, la priorité par défaut du service Apple Push Notification (APNs) est 10. Si `content-available` est défini, cette priorité est de 5. Consultez l'[objet push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) pour plus de détails.
+Si `content-available` n'est pas défini, la priorité par défaut du service Apple Push Notification (APNs) est 10. Si `content-available` est défini, cette priorité est de 5. Consultez l'[objet push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) pour plus de détails.
 
 {% alert tip %}
 Pour mettre fin à une activité en direct, utilisez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) avec `end_activity` défini sur `true`.
 {% endalert %}
 
-## Planifier la suppression automatique
+## Planifier la suppression automatique {#arranging-automatic-dismissal}
 
 Pour planifier la suppression automatique après le démarrage d'une activité en direct, programmez une requête de suivi vers l'endpoint de mise à jour depuis votre backend.
 
@@ -33,11 +33,11 @@ Pour planifier la suppression automatique après le démarrage d'une activité e
 2. Stockez cet `activity_id` et l'heure de fin souhaitée dans le planificateur de votre backend.
 3. À l'heure de fin prévue, envoyez une requête `/messages/live_activity/update` avec `end_activity` défini sur `true`.
 4. Configurez le comportement de suppression dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/).
-5. Vérifiez les événements d'envoi et de résultat dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
+5. Vérifiez les événements d'envoi et de résultat dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
@@ -46,11 +46,11 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corps de la requête
+## Corps de la requête {#request-body}
 
 ```json
 {
@@ -68,11 +68,11 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 }
 ```
 
-## Paramètres de la requête
+## Paramètres de la requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description  |
 |-----------|----------|----------|--------------|
-| `app_id` | Requis | Chaîne de caractères | [Identifiant API]({{site.baseurl}}/api/identifier_types/#the-app-identifier) de l'application, récupéré depuis la page [Clés API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/).  |
+| `app_id` | Requis | Chaîne de caractères | [Identifiant API]({{site.baseurl}}/api/identifier_types/#the-app-identifier) de l'application, récupéré depuis la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/).  |
 | `activity_id` | Requis | Chaîne de caractères  | Définissez une chaîne de caractères personnalisée comme `activity_id`. Vous utiliserez cet ID lorsque vous souhaiterez envoyer des événements de mise à jour ou de fin à votre activité en direct.  |
 | `activity_attributes_type`  | Requis | Chaîne de caractères | Le type d'attributs d'activité que vous définissez dans `liveActivities.registerPushToStart` dans votre application.  |
 | `activity_attributes` | Requis | Objet  | Les valeurs d'attributs statiques pour le type d'activité (comme les noms des équipes sportives, qui ne changent pas). |
@@ -84,7 +84,7 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 | `custom_audience` | Facultatif si `external_user_ids` ou `segment_id` est fourni | Objet audience connectée  | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Exemple de requête
+## Exemple de requête {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
@@ -116,11 +116,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## Réponse
+## Réponse {#response}
 
 Deux codes de statut sont possibles pour cet endpoint : `201` et `4XX`.
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
 Un code de statut `201` est renvoyé si la requête a été correctement formatée et que nous l'avons reçue. Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
 
@@ -130,7 +130,7 @@ Un code de statut `201` est renvoyé si la requête a été correctement format�
 }
 ```
 
-### Exemple de réponse en erreur
+### Exemple de réponse en erreur {#example-error-response}
 
 La classe de code de statut `4XX` indique une erreur côté client. Consultez l'article [Erreurs et réponses de l'API]({{site.baseurl}}/api/errors/) pour plus d'informations sur les erreurs que vous pouvez rencontrer.
 

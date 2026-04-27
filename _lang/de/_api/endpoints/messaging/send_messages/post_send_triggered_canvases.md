@@ -1,36 +1,36 @@
 ---
-nav_title: "POST: Senden Sie Canvas Nachrichten mit API-getriggerter Zustellung"
-article_title: "POST: Senden von Canvas Nachrichten mit API-getriggerter Zustellung"
+nav_title: "POST: Canvas-Nachrichten mit API-getriggerter Zustellung senden"
+article_title: "POST: Canvas-Nachrichten mit API-getriggerter Zustellung senden"
 search_tag: Endpunkt
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Canvase mit API-getriggerter Zustellung von Braze senden."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Senden von Canvases mit API-getriggerter Zustellung."
 
 ---
 {% api %}
-# Senden Sie Canvas Nachrichten mit API-getriggerter Zustellung
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
-/canvas/triggern/senden
+# Canvas-Nachrichten mit API-getriggerter Zustellung senden {#send-canvas-messages-using-api-triggered-delivery}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+/canvas/trigger/send
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Canvas Nachrichten mit API-getriggerter Zustellung zu versenden.
+> Verwenden Sie diesen Endpunkt, um Canvas-Nachrichten mit API-getriggerter Zustellung zu versenden.
 
 Die API-getriggerte Zustellung ermöglicht es Ihnen, den Inhalt von Nachrichten im Braze-Dashboard zu speichern und gleichzeitig über Ihre API zu bestimmen, wann und an wen eine Nachricht gesendet wird.
 
-Bevor Sie mit diesem Endpunkt Nachrichten versenden können, müssen Sie über eine [Canvas ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) verfügen (die beim Erstellen eines Canvas erstellt wird).
+Bevor Sie mit diesem Endpunkt Nachrichten versenden können, müssen Sie über eine [Canvas-ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) verfügen (die beim Erstellen eines Canvas generiert wird).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c9a8a5fe-a101-4755-99f2-73aa8fc146fe {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, müssen Sie einen API-Schlüssel mit der Berechtigung `canvas.trigger.send` erstellen.
+Um diesen Endpunkt zu verwenden, müssen Sie einen API-Schlüssel mit der Berechtigung `canvas.trigger.send` generieren.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='send endpoints' category='send messages endpoints' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -59,18 +59,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`| Erforderlich | String | Siehe [Canvas Bezeichner]({{site.baseurl}}/api/identifier_types/). |
-|`context`| Optional | Objekt | Dies umfasst die Eingangs-Eigenschaften für Canvas-Einträge. Personalisierte Schlüssel-Wert-Paare gelten für alle Nutzer:innen in dieser Anfrage. Das Kontext-Objekt kann bis zu 50 KB groß sein. |
-|`broadcast`| Optional | Boolesch | Bitte stellen Sie sicher, dass Sie den Wert`broadcast`auf „true“ setzen, wenn Sie eine Nachricht an das gesamte Segment senden, das im Braze-Dashboard als Zielgruppe für Canvas konfiguriert ist. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31\. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann eine `recipients` Liste nicht aufgenommen werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Sie Ihre Nachricht an eine größere Zielgruppe als erwartet senden. |
-|`audience`| Optional| Verbundenes Objekt der Zielgruppe | Siehe [Verbundenes Publikum]({{site.baseurl}}/api/objects_filters/connected_audience/). Wenn Sie einfügen`audience`, wird die Nachricht nur an Nutzer:innen gesendet, die den definierten Filtern entsprechen, wie z. B. benutzerdefinierte Attribute und Abonnementstatus. |
-|`recipients`| Optional | Array | Siehe [Objekt Empfänger:innen]({{site.baseurl}}/api/objects_filters/recipient_object/). <br><br>Wenn nicht angegeben und auf `true`gesetzt`broadcast` ist, wird die Nachricht an das gesamte Segment gesendet, das im Braze-Dashboard als Zielgruppe für Canvas konfiguriert ist.<br><br> Das Array `recipients` kann bis zu 50 Objekte enthalten, wobei jedes Objekt einen einzelnen String `external_user_id` und ein Objekt `canvas_entry_properties` enthält. Dieser Aufruf erfordert eine `external_user_id`, `user_alias` oder `email`. In der Anfrage darf nur eine Angabe gemacht werden. <br><br>Wenn `email` der Bezeichner ist, müssen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) in das Empfänger:innen-Objekt aufnehmen. |
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `context` | Optional | Objekt | Enthält die Canvas-Eingangs-Eigenschaften. Personalisierte Schlüssel-Wert-Paare gelten für alle Nutzer:innen in dieser Anfrage. Das Kontext-Objekt kann bis zu 50 KB groß sein. |
+| `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an das gesamte Segment senden, das im Braze-Dashboard als Zielgruppe des Canvas konfiguriert ist. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann keine `recipients`-Liste angegeben werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Sie Ihre Nachricht an eine größere Zielgruppe als erwartet senden. |
+| `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [Verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). Wenn Sie `audience` angeben, wird die Nachricht nur an Nutzer:innen gesendet, die den definierten Filtern entsprechen, wie z. B. angepasste Attribute und Abo-Status. |
+| `recipients` | Optional | Array | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/). <br><br>Wenn nicht angegeben und `broadcast` auf `true` gesetzt ist, wird die Nachricht an das gesamte Segment gesendet, das im Braze-Dashboard als Zielgruppe des Canvas konfiguriert ist.<br><br> Das Array `recipients` kann bis zu 50 Objekte enthalten, wobei jedes Objekt einen einzelnen `external_user_id`-String und ein `canvas_entry_properties`-Objekt enthält. Dieser Aufruf erfordert eine `external_user_id`, `user_alias` oder `email`. In der Anfrage darf nur eine Angabe gemacht werden. <br><br>Wenn `email` der Bezeichner ist, müssen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) in das Empfänger:innen-Objekt aufnehmen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/send' \
 --header 'Content-Type: application/json' \
@@ -142,13 +142,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 }'
 ```
 
-## Details zur Antwort
+## Antwortdetails {#response-details}
 
-Die Antworten der Endpunkte zum Senden von Nachrichten referenzieren die Nachricht`dispatch_id`zum Zurückverfolgen des Versands der Nachricht. Die `dispatch_id` ist die ID des Nachrichtenversands (eindeutige ID für jede von der Braze-Plattform gesendete "Übertragung"). Weitere Informationen finden Sie unter [Verhalten der Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Die Antworten der Endpunkte zum Senden von Nachrichten enthalten die `dispatch_id` der Nachricht, um den Versand zurückverfolgen zu können. Die `dispatch_id` ist die ID des Nachrichtenversands (eindeutige ID für jede von der Braze-Plattform gesendete „Übertragung“). Weitere Informationen finden Sie unter [Verhalten der Dispatch-ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `201` könnte den folgenden Antwortkörper zurückgeben. Wenn der Canvas archiviert, angehalten oder pausiert wird, wird er nicht über diesen Endpunkt gesendet.
+Der Statuscode `201` könnte den folgenden Antworttext zurückgeben. Wenn der Canvas archiviert, gestoppt oder pausiert ist, wird er nicht über diesen Endpunkt gesendet.
 
 ```
 {
@@ -158,27 +158,27 @@ Der Status Code `201` könnte den folgenden Antwortkörper zurückgeben. Wenn de
 }
 ```
 
-Wenn Ihr Canvas archiviert ist, wird folgende`notice`Nachricht angezeigt: "Der Canvas ist archiviert. Heben Sie die Archivierung des Canvas auf, um sicherzustellen, dass die Anfragen zum Auslösen wirksam werden." Wenn Ihr Canvas nicht aktiv ist, wird folgende`notice`Nachricht angezeigt: "Der Canvas ist angehalten. Setzen Sie den Canvas fort, um sicherzustellen, dass die Anfragen zum Auslösen wirksam werden."
+Wenn Ihr Canvas archiviert ist, wird folgende `notice`-Nachricht angezeigt: „The Canvas is archived. Unarchive the Canvas to ensure trigger requests will take effect.“ Wenn Ihr Canvas nicht aktiv ist, wird folgende `notice`-Nachricht angezeigt: „The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect.“
 
 Wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors) den Fehlercode und die Beschreibung.
 
-## Überlegungen
+## Hinweise {#considerations}
 
-Bitte beachten Sie Folgendes, wenn Sie API-Aufrufe zum Senden von Canvas-Nachrichten über die API-gesteuerte Zustellung durchführen:
+Beachten Sie Folgendes, wenn Sie API-Aufrufe zum Senden von Canvas-Nachrichten mit API-getriggerter Zustellung durchführen:
 
-- **Versand an bestehende Nutzer:innen**: Wenn`send_to_existing_only`die Einstellung auf`true`„Standard“ gesetzt ist, wird die Nachricht ausschließlich an bereits in Braze registrierte Nutzer:innen gesendet.
-- **Neue Nutzer:innen erstellen**: Wenn  auf  `false`gesetzt`send_to_existing_only` ist, müssen Sie ein`attributes`  Objekt einfügen. Sollte ein Nutzer:in mit der angegebenen ID nicht vorhanden sein, erstellt Braze vor dem Versenden der Nachricht einen Nutzer:in mit dieser ID und den entsprechenden Attributen.
-- **Beschränkung der Nutzer-Aliase**: Das`send_to_existing_only`Flag kann nicht mit Benutzer-Aliasen verwendet werden. Um an einen Nutzer mit Nutzer-Alias zu senden, muss dieser Nutzer:in bereits in Braze vorhanden sein.
-- **Segment-Targeting**: Der`segment_id`Parameter wird für diesen Endpunkt nicht unterstützt. Um ein Segment anzusprechen, konfigurieren Sie das Segment in den Zielgruppeneinstellungen des Canvas im Braze-Dashboard und verwenden Sie `broadcast: true`den`audience`Parameter oder den Parameter mit [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)-Zielgruppen-Filtern.
-- **Kombiniertes Targeting**: Wenn Sie sowohl den`recipients`Parameter als auch ein Zielsegment im Dashboard konfigurieren, wird die Nachricht nur an Nutzerprofile gesendet, die im API-Aufruf angegeben sind und auch den Filtern des Segments entsprechen.
-- **Server-zu-Server-Anrufe**: Wenn Sie Server-zu-Server-Anrufe tätigen, kann es erforderlich sein, die entsprechende API-URL auf die Whitelist zu setzen, falls Sie sich hinter einer Firewall befinden.
+- **Versand an bestehende Nutzer:innen**: Wenn `send_to_existing_only` auf `true` gesetzt ist (Standardwert), wird die Nachricht ausschließlich an bereits in Braze vorhandene Nutzer:innen gesendet.
+- **Neue Nutzer:innen erstellen**: Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein `attributes`-Objekt angeben. Sollte ein:e Nutzer:in mit der angegebenen ID nicht vorhanden sein, erstellt Braze vor dem Versenden der Nachricht ein Profil mit dieser ID und den entsprechenden Attributen.
+- **Einschränkung bei Nutzer-Aliasen**: Das Flag `send_to_existing_only` kann nicht mit Nutzer-Aliasen verwendet werden. Um an eine:n Nutzer:in zu senden, die bzw. der nur über einen Alias verfügt, muss diese:r Nutzer:in bereits in Braze vorhanden sein.
+- **Segment-Targeting**: Der Parameter `segment_id` wird für diesen Endpunkt nicht unterstützt. Um ein Segment anzusprechen, konfigurieren Sie das Segment in den Zielgruppeneinstellungen des Canvas im Braze-Dashboard und verwenden Sie `broadcast: true` oder den Parameter `audience` mit [Connected-Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)-Filtern.
+- **Kombiniertes Targeting**: Wenn Sie sowohl den Parameter `recipients` angeben als auch ein Zielsegment im Dashboard konfigurieren, wird die Nachricht nur an Nutzerprofile gesendet, die im API-Aufruf angegeben sind und gleichzeitig den Filtern des Segments entsprechen.
+- **Server-zu-Server-Aufrufe**: Wenn Sie Server-zu-Server-Aufrufe durchführen, müssen Sie möglicherweise die entsprechende API-URL auf die Allowlist setzen, falls Sie sich hinter einer Firewall befinden.
 
-## Attribute Objekt für Canvas
+## Attribute-Objekt für Canvas {#attributes-object-for-canvas}
 
-Verwenden Sie das Messaging-Objekt `attributes`, um Attribute und Werte für einen Nutzer hinzuzufügen, zu erstellen oder zu aktualisieren, bevor Sie ihm über den Endpunkt `canvas/trigger/send` ein API-getriggertes Canvas senden. Dieser API-Aufruf verarbeitet das Objekt mit den Nutzer:in-Attributen, bevor es das Canvas verarbeitet und sendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/engagement_tools/testing/race_conditions/) verursacht werden, minimiert. Standardmäßig können Abo-Gruppen jedoch nicht auf diese Weise aktualisiert werden.
+Verwenden Sie das Messaging-Objekt `attributes`, um Attribute und Werte für eine:n Nutzer:in hinzuzufügen, zu erstellen oder zu aktualisieren, bevor Sie über den Endpunkt `canvas/trigger/send` ein API-getriggertes Canvas senden. Dieser API-Aufruf verarbeitet das Nutzer:innen-Attribute-Objekt, bevor er das Canvas verarbeitet und sendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) verursacht werden, minimiert. Standardmäßig können Abo-Gruppen jedoch nicht auf diese Weise aktualisiert werden.
 
 {% alert note %}
-Sie suchen die Kampagnenversion dieses Endpunkts? Informieren Sie sich über den [Versand von Messaging-Kampagnen Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Sie suchen die Campaign-Version dieses Endpunkts? Informieren Sie sich über den [Versand von Campaign-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 {% endalert %}
 
 {% endapi %}

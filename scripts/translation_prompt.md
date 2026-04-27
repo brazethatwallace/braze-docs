@@ -238,6 +238,14 @@ The file `_includes/rate_limits.md` uses Liquid conditionals with include parame
 
 - **`{% apitags %}...{% endapitags %}`** — Keep **canonical English identifiers** (do not translate the tag tokens). Filter/checkbox logic depends on exact tag-key matches; translating tags (e.g. Subscription → サブスクリプション) fragments filters into separate categories and can break matching. Use **only the half-width comma (`,`)** to separate multiple tags; do not use the full-width comma (、). Localize display text in headings and body only.
 
+### REST API endpoint reference (`layout: api_page`, paths under `_api/endpoints/`)
+
+Bulk runs translate many REST pages at once. Align phrasing so automated reviews do not repeat the same fixes (auto-translate PR #13363):
+
+- **Brazilian Portuguese — parameter table "Required" column**: In `_lang/pt_br/_api/endpoints/export/`, the dominant pattern for the requirement column header and cells is **Obrigatória** / **Opcional** (not **Obrigatório** in that column on a lone page while sibling export articles use **Obrigatória**). When translating or refreshing a table, **match the closest existing export endpoint in the same subtree** so terminology stays consistent.
+- **Spanish — generic *campaign* in API prose**: When English uses a generic phrase such as **campaign API identifier** (lowercase *campaign* describing the identifier type), prefer natural Spanish (**identificador de API de la campaña**) instead of splicing English **Campaign** into fluent copy (**identificador de API de Campaign**). Keep English **Campaign** / **Campaigns** where the glossary requires the Braze product token (for example UI paths, channel landings, or explicit product naming).
+- **Japanese — *segment* in export/segment API copy**: In blockquotes, parameter descriptions, and link labels for `_lang/ja/_api/` segment export routes, when English uses common-noun *segment* for the resource (not a wire token), prefer **セグメント** and natural compounds (**特定のセグメント**, **セグメントの関連情報**, **セグメント一覧エクスポートエンドポイント**) over bare English **Segment** next to hiragana grammar. Keep **`segment_id`**, permission keys, and JSON unchanged.
+
 ### `multi_lang_include` and shared snippets
 
 - Never output the **same** `{% multi_lang_include path/to_snippet.md %}` **twice in a row** with only blank lines between. If the English source accidentally duplicates an include, your translation should **keep a single include** (and note the upstream typo if you are fixing English separately).
