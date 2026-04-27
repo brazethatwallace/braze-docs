@@ -9,7 +9,7 @@ description: "En este artículo se describen los detalles del punto final de Bra
 
 ---
 {% api %}
-# Exportar perfil de usuario por segmento
+# Exportar perfil de usuario por segmento {#export-user-profile-by-segment}
 {% apimethod post %}
 /users/export/segment
 {% endapimethod %}
@@ -30,17 +30,17 @@ Ten en cuenta que una empresa puede ejecutar como máximo una exportación por s
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cfa6fa98-632c-4f25-8789-6c3f220b9457 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `users.export.segment`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Detalles de la respuesta basados en credenciales
+## Detalles de la respuesta basados en credenciales {#credentials-based-response-details}
 
-Si has añadido tus credenciales de [S3][1], [Azure][2] o [Google Cloud Storage][3] a Braze, cada archivo se subirá a tu contenedor como un archivo ZIP con un formato de clave similar a `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si utilizas Azure, asegúrate de que tienes marcada la casilla **Hacer de éste el destino predeterminado de exportación de datos** en la página de resumen del socio de Azure en Braze. Por lo general, Braze crea un archivo por cada 5000 usuarios para optimizar el procesamiento. Exportar segmentos más pequeños dentro de un espacio de trabajo grande puede dar lugar a varios archivos. A continuación, puedes extraer los archivos y concatenar todos los archivos `json` en un único archivo si es necesario. Si especificas un `output_format` de `gzip`, entonces la extensión del archivo será `.gz` en lugar de `.zip`.
+Si has añadido tus credenciales de [S3][1], [Azure][2] o [Google Cloud Storage][3] a Braze, cada archivo se subirá a tu contenedor como un archivo ZIP con un formato de clave similar a `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si utilizas Azure, asegúrate de que tienes marcada la casilla **Make this the default data export destination** en la página de resumen del socio de Azure en Braze. Por lo general, Braze crea un archivo por cada 5000 usuarios para optimizar el procesamiento. Exportar segmentos más pequeños dentro de un espacio de trabajo grande puede dar lugar a varios archivos. A continuación, puedes extraer los archivos y concatenar todos los archivos `json` en un único archivo si es necesario. Si especificas un `output_format` de `gzip`, entonces la extensión del archivo será `.gz` en lugar de `.zip`.
 
 {% details Desglose de la ruta de exportación para ZIP %}
 **Formato ZIP:**
@@ -50,7 +50,7 @@ Si has añadido tus credenciales de [S3][1], [Azure][2] o [Google Cloud Storage]
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
 | Propiedad                       | Detalles                                                                             | Se muestra en el ejemplo como                  |
-| ------------------------------- | ------------------------------------------------------------------------------------ |
+| ------------------------------- | ------------------------------------------------------------------------------------ | --- |
 | `bucket-name`                   | Fijo en función del nombre de tu contenedor.                                                     | `braze.docs.bucket`                    |
 | `segment-export`                | Fijo.                                                                               | `segment-export`                       |
 | `SEGMENT_ID`                    | Incluido en la solicitud de exportación.                                                      | `abc56c0c-rd4a-pb0a-870pdf4db07q`      |
@@ -70,7 +70,7 @@ En cualquiera de los dos casos, puedes proporcionar opcionalmente un `callback_e
 
 Las bases de usuarios más grandes dan lugar a tiempos de exportación más largos. Por ejemplo, una aplicación con 20 millones de usuarios podría tardar una hora o más.
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -86,11 +86,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro                     | Obligatorio  | Tipo de datos        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id`                  | Obligatorio  | Cadena           | Identificador del segmento que se va a exportar. Consulta [identificador de segmento]({{site.baseurl}}/api/identifier_types/).<br><br>Puedes encontrar el `segment_id` para un segmento determinado en la página [Claves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) de tu cuenta de Braze o puedes utilizar el [punto final de la lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/). |
+| `segment_id`                  | Obligatorio  | Cadena           | Identificador del segmento que se va a exportar. Consulta [identificador de segmento]({{site.baseurl}}/api/identifier_types/).<br><br>Puedes encontrar el `segment_id` para un segmento determinado en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) de tu cuenta de Braze o puedes utilizar el [punto final de la lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/). |
 | `callback_endpoint`           | Opcional  | Cadena           | Punto final en el que publicar una URL de descarga cuando la exportación esté disponible.                                                                                                                                                                                                                                                                                                                                             |
 | `fields_to_export`            | Obligatorio* | Matriz de cadenas | Nombre de los campos de datos de usuario a exportar. También puedes exportar todos los atributos personalizados incluyendo `custom_attributes` en este parámetro. Consulta [Campos a exportar](#fields-to-export) para ver una lista completa de los campos que puedes exportar.                                                                                                                                                                                        |
 | `custom_attributes_to_export` | Opcional  | Matriz de cadenas | Nombre del atributo personalizado específico que se va a exportar. Se pueden exportar hasta 500 atributos personalizados. Para crear y administrar atributos personalizados en el dashboard, ve a **Configuración de datos** > **Atributos personalizados**.                                                                                                                                                                                                          |
@@ -101,7 +101,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 Si se incluye `custom_attributes` en el parámetro `fields_to_export`, se exportan todos los atributos personalizados independientemente de lo que haya en `custom_attributes_to_export`. Si tu objetivo es exportar atributos específicos, `custom_attributes` no debe incluirse en el parámetro `fields_to_export`. En su lugar, utiliza el parámetro `custom_attributes_to_export`.
 {% endalert %}
 
-## Ejemplo de solicitud de exportación de todos los atributos personalizados
+## Ejemplo de solicitud de exportación de todos los atributos personalizados {#example-request-to-export-all-custom-attributes}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segment' \
 --header 'Content-Type: application/json' \
@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 }'
 ```
 
-## Ejemplo de solicitud de exportación de atributos personalizados específicos
+## Ejemplo de solicitud de exportación de atributos personalizados específicos {#example-request-to-export-specific-custom-attributes}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segment' \
 --header 'Content-Type: application/json' \
@@ -128,7 +128,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 }'
 ```
 
-## Campos a exportar
+## Campos a exportar {#fields-to-export}
 
 La siguiente es una lista de elementos `fields_to_export` válidos. El uso de `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este punto final de la API:
 
@@ -144,7 +144,7 @@ La siguiente es una lista de elementos `fields_to_export` válidos. El uso de `f
 | `braze_id`            | Cadena          | Identificador único de usuario específico del dispositivo establecido por Braze para este usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `country`             | Cadena          | País del usuario utilizando la norma [ISO 3166-1 alfa-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `created_at`          | Cadena          | Fecha y hora de creación del perfil de usuario, en formato ISO 8601.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `created_from`        | Cadena          | Método utilizado para crear el perfil de usuario (por ejemplo, SDK, API REST o importación CSV).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `created_from`        | Cadena          | Método utilizado para crear el perfil de usuario (por ejemplo, SDK, REST API o importación CSV).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `custom_attributes`   | Objeto          | Pares clave-valor de atributos personalizados para este usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `custom_events`       | Matriz           | Eventos personalizados atribuidos a este usuario en los últimos 90 días.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `devices`             | Matriz           | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: identificador del dispositivo Braze (iOS), el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser true o false |
@@ -160,21 +160,21 @@ La siguiente es una lista de elementos `fields_to_export` válidos. El uso de `f
 | `phone`               | Cadena          | Número de teléfono del usuario en el formato en que se importó a Braze. Por ejemplo, si se recibe una solicitud para añadir un número de teléfono con el formato `1234567890`, se exportará con el mismo formato.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `purchases`           | Matriz           | Compras que este usuario ha realizado en los últimos 90 días.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `push_tokens`         | Matriz           | Información sobre los tokens de notificaciones push del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `random_bucket`       | Entero         | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `random_bucket`       | Entero         | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `time_zone`           | Cadena          | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `total_revenue`       | Flotante           | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las campañas y Canvas que recibió.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `total_revenue`       | Flotante           | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y los Canvas que recibió.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `uninstalled_at`      | Marca de tiempo       | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `user_aliases`        | Objeto          | [Objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `user_aliases`        | Objeto          | [Objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## Recordatorios importantes
+## Recordatorios importantes {#important-reminders}
 
 - Los campos `custom_events`, `purchases`, `campaigns_received` y `canvases_received` solo contienen datos de los últimos 90 días.
 - Tanto `custom_events` como `purchases` contienen campos para `first` y `count`. Ambos campos reflejan información de todo el tiempo y no se limitan a los datos de los últimos 90 días. Por ejemplo, si un usuario concreto realizó el evento por primera vez hace 90 días, esto se refleja con precisión en el campo `first`, y el campo `count` también tiene en cuenta los eventos que se produjeron antes de los últimos 90 días.
 - El número de exportaciones de segmentos simultáneas que una empresa puede ejecutar a nivel de punto final está limitado a 100. Los intentos que superen este límite darán lugar a un error.
 - Si intentas exportar un segmento por segunda vez mientras el primer trabajo de exportación aún se está ejecutando, se produce un error 429.
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -188,7 +188,7 @@ Una vez que la URL está disponible, solo es válida durante unas pocas horas. P
 
 Si ves `object_prefix` en la respuesta de la API y no hay ninguna URL para descargar los datos, significa que ya tienes un contenedor de Amazon S3 configurado para este punto final. Cualquier dato exportado mediante este punto final se envía directamente a tu contenedor de S3.
 
-## Ejemplo de archivo de exportación de usuario
+## Ejemplo de archivo de exportación de usuario {#example-user-export-file-output}
 
 Objeto de exportación de usuarios (Braze incluye la menor cantidad de datos posible&#8212;si falta un campo en el objeto, se debe suponer que es nulo o está vacío):
 
@@ -262,7 +262,7 @@ Objeto de exportación de usuarios (Braze incluye la menor cantidad de datos pos
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether the user's push notifications are turned on or turned off
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
       },
       ...
     ],
@@ -477,7 +477,7 @@ Objeto de exportación de usuarios (Braze incluye la menor cantidad de datos pos
 {% endtabs %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 [1]: {{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3

@@ -215,6 +215,11 @@ $(document).ready(function() {
     e.currentTarget.classList.remove("backdrop-show");
   });
 
+  // Default tab panes must be visible before the first TOC build: toc.js skips
+  // headers that are not :visible, and _tabs.scss hides .sdk-ab-tab-pane until .active.
+  $('.ab-tab-content .ab-tab-pane:first-child, .sdk-tab-content .sdk-ab-tab-pane:first-child').addClass('active');
+  $('.ab-sub_tab-content .ab-sub_tab-pane:first-child, .sdk-ab-sub_tab-content .sdk-ab-sub_tab-pane:first-child').addClass('sub_active');
+
   $('#toc').toc({
     headers:  ((typeof toc_headers != 'undefined') ? toc_headers : "h2,h3"),
     minimumHeaders: ((typeof toc_minheaders != 'undefined') ? toc_minheaders : 2),
@@ -573,9 +578,7 @@ $(document).ready(function() {
     setTabState($this.text(), tabstate);
   });
 
-  $('.ab-tab-content .ab-tab-pane:first-child, .sdk-tab-content .sdk-ab-tab-pane:first-child').addClass('active');
-
-  $('.sub_tab_toggle, sub_sdk-tab_toggle').click(function(e){
+  $('.sub_tab_toggle, .sub_sdk-tab_toggle').click(function(e){
     e.preventDefault();
     var $this = $(this);
     var tabtype = $this.attr("class").includes('sdk-') ? 'sdk-' : '';
@@ -598,8 +601,6 @@ $(document).ready(function() {
     setTabOnlyClass(tabtype,'sub_','', partab, curtab)
     setTabState($this.text(), tabstate);
   });
-  $('.ab-sub_tab-content .ab-sub_tab-pane:first-child, .sdk-ab-sub_tab-content .sdk-ab-sub_tab-pane:first-child').addClass('sub_active');
-
 
   let tab_query = (new URLSearchParams(window.location.search).get('tab') || '').replace('_sub_tab','');
   let sub_tab_query = (new URLSearchParams(window.location.search).get('subtab') || '').replace('_sub_tab','');

@@ -7,15 +7,15 @@ description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten de
 
 ---
 
-# Empfänger:innen-Objekt
+# Empfänger:innen-Objekt {#recipients-object}
 
 > Das Empfänger:innen-Objekt erlaubt es Ihnen, Informationen in unseren Endpunkten anzufragen oder zu schreiben.
 
 Sie müssen in diesem Objekt eines der folgenden Felder angeben: `external_user_id`, `user_alias`, `braze_id` oder `email`. **In der Anfrage darf nur eines angegeben werden.**
 
-Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/), das [Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), das [Canvas-Eingangs-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/) und das [Nutzer-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/) kombinieren.
+Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/), das [Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), das [Canvas-Eingangs-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) und das [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) kombinieren.
 
-## Objektkörper
+## Objektkörper {#object-body}
 
 ```json
 [{
@@ -33,13 +33,13 @@ Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.bas
 
 Wenn `send_to_existing_only` auf `true` gesetzt ist, sendet Braze die Nachricht nur an bestehende Nutzer:innen. Dieses Flag kann jedoch nicht mit Nutzer-Aliasen verwendet werden. Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein Attribut angeben. Braze erstellt dann eine:n Nutzer:in mit der `id` und den Attributen, bevor die Nachricht gesendet wird.
 
-- [Braze-ID]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/)
+- [Braze-ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
 - [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 - [Externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [Priorisierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [Nutzer-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/)
+- [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
 
-## Deduplizierung von Empfänger:innen-Objekten
+## Deduplizierung von Empfänger:innen-Objekten {#recipient-object-deduping}
 
 Wenn Sie einen API-Aufruf mit dem Empfänger:innen-Objekt durchführen und **ein:e doppelte:r Empfänger:in mit derselben Adresse vorhanden ist (z. B. E-Mail, Push), führt Braze eine Deduplizierung durch** – das heißt, Braze entfernt identische Nutzer:innen und behält nur eine:n.
 

@@ -1,12 +1,12 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## 보편적인 위임자 만들기
+## 범용 델리게이트 만들기 {#creating-a-universal-delegate}
 
-Android SDK는 콘텐츠 카드, 인앱 메시지, 푸시 알림에서 Braze가 여는 모든 딥링크를 사용자 지정 처리하도록 단일 위임 오브젝트를 설정할 수 있는 기능을 제공합니다.
+Android SDK는 Content Cards, 인앱 메시지, 푸시 알림에서 Braze가 여는 모든 딥링크를 커스텀 처리하도록 단일 델리게이트 오브젝트를 설정할 수 있는 기능을 제공합니다.
 
-위임 오브젝트는 [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) 인터페이스를 구현하고 [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html)를 사용하여 설정해야 합니다. 대부분의 경우 위임은 앱의 `Application.onCreate()`에서 설정해야 합니다.
+델리게이트 오브젝트는 [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) 인터페이스를 구현하고 [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html)를 사용하여 설정해야 합니다. 대부분의 경우 델리게이트는 앱의 `Application.onCreate()`에서 설정해야 합니다.
 
-다음은 YouTube URL의 커스텀 동작 및 커스텀 의도 플래그로 기본 [`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html) 동작을 재정의하는 예제입니다.
+다음은 YouTube URL에 대한 커스텀 동작 및 커스텀 인텐트 플래그로 기본 [`UriAction`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.actions/-uri-action/index.html) 동작을 재정의하는 예제입니다.
 
 {% tabs %}
 {% tab JAVA %}
@@ -86,9 +86,9 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## 앱 설정에 대한 딥링킹
+## 앱 설정으로 딥링킹 {#deep-linking-to-app-settings}
 
-딥링크에서 앱 설정을 바로 열 수 있도록 하려면 커스텀 `BrazeDeeplinkHandler`가 필요합니다. 다음 예제에서는 `open_notification_page`라는 커스텀 키-값 페어를 통해 딥링크에서 앱 설정 페이지를 엽니다.
+딥링크가 앱 설정을 직접 열 수 있도록 하려면 커스텀 `BrazeDeeplinkHandler`가 필요합니다. 다음 예제에서는 `open_notification_page`라는 커스텀 키-값 페어가 있으면 딥링크가 앱 설정 페이지를 엽니다.
 
 {% tabs %}
 {% tab JAVA %}
@@ -142,24 +142,24 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## WebView 활동 사용자 정의 {#Custom_Webview_Activity}
+## WebView 액티비티 커스터마이징 {#Custom_Webview_Activity}
 
 Braze가 앱 내에서 웹사이트 딥링크를 열 때, 딥링크는 [`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html)에 의해 처리됩니다.
 
 {% alert note %}
-사용자 정의 HTML 인앱 메시지의 경우, `target="_blank"`로 구성된 링크는 기기의 기본 웹 브라우저에서 열리며 `BrazeWebViewActivity`에 의해 처리되지 않습니다.
+커스텀 HTML 인앱 메시지의 경우, `target="_blank"`로 구성된 링크는 기기의 기본 웹 브라우저에서 열리며 `BrazeWebViewActivity`에 의해 처리되지 않습니다.
 {% endalert %}
 
 이를 변경하려면:
 
-1. `com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA` 키를 사용하여 `Intent.getExtras()`에서 대상 URL을 처리하는 새 활동을 생성합니다. 예를 보려면 [`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt)을 참조하십시오.
-2. 해당 활동을 `AndroidManifest.xml`에 추가하고 `exported`를 `false`로 설정합니다.
+1. `com.braze.Constants.BRAZE_WEBVIEW_URL_EXTRA` 키를 사용하여 `Intent.getExtras()`에서 대상 URL을 처리하는 새 액티비티를 생성합니다. 예제는 [`BrazeWebViewActivity.kt`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/BrazeWebViewActivity.kt)를 참조하세요.
+2. 해당 액티비티를 `AndroidManifest.xml`에 추가하고 `exported`를 `false`로 설정합니다.
     ```xml
     <activity
         android:name=".MyCustomWebViewActivity"
         android:exported="false" />
     ```
-3. `BrazeConfig` [빌더 객체에서](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html) 사용자 지정 활동을 설정합니다. 빌더를 구축하고 이를 [`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html)에 전달하십시오. 당신의 [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())에서.
+3. `BrazeConfig` [빌더 오브젝트](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-custom-web-view-activity-class.html)에서 커스텀 액티비티를 설정합니다. 빌더를 구축하고 [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())에서 [`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html)에 전달합니다.
 {% tabs %}
 {% tab JAVA %}
 
@@ -185,11 +185,20 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Jetpack Compose 사용하기
+## 문제 해결 {#troubleshooting}
+
+푸시 알림의 딥링크가 Android에서 작동하지 않는 경우 다음 단계를 시도해 보세요.
+
+1. **Braze 외부에서 딥링크를 테스트합니다.** 이메일이나 브라우저 등 다른 앱에서 딥링크 URL을 열어 보세요. 앱이 열리지 않으면 `AndroidManifest.xml`에서 딥링크가 올바르게 구성되지 않았을 수 있습니다. 자세한 내용은 Android의 [딥링크 만들기](https://developer.android.com/training/app-links/deep-linking) 설명서를 참조하세요.
+2. **자동 딥링크 처리가 활성화되어 있는지 확인합니다.** `braze.xml`에서 `com_braze_handle_push_deep_links_automatically`가 `true`로 설정되어 있는지 확인하거나, [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해 이 옵션을 설정하세요. 이 설정이 없으면 사용자가 푸시 알림을 탭할 때 Braze가 자동으로 앱을 열고 딥링크 대상으로 이동하지 않습니다.
+3. **딥링크 핸들러 델리게이트를 확인합니다.** 커스텀 `IBrazeDeeplinkHandler`를 설정한 경우, `gotoUri` 구현이 URI를 올바르게 처리하고 누락시키지 않는지 확인하세요.
+4. **채널 간 테스트를 수행합니다.** 동일한 딥링크가 인앱 메시지에서는 작동하지만 푸시에서는 작동하지 않는 경우, 문제는 딥링크 자체가 아니라 푸시 딥링크 처리에 있을 가능성이 높습니다.
+
+## Jetpack Compose 사용하기 {#using-jetpack-compose}
 
 NavHost와 함께 Jetpack Compose를 사용할 때 딥링크를 처리하려면:
 
-1. 딥링크를 처리하는 활동이 Android Manifest에 등록되어 있는지 확인하십시오.
+1. 딥링크를 처리하는 액티비티가 Android Manifest에 등록되어 있는지 확인합니다.
     ```xml
     <activity
       ...
@@ -203,7 +212,7 @@ NavHost와 함께 Jetpack Compose를 사용할 때 딥링크를 처리하려면:
       </intent-filter>
     </activity>
     ```
-2. NavHost에서 처리할 딥링크를 지정하십시오.
+2. NavHost에서 처리할 딥링크를 지정합니다.
     ```kotlin
     composableWithCompositionLocal(
         route = "YOUR_ROUTE_HERE",
@@ -223,7 +232,7 @@ NavHost와 함께 Jetpack Compose를 사용할 때 딥링크를 처리하려면:
         )
     }
     ```
-3. 앱 아키텍처에 따라 현재 활동으로 전송된 새로운 의도를 처리해야 할 수도 있습니다.
+3. 앱 아키텍처에 따라 현재 액티비티로 전송되는 새로운 인텐트도 처리해야 할 수 있습니다.
     ```kotlin
     DisposableEffect(Unit) {
         val listener = Consumer<Intent> {

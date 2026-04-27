@@ -22,7 +22,7 @@
 	b,
 	strong {
 		font-weight: normal;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 	}
 
 	.fa-external-link-alt {
@@ -77,8 +77,6 @@
 				}
 			}
 		}
-		$content_transition_time: 0.2s;
-
 		*,
 		*::after,
 		*::before {
@@ -103,27 +101,13 @@
 		}
 
 		a {
-			font-family: $braze-medium;
-			display: inline;
-			color: $black-shark;
-			font-weight: normal;
+			@include braze-link;
 			@media print {
 				font-weight: normal;
 			}
-			border-bottom-width: 2px;
-			border-color: $braze-link-color;
-			text-decoration: none;
-			transition: all ease $content_transition_time;
-			-webkit-transition: all ease $content_transition_time;
-			-moz-transition: all ease $content_transition_time;
 
-			&:hover {
-				background-color: transparent !important;
-				border-color: $black;
-
-				img {
-					background-color: transparent;
-				}
+			&:hover img {
+				background-color: transparent;
 			}
 
 			img {
@@ -152,7 +136,7 @@
 					margin-bottom: auto;
 					font-size: 15px;
 					display: inline-block;
-					font-family: $braze-medium;
+					font-family: $braze-bold;
 				}
 
 				div {
@@ -177,7 +161,7 @@
 
 				&::before {
 					content: counter(li) "."; // Add a period right after the counter value
-					font-family: $braze-medium;
+					font-family: $braze-bold;
 					color: $black-shark;
 					display: inline-block;
 					margin-right: 10px;
@@ -422,7 +406,7 @@
 
 	h1 {
 		font-size: 2.5rem;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		line-height: 1.3;
 		padding-top: 1rem !important;
 		margin-bottom: 1rem;
@@ -431,28 +415,28 @@
 
 	h2 {
 		font-size: 30px;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		line-height: 1.4;
 		color: $black-shark;
 	}
 
 	h3 {
 		font-size: 24px;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		line-height: 1.4;
 		color: $black-shark;
 	}
 
 	h4 {
 		font-size: 20px;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		line-height: 1.4;
 		color: $black-shark;
 	}
 
 	h5 {
 		font-size: 16px;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		line-height: 1.5;
 		text-transform: uppercase;
 		letter-spacing: 1px;
@@ -460,7 +444,7 @@
 	}
 
 	h6 {
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		line-height: 1.5;
 		font-size: 16px;
 		color: $black-shark;
@@ -656,7 +640,7 @@ table {
 		font-size: 15px;
 		text-transform: none;
 		color: $black-shark;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 		border: 1px solid $grey-ghost;
 		background-color: $grey-athens;
 	}

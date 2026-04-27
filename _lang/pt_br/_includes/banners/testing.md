@@ -1,17 +1,19 @@
-{% if include.page == "testing" %}Enquanto [compondo sua mensagem de Banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/#compose-a-banner), selecione{% elsif include.page == "campaigns" %}Selecionar{% endif %} **Prévia** para visualizar seu Banner ou enviar uma mensagem de teste.
+{% if include.page == "testing" %}Ao [redigir sua mensagem de Banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/#compose-a-banner), selecione{% elsif include.page == "campaigns" %}Selecione{% endif %} **Pré-visualização** para visualizar seu Banner ou enviar uma mensagem de teste.
 
-![A aba de prévia do compositor de Banner.]({% image_buster /assets/img/banners/select_preview.png %}){: style="max-width:50%;"}
+![Guia de pré-visualização do criador de Banner.]({% image_buster /assets/img/banners/select_preview.png %}){: style="max-width:50%;"}
 
-Tenha em mente que sua prévia pode não ser idêntica ao render final no dispositivo de um usuário devido a diferenças de hardware.
+Lembre-se de que a pré-visualização pode não ser idêntica à renderização final no dispositivo do usuário devido a diferenças de hardware.
 
-Para enviar uma mensagem de teste, adicione um grupo de teste de conteúdo ou um ou mais usuários individuais como **Destinatários de Teste**, em seguida, selecione **Enviar Teste**. Você poderá visualizar sua mensagem de teste no dispositivo por até 5 minutos. Você pode então selecionar **Copiar link de prévia** para gerar e copiar um link de prévia compartilhável que mostra como o banner ficará para um usuário aleatório. O link durará sete dias antes de precisar ser regenerado.
+Para enviar uma mensagem de teste, adicione um grupo de teste de conteúdo ou um ou mais usuários individuais como **Destinatários de Teste** e selecione **Enviar Teste**. Você poderá visualizar sua mensagem de teste no dispositivo por até 5 minutos. Em seguida, selecione **Copiar link de pré-visualização** para gerar e copiar um link compartilhável que mostra como o banner ficará para um usuário aleatório. O link ficará válido por sete dias antes de precisar ser regenerado.
 
-![A aba de prévia do compositor de Banner.]({% image_buster /assets/img/banners/preview_banner.png %})
+![Guia de pré-visualização do criador de Banner.]({% image_buster /assets/img/banners/preview_banner.png %})
 
-Enquanto revisa seu Banner de teste, verifique o seguinte:
+Ao revisar seu Banner de teste, verifique o seguinte:
 
-- Sua campanha de Banner está atribuída a um local?
-- As imagens e mídias aparecem e agem como esperado nos tipos de dispositivos e tamanhos de tela que você segmentou?
-- Seus links e botões direcionam o usuário para onde deveriam ir?
-- O Liquid funciona conforme o esperado? Você considerou um valor de atribuição padrão no caso de o Liquid não retornar nenhuma informação?
-- Seu texto é claro, conciso e correto?
+- A sua Campaign de Banner está atribuída a um posicionamento?
+- As imagens e mídias aparecem e funcionam como esperado nos tipos de dispositivos e tamanhos de tela segmentados?
+- Os links e botões direcionam o usuário para onde deveriam ir?
+- O Liquid funciona conforme o esperado? Você definiu um valor de atributo padrão para o caso de o Liquid não retornar nenhuma informação?
+- O texto está claro, conciso e correto?
+
+Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/).

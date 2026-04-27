@@ -1,32 +1,32 @@
 ---
-nav_title: Exportar datos de segmentos a CSV
-article_title: Exportar datos de segmentos a CSV
-page_order: 2
+nav_title: Datos de Segment
+article_title: Exportar datos de Segment
+page_order: 4
 page_type: reference
-description: "Este artículo de referencia explica cómo exportar datos de segmentos a CSV."
+description: "Este artículo de referencia explica cómo exportar datos de Segment a CSV."
 
 ---
 
-# Exportar datos de segmentos a CSV
+# Exportar datos de Segment a CSV
 
-> Esta página explica cómo solicitar una exportación CSV de los datos de usuario de un segmento, y los datos incluidos en la exportación.
+> Esta página explica cómo solicitar una exportación CSV de los datos de usuario de un Segment, y los datos incluidos en la exportación.
 
-Para exportar los datos de un segmento a un CSV, selecciona el menú desplegable **User Data** mientras editas un segmento y elige exportar los datos de usuario o las direcciones de correo electrónico del segmento.
+Para exportar los datos de un Segment a un CSV, selecciona el menú desplegable **User Data** mientras editas un Segment y elige exportar los datos de usuario o las direcciones de correo electrónico del Segment.
 
-![Sección Detalles del segmento con el desplegable User Data que muestra las opciones de exportación.]({% image_buster /assets/img_archive/csvexport.png %})
+![Sección Detalles del Segment con el desplegable User Data que muestra las opciones de exportación.]({% image_buster /assets/img_archive/csvexport.png %})
 
-También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear"></i> **Settings** para un segmento:
+También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear"></i> **Settings** para un Segment:
 
 ![Desplegable de configuración en la página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
-Para exportar los datos de todos tus perfiles de usuario, crea un segmento sin filtros y, a continuación, solicita una exportación CSV.
+Para exportar los datos de todos tus perfiles de usuario, crea un Segment sin filtros y, a continuación, solicita una exportación CSV.
 {% endalert %}
 
-La salida CSV contiene los datos de cada perfil de usuario capturado en el segmento en el momento de la exportación. Puedes exportar cualquier segmento seleccionando el ícono de engranaje y la exportación CSV. Braze generará el informe en segundo plano y lo enviará por correo electrónico al usuario que esté conectado en ese momento.
+La salida CSV contiene los datos de cada perfil de usuario capturado en el Segment en el momento de la exportación. Puedes exportar cualquier Segment seleccionando el ícono de engranaje y la exportación CSV. Braze generará el informe en segundo plano y lo enviará por correo electrónico al usuario que esté conectado en ese momento.
 
-{% alert important %} 
-Debido a las restricciones de tamaño de los archivos, la exportación puede fallar si el tamaño estimado de tu segmento es superior a 500 000 usuarios. Ten en cuenta que esta restricción utiliza el tamaño estimado de tu segmento, y no el cálculo exacto. Para más detalles, consulta [Exportar segmentos grandes](#exporting-large-segments).
+{% alert important %}
+Debido a las restricciones de tamaño de los archivos, la exportación puede fallar si el tamaño estimado de tu Segment es superior a 500 000 usuarios. Ten en cuenta que esta restricción utiliza el tamaño estimado de tu Segment, y no el cálculo exacto. Para más detalles, consulta [Exportar Segments grandes](#exporting-large-segments).
 {% endalert %}
 
 Si has vinculado tus [credenciales de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration) a Braze, el CSV se cargará en tu contenedor de S3 con la clave `segment-export/SEGMENT_ID/YYYY-MM-dd/users-RANDOMSTRING.zip`. Debes haber iniciado sesión en el dashboard para acceder al enlace de descarga que se te ha enviado por correo electrónico.
@@ -37,14 +37,14 @@ Si has vinculado tus [credenciales de Amazon S3]({{site.baseurl}}/partners/data_
 
 Dependiendo de tu selección, tu exportación incluirá lo siguiente.
 
-### Exportación CSV de datos de usuario
+### Exportación de datos de usuario a CSV
 
 | Nombre del campo                  | Descripción                                              |
 | --------------------------- | -------------------------------------------------------- |
 | Appboy ID                   | ID interno (no se puede cambiar)                           |
 | country                     | País                                    |
 | created_at                  | Fecha y hora de creación del perfil de usuario                   |
-| created_from                | Método utilizado para crear el perfil de usuario (por ejemplo, API REST, SDK o importación CSV)         |
+| created_from                | Método utilizado para crear el perfil de usuario (por ejemplo, REST API, SDK o importación CSV)         |
 | devices                     | Información sobre el dispositivo                           |
 | date_of_birth               | Fecha de nacimiento                                            |
 | email                       | Dirección de correo electrónico                                            |
@@ -81,7 +81,7 @@ Dependiendo de tu selección, tu exportación incluirá lo siguiente.
 | Atributos personalizados           | Basado en la selección en la exportación                             |
 {: .reset-td-br-1 .reset-td-br-2 }
 
-### Exportación CSV de direcciones de correo electrónico
+### Exportación de direcciones de correo electrónico a CSV
 
 | Nombre del campo                  | Descripción            |
 | --------------------------- | ---------------------- |
@@ -95,29 +95,29 @@ Dependiendo de tu selección, tu exportación incluirá lo siguiente.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita nuestro artículo de [solución de problemas]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
-{% endalert %} 
+Para obtener ayuda con las exportaciones CSV y API, visita nuestro artículo de [solución de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+{% endalert %}
 
-## Exportación de segmentos grandes
+## Exportar Segments grandes {#exporting-large-segments}
 
-Existen varios métodos para exportar un segmento grande de usuarios que contenga más de 500 000 usuarios.
+Existen varios métodos para exportar un Segment grande de usuarios que contenga más de 500 000 usuarios.
 
 {% tabs %}
-{% tab Multiple segments %}
+{% tab Múltiples Segments %}
 
-Puedes dividir un segmento grande en segmentos más pequeños y luego exportar cada uno de los segmentos más pequeños desde Braze. 
-
-{% endtab %}
-{% tab Random bucket numbers %}
-
-También puedes utilizar [números de contenedor aleatorios]({{site.baseurl}}/user_guide/engagement_tools/testing/random_bucket_numbers/) para dividir tu base de usuarios en varios segmentos, y combinarlos después de la exportación. Por ejemplo, si necesitas dividir tu segmento en dos segmentos diferentes, puedes hacerlo con los siguientes filtros:
-- Segmento 1: El número de contenedor aleatorio es inferior a 5000 (incluye 0-4999)
-- Segmento 2: El número de contenedor aleatorio es superior a 4999 (incluye 5000-9999)
+Puedes dividir un Segment grande en Segments más pequeños y luego exportar cada uno de los Segments más pequeños desde Braze.
 
 {% endtab %}
-{% tab Endpoints %}
+{% tab Números de contenedor aleatorios %}
 
-También puedes aprovechar los siguientes puntos finales para exportar datos de usuario de un segmento específico. Ten en cuenta que estos puntos finales están sujetos a límites de datos.
+También puedes utilizar [números de contenedor aleatorios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) para dividir tu base de usuarios en varios Segments, y combinarlos después de la exportación. Por ejemplo, si necesitas dividir tu Segment en dos Segments diferentes, puedes hacerlo con los siguientes filtros:
+- Segment 1: El número de contenedor aleatorio es inferior a 5000 (incluye 0-4999)
+- Segment 2: El número de contenedor aleatorio es superior a 4999 (incluye 5000-9999)
+
+{% endtab %}
+{% tab Puntos de conexión %}
+
+También puedes aprovechar los siguientes puntos de conexión para exportar datos de usuario de un Segment específico. Ten en cuenta que estos puntos de conexión están sujetos a límites de datos.
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
 

@@ -1,8 +1,8 @@
 ---
 nav_title: 스타일
-article_title: 콘텐츠 카드 스타일 커스터마이즈
+article_title: Content Cards 스타일 커스터마이즈
 page_order: 1
-description: "이 문서에서는 콘텐츠 카드의 스타일 지정 옵션을 다룹니다."
+description: "이 문서에서는 Content Cards의 스타일 지정 옵션을 다룹니다."
 channel:
   - content cards
 platform:
@@ -12,25 +12,25 @@ platform:
   - Web
 ---
 
-# 콘텐츠 카드 스타일 커스터마이즈
+# Content Cards 스타일 커스터마이즈 {#customize-the-style-of-content-cards}
 
-> Braze 콘텐츠 카드에는 기본 모양과 느낌이 제공됩니다. 이 문서에서는 브랜드 아이덴티티에 맞게 콘텐츠 카드의 스타일을 지정하는 옵션을 다룹니다. 콘텐츠 카드 유형의 전체 목록은 [콘텐츠 카드 정보]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+> Braze Content Cards에는 기본 모양과 느낌이 제공됩니다. 이 문서에서는 브랜드 아이덴티티에 맞게 Content Cards의 스타일을 지정하는 옵션을 다룹니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
 
-## 커스텀 스타일 생성
+## 커스텀 스타일 생성 {#creating-a-custom-style}
 
-기본 콘텐츠 카드 UI는 Braze SDK의 UI 레이어에서 가져옵니다. 여기에서 카드의 스타일, 카드가 표시되는 순서, 사용자에게 피드가 표시되는 방식 등 특정 부분을 조정할 수 있습니다.
+기본 Content Cards UI는 Braze SDK의 UI 레이어에서 가져옵니다. 여기에서 카드의 스타일, 카드가 표시되는 순서, 사용자에게 피드가 표시되는 방식 등 특정 부분을 조정할 수 있습니다.
 
 ![기본 글꼴과 사각형 모서리가 있는 콘텐츠 카드와 둥근 모서리와 곡선 글꼴이 있는 콘텐츠 카드 두 개]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-`title`, `cardDescription`, `imageUrl` 등과 같은 콘텐츠 카드 속성은 [대시보드]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)를 통해 직접 편집할 수 있으며, 이러한 세부 정보를 변경할 때 권장되는 방법입니다.
+`title`, `cardDescription`, `imageUrl` 등과 같은 Content Cards 속성은 [대시보드]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/)를 통해 직접 편집할 수 있으며, 이러한 세부 정보를 변경할 때 권장되는 방법입니다.
 {% endalert %}
 
 
 {% tabs %}
 {% tab web %}
 
-Braze의 기본 스타일은 Braze SDK 내 CSS에서 정의됩니다. 애플리케이션에서 선택한 스타일을 재정의하면 배경 이미지, 글꼴 패밀리, 스타일, 크기, 애니메이션 등으로 표준 피드를 커스터마이즈할 수 있습니다. 예를 들어, 다음은 콘텐츠 카드가 800px 너비로 표시되도록 하는 재정의 예시입니다:
+Braze의 기본 스타일은 Braze SDK 내 CSS에서 정의됩니다. 애플리케이션에서 선택한 스타일을 재정의하면 배경 이미지, 글꼴 패밀리, 스타일, 크기, 애니메이션 등으로 표준 피드를 커스터마이즈할 수 있습니다. 예를 들어, 다음은 Content Cards가 800px 너비로 표시되도록 하는 재정의 예시입니다:
 
 ``` css
 body .ab-feed {
@@ -43,7 +43,7 @@ body .ab-feed {
 {% endtab %}
 {% tab android %}
 
-기본적으로 Android 및 FireOS SDK 콘텐츠 카드는 표준 Android UI 가이드라인을 따르므로 매끄러운 경험을 제공합니다. 이러한 기본 스타일은 Braze SDK 배포의 [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) 파일에서 확인할 수 있습니다:
+기본적으로 Android 및 FireOS SDK Content Cards는 표준 Android UI 가이드라인을 따르므로 매끄러운 경험을 제공합니다. 이러한 기본 스타일은 Braze SDK 배포의 [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) 파일에서 확인할 수 있습니다:
 
 ```xml
   <style name="Braze.ContentCards.CaptionedImage.Description">
@@ -59,7 +59,7 @@ body .ab-feed {
   </style>
 ```
 
-콘텐츠 카드 스타일을 커스터마이즈하려면 이 기본 스타일을 재정의합니다. 스타일을 재정의하려면 프로젝트의 `styles.xml` 파일에 전체 스타일을 복사한 후 수정합니다. 모든 속성이 올바르게 설정되려면 전체 스타일을 로컬 `styles.xml` 파일에 복사해야 합니다.
+Content Cards 스타일을 커스터마이즈하려면 이 기본 스타일을 재정의합니다. 스타일을 재정의하려면 프로젝트의 `styles.xml` 파일에 전체 스타일을 복사한 후 수정합니다. 모든 속성이 올바르게 설정되려면 전체 스타일을 로컬 `styles.xml` 파일에 복사해야 합니다.
 
 {% subtabs local %}
 {% subtab Correct style override %}
@@ -91,7 +91,7 @@ body .ab-feed {
 {% endtab %}
 {% tab Jetpack Compose %}
 
-기본적으로 Android 및 FireOS SDK 콘텐츠 카드는 표준 Android UI 가이드라인을 따르므로 매끄러운 경험을 제공합니다.
+기본적으로 Android 및 FireOS SDK Content Cards는 표준 Android UI 가이드라인을 따르므로 매끄러운 경험을 제공합니다.
 
 두 가지 방법 중 하나로 스타일링을 적용할 수 있습니다. 첫 번째는 다음 예시처럼 [`ContentCardListStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html)과 [`ContentCardStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html)을 [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)에 전달하는 것입니다:
 
@@ -133,7 +133,7 @@ BrazeStyle(
 {% endtab %}
 {% tab swift %}
 
-콘텐츠 카드 뷰 컨트롤러를 사용하면 [`BrazeContentCardUI.ViewController.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct) 구조체를 통해 모든 셀의 모양과 동작을 커스터마이즈할 수 있습니다. `Attributes`를 사용한 콘텐츠 카드 구성은 가장 간편한 옵션으로, 최소한의 설정만으로 콘텐츠 카드 UI를 시작할 수 있습니다.
+Content Cards 뷰 컨트롤러를 사용하면 [`BrazeContentCardUI.ViewController.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct) 구조체를 통해 모든 셀의 모양과 동작을 커스터마이즈할 수 있습니다. `Attributes`를 사용한 Content Cards 구성은 가장 간편한 옵션으로, 최소한의 설정만으로 Content Cards UI를 시작할 수 있습니다.
 
 {% alert important %}
 `Attributes`를 통한 커스터마이즈는 Swift에서만 가능합니다.
@@ -144,7 +144,7 @@ BrazeStyle(
 
 **`Attributes.default` 수정**
 
-정적 [`Attributes.defaults`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults) 변수를 직접 수정하여 Braze 콘텐츠 카드 UI 뷰 컨트롤러의 모든 인스턴스에 대한 모양과 느낌을 커스터마이즈합니다.
+정적 [`Attributes.defaults`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults) 변수를 직접 수정하여 Braze Content Cards UI 뷰 컨트롤러의 모든 인스턴스에 대한 모양과 느낌을 커스터마이즈합니다.
 
 예를 들어 모든 셀의 기본 이미지 크기와 모서리 반경을 변경하려면 다음과 같이 합니다:
 
@@ -155,7 +155,7 @@ BrazeContentCardUI.ViewController.Attributes.defaults.cellAttributes.classicImag
 
 **Attributes를 사용하여 뷰 컨트롤러 초기화**
 
-Braze 콘텐츠 카드 UI 뷰 컨트롤러의 특정 인스턴스만 수정하려면 [`init(braze:attributes:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/init(braze:attributes:)/) 이니셜라이저를 사용하여 커스텀 `Attributes` 구조체를 뷰 컨트롤러에 전달하세요.
+Braze Content Cards UI 뷰 컨트롤러의 특정 인스턴스만 수정하려면 [`init(braze:attributes:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/init(braze:attributes:)/) 이니셜라이저를 사용하여 커스텀 `Attributes` 구조체를 뷰 컨트롤러에 전달하세요.
 
 예를 들어 뷰 컨트롤러의 특정 인스턴스에 대한 이미지 크기와 모서리 반경을 변경할 수 있습니다:
 
@@ -179,9 +179,9 @@ attributes.cells[BrazeContentCardUI.ClassicImageCell.identifier] = CustomClassic
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
 ```
 
-**프로그래밍 방식으로 콘텐츠 카드 수정**
+**프로그래밍 방식으로 Content Cards 수정**
 
-`Attributes` 구조체에서 [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) 클로저를 할당하여 콘텐츠 카드를 프로그래밍 방식으로 변경할 수 있습니다. 아래 예시에서는 호환되는 카드의 `title`과 `description`을 수정합니다:
+`Attributes` 구조체에서 [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) 클로저를 할당하여 Content Cards를 프로그래밍 방식으로 변경할 수 있습니다. 아래 예시에서는 호환되는 카드의 `title`과 `description`을 수정합니다:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -206,23 +206,23 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 {% endsubtab %}
 {% subtab Objective-C %}
 
-`Attributes`를 통한 콘텐츠 카드 커스터마이즈는 Objective-C에서 지원되지 않습니다.
+`Attributes`를 통한 Content Cards 커스터마이즈는 Objective-C에서 지원되지 않습니다.
 
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-## 커스터마이즈 예시
+## 커스터마이즈 예시 {#customization-examples}
 
-### 커스텀 글꼴
+### 커스텀 글꼴 {#custom-font}
 
-콘텐츠 카드에 사용되는 글꼴을 커스터마이즈하면 브랜드 아이덴티티를 유지하고 사용자에게 시각적으로 매력적인 경험을 제공할 수 있습니다. 다음 레시피를 사용하여 모든 콘텐츠 카드의 글꼴을 프로그래밍 방식으로 설정할 수 있습니다.
+Content Cards에 사용되는 글꼴을 커스터마이즈하면 브랜드 아이덴티티를 유지하고 사용자에게 시각적으로 매력적인 경험을 제공할 수 있습니다. 다음 레시피를 사용하여 모든 Content Cards의 글꼴을 프로그래밍 방식으로 설정할 수 있습니다.
 
 {% tabs %}
 {% tab web %}
 
-다른 웹 요소와 마찬가지로 CSS를 통해 콘텐츠 카드의 모양을 쉽게 커스터마이즈할 수 있습니다. CSS 파일 또는 인라인 스타일에서 `font-family` 속성을 사용하여 원하는 글꼴 이름 또는 글꼴 스택을 지정합니다.
+다른 웹 요소와 마찬가지로 CSS를 통해 Content Cards의 모양을 쉽게 커스터마이즈할 수 있습니다. CSS 파일 또는 인라인 스타일에서 `font-family` 속성을 사용하여 원하는 글꼴 이름 또는 글꼴 스택을 지정합니다.
 
 ```css
 /* CSS selector targeting the Content Card element */
@@ -295,16 +295,16 @@ let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attrib
 {% endtab %}
 {% endtabs %}
 
-### 커스텀 고정 아이콘
+### 커스텀 고정 아이콘 {#custom-pinned-icons}
 
-콘텐츠 카드를 만들 때 마케터는 카드를 고정할 수 있습니다. 고정 카드는 사용자의 피드 상단에 표시되며, 사용자가 해제할 수 없습니다. 카드 스타일을 커스터마이즈할 때 고정 아이콘의 모양도 변경할 수 있습니다.
+Content Cards를 만들 때 마케터는 카드를 고정할 수 있습니다. 고정 카드는 사용자의 피드 상단에 표시되며, 사용자가 해제할 수 없습니다. 카드 스타일을 커스터마이즈할 때 고정 아이콘의 모양도 변경할 수 있습니다.
 
-!["이 카드를 피드 상단에 고정" 옵션이 선택된 상태의 모바일 및 웹용 Braze 콘텐츠 카드 미리보기를 나란히 표시합니다.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+!["이 카드를 피드 상단에 고정" 옵션이 선택된 상태의 모바일 및 웹용 Braze Content Cards 미리보기를 나란히 표시합니다.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 {% tabs %}
 {% tab web %}
 
-콘텐츠 카드 고정 아이콘의 구조는 다음과 같습니다:
+Content Cards 고정 아이콘의 구조는 다음과 같습니다:
 
 ```css
 <div class="ab-pinned-indicator">
@@ -410,11 +410,11 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 {% endtab %}
 {% endtabs %}
 
-### 읽지 않음 표시기 색상 변경
+### 읽지 않음 표시기 색상 변경 {#changing-the-unread-indicator-color}
 
-콘텐츠 카드 하단에는 카드 열람 여부를 나타내는 파란색 선이 표시됩니다.
+Content Cards 하단에는 카드 열람 여부를 나타내는 파란색 선이 표시됩니다.
 
-![두 개의 콘텐츠 카드가 나란히 표시됩니다. 첫 번째 카드 하단에는 아직 열람하지 않았음을 나타내는 파란색 선이 있습니다. 두 번째 카드에는 파란색 선이 없으며 이미 열람했음을 나타냅니다.]({% image_buster /assets/img/braze-content-cards-seen-unseen-behavior.png %})
+![두 개의 Content Cards가 나란히 표시됩니다. 첫 번째 카드 하단에는 아직 열람하지 않았음을 나타내는 파란색 선이 있습니다. 두 번째 카드에는 파란색 선이 없으며 이미 열람했음을 나타냅니다.]({% image_buster /assets/img/braze-content-cards-seen-unseen-behavior.png %})
 
 {% tabs %}
 {% tab web %}
@@ -492,9 +492,9 @@ BRZContentCardUIViewController *viewController = [[BRZContentCardUIViewControlle
 {% endtab %}
 {% endtabs %}
 
-### 다크 모드
+### 다크 모드 {#dark-mode}
 
-기기의 다크 모드 또는 라이트 모드에 따라 다른 이미지나 스타일을 표시하려면 콘텐츠 카드 메시지에서 [키-값 페어]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs)를 사용하세요. 예를 들어, 다크 모드 이미지 자산의 URL과 함께 `dark_mode_image`와 같은 키-값 페어를 추가합니다. 그런 다음 앱에서 기기의 현재 외관 모드를 확인하고 적절한 이미지를 표시하는 커스텀 로직을 추가합니다.
+기기의 다크 모드 또는 라이트 모드에 따라 다른 이미지나 스타일을 표시하려면 Content Cards 메시지에서 [키-값 페어]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs)를 사용하세요. 예를 들어, 다크 모드 이미지 자산의 URL과 함께 `dark_mode_image`와 같은 키-값 페어를 추가합니다. 그런 다음 앱에서 기기의 현재 외관 모드를 확인하고 적절한 이미지를 표시하는 커스텀 로직을 추가합니다.
 
 {% tabs %}
 {% tab swift %}
@@ -531,9 +531,9 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-이 패턴은 텍스트, 색상, 레이아웃 등 외관에 따라 달라지는 모든 콘텐츠에 적용됩니다. 다크 모드 이미지 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)에 업로드한 다음 키-값 페어에서 참조하세요.
+이 패턴은 텍스트, 색상, 레이아웃 등 외관에 따라 달라지는 모든 콘텐츠에 적용됩니다. 다크 모드 이미지 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/)에 업로드한 다음 키-값 페어에서 참조하세요.
 
-### 읽지 않음 표시기 비활성화
+### 읽지 않음 표시기 비활성화 {#disabling-unread-indicator}
 
 {% tabs %}
 {% tab web %}
@@ -548,12 +548,12 @@ if (isDarkMode && darkModeImage) {
 
 {% tab android %}
 
-`ContentCardViewHolder`에서 [`setUnreadBarVisible`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.view/-content-card-view-holder/set-unread-bar-visible.html?query=fun%20setUnreadBarVisible(isVisible:%20Boolean))을 `false`로 설정하여 미열람 표시줄을 숨깁니다.
+`ContentCardViewHolder`에서 [`setUnreadBarVisible`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.view/-content-card-view-holder/set-unread-bar-visible.html?query=fun%20setUnreadBarVisible(isVisible:%20Boolean))을 `false`로 설정하여 읽지 않음 표시줄을 숨깁니다.
 
 {% endtab %}
 
 {% tab Jetpack Compose %}
-미열람 표시기 비활성화는 Jetpack Compose에서 지원되지 않습니다.
+읽지 않음 표시기 비활성화는 Jetpack Compose에서 지원되지 않습니다.
 {% endtab %}
 {% tab swift %}
 {% subtabs %}
