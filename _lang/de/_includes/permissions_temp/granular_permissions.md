@@ -9,7 +9,7 @@ Mit Berechtigungssätzen können Sie Berechtigungen für bestimmte Themenbereich
 |Name|Berechtigungen|
 |-----------|----------------|
 |Entwickler:innen|„API-Schlüssel anzeigen“, „API-Schlüssel bearbeiten“, „Interne Gruppen anzeigen“, „Interne Gruppen bearbeiten“, „Nachrichtenaktivitätsprotokoll anzeigen“, „Event-Nutzerprotokoll anzeigen“, „API-Bezeichner anzeigen“, „API-Nutzungs-Dashboard anzeigen“, „API-Limits anzeigen“, „API-Nutzungswarnungen anzeigen“, „API-Nutzungswarnungen bearbeiten“, „SDK-Debugger anzeigen“, „SDK-Debugger bearbeiten“.|
-|Marketer|„Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Frequency-Capping-Regeln anzeigen“, „Frequency-Capping-Regeln bearbeiten“, „Nachrichtenpriorisierung anzeigen“, „Nachrichtenpriorisierung bearbeiten“, „Content Blocks anzeigen“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segments anzeigen“, „Segments bearbeiten“, „Globale Kontrollgruppe bearbeiten“, „IAM-Templates anzeigen“, „IAM-Templates bearbeiten“, „IAM-Templates archivieren“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „E-Mail-Templates archivieren“, „Webhook-Templates anzeigen“, „Webhook-Templates bearbeiten“, „Webhook-Templates archivieren“, „E-Mail-Link-Templates anzeigen“, „E-Mail-Link-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“, „Dashboard-Berichte bearbeiten“, „Banner-Templates anzeigen“, „Lokalisierungseinstellungen anzeigen“, „Operator verwenden“, „Decisioning Studio-Agenten anzeigen“.|
+|Marketer|„Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Frequency-Capping-Regeln anzeigen“, „Frequency-Capping-Regeln bearbeiten“, „Nachrichtenpriorisierung anzeigen“, „Nachrichtenpriorisierung bearbeiten“, „Content Blocks anzeigen“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Globale Kontrollgruppe bearbeiten“, „IAM-Templates anzeigen“, „IAM-Templates bearbeiten“, „IAM-Templates archivieren“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „E-Mail-Templates archivieren“, „Webhook-Templates anzeigen“, „Webhook-Templates bearbeiten“, „Webhook-Templates archivieren“, „E-Mail-Link-Templates anzeigen“, „E-Mail-Link-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“, „Dashboard-Berichte bearbeiten“, „Banner-Templates anzeigen“, „Lokalisierungseinstellungen anzeigen“, „Operator verwenden“, „Decisioning Studio-Agenten anzeigen“.|
 |Nutzerverwaltung|„Dashboard-Nutzer:innen bearbeiten“, „Teams anzeigen“, „Teams bearbeiten“, „Teams archivieren“.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
@@ -23,8 +23,8 @@ Rollen ermöglichen eine bessere Strukturierung durch die Bündelung Ihrer indiv
 {% tab example roles %}
 | Rollenname    | Workspace | Berechtigungen
 ----------- | ----------- | ---------
-| Marketer – Modemarken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | „Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segments anzeigen“, „Segments bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“. |
-| Marketer – Hautpflegemarken | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |„Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segments anzeigen“, „Segments bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“.|
+| Marketer – Modemarken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | „Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“. |
+| Marketer – Hautpflegemarken | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |„Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“.|
 | Nutzerverwaltung – Alle Marken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | „Dashboard-Nutzer:innen bearbeiten“, „Teams anzeigen“, „Teams bearbeiten“, „Teams archivieren“|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
@@ -57,7 +57,7 @@ Eingeschränkte Nutzer:innen verfügen über spezifische Berechtigungen, die es 
 | --- | --- |
 | Workspace-Administrator | Workspace-Administratoren verfügen über spezifische Berechtigungen für die Verwaltung von Workspaces, jedoch nicht über dieselben Befugnisse wie Unternehmensadministratoren. Eingeschränkte Nutzer:innen können ähnliche Berechtigungen wie Workspace-Administratoren erhalten, wenn die erforderlichen Berechtigungen aktiviert sind. |
 | Administrator (Unternehmensadministrator) | Unternehmensadministratoren verfügen über umfassendere Berechtigungen, einschließlich der Möglichkeit, Dashboard-Nutzer:innen zu löschen. Sie können jedoch ihre eigenen Konten nicht löschen und müssen sich für diese Aktion an einen anderen Unternehmensadministrator wenden. |
-| Nur-Lese-Zugriff | Um auf bestimmte Bereiche des Dashboards zugreifen zu können, wie beispielsweise die Seite „Campaigns“, müssen Nutzer:innen über die entsprechenden Anzeigeberechtigungen verfügen.
+| Nur-Lese-Zugriff | Um auf bestimmte Bereiche des Dashboards zugreifen zu können, wie beispielsweise die Campaigns-Seite, müssen Nutzer:innen über die entsprechenden Anzeigeberechtigungen verfügen.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Fehler bei eingeschränktem Zugriff {#limited-access-error}
@@ -85,7 +85,7 @@ Admins haben Zugriff auf alle Features und können alle Unternehmenseinstellunge
 - Andere [Braze-Nutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users) hinzufügen, bearbeiten, löschen, suspendieren oder die Suspendierung aufheben
 - Braze-Nutzer:innen als CSV-Datei exportieren
 
-Um Admin-Rechte zu gewähren oder zu entfernen, wählen Sie **Dieser Benutzer ist ein Admin** und dann **Benutzer aktualisieren**.
+Um Admin-Rechte zu gewähren oder zu entfernen, wählen Sie **This user is an admin** und dann **Update user**.
 
 ![Die Details der ausgewählten Nutzer:in mit dem Admin-Kontrollkästchen im Fokus.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
@@ -98,7 +98,7 @@ Wenn Sie Nutzer:innen die Administratorrechte entziehen, können diese nicht meh
 
 ### Unternehmen {#company}
 
-Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwalten, aktivieren oder deaktivieren Sie das Kästchen neben der jeweiligen Berechtigung. Wenn Sie fertig sind, wählen Sie **Benutzer aktualisieren**.
+Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwalten, aktivieren oder deaktivieren Sie das Kästchen neben der jeweiligen Berechtigung. Wenn Sie fertig sind, wählen Sie **Update user**.
 
 |Berechtigungsname|Beschreibung|
 |----------|-----------|
@@ -111,32 +111,32 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 
 ### Workspace
 
-Sie können Nutzer:innen unterschiedliche Berechtigungen für jeden Workspace erteilen, dem sie in Braze angehören. Um die Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Workspaces und Berechtigungen auswählen** und legen Sie dann die Berechtigungen manuell fest oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Um Nutzer:innen unterschiedliche Berechtigungen für verschiedene Workspaces zu vergeben, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Sie können Nutzer:innen unterschiedliche Berechtigungen für jeden Workspace erteilen, dem sie in Braze angehören. Um die Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Select workspaces and permissions** und legen Sie dann die Berechtigungen manuell fest oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Um Nutzer:innen unterschiedliche Berechtigungen für verschiedene Workspaces zu vergeben, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
 
-Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie anschließend unter **Berechtigungen** eine oder mehrere Berechtigungen aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces. Optional können Sie **Workspace-Administratorzugriff zuweisen** auswählen, wenn Sie den Nutzer:innen stattdessen vollständige Berechtigungen für diesen Workspace gewähren möchten.
+Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie anschließend unter **Permissions** eine oder mehrere Berechtigungen aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces. Optional können Sie **Assign workspace admin access** auswählen, wenn Sie den Nutzer:innen stattdessen vollständige Berechtigungen für diesen Workspace gewähren möchten.
 
-Wenn Sie fertig sind, wählen Sie **Benutzer aktualisieren**.
+Wenn Sie fertig sind, wählen Sie **Update user**.
 
 ![Berechtigungen auf Workspace-Ebene, die manuell in Braze ausgewählt werden.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
 {% subtab Assign permission set %}
 
-Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie dann unter **Berechtigungssätze** einen Berechtigungssatz aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces.
+Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie dann unter **Permission Sets** einen Berechtigungssatz aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces.
 
-Wenn Sie fertig sind, wählen Sie **Benutzer aktualisieren**.
+Wenn Sie fertig sind, wählen Sie **Update user**.
 
 ![Berechtigungen auf Workspace-Ebene, die über einen Berechtigungssatz in Braze zugewiesen werden.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
 {% subtab Assign role %}
 
-Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie anschließend unter **Rolle** eine Rolle aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces.
+Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie anschließend unter **Role** eine Rolle aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces.
 
-Wenn Sie fertig sind, wählen Sie **Benutzer aktualisieren**.
+Wenn Sie fertig sind, wählen Sie **Update user**.
 
 ![Berechtigungen auf Workspace-Ebene, die über eine Rolle in Braze zugewiesen werden.]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
 
@@ -147,9 +147,9 @@ Wenn Sie fertig sind, wählen Sie **Benutzer aktualisieren**.
 
 ## Nutzerberechtigungen exportieren {#exporting-user-permissions}
 
-Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie dann **Nutzer:innen exportieren**. Eine CSV-Datei wird in Kürze an Ihre E-Mail-Adresse gesendet.
+Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie dann **Export Users**. Eine CSV-Datei wird in Kürze an Ihre E-Mail-Adresse gesendet.
 
-![Die Seite „Unternehmensnutzer:innen“ in Braze mit der Option „Nutzer:innen exportieren“ im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![Die Seite „Unternehmensnutzer:innen“ in Braze mit der Option „Export Users“ im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## Liste der Berechtigungen {#list-of-permissions}
 
@@ -191,9 +191,9 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Standorte | Standorte archivieren | Standorte in das Archiv verschieben |
 | Standorte | Standorte anzeigen | Standorte anzeigen |
 | Standorte | Standorte bearbeiten | Standorte erstellen und bearbeiten |
-| Segments | Segments anzeigen | Segments anzeigen. Nutzer:innen müssen über die Berechtigung „Segments anzeigen“ verfügen, um die Berechtigung „Segments bearbeiten“ oder „Segments archivieren“ zu erhalten. |
-| Segments | Segments archivieren | Segments archivieren und aus dem Archiv entfernen. Nutzer:innen mit der Berechtigung „Segments archivieren“ muss auch die Berechtigung „Segments anzeigen“ erteilt werden. |
-| Segments | Segments bearbeiten | Segments erstellen und aktualisieren. Nutzer:innen mit der Berechtigung „Segments bearbeiten“ muss auch die Berechtigung „Segments anzeigen“ erteilt werden. |
+| Segmente | Segmente anzeigen | Segmente anzeigen. Nutzer:innen müssen über die Berechtigung „Segmente anzeigen“ verfügen, um die Berechtigung „Segmente bearbeiten“ oder „Segmente archivieren“ zu erhalten. |
+| Segmente | Segmente archivieren | Segmente archivieren und aus dem Archiv entfernen. Nutzer:innen mit der Berechtigung „Segmente archivieren“ muss auch die Berechtigung „Segmente anzeigen“ erteilt werden. |
+| Segmente | Segmente bearbeiten | Segmente erstellen und aktualisieren. Nutzer:innen mit der Berechtigung „Segmente bearbeiten“ muss auch die Berechtigung „Segmente anzeigen“ erteilt werden. |
 | Nutzerdaten | Importierte Nutzer:innen anzeigen | CSV-Nutzerimporte anzeigen, ohne Änderungen vorzunehmen |
 | Nutzerdaten | Nutzer:innen importieren | Nutzer:innen in das Dashboard hochladen |
 | Nutzerdaten | Nutzerdaten bearbeiten | Nutzerdaten erstellen und aktualisieren |

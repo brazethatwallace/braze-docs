@@ -10,9 +10,9 @@ Brazeは、ユーザーアクセスをより柔軟に管理する手段として
 {% tab example permission sets %}
 |名前|権限|
 |-----------|----------------|
-|開発者|"Dev Consoleへのアクセス"|
+|開発者|「Dev Consoleへのアクセス」|
 |マーケター|「Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリ、ユーザー設定センターへのアクセス」 <br> 「メディアライブラリアセットの管理」|
-|ユーザー管理|"ダッシュボードユーザーの管理" <br> 「チームの管理」|
+|ユーザー管理|「ダッシュボードユーザーの管理」 <br> 「チームの管理」|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -25,9 +25,9 @@ Brazeは、ユーザーアクセスをより柔軟に管理する手段として
 {% tab example roles %}
 | ロール名 | ワークスペース | 権限
 ----------- | ----------- | ---------
-| マーケター - ファッションブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | 「Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターへのアクセス」<br>「メディアライブラリアセットの管理」|
-| マーケター - スキンケアブランド | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターへのアクセス」 <br>「メディアライブラリアセットの管理」|
-| ユーザー管理 - 全ブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「ダッシュボードユーザーの管理」<br>「チームの管理」|
+| マーケター - ファッションブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | 「Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターへのアクセス」<br>「メディアライブラリアセットの管理」 |
+| マーケター - スキンケアブランド | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターへのアクセス」 <br>「メディアライブラリアセットの管理」 |
+| ユーザー管理 - 全ブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「ダッシュボードユーザーの管理」<br>「チームの管理」 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -173,7 +173,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 |ワークスペース|タグの管理|ユーザーがタグを編集または削除できるようにします（**タグ管理**）。この権限がなくても、CampaignやSegmentにタグを追加できます。|
 |ワークスペース|チームの管理|**内部チーム**の管理をユーザーに許可します。この権限を選択できるかどうかは、Brazeとの契約によって異なります。<br><br>これはレガシー権限`MANAGE_TERRITORIES`に対応します。|
 |ワークスペース|データ変換の管理|ユーザーがデータ変換を作成および管理できるようにします。|
-|ワークスペース|Campaign、Canvasの送信|Campaign、Canvasの編集、アーカイブ、停止、Campaignの作成、Canvasの起動をユーザーに許可します。 |
+|ワークスペース|Campaigns、Canvasesの送信|Campaigns、Canvasesの編集、アーカイブ、停止、Campaignの作成、Canvasesの起動をユーザーに許可します。 |
 |ワークスペース|請求の詳細を表示|サブスクリプションと請求の表示をユーザーに許可します。|
 |ワークスペース|Currents統合の表示|認証情報を除いて、Currents接続に関するすべての情報の表示をユーザーに許可します。デフォルトで、「Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス」権限が割り当てられたユーザーには、この権限も割り当てられます。|
 |ワークスペース|PIIとしてマークされたカスタム属性の表示|管理者以外のユーザーが、機密情報を含み個人識別情報（PII）としてマークされたカスタム属性を表示できるようにします。|

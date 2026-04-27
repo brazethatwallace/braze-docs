@@ -53,7 +53,7 @@ Alguns países permitem que você escolha um número específico por uma taxa ad
 | Prós |
 | ---- |
 | **Velocidade e escalabilidade**<br> Códigos curtos são projetados especificamente para tráfego de alto volume. Eles podem enviar mensagens a taxas mais rápidas do que códigos longos e, como são pré-aprovados diretamente pelas operadoras, têm o menor risco de serem sinalizados por filtros de spam automatizados. |
-| **Fácil memorização para "chamada à ação"**<br> Para Campaigns de marketing (por exemplo, "Envie WIN para 55555"), um código curto é muito mais fácil para os usuários lembrarem e digitarem do que um número de 10 dígitos. Isso torna os códigos curtos o padrão ouro para anúncios de rádio, TV e outdoors, onde o usuário tem apenas alguns segundos para ver ou ouvir o número. |
+| **Fácil memorização para "chamada à ação"**<br> Para campanhas de marketing (por exemplo, "Envie WIN para 55555"), um código curto é muito mais fácil para os usuários lembrarem e digitarem do que um número de 10 dígitos. Isso torna os códigos curtos o padrão ouro para anúncios de rádio, TV e outdoors, onde o usuário tem apenas alguns segundos para ver ou ouvir o número. |
 {: .reset-td-br-1 role="presentation"}
 
 | Contras |
@@ -88,7 +88,7 @@ Um código longo é um número de telefone padrão usado para enviar e receber m
 | Contras |
 | --- |
 | **Velocidades de envio mais lentas e limites diários de mensagens**<br> Códigos longos não são feitos para marketing em massa da mesma forma que os códigos curtos. Se você tentar enviar uma promoção relâmpago para 100.000 pessoas de uma só vez a partir de um código longo, pode levar horas para todas as mensagens serem entregues. Nos EUA, operadoras como a T-Mobile também podem impor limites diários de envio para 10DLC com base no score de confiança da sua marca. |
-| **Risco de filtragem mais rigorosa**<br> Como os códigos longos parecem números de telefone pessoais, as operadoras os monitoram de perto para evitar que números "pessoa a pessoa" sejam usados para spam. Mesmo com uma Campaign 10DLC registrada, se o conteúdo da sua mensagem for muito "spammy" ou não seguir uma formatação rigorosa, você tem um risco muito maior de ser bloqueado pelas operadoras em comparação com um código curto pré-aprovado. |
+| **Risco de filtragem mais rigorosa**<br> Como os códigos longos parecem números de telefone pessoais, as operadoras os monitoram de perto para evitar que números "pessoa a pessoa" sejam usados para spam. Mesmo com uma campanha 10DLC registrada, se o conteúdo da sua mensagem for muito "spammy" ou não seguir uma formatação rigorosa, você tem um risco muito maior de ser bloqueado pelas operadoras em comparação com um código curto pré-aprovado. |
 {: .reset-td-br-1 role="presentation"}
 
 {% endtab %}
@@ -204,7 +204,7 @@ Se você já tem seu próprio código curto, entre em contato com seu gerente de
 
 Em muitos países, a configuração de códigos longos (também chamados de "10DLCs" ou "códigos longos de 10 dígitos") e números gratuitos para envio de SMS passou de um processo "plug and play" para um sistema de verificação regulamentado. As operadoras querem saber exatamente quem você é e o que você planeja dizer antes de enviar.
 
-Durante o processo de configuração do código longo, você pode esperar compartilhar detalhes sobre a identidade da sua marca e a intenção da Campaign.
+Durante o processo de configuração do código longo, você pode esperar compartilhar detalhes sobre a identidade da sua marca e a intenção da campanha.
 
 #### Identidade da marca {#brand-identity}
 
@@ -213,7 +213,7 @@ Durante o processo de configuração do código longo, você pode esperar compar
 - **Presença digital:** Um site ativo e funcional. As operadoras podem verificar isso para confirmar que você não é uma empresa "fantasma".
 - **Contato autorizado:** Nome, e-mail e número de telefone de uma pessoa responsável pela conta.
 
-#### Intenção da Campaign {#campaign-intent}
+#### Intenção da campanha {#campaign-intent}
 
 - **Caso de uso:** Declare se você está enviando códigos 2FA, lembretes de compromissos, promoções de marketing ou outros.
 - **Mensagens de exemplo:** Forneça de 2 a 5 exemplos do que você enviará.

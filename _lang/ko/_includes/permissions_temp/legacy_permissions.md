@@ -142,7 +142,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 사용자 및 권한 목록을 다운로드하려면 **설정** > **회사 사용자**로 이동한 다음 **사용자 내보내기**를 선택하세요. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
-![Braze의 "회사 사용자" 페이지에서 "사용자 내보내기" 옵션이 포커스된 상태.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+!["사용자 내보내기" 옵션이 포커스된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## 권한 목록 {#list-of-permissions}
 
@@ -196,5 +196,5 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 |워크스페이스|커스텀 AI 에이전트 보기|사용자가 [커스텀 AI 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)를 볼 수 있습니다. 이 기능은 현재 베타 버전입니다.|
 |워크스페이스|커스텀 AI 에이전트 생성|사용자가 커스텀 AI 에이전트를 생성할 수 있습니다. 이 기능은 현재 베타 버전입니다.|
 |워크스페이스|커스텀 AI 에이전트 편집|사용자가 커스텀 AI 에이전트를 편집할 수 있습니다. 이 기능은 현재 베타 버전입니다.|
-|워크스페이스|고객지원 티켓 | 고객지원 티켓 생성 | 고객지원 티켓을 생성하고 업데이트합니다. |
+|워크스페이스|고객지원 티켓 | 고객지원 티켓 생성 | 고객지원 티켓을 생성하고 업데이트합니다.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

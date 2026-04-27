@@ -22,7 +22,7 @@ search_rank: 7
 이 고객 행동 및 사용자 이벤트 분석은 고객 프로필 업데이트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 활용하여 데이터 중심 보고서와 차트를 만들고, 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
 {% alert important %}
-스토리지 스키마는 Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage와 같은 데이터 웨어하우스 스토리지 파트너에게 전송되는 플랫 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트 및 대상 조합은 아직 일반적으로 사용할 수 없습니다. 파트너별 지원 이벤트에 대한 정보는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) 및 관련 파트너 페이지를 참조하세요.
+스토리지 스키마는 Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage와 같은 데이터 웨어하우스 스토리지 파트너에게 전송되는 플랫 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트 및 대상 조합은 아직 일반 공개되지 않았습니다. 파트너별 지원 이벤트에 대한 정보는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) 및 관련 파트너 페이지를 참조하세요.
 
 Currents는 페이로드가 900KB보다 큰 이벤트를 삭제합니다.
 {% endalert %}

@@ -4,10 +4,10 @@ Antes de crear plantillas de WhatsApp, debes completar la [configuración de Wha
 - Activos multimedia (imágenes o videos) listos para cargar
 - Permisos de Braze para usuarios no administradores
     - Para que los usuarios creen nuevas plantillas en el constructor de plantillas:
-        - "View WhatsApp Message Templates"
-        - "Edit WhatsApp Message Templates"
-    - Para que los usuarios redacten campaigns o Canvas con plantillas de carrusel:
-        - "View WhatsApp Message Templates"
+        - "Ver plantillas de mensajes de WhatsApp"
+        - "Editar plantillas de mensajes de WhatsApp"
+    - Para que los usuarios redacten Campaigns o Canvas con plantillas de carrusel:
+        - "Ver plantillas de mensajes de WhatsApp"
 - Conocimiento de plantillas Liquid (opcional, para contenido dinámico)
 
 {% alert important %}

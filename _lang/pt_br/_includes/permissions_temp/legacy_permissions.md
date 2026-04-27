@@ -23,7 +23,7 @@ As funções permitem mais estrutura ao agrupar suas permissões personalizadas 
 
 {% tabs local %}
 {% tab example roles %}
-| Nome da função | Espaço de trabalho | Permissões
+| Nome da função    | Espaço de trabalho | Permissões
 ----------- | ----------- | ---------
 | Profissional de marketing - Marcas de moda | {::nomarkdown}[DEV] Marca de Moda, [QA] Marca de Moda, [PROD] Marca de Moda {:/} | "Acessar Campaigns, Canvas, Cartões, Feature Flags, Segments, Biblioteca de Mídia e Central de Preferências"<br>"Gerenciar ativos da biblioteca de mídia" |
 | Profissional de marketing - Marcas de cuidados com a pele | {::nomarkdown}[DEV] Marca de Cuidados com a Pele, [QA] Marca de Cuidados com a Pele, [PROD] Marca de Cuidados com a Pele {:/} | "Acessar Campaigns, Canvas, Cartões, Feature Flags, Segments, Biblioteca de Mídia e Centrais de Preferências" <br>"Gerenciar ativos da biblioteca de mídia" |
@@ -62,7 +62,7 @@ Usuários limitados têm permissões específicas que permitem gerenciar certos 
 
 ### Erro de acesso limitado {#limited-access-error}
 
-Os usuários podem encontrar mensagens como "Acesso Limitado. Você não tem permissões para acessar esta Página." Nesses casos, o administrador da conta deve verificar se pode resolver o problema desativando e reativando as permissões do usuário.
+Os usuários podem encontrar mensagens como "Acesso Limitado. Você não tem permissões para acessar esta página." Nesses casos, o administrador da conta deve verificar se pode resolver o problema desativando e reativando as permissões do usuário.
 
 {% alert note %}
 Não é possível mesclar ou importar permissões de usuário de um usuário do dashboard para outro.
