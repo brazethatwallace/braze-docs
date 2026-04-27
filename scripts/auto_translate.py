@@ -475,6 +475,12 @@ French `reference.md`, localize **Save** and thinking-level row labels \
 copy, localize **Usage**/**Logs**/**Export CSV**/**View** and **Canvases** \
 phrasing. Add `{#general}` to Spanish `agents/faq.md` **General** heading when \
 peers have it (auto-translate PR #13342).
+17. **Landing hero `guide_top_text` links**: If bracket link text is still raw \
+English **Segments** (or similar) inside otherwise localized prose, localize \
+the label to match the sentence while preserving each \
+`]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
+`metrics_glossary`, use **Glossaire des indicateurs de rapport** (not \
+*d'indicateurs*) when that row exists (auto-translate PR #13341).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
