@@ -156,7 +156,7 @@ jobs:
           persist-credentials: false
 
       - name: Download changed-files list
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: changed-files-list
           path: .
@@ -229,7 +229,7 @@ jobs:
         run: pip install anthropic pyyaml
 
       - name: Download all locale artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: translate-*
           path: matrix-out
