@@ -39,7 +39,7 @@ Braze assigns only one conversion to each in-app message delivery and attributes
 
 With re-eligibility turned on, each new delivery can generate its own conversion. For example, if a user sees the same in-app message five times and converts after each impression, five conversions count. If a user sees the message only once but converts multiple times afterward, only one conversion counts.
 
-If a user views an in-app message on two separate days but converts on the third day, Braze logs the conversion against the second day's impression. For Canvases, the same rule applies: each step tracks only one conversion per user receipt.
+If a user views an in-app message on two separate days but converts on the third day, Braze logs the conversion against the second day's impression. For Canvases, conversions are tracked per Canvas entry, not per step. If a user converts on multiple steps during the same entry, it still only counts as one conversion.
 
 {% tabs local %}
 {% tab Scenario 1 %}
