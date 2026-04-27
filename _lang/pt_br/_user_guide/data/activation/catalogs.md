@@ -14,7 +14,7 @@ guide_featured_list:
 - name: Criar um catálogo
   link: /docs/user_guide/data/activation/catalogs/create
   image: /assets/img/braze_icons/users-01.svg
-- name: Uso de catálogos
+- name: Usando catálogos
   link: /docs/user_guide/data/activation/catalogs/use
   image: /assets/img/braze_icons/users-01.svg
 - name: Notificações de volta ao estoque
@@ -38,37 +38,37 @@ guide_menu_list:
 ---
 <br><br>
 
-## Casos de uso de catálogos
+## Casos de uso de catálogos {#catalog-use-cases}
 
 Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os dados são metadados sobre ofertas, como produtos, descontos, promoções, eventos e similares. Veja os casos de uso abaixo para alguns exemplos de como usar esses dados para direcionar os usuários com envio de mensagens altamente relevantes.
 
-### Varejo e e-commerce
+### Varejo e e-commerce {#retail-and-ecommerce}
 
 - **Promoções sazonais:** importe coleções de produtos sazonais e personalize mensagens para refletir as tendências atuais.
 - **Mensagens localizadas:** importe os endereços, horários e serviços dos seus locais físicos e personalize as notificações com base na localização dos usuários.
-- **Notificações de volta ao estoque:** importe informações de produtos que incluam a quantidade em estoque e use as [notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) e eventos personalizados da Braze para disparar uma campanha ou Canvas que envie aos usuários uma notificação de que um produto voltou ao estoque.
+- **Notificações de volta ao estoque:** importe informações de produtos que incluam a quantidade em estoque e use as [notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) e eventos personalizados da Braze para disparar uma Campaign ou um Canvas que envie aos usuários uma notificação de que um produto voltou ao estoque.
 - **Notificações de queda de preço:** importe informações de produtos que incluam os preços e use as [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) e eventos personalizados da Braze para disparar um Canvas que envie aos usuários uma notificação de que o preço de um produto caiu.
 
-### Entretenimento
+### Entretenimento {#entertainment}
 
 - **Planos de inscrição:** importe planos de inscrição e promova complementos para seus usuários com base nos padrões de uso e nos tipos de conteúdo que eles mais consomem.
 - **Próximos eventos:** importe listas de eventos futuros com seus locais e faixas etárias do público e envie notificações personalizadas para usuários que estejam na região e na faixa etária alvo.
 - **Preferências de mídia:** importe informações sobre filmes e séries e recomende conteúdo aos seus usuários com base nos títulos favoritos e nos gêneros mais assistidos.
 
-### Viagens e hospitalidade
+### Viagens e hospitalidade {#travel-and-hospitality}
 
 - **Destinos:** importe destinos de viagem com suas atrações, restaurantes e atividades mais populares e personalize as recomendações para seus usuários com base em viagens anteriores.
 - **Acomodações:** importe propriedades de hotéis com suas comodidades, tipos de quartos e preços e envie promoções para seus usuários com base nas preferências selecionadas.
 - **Meios de transporte:** importe ofertas e promoções para meios de transporte (como voos, trens, aluguel de carros e outros) e envie-as aos seus usuários com base no histórico de pesquisa recente.
 - **Preferências de refeições:** importe informações sobre ofertas de refeições e use [seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para enviar mensagens personalizadas aos usuários que têm preferências específicas de refeições com base na categoria de alimentos visualizada mais recentemente.
 
-## Como os catálogos e o Liquid funcionam juntos
+## Como os catálogos e o Liquid funcionam juntos {#how-catalogs-and-liquid-work-together}
 
 Os catálogos são um recurso de armazenamento de dados. Eles contêm grandes conjuntos de dados que podem ser referenciados nas suas mensagens para personalização. Para referenciar os dados, você usará o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) como linguagem de template. Em outras palavras, os catálogos são o armazenamento onde os dados ficam guardados, e o Liquid é a linguagem que extrai os dados relevantes desse armazenamento.
 
-Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criando um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
+Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
 
-#### Limitações de armazenamento de dados
+#### Limitações de armazenamento de dados {#data-storage-limitations}
 
 O armazenamento de dados para catálogos é limitado com base no tamanho dos itens do catálogo, que pode ser diferente do tamanho dos arquivos CSV enviados por upload.
 

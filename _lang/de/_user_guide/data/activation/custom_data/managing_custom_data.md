@@ -6,33 +6,33 @@ page_type: reference
 description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events und Attribute verwalten – Vorbelegen, Beschreibungen und Tags hinzufügen, Event-Eigenschaften verwalten, Datentypen erzwingen und Attribute als PII kennzeichnen."
 ---
 
-# Angepasste Daten verwalten
+# Angepasste Daten verwalten {#manage-custom-data}
 
-> Auf dieser Seite erfahren Sie, wie Sie angepasste Daten in Ihren Kampagnen und Segmenten vorbelegen, angepasste Events und Attribute sowie deren Eigenschaften verwalten und Datentypen konfigurieren. Informationen zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+> Auf dieser Seite erfahren Sie, wie Sie angepasste Daten in Ihren Campaigns und Segments vorbelegen, angepasste Events und Attribute sowie deren Eigenschaften verwalten und Datentypen konfigurieren. Informationen zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
 Wie Sie angepasste Attribute im Einzelnen verwalten (einschließlich Beschreibungen hinzufügen, Tags hinzufügen und Attribute als PII kennzeichnen), erfahren Sie unter [Angepasste Attribute verwalten]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes).
 
-## Angepasste Daten vorbelegen
+## Angepasste Daten vorbelegen {#pre-populate-custom-data}
 
-Es kann vorkommen, dass Sie Kampagnen und Segmente mit angepassten Daten einrichten möchten, bevor Ihr Entwicklerteam diese angepassten Daten integriert hat. Braze ermöglicht es Ihnen, angepasste Events und Attribute im Dashboard vorzubelegen, bevor das Tracking dieser Daten beginnt, sodass diese Events und Attribute in Dropdowns und als Teil des Kampagnenerstellungsprozesses verfügbar sind.
+Es kann vorkommen, dass Sie Campaigns und Segments mit angepassten Daten einrichten möchten, bevor Ihr Entwicklerteam diese angepassten Daten integriert hat. Braze ermöglicht es Ihnen, angepasste Events und Attribute im Dashboard vorzubelegen, bevor das Tracking dieser Daten beginnt, sodass diese Events und Attribute in Dropdowns und als Teil des Kampagnenerstellungsprozesses verfügbar sind.
 
 Um angepasste Events und Attribute vorzubelegen, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events** oder **Angepasste Attribute** oder **Produkte**.
 
-![Navigieren Sie zu Angepasste Attribute oder Angepasste Events oder Produkte.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
+![Navigieren Sie zu „Angepasste Attribute“ oder „Angepasste Events“ oder „Produkte“.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
 2. Um ein angepasstes Attribut, Event oder Produkt hinzuzufügen, gehen Sie auf die entsprechende Seite und wählen Sie **Angepasste Attribute hinzufügen** oder **Angepasste Events hinzufügen** oder **Produkte hinzufügen**.<br><br>Für angepasste Attribute wählen Sie einen [Datentyp]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) für dieses Attribut aus (z. B. Boolescher Wert oder String). Der Datentyp eines Attributs bestimmt die Segmentierungsfilter, die für dieses Attribut verfügbar sind. <br><br>![Neues Attribut oder Event hinzufügen]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
 3. Wählen Sie **Speichern**.
 
-### Benennung angepasster Events und angepasster Attribute
+### Benennung angepasster Events und angepasster Attribute {#naming-custom-events-and-custom-attributes}
 
 Bei angepassten Events und angepassten Attributen wird zwischen Groß- und Kleinschreibung unterschieden. Behalten Sie dies im Hinterkopf, wenn Ihr Entwicklerteam diese angepassten Events oder Attribute später integriert. Die angepassten Events oder Attribute müssen genau so benannt werden, wie Sie sie hier benannt haben, sonst generiert Braze ein anderes angepasstes Event oder Attribut.
 
-## Eigenschaften verwalten
+## Eigenschaften verwalten {#managing-properties}
 
-Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Kampagnen oder Canvases diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) verwenden.
+Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Campaigns oder Canvases diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) verwenden.
 
 ![Angepasste Eigenschaften für ein angepasstes Event.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
@@ -42,7 +42,7 @@ Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigen
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
-## Datentyperkennung über Umgebungen hinweg
+## Datentyperkennung über Umgebungen hinweg {#data-type-detection-across-environments}
 
 Braze erkennt den Datentyp eines angepassten Attributs automatisch anhand des ersten empfangenen Werts. Wenn Ihre Entwicklungsumgebung zuerst einen numerischen Wert wie `100` sendet, wird das Attribut als Zahl gespeichert. Wenn der erste Wert aus Ihrer Produktionsumgebung als String eintrifft (z. B. `"100"` in Anführungszeichen), wird das Attribut als String gespeichert.
 
@@ -66,13 +66,13 @@ Das Erzwingen von Datentypen gilt nicht für Event-Eigenschaften oder Kauf-Detai
 Wenn Sie den Datentyp für ein Attribut erzwingen, werden alle eingehenden Daten, die nicht dem angegebenen Typ entsprechen, in diesen Typ umgewandelt. Wenn eine solche Umwandlung nicht möglich ist (z. B. ein String mit Buchstaben, der in eine Zahl umgewandelt werden soll), werden die Daten ignoriert. Alle Daten, die vor der Typänderung aufgenommen wurden, werden weiterhin als der alte Typ gespeichert (und können daher möglicherweise nicht segmentiert werden), und in den Profilen der betroffenen Nutzer:innen wird neben dem Attribut eine Warnung angezeigt.
 {% endalert %}
 
-### Vorhandene Daten nach einer Typänderung
+### Vorhandene Daten nach einer Typänderung {#existing-data-after-a-type-change}
 
 Das Erzwingen einer Datentypänderung wirkt sich nur auf neue Daten aus, die in Braze eingehen. Alle Daten, die vor der Typänderung aufgenommen wurden, werden weiterhin als der alte Typ gespeichert und sind möglicherweise nicht mit den Filtern des neuen Typs segmentierbar. In den Profilen der betroffenen Nutzer:innen wird eine Warnung angezeigt. Wenn bei neuen eingehenden Daten ein Wert nicht dem erzwungenen Typ entspricht, kann Braze ihn in den erzwungenen Typ umwandeln (z. B. den String `"100"` in die Zahl `100`); Werte, die nicht umgewandelt werden können, werden ignoriert und aktualisieren das Attribut nicht.
 
 Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie die Attributwerte für diese Nutzer:innen erneut über das SDK, die API oder einen CSV-Import senden. Es gibt keine automatische Massenkonvertierung für vorhandene Daten.
 
-### Datentypumwandlung
+### Datentypumwandlung {#data-type-coercion}
 
 | Erzwungener Datentyp | Beschreibung |
 |------------------|-------------|

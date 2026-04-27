@@ -1,17 +1,17 @@
 ---
 page_order: 2
-nav_title: Gatilhos de Catálogo
-article_title: Gatilhos de Catálogo
+nav_title: Gatilhos de catálogo
+article_title: Gatilhos de catálogo
 layout: dev_guide
-guide_top_header: "Gatilhos de Catálogo"
-guide_top_text: "Os gatilhos de Catálogo são notificações automatizadas acionadas por alterações nos dados do seu Catálogo. Use-os para notificar os clientes quando itens de interesse voltam a estar disponíveis ou têm queda de preço, sem precisar configurar campanhas manualmente."
+guide_top_header: "Gatilhos de catálogo"
+guide_top_text: "Os gatilhos de catálogo são notificações automatizadas acionadas por alterações nos dados do seu catálogo. Use-os para notificar os clientes quando itens de interesse voltam a estar disponíveis ou têm queda de preço, sem precisar configurar campanhas manualmente."
 
 page_type: landing
-description: "Configure notificações automatizadas disparadas por alterações nos dados do Catálogo, como alertas de volta ao estoque e notificações de queda de preço."
+description: "Configure notificações automatizadas disparadas por alterações nos dados do catálogo, como alertas de reposição de estoque e notificações de queda de preço."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
-- name: Notificações de volta ao estoque
+- name: Notificações de reposição de estoque
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Notificações de queda de preço

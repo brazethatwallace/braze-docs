@@ -6,23 +6,23 @@ page_order: 1
 alias: /creating-agents/
 ---
 
-# Criar agentes personalizados
+# Criar agentes personalizados {#create-custom-agents}
 
-> Aprenda como criar agentes personalizados, o que preparar antes de começar e como colocá-los para trabalhar em envio de mensagens, tomada de decisões e gerenciamento de dados. Para mais informações gerais, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents).
+> Aprenda como criar agentes personalizados, o que preparar antes de começar e como colocá-los para trabalhar em envio de mensagens, tomada de decisões e gerenciamento de dados. Para mais informações gerais, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/).
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Antes de começar, você precisará do seguinte:
 
-- [Permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) para acessar o **Console do agente** no seu espaço de trabalho. Verifique com seus administradores da Braze se você não vê essa opção.  
+- [Permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) para acessar o **Console do agente** no seu espaço de trabalho. Verifique com seus administradores da Braze se você não vê essa opção.
 - Permissão para criar e editar agentes de IA personalizados.
-- Um [provedor de modelo de IA]({{site.baseurl}}/partners/ai_model_providers) integrado com a Braze.
-- Uma ideia do que você quer que o agente realize. Os Braze Agents podem suportar as seguintes ações:  
-   - **Envio de mensagens:** Gerar linhas de assunto, manchetes, textos dentro do produto ou outros conteúdos.  
-   - **Tomada de decisões:** Direcionar usuários no Canvas com base em comportamento, preferências ou atributos personalizados.  
-   - **Gerenciamento de dados:** Calcular valores, enriquecer entradas de catálogo ou atualizar campos de perfil.  
+- Um [provedor de modelo de IA]({{site.baseurl}}/partners/ai_model_providers/) integrado com a Braze.
+- Uma ideia do que você quer que o agente realize. Os Braze Agents podem suportar as seguintes ações:
+   - **Envio de mensagens:** Gerar linhas de assunto, manchetes, textos dentro do produto ou outros conteúdos.
+   - **Tomada de decisões:** Direcionar usuários no Canvas com base em comportamento, preferências ou atributos personalizados.
+   - **Gerenciamento de dados:** Calcular valores, enriquecer entradas de catálogo ou atualizar campos de perfil.
 
-## Como funciona
+## Como funciona {#how-it-works}
 
 Quando você cria um agente, define seu propósito e estabelece diretrizes sobre como ele deve se comportar. Depois que estiver ativo, o agente pode ser implantado na Braze para gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo. Você pode pausar ou atualizar um agente a qualquer momento pelo dashboard.
 
@@ -31,21 +31,21 @@ Os seguintes casos de uso mostram algumas maneiras de aproveitar agentes persona
 | Caso de uso | Descrição |
 | --- | --- |
 | Tratamento de feedback do cliente | Passe o feedback do usuário para um agente analisar o sentimento e gerar mensagens de acompanhamento empáticas. Para usuários de alto valor, o agente pode escalar a resposta ou incluir benefícios. |
-| Localizar conteúdo | Traduza o texto do catálogo para outro idioma para campanhas globais, ou ajuste o tom e o comprimento para canais específicos da região. Por exemplo, traduza "Classic Clubmaster Sunglasses" para o espanhol como "Gafas de sol Classic Clubmaster", ou encurte descrições para campanhas de SMS. |
+| Localizar conteúdo | Traduza o texto do catálogo para outro idioma para campaigns globais, ou ajuste o tom e o comprimento para canais específicos da região. Por exemplo, traduza "Classic Clubmaster Sunglasses" para o espanhol como "Gafas de sol Classic Clubmaster", ou encurte descrições para campaigns de SMS. |
 | Resumir avaliações ou feedback | Resuma o sentimento ou feedback em um novo campo, como atribuir pontuações de sentimento como Positivo, Neutro ou Negativo, ou criar um resumo de texto curto como "A maioria dos clientes menciona um ótimo caimento, mas nota o envio lento." |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Criar um agente
+## Criar um agente {#create-an-agent}
 
-### Etapa 1: Escolher um tipo de agente
+### Etapa 1: Escolher um tipo de agente {#step-1-choose-an-agent-type}
 
 Para criar seu agente personalizado:
 
-1. Acesse **Console do agente** > **Gerenciamento de agentes** no dashboard da Braze.  
+1. Acesse **Console do agente** > **Gerenciamento de agentes** no dashboard da Braze.
 2. Selecione **Criar agente**.
 3. Escolha criar um agente Canvas ou um agente de catálogo.
 
-### Etapa 2: Configurar informações
+### Etapa 2: Configurar informações {#step-2-set-up-details}
 
 Em seguida, configure as informações do seu agente:
 
@@ -61,10 +61,10 @@ Em seguida, configure as informações do seu agente:
 
 Dê instruções ao agente. Recomendamos incluir instruções sobre o que o agente deve fazer em cenários inesperados ou ambíguos. Isso minimiza o risco de que a confusão do agente leve a erros. Por exemplo, em vez de pedir ao agente apenas valores de sentimento "positivo" ou "negativo", peça para retornar "incerto" se ele não conseguir decidir.
 
-Consulte [Escrevendo instruções]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para melhores práticas e [Exemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) para inspiração sobre como orientar seu agente.
+Consulte [Escrevendo instruções]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para melhores práticas e [Exemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) para inspiração sobre como orientar seu agente.
 
 {% alert tip %}
-Para agentes Canvas, você pode usar Liquid nas suas instruções para referenciar atributos do usuário, como primeiro e último nome, ou atributos personalizados. Qualquer variável Liquid nas instruções do agente é automaticamente passada para a etapa do Agente quando um usuário entra na etapa.
+Para agentes Canvas, você pode usar Liquid nas suas instruções para referenciar atributos do usuário, como primeiro e último nome, ou atributos personalizados. Qualquer variável Liquid nas instruções do agente é automaticamente passada para a etapa do agente quando um usuário entra na etapa.
 {% endalert %}
 
 #### Etapa 3.1: Adicionar recursos {#add-resources}
@@ -72,11 +72,11 @@ Para agentes Canvas, você pode usar Liquid nas suas instruções para referenci
 Selecione **Adicionar recursos** para escolher o que seu agente pode referenciar. Isso inclui:
 
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Dê ao agente acesso aos dados do seu catálogo para respostas mais precisas.
-- [Associação a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos segmentos aos quais um usuário pertence. Você pode selecionar até cinco segmentos.
+- [Associação a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos Segments aos quais um usuário pertence. Você pode selecionar até cinco Segments.
 - [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Referencie a voz da marca e as diretrizes de estilo para o agente seguir. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz da marca motivacional e em negrito predefinida.
-- [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
+- [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
 
-#### Etapa 3.2: Adicione configurações opcionais
+#### Etapa 3.2: Adicione configurações opcionais {#step-32-add-optional-settings}
 
 Em **Configurações opcionais**, você pode ajustar a [temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) do texto gerado pelo agente. Uma temperatura mais alta permite que o agente use as informações fornecidas de forma mais criativa.
 
@@ -90,7 +90,7 @@ Para melhores resultados, certifique-se de que o que você especifica na seção
 Quando você usar um [esquema de saída avançado]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas), adicione um campo de string chamado `explanation` se quiser que o agente retorne sua justificativa além das outras saídas. Diga ao agente nas suas [instruções](#agent-instructions) para preencher `explanation` quando isso ajudar você a revisar ou depurar respostas.
 {% endalert %}
 
-### Etapa 5: Teste e crie o agente
+### Etapa 5: Teste e crie o agente {#step-5-test-and-create-the-agent}
 
 O painel de **Pré-visualização** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usá-lo para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
 
@@ -116,11 +116,11 @@ Se algo parecer errado, atualize a configuração do agente e teste novamente. E
 Evite dizer ao agente exatamente o que você não quer que ele faça. Os LLMs ainda podem gerar esse conteúdo se você mencioná-lo nas instruções.
 {% endalert %}
 
-### Etapa 6: Use seu agente
+### Etapa 6: Use seu agente {#step-6-use-your-agent}
 
 Seu agente está pronto para uso! Para mais detalhes, consulte [Implantar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Artigos relacionados  
+## Artigos relacionados {#related-articles}
 
 - [Referência para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)

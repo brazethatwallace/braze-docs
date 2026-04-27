@@ -7,7 +7,7 @@ page_type: reference
 description: "Este artigo descreve os diferentes eventos na Braze — eventos padrão, eventos de compra e eventos personalizados — e suas finalidades."
 ---
 
-# Eventos
+# Eventos {#events}
 
 > Esta página aborda os diferentes eventos na Braze e suas finalidades.
 
@@ -19,7 +19,7 @@ A Braze utiliza alguns tipos diferentes de eventos para fornecer uma compreensã
 
 Ao rastrear esses diferentes tipos de eventos, você pode obter uma compreensão mais profunda dos seus usuários, o que pode orientar suas estratégias de marketing, ajudar a otimizar seu app e permitir que você ofereça uma experiência de usuário mais personalizada. Vamos lá!
 
-## Eventos padrão
+## Eventos padrão {#standard-events}
 
 Na Braze, eventos padrão são ações predefinidas que a Braze reconhece em toda a sua plataforma. Diferentemente dos [eventos personalizados](#custom-events), você não precisa criar ou nomear eventos padrão — eles já vêm integrados. No entanto, nem todos os eventos padrão são rastreados da mesma forma.
 
@@ -36,7 +36,7 @@ Os seguintes eventos são rastreados após configuração adicional:
 
 Como profissional de marketing, você pode usar eventos padrão para entender o comportamento e o engajamento dos usuários. Por exemplo, os dados de sessão mostram com que frequência os usuários abrem seu app ou site, enquanto os eventos de compra ajudam a rastrear a receita ao longo do tempo.
 
-## Eventos de compra
+## Eventos de compra {#purchase-events}
 
 Eventos de compra registram e rastreiam as compras feitas pelos seus usuários. Após integrar o SDK da Braze, sua equipe de desenvolvimento pode registrar compras usando os métodos de compra do SDK. Quando você usa eventos de compra para rastrear compras, é possível monitorar sua receita ao longo do tempo e em diferentes fontes de receita diretamente na Braze.
 
@@ -75,7 +75,7 @@ Lembre-se de que a implementação exata pode variar dependendo da plataforma (i
 
 {% enddetails %}
 
-## Eventos personalizados
+## Eventos personalizados {#custom-events}
 
 Eventos personalizados são eventos que você define com base nas ações específicas que deseja rastrear dentro do seu app ou site. A Braze não os rastreia automaticamente — você deve configurar esses eventos manualmente na implementação do SDK da Braze. Eventos personalizados podem ser qualquer coisa, desde um usuário completando uma fase em um jogo até um usuário atualizando suas informações de perfil.
 
@@ -85,7 +85,7 @@ Aqui está um exemplo de como registrar um evento personalizado em um app iOS us
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-Neste exemplo, "completed_level" é o nome do evento personalizado que é registrado quando um usuário completa uma fase em um jogo. Esse evento personalizado é então registrado no perfil de usuário na Braze, e você pode usá-lo para disparar campanhas e personalizar o envio de mensagens.
+Neste exemplo, "completed_level" é o nome do evento personalizado que é registrado quando um usuário completa uma fase em um jogo. Esse evento personalizado é então registrado no perfil de usuário na Braze, e você pode usá-lo para disparar campaigns e personalizar o envio de mensagens.
 
 Para saber mais, visite nosso artigo dedicado sobre [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
 

@@ -5,38 +5,40 @@ description: "Cet article répond aux questions fréquemment posées sur les age
 page_order: 10
 ---
 
-# Questions fréquemment posées sur les agents
+# Questions fréquemment posées sur les agents {#agents-frequently-asked-questions}
 
-## Général
+> Cet article répond aux questions fréquemment posées sur les agents Braze.
 
-### Quelle est la différence entre les agents Canvas et les agents de catalogue ?
+## Général {#general}
+
+### Quelle est la différence entre les agents Canvas et les agents de catalogue ? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
 Lorsque vous créez un agent, vous indiquez si vous souhaitez créer un agent Canvas ou un agent de catalogue. Ce choix détermine les types d'instructions et d'options que l'agent peut prendre en charge. Les agents Canvas traitent les utilisateurs en temps réel au sein des parcours, tandis que les agents de catalogue enrichissent les données du catalogue en ajoutant ou en mettant à jour des colonnes avec des informations traitées.
 
-### Quels sont les avantages du modèle Auto par rapport au modèle BYO (bring-your-own) ?
+### Quels sont les avantages du modèle Auto par rapport au modèle BYO (bring-your-own) ? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
 Les avantages du modèle Auto de Braze incluent :
 
 - Aucune récupération ni saisie de clés API ou configuration d'intégration requise
 - Routage automatique de chaque invocation vers le modèle le plus efficace pour accomplir la tâche
 
-### Où puis-je consulter mon utilisation actuelle des agents ?
+### Où puis-je consulter mon utilisation actuelle des agents ? {#where-can-i-find-my-current-agent-usage}
 
-Accédez à **Paramètres** > **Facturation** > **Utilisation des crédits** pour voir les détails de votre utilisation des agents et les coûts en crédits.
+Accédez à **Settings** > **Billing** > **Credits Usage** pour voir les détails de votre utilisation des agents et les coûts en crédits.
 
-### Puis-je utiliser des instructions Liquid conditionnelles dans les instructions de l'agent ?
+### Puis-je utiliser des instructions Liquid conditionnelles dans les instructions de l'agent ? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
-Non, tenter d'écrire des blocs Liquid comme les instructions {% raw %}`{% if %}{% endraw %} peut entraîner une erreur de validation. Les agents peuvent gérer différents scénarios grâce à des descriptions en langage naturel dans le prompt.
+Non, tenter d'écrire des blocs Liquid comme les instructions {% raw %}`{% if %}`{% endraw %} peut entraîner une erreur de validation. Les agents peuvent gérer différents scénarios grâce à des descriptions en langage naturel dans le prompt.
 
-### Les agents peuvent-ils accéder aux données utilisateur au-delà des attributs ou valeurs Liquid spécifiques que je leur transmets ?
+### Les agents peuvent-ils accéder aux données utilisateur au-delà des attributs ou valeurs Liquid spécifiques que je leur transmets ? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
 Non. Les agents ne reçoivent que les points de donnée utilisateur spécifiques qui leur sont transmis via Liquid, ainsi que les [ressources]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources) ajoutées au contexte de l'agent. Les agents ne peuvent pas rechercher dans les profils des utilisateurs des attributs que le marketeur ne les a pas configurés pour trouver.
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-### Pourquoi mon agent n'a-t-il pas suivi mes instructions ou mes règles ?
+### Pourquoi mon agent n'a-t-il pas suivi mes instructions ou mes règles ? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-Envisagez d'utiliser [Operator]({{site.baseurl}}/user_guide/brazeai/operator) pour comprendre pourquoi votre agent ne suit pas vos instructions. Operator peut fournir des instructions étape par étape et des explications détaillées.
+Envisagez d'utiliser [Operator]({{site.baseurl}}/user_guide/brazeai/operator/) pour comprendre pourquoi votre agent ne suit pas vos instructions. Operator peut fournir des instructions étape par étape et des explications détaillées.
 
 ### Mon agent a du mal avec une tâche complexe. Comment puis-je améliorer ses performances ? {#subagent-approach}
 
@@ -46,22 +48,22 @@ Si vous constatez que l'agent a du mal avec les tâches que vous lui demandez d'
 - L'agent 2 consulte un catalogue de détails d'articles et identifie les articles potentiellement pertinents.
 - L'agent 3 consulte un autre catalogue contenant différentes descriptions possibles pour chaque article et identifie la description la plus pertinente pour l'utilisateur afin de l'intégrer dans un e-mail.
 
-### Qu'est-ce qui peut provoquer des délais d'expiration fréquents pour un agent personnalisé ?
+### Qu'est-ce qui peut provoquer des délais d'expiration fréquents pour un agent personnalisé ? {#what-might-cause-a-custom-agent-to-frequently-time-out}
 
 Un agent personnalisé peut expirer si :
 
 - Les instructions de l'agent sont incomplètes ou contradictoires
 - Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Impossible de personnaliser" »)
-- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Sortie** (par exemple, si les instructions de l'agent demandent une chaîne de caractères, mais que dans l'onglet **Sortie**, la sortie est définie comme un nombre)
+- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions de l'agent demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
 
-## Conformité
+## Conformité {#compliance}
 
-### La Console des agents est-elle conforme au RGPD/CCPA ?
+### La Console des agents est-elle conforme au RGPD/CCPA ? {#is-agent-console-gdprccpa-compliant}
 
 Oui. Lorsqu'un client utilise le modèle Auto de Braze (propulsé par Gemini), Google agit en tant que sous-traitant de Braze, soumis aux conditions de l'accord de traitement des données (DPA) entre le client et Braze.
 
-### La Console des agents est-elle conforme à la loi HIPAA ?
+### La Console des agents est-elle conforme à la loi HIPAA ? {#is-agent-console-hipaa-compliant}
 
 Oui. Lors de l'utilisation du modèle Auto de Braze, nous disposons d'un accord HIPAA spécifique, le Business Associate Addendum (BAA), avec Google couvrant Gemini, qui alimente notre modèle Auto.
 
