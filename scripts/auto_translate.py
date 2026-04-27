@@ -486,6 +486,11 @@ the label to match the sentence while preserving each \
 (for example Japanese *運用Campaigns* or German *operative Campaigns*). Use \
 a single localized phrase (*運用キャンペーン*, *operative Kampagnen*, etc.) \
 per that locale's hub pages (auto-translate PR #13348).
+19. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
+uses `{#…}`, keep the **`?`** before the brace when English does. French—fix \
+mid-sentence **Décision**-style caps on common nouns (*décision*). \
+Japanese—use **Canvasステップ** consistently with other **Canvas** tokens on \
+the page, not **キャンバスステップ** (auto-translate PR #13346).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
