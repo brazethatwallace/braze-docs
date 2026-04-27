@@ -17,7 +17,7 @@ guide_featured_list:
   - name: Zufällige Bucket-Nummern
     link: /docs/user_guide/messaging/ab_testing/concepts/random_bucket_numbers
     image: /assets/img/braze_icons/dice-3.svg
-  - name: Conversion-Korrelation
+  - name: Konversionskorrelation
     link: /docs/user_guide/messaging/ab_testing/concepts/conversion_correlation
     image: /assets/img/braze_icons/trend-up-01.svg
   - name: Race-Conditions

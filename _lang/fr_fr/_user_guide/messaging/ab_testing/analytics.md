@@ -33,7 +33,7 @@ Le **Résultat du test A/B** est divisé en deux onglets : **Test initial** et *
 {% tabs local %}
 {% tab Test initial %}
 
-L'onglet **Test initial** affiche les indicateurs de chaque variante du test A/B initial envoyé à une partie de votre segment cible. Vous pouvez voir un résumé des performances de toutes les variantes et déterminer s'il y a eu un gagnant pendant le test.
+L'onglet **Test initial** affiche les indicateurs de chaque variante du test A/B initial envoyé à une partie de votre segment cible. Vous pouvez voir un résumé des performances de toutes les variantes et déterminer s'il y a eu une gagnante pendant le test.
 
 Si une variante a surpassé toutes les autres avec un niveau de [confiance]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence) supérieur à 95 %, Braze lui attribue le label « Gagnante ».
 

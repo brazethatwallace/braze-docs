@@ -14,7 +14,7 @@ Lors de la [création d'un test A/B]({{site.baseurl}}/user_guide/messaging/ab_te
 
 ![Options d'optimisation présentées dans la section de test A/B lorsque vous choisissez votre audience cible. Trois options sont présentées : Pas d'optimisation, variante gagnante et variante personnalisée. Variante personnalisée est sélectionnée.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 
-Les deux options fonctionnent en envoyant un test initial à un pourcentage de votre segment cible. Après la fin du test, les utilisateurs restants de votre audience sont envoyés soit à la variante la plus efficace (Variante gagnante) soit à la variante avec laquelle ils ont le plus de chance d'interagir (Variante personnalisée).
+Les deux options fonctionnent en envoyant un test initial à un pourcentage de votre segment cible. Après la fin du test, les utilisateurs restants de votre audience reçoivent soit la variante la plus efficace (variante gagnante), soit la variante avec laquelle ils ont le plus de chances d'interagir (variante personnalisée).
 
 {% alert tip %}
 Les optimisations sont situées dans l'étape **Audiences cibles** de la création de la campagne, sous **Test A/B**.

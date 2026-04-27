@@ -10,6 +10,7 @@ tool:
   - Reports
 
 ---
+
 # Corrélation de conversion {#conversion-correlation}
 
 > L'analyse de corrélation de conversion sur la page **Analyse de campagne** vous permet de comprendre quels attributs et comportements des utilisateurs favorisent ou nuisent aux résultats que vous avez définis pour vos campagnes.

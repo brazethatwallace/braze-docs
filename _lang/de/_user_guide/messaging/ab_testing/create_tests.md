@@ -22,7 +22,7 @@ local_redirect: #optimizations
 
 ## 2. Schritt: Verfassen Sie Ihre Varianten {#step-2-compose-your-variants}
 
-Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variable, während ein multivariater Test zwei oder mehr untersucht.
+Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variablen, während ein multivariater Test zwei oder mehr untersucht.
 
 Ideen für den Einstieg in die Differenzierung Ihrer Varianten finden Sie unter [Tipps für verschiedene Kanäle](#tips-different-channels).
 
@@ -40,7 +40,7 @@ Um eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizat
 
 ## 4. Schritt: Wählen Sie ein Segment und verteilen Sie Ihre Nutzer:innen auf die Varianten {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
-Wählen Sie Segments als Zielgruppe aus und verteilen Sie die Mitglieder auf Ihre ausgewählten Varianten und die optionale [Kontrollgruppe](#including-a-control-group). Best Practices zur Auswahl eines Segments für Tests finden Sie unter [Ein Segment auswählen](#choosing-a-segment).
+Wählen Sie Segmente als Zielgruppe aus und verteilen Sie die Mitglieder auf Ihre ausgewählten Varianten und die optionale [Kontrollgruppe](#including-a-control-group). Best Practices zur Auswahl eines Segments für Tests finden Sie unter [Ein Segment auswählen](#choosing-a-segment).
 
 Für Push-, E-Mail- und Webhook-Campaigns, die für einen einmaligen Versand geplant sind, können Sie auch eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) verwenden. Eine Optimierung reserviert einen Teil Ihrer Zielgruppe vom A/B-Test und hält ihn für einen zweiten, optimierten Versand zurück, der auf den Ergebnissen des ersten Tests basiert.
 
@@ -53,7 +53,7 @@ Bei der Auswertung Ihrer Ergebnisse können Sie die Konversionsraten Ihrer Varia
 ![A/B-Testing-Panel, das die prozentuale Aufschlüsselung der Kontrollgruppe, Variante 1, Variante 2 und Variante 3 mit jeweils 25 % für jede Gruppe zeigt.]({% image_buster /assets/img/ab_create_4.png %})
 
 {% alert important %}
-Die Verwendung einer Kontrollgruppe bei der Bestimmung eines Gewinners anhand von _Öffnungen_ oder _Klicks_ wird nicht empfohlen. Da die Kontrollgruppe die Nachricht nicht erhält, können diese Nutzer:innen keine Öffnungen oder Klicks durchführen. Daher beträgt die Konversionsrate dieser Gruppe per Definition 0 % und stellt keinen aussagekräftigen Vergleich mit den Varianten dar.
+Die Verwendung einer Kontrollgruppe bei der Bestimmung einer Gewinnervariante anhand von _Öffnungen_ oder _Klicks_ wird nicht empfohlen. Da die Kontrollgruppe die Nachricht nicht erhält, können diese Nutzer:innen keine Öffnungen oder Klicks durchführen. Daher beträgt die Konversionsrate dieser Gruppe per Definition 0 % und stellt keinen aussagekräftigen Vergleich mit den Varianten dar.
 {% endalert %}
 
 #### Kontrollgruppen mit A/B-Tests {#control-groups-with-ab-testing}
@@ -104,7 +104,7 @@ Wenn Sie unsicher sind, wie lange Ihr Test laufen sollte, kann das Feature [Inte
 
 ### Ein Segment auswählen {#choosing-a-segment}
 
-Da verschiedene Segments Ihrer Nutzer:innen unterschiedlich auf Nachrichten reagieren können, sagt der Erfolg einer bestimmten Nachricht sowohl etwas über die Nachricht selbst als auch über ihr Zielsegment aus. Versuchen Sie daher, einen Test mit Blick auf Ihr Zielsegment zu gestalten.
+Da verschiedene Segmente Ihrer Nutzer:innen unterschiedlich auf Nachrichten reagieren können, sagt der Erfolg einer bestimmten Nachricht sowohl etwas über die Nachricht selbst als auch über ihr Zielsegment aus. Versuchen Sie daher, einen Test mit Blick auf Ihr Zielsegment zu gestalten.
 
 Während aktive Nutzer:innen beispielsweise gleiche Reaktionsraten auf „Dieses Angebot läuft morgen ab!“ und „Dieses Angebot läuft in 24 Stunden ab!“ haben könnten, reagieren Nutzer:innen, die die App seit einer Woche nicht geöffnet haben, möglicherweise stärker auf die letztere Formulierung, da sie ein größeres Gefühl der Dringlichkeit erzeugt.
 

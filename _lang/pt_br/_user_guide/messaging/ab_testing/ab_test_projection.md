@@ -17,11 +17,11 @@ Esse recurso está atualmente em acesso antecipado. Entre em contato com seu ger
 
 ## Execução de uma projeção {#running-a-projection}
 
-Na composição da campanha, insira suas variantes de mensagem e suas linhas de assunto no editor. Quando estiver tudo pronto, acesse a etapa **Público-alvo** do fluxo de criação da campanha. No painel **Testes A/B**, selecione **Run Projection (Executar projeção)**.
+Na composição da campanha, insira suas variantes de mensagens e suas linhas de assunto no editor. Quando estiver pronto, acesse a etapa **Público-alvo** do fluxo de criação da campanha. No painel **Testes A/B**, selecione **Run Projection**.
 
 <img width="518" alt="imagem" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 
-Um modal será aberto com as linhas de assunto de quaisquer variantes de mensagem que você já tenha criado. Opcionalmente, você pode inserir linhas de assunto adicionais (até no máximo dez) digitando manualmente no campo e executando a projeção. Selecione **Run Projection (Executar projeção)**.
+Um modal será aberto com as linhas de assunto de quaisquer variantes de mensagens que você já tenha criado. Opcionalmente, você pode inserir linhas de assunto adicionais (até no máximo dez) digitando manualmente no campo e executando a projeção. Selecione **Run Projection**.
 
 <img width="722" alt="imagem" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
 
