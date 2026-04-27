@@ -9,7 +9,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Kampa
 
 ---
 {% api %}
-# Details zur Kampagne exportieren
+# Details zur Kampagne exportieren {#export-campaign-details}
 {% apimethod get %}
 /campaigns/details
 {% endapimethod %}
@@ -20,7 +20,7 @@ Wenn Sie Canvas-Daten abrufen möchten, lesen Sie den Endpunkt [Canvas-Details e
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.details`.
 
@@ -28,16 +28,16 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfrageparameter
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Erforderlich | String | Siehe [API-Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/).<br><br> Die `campaign_id` für API-Kampagnen finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) und auf der Seite **Kampagnendetails** in Ihrem Dashboard; alternativ können Sie den [Endpunkt „Liste der Kampagnen exportieren"](#campaign-list-endpoint) verwenden. |
+| `campaign_id` | Erforderlich | String | Siehe [API-Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/).<br><br> Die `campaign_id` für API-Kampagnen finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) und auf der Seite **Campaign Details** in Ihrem Dashboard; alternativ können Sie den [Endpunkt „Liste der Kampagnen exportieren“](#campaign-list-endpoint) verwenden. |
 | `post_launch_draft_version` | Optional | Boolescher Wert | Bei Nachrichten, die einen Entwurf nach dem Start haben, werden durch die Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardmäßig `false`. |
 | `include_has_translatable_content` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, enthält die API-Antwort ein Feld `has_translatable_content` für jede Nachricht. Standardmäßig `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/details?campaign_id={{campaign_identifier}}' \
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 {% endraw %}
 
-## Antworten
+## Antworten {#responses}
 
 ```json
 {
@@ -76,7 +76,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-### Nachrichten nach Kanal
+### Nachrichten nach Kanal {#messages-by-channel}
 
 Die Antwort `messages` enthält Informationen zu jeder Nachricht. Im Folgenden finden Sie Beispielantworten für die einzelnen Kanäle:
 
@@ -118,7 +118,7 @@ Die Antwort `messages` enthält Informationen zu jeder Nachricht. Im Folgenden f
 
 Das Antwortformat hängt vom Typ der In-App-Nachricht ab. Umfrage-In-App-Nachrichten geben die Felder `type` und `data` zurück. Andere In-App-Nachrichtentypen (Slideup, Modal und Vollbild) geben die Felder `name`, `message` und `extras` zurück.
 
-#### Umfragen
+#### Umfragen {#surveys}
 
 ```json
 {
@@ -146,7 +146,7 @@ Das Antwortformat hängt vom Typ der In-App-Nachricht ab. Umfrage-In-App-Nachric
 }
 ```
 
-#### Slideup-, Modal- und Vollbild-In-App-Nachrichten
+#### Slideup-, Modal- und Vollbild-In-App-Nachrichten {#slideup-modal-fullscreen-in-app-messages}
 
 ```json
 {
@@ -202,7 +202,7 @@ Das Antwortformat hängt vom Typ der In-App-Nachricht ab. Umfrage-In-App-Nachric
 {% endtab %}
 {% tab WhatsApp %}
 
-#### Template-Nachrichten
+#### Template-Nachrichten {#template-messages}
 
 ```json
 {
@@ -217,7 +217,7 @@ Das Antwortformat hängt vom Typ der In-App-Nachricht ab. Umfrage-In-App-Nachric
 }
 ```
 
-#### Antwortnachrichten
+#### Antwortnachrichten {#response-messages}
 
 ```json
 {
@@ -246,7 +246,7 @@ Das Antwortformat hängt vom Typ der In-App-Nachricht ab. Umfrage-In-App-Nachric
 {% endtabs %}
 
 
-### Konversionsverhalten
+### Konversionsverhalten {#conversion-behaviors}
 
 Das Array `conversion_behaviors` enthält Informationen zu jedem für die Kampagne festgelegten Konversions-Event-Verhalten. Diese Verhaltensweisen sind in der von der Kampagne vorgegebenen Reihenfolge angeordnet. Beispielsweise ist Konversions-Event A das erste Element im Array, Konversions-Event B das zweite und so weiter. Im Folgenden finden Sie Beispiele für Konversions-Event-Verhalten:
 
@@ -329,7 +329,7 @@ Das Array `conversion_behaviors` enthält Informationen zu jedem für die Kampag
 {% endtabs %}
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}
