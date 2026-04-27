@@ -6,7 +6,7 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "기술 파트너"
-partner_top_text: "Braze의 기술 파트너인 Alloys 목록에 오신 것을 환영합니다. 이 페이지를 활용하여 Braze SDK에 기술 파트너를 구현하세요. Braze에서 <b>파트너 통합</b> > <b>기술 파트너</b>로 이동하면 이 페이지에 나열된 파트너와 연결할 수 있습니다. <br> <br> Braze를 활용하여 고객 경험과 마케팅을 혁신하는 Firebrands 커뮤니티에 참여하고 싶다면 <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>을 확인하세요."
+partner_top_text: "Braze의 기술 파트너인 Alloys 목록에 오신 것을 환영합니다. 이 페이지를 활용하여 Braze SDK에 기술 파트너를 구현하세요. Braze에서 <b>파트너 통합</b> > <b>기술 파트너</b>로 이동하면 이 페이지에 나열된 파트너와 연결할 수 있습니다. <br> <br> Braze를 활용하여 고객 경험과 마케팅을 혁신하는 Firebrands 커뮤니티에 참여하고 싶다면 <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> 을 확인하세요."
 description: "이 랜딩 페이지에는 모든 Braze 파트너가 포함되어 있습니다. 기술 파트너를 Braze SDK에 구현하는 데 도움이 되는 기술 설명서를 살펴보세요."
 
 valid_partner_list:
@@ -104,6 +104,8 @@ valid_partner_list:
   url: /docs/partners/amazon_personalize/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -284,6 +286,8 @@ valid_partner_list:
   url: /docs/partners/celebrus/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY by Loyalty Juggernaut
+  url: /docs/partners/lji/
 - name: Alpaco
   url: /docs/partners/alpaco/
 - name: NiftyImages
@@ -346,8 +350,8 @@ valid_partner_list:
   url: /docs/partners/tapcart/
 - name: Mention Me
   url: /docs/partners/mention_me/
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Eagle Eye
   url: /docs/partners/eagle_eye/
 - name: Eppo
@@ -410,6 +414,8 @@ valid_partner_list:
   url: /docs/partners/figma/
 - name: Poq
   url: /docs/partners/poq/
+- name: The Trade Desk
+  url: /docs/partners/trade_desk_audience_sync/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---
