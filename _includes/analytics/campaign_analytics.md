@@ -444,7 +444,7 @@ A click and open can also land on different days: a user might click on May 16 w
 
 ##### Higher _Unique clicks_ than _Unique opens_
 
-_Unique clicks_ can be higher than _Unique opens_ when opens are undercounted or clicks are inflated:
+_Unique clicks_ can be higher than _Unique opens_ when opens are under counted or clicks are inflated:
 
 **The mailbox never loaded the open tracking pixel**
 
