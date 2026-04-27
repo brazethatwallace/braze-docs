@@ -125,7 +125,7 @@ Cuando hayas terminado, selecciona **Done**.
 
 La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners/#priority) determina el orden en que se muestran los banners si comparten la misma ubicación. Para establecer la prioridad manualmente:
 
-1. Selecciona **Set Exact Priority**.
+1. Selecciona **Set exact priority**.
 2. Arrastra y suelta las campañas para ordenarlas con la prioridad correcta.
 3. Selecciona **Apply Sort**.
 

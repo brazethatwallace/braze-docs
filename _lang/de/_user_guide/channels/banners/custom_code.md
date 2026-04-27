@@ -14,7 +14,7 @@ channel:
 
 Wenn Sie in Ihrem Banner-Design angepasstes HTML verwenden, kann das Braze SDK nicht automatisch Klick-Listener an Elemente innerhalb Ihres angepassten Codes anhängen. Sie müssen `brazeBridge.logClick()` explizit für alle anklickbaren Elemente (Links, Buttons und Ähnliches) aufrufen, die Sie im Analytics-Tool der Campaign verfolgen möchten.
 
-Um beispielsweise einen Klick zu protokollieren, wenn eine Nutzer:in in Ihrem angepassten HTML auf einen Button tippt:
+Um beispielsweise einen Klick zu protokollieren, wenn Nutzer:innen in Ihrem angepassten HTML auf einen Button tippen:
 
 ```html
 <button onclick="brazeBridge.logClick()">

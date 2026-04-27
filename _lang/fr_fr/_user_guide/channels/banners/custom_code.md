@@ -1,5 +1,5 @@
 ---
-nav_title: Code personnalisé et passerelle JavaScript
+nav_title: Code personnalisé et pont JavaScript
 article_title: Code personnalisé et pont JavaScript pour les bannières
 page_order: 2
 page_type: reference
