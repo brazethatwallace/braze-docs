@@ -25,7 +25,7 @@ In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Bet
 
 Über das Messaging hinaus können Agenten Ihre Kataloge bereichern, indem sie Produkt- und Profilfeldwerte berechnen oder generieren und so Ihre Daten aktuell und dynamisch halten. Durch die Übernahme repetitiver oder komplexer Aufgaben ermöglichen sie Ihrem Team, sich auf Strategie und Kreativität zu konzentrieren, anstatt sich mit manuellem Setup zu befassen. Braze Agents agieren eher als Kooperationspartner denn als Hintergrundprozesse – sie unterstützen Sie bei der Lösung von Problemen und erzielen Wirkung in großem Maßstab.
 
-### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden {#when-to-use-braze-agents-versus-other-brazeai-features}
+### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden? {#when-to-use-braze-agents-versus-other-brazeai-features}
 
 Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:in in Echtzeit zu personalisieren. Wenn ein Agent beispielsweise weiß, dass die bevorzugte Eissorte einer bestimmten Nutzer:in Schokolade ist und das bevorzugte Topping Gummibärchen sind, kann er eine Push-Nachricht erstellen, die speziell auf diese Kombination für diese Nutzer:in zugeschnitten ist, während sie den Canvas durchläuft.
 
