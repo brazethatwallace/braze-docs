@@ -6,15 +6,15 @@ page_type: reference
 description: "Este artigo de referência aborda como gerenciar eventos e atributos personalizados — preencher previamente, adicionar descrições e tags, gerenciar propriedades de eventos, forçar tipos de dados e marcar atributos como IPI."
 ---
 
-# Gerenciar dados personalizados
+# Gerenciar dados personalizados {#manage-custom-data}
 
 > Esta página aborda como preencher previamente dados personalizados em suas campanhas e segmentos, gerenciar eventos e atributos personalizados e suas propriedades, e configurar tipos de dados. Para colocar na lista de bloqueio e excluir dados personalizados, consulte [Lista de bloqueio de dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
 Para saber como gerenciar atributos personalizados em particular (incluindo adicionar descrições, adicionar tags e marcar atributos como IPI), consulte [Gerenciar atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes).
 
-## Preenchimento prévio de dados personalizados
+## Preenchimento prévio de dados personalizados {#pre-populate-custom-data}
 
-Pode haver ocasiões em que você queira configurar campanhas e segmentos usando dados personalizados antes que sua equipe de desenvolvimento tenha integrado esses dados. A Braze permite que você preencha previamente eventos e atributos personalizados no dashboard antes que esses dados comecem a ser rastreados, de modo que esses eventos e atributos estejam disponíveis para uso em menus suspensos e como parte do processo de criação de campanhas.
+Pode haver ocasiões em que você queira configurar Campaigns e Segments usando dados personalizados antes que sua equipe de desenvolvimento tenha integrado esses dados. A Braze permite que você preencha previamente eventos e atributos personalizados no dashboard antes que esses dados comecem a ser rastreados, de modo que esses eventos e atributos estejam disponíveis para uso em menus suspensos e como parte do processo de criação de Campaigns.
 
 Para preencher previamente eventos e atributos personalizados, faça o seguinte:
 
@@ -23,16 +23,16 @@ Para preencher previamente eventos e atributos personalizados, faça o seguinte:
 ![Navegue até Atributos personalizados, Eventos personalizados ou Produtos.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2. Para adicionar um atributo personalizado, evento ou produto, acesse a respectiva página e selecione **Add Custom Attributes** ou **Add Custom Events** ou **Add Products**.<br><br>Para atributos personalizados, selecione um [tipo de dado]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) para esse atributo (por exemplo, booleano ou string). O tipo de dados de um atributo determina os filtros de segmentação disponíveis para esse atributo. <br><br>![Adicionar novo atributo ou evento]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+2. Para adicionar um atributo personalizado, evento ou produto, acesse a respectiva página e selecione **Adicionar atributos personalizados**, **Adicionar eventos personalizados** ou **Adicionar produtos**.<br><br>Para atributos personalizados, selecione um [tipo de dado]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) para esse atributo (por exemplo, booleano ou string). O tipo de dados de um atributo determina os filtros de segmentação disponíveis para esse atributo. <br><br>![Adicionar novo atributo ou evento]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
 3. Selecione **Salvar**.
 
-### Nomeação de eventos personalizados e atributos personalizados
+### Nomeação de eventos personalizados e atributos personalizados {#naming-custom-events-and-custom-attributes}
 
 Os eventos personalizados e os atributos personalizados diferenciam maiúsculas de minúsculas. Tenha isso em mente quando sua equipe de desenvolvimento integrar esses eventos ou atributos personalizados posteriormente. Eles devem nomear os eventos ou atributos personalizados exatamente como você os nomeou aqui, caso contrário a Braze gerará um evento ou atributo personalizado diferente.
 
-## Gerenciamento de propriedades
+## Gerenciamento de propriedades {#managing-properties}
 
-Depois de criar um evento personalizado ou produto, selecione **Gerenciar propriedades** desse evento ou produto para adicionar novas propriedades, colocar na lista de bloqueio as propriedades existentes e visualizar quais campanhas ou Canvas usam essa propriedade em um [evento de gatilho]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+Depois de criar um evento personalizado ou produto, selecione **Gerenciar propriedades** desse evento ou produto para adicionar novas propriedades, colocar na lista de bloqueio as propriedades existentes e visualizar quais Campaigns ou Canvas usam essa propriedade em um [evento de gatilho]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
 ![Propriedades personalizadas para um evento personalizado.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
@@ -42,7 +42,7 @@ Para tornar rastreáveis esses atributos personalizados, eventos, produtos ou pr
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
-## Detecção de tipo de dados entre ambientes
+## Detecção de tipo de dados entre ambientes {#data-type-detection-across-environments}
 
 A Braze detecta automaticamente o tipo de dados de um atributo personalizado com base no primeiro valor recebido. Se o seu ambiente de desenvolvimento enviar primeiro um valor numérico como `100`, o atributo será armazenado como número. Se o primeiro valor do seu ambiente de produção chegar como string (como `"100"` entre aspas), o atributo será armazenado como string.
 
@@ -66,13 +66,13 @@ Forçar tipos de dados não se aplica a propriedades de eventos ou propriedades 
 Se você optar por forçar o tipo de dados de um atributo, todos os dados recebidos que não forem do tipo especificado serão convertidos para esse tipo. Se essa conversão for impossível (por exemplo, uma string contendo letras sendo convertida em um número), os dados serão ignorados. Todos os dados ingeridos antes da alteração do tipo continuarão armazenados como o tipo antigo (e, portanto, podem não ser segmentáveis), e um aviso aparecerá ao lado do atributo nos perfis dos usuários afetados.
 {% endalert %}
 
-### Dados existentes após uma alteração de tipo
+### Dados existentes após uma alteração de tipo {#existing-data-after-a-type-change}
 
 Forçar uma alteração de tipo de dados afeta apenas os novos dados que chegam à Braze. Todos os dados ingeridos antes da alteração de tipo continuam armazenados como o tipo antigo e podem não ser segmentáveis com os filtros do novo tipo. Um aviso aparece nos perfis dos usuários afetados. Para novos dados recebidos, se um valor não corresponder ao tipo forçado, a Braze pode convertê-lo para o tipo forçado (por exemplo, a string `"100"` para o número `100`). Valores que não podem ser convertidos são ignorados e não atualizam o atributo.
 
 Se você precisar que todos os dados de usuários existentes correspondam ao novo tipo, será necessário reenviar os valores do atributo para esses usuários por meio do SDK, da API ou de uma importação CSV. Não há conversão em massa automática para dados existentes.
 
-### Coerção de tipos de dados
+### Coerção de tipos de dados {#data-type-coercion}
 
 | Tipo de dados forçado | Descrição |
 |------------------|-------------|

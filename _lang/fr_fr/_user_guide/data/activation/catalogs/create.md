@@ -6,11 +6,11 @@ page_order: 1
 description: "Cet article de référence explique comment créer des catalogues qui référencent des données non-utilisateurs dans vos campagnes Braze via Liquid."
 ---
 
-# Créer un catalogue
+# Créer un catalogue {#create-a-catalog}
 
 > La création d'un catalogue consiste à importer un fichier CSV de données non-utilisateurs dans Braze. Vous pouvez ensuite accéder à ces informations pour enrichir vos messages. N'importe quel type de données peut être intégré à un catalogue. Il s'agit généralement de métadonnées provenant de votre entreprise, comme des informations produits pour un site e-commerce ou des informations sur les cours pour un fournisseur de formation.
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
 Les cas d'utilisation courants des catalogues sont les suivants :
 
@@ -27,13 +27,13 @@ Une fois ces informations importées, vous pouvez y accéder dans vos messages d
 
 Pour consulter les types de données de catalogue pris en charge, leurs descriptions, la manière dont chacun peut être créé ou mis à jour (CSV vs API et CDI), ainsi que les formats et exemples, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
-## Création d'un catalogue
+## Création d'un catalogue {#creating-a-catalog}
 
 Pour créer un catalogue, rendez-vous dans **Paramètres des données** > **Catalogues**, puis sélectionnez **Créer un nouveau catalogue** et choisissez l'une des options suivantes :
 
 {% tabs local %}
 {% tab Upload CSV %}
-### Étape 1 : Vérifiez votre fichier CSV
+### Étape 1 : Vérifiez votre fichier CSV {#step-1-review-your-csv-file}
 
 Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigences suivantes :
 
@@ -53,9 +53,9 @@ Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigenc
 Vous avez besoin de plus d'espace pour vos fichiers CSV ? Contactez votre gestionnaire de compte Braze pour en savoir plus sur la mise à niveau de vos catalogues.
 {% endalert %}
 
-### Étape 2 : Téléchargez le fichier CSV
+### Étape 2 : Téléchargez le fichier CSV {#step-2-upload-csv}
 
-Glissez-déposez votre fichier dans la zone de téléchargement ou sélectionnez **Télécharger CSV** et choisissez votre fichier.
+Glissez-déposez votre fichier dans la zone de téléchargement ou sélectionnez **Upload CSV** et choisissez votre fichier.
 
 ![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
@@ -85,7 +85,7 @@ Sélectionnez **Process Catalog** pour créer le catalogue.
 Votre fichier CSV peut être rejeté si vous dépassez votre [seuil](#tiers).
 {% endalert %}
 
-### Tutoriel : Création d'un catalogue à partir d'un fichier CSV
+### Tutoriel : Création d'un catalogue à partir d'un fichier CSV {#tutorial-creating-a-catalog-from-a-csv-file}
 
 Pour ce tutoriel, nous utilisons un catalogue qui répertorie deux jeux, leur prix et un lien d'image.
 
@@ -137,7 +137,7 @@ Après avoir créé le catalogue, vous pouvez commencer à y faire référence [
 {% endtab %}
 
 {% tab Create in browser %}
-### Conditions préalables
+### Conditions préalables {#prerequisites}
 
 Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes pour votre espace de travail :
 
@@ -148,7 +148,7 @@ Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous deve
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-### Étape 1 : Saisissez les détails du catalogue
+### Étape 1 : Saisissez les détails du catalogue {#step-1-enter-catalog-details}
 
 Saisissez un nom et une description facultative pour votre catalogue. Tenez compte des exigences suivantes lorsque vous nommez votre catalogue :
 
@@ -162,13 +162,13 @@ Vous pouvez également [utiliser des modèles dans un nom de catalogue](#templat
 
 ![Un catalogue nommé « my_catalog ».]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-### Étape 2 : Créez votre catalogue
+### Étape 2 : Créez votre catalogue {#step-2-create-your-catalog}
 
-Sélectionnez votre catalogue dans la liste, puis choisissez **Mettre à jour le catalogue** > **Ajouter des champs**. Saisissez le **nom du champ** et utilisez le menu déroulant pour sélectionner le type de données. Répétez l'opération autant de fois que nécessaire.
+Sélectionnez votre catalogue dans la liste, puis choisissez **Update Catalog** > **Add fields**. Saisissez le **Field name** et utilisez le menu déroulant pour sélectionner le type de données. Répétez l'opération autant de fois que nécessaire.
 
 ![Deux exemples de champs : « rating » et « name ».]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-Sélectionnez **Mettre à jour le catalogue** > **Ajouter des éléments** pour ajouter un élément à votre catalogue en saisissant les informations dans les champs que vous avez précédemment ajoutés. Ensuite, sélectionnez **Enregistrer l'élément** ou **Enregistrer et ajouter un autre** pour continuer à ajouter vos éléments.
+Sélectionnez **Update Catalog** > **Add items** pour ajouter un élément à votre catalogue en saisissant les informations dans les champs que vous avez précédemment ajoutés. Ensuite, sélectionnez **Save Item** ou **Save and Add Another** pour continuer à ajouter vos éléments.
 
 ![Ajouter un élément au catalogue.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
@@ -193,23 +193,23 @@ Lorsque vous nommez votre catalogue, vous pouvez également utiliser des modèle
 ```
 {% endraw %}
 
-## Gérer les catalogues
+## Gérer les catalogues {#managing-catalogs}
 
-### Dans le tableau de bord
+### Dans le tableau de bord {#in-the-dashboard}
 
-Pour mettre à jour votre catalogue après avoir téléchargé un fichier CSV ou créé un catalogue dans le navigateur, sélectionnez **Mettre à jour le catalogue > Télécharger un fichier CSV**, puis choisissez de mettre à jour, d'ajouter ou de supprimer des éléments dans votre catalogue.
+Pour mettre à jour votre catalogue après avoir téléchargé un fichier CSV ou créé un catalogue dans le navigateur, sélectionnez **Update Catalog** > **Upload CSV**, puis choisissez de mettre à jour, d'ajouter ou de supprimer des éléments dans votre catalogue.
 
-### Avec l'API REST
+### Avec la REST API {#using-the-rest-api}
 
 Au fur et à mesure que vous créez des catalogues, vous pouvez également utiliser l'[endpoint Lister les catalogues]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) pour obtenir la liste des catalogues d'un espace de travail.
 
-L'API REST prend en charge tous les [types de données de catalogue]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via l'API REST.
+La REST API prend en charge tous les [types de données de catalogue]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via la REST API.
 
-### Avec l'Ingestion de données cloud
+### Avec l'Ingestion de données cloud {#using-cloud-data-ingestion}
 
 Vous pouvez gérer vos catalogues via l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
 
-## Gérer les éléments du catalogue
+## Gérer les éléments du catalogue {#managing-catalog-items}
 
 En plus de gérer vos catalogues, vous pouvez utiliser des endpoints synchrones et asynchrones pour gérer les éléments du catalogue. Cela inclut la possibilité de modifier et de supprimer des éléments, ainsi que de consulter les détails d'un élément.
 
@@ -223,15 +223,15 @@ La version gratuite des catalogues prend en charge des fichiers CSV d'une taille
 Les droits d'utilisation des packages affichés dans le tableau de bord de Braze sont arrondis à l'unité la plus proche à des fins d'affichage. Vous conservez toutefois l'intégralité des droits d'utilisation achetés. Pour demander une mise à niveau du stockage des catalogues, contactez votre gestionnaire de compte Braze.
 {% endalert %}
 
-#### Version gratuite
+#### Version gratuite {#free-version}
 
-La taille de stockage pour la version gratuite des catalogues est de 100 Mo maximum. Vous pouvez avoir un nombre illimité d'éléments tant qu'ils ne dépassent pas 100 Mo au total.
+La taille de stockage pour la version gratuite des catalogues est de 100&nbsp;Mo maximum. Vous pouvez avoir un nombre illimité d'éléments tant qu'ils ne dépassent pas 100&nbsp;Mo au total.
 
-#### Catalogues Pro
+#### Catalogues Pro {#catalogs-pro}
 
-Au niveau de l'entreprise, le stockage maximum pour Catalogues Pro dépend de la taille des données du catalogue. Les options de taille de stockage sont les suivantes : 5 Go, 10 Go ou 15 Go. L'espace de stockage de la version gratuite (100 Mo) est inclus dans chacun de ces plans.
+Au niveau de l'entreprise, le stockage maximum pour Catalogues Pro dépend de la taille des données du catalogue. Les options de taille de stockage sont les suivantes : 5&nbsp;Go, 10&nbsp;Go ou 15&nbsp;Go. L'espace de stockage de la version gratuite (100&nbsp;Mo) est inclus dans chacun de ces plans.
 
-## Spécifications
+## Spécifications {#specifications}
 
 Le tableau suivant résume les spécifications relatives au contenu des catalogues.
 
