@@ -110,6 +110,7 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 - **German `email_setup.md` (Whitelabel / DKIM / SPF)**: English says whitelabeling helps senders **pass** authentication checks. In German use **bestehen** (or equivalent “pass/succeed” wording)—never **umgehen** (“bypass”), which reverses the security meaning.
 - **Raw `<img … alt="…">` in Markdown**: If `alt` needs nested quotes around a tab name, use **ASCII single quotes** inside the double-quoted attribute (e.g. `'Linhas'`). Do not use German `„…"` sequences that include a straight `"` before the real end of `alt`—the inner `"` closes the attribute early and breaks HTML (pt-BR `drag_and_drop.md`).
 - **Display YAML** (`nav_title`, `article_title`, `guide_top_header`): Use a literal **`&`**, not **`&amp;`**, in values meant for navigation chrome (otherwise the entity can render literally). Prefer normal plurals such as **Spam-Traps**, not **Spam-Trap's**.
+- **`nav_title` / `article_title` — `&` meaning “and”** — When English joins two concepts with `&` (for example **Shopify checkout & Liquid**), use the target language’s word for **and** (*und*, *et*, *e*, *y*, *と*, *및*/*와*, …) instead of copying `&`, unless the English source is **verbatim UI** that displays an ampersand. This follows Braze docs style: avoid `&` for “and” outside matching UI copy (auto-translate PR #13375).
 - **Spanish `consent_and_address_collection.md`**: In prose, use the **same subscriber-state words** as your table (e.g. **Optado**, **Suscrito**, **No suscrito**)—do not list **opted in**, **subscribed**, **unsubscribed** in English beside a Spanish table.
 
 ### BrazeAI Agents documentation (`_user_guide/brazeai/agents/`)
@@ -236,6 +237,10 @@ A style guide for the target language may be appended to the end of these instru
 - **Table row labels**: When a column lists parallel requirement names (for example CSV requirements), use consistent capitalization across rows (all titles or all sentence case—match the surrounding table).
 
 ## Special file handling
+
+### `_docs/_releases/` (release notes and deprecations)
+
+- **Bold list lead-ins** — When bullets use `* **English label:**` followed by descriptive prose (for example export options like **Rows with errors** / **All rows**), translate the **bold label** into the target language so the bullet matches the surrounding sentence. Keep English only when it is a **verbatim** in-product label for that surface. Preserve status words like **Error** when English bolds them as the literal status name (auto-translate PR #13375).
 
 The file `_includes/rate_limits.md` uses Liquid conditionals with include parameters (e.g., `{% if include.category == "..." %}`, `{% elsif include.endpoint == "..." %}`). These Liquid conditionals and their parameters must be preserved exactly. Only translate the prose content between the conditional blocks.
 
