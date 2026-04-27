@@ -21,7 +21,7 @@ Une fois les bannières intégrées à une application ou à un site web, les ma
 | Annonces | Mettez en avant les annonces telles que les événements à venir ou les changements de politique dans votre expérience sur l'application. |
 | Personnalisation des offres | Présentez des promotions et des incitations personnalisées en fonction de l'historique de navigation, du contenu du panier, du niveau d'abonnement et du statut de fidélité de chaque utilisateur. |
 | Ciblage de l'engagement des nouveaux utilisateurs | Accompagnez les nouveaux utilisateurs tout au long du processus d'onboarding et de la configuration de leur compte. |
-| Soldes et promotions | Mettez en avant le contenu phare, les produits tendance et les campaigns de marque en cours de manière persistante et directement sur votre page d'accueil, sans perturber l'expérience utilisateur. |
+| Soldes et promotions | Mettez en avant le contenu phare, les produits tendance et les campagnes de marque en cours de manière persistante et directement sur votre page d'accueil, sans perturber l'expérience utilisateur. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Fonctionnalités {#features}
@@ -40,17 +40,17 @@ Les fonctionnalités des bannières comprennent :
 
 Les emplacements de bannières sont des localisations spécifiques dans votre application ou votre site web [que vous créez à l'aide du SDK Braze]({{site.baseurl}}/developer_guide/banners/placements/) et qui désignent les endroits où les bannières peuvent apparaître.
 
-Les localisations courantes incluent le haut de votre page d'accueil, les pages détaillées des produits et les processus de paiement. Une fois les emplacements créés, les bannières peuvent être [affectées dans votre campaign de bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/).
+Les localisations courantes incluent le haut de votre page d'accueil, les pages détaillées des produits et les processus de paiement. Une fois les emplacements créés, les bannières peuvent être [affectées dans votre campagne de bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/).
 
 Il n'y a pas de limite fixe au nombre d'emplacements que vous pouvez créer par espace de travail, et vous pouvez créer autant d'ID de placement que votre expérience l'exige. Chaque emplacement doit être unique au sein d'un espace de travail. Un seul ID de placement peut être référencé par jusqu'à 25 messages actifs simultanément.
 
 {% alert important %}
-Évitez de modifier les ID de placement après le lancement d'une campaign de bannières.
+Évitez de modifier les ID de placement après le lancement d'une campagne de bannières.
 {% endalert %}
 
 ### Priorité des bannières {#priority}
 
-Lorsque plusieurs messages de bannière font référence au même ID de placement, les bannières sont affichées par ordre de priorité : élevée, moyenne ou faible. Par défaut, les bannières sont définies sur moyenne, mais vous pouvez [définir manuellement la priorité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) lorsque vous créez ou modifiez votre campaign de bannières.
+Lorsque plusieurs messages de bannière font référence au même ID de placement, les bannières sont affichées par ordre de priorité : élevée, moyenne ou faible. Par défaut, les bannières sont définies sur moyenne, mais vous pouvez [définir manuellement la priorité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) lorsque vous créez ou modifiez votre campagne de bannières.
 
 Si plusieurs bannières sont définies avec la même priorité, la bannière la plus récente à laquelle l'utilisateur est éligible s'affiche en premier.
 
@@ -62,7 +62,7 @@ Si plusieurs bannières sont définies avec la même priorité, la bannière la 
 
 Les messages de bannière sont diffusés sur votre application ou votre site web sous forme de contenu HTML, généralement affiché dans un iframe. Cela garantit un rendu cohérent de vos bannières sur tous les appareils et vous aide à séparer leurs styles et leurs scripts du reste de votre code.
 
-Les iframes permettent des mises à jour dynamiques et personnalisées du contenu sans nécessiter de modifications de votre base de code. Chaque iframe récupère et affiche le HTML pour chaque session utilisateur à l'aide de la logique de ciblage et de personnalisation de la campaign.
+Les iframes permettent des mises à jour dynamiques et personnalisées du contenu sans nécessiter de modifications de votre base de code. Chaque iframe récupère et affiche le HTML pour chaque session utilisateur à l'aide de la logique de ciblage et de personnalisation de la campagne.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -76,11 +76,11 @@ Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 
 ## Limitations {#limitations}
 
-Chaque espace de travail peut prendre en charge jusqu'à 200 campaigns de bannières actives. Si cette limite est atteinte, vous devrez [archiver ou désactiver]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) une campaign existante avant d'en créer une nouvelle.
+Chaque espace de travail peut prendre en charge jusqu'à 200 campagnes de bannières actives. Si cette limite est atteinte, vous devrez [archiver ou désactiver]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) une campagne existante avant d'en créer une nouvelle.
 
 De plus, les messages de bannière ne prennent pas en charge les fonctionnalités suivantes :
 
-- Campaigns déclenchées par API et par événement
+- Campagnes déclenchées par API et par événement
 - Contenu connecté
 - Codes promotionnels
 - `catalog_items` utilisant [l'étiquette `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
@@ -93,7 +93,7 @@ La possibilité pour les utilisateurs de fermer manuellement une bannière est e
 ## Étapes suivantes {#next-steps}
 
 - [Créer des emplacements de bannières dans votre application ou votre site web]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Créer une campaign de bannières dans Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
+- [Créer une campagne de bannières dans Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
 - [Tutoriel : Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
 
 {% alert tip %}

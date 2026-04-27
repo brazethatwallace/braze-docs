@@ -27,7 +27,7 @@ Ao criar sua consulta, você pode optar por obter ajuda da IA ou criá-la por co
 O Criador de consultas com IA usa o [GPT](https://openai.com/gpt-4), desenvolvido pela OpenAI, para recomendar SQL para sua consulta. Para gerar SQL com o Criador de consultas com IA:
 
 1. Depois de criar um relatório no Criador de consultas, selecione a guia **AI Query Builder**.
-2. Digite seu prompt ou selecione um prompt de exemplo e selecione **Gerar** para traduzir seu prompt para SQL.
+2. Digite seu prompt ou selecione um prompt de exemplo e selecione **Generate** para traduzir seu prompt para SQL.
 3. Revise o SQL gerado para ter certeza de que está correto e, em seguida, selecione **Insert into Editor**.
 
 ![O Criador de consultas de SQL com IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
@@ -71,7 +71,7 @@ Se você consultar `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CAMPAIGN_ID`, suas
 | Nome do ID | Coluna de nome associada |
 | --- | --- |
 | `CANVAS_ID` | Nome do Canvas |
-| `CANVAS_VARIATION_API_ID` | Nome da variante do Canvas |
+| `CANVAS_VARIATION_API_ID` | Nome da Variante do Canvas |
 | `CAMPAIGN_ID` | Nome da Campaign |
 {: .reset-td-br-1 .reset-td-br-2 }
 

@@ -69,7 +69,7 @@ No hay límite en el número de propiedades que puedes añadir. Sin embargo, las
 
 ### Paso 4: Elige segmentos a los que dirigirte {#step-4-choose-segments-to-target}
 
-Antes de desplegar un conmutador de características, tienes que elegir un [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) de usuarios al que dirigirte. Selecciona **Añadir regla** en tu conmutador recién creado y, a continuación, utiliza los menús desplegables de grupo de filtros y segmento para filtrar a los usuarios de tu audiencia objetivo. Añade varios filtros para reducir aún más tu audiencia.
+Antes de desplegar un conmutador de características, tienes que elegir un [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/) de usuarios al que dirigirte. Selecciona **Añadir regla** en tu conmutador recién creado y, a continuación, utiliza los menús desplegables de grupo de filtros y segmento para filtrar a los usuarios de tu audiencia objetivo. Añade varios filtros para reducir aún más tu audiencia.
 
 ![Un cuadro de texto denominado «Tráfico de implementación» con la posibilidad de añadir segmentos y filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -904,12 +904,12 @@ Aquí puedes revisar cuándo se produjo un cambio, quién lo realizó, a qué ca
 
 ## Segmentación con conmutadores de características {#segmentation}
 
-Braze hace un seguimiento automático de los usuarios que tienen habilitado un conmutador de características. Puedes crear un Segment o dirigir mensajería utilizando el [filtro **Conmutador de características**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Para más información sobre cómo filtrar por Segments, consulta [Crear un Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze hace un seguimiento automático de los usuarios que tienen habilitado un conmutador de características. Puedes crear un segmento o dirigir mensajería utilizando el [filtro **Conmutador de características**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
 ![La sección «Filtros» con «Feature Flag» escrito en la barra de búsqueda del filtro.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-Para evitar Segments recursivos, no es posible crear un Segment que haga referencia a otros conmutadores de características.
+Para evitar segmentos recursivos, no es posible crear un segmento que haga referencia a otros conmutadores de características.
 {% endalert %}
 
 ## Buenas prácticas {#best-practices}

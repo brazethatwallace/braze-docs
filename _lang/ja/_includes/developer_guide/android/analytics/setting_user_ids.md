@@ -39,7 +39,7 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 
 ### ユーザー変更イベントのサブスクライブ {#subscribing-to-user-change-events}
 
-[`subscribeToChangeUserEvents`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-change-user-events.html) を使用して、アプリが `changeUser()` でユーザーを変更したときにロジックを実行します。このメソッドはAndroid SDK 40.0.0 以降で利用できます。
+[`subscribeToChangeUserEvents`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-change-user-events.html)を使用して、アプリが `changeUser()` でユーザーを変更したときにロジックを実行します。このメソッドはAndroid SDK 40.0.0以降で利用できます。
 
 サブスクライバーのコールバックは、`changeUser()` を通じてユーザーが変更されたときに実行され、`BrazeUserChangeEvent` を受け取ります。`BrazeUserChangeEvent` は、現在のユーザーが変更されたとき、またはSDKが初期化された直後に発火します。SDKは、遷移が発生していない場合でも、同じユーザーに対して複数のイベントを発火することがあります。
 

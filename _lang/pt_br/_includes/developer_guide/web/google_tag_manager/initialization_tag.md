@@ -4,7 +4,7 @@ Antes de usar este método de integração, você precisará [criar uma conta e 
 
 ### Etapa 1: Abra a galeria de modelos de tag {#step-1-open-the-tag-template-gallery}
 
-No [Google Tag Manager](https://tagmanager.google.com/), escolha seu espaço de trabalho e selecione **Modelos**. No painel **Modelo de Tag**, selecione **Pesquisar Galeria**.
+No [Google Tag Manager](https://tagmanager.google.com/), escolha seu espaço de trabalho e selecione **Templates**. No painel **Tag Template**, selecione **Search Gallery**.
 
 ![A página de modelos para um espaço de trabalho de exemplo no Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -20,9 +20,9 @@ Selecione **Add to workspace** > **Add**.
 
 ### Etapa 3: Configure a tag {#step-3-configure-the-tag}
 
-Na seção **Modelos**, selecione o modelo recém-adicionado.
+Na seção **Templates**, selecione o modelo recém-adicionado.
 
-![A página "Modelos" no Google Tag Manager mostrando o modelo Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![A página "Templates" no Google Tag Manager mostrando o modelo Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
 Selecione o ícone de lápis para abrir o menu suspenso **Tag Configuration**.
 
@@ -32,7 +32,7 @@ Insira as informações mínimas necessárias:
 
 | Campo         | Descrição |
 | ------------- | ----------- |
-| **API Key**   | Sua [chave de API da Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), encontrada no dashboard da Braze em **Configurações** > **Configurações do app**. |
+| **API Key**   | Sua [chave de API da Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), encontrada no dashboard da Braze em **Settings** > **App Settings**. |
 | **API Endpoint** | A URL do seu endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
 | **SDK Version**  | A versão `MAJOR.MINOR` mais recente do SDK Web da Braze listada no [changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Para saber mais, consulte [Sobre o gerenciamento de versões do SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}

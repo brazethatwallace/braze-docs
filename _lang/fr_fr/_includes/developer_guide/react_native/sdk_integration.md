@@ -140,10 +140,10 @@ Le plugin Braze Expo fait référence à ces icônes via le système de ressourc
 
 **Exigences relatives aux icônes**
 
-- **Petite icône :** Doit être une silhouette blanche sur fond transparent (exigence de la plateforme Android).
-- **Grande icône :** Peut être une image en couleur.
-- **Format :** Le format PNG est recommandé.
-- **Nommage :** Utilisez uniquement des lettres minuscules, des chiffres et des traits de soulignement (par exemple, `my_large_icon.png`).
+- **Petite icône :** doit être une silhouette blanche sur fond transparent (exigence de la plateforme Android).
+- **Grande icône :** peut être une image en couleur.
+- **Format :** le format PNG est recommandé.
+- **Nommage :** utilisez uniquement des lettres minuscules, des chiffres et des traits de soulignement (par exemple, `my_large_icon.png`).
 
 **Configuration dans app.json**
 
@@ -332,8 +332,8 @@ import braze_react_native_sdk
 
 Dans la méthode `application(_:didFinishLaunchingWithOptions:)`, enregistrez votre configuration native à l'aide de `BrazeReactInitializer.configure`. Ne définissez pas la clé API ni l'endpoint ici. Ils sont fournis depuis JavaScript via `Braze.initialize()`.
 
-- **Closure `configure`** : Reçoit un objet `Braze.Configuration` et vous permet de définir les propriétés de configuration natives (journalisation, push, sessions, etc.).
-- **Closure `postInitialization`** *(facultatif)* : Reçoit l'instance `Braze` active après sa création, pour les configurations nécessitant l'instance (par exemple, stocker une référence ou définir des délégués).
+- **Closure `configure`** : reçoit un objet `Braze.Configuration` et vous permet de définir les propriétés de configuration natives (journalisation, push, sessions, etc.).
+- **Closure `postInitialization`** *(facultatif)* : reçoit l'instance `Braze` active après sa création, pour les configurations nécessitant l'instance (par exemple, stocker une référence ou définir des délégués).
 
 L'extrait de code suivant montre un exemple d'implémentation `AppDelegate.swift` utilisant `BrazeReactInitializer.configure` :
 
@@ -501,10 +501,10 @@ Le plugin Braze Expo fait référence à ces icônes via le système de ressourc
 
 **Exigences relatives aux icônes**
 
-- **Petite icône :** Doit être une silhouette blanche sur fond transparent (exigence de la plateforme Android).
-- **Grande icône :** Peut être une image en couleur.
-- **Format :** Le format PNG est recommandé.
-- **Nommage :** Utilisez uniquement des lettres minuscules, des chiffres et des traits de soulignement (par exemple, `my_large_icon.png`).
+- **Petite icône :** doit être une silhouette blanche sur fond transparent (exigence de la plateforme Android).
+- **Grande icône :** peut être une image en couleur.
+- **Format :** le format PNG est recommandé.
+- **Nommage :** utilisez uniquement des lettres minuscules, des chiffres et des traits de soulignement (par exemple, `my_large_icon.png`).
 
 **Configuration dans app.json**
 
@@ -550,7 +550,7 @@ Exécutez votre application comme indiqué dans la [documentation Expo](https://
 
 #### Méthode 2 : Utiliser React Native CLI {#method-2-using-react-native-cli}
 
-##### Configuration Android {#set-up-android}
+##### Configuration Android {#set-up-android-1}
 
 **Étape 2.1 : Ajouter le plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configuration iOS {#set-up-ios}
+##### Configuration iOS {#set-up-ios-1}
 
 **Étape 2.5 : (Facultatif) Configurer le Podfile pour les XCFrameworks dynamiques**
 
@@ -909,6 +909,6 @@ Dans le tableau de bord de Braze, accédez à [Recherche d'utilisateurs]({{site.
 
 Après l'intégration du SDK Braze, vous pouvez commencer à mettre en œuvre les fonctionnalités d'envoi de messages courantes :
 
-- [Notifications push]({{site.baseurl}}/developer_guide/push_notifications/) : Configurez et envoyez des notifications push à vos utilisateurs.
-- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/) : Affichez des messages contextuels au sein de votre application.
-- [Bannières]({{site.baseurl}}/developer_guide/banners/) : Affichez des bannières continuelles dans l'interface de votre application.
+- [Notifications push]({{site.baseurl}}/developer_guide/push_notifications/) : configurez et envoyez des notifications push à vos utilisateurs.
+- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/) : affichez des messages contextuels au sein de votre application.
+- [Bannières]({{site.baseurl}}/developer_guide/banners/) : affichez des bannières continuelles dans l'interface de votre application.

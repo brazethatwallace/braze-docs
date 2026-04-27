@@ -69,7 +69,7 @@ El evento de compra heredado entrará en un estado obsoleto (modo de mantenimien
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades netas sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Cuando esto ocurra, los filtros de Segment ya no aparecerán en el comportamiento de compra.<br><br> Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades netas sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Cuando esto ocurra, los filtros de segmento ya no aparecerán en el comportamiento de compra.<br><br> Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -109,14 +109,14 @@ Este socio aparece en tu página de **Socios tecnológicos** solo si tienes habi
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Elegir entre los tipos de filtro «Día del año» y «Hora»**: Al filtrar variables de contexto que contienen fechas, elige el tipo de comparación correcto en función de si la fecha se repite cada año:
+**Elegir entre los tipos de filtro «Día del año» y «Hora»**: al filtrar variables de contexto que contienen fechas, elige el tipo de comparación correcto en función de si la fecha se repite cada año:
 
 - **Usa «Día del año»** cuando la fecha se repita cada año (por ejemplo, cumpleaños, aniversarios o fiestas como Navidad). Este tipo de comparación calcula en función del día del año (1-365/366), ignorando el componente del año.
 - **Usa «Hora»** cuando la fecha sea una fecha absoluta que no se repita (por ejemplo, fechas de finalización de contratos, fechas de citas o fechas de renovación de suscripciones). Este tipo de comparación calcula basándose en la marca de tiempo completa, incluido el año.
 
 El uso de «Día del año» para fechas absolutas puede producir resultados incorrectos o inesperados, ya que el cálculo ignora el componente del año. Por ejemplo, si comparas la fecha de vencimiento de un contrato futuro en abril para determinar si está dentro de los 63 días, el uso de «Día del año» puede hacer que las fechas coincidan incorrectamente, ya que solo compara los números de los días (119 frente a 359) sin tener en cuenta que, en realidad, quedan 188 días para abril.
 
-**Directriz general**: ¿La fecha se repite cada año? **Sí** → Usa «Día del año». **No** → Usa «Hora».
+**Directriz general**: ¿la fecha se repite cada año? **Sí** → Usa «Día del año». **No** → Usa «Hora».
 {% endalert %}
 
 {% endif %}
@@ -166,7 +166,7 @@ Los mensajes multilingües y las traducciones de configuración regional se encu
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
-Content Cards, los mensajes dentro de la aplicación, los Banners y los conmutadores de características dependen de la conectividad del dispositivo para sincronizarse con los servidores de Braze. Dado que las condiciones de la red pueden variar, existe la posibilidad de que el contenido o las actualizaciones no se sincronicen, muestren o eliminen de inmediato (por ejemplo, si un usuario está sin conexión). Recomendamos evitar estos canales para actualizaciones críticas y urgentes.
+Content Cards, los mensajes dentro de la aplicación, los banners y los conmutadores de características dependen de la conectividad del dispositivo para sincronizarse con los servidores de Braze. Dado que las condiciones de la red pueden variar, existe la posibilidad de que el contenido o las actualizaciones no se sincronicen, muestren o eliminen de inmediato (por ejemplo, si un usuario está sin conexión). Recomendamos evitar estos canales para actualizaciones críticas y urgentes.
 {% endalert %}
 
 {% endif %}

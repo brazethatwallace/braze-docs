@@ -7,7 +7,7 @@
 In-App-Nachrichten werden automatisch getriggert, wenn das SDK einen der folgenden angepassten Event-Typen protokolliert: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` und `Push Click`. Beachten Sie, dass die Trigger `Specific Purchase` und `Custom Event` auch robuste Filter für Eigenschaften enthalten.
 
 {% alert note %}
-In-App-Nachrichten können nicht über die API oder durch API-Events getriggert werden – nur durch angepasste Events, die vom SDK protokolliert werden. Wenn Sie mehr über die Protokollierung erfahren möchten, lesen Sie den Abschnitt [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift).
+In-App-Nachrichten können nicht über die API oder durch API-Events getriggert werden – nur durch angepasste Events, die vom SDK protokolliert werden. Mehr über die Protokollierung erfahren Sie unter [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift).
 {% endalert %}
 
 ### Zustellungssemantik {#delivery-semantics}
@@ -16,7 +16,7 @@ Alle infrage kommenden In-App-Nachrichten werden zu Beginn der Sitzung an das Ge
 
 Weitere Informationen über die Semantik des SDK für den Sitzungsstart finden Sie unter [Sitzungslebenszyklus]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift).
 
-### Standard-Rate-Limits {#default-rate-limit}
+### Standard-Rate-Limit {#default-rate-limit}
 
 Standardmäßig begrenzt das SDK getriggerte In-App-Nachrichten auf einmal alle 30 Sekunden.
 
@@ -135,7 +135,7 @@ Beim Empfang der stillen Push-Benachrichtigung wird ein vom SDK aufgezeichnetes 
 Da eine Push-Nachricht verwendet wird, um ein vom SDK protokolliertes angepasstes Event aufzuzeichnen, muss Braze ein Push-Token für jede:n Nutzer:in speichern, um diese Lösung zu ermöglichen. Für iOS-Nutzer:innen speichert Braze ein Token erst ab dem Zeitpunkt, an dem ein:e Nutzer:in den Push-Prompt des Betriebssystems erhalten hat. Davor ist die Person nicht per Push erreichbar und die obige Lösung nicht möglich.
 {% endalert %}
 
-#### 2. Schritt: Erstellen Sie eine stille Push-Campaign {#step-2-create-a-silent-push-campaign}
+#### 2. Schritt: Eine stille Push-Campaign erstellen {#step-2-create-a-silent-push-campaign}
 
 Erstellen Sie eine [Campaign mit einer stillen Push-Benachrichtigung]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift), die über das vom Server gesendete Event ausgelöst wird.
 

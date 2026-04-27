@@ -324,15 +324,15 @@ body .ab-feed {
 
 Braze Web SDK의 최신 버전으로 업그레이드하려면 Google Tag Manager 대시보드에서 다음 세 단계를 수행합니다:
 
-1. **태그 템플릿 업데이트**<br>워크스페이스 내의 **템플릿** 페이지로 이동합니다. 여기에 업데이트를 사용할 수 있음을 나타내는 아이콘이 표시됩니다.<br><br>![업데이트를 사용할 수 있음을 보여주는 템플릿 페이지]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>해당 아이콘을 클릭하고 변경 사항을 검토한 후 **업데이트 수락**을 클릭합니다.<br><br>![이전 태그 템플릿과 새 태그 템플릿을 비교하는 화면과 "업데이트 수락" 버튼]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
-2. **버전 번호 업데이트**<br>태그 템플릿이 업데이트되면 Braze 초기화 태그를 편집하고 SDK 버전을 최신 `major.minor` 버전으로 업데이트합니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. SDK 버전 목록은 [체인지로그](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)에서 확인할 수 있습니다.<br><br>![SDK 버전을 변경할 수 있는 입력 필드가 있는 Braze 초기화 템플릿]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
+1. **태그 템플릿 업데이트**<br>워크스페이스 내의 **Templates** 페이지로 이동합니다. 여기에 업데이트를 사용할 수 있음을 나타내는 아이콘이 표시됩니다.<br><br>![업데이트를 사용할 수 있음을 보여주는 Templates 페이지]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>해당 아이콘을 클릭하고 변경 사항을 검토한 후 **Accept Update**를 클릭합니다.<br><br>![이전 태그 템플릿과 새 태그 템플릿을 비교하는 화면과 "Accept Update" 버튼]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
+2. **버전 번호 업데이트**<br>태그 템플릿이 업데이트되면 Braze Initialization Tag를 편집하고 SDK 버전을 최신 `major.minor` 버전으로 업데이트합니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. SDK 버전 목록은 [체인지로그](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)에서 확인할 수 있습니다.<br><br>![SDK 버전을 변경할 수 있는 입력 필드가 있는 Braze Initialization Template]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
 3. **QA 및 게시**<br>태그 컨테이너에 업데이트를 게시하기 전에 Google Tag Manager의 [디버깅 툴](https://support.google.com/tagmanager/answer/6107056?hl=en)을 사용하여 새 SDK 버전이 작동하는지 확인합니다.
 
 ### 문제 해결 {#troubleshooting}
 
 #### 태그 디버깅 활성화 {#debugging}
 
-각 Braze 태그 템플릿에는 웹 페이지의 JavaScript 콘솔에 디버그 메시지를 기록하는 데 사용할 수 있는 **GTM 태그 디버깅** 체크박스(선택 사항)가 있습니다.
+각 Braze 태그 템플릿에는 웹 페이지의 JavaScript 콘솔에 디버그 메시지를 기록하는 데 사용할 수 있는 **GTM Tag Debugging** 체크박스(선택 사항)가 있습니다.
 
 ![Google Tag Manager의 디버깅 툴]({% image_buster /assets/img/web-gtm/gtm-tag-debugging.png %})
 
@@ -342,24 +342,24 @@ Google Tag Manager 통합 디버깅에 도움이 되는 또 다른 방법은 Goo
 
 이를 통해 웹 페이지의 데이터 레이어에서 트리거된 각 Braze 태그로 전송되는 값을 식별하고, 어떤 태그가 트리거되었는지 또는 트리거되지 않았는지도 확인할 수 있습니다.
 
-![Braze 초기화 태그 요약 페이지에서는 트리거된 태그에 대한 정보를 포함하여 태그에 대한 개요를 확인할 수 있습니다.]({% image_buster /assets/img/web-gtm/gtm-debug-mode.png %})
+![Braze Initialization Tag 요약 페이지에서는 트리거된 태그에 대한 정보를 포함하여 태그에 대한 개요를 확인할 수 있습니다.]({% image_buster /assets/img/web-gtm/gtm-debug-mode.png %})
 
 #### 커스텀 이벤트에 대한 태그 시퀀싱 확인 {#tag-sequencing}
 
-커스텀 이벤트 또는 기타 동작이 Braze에 기록되지 않는 경우, 일반적인 원인은 동작 태그(예: **커스텀 이벤트** 또는 **구매**)가 **Braze 초기화** 태그가 완료되기 전에 실행되는 경합 조건입니다. 이를 해결하려면 GTM에서 [태그 시퀀싱](https://support.google.com/tagmanager/answer/6238868)을 구성합니다:
+커스텀 이벤트 또는 기타 동작이 Braze에 기록되지 않는 경우, 일반적인 원인은 동작 태그(예: **Custom Event** 또는 **Purchase**)가 **Braze Initialization** 태그가 완료되기 전에 실행되는 경합 조건입니다. 이를 해결하려면 GTM에서 [태그 시퀀싱](https://support.google.com/tagmanager/answer/6238868)을 구성합니다:
 
 1. 올바르게 기록되지 않는 동작 태그를 엽니다.
-2. **고급 설정** > **태그 시퀀싱**에서 **\[이 태그\] 이전에 실행되는 태그**를 선택합니다.
-3. **Braze 초기화** 태그를 설정 태그로 선택합니다.
+2. **Advanced Settings** > **Tag Sequencing**에서 **A tag that fires before \[this tag\]**를 선택합니다.
+3. **Braze Initialization** 태그를 설정 태그로 선택합니다.
 
 이렇게 하면 동작 태그가 Braze에 데이터를 전송하기 전에 SDK가 완전히 초기화됩니다.
 
 #### 상세 로깅 활성화 {#enable-verbose-logging}
 
-문제 해결을 위해 상세 로그를 캡처하려면 Google Tag Manager 통합에서 상세 로깅을 활성화할 수 있습니다. 이러한 로그는 브라우저 [개발자 도구](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)의 **콘솔** 탭에 표시됩니다.
+문제 해결을 위해 상세 로그를 캡처하려면 Google Tag Manager 통합에서 상세 로깅을 활성화할 수 있습니다. 이러한 로그는 브라우저 [개발자 도구](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)의 **Console** 탭에 표시됩니다.
 
-Google Tag Manager 통합에서 Braze 초기화 태그로 이동하고 **웹 SDK 로깅 활성화**를 선택합니다.
+Google Tag Manager 통합에서 Braze Initialization Tag로 이동하고 **Enable Web SDK Logging**을 선택합니다.
 
-![웹 SDK 로깅 활성화 옵션이 켜져 있는 Braze 초기화 태그 요약 페이지.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
+![Enable Web SDK Logging 옵션이 켜져 있는 Braze Initialization Tag 요약 페이지.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
 [changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md

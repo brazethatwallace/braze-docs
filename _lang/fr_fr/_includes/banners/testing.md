@@ -10,7 +10,7 @@ Pour envoyer un message test, ajoutez un groupe de test de contenu ou un ou plus
 
 Lors de la vérification de votre bannière test, assurez-vous des points suivants :
 
-- Votre campaign bannière est-elle affectée à un emplacement ?
+- Votre Campaign de bannière est-elle affectée à un emplacement ?
 - Les images et les médias s'affichent-ils et fonctionnent-ils comme prévu sur les types d'appareils et les tailles d'écran ciblés ?
 - Vos liens et boutons dirigent-ils l'utilisateur vers la bonne destination ?
 - Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une valeur d'attribut par défaut dans le cas où le Liquid ne renvoie aucune information ?

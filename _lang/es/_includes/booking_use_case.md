@@ -7,7 +7,7 @@ Este caso de uso muestra cómo puedes utilizar las características de Braze par
 Otros beneficios de crear este servicio incluyen:
 - Los mensajes enviados tendrán seguimiento e informes completos.
 - Los usuarios no técnicos de la empresa pueden actualizar el contenido de los mensajes.
-- Los mensajes respetan los estados de adhesión voluntaria y baja en los perfiles de usuario según la configuración de Campaign.
+- Los mensajes respetan los estados de adhesión voluntaria y baja en los perfiles de usuario según la configuración de la campaña.
 - Puedes utilizar tanto los datos de reserva como los datos de interacción de mensajes para segmentar y dirigirte a los usuarios con mensajería adicional. Por ejemplo, puedes reorientar a aquellos que no abren el mensaje recordatorio inicial con un recordatorio adicional antes de su cita.
 
 Sigue estos pasos para lograr este caso de uso:
@@ -153,9 +153,9 @@ You have the following booked in 2 days! Check the information below:
 ```
 {% endraw %}
 
-### Paso 2c: Lanza tu Campaign {#step-2c-launch-your-campaign}
+### Paso 2c: Lanza tu campaña {#step-2c-launch-your-campaign}
 
-Lanza la Campaign para el mensaje de correo electrónico recordatorio. Ahora, cada vez que Braze reciba el atributo personalizado "trips", programará un mensaje según los datos incluidos en el objeto de la reserva correspondiente.
+Lanza la campaña para el mensaje de correo electrónico recordatorio. Ahora, cada vez que Braze reciba el atributo personalizado "trips", programará un mensaje según los datos incluidos en el objeto de la reserva correspondiente.
 
 ## Paso 3: Gestiona las actualizaciones y cancelaciones de reservas {#step-3}
 
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Paso 3b: Crea un mensaje para confirmar la actualización {#step-3b-create-a-message-to-confirm-the-update}
 
-Crea una [Campaign basada en acciones]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) para enviar al usuario una confirmación de su reserva actualizada. Puedes [utilizar Liquid para crear plantillas con las propiedades del evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) que reflejen el nombre, la hora anterior y la nueva hora de la reserva (o solo el nombre si se trata de una cancelación) en el propio mensaje.
+Crea una [campaña basada en acciones]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) para enviar al usuario una confirmación de su reserva actualizada. Puedes [utilizar Liquid para crear plantillas con las propiedades del evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) que reflejen el nombre, la hora anterior y la nueva hora de la reserva (o solo el nombre si se trata de una cancelación) en el propio mensaje.
 
 Por ejemplo, podrías redactar el siguiente mensaje:
 

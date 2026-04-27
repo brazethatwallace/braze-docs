@@ -8,7 +8,7 @@ As notificações por push são limitadas por taxa, então não tenha medo de en
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-### Etapa 2: Ativar push capabilities {#step-2-enable-push-capabilities}
+### Etapa 2: Ative as capacidades de push {#step-2-enable-push-capabilities}
 
 No Xcode, acesse a seção **Signing & Capabilities** do alvo principal do app e adicione a capacidade de notificações por push.
 
@@ -175,7 +175,7 @@ Adicione o seguinte código ao método `application:didRegisterForRemoteNotifica
 O método delegado `application:didRegisterForRemoteNotificationsWithDeviceToken:` é chamado toda vez depois que `application.registerForRemoteNotifications()` é chamado. <br><br>Se você estiver migrando para a Braze de outro serviço de push e o dispositivo do seu usuário já estiver registrado no APNs, este método coletará tokens de registros existentes na próxima vez que for chamado, e os usuários não precisarão aceitar novamente o push.
 {% endalert %}
 
-#### Etapa 3.3: Ativar o tratamento de push {#step-33-enable-push-handling}
+#### Etapa 3.3: Ative o tratamento de push {#step-33-enable-push-handling}
 
 Em seguida, passe as notificações por push recebidas para a Braze. Esta etapa é necessária para registrar a análise de dados de push e o tratamento de links. Certifique-se de chamar todo o código de integração push na thread principal do seu aplicativo.
 
@@ -416,7 +416,7 @@ A Braze suporta o gerenciamento dinâmico de gateway APNs para notificações po
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### Como funciona {#how-it-works}
+### Como funciona {#how-it-works-1}
 
 Quando um app iOS se integra ao SDK Swift da Braze, ele envia dados relacionados ao dispositivo, incluindo [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), para a API do SDK da Braze, se disponível. O valor `apns_gateway` indica se o app está usando o ambiente APNs de desenvolvimento (`dev`) ou produção (`prod`).
 

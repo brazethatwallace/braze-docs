@@ -196,7 +196,7 @@ As seguintes configurações estão pré-configuradas no seu Canvas:
     - Controles de entrada
         - Os usuários são imediatamente reelegíveis para entrada no Canvas
         - Critérios de saída
-            - Realiza o evento `ecommerce.order_placed`<br><br>![Controles de entrada e critérios de saída para o Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
+            - Realiza os eventos `ecommerce.order_placed`<br><br>![Controles de entrada e critérios de saída para o Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry_exit.png %})<br><br>
 - Configurações de envio
     - Usuários inscritos ou que aceitaram receber mensagens
 - Etapa de postergação

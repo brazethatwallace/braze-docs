@@ -2,7 +2,7 @@
 
 ## プッシュ通知の設定 {#setting-up-push-notifications}
 
-### ステップ 1: 初期設定を完了する {#step-1-complete-the-initial-setup}
+### ステップ1：初期設定を完了する {#step-1-complete-the-initial-setup}
 
 {% tabs local %}
 {% tab Expo %}
@@ -19,13 +19,13 @@ Expoでプッシュ通知を使う前に、[Braze Expoプラグインを設定](
 
 #### ステップ1.2：Googleの送信者IDを追加する {#step-12-add-your-google-sender-id}
 
-まずFirebase Consoleに移動し、プロジェクトを開いて、<i class="fa-solid fa-gear"></i>&nbsp;**設定** > **プロジェクト設定**を選択します。
+まずFirebase Consoleに移動し、プロジェクトを開いて、<i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**を選択します。
 
-![「設定」メニューが開いているFirebaseプロジェクト。]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![「Settings」メニューが開いているFirebaseプロジェクト。]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-**Cloud Messaging**を選択し、**Firebase Cloud Messaging API (V1)** の下にある**送信者ID**をクリップボードにコピーします。
+**Cloud Messaging**を選択し、**Firebase Cloud Messaging API (V1)** の下にある**Sender ID**をクリップボードにコピーします。
 
-![Firebaseプロジェクトの「Cloud Messaging」ページで「送信者ID」が強調表示されている。]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Firebaseプロジェクトの「Cloud Messaging」ページで「Sender ID」が強調表示されている。]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
 次に、プロジェクトの `app.json` ファイルを開き、`firebaseCloudMessagingSenderId` プロパティをクリップボード内の送信者IDに設定します。以下に例を示します。
 
@@ -80,7 +80,7 @@ Braze Expoプラグインを使用していない場合、またはこれらの�
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2：プッシュ通知の許可をリクエストする {#step-2-request-push-notifications-permission}
+### ステップ2：プッシュ通知の許可をリクエストする {#step-2-request-push-notifications-permission}
 
 iOSおよびAndroid 13以降のユーザーにプッシュ通知の許可をリクエストするには、`Braze.requestPushPermission()` メソッド（v1.38.0以降で使用可能）を使用します。Android 12以前の場合、このメソッドは何も実行しません。
 
@@ -97,7 +97,7 @@ const permissionOptions = {
 Braze.requestPushPermission(permissionOptions);
 ```
 
-#### ステップ 2.1：プッシュ通知をリッスンする（オプション） {#step-21-listen-for-push-notifications-optional}
+#### ステップ2.1：プッシュ通知をリッスンする（オプション） {#step-21-listen-for-push-notifications-optional}
 
 さらに、Brazeが受信プッシュ通知を検出して処理したイベントをサブスクライブすることもできます。リスナーキー `Braze.Events.PUSH_NOTIFICATION_EVENT` を使用します。
 
@@ -129,7 +129,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `is_silent`        | ブール値   | `true` の場合、ペイロードはサイレントに受信されます。Androidのサイレントプッシュ通知の送信の詳細については、[Androidでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を参照してください。iOSのサイレントプッシュ通知の送信の詳細については、[iOSでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)を参照してください。 |
 | `is_braze_internal`| ブール値   | ジオフェンス同期、フィーチャーフラグ同期、またはアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは `true` になります。ペイロードはユーザーに対してサイレントに受信されます。 |
 | `image_url`        | 文字列    | 通知画像に関連するURLを指定します。 |
-| `braze_properties` | オブジェクト    | Campaignに関連するBrazeのプロパティ（キーと値のペア）を表します。 |
+| `braze_properties` | オブジェクト    | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios`              | オブジェクト    | iOS固有のフィールドを表します。 |
 | `android`          | オブジェクト    | Android固有のフィールドを表します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -153,7 +153,7 @@ Reactコンポーネント内でプッシュ通知がクリックされた際に
 
 代わりにディープリンクを手動で処理するには、ネイティブAndroidのドキュメントを参照してください：[ディープリンクを追加する]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/)。
 
-#### ステップ 3.1：アプリ起動時にプッシュ通知のペイロードを保存する {#step-31-store-the-push-notification-payload-on-app-launch}
+#### ステップ3.1：アプリ起動時にプッシュ通知のペイロードを保存する {#step-31-store-the-push-notification-payload-on-app-launch}
 
 {% alert note %}
 これはReact Native SDK 19.1.0以降でサポートされています。
@@ -168,7 +168,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-#### ステップ 3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
+#### ステップ3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
@@ -194,7 +194,7 @@ iOSでプッシュ通知からのディープリンクを処理するには、�
 {% endalert %}
 
 これには、カスタムURLスキームの登録と `AppDelegate` でのURLハンドラーの実装が含まれます。完全なセットアップ手順については、ネイティブiOSドキュメントの[ディープリンクの処理]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c)を参照してください。
-#### ステップ 3.1：アプリ起動時にプッシュ通知のペイロードを保存する {#step-3-1}
+#### ステップ3.1：アプリ起動時にプッシュ通知のペイロードを保存する {#step-3-1}
 {% alert note %}
 Braze Expoプラグインを使用している場合は、ステップ3.1をスキップしてください。この機能は自動的に処理されます。
 {% endalert %}
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### ステップ 3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
+#### ステップ3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
@@ -393,7 +393,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4：フォアグラウンド通知を処理する {#step-4-handle-foreground-notifications}
+### ステップ4：フォアグラウンド通知を処理する {#step-4-handle-foreground-notifications}
 
 フォアグラウンド通知の処理は、プラットフォームや設定によって異なります。統合方法に合わせてアプローチを選択してください。
 
@@ -453,7 +453,7 @@ Expo管理ワークフローでは、Braze Expoプラグインがネイティブ
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5：テストのプッシュ通知を送信する {#step-5-send-a-test-push-notification}
+### ステップ5：テストのプッシュ通知を送信する {#step-5-send-a-test-push-notification}
 
 この時点で、デバイスに通知を送信できるはずです。次のステップに従って、プッシュ統合をテストしてください。
 

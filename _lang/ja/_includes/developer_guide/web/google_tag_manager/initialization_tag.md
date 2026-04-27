@@ -4,17 +4,17 @@
 
 ### ステップ 1: タグテンプレートギャラリーを開く {#step-1-open-the-tag-template-gallery}
 
-[Google Tag Manager](https://tagmanager.google.com/) でワークスペースを選択し、**テンプレート**を選びます。**タグテンプレート**ペインで、**検索ギャラリー**を選択します。
+[Google Tag Manager](https://tagmanager.google.com/)でワークスペースを選択し、**テンプレート**を選びます。**タグテンプレート**ペインで、**Search Gallery**を選択します。
 
 ![Google Tag Managerのサンプルワークスペースのテンプレートページ。]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
 ### ステップ 2: 初期化タグのテンプレートを追加する {#step-2-add-the-initialization-tag-template}
 
-テンプレートギャラリーで `braze-inc` を検索し、**Braze Initialization Tag** を選択します。
+テンプレートギャラリーで `braze-inc` を検索し、**Braze Initialization Tag**を選択します。
 
 ![様々な「braze-inc」テンプレートを表示するテンプレートギャラリー。]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
-**ワークスペースに追加** > **追加**を選択します。
+**Add to workspace** > **Add**を選択します。
 
 ![Google Tag Managerの「Braze Initialization Tag」ページ。]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
@@ -24,22 +24,22 @@
 
 ![Google Tag Managerの「テンプレート」ページに、Braze Initialization Tagテンプレートが表示されている。]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
-鉛筆アイコンを選択して、**タグ設定**のドロップダウンを開きます。
+鉛筆アイコンを選択して、**Tag Configuration**のドロップダウンを開きます。
 
-![鉛筆アイコンが表示されたタグ設定タイル。]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![鉛筆アイコンが表示されたTag Configurationタイル。]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 必要な最低限の情報を入力します。
 
 | フィールド         | 説明 |
 | ------------- | ----------- |
-| **APIキー**   | [Braze APIキー]({{site.baseurl}}/api/basics/#about-rest-api-keys)。Brazeダッシュボードの**設定** > **アプリ設定**にあります。 |
-| **APIエンドポイント** | RESTエンドポイントのURLです。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLによって異なります。 |
-| **SDKバージョン**  | [変更ログ]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)に記載されている最新のWeb Braze SDKの `MAJOR.MINOR` バージョンです。たとえば、最新バージョンが `4.1.2` の場合、`4.1` と入力します。詳細については、[SDKのバージョン管理について]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)を参照してください。 |
+| **API Key**   | [Braze APIキー]({{site.baseurl}}/api/basics/#about-rest-api-keys)。Brazeダッシュボードの**設定** > **アプリ設定**にあります。 |
+| **API Endpoint** | RESTエンドポイントのURLです。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLによって異なります。 |
+| **SDK Version**  | [変更ログ]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)に記載されている最新のWeb Braze SDKの `MAJOR.MINOR` バージョンです。たとえば、最新バージョンが `4.1.2` の場合、`4.1` と入力します。詳細については、[SDKのバージョン管理について]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-追加の初期化設定を行うには、**Braze Initialization Options** を選択し、必要なオプションを選びます。
+追加の初期化設定を行うには、**Braze Initialization Options**を選択し、必要なオプションを選びます。
 
-![「タグ設定」の下にあるBraze Initialization Optionsの一覧。]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+![「Tag Configuration」の下にあるBraze Initialization Optionsの一覧。]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
 ### ステップ 4: 初期化オプションを選択する {#step-4-choose-initialization-options}
 
@@ -63,7 +63,7 @@ Braze Initialization Tagは以下のオプションを公開しています。�
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | セッションタイムアウト（秒単位）（デフォルト: 1800）。 |
 
 {% alert note %}
-Google Tag ManagerのBraze Initialization Tagを使用する際に[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)を有効にするには、**Braze Initialization Options** で **Allow HTML In-App Messages** を選択します。このチェックボックスは `braze.initialize()` の `allowUserSuppliedJavascript` 初期化オプションに対応し、`true` に設定します。Google Tag ManagerのBraze Initialization Tagは、オプション名ではなくこのラベルを使用します。
+Google Tag ManagerのBraze Initialization Tagを使用する際に[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)を有効にするには、**Braze Initialization Options**で**Allow HTML In-App Messages**を選択します。このチェックボックスは `braze.initialize()` の `allowUserSuppliedJavascript` 初期化オプションに対応し、`true` に設定します。Google Tag ManagerのBraze Initialization Tagは、オプション名ではなくこのラベルを使用します。
 {% endalert %}
 
 GTMテンプレートで公開されていないオプション（`contentSecurityNonce`、`localization`、`devicePropertyAllowlist` など）については、代わりに[ランタイム初期化]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)を使用してください。

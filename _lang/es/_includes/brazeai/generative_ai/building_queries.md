@@ -27,7 +27,7 @@ Cuando construyas tu consulta, puedes optar por obtener ayuda de la IA o constru
 El Generador de consultas con IA aprovecha [GPT](https://openai.com/gpt-4), impulsado por OpenAI, para recomendar SQL para tu consulta. Para generar SQL con el Generador de consultas con IA:
 
 1. Tras crear un informe en el Generador de consultas, selecciona la pestaña **AI Query Builder**.
-2. Escribe tu prompt o selecciona un prompt de ejemplo y selecciona **Generar** para traducir tu prompt a SQL.
+2. Escribe tu prompt o selecciona un prompt de ejemplo y selecciona **Generate** para traducir tu prompt a SQL.
 3. Revisa el SQL generado para asegurarte de que parece correcto y, a continuación, selecciona **Insert into Editor**.
 
 ![El generador de consultas SQL con IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }

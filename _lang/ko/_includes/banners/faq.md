@@ -71,6 +71,6 @@
 
 - **표준 편집기 구성요소:** 배너가 표준 편집기 구성요소(이미지, 버튼, 텍스트)를 사용하는 경우, SDK의 삽입 메서드를 사용할 때 클릭이 자동으로 추적됩니다.
 - **커스텀 코드 블록:** 커스텀 코드 편집기 블록 내의 요소에 대한 클릭을 추적하려면, 커스텀 HTML 내에서 `brazeBridge.logClick()`을 호출해야 합니다. 이는 SDK 메서드를 사용하여 배너를 삽입하고 렌더링하는 경우에도 적용됩니다. 전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge)를 참조하세요.
-- **커스텀 UI(헤드리스):** 배너 HTML을 렌더링하는 대신 배너의 커스텀 등록정보를 사용하여 완전히 커스텀 UI를 구축하는 경우, 애플리케이션 코드에서 배너 오브젝트의 `logClick()`을 호출하세요.
+- **커스텀 UI(헤드리스):** 배너 HTML을 렌더링하는 대신 배너의 커스텀 속성을 사용하여 완전히 커스텀 UI를 구축하는 경우, 애플리케이션 코드에서 배너 오브젝트의 `logClick()`을 호출하세요.
 
 자세한 내용은 [클릭 로깅]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks)을 참조하세요.

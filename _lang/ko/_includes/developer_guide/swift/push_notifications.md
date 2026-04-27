@@ -416,7 +416,7 @@ Braze는 다음 SDK 버전 요구 사항으로 iOS 푸시 알림을 위한 동�
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### 작동 방식 {#how-it-works}
+### 작동 방식 {#how-it-works-1}
 
 iOS 앱이 Braze Swift SDK와 통합되면, 가능한 경우 [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment)를 포함한 기기 관련 데이터를 Braze SDK API로 전송합니다. `apns_gateway` 값은 앱이 개발(`dev`) 또는 프로덕션(`prod`) APNs 환경을 사용하고 있는지를 나타냅니다.
 

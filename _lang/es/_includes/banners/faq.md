@@ -22,11 +22,11 @@ Si un usuario cumple los requisitos para varias campañas de Banners que compart
 
 ## ¿Puedo utilizar Banners en mi fuente de Content Cards existente? {#can-i-use-banners-in-my-existing-content-card-feed}
 
-Los Banners son diferentes de Content Cards, lo que significa que no puedes usar Banners y Content Cards en la misma fuente. Para sustituir las fuentes de Content Cards existentes por Banners, tendrás que [crear ubicaciones en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/).
+Los Banners son diferentes de las Content Cards, lo que significa que no puedes usar Banners y Content Cards en la misma fuente. Para sustituir las fuentes de Content Cards existentes por Banners, tendrás que [crear ubicaciones en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/).
 
 ## ¿Pueden los Banners incluir video? {#can-banners-include-video}
 
-El compositor estándar de Banners admite imágenes, texto y botones. Para incluir un video en un Banner, puedes usar un bloque de **código personalizado** y renderizar un video o un reproductor integrado en tu aplicación o sitio web.
+El compositor estándar de Banners admite imágenes, texto y botones. Para incluir un video en un Banner, puedes usar un bloque de **Custom Code** y renderizar un video o un reproductor integrado en tu aplicación o sitio web.
 
 ## ¿Puedo desencadenar un Banner basado en las acciones del usuario? {#can-i-trigger-a-banner-based-on-user-actions}
 
@@ -34,7 +34,7 @@ Aunque los Banners no admiten la [entrega basada en acciones]({{site.baseurl}}/u
 
 Por ejemplo, para mostrar un Banner especial solo a los usuarios que hayan completado un evento `purchase`:
 1. **Segmentación:** En tu campaña, dirígete a un segmento de usuarios que hayan realizado el evento personalizado `purchase` al menos una vez.
-2. **Prioridad:** Si tienes un Banner general para todos los usuarios y este Banner específico para compradores dirigido a la misma ubicación, establece la prioridad del Banner específico en **Alta** y la del Banner general en **Media** o **Baja**.
+2. **Prioridad:** Si tienes un Banner general para todos los usuarios y este Banner específico para compradores dirigido a la misma ubicación, establece la prioridad del Banner específico en **High** y la del Banner general en **Medium** o **Low**.
 
 Cuando el usuario inicia una nueva sesión o actualiza los Banners después de realizar la acción, Braze evalúa su elegibilidad. Si coincide con el segmento "Compra", se mostrará el Banner de alta prioridad.
 

@@ -49,13 +49,13 @@ Nutzer:innen können Banner nur dann manuell schließen, wenn das Schließverhal
 
 Wenn Sie beispielsweise ein Werbebanner anzeigen, bis ein:e Nutzer:in einen Kauf tätigt, kann die Protokollierung eines Events wie `purchase_completed` diese:n Nutzer:in aus dem Ziel-Segment entfernen und das Banner in nachfolgenden Sitzungen effektiv ausblenden.
 
-## Kann ich die Analytics für Banner-Campaigns über die Braze API exportieren? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
+## Kann ich die Analytics von Banner-Campaigns über die Braze-API exportieren? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
 Ja. Über den [Endpunkt `/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) können Sie Daten darüber abrufen, wie viele Banner-Campaigns angesehen, angeklickt oder konvertiert wurden.
 
 ## Wann werden Nutzer:innen segmentiert? {#when-are-users-segmented}
 
-Nutzer:innen werden zu Beginn der Sitzung segmentiert. Wenn die Ziel-Segments einer Campaign von angepassten Attributen, angepassten Events oder anderen Targeting-Attributen abhängen, müssen diese bei der/dem Nutzer:in zu Beginn der Sitzung vorhanden sein.
+Nutzer:innen werden zu Beginn der Sitzung segmentiert. Wenn die Ziel-Segmente einer Campaign von angepassten Attributen, angepassten Events oder anderen Targeting-Attributen abhängen, müssen diese bei der/dem Nutzer:in zu Beginn der Sitzung vorhanden sein.
 
 ## Wie kann ich Banner gestalten, um die geringste Latenz zu gewährleisten? {#how-can-i-compose-banners-to-ensure-the-lowest-latency}
 

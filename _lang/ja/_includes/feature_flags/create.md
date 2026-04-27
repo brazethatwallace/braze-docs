@@ -24,7 +24,7 @@
 
 ### ステップ1:新しいフィーチャーフラグを作成する {#step-1-create-a-new-feature-flag}
 
-**メッセージング** > **フィーチャーフラグ** に進み、**フィーチャーフラグを作成** を選択します。
+**メッセージング** > **フィーチャーフラグ**に進み、**フィーチャーフラグを作成**を選択します。
 
 ![既存のフィーチャーフラグと新規作成方法を示すデータテーブル。]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
@@ -69,7 +69,7 @@
 
 ### ステップ4:ターゲットとするSegmentを選ぶ {#step-4-choose-segments-to-target}
 
-フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで **ルールを追加** を選択し、フィルターグループとSegmentのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
+フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとSegmentのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
 
 ![Segmentとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -804,7 +804,7 @@ Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
 {% endtab %}
 {% tab Unity %}
 
-変更をリッスンするには、**Braze構成** > **フィーチャーフラグ** の **Game Object Name** と **Callback Method Name** の値を、アプリケーションの対応する値に設定します。
+変更をリッスンするには、**Braze Configuration** > **Feature Flags**の**Game Object Name**と**Callback Method Name**の値を、アプリケーションの対応する値に設定します。
 
 {% endtab %}
 {% tab Cordova %}
@@ -886,15 +886,15 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## ユーザーの適格性を確認する {#checking-user-eligibility}
 
-Brazeでユーザーがどのフィーチャーフラグを利用できるか確認するには、**オーディエンス** > **ユーザーを検索** に移動し、ユーザーを検索して選択します。
+Brazeでユーザーがどのフィーチャーフラグを利用できるか確認するには、**オーディエンス** > **ユーザーを検索**に移動し、ユーザーを検索して選択します。
 
-**フィーチャーフラグの適格性** タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある <i class="fa-solid fa-eye"></i> を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
+**フィーチャーフラグの適格性**タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある<i class="fa-solid fa-eye"></i>を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
 
 ![ユーザーが利用可能なフィーチャーフラグの一覧表を示す画像。]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## 変更ログを表示する {#viewing-the-changelog}
 
-フィーチャーフラグの変更ログを表示するには、フィーチャーフラグを開き、**変更ログ** を選択します。
+フィーチャーフラグの変更ログを表示するには、フィーチャーフラグを開き、**変更ログ**を選択します。
 
 ![フィーチャーフラグの「編集」ページで、「変更ログ」ボタンが強調表示されている。]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 

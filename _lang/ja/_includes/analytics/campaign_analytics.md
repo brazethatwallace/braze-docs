@@ -1,6 +1,6 @@
 ## 分析を表示する {#viewing-analytics}
 
-キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**Campaigns**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をCanvasで送信した場合は、[Canvas分析]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)を参照してください。{% endif %}
+Campaignを開始したら、そのCampaignの詳細ページに戻って主要な指標を確認できます。**Campaigns**ページに移動し、Campaignを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をCanvasで送信した場合は、[Canvas分析]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)を参照してください。{% endif %}
 
 {% alert tip %}
 レポートに記載されている用語や指標の定義をお探しですか？以下を参照してください。
@@ -18,11 +18,11 @@
 
 ### 期間 {#time-range}
 
-**キャンペーン分析**の期間設定は、デフォルトで現在時刻から過去90日間を表示します。これは、キャンペーンが90日以上前に開始された場合、指定した期間の分析データが「0」と表示されることを意味します。古いキャンペーンの全分析データを表示するには、レポートの時間範囲を調整してください。
+**キャンペーン分析**の期間設定は、デフォルトで現在時刻から過去90日間を表示します。これは、Campaignが90日以上前に開始された場合、指定した期間の分析データが「0」と表示されることを意味します。古いCampaignの全分析データを表示するには、レポートの時間範囲を調整してください。
 
-### キャンペーンの詳細 {#campaign-details}
+### Campaignの詳細 {#campaign-details}
 
-**キャンペーンの詳細**パネルには、
+**Campaignの詳細**パネルには、
   {% if include.channel == "banner" %}バナー
   {% elsif include.channel == "Content Card" %}コンテンツカード
   {% elsif include.channel == "email" %}メール
@@ -43,38 +43,38 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 {% endif %}
 
 {% if include.channel == "Content Card" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/cc-campaign-details.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/cc-campaign-details.png %})
 
 {% elsif include.channel == "banner" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/banners/campaign_details.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/banners/campaign_details.png %})
 
 {% elsif include.channel == "email" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/campaign_details_email.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/campaign_details_email.png %})
 
 {% elsif include.channel == "push" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/campaign_details_push.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/campaign_details_push.png %})
 
 {% elsif include.channel == "SMS" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/campaign_details_sms.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/campaign_details_sms.png %})
 
 {% elsif include.channel == "in-app message" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/campaign_details_iam.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/campaign_details_iam.png %})
 
 Canvasでは、作成したCanvasにアプリ内メッセージのパフォーマンスがマッピングされます。ページ上部のコントロールパネルを使用して、他のメッセージングタイプ（チャネル）をクリアし、Canvas内のアプリ内メッセージのみを表示できます。
 
 ![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
-![キャンペーンの詳細セクション。]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
+![Campaignの詳細セクション。]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
 
 {% elsif include.channel == "webhook" %}
-![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/campaign_details_webhook.png %})
+![Campaignのパフォーマンスを判断するために使用される指標の概要を含むCampaign詳細パネル。]({% image_buster /assets/img/campaign_details_webhook.png %})
 
 {% endif %}
 
 #### 推定オーディエンスと現在のオーディエンス {#estimated-audience-and-current-audience}
 
-ワークスペースの規模に応じて、**キャンペーンの詳細**パネルではオーディエンス統計が**推定オーディエンス**または**現在のオーディエンス**と表示されます。
+ワークスペースの規模に応じて、**Campaignの詳細**パネルではオーディエンス統計が**推定オーディエンス**または**現在のオーディエンス**と表示されます。
 
 以下の表は、各ラベルがいつ使用され、何を意味するかを説明しています。
 
@@ -90,31 +90,31 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 
 #### コントロールグループ {#cc-control-group}
 
-個々のコンテンツカードの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
+個々のコンテンツカードの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**Campaignの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
 
 {% elsif include.channel == "SMS" %}
 
 #### コントロールグループ {#sms-control-group}
 
-個々のSMS、MMS、またはRCSメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
+個々のSMS、MMS、またはRCSメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**Campaignの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
 
 {% elsif include.channel == "whatsapp" %}
 
 #### コントロールグループ {#whatsapp-control-group}
 
-個々のWhatsAppメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
+個々のWhatsAppメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**Campaignの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
 
 {% elsif include.channel == "webhook" %}
 
 #### コントロールグループ {#webhook-control-group}
 
-個々のWebhookメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
+個々のWebhookメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**Campaignの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
 
 {% endif %}
 
 #### 最後に表示してからの変更 {#changes-since-last-viewed}
 
-チームの他のメンバーによるキャンペーンへの更新数は、キャンペーン概要ページの*最後に表示してからの変更*指標で追跡されます。**最後に表示してからの変更**を選択すると、キャンペーンの名前、スケジュール、タグ、メッセージ、オーディエンス、承認ステータス、またはチームアクセス設定の更新に関する変更ログを表示できます。各更新について、誰がいつ更新を行ったかを確認できます。この変更ログを使用してキャンペーンの変更を監査できます。
+チームの他のメンバーによるCampaignへの更新数は、Campaign概要ページの*最後に表示してからの変更*指標で追跡されます。**最後に表示してからの変更**を選択すると、Campaignの名前、スケジュール、タグ、メッセージ、オーディエンス、承認ステータス、またはチームアクセス設定の更新に関する変更ログを表示できます。各更新について、誰がいつ更新を行ったかを確認できます。この変更ログを使用してCampaignの変更を監査できます。
 
 <!--
 ### Message Performance
@@ -192,7 +192,7 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ヒートマップを使用すると、1つのメールキャンペーン内の異なるリンクがどの程度成功したかを確認できます。**メッセージ分析**セクションから、**メールパフォーマンス**パネルに移動します。**プレビューとヒートマップ**を選択して、メールキャンペーンとヒートマップのプレビューを表示します。または、バリアント名のハイパーリンクを選択してヒートマップを表示することもできます。
 
-このビューでは、**ヒートマップ表示**トグルを使用して、キャンペーンの存続期間中のクリックの全体的な頻度と場所を示すメールのビジュアルビューを表示できます。**合計クリック数によるリンクテーブル**パネルでは、メールキャンペーン内のすべてのリンクを表示し、合計クリック数で並べ替えることができます。これにより、ユーザーがどこに移動しているかについて追加のインサイトが得られます。参照用にヒートマップのコピーを保存するには、ダウンロードボタンを選択します。
+このビューでは、**ヒートマップ表示**トグルを使用して、Campaignの存続期間中のクリックの全体的な頻度と場所を示すメールのビジュアルビューを表示できます。**合計クリック数によるリンクテーブル**パネルでは、メールキャンペーン内のすべてのリンクを表示し、合計クリック数で並べ替えることができます。これにより、ユーザーがどこに移動しているかについて追加のインサイトが得られます。参照用にヒートマップのコピーを保存するには、ダウンロードボタンを選択します。
 
 ![メールキャンペーンと、リンクエイリアスの例とその合計クリック数を示すパネルを含むプレビューとヒートマップページの例。]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
@@ -264,17 +264,17 @@ The **Message Performance** panel outlines how well your message has performed a
 
 #### ユニーク受信者数とユニークインプレッション数 {#unique-recipients-versus-unique-impressions}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには*ユニーク受信者数*と*ユニークインプレッション数*が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_ユニーク受信者数_と_ユニークインプレッション数_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日コンテンツカードを閲覧し、翌日に同じCampaignから新しいカードを受け取り、さらにその翌日にも受け取った場合、*ユニーク受信者*として3回カウントされます。ただし、*ユニークインプレッション*は1回のみカウントされます。また、カードがデバイスで利用可能であったため、*送信済みメッセージ*の数にもカウントされます。
+例えば、今日コンテンツカードを閲覧し、翌日に同じCampaignから新しいカードを受け取り、さらにその翌日にも受け取った場合、_ユニーク受信者_として3回カウントされます。ただし、_ユニークインプレッション_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_送信済みメッセージ_の数にもカウントされます。
 
-別の例として、15万件の*送信済みメッセージ*を示すContent Cards Campaignで5件の*ユニークインプレッション*があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
+別の例として、15万件の_送信済みメッセージ_を示すContent Cards Campaignで5件の_ユニークインプレッション_があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
 
 1. セッションを開始した、またはアプリが明示的にContent Cardsの同期を要求した（またはその両方）
 2. Content Cardsビューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-*送信済みメッセージ*は閲覧可能なContent Cardsを指し、*ユニーク受信者*は実際に閲覧されたContent Cardsを指します。
+_送信済みメッセージ_は閲覧可能なContent Cardsを指し、_ユニーク受信者_は実際に閲覧されたContent Cardsを指します。
 
 {% elsif include.channel == "banner" %}
 
@@ -335,17 +335,17 @@ The **Message Performance** panel outlines how well your message has performed a
 
 #### バナー指標の計算例 {#banner-metrics-calculation-examples}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには*ユニーク受信者数*と*ユニークインプレッション数*が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_ユニーク受信者数_と_ユニークインプレッション数_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、*ユニーク受信者*として3回カウントされます。ただし、*ユニークインプレッション*は1回のみカウントされます。
+例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、_ユニーク受信者_として3回カウントされます。ただし、_ユニークインプレッション_は1回のみカウントされます。
 
-別の例として、バナーCampaignで5件の*ユニークインプレッション*があるとします。これは、以下のすべてのステップを実行したユーザーのデバイスがわずか5台だったことを意味します：
+別の例として、バナーCampaignで5件の_ユニークインプレッション_があるとします。これは、以下のすべてのステップを実行したユーザーのデバイスがわずか5台だったことを意味します：
 
 1. セッションを開始した、またはアプリが明示的にバナーの同期を要求した（またはその両方）
 2. バナービューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-*ユニーク受信者*は、実際に閲覧されたバナーを指します。
+_ユニーク受信者_は、実際に閲覧されたバナーを指します。
 
 {% elsif include.channel == "email" %}
 
@@ -426,11 +426,11 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ##### 配信とバウンス {#deliveries-and-bounces}
 
-ダッシュボードでは*ハードバウンス*が強調表示されます。一部の*バウンス*はソフトバウンスの場合があり、その数だけでは一致しません。ソフトバウンスは以下の計算式で概算できます：
+ダッシュボードでは_ハードバウンス_が強調表示されます。一部の_バウンス_はソフトバウンスの場合があり、その数だけでは一致しません。ソフトバウンスは以下の計算式で概算できます：
 
 _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウンス数_
 
-*配信数*は再試行が成功するにつれて最初の72時間で増加する可能性がありますが、1回限りの送信の場合、*送信数*とハードバウンス数は送信完了後に固定されます。
+_配信数_は再試行が成功するにつれて最初の72時間で増加する可能性がありますが、1回限りの送信の場合、_送信数_とハードバウンス数は送信完了後に固定されます。
 
 ##### 開封イベントなしのクリック {#clicks-without-an-open-event}
 
@@ -442,17 +442,17 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 延期（Deferred/Deferral）とは、メールがすぐに配信されなかったものの、Brazeがこの一時的な配信エラーの後、配信成功の可能性を最大化するために最大72時間再試行を行い、その特定のCampaignの試行が停止されることを指します。延期の一般的な理由には、受信トレイプロバイダーからのレピュテーションに基づくメールボリュームのレート制限、一時的な接続の問題、DNSエラーなどがあります。
 
-*延期*は*ソフトバウンス*とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたCampaignごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のCampaign送信に対して複数のソフトバウンスとしてカウントされていました。
+_延期_は_ソフトバウンス_とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたCampaignごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のCampaign送信に対して複数のソフトバウンスとしてカウントされていました。
 
-*延期*は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQL Segment、Snowflakeデータ共有など）を使用した場合のみ利用可能です。CampaignやCanvasの分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)してください。
+_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQL Segment、Snowflakeデータ共有など）を使用した場合のみ利用可能です。CampaignやCanvasの分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)してください。
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 
-この統計は、Brazeが独自に作成した分析モデルを使用して、マシン開封が存在しないかのようにCampaignのユニーク開封率の推定値を再構築するものです。一部の開封イベントについてメール送信者から*マシン開封*というラベルを受け取る場合がありますが（上記参照）、これらのラベルは実際の開封をマシン開封と誤って分類することが多いです。つまり、*その他の開封数*は（実際のユーザーによる）実際の開封を過小評価している可能性が高いです。代わりに、Brazeは各Campaignのクリックデータを使用して、実際の人間がメッセージを開封した率を推測します。これにより、AppleのMPPを含むさまざまなマシン開封メカニズムが補われます。
+この統計は、Brazeが独自に作成した分析モデルを使用して、マシン開封が存在しないかのようにCampaignのユニーク開封率の推定値を再構築するものです。一部の開封イベントについてメール送信者から_マシン開封_というラベルを受け取る場合がありますが（上記参照）、これらのラベルは実際の開封をマシン開封と誤って分類することが多いです。つまり、_その他の開封数_は（実際のユーザーによる）実際の開封を過小評価している可能性が高いです。代わりに、Brazeは各Campaignのクリックデータを使用して、実際の人間がメッセージを開封した率を推測します。これにより、AppleのMPPを含むさまざまなマシン開封メカニズムが補われます。
 
-*推定実質開封率*はメール送信開始から36時間後に算出され、その後24時間ごとに再計算されます。Campaignが繰り返される場合、推定は別の送信が発生してから36時間後に再計算されます。
+_推定実質開封率_はメール送信開始から36時間後に算出され、その後24時間ごとに再計算されます。Campaignが繰り返される場合、推定は別の送信が発生してから36時間後に再計算されます。
 
-この指標は継続的に再計算されるため、*推定実質開封率*の値は時間の経過とともに変化する可能性があります。新しいエンゲージメントシグナル（開封やクリックなど）が受信され、モデルに組み込まれるにつれて値は変動します。実際には、*推定実質開封率*はCampaignがアクティブな間、毎日更新され続けることがあります。
+この指標は継続的に再計算されるため、_推定実質開封率_の値は時間の経過とともに変化する可能性があります。新しいエンゲージメントシグナル（開封やクリックなど）が受信され、モデルに組み込まれるにつれて値は変動します。実際には、_推定実質開封率_はCampaignがアクティブな間、毎日更新され続けることがあります。
 
 通常、統計を正常に計算するには配信済みメールが約10,000通必要ですが、この数はクリック率によって異なります。統計が計算できない場合、その列には「--」と表示されます。
 
@@ -482,7 +482,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 分析に表示される主なアプリ内メッセージの指標をいくつか紹介します。Brazeで使用されるすべてのアプリ内メッセージ指標の完全な定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)を参照してください。
 
 {% alert note %}
-*ボタン1のクリック数*と*ボタン2のクリック数*のレポートは、アプリ内メッセージで**レポート用の識別子**をそれぞれ「0」と「1」に指定した場合にのみ機能します。
+_ボタン1のクリック数_と_ボタン2のクリック数_のレポートは、アプリ内メッセージで**レポート用の識別子**をそれぞれ「0」と「1」に指定した場合にのみ機能します。
 
 ![「レポート用識別子」フィールドの値が「0」。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 {% endalert %}
@@ -554,13 +554,13 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 | 用語 | 定義 |
 | --- | --- |
-| オーディエンス | *オーディエンス*は、特定のメッセージを受信したユーザーの割合です。<br><br>*（バリアント内の受信者数）/（ユニーク受信者数）* |
-| ユニーク受信者数 | *ユニーク受信者数*は、1日あたりのユニーク受信者数、つまり1日に新しいメッセージを受信したユーザー数です。このカウントがユーザーに対して複数回増加するには、ユーザーが別の日に新しいメッセージを受信する必要があります。この数値は`user_id`に基づいています。詳細については、[レポート指標用語集のユニーク受信者数]({{site.baseurl}}/user_guide/data/report_metrics/#unique-recipients)を参照してください。 |
+| オーディエンス | _オーディエンス_は、特定のメッセージを受信したユーザーの割合です。<br><br>_（バリアント内の受信者数）/（ユニーク受信者数）_ |
+| ユニーク受信者数 | _ユニーク受信者数_は、1日あたりのユニーク受信者数、つまり1日に新しいメッセージを受信したユーザー数です。このカウントがユーザーに対して複数回増加するには、ユーザーが別の日に新しいメッセージを受信する必要があります。この数値は`user_id`に基づいています。詳細については、[レポート指標用語集のユニーク受信者数]({{site.baseurl}}/user_guide/data/report_metrics/#unique-recipients)を参照してください。 |
 | 送信数 | Campaignで送信されたメッセージの総数です。これはメッセージがデバイスに受信または配信されたことを意味するものではなく、メッセージが送信されたことのみを示します。 |
 | クリック数の合計 | 送信されたKakaoTalkメッセージがユーザーによってクリックされた合計回数です。 |
-| エラー数 | *エラー数*は、KakaoTalkプロバイダーから返されたエラーの数です（送信プロセス中に増加します）。 |
-| 収益 | *収益*は、設定された1次コンバージョン期間内のCampaign受信者からのドル建て収益です。 |
-| 1次コンバージョン数 | *1次コンバージョン数*は、Braze Campaignから受信したメッセージを操作または閲覧した後に、定義されたイベントが発生した回数です。この定義されたイベントは、Campaign構築時に設定します。 |
+| エラー数 | _エラー数_は、KakaoTalkプロバイダーから返されたエラーの数です（送信プロセス中に増加します）。 |
+| 収益 | _収益_は、設定された1次コンバージョン期間内のCampaign受信者からのドル建て収益です。 |
+| 1次コンバージョン数 | _1次コンバージョン数_は、Braze Campaignから受信したメッセージを操作または閲覧した後に、定義されたイベントが発生した回数です。この定義されたイベントは、Campaign構築時に設定します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% elsif include.channel == "push" %}
@@ -607,7 +607,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 ただし、手動でプッシュの配信停止を追跡することで、通知の頻度やコンテンツの関連性に対するユーザーの反応について貴重なインサイトを得ることができます。プッシュの配信停止を追跡する方法は2つあります：Segmentフィルターまたはカスタムフィルターを使用する方法です。
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Segmentフィルター %}
 
 プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens)を持っていないユーザーを識別するSegmentを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のSegmentsを「OR」条件で組み合わせます：
 
@@ -619,7 +619,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 セグメンテーションフィルターはおおよその目安であり、特定の日付やCampaignに結びつけることはできません。
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab カスタムフィルター %}
 
 {% alert important %}
 サブスクリプション変更のカスタムイベントをログに記録すると、[データポイント]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count)が消費されます。または、Segmentフィルターを使用して、プッシュが有効になっていないユーザーを識別し、ターゲットにしてください。
@@ -632,11 +632,11 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 ##### 開封を把握する {#understanding-opens}
 
-*直接開封数*と*誘発された開封数*には「開封」という言葉が含まれていますが、実際には異なる指標です。*直接開封数*は、上の表に記載されているように、プッシュ通知を直接開封することを指します。*誘発された開封数*は、プッシュ通知を受け取った後、特定の時間内にプッシュ通知を開かずにアプリを開封することを指します。つまり、*誘発された開封数*はアプリの開封を指し、プッシュ通知の開封ではありません。
+_直接開封数_と_誘発された開封数_には「開封」という言葉が含まれていますが、実際には異なる指標です。_直接開封数_は、上の表に記載されているように、プッシュ通知を直接開封することを指します。_誘発された開封数_は、プッシュ通知を受け取った後、特定の時間内にプッシュ通知を開かずにアプリを開封することを指します。つまり、_誘発された開封数_はアプリの開封を指し、プッシュ通知の開封ではありません。
 
 ##### プッシュ通知の送信数がユニーク受信者数を超える可能性がある理由 {#why-push-sends-can-exceed-unique-recipients}
 
-以下の理由により、*送信数*が*ユニーク受信者数*を上回る場合があります：
+以下の理由により、_送信数_が_ユニーク受信者数_を上回る場合があります：
 
 - **再適格性がオンになっている：** CampaignまたはCanvasの設定で再適格性が有効になっている場合、Segmentと配信条件を満たすユーザーは同じプッシュ通知を複数回受け取ることができます。その結果、総送信数が多くなります。
 - **ユーザーが複数のデバイスを持っている：** 再適格性が有効になっていない場合、ユーザーが複数のデバイスをプロファイルに関連付けていることで差異が説明される場合があります。例えば、ユーザーがスマートフォンとタブレットの両方を持っていて、プッシュ通知が登録されたすべてのデバイスに送信される場合です。各配信は送信としてカウントされますが、ユニーク受信者は1人のみ記録されます。
@@ -645,7 +645,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 ##### バウンスが発生する理由 {#bounced-push}
 
 {% tabs %}
-{% tab Apple Push Notification service %}
+{% tab Appleプッシュ通知サービス %}
 
 バウンスは、Appleプッシュ通知サービス（APNs）において、プッシュ通知が対象のアプリがインストールされていないデバイスに配信されようとするときに発生します。APNsはまた、デバイスのトークンを任意に変更する権利を持っています。以前にトークンを登録した時点（各セッション開始時にユーザーのプッシュトークンを登録する場合など）から送信時刻までの間にプッシュトークンが変更されたユーザーのデバイスに送信しようとすると、バウンスが発生します。
 

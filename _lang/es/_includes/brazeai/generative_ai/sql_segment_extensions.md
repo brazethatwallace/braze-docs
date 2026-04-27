@@ -42,7 +42,7 @@ Para crear una extensión de segmento SQL de actualización incremental:
 1. Ve a **Audiencia** > **Extensiones de segmento**.
 
 {% alert note %}
-Si estás utilizando la [navegación antigua]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), puedes encontrar esta página en **Interacción** > **Segments** > **Extensiones de segmento**.
+Si estás utilizando la [navegación antigua]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), puedes encontrar esta página en **Interacción** > **Segmentos** > **Extensiones de segmento**.
 {% endalert %}
 
 {:start="2"}
@@ -130,8 +130,8 @@ Además, tu consulta SQL estándar debe cumplir las siguientes reglas:
 Todas las consultas de actualización incremental constan de dos partes: una consulta y los detalles del esquema.
 
 1. En el editor, escribe una consulta que seleccione `user_id`s de la tabla que desees.
-2. Añade detalles del esquema seleccionando un **Operator**, **Número de veces** y **Periodo de tiempo** en los campos situados encima del editor. La consulta comprobará si la suma de la columna agregada cumple una determinada condición especificada por los marcadores de posición {% raw %}`{{operator}}` y `{{number of times}}`{% endraw %}. Esto funciona de forma similar al flujo de trabajo para crear extensiones de segmento clásicas.<br><br>
-   - **Operator:** Indica si el evento ha ocurrido más, menos o igual que un número de veces.<br>
+2. Añade detalles del esquema seleccionando un **Operador**, **Número de veces** y **Periodo de tiempo** en los campos situados encima del editor. La consulta comprobará si la suma de la columna agregada cumple una determinada condición especificada por los marcadores de posición {% raw %}`{{operator}}` y `{{number of times}}`{% endraw %}. Esto funciona de forma similar al flujo de trabajo para crear extensiones de segmento clásicas.<br><br>
+   - **Operador:** Indica si el evento ha ocurrido más, menos o igual que un número de veces.<br>
    ![Campo del operador con «Más que» seleccionado.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
    - **Número de veces:** Cuántas veces quieres evaluar el evento en relación con el operador.<br>
    ![Número de veces con «5» introducido.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
