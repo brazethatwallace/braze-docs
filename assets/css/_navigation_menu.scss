@@ -21,8 +21,10 @@ $nav_bottom_height: 60px;
 $nav_toggle_border: #525256;
 
 // Nav highlight colors (neutral gray, GitLab-style)
-$nav-hover-bg: $grey-athens;
+$nav-hover-bg: $grey-ghost;
 $nav-active-bg: $grey-athens;
+// #b0b0b7 achieves ~3.1:1 contrast on white — meets WCAG 1.4.11 for structural lines
+$nav-nesting-border: #b0b0b7;
 
 #nav_bar {
 	padding-top: 24px;
@@ -235,8 +237,8 @@ $nav-active-bg: $grey-athens;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-width: 20px;
-		min-height: 20px;
+		min-width: 24px;
+		min-height: 24px;
 		padding: 2px;
 		border: none;
 		border-radius: 4px;
@@ -319,7 +321,7 @@ $nav-active-bg: $grey-athens;
 				margin-left: 12px;
 				margin-top: 2px;
 				margin-bottom: 2px;
-				border-left: 1px solid $grey-ghost;
+				border-left: 1px solid $nav-nesting-border;
 			}
 			&.nav_reg {
 				a {
