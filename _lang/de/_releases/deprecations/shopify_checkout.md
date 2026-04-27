@@ -1,5 +1,5 @@
 ---
-nav_title: Shopify checkout & Liquid
+nav_title: Shopify checkout und Liquid
 page_order: 7
 description: "Dieser Artikel erklärt die Abschaffung von Shopify checkout&#46;liquid, einschließlich der Auswirkungen auf Ihre Shopify-Integration und der Anleitung für Entwickler:innen."
 page_type: update
