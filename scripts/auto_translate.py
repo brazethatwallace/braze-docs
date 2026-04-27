@@ -466,7 +466,16 @@ English labels consistently. Long ``{% details %}`` permission lists that \
 mirror ``- View …`` / ``- Edit …`` in English should use established German \
 permission wording (e.g. *Kampagnen anzeigen*), not verbatim English bullets \
 (auto-translate PR #13340).
-16. **Landing hero `guide_top_text` links**: If bracket link text is still raw \
+16. **BrazeAI agents docs hygiene**: Fix duplicate explicit IDs when two \
+subsections reused the same `{#use-cases}` (use distinct canvas vs catalog \
+slugs). Fix `…/agents/reference/#examples` links to \
+`#canvas-agent-examples` (or `#catalog-agent-examples` when intended). In \
+French `reference.md`, localize **Save** and thinking-level row labels \
+(**Faible**, **Moyen**, **Élevé**). In Korean `deploying_agents.md` monitoring \
+copy, localize **Usage**/**Logs**/**Export CSV**/**View** and **Canvases** \
+phrasing. Add `{#general}` to Spanish `agents/faq.md` **General** heading when \
+peers have it (auto-translate PR #13342).
+17. **Landing hero `guide_top_text` links**: If bracket link text is still raw \
 English **Segments** (or similar) inside otherwise localized prose, localize \
 the label to match the sentence while preserving each \
 `]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
