@@ -35,12 +35,12 @@ channel:
   - Push
   - SMS
   - Webhooks
-  
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
-guide_top_header: "Página de aterrizaje de una sola sección con imágenes"
-guide_top_text: "Las Páginas de Aterrizaje de Sección Única son estupendas para una sección grande con poca o ninguna división entre las páginas de la sección. Esta plantilla en concreto utiliza el parámetro YAML de diseño 'destacado' ('layout: dev_guide'), que te permite añadir información extra en la parte inferior de la página. Si necesitas secciones adicionales, utiliza el tipo de página Página de Aterrizaje multisección utilizando el parámetro YAML de diseño 'dev_guide'."
+guide_top_header: "Página de destino de sección única con imágenes"
+guide_top_text: "Las páginas de destino de sección única son ideales para una sección grande con poca o ninguna división entre las páginas de la sección. Esta plantilla en concreto utiliza el parámetro YAML de diseño 'featured' ('layout: dev_guide'), que te permite añadir información adicional en la parte inferior de la página. Si necesitas secciones adicionales, utiliza el tipo de página de destino multisección con el parámetro YAML de diseño 'dev_guide'."
 
 guide_featured_title: "Sección"
 guide_featured_list:
@@ -58,7 +58,7 @@ guide_featured_list:
 
 ## Extra
 
-Si quieres, puedes añadir contenido adicional en la parte inferior. Asegúrate de poner saltos de línea al final. No añadas material de referencia aquí. [Para ello, utiliza la plantilla de referencia]({{site.baseurl}}/home/templates/reference/).
+Si quieres, puedes añadir contenido adicional en la parte inferior. Asegúrate de poner saltos de línea al final. No añadas material de referencia aquí. [Para ello, utiliza la plantilla de referencia]({{site.baseurl}}/contributing/content_types/#references).
 
 <br>
 
