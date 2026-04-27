@@ -22,45 +22,45 @@ Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigun
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- View Frequency Capping Rules
-- Edit Frequency Capping Rules
-- View Message Prioritization
-- Edit Message Prioritization
-- View Content Blocks
-- View Feature Flags
-- Edit Feature Flags
-- Archive Feature Flags
-- View Segments
-- Edit Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- View Link Templates
-- Edit Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- View Locations
-- Edit Locations
-- Archive Locations
-- View Promotion Codes
-- Edit Promotion Codes
-- Export Promotion Codes
-- View Preference Centers
-- Edit Preference Centers
-- View Reports
-- Edit Reports
+- Kampagnen anzeigen
+- Kampagnen bearbeiten
+- Kampagnen archivieren
+- Canvase anzeigen
+- Canvase bearbeiten
+- Canvase archivieren
+- Frequency-Capping-Regeln anzeigen
+- Frequency-Capping-Regeln bearbeiten
+- Priorisierung von Nachrichten anzeigen
+- Priorisierung von Nachrichten bearbeiten
+- Content-Blöcke anzeigen
+- Feature-Flags anzeigen
+- Feature-Flags bearbeiten
+- Feature-Flags archivieren
+- Segmente anzeigen
+- Segmente bearbeiten
+- IAM-Templates anzeigen
+- IAM-Templates bearbeiten
+- IAM-Templates archivieren
+- E-Mail-Templates anzeigen
+- E-Mail-Templates bearbeiten
+- E-Mail-Templates archivieren
+- Webhook-Templates anzeigen
+- Webhook-Templates bearbeiten
+- Link-Templates anzeigen
+- Link-Templates bearbeiten
+- Mediathek-Assets anzeigen
+- Mediathek-Assets bearbeiten
+- Mediathek-Assets löschen
+- Standorte anzeigen
+- Standorte bearbeiten
+- Standorte archivieren
+- Aktionscodes anzeigen
+- Aktionscodes bearbeiten
+- Aktionscodes exportieren
+- Präferenzzentren anzeigen
+- Präferenzzentren bearbeiten
+- Berichte anzeigen
+- Berichte bearbeiten
 
 {% enddetails %}
 
@@ -69,7 +69,7 @@ Daten auf der Blocklist werden nicht vom SDK gesendet, und das Braze-Dashboard v
 ### Angepasste Attribute, angepasste Events und Produkte auf die Blocklist setzen {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segments, Campaigns oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
+Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segmente, Kampagnen oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
 {% endalert %}
 
 Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu stoppen, gehen Sie wie folgt vor:

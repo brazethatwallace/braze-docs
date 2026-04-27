@@ -15,7 +15,7 @@ description: "Dieser Artikel referenziert die korrekten Konventionen für die Be
 
 - Halten Sie Ihre Namenskonvention klar.
 - Verwenden Sie eine einheitliche Schreibweise und Formatierung von Ereignisnamen.
-- Vermeiden Sie es, Veranstaltungen ähnliche Namen zu geben.
+- Vermeiden Sie es, Ereignissen ähnliche Namen zu geben.
 - Vermeiden Sie lange Strings für die Attribute von Ereignissen, die im Braze-Dashboard abgeschnitten oder gekürzt werden.
 
 ## Konventionen zur Namensgebung {#naming-conventions}
