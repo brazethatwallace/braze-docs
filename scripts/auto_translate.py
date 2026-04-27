@@ -544,6 +544,11 @@ French prose, not English **Campaigns** mid-sentence (auto-translate PR #13359).
 「…リリースノートが**含まれています**。」—not plain dictionary-style \
 「…含まれている。」 so ``description`` matches sibling months in the same \
 year (auto-translate PR #13372).
+26. **Monthly release notes** (``_releases/``): When English names a concrete \
+REST path such as ``/raw_data/status``, keep it in **inline code** (backticks) \
+in every locale—including after localized ``[API endpoint](…)`` link text—and \
+avoid doubled commas or stray parentheses around the path (auto-translate \
+PR #13373).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1237,6 +1242,40 @@ def repair_front_matter_display_scalar_cleanup(translated_content):
     if not repairs:
         return translated_content, []
     return f"---\n{new_fm}\n---\n{tr_body}", repairs
+
+
+def repair_releases_bare_raw_data_status_endpoint(translated_path, translated_content):
+    """Wrap the ``/raw_data/status`` REST path in backticks in monthly release notes.
+
+    Copilot flags bare ``/raw_data/status`` after localized link text; use
+    inline code so the path is unambiguous (PR #13373).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_releases/" not in rel or not rel.endswith(".md"):
+        return translated_content, []
+    if "/raw_data/status" not in translated_content:
+        return translated_content, []
+    if "`/raw_data/status`" in translated_content:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    # Double comma typo from some locales
+    if ", /raw_data/status,," in new:
+        new = new.replace(", /raw_data/status,,", ", `/raw_data/status`,", 1)
+        repairs.append("releases — /raw_data/status inline code (double comma)")
+    if ", /raw_data/status," in new:
+        new = new.replace(", /raw_data/status,", ", `/raw_data/status`,", 1)
+        repairs.append("releases — /raw_data/status inline code (comma delimited)")
+    if "、/raw_data/statusを" in new:
+        new = new.replace("、/raw_data/statusを", "、`/raw_data/status`を", 1)
+        repairs.append("releases — /raw_data/status inline code (JA)")
+    if "인 /raw_data/status를" in new:
+        new = new.replace("인 /raw_data/status를", "인 `/raw_data/status`를", 1)
+        repairs.append("releases — /raw_data/status inline code (KO)")
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
 
 
 def repair_ja_releases_description_desu_masu(translated_path, translated_content, lang_key):
@@ -4549,6 +4588,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(fm_display_repairs)
+
+    translated_content, raw_status_repairs = (
+        repair_releases_bare_raw_data_status_endpoint(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(raw_status_repairs)
 
     translated_content, ja_rel_fm_repairs = repair_ja_releases_description_desu_masu(
         translated_path, translated_content, lang_key
