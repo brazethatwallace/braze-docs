@@ -466,19 +466,33 @@ English labels consistently. Long ``{% details %}`` permission lists that \
 mirror ``- View …`` / ``- Edit …`` in English should use established German \
 permission wording (e.g. *Kampagnen anzeigen*), not verbatim English bullets \
 (auto-translate PR #13340).
-16. **Landing hero `guide_top_text` links**: If bracket link text is still raw \
+16. **BrazeAI agents docs hygiene**: Fix duplicate explicit IDs when two \
+subsections reused the same `{#use-cases}` (use distinct canvas vs catalog \
+slugs). Fix `…/agents/reference/#examples` links to \
+`#canvas-agent-examples` (or `#catalog-agent-examples` when intended). In \
+French `reference.md`, localize **Save** and thinking-level row labels \
+(**Faible**, **Moyen**, **Élevé**). In Korean `deploying_agents.md` monitoring \
+copy, localize **Usage**/**Logs**/**Export CSV**/**View** and **Canvases** \
+phrasing. Add `{#general}` to Spanish `agents/faq.md` **General** heading when \
+peers have it (auto-translate PR #13342).
+17. **Landing hero `guide_top_text` links**: If bracket link text is still raw \
 English **Segments** (or similar) inside otherwise localized prose, localize \
 the label to match the sentence while preserving each \
 `]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
 `metrics_glossary`, use **Glossaire des indicateurs de rapport** (not \
 *d'indicateurs*) when that row exists (auto-translate PR #13341).
-17. **B2B use-case walkthroughs** (`_user_guide/get_started/b2b_use_cases/`): \
+18. **B2B use-case walkthroughs** (`_user_guide/get_started/b2b_use_cases/`): \
 Align bold Canvas/webhook step labels with that locale's Canvas docs (not raw \
 US English alone in DE/ES/FR/JA/KO/pt-BR). Use localized **campaign** nouns \
 (*campaña*, *Kampagne*, *캠페인*, *キャンペーン*, …) and **segment** wording \
 for extension UI where sibling pages do—fix mixed **Campaign**/**Segment** \
 English drift in procedures. **French** `nav_title`: keep accents (**Évaluation**). \
 (auto-translate PR #13347).
+19. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
+uses `{#…}`, keep the **`?`** before the brace when English does. French—fix \
+mid-sentence **Décision**-style caps on common nouns (*décision*). \
+Japanese—use **Canvasステップ** consistently with other **Canvas** tokens on \
+the page, not **キャンバスステップ** (auto-translate PR #13346).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
