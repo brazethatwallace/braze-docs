@@ -34,7 +34,7 @@ guide_featured_list:
 
 guide_menu_title: "Autres articles"
 guide_menu_list:
-  - name: Glossaire d'indicateurs de rapport
+  - name: Glossaire des indicateurs de rapport
     link: /docs/user_guide/analytics/metrics_glossary
     image: /assets/img/braze_icons/book-closed.svg
   - name: Analytique
