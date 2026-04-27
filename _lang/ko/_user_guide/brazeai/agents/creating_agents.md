@@ -61,7 +61,7 @@ alias: /creating-agents/
 
 에이전트에게 지침을 제공합니다. 예기치 않거나 모호한 시나리오에서 에이전트가 수행해야 할 작업에 대한 지침을 포함하는 것이 좋습니다. 이렇게 하면 에이전트의 혼란으로 인한 오류 위험을 최소화할 수 있습니다. 예를 들어, 에이전트에게 "긍정적" 또는 "부정적" 감정 값만 요청하는 대신, 결정할 수 없는 경우 "확신 없음"을 반환하도록 요청하세요.
 
-모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples)를 참조하세요.
+모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)를 참조하세요.
 
 {% alert tip %}
 Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스텀 속성)을 참조하기 위해 지침에서 Liquid를 사용할 수 있습니다. 에이전트 지침의 모든 Liquid 변수는 사용자가 해당 단계에 진입할 때 자동으로 에이전트 단계로 전달됩니다.

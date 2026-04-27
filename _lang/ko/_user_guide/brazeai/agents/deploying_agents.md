@@ -14,7 +14,7 @@ page_order: 2
 
 에이전트를 여정의 단계로 사용하여 메시지를 개인화하거나 실시간으로 의사 결정을 안내할 수 있습니다. 자세한 설정 단계는 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)를 참조하세요.
 
-### 활용 사례 {#use-cases}
+### 활용 사례 {#canvas-use-cases}
 
 | 활용 사례 | 설명 |
 | --- | --- |
@@ -30,7 +30,7 @@ page_order: 2
 
 에이전트를 카탈로그 필드에 적용하여 각 행의 값을 자동으로 생성하거나 계산할 수 있습니다. 에이전트는 향후 카탈로그에 추가되는 새로운 행에서도 실행됩니다.
 
-### 활용 사례 {#use-cases}
+### 활용 사례 {#catalog-use-cases}
 
 | 활용 사례 | 설명 |
 | --- | --- |
@@ -98,11 +98,11 @@ page_order: 2
 
 ## 에이전트 모니터링 {#monitor-your-agent}
 
-에이전트의 **Usage** 섹션에서 카탈로그와 Canvases에서 에이전트가 활발히 사용되고 있는 위치를 참조하고 탐색할 수 있습니다.
+에이전트의 **사용량** 섹션에서 카탈로그와 **캔버스**에서 에이전트가 활발히 사용되고 있는 위치를 참조하고 탐색할 수 있습니다.
 
-![Canvases에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 사용 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![캔버스에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 사용량 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-에이전트의 **Logs** 섹션에서 Canvases와 카탈로그에서 발생하는 실제 에이전트 호출을 모니터링할 수 있습니다. 날짜 범위, 결과(성공 또는 실패), 호출 위치 등의 정보로 필터링할 수 있습니다. 현재 페이지에 표시된 로그만 내보내려면 **Export CSV**를 선택할 수도 있습니다.
+에이전트의 **로그** 섹션에서 **캔버스**와 카탈로그에서 발생하는 실제 에이전트 호출을 모니터링할 수 있습니다. 날짜 범위, 결과(성공 또는 실패), 호출 위치 등의 정보로 필터링할 수 있습니다. 현재 페이지에 표시된 로그만 내보내려면 **CSV보내기**를 선택할 수도 있습니다.
 
 {% alert tip %}
 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 일일 호출 한도 오류를 모니터링할 수도 있습니다.
@@ -110,7 +110,7 @@ page_order: 2
 
 ![에이전트 AI Sentiment Score에 대한 로그.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-특정 에이전트 호출에 대해 **View**를 선택하여 입력, 출력 및 사용자 ID를 확인합니다.
+특정 에이전트 호출에 대해 **보기**를 선택하여 입력, 출력 및 사용자 ID를 확인합니다.
 
 ![입력 프롬프트, 출력 응답 및 관련 사용자 ID를 보여주는 에이전트 Random Sports Assignment의 세부 정보 패널.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

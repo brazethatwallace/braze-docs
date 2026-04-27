@@ -14,7 +14,7 @@ page_order: 2
 
 Vous pouvez utiliser des agents comme étapes d'un parcours pour personnaliser les messages ou guider la prise de décision en temps réel. Pour des instructions détaillées sur la configuration, consultez [Étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Cas d'utilisation {#use-cases}
+### Cas d'utilisation {#canvas-use-cases}
 
 | Cas d'utilisation | Description |
 | --- | --- |
@@ -30,7 +30,7 @@ Vous pouvez utiliser des agents comme étapes d'un parcours pour personnaliser l
 
 Vous pouvez appliquer un agent aux champs du catalogue afin qu'il génère ou calcule automatiquement des valeurs pour chaque ligne. L'agent s'exécutera également sur les nouvelles lignes ajoutées au catalogue à l'avenir.
 
-### Cas d'utilisation {#use-cases}
+### Cas d'utilisation {#catalog-use-cases}
 
 | Cas d'utilisation | Description |
 | --- | --- |

@@ -9,7 +9,7 @@ page_order: 10
 
 > Este artículo responde a las preguntas frecuentes sobre los agentes de Braze.
 
-## General
+## General {#general}
 
 ### ¿Cuál es la diferencia entre los agentes de Canvas y los agentes de catálogo? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 

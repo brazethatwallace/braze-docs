@@ -14,7 +14,7 @@ page_order: 2
 
 Puedes utilizar agentes como pasos en un recorrido para personalizar mensajes u orientar la toma de decisiones en tiempo real. Para obtener información detallada sobre los pasos de configuración, consulta el [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Casos de uso {#use-cases}
+### Casos de uso {#canvas-use-cases}
 
 | Caso de uso | Descripción |
 | --- | --- |
@@ -30,7 +30,7 @@ Puedes utilizar agentes como pasos en un recorrido para personalizar mensajes u 
 
 Puedes aplicar un agente a los campos del catálogo para que genere o calcule automáticamente los valores de cada fila. El agente también se ejecutará en las nuevas filas que se añadan al catálogo en el futuro.
 
-### Casos de uso {#use-cases}
+### Casos de uso {#catalog-use-cases}
 
 | Caso de uso | Descripción |
 | --- | --- |

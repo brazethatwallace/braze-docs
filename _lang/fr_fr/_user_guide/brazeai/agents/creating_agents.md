@@ -61,7 +61,7 @@ Configurez ensuite les détails de votre agent :
 
 Donnez des instructions à l'agent. Nous recommandons d'inclure des consignes sur la conduite à tenir dans des situations imprévues ou ambiguës, afin de minimiser le risque d'erreurs liées à la confusion de l'agent. Par exemple, plutôt que de demander à l'agent uniquement des valeurs de sentiment « positives » ou « négatives », demandez-lui de renvoyer « incertain » s'il ne parvient pas à se prononcer.
 
-Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) pour les bonnes pratiques et les [Exemples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) pour trouver l'inspiration sur la manière de guider votre agent.
+Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) pour les bonnes pratiques et les [Exemples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) pour trouver l'inspiration sur la manière de guider votre agent.
 
 {% alert tip %}
 Pour les agents Canvas, vous pouvez utiliser Liquid dans vos instructions afin de faire référence aux attributs utilisateur, tels que le prénom et le nom, ou à des attributs personnalisés. Toute variable Liquid présente dans les instructions de l'agent est automatiquement transmise à l'étape Agent lorsqu'un utilisateur y accède.

@@ -14,7 +14,7 @@ page_order: 2
 
 Sie können Agenten als Schritte in einer Journey verwenden, um Nachrichten zu personalisieren oder Entscheidungen in Echtzeit zu steuern. Detaillierte Einrichtungsschritte finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Anwendungsfälle {#use-cases}
+### Anwendungsfälle {#canvas-use-cases}
 
 | Anwendungsfall | Beschreibung |
 | --- | --- |
@@ -30,7 +30,7 @@ Sie können Agenten als Schritte in einer Journey verwenden, um Nachrichten zu p
 
 Sie können einen Agenten auf Katalogfelder anwenden, sodass er automatisch Werte für jede Zeile generiert oder berechnet. Der Agent wird auch für neue Zeilen ausgeführt, die in Zukunft zum Katalog hinzugefügt werden.
 
-### Anwendungsfälle {#use-cases}
+### Anwendungsfälle {#catalog-use-cases}
 
 | Anwendungsfall | Beschreibung |
 | --- | --- |

@@ -61,7 +61,7 @@ alias: /creating-agents/
 
 エージェントに指示を与えます。予期せぬ状況や曖昧な状況において、エージェントが取るべきアクションに関する指示を含めることを推奨します。これにより、エージェントの混乱がエラーにつながるリスクを最小限に抑えられます。例えば、エージェントに「肯定的」や「否定的」といった感情値だけを求めるのではなく、判断できない場合には「不明」を返すように指示します。
 
-ベストプラクティスについては[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)を、エージェントへのプロンプトのインスピレーションについては[例]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples)を参照してください。
+ベストプラクティスについては[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)を、エージェントへのプロンプトのインスピレーションについては[例]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)を参照してください。
 
 {% alert tip %}
 Canvasエージェントの場合、指示文内でLiquidを使用してユーザー属性（名前や姓など）やカスタム属性を参照できます。エージェントの指示内のLiquid変数は、ユーザーがそのステップに入ると自動的にエージェントステップに渡されます。

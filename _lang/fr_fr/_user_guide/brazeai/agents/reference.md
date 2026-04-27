@@ -35,7 +35,7 @@ Pour configurer cette option :
 
 1. Allez dans **Intégrations partenaires** > **Partenaires technologiques** et trouvez votre fournisseur.
 2. Saisissez votre clé API fournie par le fournisseur.
-3. Sélectionnez **Save**.
+3. Sélectionnez **Enregistrer**.
 
 Vous pouvez ensuite retourner à votre agent et sélectionner votre modèle.
 
@@ -48,11 +48,11 @@ Certains fournisseurs de LLM vous permettent d'ajuster le niveau de réflexion d
 | Niveau | Quand l'utiliser |
 |--------|-----------------|
 | **Minimal** | Tâches simples et bien définies (comme la recherche dans un catalogue ou la classification directe). Réponses les plus rapides et coût le plus bas. |
-| **Low** | Tâches qui bénéficient d'un peu plus de raisonnement sans nécessiter d'analyse approfondie. |
-| **Medium** | Tâches à plusieurs étapes ou nuancées (comme l'analyse de plusieurs entrées pour recommander une action). |
-| **High** | Raisonnement complexe, cas particuliers, ou situations où le modèle doit réfléchir aux étapes avant de répondre. |
+| **Faible** | Tâches qui bénéficient d'un peu plus de raisonnement sans nécessiter d'analyse approfondie. |
+| **Moyen** | Tâches à plusieurs étapes ou nuancées (comme l'analyse de plusieurs entrées pour recommander une action). |
+| **Élevé** | Raisonnement complexe, cas particuliers, ou situations où le modèle doit réfléchir aux étapes avant de répondre. |
 
-Nous vous recommandons de commencer par **Minimal** et de tester les réponses de votre agent. Vous pouvez ensuite passer au niveau **Low** ou **Medium** si l'agent a du mal à fournir des réponses précises. Dans de rares cas, un niveau **High** peut être nécessaire, mais sachez que ce niveau peut entraîner des coûts de jetons élevés, des temps de réponse plus longs ou un risque accru d'erreurs de délai d'attente. Si votre agent peine à concilier un raisonnement à plusieurs étapes avec des temps de réponse raisonnables, envisagez de diviser votre cas d'utilisation en plusieurs agents capables de collaborer dans un Canvas ou un catalogue.
+Nous vous recommandons de commencer par **Minimal** et de tester les réponses de votre agent. Vous pouvez ensuite passer au niveau **Faible** ou **Moyen** si l'agent a du mal à fournir des réponses précises. Dans de rares cas, un niveau **Élevé** peut être nécessaire, mais sachez que ce niveau peut entraîner des coûts de jetons élevés, des temps de réponse plus longs ou un risque accru d'erreurs de délai d'attente. Si votre agent peine à concilier un raisonnement à plusieurs étapes avec des temps de réponse raisonnables, envisagez de diviser votre cas d'utilisation en plusieurs agents capables de collaborer dans un Canvas ou un catalogue.
 
 Braze utilise les mêmes plages d'adresses IP pour les appels LLM sortants que pour le Contenu connecté. Ces plages sont répertoriées dans la [liste d'autorisation IP du Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Si votre fournisseur prend en charge la liste d'autorisation IP, vous pouvez restreindre la clé à ces plages afin que seul Braze puisse l'utiliser.
 
