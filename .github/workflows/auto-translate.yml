@@ -60,6 +60,10 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # Lets GITHUB_TOKEN push auto-translate/* PR branches when GitHub applies
+  # workflow-related ref rules to the push (merge-and-publish otherwise can
+  # fail with "refusing … workflows … without workflows permission").
+  workflows: write
 
 # One run at a time: overlapping dispatches can race on the same branch,
 # duplicate PRs, and multiply Anthropic spend. Queued runs start when the
