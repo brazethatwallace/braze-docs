@@ -125,7 +125,7 @@ The report contains all statistics selected in the [Add Stats](#add-statistics-t
 
 #### Mismatched time range
 
-Make sure the dates in the engagement report match the dates in the Canvas or campaign analytics (for example, both cover 12/1 through 12/15), even if the Canvas only sent once. In the engagement report settings, check **Data Display** to confirm you are looking at the correct Canvas or campaign. If **Data Display** is set to show data every *X* days, you get one row per date when metrics were recorded for each step.
+Make sure the dates in the engagement report match the dates in the Canvas or campaign analytics (for example, both cover December 1–15), even if the Canvas only sent once. In the engagement report settings, check **Data Display** to confirm you are looking at the correct Canvas or campaign. If **Data Display** is set to show data every *X* days, you get one row per date when metrics were recorded for each step.
 
 If totals look wrong in a spreadsheet, clear extra filters on the export. You can sum the daily rows to reconcile them with Canvas or campaign totals for the same time range.
 
