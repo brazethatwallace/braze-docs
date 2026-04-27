@@ -93,8 +93,8 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 2. ユーザーをターゲットとしたアプリ内メッセージCampaignを設定します。
 3. アプリケーションで新しいセッションが発生することを確認します。
 4. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使用して、セッション開始時にデバイスがアプリ内メッセージをリクエストしていることを確認します。テストユーザーのセッション開始イベントに関連付けられたSDKリクエストを見つけてください。
-  - トリガーされたアプリ内メッセージをリクエストするためのアプリであれば、**応答データ**の**リクエスト済み応答**フィールドに `trigger` が表示されます。
-  - アプリが元のアプリ内メッセージをリクエストするためのものだった場合、**応答データ**の**リクエスト済み応答**フィールドに `in_app` が表示されます。
+  - トリガーされたアプリ内メッセージをリクエストするためのアプリであれば、**Response Data**の**Requested Responses**フィールドに `trigger` が表示されます。
+  - アプリが元のアプリ内メッセージをリクエストするためのものだった場合、**Response Data**の**Requested Responses**フィールドに `in_app` が表示されます。
 5. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使用して、応答データに正しいアプリ内メッセージが返されているか確認します。<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### リクエストされていないメッセージのトラブルシューティング {#troubleshoot-messages-not-being-requested}
@@ -110,11 +110,11 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 1. Segmentにユーザーが含まれていない。
   - ユーザーの[**エンゲージメント**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab)タブを確認し、**Segments**欄に正しいSegmentが表示されているか確認してください。
 2. ユーザーが以前にアプリ内メッセージを受信しており、再度受信する資格がなかった。
-  - **Campaign作成**ツールの**配信**ステップにある[Campaign再資格設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)を確認し、再資格設定がテスト設定と一致していることを確認してください。
+  - **Campaign Composer**の**Delivery**ステップにある[Campaign再資格設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)を確認し、再資格設定がテスト設定と一致していることを確認してください。
 3. ユーザーがCampaignのフリークエンシーキャップに達した。
   - Campaignの[フリークエンシーキャップ設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping)を確認し、テスト設定と一致していることを確認してください。
 4. Campaignにコントロールグループが存在した場合、ユーザーがコントロールグループに分類された可能性があります。
-  - Campaignバリアントが**コントロール**に設定されている受信Campaignバリアントフィルターでセグメントを作成し、ユーザーがそのSegmentに分類されたかどうかを確認することで、これが発生したかどうかを確認できます。
+  - Campaignバリアントが**Control**に設定されている受信Campaignバリアントフィルターでセグメントを作成し、ユーザーがそのSegmentに分類されたかどうかを確認することで、これが発生したかどうかを確認できます。
   - 連携テスト目的でCampaignを作成する場合は、コントロールグループの追加をオプトアウトしてください。
 
 

@@ -60,9 +60,9 @@
 
 1. 트리거는 세션 시작 시 기기와 동기화하는 데 시간이 걸리므로 사용자가 세션 시작 직후 이벤트 또는 구매를 기록하면 경합 조건이 발생할 수 있습니다. 한 가지 가능한 해결 방법은 세션 시작 시 트리거하도록 Campaign을 변경한 다음, 의도한 이벤트 또는 구매를 기준으로 세그먼트를 나누는 것입니다. 이렇게 하면 이벤트가 발생한 후 다음 세션이 시작될 때 인앱 메시지가 전달됩니다.
 
-2. Campaign이 세션 시작 또는 커스텀 이벤트에 의해 트리거되는 경우, 이 이벤트 또는 세션이 메시지를 트리거할 수 있을 만큼 자주 발생하는지 확인해야 합니다. 이 데이터는 [개요]({{site.baseurl}}/user_guide/data_and_analytics/analytics/understanding_your_app_usage_data/#understanding-your-app-usage-data)(세션 데이터의 경우) 또는 [사용자 지정 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/configuring_reporting/#configuring-reporting) 페이지에서 확인할 수 있습니다:
+2. Campaign이 세션 시작 또는 커스텀 이벤트에 의해 트리거되는 경우, 이 이벤트 또는 세션이 메시지를 트리거할 수 있을 만큼 자주 발생하는지 확인해야 합니다. 이 데이터는 [개요]({{site.baseurl}}/user_guide/data_and_analytics/analytics/understanding_your_app_usage_data/#understanding-your-app-usage-data)(세션 데이터의 경우) 또는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/configuring_reporting/#configuring-reporting) 페이지에서 확인할 수 있습니다:
 
-![한 달 동안 즐겨찾기에 추가 커스텀 이벤트가 발생한 횟수를 그래프로 보여주는 사용자 지정 이벤트 페이지]({% image_buster /assets/img_archive/trouble5.png %})
+![한 달 동안 즐겨찾기에 추가 커스텀 이벤트가 발생한 횟수를 그래프로 보여주는 커스텀 이벤트 페이지]({% image_buster /assets/img_archive/trouble5.png %})
 
 기타 이유는 다음과 같습니다:
 
@@ -93,8 +93,8 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. �
 2. 사용자를 대상으로 인앱 메시지 Campaign을 설정합니다.
 3. 애플리케이션에서 새 세션이 발생하는지 확인합니다.
 4. [이벤트 사용자 로그]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)를 사용하여 기기가 세션 시작 시 인앱 메시지를 요청하고 있는지 확인하세요. 테스트 사용자의 세션 시작 이벤트와 연결된 SDK 요청을 찾습니다.
-  - 앱에서 트리거된 인앱 메시지를 요청하는 경우 **응답 데이터** 아래 **요청된 응답** 필드에 `trigger`가 표시되어야 합니다.
-  - 앱에서 원본 인앱 메시지를 요청하는 경우 **응답 데이터** 아래 **요청된 응답** 필드에 `in_app`이 표시되어야 합니다.
+  - 앱에서 트리거된 인앱 메시지를 요청하는 경우 **Response Data** 아래 **Requested Responses** 필드에 `trigger`가 표시되어야 합니다.
+  - 앱에서 원본 인앱 메시지를 요청하는 경우 **Response Data** 아래 **Requested Responses** 필드에 `in_app`이 표시되어야 합니다.
 5. [이벤트 사용자 로그]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)를 사용하여 응답 데이터에서 올바른 인앱 메시지가 반환되고 있는지 확인하세요.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### 요청되지 않는 메시지 문제 해결 {#troubleshoot-messages-not-being-requested}
@@ -110,7 +110,7 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. �
 1. Segment에 사용자가 포함되어 있지 않습니다.
   - 사용자의 [**참여**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) 탭을 확인하여 **Segments** 아래에 올바른 Segment가 나타나는지 확인하세요.
 2. 사용자가 이전에 인앱 메시지를 받은 적이 있으며 다시 받을 자격이 없습니다.
-  - **Campaign 작성기**의 **전달** 단계에서 [Campaign 재자격 설정]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)을 확인하고 재자격 설정이 테스트 설정과 일치하는지 확인하세요.
+  - **Campaign Composer**의 **Delivery** 단계에서 [Campaign 재자격 설정]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)을 확인하고 재자격 설정이 테스트 설정과 일치하는지 확인하세요.
 3. 사용자가 Campaign의 빈도 제한에 도달했습니다.
   - Campaign [빈도 제한 설정]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping)을 확인하고 테스트 설정과 일치하는지 확인하세요.
 4. Campaign에 대조군이 있는 경우 사용자가 대조군에 속했을 수 있습니다.

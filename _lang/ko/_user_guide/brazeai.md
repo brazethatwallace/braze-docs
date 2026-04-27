@@ -50,4 +50,5 @@ guide_featured_list:
     link: /docs/user_guide/messaging/ab_testing/optimizations
     image: /assets/img/braze_icons/trophy-01.svg
 ---
+
 <br>

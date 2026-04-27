@@ -19,7 +19,7 @@ user_menu_list:
     bg_color: '#F8D3E8'
     link: /docs/user_guide/administer/personal/accessing_your_account/
     description: Inicia sesión con SSO o tu URL de Braze y soluciona problemas
-  - name: Crear un Canvas
+  - name: Crea un Canvas
     bg_color: '#FFD4BC'
     link: /docs/user_guide/messaging/canvas/create_a_canvas/
     image: /assets/img/braze_icons/users-01-braze-orange-dark.svg
@@ -36,7 +36,7 @@ popular_topic_list:
     link: /docs/user_guide/data/unification/cloud_ingestion/
   - name: Mensajes dentro de la aplicación
     link: /docs/user_guide/channels/in_app_messages/
-  - name: Tarjetas de contenido
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards/
   - name: Eventos de interacción con mensajes
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/

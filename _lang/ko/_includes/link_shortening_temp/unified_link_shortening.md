@@ -1,4 +1,4 @@
-링크 단축을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집할 수 있어, 사용자가 Campaigns에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 참여 측정기준을 제공합니다.
+링크 단축을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집할 수 있어, 사용자가 캠페인에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 참여 측정기준을 제공합니다.
 
 링크 단축은 Campaigns와 Canvases 모두에서 [메시지 배리언트 수준]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign)에서 활성화할 수 있습니다. 링크 단축이 활성화되면 클릭 시 Currents를 통해 전송되는 [SMS 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)가 생성됩니다.
 

@@ -109,9 +109,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Feature-Flags anzeigen | `view_feature_flags` |
 | Feature-Flags bearbeiten | `edit_feature_flags` |
 | Feature-Flags archivieren | `archive_feature_flags` |
-| Segments anzeigen | `view_segments` |
-| Segments bearbeiten | `edit_segments` |
-| Segments archivieren | `archive_segments` |
+| Segmente anzeigen | `view_segments` |
+| Segmente bearbeiten | `edit_segments` |
+| Segmente archivieren | `archive_segments` |
 | Globale Kontrollgruppe anzeigen | `view_global_control_group` |
 | Globale Kontrollgruppe bearbeiten | `edit_global_control_group` |
 | IAM-Templates anzeigen | `view_iam_templates` |
@@ -142,8 +142,8 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Mehrsprachige Einstellungen anzeigen | `view_multi_language_settings` |
 | BrazeAI Operator<sup>TM</sup> verwenden | `use_operator` |
 | Decisioning-Studio-Agenten anzeigen | `view_decisioning_studio_agents` |
-| Decisioning-Studio-Zielgruppe anzeigen | `view_decisioning_studio_audience` |
-| Decisioning-Studio-Konversionsereignis anzeigen | `view_decisioning_studio_conversion_event` |
+| Decisioning-Studio-Zielgruppe anzeigen |`view_decisioning_studio_audience` |
+| Decisioning-Studio-Konversions-Event anzeigen | `view_decisioning_studio_conversion_event` |
 | Decisioning-Studio-Leitlinien anzeigen | `view_decisioning_studio_guardrails` |
 | Campaigns starten | `launch_campaigns` |
 | Canvases starten | `launch_canvases` |
@@ -224,8 +224,8 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Feature-Flags anzeigen | `view_feature_flags` |
 | Feature-Flags bearbeiten | `edit_feature_flags` |
 | Feature-Flags archivieren | `archive_feature_flags` |
-| Segments anzeigen | `view_segments` |
-| Segments bearbeiten | `edit_segments` |
+| Segmente anzeigen | `view_segments` |
+| Segmente bearbeiten | `edit_segments` |
 | Globale Kontrollgruppe bearbeiten | `edit_global_control_group` |
 | IAM-Templates anzeigen | `view_iam_templates` |
 | IAM-Templates bearbeiten | `edit_iam_templates` |

@@ -21,7 +21,7 @@ Nutzerdaten fließen über viele Eingänge in Braze ein. Erfassen und konsolidie
 
 ### Aktivieren Sie Ihre Daten {#activate-your-data}
 
-Bereinigen, organisieren und bereiten Sie Ihre Daten für die Nutzung vor. Dazu gehört, das Verhalten und die Präferenzen Ihrer Kund:innen in Realtime über Nutzerprofile und Segments zu verstehen. Referenzieren Sie das [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) bei der Erstellung zielgerichteter Nachrichten und verwenden Sie [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/), um Ihre Nachrichten mit Produkt- oder Inhaltsdaten anzureichern. Identifizieren Sie, wie Ihre Kund:innen auf diese personalisierten Erlebnisse reagieren.
+Bereinigen, organisieren und bereiten Sie Ihre Daten für die Nutzung vor. Dazu gehört, das Verhalten und die Präferenzen Ihrer Kund:innen in Realtime über Nutzerprofile und Segmente zu verstehen. Nutzen Sie das [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) bei der Erstellung zielgerichteter Nachrichten und verwenden Sie [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/), um Ihre Nachrichten mit Produkt- oder Inhaltsdaten anzureichern. Identifizieren Sie, wie Ihre Kund:innen auf diese personalisierten Erlebnisse reagieren.
 
 ### Verteilen Sie Ihre Daten {#distribute-your-data}
 
@@ -41,7 +41,7 @@ Daten spielen eine entscheidende Rolle bei der Verbesserung Ihrer Customer-Engag
 - **Stream-Processing-Architektur:** Sie können Aktionen für jeden Datenpunkt triggern, der in Braze aufgenommen wird – für Segmentierung, Orchestrierung und Personalisierung.
 {% enddetails %}
 
-{% details Agilität der Daten steigern, um die Performance zu verbessern %}
+{% details Datenagilität steigern, um die Performance zu verbessern %}
 - **Flexibler Aufbau von Zielgruppen:** Verringern Sie die Abhängigkeit von technischen Teams bei der Erstellung von Zielgruppen und liefern Sie personalisiertes Customer-Engagement in großem Umfang.
 - **Geschwindigkeit und Performance:** Engagement-Daten und Insights werden in Realtime bereitgestellt, was iteratives, effektives Customer-Engagement sowie umfassendere Geschäftsentscheidungen unterstützt.
 {% enddetails %}

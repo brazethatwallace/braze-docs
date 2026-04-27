@@ -54,7 +54,7 @@ Ce comportement est attendu et peut se produire dans les cas suivants :
 - Même si la rééligibilité est désactivée, les utilisateurs ayant reçu la campagne peuvent posséder plusieurs appareils. Le déclencheur de la campagne se met à jour au prochain démarrage de session, de sorte qu'un appareil ne saura pas si un autre appareil a déjà déclenché la campagne tant que l'utilisateur n'aura pas démarré une nouvelle session.
 - Si votre message in-app comporte un délai planifié de quelques minutes après l'événement déclencheur, les utilisateurs peuvent avoir reçu le message plus d'une fois.
 
-Pour plus d'informations sur la rééligibilité, consultez [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/reeligibility/).
+Pour plus d'informations sur la rééligibilité, consultez [Rééligibilité pour les Campaigns et les Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/reeligibility/).
 
 ### Les impressions sont inférieures à la valeur attendue {#impressions-are-lower-than-expected}
 
@@ -72,7 +72,7 @@ Autres raisons possibles :
 
 ### Les impressions sont plus faibles qu'auparavant {#impressions-are-lower-than-they-used-to-be}
 
-1. Assurez-vous que personne n'a modifié involontairement le segment ou la campagne depuis le lancement. Nos journaux des modifications des segments et des campagnes vous informeront sur les changements effectués, qui les a faits et quand.
+1. Assurez-vous que personne n'a modifié involontairement le segment ou la campagne depuis le lancement. Nos journaux des modifications des segments et des Campaigns vous informeront sur les changements effectués, qui les a faits et quand.
 
 ![Lien pour afficher le journal des modifications sur la page Détails de la campagne avec sept changements depuis que l'utilisateur a consulté la campagne pour la dernière fois]({% image_buster /assets/img_archive/trouble4.png %})
 
@@ -93,8 +93,8 @@ Le SDK demande des messages in-app aux serveurs Braze au démarrage de la sessio
 2. Configurez une campagne de messages in-app ciblée pour votre utilisateur.
 3. Assurez-vous qu'une nouvelle session se produit dans votre application.
 4. Utilisez le [journal des événements utilisateurs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) pour vérifier que votre appareil demande des messages in-app au début de la session. Recherchez la requête SDK associée à l'événement de démarrage de session de votre utilisateur test.
-  - Si votre application était censée demander des messages in-app déclenchés, vous devriez voir `trigger` dans le champ **Réponses demandées** sous **Données de réponse**.
-  - Si votre application était censée demander des messages in-app originaux, vous devriez voir `in_app` dans le champ **Réponses demandées** sous **Données de réponse**.
+  - Si votre application était censée demander des messages in-app déclenchés, vous devriez voir `trigger` dans le champ **Requested Responses** sous **Response Data**.
+  - Si votre application était censée demander des messages in-app originaux, vous devriez voir `in_app` dans le champ **Requested Responses** sous **Response Data**.
 5. Utilisez le [journal des événements utilisateurs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) pour vérifier si les messages in-app appropriés sont renvoyés dans les données de réponse.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### Résoudre les problèmes de messages non demandés {#troubleshoot-messages-not-being-requested}
@@ -110,12 +110,12 @@ Si les messages in-app ne sont pas renvoyés, vous rencontrez probablement un pr
 1. Votre segment ne contient pas votre utilisateur.
   - Vérifiez l'onglet [**Engagement**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) de votre utilisateur pour vous assurer que le segment approprié apparaît sous **Segments**.
 2. Votre utilisateur a déjà reçu le message in-app et n'était pas rééligible pour le recevoir à nouveau.
-  - Vérifiez les [paramètres de rééligibilité de la campagne]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) dans l'étape **Réception/distribution** du **Compositeur de campagne** et assurez-vous que les paramètres de rééligibilité correspondent à votre configuration de test.
+  - Vérifiez les [paramètres de rééligibilité de la campagne]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) dans l'étape **Delivery** du **Campaign Composer** et assurez-vous que les paramètres de rééligibilité correspondent à votre configuration de test.
 3. Votre utilisateur a atteint la limite de fréquence pour la campagne.
   - Vérifiez les [paramètres de limite de fréquence]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping) de la campagne et assurez-vous qu'ils correspondent à votre configuration de test.
 4. Si un groupe de contrôle a été créé pour la campagne, votre utilisateur peut être tombé dans le groupe de contrôle.
-  - Vous pouvez vérifier si cela s'est produit en créant un segment avec un filtre de variante de campagne reçue, où la variante de campagne est définie sur **Contrôle**, et en vérifiant si votre utilisateur fait partie de ce segment.
-  - Lors de la création de campagnes à des fins de test d'intégration, veillez à désactiver l'ajout d'un groupe de contrôle.
+  - Vous pouvez vérifier si cela s'est produit en créant un segment avec un filtre de variante de campagne reçue, où la variante de campagne est définie sur **Control**, et en vérifiant si votre utilisateur fait partie de ce segment.
+  - Lors de la création de Campaigns à des fins de test d'intégration, veillez à désactiver l'ajout d'un groupe de contrôle.
 
 
 ### Résolution des problèmes d'affichage {#troubleshooting-in-app-message-display}

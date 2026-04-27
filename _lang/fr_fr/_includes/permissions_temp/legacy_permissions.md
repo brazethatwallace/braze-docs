@@ -11,7 +11,7 @@ Utilisez les ensembles d'autorisations pour regrouper les autorisations liées �
 |Nom|Autorisations|
 |-----------|----------------|
 |Développeurs|« Accéder à la console de développement »|
-|Marketeurs|« Accéder aux Campaigns, aux Canvas, aux cartes, aux indicateurs de fonctionnalité, aux Segments, à la bibliothèque multimédia et aux centres de préférences » <br> « Gérer les ressources de la bibliothèque multimédia »|
+|Marketeurs|« Accéder aux campagnes, aux Canvas, aux cartes, aux indicateurs de fonctionnalité, aux segments, à la bibliothèque multimédia et aux centres de préférences » <br> « Gérer les ressources de la bibliothèque multimédia »|
 |Gestion des utilisateurs|« Gérer les utilisateurs du tableau de bord » <br> « Gérer les équipes »|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
@@ -25,8 +25,8 @@ Les rôles permettent une meilleure structuration en regroupant vos autorisation
 {% tab example roles %}
 | Nom du rôle    | Espace de travail | Autorisations
 ----------- | ----------- | ---------
-| Marketeur - Marques de mode | {::nomarkdown}[DEV] Marque de mode, [QA] Marque de mode, [PROD] Marque de mode {:/} | « Accéder aux Campaigns, aux Canvas, aux cartes, aux indicateurs de fonctionnalité, aux Segments, à la bibliothèque multimédia et au centre de préférences »<br>« Gérer les ressources de la bibliothèque multimédia » |
-| Marketeur - Marques de soins de la peau | {::nomarkdown}[DEV] Marque de soins de la peau, [QA] Marque de soins de la peau, [PROD] Marque de soins de la peau {:/} | « Accéder aux Campaigns, aux Canvas, aux cartes, aux indicateurs de fonctionnalité, aux Segments, à la bibliothèque multimédia et aux centres de préférences » <br>« Gérer les ressources de la bibliothèque multimédia » |
+| Marketeur - Marques de mode | {::nomarkdown}[DEV] Marque de mode, [QA] Marque de mode, [PROD] Marque de mode {:/} | « Accéder aux campagnes, aux Canvas, aux cartes, aux indicateurs de fonctionnalité, aux segments, à la bibliothèque multimédia et au centre de préférences »<br>« Gérer les ressources de la bibliothèque multimédia » |
+| Marketeur - Marques de soins de la peau | {::nomarkdown}[DEV] Marque de soins de la peau, [QA] Marque de soins de la peau, [PROD] Marque de soins de la peau {:/} | « Accéder aux campagnes, aux Canvas, aux cartes, aux indicateurs de fonctionnalité, aux segments, à la bibliothèque multimédia et aux centres de préférences » <br>« Gérer les ressources de la bibliothèque multimédia » |
 | Gestion des utilisateurs - Toutes les marques | {::nomarkdown}[DEV] Marque de mode, [QA] Marque de mode, [PROD] Marque de mode, [DEV] Marque de soins de la peau, [QA] Marque de soins de la peau, [PROD] Marque de soins de la peau {:/} | « Gérer les utilisateurs du tableau de bord »<br>« Gérer les équipes » |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
@@ -57,7 +57,7 @@ Les utilisateurs limités disposent d'autorisations spécifiques qui leur permet
 | --- | --- |
 | Administrateur du groupe d'applications | Les administrateurs de groupes d'applications disposent d'autorisations spécifiques à la gestion des groupes d'applications, mais n'ont pas les mêmes prérogatives que les administrateurs d'entreprise. Les utilisateurs limités peuvent hériter d'autorisations similaires à celles des administrateurs de groupes d'applications s'ils disposent des autorisations nécessaires. |
 | Administrateur d'entreprise | Les administrateurs d'entreprise disposent d'autorisations plus étendues, notamment la possibilité de supprimer des utilisateurs du tableau de bord. Cependant, ils ne peuvent pas supprimer leur propre compte et doivent contacter un autre administrateur d'entreprise pour cette action. |
-| Autorisation de lecture seule de base | Pour accéder à certaines parties du tableau de bord, telles que la page Partenaires technologiques, les utilisateurs doivent disposer d'une autorisation de base en lecture seule. Cela implique d'activer l'option « Gérer les intégrations externes » et d'accorder les autorisations d'accès aux Campaigns, aux Canvas, aux cartes, aux Segments et à la bibliothèque multimédia. |
+| Autorisation de lecture seule de base | Pour accéder à certaines parties du tableau de bord, telles que la page Partenaires technologiques, les utilisateurs doivent disposer d'une autorisation de base en lecture seule. Cela implique d'activer l'option « Gérer les intégrations externes » et d'accorder les autorisations d'accès aux campagnes, aux Canvas, aux cartes, aux segments et à la bibliothèque multimédia. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Erreur d'accès restreint {#limited-access-error}
@@ -85,7 +85,7 @@ Les administrateurs ont accès à toutes les fonctionnalités et peuvent modifie
 - Ajouter, modifier, supprimer, suspendre ou réactiver d'autres [utilisateurs de Braze]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/)
 - Exporter les utilisateurs de Braze au format CSV
 
-Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **Cet utilisateur est un administrateur**, puis sélectionnez **Mettre à jour l'utilisateur**.
+Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **This user is an admin**, puis sélectionnez **Update user**.
 
 ![Les détails de l'utilisateur sélectionné avec la case à cocher admin mise en évidence.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
@@ -98,7 +98,7 @@ Si vous retirez les privilèges d'administrateur à un utilisateur, celui-ci ne 
 
 ### Entreprise {#company}
 
-Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilisateur, cochez ou décochez la case en regard de l'autorisation concernée. Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilisateur, cochez ou décochez la case en regard de l'autorisation concernée. Lorsque vous avez terminé, sélectionnez **Update user**.
 
 |Nom de l'autorisation|Description|
 |----------|-----------|
@@ -111,25 +111,25 @@ Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilis
 
 ### Espace de travail {#workspace}
 
-Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer ses autorisations au niveau de l'espace de travail, sélectionnez **Sélectionner les espaces de travail et les autorisations**, puis choisissez manuellement les autorisations ou attribuez un ensemble d'autorisations [que vous avez précédemment créé]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=legacy%20permissions#legacypermissions_creating-a-permission-set).
+Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer ses autorisations au niveau de l'espace de travail, sélectionnez **Select workspaces and permissions**, puis choisissez manuellement les autorisations ou attribuez un ensemble d'autorisations [que vous avez précédemment créé]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=legacy%20permissions#legacypermissions_creating-a-permission-set).
 
 Si vous devez attribuer à un utilisateur des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour obtenir une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=legacy%20permissions#legacypermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Autorisations**, choisissez une ou plusieurs autorisations dans la liste déroulante. Braze n'attribue ces autorisations qu'aux espaces de travail que vous avez sélectionnés. Vous pouvez également sélectionner **Activer l'accès administrateur** si vous souhaitez accorder toutes les autorisations pour cet espace de travail.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Permissions**, choisissez une ou plusieurs autorisations dans la liste déroulante. Braze n'attribue ces autorisations qu'aux espaces de travail que vous avez sélectionnés. Vous pouvez également sélectionner **Enable Admin Access** si vous souhaitez accorder toutes les autorisations pour cet espace de travail.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Les autorisations au niveau de l'espace de travail sont sélectionnées manuellement dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual_legacy.png %})
 
 {% endsubtab %}
 {% subtab Assign permission set %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Ensembles d'autorisations**, choisissez un ensemble d'autorisations. Braze n'attribue ces autorisations qu'aux espaces de travail que vous avez sélectionnés.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Permission Sets**, choisissez un ensemble d'autorisations. Braze n'attribue ces autorisations qu'aux espaces de travail que vous avez sélectionnés.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail attribuées via un ensemble d'autorisations dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set_legacy.png %})
 
@@ -140,9 +140,9 @@ Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
 
 ## Exporter les autorisations des utilisateurs {#exporting-user-permissions}
 
-Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Exporter les utilisateurs**. Un fichier CSV sera envoyé à votre adresse e-mail dans les plus brefs délais.
+Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Export Users**. Un fichier CSV sera envoyé à votre adresse e-mail dans les plus brefs délais.
 
-![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Exporter les utilisateurs » mise en évidence.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » mise en évidence.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## Liste des autorisations {#list-of-permissions}
 
@@ -151,13 +151,13 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 |Admin|Admin|Permet aux utilisateurs d'accéder à toutes les fonctionnalités disponibles. Il s'agit du paramètre par défaut pour tous les nouveaux utilisateurs. Peut mettre à jour les paramètres de l'entreprise (nom de l'entreprise et fuseau horaire), ce que les utilisateurs limités ne peuvent pas faire.|
 |Entreprise|Créer et supprimer des espaces de travail|Permet aux utilisateurs de créer et de supprimer des espaces de travail.|
 |Entreprise|Gérer les paramètres de l'entreprise|Permet aux utilisateurs de modifier n'importe quel paramètre de l'entreprise.|
-|Espace de travail|Accéder aux Campaigns, aux Canvas, aux cartes, aux Content Blocks, aux indicateurs de fonctionnalité, aux Segments, à la bibliothèque multimédia, aux emplacements, aux codes de promotion et aux centres de préférences|Permet aux utilisateurs de consulter les indicateurs de performance des Campaigns et des Canvas, de créer et de dupliquer des brouillons de Campaigns et de Canvas, de modifier des brouillons et des modèles de Campaigns et de Canvas, de consulter des brouillons de Segments, des modèles et des médias, de créer des modèles, de télécharger des médias, de créer ou de mettre à jour des listes de codes de promotion, de consulter les rapports d'engagement et de consulter les paramètres généraux des messages dans le tableau de bord. Cependant, les utilisateurs disposant de cette autorisation ne peuvent pas suspendre ni modifier le contenu en ligne existant.<br><br> Lorsque cette autorisation est configurée en tant qu'[autorisation d'équipe]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/), si des Campaigns ou des Canvas dans le [rapport d'engagement]({{site.baseurl}}/user_guide/analytics/reporting/engagement_reports/) ne font pas partie des équipes attribuées à un utilisateur ou n'ont aucune équipe attribuée, le rapport est masqué pour cet utilisateur.|
+|Espace de travail|Accéder aux campagnes, aux Canvas, aux cartes, aux Content Blocks, aux indicateurs de fonctionnalité, aux segments, à la bibliothèque multimédia, aux emplacements, aux codes de promotion et aux centres de préférences|Permet aux utilisateurs de consulter les indicateurs de performance des campagnes et des Canvas, de créer et de dupliquer des brouillons de campagnes et de Canvas, de modifier des brouillons et des modèles de campagnes et de Canvas, de consulter des brouillons de segments, des modèles et des médias, de créer des modèles, de télécharger des médias, de créer ou de mettre à jour des listes de codes de promotion, de consulter les rapports d'engagement et de consulter les paramètres généraux des messages dans le tableau de bord. Cependant, les utilisateurs disposant de cette autorisation ne peuvent pas suspendre ni modifier le contenu en ligne existant.<br><br> Lorsque cette autorisation est configurée en tant qu'[autorisation d'équipe]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/), si des campagnes ou des Canvas dans le [rapport d'engagement]({{site.baseurl}}/user_guide/analytics/reporting/engagement_reports/) ne font pas partie des équipes attribuées à un utilisateur ou n'ont aucune équipe attribuée, le rapport est masqué pour cet utilisateur.|
 |Espace de travail|Accéder à la console de développement|Permet un accès complet aux paramètres et journaux suivants :{::nomarkdown}<ul><li><a href='/docs/user_guide/administrative/app_settings/api_settings_tab/'>Clés API</a></li><li><a href='/docs/user_guide/administrative/app_settings/internal_groups_tab/'>Groupes internes</a></li><li><a href='/docs/user_guide/administrative/app_settings/message_activity_log_tab/'>Journal d'activité des messages</a></li><li><a href='/docs/user_guide/administrative/app_settings/event_user_log_tab/'>Journal des événements utilisateurs</a></li></ul>{:/}|
-|Espace de travail|Approuver et refuser des Campaigns|Permet aux utilisateurs d'approuver ou de refuser des Campaigns. Le [processus d'approbation des Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement disponible en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé.|
+|Espace de travail|Approuver et refuser des campagnes|Permet aux utilisateurs d'approuver ou de refuser des campagnes. Le [processus d'approbation des campagnes]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement disponible en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé.|
 |Espace de travail|Approuver et refuser des Canvas|Permet aux utilisateurs d'approuver ou de refuser des Canvas. Le [processus d'approbation des Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique.|
 |Espace de travail|Modifier les intégrations Currents|Permet aux utilisateurs de modifier une connexion Currents, y compris les informations d'identification. Par défaut, les utilisateurs auxquels est attribuée l'autorisation « Intégrations externes » se voient également attribuer cette autorisation.|
-|Espace de travail|Modifier les Segments|Permet aux utilisateurs de créer et de modifier des Segments. Vous pouvez toujours créer des Campaigns avec des Segments et des filtres existants sans cette autorisation. Vous avez besoin de cette autorisation pour générer un Segment à partir d'utilisateurs dans un fichier CSV ou recibler le groupe d'utilisateurs dans le fichier CSV.|
-|Espace de travail|Exporter les données utilisateur|Permet aux utilisateurs d'exporter leurs données utilisateur à partir des Segments, des Campaigns et des Canvas. Cette autorisation inclut des informations sensibles sur les utilisateurs, telles que les noms, les adresses e-mail et d'autres informations personnelles identifiables (IPI) collectées. Pour exporter des fichiers CSV depuis le tableau de bord, vous devez disposer de cette autorisation ainsi que de l'autorisation « Afficher les IPI ».|
+|Espace de travail|Modifier les segments|Permet aux utilisateurs de créer et de modifier des segments. Vous pouvez toujours créer des campagnes avec des segments et des filtres existants sans cette autorisation. Vous avez besoin de cette autorisation pour générer un segment à partir d'utilisateurs dans un fichier CSV ou recibler le groupe d'utilisateurs dans le fichier CSV.|
+|Espace de travail|Exporter les données utilisateur|Permet aux utilisateurs d'exporter leurs données utilisateur à partir des segments, des campagnes et des Canvas. Cette autorisation inclut des informations sensibles sur les utilisateurs, telles que les noms, les adresses e-mail et d'autres informations personnelles identifiables (IPI) collectées. Pour exporter des fichiers CSV depuis le tableau de bord, vous devez disposer de cette autorisation ainsi que de l'autorisation « Afficher les IPI ».|
 |Espace de travail|Importer et mettre à jour les données utilisateur|Permet aux utilisateurs d'importer des fichiers CSV et de mettre à jour les fichiers des utilisateurs d'applications, ainsi que de consulter la page d'importation d'utilisateurs. Cela permet également de modifier le statut d'abonnement d'un utilisateur et les règles d'abonnement/de désabonnement de son groupe d'abonnement.|
 |Espace de travail|Lancer et gérer les Content Blocks|Permet aux utilisateurs de lancer et de gérer des [Content Blocks]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/).|
 |Espace de travail|Lancer les centres de préférences|Permet aux utilisateurs de lancer des [centres de préférences]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/).|
@@ -170,14 +170,14 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 |Espace de travail|Gérer les indicateurs de fonctionnalité|Permet aux utilisateurs de créer ou de modifier des [indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/).|
 |Espace de travail|Gérer les ressources de la bibliothèque multimédia|Permet aux utilisateurs d'ajouter, de modifier et de supprimer des ressources de la bibliothèque multimédia.|
 |Espace de travail|Gérer les groupes d'abonnement|Permet aux utilisateurs de créer et de gérer des groupes d'abonnement.|
-|Espace de travail|Gérer les étiquettes|Permet aux utilisateurs de modifier ou de supprimer des étiquettes (sous **Gestion des balises**). Vous n'avez pas besoin de cette autorisation pour ajouter des étiquettes aux Campaigns ou aux Segments.|
+|Espace de travail|Gérer les étiquettes|Permet aux utilisateurs de modifier ou de supprimer des étiquettes (sous **Gestion des balises**). Vous n'avez pas besoin de cette autorisation pour ajouter des étiquettes aux campagnes ou aux segments.|
 |Espace de travail|Gérer les équipes|Permet aux utilisateurs de gérer les **équipes internes**. La possibilité de sélectionner cette autorisation dépend de votre contrat avec Braze.<br><br>Ceci correspond à l'autorisation héritée `MANAGE_TERRITORIES`.|
 |Espace de travail|Gérer les transformations|Permet aux utilisateurs de créer et de gérer des transformations de données.|
-|Espace de travail|Envoyer des Campaigns et des Canvas|Permet aux utilisateurs de modifier, d'archiver et d'arrêter des Campaigns et des Canvas, de créer des Campaigns et de lancer des Canvas.|
+|Espace de travail|Envoyer des campagnes et des Canvas|Permet aux utilisateurs de modifier, d'archiver et d'arrêter des campagnes et des Canvas, de créer des campagnes et de lancer des Canvas.|
 |Espace de travail|Afficher les détails de facturation|Permet aux utilisateurs de consulter les abonnements et la facturation.|
-|Espace de travail|Voir l'intégration Currents|Permet aux utilisateurs de consulter toutes les informations relatives à une connexion Currents, à l'exception des informations d'identification. Par défaut, cette autorisation est également attribuée aux utilisateurs disposant de l'autorisation « Accéder aux Campaigns, aux Canvas, aux cartes, aux Content Blocks, aux indicateurs de fonctionnalité, aux Segments, à la bibliothèque multimédia, aux emplacements, aux codes de promotion et aux centres de préférences ».|
+|Espace de travail|Voir l'intégration Currents|Permet aux utilisateurs de consulter toutes les informations relatives à une connexion Currents, à l'exception des informations d'identification. Par défaut, cette autorisation est également attribuée aux utilisateurs disposant de l'autorisation « Accéder aux campagnes, aux Canvas, aux cartes, aux Content Blocks, aux indicateurs de fonctionnalité, aux segments, à la bibliothèque multimédia, aux emplacements, aux codes de promotion et aux centres de préférences ».|
 |Espace de travail|Afficher les attributs personnalisés marqués comme IPI|Permet aux utilisateurs non administrateurs de consulter les attributs personnalisés qui contiennent des informations sensibles et sont marqués comme des informations personnelles identifiables (IPI).|
-|Espace de travail|Afficher les IPI|Permet aux utilisateurs de consulter les champs d'informations personnelles identifiables (IPI) tels que définis par votre entreprise dans le tableau de bord. Les utilisateurs peuvent également consulter les champs IPI dans l'onglet **Prévisualiser en tant qu'utilisateur** des aperçus de messages.<br><br>Vous avez besoin de cette autorisation pour utiliser le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/query_builder/building_queries/), car il permet d'accéder directement à certaines données clients. Pour exporter des fichiers CSV depuis le tableau de bord, les utilisateurs doivent disposer à la fois de cette autorisation et de l'autorisation « Exporter les données utilisateur ».|
+|Espace de travail|Afficher les IPI|Permet aux utilisateurs de consulter les champs d'informations personnelles identifiables (IPI) tels que définis par votre entreprise dans le tableau de bord. Les utilisateurs peuvent également consulter les champs IPI dans l'onglet **Preview as a User** des aperçus de messages.<br><br>Vous avez besoin de cette autorisation pour utiliser le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/query_builder/building_queries/), car il permet d'accéder directement à certaines données clients. Pour exporter des fichiers CSV depuis le tableau de bord, les utilisateurs doivent disposer à la fois de cette autorisation et de l'autorisation « Exporter les données utilisateur ».|
 |Espace de travail|Voir les profils utilisateur conformes aux IPI|Permet aux utilisateurs de consulter des profils utilisateur contenant des champs que votre entreprise a définis comme des informations personnelles identifiables (IPI), tout en masquant les champs IPI.<br><br>Vous avez besoin de cette autorisation pour utiliser l'outil de recherche d'utilisateurs.|
 |Espace de travail|Afficher les transformations|Permet aux utilisateurs de consulter les [transformations de données de Braze]({{site.baseurl}}/user_guide/data/data_transformation/overview/).|
 |Espace de travail|Afficher les données d'utilisation|Permet aux utilisateurs de consulter l'utilisation de l'application, y compris les tableaux de bord des performances des canaux.|
@@ -186,7 +186,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 |Espace de travail|Créer et modifier des modèles Canvas|Permet aux utilisateurs de créer et de modifier des modèles Canvas.|
 |Espace de travail|Afficher les modèles Canvas|Permet aux utilisateurs de consulter les modèles Canvas.|
 |Espace de travail|Archiver les modèles Canvas|Permet aux utilisateurs d'archiver des modèles Canvas.|
-|Espace de travail|Gérer la segmentation des propriétés d'événements personnalisés|Permet aux utilisateurs de créer des Segments basés sur la récurrence et la fréquence des propriétés d'événement.|
+|Espace de travail|Gérer la segmentation des propriétés d'événements personnalisés|Permet aux utilisateurs de créer des segments basés sur la récurrence et la fréquence des propriétés d'événement.|
 |Espace de travail|Publier des pages d'accueil|Permet aux utilisateurs de publier des [pages d'accueil]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/).|
 |Espace de travail|Créer des brouillons de pages d'accueil|Permet aux utilisateurs de créer et d'enregistrer des brouillons de pages d'accueil.|
 |Espace de travail|Accéder aux pages d'accueil|Permet aux utilisateurs d'accéder à la page **Pages d'accueil**.|

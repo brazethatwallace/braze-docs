@@ -6,7 +6,7 @@ Avant de créer des modèles WhatsApp, vous devez avoir terminé la [configurati
     - Pour que les utilisateurs puissent créer de nouveaux modèles dans le générateur de modèles :
         - « View WhatsApp Message Templates »
         - « Edit WhatsApp Message Templates »
-    - Pour que les utilisateurs puissent rédiger des campaigns ou des Canvas avec des modèles carrousel :
+    - Pour que les utilisateurs puissent rédiger des campagnes ou des Canvas avec des modèles carrousel :
         - « View WhatsApp Message Templates »
 - Une connaissance de la création de modèles Liquid (facultatif, pour le contenu dynamique)
 

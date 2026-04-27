@@ -4,7 +4,7 @@ article_title: メッセージング
 page_order: 4.5
 layout: dev_guide
 guide_top_header: "メッセージング"
-guide_top_text: "CampaignsやCanvases全体でメッセージングを作成、管理、最適化しましょう。メッセージングの基本を学び、コンテンツをパーソナライズし、AB テストを設定し、ランディングページを構築してコミュニケーションを拡大できます。"
+guide_top_text: "CampaignsやCanvases全体でメッセージングを作成、管理、最適化しましょう。メッセージングの基本を学び、コンテンツをパーソナライズし、A/Bテストを設定し、ランディングページを構築してコミュニケーションを拡大できます。"
 
 page_type: landing
 description: "BrazeのCampaignsやCanvases全体でメッセージングを作成、管理、最適化します。"
@@ -29,7 +29,7 @@ guide_featured_list:
   - name: テンプレート
     link: /docs/user_guide/messaging/templates
     image: /assets/img/braze_icons/table.svg
-  - name: "AB テスト"
+  - name: "A/Bテスト"
     link: /docs/user_guide/messaging/ab_testing
     image: /assets/img/braze_icons/beaker-02.svg
   - name: フィーチャーフラグ
