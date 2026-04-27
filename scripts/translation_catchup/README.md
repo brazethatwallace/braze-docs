@@ -69,6 +69,15 @@ For ~1000+ files this is one very large job (API + Jekyll). Prefer **Option B** 
 
 4. On the **last** batch (or a dedicated run), set `skip_orphan_cleanup` to **false** so `clean_orphaned_translations.py` runs once `_lang/` mirrors the new English IA.
 
+5. **Orphan cleanup only (no translation)** — After batched runs with `skip_orphan_cleanup=true`, run **Auto-translate** on `develop` with **`orphan_cleanup_only`** set to **true** and **`files`** / **`since_commit`** left empty. That opens a PR that only deletes stale `_lang/` mirrors (plus duplicate-alias check). Requires the workflow version on `develop` that defines this input.
+
+   ```bash
+   gh workflow run auto-translate.yml --repo braze-inc/braze-docs --ref develop \
+     -f orphan_cleanup_only=true
+   ```
+
+   Queue this **after** any in-flight translate run finishes (same workflow concurrency group).
+
 ## Phase order (IA / `_user_guide`)
 
 Generated batches follow:
