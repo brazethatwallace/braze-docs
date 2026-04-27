@@ -28,9 +28,7 @@ This integration is purely to update Salesforce from Braze as part of your lead 
 
 ## Prerequisites
 
-{% alert important %}
 Before you can proceed with this integration, Salesforce Support must give you the ability to create connected apps. You can request this by submitting a [Salesforce Support request](https://help.salesforce.com/s/articleView?id=005167035&type=1).
-{% endalert %}
 
 This integration requires you to create a connected app in Salesforce Sales Cloud by following the steps in the Salesforce documentation: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
