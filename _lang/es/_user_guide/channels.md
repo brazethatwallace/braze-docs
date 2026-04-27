@@ -4,7 +4,7 @@ article_title: Canales
 page_order: 5
 layout: dev_guide
 guide_top_header: "Canales"
-guide_top_text: "Llega a tus usuarios a través del canal adecuado en el momento adecuado. Elige entre canales dentro del producto, como mensajes dentro de la aplicación, Tarjetas de contenido y Banners, o canales fuera del producto, como push, correo electrónico, SMS y WhatsApp."
+guide_top_text: "Llega a tus usuarios a través del canal adecuado en el momento adecuado. Elige entre canales dentro del producto, como mensajes dentro de la aplicación, Content Cards y Banners, o canales fuera del producto, como push, correo electrónico, SMS y WhatsApp."
 
 page_type: landing
 description: "Llega a tus usuarios a través de canales de mensajería dentro y fuera del producto en Braze."
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Mensajes dentro de la aplicación
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: Tarjetas de contenido
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Banners
@@ -72,4 +72,4 @@ Puedes usar Braze para crear campañas de mensajería accesibles en cada canal. 
 - [Fundamentos de mensajería accesible](https://learning.braze.com/accessible-messaging-foundations): aprende los principios fundamentales de accesibilidad que se aplican a las comunicaciones de marca en este curso de Braze Learning.
 - [Crear mensajes accesibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/): aprende a añadir texto alternativo y estructurar tu contenido para tecnologías de asistencia directamente en Braze.
 
-Si tienes comentarios sobre la accesibilidad de Braze o de los mensajes enviados desde Braze, nos encantaría conocerlos. Abre el menú **Soporte** en el encabezado global y selecciona **Compartir comentarios** para enviarnos tus opiniones.
+Si tienes comentarios sobre la accesibilidad de Braze o de los mensajes enviados desde Braze, nos encantaría conocerlos. Abre el menú **Support** en el encabezado global y selecciona **Share feedback** para enviarnos tus opiniones.

@@ -511,6 +511,15 @@ WhatsApp permission bullets exactly as English (**View/Edit WhatsApp Message Tem
 ``delay`` token in in-app troubleshooting; keep **Campaigns** as the Braze \
 product token in link-shortening includes when the rest of the file uses \
 English **Campaign**/**Campaigns** (auto-translate PR #13356).
+23. **Hub pages (`messaging.md`, `data.md`, `administer.md`)**: In YAML \
+``guide_top_text`` / long HTML strings, never glue ``</a>`` directly to the \
+next word—insert a normal space. **pt-BR** ``messaging`` featured list: the \
+Canvas card must read **Canvas**, not *Canva*, when the link targets \
+``/messaging/canvas``. **``data.md``**: English uses lowercase *segments* as \
+a common noun in the activate paragraph—**pt-BR** should use *segmentos*, not \
+capitalized English **Segments**; **JA/KO** should use bold **Segments** for \
+the Braze product token in that sentence when English means the product \
+surface (auto-translate PR #13357).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -2647,6 +2656,74 @@ def repair_duplicate_adjacent_target_audiences_include(content):
     return content, []
 
 
+# ``</a>`` immediately followed by a letter (CJK/Latin) without whitespace.
+_ANCHOR_LETTER_RUNON_AFTER_CLOSE_RE = re.compile(
+    r"</a>([A-Za-z\u00C0-\u024F\u3040-\u9FFF\uAC00-\uD7A3])"
+)
+
+
+def repair_missing_space_after_html_anchor_close(translated_content):
+    """Insert a missing space after ``</a>`` when the next character starts a word.
+
+    Prevents ``.../a>Word`` run-ons in YAML ``guide_top_text`` and prose
+    (Copilot / auto-translate PR #13357).
+    """
+    new, n = _ANCHOR_LETTER_RUNON_AFTER_CLOSE_RE.subn(r"</a> \1", translated_content)
+    if n:
+        return new, [f"html — space after </a> before word run-on ({n}x)"]
+    return translated_content, []
+
+
+def repair_user_guide_messaging_data_hub_copy(
+    translated_path, translated_content, lang_key
+):
+    """Fix recurring hub-page copy drift (messaging featured list, data landing).
+
+    Covers the Copilot patterns from auto-translate PR #13357.
+    """
+    lang_info = LANGUAGES.get(lang_key)
+    if not lang_info:
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    data_suffix = f"_lang/{lang_info['dir']}/_user_guide/data.md"
+    repairs = []
+    new = translated_content
+
+    if lang_key == "pt-br" and rel.endswith("_lang/pt_br/_user_guide/messaging.md"):
+        block = (
+            "name: Canva\n"
+            "    link: /docs/user_guide/messaging/canvas"
+        )
+        if block in new:
+            new = new.replace(
+                block,
+                "name: Canvas\n"
+                "    link: /docs/user_guide/messaging/canvas",
+            )
+            repairs.append("pt-messaging — Canva → Canvas (guide_featured_list)")
+
+    if rel.endswith(data_suffix):
+        if lang_key == "pt-br" and " e Segments." in new:
+            new = new.replace(" e Segments.", " e segmentos.")
+            repairs.append("pt-data — Segments → segmentos (EN segments parity)")
+        if lang_key == "ja" and "プロファイルとSegmentを使用して" in new:
+            new = new.replace(
+                "プロファイルとSegmentを使用して",
+                "プロファイルと**Segments**を使用して",
+            )
+            repairs.append("ja-data — Segment → **Segments** (product token)")
+        if lang_key == "ko" and "프로필과 Segment를" in new:
+            new = new.replace(
+                "프로필과 Segment를",
+                "프로필과 **Segments**를",
+            )
+            repairs.append("ko-data — Segment → **Segments** (product token)")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 # Table row where the cell separator ``|`` touches the opening backtick of an
 # inline code span (``||``\`view_foo_bar\```). Kramdown still parses, but layout
 # and reviews flag it (Copilot / auto-translate PR #13356).
@@ -4456,6 +4533,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(wire_repairs)
 
+    translated_content, anchor_space_repairs = (
+        repair_missing_space_after_html_anchor_close(translated_content)
+    )
+    findings["repairs"].extend(anchor_space_repairs)
+
     translated_content, table_pipe_code_repairs = (
         repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content)
     )
@@ -4477,6 +4559,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content
     )
     findings["repairs"].extend(pt_rep_repairs)
+
+    translated_content, hub_copy_repairs = repair_user_guide_messaging_data_hub_copy(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(hub_copy_repairs)
 
     translated_content, pt_delay_repairs = (
         repair_pt_inapp_message_troubleshooting_loanword_delay(

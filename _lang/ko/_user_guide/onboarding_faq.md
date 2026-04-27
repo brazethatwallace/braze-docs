@@ -117,7 +117,7 @@ Users
 
 <!-- Segments -->
 
-### CSV를 통해 사용자 그룹을 가져올 때 Segment를 만들려면 어떻게 해야 하나요? {#how-do-i-create-a-segment-when-i-import-a-group-of-users-through-csv}
+### CSV를 통해 사용자 그룹을 가져올 때 세그먼트를 만들려면 어떻게 해야 하나요? {#how-do-i-create-a-segment-when-i-import-a-group-of-users-through-csv}
 
 {% apitags %}
 Segments
@@ -127,14 +127,14 @@ CSV 파일을 가져오려면 사용자 섹션 아래의 **사용자 가져오�
 
 **CSV 가져오기** 패널에는 가져오기 방법과 가져오기를 시작하는 버튼이 있습니다. **CSV 파일 선택**을 클릭하고 원하는 파일을 선택합니다. 그런 다음 **가져오기 시작**을 클릭하기 전에 "이 CSV의 사용자에 대해 수행할 작업"에서 이 목록으로 무엇을 할 것인지 Braze에 알려주는 옵션을 선택할 수 있습니다.
 
-**이 CSV에서 사용자 가져오기를 선택하고 이 특정 사용자 배치를 그룹으로 리타겟팅할 수 있도록 설정한** 다음 **이 CSV에서 가져온 사용자로부터 Segment 자동 생성**을 선택합니다. **가져오기 시작**을 클릭하면 Braze가 파일을 업로드하고 열 헤더와 각 열의 데이터 유형을 확인한 후 Segment를 생성합니다.
+**이 CSV에서 사용자 가져오기를 선택하고 이 특정 사용자 배치를 그룹으로 리타겟팅할 수 있도록 설정한** 다음 **이 CSV에서 가져온 사용자로부터 세그먼트 자동 생성**을 선택합니다. **가져오기 시작**을 클릭하면 Braze가 파일을 업로드하고 열 헤더와 각 열의 데이터 유형을 확인한 후 세그먼트를 생성합니다.
 
 CSV 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)를 참조하세요.
 
 {% endapi %}
 {% api %}
 
-### Segment를 만들 때 어떤 유형의 필터를 사용할 수 있나요? {#what-types-of-filters-can-i-use-when-creating-a-segment}
+### 세그먼트를 만들 때 어떤 유형의 필터를 사용할 수 있나요? {#what-types-of-filters-can-i-use-when-creating-a-segment}
 
 {% apitags %}
 Segments
@@ -145,18 +145,18 @@ Braze SDK는 특정 기능 및 속성을 기반으로 사용자를 세분화하�
 {% endapi %}
 {% api %}
 
-### 가장 최근 위치를 기준으로 사용자를 세분화하여 위치 기반 Campaign 및 전략에 사용할 수 있도록 위치 타겟팅을 설정하려면 어떻게 해야 하나요? {#how-do-i-set-up-location-targeting-so-that-i-can-segment-users-by-their-most-recent-location-and-use-it-in-my-location-based-campaigns-and-strategies}
+### 가장 최근 위치를 기준으로 사용자를 세분화하여 위치 기반 캠페인 및 전략에 사용할 수 있도록 위치 타겟팅을 설정하려면 어떻게 해야 하나요? {#how-do-i-set-up-location-targeting-so-that-i-can-segment-users-by-their-most-recent-location-and-use-it-in-my-location-based-campaigns-and-strategies}
 
 {% apitags %}
 Segments
 {% endapitags %}
 
-참여 아래의 **Segments** 페이지로 이동하여 현재 모든 사용자 Segment를 확인합니다. 이 페이지에서 새 Segment를 만들고 이름을 지정할 수 있습니다. 시작하려면 **세그먼트 생성**을 클릭하고 Segment의 이름을 지정합니다.
+참여 아래의 **Segments** 페이지로 이동하여 현재 모든 사용자 세그먼트를 확인합니다. 이 페이지에서 새 세그먼트를 만들고 이름을 지정할 수 있습니다. 시작하려면 **세그먼트 생성**을 클릭하고 세그먼트의 이름을 지정합니다.
 
-Segment를 생성한 후에는 `Most Recent Location` 필터를 추가하여 사용자가 마지막으로 앱을 사용한 장소를 기준으로 사용자를 타겟팅합니다. 표준 원형 영역에서 사용자를 강조 표시하거나 커스텀 다각형 영역을 만들 수 있습니다.
+세그먼트를 생성한 후에는 `Most Recent Location` 필터를 추가하여 사용자가 마지막으로 앱을 사용한 장소를 기준으로 사용자를 타겟팅합니다. 표준 원형 영역에서 사용자를 강조 표시하거나 커스텀 다각형 영역을 만들 수 있습니다.
 
 - 원형 영역의 경우 원점을 이동하고 세분화의 위치 반경을 조정할 수 있습니다.
-- 다각형 영역의 경우 Segment에 포함할 영역을 보다 구체적으로 지정할 수 있습니다.
+- 다각형 영역의 경우 세그먼트에 포함할 영역을 보다 구체적으로 지정할 수 있습니다.
 
 {% alert tip %}
 Braze 파트너의 도움을 받아 위치 타겟팅을 활용하고 싶으신가요? 사용 가능한 Braze [상황별 위치 파트너]({{site.baseurl}}/partners/message_personalization/)를 확인하세요.
@@ -171,13 +171,13 @@ Braze 파트너의 도움을 받아 위치 타겟팅을 활용하고 싶으신�
 Segments
 {% endapitags %}
 
-[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용할 수 있습니다! 세그먼트 확장을 사용하면 일반 Segment를 사용할 때보다 더 정확한 사용자 목록을 타겟팅할 수 있습니다.
+[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용할 수 있습니다! 세그먼트 확장을 사용하면 일반 세그먼트를 사용할 때보다 더 정확한 사용자 목록을 타겟팅할 수 있습니다.
 
-워크스페이스당 최대 10개의 세그먼트 확장을 만들 수 있습니다. 이러한 확장 목록이 생성된 후에는 Segment에 필터로 포함하거나 제외할 수 있습니다. 세그먼트 확장을 만들 때 목록이 24시간마다 한 번씩 재생성되도록 지정할 수도 있습니다.
+워크스페이스당 최대 10개의 세그먼트 확장을 만들 수 있습니다. 이러한 확장 목록이 생성된 후에는 세그먼트에 필터로 포함하거나 제외할 수 있습니다. 세그먼트 확장을 만들 때 목록이 24시간마다 한 번씩 재생성되도록 지정할 수도 있습니다.
 
 1. 인게이지먼트 아래에서 **Segments**를 확장하고 **세그먼트 확장**을 클릭합니다.
-2. 세그먼트 확장 테이블에서 **\+ 새 확장 만들기**를 클릭합니다.
-3. 필터링하려는 사용자 유형을 설명하여 세그먼트 확장의 이름을 지정합니다. 이렇게 하면 Segment에 필터로 적용할 때 이 확장을 쉽고 정확하게 검색할 수 있습니다.
+2. 세그먼트 확장 테이블에서 **+ 새 확장 만들기**를 클릭합니다.
+3. 필터링하려는 사용자 유형을 설명하여 세그먼트 확장의 이름을 지정합니다. 이렇게 하면 세그먼트에 필터로 적용할 때 이 확장을 쉽고 정확하게 검색할 수 있습니다.
 4. 타겟팅할 구매 또는 커스텀 이벤트 기준 중에서 선택합니다.
 5. 사용자 목록에서 타겟팅할 구매 아이템 또는 특정 커스텀 이벤트를 선택합니다.
 6. 사용자가 이벤트를 완료해야 하는 횟수(이상, 미만 또는 같음)와 되돌아볼 일수(최대 365일)를 선택합니다.
@@ -205,31 +205,31 @@ Segments
 
 완료했으면 **저장**을 클릭합니다. 확장 처리가 시작됩니다. 확장을 생성하는 데 걸리는 시간은 사용자 수, 캡처하는 커스텀 이벤트 또는 구매 이벤트의 수, 기록에서 되돌아보는 일수에 따라 달라집니다.
 
-마지막으로 확장을 만든 후에는 Segment를 만들거나 Campaign 또는 Canvas에 대한 오디언스를 정의할 때 필터로 사용할 수 있습니다. 먼저 **사용자 속성** 섹션의 필터 목록에서 `Braze Segment Extension`을 선택합니다. Braze 세그먼트 확장 필터 목록에서 이 Segment에 포함하거나 제외할 확장을 선택합니다. 확장 기준을 보려면 **확장 세부 정보 보기**를 클릭합니다. 이제 평소처럼 Segment 생성을 계속 진행하면 됩니다.
+마지막으로 확장을 만든 후에는 세그먼트를 만들거나 Campaign 또는 Canvas에 대한 오디언스를 정의할 때 필터로 사용할 수 있습니다. 먼저 **사용자 속성** 섹션의 필터 목록에서 `Braze Segment Extension`을 선택합니다. Braze 세그먼트 확장 필터 목록에서 이 세그먼트에 포함하거나 제외할 확장을 선택합니다. 확장 기준을 보려면 **확장 세부 정보 보기**를 클릭합니다. 이제 평소처럼 세그먼트 생성을 계속 진행하면 됩니다.
 
 {% endapi %}
 {% api %}
 
 <!-- Campaigns -->
 
-### 멀티채널 Campaign은 어떻게 만드나요? {#how-do-you-create-a-multichannel-campaign}
+### 멀티채널 캠페인은 어떻게 만드나요? {#how-do-you-create-a-multichannel-campaign}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-멀티채널 Campaign을 만들려면 **Campaigns** 페이지로 이동하여 **캠페인 생성**을 선택한 다음 **멀티채널 Campaign**을 선택합니다. 멀티채널 Campaign 내에서 작성 탭에서 **메시징 채널 추가**를 선택하여 원하는 채널을 추가합니다. 여러 채널에 대한 Campaign 문구를 작성할 때 표시되는 채널 아이콘을 클릭하면 다양한 메시지 작성기를 전환할 수 있습니다.
+멀티채널 캠페인을 만들려면 **Campaigns** 페이지로 이동하여 **캠페인 생성**을 선택한 다음 **멀티채널 캠페인**을 선택합니다. 멀티채널 캠페인 내에서 작성 탭에서 **메시징 채널 추가**를 선택하여 원하는 채널을 추가합니다. 여러 채널에 대한 캠페인 문구를 작성할 때 표시되는 채널 아이콘을 클릭하면 다양한 메시지 작성기를 전환할 수 있습니다.
 
 {% endapi %}
 {% api %}
 
-### Campaign 테스트 및 최적화를 시작할 수 있는 방법에는 어떤 것이 있나요? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
+### 캠페인 테스트 및 최적화를 시작할 수 있는 방법에는 어떤 것이 있나요? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-다변량 Campaign을 만들고 여러 배리언트가 있는 Canvases를 실행하는 것은 시작하기에 좋은 방법입니다! 예를 들어, [다변량 Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/)을 실행하여 문구나 제목란이 다른 하나의 메시지를 테스트할 수 있습니다. 여러 배리언트가 있는 Canvases는 전체 워크플로를 테스트하는 데 유용합니다.
+다변량 캠페인을 만들고 여러 배리언트가 있는 Canvases를 실행하는 것은 시작하기에 좋은 방법입니다! 예를 들어, [다변량 캠페인]({{site.baseurl}}/user_guide/messaging/ab_testing/)을 실행하여 문구나 제목란이 다른 하나의 메시지를 테스트할 수 있습니다. 여러 배리언트가 있는 Canvases는 전체 워크플로를 테스트하는 데 유용합니다.
 
 {% endapi %}
 {% api %}
@@ -240,7 +240,7 @@ Campaigns
 Campaigns
 {% endapitags %}
 
-이 차이에 대한 한 가지 가능한 설명은 Campaign 또는 Canvas의 재적격성이 켜져 있기 때문일 수 있습니다. 이 기능을 켜면 Segment 및 전달 설정에 적합한 사용자가 메시지를 두 번 이상 받을 수 있습니다. 재적격성이 켜져 있지 않은 경우 전송 횟수와 고유 수신자 간의 차이에 대한 가능한 설명은 사용자가 프로필과 연결된 플랫폼에 여러 개의 기기를 가지고 있기 때문일 수 있습니다.
+이 차이에 대한 한 가지 가능한 설명은 Campaign 또는 Canvas의 재적격성이 켜져 있기 때문일 수 있습니다. 이 기능을 켜면 세그먼트 및 전달 설정에 적합한 사용자가 메시지를 두 번 이상 받을 수 있습니다. 재적격성이 켜져 있지 않은 경우 전송 횟수와 고유 수신자 간의 차이에 대한 가능한 설명은 사용자가 프로필과 연결된 플랫폼에 여러 개의 기기를 가지고 있기 때문일 수 있습니다.
 
 예를 들어 iOS와 웹 푸시 알림이 모두 있는 Canvas가 있는 경우 모바일과 데스크탑 기기를 모두 사용하는 특정 사용자가 두 개 이상의 메시지를 받을 수 있습니다.
 
@@ -253,9 +253,9 @@ Campaigns
 Campaigns
 {% endapitags %}
 
-현지 시간대 전달을 사용하면 사용자의 개별 시간대를 기준으로 Segment에 메시징 Campaign을 전달할 수 있습니다. 현지 시간대 전달을 사용하지 않는 Campaign은 Braze에서 회사의 시간대 설정에 따라 스케줄됩니다.
+현지 시간대 전달을 사용하면 사용자의 개별 시간대를 기준으로 세그먼트에 메시징 캠페인을 전달할 수 있습니다. 현지 시간대 전달을 사용하지 않는 캠페인은 Braze에서 회사의 시간대 설정에 따라 스케줄됩니다.
 
-예를 들어, 런던에 본사를 둔 회사가 오후 12시에 Campaign을 보내면 미국 서부 해안의 사용자에게 새벽 4시에 도달하게 됩니다. 특정 국가에서만 앱을 사용할 수 있는 경우에는 문제가 되지 않을 수 있지만, 그렇지 않은 경우에는 이른 아침 푸시 알림을 사용자 기반에 보내지 않는 것이 좋습니다!
+예를 들어, 런던에 본사를 둔 회사가 오후 12시에 캠페인을 보내면 미국 서부 해안의 사용자에게 새벽 4시에 도달하게 됩니다. 특정 국가에서만 앱을 사용할 수 있는 경우에는 문제가 되지 않을 수 있지만, 그렇지 않은 경우에는 이른 아침 푸시 알림을 사용자 기반에 보내지 않는 것이 좋습니다!
 
 {% endapi %}
 {% api %}
@@ -273,66 +273,66 @@ Braze는 기기에서 사용자의 시간대를 자동으로 확인합니다. �
 {% endapi %}
 {% api %}
 
-### 현지 시간대 Campaign을 스케줄하려면 어떻게 해야 하나요? {#how-do-i-schedule-a-local-time-zone-campaign}
+### 현지 시간대 캠페인을 스케줄하려면 어떻게 해야 하나요? {#how-do-i-schedule-a-local-time-zone-campaign}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Campaign을 스케줄할 때 지정된 시간에 Campaign을 보내도록 선택한 다음 **현지 시간대의 사용자에게 Campaign 보내기**를 선택해야 합니다.
+캠페인을 스케줄할 때 지정된 시간에 캠페인을 보내도록 선택한 다음 **현지 시간대의 사용자에게 캠페인 보내기**를 선택해야 합니다.
 
-Braze는 모든 현지 시간대 Campaign을 24시간 전에 스케줄할 것을 적극 권장합니다. 이러한 Campaign은 하루 종일 전송해야 하므로 24시간 전에 스케줄하면 전체 Segment에 메시지가 도달할 수 있습니다. 그러나 필요한 경우 24시간 미만 전에도 이러한 Campaign을 스케줄할 수 있습니다. Braze는 전송 시간을 1시간 이상 놓친 사용자에게는 메시지를 보내지 않는다는 점에 유의하세요.
+Braze는 모든 현지 시간대 캠페인을 24시간 전에 스케줄할 것을 적극 권장합니다. 이러한 캠페인은 하루 종일 전송해야 하므로 24시간 전에 스케줄하면 전체 세그먼트에 메시지가 도달할 수 있습니다. 그러나 필요한 경우 24시간 미만 전에도 이러한 캠페인을 스케줄할 수 있습니다. Braze는 전송 시간을 1시간 이상 놓친 사용자에게는 메시지를 보내지 않는다는 점에 유의하세요.
 
-예를 들어, 오후 1시이고 오후 3시에 현지 시간대 Campaign을 스케줄하면, Campaign은 현지 시간이 오후 3-4시인 모든 사용자에게 즉시 전송되지만, 현지 시간이 오후 5시인 사용자에게는 전송되지 않습니다. 또한 Campaign에 대해 선택한 전송 시간은 회사 시간대에서 아직 지나지 않은 시간이어야 합니다.
+예를 들어, 오후 1시이고 오후 3시에 현지 시간대 캠페인을 스케줄하면, 캠페인은 현지 시간이 오후 3-4시인 모든 사용자에게 즉시 전송되지만, 현지 시간이 오후 5시인 사용자에게는 전송되지 않습니다. 또한 캠페인에 대해 선택한 전송 시간은 회사 시간대에서 아직 지나지 않은 시간이어야 합니다.
 
-24시간 미만 전에 스케줄된 현지 시간대 Campaign을 수정해도 메시지의 스케줄은 변경되지 않습니다. 현지 시간대 Campaign을 편집하여 나중에 전송하기로 결정한 경우(예: 오후 6시 대신 오후 7시), 원래 전송 시간을 선택할 때 타겟 Segment에 있던 사용자는 여전히 원래 시간(오후 6시)에 메시지를 받게 됩니다. 현지 시간대를 편집하여 더 이른 시간(예: 오후 5시 대신 오후 4시)에 전송하는 경우 Campaign은 여전히 원래 시간(오후 5시)에 모든 Segment 멤버에게 전송됩니다.
+24시간 미만 전에 스케줄된 현지 시간대 캠페인을 수정해도 메시지의 스케줄은 변경되지 않습니다. 현지 시간대 캠페인을 편집하여 나중에 전송하기로 결정한 경우(예: 오후 6시 대신 오후 7시), 원래 전송 시간을 선택할 때 타겟 세그먼트에 있던 사용자는 여전히 원래 시간(오후 6시)에 메시지를 받게 됩니다. 현지 시간대를 편집하여 더 이른 시간(예: 오후 5시 대신 오후 4시)에 전송하는 경우 캠페인은 여전히 원래 시간(오후 5시)에 모든 세그먼트 멤버에게 전송됩니다.
 
 {% alert note %}
 캔버스 단계의 경우, 사용자는 현지 시간대 전달을 위해 24시간 동안 해당 단계에 있지 않아도 다음 단계를 받을 수 있습니다.
 {% endalert %}
 
-사용자가 Campaign에 다시 참여할 수 있도록 허용한 경우 원래 시간(오후 5시)에 다시 Campaign을 받게 됩니다. 그러나 이후의 모든 Campaign에 대해서는 업데이트된 시간에만 메시지가 전송됩니다.
+사용자가 캠페인에 다시 참여할 수 있도록 허용한 경우 원래 시간(오후 5시)에 다시 캠페인을 받게 됩니다. 그러나 이후의 모든 캠페인에 대해서는 업데이트된 시간에만 메시지가 전송됩니다.
 
 {% endapi %}
 {% api %}
 
-### 현지 시간대 Campaign의 변경 사항은 언제 적용되나요? {#when-do-changes-to-local-time-zone-campaigns-take-effect}
+### 현지 시간대 캠페인의 변경 사항은 언제 적용되나요? {#when-do-changes-to-local-time-zone-campaigns-take-effect}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-현지 시간대 Campaign의 타겟 Segment에는 모든 시간 기반 필터에 최소 48시간의 기간이 포함되어야 전체 Segment에 전달이 보장됩니다. 예를 들어 다음 필터를 사용하여 둘째 날 사용자를 타겟팅하는 Segment를 생각해 보겠습니다:
+현지 시간대 캠페인의 타겟 세그먼트에는 모든 시간 기반 필터에 최소 48시간의 기간이 포함되어야 전체 세그먼트에 전달이 보장됩니다. 예를 들어 다음 필터를 사용하여 둘째 날 사용자를 타겟팅하는 세그먼트를 생각해 보겠습니다:
 
 - 앱을 처음 사용한 지 1일 이상 경과
 - 앱을 처음 사용한 지 2일 미만
 
-현지 시간대 전달은 전달 시간과 사용자의 현지 시간대에 따라 이 Segment에 있는 사용자를 놓칠 수 있습니다. 이는 사용자의 시간대가 전달을 트리거하는 시점까지 Segment를 떠날 수 있기 때문입니다.
+현지 시간대 전달은 전달 시간과 사용자의 현지 시간대에 따라 이 세그먼트에 있는 사용자를 놓칠 수 있습니다. 이는 사용자의 시간대가 전달을 트리거하는 시점까지 세그먼트를 떠날 수 있기 때문입니다.
 
 {% endapi %}
 {% api %}
 
-### 출시 전에 스케줄된 Campaign을 변경하려면 어떻게 해야 하나요? {#what-changes-can-i-make-to-scheduled-campaigns-ahead-of-launch}
+### 출시 전에 스케줄된 캠페인을 변경하려면 어떻게 해야 하나요? {#what-changes-can-i-make-to-scheduled-campaigns-ahead-of-launch}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Campaign이 스케줄되면 전송할 메시지를 대기열에 추가하기 전에 메시지 구성 이외의 내용을 수정해야 합니다. 모든 Campaign과 마찬가지로 Campaign이 시작된 후에는 전환 이벤트를 편집할 수 없습니다.
+캠페인이 스케줄되면 전송할 메시지를 대기열에 추가하기 전에 메시지 구성 이외의 내용을 수정해야 합니다. 모든 캠페인과 마찬가지로 캠페인이 시작된 후에는 전환 이벤트를 편집할 수 없습니다.
 
 {% endapi %}
 {% api %}
 
-### 스케줄된 Campaign의 메시지가 대기열에 추가되기 전의 "안전 영역"이란 무엇인가요? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-queued}
+### 스케줄된 캠페인의 메시지가 대기열에 추가되기 전의 "안전 영역"이란 무엇인가요? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-queued}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-- 일회성 스케줄 Campaign은 스케줄된 전송 시간까지 수정할 수 있습니다.
-- 반복 스케줄 Campaign은 스케줄된 전송 시간까지 수정할 수 있습니다.
-- 현지 전송 시간 Campaign은 스케줄된 전송 시간 24시간 전까지 수정할 수 있습니다.
-- 최적 전송 시간 Campaign은 Campaign이 전송될 예정일 24시간 전까지 수정할 수 있습니다.
+- 일회성 스케줄 캠페인은 스케줄된 전송 시간까지 수정할 수 있습니다.
+- 반복 스케줄 캠페인은 스케줄된 전송 시간까지 수정할 수 있습니다.
+- 현지 전송 시간 캠페인은 스케줄된 전송 시간 24시간 전까지 수정할 수 있습니다.
+- 최적 전송 시간 캠페인은 캠페인이 전송될 예정일 24시간 전까지 수정할 수 있습니다.
 
 {% endapi %}
 {% api %}
@@ -343,7 +343,7 @@ Campaigns
 Campaigns
 {% endapitags %}
 
-이 시간 내에 Campaign의 전송 시간을 변경하면 원치 않는 동작이 발생할 수 있습니다. 예를 들어:
+이 시간 내에 캠페인의 전송 시간을 변경하면 원치 않는 동작이 발생할 수 있습니다. 예를 들어:
 
 - Braze는 전송 시간을 1시간 이상 놓친 사용자에게는 메시지를 보내지 않습니다.
 - 이미 대기열에 있던 메시지는 조정된 시간이 아닌 원래 대기열에 있던 시간에 계속 전송될 수 있습니다.
@@ -357,9 +357,9 @@ Campaigns
 Campaigns
 {% endapitags %}
 
-Campaign이 원하는 대로 작동하도록 하려면 현재 Campaign을 중지하는 것이 좋습니다(이렇게 하면 대기 중인 메시지가 모두 중지됩니다). 그런 다음 Campaign을 복제하여 필요에 따라 변경하고 새 Campaign을 시작할 수 있습니다. 이미 첫 번째 Campaign을 받은 사용자를 이 Campaign에서 제외해야 할 수도 있습니다.
+캠페인이 원하는 대로 작동하도록 하려면 현재 캠페인을 중지하는 것이 좋습니다(이렇게 하면 대기 중인 메시지가 모두 중지됩니다). 그런 다음 캠페인을 복제하여 필요에 따라 변경하고 새 캠페인을 시작할 수 있습니다. 이미 첫 번째 캠페인을 받은 사용자를 이 캠페인에서 제외해야 할 수도 있습니다.
 
-시간대 전송이 가능하도록 Campaign 스케줄 시간을 다시 조정해야 합니다.
+시간대 전송이 가능하도록 캠페인 스케줄 시간을 다시 조정해야 합니다.
 
 {% endapi %}
 {% api %}
@@ -380,18 +380,18 @@ Campaigns
 - 뉴욕 2021년 8월 6일 오후 9시
 - 뉴욕 2021년 8월 7일 오후 2시
 
-사용자는 출시 전 24시간 동안 해당 Segment에 있어야 합니다. 사용자가 첫 번째 확인에서 자격이 없는 경우, Braze는 두 번째 확인을 시도하지 않습니다.
+사용자는 출시 전 24시간 동안 해당 세그먼트에 있어야 합니다. 사용자가 첫 번째 확인에서 자격이 없는 경우, Braze는 두 번째 확인을 시도하지 않습니다.
 
 {% endapi %}
 {% api %}
 
-### Campaign에 참여한 사용자 수가 예상한 수와 일치하지 않는 이유는 무엇인가요? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
+### 캠페인에 참여한 사용자 수가 예상한 수와 일치하지 않는 이유는 무엇인가요? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Campaign에 참여하는 사용자 수는 오디언스 및 트리거가 평가되는 방식에 따라 예상되는 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스를 평가합니다([속성 변경 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)를 사용하지 않는 한). 이렇게 하면 트리거 동작이 평가되기 전에 사용자가 처음에 선택한 오디언스에 포함되지 않은 경우 Campaign에서 이탈하게 됩니다.
+캠페인에 참여하는 사용자 수는 오디언스 및 트리거가 평가되는 방식에 따라 예상되는 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스를 평가합니다([속성 변경 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)를 사용하지 않는 한). 이렇게 하면 트리거 동작이 평가되기 전에 사용자가 처음에 선택한 오디언스에 포함되지 않은 경우 캠페인에서 이탈하게 됩니다.
 
 {% endapi %}
 {% api %}
@@ -528,7 +528,7 @@ Canvas에 입장하는 사용자 수는 오디언스 및 트리거가 평가되�
 Analytics
 {% endapitags %}
 
-Braze는 채널에 따라 다양한 측정기준을 측정하여 Campaign의 성공 여부를 판단하고 향후 Campaign에 대한 정보를 제공합니다. [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)에서 전체 목록을 확인할 수 있습니다.
+Braze는 채널에 따라 다양한 측정기준을 측정하여 캠페인의 성공 여부를 판단하고 향후 캠페인에 대한 정보를 제공합니다. [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)에서 전체 목록을 확인할 수 있습니다.
 
 {% endapi %}
 {% api %}
@@ -539,7 +539,7 @@ Braze는 채널에 따라 다양한 측정기준을 측정하여 Campaign의 성
 Analytics
 {% endapitags %}
 
-**매출** 페이지에서는 특정 기간, 특정 제품 또는 앱의 총 매출 또는 구매에 대한 데이터를 볼 수 있습니다. 이러한 매출 수치는 특정 전환 기간 내에 Campaign 수신자가 구매한 금액에서 생성됩니다.
+**매출** 페이지에서는 특정 기간, 특정 제품 또는 앱의 총 매출 또는 구매에 대한 데이터를 볼 수 있습니다. 이러한 매출 수치는 특정 전환 기간 내에 캠페인 수신자가 구매한 금액에서 생성됩니다.
 
 즉, Braze는 매출 관리 도구가 아닌 마케팅 도구라는 점에 유의해야 합니다. [구매 객체]({{site.baseurl}}/api/objects_filters/purchase_object/)는 환불 및 취소를 지원하지 않으므로 다른 도구와 데이터를 비교할 때 불일치가 발생할 수 있습니다.
 
@@ -568,7 +568,7 @@ Analytics
 반복 참여 보고서를 스케줄하려면 다음과 같이 하세요:
 
 1. 대시보드 계정에서 **데이터** 아래의 **참여 보고서**로 이동합니다.
-2. **\+ 새 보고서 생성**을 클릭합니다.
+2. **+ 새 보고서 생성**을 클릭합니다.
 3. 보고서에 컴파일하려는 [Campaign과 Canvas 메시지]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases)를 개별적으로 또는 [태그별]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)로 추가합니다.
 4. 보고서에 [통계를 추가합니다]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report).
 5. 보고서의 압축 및 구분 기호를 선택합니다.

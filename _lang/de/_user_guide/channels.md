@@ -72,4 +72,4 @@ Sie können Braze nutzen, um barrierefreie Messaging-Kampagnen über jeden Kanal
 - [Grundlagen barrierefreier Nachrichten](https://learning.braze.com/accessible-messaging-foundations): Lernen Sie in diesem Braze-Lernkurs grundlegende Barrierefreiheitsprinzipien kennen, die für Markenkommunikation gelten.
 - [Barrierefreie Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/): Erfahren Sie, wie Sie Alt-Text hinzufügen und Ihre Inhalte für assistive Technologien direkt in Braze strukturieren.
 
-Wenn Sie Feedback zur Barrierefreiheit von Braze oder über Braze versendeten Nachrichten haben, freuen wir uns, von Ihnen zu hören. Öffnen Sie das **Support**-Menü in der globalen Kopfzeile und wählen Sie **Feedback teilen**, um uns Ihre Gedanken mitzuteilen.
+Wenn Sie Feedback zur Barrierefreiheit von Braze oder über Braze versendeten Nachrichten haben, freuen wir uns, von Ihnen zu hören. Öffnen Sie das **Support**-Menü in der globalen Kopfzeile und wählen Sie **Share feedback**, um uns Ihre Gedanken mitzuteilen.

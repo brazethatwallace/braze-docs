@@ -47,7 +47,7 @@ Les campagnes et les Canvas vous permettent d'envoyer des messages à vos utilis
 
 Les campagnes sont idéales pour les messages uniques envoyés à un segment d'audience spécifique sur différents canaux. Vous pouvez exploiter tous les canaux de communication pris en charge dans votre campagne (e-mail, push, messages in-app, SMS, et plus encore).
 
-Les Canvas sont des workflows de campagne avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Dans un Canvas, vous pouvez mettre en place une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas assurent une communication cohérente et fluide sur différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients.
+Les Canvas sont des workflows avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Dans un Canvas, vous pouvez mettre en place une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas assurent une communication cohérente et fluide sur différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients.
 
 Pour en savoir plus, consultez : [Pour commencer : Campagnes et Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 

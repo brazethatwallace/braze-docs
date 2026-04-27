@@ -21,7 +21,7 @@ Braze 데이터 플랫폼의 기능을 조합하여 사용하면 데이터를 �
 
 ### 데이터 활성화 {#activate-your-data}
 
-데이터를 정리, 구성하고 사용할 수 있도록 준비하세요. 여기에는 고객 프로필과 Segments를 통해 고객의 행동과 선호도를 실시간으로 이해하는 것이 포함됩니다. 타겟팅된 메시지를 만들 때 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하고, [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 사용하여 제품 또는 콘텐츠 데이터로 메시지를 풍부하게 만드세요. 고객이 이러한 개인화된 경험에 어떻게 반응하는지 파악하세요.
+데이터를 정리, 구성하고 사용할 수 있도록 준비하세요. 여기에는 고객 프로필과 **Segments**를 통해 고객의 행동과 선호도를 실시간으로 이해하는 것이 포함됩니다. 타겟팅된 메시지를 만들 때 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하고, [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 사용하여 제품 또는 콘텐츠 데이터로 메시지를 풍부하게 만드세요. 고객이 이러한 개인화된 경험에 어떻게 반응하는지 파악하세요.
 
 ### 데이터 배포 {#distribute-your-data}
 
