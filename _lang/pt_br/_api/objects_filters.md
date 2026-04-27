@@ -10,7 +10,7 @@ description: "Essa landing page lista os objetos e filtros da API da Braze usado
 
 > Esta página lista os objetos e filtros da API da Braze usados em suas chamadas à API da Braze.
 
-## Objetos e filtros {#objects-and-filters}
+## Objetos e filtros
 
 - [Objeto de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
 - [Filtro e objeto do público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/)

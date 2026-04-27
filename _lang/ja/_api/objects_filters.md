@@ -10,7 +10,7 @@ description: "このランディングページには、Braze APIコールで使
 
 > このページでは、Braze APIコールで使用されるBraze APIオブジェクトとフィルターを一覧表示しています。
 
-## オブジェクトとフィルター {#objects-and-filters}
+## オブジェクトとフィルター
 
 - [Canvasコンテキストオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
 - [接続オーディエンスフィルターとオブジェクト]({{site.baseurl}}/api/objects_filters/connected_audience/)

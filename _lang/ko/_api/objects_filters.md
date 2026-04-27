@@ -10,7 +10,7 @@ description: "이 랜딩 페이지에는 Braze API 호출에 사용되는 Braze 
 
 > 이 페이지에는 Braze API 호출에 사용되는 Braze API 오브젝트와 필터가 나열되어 있습니다.
 
-## 오브젝트 및 필터 {#objects-and-filters}
+## 오브젝트 및 필터
 
 - [캔버스 컨텍스트 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
 - [연결된 오디언스 필터 및 오브젝트]({{site.baseurl}}/api/objects_filters/connected_audience/)

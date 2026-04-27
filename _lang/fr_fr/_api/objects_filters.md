@@ -10,7 +10,7 @@ description: "Cette page répertorie les objets et filtres de l'API Braze utilis
 
 > Cette page répertorie les objets et filtres de l'API Braze utilisés dans vos appels API Braze.
 
-## Objets et filtres {#objects-and-filters}
+## Objets et filtres
 
 - [Objet de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
 - [Objet et filtre Audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/)

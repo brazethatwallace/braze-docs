@@ -15,7 +15,7 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem de tradu�
 /content_blocks/translations/source
 {% endapimethod %}
 
-> Use este endpoint para ver todas as origens de tradução padrão para as tags de tradução de um bloco de conteúdo. Esses são os valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locales em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
+> Use este endpoint para ver todas as origens de tradução padrão para as tags de tradução de um bloco de conteúdo. Esses são os valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
 {% include early_access_beta_alert.md feature='This endpoint' %}
 
