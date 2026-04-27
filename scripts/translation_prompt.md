@@ -297,4 +297,7 @@ If **no** related-page context is provided for this file but the target locale c
 ### Formatting preservation
 
 - Translate text that is in bold but keep the bold formatting — these often refer to UI elements
+- **English UI labels kept in bold** (for example **Set exact priority**, **Apply Sort**): When the English source leaves dashboard copy in **English** in the localized sentence, match **spelling and capitalization exactly**—do not Title-Case or “normalize” casing (**Set Exact Priority** is wrong when English uses **Set exact priority**; auto-translate PR #13349).
+- **French — JavaScript bridge (Banners ``custom_code``):** Use **pont JavaScript** consistently in `nav_title`, `article_title`, `description`, headings, and body. Do not mix *passerelle JavaScript* in YAML with *pont JavaScript* elsewhere on the same page (PR #13349).
+- **German inclusive ``Nutzer:innen`` in instructional examples:** For generic “when someone taps …” steps, prefer a plural inclusive subject and agreement (**wenn Nutzer:innen … tippen**) over singular **Nutzer:in** in otherwise plural-style guidance, unless the English source clearly refers to one individual (PR #13349).
 - For rules about preserving identifiers and tokens (including underscores), follow the “What to NEVER translate or modify” section above

@@ -2631,6 +2631,81 @@ def repair_pt_br_banners_reporting_performance(translated_path, translated_conte
     return translated_content, []
 
 
+def repair_banners_create_a_banner_verbatim_ui(translated_path, translated_content):
+    """Fix English Braze UI labels whose **casing** drifted during translation.
+
+    When the English source keeps dashboard controls in English, the model
+    sometimes Title-cases them incorrectly (for example *Set Exact Priority* vs
+    *Set exact priority* — Copilot / PR #13349).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel or not rel.endswith(
+        "_user_guide/channels/banners/create_a_banner.md"
+    ):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    # Match English `_docs/.../create_a_banner.md` (**Set exact priority**).
+    if "**Set Exact Priority**" in new:
+        new = new.replace("**Set Exact Priority**", "**Set exact priority**")
+        repairs.append("banners-create-a-banner — Set exact priority UI casing")
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
+def repair_fr_banners_custom_code_javascript_bridge_terms(
+    translated_path, translated_content, lang_key
+):
+    """Keep French JavaScript-bridge wording aligned across YAML and body.
+
+    Models sometimes use *passerelle JavaScript* in ``nav_title`` while
+    ``article_title`` and prose use *pont JavaScript* (Copilot PR #13349).
+    """
+    if lang_key != "fr":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/fr_fr/_user_guide/channels/banners/custom_code.md"):
+        return translated_content, []
+
+    if "passerelle JavaScript" not in translated_content:
+        return translated_content, []
+
+    new = translated_content.replace("passerelle JavaScript", "pont JavaScript")
+    return new, [
+        "fr-banners-custom-code — passerelle JavaScript → pont JavaScript "
+        "(nav/body parity)"
+    ]
+
+
+def repair_de_banners_custom_code_inclusive_nutzer(
+    translated_path, translated_content, lang_key
+):
+    """Fix inconsistent singular inclusive *Nutzer:in* in DE banner custom-code."""
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_lang/de/_user_guide/channels/banners/custom_code.md"):
+        return translated_content, []
+
+    old = (
+        "Um beispielsweise einen Klick zu protokollieren, wenn eine Nutzer:in "
+        "in Ihrem angepassten HTML auf einen Button tippt:"
+    )
+    new = (
+        "Um beispielsweise einen Klick zu protokollieren, wenn Nutzer:innen "
+        "in Ihrem angepassten HTML auf einen Button tippen:"
+    )
+    if old not in translated_content:
+        return translated_content, []
+
+    return translated_content.replace(old, new, 1), [
+        "de-banners-custom-code — plural inclusive Nutzer:innen in example"
+    ]
+
+
 def _fm_line_for_key(fm: str, key: str) -> Optional[str]:
     """Return the full source line for ``key:`` (single-line YAML scalar) or None."""
     for line in fm.split("\n"):
@@ -4238,6 +4313,25 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content
     )
     findings["repairs"].extend(pt_rep_repairs)
+
+    translated_content, banner_ui_repairs = repair_banners_create_a_banner_verbatim_ui(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(banner_ui_repairs)
+
+    translated_content, fr_js_bridge_repairs = (
+        repair_fr_banners_custom_code_javascript_bridge_terms(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(fr_js_bridge_repairs)
+
+    translated_content, de_banner_nutzer_repairs = (
+        repair_de_banners_custom_code_inclusive_nutzer(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(de_banner_nutzer_repairs)
 
     translated_content, brazeai_repairs = repair_brazeai_trademark(
         translated_content
