@@ -1277,13 +1277,67 @@ def repair_ja_releases_description_desu_masu(translated_path, translated_content
     )
 
 
+def _git_ls_files_docs_trees(repo_root):
+    """Return tracked paths under documentation trees, or [] if not a git checkout."""
+    git_dir = repo_root / ".git"
+    if not git_dir.exists():
+        return []
+    try:
+        proc = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(repo_root),
+                "ls-files",
+                "-z",
+                "--",
+                "_docs/",
+                "_includes/",
+                "_lang/",
+            ],
+            capture_output=True,
+            check=False,
+            text=False,
+        )
+    except OSError:
+        return []
+    if proc.returncode != 0:
+        return []
+    out = []
+    for chunk in proc.stdout.split(b"\0"):
+        if not chunk:
+            continue
+        try:
+            out.append(chunk.decode("utf-8"))
+        except UnicodeDecodeError:
+            continue
+    return out
+
+
 def _collect_path_case_collisions(repo_root):
     """Return groups of repo-relative paths that differ but match under casefold().
 
     Git on macOS/Windows treats these as one file; tracking both corrupts
-    ``git status`` and can drop content. CI runs on Linux, so both paths can
-    exist on disk—fail the merge job before opening a PR (PR #13372 workflow).
+    ``git status`` and can drop content. The merge job runs on Linux (two
+    on-disk spellings are possible) **and** may run in a full git checkout.
+
+    We union ``git ls-files`` with a filesystem walk so untracked overlays are
+    visible before ``git add``. On case-insensitive volumes the same inode
+    often appears under two spellings (index uses ``mparticle/…`` while
+    ``iterdir`` reports ``mParticle/…``); those are **not** reported once only
+    one spelling is tracked in Git. Multiple **tracked** paths for one casefold,
+    or multiple **physical** files (distinct device/inode pairs), still fail
+    (PR #13372 workflow).
     """
+    git_paths = set(_git_ls_files_docs_trees(repo_root))
+    by_cf = {}
+
+    def _add(rel):
+        by_cf.setdefault(rel.casefold(), set()).add(rel)
+
+    for rel in git_paths:
+        _add(rel)
+
     roots = [
         repo_root / "_docs",
         repo_root / "_includes",
@@ -1291,7 +1345,6 @@ def _collect_path_case_collisions(repo_root):
     for info in LANGUAGES.values():
         roots.append(repo_root / "_lang" / info["dir"])
 
-    by_cf = {}
     for base in roots:
         if not base.is_dir():
             continue
@@ -1302,12 +1355,29 @@ def _collect_path_case_collisions(repo_root):
                 rel = path.relative_to(repo_root).as_posix()
             except ValueError:
                 continue
-            by_cf.setdefault(rel.casefold(), set()).add(rel)
+            _add(rel)
 
     collisions = []
     for paths in by_cf.values():
-        if len(paths) > 1:
-            collisions.append(sorted(paths))
+        if len(paths) < 2:
+            continue
+        sorted_paths = sorted(paths)
+        in_git = [p for p in sorted_paths if p in git_paths]
+        if len(set(in_git)) > 1:
+            collisions.append(sorted_paths)
+            continue
+
+        stat_pairs = []
+        for rel in sorted_paths:
+            fp = repo_root / rel
+            if fp.is_file():
+                st = fp.stat()
+                stat_pairs.append((st.st_dev, st.st_ino))
+        if len(stat_pairs) < 2:
+            continue
+        if len(set(stat_pairs)) > 1:
+            collisions.append(sorted_paths)
+
     return collisions
 
 
