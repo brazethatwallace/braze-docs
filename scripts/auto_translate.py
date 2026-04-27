@@ -6,6 +6,7 @@ Usage:
     python auto_translate.py translate --changed-files changed_files.txt
     python auto_translate.py qc
     python auto_translate.py check-aliases
+    python auto_translate.py check-path-case-collisions
     python auto_translate.py verify --max-attempts 3
     python auto_translate.py summary
 """
@@ -538,7 +539,17 @@ consistently for “run projection”. **German** ``optimizations``—**Gewinner
 ``conversion_correlation``—**Nutzer:innen** / **Nutzerattribute** consistently \
 (no **Benutzer** mix). **French** ``conversion_correlation``—**campagnes** in \
 French prose, not English **Campaigns** mid-sentence (auto-translate PR #13359).
-25. **Monthly release notes** (``_releases/``): The file must start with YAML \
+25. **Japanese monthly release notes** (``_lang/ja/_releases/``): In YAML \
+``description``, keep the stock closing in polite **です/ます** form—for example \
+「…リリースノートが**含まれています**。」—not plain dictionary-style \
+「…含まれている。」 so ``description`` matches sibling months in the same \
+year (auto-translate PR #13372).
+26. **Monthly release notes** (``_releases/``): When English names a concrete \
+REST path such as ``/raw_data/status``, keep it in **inline code** (backticks) \
+in every locale—including after localized ``[API endpoint](…)`` link text—and \
+avoid doubled commas or stray parentheses around the path (auto-translate \
+PR #13373).
+27. **Monthly release notes** (``_releases/``): The file must start with YAML \
 ``---`` on line 1—never a decorative ``----`` rule above it (Jekyll will not \
 parse front matter). Use **spaces** (for example two spaces) for nested \
 markdown bullets, not tab characters, so lists render consistently (auto-translate \
@@ -1282,6 +1293,182 @@ def repair_releases_tab_indented_markdown_bullets(translated_path, translated_co
         f"releases_md — tab-indented nested list → spaces ({changed} line(s); "
         "PR #13374)"
     ]
+
+
+def repair_releases_bare_raw_data_status_endpoint(translated_path, translated_content):
+    """Wrap the ``/raw_data/status`` REST path in backticks in monthly release notes.
+
+    Copilot flags bare ``/raw_data/status`` after localized link text; use
+    inline code so the path is unambiguous (PR #13373).
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_releases/" not in rel or not rel.endswith(".md"):
+        return translated_content, []
+    if "/raw_data/status" not in translated_content:
+        return translated_content, []
+    if "`/raw_data/status`" in translated_content:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    # Double comma typo from some locales
+    if ", /raw_data/status,," in new:
+        new = new.replace(", /raw_data/status,,", ", `/raw_data/status`,", 1)
+        repairs.append("releases — /raw_data/status inline code (double comma)")
+    if ", /raw_data/status," in new:
+        new = new.replace(", /raw_data/status,", ", `/raw_data/status`,", 1)
+        repairs.append("releases — /raw_data/status inline code (comma delimited)")
+    if "、/raw_data/statusを" in new:
+        new = new.replace("、/raw_data/statusを", "、`/raw_data/status`を", 1)
+        repairs.append("releases — /raw_data/status inline code (JA)")
+    if "인 /raw_data/status를" in new:
+        new = new.replace("인 /raw_data/status를", "인 `/raw_data/status`를", 1)
+        repairs.append("releases — /raw_data/status inline code (KO)")
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
+def repair_ja_releases_description_desu_masu(translated_path, translated_content, lang_key):
+    """Normalize a common plain-form ending in Japanese release-note YAML.
+
+    Monthly ``_releases/`` pages use a stock ``description`` line; models
+    sometimes emit dictionary-style 「…リリースノートが含まれている。」 while
+    sibling months use polite 「…含まれています。」 (Copilot / PR #13372). Only
+    the ``description`` key inside front matter is adjusted.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix()
+    if "_releases/" not in rel or not rel.startswith("_lang/ja/"):
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm or "リリースノートが含まれている" not in tr_fm:
+        return translated_content, []
+
+    desc_block = _extract_fm_block(tr_fm, "description")
+    if not desc_block or "リリースノートが含まれている" not in desc_block:
+        return translated_content, []
+
+    new_desc = desc_block.replace(
+        "リリースノートが含まれている", "リリースノートが含まれています"
+    )
+    if new_desc == desc_block:
+        return translated_content, []
+
+    new_fm = tr_fm.replace(desc_block, new_desc, 1)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        [
+            "ja_releases_fm — description: リリースノートが含まれている → "
+            "リリースノートが含まれています (polite です/ます stock phrase)"
+        ],
+    )
+
+
+def _git_ls_files_docs_trees(repo_root):
+    """Return tracked paths under documentation trees, or [] if not a git checkout."""
+    git_dir = repo_root / ".git"
+    if not git_dir.exists():
+        return []
+    try:
+        proc = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(repo_root),
+                "ls-files",
+                "-z",
+                "--",
+                "_docs/",
+                "_includes/",
+                "_lang/",
+            ],
+            capture_output=True,
+            check=False,
+            text=False,
+        )
+    except OSError:
+        return []
+    if proc.returncode != 0:
+        return []
+    out = []
+    for chunk in proc.stdout.split(b"\0"):
+        if not chunk:
+            continue
+        try:
+            out.append(chunk.decode("utf-8"))
+        except UnicodeDecodeError:
+            continue
+    return out
+
+
+def _collect_path_case_collisions(repo_root):
+    """Return groups of repo-relative paths that differ but match under casefold().
+
+    Git on macOS/Windows treats these as one file; tracking both corrupts
+    ``git status`` and can drop content. The merge job runs on Linux (two
+    on-disk spellings are possible) **and** may run in a full git checkout.
+
+    We union ``git ls-files`` with a filesystem walk so untracked overlays are
+    visible before ``git add``. On case-insensitive volumes the same inode
+    often appears under two spellings (index uses ``mparticle/…`` while
+    ``iterdir`` reports ``mParticle/…``); those are **not** reported once only
+    one spelling is tracked in Git. Multiple **tracked** paths for one casefold,
+    or multiple **physical** files (distinct device/inode pairs), still fail
+    (PR #13372 workflow).
+    """
+    git_paths = set(_git_ls_files_docs_trees(repo_root))
+    by_cf = {}
+
+    def _add(rel):
+        by_cf.setdefault(rel.casefold(), set()).add(rel)
+
+    for rel in git_paths:
+        _add(rel)
+
+    roots = [
+        repo_root / "_docs",
+        repo_root / "_includes",
+    ]
+    for info in LANGUAGES.values():
+        roots.append(repo_root / "_lang" / info["dir"])
+
+    for base in roots:
+        if not base.is_dir():
+            continue
+        for path in base.rglob("*"):
+            if not path.is_file():
+                continue
+            try:
+                rel = path.relative_to(repo_root).as_posix()
+            except ValueError:
+                continue
+            _add(rel)
+
+    collisions = []
+    for paths in by_cf.values():
+        if len(paths) < 2:
+            continue
+        sorted_paths = sorted(paths)
+        in_git = [p for p in sorted_paths if p in git_paths]
+        if len(set(in_git)) > 1:
+            collisions.append(sorted_paths)
+            continue
+
+        stat_pairs = []
+        for rel in sorted_paths:
+            fp = repo_root / rel
+            if fp.is_file():
+                st = fp.stat()
+                stat_pairs.append((st.st_dev, st.st_ino))
+        if len(stat_pairs) < 2:
+            continue
+        if len(set(stat_pairs)) > 1:
+            collisions.append(sorted_paths)
+
+    return collisions
 
 
 def repair_img_alt_inner_german_low9_closing_quote(
@@ -4458,6 +4645,18 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(rel_fm_rule_repairs)
 
+    translated_content, raw_status_repairs = (
+        repair_releases_bare_raw_data_status_endpoint(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(raw_status_repairs)
+
+    translated_content, ja_rel_fm_repairs = repair_ja_releases_description_desu_masu(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ja_rel_fm_repairs)
+
     translated_content, rel_tab_list_repairs = (
         repair_releases_tab_indented_markdown_bullets(
             translated_path, translated_content
@@ -5128,6 +5327,34 @@ def cmd_check_aliases(args):
     sys.exit(1)
 
 
+def cmd_check_path_case_collisions(_args):
+    """Fail if two tracked-on-disk paths differ only by letter case (macOS/Windows hazard)."""
+    collisions = _collect_path_case_collisions(REPO_ROOT)
+    if not collisions:
+        print(
+            "check-path-case-collisions: no case-only duplicate paths under "
+            "`_docs/`, `_includes/`, or `_lang/<locale>/`."
+        )
+        return
+
+    print(
+        "check-path-case-collisions: DUPLICATE PATHS (case-insensitive FS "
+        "would alias these files):\n",
+        file=sys.stderr,
+    )
+    for group in sorted(collisions):
+        print("  Group:", file=sys.stderr)
+        for p in group:
+            print(f"    - {p}", file=sys.stderr)
+        print(file=sys.stderr)
+    print(
+        "Remove or rename one spelling in Git so only a single path remains "
+        "(match English ``_docs/`` folder casing for partner trees; PR #13372).",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+
+
 # ---------------------------------------------------------------------------
 # summary  (generate PR body)
 # ---------------------------------------------------------------------------
@@ -5303,6 +5530,15 @@ def main():
         help="Also scan _lang/**/_includes/**/*.md (default: skip; often shares alias with a page)",
     )
     ap.set_defaults(func=cmd_check_aliases)
+
+    cp = sub.add_parser(
+        "check-path-case-collisions",
+        help=(
+            "Fail if two files under _docs, _includes, or _lang differ only by "
+            "path letter case (prevents macOS git checkout noise)"
+        ),
+    )
+    cp.set_defaults(func=cmd_check_path_case_collisions)
 
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)

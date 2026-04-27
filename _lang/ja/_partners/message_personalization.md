@@ -4,7 +4,7 @@ article_title: メッセージパーソナライゼーションパートナー
 page_order: 1
 
 page_type: landing
-description: "このランディングページには、Brazeのキャンペーンやキャンバスに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
+description: "このランディングページには、BrazeのCampaignsやCanvasesに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
 layout: partner_page
 search_tag: Partner
 
@@ -33,6 +33,8 @@ valid_partner_list:
   url: /docs/partners/amplitude/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
@@ -61,7 +63,7 @@ valid_partner_list:
   url: /docs/partners/crowdin/
 - name: Lokalise
   url: /docs/partners/lokalise/
-- name: Phrase  
+- name: Phrase
   url: /docs/partners/phrase/
 - name: Smartling
   url: /docs/partners/smartling/
@@ -75,8 +77,8 @@ valid_partner_list:
   url: /docs/partners/future_anthem
 - name: SEEN
   url: /docs/partners/seen
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Transifex
   url: /docs/partners/transifex/
 - name: AccuWeather
