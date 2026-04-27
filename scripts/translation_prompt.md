@@ -131,6 +131,17 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 - **Internal doc links**: Keep product names per the glossary (**Canvas** stays English). In the same markdown **link anchor**, translate ordinary words that are not fixed product tokens—e.g. use **Campañas** / **Campagnes** in “Getting started: … and Canvas” style anchors when the surrounding sentence is localized; do not leave raw English *Campaigns* inside an otherwise Spanish or French phrase.
 - **German image alts**: Use the full German pair `„` … `“` inside `![…](…)` alt text (see style guide). Do not close a `„` phrase with a straight ASCII `"` before words like *als ausgewähltem*.
 
+### B2B use-case walkthroughs (`_user_guide/get_started/b2b_use_cases/`)
+
+These pages are long **how-tos** that mirror the in-app Canvas builder, segment extensions, and webhook/campaign flows. Copilot and readers flag **raw US-English UI** sitting inside otherwise localized steps.
+
+- **Canvas builder parity**: For numbered procedures, bold the **same control labels** that locale already uses on `messaging/canvas/create_a_canvas.md` (or `engagement_tools/canvas/create_a_canvas.md` for that language)—for example **Canvas erstellen** and **Eintrittskontrollen** in German, **Mensajería** / **Crear Canvas** in Spanish, **Mensagens** / **Criar Canvas** in pt-BR, **メッセージング** / **Canvasを作成** in Japanese, **메시징** / **Canvas 만들기** in Korean. Do not leave **Create Canvas**, **Entry Controls**, **Schedule Delivery**, **Launch**, or similar alone in those locales when the rest of the list is translated.
+- **Campaign wording in this folder**: When steps describe creating or launching a **marketer-facing** Braze campaign (webhook campaign, Canvas handoff), use the **localized noun** that sibling docs in that locale use (*campaña*, *campanha*, *Kampagne*, *캠페인*, *キャンペーン*) in headings, bullets, and alt text—**not** raw English **Campaign** / **Campaigns** mixed into Spanish, Portuguese, German, Korean, or Japanese sentences (auto-translate PR #13347). Keep wire/API tokens (`campaign_id`, URL paths) unchanged.
+- **Segment / segment extensions**: In `account_based_segmentation.md`, localize navigation and tab labels (**Audience**, **Segment Extensions**, **Variables**, template chooser strings) to match that locale's segment-extension UI; use **segmentos** (ES, pt-BR), **セグメント** (JA), **세그먼트** (KO), or **Segmente** (DE) in prose and alts where English **Segment** was only mirroring the dashboard in an otherwise localized doc (PR #13347).
+- **French YAML accents**: In `nav_title` / `article_title`, keep standard French spelling with diacritics—for example **Évaluation des prospects**, not *Evaluation des prospects* without the acute accent (PR #13347).
+
+This folder-specific guidance **supplements** items 8 (**Procedure UI labels**) and 11 (**CJK Campaign readability**) in the review prompt; it does **not** relax glossary rules on channel landings, API docs, or `channels/*.md` product bullets that must keep English **Campaign** / **Segment** tokens.
+
 ### A/B testing landing (`_user_guide/messaging/ab_testing.md`)
 
 - **`nav_title` parity with sibling config**: Keep `nav_title` exactly aligned with the locale's existing `_partners/data_and_analytics/ab_testing.md` value (same wording and quoting style) to avoid navigation drift.

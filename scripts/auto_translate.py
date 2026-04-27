@@ -472,6 +472,13 @@ the label to match the sentence while preserving each \
 `]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
 `metrics_glossary`, use **Glossaire des indicateurs de rapport** (not \
 *d'indicateurs*) when that row exists (auto-translate PR #13341).
+17. **B2B use-case walkthroughs** (`_user_guide/get_started/b2b_use_cases/`): \
+Align bold Canvas/webhook step labels with that locale's Canvas docs (not raw \
+US English alone in DE/ES/FR/JA/KO/pt-BR). Use localized **campaign** nouns \
+(*campaña*, *Kampagne*, *캠페인*, *キャンペーン*, …) and **segment** wording \
+for extension UI where sibling pages do—fix mixed **Campaign**/**Segment** \
+English drift in procedures. **French** `nav_title`: keep accents (**Évaluation**). \
+(auto-translate PR #13347).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
