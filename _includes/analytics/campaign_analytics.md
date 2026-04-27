@@ -194,6 +194,10 @@ Using heatmaps, you can see how successful different links in a single email cam
 
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
 
+{% alert note %}
+If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to map them, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
+{% endalert %}
+
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 #### Images
@@ -437,6 +441,22 @@ _Deliveries_ can rise during the first 72 hours as retries succeed, while _Sends
 A click can be logged without an open when the open pixel never loads. For example, the message is clipped in Gmail, or the user has disabled images (the open pixel is usually at the footer). Some clients proxy images (such as Apple Mail), so the open may log when the server first fetches the pixel, not when the user reads the mail. Corporate domains often block images by default.
 
 A click and open can also land on different days: a user might click on May 16 with images off (no open), then open in webmail on May 17 (open logged then).
+
+##### Higher _Unique clicks_ than _Unique opens_
+
+_Unique clicks_ can be higher than _Unique opens_ when opens are undercounted or clicks are inflated:
+
+**The mailbox never loaded the open tracking pixel**
+
+This can happen when:
+
+- The message is long and the open pixel sits at the end. When the client clips the message, the pixel is cut off.
+- The message landed in spam, where remote images (including the open pixel) often don't load.
+- The mailbox uses stricter security (common on corporate accounts) and the user hasn't chosen to load images yet.
+
+**Security or bot activity on links**
+
+Some email security products follow links to scan for threats. Those requests can log a click without loading images, so you can see click activity without a matching open.
 
 ##### Deferrals
 
