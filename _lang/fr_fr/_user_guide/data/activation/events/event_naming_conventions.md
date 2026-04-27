@@ -1,38 +1,38 @@
 ---
-nav_title: Conventions de nommage des événements
+nav_title: Conventions de dénomination des événements
 article_title: Conventions de nommage des événements
 page_order: 4
 page_type: reference
-description: "Cet article de référence présente les conventions de nommage des événements et les bonnes pratiques à suivre."
+description: "Cet article de référence couvre les conventions et meilleures pratiques de nommage pour les événements."
 
 ---
 
-# Conventions de nommage des événements
+# Conventions de dénomination des événements {#event-naming-conventions}
 
-> Cette page présente les conventions de nommage des événements et les bonnes pratiques à suivre. En maintenant une cohérence dans la taxonomie de vos événements et attributs, vous garderez vos données propres et exploitables pour les utilisateurs actuels et futurs de la plateforme Braze. Cela permet d'éviter des problèmes ultérieurs, comme le déclenchement d'une campagne vers la mauvaise audience ou la génération de résultats erronés suite à l'utilisation du mauvais événement.
+> Cette page traite des conventions de dénomination des événements et des meilleures pratiques. En maintenant la cohérence de votre taxonomie d'événements et d'attributs, vous garderez vos données propres et utilisables pour les utilisateurs nouveaux et existants de la plateforme Braze. Cela permet d'éviter des problèmes ultérieurs, comme le déclenchement d'une campagne auprès de la mauvaise audience ou la génération de mauvais résultats après avoir utilisé le mauvais événement.
 
-## Bonnes pratiques
+## Bonnes pratiques {#best-practices}
 
 - Adoptez une convention de nommage claire.
-- Utilisez une casse et un formatage cohérents pour les noms d'événements.
-- Évitez de donner des noms similaires à vos événements.
-- Évitez les chaînes de caractères d'attributs d'événements trop longues, qui seront tronquées ou coupées dans le tableau de bord de Braze.
+- Utilisez des majuscules et un formatage cohérents pour les noms d'événements.
+- Évitez de donner des noms similaires à des événements.
+- Évitez les longues chaînes de caractères pour les attributs d'événements, car elles seront tronquées ou coupées sur le tableau de bord de Braze.
 
-## Conventions de nommage
+## Conventions de nommage {#naming-conventions}
 
-### Utiliser des groupes d'événements
+### Utilisez des groupes d'événements {#use-event-groups}
 
-Utilisez des groupes pour distinguer les différentes parties de votre produit lors du nommage des événements. En catégorisant votre produit en groupes, n'importe quel utilisateur peut comprendre clairement à quoi l'événement fait référence et ce qu'il représente.
+Utilisez des groupes pour nommer les événements et différencier les différentes parties de votre produit. En catégorisant votre produit en groupes, tout utilisateur peut clairement comprendre à quoi l'événement fait référence, et à quoi il sert.
 
-### Structure de nommage des événements
+### Structure de nommage des événements {#event-naming-structure}
 
-La structure de nommage la plus courante est `group_noun_action`. Les événements doivent tous être en minuscules afin d'éviter les erreurs d'instrumentation liées à la casse et faciliter l'identification des propriétés.
+La structure de nommage la plus courante est `group_noun_action`. Les événements doivent tous être en minuscules pour éviter les erreurs d'identification des propriétés et les erreurs d'instrumentation liées à la casse.
 
-### Propriétés
+### Propriétés {#properties}
 
 Étiquetez un seul événement, puis identifiez les différences à l'aide de propriétés. Cette approche est utile pour les événements qui sont fondamentalement identiques mais présentent des différences mineures, comme les canaux d'une campagne. Cela permet également de visualiser facilement le parcours des utilisateurs à travers les événements. Consultez l'[objet propriétés d'événement]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) pour un exemple et des informations complémentaires.
 
-## Exemples
+## Exemples {#examples}
 
 Imaginons que vous faites partie d'une entreprise de commerce en ligne et que vous souhaitez suivre le moment où les clients s'inscrivent sur votre application et celui où ils s'abonnent à votre newsletter. Voici des exemples de noms d'événements efficaces :
 

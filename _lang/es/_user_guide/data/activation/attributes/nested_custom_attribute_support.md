@@ -7,25 +7,25 @@ page_type: reference
 description: "Este artículo de referencia cubre el uso de atributos personalizados anidados como tipo de datos para atributos personalizados, incluyendo limitaciones y ejemplos de uso."
 ---
 
-# Atributos personalizados anidados
+# Atributos personalizados anidados {#nested-custom-attributes}
 
-> Esta página cubre los atributos personalizados anidados, que te permiten definir un conjunto de atributos como propiedad de otro atributo. En otras palabras, cuando defines un objeto de atributo personalizado, puedes definir un conjunto de atributos adicionales para ese objeto.
+> Esta página trata de los atributos personalizados anidados, que te permiten definir un conjunto de atributos como propiedad de otro atributo. En otras palabras, cuando defines un objeto de atributo personalizado, puedes definir un conjunto de atributos adicionales para ese objeto.
 
 {% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Consideraciones
+## Consideraciones {#considerations}
 
-- Los atributos personalizados anidados están diseñados para atributos personalizados enviados a través del SDK o la API de Braze. 
+- Los atributos personalizados anidados están pensados para atributos personalizados enviados a través del SDK o la API de Braze.
 - Los objetos tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que el objeto supere los 100&nbsp;KB, Braze descarta la actualización y el atributo permanece sin cambios.
-- Los nombres de clave y los valores de cadena tienen un límite de tamaño de 255 caracteres.
-- Los nombres de clave no pueden contener espacios.
+- Los nombres de las claves y los valores de cadena tienen un límite de tamaño de 255 caracteres.
+- Los nombres de las claves no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
-- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home) para confirmar si integraciones de socios específicas admiten esta característica.
-- Los atributos personalizados anidados no se pueden usar como filtro al realizar una llamada a la API de Connected Audience.
+- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones del socio admiten esta característica.
+- Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
 
-## Ejemplo de API
+## Ejemplo de API {#api-example}
 
 {% tabs local %}
 {% tab Create %}
@@ -111,7 +111,7 @@ Este enfoque no se puede usar para eliminar una clave anidada dentro de una [mat
 {% endtab %}
 {% endtabs %}
 
-## Ejemplo de SDK
+## Ejemplo de SDK {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
 
@@ -225,7 +225,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 {% endtab %}
 {% endtabs %}
 
-## Capturar fechas como propiedades de objeto
+## Capturar fechas como propiedades de objeto {#capturing-dates-as-object-properties}
 
 Para capturar fechas como propiedades de objeto, debes usar la clave `$time`. En el siguiente ejemplo, se usa un objeto "Important Dates" para capturar el conjunto de propiedades de objeto, `birthday` y `wedding_anniversary`. Los valores de estas fechas son un objeto con una clave `$time`, que no puede ser un valor nulo.
 
@@ -235,7 +235,7 @@ Si no capturaste fechas como propiedades de objeto inicialmente, te recomendamos
 
 ```json
 {
-  "attributes": [ 
+  "attributes": [
     {
       "external_id": "time_with_nca_test",
       "important_dates": {
@@ -251,7 +251,7 @@ Si no capturaste fechas como propiedades de objeto inicialmente, te recomendamos
 Para atributos personalizados anidados, si el año es menor que 0 o mayor que 3000, Braze no almacena estos valores en el usuario.
 {% endalert %}
 
-## Plantillas Liquid
+## Plantillas Liquid {#liquid-templating}
 
 El siguiente ejemplo de plantilla Liquid muestra cómo hacer referencia a las propiedades del objeto de atributo personalizado guardadas desde la solicitud de API anterior y usarlas en tu mensajería.
 
@@ -265,9 +265,9 @@ Usa la etiqueta de personalización `custom_attribute` y la notación de punto p
 
 ![Uso de Liquid para incluir en una plantilla el nombre de una canción y el número de veces que un oyente ha reproducido esa canción en un mensaje]({% image_buster /assets/img_archive/nca_liquid_2.png %})
 
-### Personalización
+### Personalización {#personalization}
 
-Usando el modal **Añadir personalización**, también puedes insertar atributos personalizados anidados en tu mensajería. Selecciona **Atributos personalizados anidados** como tipo de personalización. A continuación, selecciona el atributo de nivel superior y la clave del atributo. 
+Usando el modal **Add Personalization**, también puedes insertar atributos personalizados anidados en tu mensajería. Selecciona **Nested Custom Attributes** como tipo de personalización. A continuación, selecciona el atributo de nivel superior y la clave del atributo.
 
 Por ejemplo, en el modal de personalización a continuación, esto inserta el atributo personalizado anidado de una oficina de barrio local basándose en las preferencias de un usuario.
 
@@ -283,10 +283,10 @@ Después de que se haya generado un esquema, se puede regenerar una vez cada 24 
 
 Para regenerar el esquema de tu atributo personalizado anidado:
 
-1. Ve a **Configuración de datos** > **Atributos personalizados**.
+1. Ve a **Data Settings** > **Custom Attributes**.
 2. Busca tu atributo personalizado anidado.
-3. En la columna **Nombre del atributo** de tu atributo, selecciona <i class="fas fa-plus"></i> para administrar el esquema.
-4. Aparecerá un modal. Selecciona **Regenerar esquema**.
+3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus"></i> para administrar el esquema.
+4. Aparecerá un modal. Selecciona **Regenerate Schema**.
 
 La opción de regenerar esquema estará deshabilitada si han pasado menos de 24 horas desde la última regeneración del esquema. Regenerar el esquema solo detectará nuevos objetos y no eliminará objetos que actualmente existen en el esquema.
 
@@ -296,15 +296,15 @@ Para restablecer el esquema de una matriz de objetos con un objeto existente, ne
 
 Si los datos no aparecen como se esperaba después de regenerar el esquema, es posible que el atributo no se ingiera con suficiente frecuencia. Los datos de usuario se muestrean a partir de datos anteriores enviados a Braze para el atributo anidado dado. Si el atributo no se ingiere lo suficiente, no será recogido para el esquema.
 
-## Desencadenar cambios en atributos personalizados anidados
+## Desencadenar cambios en atributos personalizados anidados {#trigger-nested-custom-attribute-changes}
 
 Puedes desencadenar acciones cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, verifica que hayas generado un esquema.
 
-Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Cambio de valor de atributo personalizado** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
+Por ejemplo, en una Campaign basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
 
-![Configuración de entrega de campaña basada en acciones con un desencadenador de cambio de valor de atributo personalizado para preferencias anidadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Configuración de entrega de Campaign basada en acciones con un desencadenador de cambio de valor de atributo personalizado para preferencias anidadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
-## Comportamiento de segmentación con matrices de objetos
+## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 
 Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el segmento si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
 
@@ -328,7 +328,7 @@ Este usuario calificaría porque el primer filtro coincide con el elemento "Shoe
 
 Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio](#multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 
-## Puntos de datos
+## Puntos de datos {#data-points}
 
 Cualquier clave que se envíe consume un punto de datos. Por ejemplo, este objeto inicializado en el perfil de usuario cuenta como siete (7) puntos de datos:
 

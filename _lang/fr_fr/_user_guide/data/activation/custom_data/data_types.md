@@ -7,7 +7,7 @@ description: "Référence des types de données pris en charge pour les attribut
 toc_headers: h2
 ---
 
-# Types de données
+# Types de données {#data-types}
 
 > Cette page regroupe les types de données pris en charge pour les attributs personnalisés, les propriétés d'événement et les catalogues. Chaque type de données personnalisé offre une prise en charge et des contraintes légèrement différentes.
 
@@ -78,7 +78,7 @@ Utilisez ce tableau pour identifier les types de données disponibles pour les a
   </tbody>
 </table>
 
-### Considérations importantes
+### Considérations importantes {#important-considerations}
 
 - **Tableau :** Les attributs personnalisés et les propriétés d'événement ont des limites de taille. Les dates ne sont pas prises en charge dans les tableaux des propriétés d'événement. Les catalogues ne prennent en charge que les tableaux de chaînes de caractères, avec un maximum de 100 éléments.
 - **Objet :** Dans Braze, ce type apparaît sous le nom « attributs personnalisés imbriqués » pour les attributs personnalisés, « objets imbriqués » pour les propriétés d'événement et « objet JSON » pour les catalogues.
@@ -93,26 +93,26 @@ Les attributs personnalisés prennent en charge les types de données répertori
 
 Vous pouvez bloquer individuellement des attributs personnalisés depuis le menu d'actions, ou sélectionner et bloquer jusqu'à 100 attributs en masse. Lorsqu'un attribut personnalisé est bloqué, aucune donnée n'est collectée pour cet attribut, les données existantes ne sont plus accessibles (sauf réactivation), et les attributs bloqués n'apparaissent pas dans les filtres ni les graphiques. De plus, si l'attribut est actuellement référencé par des filtres ou des déclencheurs dans d'autres zones du tableau de bord de Braze, une fenêtre modale d'avertissement s'affiche pour vous informer que toutes les instances de filtres ou de déclencheurs qui le référencent seront supprimées et archivées.
 
-### Marquer comme information personnelle identifiable (PII)
+### Marquer comme information personnelle identifiable (PII) {#marking-as-personally-identifiable-information-pii}
 
-Les administrateurs peuvent également créer des attributs personnalisés et les marquer comme PII depuis cette page. Ces attributs ne sont visibles que par les administrateurs et les utilisateurs du tableau de bord disposant de l'autorisation « Afficher les attributs personnalisés marqués comme PII ».
+Les administrateurs peuvent également créer des attributs personnalisés et les marquer comme PII depuis cette page. Ces attributs ne sont visibles que par les administrateurs et les utilisateurs du tableau de bord disposant de l'autorisation « View Custom Attributes Marked as PII ».
 
-### Ajouter des descriptions
+### Ajouter des descriptions {#adding-descriptions}
 
 Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Modifiez l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
 
-### Ajouter des étiquettes
+### Ajouter des étiquettes {#adding-tags}
 
 Vous pouvez ajouter des étiquettes à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) « Manage Events, Attributes, Purchases ». Vous pouvez ensuite utiliser ces étiquettes pour filtrer la liste des attributs.
 
-### Supprimer des attributs personnalisés
+### Supprimer des attributs personnalisés {#removing-custom-attributes}
 
 Il existe deux façons de supprimer des attributs personnalisés des profils utilisateur :
 
 * Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape de Mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
 
-#### Définir la valeur `null`
+#### Définir la valeur `null` {#setting-the-null-value}
 
 {% alert important %}
 Définir un attribut à `null` et le définir à `""` (chaîne vide) ne revient pas au même.
@@ -123,23 +123,23 @@ Définir un attribut à `null` et le définir à `""` (chaîne vide) ne revient 
 
 De plus, `""` n'est valide que pour les attributs de type chaîne de caractères. Si le type de données de l'attribut est défini sur un type autre que chaîne (comme valeur booléenne, nombre ou heure) dans le tableau de bord, l'envoi de `""` n'efface pas la valeur — utilisez `null` à la place.
 
-### Exporter des données
+### Exporter des données {#exporting-data}
 
 Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le système génère un fichier CSV et vous envoie un lien de téléchargement par e-mail.
 
-## Consulter les rapports d'utilisation
+## Consulter les rapports d'utilisation {#viewing-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, campagnes et segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
 Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondant aux attributs personnalisés souhaités, puis en sélectionnant **View usage report**.
 
-### Onglet Values
+### Onglet Values {#values-tab}
 
 Lorsque vous consultez un rapport d'utilisation, sélectionnez l'onglet **Values** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Comme les résultats sont échantillonnés à partir d'un sous-ensemble d'utilisateurs, l'échantillon n'inclut pas toutes les valeurs existantes. L'onglet **Values** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
 
 ![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Values » ouvert montrant un graphique circulaire des valeurs d'attribut de pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
-## Définir des attributs personnalisés
+## Définir des attributs personnalisés {#setting-custom-attributes}
 
 Voici les méthodes utilisées sur les différentes plateformes pour définir des attributs personnalisés.
 
@@ -155,11 +155,11 @@ Voici les méthodes utilisées sur les différentes plateformes pour définir de
 
 {% enddetails %}
 
-## Stockage des attributs personnalisés
+## Stockage des attributs personnalisés {#custom-attribute-storage}
 
 Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
-## Types de données des attributs personnalisés
+## Types de données des attributs personnalisés {#custom-attribute-data-types}
 
 Les attributs personnalisés sont des outils extrêmement flexibles qui permettent un ciblage précis.
 
@@ -205,7 +205,7 @@ Pour les attributs de type **nombre**, les options de segmentation suivantes son
 | Vérifier si l'attribut numérique **n'existe pas** dans le profil d'un utilisateur ou est nul | **IS BLANK** | **N/A** | Si un profil utilisateur ne contient pas l'attribut numérique spécifié ou si la valeur de l'attribut est nulle, l'utilisateur correspondra à ce filtre.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Détails des attributs numériques
+#### Détails des attributs numériques {#number-attribute-details}
 
 - Les filtres « Exactement 0 » et « Inférieur à » incluent les utilisateurs avec des champs NULL
   - Pour exclure les utilisateurs sans valeur pour les attributs personnalisés, vous devez inclure le filtre **is not blank**.
@@ -238,7 +238,7 @@ Lors de la segmentation avec le filtre **DOES NOT MATCH REGEX**, vous devez déj
 {% endtab %}
 {% tab Tableaux %}
 
-Les tableaux ont une taille maximale de 100 Ko. La longueur par défaut d'un attribut est de 500 éléments maximum (par exemple, si vous envoyez un attribut tel que « Films regardés » défini à 500, lorsqu'un utilisateur regarde un 501e film, le premier film est supprimé et le plus récent est ajouté). Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après les mots, Braze vérifiera également ces mêmes espaces.
+Les tableaux ont une taille maximale de 100&nbsp;Ko. La longueur par défaut d'un attribut est de 500 éléments maximum (par exemple, si vous envoyez un attribut tel que « Films regardés » défini à 500, lorsqu'un utilisateur regarde un 501e film, le premier film est supprimé et le plus récent est ajouté). Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après les mots, Braze vérifiera également ces mêmes espaces.
 
 Les attributs personnalisés de type tableau ne peuvent pas être importés via l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/). Pour charger des valeurs de tableau, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) ou l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
 
@@ -276,7 +276,7 @@ Pour en savoir plus sur l'utilisation des expressions régulières (regex), cons
 
 Les attributs de type heure sont utiles pour stocker la dernière fois qu'une action spécifique a été effectuée, afin de proposer des messages de réengagement ciblés à vos utilisateurs.
 
-Les filtres temporels utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de 2 jours) mesurent 1 jour comme 24 heures. Toute campagne utilisant ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, `last used app more than 1 day ago` capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la campagne est exécutée. Il en va de même pour les campagnes avec des plages de dates plus longues — cinq jours à partir de l'activation signifient les 120 heures précédentes.
+Les filtres temporels utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de 2 jours) mesurent 1 jour comme 24 heures. Toute Campaign utilisant ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, `last used app more than 1 day ago` capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la Campaign est exécutée. Il en va de même pour les Campaigns avec des plages de dates plus longues — cinq jours à partir de l'activation signifient les 120 heures précédentes.
 
 Pour cibler les utilisateurs dont un attribut de type heure se situe dans une plage temporelle, utilisez deux filtres d'audience : `in more than` pour la borne inférieure et `in less than` pour la borne supérieure. Un seul filtre ne peut pas exprimer les deux côtés de cette plage. Par exemple, pour cibler les utilisateurs dont un attribut de type heure se situe dans les prochaines 24 heures (entre maintenant et un jour à partir de maintenant), appliquez `in more than 0 days` et `in less than 1 day`.
 
@@ -298,13 +298,13 @@ Pour les attributs de type **heure**, les options de segmentation suivantes sont
 | Vérifier si l'attribut de type heure **n'existe pas** dans le profil d'un utilisateur ou est nul | **IS BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure absent du profil utilisateur, l'utilisateur correspondra à ce filtre. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Détails des attributs de type heure
+#### Détails des attributs de type heure {#time-attribute-details}
 
 - Jour d'événement récurrent
   - Lorsque vous utilisez le filtre « Jour d'événement récurrent » et que vous êtes invité à sélectionner le « Jour calendaire de l'événement récurrent », si vous sélectionnez `IS LESS THAN` ou `IS MORE THAN`, la date actuelle sera comptabilisée pour ce filtre de segmentation.
   - Par exemple, si le 10 mars 2020, vous avez sélectionné la date de l'attribut comme `LESS THAN ... March 10, 2020`, les attributs seront pris en compte pour les jours allant jusqu'au 10 mars 2020 inclus.
-- Il y a moins de X jours : Le filtre « Il y a moins de X jours » inclut les dates entre il y a X jours et la date/heure actuelle.
-- Dans moins de X jours dans le futur : Inclut les dates entre la date/heure actuelle et X jours dans le futur.
+- Il y a moins de X jours : le filtre « Il y a moins de X jours » inclut les dates entre il y a X jours et la date/heure actuelle.
+- Dans moins de X jours dans le futur : inclut les dates entre la date/heure actuelle et X jours dans le futur.
 
 {% endtab %}
 {% tab Objets %}
@@ -343,10 +343,10 @@ Les valeurs des propriétés sont envoyées sous forme d'objet : les clés sont 
 
 Règles spécifiques aux propriétés d'événement :
 
-- **Heure (Datetime) :** Utilisez le format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Non pris en charge dans les tableaux.
-- **Tableau :** Les dates ne sont pas prises en charge dans les tableaux.
-- **Objet imbriqué :** Voir [Objets imbriqués]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
-- **PAYLOAD :** Les objets de propriétés d'événement contenant des valeurs de tableau ou d'objet peuvent atteindre 102 400 octets (100 Ko).
+- **Heure (Datetime) :** utilisez le format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Non pris en charge dans les tableaux.
+- **Tableau :** les dates ne sont pas prises en charge dans les tableaux.
+- **Objet imbriqué :** voir [Objets imbriqués]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+- **Payload :** les objets de propriétés d'événement contenant des valeurs de tableau ou d'objet peuvent atteindre 102 400 octets (100&nbsp;Ko).
 
 Vous pouvez modifier le type de données de votre propriété d'événement personnalisé, mais soyez conscient des impacts de la [modification des types de données](#changing-custom-attribute-or-event-data-type) après la collecte des données.
 
@@ -374,15 +374,15 @@ Pour le schéma complet de l'objet d'achat et des exemples, consultez [Objet d'a
 
 Pour modifier le type de données d'un attribut personnalisé ou d'un événement :
 
-1. Accédez à **Paramètres des données** et sélectionnez **Attributs personnalisés** ou **Événements personnalisés**.
-2. Trouvez votre attribut ou événement dans la liste, puis sélectionnez <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Plus d'actions**.
-3. Sélectionnez un nouveau **type de données** dans le menu déroulant.
-4. Sélectionnez **Enregistrer**.
+1. Accédez à **Data Settings** et sélectionnez **Custom Attributes** ou **Custom Events**.
+2. Trouvez votre attribut ou événement dans la liste, puis sélectionnez <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**.
+3. Sélectionnez un nouveau **Data type** dans le menu déroulant.
+4. Sélectionnez **Save**.
 
 Si vous modifiez le type de données d'un attribut personnalisé ou d'un événement (par exemple, en changeant `time` en `string`), tenez compte des points suivants :
 
-- **Les filtres ne sont pas automatiquement mis à jour.** Les segments, campagnes, Canvas ou autres emplacements utilisant l'attribut ou l'événement modifié ne sont pas mis à jour. Avant de modifier le type de données, arrêtez toutes les campagnes ou Canvas qui utilisent l'attribut dans des segments ou des filtres, et supprimez l'attribut des filtres qui le référencent.
-- **Les données utilisateur existantes ne sont pas mises à jour rétroactivement.** Si l'attribut modifié était présent dans un profil utilisateur avant le changement, cette valeur conserve l'ancien type de données. Les utilisateurs peuvent sortir des segments contenant l'attribut modifié car le filtre recherche le nouveau type de données. Mettez à jour ces profils utilisateur (par exemple, avec l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) pour qu'ils correspondent au nouveau type et réintègrent le segment si nécessaire.
+- **Les filtres ne sont pas automatiquement mis à jour.** Les Segments, Campaigns, Canvas ou autres emplacements utilisant l'attribut ou l'événement modifié ne sont pas mis à jour. Avant de modifier le type de données, arrêtez toutes les Campaigns ou Canvas qui utilisent l'attribut dans des Segments ou des filtres, et supprimez l'attribut des filtres qui le référencent.
+- **Les données utilisateur existantes ne sont pas mises à jour rétroactivement.** Si l'attribut modifié était présent dans un profil utilisateur avant le changement, cette valeur conserve l'ancien type de données. Les utilisateurs peuvent sortir des Segments contenant l'attribut modifié car le filtre recherche le nouveau type de données. Mettez à jour ces profils utilisateur (par exemple, avec l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) pour qu'ils correspondent au nouveau type et réintègrent le Segment si nécessaire.
 - **Les nouvelles données doivent correspondre au nouveau type.** Les appels API envoyant l'ancien type de données pour l'attribut modifié ne sont pas acceptés. Envoyez le nouveau type de données.
 
 {% alert important %}
@@ -403,7 +403,7 @@ Les catalogues prennent en charge les types répertoriés dans le tableau [Défi
 | Tableau de chaînes (Tableau) | Une liste de chaînes de caractères. Affiché dans la plateforme mais ne peut être créé ou mis à jour que via l'API ou CDI. Maximum de 100 éléments. | ❌ Non | ✅ Oui |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-### Format et exemples
+### Format et exemples {#format-and-examples}
 
 | Type de données | Format | Exemple |
 | --- | --- | --- |

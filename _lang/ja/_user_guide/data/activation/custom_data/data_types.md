@@ -3,11 +3,11 @@ nav_title: データタイプ
 article_title: データタイプ
 page_order: 1
 page_type: reference
-description: "Braze のカスタム属性、イベントプロパティ、カタログでサポートされているデータタイプのリファレンスです。"
+description: "Brazeのカスタム属性、イベントプロパティ、カタログでサポートされているデータタイプのリファレンスです。"
 toc_headers: h2
 ---
 
-# データタイプ
+# データタイプ {#data-types}
 
 > このページでは、カスタム属性、イベントプロパティ、カタログでサポートされているデータタイプをまとめています。各カスタムデータタイプは、サポートされるデータタイプと制約がそれぞれ若干異なります。
 
@@ -78,10 +78,10 @@ toc_headers: h2
   </tbody>
 </table>
 
-### 重要な考慮事項
+### 重要な考慮事項 {#important-considerations}
 
 - **配列:** カスタム属性とイベントプロパティにはサイズ制限があります。イベントプロパティの配列内では日時はサポートされていません。カタログは文字列配列のみをサポートし、最大100要素です。
-- **オブジェクト:** Braze では、カスタム属性の場合は「階層化カスタム属性」、イベントプロパティの場合は「ネストされたオブジェクト」、カタログの場合は「JSON オブジェクト」として表示されます。
+- **オブジェクト:** Brazeでは、カスタム属性の場合は「階層化カスタム属性」、イベントプロパティの場合は「ネストされたオブジェクト」、カタログの場合は「JSONオブジェクト」として表示されます。
 - **時間:** イベントプロパティでは、このタイプは「Datetime」と表示されます。
 
 ## カスタム属性のデータタイプ {#custom-attribute-data-types}
@@ -91,31 +91,31 @@ toc_headers: h2
 {% tabs %}
 {% tab ブール値 %}
 
-カスタム属性は、アクションメニューから個別にブロックリストに追加できます。また、最大100個の属性を選択して一括でブロックリストに追加することもできます。カスタム属性をブロックすると、その属性に関するデータは収集されなくなり、既存のデータは再有効化しない限り利用できなくなります。また、ブロックリストに追加された属性はフィルターやグラフに表示されません。さらに、その属性が Braze ダッシュボードの他の領域でフィルターやトリガーによって現在参照されている場合、警告モーダルが表示され、それを参照しているフィルターやトリガーのすべてのインスタンスが削除およびアーカイブされることが説明されます。
+カスタム属性は、アクションメニューから個別にブロックリストに追加できます。また、最大100個の属性を選択して一括でブロックリストに追加することもできます。カスタム属性をブロックすると、その属性に関するデータは収集されなくなり、既存のデータは再有効化しない限り利用できなくなります。また、ブロックリストに追加された属性はフィルターやグラフに表示されません。さらに、その属性がBrazeダッシュボードの他の領域でフィルターやトリガーによって現在参照されている場合、警告モーダルが表示され、それを参照しているフィルターやトリガーのすべてのインスタンスが削除およびアーカイブされることが説明されます。
 
-### 個人を特定できる情報（PII）としてマークする
+### 個人を特定できる情報（PII）としてマークする {#marking-as-personally-identifiable-information-pii}
 
-管理者は、このページからカスタム属性を作成し、PII としてマークすることもできます。これらの属性は、管理者および「PII としてマークされたカスタム属性を表示」権限を持つダッシュボードユーザーにのみ表示されます。
+管理者は、このページからカスタム属性を作成し、PIIとしてマークすることもできます。これらの属性は、管理者および「View Custom Attributes Marked as PII」権限を持つダッシュボードユーザーにのみ表示されます。
 
-### 説明の追加
+### 説明の追加 {#adding-descriptions}
 
 `Manage Events, Attributes, Purchases` [ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている場合、カスタム属性の作成後に説明を追加できます。カスタム属性を編集し、チームへのメモなど任意の内容を入力してください。
 
-### タグの追加
+### タグの追加 {#adding-tags}
 
 「Manage Events, Attributes, Purchases」[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている場合、カスタム属性の作成後にタグを追加できます。その後、タグを使用して属性のリストをフィルタリングできます。
 
-### カスタム属性の削除
+### カスタム属性の削除 {#removing-custom-attributes}
 
 ユーザープロファイルからカスタム属性を削除するには、2つの方法があります。
 
 * [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes)で、削除するカスタム属性名を選択します。
-* API リクエストで [`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)に `null` 値を設定します。
+* APIリクエストで[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)に `null` 値を設定します。
 
-#### `null` 値の設定
+#### `null` 値の設定 {#setting-the-null-value}
 
 {% alert important %}
-属性を `null` に設定することと `""` （空文字列）に設定することは同じではありません。
+属性を `null` に設定することと `""`（空文字列）に設定することは同じではありません。
 {% endalert %}
 
 - `null` は属性をユーザープロファイルから完全に削除します。プロファイルに表示されず、**IS NOT BLANK** フィルターにもマッチしません。
@@ -123,43 +123,43 @@ toc_headers: h2
 
 さらに、`""` は文字列型の属性にのみ有効です。属性のデータタイプがダッシュボードで文字列以外の型（ブール値、数値、時間など）に設定されている場合、`""` を送信しても値はクリアされません。代わりに `null` を使用してください。
 
-### データのエクスポート
+### データのエクスポート {#exporting-data}
 
-カスタム属性のリストを CSV ファイルとしてエクスポートするには、ページ上部の **Export all** を選択します。システムが CSV ファイルを生成し、ダウンロードリンクをメールで送信します。
+カスタム属性のリストをCSVファイルとしてエクスポートするには、ページ上部の **Export all** を選択します。システムがCSVファイルを生成し、ダウンロードリンクをメールで送信します。
 
-## 使用状況レポートの表示
+## 使用状況レポートの表示 {#viewing-usage-reports}
 
-使用状況レポートには、特定のカスタム属性を使用しているすべてのキャンバス、キャンペーン、セグメントが一覧表示されます。このリストには Liquid の使用は含まれません。
+使用状況レポートには、特定のカスタム属性を使用しているすべてのCanvases、Campaigns、Segmentsが一覧表示されます。このリストにはLiquidの使用は含まれません。
 
 対象のカスタム属性の横にあるチェックボックスを選択し、**View usage report** を選択することで、一度に最大100件の使用状況レポートを表示できます。
 
-### 値タブ
+### 値タブ {#values-tab}
 
 使用状況レポートを表示する際に、**Values** タブを選択すると、約250,000ユーザーのサンプルに基づいて、選択したカスタム属性の上位の値を確認できます。結果はユーザーのサブセットからサンプリングされているため、サンプルにはすべての既存の値が含まれているわけではありません。つまり、**Values** タブはトラブルシューティングや、すべてのユーザーのデータを組み込む必要があるユースケースには使用しないでください。
 
 ![選択したカスタム属性の使用状況レポート。「Values」タブが開かれ、「US」や「PR」などの国属性値の円グラフが表示されています。]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
-## カスタム属性の設定
+## カスタム属性の設定 {#setting-custom-attributes}
 
 以下は、さまざまなプラットフォームでカスタム属性を設定するために使用されるメソッドの一覧です。
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
-- [Android および FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
+- [AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
 - [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI（旧 Xamarin）]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
+- [.NET MAUI（旧Xamarin）]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
 
 {% enddetails %}
 
-## カスタム属性の保存
+## カスタム属性の保存 {#custom-attribute-storage}
 
 **ユーザープロファイル**に保存されたすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users)である限り、無期限に保持されます。
 
-## カスタム属性のデータタイプ
+## カスタム属性のデータタイプ {#custom-attribute-data-types}
 
 カスタム属性は非常に柔軟なツールであり、優れたターゲティングを可能にします。
 
@@ -175,15 +175,15 @@ toc_headers: h2
 
 ### ブール値（true/false） {#booleans}
 
-ブール値属性は、サブスクリプションステータスのようなユーザーに関するシンプルなバイナリデータを保存するのに便利です。変数が明示的に true または false に設定されているユーザーに加え、その属性のレコードがまだ記録されていないユーザーも検索できます。
+ブール値属性は、サブスクリプションステータスのようなユーザーに関するシンプルなバイナリデータを保存するのに便利です。変数が明示的にtrueまたはfalseに設定されているユーザーに加え、その属性のレコードがまだ記録されていないユーザーも検索できます。
 
 **ブール値**属性では、以下のセグメンテーションオプションが利用可能です。
 
 | セグメンテーションオプション | ドロップダウンフィルター | 入力オプション | 例 |
 | ---------------------| --------------- | ------------- | -------- |
-| ブール値が true、false、true または未設定、false または未設定のいずれかであるかを確認する | **IS**  | **TRUE**、**FALSE**、**TRUE OR NOT SET**、または **FALSE OR NOT SET** | このフィルターが `coffee_drinker` を指定している場合、ユーザーは以下の状況でこのフィルターにマッチします: <br> {::nomarkdown}<ul><li>このフィルターが <code>true</code> で、ユーザーが <code>coffee_drinker</code> の値を持っている場合</li><li>このフィルターが <code>false</code> で、ユーザーが <code>coffee_drinker</code> の値を持っていない場合</li><li>このフィルターが <code>true or not set</code> で、ユーザーが <code>coffee_drinker</code> の値を持っているか、値がない場合</li><li>このフィルターが <code>false or not set</code> で、ユーザーが <code>coffee_drinker</code> またはいかなる値も持っていない場合</li></ul>{:/} |
-| ブール値がユーザーのプロファイルに**存在し**、null でないかを確認する | **IS NOT BLANK**  | **N/A** | このフィルターが `coffee_drinker` を指定し、ユーザーが属性 `coffee_drinker` の値を持っている場合、ユーザーはこのフィルターにマッチします。 |
-| ブール値がユーザーのプロファイルに**存在しない**か、null であるかを確認する | **IS BLANK**  | **N/A** | このフィルターが `coffee_drinker` を指定し、ユーザーが属性 `coffee_drinker` を持っていないか、`coffee_drinker` の値が null の場合、ユーザーはこのフィルターにマッチします。|
+| ブール値がtrue、false、trueまたは未設定、falseまたは未設定のいずれかであるかを確認する | **IS**  | **TRUE**、**FALSE**、**TRUE OR NOT SET**、または **FALSE OR NOT SET** | このフィルターが `coffee_drinker` を指定している場合、ユーザーは以下の状況でこのフィルターにマッチします: <br> {::nomarkdown}<ul><li>このフィルターが <code>true</code> で、ユーザーが <code>coffee_drinker</code> の値を持っている場合</li><li>このフィルターが <code>false</code> で、ユーザーが <code>coffee_drinker</code> の値を持っていない場合</li><li>このフィルターが <code>true or not set</code> で、ユーザーが <code>coffee_drinker</code> の値を持っているか、値がない場合</li><li>このフィルターが <code>false or not set</code> で、ユーザーが <code>coffee_drinker</code> またはいかなる値も持っていない場合</li></ul>{:/} |
+| ブール値がユーザーのプロファイルに**存在し**、nullでないかを確認する | **IS NOT BLANK**  | **N/A** | このフィルターが `coffee_drinker` を指定し、ユーザーが属性 `coffee_drinker` の値を持っている場合、ユーザーはこのフィルターにマッチします。 |
+| ブール値がユーザーのプロファイルに**存在しない**か、nullであるかを確認する | **IS BLANK**  | **N/A** | このフィルターが `coffee_drinker` を指定し、ユーザーが属性 `coffee_drinker` を持っていないか、`coffee_drinker` の値がnullの場合、ユーザーはこのフィルターにマッチします。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% endtab %}
@@ -201,19 +201,19 @@ toc_headers: h2
 | 数値属性が**数値**と**等しくない**かを確認する | **DOES NOT EQUAL** | **NUMBER** | このフィルターが `10` を指定し、ユーザープロファイルの値が `10` でない場合、ユーザーはこのフィルターにマッチします。 |
 | 数値属性が**数値**より**大きい**かを確認する | **MORE THAN** | **NUMBER** | このフィルターが `10` を指定し、ユーザープロファイルの値が `10` より大きい場合、ユーザーはこのフィルターにマッチします。 |
 | 数値属性が**数値**より**小さい**かを確認する | **LESS THAN** | **NUMBER** | このフィルターが `10` を指定し、ユーザープロファイルの値が `10` より小さい場合、ユーザーはこのフィルターにマッチします。 |
-| 数値属性がユーザーのプロファイルに**存在し**、null でないかを確認する | **IS NOT BLANK** | **N/A** | ユーザープロファイルに指定された数値属性が含まれている場合、値に関係なくユーザーはこのフィルターにマッチします。 |
-| 数値属性がユーザーのプロファイルに**存在しない**か、null であるかを確認する | **IS BLANK** | **N/A** | ユーザープロファイルに指定された数値属性が含まれていないか、属性の値が null の場合、ユーザーはこのフィルターにマッチします。|
+| 数値属性がユーザーのプロファイルに**存在し**、nullでないかを確認する | **IS NOT BLANK** | **N/A** | ユーザープロファイルに指定された数値属性が含まれている場合、値に関係なくユーザーはこのフィルターにマッチします。 |
+| 数値属性がユーザーのプロファイルに**存在しない**か、nullであるかを確認する | **IS BLANK** | **N/A** | ユーザープロファイルに指定された数値属性が含まれていないか、属性の値がnullの場合、ユーザーはこのフィルターにマッチします。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### 数値属性の詳細
+#### 数値属性の詳細 {#number-attribute-details}
 
-- 「正確に0」および「未満」フィルターには、NULL フィールドを持つユーザーが含まれます
+- 「正確に0」および「未満」フィルターには、NULLフィールドを持つユーザーが含まれます
   - カスタム属性の値を持たないユーザーを除外するには、**is not blank** フィルターを含める必要があります。
 
 {% endtab %}
 {% tab 文字列 %}
 
-文字列属性は最大255文字です。単語の間、前、または後にスペースを含む値を入力した場合、Braze は同じスペースもチェックします。
+文字列属性は最大255文字です。単語の間、前、または後にスペースを含む値を入力した場合、Brazeは同じスペースもチェックします。
 
 **文字列**属性では、以下のセグメンテーションオプションが利用可能です。
 
@@ -232,15 +232,15 @@ toc_headers: h2
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
 {% alert important %}
-**DOES NOT MATCH REGEX** フィルターを使用してセグメンテーションを行う場合、そのユーザープロファイルに値が割り当てられたカスタム属性がすでに存在している必要があります。Braze では、ユーザーが適切にターゲティングされるように、「OR」ロジックを使用してカスタム属性が空白かどうかを確認することを推奨しています。
+**DOES NOT MATCH REGEX** フィルターを使用してセグメンテーションを行う場合、そのユーザープロファイルに値が割り当てられたカスタム属性がすでに存在している必要があります。Brazeでは、ユーザーが適切にターゲティングされるように、「OR」ロジックを使用してカスタム属性が空白かどうかを確認することを推奨しています。
 {% endalert %}
 
 {% endtab %}
 {% tab 配列 %}
 
-配列の最大サイズは100&nbsp;KB です。属性のデフォルトの長さは最大500アイテムです（例えば、「視聴した映画」のような属性を500に設定している場合、ユーザーが501本目の映画を視聴すると、最初の映画が削除され、最新の映画が追加されます）。単語の間、前、または後にスペースを含む値を入力した場合、Braze は同じスペースもチェックします。
+配列の最大サイズは100&nbsp;KBです。属性のデフォルトの長さは最大500アイテムです（例えば、「視聴した映画」のような属性を500に設定している場合、ユーザーが501本目の映画を視聴すると、最初の映画が削除され、最新の映画が追加されます）。単語の間、前、または後にスペースを含む値を入力した場合、Brazeは同じスペースもチェックします。
 
-配列型のカスタム属性は [CSV インポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)ではインポートできません。配列値をアップロードするには、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/cloud_ingestion/)を使用してください。
+配列型のカスタム属性は[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)ではインポートできません。配列値をアップロードするには、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/cloud_ingestion/)を使用してください。
 
 {% alert note %}
 属性がデータタイプを自動検出するように設定されている場合、最大長を増やすオプションは利用できません。データタイプを配列に設定する必要があります。
@@ -265,8 +265,8 @@ toc_headers: h2
 
 {% alert tip %}
 正規表現（regex）の使用方法について詳しくは、以下のリソースを参照してください。
-- [Perl 互換正規表現（PCRE）](https://www.regextester.com/pregsyntax.html)
-- [Braze での正規表現]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Perl互換正規表現（PCRE）](https://www.regextester.com/pregsyntax.html)
+- [Brazeでの正規表現]({{site.baseurl}}/user_guide/audience/segments/regex/)
 - [正規表現デバッガーとテスター](https://www.regex101.com/)
 - [正規表現チュートリアル](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -276,7 +276,7 @@ toc_headers: h2
 
 時間属性は、特定のアクションが最後に実行された時刻を保存するのに便利で、コンテンツに特化した再エンゲージメントメッセージをユーザーに提供できます。
 
-相対日付を使用する時間フィルター（例えば、1日以上前、2日未満前）は、1日を24時間として計算します。これらのフィルターを使用して実行するキャンペーンには、24時間単位のすべてのユーザーが含まれます。例えば、`last used app more than 1 day ago` は、キャンペーンが実行される正確な時刻から「24時間以上前にアプリを最後に使用した」すべてのユーザーをキャプチャします。より長い日付範囲が設定されたキャンペーンでも同様です。つまり、有効化から5日間は、過去120時間を意味します。
+相対日付を使用する時間フィルター（例えば、1日以上前、2日未満前）は、1日を24時間として計算します。これらのフィルターを使用して実行するCampaignには、24時間単位のすべてのユーザーが含まれます。例えば、`last used app more than 1 day ago` は、Campaignが実行される正確な時刻から「24時間以上前にアプリを最後に使用した」すべてのユーザーをキャプチャします。より長い日付範囲が設定されたCampaignでも同様です。つまり、有効化から5日間は、過去120時間を意味します。
 
 時間範囲内に該当する時間属性を持つユーザーをターゲットにするには、2つのオーディエンスフィルターを使用します。下限には `in more than` を、上限には `in less than` を使用します。単一のフィルターではその範囲の両側を表現できません。例えば、今後24時間以内（現在から1日後まで）の時間属性を持つユーザーをターゲットにするには、`in more than 0 days` と `in less than 1 day` を適用します。
 
@@ -290,21 +290,21 @@ toc_headers: h2
 | ---------------------| --------------- | ------------- | -------- |
 | 時間属性が**選択した日付より前**であるかを確認する | **BEFORE** | **CALENDAR DATE SELECTOR** | このフィルターが `2024-01-31` を指定し、ユーザープロファイルの日付が `2024-1-31` より前の場合、ユーザーはこのフィルターにマッチします。 |
 | 時間属性が**選択した日付より後**であるかを確認する | **AFTER** | **CALENDAR DATE SELECTOR** | このフィルターが `2024-01-31` を指定し、ユーザープロファイルの日付が `2024-1-31` より後の場合、ユーザーはこのフィルターにマッチします。 |
-| 時間属性が **X 日以上前**であるかを確認する | **MORE THAN** | **NUMBER OF DAYS AGO** | このフィルターが `7` を指定し、ユーザープロファイルの日付が7日以上前の場合、ユーザーはこのフィルターにマッチします。 |
-| 時間属性が **X 日未満前**であるかを確認する | **LESS THAN** | **NUMBER OF DAYS AGO** | このフィルターが `7` を指定し、ユーザープロファイルの日付が7日未満前の場合、ユーザーはこのフィルターにマッチします。|
-| 時間属性が**今後 X 日以上先**であるかを確認する | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | このフィルターが `7` を指定し、ユーザープロファイルの日付が今後7日以上先の場合、ユーザーはこのフィルターにマッチします。|
-| 時間属性が**今後 X 日未満先**であるかを確認する | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | このフィルターが `7` を指定し、ユーザープロファイルの日付が今後7日未満先の場合、ユーザーはこのフィルターにマッチします。|
-| 時間属性がユーザーのプロファイルに**存在し**、null でないかを確認する | **IS NOT BLANK** | **N/A** | このフィルターがユーザープロファイルにある時間属性を指定している場合、ユーザーはこのフィルターにマッチします。|
-| 時間属性がユーザーのプロファイルに**存在しない**か、null であるかを確認する | **IS BLANK** | **N/A** | このフィルターがユーザープロファイルにない時間属性を指定している場合、ユーザーはこのフィルターにマッチします。 |
+| 時間属性が**X日以上前**であるかを確認する | **MORE THAN** | **NUMBER OF DAYS AGO** | このフィルターが `7` を指定し、ユーザープロファイルの日付が7日以上前の場合、ユーザーはこのフィルターにマッチします。 |
+| 時間属性が**X日未満前**であるかを確認する | **LESS THAN** | **NUMBER OF DAYS AGO** | このフィルターが `7` を指定し、ユーザープロファイルの日付が7日未満前の場合、ユーザーはこのフィルターにマッチします。|
+| 時間属性が**今後X日以上先**であるかを確認する | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | このフィルターが `7` を指定し、ユーザープロファイルの日付が今後7日以上先の場合、ユーザーはこのフィルターにマッチします。|
+| 時間属性が**今後X日未満先**であるかを確認する | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | このフィルターが `7` を指定し、ユーザープロファイルの日付が今後7日未満先の場合、ユーザーはこのフィルターにマッチします。|
+| 時間属性がユーザーのプロファイルに**存在し**、nullでないかを確認する | **IS NOT BLANK** | **N/A** | このフィルターがユーザープロファイルにある時間属性を指定している場合、ユーザーはこのフィルターにマッチします。|
+| 時間属性がユーザーのプロファイルに**存在しない**か、nullであるかを確認する | **IS BLANK** | **N/A** | このフィルターがユーザープロファイルにない時間属性を指定している場合、ユーザーはこのフィルターにマッチします。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### 時間属性の詳細
+#### 時間属性の詳細 {#time-attribute-details}
 
 - 定期イベントの日
   - 「定期イベントの日」フィルターを使用し、「定期イベントのカレンダー日」を選択するよう求められた場合、`IS LESS THAN` または `IS MORE THAN` を選択すると、そのセグメンテーションフィルターでは現在の日付がカウントされます。
   - 例えば、2020年3月10日に属性の日付を `LESS THAN ... March 10, 2020` と選択した場合、2020年3月10日を含むそれまでの日付が属性として考慮されます。
-- X 日未満前: 「X 日未満前」フィルターには、X 日前から現在の日時までの日付が含まれます。
-- 今後 X 日未満先: 現在の日時から今後 X 日までの日付が含まれます。
+- X日未満前: 「X日未満前」フィルターには、X日前から現在の日時までの日付が含まれます。
+- 今後X日未満先: 現在の日時から今後X日までの日付が含まれます。
 
 {% endtab %}
 {% tab オブジェクト %}
@@ -354,10 +354,10 @@ toc_headers: h2
 
 ## 購入イベントと収益 {#purchase-events-and-revenue}
 
-購入および収益データは、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)または推奨 e コマースイベントを通じて記録されます。
+購入および収益データは、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)または推奨eコマースイベントを通じて記録されます。
 
 {% alert note %}
-推奨イベントには、データタイプが設定された事前定義のスキーマがあります。詳細については、[e コマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を参照してください。
+推奨イベントには、データタイプが設定された事前定義のスキーマがあります。詳細については、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を参照してください。
 {% endalert %}
 
 購入イベントをログに記録すると、各ユーザープロファイルの生涯価値（LTV）が確立され、このデータは収益ページで時系列で表示できます。使用金額、最終購入日、時間枠内の購入回数などでセグメンテーションできます。
@@ -381,9 +381,9 @@ toc_headers: h2
 
 カスタム属性またはイベントのデータタイプを変更する場合（例えば、`time` を `string` に変更する場合）、以下の点を考慮してください。
 
-- **フィルターは自動的に更新されません。** 変更された属性またはイベントを使用しているセグメント、キャンペーン、キャンバス、またはその他の場所は更新されません。データタイプを変更する前に、セグメントやフィルターでその属性を使用しているキャンペーンやキャンバスを停止し、それを参照しているフィルターから属性を削除してください。
-- **既存のユーザーデータは遡及的に更新されません。** 変更前にユーザープロファイルに変更された属性があった場合、その値は古いデータタイプのままです。フィルターが新しいデータタイプを検索するため、変更された属性を含むセグメントからユーザーが外れる可能性があります。それらのユーザープロファイルを更新して（例えば、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して）、新しいタイプに一致させ、必要に応じてセグメントに再度入るようにしてください。
-- **新しいデータは新しいタイプに一致する必要があります。** 変更された属性に対して以前のデータタイプを送信する API コールは受け付けられません。新しいデータタイプを送信してください。
+- **フィルターは自動的に更新されません。** 変更された属性またはイベントを使用しているSegments、Campaigns、Canvases、またはその他の場所は更新されません。データタイプを変更する前に、Segmentsやフィルターでその属性を使用しているCampaignsやCanvasesを停止し、それを参照しているフィルターから属性を削除してください。
+- **既存のユーザーデータは遡及的に更新されません。** 変更前にユーザープロファイルに変更された属性があった場合、その値は古いデータタイプのままです。フィルターが新しいデータタイプを検索するため、変更された属性を含むSegmentsからユーザーが外れる可能性があります。それらのユーザープロファイルを更新して（例えば、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して）、新しいタイプに一致させ、必要に応じてSegmentに再度入るようにしてください。
+- **新しいデータは新しいタイプに一致する必要があります。** 変更された属性に対して以前のデータタイプを送信するAPIコールは受け付けられません。新しいデータタイプを送信してください。
 
 {% alert important %}
 自動検出によるカスタム属性データタイプの更新を防止する機能は、現在早期アクセス中です。参加をご希望の場合は、カスタマーサクセスマネージャーにお問い合わせください。
@@ -393,25 +393,25 @@ toc_headers: h2
 
 カタログは、[定義](#definitions)の表に記載されているタイプをサポートしています。以下の表は、各タイプ、作成または更新の方法、形式と例を示しています。
 
-| データタイプ | 説明 | CSV アップロードで利用可能 | API および CDI で利用可能 |
+| データタイプ | 説明 | CSVアップロードで利用可能 | APIおよびCDIで利用可能 |
 | --- | --- | --- | --- |
 | 文字列 | 文字のシーケンス（例: 名前、説明、ID）。 | ✅ はい | ✅ はい |
 | 数値 | 整数または浮動小数点の数値（例: 価格、数量、評価）。 | ✅ はい | ✅ はい |
 | ブール値 | `true` または `false` の値。 | ✅ はい | ✅ はい |
-| 時間 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の日付と時刻、または Unix タイムスタンプ（秒）。 | ✅ はい | ✅ はい |
-| JSON オブジェクト（オブジェクト） | キーと値のペアを持つネストされたオブジェクト。プラットフォームに表示されますが、API または CDI を通じてのみ作成または更新できます。 | ❌ いいえ | ✅ はい |
-| 文字列配列（配列） | 文字列のリスト。プラットフォームに表示されますが、API または CDI を通じてのみ作成または更新できます。最大100要素。 | ❌ いいえ | ✅ はい |
+| 時間 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の日付と時刻、またはUnixタイムスタンプ（秒）。 | ✅ はい | ✅ はい |
+| JSONオブジェクト（オブジェクト） | キーと値のペアを持つネストされたオブジェクト。プラットフォームに表示されますが、APIまたはCDIを通じてのみ作成または更新できます。 | ❌ いいえ | ✅ はい |
+| 文字列配列（配列） | 文字列のリスト。プラットフォームに表示されますが、APIまたはCDIを通じてのみ作成または更新できます。最大100要素。 | ❌ いいえ | ✅ はい |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-### 形式と例
+### 形式と例 {#format-and-examples}
 
 | データタイプ | 形式 | 例 |
 | --- | --- | --- |
 | 文字列 | テキスト | <code>"Hello World"</code> |
-| 時間 | ISO 8601 または Unix タイムスタンプ（秒） | <code>"2024-03-15T14:30:00Z"</code> |
+| 時間 | ISO 8601またはUnixタイムスタンプ（秒） | <code>"2024-03-15T14:30:00Z"</code> |
 | ブール値 | <code>true</code> または <code>false</code> | <code>true</code> |
 | 数値 | 整数または小数 | <code>42</code> または <code>19.99</code> |
-| オブジェクト | JSON オブジェクト | <code>{"key": "value", "price": 10}</code> |
+| オブジェクト | JSONオブジェクト | <code>{"key": "value", "price": 10}</code> |
 | 配列 | 文字列の配列 | <code>["red", "blue", "green"]</code> |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 

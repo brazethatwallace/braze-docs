@@ -1,40 +1,40 @@
 ---
-nav_title: Array de objetos
-article_title: Array de objetos
+nav_title: Conjunto de objetos
+article_title: Conjunto de objetos
 alias: "/array_of_objects/"
 page_order: 2
 page_type: reference
 description: "Este artículo de referencia cubre el uso de un array de objetos como tipo de datos para atributos personalizados, incluyendo limitaciones y ejemplos de uso."
 ---
 
-# Array de objetos
+# Conjunto de objetos {#array-of-objects}
 
-> Esta página cubre cómo usar un array de objetos para agrupar atributos relacionados. Por ejemplo, puedes tener un grupo de objetos de mascotas, objetos de canciones y objetos de cuentas que pertenecen a un solo usuario. Estos arrays de objetos se pueden usar para personalizar tu mensajería con Liquid, o crear segmentos de audiencia si algún elemento dentro de un objeto coincide con los criterios.
+> Esta página explica cómo utilizar una matriz de objetos para agrupar atributos relacionados. Por ejemplo, puedes tener un grupo de objetos mascota, objetos canción y objetos cuenta que pertenezcan todos a un usuario. Estas matrices de objetos pueden utilizarse para personalizar tus mensajes con Liquid, o crear segmentos de audiencia si algún elemento de un objeto coincide con los criterios.
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Consideraciones
+## Consideraciones {#considerations}
 
-- Los arrays de objetos están diseñados para atributos personalizados enviados a través de la API. No se admiten cargas de archivos CSV. Esto se debe a que las comas en el archivo CSV se interpretarán como un separador de columna, y las comas en los valores causarán errores de análisis.
-- Los arrays de objetos no tienen límite en el número de elementos, pero sí tienen un tamaño máximo de 100&nbsp;KB. Si una actualización (como `$add` o `$update`) hace que el array supere este límite, Braze descarta la actualización y el atributo permanece sin cambios. La solicitud de API aún devuelve una respuesta de éxito. Para mantener el array por debajo del límite y poder agregar nuevos elementos, usa `$remove` para eliminar elementos del array primero.
-- No todos los socios de Braze admiten arrays de objetos. Consulta la [documentación de socios]({{site.baseurl}}/partners/home) para confirmar si la integración admite esta característica.
+- Las matrices de objetos están pensadas para atributos personalizados enviados a través de la API. No es posible cargar archivos CSV. Esto se debe a que las comas en el archivo CSV se interpretarán como un separador de columna, y las comas en los valores causarán errores de análisis.
+- Las matrices de objetos no tienen límite en el número de elementos, pero sí un tamaño máximo de 100&nbsp;KB. Si una actualización (como `$add` o `$update`) hace que la matriz supere este límite, Braze descarta la actualización y el atributo permanece sin cambios. La solicitud de API aún devuelve una respuesta de éxito. Para mantener la matriz por debajo del límite y poder agregar nuevos elementos, usa `$remove` para eliminar elementos de la matriz primero.
+- No todos los socios de Braze admiten matrices de objetos. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si la integración admite esta característica.
 
-Actualizar o eliminar elementos en un array requiere identificar el elemento por clave y valor, así que considera incluir un identificador único para cada elemento en el array. La unicidad se limita solo al array y es útil si deseas actualizar y eliminar objetos específicos de tu array. Esto no es aplicado por Braze.
+Actualizar o eliminar elementos de una matriz requiere identificar el elemento por clave y valor, así que considera incluir un identificador único para cada elemento de la matriz. La unicidad se aplica solo a la matriz y es útil si deseas actualizar y eliminar objetos específicos de tu matriz. Esto no es aplicado por Braze.
 
 {% alert important %}
 Cuando un atributo personalizado anidado en tu solicitud contiene valores no válidos (como formatos de hora no válidos o valores `null`), Braze descarta todas las actualizaciones de atributos personalizados anidados en la solicitud del procesamiento. Esto se aplica a todas las estructuras anidadas dentro de ese atributo específico. Verifica que todos los valores dentro de los atributos personalizados anidados sean válidos antes de enviar. Para más información, consulta [Crear y actualizar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-Para más información sobre el uso de arrays de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Para más información sobre el uso de matrices de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
 {% endalert %}
 
-## Ejemplo de API
+## Ejemplo de API {#api-example}
 
 {% tabs local %}
 {% tab Create %}
 
-El siguiente es un ejemplo de `/users/track` con un array `pets`. Para capturar las propiedades de las mascotas, envía una solicitud de API que liste `pets` como un array de objetos. Ten en cuenta que a cada objeto se le ha asignado un `id` único que puede ser referenciado más tarde al realizar actualizaciones.
+El siguiente es un ejemplo de `/users/track` con una matriz `pets`. Para capturar las propiedades de las mascotas, envía una solicitud de API que liste `pets` como una matriz de objetos. Ten en cuenta que a cada objeto se le ha asignado un `id` único que puede referenciarse más tarde al realizar actualizaciones.
 
 ```json
 {
@@ -62,7 +62,7 @@ El siguiente es un ejemplo de `/users/track` con un array `pets`. Para capturar 
 {% endtab %}
 {% tab Add %}
 
-Agrega otro elemento al array usando el operador `$add`. El siguiente ejemplo muestra cómo agregar tres objetos de mascotas más al array `pets` del usuario.
+Agrega otro elemento a la matriz usando el operador `$add`. El siguiente ejemplo muestra cómo agregar tres objetos de mascotas más a la matriz `pets` del usuario.
 
 ```json
 {
@@ -98,9 +98,9 @@ Agrega otro elemento al array usando el operador `$add`. El siguiente ejemplo mu
 {% endtab %}
 {% tab Update %}
 
-Actualiza valores para objetos específicos dentro de un array usando el parámetro `_merge_objects` y el operador `$update`. De manera similar a las actualizaciones de objetos simples de [atributos personalizados anidados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), esto realiza una fusión profunda.
+Actualiza valores para objetos específicos dentro de una matriz usando el parámetro `_merge_objects` y el operador `$update`. De manera similar a las actualizaciones de objetos simples de [atributos personalizados anidados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), esto realiza una fusión profunda.
 
-Ten en cuenta que `$update` no se puede usar para eliminar una propiedad anidada de un objeto dentro de un array. Para hacer esto, necesitarás eliminar el elemento completo del array y luego agregar el objeto sin esa clave específica (usando una combinación de `$remove` y `$add`).
+Ten en cuenta que `$update` no se puede usar para eliminar una propiedad anidada de un objeto dentro de una matriz. Para hacer esto, necesitarás eliminar el elemento completo de la matriz y luego agregar el objeto sin esa clave específica (usando una combinación de `$remove` y `$add`).
 
 El siguiente ejemplo muestra cómo actualizar la propiedad `breed` a `goldfish` para el objeto con un `id` de `4`. Este ejemplo de solicitud también actualiza el objeto con `id` igual a `5` con un nuevo `name` de `Annette`. Dado que el parámetro `_merge_objects` está configurado como `true`, todos los demás campos de estos dos objetos permanecen iguales.
 
@@ -140,9 +140,9 @@ Debes configurar `_merge_objects` como true, o tus objetos serán sobrescritos. 
 {% endtab %}
 {% tab Remove %}
 
-Elimina objetos de un array usando el operador `$remove` en combinación con una clave coincidente (`$identifier_key`) y un valor (`$identifier_value`).
+Elimina objetos de una matriz usando el operador `$remove` en combinación con una clave coincidente (`$identifier_key`) y un valor (`$identifier_value`).
 
-El siguiente ejemplo muestra cómo eliminar cualquier objeto en el array `pets` que tenga un `id` con valor `1`, un `id` con valor `2` y un `type` con valor `dog`. Si hay múltiples objetos con el valor de `type` `dog`, todos los objetos coincidentes serán eliminados.
+El siguiente ejemplo muestra cómo eliminar cualquier objeto en la matriz `pets` que tenga un `id` con valor `1`, un `id` con valor `2` y un `type` con valor `dog`. Si hay múltiples objetos con el valor de `type` `dog`, todos los objetos coincidentes serán eliminados.
 
 ```json
 {
@@ -174,9 +174,9 @@ El siguiente ejemplo muestra cómo eliminar cualquier objeto en el array `pets` 
 {% endtab %}
 {% endtabs %}
 
-### Orden de procesamiento
+### Orden de procesamiento {#processing-order}
 
-Cuando una sola solicitud `/users/track` incluye operaciones `$add`, `$remove` y `$update` para el mismo atributo de array, Braze las procesa en este orden:
+Cuando una sola solicitud `/users/track` incluye operaciones `$add`, `$remove` y `$update` para el mismo atributo de matriz, Braze las procesa en este orden:
 
 1. `$add`
 2. `$remove`
@@ -184,9 +184,9 @@ Cuando una sola solicitud `/users/track` incluye operaciones `$add`, `$remove` y
 
 Dado que `$add` se ejecuta antes que `$remove`, no puedes usar un `$remove` seguido de `$add` como mecanismo de upsert dentro de una sola solicitud. El `$add` se procesa primero, luego el `$remove` elimina el elemento. Para hacer un upsert, envía el `$remove` en una solicitud separada antes del `$add`.
 
-### Marcas de tiempo
+### Marcas de tiempo {#timestamps}
 
-Al incluir campos como marcas de tiempo en un array de objetos, usa el formato `$time` en lugar de cadenas simples o enteros de época unix.
+Al incluir campos como marcas de tiempo en una matriz de objetos, usa el formato `$time` en lugar de cadenas simples o enteros de época unix.
 
 ```json
 {
@@ -211,7 +211,7 @@ Al incluir campos como marcas de tiempo en un array de objetos, usa el formato `
 Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
 {% endalert %}
 
-## Ejemplo de SDK
+## Ejemplo de SDK {#sdk-example}
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -519,38 +519,38 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endtab %}
 {% endtabs %}
 
-## Plantillas Liquid
+## Plantillas Liquid {#liquid-templating}
 
-Puedes usar este array `pets` para personalizar un mensaje. El siguiente ejemplo de plantilla Liquid muestra cómo hacer referencia a las propiedades del objeto de atributo personalizado guardadas de la solicitud de API anterior y usarlas en tu mensajería.
+Puedes usar esta matriz `pets` para personalizar un mensaje. El siguiente ejemplo de plantilla Liquid muestra cómo hacer referencia a las propiedades del objeto de atributo personalizado guardadas de la solicitud de API anterior y usarlas en tu mensajería.
 
 {% raw %}
 ```liquid
-{% assign pets = {{custom_attribute.${pets}}} %} 
- 
+{% assign pets = {{custom_attribute.${pets}}} %}
+
 {% for pet in pets %}
 I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
-{% endfor %} 
+{% endfor %}
 ```
 {% endraw %}
 
-En este escenario, puedes usar Liquid para recorrer el array `pets` e imprimir una declaración para cada mascota. [Asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) al atributo personalizado `pets` y usa la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto, seguido de un punto `.`, seguido del nombre de la propiedad.
+En este escenario, puedes usar Liquid para recorrer la matriz `pets` e imprimir una declaración para cada mascota. [Asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) al atributo personalizado `pets` y usa la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto, seguido de un punto `.`, seguido del nombre de la propiedad.
 
-## Segmentación
+## Segmentación {#segmentation}
 
-Al segmentar usuarios basándote en arrays de objetos, un usuario calificará para el segmento si algún objeto en el array coincide con los criterios.
+Al segmentar usuarios basándote en matrices de objetos, un usuario calificará para el segmento si algún objeto en la matriz coincide con los criterios.
 
-Crea un nuevo segmento y selecciona **Atributo personalizado anidado** como tu filtro. Luego busca y selecciona el nombre de tu array de objetos.
+Crea un nuevo segmento y selecciona **Atributo personalizado anidado** como tu filtro. Luego busca y selecciona el nombre de tu matriz de objetos.
 
-![Filtrar por array de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
+![Filtrar por matriz de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
-Usa la notación de punto para especificar qué campo en el array de objetos deseas usar. Comienza el campo de texto con un conjunto vacío de corchetes `[]` para indicarle a Braze que estás buscando dentro de un array de objetos. Después, agrega un punto `.`, seguido del nombre del campo que deseas usar.
+Usa la notación de punto para especificar qué campo en la matriz de objetos deseas usar. Comienza el campo de texto con un conjunto vacío de corchetes `[]` para indicarle a Braze que estás buscando dentro de una matriz de objetos. Después, agrega un punto `.`, seguido del nombre del campo que deseas usar.
 
-Por ejemplo, si deseas filtrar un array de objetos `top_3_movies` basándote en el campo `type`, ingresa `[].type` y elige las películas por las que filtrar, como `Fantasy Movie`.
+Por ejemplo, si deseas filtrar una matriz de objetos `top_3_movies` basándote en el campo `type`, ingresa `[].type` y elige las películas por las que filtrar, como `Fantasy Movie`.
 
 
-### Niveles de anidamiento
+### Niveles de anidamiento {#levels-of-nesting}
 
-Puedes crear un segmento con hasta un nivel de anidamiento de array (array dentro de otro array). Por ejemplo, dados los siguientes atributos, puedes crear un segmento para `pets[].name` contiene `Gus`, pero no puedes crear un segmento para `pets[].nicknames[]` contiene `Gugu`.
+Puedes crear un segmento con hasta un nivel de anidamiento de matriz (matriz dentro de otra matriz). Por ejemplo, dados los siguientes atributos, puedes crear un segmento para `pets[].name` contiene `Gus`, pero no puedes crear un segmento para `pets[].nicknames[]` contiene `Gugu`.
 
 {% raw %}
 ```json
@@ -586,14 +586,14 @@ Puedes crear un segmento con hasta un nivel de anidamiento de array (array dentr
 ```
 {% endraw %}
 
-## Puntos de datos
+## Puntos de datos {#data-points}
 
 Los puntos de datos se registran de manera diferente dependiendo de si creas, actualizas o eliminas una propiedad.
 
 {% tabs local %}
 {% tab Create %}
 
-Crear un nuevo array registra un punto de datos por cada atributo en un objeto. Este ejemplo cuesta ocho puntos de datos: cada objeto de mascota tiene cuatro atributos y hay dos objetos.
+Crear una nueva matriz registra un punto de datos por cada atributo en un objeto. Este ejemplo cuesta ocho puntos de datos: cada objeto de mascota tiene cuatro atributos y hay dos objetos.
 
 ```json
 {
@@ -621,7 +621,7 @@ Crear un nuevo array registra un punto de datos por cada atributo en un objeto. 
 {% endtab %}
 {% tab Update %}
 
-Actualizar un array existente registra un punto de datos por cada propiedad agregada. Este ejemplo cuesta dos puntos de datos, ya que solo actualiza una propiedad en cada uno de los dos objetos.
+Actualizar una matriz existente registra un punto de datos por cada propiedad agregada. Este ejemplo cuesta dos puntos de datos, ya que solo actualiza una propiedad en cada uno de los dos objetos.
 
 ```json
 {
@@ -654,7 +654,7 @@ Actualizar un array existente registra un punto de datos por cada propiedad agre
 {% endtab %}
 {% tab Remove %}
 
-Eliminar un objeto de un array registra un punto de datos por cada criterio de eliminación que envíes. Este ejemplo cuesta tres puntos de datos, aunque puedas estar eliminando múltiples perros con esta declaración.
+Eliminar un objeto de una matriz registra un punto de datos por cada criterio de eliminación que envíes. Este ejemplo cuesta tres puntos de datos, aunque puedas estar eliminando múltiples perros con esta declaración.
 
 ```json
 {

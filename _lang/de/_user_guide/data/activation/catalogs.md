@@ -9,18 +9,18 @@ guide_top_text: "Kataloge greifen auf Daten aus importierten CSV-Dateien und API
 
 description: "Auf dieser Landing-Page finden Sie alles rund um Kataloge. Nutzen Sie Kataloge und gefilterte Sets, um Nicht-Nutzerdaten in Ihren Braze-Kampagnen einzusetzen und personalisierte Nachrichten zu versenden."
 
-guide_featured_title: "Abschnittsartikel"
+guide_featured_title: "Abschnitt-Artikel"
 guide_featured_list:
-- name: Einen Katalog erstellen
+- name: Katalog erstellen
   link: /docs/user_guide/data/activation/catalogs/create
   image: /assets/img/braze_icons/users-01.svg
-- name: Kataloge verwenden
+- name: Verwendung von Katalogen
   link: /docs/user_guide/data/activation/catalogs/use
   image: /assets/img/braze_icons/users-01.svg
-- name: „Wieder verfügbar"-Benachrichtigungen
+- name: Wieder-verfügbar-Benachrichtigungen
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
-- name: Benachrichtigungen bei Preissenkungen
+- name: Preissenkungsbenachrichtigungen
   link: /docs/price_drop_notifications/
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Auswahlen
@@ -38,37 +38,37 @@ guide_menu_list:
 ---
 <br><br>
 
-## Anwendungsfälle für Kataloge
+## Anwendungsfälle für Kataloge {#catalog-use-cases}
 
 Sie können jede Art von Daten in einen Katalog einbringen. In der Regel handelt es sich dabei um Metadaten zu Angeboten wie Produkten, Rabatten, Aktionen, Events und Ähnlichem. In den folgenden Anwendungsfällen finden Sie einige Beispiele dafür, wie Sie diese Daten nutzen können, um Nutzer:innen mit hochrelevanten Nachrichten anzusprechen.
 
-### Einzelhandel und E-Commerce
+### Einzelhandel und E-Commerce {#retail-and-ecommerce}
 
 - **Saisonale Aktionen:** Importieren Sie saisonale Produktkollektionen und personalisieren Sie Nachrichten, um aktuelle Trends widerzuspiegeln.
 - **Lokalisierte Nachrichten:** Importieren Sie die Adressen, Öffnungszeiten und Dienste Ihrer Standorte und personalisieren Sie Benachrichtigungen basierend auf den Standorten der Nutzer:innen.
-- **„Wieder verfügbar"-Benachrichtigungen:** Importieren Sie Produktinformationen einschließlich der Bestandsmenge und nutzen Sie dann [„Wieder verfügbar"-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) sowie angepasste Braze-Events, um eine Kampagne oder ein Canvas auszulösen, das Nutzer:innen darüber informiert, dass ein Produkt wieder auf Lager ist.
-- **Benachrichtigungen bei Preissenkungen:** Importieren Sie Produktinformationen mit Produktpreisen und nutzen Sie dann [Benachrichtigungen bei Preissenkungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) sowie angepasste Braze-Events, um ein Canvas auszulösen, das Nutzer:innen über die Preissenkung eines Produkts informiert.
+- **Wieder-verfügbar-Benachrichtigungen:** Importieren Sie Produktinformationen einschließlich der Bestandsmenge und nutzen Sie dann [Wieder-verfügbar-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) sowie angepasste Braze-Events, um eine Campaign oder ein Canvas auszulösen, das Nutzer:innen darüber informiert, dass ein Produkt wieder auf Lager ist.
+- **Preissenkungsbenachrichtigungen:** Importieren Sie Produktinformationen mit Produktpreisen und nutzen Sie dann [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) sowie angepasste Braze-Events, um ein Canvas auszulösen, das Nutzer:innen über die Preissenkung eines Produkts informiert.
 
-### Unterhaltung
+### Unterhaltung {#entertainment}
 
 - **Abo-Pläne:** Importieren Sie Abo-Pläne und bewerben Sie Add-Ons bei Ihren Nutzer:innen basierend auf deren Nutzungsverhalten und den Inhaltstypen, die sie am häufigsten konsumieren.
 - **Bevorstehende Events:** Importieren Sie Listen bevorstehender Events mit Veranstaltungsorten und Altersgruppen und senden Sie personalisierte Benachrichtigungen an Nutzer:innen, die sich in der Nähe befinden und zur Zielgruppe gehören.
 - **Medienpräferenzen:** Importieren Sie Informationen über Filme und Serien und empfehlen Sie Ihren Nutzer:innen Inhalte basierend auf ihren Lieblingstiteln und meistgesehenen Genres.
 
-### Reisen und Gastgewerbe
+### Reisen und Gastgewerbe {#travel-and-hospitality}
 
 - **Ziele:** Importieren Sie Reiseziele mit den beliebtesten Attraktionen, Restaurants und Aktivitäten und personalisieren Sie Empfehlungen für Ihre Nutzer:innen basierend auf deren früheren Reisen.
 - **Unterkünfte:** Importieren Sie Hotels mit Ausstattung, Zimmertypen und Preisen und senden Sie Aktionsangebote an Ihre Nutzer:innen basierend auf deren ausgewählten Präferenzen.
 - **Reisearten:** Importieren Sie Angebote und Aktionen für verschiedene Reisearten (z. B. Flüge, Züge, Mietwagen und andere) und senden Sie diese an Ihre Nutzer:innen basierend auf deren aktuellem Suchverlauf.
 - **Essenspräferenzen:** Importieren Sie Informationen über das Essensangebot und nutzen Sie [Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/), um personalisierte Nachrichten an Nutzer:innen zu senden, die bestimmte Essenspräferenzen haben – basierend auf der zuletzt angesehenen Essenskategorie.
 
-## Wie Kataloge und Liquid zusammenarbeiten
+## Wie Kataloge und Liquid zusammenarbeiten {#how-catalogs-and-liquid-work-together}
 
 Kataloge sind ein Feature zur Datenspeicherung. Sie enthalten große Datenmengen, auf die Sie in Ihren Nachrichten zur Personalisierung verweisen können. Um die Daten tatsächlich zu referenzieren, verwenden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) als Templating-Sprache. Anders gesagt: Kataloge sind der Speicher, in dem die Daten vorgehalten werden, und Liquid ist die Sprache, die die relevanten Daten aus dem Speicher abruft.
 
-Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Einen Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
+Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
 
-#### Einschränkungen beim Datenspeicher
+#### Einschränkungen beim Datenspeicher {#data-storage-limitations}
 
 Der Datenspeicher für Kataloge ist durch die Größe der Katalogartikel begrenzt, die sich von der Größe der hochgeladenen CSV-Dateien unterscheiden kann.
 

@@ -1,38 +1,38 @@
 ---
 nav_title: Convenciones de nomenclatura de eventos
-article_title: Convenciones de nomenclatura de eventos
+article_title: Convenciones para nombrar eventos
 page_order: 4
 page_type: reference
 description: "Este artículo de referencia cubre las convenciones de nomenclatura de eventos adecuadas y las mejores prácticas."
 
 ---
 
-# Convenciones de nomenclatura de eventos
+# Convenciones de nomenclatura de eventos {#event-naming-conventions}
 
-> Esta página cubre las convenciones de nomenclatura de eventos adecuadas y las mejores prácticas. Al mantener la coherencia en la taxonomía de tus eventos y atributos, mantendrás tus datos limpios y utilizables tanto para usuarios nuevos como existentes de la plataforma Braze. Esto ayuda a evitar problemas posteriores, como desencadenar una campaña a la audiencia equivocada o generar resultados incorrectos tras usar el evento equivocado.
+> Esta página trata de las convenciones adecuadas para nombrar los eventos y de las mejores prácticas. Al mantener la coherencia en tu taxonomía de eventos y atributos, mantendrás tus datos limpios y utilizables para los usuarios nuevos y existentes de la plataforma Braze. Esto ayuda a evitar problemas posteriores, como desencadenar una campaña a la audiencia equivocada o generar resultados erróneos tras utilizar el evento equivocado.
 
-## Mejores prácticas
+## Buenas prácticas {#best-practices}
 
-- Mantén tu convención de nomenclatura clara.
-- Usa un formato y uso de mayúsculas coherente en los nombres de eventos.
+- Mantén clara tu convención de nomenclatura.
+- Los nombres de los eventos deben escribirse y formatearse con coherencia.
 - Evita dar nombres similares a los eventos.
-- Evita cadenas largas de atributos de eventos, que se truncarán o cortarán en el panel de Braze.
+- Evita las cadenas largas de atributos de eventos, que se truncarán o cortarán en el dashboard de Braze.
 
-## Convenciones de nomenclatura
+## Convenciones de denominación {#naming-conventions}
 
-### Usa grupos de eventos
+### Utiliza grupos de eventos {#use-event-groups}
 
-Usa grupos para diferenciar partes de tu producto al nombrar eventos. Al categorizar tu producto en grupos, cualquier usuario puede entender claramente a qué se refiere el evento y qué hace.
+Utiliza grupos para diferenciar las partes de tu producto al nombrar eventos. Al categorizar tu producto en grupos, cualquier usuario puede entender claramente a qué se refiere el evento y qué hace.
 
-### Estructura de nomenclatura de eventos
+### Estructura de nomenclatura de eventos {#event-naming-structure}
 
-La estructura de nomenclatura más común es `group_noun_action`. Todos los eventos deben estar en minúsculas para evitar errores de instrumentación por uso de mayúsculas e identificar propiedades.
+La estructura de nombres más común es `group_noun_action`. Los eventos deben ir todos en minúsculas para evitar errores de instrumentación e identificación de propiedades.
 
-### Propiedades
+### Propiedades {#properties}
 
-Etiqueta un evento y luego identifica las diferencias usando propiedades. Esto es útil para eventos que son inherentemente iguales pero tienen diferencias menores, como los canales de una campaña. También podemos ver fácilmente cómo los usuarios fluyen a través de los eventos. Consulta el [objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) para ver un ejemplo y contexto adicional.
+Etiqueta un evento y luego identifica las diferencias mediante el uso de propiedades. Esto es útil para eventos que son inherentemente iguales pero tienen diferencias menores, como los canales de una campaña. También podemos ver fácilmente cómo los usuarios fluyen a través de los eventos. Consulta el [objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) para ver un ejemplo y contexto adicional.
 
-## Ejemplos
+## Ejemplos {#examples}
 
 Supongamos que formas parte de una empresa de comercio electrónico y te interesa hacer seguimiento de cuándo los clientes se han registrado en tu aplicación y cuándo se han suscrito a tu boletín. Aquí tienes ejemplos de nombres de eventos efectivos:
 
