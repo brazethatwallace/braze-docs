@@ -4,28 +4,28 @@ article_title: Attributs personnalisés imbriqués
 alias: "/nested_custom_attribute_support/"
 page_order: 3
 page_type: reference
-description: "Cet article de référence explique comment utiliser les attributs personnalisés imbriqués en tant que type de données pour les attributs personnalisés, y compris les limitations et des exemples d'utilisation."
+description: "Cet article de référence explique comment utiliser les attributs personnalisés imbriqués en tant que type de données pour des attributs personnalisés, avec les limitations et des exemples d'utilisation."
 ---
 
-# Attributs personnalisés imbriqués
+# Attributs personnalisés imbriqués {#nested-custom-attributes}
 
-> Cette page traite des attributs personnalisés imbriqués, qui vous permettent de définir un ensemble d'attributs en tant que propriété d'un autre attribut. Autrement dit, lorsque vous définissez un objet d'attribut personnalisé, vous pouvez définir un ensemble d'attributs supplémentaires pour cet objet.
+> Cette page traite des attributs personnalisés imbriqués, qui vous permettent de définir un ensemble d'attributs en tant que propriété d'un autre attribut. En d'autres termes, lorsque vous définissez un objet d'attribut personnalisé, vous pouvez définir un ensemble d'attributs supplémentaires pour cet objet.
 
 {% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Considérations
+## Restrictions {#considerations}
 
-- Les attributs personnalisés imbriqués sont destinés aux attributs personnalisés envoyés via le SDK ou l'API Braze.
+- Les attributs personnalisés imbriqués sont destinés aux attributs personnalisés envoyés via le SDK ou l'API de Braze.
 - Les objets ont une taille maximale de 100&nbsp;Ko. Si une mise à jour fait dépasser 100&nbsp;Ko à l'objet, Braze rejette la mise à jour et l'attribut reste inchangé.
-- Les noms de clés et les valeurs de chaîne de caractères sont limités à 255 caractères.
-- Les noms de clés ne peuvent pas contenir d'espaces.
-- Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un PAYLOAD API si vous tentez d'envoyer un attribut personnalisé imbriqué vers un profil utilisateur.
-- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Consultez la [documentation partenaire]({{site.baseurl}}/partners/home) pour vérifier si une intégration partenaire spécifique prend en charge cette fonctionnalité.
+- Les noms de clé et les valeurs de chaîne de caractères ont une limite de taille de 255 caractères.
+- Les noms de clé ne peuvent pas contenir d'espaces.
+- Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
+- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel API Connected Audience.
 
-## Exemple d'API
+## Exemple d'API {#api-example}
 
 {% tabs local %}
 {% tab Créer %}
@@ -111,7 +111,7 @@ Cette approche ne peut pas être utilisée pour supprimer une clé imbriquée à
 {% endtab %}
 {% endtabs %}
 
-## Exemple de SDK
+## Exemple de SDK {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
 
@@ -225,7 +225,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 {% endtab %}
 {% endtabs %}
 
-## Capturer des dates en tant que propriétés d'objet
+## Capturer des dates en tant que propriétés d'objet {#capturing-dates-as-object-properties}
 
 Pour capturer des dates en tant que propriétés d'objet, vous devez utiliser la clé `$time`. Dans l'exemple suivant, un objet « Important Dates » est utilisé pour capturer l'ensemble des propriétés d'objet `birthday` et `wedding_anniversary`. La valeur de ces dates est un objet avec une clé `$time`, qui ne peut pas être une valeur nulle.
 
@@ -235,7 +235,7 @@ Si vous n'avez pas capturé les dates en tant que propriétés d'objet initialem
 
 ```json
 {
-  "attributes": [ 
+  "attributes": [
     {
       "external_id": "time_with_nca_test",
       "important_dates": {
@@ -251,7 +251,7 @@ Si vous n'avez pas capturé les dates en tant que propriétés d'objet initialem
 Pour les attributs personnalisés imbriqués, si l'année est inférieure à 0 ou supérieure à 3000, Braze ne stocke pas ces valeurs sur l'utilisateur.
 {% endalert %}
 
-## Modèles Liquid
+## Modèles Liquid {#liquid-templating}
 
 L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans vos messages.
 
@@ -265,7 +265,7 @@ Utilisez la balise de personnalisation `custom_attribute` et la notation par poi
 
 ![Utilisation de Liquid pour intégrer le nom d'une chanson et le nombre de fois qu'un auditeur l'a écoutée dans un message]({% image_buster /assets/img_archive/nca_liquid_2.png %})
 
-### Personnalisation
+### Personnalisation {#personalization}
 
 En utilisant la fenêtre modale **Ajouter une personnalisation**, vous pouvez également insérer des attributs personnalisés imbriqués dans vos messages. Sélectionnez **Attributs personnalisés imbriqués** comme type de personnalisation. Ensuite, sélectionnez l'attribut de niveau supérieur et la clé d'attribut.
 
@@ -296,7 +296,7 @@ Pour réinitialiser le schéma d'un tableau d'objets avec un objet existant, vou
 
 Si les données n'apparaissent pas comme prévu après la régénération du schéma, il est possible que l'attribut ne soit pas ingéré assez fréquemment. Les données utilisateur sont échantillonnées à partir des données précédemment envoyées à Braze pour l'attribut imbriqué concerné. Si l'attribut n'est pas ingéré suffisamment, il ne sera pas pris en compte pour le schéma.
 
-## Déclencher des modifications d'attributs personnalisés imbriqués
+## Déclencher des modifications d'attributs personnalisés imbriqués {#trigger-nested-custom-attribute-changes}
 
 Vous pouvez déclencher une action lorsqu'un objet d'attribut personnalisé imbriqué change. Cette option n'est pas disponible pour les modifications de tableaux d'objets. Si vous ne voyez pas l'option d'affichage de l'explorateur de chemins, vérifiez que vous avez généré un schéma.
 
@@ -304,9 +304,9 @@ Par exemple, dans une campagne basée sur une action, vous pouvez ajouter une no
 
 ![Paramètres de réception d'une campagne basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
-## Comportement de segmentation avec les tableaux d'objets
+## Comportement de segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 
-Lorsque vous utilisez plusieurs filtres `Nested Custom Attribute` avec une logique ET pour segmenter un tableau d'objets, chaque filtre est évalué indépendamment sur tous les éléments du tableau. Un utilisateur est qualifié pour le segment si *n'importe quel* élément du tableau satisfait chaque filtre individuel — les filtres n'ont pas besoin de correspondre au *même* élément.
+Lorsque vous utilisez plusieurs filtres `Nested Custom Attribute` avec une logique ET pour segmenter un tableau d'objets, chaque filtre est évalué indépendamment sur tous les éléments du tableau. Un utilisateur est qualifié pour le segment si _n'importe quel_ élément du tableau satisfait chaque filtre individuel — les filtres n'ont pas besoin de correspondre au _même_ élément.
 
 Par exemple, supposons qu'un utilisateur possède le tableau suivant :
 
@@ -328,7 +328,7 @@ Cet utilisateur serait qualifié car le premier filtre correspond à l'élément
 
 Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères](#multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
 
-## Points de donnée
+## Points de donnée {#data-points}
 
 Chaque clé envoyée consomme un point de donnée. Par exemple, cet objet initialisé dans le profil utilisateur compte sept (7) points de donnée :
 

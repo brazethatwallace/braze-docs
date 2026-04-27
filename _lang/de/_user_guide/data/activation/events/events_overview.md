@@ -19,7 +19,7 @@ Braze verwendet verschiedene Event-Typen, um ein umfassendes Verständnis des Nu
 
 Durch das Tracking dieser verschiedenen Event-Typen können Sie ein tieferes Verständnis Ihrer Nutzer:innen gewinnen, das Ihre Marketingstrategien informiert, Ihnen hilft, Ihre App zu optimieren, und Sie in die Lage versetzt, ein personalisierteres Nutzererlebnis zu bieten. Legen wir los!
 
-## Standard-Events
+## Standard-Events {#standard-events}
 
 In Braze sind Standard-Events vordefinierte Aktionen, die Braze plattformübergreifend erkennt. Im Gegensatz zu [angepassten Events](#custom-events) müssen Sie Standard-Events nicht erstellen oder benennen – sie sind bereits integriert. Allerdings werden nicht alle Standard-Events auf die gleiche Weise getrackt.
 
@@ -36,7 +36,7 @@ Die folgenden Events werden nach zusätzlicher Einrichtung getrackt:
 
 Als Marketer können Sie Standard-Events nutzen, um Nutzerverhalten und Engagement zu verstehen. Zum Beispiel zeigen Session-Daten, wie oft Nutzer:innen Ihre App oder Website öffnen, während Kauf-Events Ihnen helfen, den Umsatz über die Zeit zu verfolgen.
 
-## Kauf-Events
+## Kauf-Events {#purchase-events}
 
 Kauf-Events erfassen und tracken Käufe Ihrer Nutzer:innen. Nach der Integration des Braze SDK kann Ihr Entwicklungsteam Käufe über die Kaufmethoden des SDK protokollieren. Wenn Sie Kauf-Events zum Tracking von Käufen verwenden, können Sie Ihren Umsatz über die Zeit und über verschiedene Umsatzquellen hinweg direkt in Braze überwachen.
 
@@ -66,7 +66,7 @@ Hier ist ein Beispiel, wie Sie ein Kauf-Event in einer iOS-App mit Swift protoko
 Appboy.sharedInstance()?.logPurchase("product_name", inCurrency: "USD", atPrice: NSDecimalNumber(string: "1.99"), withQuantity: 1)
 ```
 
-In diesem Beispiel ist „product_name" der Name des gekauften Produkts, „USD" die Währung des Kaufs, „1.99" der Preis des Produkts und „1" die gekaufte Menge.
+In diesem Beispiel ist „product_name“ der Name des gekauften Produkts, „USD“ die Währung des Kaufs, „1.99“ der Preis des Produkts und „1“ die gekaufte Menge.
 
 {:start="3"}
 3. **Sehen Sie das Kauf-Event im Braze-Dashboard an:** Nachdem das Kauf-Event protokolliert wurde, können Sie es im Braze-Dashboard einsehen. Sie können diese Daten nutzen, um Ihren Umsatz zu analysieren, Ihre Nutzer:innen zu segmentieren und mehr.
@@ -75,7 +75,7 @@ Beachten Sie, dass die genaue Implementierung je nach Plattform (iOS, Android, I
 
 {% enddetails %}
 
-## Angepasste Events
+## Angepasste Events {#custom-events}
 
 Angepasste Events sind Events, die Sie basierend auf den spezifischen Aktionen definieren, die Sie in Ihrer App oder auf Ihrer Website tracken möchten. Braze trackt sie nicht automatisch – Sie müssen diese Events manuell in Ihrer Braze-SDK-Implementierung einrichten. Angepasste Events können alles sein, von einem:einer Nutzer:in, der/die ein Level in einem Spiel abschließt, bis hin zu einem:einer Nutzer:in, der/die seine/ihre Profilinformationen aktualisiert.
 
@@ -85,7 +85,7 @@ Hier ist ein Beispiel, wie Sie ein angepasstes Event in einer iOS-App mit Swift 
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-In diesem Beispiel ist „completed_level" der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Nutzerprofil in Braze erfasst, das Sie nutzen können, um Kampagnen zu triggern und Messaging zu personalisieren.
+In diesem Beispiel ist „completed_level“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Nutzerprofil in Braze erfasst, das Sie nutzen können, um Campaigns zu triggern und Messaging zu personalisieren.
 
 Mehr erfahren Sie in unserem speziellen Artikel zu [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
 
@@ -103,7 +103,7 @@ Hier ist ein Beispiel, wie Sie ein angepasstes Event in einer iOS-App mit Swift 
 Appboy.sharedInstance()?.logCustomEvent("updated_profile")
 ```
 
-In diesem Beispiel ist „updated_profile" der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in sein/ihr Profil aktualisiert.
+In diesem Beispiel ist „updated_profile“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in sein/ihr Profil aktualisiert.
 
 {:start="4"}
 4. **Fügen Sie Ihrem angepassten Event Eigenschaften hinzu (optional):** Wenn Sie zusätzliche Details über das angepasste Event erfassen möchten, können Sie ihm Eigenschaften hinzufügen. Dies geschieht, indem Sie beim Protokollieren des Events ein Dictionary mit Eigenschaften übergeben.
@@ -115,7 +115,7 @@ let properties: [AnyHashable: Any] = ["Property Name": "Property Value"]
 Appboy.sharedInstance()?.logCustomEvent("updated_profile", withProperties: properties)
 ```
 
-In diesem Beispiel hat das angepasste Event eine Eigenschaft namens „Property Name" mit dem Wert „Property Value".
+In diesem Beispiel hat das angepasste Event eine Eigenschaft namens „Property Name“ mit dem Wert „Property Value“.
 
 {:start="5"}
 5. **Sehen Sie das angepasste Event im Braze-Dashboard an:** Nachdem das angepasste Event protokolliert wurde, können Sie es im Braze-Dashboard einsehen. Sie können diese Daten nutzen, um Nutzerverhalten zu analysieren, Ihre Nutzer:innen zu segmentieren und mehr.
