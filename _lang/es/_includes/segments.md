@@ -23,7 +23,7 @@ Para establecer una programación recurrente designando la configuración de act
 Para optimizar tu gestión de datos, la configuración de actualización se desactiva automáticamente para las extensiones de segmento no utilizadas. Las extensiones de segmento se consideran no utilizadas cuando:
 
 - No se utilizan en ninguna Campaign, Canvas o segmento activo o inactivo (borrador, detenido, archivado).
-- No se han modificado en más de 7 días
+- No se han modificado en más de 7 días.
 
 Braze notificará al contacto de la empresa y al creador de la extensión si se desactiva esta configuración. La opción de regenerar las extensiones diariamente puede volver a activarse en cualquier momento.
 {% endalert %}
@@ -60,7 +60,7 @@ Las actualizaciones programadas se desactivan automáticamente cuando una extens
 - No se utiliza en ningún segmento que esté en una Campaign o Canvas activos
 - No se utiliza en ningún segmento que tenga activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)
 - No se ha modificado en más de siete días
-- No se ha añadido a una Campaign o Canvas (incluidos borradores), o segmento en más de siete días
+- No se ha añadido a una Campaign o Canvas (incluidos borradores), ni a un segmento en más de siete días
 
 Si la actualización programada está desactivada para una extensión de segmento, dicha extensión tendrá una notificación que así lo indique.
 

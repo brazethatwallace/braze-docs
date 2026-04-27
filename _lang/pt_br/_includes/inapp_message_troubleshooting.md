@@ -93,8 +93,8 @@ O SDK solicita mensagens no app dos servidores da Braze no início da sessão. P
 2. Configure uma Campaign de mensagens no app direcionada ao seu usuário.
 3. Confira se uma nova sessão está ocorrendo no seu aplicativo.
 4. Use os [registros de usuários de eventos]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para verificar se seu dispositivo está solicitando mensagens no app no início da sessão. Encontre a solicitação do SDK associada ao evento de início de sessão do usuário teste.
-  - Se o seu app foi projetado para solicitar mensagens no app disparadas, você deverá ver `trigger` no campo **Respostas solicitadas** em **Dados de resposta**.
-  - Se o seu app foi projetado para solicitar mensagens originais no app, você deverá ver `in_app` no campo **Respostas solicitadas** em **Dados de resposta**.
+  - Se o seu app foi projetado para solicitar mensagens no app disparadas, você deverá ver `trigger` no campo **Requested Responses** em **Response Data**.
+  - Se o seu app foi projetado para solicitar mensagens originais no app, você deverá ver `in_app` no campo **Requested Responses** em **Response Data**.
 5. Use os [registros de usuários de eventos]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para verificar se as mensagens no app corretas estão sendo retornadas nos dados de resposta.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### Solução de problemas de mensagens que não estão sendo solicitadas {#troubleshoot-messages-not-being-requested}
@@ -110,7 +110,7 @@ Se suas mensagens no app não estiverem sendo retornadas, é provável que haja 
 1. Seu Segment não contém seu usuário.
   - Verifique a guia [**Engajamento**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) do seu usuário para ver se o Segment correto aparece em **Segments**.
 2. Seu usuário já recebeu anteriormente a mensagem no app e não era elegível para recebê-la novamente.
-  - Verifique as [configurações de reelegibilidade da Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) na etapa **Entrega** do **Criador da Campaign** e certifique-se de que as configurações de reelegibilidade estão alinhadas com sua configuração de teste.
+  - Verifique as [configurações de reelegibilidade da Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) na etapa **Delivery** do **Campaign Composer** e certifique-se de que as configurações de reelegibilidade estão alinhadas com sua configuração de teste.
 3. Seu usuário atingiu o limite de frequência da Campaign.
   - Verifique as [configurações de limite de frequência da Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping) e certifique-se de que estão alinhadas com sua configuração de teste.
 4. Se havia um grupo de controle na Campaign, seu usuário pode ter caído no grupo de controle.

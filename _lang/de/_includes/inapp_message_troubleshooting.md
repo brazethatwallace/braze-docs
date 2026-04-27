@@ -72,7 +72,7 @@ Weitere Gründe sind:
 
 ### Impressionen sind niedriger als früher {#impressions-are-lower-than-they-used-to-be}
 
-1. Stellen Sie sicher, dass niemand das Segment oder die Campaign seit dem Start unbeabsichtigt verändert hat. Unsere Changelogs für Segments und Campaigns geben Ihnen Einblick in die Änderungen, die vorgenommen wurden, wer die Änderung vorgenommen hat und wann sie erfolgt ist.
+1. Stellen Sie sicher, dass niemand das Segment oder die Campaign seit dem Start unbeabsichtigt verändert hat. Unsere Changelogs für Segmente und Campaigns geben Ihnen Einblick in die Änderungen, die vorgenommen wurden, wer die Änderung vorgenommen hat und wann sie erfolgt ist.
 
 ![Link zur Anzeige des Changelogs auf der Seite „Campaign-Details“ mit sieben Änderungen seit der letzten Ansicht der Campaign]({% image_buster /assets/img_archive/trouble4.png %})
 
@@ -110,11 +110,11 @@ Wenn Ihre In-App-Nachrichten nicht zurückgegeben werden, liegt wahrscheinlich e
 1. Ihr Segment enthält Ihre Person nicht.
   - Überprüfen Sie den Tab [**Engagement**]({{ site.baseurl }}/user_guide/engagement_tools/segments/using_user_search/#engagement-tab) der Person, um sicherzustellen, dass das korrekte Segment unter **Segments** angezeigt wird.
 2. Die Person hat die In-App-Nachricht bereits erhalten und war nicht erneut berechtigt, sie zu erhalten.
-  - Überprüfen Sie die [Einstellungen für die erneute Berechtigung der Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) im Schritt **Zustellung** des **Campaign Composers** und stellen Sie sicher, dass die Einstellungen für die erneute Berechtigung mit Ihrer Testkonfiguration übereinstimmen.
+  - Überprüfen Sie die [Einstellungen für die erneute Berechtigung der Campaign]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/) im Schritt **Delivery** des **Campaign Composers** und stellen Sie sicher, dass die Einstellungen für die erneute Berechtigung mit Ihrer Testkonfiguration übereinstimmen.
 3. Die Person hat die Frequenzbegrenzung für die Campaign erreicht.
   - Überprüfen Sie die [Frequency-Capping-Einstellungen]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping) der Campaign und stellen Sie sicher, dass diese mit Ihrer Testkonfiguration übereinstimmen.
 4. Wenn es in der Campaign eine Kontrollgruppe gab, könnte die Person in die Kontrollgruppe gefallen sein.
-  - Sie können überprüfen, ob dies geschehen ist, indem Sie ein Segment mit einem Filter für empfangene Kampagnenvarianten erstellen, bei dem die Kampagnenvariante auf **Kontrollgruppe** eingestellt ist, und prüfen, ob die Person in dieses Segment fällt.
+  - Sie können überprüfen, ob dies geschehen ist, indem Sie ein Segment mit einem Filter für empfangene Kampagnenvarianten erstellen, bei dem die Kampagnenvariante auf **Control** eingestellt ist, und prüfen, ob die Person in dieses Segment fällt.
   - Wenn Sie Campaigns für Integrationstests erstellen, achten Sie darauf, keine Kontrollgruppe hinzuzufügen.
 
 
