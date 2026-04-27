@@ -481,7 +481,12 @@ the label to match the sentence while preserving each \
 `]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
 `metrics_glossary`, use **Glossaire des indicateurs de rapport** (not \
 *d'indicateurs*) when that row exists (auto-translate PR #13341).
-18. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
+18. **`guide_top_text` English splices**: Fix bare English plurals such as \
+**Campaigns** or **Segments** glued onto localized wording in hero YAML \
+(for example Japanese *運用Campaigns* or German *operative Campaigns*). Use \
+a single localized phrase (*運用キャンペーン*, *operative Kampagnen*, etc.) \
+per that locale's hub pages (auto-translate PR #13348).
+19. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
 uses `{#…}`, keep the **`?`** before the brace when English does. French—fix \
 mid-sentence **Décision**-style caps on common nouns (*décision*). \
 Japanese—use **Canvasステップ** consistently with other **Canvas** tokens on \
@@ -1059,8 +1064,19 @@ def cmd_translate(args):
 # ---------------------------------------------------------------------------
 
 def _extract_front_matter(content):
-    """Extract YAML front matter and body from a markdown file."""
-    match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+    """Extract YAML front matter and body from a markdown file.
+
+    Accepts a closing ``---`` delimiter at end-of-file with no newline after it
+    (YAML-only hub pages). Requiring a body newline after ``---`` previously
+    made the matcher fail so the entire file was treated as body, which inflated
+    glossary substring counts for keys like ``segment`` inside YAML (PR
+    #13348). Only horizontal space may follow the closing ``---`` before that
+    newline or EOF so blank lines after the delimiter stay in the body.
+    """
+    # After the closing ``---``, only horizontal space may appear before the
+    # body newline or EOF — ``\s*`` would swallow blank lines that belong to
+    # the markdown body.
+    match = re.match(r'^---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL)
     if match:
         return match.group(1), content[match.end():]
     return None, content
