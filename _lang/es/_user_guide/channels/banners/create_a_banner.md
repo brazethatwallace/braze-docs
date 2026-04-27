@@ -2,42 +2,42 @@
 nav_title: "Crear un banner"
 article_title: "Crear un banner"
 page_order: 1
-description: "Este artículo de referencia explica cómo crear, redactar, configurar y enviar banners usando campañas y Canvas de Braze."
+description: "Este artículo de referencia explica cómo crear, redactar, configurar y enviar banners usando Campaigns y Canvas de Braze."
 tool:
   - Campaigns
 channel:
   - banners
 ---
 
-# Crear un banner
+# Crear un banner {#create-a-banner}
 
-> Aprende a crear banners cuando construyes campañas y Canvas en Braze. Para información más general, consulta [Acerca de los banners]({{site.baseurl}}/user_guide/channels/banners).
+> Aprende a crear banners cuando construyes Campaigns y Canvas en Braze. Para información más general, consulta [Acerca de los banners]({{site.baseurl}}/user_guide/channels/banners/).
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ubicaciones en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/). Mientras tanto, puedes redactar el borrador de tu campaña de banner, pero no podrás lanzar la campaña hasta que las ubicaciones estén configuradas.
 
-## Crear un mensaje de banner
+## Crear un mensaje de banner {#create-a-banner-message}
 
 {% multi_lang_include banners/creating_placements.md section="user" %}
 
-### Paso 2: Elige dónde crear tu mensaje
+### Paso 2: Elige dónde crear tu mensaje {#step-2-choose-where-to-build-your-message}
 
 ¿No tienes claro si tu mensaje debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para campañas de mensajería únicas y dirigidas, mientras que los Canvas son mejores para recorridos de usuario con múltiples pasos.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Messaging** > **Campaigns** y selecciona **Create campaign**.
+1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
 2. Selecciona **Banner**.
 3. Dale a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario. Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el Generador de informes, puedes filtrar por las etiquetas relevantes.
 5. Selecciona la ubicación que creaste previamente para asociarla con tu campaña.
 6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
-7. Elige una fecha y hora de inicio para tu campaña de banner. De forma predeterminada, los banners duran indefinidamente. Puedes cambiar esto seleccionando **Hora de finalización** y especificando una fecha y hora de fin.
+7. Elige una fecha y hora de inicio para tu campaña de banner. De forma predeterminada, los banners duran indefinidamente. Puedes cambiar esto seleccionando **End Time** y especificando una fecha y hora de fin.
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes seleccionar **Copiar de variante** en el desplegable **Añadir variante**.
+Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes seleccionar **Copy from Variant** en el desplegable **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -63,17 +63,17 @@ Para redactar tu banner, puedes elegir:
 
 ![Opción para elegir un banner en blanco o una plantilla.]({% image_buster /assets/img/banners/choose_banner_composer.png %})
 
-#### Paso 3.1: Dar estilo al banner
+#### Paso 3.1: Dar estilo al banner {#step-31-style-the-banner}
 
 Puedes arrastrar y soltar bloques y filas en el área del lienzo para empezar a construir tu mensaje.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-Para personalizar las propiedades de fondo, la configuración de bordes y más de tu mensaje, selecciona **Estilos**. Si solo quieres personalizar el estilo de un bloque o fila específicos, selecciónalo para hacer cambios.
+Para personalizar las propiedades de fondo, la configuración de bordes y más de tu mensaje, selecciona **Styles**. Si solo quieres personalizar el estilo de un bloque o fila específicos, selecciónalo para hacer cambios.
 
 ![Panel de estilos del compositor de banners.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
-#### Paso 3.2: Definir el comportamiento al hacer clic (opcional)
+#### Paso 3.2: Definir el comportamiento al hacer clic (opcional) {#step-32-define-on-click-behavior-optional}
 
 Cuando un usuario hace clic en un enlace del banner, puedes elegir navegar más profundamente dentro de tu aplicación o redirigirlo a otra página web. Además, puedes elegir [registrar un atributo personalizado o evento]({{site.baseurl}}/developer_guide/analytics/), lo que actualiza el perfil del usuario con datos personalizados cuando hace clic en el banner.
 
@@ -89,7 +89,7 @@ El comportamiento al hacer clic puede ser anulado si un elemento específico (co
 Los descartes de banners están actualmente en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
 
-Selecciona la casilla **El banner puede ser descartado** para permitir que los usuarios descarten el banner. Esta opción puede ser útil en escenarios donde quieres promocionar una venta por tiempo limitado para todos los usuarios de la aplicación, pero permitirles descartar el mensaje si no están interesados.
+Selecciona la casilla **Banner can be dismissed** para permitir que los usuarios descarten el banner. Esta opción puede ser útil en escenarios donde quieres promocionar una venta por tiempo limitado para todos los usuarios de la aplicación, pero permitirles descartar el mensaje si no están interesados.
 
 #### Paso 3.4: Añadir propiedades personalizadas (opcional) {#custom-properties}
 
@@ -99,7 +99,7 @@ Puedes añadir propiedades personalizadas a un banner para adjuntar metadatos es
 - Usar metadatos como un `timestamp` u objeto JSON para desencadenar lógica condicional.
 - Controlar el comportamiento de un banner basándote en metadatos incluidos como `ratio` o `format`.
 
-Para añadir una propiedad personalizada, selecciona **Configuración** > **Propiedades** > **Añadir propiedad**.
+Para añadir una propiedad personalizada, selecciona **Settings** > **Properties** > **Add property**.
 
 ![La página de propiedades mostrando la opción de añadir la primera propiedad personalizada a una campaña de banner.]({% image_buster /assets/img/banners/add_property.png %})
 
@@ -112,37 +112,37 @@ Para cada propiedad que quieras añadir, completa lo siguiente:
 | Valor | El valor asignado a la propiedad. Debe coincidir con el tipo de propiedad seleccionado. | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-Cuando hayas terminado, selecciona **Listo**.
+Cuando hayas terminado, selecciona **Done**.
 
 ![La página de propiedades con una propiedad de tipo cadena con una clave de color y valor de #FF0000.]({% image_buster /assets/img/banners/example_property.png %})
 
-### Paso 4: Construir el resto de tu campaña o Canvas
+### Paso 4: Construir el resto de tu campaña o Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-#### Establecer la prioridad del banner (opcional)
+#### Establecer la prioridad del banner (opcional) {#set-banner-priority-optional}
 
 La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners/#priority) determina el orden en que se muestran los banners si comparten la misma ubicación. Para establecer la prioridad manualmente:
 
-1. Selecciona **Establece la prioridad exacta**.
+1. Selecciona **Set Exact Priority**.
 2. Arrastra y suelta las campañas para ordenarlas con la prioridad correcta.
-3. Selecciona **Aplicar orden**.
+3. Selecciona **Apply Sort**.
 
 {% alert tip %}
 Si tienes múltiples campañas de banner usando el mismo ID de ubicación, te recomendamos usar el ordenador de prioridad de arrastrar y soltar para definir la prioridad exacta.
 {% endalert %}
 
-#### Elige tu audiencia
+#### Elige tu audiencia {#choose-your-audience}
 
-1. En **Público objetivo**, elige segmentos o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de la población aproximada del segmento. La pertenencia exacta al segmento se calcula antes de que se envíe el mensaje.
+1. En **Target Audiences**, elige Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de la población aproximada del segmento. La pertenencia exacta al segmento se calcula antes de que se envíe el mensaje.
 
 {% multi_lang_include target_audiences.md %}
 
 {:start="2"}
-2. En **Asignar conversiones**, realiza un seguimiento de la frecuencia con la que los usuarios realizan acciones específicas después de recibir una campaña definiendo eventos de conversión con una ventana de hasta 30 días para contar la acción como una conversión.
+2. En **Assign Conversions**, realiza un seguimiento de la frecuencia con la que los usuarios realizan acciones específicas después de recibir una campaña definiendo eventos de conversión con una ventana de hasta 30 días para contar la acción como una conversión.
 
-#### Elige eventos de conversión
+#### Elige eventos de conversión {#choose-conversion-events}
 
 Braze te permite realizar un seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), la frecuencia con la que los usuarios realizan acciones específicas, después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
 
@@ -155,10 +155,10 @@ Si aún no lo has hecho, completa las secciones restantes de tu componente de Ca
 {% endtab %}
 {% endtabs %}
 
-### Paso 5: Probar tu mensaje (opcional)
+### Paso 5: Probar tu mensaje (opcional) {#step-5-test-your-message-optional}
 
 {% multi_lang_include banners/testing.md page="campaigns" %}
 
-### Paso 6: Revisar y desplegar
+### Paso 6: Revisar y desplegar {#step-6-review-and-deploy}
 
 Después de terminar de construir tu campaña o Canvas, revisa sus detalles, [pruébala]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) y luego envíala cuando estés listo.

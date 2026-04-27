@@ -9,35 +9,35 @@ channel:
   - banners
 ---
 
-# Créer une bannière
+# Créer une bannière {#create-a-banner}
 
-> Découvrez comment créer des bannières lors de la conception de campagnes et de Canvas dans Braze. Pour des informations plus générales, consultez [À propos des bannières]({{site.baseurl}}/user_guide/channels/banners).
+> Découvrez comment créer des bannières lors de la conception de campagnes et de Canvas dans Braze. Pour des informations plus générales, consultez [À propos des bannières]({{site.baseurl}}/user_guide/channels/banners/).
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Avant de pouvoir lancer votre bannière, votre équipe de développement doit [configurer les emplacements dans votre application ou votre site web]({{site.baseurl}}/developer_guide/banners/placements/). Vous pouvez tout de même préparer votre campagne de bannière en attendant, mais vous ne pourrez pas la lancer tant que les emplacements ne seront pas configurés.
 
-## Créer un message de type bannière
+## Créer un message de type bannière {#create-a-banner-message}
 
 {% multi_lang_include banners/creating_placements.md section="user" %}
 
-### Étape 2 : Choisir où créer votre message
+### Étape 2 : Choisir où créer votre message {#step-2-choose-where-to-build-your-message}
 
 Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les campagnes conviennent mieux aux messages ciblés ponctuels, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create campaign**.
-2. Sélectionnez **Bannière**.
+1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
+2. Sélectionnez **Banner**.
 3. Donnez à votre campagne un nom clair et explicite.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) si nécessaire. Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, avec le Générateur de rapports, vous pouvez filtrer par étiquettes pertinentes.
 5. Sélectionnez l'emplacement que vous avez créé précédemment pour l'associer à votre campagne.
 6. Ajoutez des variantes si nécessaire. Vous pouvez choisir un type de message et une disposition différents pour chacune. Pour en savoir plus sur les variantes, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
-7. Choisissez une date et une heure de début pour votre campagne de bannière. Par défaut, les bannières durent indéfiniment. Vous pouvez modifier ce comportement en sélectionnant **Heure de fin** et en spécifiant une date et une heure de fin.
+7. Choisissez une date et une heure de début pour votre campagne de bannière. Par défaut, les bannières durent indéfiniment. Vous pouvez modifier ce comportement en sélectionnant **End Time** et en spécifiant une date et une heure de fin.
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pourrez ensuite sélectionner **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pourrez ensuite sélectionner **Copy from Variant** dans le menu déroulant **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -45,7 +45,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) à l'aide du compositeur de Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape Message dans le générateur de Canvas. Donnez à votre étape un nom clair et explicite.
-3. Sélectionnez **Bannière** comme canal de communication.
+3. Sélectionnez **Banner** comme canal de communication.
 4. Sélectionnez un emplacement pour la bannière.
 5. Définissez la priorité de la bannière. La [priorité des bannières]({{site.baseurl}}/user_guide/channels/banners/#priority) détermine l'ordre d'affichage des bannières lorsqu'elles partagent le même emplacement.
 6. Définissez une expiration pour la bannière. Celle-ci peut intervenir après une durée déterminée suivant la disponibilité de l'étape, ou à une date et une heure précises.
@@ -63,7 +63,7 @@ Pour rédiger votre bannière, vous pouvez choisir de :
 
 ![Option de choisir une bannière vierge ou un modèle.]({% image_buster /assets/img/banners/choose_banner_composer.png %})
 
-#### Étape 3.1 : Styliser la bannière
+#### Étape 3.1 : Styliser la bannière {#step-31-style-the-banner}
 
 Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pour commencer à créer votre message.
 
@@ -73,7 +73,7 @@ Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure 
 
 ![Panneau de styles du compositeur de bannière.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
-#### Étape 3.2 : Définir le comportement au clic (facultatif)
+#### Étape 3.2 : Définir le comportement au clic (facultatif) {#step-32-define-on-click-behavior-optional}
 
 Lorsqu'un utilisateur clique sur un lien dans la bannière, vous pouvez choisir de le diriger plus en profondeur dans votre application ou de le rediriger vers une autre page web. De plus, vous pouvez choisir de [journaliser un attribut personnalisé ou un événement]({{site.baseurl}}/developer_guide/analytics/), ce qui met à jour le profil de l'utilisateur avec des données personnalisées lorsqu'il clique sur la bannière.
 
@@ -89,7 +89,7 @@ Le comportement au clic peut être remplacé si un élément spécifique (comme 
 La fermeture des bannières est actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-Cochez la case **La bannière peut être fermée** pour permettre aux utilisateurs de fermer la bannière. Cette option peut être utile dans les cas où vous souhaitez promouvoir une vente à durée limitée auprès de tous les utilisateurs de l'application, tout en leur permettant de fermer le message s'ils ne sont pas intéressés.
+Cochez la case **Banner can be dismissed** pour permettre aux utilisateurs de fermer la bannière. Cette option peut être utile dans les cas où vous souhaitez promouvoir une vente à durée limitée auprès de tous les utilisateurs de l'application, tout en leur permettant de fermer le message s'ils ne sont pas intéressés.
 
 #### Étape 3.4 : Ajouter des propriétés personnalisées (facultatif) {#custom-properties}
 
@@ -99,7 +99,7 @@ Vous pouvez ajouter des propriétés personnalisées à une bannière pour y ass
 - Utiliser des métadonnées telles qu'un `timestamp` ou un objet JSON pour déclencher une logique conditionnelle.
 - Contrôler le comportement d'une bannière en fonction de métadonnées incluses comme `ratio` ou `format`.
 
-Pour ajouter une propriété personnalisée, sélectionnez **Paramètres** > **Propriétés** > **Ajouter une propriété**.
+Pour ajouter une propriété personnalisée, sélectionnez **Settings** > **Properties** > **Add property**.
 
 ![La page des propriétés affichant l'option d'ajouter la première propriété personnalisée à une campagne de bannière.]({% image_buster /assets/img/banners/add_property.png %})
 
@@ -112,37 +112,37 @@ Pour chaque propriété que vous souhaitez ajouter, remplissez les champs suivan
 | Valeur | La valeur attribuée à la propriété. Elle doit correspondre au type de propriété sélectionné. | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-Lorsque vous avez terminé, sélectionnez **Terminé**.
+Lorsque vous avez terminé, sélectionnez **Done**.
 
 ![La page des propriétés avec une propriété de type chaîne de caractères ayant pour clé color et pour valeur #FF0000.]({% image_buster /assets/img/banners/example_property.png %})
 
-### Étape 4 : Finaliser votre campagne ou Canvas
+### Étape 4 : Finaliser votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-#### Définir la priorité de la bannière (facultatif)
+#### Définir la priorité de la bannière (facultatif) {#set-banner-priority-optional}
 
 La [priorité des bannières]({{site.baseurl}}/user_guide/channels/banners/#priority) détermine l'ordre d'affichage des bannières lorsqu'elles partagent le même emplacement. Pour définir manuellement la priorité :
 
-1. Sélectionnez **Définir la priorité exacte**.
+1. Sélectionnez **Set exact priority**.
 2. Glissez-déposez les campagnes pour les ordonner selon la priorité souhaitée.
-3. Sélectionnez **Appliquer le tri**.
+3. Sélectionnez **Apply Sort**.
 
 {% alert tip %}
 Si vous avez plusieurs campagnes de bannière utilisant le même ID d'emplacement, nous vous recommandons d'utiliser le tri par priorité en glisser-déposer pour définir la priorité exacte.
 {% endalert %}
 
-#### Choisir votre audience
+#### Choisir votre audience {#choose-your-audience}
 
-1. Dans **Audiences cibles**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
+1. Dans **Target Audiences**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
 
 {% multi_lang_include target_audiences.md %}
 
 {:start="2"}
-2. Dans **Affecter les conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une fenêtre pouvant aller jusqu'à 30 jours pour comptabiliser l'action comme une conversion.
+2. Dans **Assign Conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une fenêtre pouvant aller jusqu'à 30 jours pour comptabiliser l'action comme une conversion.
 
-#### Choisir les événements de conversion
+#### Choisir les événements de conversion {#choose-conversion-events}
 
 Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), c'est-à-dire la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion est comptabilisée si l'utilisateur effectue l'action spécifiée.
 
@@ -155,10 +155,10 @@ Si ce n'est pas déjà fait, complétez les sections restantes de votre composan
 {% endtab %}
 {% endtabs %}
 
-### Étape 5 : Tester votre message (facultatif)
+### Étape 5 : Tester votre message (facultatif) {#step-5-test-your-message-optional}
 
 {% multi_lang_include banners/testing.md page="campaigns" %}
 
-### Étape 6 : Vérifier et déployer
+### Étape 6 : Vérifier et déployer {#step-6-review-and-deploy}
 
 Après avoir terminé la création de votre campagne ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/), puis envoyez-la quand vous êtes prêt.
