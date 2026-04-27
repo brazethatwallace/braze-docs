@@ -503,6 +503,24 @@ on one heading line. If the English file has **no** YAML `---` front matter at \
 the top (typical for `_includes/` partials), do not add a translated \
 `nav_title`/`article_title` block—strip it so the file starts like the English \
 body (auto-translate PR #13353).
+22. **A/B testing subtree** (`_user_guide/messaging/ab_testing/`): **Spanish** \
+``race_conditions``—use **Escenario** for numbered scenario headings (never \
+**Supuesto**); use **Condiciones de carrera** for *race conditions*, not \
+*Condiciones de la carrera*. **Spanish** ``ab_test_projection``—keep dashboard \
+labels **Target Audience**, **A/B Testing**, **Run Projection** in English bold. \
+**Spanish** ``variant_distribution``—use *campaña* for generic multivariate \
+sends, not lowercase English *campaign*. **Spanish** ``random_bucket_numbers`` \
+step copy—use **Target Audiences** when English does. **Portuguese** \
+``concepts``—keep **bucket** for random-bucket terminology (never *baldes*); \
+``optimizations``—parallel plural titles and *na etapa **Públicos-alvo***. \
+**Korean** ``optimizations``—**WhatsApp Campaigns** when listing channels in \
+plural series. **Japanese** ``create_tests``—**Messaging** > **Campaigns**, \
+**Create Campaign** for US UI paths; ``ab_test_projection``—use **予測を実行** \
+consistently for “run projection”. **German** ``optimizations``—**Gewinnervariante** \
+/**Personalisierte Variante** (no **Winning Variant** / **Winning-Varianten**); \
+``conversion_correlation``—**Nutzer:innen** / **Nutzerattribute** consistently \
+(no **Benutzer** mix). **French** ``conversion_correlation``—**campagnes** in \
+French prose, not English **Campaigns** mid-sentence (auto-translate PR #13359).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -4034,6 +4052,161 @@ def repair_trailing_whitespace(translated_content: str):
     return translated_content, []
 
 
+def repair_messaging_ab_testing_locale_drift(
+    translated_path, translated_content, lang_key
+):
+    """Fix recurring A/B testing subtree copy drift (auto-translate PR #13359)."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "messaging/ab_testing" not in rel:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    def _apply(old, new_s, label):
+        nonlocal new, repairs
+        if old in new:
+            new = new.replace(old, new_s)
+            repairs.append(label)
+
+    if lang_key == "pt-br":
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts.md"):
+            _apply(
+                "números aleatórios de baldes",
+                "números de bucket aleatórios",
+                "pt_ab_concepts — baldes → bucket (random bucket copy)",
+            )
+            _apply(
+                "Números aleatórios de baldes",
+                "Números de bucket aleatórios",
+                "pt_ab_concepts — featured list bucket label",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+            _apply(
+                "localizadas na **Etapa de Públicos-alvo**",
+                "localizadas na etapa **Públicos-alvo**",
+                "pt_ab_optim — Target Audiences step wording",
+            )
+            _apply(
+                "article_title: Otimize os Testes A/B com variante vencedora ou personalizadas\n",
+                "article_title: Otimize os testes A/B com variantes vencedoras ou personalizadas\n",
+                "pt_ab_optim — article_title plural parallelism",
+            )
+            _apply(
+                "# Otimize os Testes A/B com Variante vencedora ou Variantes personalizadas ",
+                "# Otimize os testes A/B com variantes vencedoras ou personalizadas ",
+                "pt_ab_optim — H1 plural parallelism",
+            )
+
+    if lang_key == "es":
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/race_conditions.md"):
+            _apply("nav_title: Condiciones de la carrera\n", "nav_title: Condiciones de carrera\n", "es_race — nav race-condition term")
+            _apply("\n# Condiciones de la carrera {#race-conditions}", "\n# Condiciones de carrera {#race-conditions}", "es_race — H1 race-condition term")
+            for n in (1, 2, 3):
+                _apply(f"## Supuesto {n}:", f"## Escenario {n}:", f"es_race — Supuesto {n} → Escenario")
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts.md"):
+            _apply(
+                "  - name: Condiciones de la carrera\n",
+                "  - name: Condiciones de carrera\n",
+                "es_ab_concepts — race conditions card label",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/variant_distribution.md"):
+            _apply(" una campaign ", " una campaña ", "es_variant_dist — campaign → campaña")
+            _apply("una campaign multivariante", "una campaña multivariante", "es_variant_dist — campaign multivariante")
+            _apply("tu campaign tiene", "tu campaña tiene", "es_variant_dist — tu campaign → tu campaña")
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/random_bucket_numbers.md"):
+            _apply(
+                "En la sección **Público objetivo** de tu campaña",
+                "En la sección **Target Audiences** de tu campaña",
+                "es_random_bucket — UI Target Audiences",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
+            _apply(
+                "ve al paso **Público objetivo** del flujo",
+                "ve al paso **Target Audience** del flujo",
+                "es_ab_projection — Target Audience UI",
+            )
+            _apply(
+                "En el panel **Pruebas A/B**, selecciona **Run Projection**.",
+                "En el panel **A/B Testing**, selecciona **Run Projection**.",
+                "es_ab_projection — A/B Testing panel UI",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+            _apply(
+                "article_title: Optimiza las pruebas A/B con Variantes Ganadoras o Variantes Personalizadas\n",
+                "article_title: Optimiza las pruebas A/B con variantes ganadoras o variantes personalizadas\n",
+                "es_ab_optim — sentence-case article_title",
+            )
+            _apply(
+                "# Optimiza las pruebas A/B con Variantes Ganadoras o Variantes Personalizadas ",
+                "# Optimiza las pruebas A/B con variantes ganadoras o variantes personalizadas ",
+                "es_ab_optim — sentence-case H1",
+            )
+            _apply("\n## Variante Ganadora {#winning-variant}", "\n## Variante ganadora {#winning-variant}", "es_ab_optim — sentence-case H2 winning")
+            _apply(
+                "\n## Variante Personalizada {#personalized-variant}",
+                "\n## Variante personalizada {#personalized-variant}",
+                "es_ab_optim — sentence-case H2 personalized",
+            )
+
+    if lang_key == "ko" and rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+        _apply("WhatsApp Campaign에", "WhatsApp Campaigns에", "ko_ab_optim — WhatsApp Campaigns plural")
+
+    if lang_key == "ja":
+        if rel.endswith("_user_guide/messaging/ab_testing/create_tests.md"):
+            _apply(
+                "1. **メッセージング** > **Campaigns**に移動します。",
+                "1. **Messaging** > **Campaigns**に移動します。",
+                "ja_ab_create — Messaging UI path",
+            )
+            _apply(
+                "2. **キャンペーンを作成**を選択し、",
+                "2. **Create Campaign**を選択し、",
+                "ja_ab_create — Create Campaign UI",
+            )
+        if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
+            _apply("**投影の実行**", "**予測を実行**", "ja_ab_projection — run projection verb parity")
+
+    if lang_key == "de":
+        if rel.endswith("_user_guide/messaging/ab_testing/optimizations.md"):
+            _apply(
+                "article_title: Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten\n",
+                "article_title: Optimieren Sie A/B-Tests mit Gewinnervariante oder personalisierten Varianten\n",
+                "de_ab_optim — article_title German winner term",
+            )
+            _apply(
+                "# Optimieren Sie A/B-Tests mit Winning-Varianten oder personalisierten Varianten ",
+                "# Optimieren Sie A/B-Tests mit Gewinnervariante oder personalisierten Varianten ",
+                "de_ab_optim — H1 German winner term",
+            )
+            _apply("**Gewinnende Variante**", "**Gewinnervariante**", "de_ab_optim — Gewinnende → Gewinnervariante")
+            _apply("Gewinnende Variante und Personalisierte", "Gewinnervariante und Personalisierte", "de_ab_optim — alt Gewinnende")
+            _apply("**Winning Variant**", "**Gewinnervariante**", "de_ab_optim — Winning Variant UI")
+            _apply("**Personalized Variant**", "**Personalisierte Variante**", "de_ab_optim — Personalized Variant UI")
+        if rel.endswith("_user_guide/messaging/ab_testing/concepts/conversion_correlation.md"):
+            _apply(
+                "welche Benutzerattribute und Verhaltensweisen die von Ihnen",
+                "welche Nutzerattribute und Verhaltensweisen von Nutzer:innen die von Ihnen",
+                "de_ab_convcorr — callout Nutzerattribute / Nutzer:innen",
+            )
+            _apply(
+                "eine Liste von Attributen und Benutzerverhalten und berechnet, ob Benutzer statistisch",
+                "eine Liste von Attributen und dem Verhalten von Nutzer:innen und berechnet, ob Nutzer:innen statistisch",
+                "de_ab_convcorr — overview Benutzer → Nutzer:innen",
+            )
+
+    if lang_key == "fr" and rel.endswith("_user_guide/messaging/ab_testing/concepts/conversion_correlation.md"):
+        _apply(
+            "- Les Campaigns et Canvas reçus",
+            "- Les campagnes et Canvas reçus",
+            "fr_ab_convcorr — campagnes not English Campaigns",
+        )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def qc_check_file(english_path, translated_path, lang_key):
     """Run all QC checks on one file pair. Auto-repairs are written back."""
     english_content = Path(english_path).read_text()
@@ -4174,6 +4347,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(data_dist_repairs)
+
+    translated_content, ab_testing_repairs = repair_messaging_ab_testing_locale_drift(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ab_testing_repairs)
 
     translated_content, canvas_hub_repairs = (
         repair_messaging_canvas_hub_titles_from_engagement_tools(
