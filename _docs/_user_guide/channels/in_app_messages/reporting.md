@@ -50,7 +50,7 @@ Sarah receives an in-app message from a shopping app about a limited-time sale o
 
 A few hours later, she receives the same in-app message again and decides to buy another pair of shoes. This happens a total of five times in a single day, and Sarah ends up making five separate purchases, each time after clicking on the in-app message.
 
-**Results:** *Total Conversions* and *Total Impressions* for Sarah each increment by five for that single day. Because *Unique Impressions* can only increment again after a calendar day boundary in the workspace's time zone, *Unique Impressions* remains the same. This causes the *Conversion Rate* to increase within that period.
+**Results:** *Total Conversions* and *Total Impressions* for Sarah each increment by five for that single day. Because *Unique Impressions* can increment again only after a calendar day boundary in the workspace's time zone, *Unique Impressions* remains the same. This causes the *Conversion Rate* to increase within that period.
 
 {% alert note %}
 Each impression and conversion in this scenario is processed as a separate SDK event. If your SDK batches an impression and a conversion event together, the conversion count may differ.
