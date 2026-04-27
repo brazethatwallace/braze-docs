@@ -6,7 +6,7 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "기술 파트너"
-partner_top_text: "Braze의 기술 파트너인 Alloys 목록에 오신 것을 환영합니다. 이 페이지를 활용하여 Braze SDK에 기술 파트너를 구현하세요. Braze에서 <b>파트너 통합</b> > <b>기술 파트너</b>로 이동하면 이 페이지에 나열된 파트너와 연결할 수 있습니다. <br> <br> Braze를 활용하여 고객 경험과 마케팅을 혁신하는 Firebrands 커뮤니티에 참여하고 싶다면 <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> 을 확인하세요."
+partner_top_text: "Braze의 기술 파트너인 Alloys 목록에 오신 것을 환영합니다. 이 페이지를 활용하여 Braze SDK에 기술 파트너를 구현하세요. Braze에서 <b>파트너 통합</b> > <b>기술 파트너</b>로 이동하면 이 페이지에 나열된 파트너와 연결할 수 있습니다. <br> <br> Braze를 활용하여 고객 경험과 마케팅을 혁신하는 Firebrands 커뮤니티에 참여하고 싶다면 <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>을 확인하세요."
 description: "이 랜딩 페이지에는 모든 Braze 파트너가 포함되어 있습니다. 기술 파트너를 Braze SDK에 구현하는 데 도움이 되는 기술 설명서를 살펴보세요."
 
 valid_partner_list:

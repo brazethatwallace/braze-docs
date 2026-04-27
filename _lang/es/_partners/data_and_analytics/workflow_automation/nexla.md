@@ -20,7 +20,7 @@ La integración de Braze y Nexla permite a los clientes que utilizan [Currents](
 |---|---|
 | Cuenta Nexla | Se necesita una [cuenta Nexla](https://www.nexla.com/get-demo) para beneficiarse de esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze  | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
+| Punto de conexión REST de Braze  | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
