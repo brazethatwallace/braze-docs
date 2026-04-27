@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-フリークエンシーキャップは、Content Cardsには適用されません。
+フリークエンシーキャップはContent Cardsには適用されません。
 {% endalert %}
 
 {% endif %}

@@ -5,7 +5,7 @@
 
 제품을 탐색했지만 장바구니에 추가하거나 주문하지 않은 사용자의 참여를 유도하려면 **유기한 탐색** 템플릿을 사용하세요.
 
-![적용된 "유기한 탐색" Canvas 템플릿과 확장된 "진입 규칙".]({% image_buster /assets/img_archive/abandoned_browse.png %})
+![확장된 "진입 규칙"이 포함된 적용된 "유기한 탐색" Canvas 템플릿.]({% image_buster /assets/img_archive/abandoned_browse.png %})
 
 #### 설정 {#setup}
 
@@ -71,7 +71,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 **유기한 장바구니** 템플릿을 사용하여 장바구니에 제품을 추가했지만 결제나 주문을 계속하지 않은 고객의 잠재적인 매출 손실에 대응하세요.
 
-![적용된 "유기한 장바구니" Canvas 템플릿과 확장된 "진입 규칙".]({% image_buster /assets/img_archive/abandoned_cart.png %})
+![확장된 "진입 규칙"이 포함된 적용된 "유기한 장바구니" Canvas 템플릿.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
 #### 설정 {#setup-1}
 
@@ -144,7 +144,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 {% endraw %}
 
 {% alert note %}
-Shopify를 사용하는 경우 카탈로그 이름을 추가하여 이형 상품 이미지 URL을 가져오세요.
+Shopify를 사용하는 경우 카탈로그 이름을 추가하여 배리언트 이미지 URL을 가져오세요.
 {% endalert %}
 
 ##### HTML 장바구니 URL {#html-cart-url}
@@ -172,7 +172,7 @@ Shopify를 사용하는 경우 이 Liquid 템플릿을 사용하여 장바구니
 
 **유기한 결제** 템플릿을 사용하여 결제 프로세스를 시작했지만 주문하기 전에 이탈한 고객을 타겟팅하세요.
 
-![적용된 "유기한 결제" Canvas 템플릿과 확장된 "진입 규칙".]({% image_buster /assets/img_archive/abandoned_checkout.png %})
+![확장된 "진입 규칙"이 포함된 적용된 "유기한 결제" Canvas 템플릿.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
 #### 설정 {#setup-2}
 
@@ -260,7 +260,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 **주문 확인 & 피드백 설문조사** 템플릿을 사용하여 성공적인 주문을 확인하고 고객 만족을 향상시키세요.
 
-![적용된 "주문 확인" Canvas 템플릿과 확장된 "진입 규칙".]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
+![확장된 "진입 규칙"이 포함된 적용된 "주문 확인" Canvas 템플릿.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
 #### 설정 {#setup-3}
 

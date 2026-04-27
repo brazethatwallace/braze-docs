@@ -631,7 +631,7 @@ Sigue las instrucciones que se encuentran en la [documentación para desarrollad
 
 #### Añadir vínculos profundos {#adding-deep-links}
 
-El panel de Braze permite configurar vínculos profundos o URL web en Campaigns de notificaciones push y Canvas que se abrirán cuando se haga clic en la notificación.
+El panel de Braze permite configurar vínculos profundos o URL web en campañas de notificaciones push y Canvas que se abrirán cuando se haga clic en la notificación.
 
 ![La configuración "On Click Behavior" en el panel de Braze con "Deep Link Into Application" seleccionado en el menú desplegable.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
@@ -696,15 +696,15 @@ El nombre y la descripción predeterminados del canal también se pueden configu
 
 #### Prueba de visualización {#testing-display}
 
-En este punto, deberías poder ver las notificaciones enviadas desde Braze. Para probarlo, ve a la página **Campaigns** en tu panel de Braze y crea una Campaign de **Push Notification**. Elige **Android Push** y diseña tu mensaje. A continuación, haz clic en el icono del ojo en el compositor para obtener el remitente de prueba. Introduce el ID de usuario o la dirección de correo electrónico de tu usuario actual y haz clic en **Send Test**. Deberías ver aparecer la notificación push en tu dispositivo.
+En este punto, deberías poder ver las notificaciones enviadas desde Braze. Para probarlo, ve a la página **Campaigns** en tu panel de Braze y crea una campaña de **notificación push**. Elige **Android Push** y diseña tu mensaje. A continuación, haz clic en el icono del ojo en el compositor para obtener el remitente de prueba. Introduce el ID de usuario o la dirección de correo electrónico de tu usuario actual y haz clic en **Send Test**. Deberías ver aparecer la notificación push en tu dispositivo.
 
-![La pestaña "Test" de una Campaign de notificaciones push en el panel de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
+![La pestaña "Test" de una campaña de notificaciones push en el panel de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
 Para problemas relacionados con la visualización push, consulta nuestra [guía de solución de problemas]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
 #### Prueba de análisis {#testing-analytics}
 
-En este punto, también deberías tener un registro de análisis de las aperturas de notificaciones push. Si haces clic en la notificación cuando llegue, los **Direct Opens** de la página de resultados de tu Campaign aumentarán en 1. Consulta nuestro artículo sobre [informes push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) para obtener un desglose de los análisis push.
+En este punto, también deberías tener un registro de análisis de las aperturas de notificaciones push. Si haces clic en la notificación cuando llegue, los **Direct Opens** de la página de resultados de tu campaña aumentarán en 1. Consulta nuestro artículo sobre [informes push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) para obtener un desglose de los análisis push.
 
 Para problemas relacionados con los análisis push, consulta nuestra [guía de solución de problemas]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 

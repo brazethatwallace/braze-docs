@@ -3,7 +3,7 @@
 1. Ve a **Plantillas** > **Content Blocks**. Selecciona <i class="fas fa-plus"></i> **Crear bloque de contenido** y selecciona **Bloque de contenido de arrastrar y soltar**.
 2. Arrastra y suelta los [bloques de editor]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_editor_blocks/) para construir un bloque de contenido de arrastrar y soltar.
 3. Arrastra y suelta un bloque de formato de la pestaña **Filas** en el editor para crear el diseño de tu bloque de contenido. <br><br> ![Compositor de bloques de contenido de arrastrar y soltar.]({% image_buster /assets/img_archive/dnd_content_block_composer.png %})<br><br>
-4. Añade bloques de contenido de arrastrar y soltar según necesites para construir tus campaigns de correo electrónico.
+4. Añade bloques de contenido de arrastrar y soltar según necesites para construir tus campañas de correo electrónico.
 5. Después de crear tu bloque de contenido, selecciona **Hecho**.
 6. Dale un nombre a tu bloque de contenido. Este nombre se rellenará automáticamente como parte de la **etiqueta de Liquid del bloque de contenido**.
 7. (Opcional) Añade una descripción.

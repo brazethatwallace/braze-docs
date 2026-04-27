@@ -24,7 +24,7 @@ La siguiente tabla describe cómo los usuarios pueden utilizar cada tipo de bloq
 |Video| Crea un enlace al contenido del video. |
 |Social| Inserta el icono de la plataforma de redes sociales. Puedes cargar imágenes personalizadas para iconos específicos de la marca. |
 |Iconos| Inserta un icono. Puedes cargar imágenes personalizadas. Braze utiliza un icono de marcador de posición de gran tamaño hasta que cargues una imagen. |
-|HTML| Inserta HTML sin formato. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Contenido conectado o sentencias condicionales. |
+|HTML| Inserta HTML sin formato. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como contenido conectado o sentencias condicionales. |
 |Menú| Crea un menú flexible para el mensaje que estás diseñando. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -50,7 +50,7 @@ Consulta la siguiente tabla para obtener detalles sobre las propiedades del bloq
 |Color del enlace| Modifica el color del enlace. |
 |Alinear| Mueve el título hacia la izquierda, el centro o la derecha. |
 |Altura de línea| Modifica la distancia entre líneas de texto. |
-|Espaciado de letras| Modifica la distancia entre cada carácter. |
+|Espaciado de línea| Modifica la distancia entre cada carácter. |
 |Dirección del texto| Predeterminado de izquierda a derecha, pero se puede editar para que sea [de derecha a izquierda]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -117,7 +117,7 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Spa
 
 ### Imagen {#image}
 
-Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Image`. Para imágenes dinámicas (imágenes con Liquid o Contenido conectado), debes establecer una imagen alternativa para usar la configuración de ancho automático. Para las especificaciones de imágenes, consulta nuestras [especificaciones de imágenes de correo electrónico]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Image`. Para imágenes dinámicas (imágenes con Liquid o contenido conectado), debes establecer una imagen alternativa para usar la configuración de ancho automático. Para las especificaciones de imágenes, consulta nuestras [especificaciones de imágenes de correo electrónico]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -139,7 +139,7 @@ Para `Auto Width`, el redimensionamiento automático de imagen elige el mejor ta
 - Las imágenes más pequeñas que el espacio disponible utilizarán el tamaño natural de la imagen para evitar efectos de distorsión o imágenes borrosas.
 {% endalert %}
 
-### Video
+### Video {#video}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Video`.
 
@@ -148,15 +148,15 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Vid
 |URL| La URL del video. Ten en cuenta que solo son compatibles YouTube y Vimeo. |
 |Título| Se genera automáticamente a partir de los metadatos del video o puede personalizarse. |
 |Estilo del icono de reproducción| Incluye diferentes opciones para el botón de reproducción ubicado en la parte superior de una imagen de video. |
-|Color del icono de reproducción| Opción de seleccionar **Claro** u **Oscuro** para el botón de reproducción. |
+|Color del icono de reproducción| Opción de seleccionar **Light** u **Dark** para el botón de reproducción. |
 |Tamaño del icono de reproducción| Elige el tamaño en píxeles del botón de reproducción. Rango prefijado de 50&nbsp;px a 80&nbsp;px (incrementado en 5&nbsp;px). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Los videos alojados en Vimeo solo funcionarán si están configurados como públicos. Todos los demás ajustes de seguridad disponibles en Vimeo (por ejemplo, "Ocultar de Vimeo.com") generarán un formato de enlace diferente que no es compatible con este bloque de contenido. Este tipo de enlaces son alterados por el constructor, lo que impide que Braze genere una miniatura.
+Los videos alojados en Vimeo solo funcionarán si están configurados como públicos. Todos los demás ajustes de seguridad disponibles en Vimeo (por ejemplo, "Hide from Vimeo.com") generarán un formato de enlace diferente que no es compatible con este bloque de contenido. Este tipo de enlaces son alterados por el constructor, lo que impide que Braze genere una miniatura.
 {% endalert %}
 
-### Social
+### Social {#social}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Social`.
 
@@ -186,7 +186,7 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `Ico
 |Relleno del icono| Modifica el relleno del icono. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### HTML
+### HTML {#html}
 
 Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `HTML`.
 
@@ -226,10 +226,10 @@ Consulta la siguiente tabla para obtener detalles sobre el bloque de editor `But
 | Propiedades | Descripción |
 |---|---|
 |Tipo de enlace| Determina la acción al hacer clic en el botón y establece el protocolo adecuado. |
-|URL| Dinámico según el tipo de enlace **Abrir página web**.|
-|Correo electrónico, asunto y cuerpo| Para el tipo de enlace **Enviar correo electrónico**, establece la dirección de correo electrónico del destinatario, el asunto y el contenido que se completarán en un borrador de correo electrónico cuando el usuario seleccione el botón.|
-|Tel.| Para los tipos de enlace **Realizar llamada** y **Enviar SMS**, establece el número de teléfono al que el usuario llamará o enviará un mensaje de texto al seleccionar el botón.|
-|Mensaje| Para el tipo de enlace **Enviar SMS**, establece el contenido que aparecerá en un borrador de mensaje SMS cuando el usuario seleccione el botón.|
+|URL| Dinámico según el tipo de enlace **Open web page**.|
+|Correo electrónico, asunto y cuerpo| Para el tipo de enlace **Send email**, establece la dirección de correo electrónico del destinatario, el asunto y el contenido que se completarán en un borrador de correo electrónico cuando el usuario seleccione el botón.|
+|Tel.| Para los tipos de enlace **Make call** y **Send SMS**, establece el número de teléfono al que el usuario llamará o enviará un mensaje de texto al seleccionar el botón.|
+|Mensaje| Para el tipo de enlace **Send SMS**, establece el contenido que aparecerá en un borrador de mensaje SMS cuando el usuario seleccione el botón.|
 |Opciones de botón| Establece varias opciones del botón, como fuente, ancho, color y otras.|
 |Botón al pasar el cursor| El estilo del botón cuando el usuario pasa el cursor por encima con el ratón o el trackpad. Esto incluye el color de fondo del botón, el color de la fuente y los estilos de los bordes.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

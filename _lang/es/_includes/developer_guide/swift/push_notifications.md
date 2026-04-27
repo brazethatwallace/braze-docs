@@ -398,7 +398,7 @@ Para ver un ejemplo completo, consulta la [muestra de integración manual de not
 
 ## Push primers {#push-primers}
 
-Las campaigns de push primer animan a tus usuarios a habilitar las notificaciones push de tu aplicación en sus dispositivos. Esto puede hacerse sin necesidad de personalizar el SDK utilizando nuestro [push primer sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Las campañas de push primer animan a tus usuarios a habilitar las notificaciones push de tu aplicación en sus dispositivos. Esto puede hacerse sin necesidad de personalizar el SDK utilizando nuestro [push primer sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
 
 ## Gestión dinámica de la puerta de enlace de APNs {#dynamic-apns-gateway-management}
 
@@ -416,7 +416,7 @@ Braze admite la gestión dinámica de puertas de enlace de APNs para notificacio
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### Cómo funciona {#how-it-works}
+### Cómo funciona {#how-it-works-1}
 
 Cuando una aplicación iOS se integra con el SDK Swift de Braze, envía datos relacionados con el dispositivo, incluido [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), a la API del SDK de Braze, si está disponible. El valor `apns_gateway` indica si la aplicación utiliza el entorno de APNs de desarrollo (`dev`) o de producción (`prod`).
 

@@ -4,7 +4,7 @@
 
 ### 1단계: 태그 템플릿 갤러리 열기 {#step-1-open-the-tag-template-gallery}
 
-[Google Tag Manager](https://tagmanager.google.com/)에서 워크스페이스를 선택한 다음 **템플릿**을 선택합니다. **태그 템플릿** 창에서 **갤러리 검색**을 선택합니다.
+[Google Tag Manager](https://tagmanager.google.com/)에서 워크스페이스를 선택한 다음 **Templates**를 선택합니다. **Tag Template** 창에서 **Search Gallery**를 선택합니다.
 
 ![Google Tag Manager의 예제 워크스페이스에 대한 템플릿 페이지입니다.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -14,32 +14,32 @@
 
 ![다양한 'braze-inc' 템플릿을 보여주는 템플릿 갤러리입니다.]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
-**워크스페이스에 추가** > **추가**를 선택합니다.
+**Add to workspace** > **Add**를 선택합니다.
 
 ![Google Tag Manager의 'Braze Initialization Tag' 페이지입니다.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
 ### 3단계: 태그 구성 {#step-3-configure-the-tag}
 
-**템플릿** 섹션에서 새로 추가한 템플릿을 선택합니다.
+**Templates** 섹션에서 새로 추가한 템플릿을 선택합니다.
 
-![Braze Initialization Tag 템플릿을 보여주는 Google Tag Manager의 "템플릿" 페이지입니다.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![Braze Initialization Tag 템플릿을 보여주는 Google Tag Manager의 "Templates" 페이지입니다.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
-연필 아이콘을 선택하여 **태그 구성** 드롭다운을 엽니다.
+연필 아이콘을 선택하여 **Tag Configuration** 드롭다운을 엽니다.
 
-![연필 아이콘이 표시된 태그 구성 타일입니다.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![연필 아이콘이 표시된 Tag Configuration 타일입니다.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 필수 최소 정보를 입력합니다:
 
 | 필드         | 설명 |
 | ------------- | ----------- |
-| **API 키**   | Braze 대시보드의 **설정** > **앱 설정**에서 찾을 수 있는 [Braze API 키]({{site.baseurl}}/api/basics/#about-rest-api-keys)입니다. |
-| **API 엔드포인트** | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 대한 Braze URL에 따라 달라집니다. |
-| **SDK 버전**  | [체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)에 나열된 웹 Braze SDK의 가장 최근 `MAJOR.MINOR` 버전입니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. 자세한 내용은 [SDK 버전 관리에 대한 정보]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)를 참조하세요. |
+| **API Key**   | Braze 대시보드의 **Settings** > **App Settings**에서 찾을 수 있는 [Braze API 키]({{site.baseurl}}/api/basics/#about-rest-api-keys)입니다. |
+| **API Endpoint** | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 대한 Braze URL에 따라 달라집니다. |
+| **SDK Version**  | [체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)에 나열된 웹 Braze SDK의 가장 최근 `MAJOR.MINOR` 버전입니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. 자세한 내용은 [SDK 버전 관리에 대한 정보]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 추가 초기화 설정을 위해 **Braze Initialization Options**를 선택하고 필요한 옵션을 선택합니다.
 
-!['태그 구성' 아래의 Braze Initialization Options 목록입니다.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+!['Tag Configuration' 아래의 Braze Initialization Options 목록입니다.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
 ### 4단계: 초기화 옵션 선택 {#step-4-choose-initialization-options}
 

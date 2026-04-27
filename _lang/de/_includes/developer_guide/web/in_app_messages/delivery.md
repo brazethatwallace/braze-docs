@@ -16,7 +16,7 @@ Alle infrage kommenden In-App-Nachrichten werden zu Beginn der Sitzung an das Ge
 
 Weitere Informationen zur Sitzungsstart-Semantik des SDK finden Sie unter [Sitzungslebenszyklus]({{site.baseurl}}/developer_guide/platform_integration_guides/analytics/tracking_sessions/).
 
-### Rate-Limits
+### Rate-Limits {#rate-limits}
 
 Standardmäßig begrenzt das SDK getriggerte In-App-Nachrichten auf einmal alle 30 Sekunden.
 

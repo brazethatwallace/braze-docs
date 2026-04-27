@@ -4,7 +4,7 @@ Avant de pouvoir utiliser cette méthode d'intégration, vous devez [créer un c
 
 ### Étape 1 : Ouvrir la galerie de modèles de balises {#step-1-open-the-tag-template-gallery}
 
-Dans [Google Tag Manager](https://tagmanager.google.com/), sélectionnez votre espace de travail, puis choisissez **Modèles**. Dans le volet **Modèle de balise**, sélectionnez **Rechercher dans la galerie**.
+Dans [Google Tag Manager](https://tagmanager.google.com/), sélectionnez votre espace de travail, puis choisissez **Templates**. Dans le volet **Tag Template**, sélectionnez **Search Gallery**.
 
 ![La page des modèles pour un exemple d'espace de travail dans Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -14,32 +14,32 @@ Dans la galerie de modèles, recherchez `braze-inc`, puis sélectionnez **Braze 
 
 ![La galerie de modèles présentant les différents modèles « braze-inc ».]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
-Sélectionnez **Ajouter à l'espace de travail** > **Ajouter**.
+Sélectionnez **Add to workspace** > **Add**.
 
 ![La page « Braze Initialization Tag » dans Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
 ### Étape 3 : Configurer la balise {#step-3-configure-the-tag}
 
-Dans la section **Modèles**, sélectionnez le modèle que vous venez d'ajouter.
+Dans la section **Templates**, sélectionnez le modèle que vous venez d'ajouter.
 
-![La page « Modèles » dans Google Tag Manager affichant le modèle Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![La page « Templates » dans Google Tag Manager affichant le modèle Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
-Sélectionnez l'icône en forme de crayon pour ouvrir le menu déroulant **Configuration des balises**.
+Sélectionnez l'icône en forme de crayon pour ouvrir le menu déroulant **Tag Configuration**.
 
-![La vignette Configuration des balises avec l'icône « crayon » affichée.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![La vignette Tag Configuration avec l'icône « crayon » affichée.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 Saisissez les informations minimales requises :
 
 | Champ         | Description |
 | ------------- | ----------- |
-| **Clé API**   | Votre [clé API Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), disponible dans le tableau de bord de Braze sous **Paramètres** > **Paramètres des applications**. |
-| **Endpoint de l'API** | L'URL de votre endpoint REST. Votre endpoint dépend de l'URL de Braze pour [votre instance]({{site.baseurl}}/api/basics/#endpoints). |
-| **Version du SDK**  | La version `MAJOR.MINOR` la plus récente du SDK Web Braze indiquée dans le [journal des modifications]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Par exemple, si la dernière version est `4.1.2`, saisissez `4.1`. Pour en savoir plus, consultez [À propos de la gestion des versions du SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
+| **API Key**   | Votre [clé API Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), disponible dans le tableau de bord de Braze sous **Settings** > **App Settings**. |
+| **API Endpoint** | L'URL de votre endpoint REST. Votre endpoint dépend de l'URL de Braze pour [votre instance]({{site.baseurl}}/api/basics/#endpoints). |
+| **SDK Version**  | La version `MAJOR.MINOR` la plus récente du SDK Web Braze indiquée dans le [journal des modifications]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Par exemple, si la dernière version est `4.1.2`, saisissez `4.1`. Pour en savoir plus, consultez [À propos de la gestion des versions du SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 Pour accéder à des paramètres d'initialisation supplémentaires, sélectionnez **Braze Initialization Options** et choisissez les options dont vous avez besoin.
 
-![La liste des options d'initialisation Braze sous « Configuration des balises ».]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+![La liste des options d'initialisation Braze sous « Tag Configuration ».]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
 ### Étape 4 : Choisir les options d'initialisation {#step-4-choose-initialization-options}
 

@@ -13,7 +13,7 @@ As extensões de app de conteúdo de notificação oferecem uma ótima opção p
 As notificações por push podem ser expandidas de três maneiras diferentes:
 - Pressionando longamente o banner de push
 - Deslizando para baixo no banner de push
-- Deslizando o banner para a esquerda e selecionando "Exibir"
+- Deslizando o banner para a esquerda e selecionando "View"
 
 Essas visualizações personalizadas oferecem maneiras inteligentes de engajar clientes, exibindo tipos distintos de conteúdo, incluindo notificações interativas, notificações preenchidas com dados de usuários e até mesmo mensagens push que podem capturar informações como números de telefone e e-mail. Um dos nossos recursos mais conhecidos na Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), é um excelente exemplo de como uma extensão de app de conteúdo de notificação por push pode ser!
 
@@ -44,8 +44,8 @@ O exemplo a seguir mostra uma notificação por push em que os usuários podem j
 
 Para criar uma notificação por push interativa, você deve definir uma visualização personalizada no seu dashboard.
 
-1. Na página **Campaigns**, clique em **Criar campanha** para iniciar uma nova Campaign de notificação por push.
-2. Na guia **Redigir**, ative os **Botões de notificação**.
+1. Na página **Campaigns**, clique em **Create Campaign** para iniciar uma nova campanha de notificação por push.
+2. Na guia **Compose**, ative os **Notification Buttons**.
 3. Insira uma categoria personalizada do iOS no campo **iOS Notification Category**.
 4. No `.plist` do seu Notification Content Extension Target, defina o atributo `UNNotificationExtensionCategory` para a sua categoria personalizada do iOS. O valor fornecido aqui deve corresponder ao que está definido no dashboard da Braze em **iOS Notification Category**.
 5. Defina a chave `UNNotificationExtensionInteractionEnabled` como `true` para ativar as interações do usuário em uma notificação por push.
@@ -63,10 +63,10 @@ As notificações por push podem exibir informações específicas do usuário d
 
 Para criar uma notificação por push personalizada, você deve definir uma visualização personalizada no seu dashboard.
 
-1. Na página **Campaigns**, clique em **Criar campanha** para iniciar uma nova Campaign de notificação por push.
-2. Na guia **Redigir**, ative os **Botões de notificação**.
+1. Na página **Campaigns**, clique em **Create Campaign** para iniciar uma nova campanha de notificação por push.
+2. Na guia **Compose**, ative os **Notification Buttons**.
 3. Insira uma categoria personalizada do iOS no campo **iOS Notification Category**.
-4. Na guia **Configurações**, crie pares de chave-valor usando Liquid padrão. Defina os atributos de usuário apropriados que deseja que a mensagem exiba. Essas visualizações podem ser personalizadas com base em atributos específicos de um perfil de usuário específico.
+4. Na guia **Settings**, crie pares de chave-valor usando Liquid padrão. Defina os atributos de usuário apropriados que deseja que a mensagem exiba. Essas visualizações podem ser personalizadas com base em atributos específicos de um perfil de usuário específico.
 5. No `.plist` do seu Notification Content Extension Target, defina o atributo `UNNotificationExtensionCategory` para a sua categoria personalizada do iOS. O valor fornecido aqui deve corresponder ao que está definido no dashboard da Braze em **iOS Notification Category**.
 
 ![Quatro conjuntos de pares de chave-valor, onde "next_session_name" e "next_session_complete_date" são definidos como uma propriedade de gatilho de API usando Liquid, e "completed_session count" e "total_session_count" são definidos como um atributo de usuário personalizado usando Liquid.]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
@@ -129,13 +129,13 @@ No fluxo a seguir, a visualização personalizada é capaz de responder a mudan�
 
 Para criar uma notificação por push de captura de informações, você deve definir uma visualização personalizada no seu dashboard.
 
-1. Na página **Campaigns**, clique em **Criar campanha** para iniciar uma nova Campaign de notificação por push.
-2. Na guia **Redigir**, ative os **Botões de notificação**.
+1. Na página **Campaigns**, clique em **Create Campaign** para iniciar uma nova campanha de notificação por push.
+2. Na guia **Compose**, ative os **Notification Buttons**.
 3. Insira uma categoria personalizada do iOS no campo **iOS Notification Category**.
-4. Na guia **Configurações**, crie pares de chave-valor usando Liquid padrão. Defina os atributos de usuário apropriados que deseja que a mensagem exiba.
+4. Na guia **Settings**, crie pares de chave-valor usando Liquid padrão. Defina os atributos de usuário apropriados que deseja que a mensagem exiba.
 5. No `.plist` do seu Notification Content Extension Target, defina o atributo `UNNotificationExtensionCategory` para a sua categoria personalizada do iOS. O valor fornecido aqui deve corresponder ao que está definido no dashboard da Braze em **iOS Notification Category**.
 
-Como visto no exemplo, você também pode incluir uma imagem na sua notificação por push. Para isso, você deve integrar [notificações Rich]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), definir o estilo de notificação na sua Campaign como notificação Rich e incluir uma imagem de push Rich.
+Como visto no exemplo, você também pode incluir uma imagem na sua notificação por push. Para isso, você deve integrar [notificações Rich]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), definir o estilo de notificação na sua campanha como notificação Rich e incluir uma imagem de push Rich.
 
 ![Uma mensagem push com três conjuntos de pares de chave-valor. 1. "Braze_id" definido como uma chamada Liquid para recuperar o ID da Braze. 2. "cert_title" definido como "Braze Marketer Certification". 3. "Cert_description" definido como "Certified Braze marketers drive...".]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 

@@ -47,7 +47,7 @@ yarn add @braze/react-native-sdk
 
 #### 方法 1: Expoプラグインの使用 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin}
+##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
 
 Braze Expoプラグインのバージョンが4.1.0以上であることを確認してください。サポートされているバージョンの完全なリストについては、[Braze Expoプラグインリポジトリ](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)を参照してください。
 
@@ -57,7 +57,7 @@ Braze Expoプラグインのバージョンが4.1.0以上であることを確�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson}
+##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
 
 `app.json`で、Braze Expoプラグインを追加します。APIキーとエンドポイントはここでは設定しません。JavaScriptから`Braze.initialize()`を使用してランタイムで提供します。実装のニーズに応じて、以下のオプション設定パラメーターを追加してください。
 
@@ -175,7 +175,7 @@ Braze Expoプラグインは、Androidの`drawable`ディレクトリからア�
 
 Android通知アイコンの詳細については、[Androidの通知アイコンガイドライン](https://developer.android.com/develop/ui/views/notifications#icon)を参照してください。
 
-##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application}
+##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application} {#23-build-and-run-your-application}
 
 アプリケーションをプリビルドすると、Braze Expoプラグインが動作するために必要なネイティブファイルが生成されます。
 
@@ -550,7 +550,7 @@ npx expo prebuild
 
 #### 方法 2: React Native CLIの使用 {#method-2-using-react-native-cli}
 
-##### Androidの設定 {#set-up-android}
+##### Androidの設定 {#set-up-android-1}
 
 **ステップ 2.1: Kotlin Gradleプラグインの追加**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOSの設定 {#set-up-ios}
+##### iOSの設定 {#set-up-ios-1}
 
 **ステップ 2.5:（オプション）ダイナミックXCFrameworkに関するPodfileの設定**
 

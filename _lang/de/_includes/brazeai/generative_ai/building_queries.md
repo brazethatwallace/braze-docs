@@ -27,7 +27,7 @@ Bei der Erstellung Ihrer Anfrage können Sie sich von der KI helfen lassen oder 
 Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4) von OpenAI, um SQL für Ihre Anfrage zu empfehlen. So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
 1. Wenn Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **AI Query Builder**.
-2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispielprompt aus und wählen Sie **Generieren**, um Ihren Prompt in SQL zu übersetzen.
+2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispielprompt aus und wählen Sie **Generate**, um Ihren Prompt in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL auf Richtigkeit und wählen Sie dann **Insert into Editor**.
 
 ![Der SQL-KI-Abfrage-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
@@ -48,7 +48,7 @@ Um Tabellendetails im Abfrage-Builder anzuzeigen:
 
 1. Öffnen Sie auf der Seite **Query Builder** das Panel **Reference** und wählen Sie **Available Data Tables**, um die verfügbaren Datentabellen und ihre Namen anzuzeigen.
 3. Wählen Sie <i class="fas fa-chevron-down" alt=""></i> **See Details**, um die Tabellenbeschreibung und Informationen über die Tabellenspalten, wie z. B. Datentypen, anzuzeigen.
-4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Tabellennamen in den SQL-Editor kopieren"></i>.
+4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
 
 Wenn Sie Ihre Anfrage auf einen bestimmten Zeitraum beschränken, können Sie schneller Ergebnisse erzielen. Hier eine Beispielabfrage, die die Anzahl der Käufe und den in der letzten Stunde erzielten Umsatz ermittelt.
 
@@ -98,7 +98,7 @@ Ihre Anfrage kann aus einem der folgenden Gründe fehlschlagen:
 
 Wenn Sie mit der Erstellung Ihrer Anfrage fertig sind, wählen Sie **Run Query**. Wenn keine Fehler oder [Zeitüberschreitungen](#report-timeouts) auftreten, wird aus der Anfrage eine CSV-Datei erstellt.
 
-Um den CSV-Bericht herunterzuladen, wählen Sie **Exportieren**.
+Um den CSV-Bericht herunterzuladen, wählen Sie **Export**.
 
 ![Der Abfrage-Builder zeigt die Ergebnisse für die Template-Anfrage „Channel engagement and revenue for the last 30 days“.]({% image_buster /assets/img_archive/query_builder.png %})
 

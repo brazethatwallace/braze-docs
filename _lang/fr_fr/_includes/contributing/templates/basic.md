@@ -1,6 +1,6 @@
 Vous pouvez utiliser ce modèle pour créer n'importe quelle page ou section de la documentation Braze. Pour la configuration de l'environnement, les prévisualisations et les types de contenu, les contributeurs ayant accès au dépôt doivent suivre le guide disponible sous `docs/contributing/` (par exemple `generating_a_preview.md` et `content_types.md`). Tous les autres peuvent utiliser [Documentation feedback]({{site.baseurl}}/feedback/) pour contacter l'équipe de documentation.
 
-{% details Show template %}
+{% details Afficher le modèle %}
 {% raw %}
 `````markdown
 ---

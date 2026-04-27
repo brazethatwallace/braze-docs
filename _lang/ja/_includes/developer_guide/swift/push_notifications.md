@@ -4,23 +4,23 @@
 
 ## プッシュ通知の設定 {#setting-up-push-notifications}
 
-### ステップ 1: APNsトークンをアップロードする {#step-1-upload-your-apns-token}
+### ステップ1: APNsトークンをアップロードする {#step-1-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-### ステップ 2: プッシュ機能を有効にする {#step-2-enable-push-capabilities}
+### ステップ2: プッシュ機能を有効にする {#step-2-enable-push-capabilities}
 
 Xcodeで、メインアプリターゲットの**Signing & Capabilities**セクションに移動し、プッシュ通知機能を追加します。
 
 ![Xcodeプロジェクト内の「Signing & Capabilities」セクション。]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
-### ステップ 3: プッシュ処理を設定する {#step-3-set-up-push-handling}
+### ステップ3: プッシュ処理を設定する {#step-3-set-up-push-handling}
 
 Swift SDKを使って、Brazeから受信したリモート通知の処理を自動化できます。これがプッシュ通知を扱う最も簡単な方法であり、推奨される処理方法です。
 
 {% tabs local %}
 {% tab Automatic %}
-#### ステップ 3.1: プッシュプロパティでオートメーションを有効にする {#step-31-enable-automation-in-the-push-property}
+#### ステップ3.1: プッシュプロパティでオートメーションを有効にする {#step-31-enable-automation-in-the-push-property}
 
 自動プッシュ統合を有効にするには、`push` 設定の `automation` プロパティを `true` に設定します。
 
@@ -56,7 +56,7 @@ SDKによって実行されるオートメーションステップは、コー�
 アプリケーションがSDKを初期化する前に追加の設定を必要とする場合は、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift)に関するドキュメントページを参照してください。
 {% endalert %}
 
-#### ステップ 3.2: 個別の設定を上書きする（オプション） {#step-32-override-individual-configurations-optional}
+#### ステップ3.2: 個別の設定を上書きする（オプション） {#step-32-override-individual-configurations-optional}
 
 よりきめ細かいコントロールのために、各オートメーションステップを個別に有効または無効にできます。
 
@@ -89,7 +89,7 @@ configuration.push.automation.requestAuthorizationAtLaunch = NO;
 アプリ固有の追加動作をプッシュ通知に依存している場合でも、手動プッシュ通知統合ではなく自動プッシュ統合を使用できる場合があります。[`subscribeToUpdates(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(_:)) メソッドは、Brazeが処理したリモート通知の通知を受け取る方法を提供します。
 {% endalert %}
 
-#### ステップ 3.1: APNsでプッシュ通知に登録する {#step-31-register-for-push-notifications-with-apns}
+#### ステップ3.1: APNsでプッシュ通知に登録する {#step-31-register-for-push-notifications-with-apns}
 
 ユーザーのデバイスがAPNsに登録できるように、アプリの[`application:didFinishLaunchingWithOptions:` デリゲートメソッド](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application)内に適切なコードサンプルを含めてください。アプリケーションのメインスレッドですべてのプッシュ統合コードを呼び出すようにしてください。
 
@@ -146,7 +146,7 @@ if (@available(iOS 12.0, *)) {
 アプリが `wipeData()` を呼び出し、その後同じアプリ実行中にBraze SDKを再度有効にする場合は、SDKが使用するデバイストークンを再取得するために `registerForRemoteNotifications()` を再度呼び出す必要があります。
 {% endalert %}
 
-#### ステップ 3.2: Brazeにプッシュトークンを登録する {#step-32-register-push-tokens-with-braze}
+#### ステップ3.2: Brazeにプッシュトークンを登録する {#step-32-register-push-tokens-with-braze}
 
 APNsの登録が完了したら、結果の `deviceToken` をBrazeに渡して、ユーザーのプッシュ通知を有効にします。
 
@@ -175,7 +175,7 @@ AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
 `application:didRegisterForRemoteNotificationsWithDeviceToken:` デリゲートメソッドは、`application.registerForRemoteNotifications()` の呼び出し後に毎回呼び出されます。<br><br>他のプッシュサービスからBrazeに移行する場合、ユーザーのデバイスがすでにAPNsに登録されていれば、このメソッドは次回呼び出された際に既存の登録からトークンを収集するため、ユーザーがプッシュに再オプトインする必要はありません。
 {% endalert %}
 
-#### ステップ 3.3: プッシュ処理を有効にする {#step-33-enable-push-handling}
+#### ステップ3.3: プッシュ処理を有効にする {#step-33-enable-push-handling}
 
 次に、受信したプッシュ通知をBrazeに渡します。このステップは、プッシュ分析とリンク処理のログ記録に必要です。アプリケーションのメインスレッドですべてのプッシュ統合コードを呼び出すようにしてください。
 
@@ -416,7 +416,7 @@ BrazeはiOS向けプッシュ通知のダイナミックAPNsゲートウェイ�
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### 仕組み {#how-it-works}
+### 仕組み {#how-it-works-1}
 
 iOSアプリがBraze Swift SDKと統合する場合、利用可能であれば[`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment)を含むデバイス関連データをBraze SDK APIに送信します。`apns_gateway` 値は、アプリが開発用（`dev`）または本番用（`prod`）のAPNs環境を使用しているかを示します。
 
@@ -429,14 +429,14 @@ Brazeがプッシュ通知を送信するとき：
 
 ### よくある質問 {#frequently-asked-questions}
 
-#### なぜこの機能が導入されたのですか？ {#why-was-this-feature-introduced}
+#### なぜこの機能が導入されたのですか {#why-was-this-feature-introduced}
 
 ダイナミックAPNsゲートウェイ管理により、適切な環境が自動的に選択されます。以前は、APNsゲートウェイを手動で設定する必要があり、`BadDeviceToken` エラーやトークンの無効化、さらにはAPNsのレート制限の問題が発生する可能性がありました。
 
-#### プッシュ配信パフォーマンスにどのような影響がありますか？ {#how-does-this-impact-push-delivery-performance}
+#### プッシュ配信パフォーマンスにどのような影響がありますか {#how-does-this-impact-push-delivery-performance}
 
 この機能は、プッシュトークンを常に正しいAPNs環境にルーティングすることで配信率を向上させ、誤設定されたゲートウェイによる失敗を回避します。
 
-#### この機能を無効にできますか？ {#can-i-disable-this-feature}
+#### この機能を無効にできますか {#can-i-disable-this-feature}
 
 ダイナミックAPNsゲートウェイ管理はデフォルトで有効になっており、信頼性の向上を提供します。手動でのゲートウェイ選択が必要な具体的なユースケースがある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administrative/access_braze/support/)にお問い合わせください。

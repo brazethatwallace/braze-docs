@@ -1,6 +1,6 @@
 {% if include.section == "UTM parameters" %}
 
-링크 단축을 사용하면 URL을 자동으로 추적할 수 있지만, URL에 UTM 매개변수를 추가하여 Google 애널리틱스와 같은 타사 분석 도구에서 Campaign의 성과를 추적할 수도 있습니다.
+링크 단축을 사용하면 URL을 자동으로 추적할 수 있지만, URL에 UTM 매개변수를 추가하여 Google 애널리틱스와 같은 타사 분석 도구에서 캠페인의 성과를 추적할 수도 있습니다.
 
 URL에 UTM 매개변수를 추가하려면 다음과 같이 하세요:
 
@@ -18,7 +18,7 @@ URL에 UTM 매개변수를 추가하려면 다음과 같이 하세요:
 
 ### 테스트 발송 시 받은 링크가 실제 URL인가요? {#are-the-links-i-receive-when-test-sending-real-urls}
 
-테스트 발송 전에 Campaign을 초안으로 저장한 경우, 그렇습니다. 그렇지 않으면 입력 안내 링크입니다. 실제로 시작된 Campaign에서 발송되는 정확한 URL은 테스트 발송에서 전송된 URL과 다를 수 있습니다.
+테스트 발송 전에 캠페인을 초안으로 저장한 경우, 그렇습니다. 그렇지 않으면 입력 안내 링크입니다. 실제로 시작된 캠페인에서 발송되는 정확한 URL은 테스트 발송에서 전송된 URL과 다를 수 있습니다.
 
 ### URL이 단축되기 전에 UTM 매개변수를 추가할 수 있나요? {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 
@@ -38,6 +38,6 @@ URL에 UTM 매개변수를 추가하려면 다음과 같이 하세요:
 
 ## 커스텀 도메인 {#custom-domains}
 
-링크 단축을 사용하면 자체 도메인을 사용하여 단축 URL의 모양과 느낌을 개인화할 수 있으므로 일관된 브랜드 이미지를 표현하는 데 도움이 됩니다. 더 많은 정보는 [셀프 서비스 커스텀 도메인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)을 참조하세요.
+링크 단축을 사용하면 자체 도메인을 사용하여 단축 URL의 모양과 느낌을 개인화할 수 있으므로 일관된 브랜드 이미지를 표현하는 데 도움이 됩니다. 자세한 내용은 [셀프 서비스 커스텀 도메인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)을 참조하세요.
 
 {% endif %}

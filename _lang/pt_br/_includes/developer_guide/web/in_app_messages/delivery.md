@@ -33,7 +33,7 @@ braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds
 
 ## Pares de chave-valor {#key-value-pairs}
 
-Ao criar uma Campaign na Braze, você pode definir pares de chave-valor como `extras`, que o objeto de mensagem no app pode usar para enviar dados ao seu app. Por exemplo:
+Ao criar uma campanha na Braze, você pode definir pares de chave-valor como `extras`, que o objeto de mensagem no app pode usar para enviar dados ao seu app. Por exemplo:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -109,7 +109,7 @@ As mensagens no app também podem ser criadas dentro do seu site e exibidas loca
 
 Mensagens de intenção de saída são mensagens no app não intrusivas usadas para comunicar informações importantes aos visitantes antes que eles saiam do seu site.
 
-Para configurar gatilhos para esses tipos de mensagem, implemente uma biblioteca de intenção de saída no seu site (como a [biblioteca de código aberto do ouibounce](https://github.com/carlsednaoui/ouibounce)) e use o código a seguir para registrar `'exit intent'` como um evento personalizado na Braze. Assim, suas futuras Campaigns de mensagens no app poderão usar esse tipo de mensagem como um gatilho de evento personalizado.
+Para configurar gatilhos para esses tipos de mensagem, implemente uma biblioteca de intenção de saída no seu site (como a [biblioteca de código aberto do ouibounce](https://github.com/carlsednaoui/ouibounce)) e use o código a seguir para registrar `'exit intent'` como um evento personalizado na Braze. Assim, suas futuras campanhas de mensagens no app poderão usar esse tipo de mensagem como um gatilho de evento personalizado.
 
 ```javascript
   var _ouibounce = ouibounce(false, {

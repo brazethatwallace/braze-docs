@@ -8,7 +8,7 @@ Um eine Testnachricht zu senden, fügen Sie entweder eine Inhalts-Testgruppe ode
 
 ![Tab „Vorschau“ des Banner-Composers.]({% image_buster /assets/img/banners/preview_banner.png %})
 
-Überprüfen Sie beim Durchsehen Ihres Testbanners Folgendes:
+Überprüfen Sie beim Durchsehen Ihres Test-Banners Folgendes:
 
 - Ist Ihre Banner-Campaign einer Platzierung zugewiesen?
 - Werden die Bilder und Medien auf Ihren Zielgerätetypen und Bildschirmgrößen wie erwartet angezeigt und verhalten sie sich korrekt?

@@ -4,7 +4,7 @@
 
 ## Voraussetzungen {#prerequisites}
 
-### SDK-Version
+### SDK-Version {#sdk-version}
 
 Wenn Sie Feature-Flags verwenden möchten, stellen Sie sicher, dass Ihre SDKs mit den folgenden Mindestversionen auf dem neuesten Stand sind:
 
@@ -17,7 +17,7 @@ Um Feature-Flags im Dashboard zu verwalten, müssen Sie entweder Administrator:i
 | Berechtigung                                                                    | Was Sie tun können                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Feature-Flags verwalten**                                                      | Feature-Flags anzeigen, erstellen und bearbeiten.     |
-| **Zugang zu Campaigns, Canvases, Karten, Feature-Flags, Segments, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
+| **Zugang zu Kampagnen, Canvases, Karten, Feature-Flags, Segmenten, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Erstellen eines Feature-Flags {#creating-a-feature-flag}
@@ -67,11 +67,11 @@ Sie können beliebig viele Eigenschaften hinzufügen. Die Eigenschaften eines Fe
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Segments für die Zielgruppe auswählen {#step-4-choose-segments-to-target}
+### 4. Schritt: Segmente für die Zielgruppe auswählen {#step-4-choose-segments-to-target}
 
 Bevor Sie ein Feature-Flag einführen, müssen Sie ein [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) von Nutzer:innen als Zielgruppe auswählen. Wählen Sie **Regel hinzufügen** für Ihr neu erstelltes Flag und verwenden Sie anschließend die Dropdown-Menüs für Filtergruppe und Segment, um Nutzer:innen aus Ihrer Zielgruppe herauszufiltern. Fügen Sie mehrere Filter hinzu, um Ihre Zielgruppe weiter einzugrenzen.
 
-![Ein Textfeld mit der Bezeichnung „Rollout-Traffic“, in dem Segments und Filter hinzugefügt werden können.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Ein Textfeld mit der Bezeichnung „Rollout-Traffic“, in dem Segmente und Filter hinzugefügt werden können.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
 ### 5. Schritt: Rollout-Traffic festlegen {#rollout}
 
@@ -904,19 +904,19 @@ Hier können Sie nachsehen, wann eine Änderung stattgefunden hat, wer die Ände
 
 ## Segmentieren mit Feature-Flags {#segmentation}
 
-Braze verfolgt automatisch, welche Nutzer:innen derzeit für ein Feature-Flag aktiviert sind. Sie können ein Segment erstellen oder Messaging gezielt ausrichten, indem Sie den [Filter **Feature-Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags) verwenden. Weitere Informationen zum Filtern nach Segments finden Sie unter [Erstellen eines Segments]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze verfolgt automatisch, welche Nutzer:innen derzeit für ein Feature-Flag aktiviert sind. Sie können ein Segment erstellen oder Messaging gezielt ausrichten, indem Sie den [Filter **Feature-Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags) verwenden. Weitere Informationen zum Filtern nach Segmenten finden Sie unter [Erstellen eines Segments]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
 ![Der Abschnitt „Filter“ mit dem Begriff „Feature-Flag“ in der Filtersuchleiste.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-Um rekursive Segments zu vermeiden, ist es nicht möglich, ein Segment zu erstellen, das auf andere Feature-Flags verweist.
+Um rekursive Segmente zu vermeiden, ist es nicht möglich, ein Segment zu erstellen, das auf andere Feature-Flags verweist.
 {% endalert %}
 
 ## Best Practices {#best-practices}
 
 ### Kombinieren Sie Rollouts nicht mit Canvases oder Experimenten {#dont-combine-rollouts-with-canvases-or-experiments}
 
-Um zu vermeiden, dass Nutzer:innen durch unterschiedliche Einstiegspunkte aktiviert und deaktiviert werden, sollten Sie entweder den Rollout-Schieberegler auf einen Wert größer als Null setzen ODER das Feature-Flag in einem Canvas oder Experiment aktivieren. Wenn Sie ein Feature-Flag in einem Canvas oder Experiment verwenden möchten, sollten Sie den Rollout-Prozentsatz als Best Practice auf Null belassen.
+Um zu vermeiden, dass Nutzer:innen durch unterschiedliche Einstiegspunkte aktiviert und deaktiviert werden, sollten Sie entweder den Rollout-Schieberegler auf einen Wert größer als null setzen ODER das Feature-Flag in einem Canvas oder Experiment aktivieren. Wenn Sie ein Feature-Flag in einem Canvas oder Experiment verwenden möchten, sollten Sie den Rollout-Prozentsatz als Best Practice auf null belassen.
 
 ### Benennungskonventionen {#naming-conventions}
 

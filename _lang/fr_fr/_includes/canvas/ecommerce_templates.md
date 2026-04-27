@@ -9,13 +9,13 @@ Utilisez le modèle **Abandon de navigation** pour engager les utilisateurs qui 
 
 #### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Abandon de navigation**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Abandon de navigation**.
 
 ##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 - Bases
-    - Nom du Canvas : **Navigation abandonnée**
+    - Nom du Canvas : **Abandoned browse**
     - Événement de conversion : `ecommerce.order placed`
         - Date limite de conversion : 3 jours
 - Planification d'entrée
@@ -75,13 +75,13 @@ Utilisez le modèle **Panier abandonné** pour récupérer les ventes potentiell
 
 #### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Panier abandonné**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Panier abandonné**.
 
 ##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 - Bases
-    - Nom du Canvas : **Panier abandonné**
+    - Nom du Canvas : **Abandoned cart**
     - Événement de conversion : `ecommerce.order_placed`
         - Date limite de conversion : 3 jours
 - Planification d'entrée
@@ -176,14 +176,14 @@ Utilisez le modèle **Paiement abandonné** pour cibler les clients qui ont comm
 
 #### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Paiement abandonné**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Paiement abandonné**.
 
 ##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 
 - Bases
-    - Nom du Canvas : **Paiement abandonné**
+    - Nom du Canvas : **Abandoned checkout**
     - Événement de conversion : `ecommerce.order_placed`
         - Date limite de conversion : 3 jours
 - Planification d'entrée
@@ -264,14 +264,14 @@ Utilisez le modèle **Confirmation de commande et enquête de satisfaction** pou
 
 #### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Utiliser un modèle de Canvas** > **Modèles Braze**, puis appliquez le modèle **Confirmation de commande et enquête de satisfaction**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Confirmation de commande et enquête de satisfaction**.
 
 ##### Paramètres par défaut {#default-settings}
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 
 - Bases
-    - Nom du Canvas : **Confirmation de commande avec enquête de satisfaction**
+    - Nom du Canvas : **Order confirmation with feedback survey**
     - Événement de conversion : `ecommerce.session_start`
         - Date limite de conversion : 10 jours
 - Planification d'entrée

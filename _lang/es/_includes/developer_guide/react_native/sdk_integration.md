@@ -47,7 +47,7 @@ Elige un método de configuración en cada pestaña de versión: plugin Expo o R
 
 #### Método 1: Uso del plugin Expo {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Instala el plugin Braze Expo {#21-install-the-braze-expo-plugin}
+##### 2.1 Instala el plugin Braze Expo {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
 
 Asegúrate de que tu versión del plugin Braze Expo sea al menos 4.1.0. Para ver la lista completa de versiones compatibles, consulta el [repositorio del plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support).
 
@@ -57,7 +57,7 @@ El siguiente fragmento de código muestra el comando para instalar el plugin Bra
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 Añade el plugin a tu app.json {#22-add-the-plugin-to-your-appjson}
+##### 2.2 Añade el plugin a tu app.json {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
 
 En tu `app.json`, añade el plugin Braze Expo. La clave de API y el punto de conexión ya no se configuran aquí. Proporciónalos en tiempo de ejecución a través de `Braze.initialize()` desde JavaScript. Añade los siguientes parámetros de configuración opcionales según las necesidades de tu implementación:
 
@@ -175,7 +175,7 @@ El plugin Braze Expo hace referencia a tus archivos de iconos desde los director
 
 Para obtener más información sobre los iconos de notificación de Android, consulta las [directrices sobre iconos de notificación de Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### 2.3 Compila y ejecuta tu aplicación {#23-build-and-run-your-application}
+##### 2.3 Compila y ejecuta tu aplicación {#23-build-and-run-your-application} {#23-build-and-run-your-application}
 
 La precompilación de tu aplicación genera los archivos nativos necesarios para que el plugin Braze Expo funcione.
 
@@ -550,7 +550,7 @@ Ejecuta tu aplicación como se especifica en la [documentación de Expo](https:/
 
 #### Método 2: Uso de React Native CLI {#method-2-using-react-native-cli}
 
-##### Configurar Android {#set-up-android}
+##### Configurar Android {#set-up-android-1}
 
 **Paso 2.1: Añade el plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configurar iOS {#set-up-ios}
+##### Configurar iOS {#set-up-ios-1}
 
 **Paso 2.5: (Opcional) Configura el Podfile para XCFrameworks dinámicos**
 
@@ -860,7 +860,7 @@ import Braze from "@braze/react-native-sdk";
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
 
-Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Resumen**).
+Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Overview**).
 
 El siguiente fragmento de código muestra cómo abrir una sesión para un usuario en particular en tu aplicación:
 
@@ -871,7 +871,7 @@ Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 Braze.changeUser("{some-user-id}");
 ```
 
-Busca al usuario con `{some-user-id}` en el dashboard en **Audiencia** > **Buscar usuarios**. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
+Busca al usuario con `{some-user-id}` en el dashboard en **Audience** > **Search Users**. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
 
 {% endtab %}
 {% tab React Native SDK 19.1.0 y anteriores %}

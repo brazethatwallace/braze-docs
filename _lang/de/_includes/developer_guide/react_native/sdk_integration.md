@@ -47,7 +47,7 @@ Wählen Sie in jedem Versions-Tab eine Einrichtungsmethode: Expo-Plugin oder Rea
 
 #### Methode 1: Verwendung des Expo-Plugins {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expo-Plugin installieren {#21-install-the-braze-expo-plugin}
+##### 2.1 Braze Expo-Plugin installieren {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
 
 Stellen Sie sicher, dass Sie mindestens Version 4.1.0 des Braze Expo-Plugins verwenden. Die vollständige Liste der unterstützten Versionen finden Sie im [Braze Expo-Plugin-Repository](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support).
 
@@ -57,7 +57,7 @@ Das folgende Code-Snippet zeigt den Befehl zur Installation des Braze Expo-Plugi
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 Plugin zu app.json hinzufügen {#22-add-the-plugin-to-your-appjson}
+##### 2.2 Plugin zu app.json hinzufügen {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
 
 Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Der API-Schlüssel und der Endpunkt werden hier nicht mehr festgelegt. Stellen Sie diese zur Laufzeit über `Braze.initialize()` aus JavaScript bereit. Fügen Sie die folgenden optionalen Konfigurationsparameter je nach Ihren Implementierungsanforderungen hinzu:
 
@@ -175,7 +175,7 @@ Das Braze Expo-Plugin referenziert Ihre Icon-Dateien aus den Android-`drawable`-
 
 Weitere Informationen zu Android-Benachrichtigungssymbolen finden Sie in den [Richtlinien für Benachrichtigungssymbole von Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### 2.3 Anwendung erstellen und ausführen {#23-build-and-run-your-application}
+##### 2.3 Anwendung erstellen und ausführen {#23-build-and-run-your-application} {#23-build-and-run-your-application}
 
 Durch das Vorab-Erstellen Ihrer Anwendung werden die nativen Dateien generiert, die für die Funktion des Braze Expo-Plugins erforderlich sind.
 
@@ -550,7 +550,7 @@ Führen Sie Ihre Anwendung wie in der [Expo-Dokumentation](https://docs.expo.dev
 
 #### Methode 2: Verwendung der React Native CLI {#method-2-using-react-native-cli}
 
-##### Android einrichten {#set-up-android}
+##### Android einrichten {#set-up-android-1}
 
 **Schritt 2.1: Kotlin-Gradle-Plugin hinzufügen**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS einrichten {#set-up-ios}
+##### iOS einrichten {#set-up-ios-1}
 
 **Schritt 2.5: (Optional) Podfile für dynamische XCFrameworks konfigurieren**
 
@@ -846,7 +846,7 @@ Alle SDK-Methodenaufrufe, die vor `Braze.initialize()` erfolgen, werden unter iO
 {% endtab %}
 {% tab React Native SDK 19.1.0 und früher %}
 
-Für React Native SDK 19.1.0 und früher erfolgt die native Initialisierung in Schritt 2. Importieren Sie die Bibliothek in Ihrem React Native-Code, um Braze-Methoden aufzurufen. Weitere Details finden Sie in unserem [Beispielprojekt](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject).
+Für React Native SDK 19.1.0 und früher erfolgt die native Initialisierung in [Schritt 2](#step-2-complete-native-setup). Importieren Sie die Bibliothek in Ihrem React Native-Code, um Braze-Methoden aufzurufen. Weitere Details finden Sie in unserem [Beispielprojekt](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject).
 
 ```javascript
 import Braze from "@braze/react-native-sdk";

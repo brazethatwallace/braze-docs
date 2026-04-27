@@ -23,7 +23,7 @@ Diese Aufschlüsselung von Kundenverhalten und Nutzer-Events zeigt, welche Art v
 
 ![Aufschlüsselung eines Nutzer-Events, das ein Kauf-Event mit den aufgeführten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, verhaltensspezifischen Eigenschaften und gerätespezifischen Eigenschaften]({% image_buster /assets/img/customer_engagement_event.png %})
 
-Kundenverhalten und Nutzer-Events setzen sich aus **nutzerspezifischen** Eigenschaften, **verhaltensspezifischen** Eigenschaften und **gerätespezifischen** Eigenschaften zusammen.
+Kundenverhaltens- und Nutzer-Events setzen sich aus **nutzerspezifischen** Eigenschaften, **verhaltensspezifischen** Eigenschaften und **gerätespezifischen** Eigenschaften zusammen.
 
 ### Plattformwerte {#platform-values}
 
@@ -36,7 +36,7 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 | Android | `android` |
 | FireTV | `kindle` |
 | Kindle | `kindle` |
-| Internet | `web` |
+| Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}

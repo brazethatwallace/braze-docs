@@ -122,7 +122,7 @@ Todas las clases de Activity registradas en tu archivo `AndroidManifest.xml` deb
 
 #### Paso 3.2: Actualiza `AndroidManifest.xml` con el nombre de tu paquete {#step-32-update-androidmanifestxml-with-your-package-name}
 
-Para encontrar el nombre de tu paquete, haz clic en **File > Build Settings > Player Settings > pestaña Android**.
+Para encontrar el nombre de tu paquete, haz clic en **File > Build Settings > Player Settings > Android Tab**.
 
 ![]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
@@ -247,7 +247,7 @@ Para habilitar el registro detallado en el editor de Unity, haz lo siguiente:
 Para utilizar el plugin Unity de Braze con los plugins de Prime31, edita el `AndroidManifest.xml` de tu proyecto para utilizar las clases de Activity compatibles con Prime31. Cambia todas las referencias de
 `com.braze.unity.BrazeUnityPlayerActivity` a `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM)
+### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
 
 Braze es compatible con la integración de [ADM push](https://developer.amazon.com/public/apis/engage/device-messaging) en aplicaciones Unity. Si quieres integrar ADM push, crea un archivo llamado `api_key.txt` que contenga tu clave de API de ADM y colócalo en la carpeta `Plugins/Android/assets/`. Para más información sobre la integración de ADM con Braze, visita nuestras [instrucciones de integración push de ADM]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 
@@ -266,7 +266,7 @@ Ahora deberías poder empaquetar un `.apk` desde el IDE de Unity que esté total
 
 ## Solución de problemas {#troubleshooting}
 
-### Error: "File could not be read"
+### Error: "File could not be read" {#error-file-could-not-be-read}
 
 Los errores parecidos a los siguientes pueden ignorarse con seguridad. El software de Apple utiliza una extensión PNG propietaria llamada CgBI, que Unity no reconoce. Estos errores no afectarán a tu compilación de iOS ni a la correcta visualización de las imágenes asociadas en el paquete de Braze.
 

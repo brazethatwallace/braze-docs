@@ -19,15 +19,15 @@ Aktualisieren Sie als Nächstes Ihre `app.json`-Datei für Android und iOS:
 
 #### Schritt 1.2: Ihre Google-Absender-ID hinzufügen {#step-12-add-your-google-sender-id}
 
-Gehen Sie zunächst zur Firebase-Konsole, öffnen Sie Ihr Projekt und wählen Sie dann <i class="fa-solid fa-gear"></i>&nbsp;**Einstellungen** > **Projekteinstellungen**.
+Gehen Sie zunächst zur Firebase-Konsole, öffnen Sie Ihr Projekt und wählen Sie dann <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
 
-![Das Firebase-Projekt mit geöffnetem Menü „Einstellungen“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![Das Firebase-Projekt mit geöffnetem Menü „Settings“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-Wählen Sie **Cloud Messaging** und kopieren Sie dann unter **Firebase Cloud Messaging API (V1)** die **Absender-ID** in Ihre Zwischenablage.
+Wählen Sie **Cloud Messaging** und kopieren Sie dann unter **Firebase Cloud Messaging API (V1)** die **Sender ID** in Ihre Zwischenablage.
 
-![Die Seite „Cloud Messaging“ des Firebase-Projekts mit hervorgehobener „Absender-ID“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Die Seite „Cloud Messaging“ des Firebase-Projekts mit hervorgehobener „Sender ID“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-Öffnen Sie als Nächstes die Datei `app.json` Ihres Projekts und setzen Sie die Eigenschaft `firebaseCloudMessagingSenderId` auf die Absender-ID in Ihrer Zwischenablage. Zum Beispiel:
+Öffnen Sie als Nächstes die Datei `app.json` Ihres Projekts und setzen Sie die Eigenschaft `firebaseCloudMessagingSenderId` auf die Sender ID in Ihrer Zwischenablage. Zum Beispiel:
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
@@ -102,7 +102,7 @@ Braze.requestPushPermission(permissionOptions);
 Sie können zusätzlich Ereignisse abonnieren, bei denen Braze eine eingehende Push-Benachrichtigung erkannt und verarbeitet hat. Verwenden Sie den Listener-Schlüssel `Braze.Events.PUSH_NOTIFICATION_EVENT`.
 
 {% alert important %}
-Empfangene iOS-Push-Events werden nur für Benachrichtigungen im Vordergrund sowie für Hintergrundbenachrichtigungen mit `content-available` ausgelöst. Für Benachrichtigungen, die im beendeten Zustand empfangen werden, oder für Hintergrundbenachrichtigungen ohne das Feld `content-available` werden sie nicht ausgelöst.
+Empfangene iOS-Push-Ereignisse werden nur für Benachrichtigungen im Vordergrund sowie für Hintergrundbenachrichtigungen mit `content-available` ausgelöst. Für Benachrichtigungen, die im beendeten Zustand empfangen werden, oder für Hintergrundbenachrichtigungen ohne das Feld `content-available` werden sie nicht ausgelöst.
 {% endalert %}
 
 ```javascript
@@ -144,7 +144,7 @@ Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.ba
 Wenn Sie eine bestehende React Native Push-Integration migrieren, testen Sie das Deeplinking erneut, nachdem Sie das Braze SDK, React Native, Expo oder zugehörige Bibliotheken aktualisiert haben. Stellen Sie sicher, dass:
 - [React Native Linking](https://reactnative.dev/docs/linking) weiterhin konfiguriert ist und Ihre Deeplink-URLs verarbeitet.
 - Ihre iOS-Verarbeitung der initialen Push-Nutzlast (siehe [Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern](#step-3-1)) implementiert ist und weiterhin beim App-Start aufgerufen wird.
-- Alle nativen Delegate- oder Listener-Methoden, die Sie zur Verarbeitung von Push-Klick-Events verwenden, weiterhin registriert und wie erwartet aufgerufen werden.
+- Alle nativen Delegate- oder Listener-Methoden, die Sie zur Verarbeitung von Push-Klick-Ereignissen verwenden, weiterhin registriert und wie erwartet aufgerufen werden.
 {% endalert %}
 
 {% tabs local %}
@@ -463,7 +463,7 @@ Ab macOS 13 können Sie auf bestimmten Geräten iOS-Push-Benachrichtigungen mith
 
 1. Setzen Sie eine:n aktive:n Nutzer:in in der React Native-Anwendung, indem Sie die Methode `Braze.changeUserId('your-user-id')` aufrufen.
 2. Gehen Sie zu **Campaigns** und erstellen Sie eine neue Push-Benachrichtigungs-Campaign. Wählen Sie die Plattformen aus, die Sie testen möchten.
-3. Verfassen Sie Ihre Testbenachrichtigung und wechseln Sie zum Tab **Test**. Fügen Sie dieselbe `user-id` als Testnutzer:in hinzu und klicken Sie auf **Test senden**. Sie sollten die Benachrichtigung in Kürze auf Ihrem Gerät erhalten.
+3. Verfassen Sie Ihre Testbenachrichtigung und wechseln Sie zum Tab **Test**. Fügen Sie dieselbe `user-id` als Testnutzer:in hinzu und klicken Sie auf **Send Test**. Sie sollten die Benachrichtigung in Kürze auf Ihrem Gerät erhalten.
 
 ![Eine Braze-Push-Campaign, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Push-Benachrichtigung zu testen.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 

@@ -8,7 +8,7 @@ Pour en savoir plus sur l'utilisation et la personnalisation de ces blocs édite
 Vous pouvez également ajouter des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) à n'importe quelle URL dans les blocs éditeurs `Image`, `Button` ou `Text`.
 {% endalert %}
 
-## Types
+## Types {#types}
 
 Le tableau suivant décrit comment les utilisateurs peuvent exploiter chaque type de bloc éditeur.
 
@@ -24,7 +24,7 @@ Le tableau suivant décrit comment les utilisateurs peuvent exploiter chaque typ
 |Vidéo| Crée un lien vers le contenu vidéo. |
 |Réseaux sociaux| Insère l'icône d'une plateforme de réseaux sociaux. Vous pouvez télécharger des images personnalisées pour les icônes spécifiques à votre marque. |
 |Icônes| Insère une icône. Vous pouvez télécharger des images personnalisées. Braze utilise une icône de marque substitutive surdimensionnée jusqu'à ce que vous téléchargiez une image. |
-|HTML| Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid/), comme le Contenu connecté ou les instructions conditionnelles. |
+|HTML| Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid/), comme le contenu connecté ou les instructions conditionnelles. |
 |Menu| Crée un menu flexible pour le message que vous concevez. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -50,7 +50,7 @@ Reportez-vous au tableau suivant pour plus de détails sur les propriétés du b
 |Couleur du lien| Modifie la couleur du lien. |
 |Alignement| Déplace le titre vers la gauche, le centre ou la droite. |
 |Hauteur de ligne| Modifie l'espace entre les lignes de texte. |
-|Espacement des lignes| Modifie l'espace entre chaque caractère. |
+|Espacement des lettres| Modifie l'espace entre chaque caractère. |
 |Sens du texte| Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -115,9 +115,9 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Spa
 |Hauteur| Ajuste la hauteur du bloc d'espacement. La valeur par défaut est 60 px.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Image
+### Image {#image}
 
-Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Image`. Pour les images dynamiques (images avec Liquid ou Contenu connecté), vous devez définir une image de secours afin d'utiliser les paramètres de largeur automatique. Pour les spécifications relatives aux images, consultez nos [spécifications relatives aux images dans les e-mails]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Image`. Pour les images dynamiques (images avec Liquid ou contenu connecté), vous devez définir une image de secours afin d'utiliser les paramètres de largeur automatique. Pour les spécifications relatives aux images, consultez nos [spécifications relatives aux images dans les e-mails]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -186,7 +186,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Ico
 |Marge intérieure de l'icône| Modifie la marge intérieure de l'icône. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### HTML
+### HTML {#html}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `HTML`.
 
@@ -195,7 +195,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `HTM
 |Éditeur HTML| Saisissez le HTML brut. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Menu
+### Menu {#menu}
 
 Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Menu`.
 
@@ -215,7 +215,7 @@ Reportez-vous au tableau suivant pour plus de détails sur le bloc éditeur `Men
 |Tous les côtés| Définit une marge intérieure uniforme si la marge intérieure des éléments est désactivée. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Actions
+## Actions {#actions}
 
 Vous pouvez affecter une action qui se déclenche lorsqu'un utilisateur appuie sur un bouton, un lien ou une image dans le message. Vous pouvez également utiliser [Liquid]({{site.baseurl}}/liquid/) pour personnaliser les actions. Les tableaux suivants détaillent les actions de chaque bloc éditeur.
 

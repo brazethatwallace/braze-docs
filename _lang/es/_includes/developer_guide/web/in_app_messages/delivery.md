@@ -33,7 +33,7 @@ braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds
 
 ## Pares clave-valor {#key-value-pairs}
 
-Cuando creas una Campaign en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación. Por ejemplo:
+Cuando creas una campaña en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación. Por ejemplo:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -109,7 +109,7 @@ También se pueden crear mensajes dentro de la aplicación en tu sitio y mostrar
 
 Los mensajes de intención de salida son mensajes no intrusivos dentro de la aplicación que se utilizan para comunicar información importante a los visitantes antes de que abandonen tu sitio.
 
-Para configurar los desencadenantes de estos tipos de mensajes, implementa una biblioteca de intención de salida en tu sitio web (como [la biblioteca de código abierto de ouibounce](https://github.com/carlsednaoui/ouibounce)) y, a continuación, utiliza el siguiente código para registrar `'exit intent'` como un evento personalizado en Braze. Ahora, tus futuras Campaigns de mensajes dentro de la aplicación pueden utilizar este tipo de mensaje como desencadenante de evento personalizado.
+Para configurar los desencadenantes de estos tipos de mensajes, implementa una biblioteca de intención de salida en tu sitio web (como [la biblioteca de código abierto de ouibounce](https://github.com/carlsednaoui/ouibounce)) y, a continuación, utiliza el siguiente código para registrar `'exit intent'` como un evento personalizado en Braze. Ahora, tus futuras campañas de mensajes dentro de la aplicación pueden utilizar este tipo de mensaje como desencadenante de evento personalizado.
 
 ```javascript
   var _ouibounce = ouibounce(false, {

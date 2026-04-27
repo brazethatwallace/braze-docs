@@ -44,10 +44,10 @@
 
 インタラクティブなプッシュ通知を作成するには、ダッシュボードにカスタムビューを設定する必要があります。
 
-1. **Campaigns**ページから、**キャンペーンを作成**をクリックして新しいプッシュ通知Campaignを開始します。
-2. **作成**タブで、**通知ボタン**をオンに切り替えます。
-3. **iOS通知カテゴリ**フィールドにカスタムiOSカテゴリを入力します。
-4. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS通知カテゴリ**で設定されているものと一致する必要があります。
+1. **Campaigns**ページから、**Create Campaign**をクリックして新しいプッシュ通知キャンペーンを開始します。
+2. **Compose**タブで、**Notification Buttons**をオンに切り替えます。
+3. **iOS Notification Category**フィールドにカスタムiOSカテゴリを入力します。
+4. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS Notification Category**で設定されているものと一致する必要があります。
 5. `UNNotificationExtensionInteractionEnabled`キーを`true`に設定して、プッシュ通知でのユーザー操作を有効にします。
 
 ![プッシュメッセージ作成画面の設定にある通知ボタンオプション。]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
@@ -63,11 +63,11 @@
 
 パーソナライズ済みプッシュ通知を作成するには、ダッシュボードにカスタムビューを設定する必要があります。
 
-1. **Campaigns**ページから、**キャンペーンを作成**をクリックして新しいプッシュ通知Campaignを開始します。
-2. **作成**タブで、**通知ボタン**をオンに切り替えます。
-3. **iOS通知カテゴリ**フィールドにカスタムiOSカテゴリを入力します。
-4. **設定**タブで、標準のLiquidを使用してキーと値のペアを作成します。メッセージに表示したい適切なユーザー属性を設定します。これらのビューは、特定のユーザープロファイルの特定のユーザー属性に基づいてパーソナライズできます。
-5. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS通知カテゴリ**で設定されているものと一致する必要があります。
+1. **Campaigns**ページから、**Create Campaign**をクリックして新しいプッシュ通知キャンペーンを開始します。
+2. **Compose**タブで、**Notification Buttons**をオンに切り替えます。
+3. **iOS Notification Category**フィールドにカスタムiOSカテゴリを入力します。
+4. **Settings**タブで、標準のLiquidを使用してキーと値のペアを作成します。メッセージに表示したい適切なユーザー属性を設定します。これらのビューは、特定のユーザープロファイルの特定のユーザー属性に基づいてパーソナライズできます。
+5. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS Notification Category**で設定されているものと一致する必要があります。
 
 ![Liquidを使用してAPIトリガープロパティとして「next_session_name」と「next_session_complete_date」が設定され、Liquidを使用してカスタムユーザー属性として「completed_session count」と「total_session_count」が設定された4組のキーと値のペア。]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
 
@@ -129,13 +129,13 @@ func didReceive(_ notification: UNNotification) {
 
 情報取得プッシュ通知を作成するには、ダッシュボードにカスタムビューを設定する必要があります。
 
-1. **Campaigns**ページから、**キャンペーンを作成**をクリックして新しいプッシュ通知Campaignを開始します。
-2. **作成**タブで、**通知ボタン**をオンに切り替えます。
-3. **iOS通知カテゴリ**フィールドにカスタムiOSカテゴリを入力します。
-4. **設定**タブで、標準のLiquidを使用してキーと値のペアを作成します。メッセージに表示したい適切なユーザー属性を設定します。
-5. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS通知カテゴリ**で設定されているものと一致する必要があります。
+1. **Campaigns**ページから、**Create Campaign**をクリックして新しいプッシュ通知キャンペーンを開始します。
+2. **Compose**タブで、**Notification Buttons**をオンに切り替えます。
+3. **iOS Notification Category**フィールドにカスタムiOSカテゴリを入力します。
+4. **Settings**タブで、標準のLiquidを使用してキーと値のペアを作成します。メッセージに表示したい適切なユーザー属性を設定します。
+5. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS Notification Category**で設定されているものと一致する必要があります。
 
-例に見られるように、プッシュ通知に画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift)を統合し、Campaignの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
+例に見られるように、プッシュ通知に画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift)を統合し、キャンペーンの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
 
 ![キーと値のペアが3セットあるプッシュメッセージ。1.「Braze_id」はBraze IDを取得するためのLiquidコールとして設定。2.「cert_title」は「Braze Marketer Certification」として設定。3.「Cert_description」は「Certified Braze marketers drive...」として設定。]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 

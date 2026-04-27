@@ -196,7 +196,7 @@ Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher u
 
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
-#### Images {#images}
+#### Images
 
 Nous vous recommandons d'activer CORS pour vos URL d'images afin d'éviter que les images ne soient cassées dans les aperçus et les exportations de cartes thermiques.
 

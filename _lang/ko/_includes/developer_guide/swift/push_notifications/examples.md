@@ -44,10 +44,10 @@
 
 대화형 푸시 알림을 만들려면 대시보드에서 커스텀 보기를 설정해야 합니다.
 
-1. **Campaigns** 페이지에서 **캠페인 생성**을 클릭하여 새 푸시 알림 Campaign을 시작합니다.
-2. **작성** 탭에서 **알림 버튼**을 토글합니다.
-3. **iOS 알림 카테고리** 필드에 커스텀 iOS 카테고리를 입력합니다.
-4. 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory` 속성을 커스텀 iOS 카테고리로 설정합니다. 여기에 입력한 값은 Braze 대시보드의 **iOS 알림 카테고리** 아래에 설정된 값과 일치해야 합니다.
+1. **Campaigns** 페이지에서 **Create Campaign**을 클릭하여 새 푸시 알림 Campaign을 시작합니다.
+2. **Compose** 탭에서 **Notification Buttons**를 토글합니다.
+3. **iOS Notification Category** 필드에 커스텀 iOS 카테고리를 입력합니다.
+4. 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory` 속성을 커스텀 iOS 카테고리로 설정합니다. 여기에 입력한 값은 Braze 대시보드의 **iOS Notification Category** 아래에 설정된 값과 일치해야 합니다.
 5. `UNNotificationExtensionInteractionEnabled` 키를 `true`로 설정하여 푸시 알림에서 사용자 상호작용을 활성화합니다.
 
 ![푸시 메시지 작성기 설정에 있는 알림 버튼 옵션입니다.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
@@ -59,15 +59,15 @@
 
 푸시 알림은 콘텐츠 확장 내에서 사용자별 정보를 표시할 수 있습니다. 이를 통해 여러 플랫폼에서 진행 상황을 공유하거나, 잠금 해제된 업적을 표시하거나, 온보딩 체크리스트를 표시하는 옵션을 추가하는 등 사용자 중심의 푸시 콘텐츠를 만들 수 있습니다. 이 예시는 사용자가 Braze 학습 과정에서 특정 작업을 완료한 후 표시되는 푸시 알림을 보여줍니다. 알림을 확장하면 사용자는 학습 경로를 통해 자신의 진행 상황을 확인할 수 있습니다. 여기에 제공된 정보는 사용자별로 다르며, 세션이 완료되거나 특정 사용자 동작이 수행될 때 API 트리거를 활용하여 실행될 수 있습니다.
 
-### 대시보드 구성 {#dashboard-configuration-1}
+### 대시보드 구성 {#dashboard-configuration}
 
 개인화된 푸시 알림을 만들려면 대시보드에서 커스텀 보기를 설정해야 합니다.
 
-1. **Campaigns** 페이지에서 **캠페인 생성**을 클릭하여 새 푸시 알림 Campaign을 시작합니다.
-2. **작성** 탭에서 **알림 버튼**을 토글합니다.
-3. **iOS 알림 카테고리** 필드에 커스텀 iOS 카테고리를 입력합니다.
-4. **설정** 탭에서 표준 Liquid를 사용하여 키-값 페어를 생성합니다. 메시지에 표시할 적절한 사용자 속성을 설정합니다. 이러한 보기는 특정 고객 프로필의 특정 사용자 속성을 기반으로 개인화할 수 있습니다.
-5. 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory` 속성을 커스텀 iOS 카테고리로 설정합니다. 여기에 입력한 값은 Braze 대시보드의 **iOS 알림 카테고리** 아래에 설정된 값과 일치해야 합니다.
+1. **Campaigns** 페이지에서 **Create Campaign**을 클릭하여 새 푸시 알림 Campaign을 시작합니다.
+2. **Compose** 탭에서 **Notification Buttons**를 토글합니다.
+3. **iOS Notification Category** 필드에 커스텀 iOS 카테고리를 입력합니다.
+4. **Settings** 탭에서 표준 Liquid를 사용하여 키-값 페어를 생성합니다. 메시지에 표시할 적절한 사용자 속성을 설정합니다. 이러한 보기는 특정 고객 프로필의 특정 사용자 속성을 기반으로 개인화할 수 있습니다.
+5. 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory` 속성을 커스텀 iOS 카테고리로 설정합니다. 여기에 입력한 값은 Braze 대시보드의 **iOS Notification Category** 아래에 설정된 값과 일치해야 합니다.
 
 ![네 개의 키-값 페어 세트로, "next_session_name" 및 "next_session_complete_date"는 Liquid를 사용하여 API 트리거 등록정보로 설정하고, "completed_session count" 및 "total_session_count"는 Liquid를 사용하여 커스텀 사용자 속성으로 설정합니다.]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
 
@@ -125,15 +125,15 @@ func didReceive(_ notification: UNNotification) {
 
 ![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
-### 대시보드 구성 {#dashboard-configuration-2}
+### 대시보드 구성 {#dashboard-configuration}
 
 정보 캡처 푸시 알림을 만들려면 대시보드에서 커스텀 보기를 설정해야 합니다.
 
-1. **Campaigns** 페이지에서 **캠페인 생성**을 클릭하여 새 푸시 알림 Campaign을 시작합니다.
-2. **작성** 탭에서 **알림 버튼**을 토글합니다.
-3. **iOS 알림 카테고리** 필드에 커스텀 iOS 카테고리를 입력합니다.
-4. **설정** 탭에서 표준 Liquid를 사용하여 키-값 페어를 생성합니다. 메시지에 표시할 적절한 사용자 속성을 설정합니다.
-5. 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory` 속성을 커스텀 iOS 카테고리로 설정합니다. 여기에 입력한 값은 Braze 대시보드의 **iOS 알림 카테고리** 아래에 설정된 값과 일치해야 합니다.
+1. **Campaigns** 페이지에서 **Create Campaign**을 클릭하여 새 푸시 알림 Campaign을 시작합니다.
+2. **Compose** 탭에서 **Notification Buttons**를 토글합니다.
+3. **iOS Notification Category** 필드에 커스텀 iOS 카테고리를 입력합니다.
+4. **Settings** 탭에서 표준 Liquid를 사용하여 키-값 페어를 생성합니다. 메시지에 표시할 적절한 사용자 속성을 설정합니다.
+5. 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory` 속성을 커스텀 iOS 카테고리로 설정합니다. 여기에 입력한 값은 Braze 대시보드의 **iOS Notification Category** 아래에 설정된 값과 일치해야 합니다.
 
 예시에서 볼 수 있듯이 푸시 알림에 이미지를 포함할 수도 있습니다. 이렇게 하려면 [리치 알림]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift)을 통합하고, Campaign에서 알림 스타일을 리치 알림으로 설정한 다음, 리치 푸시 이미지를 포함해야 합니다.
 

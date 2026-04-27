@@ -80,7 +80,7 @@ Cada espacio de trabajo puede admitir hasta 200 campañas activas de Banner. Si 
 
 Además, los mensajes de Banner no admiten las siguientes características:
 
-- Campañas desencadenadas por API y basadas en acciones
+- Campaigns desencadenadas por API y basadas en acciones
 - Contenido conectado
 - Códigos promocionales
 - `catalog_items` usando la [etiqueta `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
