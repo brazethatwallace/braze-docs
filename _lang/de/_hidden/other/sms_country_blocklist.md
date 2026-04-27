@@ -2,12 +2,12 @@
 nav_title: SMS-Länderblockliste
 article_title: SMS-Länderblockliste
 hidden: true
-permalink: /sms_country_blocklist/ 
+permalink: /sms_country_blocklist/
 ---
 
-# SMS-Länderblockliste
+# SMS-Länderblockliste {#sms-country-blocklist}
 
-In dem Bemühen, unsere Kunden vor SMS-Traffic-Pumping zu schützen, führt Braze derzeit eine Blockierliste für Länder, gegen die ein US-Embargo verhängt wurde, sowie für Länder, die bekanntermaßen ein hohes Risiko für Traffic-Pumping darstellen. In der Standardeinstellung sendet Braze keine SMS an diese Länder: 
+Um unsere Kund:innen vor SMS-Traffic-Pumping zu schützen, führt Braze derzeit eine Blockliste für Länder, gegen die ein US-Embargo verhängt wurde, sowie für Länder, die bekanntermaßen ein hohes Risiko für Traffic-Pumping darstellen. Standardmäßig sendet Braze keine SMS an diese Länder:
 
 - "AF" # Afghanistan
 - "AO" # Angola
@@ -40,7 +40,7 @@ In dem Bemühen, unsere Kunden vor SMS-Traffic-Pumping zu schützen, führt Braz
 - "MW" # Malawi
 - "NE" # Niger
 - "NF" # Norfolkinsel
-- "NG" # Nigera
+- "NG" # Nigeria
 - "NU" # Niue
 - "OM" # Oman
 - "PK" # Pakistan
@@ -60,7 +60,7 @@ In dem Bemühen, unsere Kunden vor SMS-Traffic-Pumping zu schützen, führt Braz
 - "UA" # Ukraine
 - "UZ" # Usbekistan
 - "VN" # Vietnam
-- "WF" # Wallis und Fortuna
+- "WF" # Wallis und Futuna
 - "YE" # Jemen
 - "ZB" # Simbabwe
 - "ZM" # Sambia

@@ -3,7 +3,7 @@ nav_title: LINE 설정
 article_title: LINE 설정
 description: "이 문서에서는 필수 조건과 권장 다음 단계를 포함하여 Braze LINE 채널을 설정하는 방법을 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 page_order: 0
 channel:
  - LINE

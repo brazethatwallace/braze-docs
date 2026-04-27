@@ -116,7 +116,7 @@ jobs:
 
       - name: Upload changed-files list
         if: steps.changes.outputs.count != '0'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: changed-files-list
           path: changed_files.txt
@@ -156,7 +156,7 @@ jobs:
           persist-credentials: false
 
       - name: Download changed-files list
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: changed-files-list
           path: .
@@ -195,7 +195,7 @@ jobs:
         run: python scripts/auto_translate.py verify --max-attempts 3
 
       - name: Upload locale artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: translate-${{ matrix.lang }}
           path: |
@@ -229,7 +229,7 @@ jobs:
         run: pip install anthropic pyyaml
 
       - name: Download all locale artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: translate-*
           path: matrix-out

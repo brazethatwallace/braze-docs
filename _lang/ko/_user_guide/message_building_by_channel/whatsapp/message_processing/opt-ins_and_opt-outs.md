@@ -3,7 +3,7 @@ nav_title: 옵트인 및 옵트아웃
 article_title: WhatsApp 옵트인 및 옵트아웃
 description: "이 참조 문서에서는 다양한 WhatsApp 옵트인 및 옵트아웃 방법을 다룹니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 page_order: 5
 channel:
   - WhatsApp
