@@ -1,32 +1,32 @@
 ---
-nav_title: 세그먼트 데이터를 CSV로 내보내기
-article_title: 세그먼트 데이터를 CSV로 내보내기
-page_order: 2
+nav_title: Segment 데이터
+article_title: Segment 데이터 내보내기
+page_order: 4
 page_type: reference
-description: "이 참조 문서에서는 세그먼트 데이터를 CSV로 내보내는 방법을 다룹니다."
+description: "이 참조 문서에서는 Segment 데이터를 CSV로 내보내는 방법을 다룹니다."
 
 ---
 
-# 세그먼트 데이터를 CSV로 내보내기
+# Segment 데이터를 CSV로 내보내기
 
-> 이 페이지에서는 세그먼트에서 사용자 데이터의 CSV 내보내기를 요청하는 방법과 내보내기에 포함된 데이터에 대해 설명합니다.
+> 이 페이지에서는 Segment에서 사용자 데이터의 CSV 내보내기를 요청하는 방법과 내보내기에 포함된 데이터에 대해 설명합니다.
 
-세그먼트 데이터를 CSV로 내보내려면 세그먼트를 편집하는 동안 **사용자 데이터** 드롭다운을 선택하고 세그먼트의 사용자 데이터 또는 이메일 주소 중 하나를 선택하여 내보냅니다.
+Segment 데이터를 CSV로 내보내려면 Segment를 편집하는 동안 **사용자 데이터** 드롭다운을 선택하고 Segment의 사용자 데이터 또는 이메일 주소 중 하나를 선택하여 내보냅니다.
 
-![사용자 데이터 드롭다운이 있는 세그먼트 세부 정보 섹션에 내보내기 옵션이 표시됩니다.]({% image_buster /assets/img_archive/csvexport.png %})
+![사용자 데이터 드롭다운이 있는 Segment 세부 정보 섹션에 내보내기 옵션이 표시됩니다.]({% image_buster /assets/img_archive/csvexport.png %})
 
-메인 **세그먼트** 페이지에서 세그먼트의 <i class="fas fa-gear"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
+메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
 
-![기본 세그먼트 페이지의 설정 드롭다운.]({% image_buster /assets/img_archive/csvexport2.png %})
+![메인 Segments 페이지의 설정 드롭다운.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
-모든 고객 프로필에서 데이터를 내보내려면 필터가 없는 세그먼트를 생성한 다음 CSV 내보내기를 요청하세요.
+모든 고객 프로필에서 데이터를 내보내려면 필터가 없는 Segment를 생성한 다음 CSV 내보내기를 요청하세요.
 {% endalert %}
 
-CSV 출력에는 내보내기 시점에 세그먼트에서 캡처된 각 고객 프로필의 데이터가 포함되어 있습니다. 기어 아이콘과 CSV 내보내기를 선택하여 세그먼트를 내보낼 수 있습니다. Braze는 보고서를 백그라운드에서 생성하고 현재 로그인한 사용자에게 이메일로 전송합니다.
+CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프로필의 데이터가 포함되어 있습니다. 기어 아이콘과 CSV 내보내기를 선택하여 모든 Segment를 내보낼 수 있습니다. Braze는 보고서를 백그라운드에서 생성하고 현재 로그인한 사용자에게 이메일로 전송합니다.
 
-{% alert important %} 
-파일 크기 제한으로 인해 세그먼트의 예상 크기가 500,000명 이상의 사용자일 경우 내보내기가 실패할 수 있습니다. 이 제한은 정확한 계산이 아닌 세그먼트의 예상 크기를 사용한다는 점에 유의하세요. 자세한 내용은 [대규모 세그먼트 내보내기](#exporting-large-segments)를 참조하세요.
+{% alert important %}
+파일 크기 제한으로 인해 Segment의 예상 크기가 500,000명 이상의 사용자일 경우 내보내기가 실패할 수 있습니다. 이 제한은 정확한 계산이 아닌 Segment의 예상 크기를 사용한다는 점에 유의하세요. 자세한 내용은 [대규모 Segment 내보내기](#exporting-large-segments)를 참조하세요.
 {% endalert %}
 
 [Amazon S3 인증정보]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration)를 Braze에 연결한 경우, CSV는 대신 S3 버킷의 `segment-export/SEGMENT_ID/YYYY-MM-dd/users-RANDOMSTRING.zip` 키 아래에 업로드됩니다. 이메일로 전송된 다운로드 링크에 액세스하려면 대시보드에 로그인해야 합니다.
@@ -95,29 +95,29 @@ CSV 출력에는 내보내기 시점에 세그먼트에서 캡처된 각 고객 
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/) 문서를 참조하세요.
-{% endalert %} 
+CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) 문서를 참조하세요.
+{% endalert %}
 
-## 대규모 세그먼트 내보내기
+## 대규모 Segment 내보내기 {#exporting-large-segments}
 
-500,000명 이상의 사용자를 포함하는 대규모 사용자 세그먼트를 내보내는 방법에는 여러 가지가 있습니다.
+500,000명 이상의 사용자를 포함하는 대규모 사용자 Segment를 내보내는 방법에는 여러 가지가 있습니다.
 
 {% tabs %}
-{% tab Multiple segments %}
+{% tab 여러 Segments %}
 
-큰 세그먼트를 작은 세그먼트로 분할한 다음 각각의 작은 세그먼트를 Braze에서 내보낼 수 있습니다. 
-
-{% endtab %}
-{% tab Random bucket numbers %}
-
-[무작위 버킷 번호]({{site.baseurl}}/user_guide/engagement_tools/testing/random_bucket_numbers/)를 사용하여 사용자 기반을 여러 세그먼트로 나눈 다음 내보내기 후에 결합할 수도 있습니다. 예를 들어, 세그먼트를 두 개의 다른 세그먼트로 나누어야 하는 경우 다음 필터를 사용하여 수행할 수 있습니다:
-- 세그먼트 1: 무작위 버킷 번호가 5000보다 작음(0-4999 포함)
-- 세그먼트 2: 무작위 버킷 번호가 4999보다 큼(5000-9999 포함)
+큰 Segment를 작은 Segments로 분할한 다음 각각의 작은 Segment를 Braze에서 내보낼 수 있습니다.
 
 {% endtab %}
-{% tab Endpoints %}
+{% tab 무작위 버킷 번호 %}
 
-다음 엔드포인트를 활용하여 특정 세그먼트의 사용자 데이터를 내보낼 수도 있습니다. 이러한 엔드포인트에는 데이터 제한이 적용됩니다.
+[무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)를 사용하여 사용자 기반을 여러 Segments로 나눈 다음 내보내기 후에 결합할 수도 있습니다. 예를 들어, Segment를 두 개의 다른 Segments로 나누어야 하는 경우 다음 필터를 사용하여 수행할 수 있습니다:
+- Segment 1: 무작위 버킷 번호가 5000보다 작음(0-4999 포함)
+- Segment 2: 무작위 버킷 번호가 4999보다 큼(5000-9999 포함)
+
+{% endtab %}
+{% tab 엔드포인트 %}
+
+다음 엔드포인트를 활용하여 특정 Segment의 사용자 데이터를 내보낼 수도 있습니다. 이러한 엔드포인트에는 데이터 제한이 적용됩니다.
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
 

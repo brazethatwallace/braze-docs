@@ -2,18 +2,22 @@
 nav_title: Utilisation des catalogues
 article_title: Utiliser les catalogues
 page_order: 1.5
-description: "Cet article de référence explique comment utiliser les catalogues pour référencer les données non-utilisateurs dans vos campagnes Braze via Liquid."
+description: "Cet article de référence explique comment utiliser les catalogues pour référencer des données non-utilisateurs dans vos campagnes Braze via Liquid."
 ---
 
-# Utilisation des catalogues
+# Utilisation des catalogues {#using-catalogs}
 
-> Après avoir créé un catalogue, vous pouvez référencer des données non-utilisateurs dans vos campagnes Braze via [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid). Vous pouvez utiliser les catalogues dans tous vos canaux de communication, y compris partout dans l'éditeur par glisser-déposer où Liquid est pris en charge.
+> Après avoir créé un catalogue, vous pouvez référencer des données non-utilisateurs dans vos campagnes Braze via [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Les catalogues sont utilisables dans tous vos canaux de communication, y compris partout dans l'éditeur par glisser-déposer où Liquid est pris en charge.
 
-## Utilisation de catalogues dans un message
+## Utiliser des catalogues dans un message {#using-catalogs-in-a-message}
+
+La vidéo suivante explique comment utiliser les catalogues dans un message.
+
+{% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
 
 ### Étape 1 : Ajouter un type de personnalisation {#step-one-personalization}
 
-Dans l'éditeur de message de votre choix, sélectionnez l'icône <i class="fas fa-plus-circle"></i> « + » pour ouvrir la fenêtre modale **Ajouter une personnalisation**, puis sélectionnez **Éléments du catalogue** comme **type de personnalisation**. Sélectionnez ensuite le nom de votre catalogue. En reprenant l'exemple précédent, nous allons sélectionner le catalogue « Games ».
+Dans l'éditeur de message de votre choix, sélectionnez l'icône <i class="fas fa-plus-circle"></i> « + » pour ouvrir la fenêtre modale **Add Personalization**, puis sélectionnez **Catalog Items** comme **Personalization type**. Sélectionnez ensuite le nom de votre catalogue. En reprenant l'exemple précédent, nous allons sélectionner le catalogue « Games ».
 
 ![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -25,16 +29,16 @@ Nous pouvons immédiatement voir l'aperçu Liquid suivant :
 ```
 {% endraw %}
 
-### Étape 2 : Sélectionner les éléments du catalogue
+### Étape 2 : Sélectionner les éléments du catalogue {#step-2-select-catalog-items}
 
-Ensuite, il est temps d'ajouter vos éléments de catalogue ! À l'aide de la liste déroulante, sélectionnez les éléments du catalogue et les informations à afficher. Ces informations correspondent aux colonnes du fichier CSV importé utilisé pour générer votre catalogue.
+Il est maintenant temps d'ajouter vos éléments de catalogue ! À l'aide de la liste déroulante, sélectionnez les éléments du catalogue et les informations à afficher. Ces informations correspondent aux colonnes du fichier CSV importé utilisé pour générer votre catalogue.
 
 Par exemple, pour référencer le titre et le prix de notre jeu Tales, nous pouvons sélectionner l'`id` de Tales (1234) comme élément du catalogue et demander `title` et `price` pour les informations affichées.
 
 {% raw %}
 ```liquid
 {% catalog_items Games 1234 %}
- 
+
 Get {{ items[0].title }} for just {{ items[0].price }}!
 ```
 {% endraw %}
@@ -43,22 +47,22 @@ Ceci donne le résultat suivant :
 
 > Get Tales for just 7.49!
 
-## Exporter des catalogues
+## Exporter des catalogues {#exporting-catalogs}
 
-Vous pouvez exporter des catalogues à partir du tableau de bord de deux manières :
+Vous pouvez exporter des catalogues depuis le tableau de bord de deux manières :
 
-- Survolez la ligne du catalogue dans la section **Catalogues**. Sélectionnez ensuite le bouton **Exporter le catalogue**.
-- Sélectionnez votre catalogue. Ensuite, sélectionnez le bouton **Exporter le catalogue** dans l'onglet **Prévisualiser** du catalogue.
+- Survolez la ligne du catalogue dans la section **Catalogs**. Sélectionnez ensuite le bouton **Export catalog**.
+- Sélectionnez votre catalogue. Ensuite, sélectionnez le bouton **Export catalog** dans l'onglet **Preview** du catalogue.
 
-Vous recevrez un e-mail vous permettant de télécharger le fichier CSV après avoir lancé l'exportation. Vous disposerez de quatre heures pour récupérer ce fichier.
+Vous recevrez un e-mail pour télécharger le fichier CSV après avoir lancé l'exportation. Vous disposerez de quatre heures pour récupérer ce fichier.
 
-## Cas d'utilisation supplémentaires
+## Cas d'utilisation supplémentaires {#additional-use-cases}
 
-### Plusieurs éléments
+### Plusieurs éléments {#multiple-items}
 
-Vous n'êtes pas limité à un seul élément par message. Utilisez la fenêtre modale **Ajouter une personnalisation** pour ajouter jusqu'à trois éléments du catalogue à la fois. Pour en ajouter davantage, sélectionnez à nouveau **Ajouter une personnalisation** dans l'éditeur, puis choisissez les éléments supplémentaires du catalogue et les informations à afficher.
+Vous n'êtes pas limité à un seul élément par message. Utilisez la fenêtre modale **Add Personalization** pour ajouter jusqu'à trois éléments du catalogue à la fois. Pour en ajouter davantage, sélectionnez à nouveau **Add Personalization** dans l'éditeur, puis choisissez les éléments supplémentaires du catalogue et les informations à afficher.
 
-Dans cet exemple, nous ajoutons l'`id` de trois jeux — Tales, Teslagrad et Acaratus — pour les **éléments du catalogue** et nous sélectionnons `title` pour les **informations à afficher**.
+Dans cet exemple, nous ajoutons l'`id` de trois jeux — Tales, Teslagrad et Acaratus — pour **Catalog Items** et nous sélectionnons `title` pour **Information to Display**.
 
 ![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
@@ -102,13 +106,13 @@ Dans cet exemple, la balise `catalog_items` récupère l'élément `1234` du cat
 
 {% raw %}
 ```liquid
-{% catalog_selection_items item-list selections %} 
+{% catalog_selection_items item-list selections %}
 {% if items[0].venue_name.size > 10 %}
-Message if the venue name's size is more than 10 characters. 
+Message if the venue name's size is more than 10 characters.
 {% elsif items[0].venue_name.size <= 10 %}
-Message if the venue name's size is 10 characters or fewer. 
-{% else %} 
-{% abort_message('no venue_name') %} 
+Message if the venue name's size is 10 characters or fewer.
+{% else %}
+{% abort_message('no venue_name') %}
 {% endif %}
 ```
 {% endraw %}
@@ -121,9 +125,9 @@ Pour éviter les erreurs de syntaxe Liquid, sélectionnez le bouton **+** dans l
 
 ### Utiliser des images {#using-images}
 
-Vous pouvez également référencer les images du catalogue pour les utiliser dans vos messages. Pour ce faire, utilisez la balise `catalogs` et l'objet `item` dans le champ Liquid pour les images.
+Vous pouvez également référencer des images du catalogue pour les utiliser dans vos messages. Pour ce faire, utilisez la balise `catalogs` et l'objet `item` dans le champ Liquid pour les images.
 
-Par exemple, pour ajouter le `image_link` de notre catalogue Games à notre message promotionnel pour Tales, sélectionnez l'`id` pour le champ **Éléments du catalogue** et `image_link` pour le champ **Informations à afficher**. Ceci ajoute les étiquettes Liquid suivantes à notre champ d'image :
+Par exemple, pour ajouter le `image_link` de notre catalogue Games à notre message promotionnel pour Tales, sélectionnez l'`id` pour le champ **Catalog Items** et `image_link` pour le champ **Information to Display**. Ceci ajoute les étiquettes Liquid suivantes à notre champ d'image :
 
 {% raw %}
 ```liquid
@@ -141,7 +145,7 @@ Voici à quoi cela ressemble une fois le Liquid rendu :
 
 ### Modèles d'éléments de catalogue
 
-Vous pouvez également utiliser les modèles pour extraire dynamiquement des éléments du catalogue en fonction des attributs personnalisés. Par exemple, imaginons qu'un utilisateur possède l'attribut personnalisé `wishlist`, qui contient un tableau d'ID de jeux de votre catalogue.
+Vous pouvez également utiliser les modèles pour extraire dynamiquement des éléments du catalogue en fonction d'attributs personnalisés. Par exemple, imaginons qu'un utilisateur possède l'attribut personnalisé `wishlist`, qui contient un tableau d'ID de jeux de votre catalogue.
 
 ```json
 {
@@ -155,10 +159,10 @@ Vous pouvez également utiliser les modèles pour extraire dynamiquement des él
 ```
 
 {% alert note %}
-Les objets JSON dans les catalogues ne sont ingérés que par l'API. Vous ne pouvez pas importer un objet JSON à l'aide d'un fichier CSV.
+Les objets JSON dans les catalogues ne sont ingérés que via l'API. Vous ne pouvez pas importer un objet JSON à l'aide d'un fichier CSV.
 {% endalert %}
 
-Grâce au modèle Liquid, vous pouvez extraire dynamiquement les ID de la liste de souhaits, puis les utiliser dans votre message. Pour ce faire, [affectez une variable]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#assigning-variables) à votre attribut personnalisé, puis utilisez la fenêtre modale **Ajouter une personnalisation** pour extraire un élément spécifique du tableau. Les variables référencées comme ID d'élément du catalogue doivent être placées entre accolades pour être correctement référencées, comme `{{result}}`.
+Grâce au modèle Liquid, vous pouvez extraire dynamiquement les ID de la liste de souhaits, puis les utiliser dans votre message. Pour ce faire, [affectez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) à votre attribut personnalisé, puis utilisez la fenêtre modale **Add Personalization** pour extraire un élément spécifique du tableau. Les variables référencées comme ID d'élément du catalogue doivent être placées entre accolades pour être correctement référencées, comme `{{result}}`.
 
 {% alert tip %}
 N'oubliez pas que les tableaux commencent à `0` et non à `1`.
@@ -180,19 +184,19 @@ Ce qui s'affichera comme suit :
 
 Avec les modèles, vous pouvez afficher un élément du catalogue différent pour chaque utilisateur en fonction de ses attributs personnalisés, de ses propriétés d'événement ou de tout autre champ modélisable.
 
-### Charger un CSV
+### Importer un CSV
 
-Vous pouvez importer un fichier CSV de nouveaux éléments de catalogue à ajouter ou d'éléments de catalogue à mettre à jour. Pour supprimer une liste d'éléments, vous pouvez charger un CSV d'ID d'éléments pour les supprimer.
+Vous pouvez importer un fichier CSV contenant de nouveaux éléments de catalogue à ajouter ou des éléments existants à mettre à jour. Pour supprimer une liste d'éléments, vous pouvez importer un CSV d'ID d'éléments à supprimer.
 
-### Utilisation de Liquid
+### Utiliser Liquid
 
-Vous pouvez également composer manuellement des catalogues avec la logique Liquid. Cependant, notez que si vous saisissez un ID qui n'existe pas, Braze renverra tout de même un tableau d'éléments sans objet. Nous vous recommandons d'inclure la gestion des erreurs, comme la vérification de la taille du tableau et l'utilisation d'une instruction `if` pour gérer le cas d'un tableau vide.
+Vous pouvez également composer manuellement des catalogues avec la logique Liquid. Notez cependant que si vous saisissez un ID qui n'existe pas, Braze renverra tout de même un tableau d'éléments sans objet. Nous vous recommandons d'inclure une gestion des erreurs, comme la vérification de la taille du tableau et l'utilisation d'une instruction `if` pour gérer le cas d'un tableau vide.
 
 #### Modélisation d'éléments de catalogue incluant du Liquid
 
-Tout comme pour le [contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content), vous devez utiliser le drapeau `:rerender` dans une étiquette Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur, ce qui signifie qu'il ne s'appliquera pas aux appels d'étiquettes Liquid imbriqués.
+Tout comme pour le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), vous devez utiliser le drapeau `:rerender` dans une étiquette Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels d'étiquettes Liquid imbriqués.
 
-Si un élément du catalogue contient des champs de profil utilisateur (dans une étiquette de personnalisation Liquid), ces valeurs doivent être définies dans Liquid plus tôt dans le message et avant la modélisation afin de garantir le bon rendu du Liquid. Si le drapeau `:rerender` n'est pas fourni, le contenu Liquid brut sera restitué.
+Si un élément du catalogue contient des champs de profil utilisateur (dans une étiquette de personnalisation Liquid), ces valeurs doivent être définies en Liquid plus tôt dans le message, avant la modélisation, afin de garantir le bon rendu du Liquid. Si le drapeau `:rerender` n'est pas fourni, le contenu Liquid brut sera restitué.
 
 Par exemple, si un catalogue nommé « Messages » possède un élément avec ce Liquid :
 
@@ -223,6 +227,31 @@ Welcome to our store, Peter!
 Les étiquettes Liquid des catalogues ne peuvent pas être utilisées de manière récursive à l'intérieur des catalogues.
 {% endalert %}
 
+## Structurer les données de votre catalogue
+
+Lorsque vous planifiez la structure des données de votre catalogue, partez de votre cas d'utilisation et concevez le catalogue en conséquence. Chaque ligne du catalogue représente un élément (avec un `id` unique). Les colonnes doivent contenir les attributs de cet élément, tels que les URL, le texte descriptif, les URL d'images, le prix, la note, la taille ou la couleur.
+
+### Quand utiliser les appels de catalogue standard
+
+Avec les appels de catalogue standard, vous faites correspondre une valeur à la colonne `id`. En insérant un attribut personnalisé ou une propriété d'événement (sous forme de chaîne de caractères d'ID) dans l'étiquette Liquid du catalogue, vous pouvez récupérer plusieurs attributs d'un même élément dans votre message. Les cas d'utilisation courants incluent :
+
+- Produit ou service récemment consulté
+- Éléments de la liste de souhaits
+- Offres par emplacement
+- Produit acheté
+- Contenu lié à l'étape du cycle de vie
+- Produit ou service recherché le plus récemment
+
+### Quand utiliser les sélections de catalogue
+
+Les [sélections de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) vous permettent de filtrer sur n'importe quelle colonne de votre catalogue et de renvoyer jusqu'à 50 éléments correspondants. En insérant des attributs personnalisés ou des propriétés d'événement dans les filtres de sélection, les résultats sont personnalisés pour chaque utilisateur. Les cas d'utilisation courants incluent :
+
+- Éléments dont la catégorie correspond aux préférences de l'utilisateur
+- Éléments correspondant à la marque, la cuisine ou la taille préférée de l'utilisateur
+- Contenu lié au type d'abonnement ou au niveau de fidélité
+- Produits dans la fourchette de valeur moyenne de commande de l'utilisateur
+
+La différence principale est que les appels de catalogue standard recherchent un seul élément connu par `id`, tandis que les sélections de catalogue interrogent l'ensemble du catalogue et renvoient plusieurs éléments correspondant à vos critères de filtre.
 
 [1]: {% image_buster /assets/img_archive/use_catalog_personalization.png %}
 [2]: {% image_buster /assets/img_archive/catalog_multiple_items.png %}

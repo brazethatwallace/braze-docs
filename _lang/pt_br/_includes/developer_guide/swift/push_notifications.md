@@ -1,26 +1,26 @@
-## Limites de taxa
+## Limites de taxa {#rate-limits}
 
-As notificações por push são limitadas por taxa, então não tenha medo de enviar quantas sua aplicação precisar. O iOS e o serviço de Notificações por Push da Apple (APNs) controlarão a frequência com que são entregues, e você não terá problemas por enviar muitas. Se suas notificações por push forem limitadas, elas podem ser atrasadas até a próxima vez que o dispositivo enviar um pacote keep-alive ou receber outra notificação.
+As notificações por push são limitadas por taxa, então não tenha medo de enviar quantas seu aplicativo precisar. O iOS e o serviço de Notificações por Push da Apple (APNs) controlarão a frequência com que são entregues, e você não terá problemas por enviar muitas. Se suas notificações por push forem limitadas, elas podem sofrer postergação até a próxima vez que o dispositivo enviar um pacote keep-alive ou receber outra notificação.
 
-## Configurando notificações por push
+## Configurando notificações por push {#setting-up-push-notifications}
 
-### Etapa 1: Faça upload do seu token APNs
+### Etapa 1: Faça upload do seu token APNs {#step-1-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-### Etapa 2: Ativar push capabilities
+### Etapa 2: Ative as capacidades de push {#step-2-enable-push-capabilities}
 
-No Xcode, acesse a seção **Assinatura & Capacidades** do alvo principal do app e adicione a capacidade de notificações por push.
+No Xcode, acesse a seção **Signing & Capabilities** do alvo principal do app e adicione a capacidade de notificações por push.
 
-![A seção 'Assinatura & Capacidades' em um projeto Xcode.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![A seção "Signing & Capabilities" em um projeto Xcode.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
-### Etapa 3: Configure o manuseio de push
+### Etapa 3: Configure o tratamento de push {#step-3-set-up-push-handling}
 
-Você pode usar o SDK Swift para automatizar o processamento de notificações remotas recebidas do Braze. Esta é a maneira mais simples de lidar com notificações por push e é o método de manuseio recomendado.
+Você pode usar o SDK Swift para automatizar o processamento de notificações remotas recebidas da Braze. Esta é a maneira mais simples de lidar com notificações por push e é o método de tratamento recomendado.
 
 {% tabs local %}
 {% tab Automatic %}
-#### Etapa 3.1: Ative a automação na propriedade de push
+#### Etapa 3.1: Ative a automação na propriedade de push {#step-31-enable-automation-in-the-push-property}
 
 Para ativar a integração automática de push, defina a propriedade `automation` da configuração `push` para `true`:
 
@@ -43,20 +43,20 @@ configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnab
 {% endsubtabs %}
 
 Isso instrui o SDK a:
-- Registre seu aplicativo para notificação por push no sistema.
-- Solicite a autorização/permissão de notificação por push na inicialização.
-- Forneça dinamicamente implementações para os métodos delegados relacionados ao sistema de notificação por push.
+- Registrar seu aplicativo para notificações por push no sistema.
+- Solicitar a autorização/permissão de notificação por push na inicialização.
+- Fornecer dinamicamente implementações para os métodos delegados do sistema relacionados a notificações por push.
 
 {% alert note %}
-Os passos de automação realizados pelo SDK são compatíveis com as integrações de manuseio de notificação por push pré-existentes em sua base de código. O SDK apenas automatiza o processamento da notificação remota recebida da Braze. Qualquer handler de sistema implementado para processar suas próprias notificações remotas ou de outro SDK de terceiros continuará a funcionar quando `automation` estiver ativado.
+As etapas de automação realizadas pelo SDK são compatíveis com integrações de tratamento de notificação por push pré-existentes na sua base de código. O SDK apenas automatiza o processamento da notificação remota recebida da Braze. Qualquer handler de sistema implementado para processar suas próprias notificações remotas ou de outro SDK de terceiros continuará a funcionar quando `automation` estiver ativado.
 {% endalert %}
 
 {% alert warning %}
 O SDK deve ser inicializado na thread principal para ativar a automação de notificação por push. A inicialização do SDK deve ocorrer antes que o aplicativo tenha terminado de iniciar ou na sua implementação do AppDelegate [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application).
-Se o seu aplicativo exigir uma configuração adicional antes de inicializar o SDK, consulte a página da documentação sobre [inicialização por postergação]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift).
+Se o seu aplicativo exigir uma configuração adicional antes de inicializar o SDK, consulte a página da documentação sobre [inicialização com postergação]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift).
 {% endalert %}
 
-#### Etapa 3.2: Substitua configurações individuais (opcional)
+#### Etapa 3.2: Substitua configurações individuais (opcional) {#step-32-override-individual-configurations-optional}
 
 Para um controle mais granular, cada etapa de automação pode ser ativada ou desativada individualmente:
 
@@ -89,16 +89,16 @@ Consulte [`Braze.Configuration.Push.Automation`](https://braze-inc.github.io/bra
 Se você depende de notificações por push para comportamento adicional específico do seu app, ainda poderá usar a integração automática de push em vez da integração manual de notificação por push. O método [`subscribeToUpdates(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(_:)) oferece uma forma de receber notificação sobre notificações remotas processadas pela Braze.
 {% endalert %}
 
-#### Etapa 3.1: Registre-se para notificações por push com APNs
+#### Etapa 3.1: Registre-se para notificações por push com APNs {#step-31-register-for-push-notifications-with-apns}
 
-Inclua o exemplo de código apropriado no método de delegado [`application:didFinishLaunchingWithOptions:` do seu app](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) para que os dispositivos dos seus usuários possam se registrar no APNs. Certifique-se de chamar todo o código de integração push na thread principal do seu aplicativo.
+Inclua o exemplo de código apropriado no método delegado [`application:didFinishLaunchingWithOptions:` do seu app](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) para que os dispositivos dos seus usuários possam se registrar no APNs. Certifique-se de chamar todo o código de integração push na thread principal do seu aplicativo.
 
-Braze também fornece categorias de push padrão para suporte ao botão de ação por push, que devem ser adicionadas manualmente ao seu código de registro de push. Consulte os [botões de ação por push]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories) para obter etapas adicionais de integração.
+A Braze também fornece categorias de push padrão para suporte ao botão de ação por push, que devem ser adicionadas manualmente ao seu código de registro de push. Consulte os [botões de ação por push]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories) para obter etapas adicionais de integração.
 
-Adicione o seguinte código ao método `application:didFinishLaunchingWithOptions:` do seu delegado do app. 
+Adicione o seguinte código ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app.
 
 {% alert note %}
-O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/) para saber mais sobre a autenticação provisória push.
+O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/) para saber mais sobre a autenticação push provisória.
 {% endalert %}
 
 {% subtabs %}
@@ -143,11 +143,12 @@ if (@available(iOS 12.0, *)) {
 
 {% alert warning %}
 Você deve atribuir seu objeto delegado usando `center.delegate = self` de forma síncrona antes que seu app termine de iniciar, de preferência em `application:didFinishLaunchingWithOptions:`. Se não fizer isso, seu app pode perder notificações por push recebidas. Consulte a documentação da Apple [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) para saber mais.
+Se o seu app chamar `wipeData()` e depois reativar o SDK da Braze na mesma execução do app, você deve chamar `registerForRemoteNotifications()` novamente para repopular o token do dispositivo usado pelo SDK.
 {% endalert %}
 
-#### Etapa 3.2: Registre push tokens com a Braze
+#### Etapa 3.2: Registre tokens de push na Braze {#step-32-register-push-tokens-with-braze}
 
-Depois que o registro do APNs estiver completo, passe o `deviceToken` resultante para a Braze para ativar as notificações por push para o usuário.  
+Depois que o registro do APNs estiver completo, passe o `deviceToken` resultante para a Braze para ativar as notificações por push para o usuário.
 
 {% subtabs %}
 {% subtab Swift %}
@@ -171,18 +172,18 @@ Adicione o seguinte código ao método `application:didRegisterForRemoteNotifica
 {% endsubtabs %}
 
 {% alert important %}
-O método delegado `application:didRegisterForRemoteNotificationsWithDeviceToken:` é chamado toda vez depois que `application.registerForRemoteNotifications()` é chamado. <br><br>Se você estiver migrando para o Braze de outro serviço de push e o dispositivo do seu usuário já estiver registrado no APNs, este método coletará tokens de registros existentes na próxima vez que o método for chamado, e os usuários não precisarão aceitar novamente o push.
+O método delegado `application:didRegisterForRemoteNotificationsWithDeviceToken:` é chamado toda vez depois que `application.registerForRemoteNotifications()` é chamado. <br><br>Se você estiver migrando para a Braze de outro serviço de push e o dispositivo do seu usuário já estiver registrado no APNs, este método coletará tokens de registros existentes na próxima vez que for chamado, e os usuários não precisarão aceitar novamente o push.
 {% endalert %}
 
-#### Etapa 3.3: Ativar push handling
+#### Etapa 3.3: Ative o tratamento de push {#step-33-enable-push-handling}
 
-Em seguida, passe as notificações por push recebidas para a Braze. Esta etapa é necessária para registrar a análise de dados de push e o manuseio de links. Certifique-se de chamar todo o código de integração push na thread principal do seu aplicativo.
+Em seguida, passe as notificações por push recebidas para a Braze. Esta etapa é necessária para registrar a análise de dados de push e o tratamento de links. Certifique-se de chamar todo o código de integração push na thread principal do seu aplicativo.
 
-##### Manipulação padrão de push
+##### Tratamento padrão de push {#default-push-handling}
 
 {% subtabs %}
 {% subtab Swift %}
-Para ativar o manuseio padrão de push do Braze, adicione o seguinte código ao método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` do seu app:
+Para ativar o tratamento padrão de push da Braze, adicione o seguinte código ao método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` do seu app:
 
 ```swift
 if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotification(
@@ -208,7 +209,7 @@ completionHandler()
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-Para ativar o manuseio padrão de push do Braze, adicione o seguinte código ao método `application:didReceiveRemoteNotification:fetchCompletionHandler:` do seu aplicativo:
+Para ativar o tratamento padrão de push da Braze, adicione o seguinte código ao método `application:didReceiveRemoteNotification:fetchCompletionHandler:` do seu aplicativo:
 
 ```objc
 BOOL processedByBraze = AppDelegate.braze != nil && [AppDelegate.braze.notifications handleBackgroundNotificationWithUserInfo:userInfo
@@ -234,11 +235,11 @@ completionHandler();
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Manipulação de push em primeiro plano
+##### Tratamento de push em primeiro plano {#foreground-push-handling}
 
 {% subtabs %}
 {% subtab Swift %}
-Para ativar notificações por push em primeiro plano e permitir que a Braze as reconheça quando forem recebidas, implemente `UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)`. Se um usuário tocar na sua notificação em primeiro plano, o `userNotificationCenter(_:didReceive:withCompletionHandler:)` push delegate será chamado e a Braze registrará o evento de clique no push.
+Para ativar notificações por push em primeiro plano e permitir que a Braze as reconheça quando forem recebidas, implemente `UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)`. Se um usuário tocar na sua notificação em primeiro plano, o delegate de push `userNotificationCenter(_:didReceive:withCompletionHandler:)` será chamado e a Braze registrará o evento de clique no push.
 
 ```swift
 func userNotificationCenter(
@@ -262,7 +263,7 @@ func userNotificationCenter(
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-Para ativar notificações por push em primeiro plano e permitir que a Braze as reconheça quando forem recebidas, implemente `userNotificationCenter:willPresentNotification:withCompletionHandler:`. Se um usuário tocar na sua notificação em primeiro plano, o `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` push delegate será chamado e a Braze registrará o evento de clique no push.
+Para ativar notificações por push em primeiro plano e permitir que a Braze as reconheça quando forem recebidas, implemente `userNotificationCenter:willPresentNotification:withCompletionHandler:`. Se um usuário tocar na sua notificação em primeiro plano, o delegate de push `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` será chamado e a Braze registrará o evento de clique no push.
 
 ```objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -288,14 +289,14 @@ Para ativar notificações por push em primeiro plano e permitir que a Braze as 
 
 ## Testando notificações {#push-testing}
 
-Se você quiser testar notificações no app e notificações por push via a linha de comando, você pode enviar uma única notificação através do terminal via CURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
+Se você quiser testar notificações no app e notificações por push via linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
 
-- `YOUR_API_KEY` - disponível em **Configurações** > **Chaves de API**.
-- `YOUR_EXTERNAL_USER_ID` - disponível na página **Pesquisar Usuários**. Para saber mais, consulte [atribuir IDs de usuário]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#assigning-a-user-id).
+- `YOUR_API_KEY` — disponível em **Configurações** > **Chaves de API**.
+- `YOUR_EXTERNAL_USER_ID` — disponível na página **Pesquisar usuários**. Para saber mais, consulte [atribuir IDs de usuário]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#assigning-a-user-id).
 - `YOUR_KEY1` (opcional)
 - `YOUR_VALUE1` (opcional)
 
-No exemplo a seguir, a instância`US-01` está sendo usada. Se você não estiver nessa instância, consulte nossa [documentação da API]({{site.baseurl}}/api/basics/) para ver em qual endpoint fazer solicitações.
+No exemplo a seguir, a instância `US-01` está sendo usada. Se você não estiver nessa instância, consulte nossa [documentação da API]({{site.baseurl}}/api/basics/) para ver em qual endpoint fazer solicitações.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
@@ -311,7 +312,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 }' https://rest.iad-01.braze.com/messages/send
 ```
 
-## Assinando atualizações de notificações por push
+## Assinando atualizações de notificações por push {#subscribing-to-push-notifications-updates}
 
 Para acessar as cargas úteis de notificação por push processadas pela Braze, use o método [`Braze.Notifications.subscribeToUpdates(payloadTypes:_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(payloadtypes:_:)/).
 
@@ -330,7 +331,7 @@ let cancellable = AppDelegate.braze?.notifications.subscribeToUpdates(payloadTyp
 ```
 
 {% alert important %}
-Lembre-se de que os eventos recebidos de push só dispararão para notificações em primeiro plano e notificações `content-available` em segundo plano. Não disparará para notificações recebidas enquanto encerrado ou para notificações em segundo plano sem o campo `content-available`.
+Lembre-se de que os eventos de push recebidos só serão disparados para notificações em primeiro plano e notificações `content-available` em segundo plano. Não serão disparados para notificações recebidas enquanto o app estiver encerrado ou para notificações em segundo plano sem o campo `content-available`.
 {% endalert %}
 
 {% endtab %}
@@ -346,27 +347,27 @@ BRZCancellable *cancellable = [notifications subscribeToUpdatesWithPayloadTypes:
 ```
 
 {% alert important %}
-Lembre-se de que os eventos recebidos de push só dispararão para notificações em primeiro plano e notificações `content-available` em segundo plano. Não disparará para notificações recebidas enquanto encerrado ou para notificações em segundo plano sem o campo `content-available`.
+Lembre-se de que os eventos de push recebidos só serão disparados para notificações em primeiro plano e notificações `content-available` em segundo plano. Não serão disparados para notificações recebidas enquanto o app estiver encerrado ou para notificações em segundo plano sem o campo `content-available`.
 {% endalert %}
 
 {% endtab %}
 
 {% endtabs %}
 {% alert note %}
-Ao usar a integração automática de push, `subscribeToUpdates(_:)` é a única maneira de ser notificado sobre notificações remotas processadas pelo Braze. Os métodos de sistema `UIAppDelegate` e `UNUserNotificationCenterDelegate` não são chamados quando a notificação é processada automaticamente pela Braze.
+Ao usar a integração automática de push, `subscribeToUpdates(_:)` é a única maneira de ser notificado sobre notificações remotas processadas pela Braze. Os métodos de sistema `UIAppDelegate` e `UNUserNotificationCenterDelegate` não são chamados quando a notificação é processada automaticamente pela Braze.
 {% endalert %}
 
 {% alert tip %}
-Crie sua inscrição de notificação por push em `application(_:didFinishLaunchingWithOptions:)` para garantir que sua inscrição seja disparada depois que um usuário final tocar em uma notificação enquanto seu app estiver em um estado finalizado.
+Crie sua inscrição de notificação por push em `application(_:didFinishLaunchingWithOptions:)` para garantir que sua inscrição seja disparada depois que um usuário final tocar em uma notificação enquanto seu app estiver em estado encerrado.
 {% endalert %}
 
-## Manuseio de notificações em primeiro plano
+## Tratamento de notificações em primeiro plano {#handling-foreground-notifications}
 
-Por padrão, quando uma notificação por push chega enquanto seu app está em primeiro plano, o iOS não a exibe automaticamente. Para exibir notificações por push em primeiro plano e rastreá-las com a análise do Braze, chame o método `handleForegroundNotification(notification:)` dentro da sua implementação `UNUserNotificationCenterDelegate.userNotificationCenter(_:willPresent:withCompletionHandler:)`.
+Por padrão, quando uma notificação por push chega enquanto seu app está em primeiro plano, o iOS não a exibe automaticamente. Para exibir notificações por push em primeiro plano e rastreá-las com a análise de dados da Braze, chame o método `handleForegroundNotification(notification:)` dentro da sua implementação `UNUserNotificationCenterDelegate.userNotificationCenter(_:willPresent:withCompletionHandler:)`.
 
-### Como funciona?
+### Como funciona {#how-it-works}
 
-Quando você chama `handleForegroundNotification(notification:)`, o Braze processa a carga útil da notificação para registrar análises e lidar com quaisquer links profundos ou ações de botão. O comportamento real de exibição é controlado pelo `UNNotificationPresentationOptions` que você passa para o manipulador de conclusão.
+Quando você chama `handleForegroundNotification(notification:)`, a Braze processa a carga útil da notificação para registrar análise de dados e lidar com quaisquer deep links ou ações de botão. O comportamento real de exibição é controlado pelo `UNNotificationPresentationOptions` que você passa para o completion handler.
 
 ```swift
 import BrazeKit
@@ -382,7 +383,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     if let braze = AppDelegate.braze {
       braze.notifications.handleForegroundNotification(notification: notification)
     }
-    
+
     // Control how the notification appears in the foreground
     if #available(iOS 14.0, *) {
       completionHandler([.banner, .list, .sound])
@@ -393,49 +394,49 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 ```
 
-Para um exemplo completo, veja o [exemplo de integração manual de notificações por push](https://github.com/braze-inc/braze-swift-sdk/blob/e31907eaa0dbd151dc2e6826de66cc494242ba60/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift#L1-L120) no repositório do SDK Swift do Braze.
+Para um exemplo completo, veja o [exemplo de integração manual de notificações por push](https://github.com/braze-inc/braze-swift-sdk/blob/e31907eaa0dbd151dc2e6826de66cc494242ba60/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift#L1-L120) no repositório do SDK Swift da Braze.
 
 ## Push primers {#push-primers}
 
-Campanhas de push primer incentivam seus usuários a ativar notificações por push em seu dispositivo para seu app. Isso pode ser feito sem personalização de SDK usando nosso [Push Primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para o seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
 
-## Gerenciamento dinâmico de gateway APNs
+## Gerenciamento dinâmico de gateway APNs {#dynamic-apns-gateway-management}
 
-O gerenciamento dinâmico do Serviço de Notificações por Push da Apple (APNs) melhora a confiabilidade e eficiência das notificações por push do iOS, detectando automaticamente o ambiente APNs correto. Anteriormente, você selecionava manualmente os ambientes APNs (desenvolvimento ou produção) para suas notificações por push, o que às vezes levava a configurações de gateway incorretas, falhas na entrega e erros de `BadDeviceToken`.
+O gerenciamento dinâmico do gateway do serviço de Notificações por Push da Apple (APNs) melhora a confiabilidade e a eficiência das notificações por push do iOS, detectando automaticamente o ambiente APNs correto. Anteriormente, você selecionava manualmente os ambientes APNs (desenvolvimento ou produção) para suas notificações por push, o que às vezes levava a configurações de gateway incorretas, falhas na entrega e erros de `BadDeviceToken`.
 
-Com a gestão dinâmica de gateway APNs, você terá:
+Com o gerenciamento dinâmico de gateway APNs, você terá:
 
-- **Confiabilidade aprimorada:** As notificações são sempre entregues ao ambiente APNs correto, reduzindo as entregas falhadas.
+- **Confiabilidade aprimorada:** As notificações são sempre entregues ao ambiente APNs correto, reduzindo as entregas com falha.
 - **Configuração simplificada:** Você não precisa mais gerenciar manualmente as configurações do gateway APNs.
 - **Resiliência a erros:** Valores de gateway inválidos ou ausentes são tratados de forma elegante, proporcionando um serviço ininterrupto.
 
-### Pré-requisitos
+### Pré-requisitos {#prerequisites}
 
-A Braze suporta a gestão dinâmica de gateway APNs para notificações por push no iOS com o seguinte requisito de versão do SDK:
+A Braze suporta o gerenciamento dinâmico de gateway APNs para notificações por push no iOS com o seguinte requisito de versão do SDK:
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### Como funciona?
+### Como funciona {#how-it-works-1}
 
-Quando um app iOS se integra ao SDK Swift da Braze, ele envia dados relacionados ao dispositivo, incluindo [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment) para a API do SDK da Braze, se disponível. O valor `apns_gateway` indica se o app está usando o ambiente APNs de desenvolvimento (`dev`) ou produção (`prod`).
+Quando um app iOS se integra ao SDK Swift da Braze, ele envia dados relacionados ao dispositivo, incluindo [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), para a API do SDK da Braze, se disponível. O valor `apns_gateway` indica se o app está usando o ambiente APNs de desenvolvimento (`dev`) ou produção (`prod`).
 
 A Braze também armazena o valor de gateway reportado para cada dispositivo. Se um novo valor de gateway válido for recebido, a Braze atualiza automaticamente o valor armazenado.
 
 Quando a Braze envia uma notificação por push:
 
 - Se um valor de gateway válido (dev ou prod) estiver armazenado para o dispositivo, a Braze o utiliza para determinar o ambiente APNs correto.
-- Se nenhum valor de gateway estiver armazenado, a Braze usa como padrão o ambiente APNs configurado na página **Configurações do App**.
+- Se nenhum valor de gateway estiver armazenado, a Braze usa como padrão o ambiente APNs configurado na página **Configurações do app**.
 
-### Perguntas frequentes
+### Perguntas frequentes {#frequently-asked-questions}
 
-#### Por que esse recurso foi introduzido?
+#### Por que esse recurso foi introduzido? {#why-was-this-feature-introduced}
 
-Com a gestão dinâmica de gateway APNs, o ambiente correto é selecionado automaticamente. Anteriormente, você tinha que configurar manualmente o gateway APNs, o que poderia levar a erros de `BadDeviceToken`, invalidação de token e potenciais problemas de limitação de taxa do APNs.
+Com o gerenciamento dinâmico de gateway APNs, o ambiente correto é selecionado automaticamente. Anteriormente, você tinha que configurar manualmente o gateway APNs, o que poderia levar a erros de `BadDeviceToken`, invalidação de token e potenciais problemas de limite de taxa do APNs.
 
-#### Como isso impacta o desempenho da entrega de push?
+#### Como isso impacta o desempenho de entrega de push? {#how-does-this-impact-push-delivery-performance}
 
 Este recurso melhora as taxas de entrega, sempre roteando os tokens de push para o ambiente APNs correto, evitando falhas causadas por gateways mal configurados.
 
-#### Posso desativar este recurso?
+#### Posso desativar este recurso? {#can-i-disable-this-feature}
 
-A Gestão Dinâmica de Gateway APNs está ativada por padrão e oferece melhorias de confiabilidade. Se você tiver casos de uso específicos que exigem seleção manual de gateway, entre em contato com [suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+O gerenciamento dinâmico de gateway APNs está ativado por padrão e oferece melhorias de confiabilidade. Se você tiver casos de uso específicos que exigem seleção manual de gateway, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

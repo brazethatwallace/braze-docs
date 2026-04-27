@@ -205,7 +205,7 @@ $search_icon: $white;
 				&::placeholder {
 					/* Chrome, Firefox, Opera, Safari 10.1+ */
 					color: $white;
-					font-family: $braze-medium;
+					font-family: $braze-bold;
 					opacity: 1; /* Firefox */
 					bottom: -1px;
 				}
@@ -347,7 +347,7 @@ $search_icon: $white;
 
 					div {
 						&.title {
-							font-family: $braze-medium;
+							font-family: $braze-bold;
 							font-size: 14px;
 							color: $search_color;
 							line-height: 1.5;
@@ -375,7 +375,7 @@ $search_icon: $white;
 				}
 
 				.aa-dropdown-menu .aa-suggestion em {
-					font-family: $braze-medium;
+					font-family: $braze-bold;
 					color: $black-shark;
 					font-style: normal;
 				}
@@ -455,7 +455,7 @@ $search_icon: $white;
 			height: $search_footer_height;
 			font-size: 13px;
 			line-height: 50px;
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			color: $braze-purple-dark;
 			position: absolute;
 			right: 0;

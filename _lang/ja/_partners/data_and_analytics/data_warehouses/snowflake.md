@@ -2,37 +2,43 @@
 nav_title: Snowflake
 article_title: Snowflake
 alias: /partners/snowflake/
-description: "このリファレンス記事では、Braze と Snowflake のパートナーシップについて説明します。Snowflake は専用 SQL クラウドデータウェアハウスであり、お客様のすべてのデータとユーザーに対応しています。"
+description: "この記事では、Braze と Snowflake のパートナーシップについて説明します。データ共有（Braze から Snowflake）とクラウドデータ取り込み（Snowflake から Braze）の両方を取り上げます。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake
+# Snowflake
 
 > [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) は、Software-as-a-Service (SaaS) として提供される専用 SQL クラウドデータウェアハウスです。Snowflake のデータウェアハウスは、従来のデータウェアハウス製品よりも高速で使いやすく、極めて高い柔軟性を備えています。Snowflake 独自の特許取得済みアーキテクチャにより、すべてのデータを集約し、迅速な分析を可能にし、すべてのユーザーにデータドリブン型のインサイトを提供することが容易になります。
 
-パーソナライズされた関連性の高いマーケティングキャンペーンには、リアルタイムのデータアクセスが必要です。だからこそ Braze は Snowflake と提携してデータ共有を開始しました。この共同の取り組みにより、マーケターはこれまでになく迅速にカスタマーエンゲージメントとキャンペーンデータの可能性を引き出すことができます。
+Braze は Snowflake との2つの統合を提供しています。これらを組み合わせることで、Braze と Snowflake 環境間の完全な双方向データパイプラインを実現します。
 
-[Braze と Snowflake の統合](https://www.braze.com/perspectives/article/snowflake-partner-announcement)は、Snowflake のデータ交換を活用してプレゼンスを構築し、新しい顧客を見つけ、増え続ける Snowflake の顧客基盤を通じてリーチを拡大します。
+## 統合の選択
 
-{% alert tip %}
-**Snowflake アカウントがなくても Snowflake レベルのデータにアクセスできることをご存知ですか？**<br>[Snowflake Reader アカウント]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)をご覧ください。Reader アカウントでは、Braze がお客様のデータを作成してアカウントと共有し、ログインしてデータにアクセスするための認証情報を提供します。これにより、すべてのデータ共有と使用量請求は Braze が完全に処理します。
-{% endalert %}
+### データ共有（Braze から Snowflake）
 
-## データ共有とは
+Snowflake の [Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) により、Braze のエンゲージメントおよびキャンペーンデータに Snowflake インスタンスから直接、安全かつリアルタイムにアクセスできます。アカウント間でデータのコピーや転送は行われません。すべての共有は Snowflake 独自のサービスレイヤーとメタデータストアを介して行われます。
 
-Snowflake の [Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) 機能により、Braze は Snowflake ポータル上のデータへの安全なアクセスを提供します。通常のデータプロバイダーとの関係に伴うワークフローの摩擦や遅延、障害点、不必要なコストを心配する必要はありません。データ共有は、次の統合または [Snowflake Reader アカウント]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)で設定できます。
+**データ共有は次のような場合に使用します。**
+- Snowflake SQL を使用して Braze のイベントおよびキャンペーンデータをクエリする
+- 複雑なレポートを作成し、アトリビューションモデリングを実行する
+- Braze データを Snowflake ウェアハウス内の他のデータと結合する
+- チャネル、業界、デバイスプラットフォーム全体でエンゲージメントデータをベンチマークする
 
-- **インサイトまでの時間を短縮する**<br>構築に数週間かかる ETL プロセスとはお別れです。Braze と Snowflake の独自のアーキテクチャにより、すべてのカスタマーエンゲージメントとキャンペーンデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリ可能になります。データのコピーや移動は行われないため、最も関連性が高い最新の情報のみに基づいてカスタマーエクスペリエンスを提供できます。
-- **データのサイロ化を解消する**<br>チャネルやプラットフォーム全体で顧客の全体像を把握できます。データ共有により、Braze のカスタマーエンゲージメントデータを他のすべての Snowflake データと結合することがこれまで以上に容易になり、唯一の信頼できる情報源全体でより豊富なインサイトを得られます。
-- **エンゲージメントの状況を確認する**<br>Braze ベンチマークを使用して、カスタマーエンゲージメント戦略を最適化します。この Braze と Snowflake が提供するインタラクティブツールにより、ブランドのエンゲージメントデータをチャネル、業界、デバイスプラットフォーム全体のベンチマークと比較できます。
+設定手順については、[Snowflake データ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)を参照してください。
 
-データ共有では、実際のデータはアカウント間でコピーまたは転送されません。すべての共有は Snowflake 独自のサービスレイヤーとメタデータストアを介して行われます。共有データはコンシューマーアカウントのストレージを一切使用しないため、これは重要な概念です。したがって、コンシューマーの毎月のデータストレージ料金には影響しません。コンシューマーに請求されるのは、共有データをクエリするために使用されるコンピューティングリソース（仮想ウェアハウスなど）**のみ**です。
+### クラウドデータ取り込み（Snowflake から Braze）
 
-さらに、Snowflake の組み込みの役割と権限の機能を使用すると、Snowflake アカウントとアカウント内のデータに対してすでに適用されているアクセス制御を使用して、Braze から共有されるデータへのアクセスを制御および管理できます。アクセスは、お客様自身のデータと同じ方法で制限および監視できます。
+[クラウドデータ取り込み（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を使用すると、Snowflake インスタンスから Braze にデータを直接同期できます。これにより、Braze のユーザー属性、イベント、購入を、信頼できる唯一の情報源であるデータウェアハウスと常に最新の状態に保つことができます。
 
-Snowflake のデータ共有の詳細については、[安全なデータ共有の紹介](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work)を参照してください。
+**クラウドデータ取り込みは次のような場合に使用します。**
+- Snowflake から Braze のユーザープロファイルにユーザー属性を同期する
+- Snowflake から Braze にイベントまたは購入データを送信する
+- ウェアハウスで行われるデータ変換と Braze を同期させる
+- Snowflake から Braze へのカスタム ETL パイプラインの構築と保守を回避する
+
+Snowflake のデータ共有の詳細については、[Introduction to Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work) を参照してください。
 
 ## 前提条件
 
@@ -44,18 +50,18 @@ Snowflake のデータ共有の詳細については、[安全なデータ共有
 | Snowflake アカウント | `admin` の権限を持つ Snowflake アカウントが必要です。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## 安全なデータ共有の設定
+## Secure Data Sharing の設定
 
-Snowflake では、データ共有は[データプロバイダー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers)と[データコンシューマー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers)の間で行われます。このコンテキストでは、データシェアを作成して送信するため、Braze アカウントがデータプロバイダーとなります。一方、データシェアを使用してデータベースを作成するため、Snowflake アカウントがデータコンシューマーとなります。詳細は、[Snowflake: Consuming Shared Data](https://docs.snowflake.com/en/user-guide/data-share-consumers) を参照してください。
+Snowflake では、データ共有は[データプロバイダー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers)と[データ消費者](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers)の間で行われます。このコンテキストでは、データシェアを作成して送信するため、Braze アカウントがデータプロバイダーとなります。一方、データシェアを使用してデータベースを作成するため、Snowflake アカウントがデータ消費者となります。詳細については、[Snowflake: Consuming Shared Data](https://docs.snowflake.com/en/user-guide/data-share-consumers) を参照してください。
 
-### ステップ 1:Braze からデータシェアを送信する
+### ステップ 1: Braze からデータシェアを送信する
 
 1. Braze で、[**パートナー連携**] > [**データ共有**] に移動します。
 2. Snowflake アカウントの詳細とロケーターを入力します。アカウントロケーターを取得するには、送信先アカウントで `SELECT CURRENT_ACCOUNT()` を実行します。
 3. CRR 共有をご利用の場合は、クラウドプロバイダーとリージョンを指定してください。
 4. 完了したら、[**データ共有を作成**] を選択します。これでデータシェアが Snowflake アカウントに送信されます。
 
-### ステップ 2:Snowflake でデータベースを作成する
+### ステップ 2: Snowflake でデータベースを作成する
 
 1. 数分後に、Snowflake アカウントでインバウンドデータシェアを受信します。
 2. インバウンドデータシェアを使用して、テーブルを表示しクエリするためのデータベースを作成します。以下に例を示します。
@@ -136,8 +142,20 @@ Snowflake の履歴イベントデータのアーカイブは2019年4月まで�
 
 {% multi_lang_include partners/snowflake_pii_gdpr.md %}
 
+### 共有データのクエリ: `TIME` とクエリパフォーマンス
+
+データ共有ビュー（例: `USERS_BEHAVIORS_CUSTOMEVENT_SHARED`）のイベントデータは、**`TIME` フィールドでクラスタリングされています**。**イベントが発生した時刻**でフィルタリングする場合は、**`TIME`** を優先フィルターとして使用してください。**`TIME`** で行を制限するクエリは、**`SF_CREATED_AT`** でフィルタリングするクエリよりも一般的に**パフォーマンスが高くなります**。これは、クラスタリングがイベント時刻に基づいているためです。
+
+| フィールド | 意味 |
+| ----- | ------- |
+| `TIME` | イベントが発生した Unix タイムスタンプです。発生時刻でフィルタリングする場合はこちらを使用してください。 |
+| `SF_CREATED_AT` | 行が Snowflake に読み込まれたタイムスタンプ（取り込み時刻）です。 |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
 ### スピード、パフォーマンス、クエリのコスト
 
 データに対して実行されるクエリの速度、パフォーマンス、およびコストは、データのクエリに使用するウェアハウスのサイズによって決まります。場合によっては、分析のためにアクセスしているデータ量に応じて、クエリを成功させるためにより大きなウェアハウスサイズを使用する必要があるかもしれません。Snowflake には、[ウェアハウスの概要](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html)や[ウェアハウスの考慮事項](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)など、どのサイズを使用するかを最適に判断する方法に関する優れたリソースが用意されています。
 
-> Snowflake の設定時に参照できるサンプルクエリセットについては、[サンプルクエリ]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/snowflake/sample_queries/)および [ETL イベントパイプライン設定]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/snowflake/etl_pipline_setup/)の例をご確認ください。
+> Snowflake の設定時に参照できるサンプルクエリセットについては、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/)および [ETL イベントパイプライン設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/)の例をご確認ください。
+
+設定手順については、[クラウドデータ取り込み: データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照してください。

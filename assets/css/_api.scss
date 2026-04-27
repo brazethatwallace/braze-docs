@@ -34,7 +34,7 @@
   }
   h1 {
     color: $black-shark;
-    font-family: $braze-medium;
+    font-family: $braze-bold;
     margin-top: 40px;
   }
   #breadcrumb {
@@ -139,7 +139,7 @@
       border-radius: 10px;
       margin-bottom: 15px;
       .method {
-        font-family: $braze-medium;
+        font-family: $braze-bold;
         font-size: 14px;
         text-transform: uppercase;
         color: #ffffff;
@@ -164,7 +164,7 @@
         margin-right: 15px;
       }
       .coreclass {
-        font-family: $braze-medium;
+        font-family: $braze-bold;
         text-transform: uppercase;
         color: #ffffff;
         border-radius: 10px;
@@ -198,7 +198,7 @@
       border-style: solid;
     }
     a {
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       display: inline;
       color: $black-shark;
       font-weight: 700;
@@ -227,7 +227,7 @@
       display: inline-block;
       border-radius: 10px;
       margin: 0px 10px 15px 0;
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       padding: 5px 10px;
       font-size: 12px;
       color: $black-shark;

@@ -18,7 +18,7 @@ If you're switching between cloud storage providers, contact your Braze customer
 
 The Braze and Amazon S3 integration features two integration strategies:
 
-- Leverage [Currents]({{site.baseurl}}/user_guide/data/braze_currents/), enabling you to store data there until you want to connect it to other platforms, tools, and locations.
+- Leverage [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), enabling you to store data there until you want to connect it to other platforms, tools, and locations.
 - Use dashboard data exports (such as CSV exports and engagement reports).
 
 ## Prerequisites
@@ -47,7 +47,7 @@ Currents does not support buckets with [Object Lock](https://docs.aws.amazon.com
 
 ## Integration
 
-Braze has two different integration strategies with Amazon S3—one for [Braze Currents]({{site.baseurl}}/user_guide/data/braze_currents/) and one for all dashboard data exports (such as CSV exports or engagement reports). Both integrations support two different authentication or authorization methods:
+Braze has two different integration strategies with Amazon S3—one for [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) and one for all dashboard data exports (such as CSV exports or engagement reports). Both integrations support two different authentication or authorization methods:
 
 - [AWS secret access key method](#aws-secret-key-auth-method)
 - [AWS role ARN method](#aws-role-arn-auth-method)
@@ -312,7 +312,7 @@ You can also add the following customization based on your needs:
 Select **Launch Current** to continue. A notification indicates if your credentials have been successfully validated. AWS S3 is now set up for Braze Currents.
 
 {% alert important %}
-If you receive an "S3 credentials are invalid" error, this may be due to integrating too quickly after creating a role in AWS. Wait and try again. 
+If you receive an "S3 credentials are invalid" error, this may be due to integrating too quickly after creating a role in AWS. Wait and try again. If the message mentions `PutObject` access or server-side encryption on dashboard data exports, see [Troubleshooting S3 credential errors](#troubleshooting).
 {% endalert %}
 
 {% endtab %}
@@ -352,4 +352,35 @@ If you intend to create more than one Currents connector to send to your S3 buck
 
 If you plan on using the same S3 bucket for both Currents and data exports, you need to create two separate policies as each integration requires different permissions.
 
+## Troubleshooting
+
+### Error: Account does not have `PutObject` access
+
+If you see the following error when saving Amazon S3 credentials for dashboard data exports, it may be due to incorrect permissions or server-side encryption settings.
+
+```
+S3 Credentials are invalid because this account does not have 'PutObject access'. Please check the permissions and ensure that this key has access to 'PutObject' in the 'CUSTOMER-BUCKET-HERE' bucket.
+```
+
+To resolve this issue, check the following areas.
+
+#### Incorrect bucket policy
+
+Confirm that you created a policy with the correct permissions as outlined in [Amazon S3 integration](#integration) (use the **Dashboard Data Export** policy for your authentication method).
+
+#### Server-side encryption
+
+```
+User: arn:aws:sts::XXX:assumed-role/braze-iam-role/braze is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:XXX because no identity-based policy allows the kms:GenerateDataKey action
+```
+
+If you receive this error message from [Braze Support]({{site.baseurl}}/braze_support/) or in your AWS logs, your S3 bucket is configured with AWS Key Management Service (SSE-KMS) encryption. Braze does not support SSE-KMS for Currents or dashboard data exports. To resolve this, disable SSE-KMS in your S3 bucket.
+
+{% alert note %}
+Braze supports server-side encryption using S3 managed keys (SSE-S3), which is compatible with both Currents and dashboard data exports.
+{% endalert %}
+
+#### Check additional permissions
+
+Make sure you have the necessary permissions, including `s3:GetBucketLocation` and `s3:PutObject`.
 
