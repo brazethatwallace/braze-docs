@@ -481,6 +481,11 @@ the label to match the sentence while preserving each \
 `]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
 `metrics_glossary`, use **Glossaire des indicateurs de rapport** (not \
 *d'indicateurs*) when that row exists (auto-translate PR #13341).
+18. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
+uses `{#…}`, keep the **`?`** before the brace when English does. French—fix \
+mid-sentence **Décision**-style caps on common nouns (*décision*). \
+Japanese—use **Canvasステップ** consistently with other **Canvas** tokens on \
+the page, not **キャンバスステップ** (auto-translate PR #13346).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\

@@ -5,7 +5,7 @@ page_order: 1
 description: "Braze Agents können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, damit Sie personalisiertere Kundenerlebnisse bieten können."
 ---
 
-# Braze Agents in der Agentenkonsole
+# Braze Agents in der Agentenkonsole {#braze-agents-in-agent-console}
 
 > Braze Agents sind KI-gestützte Assistenten, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, damit Sie personalisiertere Kundenerlebnisse bieten können.
 
@@ -17,7 +17,7 @@ Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Ag
 
 {% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
 
-## Warum sollten Sie Braze Agents einsetzen?
+## Warum sollten Sie Braze Agents einsetzen? {#why-use-braze-agents}
 
 Braze Agents unterstützen Ihr Team dabei, intelligentere und personalisiertere Erlebnisse zu bieten – ohne zusätzlichen Arbeitsaufwand. Sie agieren als autonome Agenten, die nicht nur auf Eingaben reagieren, sondern auch den Kontext verstehen, Entscheidungen treffen und Maßnahmen ergreifen, um ein Ziel zu erreichen.
 
@@ -25,7 +25,7 @@ In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Bet
 
 Über das Messaging hinaus können Agenten Ihre Kataloge bereichern, indem sie Produkt- und Profilfeldwerte berechnen oder generieren und so Ihre Daten aktuell und dynamisch halten. Durch die Übernahme repetitiver oder komplexer Aufgaben ermöglichen sie Ihrem Team, sich auf Strategie und Kreativität zu konzentrieren, anstatt sich mit manuellem Setup zu befassen. Braze Agents agieren eher als Kooperationspartner denn als Hintergrundprozesse – sie unterstützen Sie bei der Lösung von Problemen und erzielen Wirkung in großem Maßstab.
 
-### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden?
+### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden? {#when-to-use-braze-agents-versus-other-brazeai-features}
 
 Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:in in Echtzeit zu personalisieren. Wenn ein Agent beispielsweise weiß, dass die bevorzugte Eissorte einer bestimmten Nutzer:in Schokolade ist und das bevorzugte Topping Gummibärchen sind, kann er eine Push-Nachricht erstellen, die speziell auf diese Kombination für diese Nutzer:in zugeschnitten ist, während sie den Canvas durchläuft.
 
@@ -37,16 +37,16 @@ Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen geme
 
 Zu den Features von Braze Agents gehören:
 
-- **Flexible Einrichtung:** Verwenden Sie ein von Braze bereitgestelltes LLM oder verbinden Sie Ihre eigenen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers) (wie OpenAI, Anthropic oder Google Gemini).
+- **Flexible Einrichtung:** Verwenden Sie ein von Braze bereitgestelltes LLM oder verbinden Sie Ihre eigenen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/) (wie OpenAI, Anthropic oder Google Gemini).
 - **Nahtlose Integration:** Setzen Sie Agenten direkt in Canvas-Schritten oder Katalogfeldern ein.
 - **Test- und Protokollierungstools:** Erhalten Sie eine Vorschau auf die Ausgabe Ihres Agenten, indem Sie ihn vor dem Start mit Beispiel-Eingaben testen. Sehen Sie sich die Protokolle für jeden Ausführungsvorgang des Agenten an, einschließlich der Ein- und Ausgaben für diesen Vorgang.
 - **Nutzungskontrollen:** Tägliche Limits unterstützen bei der Verwaltung von Performance und Kosten.
 
-## Über Braze Agents
+## Über Braze Agents {#about-braze-agents}
 
 Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten definieren. Wenn ein Agent ausgeführt wird, verwendet er Ihre Anweisungen zusammen mit den von Ihnen übermittelten Daten, um eine Antwort zu generieren. Sie können nicht auf Nutzerdaten zugreifen, die über den ausgewählten Kontext und die Anweisungen hinausgehen.
 
-### Wichtige Konzepte
+### Wichtige Konzepte {#key-concepts}
 
 | Begriff | Definition |
 | --- | --- |
@@ -60,7 +60,7 @@ Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten 
 | [Temperatur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Der Grad der Abweichung für die Ausgabe des Agenten. Dies bestimmt, wie präzise oder kreativ Ihr Agent sein kann. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Einschränkungen
+## Einschränkungen {#limitations}
 
 Es gelten die folgenden Einschränkungen:
 
@@ -69,13 +69,13 @@ Es gelten die folgenden Einschränkungen:
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung haben, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 - Die Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden gekürzt.
 
-## Wie werden meine Daten verwendet und an die von Braze bereitgestellten LLMs übermittelt?
+## Wie werden meine Daten verwendet und an die von Braze bereitgestellten LLMs übermittelt? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 
 Um KI-Ausgaben über die Braze-KI-Features zu generieren, die Braze als Nutzung der von Braze bereitgestellten LLMs identifiziert („Ausgabe“), übermittelt Braze Ihren System-Prompt oder gegebenenfalls andere Eingaben („Eingabe“) an das von Braze bereitgestellte LLM. Die an das entsprechende von Braze bereitgestellte LLM gesendeten Daten werden nicht zum Trainieren oder Verbessern des von Braze bereitgestellten LLM verwendet. Zwischen Ihnen und Braze ist die Ausgabe Ihr geistiges Eigentum. Braze erhebt keine Urheberrechtsansprüche auf solche Ausgaben. Braze übernimmt keinerlei Garantie in Bezug auf KI-generierte Inhalte im Allgemeinen, einschließlich der Ausgabe.
 
 Das von Braze bereitgestellte LLM für Braze Agents, gekennzeichnet als „Auto“, nutzt Google Gemini-Modelle. Google speichert die über Braze übermittelten Eingaben und Ausgaben für 55 Tage, danach werden die Daten gelöscht.
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
 Nachdem Sie nun über Braze Agents informiert sind, können Sie mit den nächsten Schritten fortfahren:
 
