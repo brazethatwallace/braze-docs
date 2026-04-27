@@ -8,13 +8,13 @@ alias: /shopify_data_features/
 page_order: 4
 ---
 
-# Shopify 데이터 기능
+# Shopify 데이터 기능 {#shopify-data-features}
 
 > 이 문서에서는 추적되는 Shopify 데이터와 예시 페이로드, 과거 데이터 백필, 제품 동기화를 포함한 Shopify 기능에 대한 개요를 제공합니다.
 
-## 추적되는 Shopify 이벤트
+## 추적되는 Shopify 이벤트 {#tracked-shopify-events}
 
-Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/custom_data/recommended_events/ecommerce_events/)를 사용하여 주요 쇼핑 동작을 캡처합니다. 이러한 이벤트를 활용한 구현 사례 및 마케팅 전략은 [이커머스 활용 사례]({{site.baseurl}}/user_guide/engagement_tools/canvas/ideas_and_strategies/ecommerce_use_cases/)를 참조하세요.
+Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)를 사용하여 주요 쇼핑 동작을 캡처합니다. 이러한 이벤트를 활용한 구현 사례 및 마케팅 전략은 [이커머스 활용 사례]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)를 참조하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -81,6 +81,9 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
     "properties": {
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "products": [
             {
@@ -113,6 +116,9 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
         "order_id": "820982911946154508",
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -131,7 +137,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -331,6 +337,9 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
         "order_id": "820982911946154508",
         "cancel_reason": "no longer necessary",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -349,7 +358,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -385,7 +394,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
 		"order_note": "item was broken"
         }
     }
-} 
+}
 ```
 {% endsubtab %}
 {% subtab Account login %}
@@ -434,7 +443,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
 **데이터 소스**: Braze SDK<br>
 **활용 사례**: 장바구니 유기
 
-유기한 장바구니 캔버스의 경우, 먼저 메시지에서 장바구니 컨텍스트를 얻기 위해 초기 장바구니 Liquid 태그를 추가해야 합니다.
+유기한 장바구니 Canvas의 경우, 먼저 메시지에서 장바구니 컨텍스트를 얻기 위해 초기 장바구니 Liquid 태그를 추가해야 합니다.
 
 {% raw %}
 ```liquid
@@ -464,7 +473,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
 {% endraw %}
 
 {% alert tip %}
-Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 추가하는 방법에 대한 자세한 내용은 [이메일용 유기한 장바구니 제품 개인화]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart)를 참조하세요. 
+Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 추가하는 방법에 대한 자세한 내용은 [이메일용 유기한 장바구니 제품 개인화]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart)를 참조하세요.
 {% endalert %}
 
 {% endsubtab %}
@@ -479,7 +488,7 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 고객이 Shop Pay를 빠른 결제 옵션으로 사용하는 경우, Shopify가 특정 표준 결제 이벤트(예: Shopify 결제 시작 웹훅)를 건너뛸 수 있습니다. 이 경우 Braze가 결제 토큰 별칭을 추가하는 데 필요한 데이터를 수신하지 못할 수 있으며, 결제 이탈 추적 및 고객 프로필 조정에 영향을 줄 수 있습니다.
 {% endalert %}
 
-결제 이탈 캔버스의 경우, 먼저 다음 Liquid 태그를 사용해야 합니다:
+결제 이탈 Canvas의 경우, 먼저 다음 Liquid 태그를 사용해야 합니다:
 
 {% raw %}
 ```liquid
@@ -515,7 +524,7 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자가 결제 프로세스를 성공적으로 완료하고 주문할 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: 주문 확인, 구매 후 리타겟팅, 업셀 또는 크로스셀 
+**활용 사례**: 주문 확인, 구매 후 리타겟팅, 업셀 또는 크로스셀
 
 {% raw %}
 | 변수                | Liquid 템플릿                                   |
@@ -539,16 +548,16 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 {% endraw %}
 
 {% alert tip %}
-Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함되지 않습니다. 따라서 [이메일용 주문 확인 및 피드백 설문조사]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)에서 언급된 카탈로그 Liquid 개인화를 사용해야 합니다. 
+Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함되지 않습니다. 따라서 [이메일용 주문 확인 및 피드백 설문조사]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)에서 언급된 카탈로그 Liquid 개인화를 사용해야 합니다.
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **이벤트**: `shopify_fulfilled_order`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **트리거 조건**: 사용자의 주문이 이행되어 배송 준비가 완료될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 이행 업데이트 
+**활용 사례**: (트랜잭션) 이행 업데이트
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -596,10 +605,10 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **이벤트**: `shopify_partially_fulfilled_order`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
-**트리거 조건**: 사용자 주문의 일부가 이행되어 배송 준비가 완료될 때<br> 
+**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**트리거 조건**: 사용자 주문의 일부가 이행되어 배송 준비가 완료될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 이행 업데이트 
+**활용 사례**: (트랜잭션) 이행 업데이트
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -647,7 +656,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endsubtab %}
 {% subtab Paid order %}
 **이벤트**: `shopify_paid_order`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **트리거 조건**: Shopify에서 사용자의 주문이 결제 완료로 표시될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 결제 확인
@@ -681,8 +690,8 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endsubtab %}
 {% subtab Order cancelled %}
 **이벤트**: `shopify_cancelled_order`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
-**트리거 조건**: 사용자의 주문이 취소될 때<br> 
+**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**트리거 조건**: 사용자의 주문이 취소될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 주문 취소 확인
 
@@ -717,7 +726,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endsubtab %}
 {% subtab Order refunded %}
 **이벤트**: `shopify_order_refunded`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **트리거 조건**: 사용자의 주문이 환불될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 환불 확인
@@ -744,7 +753,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% subtab Account login %}
 
 **이벤트**: `shopify_account_login`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **트리거 조건**: 사용자가 계정에 로그인할 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: 웰컴 시리즈
@@ -757,7 +766,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endraw %}
 
 {% alert note %}
-Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events) 채우기를 지원하지 않습니다. 따라서 구매 필터, Liquid 태그, 액션 기반 트리거 및 분석에는 `ecommerce.order_placed` 이벤트를 사용해야 합니다. 
+Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events) 채우기를 지원하지 않습니다. 따라서 구매 필터, Liquid 태그, 액션 기반 트리거 및 분석에는 `ecommerce.order_placed` 이벤트를 사용해야 합니다.
 {% endalert %}
 
 {% endsubtab %}
@@ -765,7 +774,7 @@ Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/da
 {% endtab %}
 {% endtabs %}
 
-## 지원되는 Shopify 커스텀 속성
+## 지원되는 Shopify 커스텀 속성 {#supported-shopify-custom-attributes}
 
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
@@ -811,7 +820,7 @@ Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/da
 이 페이지는 Shopify에서 이 문제를 해결한 후에 업데이트됩니다.
 {% endalert %}
 
-### Liquid 개인화
+### Liquid 개인화 {#liquid-personalization}
 
 Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **Custom Attributes**를 선택합니다.
 
@@ -823,7 +832,7 @@ Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Perso
 {% endtab %}
 {% endtabs %}
 
-## 지원되는 Shopify 표준 속성
+## 지원되는 Shopify 표준 속성 {#supported-shopify-standard-attributes}
 
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
@@ -838,32 +847,32 @@ Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Perso
 Braze는 기존 고객 프로필의 데이터와 차이가 있는 경우에만 지원되는 Shopify 커스텀 속성 및 Braze 표준 속성을 업데이트합니다. 예를 들어, 수신된 Shopify 데이터에 이름이 Bob으로 포함되어 있고 Braze 고객 프로필에 이미 Bob이 이름으로 존재하는 경우, Braze는 업데이트를 트리거하지 않으며 데이터 포인트가 차감되지 않습니다.
 {% endalert %}
 
-## SDK 데이터 수집 
+## SDK 데이터 수집 {#sdk-data-collection}
 
-Braze SDK가 수집하는 데이터에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/)을 참조하세요. 
+Braze SDK가 수집하는 데이터에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
 
-## 과거 데이터 백필
+## 과거 데이터 백필 {#historical-backfill}
 
 Shopify 스토어 온보딩 중에 과거 데이터 백필을 통해 초기 데이터 동기화를 시작하여 고객과 즉시 소통할 수 있습니다. 이 백필의 일환으로 Braze는 Shopify 통합 연결 이전 최근 90일간의 모든 고객 및 주문 완료 이벤트에 대한 초기 데이터 동기화를 실행합니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
 
 {% alert note %}
-커스텀 외부 ID로 통합할 계획인 경우([표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) 또는 [커스텀 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional) 모두 해당), 모든 기존 Shopify 고객 프로필에 커스텀 외부 ID를 Shopify 고객 메타필드로 추가한 후 과거 데이터 백필을 수행해야 합니다. 
+커스텀 외부 ID로 통합할 계획인 경우([표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) 또는 [커스텀 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional) 모두 해당), 모든 기존 Shopify 고객 프로필에 커스텀 외부 ID를 Shopify 고객 메타필드로 추가한 후 과거 데이터 백필을 수행해야 합니다.
 {% endalert %}
 
 동기화된 주문 이벤트 데이터는 세분화에 사용할 수 있지만, 매출 데이터 자체는 고객 프로필이나 [매출 - 라스트 터치 기여도 대시보드]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution)에 채워지지 않습니다.
 
-### Shopify 과거 데이터 백필 설정
+### Shopify 과거 데이터 백필 설정 {#setting-up-shopify-historical-backfill}
 
 1. **Shopify 데이터 추적** 단계에서 과거 데이터 백필을 켭니다.
 
-![과거 데이터 백필이 선택된 Shopify 통합의 "Shopify 데이터 추적" 단계.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![과거 데이터 백필이 선택된 Shopify 통합의 'Shopify 데이터 추적' 단계.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
-2. 통합 설정을 완료하면 Braze가 초기 데이터 동기화를 시작합니다. 통합 설정의 **Shopify Data** 탭에서 진행 상황을 모니터링할 수 있습니다. 
+2. 통합 설정을 완료하면 Braze가 초기 데이터 동기화를 시작합니다. 통합 설정의 **Shopify Data** 탭에서 진행 상황을 모니터링할 수 있습니다.
 
 ![이벤트가 활발하게 동기화 중임을 나타내는 스피너가 있는 Shopify 통합 설정 페이지.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
 
-### 동기화된 데이터 
+### 동기화된 데이터 {#synced-data}
 
 초기 데이터 동기화에서 Braze는 Shopify 통합 연결 이전 최근 90일간의 고객 및 주문 완료 데이터를 가져옵니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
