@@ -4,7 +4,7 @@ article_title: "A/B 테스트"
 page_order: 6
 layout: dev_guide
 guide_top_header: "A/B 테스트"
-guide_top_text: "실험을 통해 메시징을 최적화하세요. A/B 테스트는 동일한 Campaign의 여러 버전에 대한 사용자 응답을 비교하며, 다변량 테스트는 이를 두 개 이상의 변수로 확장합니다. Braze에서는 설정 과정이 동일하기 때문에 두 용어를 같은 의미로 사용합니다. A/B 테스트와 <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>지능형 선택</a>을 함께 사용하여 결과를 자동으로 최적화하세요."
+guide_top_text: "실험을 통해 메시징을 최적화하세요. A/B 테스트는 동일한 Campaign(캠페인)의 여러 버전에 대한 사용자 응답을 비교하며, 다변량 테스트는 이를 두 개 이상의 변수로 확장합니다. Braze에서는 설정 과정이 동일하기 때문에 두 용어를 같은 의미로 사용합니다. A/B 테스트와 <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>지능형 선택</a>을 함께 사용하여 결과를 자동으로 최적화하세요."
 
 page_type: landing
 description: "Braze에서 A/B 테스트 및 다변량 실험을 설정하고 분석하세요."
