@@ -47,7 +47,7 @@ yarn add @braze/react-native-sdk
 
 #### 방법 1: Expo 플러그인 사용 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expo 플러그인 설치 {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
+##### 2.1 Braze Expo 플러그인 설치 {#21-install-the-braze-expo-plugin}
 
 Braze Expo 플러그인 버전이 4.1.0 이상인지 확인하세요. 지원되는 버전의 전체 목록은 [Braze Expo 플러그인 리포지토리](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)를 참조하세요.
 
@@ -57,7 +57,7 @@ Braze Expo 플러그인 버전이 4.1.0 이상인지 확인하세요. 지원되�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.json에 플러그인 추가 {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
+##### 2.2 app.json에 플러그인 추가 {#22-add-the-plugin-to-your-appjson}
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. API 키와 엔드포인트는 더 이상 여기에서 설정하지 않습니다. JavaScript에서 `Braze.initialize()`를 통해 런타임에 제공하세요. 구현 요구 사항에 따라 다음 선택적 구성 매개변수를 추가하세요:
 
@@ -175,7 +175,7 @@ Braze Expo 플러그인은 Android `drawable` 디렉토리에서 아이콘 파�
 
 Android 알림 아이콘에 대한 자세한 내용은 [Android의 알림 아이콘 가이드라인](https://developer.android.com/develop/ui/views/notifications#icon)을 참조하세요.
 
-##### 2.3 애플리케이션 빌드 및 실행 {#23-build-and-run-your-application} {#23-build-and-run-your-application}
+##### 2.3 애플리케이션 빌드 및 실행 {#23-build-and-run-your-application}
 
 애플리케이션을 프리빌드하면 Braze Expo 플러그인이 작동하는 데 필요한 네이티브 파일이 생성됩니다.
 

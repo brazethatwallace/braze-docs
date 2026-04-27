@@ -47,7 +47,7 @@ Choisissez une méthode de configuration dans chaque onglet de version : plugin 
 
 #### Méthode 1 : Utiliser le plugin Expo {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Installer le plugin Braze Expo {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
+##### 2.1 Installer le plugin Braze Expo {#21-install-the-braze-expo-plugin}
 
 Assurez-vous que votre version du plugin Braze Expo est au minimum 4.1.0. Pour obtenir la liste complète des versions prises en charge, consultez le [dépôt du plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support).
 
@@ -57,7 +57,7 @@ L'extrait de code suivant montre la commande pour installer le plugin Braze Expo
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 Ajouter le plugin à votre app.json {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
+##### 2.2 Ajouter le plugin à votre app.json {#22-add-the-plugin-to-your-appjson}
 
 Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint ne sont plus définis ici. Fournissez-les au moment de l'exécution via `Braze.initialize()` depuis JavaScript. Ajoutez les paramètres de configuration facultatifs suivants en fonction des besoins de votre implémentation :
 
@@ -175,7 +175,7 @@ Le plugin Braze Expo fait référence à vos fichiers d'icônes depuis les répe
 
 Pour plus d'informations sur les icônes de notification Android, consultez les [directives relatives aux icônes de notification Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### 2.3 Compiler et exécuter votre application {#23-build-and-run-your-application} {#23-build-and-run-your-application}
+##### 2.3 Compiler et exécuter votre application {#23-build-and-run-your-application}
 
 La précompilation de votre application génère les fichiers natifs nécessaires au fonctionnement du plugin Braze Expo.
 
