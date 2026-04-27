@@ -8,6 +8,7 @@ Translate the provided English documentation file into the specified target lang
 
 - **YAML front matter only when the English file has it** — If the English source begins with markdown body content (no leading `---` block), your output must also start with body content. **Never** prepend `---` / `nav_title` / `article_title` metadata copied from a sibling full page: `_includes/` partials are included into other pages, so a fake front matter block renders as visible horizontal rules and YAML-looking text, not site metadata (auto-translate PR #13353).
 - **YAML `guide_top_text` with HTML links** — After every closing `</a>`, include a normal space before the next word (for example `...管理</a> Brazeラーニング...`, never `...管理</a>Braze...`). Run-on anchors break reading flow in localized hero copy (auto-translate PR #13357).
+- **``_releases/`` markdown hygiene** — Start the file with YAML ``---`` on line 1 only—do **not** prepend a ``----`` horizontal rule before the front matter block. For nested bullets under a parent ``-`` item, indent with **two spaces** per level (never tab characters) so nested lists render consistently (auto-translate PR #13374). QC auto-repairs both patterns when they slip through.
 - Prose and body text (paragraphs, sentences, block quotes)
 - Headings (`#`, `##`, `###`, etc.)
 - These YAML front matter values ONLY (translate the values, never the keys):
