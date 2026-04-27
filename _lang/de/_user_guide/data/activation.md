@@ -34,7 +34,7 @@ guide_featured_list:
 
 guide_menu_title: "Weitere Artikel"
 guide_menu_list:
-  - name: Glossar der Berichtsmetriken
+  - name: Glossar der Metriken für Berichte
     link: /docs/user_guide/analytics/metrics_glossary
     image: /assets/img/braze_icons/book-closed.svg
   - name: Analytics

@@ -458,7 +458,7 @@ the locale's chosen “winning variant” term consistent across headings, prose
 tables, and image alts.
 14. **Heading punctuation parity**: Do not introduce trailing punctuation on \
 localized headings when the English heading line has none.
-11. **German data and permissions copy**: For German, fix false-friend \
+15. **German data and permissions copy**: For German, fix false-friend \
 *Veranstaltung*/*Veranstaltungen* used for analytics *events* (use *Ereignis* \
 or *Event* per the page). Fix Denglisch plural tokens such as *Segments* or \
 *Campaigns* inside German clauses—use *Segmente*/*Kampagnen* or keep full \
@@ -466,6 +466,12 @@ English labels consistently. Long ``{% details %}`` permission lists that \
 mirror ``- View …`` / ``- Edit …`` in English should use established German \
 permission wording (e.g. *Kampagnen anzeigen*), not verbatim English bullets \
 (auto-translate PR #13340).
+16. **Landing hero `guide_top_text` links**: If bracket link text is still raw \
+English **Segments** (or similar) inside otherwise localized prose, localize \
+the label to match the sentence while preserving each \
+`]({{site.baseurl}}/…)` URL. For **`fr_fr`** `guide_menu_list` entries to \
+`metrics_glossary`, use **Glossaire des indicateurs de rapport** (not \
+*d'indicateurs*) when that row exists (auto-translate PR #13341).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
