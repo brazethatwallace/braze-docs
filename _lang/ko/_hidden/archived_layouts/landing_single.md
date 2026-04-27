@@ -54,7 +54,7 @@ guide_featured_list:
 
 ---
 
-## Extra
+## 추가 콘텐츠 {#extra}
 
 원하시면 하단에 추가 콘텐츠를 넣을 수 있습니다. 하단에 줄 바꿈을 넣어야 합니다. 여기에 참고 자료를 추가하지 마세요. [참조 템플릿을 사용하세요]({{site.baseurl}}/contributing/content_types/#references).
 

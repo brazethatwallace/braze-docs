@@ -1,6 +1,6 @@
 ---
-nav_title: Lagerung
-article_title: Lagerung
+nav_title: Speicher
+article_title: Speicher
 page_order: 3.60
 page_type: reference
 description: "Erfahren Sie mehr über die verschiedenen Eigenschaften auf Geräteebene, die vom Braze SDK gespeichert werden."
@@ -11,7 +11,7 @@ platform:
   - Web
 ---
 
-# Lagerung {#storage}
+# Speicher {#storage}
 
 > Erfahren Sie mehr über die verschiedenen Eigenschaften auf Geräteebene, die vom Braze SDK gespeichert werden.
 
