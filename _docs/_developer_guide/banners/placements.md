@@ -682,7 +682,7 @@ If your Banner uses the **Custom Code** editor block, you can trigger a dismissa
 
 ### Log custom analytics on banner dismissal
 
-To run additional logic such as logging custom analytics upon dismising a banner, override the optional `onDismiss` callback on your banner view. By default, this callback is empty.
+To run additional logic such as logging custom analytics upon dismissing a banner, override the optional `onDismiss` callback on your banner view. By default, this callback is empty.
 
 {% tabs %}
 {% tab Web %}
