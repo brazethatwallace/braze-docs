@@ -486,7 +486,14 @@ the label to match the sentence while preserving each \
 (for example Japanese *運用Campaigns* or German *operative Campaigns*). Use \
 a single localized phrase (*運用キャンペーン*, *operative Kampagnen*, etc.) \
 per that locale's hub pages (auto-translate PR #13348).
-19. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
+19. **B2B use-case walkthroughs** (`_user_guide/get_started/b2b_use_cases/`): \
+Align bold Canvas/webhook step labels with that locale's Canvas docs (not raw \
+US English alone in DE/ES/FR/JA/KO/pt-BR). Use localized **campaign** nouns \
+(*campaña*, *Kampagne*, *캠페인*, *キャンペーン*, …) and **segment** wording \
+for extension UI where sibling pages do—fix mixed **Campaign**/**Segment** \
+English drift in procedures. **French** `nav_title`: keep accents (**Évaluation**). \
+(auto-translate PR #13347).
+20. **Braze agents hub (`agents.md`) polish**: German—if a question `###` line \
 uses `{#…}`, keep the **`?`** before the brace when English does. French—fix \
 mid-sentence **Décision**-style caps on common nouns (*décision*). \
 Japanese—use **Canvasステップ** consistently with other **Canvas** tokens on \
