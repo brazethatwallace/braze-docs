@@ -131,6 +131,12 @@ Common UI terms (buttons, menus, navigation labels) may be translated according 
 - **Internal doc links**: Keep product names per the glossary (**Canvas** stays English). In the same markdown **link anchor**, translate ordinary words that are not fixed product tokens—e.g. use **Campañas** / **Campagnes** in “Getting started: … and Canvas” style anchors when the surrounding sentence is localized; do not leave raw English *Campaigns* inside an otherwise Spanish or French phrase.
 - **German image alts**: Use the full German pair `„` … `“` inside `![…](…)` alt text (see style guide). Do not close a `„` phrase with a straight ASCII `"` before words like *als ausgewähltem*.
 
+### A/B testing landing (`_user_guide/messaging/ab_testing.md`)
+
+- **`nav_title` parity with sibling config**: Keep `nav_title` exactly aligned with the locale's existing `_partners/data_and_analytics/ab_testing.md` value (same wording and quoting style) to avoid navigation drift.
+- **Campaign token readability in CJK prose**: When glossary/QC requires English **Campaign** / **Campaigns** in Japanese or Korean running prose, introduce a local gloss on first mention (for example `Campaign(キャンペーン)` or `Campaign(캠페인)`) and then keep usage consistent in that section.
+- **pt-BR sentence case for common nouns**: In Portuguese running prose, keep generic mentions in sentence case (for example `testes A/B` inside a sentence, not `Testes A/B`) unless the phrase is a heading or official UI label.
+
 ### A/B testing docs (`_user_guide/messaging/ab_testing/`)
 
 - **Variant terminology must stay “variant”**: In optimization and analytics pages, translate *variant* with the locale's established equivalent (for example German *Variante*, French *variante*, Korean *배리언트*). Do **not** switch to words meaning *variable* (for example Korean *변수*) in this context.
