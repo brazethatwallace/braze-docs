@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Cet article pratique vous explique comment configurer le ciblage par localisation, vous permettant de segmenter les utilisateurs par emplacement."
+description: "Cet article explique comment les extensions de segments CDI s'appuient sur l'ingestion de données cloud pour interroger votre entrepôt de données et définir des audiences dans Braze."
 
 ---
 

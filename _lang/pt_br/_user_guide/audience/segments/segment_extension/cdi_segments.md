@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Este artigo de instruções mostra como configurar o direcionamento por local, permitindo segmentar usuários por localização."
+description: "Este artigo explica como as extensões de segmento CDI usam a ingestão de dados na nuvem para consultar seu data warehouse e definir públicos na Braze."
 
 ---
 

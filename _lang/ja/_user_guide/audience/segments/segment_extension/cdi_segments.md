@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "このハウツー記事では、ロケーションターゲティングの設定方法を説明し、ロケーションによるユーザーのセグメンテーションを行う方法を紹介します。"
+description: "この記事では、クラウドデータ取り込み（CDI）を使った CDI セグメントエクステンションについて、データウェアハウスへのクエリと Braze でのオーディエンス定義の方法を説明します。"
 
 ---
 

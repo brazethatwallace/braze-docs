@@ -1,5 +1,5 @@
 ---
-nav_title: "Segments RFM"
+nav_title: "Segmentos RFM"
 article_title: Extensiones de segmento SQL RFM
 page_order: 1
 page_type: reference
@@ -8,7 +8,7 @@ description: "Este artículo describe cómo crear extensiones de segmento RFM, q
 tool: Segments
 ---
 
-# Segments SQL RFM {#rfm-sql-segments}
+# Segmentos RFM {#rfm-sql-segments}
 
 > Puedes crear una extensión de segmento RFM (recencia, frecuencia, valor monetario) para dirigirte a tus mejores usuarios midiendo sus hábitos de compra.
 

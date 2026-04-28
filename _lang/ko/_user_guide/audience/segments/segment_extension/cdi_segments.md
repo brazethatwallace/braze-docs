@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "이 사용 방법 문서에서는 위치 타겟팅을 설정하여 위치별로 사용자를 세분화하는 방법을 안내합니다."
+description: "이 문서에서는 클라우드 데이터 수집(CDI)을 사용하는 CDI 세그먼트 확장을 통해 데이터 웨어하우스를 쿼리하고 Braze에서 오디언스를 정의하는 방법을 설명합니다."
 
 ---
 

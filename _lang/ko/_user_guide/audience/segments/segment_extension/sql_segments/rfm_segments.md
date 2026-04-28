@@ -1,5 +1,5 @@
 ---
-nav_title: "RFM Segments"
+nav_title: "RFM 세그먼트"
 article_title: RFM SQL 세그먼트 확장
 page_order: 1
 page_type: reference
@@ -8,7 +8,7 @@ description: "이 문서에서는 사용자의 구매 습관을 측정하여 최
 tool: Segments
 ---
 
-# RFM SQL Segments
+# RFM SQL 세그먼트
 
 > RFM(최근성, 빈도, 금액) 세그먼트 확장을 생성하여 사용자의 구매 습관을 측정함으로써 최우수 사용자를 타겟팅할 수 있습니다.
 

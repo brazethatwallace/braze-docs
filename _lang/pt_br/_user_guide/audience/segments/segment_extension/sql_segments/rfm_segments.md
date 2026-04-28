@@ -1,5 +1,5 @@
 ---
-nav_title: "Segments RFM"
+nav_title: "Segmentos RFM"
 article_title: Extensões de segmento SQL RFM
 page_order: 1
 page_type: reference
@@ -8,7 +8,7 @@ description: "Este artigo descreve como criar extensões de segmento RFM, que id
 tool: Segments
 ---
 
-# Segments SQL RFM {#rfm-sql-segments}
+# Segmentos RFM {#rfm-sql-segments}
 
 > Você pode criar uma extensão de segmento RFM (recência, frequência, valor monetário) para segmentar seus melhores usuários medindo seus hábitos de compra.
 
