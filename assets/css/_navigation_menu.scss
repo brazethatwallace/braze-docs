@@ -91,7 +91,7 @@ $nav-nesting-border: $grey-manatee;
 		margin-top: 0px;
 		top: $header_height;
 
-		font-size: 14px;
+		font-size: 15px;
 		line-height: 20px;
 		height: calc(100vh - #{$header_height});
 
@@ -100,7 +100,7 @@ $nav-nesting-border: $grey-manatee;
 			min-height: 0;
 			overflow-y: auto;
 			align-items: flex-start;
-			padding: 8px 8px 16px 24px;
+			padding: 45px 8px 16px 24px;
 			@media (min-width: $window-medium-px) {
 				width: $nav_width;
 			}
@@ -170,7 +170,7 @@ $nav-nesting-border: $grey-manatee;
 	padding-left: 0px;
 	padding-right: 0px;
 
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 20px;
 	.showall {
 		display: block;
