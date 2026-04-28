@@ -25,33 +25,35 @@ The Banner composer offers the same kinds of layout blocks as other drag-and-dro
 
 ## Properties
 
+For blocks that behave identically to in-app messages (Title, Paragraph, Button, Image, Link, Spacer, Phone capture, Email capture), property tables are in the [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) tab. Banner-specific behavior is called out in each section below.
+
 ### Title and paragraph
 
-For typography and alignment, see [Title and Paragraph]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_title-and-paragraph) under in-app message editor blocks.
+For typography and alignment, see [Title and Paragraph]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 ### Button
 
-For button styling properties, see [Button]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_button) under in-app message editor blocks.
+For button styling properties, see [Button]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
-For on-click behavior and logging, see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_actions) under in-app message editor blocks, and [Define on-click behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-32-define-on-click-behavior-optional) in the Banner article.
+For on-click behavior and logging, see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks, and [Define on-click behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-32-define-on-click-behavior-optional) in the Banner article.
 
 ### Image
 
-For image styling properties, see [Image]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_image) under in-app message editor blocks.
+For image styling properties, see [Image]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
-For image actions (alt text, click behavior, logging), see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_actions) in that tab.
+For image actions (alt text, click behavior, logging), see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) in that tab.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 ### Link
 
-For link text styling, see [Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_link) under in-app message editor blocks.
+For link text styling, see [Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
-For link actions, see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_actions) in that tab.
+For link actions, see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) in that tab.
 
 ### Spacer
 
-For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_spacer) under in-app message editor blocks.
+For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 ### Custom code
 
@@ -62,7 +64,7 @@ For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design
 
 ### Phone capture and email capture
 
-For property fields and subscription behavior, see [Phone capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_phone-capture) and [Email capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_email-capture) under in-app message editor blocks. You can only add **one** phone capture block and **one** email capture block per Banner.
+For property fields and subscription behavior, see [Phone capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) and [Email capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks. You can only add **one** phone capture block and **one** email capture block per Banner.
 
 ### Long text
 
