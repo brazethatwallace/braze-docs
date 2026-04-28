@@ -9,7 +9,7 @@ tool: Reports
 
 ---
 
-# Push-Reporting
+# Push-Reporting {#push-reporting}
 
 > Dieser Artikel behandelt das Push-Reporting, mit dem Sie den Erfolg Ihrer Push-Kampagnen anzeigen und analysieren können.
 

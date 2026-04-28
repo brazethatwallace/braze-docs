@@ -10,7 +10,7 @@ channel:
 
 ---
 
-# Web-Push
+# Web-Push {#web-push}
 
 > Erfahren Sie mehr über Web-Push-Benachrichtigungen bei Braze und finden Sie Ressourcen, um Ihre eigenen zu erstellen.
 
