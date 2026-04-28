@@ -14,7 +14,7 @@
 
 すべての適格なアプリ内メッセージは、ユーザーのセッション開始時にデバイスに配信されます。配信されると、SDKはアセットをプリフェッチするため、トリガー時にアセットが利用可能となり、表示の遅延を最小限に抑えます。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
 
-SDKのセッション開始の仕組みについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/platform_integration_guides/analytics/tracking_sessions/)を参照してください。
+SDKのセッション開始セマンティクスについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/platform_integration_guides/analytics/tracking_sessions/)を参照してください。
 
 ### レート制限 {#rate-limits}
 
@@ -88,9 +88,9 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `braze.showInAppMessage` を呼び出すと、メッセージが複数回表示される可能性があります。
 {% endalert %}
 
-`inAppMessage` パラメータは [`braze.InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html) サブクラスまたは [`braze.ControlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.controlmessage.html) オブジェクトになり、それぞれにさまざまなライフサイクルイベントのサブスクリプションメソッドがあります。完全なドキュメントについては、[JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html) を参照してください。
+`inAppMessage` パラメータは [`braze.InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html) サブクラスまたは [`braze.ControlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.controlmessage.html) オブジェクトになり、それぞれにさまざまなライフサイクルイベントのサブスクリプションメソッドがあります。完全なドキュメントについては、[JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html)を参照してください。
 
-[`Modal`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=modal&sdktab=web) または [`Full`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=full&sdktab=web) アプリ内メッセージは一度に1つしか表示できません。すでに1つのモーダルまたはフルメッセージが表示されているときに2つ目を表示しようとすると、`braze.showInAppMessage` は false を返し、2つ目のメッセージは表示されません。
+[`Modal`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=modal&sdktab=web) または [`Full`]({{site.baseurl}}/developer_guide/in_app_messages/?tab=full&sdktab=web) アプリ内メッセージは一度に1つしか表示できません。すでに1つのモーダルまたはフルメッセージが表示されているときに2つ目を表示しようとすると、`braze.showInAppMessage` はfalseを返し、2つ目のメッセージは表示されません。
 
 ## 手動でメッセージをトリガーする {#manually-triggering-messages}
 

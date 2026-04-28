@@ -44,8 +44,8 @@ Das folgende Beispiel zeigt eine Push-Benachrichtigung, bei der Nutzer:innen inn
 
 Um eine interaktive Push-Benachrichtigung zu erstellen, müssen Sie in Ihrem Dashboard eine angepasste Ansicht einrichten.
 
-1. Klicken Sie auf der Seite **Campaigns** auf **Kampagne erstellen**, um eine neue Push-Benachrichtigungskampagne zu starten.
-2. Schalten Sie auf dem Tab **Verfassen** die **Benachrichtigungsbuttons** ein.
+1. Klicken Sie auf der Seite **Campaigns** auf **Create Campaign**, um eine neue Push-Benachrichtigungskampagne zu starten.
+2. Schalten Sie auf dem Tab **Compose** die **Notification Buttons** ein.
 3. Geben Sie eine angepasste iOS-Kategorie in das Feld **iOS Notification Category** ein.
 4. Legen Sie in der `.plist` Ihres Notification Content Extension Target das Attribut `UNNotificationExtensionCategory` auf Ihre angepasste iOS-Kategorie fest. Der hier angegebene Wert muss mit dem übereinstimmen, der im Braze-Dashboard unter **iOS Notification Category** eingestellt ist.
 5. Setzen Sie den Schlüssel `UNNotificationExtensionInteractionEnabled` auf `true`, um Nutzerinteraktionen in einer Push-Benachrichtigung zu aktivieren.
@@ -59,14 +59,14 @@ Um eine interaktive Push-Benachrichtigung zu erstellen, müssen Sie in Ihrem Das
 
 Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. So können Sie nutzerfokussierte Push-Inhalte erstellen, z. B. die Option, Ihren Fortschritt auf verschiedenen Plattformen zu teilen, freigeschaltete Erfolge anzuzeigen oder Onboarding-Checklisten darzustellen. Dieses Beispiel zeigt eine Push-Benachrichtigung, die einer Person angezeigt wird, nachdem sie eine bestimmte Aufgabe im Braze-Lernkurs abgeschlossen hat. Durch Erweitern der Benachrichtigung können die Nutzer:innen ihren Fortschritt auf ihrem Lernpfad sehen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
 
-### Dashboard-Konfiguration {#dashboard-configuration}
+### Dashboard-Konfiguration {#dashboard-configuration-1}
 
 Um eine personalisierte Push-Benachrichtigung zu erstellen, müssen Sie in Ihrem Dashboard eine angepasste Ansicht einrichten.
 
-1. Klicken Sie auf der Seite **Campaigns** auf **Kampagne erstellen**, um eine neue Push-Benachrichtigungskampagne zu starten.
-2. Schalten Sie auf dem Tab **Verfassen** die **Benachrichtigungsbuttons** ein.
+1. Klicken Sie auf der Seite **Campaigns** auf **Create Campaign**, um eine neue Push-Benachrichtigungskampagne zu starten.
+2. Schalten Sie auf dem Tab **Compose** die **Notification Buttons** ein.
 3. Geben Sie eine angepasste iOS-Kategorie in das Feld **iOS Notification Category** ein.
-4. Erstellen Sie auf dem Tab **Einstellungen** Schlüssel-Wert-Paare mit Standard-Liquid. Legen Sie die entsprechenden Nutzerattribute fest, die in der Nachricht angezeigt werden sollen. Diese Ansichten können basierend auf bestimmten Nutzerattributen eines bestimmten Nutzerprofils personalisiert werden.
+4. Erstellen Sie auf dem Tab **Settings** Schlüssel-Wert-Paare mit Standard-Liquid. Legen Sie die entsprechenden Nutzerattribute fest, die in der Nachricht angezeigt werden sollen. Diese Ansichten können basierend auf bestimmten Nutzerattributen eines bestimmten Nutzerprofils personalisiert werden.
 5. Legen Sie in der `.plist` Ihres Notification Content Extension Target das Attribut `UNNotificationExtensionCategory` auf Ihre angepasste iOS-Kategorie fest. Der hier angegebene Wert muss mit dem übereinstimmen, der im Braze-Dashboard unter **iOS Notification Category** eingestellt ist.
 
 ![Vier Sätze von Schlüssel-Wert-Paaren, wobei „next_session_name“ und „next_session_complete_date“ als API-Trigger-Eigenschaft mit Liquid und „completed_session count“ und „total_session_count“ als angepasstes Nutzerattribut mit Liquid festgelegt werden.]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
@@ -125,14 +125,14 @@ Im folgenden Ablauf kann die angepasste Ansicht auf Zustandsänderungen reagiere
 
 ![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
-### Dashboard-Konfiguration {#dashboard-configuration}
+### Dashboard-Konfiguration {#dashboard-configuration-2}
 
 Um eine Push-Benachrichtigung zur Informationserfassung zu erstellen, müssen Sie in Ihrem Dashboard eine angepasste Ansicht einrichten.
 
-1. Klicken Sie auf der Seite **Campaigns** auf **Kampagne erstellen**, um eine neue Push-Benachrichtigungskampagne zu starten.
-2. Schalten Sie auf dem Tab **Verfassen** die **Benachrichtigungsbuttons** ein.
+1. Klicken Sie auf der Seite **Campaigns** auf **Create Campaign**, um eine neue Push-Benachrichtigungskampagne zu starten.
+2. Schalten Sie auf dem Tab **Compose** die **Notification Buttons** ein.
 3. Geben Sie eine angepasste iOS-Kategorie in das Feld **iOS Notification Category** ein.
-4. Erstellen Sie auf dem Tab **Einstellungen** Schlüssel-Wert-Paare mit Standard-Liquid. Legen Sie die entsprechenden Nutzerattribute fest, die in der Nachricht angezeigt werden sollen.
+4. Erstellen Sie auf dem Tab **Settings** Schlüssel-Wert-Paare mit Standard-Liquid. Legen Sie die entsprechenden Nutzerattribute fest, die in der Nachricht angezeigt werden sollen.
 5. Legen Sie in der `.plist` Ihres Notification Content Extension Target das Attribut `UNNotificationExtensionCategory` auf Ihre angepasste iOS-Kategorie fest. Der hier angegebene Wert muss mit dem übereinstimmen, der im Braze-Dashboard unter **iOS Notification Category** eingestellt ist.
 
 Wie im Beispiel zu sehen, können Sie auch ein Bild in Ihre Push-Benachrichtigung einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich-Benachrichtigung einstellen und ein Rich-Push-Bild einfügen.

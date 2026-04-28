@@ -54,7 +54,7 @@ Das Braze Initialization Tag bietet die folgenden Optionen. Die meisten davon la
 | **Disable Automatic Push Token Maintenance** | `disablePushTokenMaintenance` | Verhindert, dass das SDK Push-Token bei neuen Sitzungen mit dem Braze-Backend synchronisiert. |
 | **Disable Automatic Service Worker Registration** | `manageServiceWorkerExternally` | Verwenden Sie diese Option, wenn Sie den Service Worker selbst registrieren und verwalten. |
 | **Disable Cookies** | `noCookies` | Verwendet localStorage anstelle von Cookies für Nutzer:innen- und Sitzungsdaten. Verhindert die subdomainübergreifende Erkennung. |
-| **Disable Font Awesome** | `doNotLoadFontAwesome` | Verhindert, dass das SDK Font Awesome aus dem CDN lädt. Verwenden Sie diese Option, wenn Ihre Website bereits über eine eigene Font Awesome-Version verfügt. |
+| **Disable Font Awesome** | `doNotLoadFontAwesome` | Verhindert, dass das SDK Font Awesome aus dem CDN lädt. Verwenden Sie diese Option, wenn Ihre Website bereits über eine eigene Font-Awesome-Version verfügt. |
 | **Enable SDK Authentication** | `enableSdkAuthentication` | Aktiviert die [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication/). |
 | **Enable Web SDK Logging** | `enableLogging` | Aktiviert die Konsolenprotokollierung für das Debugging. Entfernen Sie diese Option vor dem Produktivbetrieb. |
 | **Minimum Interval Between Triggered Messages** | `minimumIntervalBetweenTriggerActionsInSeconds` | Mindestzeit in Sekunden zwischen getriggerten Aktionen (Standard: 30). |

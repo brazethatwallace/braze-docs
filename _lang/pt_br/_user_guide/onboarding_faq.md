@@ -151,7 +151,7 @@ O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direciona
 Segments
 {% endapitags %}
 
-Navegue até a página **Segmentos**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar Segmento** e dê um nome ao seu segmento.
+Navegue até a página **Segments**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar Segmento** e dê um nome ao seu segmento.
 
 Depois de criar seu segmento, adicione um filtro `Most Recent Location` para segmentar os usuários pelo último lugar em que usaram seu app. Você pode destacar usuários em uma região circular padrão ou criar uma região poligonal personalizada.
 
@@ -173,7 +173,7 @@ Segments
 
 Você pode usar [Extensões de Segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! As Extensões de Segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
 
-Você pode criar até 10 Extensões de Segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus Segments. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
+Você pode criar até 10 Extensões de Segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
 
 1. Em Engajamentos, expanda **Segments** e clique em **Extensão de Segmento**.
 2. Na tabela de Extensões de Segmento, clique em **+ Criar Nova Extensão**.

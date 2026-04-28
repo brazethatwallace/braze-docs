@@ -4,7 +4,7 @@ article_title: Mail da Apple
 page_order: 7
 layout: dev_guide
 guide_top_header: "Mail da Apple"
-description: "Essa landing page inclui artigos de referência relacionados ao Apple Mail ao criar campanhas de e-mail da Braze."
+description: "Essa landing page inclui artigos de referência relacionados ao Apple Mail ao criar campanhas de e-mail do Braze."
 guide_top_text: "Existem alguns pontos importantes a considerar ao enviar e-mails para destinatários que usam o Apple Mail, como informações relacionadas ao Apple Private Relay e como configurar seu provedor de e-mail adequadamente."
 channel:
   - email
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Enviar e-mails para o Apple Private Relay
     link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
     image: /assets/img/braze_icons/list.svg
-  - name: Proteção de Privacidade do Apple Mail
+  - name: Proteção de privacidade de e-mail da Apple
     link: /docs/user_guide/channels/email/apple_mail/mpp
     image: /assets/img/braze_icons/apple.svg
 

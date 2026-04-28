@@ -57,9 +57,26 @@ For ~1000+ files this is one very large job (API + Jekyll). Prefer **Option B** 
 
    Set `REPO` (default `braze-inc/braze-docs`), `REF` (default `develop`), `SKIP_ORPHAN` (`true`/`false`, default `true` for catch-up).
 
+   **Do not** fire many `gh workflow run` / `dispatch_batch.sh` calls in rapid succession for the same workflow: pending runs can be **cancelled** when new dispatches stack up. For multiple batches, either wait for each run to finish, or use:
+
+   ```bash
+   ./scripts/translation_catchup/dispatch_batches_sequential.sh \
+     scripts/translation_catchup/generated/batches/phase_a_includes_batch_002.txt \
+     scripts/translation_catchup/generated/batches/phase_b_user_guide__root_batch_003.txt
+   ```
+
 3. Merge each PR to `develop` before the next batch when order matters (e.g. `_includes` before heavy `_user_guide` batches).
 
 4. On the **last** batch (or a dedicated run), set `skip_orphan_cleanup` to **false** so `clean_orphaned_translations.py` runs once `_lang/` mirrors the new English IA.
+
+5. **Orphan cleanup only (no translation)** — After batched runs with `skip_orphan_cleanup=true`, run **Auto-translate** on `develop` with **`orphan_cleanup_only`** set to **true** and **`files`** / **`since_commit`** left empty. That opens a PR that only deletes stale `_lang/` mirrors (plus duplicate-alias check). Requires the workflow version on `develop` that defines this input.
+
+   ```bash
+   gh workflow run auto-translate.yml --repo braze-inc/braze-docs --ref develop \
+     -f orphan_cleanup_only=true
+   ```
+
+   Queue this **after** any in-flight translate run finishes (same workflow concurrency group).
 
 ## Phase order (IA / `_user_guide`)
 

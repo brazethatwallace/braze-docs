@@ -107,10 +107,10 @@ table td {
       <td>1038 x 1038</td>
       <td>5 MB</td>
       <td>PNG、JPEG、GIF</td>
-      <td>2020年1月現在、iOSリッチプッシュ通知では、10 MB 未満であれば 1038 x 1038 px の画像を処理できますが、できるだけ小さいファイルサイズを使用することを推奨します。実際には、大きなファイルを送信すると不要なネットワーク負荷が発生し、ダウンロードのタイムアウトがより頻繁に起こる可能性があります。<br><br>詳細については、<a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/">iOSリッチ通知</a>を参照してください。</td>
+      <td>2020年1月現在、iOS リッチプッシュ通知では、10 MB 未満であれば 1038 x 1038 px の画像を処理できますが、できるだけ小さいファイルサイズを使用することを推奨します。実際には、大きなファイルを送信すると不要なネットワーク負荷が発生し、ダウンロードのタイムアウトがより頻繁に起こる可能性があります。<br><br>詳細については、<a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/">iOS リッチ通知</a>を参照してください。</td>
     </tr>
     <tr>
-      <td>Androidプッシュアイコン</td>
+      <td>Android プッシュアイコン</td>
       <td>1:1</td>
       <td>該当なし</td>
       <td>500 KB</td>
@@ -118,20 +118,20 @@ table td {
       <td></td>
     </tr>
     <tr>
-      <td>Android拡張通知画像</td>
+      <td>Android 拡張通知画像</td>
       <td>2:1</td>
       <td><b>小:</b><br>512 x 256<br><br><b>中:</b><br>1024 x 512<br><br><b>大:</b><br>2048 x 1024</td>
       <td>500 KB</td>
       <td>PNG、JPEG</td>
-      <td><a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">Androidリッチ通知</a>で使用されます。</td>
+      <td><a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">Android リッチ通知</a>で使用されます。</td>
     </tr>
     <tr>
-      <td>Androidインライン画像</td>
+      <td>Android インライン画像</td>
       <td>3:2</td>
       <td>該当なし</td>
       <td>該当なし</td>
       <td>PNG、JPEG</td>
-      <td>詳細については、<a href="{{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/inline_image_push/">Androidインライン画像プッシュ</a>を参照してください。</td>
+      <td>詳細については、<a href="{{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/inline_image_push/">Android インライン画像プッシュ</a>を参照してください。</td>
     </tr>
   </tbody>
 </table>

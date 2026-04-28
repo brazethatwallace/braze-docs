@@ -47,7 +47,7 @@ CONTENT.
 <!-- Encabezado orientado a la acción que describe el objetivo del paso. -->
 ### Paso 1: ACTION_TO_COMPLETE
 
-<!-- Usa viñetas numeradas o párrafos para describir cómo completar esta acción -->
+<!-- Usa viñetas numeradas o párrafos para describir cómo completar esta acción. -->
 CONTENT.
 
 ### Paso 2: ACTION_TO_COMPLETE

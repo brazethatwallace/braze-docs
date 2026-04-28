@@ -7,14 +7,14 @@
 Les messages in-app sont automatiquement déclenchés lorsque le SDK enregistre l'un des types d'événements personnalisés suivants : `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` et `Push Click`. Notez que les déclencheurs `Specific Purchase` et `Custom Event` contiennent également des filtres de propriétés robustes.
 
 {% alert note %}
-Les messages in-app ne peuvent pas être déclenchés par l'API ou par des événements de l'API — uniquement par des événements personnalisés enregistrés par le SDK. Pour en savoir plus sur la journalisation, consultez [Journalisation des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift).
+Les messages in-app ne peuvent pas être déclenchés par l'API ou par des événements de l'API — uniquement par des événements personnalisés enregistrés par le SDK. Pour en savoir plus sur la journalisation, consultez la section [Journalisation des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift).
 {% endalert %}
 
 ### Sémantique de distribution {#delivery-semantics}
 
-Tous les messages in-app éligibles sont envoyés sur l'appareil de l'utilisateur au début de sa session. À la réception, le SDK précharge les ressources afin qu'elles soient disponibles au moment du déclenchement, minimisant ainsi la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée sera distribué.
+Tous les messages in-app éligibles sont envoyés sur l'appareil de l'utilisateur au début de sa session. À la réception, le SDK précharge les ressources afin qu'elles soient disponibles au moment du déclenchement, ce qui minimise la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée sera distribué.
 
-Pour plus d'informations sur la sémantique de démarrage de session du SDK, consultez [Cycle de vie de la session]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift).
+Pour plus d'informations sur la sémantique de démarrage de session du SDK, consultez la section [Cycle de vie de la session]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift).
 
 ### Limite de débit par défaut {#default-rate-limit}
 

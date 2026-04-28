@@ -1,6 +1,6 @@
 {% if include.section == "UTM parameters" %}
 
-Während Sie mit Linkverkürzungen Ihre URLs automatisch verfolgen können, können Sie auch UTM-Parameter zu Ihren URLs hinzufügen, um die Performance von Campaigns in Analytics-Tools von Drittanbietern wie Google Analytics zu verfolgen.
+Während Sie mit der Linkverkürzung Ihre URLs automatisch verfolgen können, können Sie auch UTM-Parameter zu Ihren URLs hinzufügen, um die Performance von Campaigns in Analytics-Tools von Drittanbietern wie Google Analytics zu verfolgen.
 
 Um UTM-Parameter zu Ihrer URL hinzuzufügen, gehen Sie wie folgt vor:
 

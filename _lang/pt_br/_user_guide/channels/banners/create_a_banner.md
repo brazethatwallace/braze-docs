@@ -11,7 +11,7 @@ channel:
 
 # Criar um Banner {#create-a-banner}
 
-> Saiba como criar Banners ao construir Campaigns e Canvas na Braze. Para informações mais gerais, consulte [Sobre Banners]({{site.baseurl}}/user_guide/channels/banners/).
+> Saiba como criar Banners ao construir Campaigns e Canvas na Braze. Para saber mais, consulte [Sobre Banners]({{site.baseurl}}/user_guide/channels/banners/).
 
 ## Pré-requisitos {#prerequisites}
 

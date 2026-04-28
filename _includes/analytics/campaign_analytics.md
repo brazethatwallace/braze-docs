@@ -76,15 +76,15 @@ In Canvas, you'll see in-app message performance mapped onto the Canvas you've c
 
 Depending on how large your workspace is, the **Campaign Details** panel may label audience statistics **Estimated Audience** or **Current Audience**.
 
-The following table explains when each label is used and what it means.
+The following table summarizes what each label means.
 
 | Footer label | When it is used |
 | --- | --- |
-| **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable Users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
+| **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
 | **Current Audience** | Braze can compute the default statistic with a full scan of workspace profiles, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -193,6 +193,10 @@ If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remov
 Using heatmaps, you can see how successful different links in a single email campaign. From the **Message Analytics** section, go to the **Email Performance** panel. Select **Preview & Heatmap** to view a preview of your email campaign and the heatmap. Alternatively, you can select the hyperlink in the variant name to view the heatmap.
 
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
+
+{% alert note %}
+If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
+{% endalert %}
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
@@ -437,6 +441,22 @@ _Deliveries_ can rise during the first 72 hours as retries succeed, while _Sends
 A click can be logged without an open when the open pixel never loads. For example, the message is clipped in Gmail, or the user has disabled images (the open pixel is usually at the footer). Some clients proxy images (such as Apple Mail), so the open may log when the server first fetches the pixel, not when the user reads the mail. Corporate domains often block images by default.
 
 A click and open can also land on different days: a user might click on May 16 with images off (no open), then open in webmail on May 17 (open logged then).
+
+##### Higher _Unique clicks_ than _Unique opens_
+
+_Unique clicks_ can be higher than _Unique opens_ when opens are under counted or clicks are inflated:
+
+**The mailbox never loaded the open tracking pixel**
+
+This can happen when:
+
+- The message is long and the open pixel sits at the end. When the client clips the message, the pixel is cut off.
+- The message landed in spam, where remote images (including the open pixel) often don't load.
+- The mailbox uses stricter security (common on corporate accounts) and the user hasn't chosen to load images yet.
+
+**Security or bot activity on links**
+
+Some email security products follow links to scan for threats. Those requests can log a click without loading images, so you can see click activity without a matching open.
 
 ##### Deferrals
 

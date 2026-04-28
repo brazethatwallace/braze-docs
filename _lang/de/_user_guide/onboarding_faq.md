@@ -205,7 +205,7 @@ Sie können angeben, ob diese Erweiterung eine einmalige Momentaufnahme darstell
 
 Wenn Sie fertig sind, klicken Sie auf **Speichern**. Ihre Erweiterung wird nun verarbeitet. Die Dauer der Generierung hängt davon ab, wie viele Nutzer:innen Sie haben, wie viele angepasste Events oder Kauf-Events Sie erfassen und wie viele Tage Sie im Verlauf zurückblicken.
 
-Nachdem Sie eine Erweiterung erstellt haben, können Sie sie als Filter verwenden, wenn Sie ein Segment erstellen oder eine Zielgruppe für eine Campaign oder ein Canvas definieren. Wählen Sie zunächst `Braze Segment Extension` aus der Filterliste im Abschnitt **Nutzerattribute**. Wählen Sie in der Filterliste der Braze-Segmenterweiterung die Erweiterung aus, die Sie in dieses Segment aufnehmen oder davon ausschließen möchten. Um die Erweiterungskriterien einzusehen, klicken Sie auf **Erweiterungsdetails anzeigen**. Jetzt können Sie wie gewohnt mit der Erstellung Ihres Segments fortfahren.
+Nachdem Sie eine Erweiterung erstellt haben, können Sie sie als Filter verwenden, wenn Sie ein Segment erstellen oder eine Zielgruppe für eine Kampagne oder ein Canvas definieren. Wählen Sie zunächst `Braze Segment Extension` aus der Filterliste im Abschnitt **Nutzerattribute**. Wählen Sie in der Filterliste der Braze-Segmenterweiterung die Erweiterung aus, die Sie in dieses Segment aufnehmen oder davon ausschließen möchten. Um die Erweiterungskriterien einzusehen, klicken Sie auf **Erweiterungsdetails anzeigen**. Jetzt können Sie wie gewohnt mit der Erstellung Ihres Segments fortfahren.
 
 {% endapi %}
 {% api %}

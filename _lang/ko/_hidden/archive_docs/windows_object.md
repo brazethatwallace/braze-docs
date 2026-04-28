@@ -1,19 +1,19 @@
 ---
-nav_title: "Windows 개체"
-article_title: Windows 메시징 개체
+nav_title: "Windows 오브젝트"
+article_title: Windows 메시징 오브젝트
 page_order: 14
 page_type: reference
 channel: push
 platform:
   - Windows Universal
-description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Windows 객체를 나열하고 설명합니다."
+description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Windows 오브젝트를 나열하고 설명합니다."
 hidden: true
 ---
-# Windows 개체 사양
+# Windows 오브젝트 사양 {#windows-object-specification}
 
-`windows_phone8_push` 및 `windows_universal_push` 개체는 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 Windows Phone 8 푸시 및 Windows Universal 푸시 콘텐츠와 관련된 정보를 정의하거나 요청하는 데 사용됩니다.
+`windows_phone8_push` 및 `windows_universal_push` 오브젝트는 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 Windows Phone 8 푸시 및 Windows Universal 푸시 콘텐츠와 관련된 정보를 정의하거나 요청하는 데 사용됩니다.
 
-## Windows Phone 8 푸시 개체
+## Windows Phone 8 푸시 오브젝트 {#windows-phone-8-push-object}
 
 ```json
 {
@@ -26,9 +26,9 @@ hidden: true
 }
 ```
 
-## Windows 유니버설 푸시 개체
+## Windows Universal 푸시 오브젝트 {#windows-universal-push-object}
 
-`push_type`에 대한 옵션에 대한 자세한 내용은 Windows Universal [토스트 템플릿 카탈로그](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)를 참조하세요.
+`push_type` 옵션에 대한 자세한 내용은 Windows Universal [토스트 템플릿 카탈로그](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)를 참조하세요.
 
 ```json
 {
@@ -42,5 +42,4 @@ hidden: true
 }
 ```
 
-[딥링킹]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)용 `extra_launch_string` 매개 변수를 사용하는 방법에 대한 자세한 내용은 [Windows 유니버설로 딥링킹]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)을 참조하세요.
-
+[딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)을 위해 `extra_launch_string` 파라미터를 사용하는 방법에 대한 자세한 내용은 [Windows Universal로 딥링킹]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)을 참조하세요.

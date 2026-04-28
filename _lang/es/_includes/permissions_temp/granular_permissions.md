@@ -57,7 +57,7 @@ Los usuarios limitados tienen permisos específicos que les permiten gestionar d
 | --- | --- |
 | Administrador del espacio de trabajo | Los administradores del espacio de trabajo tienen permisos específicos para gestionar los espacios de trabajo, pero no tienen la misma autoridad que los administradores de la empresa. Los usuarios limitados pueden heredar permisos similares a los de los administradores del espacio de trabajo si tienen marcados los permisos necesarios. |
 | Administrador (administrador de la empresa) | Los administradores de la empresa tienen permisos más amplios, incluida la posibilidad de eliminar usuarios del dashboard. Sin embargo, no pueden eliminar sus propias cuentas y deben ponerse en contacto con otro administrador de la empresa para realizar esa acción. |
-| Acceso de solo lectura | Para acceder a algunas partes del dashboard, como la página de Campaigns, los usuarios deben tener asignados permisos de visualización.
+| Acceso de solo lectura | Para acceder a algunas partes del dashboard, como la página de Campaigns, los usuarios deben tener asignados permisos de visualización. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Error de acceso limitado {#limited-access-error}

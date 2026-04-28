@@ -48,7 +48,7 @@ guide_featured_list:
 - name: Recopilación de datos predeterminada y mínima del SDK
   link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
   image: /assets/img/braze_icons/settings-01.svg
-- name: Consideraciones sobre privacidad de datos en la sincronización de audiencias de Canvas
+- name: Consideraciones sobre privacidad de datos en Canvas Audience Sync
   link: /docs/partners/canvas_audience_sync/overview/#data-privacy-considerations
   image: /assets/img/braze_icons/fingerprint-03.svg
 - name: Retención de datos de Braze

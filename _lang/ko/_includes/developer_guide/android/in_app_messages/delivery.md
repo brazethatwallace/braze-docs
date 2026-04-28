@@ -4,7 +4,7 @@
 
 ### 트리거 유형 {#trigger-types}
 
-SDK가 다음 커스텀 이벤트 유형 중 하나를 기록하면 인앱 메시지가 자동으로 트리거됩니다: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event`, `Push Click`. `Specific Purchase` 및 `Custom Event` 트리거에는 강력한 속성 필터도 포함되어 있습니다.
+SDK가 다음 커스텀 이벤트 유형 중 하나를 기록하면 인앱 메시지가 자동으로 트리거됩니다: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event`, `Push Click`. `Specific Purchase` 및 `Custom Event` 트리거에는 강력한 등록정보 필터도 포함되어 있습니다.
 
 {% alert note %}
 인앱 메시지는 API 또는 API 이벤트를 통해 트리거할 수 없으며&#8212;SDK에서 기록한 커스텀 이벤트만 트리거할 수 있습니다. 로깅에 대해 자세히 알아보려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)을 참조하세요.
@@ -160,7 +160,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 
 ### 실시간 메시지 표시 {#displaying-a-message-in-real-time}
 
-대시보드에서 사용할 수 있는 동일한 커스텀 옵션을 사용하여 로컬 인앱 메시지를 실시간으로 생성하고 표시할 수도 있습니다. 이렇게 하려면:
+대시보드에서 사용할 수 있는 동일한 커스터마이징 옵션을 사용하여 로컬 인앱 메시지를 실시간으로 생성하고 표시할 수도 있습니다. 이렇게 하려면:
 
 {% tabs %}
 {% tab JAVA %}

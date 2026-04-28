@@ -13,7 +13,7 @@ guide_top_text: "BrazeAI<sup>TM</sup> offre une collection d'outils accessibles 
 
 guide_featured_title: "Fonctionnalités"
 guide_featured_list:
-  - name: Agents
+  - name: Console des agents
     link: /docs/user_guide/brazeai/agents
     image: /assets/img/braze_icons/star-06.svg
   - name: Serveur MCP de Braze
@@ -50,4 +50,5 @@ guide_featured_list:
     link: /docs/user_guide/messaging/ab_testing/optimizations
     image: /assets/img/braze_icons/trophy-01.svg
 ---
+
 <br>

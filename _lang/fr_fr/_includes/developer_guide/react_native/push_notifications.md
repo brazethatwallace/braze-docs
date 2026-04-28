@@ -19,15 +19,15 @@ Mettez ensuite à jour votre fichier `app.json` pour Android et iOS :
 
 #### Étape 1.2 : Ajouter votre ID d'expéditeur Google {#step-12-add-your-google-sender-id}
 
-Tout d'abord, accédez à la console Firebase, ouvrez votre projet, puis sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Paramètres** > **Paramètres du projet**.
+Tout d'abord, accédez à la console Firebase, ouvrez votre projet, puis sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
 
-![Le projet Firebase avec le menu « Paramètres » ouvert.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![Le projet Firebase avec le menu « Settings » ouvert.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-Sélectionnez **Messagerie Cloud**, puis sous **API Firebase Cloud Messaging (V1)**, copiez l'**ID de l'expéditeur** dans votre presse-papiers.
+Sélectionnez **Cloud Messaging**, puis sous **Firebase Cloud Messaging API (V1)**, copiez le **Sender ID** dans votre presse-papiers.
 
-![La page « Messagerie Cloud » du projet Firebase avec l'« ID de l'expéditeur » mis en évidence.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![La page « Cloud Messaging » du projet Firebase avec le « Sender ID » mis en évidence.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-Ensuite, ouvrez le fichier `app.json` de votre projet et attribuez à la propriété `firebaseCloudMessagingSenderId` l'ID de l'expéditeur figurant dans votre presse-papiers. Par exemple :
+Ensuite, ouvrez le fichier `app.json` de votre projet et attribuez à la propriété `firebaseCloudMessagingSenderId` le Sender ID figurant dans votre presse-papiers. Par exemple :
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
@@ -129,7 +129,7 @@ Pour obtenir la liste complète des champs de notification push, consultez le ta
 | `is_silent`        | Valeur booléenne   | Si la valeur est `true`, le payload est reçu silencieusement. Pour plus de détails sur l'envoi de notifications push silencieuses sur Android, consultez [Notifications push silencieuses sur Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Pour plus de détails sur l'envoi de notifications push silencieuses sur iOS, consultez [Notifications push silencieuses sur iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
 | `is_braze_internal`| Valeur booléenne   | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, comme la synchronisation des géorepérages, la synchronisation des indicateurs de fonctionnalité ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
 | `image_url`        | Chaîne de caractères    | Spécifie l'URL associée à l'image de la notification. |
-| `braze_properties` | Objet    | Représente les propriétés Braze associées à la campagne (paires clé-valeur). |
+| `braze_properties` | Objet    | Représente les propriétés Braze associées à la Campaign (paires clé-valeur). |
 | `ios`              | Objet    | Représente les champs spécifiques à iOS. |
 | `android`          | Objet    | Représente les champs spécifiques à Android. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -462,10 +462,10 @@ Pour les intégrations en flux de travail bare, suivez plutôt les approches nat
 {% endalert %}
 
 1. Définissez un utilisateur actif dans l'application React Native en appelant la méthode `Braze.changeUserId('your-user-id')`.
-2. Accédez à **Campaigns** et créez une nouvelle campagne de notification push. Choisissez les plateformes que vous souhaitez tester.
-3. Rédigez votre notification de test et accédez à l'onglet **Test**. Ajoutez le même `user-id` que l'utilisateur test et cliquez sur **Envoyer le test**. Vous devriez recevoir la notification sur votre appareil sous peu.
+2. Accédez à **Campaigns** et créez une nouvelle Campaign de notification push. Choisissez les plateformes que vous souhaitez tester.
+3. Rédigez votre notification de test et accédez à l'onglet **Test**. Ajoutez le même `user-id` que l'utilisateur test et cliquez sur **Send Test**. Vous devriez recevoir la notification sur votre appareil sous peu.
 
-![Une campagne de notification push Braze montrant que vous pouvez ajouter votre propre ID utilisateur en tant que destinataire de test pour tester votre notification push.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
+![Une Campaign de notification push Braze montrant que vous pouvez ajouter votre propre ID utilisateur en tant que destinataire de test pour tester votre notification push.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
 ## Utilisation du plugin Expo {#using-the-expo-plugin}
 

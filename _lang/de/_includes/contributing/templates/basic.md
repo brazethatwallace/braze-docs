@@ -63,7 +63,7 @@ CONTENT.
 
 CONTENT.
 <!-- Ein optionaler Abschnitt für unterstützte Elemente. Fügen Sie verschachtelte Überschriften hinzu, um spezifischer zu sein. -->
-## Unterstützte Datentypen / Unterstützte Attribute / Unterstützte Events / Unterstützte ETC.
+## Unterstützte Datentypen / Unterstützte Attribute / Unterstützte Ereignisse / Unterstützte ETC.
 CONTENT.
 <!-- Ein optionaler Abschnitt mit wichtigen Hinweisen, die Nutzer:innen vor der Verwendung des Features beachten sollten. -->
 ## Hinweise

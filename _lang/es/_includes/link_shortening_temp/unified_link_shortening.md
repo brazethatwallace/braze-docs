@@ -1,6 +1,6 @@
-El acortamiento de enlaces te permite acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de interacción adicionales para ayudar a comprender cómo los usuarios interactúan con tus Campaigns.
+El acortamiento de enlaces te permite acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de interacción adicionales para ayudar a comprender cómo los usuarios interactúan con tus campañas.
 
-El acortamiento de enlaces se puede activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto en Campaigns como en Canvas. Cuando el acortamiento de enlaces está activado, los clics generan un [evento de clic de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) enviado a través de Currents.
+El acortamiento de enlaces se puede activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto en campañas como en Canvas. Cuando el acortamiento de enlaces está activado, los clics generan un [evento de clic de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) enviado a través de Currents.
 
 Los enlaces se acortan usando nuestro dominio corto compartido (`brz.ai`) o tu dominio personalizado de acortamiento de enlaces, y son válidos durante 9 semanas a partir de la fecha en que fueron creados. Un ejemplo de URL podría verse como `https://brz.ai/8jshX2dj`.
 

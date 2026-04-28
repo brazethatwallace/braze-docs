@@ -9,7 +9,7 @@ Utilisez les ensembles d'autorisations pour regrouper les autorisations liées �
 |Nom|Autorisations|
 |-----------|----------------|
 |Développeurs|"Afficher les clés API", "Modifier les clés API", "Afficher les groupes internes", "Modifier les groupes internes", "Afficher le journal d'activité des messages", "Afficher le journal des événements utilisateurs", "Afficher les identifiants API", "Afficher le tableau de bord d'utilisation de l'API", "Afficher les limites de l'API", "Afficher les alertes d'utilisation de l'API", "Modifier les alertes d'utilisation de l'API", "Afficher le débogueur SDK", "Modifier le débogueur SDK".|
-|Marketeurs|"Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les règles de limite de fréquence", "Modifier les règles de limite de fréquence", "Afficher la priorisation des messages", "Modifier la priorisation des messages", "Afficher les blocs de contenu", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Modifier le groupe de contrôle global", "Afficher les modèles IAM", "Modifier les modèles IAM", "Archiver les modèles IAM", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Archiver les modèles d'e-mail", "Afficher les modèles de webhook", "Modifier les modèles de webhook", "Archiver les modèles de webhook", "Afficher les modèles de liens d'e-mail", "Modifier les modèles de liens d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences", "Modifier les rapports du tableau de bord", "Afficher les modèles de bannières", "Afficher les paramètres de localisation", "Utiliser l'opérateur", "Afficher les agents Decisioning Studio".|
+|Marketeurs|"Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les règles de limite de fréquence", "Modifier les règles de limite de fréquence", "Afficher la priorisation des messages", "Modifier la priorisation des messages", "Afficher les Content Blocks", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Modifier le groupe de contrôle global", "Afficher les modèles IAM", "Modifier les modèles IAM", "Archiver les modèles IAM", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Archiver les modèles d'e-mail", "Afficher les modèles de webhook", "Modifier les modèles de webhook", "Archiver les modèles de webhook", "Afficher les modèles de liens d'e-mail", "Modifier les modèles de liens d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences", "Modifier les rapports du tableau de bord", "Afficher les modèles de bannières", "Afficher les paramètres de localisation", "Utiliser l'opérateur", "Afficher les agents Decisioning Studio".|
 |Gestion des utilisateurs|"Modifier les utilisateurs du tableau de bord", "Afficher les équipes", "Modifier les équipes", "Archiver les équipes".|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
@@ -23,8 +23,8 @@ Les rôles offrent une meilleure structuration en regroupant vos autorisations p
 {% tab example roles %}
 | Nom du rôle    | Espace de travail | Autorisations
 ----------- | ----------- | ---------
-| Marketeur - Marques de mode | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les blocs de contenu", "Modifier les blocs de contenu", "Archiver les blocs de contenu", "Lancer les blocs de contenu", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Afficher les modèles de bannières", "Modifier les modèles de bannières", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Modifier les ressources de la bibliothèque multimédia", "Supprimer les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences". |
-| Marketeur - Marques de soins de la peau | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les blocs de contenu", "Modifier les blocs de contenu", "Archiver les blocs de contenu", "Lancer les blocs de contenu", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Afficher les modèles de bannières", "Modifier les modèles de bannières", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Modifier les ressources de la bibliothèque multimédia", "Supprimer les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences".|
+| Marketeur - Marques de mode | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les Content Blocks", "Modifier les Content Blocks", "Archiver les Content Blocks", "Lancer les Content Blocks", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Afficher les modèles de bannières", "Modifier les modèles de bannières", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Modifier les ressources de la bibliothèque multimédia", "Supprimer les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences". |
+| Marketeur - Marques de soins de la peau | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les Content Blocks", "Modifier les Content Blocks", "Archiver les Content Blocks", "Lancer les Content Blocks", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Afficher les modèles de bannières", "Modifier les modèles de bannières", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Modifier les ressources de la bibliothèque multimédia", "Supprimer les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences".|
 | Gestion des utilisateurs - Toutes les marques | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Modifier les utilisateurs du tableau de bord", "Afficher les équipes", "Modifier les équipes", "Archiver les équipes"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
@@ -85,7 +85,7 @@ Les administrateurs ont accès à toutes les fonctionnalités et peuvent modifie
 - Ajouter, modifier, supprimer, suspendre ou réactiver d'autres [utilisateurs de Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
 - Exporter les utilisateurs de Braze au format CSV
 
-Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **Cet utilisateur est un administrateur**, puis sélectionnez **Mettre à jour l'utilisateur**.
+Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **This user is an admin**, puis sélectionnez **Update user**.
 
 ![Les détails de l'utilisateur sélectionné avec la case à cocher admin mise en évidence.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
@@ -98,7 +98,7 @@ Si vous retirez les privilèges d'administrateur à un utilisateur, celui-ci ne 
 
 ### Entreprise {#company}
 
-Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilisateur, cochez ou décochez la case correspondante. Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilisateur, cochez ou décochez la case correspondante. Lorsque vous avez terminé, sélectionnez **Update user**.
 
 |Nom de l'autorisation|Description|
 |----------|-----------|
@@ -111,32 +111,32 @@ Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilis
 
 ### Espace de travail {#workspace}
 
-Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer les autorisations au niveau de l'espace de travail, sélectionnez **Sélectionner les espaces de travail et les autorisations**, puis choisissez les autorisations manuellement ou attribuez un [ensemble d'autorisations ou un rôle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que vous avez précédemment créé. Si vous devez attribuer des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour obtenir une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer les autorisations au niveau de l'espace de travail, sélectionnez **Select workspaces and permissions**, puis choisissez les autorisations manuellement ou attribuez un [ensemble d'autorisations ou un rôle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que vous avez précédemment créé. Si vous devez attribuer des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour obtenir une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Autorisations**, sélectionnez une ou plusieurs autorisations. Elles ne seront attribuées que pour les espaces de travail sélectionnés. Vous pouvez également sélectionner **Attribuer l'accès administrateur à l'espace de travail** si vous souhaitez accorder toutes les autorisations pour cet espace de travail.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Permissions**, sélectionnez une ou plusieurs autorisations. Elles ne seront attribuées que pour les espaces de travail sélectionnés. Vous pouvez également sélectionner **Assign workspace admin access** si vous souhaitez accorder toutes les autorisations pour cet espace de travail.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail sélectionnées manuellement dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
 {% subtab Assign permission set %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Ensembles d'autorisations**, choisissez un ensemble d'autorisations. Ces autorisations ne seront attribuées que pour les espaces de travail sélectionnés.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Permission Sets**, choisissez un ensemble d'autorisations. Ces autorisations ne seront attribuées que pour les espaces de travail sélectionnés.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail attribuées via un ensemble d'autorisations dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
 {% subtab Assign role %}
 
-Sous **Espaces de travail**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Rôle**, sélectionnez un rôle. Ces autorisations ne seront attribuées que pour les espaces de travail sélectionnés.
+Sous **Workspaces**, choisissez un ou plusieurs espaces de travail dans la liste déroulante. Ensuite, sous **Role**, sélectionnez un rôle. Ces autorisations ne seront attribuées que pour les espaces de travail sélectionnés.
 
-Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
+Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ![Autorisations au niveau de l'espace de travail attribuées via un rôle dans Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
 
@@ -147,9 +147,9 @@ Lorsque vous avez terminé, sélectionnez **Mettre à jour l'utilisateur**.
 
 ## Exporter les autorisations des utilisateurs {#exporting-user-permissions}
 
-Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Exporter les utilisateurs**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
+Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Export Users**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
 
-![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Exporter les utilisateurs » mise en évidence.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » mise en évidence.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## Liste des autorisations {#list-of-permissions}
 
@@ -157,11 +157,11 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 
 | Domaine produit | Autorisation | Définition |
 | --- | --- | --- |
-| Campaigns | Afficher les Campaigns | Afficher les Campaigns |
-| Campaigns | Lancer les Campaigns | Lancer, arrêter, suspendre ou reprendre des Campaigns existantes |
-| Campaigns | Archiver les Campaigns | Déplacer les Campaigns vers les archives |
-| Campaigns | Modifier les Campaigns | Créer et mettre à jour des Campaigns |
-| Campaigns | Approuver et refuser les Campaigns | Approuver ou refuser les Campaigns. Le [flux de travail d'approbation des Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement disponible en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé. |
+| Campaigns | Afficher les campagnes | Afficher les campagnes |
+| Campaigns | Lancer les campagnes | Lancer, arrêter, suspendre ou reprendre des campagnes existantes |
+| Campaigns | Archiver les campagnes | Déplacer les campagnes vers les archives |
+| Campaigns | Modifier les campagnes | Créer et mettre à jour des campagnes |
+| Campaigns | Approuver et refuser les campagnes | Approuver ou refuser les campagnes. Le [flux de travail d'approbation des campagnes]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement disponible en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé. |
 | Canvas | Afficher les Canvas | Afficher les Canvas |
 | Canvas | Archiver les Canvas | Déplacer les Canvas vers les archives |
 | Canvas | Modifier les Canvas | Créer et mettre à jour des Canvas |
@@ -187,18 +187,18 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Domaine produit | Autorisation | Définition |
 | --- | --- | --- |
 | Groupe de contrôle global | Afficher le groupe de contrôle global | Consulter la page de configuration du groupe de contrôle global |
-| Groupe de contrôle global | Modifier le groupe de contrôle global | Créer et enregistrer les modifications apportées au groupe de contrôle global. Les utilisateurs disposant de l'autorisation « Modifier le groupe de contrôle global » doivent également disposer des autorisations « Modifier les Campaigns » et « Modifier les Canvas ». Les utilisateurs disposant de l'autorisation « Modifier le groupe de contrôle global » se voient également accorder l'autorisation « Afficher le groupe de contrôle global ». |
+| Groupe de contrôle global | Modifier le groupe de contrôle global | Créer et enregistrer les modifications apportées au groupe de contrôle global. Les utilisateurs disposant de l'autorisation « Modifier le groupe de contrôle global » doivent également disposer des autorisations « Modifier les campagnes » et « Modifier les Canvas ». Les utilisateurs disposant de l'autorisation « Modifier le groupe de contrôle global » se voient également accorder l'autorisation « Afficher le groupe de contrôle global ». |
 | Emplacements | Archiver les emplacements | Déplacer les emplacements vers les archives |
 | Emplacements | Afficher les emplacements | Afficher les emplacements |
 | Emplacements | Modifier les emplacements | Créer et modifier des emplacements |
-| Segments | Afficher les Segments | Afficher les Segments. Les utilisateurs doivent disposer de l'autorisation « Afficher les Segments » pour pouvoir bénéficier des autorisations « Modifier les Segments » ou « Archiver les Segments ». |
-| Segments | Archiver les Segments | Archiver et désarchiver des Segments. Les utilisateurs disposant de l'autorisation « Archiver les Segments » doivent également se voir accorder l'autorisation « Afficher les Segments ». |
-| Segments | Modifier les Segments | Créer et mettre à jour des Segments. Les utilisateurs disposant de l'autorisation « Modifier les Segments » doivent également se voir accorder l'autorisation « Afficher les Segments ». |
+| Segments | Afficher les segments | Afficher les segments. Les utilisateurs doivent disposer de l'autorisation « Afficher les segments » pour pouvoir bénéficier des autorisations « Modifier les segments » ou « Archiver les segments ». |
+| Segments | Archiver les segments | Archiver et désarchiver des segments. Les utilisateurs disposant de l'autorisation « Archiver les segments » doivent également se voir accorder l'autorisation « Afficher les segments ». |
+| Segments | Modifier les segments | Créer et mettre à jour des segments. Les utilisateurs disposant de l'autorisation « Modifier les segments » doivent également se voir accorder l'autorisation « Afficher les segments ». |
 | Données utilisateur | Afficher les importations d'utilisateurs | Afficher les importations d'utilisateurs CSV sans apporter de modifications |
 | Données utilisateur | Importer des utilisateurs | Importer des utilisateurs dans le tableau de bord |
 | Données utilisateur | Modifier les données utilisateur | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Exporter les données utilisateur | Télécharger les utilisateurs depuis le tableau de bord |
-| Enregistrements de suppression d'utilisateurs | Afficher les enregistrements de fusion d'utilisateurs | Consulter la liste des enregistrements de fusion d'utilisateurs |
+| Enregistrements de fusion d'utilisateurs | Afficher les enregistrements de fusion d'utilisateurs | Consulter la liste des enregistrements de fusion d'utilisateurs |
 | Utilisateurs | Voir les profils utilisateur (PII expurgées) | Consulter les profils utilisateur de manière conforme aux PII |
 | Utilisateurs en double | Fusionner les utilisateurs en double | Combiner les utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion. |
 | Utilisateurs | Supprimer les utilisateurs | Supprimer définitivement les utilisateurs du tableau de bord individuellement ou en masse |
@@ -328,9 +328,9 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | --- | --- | --- |
 | Utilisation de l'application | Afficher les données d'utilisation | Consulter les données d'utilisation |
 | Facturation | Afficher les détails de facturation | Consulter les détails de facturation |
-| Agents personnalisés | Afficher les agents d'intelligence artificielle de la Console des agents | Permet aux utilisateurs de visualiser les agents d'intelligence artificielle personnalisés |
-| Agents personnalisés | Archiver les agents d'intelligence artificielle de la Console des agents | Permet aux utilisateurs d'archiver des agents d'intelligence artificielle personnalisés |
-| Agents personnalisés | Modifier les agents d'intelligence artificielle de la Console des agents | Permet aux utilisateurs de créer et de mettre à jour des agents d'intelligence artificielle personnalisés |
+| Agents personnalisés | Afficher les agents IA de la Console des agents | Permet aux utilisateurs de visualiser les agents IA personnalisés |
+| Agents personnalisés | Archiver les agents IA de la Console des agents | Permet aux utilisateurs d'archiver des agents IA personnalisés |
+| Agents personnalisés | Modifier les agents IA de la Console des agents | Permet aux utilisateurs de créer et de mettre à jour des agents IA personnalisés |
 | Attributs personnalisés marqués comme PII | Afficher les attributs personnalisés marqués comme PII | Afficher les attributs personnalisés marqués comme PII |
 | Rapports du tableau de bord | Afficher les rapports du tableau de bord | Consulter les rapports sans apporter de modifications |
 | Rapports du tableau de bord | Supprimer les rapports du tableau de bord | Supprimer définitivement les rapports |

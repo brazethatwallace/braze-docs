@@ -4,7 +4,7 @@ article_title: 채널
 page_order: 5
 layout: dev_guide
 guide_top_header: "채널"
-guide_top_text: "적절한 시간에 적절한 채널을 통해 사용자에게 도달하세요. 인앱 메시지, 콘텐츠 카드, 배너와 같은 제품 내 채널이나 푸시, 이메일, SMS, WhatsApp과 같은 제품 외 채널 중에서 선택하세요."
+guide_top_text: "적절한 시간에 적절한 채널을 통해 사용자에게 도달하세요. 인앱 메시지, Content Cards, 배너와 같은 제품 내 채널이나 푸시, 이메일, SMS, WhatsApp과 같은 제품 외 채널 중에서 선택하세요."
 
 page_type: landing
 description: "Braze의 제품 내 및 제품 외 메시징 채널을 통해 사용자에게 도달하세요."

@@ -8,7 +8,7 @@ description: "この参考記事では、Brazeにおける細分化されたユ�
 tool: Dashboard
 ---
 
-# 細分化された権限への移行
+# 細分化された権限への移行 {#migrating-to-granular-permissions}
 
 > アカウントへのアクセスや特定のアクションを実行できるユーザーを管理することは、セキュリティと業務効率の両面で極めて重要です。より細かいコントロールを可能にするため、Brazeは細分化された権限を導入します。これはアカウント全体でのユーザーアクセスをより柔軟かつ精密に管理する方法です。
 
@@ -17,7 +17,7 @@ tool: Dashboard
 - **より精密なコントロール：**細分化された権限は、より細かいコントロール、より優れたセキュリティ、そしてより明確な監視を可能にします。ユーザーは必要なアクセス権限のみを付与されます。
 - **自動マッピング：**現在のすべての権限は、[細分化された対応する権限](#legacy-to-granular-permissions-mapping)に自動的にマッピングされます。変更しない限り、ユーザーは同じアクセスレベルを維持します。
 
-## 確認すべき内容
+## 確認すべき内容 {#what-to-review}
 
 自社の移行が計画された場合、Brazeの管理者はメールとダッシュボード上のバナーで細分化された権限の移行について通知を受け取ります。移行の準備として、Brazeの管理者が以下を行うことをお勧めします。
 
@@ -41,14 +41,14 @@ tool: Dashboard
 | ワークスペース | ワークスペース管理者 | ワークスペース管理者 |
 | 会社 | ワークスペースの作成と削除 | ワークスペースの作成と削除 |
 | 会社 | 会社設定の管理 | 会社設定の管理 |
-| ワークスペース | Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス | Campaigns を表示<br>Campaigns を編集<br>Campaigns をアーカイブ<br>Canvases を表示<br>Canvases を編集<br>Canvases をアーカイブ<br>キャンバステンプレートを表示<br>フリークエンシーキャップルールを表示<br>メッセージ優先順位を表示<br>Content Blocks を表示<br>Content Blocks を編集<br>カスタム属性を表示<br>カスタムイベントを表示<br>カタログを表示<br>メール設定を表示<br>フィーチャーフラグを表示<br>Segments を表示<br>グローバルコントロールグループを表示<br>グローバルレート制限を表示<br>IAM テンプレートを表示<br>IAM テンプレートを編集<br>IAM テンプレートをアーカイブ<br>メールテンプレートを表示<br>メールテンプレートを編集<br>メールテンプレートをアーカイブ<br>Webhook テンプレートを表示<br>Webhook テンプレートを編集<br>Webhook テンプレートをアーカイブ<br>メールリンクテンプレートを表示<br>メールリンクテンプレートを編集<br>メディアライブラリアセットを表示<br>ロケーションを表示<br>ロケーションを編集<br>ロケーションをアーカイブ<br>プレースメントを表示<br>プロモーションコードを表示<br>プロモーションコードを編集<br>プロモーションコードをエクスポート<br>ユーザー設定センターを表示<br>ユーザー設定センターを編集<br>プッシュ設定を表示<br>オーディエンス同期設定を表示<br>ユーザーマージ記録を表示<br>ダッシュボードレポートを表示<br>ダッシュボードレポートを編集<br>ダッシュボードレポートを削除<br>ローカライゼーション設定を表示<br>Decisioning Studio エージェントを表示<br>Decisioning Studio オーディエンスを表示<br>Decisioning Studio エージェントを表示<br>Decisioning Studio ガードレールを表示<br>Decisioning Studio アクションバンクを表示<br>WhatsApp 設定を表示<br>WhatsApp フローを表示<br>WhatsApp カタログを表示<br>Meta からの WhatsApp メッセージテンプレートを表示 |
-| ワークスペース | 開発者コンソールへのアクセス | API キーを表示<br>API キーを編集<br>内部ユーザーグループを表示<br>内部ユーザーグループを編集<br>内部グループを削除<br>メッセージアクティビティログを表示<br>イベントユーザーログを表示<br>API 識別子を表示<br>API 使用状況ダッシュボードを表示<br>API 制限を表示<br>API 使用状況アラートを表示<br>API 使用状況アラートを編集<br>SDK デバッガーを表示<br>SDK デバッガーを編集 |
-| ワークスペース | Campaigns の承認と却下 | Campaigns を承認 |
-| ワークスペース | Canvases の承認と却下 | Canvases を承認 |
+| ワークスペース | Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス | Campaignsを表示<br>Campaignsを編集<br>Campaignsをアーカイブ<br>Canvasesを表示<br>Canvasesを編集<br>Canvasesをアーカイブ<br>キャンバステンプレートを表示<br>フリークエンシーキャップルールを表示<br>メッセージ優先順位を表示<br>Content Blocksを表示<br>Content Blocksを編集<br>カスタム属性を表示<br>カスタムイベントを表示<br>カタログを表示<br>メール設定を表示<br>フィーチャーフラグを表示<br>Segmentsを表示<br>グローバルコントロールグループを表示<br>グローバルレート制限を表示<br>IAMテンプレートを表示<br>IAMテンプレートを編集<br>IAMテンプレートをアーカイブ<br>メールテンプレートを表示<br>メールテンプレートを編集<br>メールテンプレートをアーカイブ<br>Webhookテンプレートを表示<br>Webhookテンプレートを編集<br>Webhookテンプレートをアーカイブ<br>メールリンクテンプレートを表示<br>メールリンクテンプレートを編集<br>メディアライブラリアセットを表示<br>ロケーションを表示<br>ロケーションを編集<br>ロケーションをアーカイブ<br>プレースメントを表示<br>プロモーションコードを表示<br>プロモーションコードを編集<br>プロモーションコードをエクスポート<br>ユーザー設定センターを表示<br>ユーザー設定センターを編集<br>プッシュ設定を表示<br>オーディエンス同期設定を表示<br>ユーザーマージ記録を表示<br>ダッシュボードレポートを表示<br>ダッシュボードレポートを編集<br>ダッシュボードレポートを削除<br>ローカライゼーション設定を表示<br>Decisioning Studioエージェントを表示<br>Decisioning Studioオーディエンスを表示<br>Decisioning Studioエージェントを表示<br>Decisioning Studioガードレールを表示<br>Decisioning Studioアクションバンクを表示<br>WhatsApp設定を表示<br>WhatsAppフローを表示<br>WhatsAppカタログを表示<br>MetaからのWhatsAppメッセージテンプレートを表示 |
+| ワークスペース | 開発者コンソールへのアクセス | APIキーを表示<br>APIキーを編集<br>内部ユーザーグループを表示<br>内部ユーザーグループを編集<br>内部グループを削除<br>メッセージアクティビティログを表示<br>イベントユーザーログを表示<br>API識別子を表示<br>API使用状況ダッシュボードを表示<br>API制限を表示<br>API使用状況アラートを表示<br>API使用状況アラートを編集<br>SDKデバッガーを表示<br>SDKデバッガーを編集 |
+| ワークスペース | Campaignsの承認と却下 | Campaignsを承認 |
+| ワークスペース | Canvasesの承認と却下 | Canvasesを承認 |
 | ワークスペース | ユーザーデータのエクスポート | ユーザーデータのエクスポート |
 | ワークスペース | ユーザーデータのインポートと更新 | ユーザーインポートを表示<br>ユーザーをインポートする<br>ユーザーデータを編集 |
-| ワークスペース | Segments を編集 | Segments を表示<br>Segments をアーカイブ<br>Campaigns を表示<br>Campaigns を編集<br>Campaigns をアーカイブ<br>Canvases を表示<br>Canvases を編集<br>Canvases をアーカイブ<br>キャンバステンプレートを表示 |
-| ワークスペース | Content Blocks の起動と管理 | Content Blocks を表示<br>Content Blocks を編集<br>Content Blocks をアーカイブ<br>Content Blocks を起動 |
+| ワークスペース | Segmentsを編集 | Segmentsを表示<br>Segmentsをアーカイブ<br>Campaignsを表示<br>Campaignsを編集<br>Campaignsをアーカイブ<br>Canvasesを表示<br>Canvasesを編集<br>Canvasesをアーカイブ<br>キャンバステンプレートを表示 |
+| ワークスペース | Content Blocksの起動と管理 | Content Blocksを表示<br>Content Blocksを編集<br>Content Blocksをアーカイブ<br>Content Blocksを起動 |
 | ワークスペース | メディアライブラリの管理 | メディアライブラリアセットを表示<br>メディアライブラリアセットを編集<br>メディアライブラリアセットを削除 |
 | ワークスペース | ユーザー設定センターの起動 | ユーザー設定センターの起動 |
 | ワークスペース | アプリの管理 | アプリ設定を編集<br>プッシュ設定を表示<br>プッシュ設定を編集<br>メッセージアーカイブ設定を表示<br>メッセージアーカイブ設定を編集<br>プレースメントを表示<br>プレースメントを編集<br>プレースメントをアーカイブ |
@@ -57,7 +57,7 @@ tool: Dashboard
 | ワークスペース | ダッシュボードユーザーの管理 | ダッシュボードユーザーを編集 |
 | ワークスペース | メール設定の管理 | メール設定を表示<br>メール設定を編集 |
 | ワークスペース | イベント、属性、購入の管理 | カスタム属性を表示<br>カスタム属性を編集<br>カスタム属性をブロックリストに追加<br>カスタム属性を削除<br>カスタム属性をエクスポート<br>カスタムイベントを表示<br>カスタムイベントを編集<br>カスタムイベントをブロックリストに追加<br>カスタムイベントを削除<br>カスタムイベントをエクスポート<br>製品を表示<br>製品を編集<br>製品をブロックリストに追加 |
-| ワークスペース | 外部統合の管理 | テクノロジーパートナーを編集<br>クラウドデータ取り込みを編集<br>Canvases を表示<br>Segments を表示<br>カタログを表示<br>カタログを編集<br>API キーを表示<br>API キーを編集 |
+| ワークスペース | 外部統合の管理 | テクノロジーパートナーを編集<br>クラウドデータ取り込みを編集<br>Canvasesを表示<br>Segmentsを表示<br>カタログを表示<br>カタログを編集<br>APIキーを表示<br>APIキーを編集 |
 | ワークスペース | 多言語設定の管理 | ローカライゼーション設定を表示<br>ローカライゼーション設定を編集<br>ローカライゼーション設定を削除 |
 | ワークスペース | 購読グループの管理 | サブスクリプションを編集 |
 | ワークスペース | タグの管理 | タグを表示<br>タグを編集<br>タグを削除 |
@@ -65,13 +65,13 @@ tool: Dashboard
 | ワークスペース | データ変換を表示 | データ変換を表示 |
 | ワークスペース | データ変換を編集 | データ変換を編集 |
 | ワークスペース | ユーザーデータ暗号化の管理 | 識別子フィールドレベル暗号化を編集 |
-| ワークスペース | Campaigns、Canvases の送信 | Campaigns を表示<br>Canvases を編集<br>Campaigns を起動<br>Canvases を表示<br>Campaigns を編集<br>Canvases を起動<br>キャンバステンプレートを表示<br>フリークエンシーキャップを表示<br>フリークエンシーキャップを編集<br>グローバルコントロールグループを表示<br>グローバルコントロールグループを編集<br>Segments を表示 |
+| ワークスペース | Campaigns、Canvasesの送信 | Campaignsを表示<br>Canvasesを編集<br>Campaignsを起動<br>Canvasesを表示<br>Campaignsを編集<br>Canvasesを起動<br>キャンバステンプレートを表示<br>フリークエンシーキャップを表示<br>フリークエンシーキャップを編集<br>グローバルコントロールグループを表示<br>グローバルコントロールグループを編集<br>Segmentsを表示 |
 | ワークスペース | 請求詳細を表示 | 請求詳細を表示 |
-| ワークスペース | Currents 統合を表示 | Currents 統合を表示 |
-| ワークスペース | Currents 統合を編集 | Currents 統合を編集 |
-| ワークスペース | PII としてマークされたカスタム属性を表示 | PII としてマークされたカスタム属性を表示 |
-| ワークスペース | PII を表示 | PII を表示 |
-| ワークスペース | PII 準拠のユーザープロファイルを表示 | ユーザープロファイルを表示（PII 編集済み） |
+| ワークスペース | Currents統合を表示 | Currents統合を表示 |
+| ワークスペース | Currents統合を編集 | Currents統合を編集 |
+| ワークスペース | PIIとしてマークされたカスタム属性を表示 | PIIとしてマークされたカスタム属性を表示 |
+| ワークスペース | PIIを表示 | PIIを表示 |
+| ワークスペース | PII準拠のユーザープロファイルを表示 | ユーザープロファイルを表示（PII編集済み） |
 | ワークスペース | 使用状況データを表示 | 使用状況データを表示 |
 | ワークスペース | 重複ユーザーのマージ | ユーザーマージ記録を表示 |
 | ワークスペース | キャンバステンプレートの作成と編集 | キャンバステンプレートを編集 |
@@ -83,8 +83,8 @@ tool: Dashboard
 | ワークスペース | ランディングページテンプレートの作成と編集 | ランディングページテンプレートを編集 |
 | ワークスペース | ランディングページテンプレートを表示 | ランディングページテンプレートを表示 |
 | ワークスペース | ランディングページテンプレートをアーカイブ | ランディングページテンプレートをアーカイブ |
-| ワークスペース | カスタム AI エージェントを表示 | カスタム AI エージェントを表示 |
-| ワークスペース | カスタム AI エージェントを編集 | カスタム AI エージェントを編集<br>カスタム AI エージェントをアーカイブ |
+| ワークスペース | カスタムAIエージェントを表示 | カスタムAIエージェントを表示 |
+| ワークスペース | カスタムAIエージェントを編集 | カスタムAIエージェントを編集<br>カスタムAIエージェントをアーカイブ |
 | ワークスペース | プレースメントを表示 | プレースメントを表示 |
 | ワークスペース | プレースメントを編集 | プレースメントを編集 |
 | ワークスペース | プレースメントをアーカイブ | プレースメントをアーカイブ |
@@ -93,20 +93,20 @@ tool: Dashboard
 | ワークスペース | 新規 | バナーテンプレートを表示 |
 | ワークスペース | 新規 | バナーテンプレートを編集 |
 | ワークスペース | 新規 | バナーテンプレートをアーカイブ |
-| チーム | Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス | Campaigns を表示<br>Campaigns を編集<br>Campaigns をアーカイブ<br>Canvases を表示<br>Canvases を編集<br>Canvases をアーカイブ<br>キャンバステンプレートを表示<br>Content Blocks を表示<br>Content Blocks を編集<br>メディアライブラリアセットを表示<br>メールテンプレートを表示<br>メールテンプレートを編集<br>メールテンプレートをアーカイブ<br>IAM テンプレートを表示<br>IAM テンプレートを編集<br>IAM テンプレートをアーカイブ<br>Webhook テンプレートを表示<br>Webhook テンプレートを編集<br>Webhook テンプレートをアーカイブ<br>メールリンクテンプレートを表示<br>メールリンクテンプレートを編集<br>ダッシュボードレポートを表示<br>ダッシュボードレポートを編集<br>ダッシュボードレポートを削除<br>Segments を表示 |
-| チーム | Segments を編集 | Segments を表示<br>Segments をアーカイブ<br>Campaigns を表示<br>Campaigns を編集<br>Campaigns をアーカイブ<br>Canvases を表示<br>Canvases を編集<br>Canvases をアーカイブ<br>キャンバステンプレートを表示 |
-| チーム | Content Blocks の起動と管理 | Content Blocks を表示<br>Content Blocks を編集<br>Content Blocks をアーカイブ<br>Content Blocks を起動 |
+| チーム | Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス | Campaignsを表示<br>Campaignsを編集<br>Campaignsをアーカイブ<br>Canvasesを表示<br>Canvasesを編集<br>Canvasesをアーカイブ<br>キャンバステンプレートを表示<br>Content Blocksを表示<br>Content Blocksを編集<br>メディアライブラリアセットを表示<br>メールテンプレートを表示<br>メールテンプレートを編集<br>メールテンプレートをアーカイブ<br>IAMテンプレートを表示<br>IAMテンプレートを編集<br>IAMテンプレートをアーカイブ<br>Webhookテンプレートを表示<br>Webhookテンプレートを編集<br>Webhookテンプレートをアーカイブ<br>メールリンクテンプレートを表示<br>メールリンクテンプレートを編集<br>ダッシュボードレポートを表示<br>ダッシュボードレポートを編集<br>ダッシュボードレポートを削除<br>Segmentsを表示 |
+| チーム | Segmentsを編集 | Segmentsを表示<br>Segmentsをアーカイブ<br>Campaignsを表示<br>Campaignsを編集<br>Campaignsをアーカイブ<br>Canvasesを表示<br>Canvasesを編集<br>Canvasesをアーカイブ<br>キャンバステンプレートを表示 |
+| チーム | Content Blocksの起動と管理 | Content Blocksを表示<br>Content Blocksを編集<br>Content Blocksをアーカイブ<br>Content Blocksを起動 |
 | チーム | メディアライブラリの管理 | メディアライブラリアセットを表示<br>メディアライブラリアセットを編集<br>メディアライブラリアセットを削除 |
 | チーム | ダッシュボードユーザーの管理 | ダッシュボードユーザーを編集 |
-| チーム | Campaigns、Canvases の送信 | Campaigns を表示<br>Canvases を編集<br>Campaigns を起動<br>Canvases を表示<br>Campaigns を編集<br>Canvases を起動<br>キャンバステンプレートを表示<br>Segments を表示 |
+| チーム | Campaigns、Canvasesの送信 | Campaignsを表示<br>Canvasesを編集<br>Campaignsを起動<br>Canvasesを表示<br>Campaignsを編集<br>Canvasesを起動<br>キャンバステンプレートを表示<br>Segmentsを表示 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-## よくある質問
+## よくある質問 {#frequently-asked-questions}
 
-### 移行をオプトアウトしたり、元に戻したりすることはできますか？
+### 移行をオプトアウトしたり、元に戻したりすることはできますか？ {#can-i-opt-out-of-or-revert-the-migration}
 
 Brazeは移行の取り消しをサポートしていません。移行を通じてサポートを提供し、問題が発生した場合に迅速に対処できるよう移行を注意深く監視します。
 
-### 移行中に既存のユーザーはBrazeへのアクセスを失いますか？
+### 移行中に既存のユーザーはBrazeへのアクセスを失いますか？ {#will-existing-users-lose-access-to-braze-during-the-migration}
 
 いいえ、移行中にBrazeのダウンタイムは発生しません。ただし、移行中は権限の更新がロックされます。移行の完了には最大15分かかる見込みです。

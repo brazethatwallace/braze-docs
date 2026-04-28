@@ -247,7 +247,7 @@ Para ativar o registro detalhado no Unity Editor, faça o seguinte:
 Para usar o plug-in Braze Unity com os plug-ins Prime31, edite o `AndroidManifest.xml` do seu projeto para usar as classes Activity compatíveis com o Prime31. Altere todas as referências de
 `com.braze.unity.BrazeUnityPlayerActivity` para `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM)
+### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
 
 A Braze oferece suporte à integração do [ADM push](https://developer.amazon.com/public/apis/engage/device-messaging) em apps Unity. Se quiser integrar o ADM push, crie um arquivo chamado `api_key.txt` contendo sua chave de API do ADM e coloque-o na pasta `Plugins/Android/assets/`. Para saber mais sobre a integração do ADM com a Braze, acesse nossas [instruções de integração push do ADM]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 

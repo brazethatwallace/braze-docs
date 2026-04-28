@@ -14,7 +14,7 @@
 
 インスピレーションが必要な場合やクエリの作成にヘルプが必要な場合は、**Query Template** を選択し、[事前作成テンプレート]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)を選択します。空のクエリで開始するには、**SQL Editor** を選択します。
 
-レポートには、現在の日時からなる名前が自動的に付けられます。名前の上にカーソルを合わせ、<i class="fas fa-pencil" alt="編集"></i> を選択して、SQL クエリにわかりやすい名前を付けます。
+レポートには、現在の日時からなる名前が自動的に付けられます。名前の上にカーソルを合わせ、<i class="fas fa-pencil" alt="編集"></i>を選択して、SQL クエリにわかりやすい名前を付けます。
 
 ![レポート名の例「Channel engagement for May 2025」。]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
@@ -48,7 +48,7 @@ AI クエリビルダーは OpenAI を搭載した [GPT](https://openai.com/gpt-
 
 1. **クエリビルダー**ページから**参照**パネルを開き、**Available Data Tables** を選択すると、利用できるデータテーブルとその名前が表示されます。
 3. <i class="fas fa-chevron-down" alt=""></i> **See Details** を選択して、テーブルの説明やデータタイプなどのテーブル列に関する情報を表示します。
-4. テーブル名をSQLに挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i> を選択します。
+4. テーブル名をSQLに挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
 
 クエリを特定期間に限定すると、結果をより迅速に生成できます。以下に、過去1時間の購入数と収益を取得するクエリの例を示します。
 
@@ -66,7 +66,7 @@ FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
 ```
 
-`CANVAS_ID`、`CANVAS_VARIATION_API_ID`、`CAMPAIGN_ID` に対するクエリを実行すると、それらに関連付けられている名前列が自動的に結果テーブルに含まれます。`SELECT` クエリ自体にこれらを含める必要はありません。
+`CANVAS_ID`、`CANVAS_VARIATION_API_ID`、`CAMPAIGN_ID`に対するクエリを実行すると、それらに関連付けられている名前列が自動的に結果テーブルに含まれます。`SELECT`クエリ自体にこれらを含める必要はありません。
 
 | ID名 | 関連する名前列 |
 | --- | --- |
@@ -142,7 +142,7 @@ Snowflakeクレジットは機能間で共有されません。たとえば、SQ
 
 クレジット使用量はSQLクエリの実行時間と相関しています。実行時間が長いほど、クエリで消費されるSnowflakeクレジットの量が多くなります。実行時間は、時間の経過に伴うクエリの複雑さとサイズによって異なります。実行するクエリが複雑で頻繁になるほど、リソースの割り当てが大きくなり、実行時間が短縮されます。
 
-BrazeのSQLエディターでレポートの作成、編集、保存を行う場合、クレジットは使用されません。クレジットは、毎月1日午前12時（UTC）に5にリセットされます。クエリビルダーページの上部で、月次クレジット使用量を監視できます。
+BrazeのSQLエディターでレポートの作成、編集、保存を行う場合、クレジットは使用されません。クレジットは、毎月1日午前12時（UTC）にリセットされ5に戻ります。クエリビルダーページの上部で、月次クレジット使用量を監視できます。
 
 ![今月のクレジット使用量を表示するクエリビルダー。]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 

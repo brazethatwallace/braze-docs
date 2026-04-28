@@ -23,7 +23,7 @@ Há duas etapas principais para criar um fluxo de trabalho de pontuação de lea
 
 ### Etapa 1: Criar um Canvas {#step-1-create-a-canvas}
 
-1. Acesse **Mensagens** > **Canvas** e selecione **Criar Canvas** e, em seguida, preencha os dados básicos do Canvas.
+1. Acesse **Messaging** > **Canvas** e selecione **Create Canvas** e, em seguida, preencha os dados básicos do Canvas.
 
 2. Dê ao seu Canvas um nome relevante, como "Lead Scoring Canvas" e, para facilitar a localização, adicione uma tag como "Lead Management".<br><br>![Etapa 1 da criação de um Canvas com o nome "Lead Scoring Canvas" e a tag "Lead Management".]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
@@ -204,4 +204,4 @@ Na etapa **Público-alvo**, inclua um filtro que exclua usuários cujos status d
 
 ### Etapa 3: Lance a campanha {#step-3-launch-campaign}
 
-Selecione **Lançar** e veja o status do seu lead mudar no Salesforce à medida que seus clientes ultrapassam o limite de pontuação de lead MQL.
+Selecione **Launch** e veja o status do seu lead mudar no Salesforce à medida que seus clientes ultrapassam o limite de pontuação de lead MQL.

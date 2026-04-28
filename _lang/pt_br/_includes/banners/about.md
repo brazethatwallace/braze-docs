@@ -80,7 +80,7 @@ Cada espaço de trabalho pode suportar até 200 campanhas de Banner ativas. Se e
 
 Além disso, as mensagens de Banner não suportam os seguintes recursos:
 
-- Campanhas disparadas por API e baseadas em ações
+- Campaigns disparadas por API e baseadas em ações
 - Conteúdo conectado
 - Códigos promocionais
 - `catalog_items` usando a [tag `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)

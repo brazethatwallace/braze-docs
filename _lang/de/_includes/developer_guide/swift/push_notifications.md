@@ -239,7 +239,7 @@ completionHandler();
 
 {% subtabs %}
 {% subtab Swift %}
-Um Push-Benachrichtigungen im Vordergrund zu aktivieren und Braze diese beim Empfang erkennen zu lassen, implementieren Sie `UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)`. Wenn eine Nutzer:in auf Ihre Vordergrund-Benachrichtigung tippt, wird der Push-Delegate `userNotificationCenter(_:didReceive:withCompletionHandler:)` aufgerufen und Braze protokolliert das Push-Klick-Event.
+Um Push-Benachrichtigungen im Vordergrund zu aktivieren und Braze diese beim Empfang erkennen zu lassen, implementieren Sie `UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)`. Wenn Nutzer:innen auf Ihre Vordergrund-Benachrichtigung tippen, wird der Push-Delegate `userNotificationCenter(_:didReceive:withCompletionHandler:)` aufgerufen und Braze protokolliert das Push-Klick-Event.
 
 ```swift
 func userNotificationCenter(
@@ -263,7 +263,7 @@ func userNotificationCenter(
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-Um Push-Benachrichtigungen im Vordergrund zu aktivieren und Braze diese beim Empfang erkennen zu lassen, implementieren Sie `userNotificationCenter:willPresentNotification:withCompletionHandler:`. Wenn eine Nutzer:in auf Ihre Vordergrund-Benachrichtigung tippt, wird der Push-Delegate `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` aufgerufen und Braze protokolliert das Push-Klick-Event.
+Um Push-Benachrichtigungen im Vordergrund zu aktivieren und Braze diese beim Empfang erkennen zu lassen, implementieren Sie `userNotificationCenter:willPresentNotification:withCompletionHandler:`. Wenn Nutzer:innen auf Ihre Vordergrund-Benachrichtigung tippen, wird der Push-Delegate `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` aufgerufen und Braze protokolliert das Push-Klick-Event.
 
 ```objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -416,7 +416,7 @@ Braze unterstützt die dynamische APNs-Gateway-Verwaltung für Push-Benachrichti
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### Funktionsweise {#how-it-works}
+### Funktionsweise {#how-it-works-1}
 
 Wenn eine iOS-App mit dem Braze Swift SDK integriert wird, sendet sie gerätebezogene Daten, einschließlich [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), an die Braze SDK API, sofern verfügbar. Der `apns_gateway`-Wert gibt an, ob die App die Entwicklungsumgebung (`dev`) oder die Produktionsumgebung (`prod`) von APNs verwendet.
 

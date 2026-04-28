@@ -398,7 +398,7 @@ Pour un exemple complet, consultez l'[exemple d'intégration manuelle des notifi
 
 ## Amorces push {#push-primers}
 
-Les campaigns d'amorce push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Cela peut se faire sans personnalisation du SDK grâce à notre [amorce push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Les campagnes d'amorce push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Cela peut se faire sans personnalisation du SDK grâce à notre [amorce push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
 
 ## Gestion dynamique de la passerelle APNs {#dynamic-apns-gateway-management}
 

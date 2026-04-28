@@ -25,7 +25,7 @@ Une fenêtre modale s'ouvre avec les lignes d'objet des variantes de messages qu
 
 <img width="722" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
 
-La ligne d'objet que notre intelligence artificielle prédit comme étant la meilleure sera mise en évidence avec le libellé **Gagnant projeté**.
+La ligne d'objet que notre intelligence artificielle prédit comme étant la meilleure sera mise en évidence avec le libellé **Projected Winner**.
 
 {% alert note %}
 Pour les [campagnes push rapides]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/quick_push_messages/), le test A/B est pris en charge lorsque vous sélectionnez plusieurs plateformes.

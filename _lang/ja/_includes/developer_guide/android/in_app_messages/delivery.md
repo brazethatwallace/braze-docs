@@ -14,7 +14,7 @@
 
 すべての適格なアプリ内メッセージは、ユーザーのセッション開始時にデバイスに配信されます。配信されると、SDKはアセットをプリフェッチするため、トリガー時にアセットが利用可能となり、表示の遅延を最小限に抑えます。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。
 
-SDKのセッション開始の仕組みについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)を参照してください。
+SDKのセッション開始セマンティクスについて詳しくは、[セッションのライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)を参照してください。
 
 ### レート制限 {#rate-limit}
 
@@ -48,7 +48,7 @@ extras: Map<String, String>
 {% endtabs %}
 
 {% alert note %}
-詳細については、[KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721) を参照してください。
+詳細については、[KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721)を参照してください。
 {% endalert %}
 
 ## 自動トリガーを無効にする {#disabling-automatic-triggers}
@@ -121,7 +121,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 プッシュCampaignには、このプッシュCampaignがSDKカスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントはアプリ内メッセージをトリガーするために使用されます。
 
-![2組のキーと値のペア：IS_SERVER_EVENT が「true」に設定され、CAMPAIGN_NAME が「example campaign name」に設定されている。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![2組のキーと値のペア：IS_SERVER_EVENTが「true」に設定され、CAMPAIGN_NAMEが「example campaign name」に設定されている。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 前出のプッシュコールバックサンプルコードは、キーと値のペアを認識して、適切なSDKカスタムイベントを記録します。
 

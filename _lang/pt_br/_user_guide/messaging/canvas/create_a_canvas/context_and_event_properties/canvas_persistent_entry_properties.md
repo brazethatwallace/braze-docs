@@ -8,15 +8,15 @@ tool: Canvas
 page_order: 5
 ---
 
-# Propriedades de entrada persistentes
+# Propriedades de entrada persistentes {#persistent-entry-properties}
 
-> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais personalizadas.
+> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais curadas.
 
 {% alert important %}
-As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências descontinuadas a termos como propriedades de entrada do Canvas que permanecem como referência histórica. Para o editor atualizado do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atualizado do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
 {% endalert %}
 
-## Usando propriedades de entrada
+## Uso de propriedades de entrada {#using-entry-properties}
 
 As propriedades de entrada podem ser usadas em Canvas baseados em ação e disparados por API. Essas propriedades de entrada são definidas quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API. Consulte os artigos a seguir para saber mais:
 
@@ -32,7 +32,7 @@ Quando um Canvas inclui uma mensagem com a Liquid tag `canvas_entry_properties`,
 O objeto de propriedades de entrada do Canvas tem um limite máximo de tamanho de 50 KB.
 {% endalert %}
 
-## Atualizando o Canvas para usar propriedades de entrada
+## Atualizando o Canvas para usar propriedades de entrada {#updating-canvas-to-use-entry-properties}
 
 Se um Canvas ativo que anteriormente não incluía nenhuma mensagem usando `canvas_entry_properties` for editado para incluir `canvas_entry_properties`, o valor correspondente a essa propriedade não estará disponível para usuários que entraram no Canvas antes de `canvas_entry_properties` ser adicionado. Os valores serão salvos apenas para usuários que entrarem no Canvas após a alteração ser feita.
 
@@ -49,11 +49,11 @@ No caso de uma propriedade de entrada do Canvas ser nula ou estar em branco, voc
 
 Para saber mais sobre como cancelar mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages).
 
-## Propriedades de entrada globais do Canvas
+## Propriedades de entrada globais do Canvas {#global-canvas-entry-properties}
 
 Com `canvas_entry_properties`, você pode definir propriedades globais que se aplicam a todos os usuários ou propriedades específicas do usuário que se aplicam apenas ao usuário especificado. A propriedade específica do usuário substituirá a propriedade global para esse usuário.
 
-### Exemplo de requisição
+### Exemplo de requisição {#example-request}
 
 ```bash
 curl -X POST \
@@ -78,10 +78,10 @@ curl -X POST \
       ]
     }'
 ```
- 
-Nesta requisição, o valor global para "food allergies" é "none". Para Customer_123, o valor é "dairy". As mensagens neste Canvas que contêm o trecho Liquid {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} serão preenchidas com "dairy" para Customer_123 e "none" para todos os outros. 
 
-## Caso de uso
+Nesta requisição, o valor global para "food allergies" é "none". Para Customer_123, o valor é "dairy". As mensagens neste Canvas que contêm o trecho Liquid {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} serão preenchidas com "dairy" para Customer_123 e "none" para todos os outros.
+
+## Caso de uso {#use-case}
 
 Se você tem um Canvas que é disparado quando um usuário navega por um item no seu site de eCommerce, mas não o adiciona ao carrinho, a primeira etapa do Canvas pode ser uma notificação por push perguntando se ele tem interesse em comprar o item. Você pode referenciar o nome do produto usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}
 

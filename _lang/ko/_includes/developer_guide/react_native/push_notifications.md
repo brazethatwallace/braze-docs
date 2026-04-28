@@ -19,15 +19,15 @@ Expo를 푸시 알림에 사용하려면 먼저 [Braze Expo 플러그인을 설�
 
 #### 1.2단계: Google 발신자 ID 추가 {#step-12-add-your-google-sender-id}
 
-먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음, <i class="fa-solid fa-gear"></i>&nbsp;**설정** > **프로젝트 설정**을 선택합니다.
+먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음, <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
 
-!["설정" 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+!["Settings" 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-**클라우드 메시징**을 선택한 다음, **Firebase 클라우드 메시징 API(V1)**에서 **발신자 ID**를 클립보드에 복사합니다.
+**Cloud Messaging**을 선택한 다음, **Firebase Cloud Messaging API (V1)**에서 **Sender ID**를 클립보드에 복사합니다.
 
-!["발신자 ID"가 강조 표시된 Firebase 프로젝트의 "클라우드 메시징" 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+!["Sender ID"가 강조 표시된 Firebase 프로젝트의 "Cloud Messaging" 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-그런 다음 프로젝트의 `app.json` 파일을 열고 `firebaseCloudMessagingSenderId` 등록정보를 클립보드의 발신자 ID로 설정합니다. 예를 들면 다음과 같습니다:
+그런 다음 프로젝트의 `app.json` 파일을 열고 `firebaseCloudMessagingSenderId` 등록정보를 클립보드의 Sender ID로 설정합니다. 예를 들면 다음과 같습니다:
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
@@ -463,7 +463,7 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 
 1. `Braze.changeUserId('your-user-id')` 메서드를 호출하여 React Native 애플리케이션에서 활성 사용자를 설정합니다.
 2. **Campaigns**으로 이동하여 새 푸시 알림 Campaign을 만듭니다. 테스트할 플랫폼을 선택합니다.
-3. 테스트 알림을 작성하고 **테스트** 탭으로 이동합니다. 테스트 사용자와 동일한 `user-id`를 추가하고 **테스트 보내기**를 클릭합니다. 곧 기기에서 알림을 받을 수 있습니다.
+3. 테스트 알림을 작성하고 **Test** 탭으로 이동합니다. 테스트 사용자와 동일한 `user-id`를 추가하고 **Send Test**를 클릭합니다. 곧 기기에서 알림을 받을 수 있습니다.
 
 ![자신의 사용자 ID를 테스트 수신자로 추가하여 푸시 알림을 테스트할 수 있는 Braze 푸시 Campaign.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
@@ -473,7 +473,7 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 
 ### Android 푸시를 추가 FMS로 전달 {#forwarding-android-push-to-additional-fms}
 
-추가 Firebase 메시징 서비스(FMS)를 사용하려는 경우, 애플리케이션이 Braze에서 보낸 것이 아닌 푸시를 수신할 때 호출할 대체 FMS를 지정할 수 있습니다. 예를 들면 다음과 같습니다:
+추가 Firebase Messaging Service(FMS)를 사용하려는 경우, 애플리케이션이 Braze에서 보낸 것이 아닌 푸시를 수신할 때 호출할 대체 FMS를 지정할 수 있습니다. 예를 들면 다음과 같습니다:
 
 ```json
 {

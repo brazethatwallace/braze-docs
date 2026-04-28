@@ -61,7 +61,7 @@ npx expo install @braze/expo-plugin
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. API 키와 엔드포인트는 더 이상 여기에서 설정하지 않습니다. JavaScript에서 `Braze.initialize()`를 통해 런타임에 제공하세요. 구현 요구 사항에 따라 다음 선택적 구성 매개변수를 추가하세요:
 
-| 방법                                        | 유형    | 설명                                                                                                                                              |
+| 메서드                                        | 유형    | 설명                                                                                                                                              |
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enableBrazeIosPush`                          | boolean | iOS 전용. iOS에서 푸시 알림을 처리하기 위해 Braze를 사용할지 여부.                       |
 | `enableFirebaseCloudMessaging`                | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부.             |
@@ -417,7 +417,7 @@ npx expo install @braze/expo-plugin
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. 다음 구성 옵션을 제공할 수 있습니다:
 
-| 방법                                        | 유형    | 설명                                                                                                                                              |
+| 메서드                                        | 유형    | 설명                                                                                                                                              |
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `androidApiKey`                               | string  | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 Android 애플리케이션의 [API 키]({{site.baseurl}}/api/identifier_types/). |
 | `iosApiKey`                                   | string  | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 iOS 애플리케이션의 [API 키]({{site.baseurl}}/api/identifier_types/).     |
@@ -550,7 +550,7 @@ npx expo prebuild
 
 #### 방법 2: React Native CLI 사용 {#method-2-using-react-native-cli}
 
-##### Android 설정 {#set-up-android}
+##### Android 설정 {#set-up-android-1}
 
 **2.1단계: Kotlin Gradle 플러그인 추가**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS 설정 {#set-up-ios}
+##### iOS 설정 {#set-up-ios-1}
 
 **2.5단계: (선택 사항) 동적 XCFrameworks용 Podfile 구성**
 

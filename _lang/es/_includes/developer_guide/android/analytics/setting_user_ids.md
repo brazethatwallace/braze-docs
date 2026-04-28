@@ -71,6 +71,6 @@ Braze.getInstance(context).subscribeToChangeUserEvents { event ->
 
 {% multi_lang_include archive/setting_user_ids/best_practices.md %}
 
-## Asignación de alias de usuarios {#aliasing-users}
+## Alias de usuarios {#aliasing-users}
 
 {% multi_lang_include archive/setting_user_ids/aliasing.md platform="Android" %}

@@ -245,7 +245,7 @@ Der Parameter `abort_if_not_abandoned` ist spezifisch für den Anwendungsfall de
 
 Setzen Sie `abort_if_not_abandoned` auf `false`, wenn Sie die Checkout-Erinnerung unabhängig davon senden möchten, ob der Warenkorb zum Sendezeitpunkt noch als abgebrochen gilt. Wenn Sie den Parameter weglassen oder auf `true` setzen, bricht Braze die Nachricht für Nutzer:innen ab, die ihren Kauf bereits abgeschlossen haben.
 
-##### Checkout-URL
+##### Checkout-URL {#checkout-url}
 
 {% raw %}
 ```liquid

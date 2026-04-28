@@ -65,7 +65,7 @@ Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwe
 {% endalert %}
 
 {% alert note %}
-Bei bestimmten Feldern kann es länger dauern, bis der neueste Stand angezeigt wird, nachdem eine Campaign oder ein Canvas aktualisiert wurde. Diese Felder sind:
+Bei bestimmten Feldern kann es länger dauern, bis der neueste Stand angezeigt wird, nachdem eine Kampagne oder ein Canvas aktualisiert wurde. Diese Felder sind:
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>

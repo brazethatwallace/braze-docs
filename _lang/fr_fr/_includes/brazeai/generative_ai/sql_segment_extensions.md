@@ -148,7 +148,7 @@ Dans l'exemple suivant, le segment résultant contiendra les utilisateurs ayant 
 Les segments à actualisation incrémentielle prennent en compte les événements tardifs, c'est-à-dire les événements survenus il y a plus de 2 jours (par exemple, les événements SDK qui n'ont pas été envoyés au moment où ils ont été capturés).
 {% endalert %}
 
-#### Règles supplémentaires {#additional-rules-1}
+#### Règles supplémentaires {#additional-rules}
 
 De plus, votre requête d'actualisation incrémentielle doit respecter les règles suivantes :
 
@@ -205,7 +205,7 @@ Sur la page **Extensions de segments**, les segments générés à l'aide de SQL
 
 Sélectionnez une extension de segment SQL pour voir où l'extension est utilisée, archiver l'extension ou [actualiser manuellement l'appartenance au segment](#refreshing-segment-membership).
 
-![Section Utilisation de l'envoi de messages de l'éditeur SQL indiquant où le segment SQL est utilisé.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
+![Section « Utilisation de l'envoi de messages » de l'éditeur SQL indiquant où le segment SQL est utilisé.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
 
 ### Définir les paramètres d'actualisation {#designating-refresh-settings}
 

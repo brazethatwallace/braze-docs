@@ -5,7 +5,7 @@ page_order: 2
 layout: dev_guide
 
 guide_top_header: "Administrer"
-guide_top_text: "Configurez et gérez votre tableau de bord de Braze, y compris les espaces de travail, les autorisations utilisateur, la sécurité et la facturation. Les paramètres personnels concernent l'accès et les préférences de votre compte individuel, tandis que les paramètres globaux s'appliquent à l'ensemble de votre société ou espace de travail.<br><br>En plus des sujets et articles inclus dans cette section, consultez le cours d'apprentissage Braze Learning <a href='https://learning.braze.com/admin-dashboard-management/'>Admin and Dashboard Management</a>, qui explique comment gérer l'accès des utilisateurs et les bonnes pratiques pour la maintenance du tableau de bord."
+guide_top_text: "Configurez et gérez votre tableau de bord de Braze, y compris les espaces de travail, les autorisations utilisateur, la sécurité et la facturation. Les paramètres personnels concernent l'accès et les préférences de votre compte individuel, tandis que les paramètres globaux s'appliquent à l'ensemble de votre société ou espace de travail.<br><br>En plus des sujets et articles inclus dans cette section, consultez le cours d'apprentissage Braze Learning <a href='https://learning.braze.com/admin-dashboard-management/'>Administration et gestion du tableau de bord</a>, qui explique comment gérer l'accès des utilisateurs et les bonnes pratiques pour la maintenance du tableau de bord."
 description: "Configurez et gérez votre tableau de bord de Braze, y compris les espaces de travail, les autorisations utilisateur, la sécurité et la facturation."
 
 guide_featured_title: "Liens rapides"

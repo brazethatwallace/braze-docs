@@ -4,11 +4,11 @@ article_title: Parceiros de personalização de mensagens
 page_order: 1
 
 page_type: landing
-description: "Essa landing page lista os parceiros da Braze (Alloys) que permitem que você adicione personalização extra às suas campanhas e Canvas da Braze."
+description: "Essa landing page lista os parceiros da Braze (Alloys) que permitem que você adicione personalização extra às suas Campaigns e Canvas da Braze."
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Personalização de Mensagens"
+partner_top_header: "Personalização de mensagens"
 
 valid_partner_list:
 - name: Jacquard
@@ -33,6 +33,8 @@ valid_partner_list:
   url: /docs/partners/amplitude/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
@@ -61,7 +63,7 @@ valid_partner_list:
   url: /docs/partners/crowdin/
 - name: Lokalise
   url: /docs/partners/lokalise/
-- name: Phrase  
+- name: Phrase
   url: /docs/partners/phrase/
 - name: Smartling
   url: /docs/partners/smartling/
@@ -75,8 +77,8 @@ valid_partner_list:
   url: /docs/partners/future_anthem
 - name: SEEN
   url: /docs/partners/seen
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Transifex
   url: /docs/partners/transifex/
 - name: AccuWeather

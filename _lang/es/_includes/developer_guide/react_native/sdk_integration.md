@@ -550,7 +550,7 @@ Ejecuta tu aplicación como se especifica en la [documentación de Expo](https:/
 
 #### Método 2: Uso de React Native CLI {#method-2-using-react-native-cli}
 
-##### Configurar Android {#set-up-android}
+##### Configurar Android {#set-up-android-1}
 
 **Paso 2.1: Añade el plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configurar iOS {#set-up-ios}
+##### Configurar iOS {#set-up-ios-1}
 
 **Paso 2.5: (Opcional) Configura el Podfile para XCFrameworks dinámicos**
 
@@ -860,7 +860,7 @@ import Braze from "@braze/react-native-sdk";
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
 
-Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Resumen**).
+Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Overview**).
 
 El siguiente fragmento de código muestra cómo abrir una sesión para un usuario en particular en tu aplicación:
 
@@ -871,7 +871,7 @@ Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 Braze.changeUser("{some-user-id}");
 ```
 
-Busca al usuario con `{some-user-id}` en el dashboard en **Audiencia** > **Buscar usuarios**. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
+Busca al usuario con `{some-user-id}` en el dashboard en **Audience** > **Search Users**. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
 
 {% endtab %}
 {% tab React Native SDK 19.1.0 y anteriores %}

@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Kontobasierte Segmentierung
     link: /docs/user_guide/get_started/b2b_use_cases/account_based_segmentation
     image: /assets/img/braze_icons/users-01.svg
-  - name: Lead-Bewertung
+  - name: Lead Scoring
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/user-plus-01.svg
   - name: Leads mit Salesforce Sales Cloud verwalten

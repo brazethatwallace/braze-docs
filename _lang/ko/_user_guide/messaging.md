@@ -4,10 +4,10 @@ article_title: 메시징
 page_order: 4.5
 layout: dev_guide
 guide_top_header: "메시징"
-guide_top_text: "Campaigns과 Canvases 전반에서 메시징을 생성, 관리, 최적화하세요. 메시징 기본 사항을 배우고, 콘텐츠를 개인화하고, A/B 테스트를 설정하고, 랜딩 페이지를 구축하여 커뮤니케이션을 확장하세요."
+guide_top_text: "캠페인과 Canvases 전반에서 메시징을 생성, 관리, 최적화하세요. 메시징 기본 사항을 배우고, 콘텐츠를 개인화하고, A/B 테스트를 설정하고, 랜딩 페이지를 구축하여 커뮤니케이션을 확장하세요."
 
 page_type: landing
-description: "Braze에서 Campaigns과 Canvases 전반의 메시징을 생성, 관리, 최적화하세요."
+description: "Braze에서 캠페인과 Canvases 전반의 메시징을 생성, 관리, 최적화하세요."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:

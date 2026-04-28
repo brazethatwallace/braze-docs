@@ -45,7 +45,7 @@ Avec les messages in-app, la situation peut être plus nuancée. Un message in-a
 
 #### Introduire des délais {#introduce-delays}
 
-Après la création d'un nouvel utilisateur, vous pouvez ajouter un délai avant d'envoyer des Campaigns ou des Canvas ciblés. Ce délai permet au profil utilisateur d'être créé et aux attributs pertinents d'être mis à jour, ce qui peut déterminer son éligibilité à recevoir le message.
+Après la création d'un nouvel utilisateur, vous pouvez ajouter un délai avant d'envoyer des campagnes ou des Canvas ciblés. Ce délai permet au profil utilisateur d'être créé et aux attributs pertinents d'être mis à jour, ce qui peut déterminer son éligibilité à recevoir le message.
 
 Par exemple, après qu'un utilisateur s'est inscrit sur votre application, vous pouvez envoyer une offre promotionnelle après 24 heures. Ou, si vous créez un utilisateur ou enregistrez un attribut personnalisé, vous pouvez ajouter un délai d'une minute avant de poursuivre votre processus pour éviter cette condition de concurrence.
 
@@ -59,7 +59,7 @@ Nous utilisons un traitement asynchrone pour maximiser la vitesse et la flexibil
 
 Il existe plusieurs scénarios dans lesquels l'utilisation de plusieurs endpoints API peut également entraîner cette condition de concurrence, par exemple lorsque :
 
-- Des endpoints API distincts sont utilisés pour créer des utilisateurs et déclencher des Canvas ou des Campaigns
+- Des endpoints API distincts sont utilisés pour créer des utilisateurs et déclencher des Canvas ou des campagnes
 - Plusieurs appels séparés sont effectués vers l'endpoint `/users/track` pour mettre à jour des attributs personnalisés, des événements ou des achats
 
 Lorsque les informations utilisateur sont envoyées à Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), le traitement peut parfois prendre quelques secondes. Cela signifie que lorsque des requêtes sont effectuées simultanément vers `/users/track` et vers des endpoints d'envoi de messages comme `/campaign/trigger/send`, il n'y a aucune garantie que les informations utilisateur soient mises à jour avant l'envoi du message.
@@ -90,7 +90,7 @@ Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_d
 
 ## Scénario 3 : Correspondance entre les déclencheurs basés sur l'action et les filtres d'audience {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
-Une autre condition de concurrence courante peut survenir lorsque vous configurez une Campaign ou un Canvas basé sur les actions avec le même déclencheur que le filtre d'audience (comme un attribut modifié ou un événement personnalisé effectué). L'utilisateur peut ne pas faire partie de l'audience au moment où il effectue l'événement déclencheur, ce qui signifie qu'il ne recevra pas la Campaign ou n'entrera pas dans le Canvas.
+Une autre condition de concurrence courante peut survenir lorsque vous configurez une campagne ou un Canvas basé sur les actions avec le même déclencheur que le filtre d'audience (comme un attribut modifié ou un événement personnalisé effectué). L'utilisateur peut ne pas faire partie de l'audience au moment où il effectue l'événement déclencheur, ce qui signifie qu'il ne recevra pas la campagne ou n'entrera pas dans le Canvas.
 
 ### Meilleures pratiques {#best-practices}
 
@@ -98,13 +98,13 @@ Une autre condition de concurrence courante peut survenir lorsque vous configure
 
 Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
 
-Pour les Campaigns, vous pouvez utiliser des événements de sortie pour permettre aux Campaigns avec un événement déclencheur d'annuler les messages destinés aux utilisateurs qui effectuent l'événement de sortie pendant le délai.
+Pour les campagnes, vous pouvez utiliser des événements de sortie pour permettre aux campagnes avec un événement déclencheur d'annuler les messages destinés aux utilisateurs qui effectuent l'événement de sortie pendant le délai.
 
 #### Utiliser des filtres distincts de l'événement déclencheur {#use-unique-filters-with-the-trigger-event}
 
 Lors de la configuration de vos filtres, vous pourriez être tenté d'ajouter un filtre redondant « au cas où ». Cependant, cette redondance peut entraîner davantage de problèmes. Évitez plutôt d'utiliser tout filtre contenant le déclencheur lorsque c'est possible. C'est la méthode la plus sûre pour éviter une condition de concurrence.
 
-Par exemple, si le déclencheur de votre Campaign est « A effectué un achat » et que votre filtre d'audience est « A effectué un achat quelconque », cette redondance peut provoquer une condition de concurrence.
+Par exemple, si le déclencheur de votre campagne est « A effectué un achat » et que votre filtre d'audience est « A effectué un achat quelconque », cette redondance peut provoquer une condition de concurrence.
 
 #### Éviter les filtres d'audience qui supposent que l'événement déclencheur a été mis à jour {#avoid-audience-filters-that-assume-the-trigger-event-has-been-updated}
 
@@ -112,9 +112,9 @@ Cette bonne pratique est similaire à celle consistant à éviter les filtres re
 
 #### Utiliser les abandons Liquid (attributs uniquement) {#use-liquid-aborts-attributes-only}
 
-Dans les Campaigns et les étapes Canvas, utilisez les abandons Liquid pour éviter d'utiliser des filtres d'audience contenant les attributs de déclenchement dans la planification d'entrée. Par exemple, supposons que vous ayez un attribut de type tableau « couleurs préférées » et que vous souhaitiez cibler tout utilisateur qui met à jour ce tableau avec n'importe quelle valeur, et qui a également la couleur « bleu » dans le tableau après la mise à jour. Si vous utilisez les filtres d'audience dans cet exemple, vous rencontrerez une condition de concurrence et manquerez les utilisateurs ajoutant « bleu » dans le tableau pour la première fois.
+Dans les campagnes et les étapes Canvas, utilisez les abandons Liquid pour éviter d'utiliser des filtres d'audience contenant les attributs de déclenchement dans la planification d'entrée. Par exemple, supposons que vous ayez un attribut de type tableau « couleurs préférées » et que vous souhaitiez cibler tout utilisateur qui met à jour ce tableau avec n'importe quelle valeur, et qui a également la couleur « bleu » dans le tableau après la mise à jour. Si vous utilisez les filtres d'audience dans cet exemple, vous rencontrerez une condition de concurrence et manquerez les utilisateurs ajoutant « bleu » dans le tableau pour la première fois.
 
-Dans ce cas, vous pouvez implémenter un délai de déclenchement dans une Campaign ou utiliser une étape de délai dans un Canvas pour laisser le temps au profil utilisateur de se mettre à jour, puis utiliser la logique d'abandon Liquid suivante :
+Dans ce cas, vous pouvez implémenter un délai de déclenchement dans une campagne ou utiliser une étape de délai dans un Canvas pour laisser le temps au profil utilisateur de se mettre à jour, puis utiliser la logique d'abandon Liquid suivante :
 
 {% raw %}
 ```liquid
@@ -131,4 +131,4 @@ S'il y a une condition de concurrence lors de l'évaluation de l'entrée dans le
 
 Si un utilisateur déclenche l'événement d'entrée du Canvas plusieurs fois dans la même seconde, Braze n'autorise qu'une seule entrée pour cette seconde (même si la réentrée est activée). Cela empêche les entrées en double, de sorte que le nombre total d'entrées dans le Canvas peut être inférieur au nombre total d'événements déclencheurs.
 
-Nous recommandons de vérifier comment les données utilisateur sont gérées et mises à jour, en particulier quand et comment des attributs spécifiques sont mis à jour, que ce soit par le SDK, l'API, l'API par lots ou d'autres méthodes. Cela peut aider à identifier et clarifier pourquoi un utilisateur est entré dans une Campaign ou un Canvas par rapport au moment où son profil a été mis à jour.
+Nous recommandons de vérifier comment les données utilisateur sont gérées et mises à jour, en particulier quand et comment des attributs spécifiques sont mis à jour, que ce soit par le SDK, l'API, l'API par lots ou d'autres méthodes. Cela peut aider à identifier et clarifier pourquoi un utilisateur est entré dans une campagne ou un Canvas par rapport au moment où son profil a été mis à jour.

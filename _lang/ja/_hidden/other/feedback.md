@@ -8,16 +8,16 @@ hide_toc: true
 <legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">ドキュメントのフィードバック</legend>
 <div id="feedback">
     <div id="feedback_section">
-    ドキュメントを改善するアイデアがありますか。または何か問題に気づきましたか。ぜひご連絡ください。私たちのチームはすべての投稿をレビューし、改善を続けています。<br /><br />
+    ドキュメントを改善するアイデアや、お気づきの問題はありますか？ぜひお聞かせください。すべてのフィードバックをチームで確認し、改善に役立てています。<br /><br />
 
-    <b>How useful do you find Braze docs, on average?</b><br />
+    <b>Brazeのドキュメントは平均してどの程度役に立っていますか？</b><br />
 
     <div id="feedback_answer_star">
       <div class="rating-list">
         <div class="feedback-star">
           <input type="radio" id="rating_1" name="feedback_rating" value="Very Unhelpful" tabindex="-1">
           <label for="rating_1" class="star-label" tabindex="0" aria-label="Very Unhelpful">
-            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />Not Useful</label>
+            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />役に立たない</label>
         </div>
         <div class="feedback-star">
           <input type="radio" id="rating_2" name="feedback_rating" value="Unhelpful" tabindex="-1">
@@ -28,7 +28,7 @@ hide_toc: true
         <div class="feedback-star">
           <input type="radio" id="rating_3" name="feedback_rating" value="Somewhat Helpful" tabindex="-1">
           <label for="rating_3" class="star-label" tabindex="0" aria-label="Somewhat helpful">
-            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />Somewhat Useful</label>
+            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />やや役に立つ</label>
         </div>
 
         <div class="feedback-star">
@@ -41,29 +41,21 @@ hide_toc: true
         <div class="feedback-star">
           <input type="radio" id="rating_5" name="feedback_rating" value="Very Helpful" tabindex="-1">
           <label for="rating_5" class="star-label" tabindex="0" aria-label="Very Helpful">
-            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />Very Useful
+            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />とても役に立つ
           </label>
         </div>
 
       </div>
     </div>
     <div style="margin-top: 15px;">
-      <b>Share your feedback</b> <br />
-      <textarea id="feedback_comment" placeholder="&quot;I couldn’t find any information about this error message&quot;"></textarea><br />
-        Have questions? Contact our support team for assistance.
+      <b>フィードバックをお寄せください</b> <br />
+      <textarea id="feedback_comment" placeholder="&quot;このエラーメッセージに関する情報が見つかりませんでした&quot;"></textarea><br />
+        ご質問がありますか？サポートチームまでお問い合わせください。
     </div>
-    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> Submit feedback </button>
+    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> フィードバックを送信 </button>
   </div>
   <div id="feedback_msg">
   </div>
-
-  <hr style="border: 1px solid #CDCDCF;margin-top:48px;"/>
-
-  <h3> これらのドキュメントを素晴らしいものにするためにご協力ください</h3>
-
-  Braze Docsは、誰もが貢献することを歓迎するオープンソースプロジェクトです。288 人以上の共同作成者に加わって、今すぐ最初のプルリクエストを送信してください。<br /><br />
-
-  <button type="submit" onclick="location.href='{{site.baseurl}}/contributing/home'" value="寄稿" class="btn btn-white">寄稿開始</button>
 
 </div>
 </fieldset>

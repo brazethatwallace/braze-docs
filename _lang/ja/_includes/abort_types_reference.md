@@ -127,14 +127,14 @@
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Content Cards
+### Content Cards {#content-cards}
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `content_card_size_exceeded` | Content Cardsのペイロードが最大サイズ制限（2 KB）を超えています。 |
-| `content_card_content_invalid` | Content Cardsのコンテンツが無効であるか、サポートされていない文字が含まれています。 |
-| `content_card_expiration_invalid` | Content Cardsの有効期限が無効です。 |
-| `content_card_general` | 一般的なエラーによりContent Cardsを作成できませんでした。 |
+| `content_card_size_exceeded` | コンテンツカードのペイロードが最大サイズ制限（2 KB）を超えています。 |
+| `content_card_content_invalid` | コンテンツカードのコンテンツが無効であるか、サポートされていない文字が含まれています。 |
+| `content_card_expiration_invalid` | コンテンツカードの有効期限が無効です。 |
+| `content_card_general` | 一般的なエラーによりコンテンツカードを作成できませんでした。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endif %}

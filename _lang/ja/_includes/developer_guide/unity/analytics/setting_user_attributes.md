@@ -84,7 +84,7 @@ BrazeBinding.SetUserFirstName(null);
 
 ## カスタムユーザー属性 {#custom-user-attributes}
 
-デフォルトのユーザー属性に加え、Brazeではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
+デフォルトのユーザー属性に加え、Brazeではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[データ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
 
 ### カスタム属性の設定 {#setting-custom-attributes}
 
