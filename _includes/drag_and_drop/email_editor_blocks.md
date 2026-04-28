@@ -192,7 +192,7 @@ Refer to the following table for details on the `Icons` editor block.
 
 Refer to the following table for details on the `HTML` editor block.
 
-| properties | description |
+| Properties | Description |
 |---|---|
 |html editor| Enter the raw HTML. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
