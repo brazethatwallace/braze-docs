@@ -4,34 +4,21 @@ Drag blocks from the **Build** section into a row in the drag-and-drop preferenc
 
 Before you edit blocks, add subscription groups and configure the subscription **smart block** (see below). For the full setup flow, see [Create an email preference center with drag-and-drop]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/).
 
-## Types
-
-The following table describes each editor block type. Select a block to view its properties.
-
-| Name | Description |
-| --- | --- |
-| [Title](#preferencecenter_title-and-paragraph) | Adds a heading or label text. |
-| [Paragraph](#preferencecenter_title-and-paragraph) | Adds body copy with rich text options. |
-| [Button](#preferencecenter_button) | Adds a clickable button (for example **Save** or navigation). |
-| [Image](#preferencecenter_image) | Displays an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) or a URL. |
-| [Spacer](#preferencecenter_spacer) | Adds vertical spacing between blocks. |
-| [Custom code](#preferencecenter_custom-code) | Inserts custom HTML, CSS, or JavaScript. Inline frames may not generate in delivered preference centers—see the note below. |
-| [Subscription groups (smart block)](#preferencecenter_subscription-groups-smart-block) | The template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-## Properties
-
-Details for each editor block's properties are provided in the following tables.
-
 ### Title and paragraph
+
+Adds heading or body copy with rich text options.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
 ### Button
 
+Adds a clickable button (for example **Save** or navigation).
+
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
 ### Image
+
+Displays an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) or a URL.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -39,11 +26,13 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Spacer
 
+Adds vertical spacing between blocks.
+
 {% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
 ### Custom code
 
-If **Custom code** is not in your block list, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+Inserts custom HTML, CSS, or JavaScript. If **Custom code** is not in your block list, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
 
 | Property | Description |
 | --- | --- |
@@ -51,6 +40,8 @@ If **Custom code** is not in your block list, contact [Braze Support]({{site.bas
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Subscription groups (smart block)
+
+The template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow.
 
 After you [add subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/#step-3-add-subscription-groups-to-the-preference-center), select the smart block in the canvas to:
 

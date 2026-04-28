@@ -1,46 +1,28 @@
 ## In-app message editor blocks
 
-Editor blocks are located under the **Build** section for in-app messages. To use them, drag an editor block inside a column. It will auto-adjust to the column width. Each editor block has its own settings, such as granular control on padding. The right-side panel automatically switches to a property panel for the selected content element.
+Editor blocks are in the **Build** section for in-app messages. Drag a block into a column; it auto-adjusts to the column width. Select a block to edit its settings in the right-side panel.
 
 For more information about creating in-app messages in the **Drag-And-Drop Editor**, see [Create an in-app message with drag-and-drop]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
 
-## Types
+### Title and paragraph
 
-The following table describes each editor block type. Select a block to view its properties.
-
-| Name | Description |
-| --- | --- |
-| [Title](#inappmessages_title-and-paragraph) | Enters a title text into the message. |
-| [Paragraph](#inappmessages_title-and-paragraph) | Enters a paragraph text into the message. |
-| [Button](#inappmessages_button) | Adds a standard button. Properties for this block allow for editing, setting links, and logging analytics. |
-| [Radio Button](#inappmessages_radio-button) | Adds a list of options from which users can select one. When submitted, the user profile logs the associated custom attribute, which must be a string to be saved. Custom attributes with other data types do not save to the user profile. |
-| [Image](#inappmessages_image) | Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). |
-| [Link](#inappmessages_link) | Inserts a hyperlink that users can click to navigate to a specified URL. Can be embedded within text or standalone. |
-| [Spacer](#inappmessages_spacer) | Adds space or padding between other blocks. |
-| [Custom Code](#inappmessages_custom-code) | Inserts and runs custom HTML, CSS, or JavaScript for advanced customization. |
-| [Phone Capture](#inappmessages_phone-capture) | Inserts a form field for phone numbers. When submitted, the user is subscribed to the [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp subscription group]({{site.baseurl}}/whatsapp_subscription_groups/). |
-| [Email Capture](#inappmessages_email-capture) | Inserts a form field for email addresses. When submitted, the email address is added to that user's profile in Braze. |
-| [Short Text](#inappmessages_short-text) | Inserts a form field that supports standard attributes (such as first and last name) or a custom attribute string of your choice. |
-| [Dropdown](#inappmessages_dropdown) | Inserts a dropdown with a pre-defined list of items from which users can select one. You can add any custom attribute strings to the list. |
-| [Checkbox](#inappmessages_checkbox) | Inserts a checkbox. If the user checks the box, the block's attribute is set to `true`. If left unchecked, its attribute is set to `false`. |
-| [Checkbox Group](#inappmessages_checkbox-group) | Users can select from multiple choices presented. Values are either set or added to a defined array custom attribute. |
-| [Long text](#inappmessages_long-text) | Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
-| [Saved row](#inappmessages_saved-row) | Inserts a reusable row you saved earlier. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-## Properties
-
-Details for each editor block's properties are provided in the following tables.
-
-### Title and Paragraph
+Adds title or paragraph text to the message.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
 ### Button
 
+Adds a standard button with configurable styling, links, and analytics.
+
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
+**On-click behavior**
+
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
+
 ### Radio button
+
+Adds a list of options from which users can select one. When submitted, the user profile logs the associated custom attribute, which must be a string to be saved. Custom attributes with other data types do not save to the user profile.
 
 | Property | Description |
 | --- | --- |
@@ -59,34 +41,58 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Image
 
+Inserts an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/).
+
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
+For image specifications, refer to our [in-app message image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages).
+
+**On-click behavior**
+
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
+
 ### Link
+
+Inserts a hyperlink that users can click to navigate to a specified URL. Can be embedded within text or standalone.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
+**On-click behavior**
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
+
 ### Spacer
+
+Adds space or padding between other blocks.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
 ### Custom code
 
+Inserts and runs custom HTML, CSS, or JavaScript for advanced customization.
+
 | Property | Description |
 | --- | --- |
-| Custom Code | Allows you to add, edit, or delete HTML, CSS, and JavaScript for an in-app message. |
+| Custom code | Allows you to add, edit, or delete HTML, CSS, and JavaScript for an in-app message. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Phone capture
+
+Inserts a form field for phone numbers. When submitted, the user is subscribed to the [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp subscription group]({{site.baseurl}}/whatsapp_subscription_groups/).
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### Email capture
 
+Inserts a form field for email addresses. When submitted, the email address is added to that user's profile in Braze.
+
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
 ### Short text
+
+Inserts a form field that supports standard attributes (such as first and last name) or a custom attribute string of your choice.
 
 | Property | Description |
 | --- | --- |
@@ -107,6 +113,8 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Dropdown
 
+Inserts a dropdown with a predefined list of items from which users can select one. You can add any custom attribute strings to the list.
+
 | Property | Description |
 | --- | --- |
 | Required input field | Marks whether the user must select an option before the form can be submitted. |
@@ -125,6 +133,8 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Checkbox
 
+Inserts a checkbox. If the user checks the box, the block's attribute is set to `true`. If left unchecked, its attribute is set to `false`.
+
 | Property | Description |
 | --- | --- |
 | Required input field | Marks whether the checkbox must be checked before the form can be submitted. |
@@ -134,6 +144,8 @@ Details for each editor block's properties are provided in the following tables.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Checkbox group
+
+Users can select from multiple choices. Values are set or added to a defined array custom attribute.
 
 | Property | Description |
 | --- | --- |
@@ -156,26 +168,10 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Long text
 
+Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 ### Saved row
 
-Add a **Saved row** from the **Rows** category when it appears in your editor. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
-
-## Actions
-
-You can assign an action that occurs when a user taps a button, link, or image in the message. You can also use [Liquid]({{site.baseurl}}/liquid/) to personalize the actions. Details for each editor block's actions are provided in the following tables.
-
-### Button
-
-{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
-
-### Image
-
-For image specifications, refer to our [in-app message image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages).
-
-{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
-
-### Link
-
-{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
+Inserts a reusable row you saved earlier. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
