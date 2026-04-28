@@ -35,37 +35,39 @@ If a block's behavior matches the in-app message editor, this article links to [
 
 ## Properties
 
+For blocks that behave identically to in-app messages (Title, Paragraph, Button, Image, Link, Spacer, Custom code, Email capture, Phone capture, Input field, Dropdown, Checkbox, Checkbox group), property tables are in the [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) tab. Landing-page-specific behavior is called out in each section below.
+
 ### Title and paragraph
 
-For typography and alignment properties, see [Title and Paragraph]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_title-and-paragraph) under in-app message editor blocks.
+For typography and alignment properties, see [Title and Paragraph]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 ### Button
 
-For styling properties, see [Button properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_button) under in-app message editor blocks.
+For styling properties, see [Button properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
-For button actions (submit, on-click behavior, logging), see the **Actions** section under [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_actions).
+For button actions (submit, on-click behavior, logging), see the **Actions** section under [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
 
 For form submission and links to a confirmation page, follow [Create landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#step-4-create-a-confirmation-page-optional).
 
 ### Radio button
 
-For behavior aligned with in-app messages, see [Types]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_types) for the in-app **Radio button** description. Configure options and custom attributes in the properties panel after you place the block.
+For behavior aligned with in-app messages, see [Types]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) for the in-app **Radio button** description. Configure options and custom attributes in the properties panel after you place the block.
 
 ### Image
 
-For image properties and dynamic image guidance, see [Image]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_image) under in-app message editor blocks.
+For image properties and dynamic image guidance, see [Image]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 ### Link
 
-For link text styling, see [Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_link) under in-app message editor blocks.
+For link text styling, see [Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 ### Spacer
 
-For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_spacer) under in-app message editor blocks.
+For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 ### Custom code
 
-For the Custom code property field, see [Custom code]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_custom-code) under in-app message editor blocks.
+For the Custom code property field, see [Custom code]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
 You can use Custom code for advanced integrations, for example [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages/#google-tag-manager).
 
@@ -83,15 +85,15 @@ Add a **Saved row** from the **Rows** category when it appears in your editor. F
 
 ### Email capture, phone capture, input field, dropdown, checkbox, and checkbox group
 
-These form blocks align with the in-app message editor. For **Email capture** and **Phone capture** property tables, see [Email capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_email-capture) and [Phone capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_phone-capture) under in-app message editor blocks.
+These form blocks align with the in-app message editor. For **Email capture** and **Phone capture** property tables, see [Email capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) and [Phone capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
 
-For **Short text** (the in-app editor name for the same control as **Input field** on landing pages), **Dropdown**, **Checkbox**, and **Checkbox group**, see the [Types]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_types) table in that tab, then use the properties panel in the editor for field-level settings.
+For **Short text** (the in-app editor name for the same control as **Input field** on landing pages), **Dropdown**, **Checkbox**, and **Checkbox group**, see the [Types]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) table in that tab, then use the properties panel in the editor for field-level settings.
 
 For required fields, confirmation pages, and submit behavior, see [Create landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
 
 ## Actions
 
-For button, image, and link actions where the landing page acts as a form (submit, open URL, log attributes), use the same patterns as in-app messages. See [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_actions) in that tab.
+For button, image, and link actions where the landing page acts as a form (submit, open URL, log attributes), use the same patterns as in-app messages. See [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) in that tab.
 
 {% alert important %}
 If you configure a button with **Submit form when button is clicked** and open a web URL in a new tab, iOS Safari may block the navigation. Prefer opening the post-submit URL in the same tab when submitting forms. For more information, see [Create landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
