@@ -2446,6 +2446,71 @@ def _clamp_reset_td_br_ial(ial_line, header_cols):
     return new, removed
 
 
+def repair_markdown_double_leading_pipe_table_rows(content: str):
+    """Replace ``||`` at the start of markdown table rows with ``|``.
+
+    Models sometimes emit ``|| cell | cell |`` (Copilot on auto-translate
+    PR #13398), which reads as an extra empty leading column. Skips lines
+    inside fenced code blocks (`` ``` `` / ``~~~``) so shell ``||`` and
+    similar aren't touched.
+    """
+    lines = content.splitlines()
+    in_fence = False
+    fence_delim = None
+    fixed = 0
+    out = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") and (fence_delim in (None, "```")):
+            in_fence = not in_fence
+            fence_delim = "```" if in_fence else None
+            out.append(line)
+            continue
+        if stripped.startswith("~~~") and (fence_delim in (None, "~~~")):
+            in_fence = not in_fence
+            fence_delim = "~~~" if in_fence else None
+            out.append(line)
+            continue
+        if in_fence:
+            out.append(line)
+            continue
+        m = re.match(r"^(\s*(?:>\s*)*)\|\|(.+)$", line)
+        if m:
+            rest = m.group(2)
+            if "|" in rest:
+                line = m.group(1) + "|" + rest
+                fixed += 1
+        out.append(line)
+    if not fixed:
+        return content, []
+    result = "\n".join(out)
+    if content.endswith("\n"):
+        result += "\n"
+    return result, [
+        f"md-table — normalized {fixed} double-leading-pipe row(s) (||→|)"
+    ]
+
+
+def repair_html_href_space_before_liquid_open(content: str) -> tuple[str, list]:
+    r"""Remove stray whitespace between ``href``\ 's opening quote and ``{%``.
+
+    Copilot on auto-translate PR #13398 flagged ``href=" {% landing_page_url``
+    in HTML-in-Markdown examples — the space breaks the attribute value.
+    Also covers single-quoted ``href=`` and optional Liquid whitespace
+    control ``{%-``.
+    """
+    new, n = re.subn(
+        r"href=(['\"])\s+(\{\%-?)",
+        r"href=\1\2",
+        content,
+    )
+    if n:
+        return new, [
+            f"html-href — removed {n} stray space(s) before Liquid in href=…"
+        ]
+    return content, []
+
+
 def repair_markdown_table_column_count(content):
     """Repair markdown tables whose separator row's cell count doesn't match
     the header row's cell count (and prune trailing ``.reset-td-br-N`` IAL
@@ -6053,6 +6118,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_markdown_internal_link_trailing_slash(translated_content)
     )
     findings["repairs"].extend(link_slash_repairs)
+
+    translated_content, href_liquid_repairs = (
+        repair_html_href_space_before_liquid_open(translated_content)
+    )
+    findings["repairs"].extend(href_liquid_repairs)
+
+    translated_content, dbl_pipe_repairs = (
+        repair_markdown_double_leading_pipe_table_rows(translated_content)
+    )
+    findings["repairs"].extend(dbl_pipe_repairs)
 
     translated_content, table_col_repairs = repair_markdown_table_column_count(
         translated_content
