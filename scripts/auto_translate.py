@@ -2401,6 +2401,32 @@ def repair_pt_br_german_low9_double_quote_in_body(
     ]
 
 
+def repair_pt_br_subscribed_default_subscription_group_label(
+    translated_content, lang_key
+):
+    """Normalize the default global email subscription group bold label.
+
+    The pt-BR glossary historically mapped ``Subscribed``→*Inscreveu-se*;
+    dashboards and sibling docs keep English **Subscribed** for that literal
+    product token. Fix the recurring phrase that bolds the wrong token next
+    to *grupo de inscrições global* (Copilot / auto-translate PR #13399).
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+
+    needle = "grupo de inscrições global **Inscreveu-se**"
+    if needle not in translated_content:
+        return translated_content, []
+
+    replaced = translated_content.replace(
+        needle,
+        "grupo de inscrições global **Subscribed**",
+    )
+    return replaced, [
+        "pt_br subscriptions — restored **Subscribed** for global group label",
+    ]
+
+
 def repair_pt_br_analytics_product_menu_label(
     translated_path, translated_content, lang_key
 ):
@@ -5236,6 +5262,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(pt_analytics_menu_repairs)
+
+    translated_content, pt_subscribed_label_repairs = (
+        repair_pt_br_subscribed_default_subscription_group_label(
+            translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_subscribed_label_repairs)
 
     translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
         translated_path, translated_content, lang_key
