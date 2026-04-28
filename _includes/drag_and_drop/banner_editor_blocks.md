@@ -18,7 +18,7 @@ Adds a clickable button. You can set links and analytics options in the properti
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
@@ -32,7 +32,7 @@ Displays an image from a hosted URL and options you set in the properties panel.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
@@ -42,7 +42,7 @@ Inserts a hyperlink users can select.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 

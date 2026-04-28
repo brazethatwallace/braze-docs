@@ -16,7 +16,7 @@ Adds a standard button with configurable styling, links, and analytics.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
@@ -49,7 +49,7 @@ Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/
 
 For image specifications, refer to our [in-app message image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#in-app-messages).
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
@@ -59,7 +59,7 @@ Inserts a hyperlink that users can click to navigate to a specified URL. Can be 
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 

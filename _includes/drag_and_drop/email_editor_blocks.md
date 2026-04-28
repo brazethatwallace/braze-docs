@@ -78,7 +78,7 @@ Adds a standard button. Properties allow for editing styling and setting link be
 | Button hover | The style of the button when a user hovers over it using a mouse or trackpad. Includes the button's background color, font color, and border styles. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-**On-click behavior**
+#### On-click behavior
 
 | Property | Description |
 |---|---|

@@ -16,7 +16,7 @@ A clickable element for actions such as opening a link or submitting a form.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
@@ -36,7 +36,7 @@ Displays an image from an upload or external URL.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
@@ -46,7 +46,7 @@ A hyperlink users can select to go to a URL. Can sit in text or stand alone.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-**On-click behavior**
+#### On-click behavior
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
