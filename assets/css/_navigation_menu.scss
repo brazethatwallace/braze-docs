@@ -266,9 +266,8 @@ $nav-nesting-border: $grey-manatee;
 
 	// Focus indicator for nav links
 	a.nav_link {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
-		min-height: 0;
 		width: 100%;
 		padding: 0;
 		border-radius: 8px;
@@ -306,10 +305,8 @@ $nav-nesting-border: $grey-manatee;
 		font-family: $braze-regular;
 		width: 100%;
 		.nav_block {
-			display: flex;
-			align-items: center;
+			display: contents;
 			margin-left: 0;
-			width: 100%;
 		}
 		.nav_title {
 			display: inline;
