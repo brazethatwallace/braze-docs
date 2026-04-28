@@ -573,6 +573,12 @@ heading line has **no** explicit `{#…}` ID, do not add one in translation. \
 When both `nav_title` and `article_title` exist and denote the same words, \
 keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
+31. **Markdown tables + dev_guide YAML (PR #13392)**: Do not start table body \
+rows with ``||``—use standard ``| col1 | col2 |`` so you do not insert a blank \
+first column. When ``guide_top_text`` embeds HTML with double-quoted attributes \
+(``href="..."``), wrap the **whole** YAML value in double quotes and escape inner \
+``"`` as ``\"`` so the front matter parses. Match sibling locales' explicit \
+``{#…}`` fragments on comparable H1s when deep links depend on them.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1680,6 +1686,56 @@ def repair_liquid_image_buster_path_spacing(translated_content):
     if not n:
         return translated_content, []
     return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
+
+
+def repair_markdown_table_double_leading_row_pipes(translated_content):
+    """Remove an accidental extra ``|`` at the start of markdown table rows.
+
+    Rows like ``|| Use case | Explanation |`` render an empty first column and
+    break ``.reset-td-br-*`` table styling (Copilot PR #13392).
+    """
+
+    new, n = re.subn(r"(^|\n)\|\|(\|)", r"\1|\2", translated_content, flags=re.MULTILINE)
+    if not n:
+        return translated_content, []
+    return new, [f"md-table — double leading pipe on table rows ({n}x; PR #13392)"]
+
+
+def repair_yaml_guide_top_text_unquoted_html(translated_content):
+    """Quote ``guide_top_text`` HTML blobs so attribute ``"`` do not break YAML.
+
+    Values such as ``guide_top_text: <a href="https://...">`` truncate at the
+    first inner double quote unless the whole value is YAML-quoted with inner
+    quotes escaped (Copilot PR #13392).
+    """
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    out_lines = []
+    changed = False
+    for line in tr_fm.split("\n"):
+        m = re.match(r"^(guide_top_text:)\s*(.+)$", line)
+        if not m:
+            out_lines.append(line)
+            continue
+        key, raw = m.group(1), m.group(2)
+        stripped = raw.strip()
+        if stripped.startswith('"') or stripped.startswith("'"):
+            out_lines.append(line)
+            continue
+        if stripped.startswith("<") and '"' in stripped:
+            esc = stripped.replace("\\", "\\\\").replace('"', '\\"')
+            out_lines.append(f'{key} "{esc}"')
+            changed = True
+        else:
+            out_lines.append(line)
+    if not changed:
+        return translated_content, []
+    new_fm = "\n".join(out_lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        ["guide_top_text_fm — quoted HTML for YAML safety (PR #13392)"],
+    )
 
 
 def repair_de_global_user_management_landing_titles(
@@ -4861,6 +4917,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(image_buster_repairs)
+
+    translated_content, md_table_pipe_repairs = repair_markdown_table_double_leading_row_pipes(
+        translated_content
+    )
+    findings["repairs"].extend(md_table_pipe_repairs)
+
+    translated_content, gtt_html_repairs = repair_yaml_guide_top_text_unquoted_html(
+        translated_content
+    )
+    findings["repairs"].extend(gtt_html_repairs)
 
     translated_content, de_user_mgmt_repairs = (
         repair_de_global_user_management_landing_titles(
