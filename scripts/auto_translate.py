@@ -578,6 +578,13 @@ they would otherwise differ only by capitalization) (auto-translate PR #13380).
 selectors valid (no `nth-child(N), {` before `{`). Localize known \
 `aria-label="Open navigation menu"` / `aria-label="Select your language"` \
 when the surrounding prose is localized.
+32. **CDI SQL Editor** (``…/cloud_ingestion/sql_editor.md``): Keep ``PAYLOAD`` \
+and ``UPDATED_AT`` in backticks with **English casing**. Translate \
+troubleshooting ``###`` error-topic headings (do not leave titles such as \
+**No preview available** in English when the page is localized). On those \
+four ``###`` lines, add ``{#no-preview-available}``, ``{#identity-column-required}``, \
+``{#no-attributes-to-sync}``, and ``{#query-execution-timed-out}`` so anchors \
+stay stable across locales (auto-translate PR #13397).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -3784,14 +3791,24 @@ def repair_de_braze_pilot_low9_pair_ascii_close_quote(
     return translated_content, []
 
 
-def repair_fr_payload_display_typography(translated_content, lang_key):
+def repair_fr_payload_display_typography(
+    translated_path, translated_content, lang_key
+):
     """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
 
     All-caps *PAYLOAD* in prose reads like shouting; technical French often uses
     lowercase *payload* / plural *payloads* (see Copilot review on campaigns /
     Decisioning docs).
+
+    Skips ``…/cloud_ingestion/sql_editor.md``: there ``PAYLOAD`` / ``UPDATED_AT``
+    are case-sensitive CDI column identifiers and must stay as English spells
+    them (auto-translate PR #13397).
     """
     if lang_key != "fr":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "data/unification/cloud_ingestion/sql_editor.md" in rel:
         return translated_content, []
 
     new = translated_content
@@ -5087,7 +5104,7 @@ def qc_check_file(english_path, translated_path, lang_key):
     findings["repairs"].extend(ds_insights_repairs)
 
     translated_content, fr_payload_repairs = repair_fr_payload_display_typography(
-        translated_content, lang_key
+        translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(fr_payload_repairs)
 
