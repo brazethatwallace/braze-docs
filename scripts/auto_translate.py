@@ -7,6 +7,7 @@ Usage:
     python auto_translate.py qc
     python auto_translate.py check-aliases
     python auto_translate.py check-path-case-collisions
+    python auto_translate.py align-heading-anchor-parity
     python auto_translate.py verify --max-attempts 3
     python auto_translate.py summary
 """
@@ -21,7 +22,7 @@ import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Set
 
 # Single source of truth for the Braze product-name allowlist; imported by
 # ``scripts/audit_glossaries.py`` too so the runtime glossary override and
@@ -573,6 +574,53 @@ heading line has **no** explicit `{#…}` ID, do not add one in translation. \
 When both `nav_title` and `article_title` exist and denote the same words, \
 keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
+31. **Administer / dashboard polish** (PR #13384): Do not paste huge invented \
+`{#slug}` tails on headings when English has none. Keep `<style>` CSS \
+selectors valid (no `nth-child(N), {` before `{`). Localize known \
+`aria-label="Open navigation menu"` / `aria-label="Select your language"` \
+when the surrounding prose is localized.
+32. **Brazilian Portuguese — Braze ``Analytics`` menu**: When English uses bold \
+``**Analytics**`` as the dashboard section name in navigation paths (for example \
+``**Analytics** > **Report Builder (New)**``) or phrases like "the **Analytics** \
+page" / "the **Analytics** section", keep ``**Analytics**`` in pt-BR for that \
+product chrome—do **not** substitute ``**Análise de dados**`` in those slots; it \
+drifts from sibling analytics docs (auto-translate PR #13386). QC auto-repairs \
+common ``**Análise de dados**`` UI fragments when they slip through.
+33. **Audience segments subtree** (PR #13387): For ``cdi_segments.md``, keep YAML \
+``description`` on the CDI / warehouse topic—never location-targeting boilerplate \
+mirrored from a bad English string. For ``rfm_segments.md``, localize ``nav_title`` \
+and the H1 away from English ``Segments RFM`` / ``RFM Segments`` in ES/pt-BR/KO. \
+For ``managing_segments.md``, never set ``tool:`` to a translated word; it must \
+remain ``Segments``.
+34. **Liquid ``{% assign %}`` + default fields**: Never nest ``{{ }}`` around \
+``${…}`` on the right-hand side of ``{% assign var = … %}`` (for example wrong \
+``{% assign my_string = {{${user_id}}} | md5 %}``; correct \
+``{% assign my_string = ${user_id} | md5 %}``). When prose describes a Liquid \
+example that branches on language (for example ``${language} == 'spanish'``), \
+keep the named language in running text **consistent** with that branch \
+(auto-translate PR #13388).
+35. **Markdown tables + dev_guide YAML (PR #13392)**: Do not start table body \
+rows with ``||``—use standard ``| col1 | col2 |`` so you do not insert a blank \
+first column. When ``guide_top_text`` embeds HTML with double-quoted attributes \
+(``href="..."``), wrap the **whole** YAML value in double quotes and escape inner \
+``"`` as ``\"`` so the front matter parses. Match sibling locales' explicit \
+``{#…}`` fragments on comparable H1s when deep links depend on them.
+36. **Decisioning Studio › audience (PR #13389)**: Use **Google Cloud Storage** \
+(and **GCS**) for Braze-controlled export *buckets*—never *Google Cloud Services* \
+in that bucket context. In ``{% tabs %}``, when sibling ``{% tab … %}`` labels \
+are localized, translate the **Other Platforms** tab label too (do not leave it \
+in English alone). On **prepare_data** hub YAML, each ``guide_featured_list`` \
+``name:`` should match the linked page's established title in that locale (for \
+example pt-BR **Ativos de dados críticos** for the **Critical data assets** row, \
+not a divergent synonym). German ``get_started``—localize stray English section \
+titles such as **Best Practices** when the surrounding section is German.
+37. **CDI SQL Editor** (``…/cloud_ingestion/sql_editor.md``): Keep ``PAYLOAD`` \
+and ``UPDATED_AT`` in backticks with **English casing**. Translate \
+troubleshooting ``###`` error-topic headings (do not leave titles such as \
+**No preview available** in English when the page is localized). On those \
+four ``###`` lines, add ``{#no-preview-available}``, ``{#identity-column-required}``, \
+``{#no-attributes-to-sync}``, and ``{#query-execution-timed-out}`` so anchors \
+stay stable across locales (auto-translate PR #13397).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1682,6 +1730,135 @@ def repair_liquid_image_buster_path_spacing(translated_content):
     return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
 
 
+def repair_markdown_table_double_leading_row_pipes(translated_content):
+    """Remove an accidental extra ``|`` at the start of markdown table rows.
+
+    Rows like ``|| Use case | Explanation |`` render an empty first column and
+    break ``.reset-td-br-*`` table styling (Copilot PR #13392).
+    """
+
+    new, n = re.subn(r"(^|\n)\|\|(\|)", r"\1|\2", translated_content, flags=re.MULTILINE)
+    if not n:
+        return translated_content, []
+    return new, [f"md-table — double leading pipe on table rows ({n}x; PR #13392)"]
+
+
+def repair_yaml_guide_top_text_unquoted_html(translated_content):
+    """Quote ``guide_top_text`` HTML blobs so attribute ``"`` do not break YAML.
+
+    Values such as ``guide_top_text: <a href="https://...">`` truncate at the
+    first inner double quote unless the whole value is YAML-quoted with inner
+    quotes escaped (Copilot PR #13392).
+    """
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    out_lines = []
+    changed = False
+    for line in tr_fm.split("\n"):
+        m = re.match(r"^(guide_top_text:)\s*(.+)$", line)
+        if not m:
+            out_lines.append(line)
+            continue
+        key, raw = m.group(1), m.group(2)
+        stripped = raw.strip()
+        if stripped.startswith('"') or stripped.startswith("'"):
+            out_lines.append(line)
+            continue
+        if stripped.startswith("<") and '"' in stripped:
+            esc = stripped.replace("\\", "\\\\").replace('"', '\\"')
+            out_lines.append(f'{key} "{esc}"')
+            changed = True
+        else:
+            out_lines.append(line)
+    if not changed:
+        return translated_content, []
+    new_fm = "\n".join(out_lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        ["guide_top_text_fm — quoted HTML for YAML safety (PR #13392)"],
+    )
+_DECISIONING_AUDIENCE_DOC_SUFFIX = "brazeai/decisioning_studio/audience.md"
+
+_OTHER_PLATFORMS_TAB_LABEL_BY_LANG = {
+    "de": "Weitere Plattformen",
+    "es": "Otras plataformas",
+    "fr": "Autres plateformes",
+    "ja": "その他のプラットフォーム",
+    "ko": "다른 플랫폼",
+    "pt-br": "Outras plataformas",
+}
+
+
+def repair_decisioning_audience_gcs_services_typo(translated_path, translated_content):
+    """Replace *Google Cloud Services* with **Google Cloud Storage** on audience page.
+
+    Export buckets for Decisioning Studio live on **Google Cloud Storage** (GCS).
+    Models sometimes write the broader *Google Cloud Services* next to *bucket*
+    wording (Copilot / auto-translate PR #13389). Scoped to this doc only.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_DECISIONING_AUDIENCE_DOC_SUFFIX):
+        return translated_content, []
+    if "Google Cloud Services" not in translated_content:
+        return translated_content, []
+    new = translated_content.replace("Google Cloud Services", "Google Cloud Storage")
+    n = translated_content.count("Google Cloud Services")
+    return new, [f"gcs-name — Google Cloud Services → Google Cloud Storage ({n}x; PR #13389)"]
+
+
+def repair_decisioning_audience_other_platforms_tab(
+    translated_path, translated_content, lang_key
+):
+    """Localize ``{% tab Other Platforms %}`` on Decisioning Studio audience page."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_DECISIONING_AUDIENCE_DOC_SUFFIX):
+        return translated_content, []
+    label = _OTHER_PLATFORMS_TAB_LABEL_BY_LANG.get(lang_key)
+    if not label:
+        return translated_content, []
+    before = "{% tab Other Platforms %}"
+    if before not in translated_content:
+        return translated_content, []
+    after = "{% tab " + label + " %}"
+    new = translated_content.replace(before, after)
+    return new, [f"decisioning-audience — tab Other Platforms → {label} (PR #13389)"]
+
+
+# ``{% assign x = {{${user_id}}} | md5 %}`` — invalid (output tags inside assign).
+_ASSIGN_NESTED_DEFAULT_IN_ASSIGN_RE = re.compile(
+    r"\{%\s*assign\s+(\w+)\s*=\s*\{\{\s*(\$\{[^}]+\})\s*\}\}\s*\|\s*(\w+)\s*%\}",
+    re.IGNORECASE,
+)
+
+
+def repair_liquid_assign_nested_default_in_output(translated_content):
+    """Strip nested ``{{ }}`` around Braze default fields inside ``{% assign %}``.
+
+    Models sometimes wrap ``${user_id}`` (and similar) as ``{{${user_id}}}`` on
+    the right-hand side of ``{% assign … %}``, which is invalid Liquid (Copilot
+    / auto-translate PR #13388).
+    """
+
+    def _repl(m: re.Match) -> str:
+        return (
+            "{% assign "
+            + m.group(1)
+            + " = "
+            + m.group(2)
+            + " | "
+            + m.group(3)
+            + " %}"
+        )
+
+    new, n = _ASSIGN_NESTED_DEFAULT_IN_ASSIGN_RE.subn(_repl, translated_content)
+    if not n:
+        return translated_content, []
+    return new, [
+        f"liquid — assign RHS: strip {{ }} around default field ({n}x; PR #13388)"
+    ]
+
+
 def repair_de_global_user_management_landing_titles(
     translated_path, translated_content, lang_key
 ):
@@ -2162,6 +2339,35 @@ _IAL_LINE_RE = re.compile(r"^\s*\{:\s*[^}]*\}\s*$")
 _RESET_TD_CLASS_RE = re.compile(r"\.reset-td-br-(\d+)")
 
 
+def _dot_missing_reset_td_br_tokens_in_ial_lines(text: str) -> tuple[str, int]:
+    """Insert ``.`` before ``reset-td-br-N`` tokens that lost their class dot.
+
+    Models (and occasionally English) emit ``{: .reset-td-br-1 .reset-td-br-2
+    .reset-td-br-3 reset-td-br-4}`` — the last token is missing its leading
+    ``.``, so Kramdown does not apply the column class (Copilot / PR #13395).
+    Only touches whole-line ``{:` … ``}`` IAL blocks.
+    """
+    lines = text.split("\n")
+    total = 0
+    out: list[str] = []
+    for line in lines:
+        if "{:" not in line or "reset-td-br-" not in line:
+            out.append(line)
+            continue
+        if not _IAL_LINE_RE.match(line):
+            out.append(line)
+            continue
+        new_line, n = re.subn(r"(\s)(reset-td-br-\d+)", r"\1.\2", line)
+        total += n
+        out.append(new_line)
+    if not total:
+        return text, 0
+    new_text = "\n".join(out)
+    if text.endswith("\n") and not new_text.endswith("\n"):
+        new_text += "\n"
+    return new_text, total
+
+
 def _count_md_table_cells(line):
     """Count cells in a markdown table row (header/body/separator)."""
     s = line.strip()
@@ -2452,6 +2658,217 @@ def repair_pt_br_german_low9_double_quote_in_body(
         f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
         f"in pt-BR doc"
     ]
+
+
+_CDI_SEGMENTS_DOC_SUFFIX = "segment_extension/cdi_segments.md"
+_CDI_LOCATION_DESC_SNIPPETS = (
+    "Location targeting",
+    "ロケーションターゲティング",
+    "ciblage par localisation, vous permettant",
+    "위치 타겟팅을 설정",
+    "direcionamento por local",
+)
+_CDI_DESCRIPTION_REPLACEMENT_LINE = {
+    "ja": (
+        'description: "この記事では、クラウドデータ取り込み（CDI）を使った CDI セグメント'
+        'エクステンションについて、データウェアハウスへのクエリと Braze でのオーディエンス定義の方法を説明します。"'
+    ),
+    "fr": (
+        "description: \"Cet article explique comment les extensions de segments CDI "
+        "s'appuient sur l'ingestion de données cloud pour interroger votre entrepôt "
+        'de données et définir des audiences dans Braze."'
+    ),
+    "ko": (
+        'description: "이 문서에서는 클라우드 데이터 수집(CDI)을 사용하는 CDI 세그먼트 확장을 통해 '
+        '데이터 웨어하우스를 쿼리하고 Braze에서 오디언스를 정의하는 방법을 설명합니다."'
+    ),
+    "pt-br": (
+        "description: \"Este artigo explica como as extensões de segmento CDI usam a ingestão de dados "
+        'na nuvem para consultar seu data warehouse e definir públicos na Braze."'
+    ),
+}
+
+
+def repair_cdi_segments_description_location_drift(
+    english_content, translated_content, translated_path, lang_key
+):
+    """Replace legacy ``location targeting`` copy in ``cdi_segments`` YAML ``description``.
+
+    English briefly shipped the wrong ``description``; several locales mirrored it
+    (Copilot / auto-translate PR #13387). When the English file clearly describes
+    CDI + Cloud Data Ingestion and the localized front matter still contains
+    known location-targeting boilerplate, rewrite ``description`` to the canonical
+    sentence for that locale.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_CDI_SEGMENTS_DOC_SUFFIX):
+        return translated_content, []
+    if "Cloud Data Ingestion" not in english_content:
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    if not any(s in tr_fm for s in _CDI_LOCATION_DESC_SNIPPETS):
+        return translated_content, []
+
+    replacement_line = _CDI_DESCRIPTION_REPLACEMENT_LINE.get(lang_key)
+    if not replacement_line:
+        return translated_content, []
+
+    new_lines = []
+    changed = False
+    for line in tr_fm.split("\n"):
+        if line.startswith("description:") and any(s in line for s in _CDI_LOCATION_DESC_SNIPPETS):
+            new_lines.append(replacement_line)
+            changed = True
+        else:
+            new_lines.append(line)
+    if not changed:
+        return translated_content, []
+
+    new_fm = "\n".join(new_lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        ["cdi_segments_fm — description topic drift (location → CDI; PR #13387)"],
+    )
+
+
+_RFM_SEGMENTS_DOC_SUFFIX = "sql_segments/rfm_segments.md"
+
+
+def repair_rfm_sql_segments_nav_and_title_mix(
+    translated_path, translated_content, lang_key
+):
+    """Normalize RFM SQL segment extension titles that mix English ``Segments`` into Romance/KO chrome.
+
+    Copilot on PR #13387: ``nav_title`` / H1 sometimes keep ``Segments RFM`` or
+    raw ``RFM Segments`` instead of locale nouns while the rest of the page is
+    localized. Preserve explicit ``{#…}`` anchors on heading lines.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_RFM_SEGMENTS_DOC_SUFFIX):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "pt-br":
+        if 'nav_title: "Segments RFM"' in new:
+            new = new.replace('nav_title: "Segments RFM"', 'nav_title: "Segmentos RFM"')
+            repairs.append("pt-br-rfm — nav_title Segments RFM → Segmentos RFM (PR #13387)")
+        if "# Segments SQL RFM {#" in new:
+            new = new.replace("# Segments SQL RFM {#", "# Segmentos RFM {#")
+            repairs.append("pt-br-rfm — H1 Segments SQL RFM → Segmentos RFM (PR #13387)")
+    elif lang_key == "es":
+        if 'nav_title: "Segments RFM"' in new:
+            new = new.replace('nav_title: "Segments RFM"', 'nav_title: "Segmentos RFM"')
+            repairs.append("es-rfm — nav_title Segments RFM → Segmentos RFM (PR #13387)")
+        if "# Segments SQL RFM {#" in new:
+            new = new.replace("# Segments SQL RFM {#", "# Segmentos RFM {#")
+            repairs.append("es-rfm — H1 Segments SQL RFM → Segmentos RFM (PR #13387)")
+    elif lang_key == "ko":
+        if 'nav_title: "RFM Segments"' in new:
+            new = new.replace('nav_title: "RFM Segments"', 'nav_title: "RFM 세그먼트"')
+            repairs.append("ko-rfm — nav_title RFM Segments → RFM 세그먼트 (PR #13387)")
+        if "# RFM SQL Segments" in new:
+            before_h1 = new
+            new = new.replace("# RFM SQL Segments {#", "# RFM SQL 세그먼트 {#")
+            new = new.replace("# RFM SQL Segments\n", "# RFM SQL 세그먼트\n")
+            if new != before_h1:
+                repairs.append("ko-rfm — H1 RFM SQL Segments → RFM SQL 세그먼트 (PR #13387)")
+
+    if new == translated_content:
+        return translated_content, []
+    return new, repairs
+
+
+def repair_pt_br_analytics_product_menu_label(
+    translated_path, translated_content, lang_key
+):
+    r"""Normalize Braze dashboard **Analytics** chrome in pt-BR Markdown.
+
+    English navigation uses the product label **Analytics** (for example
+    ``**Analytics** > **Report Builder (New)**``). Models sometimes render the
+    parent menu as ``**Análise de dados**``, which drifts from sibling pt-BR
+    analytics docs and in-product wording (Copilot / auto-translate PR #13386).
+    Only high-confidence UI fragments are rewritten — not headings that use
+    *Análise de dados* as a generic section title.
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/pt_br/" not in rel:
+        return translated_content, []
+
+    pairs = (
+        (
+            "navegue até a página **Análise de dados** da",
+            "navegue até a página **Analytics** da",
+        ),
+        (
+            "diretamente na página **Análise de dados** da",
+            "diretamente na página **Analytics** da",
+        ),
+        (
+            "até a página **Análise de dados** da",
+            "até a página **Analytics** da",
+        ),
+        ("**Análise de dados** >", "**Analytics** >"),
+        (
+            "exibida na página **Análise de dados**",
+            "exibida na página **Analytics**",
+        ),
+        ("seção **Análise de dados**", "seção **Analytics**"),
+        ("| **Análise de dados** |", "| **Analytics** |"),
+        ("* **Análise de dados**:", "* **Analytics**:"),
+    )
+
+    repairs = []
+    new = translated_content
+    for old, rep in pairs:
+        if old not in new:
+            continue
+        c = new.count(old)
+        new = new.replace(old, rep)
+        repairs.append(
+            "pt-br-analytics-menu — "
+            f"{old[:48]}{'…' if len(old) > 48 else ''} → **Analytics** ({c}x; PR #13386)"
+        )
+
+    if new == translated_content:
+        return translated_content, []
+    return new, repairs
+
+
+def repair_managing_segments_tool_yaml_value(translated_path, translated_content, _lang_key):
+    r"""Restore canonical ``tool: Segments`` when YAML was corrupted to ``segmentos``.
+
+    Models sometimes lowercase the ``tool`` taxonomy value after bulk prose edits
+    (Copilot / auto-translate PR #13387). ``tool`` must stay the English token
+    ``Segments`` for layout filters.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_user_guide/audience/segments/managing_segments.md"):
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    new_fm, n = re.subn(
+        r"(?im)^tool:\s*segmentos\s*$",
+        "tool: Segments",
+        tr_fm,
+    )
+    if not n:
+        return translated_content, []
+
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        [f"managing_segments_fm — tool: segmentos → Segments ({n}x; PR #13387)"],
+    )
 
 
 def repair_japanese_mixed_mail_campaign(
@@ -3048,6 +3465,7 @@ def repair_markdown_wire_format_tables(content):
 
     - ``Content_Type`` → ``Content-Type`` (HTTP header spelling)
     - ``{: .reset-td-br-1 reset-td-br-2`` → ``{: .reset-td-br-1 .reset-td-br-2``
+    - ``{: … reset-td-br-N`` → ``{: … .reset-td-br-N`` on IAL lines (any column)
     - Restore ``Authorization`` when the header cell was translated (es/pt)
     """
     repairs = []
@@ -3063,6 +3481,13 @@ def repair_markdown_wire_format_tables(content):
     if n_ial:
         repairs.append(
             f"md-ial — added missing '.' before reset-td-br-2 ({n_ial}x)"
+        )
+
+    new, n_dots = _dot_missing_reset_td_br_tokens_in_ial_lines(new)
+    if n_dots:
+        repairs.append(
+            f"md-ial — dotted {n_dots} reset-td-br-* token(s) missing leading "
+            f"'.' (PR #13395)"
         )
 
     for wrong, right in (
@@ -3844,14 +4269,24 @@ def repair_de_braze_pilot_low9_pair_ascii_close_quote(
     return translated_content, []
 
 
-def repair_fr_payload_display_typography(translated_content, lang_key):
+def repair_fr_payload_display_typography(
+    translated_path, translated_content, lang_key
+):
     """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
 
     All-caps *PAYLOAD* in prose reads like shouting; technical French often uses
     lowercase *payload* / plural *payloads* (see Copilot review on campaigns /
     Decisioning docs).
+
+    Skips ``…/cloud_ingestion/sql_editor.md``: there ``PAYLOAD`` / ``UPDATED_AT``
+    are case-sensitive CDI column identifiers and must stay as English spells
+    them (auto-translate PR #13397).
     """
     if lang_key != "fr":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "data/unification/cloud_ingestion/sql_editor.md" in rel:
         return translated_content, []
 
     new = translated_content
@@ -4634,6 +5069,334 @@ def repair_same_page_anchor_ids(english_content, translated_content):
     return new_content, repairs
 
 
+class CrossLocaleHeadingAnchorConflict(RuntimeError):
+    """Raised when two locales disagree on explicit ``{#id}`` for the same heading."""
+
+
+def _append_explicit_kramdown_anchor_to_heading_line(line: str, anchor: str) -> str:
+    """Append `` {#anchor}`` to a heading line that does not already end with an explicit ID."""
+    if _EXPLICIT_ID_RE.search(line.rstrip()):
+        return line
+    nl = "\n" if line.endswith("\n") else ""
+    core = line[:-1] if line.endswith("\n") else line
+    return core.rstrip() + f" {{#{anchor}}}" + nl
+
+
+def _canon_paths_from_translation_results(repo_root: Path) -> Optional[Set[str]]:
+    """Return unique locale-relative paths (``_user_guide/...``) from ``translation_results.json``.
+
+    Returns ``None`` when the results file is missing.
+    """
+    tr_path = repo_root / "translation_results.json"
+    if not tr_path.is_file():
+        return None
+    data = json.loads(tr_path.read_text(encoding="utf-8"))
+    valid_root = {info["dir"] for info in LANGUAGES.values()}
+    canon_paths: set[str] = set()
+    for entry in data.get("translated") or []:
+        tgt = entry.get("target")
+        if not tgt or not isinstance(tgt, str):
+            continue
+        parts = Path(tgt).as_posix().split("/")
+        if len(parts) < 3 or parts[0] != "_lang" or parts[1] not in valid_root:
+            continue
+        canon_paths.add("/".join(parts[2:]))
+    return canon_paths
+
+
+def align_cross_locale_heading_anchors(repo_root: Path, *, full_repo_scan: bool = False):
+    """Copy explicit Kramdown ``{#id}`` tails across locale mirrors when any sibling has one.
+
+    Matrix jobs translate independently; one locale may keep or add a stable
+    ``{#fragment}`` while another omits it even when English has no explicit ID
+    and auto-slugs match—breaking cross-locale deep links (Copilot /
+    auto-translate PR #13394).
+
+    By default only paths listed in ``translation_results.json`` (same paths the
+    workflow just merged) are scanned so a run does not touch unrelated
+    localized files. Pass ``full_repo_scan=True`` for a rare whole-tree pass.
+
+    For each markdown path, when two or more locale files exist and heading
+    counts agree, if any locale exposes an explicit ID at heading index ``i``,
+    every sibling file receives that same ID on the corresponding heading line.
+    Conflicting IDs at the same index skip that file with a log line.
+
+    Returns:
+        ``(files_updated: int, log_lines: list[str])``
+    """
+    _lang = repo_root / "_lang"
+    log_lines: list[str] = []
+    if not _lang.is_dir():
+        return 0, ["align-heading-anchor-parity: no `_lang/` directory — skipping."]
+
+    # Skip ``_api/`` (REST reference) — locales sometimes use different Kramdown
+    # slug spellings for the same English heading, so there is no safe automatic
+    # winner. Product docs under the prefixes below benefit most from stable
+    # cross-locale ``#fragment`` parity (auto-translate PR #13394).
+    _ALIGN_REL_PREFIXES = ("_user_guide/", "_developer_guide/", "_contributing/")
+
+    locale_dirs = [info["dir"] for info in LANGUAGES.values()]
+    canon_to_lang_paths: dict[str, dict[str, Path]] = {}
+
+    if full_repo_scan:
+        for lang_dir in locale_dirs:
+            root = _lang / lang_dir
+            if not root.is_dir():
+                continue
+            for md in root.rglob("*.md"):
+                rel = md.relative_to(root).as_posix()
+                if not rel.startswith(_ALIGN_REL_PREFIXES):
+                    continue
+                canon_to_lang_paths.setdefault(rel, {})[lang_dir] = md
+    else:
+        canon_set = _canon_paths_from_translation_results(repo_root)
+        if canon_set is None:
+            return 0, [
+                "align-heading-anchor-parity: translation_results.json not found — "
+                "nothing to do (pass --full-repo to scan all `_lang/` markdown)."
+            ]
+        if not canon_set:
+            return 0, [
+                "align-heading-anchor-parity: translated list empty — nothing to do."
+            ]
+        for canon in sorted(canon_set):
+            if not canon.startswith(_ALIGN_REL_PREFIXES):
+                continue
+            by_lang: dict[str, Path] = {}
+            for lang_dir in locale_dirs:
+                pth = _lang / lang_dir / canon
+                if pth.is_file():
+                    by_lang[lang_dir] = pth
+            if len(by_lang) >= 2:
+                canon_to_lang_paths[canon] = by_lang
+
+    files_updated = 0
+    for canon in sorted(canon_to_lang_paths):
+        paths_by_lang = canon_to_lang_paths[canon]
+        if len(paths_by_lang) < 2:
+            continue
+
+        per_lang_heads: dict[str, list] = {}
+        for lang_dir, p in paths_by_lang.items():
+            text = p.read_text(encoding="utf-8")
+            per_lang_heads[lang_dir] = list(_iter_doc_headings(text))
+
+        counts = {ld: len(per_lang_heads[ld]) for ld in paths_by_lang}
+        if len(set(counts.values())) != 1:
+            log_lines.append(
+                f"align-heading-anchor-parity: skip `{canon}` — "
+                f"heading count mismatch across locales: {counts!r}"
+            )
+            continue
+        n = next(iter(counts.values()))
+        if n == 0:
+            continue
+
+        canonical_by_i: dict[int, Optional[str]] = {}
+        conflict = False
+        for i in range(n):
+            ids_at_i = []
+            for lang_dir in paths_by_lang:
+                _, _lvl, _text, explicit = per_lang_heads[lang_dir][i]
+                ids_at_i.append(explicit)
+            non_null = [x for x in ids_at_i if x]
+            if not non_null:
+                canonical_by_i[i] = None
+                continue
+            unique = set(non_null)
+            if len(unique) > 1:
+                log_lines.append(
+                    f"align-heading-anchor-parity: skip `{canon}` — conflicting "
+                    f"explicit heading IDs at index {i}: {sorted(unique)!r}"
+                )
+                conflict = True
+                break
+            canonical_by_i[i] = non_null[0]
+
+        if conflict:
+            continue
+
+        edits: dict[Path, dict[int, str]] = {}
+        for i, canonical_id in canonical_by_i.items():
+            if not canonical_id:
+                continue
+            for lang_dir, p in paths_by_lang.items():
+                tr_idx, _lvl, _text, tr_expl = per_lang_heads[lang_dir][i]
+                if tr_expl == canonical_id:
+                    continue
+                edits.setdefault(p, {})[tr_idx] = canonical_id
+
+        for path, idx_to_anchor in edits.items():
+            text = path.read_text(encoding="utf-8")
+            ends_nl = text.endswith("\n")
+            lines = text.split("\n")
+            for idx, anchor in sorted(idx_to_anchor.items()):
+                if idx >= len(lines):
+                    raise CrossLocaleHeadingAnchorConflict(
+                        f"align-heading-anchor-parity: line index {idx} out of range "
+                        f"for `{path.relative_to(repo_root)}`"
+                    )
+                lines[idx] = _append_explicit_kramdown_anchor_to_heading_line(
+                    lines[idx], anchor
+                )
+            new_text = "\n".join(lines)
+            if ends_nl and not new_text.endswith("\n"):
+                new_text += "\n"
+            path.write_text(new_text, encoding="utf-8")
+            files_updated += 1
+            n_edits = len(idx_to_anchor)
+            log_lines.append(
+                f"align-heading-anchor-parity: updated "
+                f"`{path.relative_to(repo_root).as_posix()}` ({n_edits} heading(s))"
+            )
+
+    return files_updated, log_lines
+
+
+def repair_unreferenced_explicit_heading_ids_when_english_has_none(
+    english_content, translated_content
+):
+    """Remove translated-only ``{#id}`` when English omits explicit ids and id is unused.
+
+    The model sometimes pastes long pseudo-slugs (often echoing UI or image
+    text) onto headings. If the English heading has no explicit Kramdown id and
+    nothing in either file references that fragment, drop the extra tail so
+    ``repair_same_page_anchor_ids`` can attach the correct English slug when
+    links require it (Copilot / auto-translate PR #13384).
+    """
+    en_headings = list(_iter_doc_headings(english_content))
+    tr_headings = list(_iter_doc_headings(translated_content))
+    if not en_headings or len(en_headings) != len(tr_headings):
+        return translated_content, []
+
+    referenced = set(_ANCHOR_REF_RE.findall(english_content))
+    referenced |= set(_ANCHOR_REF_RE.findall(translated_content))
+    for blob in (english_content, translated_content):
+        referenced |= set(
+            re.findall(
+                r'(?i)href\s*=\s*["\']#([A-Za-z][A-Za-z0-9_\-]*)',
+                blob,
+            )
+        )
+
+    lines = translated_content.split("\n")
+    repairs = []
+    for (_, _en_lvl, _en_text, en_explicit), (tr_idx, _tr_lvl, tr_text, tr_explicit) in zip(
+        en_headings, tr_headings
+    ):
+        if en_explicit is not None or not tr_explicit:
+            continue
+        if tr_explicit in referenced:
+            continue
+        line = lines[tr_idx]
+        stripped = line.rstrip()
+        new_stripped = re.sub(
+            r"\s*\{#" + re.escape(tr_explicit) + r"\}\s*$",
+            "",
+            stripped,
+        )
+        if new_stripped == stripped:
+            continue
+        lines[tr_idx] = new_stripped
+        slug_note = tr_explicit if len(tr_explicit) <= 72 else tr_explicit[:72] + "…"
+        repairs.append(
+            "heading_anchor — removed translated-only explicit "
+            f"{{#{slug_note}}} (English has none; unused in-file; PR #13384)"
+        )
+
+    if not repairs:
+        return translated_content, []
+    new_content = "\n".join(lines)
+    if translated_content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    return new_content, repairs
+
+
+_STYLE_BLOCK_OPEN_RE = re.compile(r"<style\b", re.I)
+_STYLE_BLOCK_CLOSE_RE = re.compile(r"</style\s*>", re.I)
+
+
+def repair_css_nth_child_trailing_comma_in_style_blocks(content):
+    """Fix ``nth-child(N), {`` → ``nth-child(N) {`` inside ``<style>`` blocks.
+
+    A stray comma before ``{`` is invalid CSS and breaks table width rules
+    (Copilot / auto-translate PR #13384).
+    """
+    lines = content.split("\n")
+    out_lines = []
+    in_style = False
+    repairs = []
+    total = 0
+
+    for line in lines:
+        if _STYLE_BLOCK_OPEN_RE.search(line):
+            in_style = True
+        modified = line
+        if in_style:
+            new_line, n = re.subn(
+                r"nth-child\((\d+)\),\s*\{",
+                r"nth-child(\1) {",
+                modified,
+            )
+            if n:
+                total += n
+                modified = new_line
+        out_lines.append(modified)
+        if _STYLE_BLOCK_CLOSE_RE.search(line):
+            in_style = False
+
+    if not total:
+        return content, []
+    new_content = "\n".join(out_lines)
+    if content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    repairs.append(
+        "css_style — removed stray comma before `{` in nth-child selector "
+        f"({total}x; PR #13384)"
+    )
+    return new_content, repairs
+
+
+_UI_ARIA_EN_PHRASES = {
+    "Open navigation menu": {
+        "de": "Navigationsmenü öffnen",
+        "es": "Abrir el menú de navegación",
+        "fr": "Ouvrir le menu de navigation",
+        "ja": "ナビゲーションメニューを開く",
+        "ko": "탐색 메뉴 열기",
+        "pt-br": "Abrir o menu de navegação",
+    },
+    "Select your language": {
+        "de": "Sprache auswählen",
+        "es": "Seleccionar el idioma",
+        "fr": "Sélectionner la langue",
+        "ja": "言語を選択",
+        "ko": "언어 선택",
+        "pt-br": "Selecionar o idioma",
+    },
+}
+
+
+def repair_documentation_english_aria_labels(translated_content, lang_key):
+    """Swap known English ``aria-label`` strings for locale text in translated docs."""
+    repairs = []
+    new_content = translated_content
+    for english_phrase, lang_map in _UI_ARIA_EN_PHRASES.items():
+        localized = lang_map.get(lang_key)
+        if not localized:
+            continue
+        old = f'aria-label="{english_phrase}"'
+        new = f'aria-label="{localized}"'
+        if old in new_content:
+            new_content = new_content.replace(old, new)
+            repairs.append(
+                f"aria_label — {english_phrase!r} → localized (PR #13384)"
+            )
+    if new_content == translated_content:
+        return translated_content, []
+    return new_content, repairs
+
+
 def repair_trailing_whitespace(translated_content: str):
     """Strip trailing spaces and tabs from each line (preserve newlines)."""
     lines = translated_content.split("\n")
@@ -4831,6 +5594,21 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_repairs)
 
+    translated_content, cdi_desc_repairs = repair_cdi_segments_description_location_drift(
+        english_content, translated_content, translated_path, lang_key
+    )
+    findings["repairs"].extend(cdi_desc_repairs)
+
+    translated_content, mseg_tool_repairs = repair_managing_segments_tool_yaml_value(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(mseg_tool_repairs)
+
+    translated_content, rfm_nav_repairs = repair_rfm_sql_segments_nav_and_title_mix(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(rfm_nav_repairs)
+
     translated_content, fm_display_repairs = repair_front_matter_display_scalar_cleanup(
         translated_content
     )
@@ -4874,6 +5652,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
     )
     findings["repairs"].extend(dup_anchor_repairs)
+
+    translated_content, unused_tr_id_repairs = (
+        repair_unreferenced_explicit_heading_ids_when_english_has_none(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(unused_tr_id_repairs)
 
     translated_content, anchor_id_repairs = repair_same_page_anchor_ids(
         english_content, translated_content
@@ -4931,6 +5716,30 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(image_buster_repairs)
+
+    translated_content, assign_nested_repairs = (
+        repair_liquid_assign_nested_default_in_output(translated_content)
+    )
+    findings["repairs"].extend(assign_nested_repairs)
+
+    translated_content, md_table_pipe_repairs = repair_markdown_table_double_leading_row_pipes(
+        translated_content
+    )
+    findings["repairs"].extend(md_table_pipe_repairs)
+
+    translated_content, gtt_html_repairs = repair_yaml_guide_top_text_unquoted_html(
+        translated_content
+    )
+    findings["repairs"].extend(gtt_html_repairs)
+    translated_content, ds_aud_gcs_repairs = repair_decisioning_audience_gcs_services_typo(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(ds_aud_gcs_repairs)
+
+    translated_content, ds_aud_tab_repairs = repair_decisioning_audience_other_platforms_tab(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ds_aud_tab_repairs)
 
     translated_content, de_user_mgmt_repairs = (
         repair_de_global_user_management_landing_titles(
@@ -5001,7 +5810,7 @@ def qc_check_file(english_path, translated_path, lang_key):
     findings["repairs"].extend(ds_insights_repairs)
 
     translated_content, fr_payload_repairs = repair_fr_payload_display_typography(
-        translated_content, lang_key
+        translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(fr_payload_repairs)
 
@@ -5079,6 +5888,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(pt_low9_repairs)
 
+    translated_content, pt_analytics_menu_repairs = (
+        repair_pt_br_analytics_product_menu_label(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_analytics_menu_repairs)
+
     translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
         translated_path, translated_content, lang_key
     )
@@ -5138,6 +5954,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(url_repairs)
+
+    translated_content, css_nth_repairs = repair_css_nth_child_trailing_comma_in_style_blocks(
+        translated_content
+    )
+    findings["repairs"].extend(css_nth_repairs)
+
+    translated_content, aria_repairs = repair_documentation_english_aria_labels(
+        translated_content, lang_key
+    )
+    findings["repairs"].extend(aria_repairs)
 
     translated_content, frag_repairs = repair_markdown_internal_link_fragments(
         translated_content
@@ -5508,6 +6334,20 @@ def _collect_alias_duplicates(root, *, skip_includes):
     return {k: v for k, v in alias_map.items() if len(v) > 1}
 
 
+def cmd_align_heading_anchor_parity(args):
+    """Merge-time: align explicit ``{#…}`` heading IDs across sibling locale files."""
+    try:
+        n, msgs = align_cross_locale_heading_anchors(
+            REPO_ROOT, full_repo_scan=args.full_repo
+        )
+    except CrossLocaleHeadingAnchorConflict as err:
+        print(str(err), file=sys.stderr)
+        sys.exit(1)
+    for line in msgs:
+        print(line)
+    print(f"align-heading-anchor-parity: {n} file(s) updated.")
+
+
 def cmd_check_aliases(args):
     """Ensure no duplicate ``alias:`` values within each locale (and in English _docs)."""
     skip_includes = not args.include_lang_includes
@@ -5758,6 +6598,23 @@ def main():
         ),
     )
     cp.set_defaults(func=cmd_check_path_case_collisions)
+
+    apar = sub.add_parser(
+        "align-heading-anchor-parity",
+        help=(
+            "After matrix merge: copy explicit Kramdown {#id} across locale mirrors "
+            "when any sibling locale has one (PR #13394 class drift)"
+        ),
+    )
+    apar.add_argument(
+        "--full-repo",
+        action="store_true",
+        help=(
+            "Scan all `_lang/` markdown under user/developer/contributing guides "
+            "(default: only paths from translation_results.json)"
+        ),
+    )
+    apar.set_defaults(func=cmd_align_heading_anchor_parity)
 
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)
