@@ -170,8 +170,8 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Feature Flags | View Feature Flags | Ver Feature Flags |
 | Feature Flags | Archive Feature Flags | Mover Feature Flags para o arquivo |
 | Feature Flags | Edit Feature Flags | Criar e atualizar Feature Flags |
-| Limites de frequência | View Frequency Capping Rules | Ver regras de limitação de frequência |
-| Limites de frequência | Edit Frequency Capping Rules | Criar e atualizar regras de limitação de frequência |
+| Limites de frequência | View Frequency Capping Rules | Ver regras do limite de frequência |
+| Limites de frequência | Edit Frequency Capping Rules | Criar e atualizar regras do limite de frequência |
 | Landing pages | View Landing Pages | Ver landing pages |
 | Landing pages | Publish Landing Pages | Tornar uma landing page em rascunho ativa |
 | Landing pages | Edit Landing Page Drafts | Criar e salvar rascunhos de landing page |

@@ -38,6 +38,14 @@ One potential explanation could be the campaign or Canvas has re-eligibility tur
 
 For example, should you have a Canvas that has both iOS and web push notifications, a given user with both mobile and desktop devices could receive more than one message.
 
+### Why is _Unique Recipients_ higher than the number of users I targeted?
+
+_Unique Recipients_ can be higher than the audience you expected because Braze tracks unique daily recipients for reporting. That lets Braze attribute conversions inside the conversion window each time a user receives the message, instead of collapsing multiple receives into one lifetime count (which would skew conversion math).
+
+For example, if a user receives a campaign on Monday and again on Friday and converts after each send, Braze can report that as two receives and two conversions. If Braze only counted one lifetime "unique" across both sends, you'd either drop a valid conversion or double-count against one recipient, which makes campaign performance harder to read.
+
+The same pattern applies to recurring campaigns and to re-eligibility: if two users each receive a recurring send today and again tomorrow, _Unique Recipients_ counts four daily recipient rows, not two profiles.
+
 ### Why can the number of conversions exceed the number of unique users for multichannel campaigns?
 
 For multichannel campaigns, Braze counts conversions per channel, not per user. When a user performs a single conversion action within the conversion window, Braze attributes that conversion to each channel from which the user received a message. This means that if a user receives messages on multiple channels (for example, both email and push) and converts, Braze counts multiple conversions, one for each channel. As a result, the total conversion count can exceed the number of unique users who converted.
@@ -233,10 +241,19 @@ To avoid misalignment, set the maximum recipient limit before launching the camp
 
 Several factors can cause the number of sends to be lower than the estimated audience size:
 
-- **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
+- **Action-based delivery:** Users only generate sends after they perform the trigger, so sends accumulate over time and can trail the upfront estimate shown when you first built the campaign.
+- **Audience edits after launch:** Changing entry or target filters after launch can leave the **Estimated audience** snapshot out of sync with who still qualifies on later sends (for example, when users aren't eligible to re-enter).
+- **Audience Paths step:** For Canvas, an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) step only messages users who match the highest-priority branch they qualify for, which can reduce sends versus a flat segment count.
 - **Control groups:** If a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group/) or campaign-level control group is in use, a portion of the audience is withheld from delivery.
 - **Delivery timing and windows:** For local time zone or scheduled campaigns, users must qualify at both entry and send time; users in certain time zones may fall outside the delivery window.
-- **Rate limiting:** If rate limiting is applied, messages are distributed over time and some sends may be deferred or not yet reflected in the count.
+- **Email deduplication:** Your campaign or Canvas targets multiple users with matching emails, so a random user with that email address is chosen at the time of send. The message only sends once and is deduplicated so that it doesn’t send to the same email multiple times, but your estimated audience size includes all users.
 - **Email deliverability filters:** For email campaigns, Braze excludes users who have hard-bounced, unsubscribed from emails, been marked as spam, have no email address on their profile, or are not subscribed to a required subscription group. These checks run at send time, so a user present in your segment can still be excluded from the actual send count.
-
-
+- **Global frequency capping:** Workspace-level caps can prevent eligible users from receiving another message in the same window, which lowers realized sends.
+- **Newly imported users:** Profiles that just became eligible may not receive until the next evaluation or send pass, so counts catch up on a later run.
+- **Push reachability:** For push campaigns, confirm the audience is push-enabled for the correct app. If you don't filter for push-enabled users, the estimated audience can include profiles that can't receive push. Check **Reachable users** in the **Target Users** step for a closer operational estimate.
+- **Rate limiting:** If rate limiting is applied, messages are distributed over time and some sends may be deferred or not yet reflected in the count.
+- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall below the estimated audience size for that period.
+- **Reporting window:** The analytics time range may not include every send.
+- **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
+- **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.
+- **Strict device or browser filters:** Filters that only match the newest app versions or browsers shrink the reachable set at send time compared to a broad segment preview.

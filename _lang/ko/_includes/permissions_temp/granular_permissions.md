@@ -57,7 +57,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 | --- | --- |
 | 워크스페이스 관리자 | 워크스페이스 관리자는 워크스페이스 관리에 특화된 권한을 가지고 있지만 회사 관리자와 동일한 권한은 없습니다. 제한된 사용자는 필요한 권한이 체크되어 있으면 워크스페이스 관리자와 유사한 권한을 상속받을 수 있습니다. |
 | 관리자(회사 관리자) | 회사 관리자는 대시보드 사용자를 삭제하는 기능을 포함하여 더 넓은 권한을 가지고 있습니다. 그러나 자신의 계정은 삭제할 수 없으며, 해당 작업을 위해 다른 회사 관리자에게 연락해야 합니다. |
-| 보기 전용 접근 | Campaign 페이지와 같은 대시보드의 특정 부분에 접근하려면 사용자에게 보기 권한이 할당되어 있어야 합니다.
+| 보기 전용 접근 | Campaigns 페이지와 같은 대시보드의 특정 부분에 접근하려면 사용자에게 보기 권한이 할당되어 있어야 합니다.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### 제한된 접근 오류 {#limited-access-error}
@@ -85,7 +85,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 - 다른 [Braze 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)를 추가, 편집, 삭제, 일시 중지 또는 일시 중지 해제
 - Braze 사용자를 CSV로 내보내기
 
-관리자 권한을 부여하거나 제거하려면 **이 사용자는 관리자입니다**를 선택한 다음 **사용자 업데이트**를 선택하세요.
+관리자 권한을 부여하거나 제거하려면 **This user is an admin**을 선택한 다음 **Update user**를 선택하세요.
 
 ![선택한 사용자의 세부 정보에서 관리자 체크박스가 강조 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
@@ -98,7 +98,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ### 회사 {#company}
 
-사용자의 회사 수준 권한을 관리하려면 해당 권한 옆의 체크박스를 선택하거나 해제하세요. 완료되면 **사용자 업데이트**를 선택합니다.
+사용자의 회사 수준 권한을 관리하려면 해당 권한 옆의 체크박스를 선택하거나 해제하세요. 완료되면 **Update user**를 선택합니다.
 
 |권한 이름|설명|
 |----------|-----------|
@@ -111,32 +111,32 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ### 워크스페이스 {#workspace}
 
-Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **워크스페이스 및 권한 선택**을 선택한 다음 권한을 수동으로 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당하세요. 사용자에게 워크스페이스별로 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복하세요. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
+Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 권한을 수동으로 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당하세요. 사용자에게 워크스페이스별로 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복하세요. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% subtabs %}
 {% subtab Select manually %}
 
-**워크스페이스**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **권한**에서 하나 이상의 권한을 선택하세요. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다. 선택적으로, 해당 워크스페이스에 대한 전체 권한을 부여하려면 **워크스페이스 관리자 액세스 할당**을 선택할 수 있습니다.
+**Workspaces**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Permissions**에서 하나 이상의 권한을 선택하세요. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다. 선택적으로, 해당 워크스페이스에 대한 전체 권한을 부여하려면 **Assign workspace admin access**를 선택할 수 있습니다.
 
-완료되면 **사용자 업데이트**를 선택합니다.
+완료되면 **Update user**를 선택합니다.
 
 ![Braze에서 수동으로 선택하는 워크스페이스 수준 권한.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
 {% subtab Assign permission set %}
 
-**워크스페이스**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **권한 세트**에서 하나의 권한 세트를 선택합니다. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다.
+**Workspaces**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Permission Sets**에서 하나의 권한 세트를 선택합니다. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다.
 
-완료되면 **사용자 업데이트**를 선택합니다.
+완료되면 **Update user**를 선택합니다.
 
 ![Braze에서 권한 세트를 통해 할당하는 워크스페이스 수준 권한.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
 {% subtab Assign role %}
 
-**워크스페이스**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **역할**에서 하나의 역할을 선택하세요. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다.
+**Workspaces**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Role**에서 하나의 역할을 선택하세요. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다.
 
-완료되면 **사용자 업데이트**를 선택합니다.
+완료되면 **Update user**를 선택합니다.
 
 ![Braze에서 역할을 통해 할당하는 워크스페이스 수준 권한.]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
 
@@ -147,9 +147,9 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 ## 사용자 권한 내보내기 {#exporting-user-permissions}
 
-사용자 및 권한 목록을 다운로드하려면 **설정** > **회사 사용자**로 이동한 다음 **사용자 내보내기**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
+사용자 및 권한 목록을 다운로드하려면 **설정** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
-![Braze의 "회사 사용자" 페이지에서 "사용자 내보내기" 옵션이 강조 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![Braze의 "회사 사용자" 페이지에서 "Export Users" 옵션이 강조 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## 권한 목록 {#list-of-permissions}
 

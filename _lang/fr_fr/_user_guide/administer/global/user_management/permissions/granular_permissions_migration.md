@@ -8,7 +8,7 @@ description: "Cet article de référence explique comment se préparer à la mig
 tool: Dashboard
 ---
 
-# Migration vers des autorisations granulaires
+# Migration vers des autorisations granulaires {#migrating-to-granular-permissions}
 
 > Contrôler qui peut accéder à votre compte et effectuer des actions spécifiques est essentiel, tant pour la sécurité que pour l'efficacité opérationnelle. Afin de vous offrir davantage de contrôle, Braze met en place des autorisations granulaires : une méthode plus flexible et plus précise pour gérer l'accès des utilisateurs à votre compte.
 
@@ -17,7 +17,7 @@ La migration offre les avantages suivants :
 - **Contrôle plus précis :** Les autorisations granulaires offrent un contrôle accru, une sécurité renforcée et une supervision plus claire. Les utilisateurs n'obtiennent que l'accès dont ils ont besoin.
 - **Mappage automatique :** Toutes les autorisations actuelles font l'objet d'un mappage automatique vers leurs [équivalents granulaires](#legacy-to-granular-permissions-mapping). Vos utilisateurs conservent le même niveau d'accès, sauf si vous le modifiez.
 
-## Ce qu'il faut vérifier
+## Ce qu'il faut vérifier {#what-to-review}
 
 Lorsque la migration est planifiée pour votre entreprise, vos administrateurs Braze recevront des e-mails et des bannières sur le tableau de bord les informant de la migration des autorisations granulaires. Pour préparer la migration, nous recommandons qu'un administrateur Braze procède comme suit.
 
@@ -101,12 +101,12 @@ Ce tableau montre comment chaque autorisation héritée correspond aux autorisat
 | Team | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Segments |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-## Questions fréquentes
+## Questions fréquentes {#frequently-asked-questions}
 
-### Puis-je refuser ou annuler la migration ?
+### Puis-je refuser ou annuler la migration ? {#can-i-opt-out-of-or-revert-the-migration}
 
 Braze ne prend pas en charge l'annulation de la migration. Nous vous accompagnerons tout au long du processus et surveillerons la migration de près afin de résoudre rapidement tout problème éventuel.
 
-### Les utilisateurs existants perdront-ils l'accès à Braze pendant la migration ?
+### Les utilisateurs existants perdront-ils l'accès à Braze pendant la migration ? {#will-existing-users-lose-access-to-braze-during-the-migration}
 
 Non, il n'y aura aucun temps d'arrêt de Braze pendant la migration. Cependant, les mises à jour des autorisations seront verrouillées pendant la migration. Nous estimons que la migration prendra jusqu'à 15 minutes.

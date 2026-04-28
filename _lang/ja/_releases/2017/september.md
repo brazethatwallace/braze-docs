@@ -29,4 +29,4 @@ Braze内でメールメッセージを作成する際、**送信情報**セク�
 
 ## 生イベントエクスポート用の新しいAPIエンドポイント {#new-api-endpoint-for-raw-event-export}
 
-新しい[APIエンドポイント]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges)、`/raw_data/status`を追加しました。これにより、特定の日がRaw Event Exportに読み込まれているかどうかをクエリで確認できます。特定の日の生データが利用可能かどうかを確認し、デバッグやオートメーションに役立てることができます。
+新しい[APIエンドポイント]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges) `/raw_data/status` を追加しました。これにより、特定の日がRaw Event Exportに読み込まれているかどうかをクエリで確認できます。特定の日の生データが利用可能かどうかを確認し、デバッグやオートメーションに役立てることができます。

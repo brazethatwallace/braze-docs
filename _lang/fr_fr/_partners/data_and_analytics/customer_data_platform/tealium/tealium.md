@@ -3,7 +3,7 @@ nav_title: Tealium
 article_title: Tealium
 page_order: 1
 alias: /partners/tealium/
-description: "Cet article de référence présente le partenariat entre Braze et Tealium, un Centre de données universel qui vous permet de connecter des données mobiles, web et alternatives à d'autres sources tierces."
+description: "Cet article de référence présente le partenariat entre Braze et Tealium, un centre de données universel qui vous permet de connecter des données mobiles, web et alternatives à d'autres sources tierces."
 page_type: partner
 search_tag: Partner
 
@@ -11,12 +11,12 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) est un Centre de données universel et une plateforme de données client composée d'EventStream, AudienceStream et iQ Tag Management qui vous permet de connecter des données mobiles, web et alternatives provenant de sources tierces. La connexion de Tealium à Braze permet un flux de données d'événements personnalisés, d'attributs utilisateur et d'achats qui vous permet d'agir sur vos données en temps réel.
+> [Tealium](https://tealium.com/) est un centre de données universel et une plateforme de données client composée d'EventStream, AudienceStream et iQ Tag Management qui vous permet de connecter des données mobiles, web et alternatives provenant de sources tierces. La connexion de Tealium à Braze permet un flux de données d'événements personnalisés, d'attributs utilisateur et d'achats qui vous permet d'agir sur vos données en temps réel.
 
 ![Un graphique d'aperçu de Tealium montrant comment les différents produits Tealium et la plateforme Braze s'intègrent pour activer des campagnes cross-canal en temps réel.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
 L'intégration de Braze et Tealium vous permet de suivre vos utilisateurs et de diriger les données vers divers fournisseurs d'analyse utilisateur. Tealium vous permet de :
-- Synchroniser les audiences de Tealium avec [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) vers Braze pour les utiliser dans la personnalisation des Campaigns et des Canvas Braze ou la création de Segments.
+- Synchroniser les audiences de Tealium avec [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) vers Braze pour les utiliser dans la personnalisation des Campaigns et des Canvas Braze ou la création de segments.
 - [Importer des données entre les plateformes](#choose-your-integration-type). Braze propose à la fois une [intégration SDK côte à côte](#side-by-side-sdk-integration) pour vos applications Android, iOS et web et une [intégration serveur-à-serveur](#server-to-server-integration) qui peut être utilisée sur toute plateforme capable de rapporter des données d'événements.<br><br>
 
 {% tabs %}
@@ -31,7 +31,7 @@ Tealium EventStream est un centre de collecte de données et d'API qui se trouve
 {% endtab %}
 {% tab AudienceStream %}
 
-Tealium AudienceStream est un moteur de segmentation omnicanal des clients et d'action en temps réel. AudienceStream prend les données qui affluent dans EventStream et crée des profils de visiteurs représentant les attributs les plus importants de l'engagement de vos clients avec votre marque. Consultez notre article [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) pour les étapes de configuration.
+Tealium AudienceStream est un moteur omnicanal de segmentation client et d'action en temps réel. AudienceStream exploite les données qui affluent dans EventStream et crée des profils de visiteurs représentant les attributs les plus importants de l'engagement de vos clients avec votre marque. Consultez notre article [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) pour les étapes de configuration.
 
 {% endtab %}
 {% tab iQ Tag Management %}
@@ -42,7 +42,7 @@ Pour en savoir plus sur les avantages et les inconvénients de chaque méthode, 
 {% endtabs %}
 
 {% alert important %}
-Tealium propose des actions de connecteur par lots et sans lots. Le connecteur sans lots doit être utilisé lorsque les requêtes en temps réel sont importantes pour le cas d'utilisation et qu'il n'y a pas d'inquiétude quant à la limite de débit de l'API Braze. Contactez le service d'assistance de Braze ou votre gestionnaire de la satisfaction client si vous avez des questions.<br><br>
+Tealium propose des actions de connecteur par lots et non par lots. Le connecteur non par lots doit être utilisé lorsque les requêtes en temps réel sont importantes pour le cas d'utilisation et qu'il n'y a pas d'inquiétude quant au respect des spécifications de limite de débit de l'API Braze. Contactez le service d'[assistance]({{site.baseurl}}/braze_support/) de Braze ou votre gestionnaire de la satisfaction client si vous avez des questions.<br><br>
 
 Pour les connecteurs par lots, les requêtes sont mises en file d'attente jusqu'à ce que l'un des seuils suivants soit atteint :<br><br>
 - Nombre maximum de requêtes : 75
@@ -165,13 +165,13 @@ Un connecteur est une intégration entre Tealium et un autre fournisseur utilis�
 2. Sélectionnez le bouton bleu **+ Add Connector** pour parcourir la place de marché des connecteurs. Dans la nouvelle boîte de dialogue qui apparaît, utilisez la recherche pour trouver le connecteur **Braze**.
 3. Pour ajouter ce connecteur, cliquez sur la tuile du connecteur **Braze**. Lorsque vous cliquez dessus, vous pouvez voir le résumé de la connexion et une liste des informations requises, des actions prises en charge et des instructions de configuration. La configuration comprend trois étapes : source, configuration et action.
 
-#### Source
+#### Source {#source}
 
 Une fois la source configurée, retournez à la page du connecteur Braze sous **EventStream** > **Event Connectors** > **+ Add Connector** > **Braze**.
 
 Ensuite, sélectionnez la source de données que vous venez de créer et, sous **Event Feed**, sélectionnez **All Events** ou une spécification d'événement spécifique, le chemin recommandé pour envoyer uniquement les valeurs modifiées dans Braze. Sélectionnez **Continue**.
 
-#### Configuration
+#### Configuration {#configuration}
 
 Ensuite, sélectionnez **Add Connector** en bas de la page. Nommez votre connecteur et fournissez votre endpoint API Braze et votre clé API REST Braze ici.
 
@@ -179,7 +179,7 @@ Ensuite, sélectionnez **Add Connector** en bas de la page. Nommez votre connect
 
 Si vous avez déjà créé un connecteur, vous pouvez éventuellement utiliser un connecteur existant de la liste des connecteurs disponibles et le modifier pour répondre à vos besoins avec l'icône de crayon ou le supprimer avec l'icône de corbeille.
 
-#### Action
+#### Action {#action}
 
 Ensuite, nommez votre action de connecteur et sélectionnez un type d'action qui enverra les données selon le mappage que vous configurez. Ici, vous allez mapper les attributs, événements et achats de Braze aux noms d'attribut, d'événement et d'achat de Tealium.
 
@@ -269,6 +269,6 @@ Si plusieurs EventStreams ciblent le même flux d'événements, **toutes les act
 
 #### Initialisation de Braze trop tôt {#initializing-braze-too-early}
 
-Les utilisateurs intégrant Tealium en utilisant la balise du SDK Web Braze peuvent voir une augmentation spectaculaire de leur MAU. **Si Braze est initialisé au chargement de la page, Braze créera un profil anonyme chaque fois qu'un utilisateur web navigue sur le site pour la première fois.** Certains peuvent vouloir suivre le comportement des utilisateurs uniquement lorsque ceux-ci ont effectué une action, telle que « Connecté » ou « Regardé une vidéo », afin de réduire leur nombre de MAU.
+Les utilisateurs intégrant Tealium en utilisant la balise du SDK Web Braze peuvent voir une augmentation spectaculaire de leur MAU. **Si Braze est initialisé au chargement de la page, Braze créera un profil anonyme chaque fois qu'un utilisateur web navigue sur le site pour la première fois.** Cela inclut le trafic de bots, ce qui peut gonfler votre nombre d'utilisateurs actifs. Certains peuvent vouloir suivre le comportement des utilisateurs uniquement lorsque ceux-ci ont effectué une action, telle que « Connecté » ou « Regardé une vidéo », afin de réduire leur nombre de MAU.
 
 **Solution** : <br>Configurez les [règles de chargement](https://docs.tealium.com/iq-tag-management/load-rules/about/) pour déterminer exactement quand et où une balise se charge sur votre site. Pour des conseils plus complets sur le filtrage du trafic de bots et l'initialisation conditionnelle du SDK, consultez [Filtrage du trafic de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).

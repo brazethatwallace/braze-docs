@@ -3,7 +3,7 @@ nav_title: Tealium
 article_title: Tealium
 page_order: 1
 alias: /partners/tealium/
-description: "Este artículo de referencia describe la asociación entre Braze y Tealium, un centro de datos universal que te habilita para conectar datos móviles, web y alternativos con otras fuentes de terceros."
+description: "Este artículo de referencia describe la asociación entre Braze y Tealium, un centro de datos universal que te permite conectar datos móviles, web y alternativos con otras fuentes de terceros."
 page_type: partner
 search_tag: Partner
 
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) es un centro de datos universal y una plataforma de datos de los clientes compuesta por EventStream, AudienceStream e iQ Tag Management que te habilita para conectar datos móviles, web y alternativos de fuentes de terceros. La conexión de Tealium con Braze permite un flujo de datos de eventos personalizados, atributos de usuario y compras que te permiten actuar sobre tus datos en tiempo real.
+> [Tealium](https://tealium.com/) es un centro de datos universal y una plataforma de datos de los clientes compuesta por EventStream, AudienceStream e iQ Tag Management que te permite conectar datos móviles, web y alternativos de fuentes de terceros. La conexión de Tealium con Braze permite un flujo de datos de eventos personalizados, atributos de usuario y compras que te permiten actuar sobre tus datos en tiempo real.
 
 ![Un gráfico resumen de Tealium que muestra cómo encajan los distintos productos de Tealium y la plataforma Braze para activar campañas multicanal en tiempo real.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
@@ -31,7 +31,7 @@ Tealium EventStream es un centro de recopilación de datos y API que se sitúa e
 {% endtab %}
 {% tab AudienceStream %}
 
-Tealium AudienceStream es un motor de segmentación de clientes omnicanal y de acción en tiempo real. AudienceStream toma los datos que fluyen hacia EventStream y crea perfiles de visitantes que representan los atributos más importantes de la interacción de tus clientes con tu marca. Consulta nuestro artículo sobre [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) para conocer los pasos de configuración.
+Tealium AudienceStream es un motor omnicanal de segmentación de clientes y acción en tiempo real. AudienceStream toma los datos que fluyen hacia EventStream y crea perfiles de visitantes que representan los atributos más importantes de la interacción de tus clientes con tu marca. Consulta nuestro artículo sobre [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) para conocer los pasos de configuración.
 
 {% endtab %}
 {% tab iQ Tag Management %}
@@ -42,7 +42,7 @@ Para saber más sobre los pros y los contras de cada método, consulta la siguie
 {% endtabs %}
 
 {% alert important %}
-Tealium ofrece acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por incumplir las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con soporte de Braze o con tu administrador del éxito del cliente si tienes alguna pregunta.<br><br>
+Tealium ofrece acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con soporte de Braze o con tu administrador del éxito del cliente si tienes alguna pregunta.<br><br>
 
 En el caso de los conectores por lotes, las solicitudes se ponen en cola hasta que se alcanza uno de los siguientes umbrales:<br><br>
 - Número máximo de solicitudes: 75
@@ -190,7 +190,7 @@ No todos los campos ofrecidos son obligatorios.
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab Seguimiento de usuario - Por lotes y no por lotes %}
 
 Esta acción te permite realizar un seguimiento de los atributos de usuario, evento y compra en una sola acción.
 
@@ -210,7 +210,7 @@ Esta acción te permite realizar un seguimiento de los atributos de usuario, eve
 ![]({% image_buster /assets/img/tealium/track_user_example.png %})
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab Eliminar usuario - No por lotes %}
 
 Esta acción te permite eliminar usuarios del dashboard de Braze.
 

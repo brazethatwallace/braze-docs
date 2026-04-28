@@ -28,7 +28,9 @@ Esta integración es exclusivamente para actualizar Salesforce desde Braze como 
 
 ## Requisitos previos {#prerequisites}
 
-Esta integración requiere que crees una aplicación conectada en Salesforce Sales Cloud siguiendo los pasos de la documentación de Salesforce: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+Antes de poder continuar con esta integración, el soporte de Salesforce debe darte la capacidad de crear aplicaciones conectadas. Puedes solicitarlo enviando una [solicitud de soporte de Salesforce](https://help.salesforce.com/s/articleView?id=005167035&type=1).
+
+Una vez que el soporte de Salesforce te otorgue la capacidad de crear una aplicación conectada en Salesforce Sales Cloud, sigue los pasos de la documentación de Salesforce: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 Cuando configures los ajustes OAuth necesarios para la aplicación conectada, mantén todos los ajustes OAuth con sus valores y selecciones predeterminados, excepto los siguientes:
 1. Selecciona **Enable for device flow**. Puedes dejar **Callback URL** en blanco, ya que se establecerá de forma predeterminada a un marcador de posición.
@@ -170,9 +172,9 @@ Añade un paso posterior a tu actualización de usuario para comprobar si un usu
 ![El grupo de ruta de audiencia "MQL Threshold" con filtros para un `lead_stage` igual a "Lead" y un `lead_score` superior a "50".]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
 
 {: start="3" }
-3. Añade un paso de **User Update** que actualice el valor del atributo `lead_stage` del usuario a "MQL".
+3. Añade un paso de **Actualización de usuario** que actualice el valor del atributo `lead_stage` del usuario a "MQL".
 
-![El paso de User Update "Update to MQL" que actualiza el atributo `lead_stage` para que tenga el valor "MQL".]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
+![El paso de Actualización de usuario "Update to MQL" que actualiza el atributo `lead_stage` para que tenga el valor "MQL".]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
 
 {: start="4" }
 4. Añade un paso de webhook que actualice Salesforce con la nueva etapa MQL.

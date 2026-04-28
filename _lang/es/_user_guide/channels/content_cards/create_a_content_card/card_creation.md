@@ -2,58 +2,71 @@
 nav_title: Creación de tarjetas
 article_title: Creación de tarjetas
 alias: /card_creation/
-description: "Este artículo describe las diferencias entre la creación de tarjetas de contenido en el lanzamiento de la campaña o la entrada en el paso de Canvas frente a la primera impresión."
+description: "En este artículo se describen las diferencias entre la creación de tarjetas de contenido en el momento del lanzamiento de la campaña o de la entrada en el paso Canvas y en la primera impresión."
 page_order: 0
 tool: Campaigns
 channel:
   - content cards
+toc_headers: h2
 ---
 
-# Creación de tarjetas
+# Creación de tarjetas {#card-creation}
 
-> Puedes elegir cuándo Braze evalúa la elegibilidad de la audiencia y la personalización para nuevas campañas de Tarjetas de contenido y pasos en Canvas especificando cuándo se crea la tarjeta.
+> Puedes elegir cuándo Braze evalúa la elegibilidad de la audiencia y la personalización para nuevas campañas de tarjeta de contenido y pasos en Canvas especificando cuándo se crea la tarjeta.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para aprovechar esta característica, debes actualizar a las siguientes versiones mínimas del SDK:
 
 {% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
 
-Después de actualizar el SDK, tus usuarios móviles deben actualizar su aplicación. Puedes filtrar la audiencia de tu campaña o Canvas para [dirigirte solo a usuarios con estas versiones mínimas de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Tras actualizar el SDK, tus usuarios móviles deben actualizar su aplicación. Puedes filtrar la audiencia de tu campaña o Canvas para [dirigirte solo a usuarios con estas versiones mínimas de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
 
-## Resumen
+## Resumen {#overview}
 
 {% tabs %}
-{% tab Campaña %}
+{% tab Campaign %}
 
 Puedes elegir cuándo Braze crea una tarjeta en el paso **Entrega** al crear una nueva [campaña de tarjeta de contenido]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) con entrega planificada.
 
-![Sección de controles de tarjeta de contenido al editar la entrega de una tarjeta de contenido planificada.]({% image_buster /assets/img_archive/card_creation.png %})
+![Sección Controles de la tarjeta de contenido al editar la entrega de una tarjeta de contenido planificada.]({% image_buster /assets/img_archive/card_creation.png %})
 
 Las siguientes opciones están disponibles:
 
-- **En el lanzamiento de la campaña:** El comportamiento predeterminado anterior para las Tarjetas de contenido. Braze calcula la elegibilidad de la audiencia y la personalización cuando se lanza la campaña, luego crea la tarjeta y la almacena hasta que el usuario abre tu aplicación. 
-- **En la primera impresión (recomendado):** Cuando el usuario abre tu aplicación la próxima vez (inicia una nueva [sesión](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), Braze determina para qué Tarjetas de contenido es elegible el usuario, aplica las plantillas de personalización como Liquid o Contenido conectado, y luego crea la tarjeta. Esta opción generalmente ofrece un mejor rendimiento.
+- **En el lanzamiento de la campaña:** El comportamiento predeterminado anterior para las Content Cards. Braze calcula la elegibilidad de la audiencia y la personalización cuando se lanza la campaña, luego crea la tarjeta y la almacena hasta que el usuario abre tu aplicación.
+- **En la primera impresión (recomendado):** Cuando el usuario abre tu aplicación la próxima vez (inicia una nueva [sesión](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), Braze determina para qué Content Cards es elegible el usuario, aplica las plantillas de personalización como Liquid o contenido conectado, y luego crea la tarjeta. Esta opción generalmente ofrece un mejor rendimiento.
 
-Independientemente de la opción seleccionada, la cuenta regresiva de la fecha de expiración de la tarjeta de contenido comenzará cuando se lance la campaña.
+Independientemente de la opción seleccionada, la cuenta regresiva de la fecha de expiración de la tarjeta de contenido comienza cuando se lanza la campaña.
 
 {% endtab %}
 {% tab Canvas %}
 
 Puedes elegir cuándo Braze crea una tarjeta en la pestaña **Canales de mensajería** de un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) de tarjeta de contenido.
 
-![Sección de controles de tarjeta de contenido al editar la entrega de una tarjeta de contenido planificada.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
+![Sección Controles de la tarjeta de contenido al editar la entrega de una tarjeta de contenido planificada.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
 Las siguientes opciones están disponibles:
 
-- **En la entrada al paso:** El comportamiento predeterminado anterior para las Tarjetas de contenido. Braze calcula la elegibilidad de la audiencia cuando el usuario entra en el paso en Canvas, luego crea la tarjeta y la almacena hasta que el usuario abre tu aplicación.
-- **En la primera impresión (recomendado):** Braze calcula la elegibilidad de la audiencia cuando el usuario entra en el paso en Canvas. Cuando el usuario abre tu aplicación la próxima vez (inicia una nueva [sesión](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), Braze aplica las plantillas de personalización como Liquid o Contenido conectado, y luego crea la tarjeta. Esta opción ofrece un mejor rendimiento en la entrega de tarjetas y una personalización más actualizada.
+- **En la entrada al paso:** El comportamiento predeterminado anterior para las Content Cards. Braze calcula la elegibilidad de la audiencia cuando el usuario entra en el paso en Canvas, luego crea la tarjeta y la almacena hasta que el usuario abre tu aplicación.
+- **En la primera impresión (recomendado):** Braze calcula la elegibilidad de la audiencia cuando el usuario entra en el paso en Canvas. Cuando el usuario abre tu aplicación la próxima vez (inicia una nueva [sesión](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), Braze aplica las plantillas de personalización como Liquid o contenido conectado, y luego crea la tarjeta. Esta opción ofrece un mejor rendimiento en la entrega de tarjetas y una personalización más actualizada.
 
-Independientemente de la opción seleccionada, la cuenta regresiva de la fecha de expiración de la tarjeta de contenido comenzará cuando el usuario entre en el paso en Canvas.
+Independientemente de la opción seleccionada, la cuenta regresiva de la fecha de expiración de la tarjeta de contenido comienza cuando el usuario entra en el paso en Canvas.
 
 {% alert tip %}
 Si quieres que los usuarios anónimos vean una tarjeta de contenido en su primera sesión, usa una campaña en lugar de un Canvas. Esto se debe a que cuando un usuario anónimo entra en un Canvas, su sesión ya ha comenzado, por lo que no recibirá la tarjeta de contenido hasta que inicie una nueva sesión.
 {% endalert %}
+
+### Evento de eliminación {#removal-event}
+
+Selecciona la opción para eliminar Content Cards cuando los usuarios completan una compra o realizan un evento personalizado. Para usar **Realizar evento personalizado** como evento de eliminación, selecciona variables de contexto o atributos personalizados para las comparaciones al usar filtros de propiedades.
+
+![Configuración de evento de eliminación de tarjeta de contenido con Realizar evento personalizado seleccionado y filtros de propiedades usando variables de contexto o atributos personalizados.]({% image_buster /assets/img/content_card_removal_event.png %})
+
+### Expiración {#expiration}
+
+En la configuración de **Expiración (Tiempo en el feed)**, puedes seleccionar **Personalizar duración** para establecer la expiración de la tarjeta de contenido usando variables de contexto.
+
+![Configuración de expiración mostrando Personalizar duración configurada con una variable de contexto para la expiración de la tarjeta de contenido.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -93,8 +106,8 @@ Esta sección describe las principales diferencias entre la creación de tarjeta
   </tr>
   <tr>
     <td class="leftHeader">Personalización</td>
-    <td class="tg-0pky">Braze evalúa Liquid, Contenido conectado y Bloques de contenido en el momento en que se lanza la campaña o cuando un usuario entra en el paso en Canvas. Para campañas recurrentes, esto será en el siguiente intervalo de recurrencia.</td>
-    <td class="tg-0pky">Braze evalúa Liquid, Contenido conectado y Bloques de contenido en el momento de la primera impresión o después del siguiente intervalo de recurrencia.</td>
+    <td class="tg-0pky">Braze evalúa Liquid, contenido conectado y Content Blocks en el momento en que se lanza la campaña o cuando un usuario entra en el paso en Canvas. Para campañas recurrentes, esto será en el siguiente intervalo de recurrencia.</td>
+    <td class="tg-0pky">Braze evalúa Liquid, contenido conectado y Content Blocks en el momento de la primera impresión o después del siguiente intervalo de recurrencia.</td>
   </tr>
   <tr>
     <td class="leftHeader">Análisis</td>
@@ -111,22 +124,22 @@ Esta sección describe las principales diferencias entre la creación de tarjeta
 
 <p id="campaign_note"><sup>* Este escenario solo aplica a campañas, ya que la audiencia de Canvas se evalúa en la entrada al Canvas, no a nivel de paso.</sup></p>
 
-## Consideraciones
+## Consideraciones {#considerations}
 
-### Uso de propiedades de contexto de Canvas
+### Uso de propiedades de contexto de Canvas {#using-canvas-context-properties}
 
-Al personalizar Tarjetas de contenido con [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), usa la sintaxis `${...}` (por ejemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). La notación de punto sin la sintaxis (por ejemplo, {%raw%}`{{context.property_name}}`{%endraw%}) puede no resolverse correctamente en las Tarjetas de contenido, aunque funcione en otros canales como push y correo electrónico.
+Al personalizar Content Cards con [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), usa la sintaxis `${...}` (por ejemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). La notación de punto sin la sintaxis (por ejemplo, {%raw%}`{{context.property_name}}`{%endraw%}) puede no resolverse correctamente en las Content Cards, aunque funcione en otros canales como push y correo electrónico.
 
-### Cambiar la creación de tarjetas después del lanzamiento
+### Cambiar la creación de tarjetas después del lanzamiento {#changing-card-creation-after-launch}
 
-Braze recomienda no cambiar cómo se crean las tarjetas después de que se haya lanzado una campaña. Debido a las diferencias en cómo se calcula Mensajes enviados entre los dos tipos de creación de tarjetas, cambiar cómo se crean las tarjetas después del lanzamiento de la campaña puede afectar la precisión de tu volumen de envío.
+Braze recomienda no cambiar cómo se crean las tarjetas después de que se haya lanzado una campaña. Debido a las diferencias en cómo se calcula *Mensajes enviados* entre los dos tipos de creación de tarjetas, cambiar cómo se crean las tarjetas después del lanzamiento de la campaña puede afectar la precisión de tu volumen de envío.
 
-### Tiempo de procesamiento potencial
+### Tiempo de procesamiento potencial {#potential-processing-time}
 
 Para audiencias grandes, selecciona la opción de crear tarjetas en la primera impresión para que las tarjetas estén disponibles rápidamente después del lanzamiento. Las campañas desencadenadas al inicio de sesión también pueden beneficiarse de cambiar a la creación en la primera impresión (disponible a través de la entrega planificada) para mejorar el rendimiento.
 
-Cuando las tarjetas se crean en la primera impresión, puede tardar 1-2 segundos en procesarse. La duración de este tiempo de procesamiento depende de varios factores, como el tamaño de la tarjeta y la complejidad de las opciones de plantilla del mensaje. Por ejemplo, el tiempo de procesamiento para tarjetas que usan Contenido conectado será al menos tan largo como el tiempo de respuesta del Contenido conectado.
+Cuando las tarjetas se crean en la primera impresión, puede tardar 1-2 segundos en procesarse. La duración de este tiempo de procesamiento depende de varios factores, como el tamaño de la tarjeta y la complejidad de las opciones de plantilla del mensaje. Por ejemplo, el tiempo de procesamiento para tarjetas que usan contenido conectado será al menos tan largo como el tiempo de respuesta del contenido conectado.
 
-### Versiones anteriores del SDK
+### Versiones anteriores del SDK {#previous-sdk-versions}
 
-Si la aplicación de un usuario ejecuta una versión anterior del SDK, seguirá recibiendo las Tarjetas de contenido que envíes. Sin embargo, las tarjetas tardarán más en aparecer y puede que no se muestren hasta la siguiente sincronización de Tarjetas de contenido.
+Si la aplicación de un usuario ejecuta una versión anterior del SDK, seguirá recibiendo las Content Cards que envíes. Sin embargo, las tarjetas tardarán más en aparecer y puede que no se muestren hasta la siguiente sincronización de Content Cards.
