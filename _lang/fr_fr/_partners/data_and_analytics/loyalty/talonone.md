@@ -1,6 +1,6 @@
 ---
-nav_title: Talon.one
-article_title: Talon.one
+nav_title: Talon.One
+article_title: Talon.One
 alias: /partners/talonone/
 description: "Cet article de référence présente le partenariat entre Braze et Talon.One, un moteur de promotion qui vous permet de lancer rapidement et efficacement des campagnes contextuelles de coupons, de recommandations, de remises et de fidélisation 1-to-1."
 page_type: partner

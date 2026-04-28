@@ -1,1 +1,0 @@
-The translation to review is empty, and the English source is also empty. There is nothing to improve or return.

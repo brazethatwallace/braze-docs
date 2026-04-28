@@ -1,1 +1,0 @@
-(The English source provided is empty, so there is nothing to translate.)
