@@ -42,11 +42,11 @@ Braze의 경우, 여러 세그먼트를 수집하고 결합하여 오디언스�
 확장 ID와 API 키를 AI Decisioning Services 팀에 제공하면, 팀에서 고객 데이터 수집의 다음 단계를 지원합니다.
 
 {% endtab %}
-{% tab Other Platforms %}
+{% tab 다른 플랫폼 %}
 
 ### Google Cloud Storage
 
-오디언스가 현재 Braze 또는 Salesforce Marketing Cloud에 저장되어 있지 않은 경우, 다음 최선의 단계는 Braze가 관리하는 Google Cloud Services 버킷으로 자동 내보내기를 구성하는 것입니다.
+오디언스가 현재 Braze 또는 Salesforce Marketing Cloud에 저장되어 있지 않은 경우, 다음 최선의 단계는 Braze가 관리하는 Google Cloud Storage(GCS) 버킷으로 자동 내보내기를 구성하는 것입니다.
 
 이것이 가능한지 확인하려면 해당 플랫폼의 설명서를 참조하세요. 예를 들어, mParticle은 [Google Cloud Storage와의 네이티브 통합](https://www.mparticle.com/integration/google-cloud-storage/)을 제공합니다. 이 경우 오디언스 데이터를 내보낼 GCS 버킷을 제공할 수 있습니다.
 

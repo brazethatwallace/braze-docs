@@ -16,7 +16,7 @@ guide_featured_list:
   - name: Conecte seus dados
     link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources/
     image: /assets/img/braze_icons/link-03.svg
-  - name: Ativos de dados essenciais
+  - name: Ativos de dados críticos
     link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_assets/
     image: /assets/img/braze_icons/database-01.svg
   - name: Snapshots versus fluxos de eventos

@@ -46,7 +46,7 @@ Proporciona el ID de la extensión y la clave de API a nuestro equipo de AI Deci
 
 ### Google Cloud Storage
 
-Si la audiencia no está almacenada actualmente en Braze o Salesforce Marketing Cloud, el siguiente mejor paso es configurar una exportación automatizada directamente a un contenedor de Google Cloud Services controlado por Braze.
+Si la audiencia no está almacenada actualmente en Braze o Salesforce Marketing Cloud, el siguiente mejor paso es configurar una exportación automatizada directamente a un contenedor de Google Cloud Storage (GCS) controlado por Braze.
 
 Para determinar si esto es factible, consulta la documentación de tu plataforma. Por ejemplo, mParticle ofrece una [integración nativa con Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/). Si este es el caso, podemos proporcionar un contenedor de GCS para exportar los datos de audiencia.
 

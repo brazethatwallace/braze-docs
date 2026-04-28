@@ -67,9 +67,9 @@ Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Upli
 | **Erweitertes Experimentdesign** | Vollständig anpassbare Behandlungsgruppen und Holdouts |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-## Best Practices
+## Bewährte Methoden
 
-Einige Best Practices für das Design von Decisioning-Studio-Agenten:
+Einige bewährte Methoden für das Design von Decisioning-Studio-Agenten:
 
 - **Maximieren Sie die Datenvielfalt:** Je mehr Informationen die Agenten über Ihre Kund:innen haben, desto besser ist ihre Performance.
 - **Diversifizieren Sie die Aktionen:** Je vielfältiger die Aktionen sind, die der Agent ausführen kann, desto stärker kann er seine Strategie für jede:n einzelne:n Nutzer:in personalisieren.

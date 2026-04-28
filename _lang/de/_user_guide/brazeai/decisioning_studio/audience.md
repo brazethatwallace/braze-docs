@@ -42,11 +42,11 @@ Für Braze können wir mehrere Segmente aufnehmen und kombinieren, um die Zielgr
 Geben Sie die Extension-ID und den API-Schlüssel an unser AI Decisioning Services-Team weiter, das Sie bei den nächsten Schritten zur Aufnahme von Kundendaten unterstützt.
 
 {% endtab %}
-{% tab Other Platforms %}
+{% tab Weitere Plattformen %}
 
 ### Google Cloud Storage
 
-Wenn die Zielgruppe derzeit nicht in Braze oder Salesforce Marketing Cloud gespeichert ist, besteht der nächste Schritt darin, einen automatisierten Export direkt in einen von Braze verwalteten Google Cloud Services-Bucket zu konfigurieren.
+Wenn die Zielgruppe derzeit nicht in Braze oder Salesforce Marketing Cloud gespeichert ist, besteht der nächste Schritt darin, einen automatisierten Export direkt in einen von Braze verwalteten Google Cloud Storage-Bucket (GCS) zu konfigurieren.
 
 Um festzustellen, ob dies möglich ist, lesen Sie die Dokumentation Ihrer Plattform. Beispielsweise bietet mParticle eine [native Integration mit Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/) an. In diesem Fall können wir einen GCS-Bucket bereitstellen, in den Zielgruppendaten exportiert werden können.
 

@@ -46,7 +46,7 @@ Brazeでは、複数のSegmentsを取り込み、それらを組み合わせて�
 
 ### Google Cloud Storage
 
-オーディエンスが現在BrazeまたはSalesforce Marketing Cloudに保存されていない場合、次善のステップとして、Brazeが管理するGoogle Cloud Servicesバケットへの自動エクスポートを設定します。
+オーディエンスが現在BrazeまたはSalesforce Marketing Cloudに保存されていない場合、次善のステップとして、Brazeが管理するGoogle Cloud Storage（GCS）バケットへの自動エクスポートを設定します。
 
 これが実現可能かどうかを判断するには、お使いのプラットフォームのドキュメントを参照してください。たとえば、mParticleは[Google Cloud Storageとのネイティブ統合](https://www.mparticle.com/integration/google-cloud-storage/)を提供しています。この場合、オーディエンスデータのエクスポート先としてGCSバケットを提供できます。
 
