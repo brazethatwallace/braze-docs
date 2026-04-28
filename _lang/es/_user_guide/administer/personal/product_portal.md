@@ -7,7 +7,7 @@ page_type: reference
 description: "Este artículo de referencia explica cómo acceder y utilizar el portal de productos de Braze para proporcionar comentarios desde el dashboard."
 ---
 
-# Portal de productos ![Menú de recursos en el panel de Braze]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"} {#product-portal-resources-menu-in-the-braze-dashboard-imagebuster-assetsimgportalpng-stylefloatrightmax-width33margin-left15pxmargin-top15px}
+# Portal de productos ![Menú de recursos en el panel de Braze]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
 
 > Con el portal de productos, puedes acceder a la hoja de ruta de productos de Braze y enviar ideas. Esto te proporciona información sobre lo que hemos lanzado recientemente, las nuevas características en las que estamos trabajando y las ideas que estamos considerando desarrollar. En el portal, puedes votar por las características que deseas clasificando la importancia de una característica para ti y dejar un comentario con tus opiniones o una solicitud.
 

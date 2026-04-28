@@ -7,7 +7,7 @@ page_type: reference
 description: "이 참조 문서에서는 Braze 제품 포털에 접근하고 대시보드에서 피드백을 제공하는 방법을 다룹니다."
 ---
 
-# 제품 포털 ![Braze 대시보드의 리소스 메뉴]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"} {#product-portal-resources-menu-in-the-braze-dashboard-imagebuster-assetsimgportalpng-stylefloatrightmax-width33margin-left15pxmargin-top15px}
+# 제품 포털 ![Braze 대시보드의 리소스 메뉴]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
 
 > 제품 포털을 사용하면 Braze 제품 로드맵에 접근하고 아이디어를 제출할 수 있습니다. 최근 출시된 기능, 현재 개발 중인 새로운 기능, 그리고 구축을 검토 중인 아이디어에 대한 인사이트를 제공합니다. 포털에서 기능의 중요도를 평가하여 원하는 기능에 투표하고, 피드백이나 요청 사항을 댓글로 남길 수 있습니다.
 

@@ -7,7 +7,7 @@ page_type: reference
 description: "Cet article de référence explique comment accéder au portail du produit Braze et l'utiliser pour soumettre des commentaires depuis le tableau de bord."
 ---
 
-# Portail du produit ![Menu Ressources dans le tableau de bord de Braze]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"} {#product-portal-resources-menu-in-the-braze-dashboard-imagebuster-assetsimgportalpng-stylefloatrightmax-width33margin-left15pxmargin-top15px}
+# Portail du produit ![Menu Ressources dans le tableau de bord de Braze]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
 
 > Le portail du produit vous permet d'accéder à la feuille de route produit de Braze et de soumettre des idées. Vous y trouverez un aperçu de ce que nous avons récemment publié, des nouvelles fonctionnalités en cours de développement et des idées que nous envisageons de concrétiser. Dans le portail, vous pouvez voter pour les fonctionnalités qui vous intéressent en classant leur importance et laisser un commentaire avec vos retours ou une demande.
 

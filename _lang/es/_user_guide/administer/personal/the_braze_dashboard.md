@@ -110,7 +110,7 @@ Puedes moverte por los resultados de búsqueda usando tu teclado.
 table th:nth-child(1),
 table th:nth-child(2),
 table td:nth-child(1),
-table td:nth-child(2), {
+table td:nth-child(2) {
     width:20%;
 }
 table td {

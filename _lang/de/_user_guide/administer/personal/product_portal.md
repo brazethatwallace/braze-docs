@@ -7,7 +7,7 @@ page_type: reference
 description: "Dieser Referenzartikel beschreibt, wie Sie auf das Braze-Produktportal zugreifen und es nutzen können, um Feedback direkt aus dem Dashboard zu geben."
 ---
 
-# Produktportal ![Ressourcen-Menü im Braze-Dashboard]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"} {#product-portal-resources-menu-in-the-braze-dashboard-imagebuster-assetsimgportalpng-stylefloatrightmax-width33margin-left15pxmargin-top15px}
+# Produktportal ![Ressourcen-Menü im Braze-Dashboard]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
 
 > Mit dem Produktportal können Sie auf die Braze-Produkt-Roadmap zugreifen und Ideen einreichen. So erhalten Sie einen Einblick in kürzlich veröffentlichte Features, neue Features, an denen wir arbeiten, und Ideen, die wir in Betracht ziehen. Im Portal können Sie für die Features abstimmen, die Sie sich wünschen, indem Sie die Wichtigkeit eines Features bewerten und einen Kommentar mit Feedback oder einer Anfrage hinterlassen.
 

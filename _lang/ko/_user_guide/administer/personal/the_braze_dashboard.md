@@ -62,7 +62,7 @@ Canvas 디자인과 같은 작업 중 시각적 혼잡을 줄이려면 사이드
 
 #### 반응형 내비게이션 {#responsive-navigation}
 
-내비게이션은 다양한 화면 크기에 원활하게 적응합니다. 작은 화면에서는 사이드 내비게이션이 자동으로 접힙니다. 필요할 때 <i class="fa-solid fa-bars" aria-label="Open navigation menu"></i>를 눌러 메뉴를 열 수 있습니다.
+내비게이션은 다양한 화면 크기에 원활하게 적응합니다. 작은 화면에서는 사이드 내비게이션이 자동으로 접힙니다. 필요할 때 <i class="fa-solid fa-bars" aria-label="탐색 메뉴 열기"></i>를 눌러 메뉴를 열 수 있습니다.
 
 ![작은 화면에서는 사이드 내비게이션이 자동으로 접힙니다. 메뉴 아이콘을 탭하면 내비게이션 옵션이 열립니다.]({% image_buster /assets/img/navigation/navigation_small_screens.png %}){: style="max-width: 80%;border:none"}
 
@@ -110,7 +110,7 @@ Canvas 디자인과 같은 작업 중 시각적 혼잡을 줄이려면 사이드
 table th:nth-child(1),
 table th:nth-child(2),
 table td:nth-child(1),
-table td:nth-child(2), {
+table td:nth-child(2) {
     width:20%;
 }
 table td {

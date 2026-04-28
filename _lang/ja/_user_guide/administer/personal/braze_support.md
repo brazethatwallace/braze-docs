@@ -8,8 +8,7 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Brazeサポート {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
-
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Brazeサポート 
 > Brazeサポートポータルへのアクセス方法、サポートケースの送信と追跡方法、効率的なトラブルシューティングに必要な情報の提供方法について説明します。
 
 ## サポートポータルへのアクセス {#access-the-support-portal}

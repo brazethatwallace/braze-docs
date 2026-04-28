@@ -8,8 +8,7 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Suporte da Braze {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
-
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Suporte da Braze 
 > Saiba como acessar o Portal de Suporte da Braze, enviar e acompanhar casos de suporte e fornecer as informações necessárias para uma solução de problemas eficiente.
 
 ## Acessar o Portal de Suporte {#access-the-support-portal}

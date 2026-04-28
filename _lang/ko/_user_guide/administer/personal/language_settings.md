@@ -15,7 +15,7 @@ description: "이 문서에서는 Braze 대시보드에 표시되는 언어를 �
 
 Braze 대시보드는 [여러 언어](#supported-languages)로 제공됩니다. 표시 언어를 원하는 언어로 언제든지 변경할 수 있습니다.
 
-1. 글로벌 헤더에서 <i class="fa-solid fa-globe" aria-label="Select your language"></i>를 선택합니다.
+1. 글로벌 헤더에서 <i class="fa-solid fa-globe" aria-label="언어 선택"></i>를 선택합니다.
 2. 목록에서 원하는 언어를 선택합니다.
 
 ![Braze 대시보드 언어로 영어가 선택된 모습.]({% image_buster /assets/img_archive/language_dashboard.png %}){: style="max-width:40%"}

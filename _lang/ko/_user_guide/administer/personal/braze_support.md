@@ -8,8 +8,7 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze 고객지원 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
-
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze 고객지원 
 > Braze 고객지원 포털에 접근하고, 지원 케이스를 제출 및 추적하며, 효율적인 문제 해결에 필요한 정보를 제공하는 방법을 알아보세요.
 
 ## 고객지원 포털 접근 {#access-the-support-portal}

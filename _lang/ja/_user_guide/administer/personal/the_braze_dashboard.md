@@ -62,7 +62,7 @@ Canvasのデザインなどのタスク中に視覚的な煩雑さを減らす�
 
 #### レスポンシブナビゲーション {#responsive-navigation}
 
-ナビゲーションは、さまざまな画面サイズにシームレスに適応します。小さな画面では、サイドナビゲーションが自動的に折りたたまれます。必要に応じて<i class="fa-solid fa-bars" aria-label="Open navigation menu"></i>を押してメニューを開きます。
+ナビゲーションは、さまざまな画面サイズにシームレスに適応します。小さな画面では、サイドナビゲーションが自動的に折りたたまれます。必要に応じて<i class="fa-solid fa-bars" aria-label="ナビゲーションメニューを開く"></i>を押してメニューを開きます。
 
 ![小さな画面では、サイドナビゲーションが自動的に折りたたまれます。メニューアイコンをタップするとナビゲーションオプションが開きます。]({% image_buster /assets/img/navigation/navigation_small_screens.png %}){: style="max-width: 80%;border:none"}
 
@@ -110,7 +110,7 @@ Canvasのデザインなどのタスク中に視覚的な煩雑さを減らす�
 table th:nth-child(1),
 table th:nth-child(2),
 table td:nth-child(1),
-table td:nth-child(2), {
+table td:nth-child(2) {
     width:20%;
 }
 table td {

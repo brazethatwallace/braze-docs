@@ -7,7 +7,7 @@ page_type: reference
 description: "このリファレンス記事では、Braze製品ポータルにアクセスし、ダッシュボードからフィードバックを提供する方法について説明します。"
 ---
 
-# 製品ポータル ![Brazeダッシュボードのリソースメニュー]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"} {#product-portal-resources-menu-in-the-braze-dashboard-imagebuster-assetsimgportalpng-stylefloatrightmax-width33margin-left15pxmargin-top15px}
+# 製品ポータル ![Brazeダッシュボードのリソースメニュー]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
 
 > 製品ポータルでは、Brazeの製品ロードマップにアクセスし、アイデアを送信できます。最近リリースされた機能、現在開発中の新機能、構築を検討中のアイデアについてインサイトを得ることができます。ポータルでは、機能の重要度をランク付けして投票したり、フィードバックやリクエストのコメントを残したりできます。
 
