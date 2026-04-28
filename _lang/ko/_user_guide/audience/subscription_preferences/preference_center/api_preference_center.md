@@ -94,7 +94,7 @@ URL 본문에 쿼리 문자열 필드-값 쌍을 사용하여 사용자 ID와 �
 Liquid 필터를 사용하여 발송 시점에 사용자의 외부 ID를 해시할 수도 있습니다. 이렇게 하면 `user_id`가 MD5 해시 값으로 변환됩니다. 예를 들어:
 {% raw %}
 ```liquid
-{% assign my_string = {{${user_id}}} | md5 %}
+{% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
 ```
 {% endraw %}

@@ -94,7 +94,7 @@ Für diese Option benötigt jede E-Mail-Kategorie ihren eigenen spezifischen Abm
 Es ist auch möglich, die externe ID der/des Nutzer:in zum Zeitpunkt des Versands mithilfe eines Liquid-Filters zu hashen. Dies konvertiert die `user_id` in einen MD5-Hash-Wert, zum Beispiel:
 {% raw %}
 ```liquid
-{% assign my_string = {{${user_id}}} | md5 %}
+{% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
 ```
 {% endraw %}

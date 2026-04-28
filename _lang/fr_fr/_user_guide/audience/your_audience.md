@@ -91,7 +91,7 @@ Les utilisateurs sont créés dans Braze chaque fois qu'une personne interagit a
 {% endtab %}
 
 {% tab API et intégrations %}
-- Vous pouvez créer ou mettre à jour des utilisateurs directement via les [REST API]({{site.baseurl}}/api/endpoints/user_data/) ou en [importantun CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+- Vous pouvez créer ou mettre à jour des utilisateurs directement via les [REST API]({{site.baseurl}}/api/endpoints/user_data/) ou en [important un CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
 - Les outils externes (tels que les CDP, CRM ou entrepôts de données) peuvent synchroniser automatiquement les utilisateurs dans Braze.
 {% endtab %}
 {% endtabs %}

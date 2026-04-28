@@ -94,7 +94,7 @@ Pour cette option, chaque catégorie d'e-mail nécessite son propre lien de dés
 Il est également possible de hacher l'ID externe de l'utilisateur au moment de l'envoi à l'aide d'un filtre Liquid. Cela convertira le `user_id` en une valeur de hachage MD5, par exemple :
 {% raw %}
 ```liquid
-{% assign my_string = {{${user_id}}} | md5 %}
+{% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
 ```
 {% endraw %}

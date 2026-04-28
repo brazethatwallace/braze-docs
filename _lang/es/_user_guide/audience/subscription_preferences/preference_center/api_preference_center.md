@@ -94,7 +94,7 @@ Para esta opción, cada categoría de correo electrónico requiere su propio enl
 También es posible aplicar un hash al ID externo del usuario en el momento del envío usando un filtro de Liquid. Esto convertirá el `user_id` en un valor hash MD5, por ejemplo:
 {% raw %}
 ```liquid
-{% assign my_string = {{${user_id}}} | md5 %}
+{% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
 ```
 {% endraw %}
