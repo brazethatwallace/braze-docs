@@ -26,9 +26,6 @@ guide_featured_list:
 - name: "Notifications enrichies"
   link: /docs/user_guide/channels/push/platform_specific_resources/ios/rich_notifications
   image: /assets/img/braze_icons/beaker-02.svg
-- name: "Paramètres avancés de campagne"
-  link: /docs/user_guide/channels/push/platform_specific_resources/ios/notification_options
-  image: /assets/img/braze_icons/bar-chart-01.svg
 - name: "Utilisation du compteur de badges"
   link: /docs/user_guide/channels/push/platform_specific_resources/ios/utilizing_badge_count
   image: /assets/img/braze_icons/bell-03.svg

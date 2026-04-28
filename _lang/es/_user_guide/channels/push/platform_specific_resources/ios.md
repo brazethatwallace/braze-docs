@@ -26,9 +26,6 @@ guide_featured_list:
 - name: "Notificaciones enriquecidas"
   link: /docs/user_guide/channels/push/platform_specific_resources/ios/rich_notifications
   image: /assets/img/braze_icons/beaker-02.svg
-- name: "Configuración avanzada de Campaign"
-  link: /docs/user_guide/channels/push/platform_specific_resources/ios/notification_options
-  image: /assets/img/braze_icons/bar-chart-01.svg
 - name: "Uso del conteo de señales"
   link: /docs/user_guide/channels/push/platform_specific_resources/ios/utilizing_badge_count
   image: /assets/img/braze_icons/bell-03.svg

@@ -30,7 +30,7 @@ Sie fragen sich, wie Sie Badge-Zähler für Android festlegen können? Android h
 
 Setzen Sie den Badge-Zähler auf 0 oder „", um den Badge-Zähler vom App-Symbol zu entfernen. Braze löscht den Badge außerdem automatisch, wenn eine Push-Benachrichtigung empfangen wird, während die App im Vordergrund ist.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Um die Reaktivierungskraft von Badging optimal zu nutzen, ist es entscheidend, dass Sie Ihre Badge-Einstellungen so konfigurieren, dass die Nutzererfahrung so einfach wie möglich gestaltet wird.
 

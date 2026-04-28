@@ -7,7 +7,7 @@ page_type: reference
 description: "Este artigo aborda o uso da contagem de badges no iOS para reengajar usuários que não perceberam uma notificação por push ou que desativaram as notificações por push em primeiro plano."
 platform: iOS
 channel:
-- push
+- Push
 - in-app messages
 
 ---

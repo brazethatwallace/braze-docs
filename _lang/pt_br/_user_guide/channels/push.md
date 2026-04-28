@@ -5,7 +5,7 @@ page_order: 7
 page_type: landing
 description: "Envie chamadas para ação urgentes por meio de notificações por push para dispositivos móveis e web para reengajar usuários e impulsionar ações."
 channel:
-  - push
+  - Push
 search_rank: 3
 ---
 
