@@ -197,4 +197,123 @@ FROM unique_events
 GROUP BY email_address;
 ```
 {% endtab %}
+{% tab Unique Email Opens %}
+
+Use this unique email opens query to analyze unique email opens in a given time window. The algorithm to calculate this is as follows:
+  1. Partition the events by the key (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
+  2. In each partition, order the events by time. The first event is always a unique event.
+  3. For every subsequent event, if it occurred more than seven days after its predecessor, it's considered a unique event.
+
+You can use Snowflake's [windowing functions](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) to achieve this. The following query returns all email opens in the last 365 days and indicates which events are unique in the `is_unique` column:
+
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600; 
+```
+
+To return only the unique events, use the `QUALIFY` clause:
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true;
+```
+
+To see unique event counts grouped by email address:
+```sql
+WITH unique_events AS(
+  SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true) 
+SELECT email_address, count(*) AS count
+FROM unique_events
+GROUP BY email_address;
+```
+
+For an alternative approach scoped to a specific campaign, Canvas, or Canvas step, use the following query. Set the date range and identifier variables, then run the `SELECT` statements to return unique opens calculated three ways:
+
+```sql
+/* 
+    Set or comment out variables if not required. These are set per session.
+    You can obtain the from and to dates from the Campaign, Canvas, or Canvas step URL. These are the startDate and endDate parameters.
+    
+    For example, endDate=1735776000&startDate=1735689600
+    
+    To run, select all of this code block (CMD + A) to first set the necessary variables, then run the SELECT statements below.
+*/
+
+SET fromDateTime = '1735689600';
+SET toDateTime = '1735776000';
+-- SET campaignID = '7a2f4c8b3e6d1a5f9c0b8e2d';
+-- SET canvasID = '4b9e1d8c2a3f6b5e7d0c9a1e';
+SET canvasStepID = '8c3a5e7d9b2f4c1e6d0a8b3f';
+
+SELECT
+    'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(concat(user_id, dispatch_id))) total
+FROM
+    users_messages_email_open
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    not exists (select 
+                umeo.user_id 
+            from 
+                users_messages_email_open umeo
+            where 
+                umeo.user_id = users_messages_email_open.user_id and
+                umeo.canvas_step_id = users_messages_email_open.canvas_step_id and
+                to_timestamp(umeo.time) between dateadd(day, -7, to_timestamp(users_messages_email_open.time)) and dateadd(second, -1, to_timestamp(users_messages_email_open.time)))
+UNION
+SELECT
+    'Unique Opens (during date window)' metric, COUNT(DISTINCT(concat(user_id, dispatch_id))) total
+FROM
+    users_messages_email_open
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime
+UNION
+SELECT
+    'Unique Opens (for emails delivered within same timeframe)' metric, COUNT(DISTINCT(concat(user_id, dispatch_id))) total
+FROM
+    users_messages_email_open
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    EXISTS (select user_id
+            from users_messages_email_delivery umed
+            where
+                umed.user_id = users_messages_email_open.user_id and
+                umed.dispatch_id = users_messages_email_open.dispatch_id and
+                umed.time between $fromDateTime and $toDateTime);
+```
+{% endtab %}
 {% endtabs %}
