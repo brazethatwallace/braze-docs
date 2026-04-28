@@ -217,6 +217,16 @@ Refer to the following table for details on the `Menu` editor block.
 |All sides| Sets a consistent padding number if Item padding is disabled. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+### Button
+
+Refer to the following table for details on the `Button` editor block properties.
+
+| Properties | Description |
+|---|---|
+|Button options| Sets various button options, such as font, size, width, color, and padding.|
+|Button Hover| The style of the button when a user hovers over it using a mouse or trackpad. Includes the button's background color, font color, and border styles.|
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
 ## Actions
 
 You can assign an action that occurs when a user taps a button, link, or image in the message. You can also use [Liquid]({{site.baseurl}}/liquid/) to personalize the actions. Details for each editor block's actions are provided in the following tables.
@@ -232,6 +242,4 @@ Refer to the following table for details on the `Button` editor block.
 |Mail to, Subject, and Body| For the **Send email** link type, this sets the recipient email address, subject, and content that will populate in a draft email when the user selects the button.|
 |Tel| For the **Make call** and **Send SMS** link type, this sets the phone number the user will call or text when selecting the button.|
 |Message| For the **Send SMS** link type, this sets the content that will populate in a draft SMS message when the user selects the button.|
-|Button options| Sets various button options, such as font, width, color, and others.|
-|Button Hover| The style of the button when a user hovers over it using a mouse or trackpad. This includes the button's background color, font color, and border styles.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
