@@ -2097,6 +2097,35 @@ _IAL_LINE_RE = re.compile(r"^\s*\{:\s*[^}]*\}\s*$")
 _RESET_TD_CLASS_RE = re.compile(r"\.reset-td-br-(\d+)")
 
 
+def _dot_missing_reset_td_br_tokens_in_ial_lines(text: str) -> tuple[str, int]:
+    """Insert ``.`` before ``reset-td-br-N`` tokens that lost their class dot.
+
+    Models (and occasionally English) emit ``{: .reset-td-br-1 .reset-td-br-2
+    .reset-td-br-3 reset-td-br-4}`` — the last token is missing its leading
+    ``.``, so Kramdown does not apply the column class (Copilot / PR #13395).
+    Only touches whole-line ``{:` … ``}`` IAL blocks.
+    """
+    lines = text.split("\n")
+    total = 0
+    out: list[str] = []
+    for line in lines:
+        if "{:" not in line or "reset-td-br-" not in line:
+            out.append(line)
+            continue
+        if not _IAL_LINE_RE.match(line):
+            out.append(line)
+            continue
+        new_line, n = re.subn(r"(\s)(reset-td-br-\d+)", r"\1.\2", line)
+        total += n
+        out.append(new_line)
+    if not total:
+        return text, 0
+    new_text = "\n".join(out)
+    if text.endswith("\n") and not new_text.endswith("\n"):
+        new_text += "\n"
+    return new_text, total
+
+
 def _count_md_table_cells(line):
     """Count cells in a markdown table row (header/body/separator)."""
     s = line.strip()
@@ -2983,6 +3012,7 @@ def repair_markdown_wire_format_tables(content):
 
     - ``Content_Type`` → ``Content-Type`` (HTTP header spelling)
     - ``{: .reset-td-br-1 reset-td-br-2`` → ``{: .reset-td-br-1 .reset-td-br-2``
+    - ``{: … reset-td-br-N`` → ``{: … .reset-td-br-N`` on IAL lines (any column)
     - Restore ``Authorization`` when the header cell was translated (es/pt)
     """
     repairs = []
@@ -2998,6 +3028,13 @@ def repair_markdown_wire_format_tables(content):
     if n_ial:
         repairs.append(
             f"md-ial — added missing '.' before reset-td-br-2 ({n_ial}x)"
+        )
+
+    new, n_dots = _dot_missing_reset_td_br_tokens_in_ial_lines(new)
+    if n_dots:
+        repairs.append(
+            f"md-ial — dotted {n_dots} reset-td-br-* token(s) missing leading "
+            f"'.' (PR #13395)"
         )
 
     for wrong, right in (
