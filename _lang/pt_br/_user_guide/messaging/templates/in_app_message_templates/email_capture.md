@@ -26,7 +26,7 @@ Ao criar uma mensagem no app de arrastar e soltar, selecione **Email sign-up** c
 
 ### Etapa 3: Personalize o componente de inscrição por e-mail {#step-3-customize-your-email-sign-up-component}
 
-Para começar a criar seu formulário de inscrição por e-mail, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Inscreveu-se**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para começar a criar seu formulário de inscrição por e-mail, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
 
 Você pode personalizar o texto de espaço reservado e o texto do rótulo do elemento de captura de e-mail.
 

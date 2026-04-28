@@ -6,7 +6,7 @@ page_order: 0
 description: "Diese Seite beschreibt, wie Sie neue Nutzer:innen willkommen heißen, ihnen die Vorteile näherbringen und sie mit einem überzeugenden Call-to-Action zu Handlungen motivieren."
 ---
 
-# Onboarding-Flow
+# Onboarding-Flow {#onboarding-flow}
 
 > Verwenden Sie das In-App-Nachrichten-Template **Onboarding-Flow**, um Nutzerattribute, Insights und Präferenzen zu erfassen, die Ihre Campaign-Strategie unterstützen.
 
