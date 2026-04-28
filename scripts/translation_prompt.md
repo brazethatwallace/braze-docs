@@ -355,6 +355,7 @@ If **no** related-page context is provided for this file but the target locale c
 
 ### Formatting preservation
 
+- **Liquid ``{{site.baseurl}}`` internal links:** After link text there must be exactly **one** ``(`` opening the destination: ``[Label]({{site.baseurl}}/user_guide/…)``. Do **not** emit ``](({{site.baseurl}}`` or an extra ``)`` after the URL closes. If the English ``_docs/`` file carries that typo (example: WhatsApp ``embedded_signup``), translators should still emit valid Markdown; QC repairs the bad pattern (Copilot / auto-translate PR #13396).
 - Translate text that is in bold but keep the bold formatting — these often refer to UI elements
 - **English UI labels kept in bold** (for example **Set exact priority**, **Apply Sort**): When the English source leaves dashboard copy in **English** in the localized sentence, match **spelling and capitalization exactly**—do not Title-Case or “normalize” casing (**Set Exact Priority** is wrong when English uses **Set exact priority**; auto-translate PR #13349).
 - **French — JavaScript bridge (Banners ``custom_code``):** Use **pont JavaScript** consistently in `nav_title`, `article_title`, `description`, headings, and body. Do not mix *passerelle JavaScript* in YAML with *pont JavaScript* elsewhere on the same page (PR #13349).

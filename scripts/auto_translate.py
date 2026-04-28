@@ -2310,6 +2310,37 @@ def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content:
     return translated_content, []
 
 
+def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
+    """Repair malformed ``{{site.baseurl}}`` Markdown links (extra parentheses).
+
+    Models occasionally emit ``[label](({{site.baseurl}}/path`` instead of correct
+    ``[label]({{site.baseurl}}/path``, or they close links with duplicate ``)``
+    endings. Either pattern breaks Markdown (Copilot PR #13396). Run before
+    ``repair_markdown_internal_link_fragments``.
+    """
+    repairs = []
+    new = translated_content
+    bad_open = "](" + "(" + "{{" + "site.baseurl}}"
+    good_open = "](" + "{{" + "site.baseurl}}"
+    if bad_open in new:
+        n = new.count(bad_open)
+        new = new.replace(bad_open, good_open)
+        repairs.append(
+            "md-link — removed extra '(' before {{site.baseurl}} "
+            f"({n}x; PR #13396)"
+        )
+    dup_pat = re.compile(r"(\]\(\{\{site\.baseurl\}\}[^)]+\))\)")
+    new, dn = dup_pat.subn(r"\1", new)
+    if dn:
+        repairs.append(
+            "md-link — collapsed duplicate closing ')' after site.baseurl URL "
+            f"({dn}x; PR #13396)"
+        )
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_markdown_internal_link_fragments(content):
     """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
     repairs = []
@@ -5954,6 +5985,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(url_repairs)
+
+    translated_content, sb_url_paren_repairs = (
+        repair_markdown_site_baseurl_link_paren_typos(translated_content)
+    )
+    findings["repairs"].extend(sb_url_paren_repairs)
 
     translated_content, css_nth_repairs = repair_css_nth_child_trailing_comma_in_style_blocks(
         translated_content
