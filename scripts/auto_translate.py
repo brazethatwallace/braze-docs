@@ -1809,6 +1809,71 @@ def repair_guide_featured_list_links(english_content, translated_content):
     ]
 
 
+def repair_pt_br_push_channel_token(translated_path, translated_content, lang_key):
+    """Normalize Push channel YAML list item for Brazilian Portuguese under the Push hub.
+
+    Sibling ``_lang/pt_br/_user_guide/channels/push`` pages use capitalized
+    ``Push`` in ``channel:`` lists; MT sometimes emits lowercase ``push``,
+    which triggers inconsistency reviews (Copilot / auto-translate PR #13393).
+    Only front matter is scanned; lines must match ``- push`` exactly (leading
+    whitespace + list marker + bare token).
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/pt_br/_user_guide/channels/push" not in rel:
+        return translated_content, []
+
+    fm, body = _extract_front_matter(translated_content)
+    if not fm:
+        return translated_content, []
+
+    new_fm, n = re.subn(r"^(\s*)- push\s*$", r"\1- Push", fm, flags=re.MULTILINE)
+    if not n:
+        return translated_content, []
+
+    return f"---\n{new_fm}\n---\n{body}", [
+        f"pt_br channel — capitalized Push in YAML list ({n} line(s))",
+    ]
+
+
+def check_guide_featured_list_duplicate_links(
+    english_content, translated_content, english_path="", translated_path=""
+):
+    """Emit QC warnings when ``guide_featured_list`` repeats the same ``link:``.
+
+    Duplicate destinations produce two visually distinct cards pointing at one
+    article (English source drift or bad MT). Fix by removing/editing rows in the
+    **English** `_docs/` file — translation QC syncs routes from English
+    (auto-translate / Copilot PR #13393).
+    """
+    warnings = []
+
+    def _dupes(label, fm_fragment, filepath):
+        if not fm_fragment:
+            return
+        block = _extract_fm_block(fm_fragment, "guide_featured_list")
+        if not block:
+            return
+        links = _collect_guide_featured_list_field(block, "link")
+        ctr = Counter(links)
+        for link_val, cnt in ctr.items():
+            if cnt <= 1 or not link_val:
+                continue
+            extras = filepath or "(path unknown)"
+            warnings.append(
+                "guide_featured_list — duplicate destination "
+                f"({cnt}× link: {link_val}) in {label} ({extras})"
+            )
+
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, _ = _extract_front_matter(translated_content)
+    _dupes("English source", en_fm, str(english_path))
+    _dupes("translation", tr_fm, str(translated_path))
+    return warnings
+
+
 # English Braze dashboard strings that often leak into localized Agents docs
 # when the model copies US UI labels verbatim. Keys: lang_key. Order is applied
 # longest-first per file to reduce partial-match issues.
@@ -4800,6 +4865,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(gfl_repairs)
 
+    translated_content, pt_push_ch_repairs = repair_pt_br_push_channel_token(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(pt_push_ch_repairs)
+
     translated_content, dup_anchor_repairs = (
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
     )
@@ -5228,6 +5298,14 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["warnings"].extend(
         check_sibling_terminology_drift(translated_path, translated_content)
+    )
+    findings["warnings"].extend(
+        check_guide_featured_list_duplicate_links(
+            english_content,
+            translated_content,
+            english_path=english_path,
+            translated_path=translated_path,
+        )
     )
 
     return findings
