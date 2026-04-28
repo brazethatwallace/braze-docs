@@ -574,6 +574,46 @@ heading line has **no** explicit `{#…}` ID, do not add one in translation. \
 When both `nav_title` and `article_title` exist and denote the same words, \
 keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
+31. **Administer / dashboard polish** (PR #13384): Do not paste huge invented \
+`{#slug}` tails on headings when English has none. Keep `<style>` CSS \
+selectors valid (no `nth-child(N), {` before `{`). Localize known \
+`aria-label="Open navigation menu"` / `aria-label="Select your language"` \
+when the surrounding prose is localized.
+32. **Brazilian Portuguese — Braze ``Analytics`` menu**: When English uses bold \
+``**Analytics**`` as the dashboard section name in navigation paths (for example \
+``**Analytics** > **Report Builder (New)**``) or phrases like "the **Analytics** \
+page" / "the **Analytics** section", keep ``**Analytics**`` in pt-BR for that \
+product chrome—do **not** substitute ``**Análise de dados**`` in those slots; it \
+drifts from sibling analytics docs (auto-translate PR #13386). QC auto-repairs \
+common ``**Análise de dados**`` UI fragments when they slip through.
+33. **Audience segments subtree** (PR #13387): For ``cdi_segments.md``, keep YAML \
+``description`` on the CDI / warehouse topic—never location-targeting boilerplate \
+mirrored from a bad English string. For ``rfm_segments.md``, localize ``nav_title`` \
+and the H1 away from English ``Segments RFM`` / ``RFM Segments`` in ES/pt-BR/KO. \
+For ``managing_segments.md``, never set ``tool:`` to a translated word; it must \
+remain ``Segments``.
+34. **Liquid ``{% assign %}`` + default fields**: Never nest ``{{ }}`` around \
+``${…}`` on the right-hand side of ``{% assign var = … %}`` (for example wrong \
+``{% assign my_string = {{${user_id}}} | md5 %}``; correct \
+``{% assign my_string = ${user_id} | md5 %}``). When prose describes a Liquid \
+example that branches on language (for example ``${language} == 'spanish'``), \
+keep the named language in running text **consistent** with that branch \
+(auto-translate PR #13388).
+35. **Markdown tables + dev_guide YAML (PR #13392)**: Do not start table body \
+rows with ``||``—use standard ``| col1 | col2 |`` so you do not insert a blank \
+first column. When ``guide_top_text`` embeds HTML with double-quoted attributes \
+(``href="..."``), wrap the **whole** YAML value in double quotes and escape inner \
+``"`` as ``\"`` so the front matter parses. Match sibling locales' explicit \
+``{#…}`` fragments on comparable H1s when deep links depend on them.
+36. **Decisioning Studio › audience (PR #13389)**: Use **Google Cloud Storage** \
+(and **GCS**) for Braze-controlled export *buckets*—never *Google Cloud Services* \
+in that bucket context. In ``{% tabs %}``, when sibling ``{% tab … %}`` labels \
+are localized, translate the **Other Platforms** tab label too (do not leave it \
+in English alone). On **prepare_data** hub YAML, each ``guide_featured_list`` \
+``name:`` should match the linked page's established title in that locale (for \
+example pt-BR **Ativos de dados críticos** for the **Critical data assets** row, \
+not a divergent synonym). German ``get_started``—localize stray English section \
+titles such as **Best Practices** when the surrounding section is German.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1683,6 +1723,135 @@ def repair_liquid_image_buster_path_spacing(translated_content):
     return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
 
 
+def repair_markdown_table_double_leading_row_pipes(translated_content):
+    """Remove an accidental extra ``|`` at the start of markdown table rows.
+
+    Rows like ``|| Use case | Explanation |`` render an empty first column and
+    break ``.reset-td-br-*`` table styling (Copilot PR #13392).
+    """
+
+    new, n = re.subn(r"(^|\n)\|\|(\|)", r"\1|\2", translated_content, flags=re.MULTILINE)
+    if not n:
+        return translated_content, []
+    return new, [f"md-table — double leading pipe on table rows ({n}x; PR #13392)"]
+
+
+def repair_yaml_guide_top_text_unquoted_html(translated_content):
+    """Quote ``guide_top_text`` HTML blobs so attribute ``"`` do not break YAML.
+
+    Values such as ``guide_top_text: <a href="https://...">`` truncate at the
+    first inner double quote unless the whole value is YAML-quoted with inner
+    quotes escaped (Copilot PR #13392).
+    """
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+    out_lines = []
+    changed = False
+    for line in tr_fm.split("\n"):
+        m = re.match(r"^(guide_top_text:)\s*(.+)$", line)
+        if not m:
+            out_lines.append(line)
+            continue
+        key, raw = m.group(1), m.group(2)
+        stripped = raw.strip()
+        if stripped.startswith('"') or stripped.startswith("'"):
+            out_lines.append(line)
+            continue
+        if stripped.startswith("<") and '"' in stripped:
+            esc = stripped.replace("\\", "\\\\").replace('"', '\\"')
+            out_lines.append(f'{key} "{esc}"')
+            changed = True
+        else:
+            out_lines.append(line)
+    if not changed:
+        return translated_content, []
+    new_fm = "\n".join(out_lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        ["guide_top_text_fm — quoted HTML for YAML safety (PR #13392)"],
+    )
+_DECISIONING_AUDIENCE_DOC_SUFFIX = "brazeai/decisioning_studio/audience.md"
+
+_OTHER_PLATFORMS_TAB_LABEL_BY_LANG = {
+    "de": "Weitere Plattformen",
+    "es": "Otras plataformas",
+    "fr": "Autres plateformes",
+    "ja": "その他のプラットフォーム",
+    "ko": "다른 플랫폼",
+    "pt-br": "Outras plataformas",
+}
+
+
+def repair_decisioning_audience_gcs_services_typo(translated_path, translated_content):
+    """Replace *Google Cloud Services* with **Google Cloud Storage** on audience page.
+
+    Export buckets for Decisioning Studio live on **Google Cloud Storage** (GCS).
+    Models sometimes write the broader *Google Cloud Services* next to *bucket*
+    wording (Copilot / auto-translate PR #13389). Scoped to this doc only.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_DECISIONING_AUDIENCE_DOC_SUFFIX):
+        return translated_content, []
+    if "Google Cloud Services" not in translated_content:
+        return translated_content, []
+    new = translated_content.replace("Google Cloud Services", "Google Cloud Storage")
+    n = translated_content.count("Google Cloud Services")
+    return new, [f"gcs-name — Google Cloud Services → Google Cloud Storage ({n}x; PR #13389)"]
+
+
+def repair_decisioning_audience_other_platforms_tab(
+    translated_path, translated_content, lang_key
+):
+    """Localize ``{% tab Other Platforms %}`` on Decisioning Studio audience page."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_DECISIONING_AUDIENCE_DOC_SUFFIX):
+        return translated_content, []
+    label = _OTHER_PLATFORMS_TAB_LABEL_BY_LANG.get(lang_key)
+    if not label:
+        return translated_content, []
+    before = "{% tab Other Platforms %}"
+    if before not in translated_content:
+        return translated_content, []
+    after = "{% tab " + label + " %}"
+    new = translated_content.replace(before, after)
+    return new, [f"decisioning-audience — tab Other Platforms → {label} (PR #13389)"]
+
+
+# ``{% assign x = {{${user_id}}} | md5 %}`` — invalid (output tags inside assign).
+_ASSIGN_NESTED_DEFAULT_IN_ASSIGN_RE = re.compile(
+    r"\{%\s*assign\s+(\w+)\s*=\s*\{\{\s*(\$\{[^}]+\})\s*\}\}\s*\|\s*(\w+)\s*%\}",
+    re.IGNORECASE,
+)
+
+
+def repair_liquid_assign_nested_default_in_output(translated_content):
+    """Strip nested ``{{ }}`` around Braze default fields inside ``{% assign %}``.
+
+    Models sometimes wrap ``${user_id}`` (and similar) as ``{{${user_id}}}`` on
+    the right-hand side of ``{% assign … %}``, which is invalid Liquid (Copilot
+    / auto-translate PR #13388).
+    """
+
+    def _repl(m: re.Match) -> str:
+        return (
+            "{% assign "
+            + m.group(1)
+            + " = "
+            + m.group(2)
+            + " | "
+            + m.group(3)
+            + " %}"
+        )
+
+    new, n = _ASSIGN_NESTED_DEFAULT_IN_ASSIGN_RE.subn(_repl, translated_content)
+    if not n:
+        return translated_content, []
+    return new, [
+        f"liquid — assign RHS: strip {{ }} around default field ({n}x; PR #13388)"
+    ]
+
+
 def repair_de_global_user_management_landing_titles(
     translated_path, translated_content, lang_key
 ):
@@ -2388,6 +2557,217 @@ def repair_pt_br_german_low9_double_quote_in_body(
         f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
         f"in pt-BR doc"
     ]
+
+
+_CDI_SEGMENTS_DOC_SUFFIX = "segment_extension/cdi_segments.md"
+_CDI_LOCATION_DESC_SNIPPETS = (
+    "Location targeting",
+    "ロケーションターゲティング",
+    "ciblage par localisation, vous permettant",
+    "위치 타겟팅을 설정",
+    "direcionamento por local",
+)
+_CDI_DESCRIPTION_REPLACEMENT_LINE = {
+    "ja": (
+        'description: "この記事では、クラウドデータ取り込み（CDI）を使った CDI セグメント'
+        'エクステンションについて、データウェアハウスへのクエリと Braze でのオーディエンス定義の方法を説明します。"'
+    ),
+    "fr": (
+        "description: \"Cet article explique comment les extensions de segments CDI "
+        "s'appuient sur l'ingestion de données cloud pour interroger votre entrepôt "
+        'de données et définir des audiences dans Braze."'
+    ),
+    "ko": (
+        'description: "이 문서에서는 클라우드 데이터 수집(CDI)을 사용하는 CDI 세그먼트 확장을 통해 '
+        '데이터 웨어하우스를 쿼리하고 Braze에서 오디언스를 정의하는 방법을 설명합니다."'
+    ),
+    "pt-br": (
+        "description: \"Este artigo explica como as extensões de segmento CDI usam a ingestão de dados "
+        'na nuvem para consultar seu data warehouse e definir públicos na Braze."'
+    ),
+}
+
+
+def repair_cdi_segments_description_location_drift(
+    english_content, translated_content, translated_path, lang_key
+):
+    """Replace legacy ``location targeting`` copy in ``cdi_segments`` YAML ``description``.
+
+    English briefly shipped the wrong ``description``; several locales mirrored it
+    (Copilot / auto-translate PR #13387). When the English file clearly describes
+    CDI + Cloud Data Ingestion and the localized front matter still contains
+    known location-targeting boilerplate, rewrite ``description`` to the canonical
+    sentence for that locale.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_CDI_SEGMENTS_DOC_SUFFIX):
+        return translated_content, []
+    if "Cloud Data Ingestion" not in english_content:
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    if not any(s in tr_fm for s in _CDI_LOCATION_DESC_SNIPPETS):
+        return translated_content, []
+
+    replacement_line = _CDI_DESCRIPTION_REPLACEMENT_LINE.get(lang_key)
+    if not replacement_line:
+        return translated_content, []
+
+    new_lines = []
+    changed = False
+    for line in tr_fm.split("\n"):
+        if line.startswith("description:") and any(s in line for s in _CDI_LOCATION_DESC_SNIPPETS):
+            new_lines.append(replacement_line)
+            changed = True
+        else:
+            new_lines.append(line)
+    if not changed:
+        return translated_content, []
+
+    new_fm = "\n".join(new_lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        ["cdi_segments_fm — description topic drift (location → CDI; PR #13387)"],
+    )
+
+
+_RFM_SEGMENTS_DOC_SUFFIX = "sql_segments/rfm_segments.md"
+
+
+def repair_rfm_sql_segments_nav_and_title_mix(
+    translated_path, translated_content, lang_key
+):
+    """Normalize RFM SQL segment extension titles that mix English ``Segments`` into Romance/KO chrome.
+
+    Copilot on PR #13387: ``nav_title`` / H1 sometimes keep ``Segments RFM`` or
+    raw ``RFM Segments`` instead of locale nouns while the rest of the page is
+    localized. Preserve explicit ``{#…}`` anchors on heading lines.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_RFM_SEGMENTS_DOC_SUFFIX):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "pt-br":
+        if 'nav_title: "Segments RFM"' in new:
+            new = new.replace('nav_title: "Segments RFM"', 'nav_title: "Segmentos RFM"')
+            repairs.append("pt-br-rfm — nav_title Segments RFM → Segmentos RFM (PR #13387)")
+        if "# Segments SQL RFM {#" in new:
+            new = new.replace("# Segments SQL RFM {#", "# Segmentos RFM {#")
+            repairs.append("pt-br-rfm — H1 Segments SQL RFM → Segmentos RFM (PR #13387)")
+    elif lang_key == "es":
+        if 'nav_title: "Segments RFM"' in new:
+            new = new.replace('nav_title: "Segments RFM"', 'nav_title: "Segmentos RFM"')
+            repairs.append("es-rfm — nav_title Segments RFM → Segmentos RFM (PR #13387)")
+        if "# Segments SQL RFM {#" in new:
+            new = new.replace("# Segments SQL RFM {#", "# Segmentos RFM {#")
+            repairs.append("es-rfm — H1 Segments SQL RFM → Segmentos RFM (PR #13387)")
+    elif lang_key == "ko":
+        if 'nav_title: "RFM Segments"' in new:
+            new = new.replace('nav_title: "RFM Segments"', 'nav_title: "RFM 세그먼트"')
+            repairs.append("ko-rfm — nav_title RFM Segments → RFM 세그먼트 (PR #13387)")
+        if "# RFM SQL Segments" in new:
+            before_h1 = new
+            new = new.replace("# RFM SQL Segments {#", "# RFM SQL 세그먼트 {#")
+            new = new.replace("# RFM SQL Segments\n", "# RFM SQL 세그먼트\n")
+            if new != before_h1:
+                repairs.append("ko-rfm — H1 RFM SQL Segments → RFM SQL 세그먼트 (PR #13387)")
+
+    if new == translated_content:
+        return translated_content, []
+    return new, repairs
+
+
+def repair_pt_br_analytics_product_menu_label(
+    translated_path, translated_content, lang_key
+):
+    r"""Normalize Braze dashboard **Analytics** chrome in pt-BR Markdown.
+
+    English navigation uses the product label **Analytics** (for example
+    ``**Analytics** > **Report Builder (New)**``). Models sometimes render the
+    parent menu as ``**Análise de dados**``, which drifts from sibling pt-BR
+    analytics docs and in-product wording (Copilot / auto-translate PR #13386).
+    Only high-confidence UI fragments are rewritten — not headings that use
+    *Análise de dados* as a generic section title.
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/pt_br/" not in rel:
+        return translated_content, []
+
+    pairs = (
+        (
+            "navegue até a página **Análise de dados** da",
+            "navegue até a página **Analytics** da",
+        ),
+        (
+            "diretamente na página **Análise de dados** da",
+            "diretamente na página **Analytics** da",
+        ),
+        (
+            "até a página **Análise de dados** da",
+            "até a página **Analytics** da",
+        ),
+        ("**Análise de dados** >", "**Analytics** >"),
+        (
+            "exibida na página **Análise de dados**",
+            "exibida na página **Analytics**",
+        ),
+        ("seção **Análise de dados**", "seção **Analytics**"),
+        ("| **Análise de dados** |", "| **Analytics** |"),
+        ("* **Análise de dados**:", "* **Analytics**:"),
+    )
+
+    repairs = []
+    new = translated_content
+    for old, rep in pairs:
+        if old not in new:
+            continue
+        c = new.count(old)
+        new = new.replace(old, rep)
+        repairs.append(
+            "pt-br-analytics-menu — "
+            f"{old[:48]}{'…' if len(old) > 48 else ''} → **Analytics** ({c}x; PR #13386)"
+        )
+
+    if new == translated_content:
+        return translated_content, []
+    return new, repairs
+
+
+def repair_managing_segments_tool_yaml_value(translated_path, translated_content, _lang_key):
+    r"""Restore canonical ``tool: Segments`` when YAML was corrupted to ``segmentos``.
+
+    Models sometimes lowercase the ``tool`` taxonomy value after bulk prose edits
+    (Copilot / auto-translate PR #13387). ``tool`` must stay the English token
+    ``Segments`` for layout filters.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_user_guide/audience/segments/managing_segments.md"):
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    new_fm, n = re.subn(
+        r"(?im)^tool:\s*segmentos\s*$",
+        "tool: Segments",
+        tr_fm,
+    )
+    if not n:
+        return translated_content, []
+
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        [f"managing_segments_fm — tool: segmentos → Segments ({n}x; PR #13387)"],
+    )
 
 
 def repair_japanese_mixed_mail_campaign(
@@ -4754,6 +5134,150 @@ def align_cross_locale_heading_anchors(repo_root: Path, *, full_repo_scan: bool 
     return files_updated, log_lines
 
 
+def repair_unreferenced_explicit_heading_ids_when_english_has_none(
+    english_content, translated_content
+):
+    """Remove translated-only ``{#id}`` when English omits explicit ids and id is unused.
+
+    The model sometimes pastes long pseudo-slugs (often echoing UI or image
+    text) onto headings. If the English heading has no explicit Kramdown id and
+    nothing in either file references that fragment, drop the extra tail so
+    ``repair_same_page_anchor_ids`` can attach the correct English slug when
+    links require it (Copilot / auto-translate PR #13384).
+    """
+    en_headings = list(_iter_doc_headings(english_content))
+    tr_headings = list(_iter_doc_headings(translated_content))
+    if not en_headings or len(en_headings) != len(tr_headings):
+        return translated_content, []
+
+    referenced = set(_ANCHOR_REF_RE.findall(english_content))
+    referenced |= set(_ANCHOR_REF_RE.findall(translated_content))
+    for blob in (english_content, translated_content):
+        referenced |= set(
+            re.findall(
+                r'(?i)href\s*=\s*["\']#([A-Za-z][A-Za-z0-9_\-]*)',
+                blob,
+            )
+        )
+
+    lines = translated_content.split("\n")
+    repairs = []
+    for (_, _en_lvl, _en_text, en_explicit), (tr_idx, _tr_lvl, tr_text, tr_explicit) in zip(
+        en_headings, tr_headings
+    ):
+        if en_explicit is not None or not tr_explicit:
+            continue
+        if tr_explicit in referenced:
+            continue
+        line = lines[tr_idx]
+        stripped = line.rstrip()
+        new_stripped = re.sub(
+            r"\s*\{#" + re.escape(tr_explicit) + r"\}\s*$",
+            "",
+            stripped,
+        )
+        if new_stripped == stripped:
+            continue
+        lines[tr_idx] = new_stripped
+        slug_note = tr_explicit if len(tr_explicit) <= 72 else tr_explicit[:72] + "…"
+        repairs.append(
+            "heading_anchor — removed translated-only explicit "
+            f"{{#{slug_note}}} (English has none; unused in-file; PR #13384)"
+        )
+
+    if not repairs:
+        return translated_content, []
+    new_content = "\n".join(lines)
+    if translated_content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    return new_content, repairs
+
+
+_STYLE_BLOCK_OPEN_RE = re.compile(r"<style\b", re.I)
+_STYLE_BLOCK_CLOSE_RE = re.compile(r"</style\s*>", re.I)
+
+
+def repair_css_nth_child_trailing_comma_in_style_blocks(content):
+    """Fix ``nth-child(N), {`` → ``nth-child(N) {`` inside ``<style>`` blocks.
+
+    A stray comma before ``{`` is invalid CSS and breaks table width rules
+    (Copilot / auto-translate PR #13384).
+    """
+    lines = content.split("\n")
+    out_lines = []
+    in_style = False
+    repairs = []
+    total = 0
+
+    for line in lines:
+        if _STYLE_BLOCK_OPEN_RE.search(line):
+            in_style = True
+        modified = line
+        if in_style:
+            new_line, n = re.subn(
+                r"nth-child\((\d+)\),\s*\{",
+                r"nth-child(\1) {",
+                modified,
+            )
+            if n:
+                total += n
+                modified = new_line
+        out_lines.append(modified)
+        if _STYLE_BLOCK_CLOSE_RE.search(line):
+            in_style = False
+
+    if not total:
+        return content, []
+    new_content = "\n".join(out_lines)
+    if content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    repairs.append(
+        "css_style — removed stray comma before `{` in nth-child selector "
+        f"({total}x; PR #13384)"
+    )
+    return new_content, repairs
+
+
+_UI_ARIA_EN_PHRASES = {
+    "Open navigation menu": {
+        "de": "Navigationsmenü öffnen",
+        "es": "Abrir el menú de navegación",
+        "fr": "Ouvrir le menu de navigation",
+        "ja": "ナビゲーションメニューを開く",
+        "ko": "탐색 메뉴 열기",
+        "pt-br": "Abrir o menu de navegação",
+    },
+    "Select your language": {
+        "de": "Sprache auswählen",
+        "es": "Seleccionar el idioma",
+        "fr": "Sélectionner la langue",
+        "ja": "言語を選択",
+        "ko": "언어 선택",
+        "pt-br": "Selecionar o idioma",
+    },
+}
+
+
+def repair_documentation_english_aria_labels(translated_content, lang_key):
+    """Swap known English ``aria-label`` strings for locale text in translated docs."""
+    repairs = []
+    new_content = translated_content
+    for english_phrase, lang_map in _UI_ARIA_EN_PHRASES.items():
+        localized = lang_map.get(lang_key)
+        if not localized:
+            continue
+        old = f'aria-label="{english_phrase}"'
+        new = f'aria-label="{localized}"'
+        if old in new_content:
+            new_content = new_content.replace(old, new)
+            repairs.append(
+                f"aria_label — {english_phrase!r} → localized (PR #13384)"
+            )
+    if new_content == translated_content:
+        return translated_content, []
+    return new_content, repairs
+
+
 def repair_trailing_whitespace(translated_content: str):
     """Strip trailing spaces and tabs from each line (preserve newlines)."""
     lines = translated_content.split("\n")
@@ -4951,6 +5475,21 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_repairs)
 
+    translated_content, cdi_desc_repairs = repair_cdi_segments_description_location_drift(
+        english_content, translated_content, translated_path, lang_key
+    )
+    findings["repairs"].extend(cdi_desc_repairs)
+
+    translated_content, mseg_tool_repairs = repair_managing_segments_tool_yaml_value(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(mseg_tool_repairs)
+
+    translated_content, rfm_nav_repairs = repair_rfm_sql_segments_nav_and_title_mix(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(rfm_nav_repairs)
+
     translated_content, fm_display_repairs = repair_front_matter_display_scalar_cleanup(
         translated_content
     )
@@ -4989,6 +5528,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
     )
     findings["repairs"].extend(dup_anchor_repairs)
+
+    translated_content, unused_tr_id_repairs = (
+        repair_unreferenced_explicit_heading_ids_when_english_has_none(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(unused_tr_id_repairs)
 
     translated_content, anchor_id_repairs = repair_same_page_anchor_ids(
         english_content, translated_content
@@ -5046,6 +5592,30 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(image_buster_repairs)
+
+    translated_content, assign_nested_repairs = (
+        repair_liquid_assign_nested_default_in_output(translated_content)
+    )
+    findings["repairs"].extend(assign_nested_repairs)
+
+    translated_content, md_table_pipe_repairs = repair_markdown_table_double_leading_row_pipes(
+        translated_content
+    )
+    findings["repairs"].extend(md_table_pipe_repairs)
+
+    translated_content, gtt_html_repairs = repair_yaml_guide_top_text_unquoted_html(
+        translated_content
+    )
+    findings["repairs"].extend(gtt_html_repairs)
+    translated_content, ds_aud_gcs_repairs = repair_decisioning_audience_gcs_services_typo(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(ds_aud_gcs_repairs)
+
+    translated_content, ds_aud_tab_repairs = repair_decisioning_audience_other_platforms_tab(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ds_aud_tab_repairs)
 
     translated_content, de_user_mgmt_repairs = (
         repair_de_global_user_management_landing_titles(
@@ -5194,6 +5764,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(pt_low9_repairs)
 
+    translated_content, pt_analytics_menu_repairs = (
+        repair_pt_br_analytics_product_menu_label(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_analytics_menu_repairs)
+
     translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
         translated_path, translated_content, lang_key
     )
@@ -5253,6 +5830,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(url_repairs)
+
+    translated_content, css_nth_repairs = repair_css_nth_child_trailing_comma_in_style_blocks(
+        translated_content
+    )
+    findings["repairs"].extend(css_nth_repairs)
+
+    translated_content, aria_repairs = repair_documentation_english_aria_labels(
+        translated_content, lang_key
+    )
+    findings["repairs"].extend(aria_repairs)
 
     translated_content, frag_repairs = repair_markdown_internal_link_fragments(
         translated_content
