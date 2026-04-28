@@ -598,6 +598,15 @@ remain ``Segments``.
 example that branches on language (for example ``${language} == 'spanish'``), \
 keep the named language in running text **consistent** with that branch \
 (auto-translate PR #13388).
+35. **Decisioning Studio › audience (PR #13389)**: Use **Google Cloud Storage** \
+(and **GCS**) for Braze-controlled export *buckets*—never *Google Cloud Services* \
+in that bucket context. In ``{% tabs %}``, when sibling ``{% tab … %}`` labels \
+are localized, translate the **Other Platforms** tab label too (do not leave it \
+in English alone). On **prepare_data** hub YAML, each ``guide_featured_list`` \
+``name:`` should match the linked page's established title in that locale (for \
+example pt-BR **Ativos de dados críticos** for the **Critical data assets** row, \
+not a divergent synonym). German ``get_started``—localize stray English section \
+titles such as **Best Practices** when the surrounding section is German.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1705,6 +1714,53 @@ def repair_liquid_image_buster_path_spacing(translated_content):
     if not n:
         return translated_content, []
     return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
+
+
+_DECISIONING_AUDIENCE_DOC_SUFFIX = "brazeai/decisioning_studio/audience.md"
+
+_OTHER_PLATFORMS_TAB_LABEL_BY_LANG = {
+    "de": "Weitere Plattformen",
+    "es": "Otras plataformas",
+    "fr": "Autres plateformes",
+    "ja": "その他のプラットフォーム",
+    "ko": "다른 플랫폼",
+    "pt-br": "Outras plataformas",
+}
+
+
+def repair_decisioning_audience_gcs_services_typo(translated_path, translated_content):
+    """Replace *Google Cloud Services* with **Google Cloud Storage** on audience page.
+
+    Export buckets for Decisioning Studio live on **Google Cloud Storage** (GCS).
+    Models sometimes write the broader *Google Cloud Services* next to *bucket*
+    wording (Copilot / auto-translate PR #13389). Scoped to this doc only.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_DECISIONING_AUDIENCE_DOC_SUFFIX):
+        return translated_content, []
+    if "Google Cloud Services" not in translated_content:
+        return translated_content, []
+    new = translated_content.replace("Google Cloud Services", "Google Cloud Storage")
+    n = translated_content.count("Google Cloud Services")
+    return new, [f"gcs-name — Google Cloud Services → Google Cloud Storage ({n}x; PR #13389)"]
+
+
+def repair_decisioning_audience_other_platforms_tab(
+    translated_path, translated_content, lang_key
+):
+    """Localize ``{% tab Other Platforms %}`` on Decisioning Studio audience page."""
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_DECISIONING_AUDIENCE_DOC_SUFFIX):
+        return translated_content, []
+    label = _OTHER_PLATFORMS_TAB_LABEL_BY_LANG.get(lang_key)
+    if not label:
+        return translated_content, []
+    before = "{% tab Other Platforms %}"
+    if before not in translated_content:
+        return translated_content, []
+    after = "{% tab " + label + " %}"
+    new = translated_content.replace(before, after)
+    return new, [f"decisioning-audience — tab Other Platforms → {label} (PR #13389)"]
 
 
 # ``{% assign x = {{${user_id}}} | md5 %}`` — invalid (output tags inside assign).
@@ -5302,6 +5358,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_liquid_assign_nested_default_in_output(translated_content)
     )
     findings["repairs"].extend(assign_nested_repairs)
+
+    translated_content, ds_aud_gcs_repairs = repair_decisioning_audience_gcs_services_typo(
+        translated_path, translated_content
+    )
+    findings["repairs"].extend(ds_aud_gcs_repairs)
+
+    translated_content, ds_aud_tab_repairs = repair_decisioning_audience_other_platforms_tab(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ds_aud_tab_repairs)
 
     translated_content, de_user_mgmt_repairs = (
         repair_de_global_user_management_landing_titles(
