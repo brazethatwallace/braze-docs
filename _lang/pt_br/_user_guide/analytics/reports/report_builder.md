@@ -19,7 +19,7 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 
 ## Usando um modelo de relatório {#using-a-report-template}
 
-1. Acesse **Análise de dados** > **Criador de relatórios (Novo)**.
+1. Acesse **Analytics** > **Criador de relatórios (Novo)**.
 2. Selecione a seta **Mais opções** ao lado do botão **Criar novo relatório** e, em seguida, selecione **Usar um modelo de relatório**.<br><br>![Menu suspenso do botão "Criar novo relatório" com opções para criar um relatório personalizado ou usar um modelo.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Selecione um dos modelos de relatório da biblioteca de modelos da Braze.
     - Use os menus suspensos **Itens de linha** e **Tags** para encontrar relatórios relevantes para seus casos de uso.<br><br>![Janela "Modelos de relatório da Braze" com uma lista de modelos da Braze para selecionar.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
@@ -27,7 +27,7 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 
 ## Criando um relatório {#creating-a-report}
 
-1. Acesse **Análise de dados** > **Criador de relatórios (Novo)**.
+1. Acesse **Analytics** > **Criador de relatórios (Novo)**.
 2. Selecione **Criar novo relatório**.
 3. No menu suspenso **Linhas**, selecione sobre o que você deseja gerar o relatório:
     - Campaigns
