@@ -25,35 +25,29 @@ The Banner composer offers the same kinds of layout blocks as other drag-and-dro
 
 ## Properties
 
-For blocks that behave identically to in-app messages (Title, Paragraph, Button, Image, Link, Spacer, Phone capture, Email capture), property tables are in the [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) tab. Banner-specific behavior is called out in each section below.
-
 ### Title and paragraph
 
-For typography and alignment, see [Title and Paragraph]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
 ### Button
 
-For button styling properties, see [Button]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-For on-click behavior and logging, see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks, and [Define on-click behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-32-define-on-click-behavior-optional) in the Banner article.
+For on-click behavior and logging, see the **Actions** section below and [Define on-click behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-32-define-on-click-behavior-optional) in the Banner article.
 
 ### Image
 
-For image styling properties, see [Image]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
-
-For image actions (alt text, click behavior, logging), see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) in that tab.
-
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
+
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
 ### Link
 
-For link text styling, see [Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
-
-For link actions, see [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) in that tab.
+{% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
 ### Spacer
 
-For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks.
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
 ### Custom code
 
@@ -64,15 +58,39 @@ For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design
 
 ### Phone capture and email capture
 
-For property fields and subscription behavior, see [Phone capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) and [Email capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) under in-app message editor blocks. You can only add **one** phone capture block and **one** email capture block per Banner.
+You can only add **one** phone capture block and **one** email capture block per Banner.
+
+#### Phone capture
+
+{% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
+
+#### Email capture
+
+{% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
 ### Long text
 
-When **Long text** is available in your workspace, it behaves like the in-app message long-text block for survey-style flows. Use the properties panel after you place the block. Where options match in-app messages, you can follow the same patterns as in the **in-app messages** tab on this page.
+When **Long text** is available in your workspace, it behaves like the in-app message long-text block for survey-style flows. Use the properties panel after you place the block.
 
 ### Saved row
 
 When **Saved row** appears under **Rows**, you can insert reusable content from your library. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+
+## Actions
+
+You can assign an action that occurs when a user taps a button, link, or image in the Banner. Details for each editor block's actions are provided in the following tables.
+
+### Button
+
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
+
+### Image
+
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
+
+### Link
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
 ## Things to know
 

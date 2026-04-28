@@ -17,29 +17,25 @@ Before you edit blocks, add subscription groups and configure the subscription *
 | Subscription groups (smart block) | The template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-{% alert note %}
-For typography and layout behavior shared with in-app messages, this article links to [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) for full property tables where they apply. **Custom code** may not appear in every preference center editor—if you need it and don't see it, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
-{% endalert %}
-
 ## Properties
 
 ### Title and paragraph
 
-See [Title and Paragraph]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_title-and-paragraph) under in-app message editor blocks.
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
 ### Button
 
-See [Button]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_button) for styling properties and [Actions]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_actions) for on-click options where they align with in-app messages.
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
 ### Image
 
-See [Image]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_image) under in-app message editor blocks.
-
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
+
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
 ### Spacer
 
-See [Spacer]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_spacer) under in-app message editor blocks.
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
 ### Custom code
 
@@ -49,8 +45,6 @@ If **Custom code** is not in your block list, contact [Braze Support]({{site.bas
 | --- | --- |
 | Custom code | Add or edit HTML, CSS, or JavaScript. If you use Custom code, inline frames may not generate in the custom code when the preference center is delivered to users. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-For advanced HTML patterns, compare with [Custom code]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_custom-code) under in-app message editor blocks.
 
 ### Subscription groups (smart block)
 

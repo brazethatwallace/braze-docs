@@ -34,63 +34,25 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Title and Paragraph
 
-| Property | Description |
-| --- | --- |
-| Font family | The font style for the text |
-| Font weight | Determines the thickness of the text |
-| Font size | Determines the size of the text |
-| Line height | Modifies the distance between lines of text |
-| Letter spacing | Modifies the distance in between each character |
-| Text alignment | Moves the text to be aligned left, center, right, or justified |
-| Text color | Modifies the color of the text |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
 ### Button
 
-| Property | Description |
-| --- | --- |
-| Button width | Modifies the width of the button to be automatic or manual |
-| Font family | This is the font style for the text |
-| Font weight | Determines the thickness of the text |
-| Font size | Determines the size of the text |
-| Letter spacing | Modifies the distance in between each character |
-| Button alignment | Moves the button to be left, center, or right-oriented |
-| Button text color | Modifies the color of the text on the button |
-| Background color | Modifies the color of the button's background |
-| Border style | Determines the style of the button's border of the button | 
-| Border radius | Determines how round you would like the corners |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
 ### Image
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| Property | Description |
-| --- | --- |
-| URL | The hosted address for the image |
-| Alignment | Moves the image to be left, center, or right-oriented |
-| Background color | Modifies the color of the image's background |
-| Border style | Determines the style of the image's border | 
-| Border radius | Determines how round you would like the corners of the image |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
 ### Link
 
-| Property | Description |
-| --- | --- |
-| Font family | This is the font style for the text |
-| Font weight | Determines the thickness of the text |
-| Letter spacing | Modifies the distance in between each character |
-| Text color | Modifies the color of the text |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
 ### Spacer
 
-| Property | Description |
-| --- | --- |
-| Background color | Modifies the background color of the spacer |
-| Height | Modifies the height of the spacer. You can also modify this by using the resize handles on the spacer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
 ### Custom code
 
@@ -101,26 +63,11 @@ Details for each editor block's properties are provided in the following tables.
 
 ### Phone capture
 
-| Property | Description |
-| --- | --- |
-| Subscription group | The [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp subscription group]({{site.baseurl}}/whatsapp_subscription_groups/) that the user will be subscribed to by collecting their phone number, with an option to collect numbers from all countries |
-| Text alignment | Moves the text to be aligned left, center, right, or justified |
-| Placeholder text | A placeholder phone number to display |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### Email capture
 
-| Property | Description |
-| --- | --- |
-| Font family | The font style for the text |
-| Font weight | Determines the thickness of the text |
-| Font size | Determines the size of the text |
-| Line height | Modifies the distance between lines of text |
-| Text color | Modifies the color of the text |
-| Letter spacing | Modifies the distance in between each character |
-| Text alignment | Moves the text to be aligned left, center, right, or justified |
-| Placeholder text | A placeholder email address to display |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
 ### Long text
 
@@ -136,32 +83,14 @@ You can assign an action that occurs when a user taps a button, link, or image i
 
 ### Button
 
-| Action | Description |
-| --- | --- |
-| Submit form when button is clicked | Submits the form and performs the selected on-click behavior. Turn this off to only perform the on-click behavior. |
-| Set separate behaviors for each platform | Customizes the behavior of the button for each platform separately. |
-| On-click behavior | Determines the action when the user clicks the button, such as closing the message, opening the web URL, deeplinking into a specific page of the app, going to another page, or [requesting push permission]({{site.baseurl}}/push_primer/). |
-| Log custom attributes or events | Determines if clicking the button will update the user's profile with custom data. You can also select the identifier for reporting. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 ### Image
 
 For image specifications, refer to our [in-app message image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages).
 
-| Action | Description |
-| --- | --- |
-| Alt text | The written copy that appears in place of an image if the image fails to load. Screen readers announce alt text to explain images, so use plain language to provide key information about an image. |
-| Submit form when image is clicked | Submits the form and performs the selected on-click behavior. Turn this off to only perform the on-click behavior. |
-| Set separate behaviors for each platform | Customizes the behavior of the image for each platform separately. |
-| On-click behavior | Determines the action when the user clicks the image, such as closing the message, opening the web URL, deeplinking into a specific page of the app, going to another page, or [requesting push permission]({{site.baseurl}}/push_primer/). |
-| Log custom attributes or events | Determines if clicking the image will update the user's profile with custom data. You can also select the identifier for reporting. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
 ### Link
 
-| Action | Description |
-| --- | --- |
-| URL | The hyperlink to navigate to |
-| Identifier for Reporting | Determines what identifier is used for reporting |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
