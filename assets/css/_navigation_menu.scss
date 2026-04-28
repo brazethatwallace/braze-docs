@@ -304,11 +304,7 @@ $nav-nesting-border: $grey-manatee;
 	.nav {
 		font-family: $braze-regular;
 		width: 100%;
-		.nav_block {
-			display: contents;
-			margin-left: 0;
-		}
-		.nav_title {
+.nav_title {
 			display: inline;
 			color: $black-shark;
 		}
@@ -392,12 +388,6 @@ $nav-nesting-border: $grey-manatee;
 							width: 3px;
 							background-color: $braze-purple;
 							border-radius: 2px;
-						}
-					}
-					div.nav_block {
-						display: flex;
-						.nav_title {
-							display: inline;
 						}
 					}
 				}

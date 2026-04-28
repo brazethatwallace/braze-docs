@@ -131,4 +131,16 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
       expect(html).not_to match(/href='[^']*intro[^']*'[^>]*aria-current/)
     end
   end
+
+  describe 'leaf item HTML structure' do
+    it 'renders a flat nav_reg with nav_link directly inside, no nav_block wrapper' do
+      menu     = build_test_menu('/docs/guide/setup')
+      instance = build_menu_instance('/docs/guide/setup/', '/docs/guide/setup')
+      html     = instance.send(:build_menu_html, menu, '', 0)
+
+      # Non-active leaf (install) should be nav_reg > a.nav_link, no nav_block in between
+      expect(html).to include("<div class='nav_reg'")
+      expect(html).not_to match(/<div class='nav_reg'[^>]*>\s*<div class='nav_block'/)
+    end
+  end
 end
