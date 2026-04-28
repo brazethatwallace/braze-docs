@@ -573,6 +573,12 @@ heading line has **no** explicit `{#…}` ID, do not add one in translation. \
 When both `nav_title` and `article_title` exist and denote the same words, \
 keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
+31. **Audience segments subtree** (PR #13387): For ``cdi_segments.md``, keep YAML \
+``description`` on the CDI / warehouse topic—never location-targeting boilerplate \
+mirrored from a bad English string. For ``rfm_segments.md``, localize ``nav_title`` \
+and the H1 away from English ``Segments RFM`` / ``RFM Segments`` in ES/pt-BR/KO. \
+For ``managing_segments.md``, never set ``tool:`` to a translated word; it must \
+remain ``Segments``.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -2387,6 +2393,159 @@ def repair_pt_br_german_low9_double_quote_in_body(
         f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
         f"in pt-BR doc"
     ]
+
+
+_CDI_SEGMENTS_DOC_SUFFIX = "segment_extension/cdi_segments.md"
+_CDI_LOCATION_DESC_SNIPPETS = (
+    "Location targeting",
+    "ロケーションターゲティング",
+    "ciblage par localisation, vous permettant",
+    "위치 타겟팅을 설정",
+    "direcionamento por local",
+)
+_CDI_DESCRIPTION_REPLACEMENT_LINE = {
+    "ja": (
+        'description: "この記事では、クラウドデータ取り込み（CDI）を使った CDI セグメント'
+        'エクステンションについて、データウェアハウスへのクエリと Braze でのオーディエンス定義の方法を説明します。"'
+    ),
+    "fr": (
+        "description: \"Cet article explique comment les extensions de segments CDI "
+        "s'appuient sur l'ingestion de données cloud pour interroger votre entrepôt "
+        'de données et définir des audiences dans Braze."'
+    ),
+    "ko": (
+        'description: "이 문서에서는 클라우드 데이터 수집(CDI)을 사용하는 CDI 세그먼트 확장을 통해 '
+        '데이터 웨어하우스를 쿼리하고 Braze에서 오디언스를 정의하는 방법을 설명합니다."'
+    ),
+    "pt-br": (
+        "description: \"Este artigo explica como as extensões de segmento CDI usam a ingestão de dados "
+        'na nuvem para consultar seu data warehouse e definir públicos na Braze."'
+    ),
+}
+
+
+def repair_cdi_segments_description_location_drift(
+    english_content, translated_content, translated_path, lang_key
+):
+    """Replace legacy ``location targeting`` copy in ``cdi_segments`` YAML ``description``.
+
+    English briefly shipped the wrong ``description``; several locales mirrored it
+    (Copilot / auto-translate PR #13387). When the English file clearly describes
+    CDI + Cloud Data Ingestion and the localized front matter still contains
+    known location-targeting boilerplate, rewrite ``description`` to the canonical
+    sentence for that locale.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_CDI_SEGMENTS_DOC_SUFFIX):
+        return translated_content, []
+    if "Cloud Data Ingestion" not in english_content:
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    if not any(s in tr_fm for s in _CDI_LOCATION_DESC_SNIPPETS):
+        return translated_content, []
+
+    replacement_line = _CDI_DESCRIPTION_REPLACEMENT_LINE.get(lang_key)
+    if not replacement_line:
+        return translated_content, []
+
+    new_lines = []
+    changed = False
+    for line in tr_fm.split("\n"):
+        if line.startswith("description:") and any(s in line for s in _CDI_LOCATION_DESC_SNIPPETS):
+            new_lines.append(replacement_line)
+            changed = True
+        else:
+            new_lines.append(line)
+    if not changed:
+        return translated_content, []
+
+    new_fm = "\n".join(new_lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        ["cdi_segments_fm — description topic drift (location → CDI; PR #13387)"],
+    )
+
+
+_RFM_SEGMENTS_DOC_SUFFIX = "sql_segments/rfm_segments.md"
+
+
+def repair_rfm_sql_segments_nav_and_title_mix(
+    translated_path, translated_content, lang_key
+):
+    """Normalize RFM SQL segment extension titles that mix English ``Segments`` into Romance/KO chrome.
+
+    Copilot on PR #13387: ``nav_title`` / H1 sometimes keep ``Segments RFM`` or
+    raw ``RFM Segments`` instead of locale nouns while the rest of the page is
+    localized. Preserve explicit ``{#…}`` anchors on heading lines.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith(_RFM_SEGMENTS_DOC_SUFFIX):
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+
+    if lang_key == "pt-br":
+        if 'nav_title: "Segments RFM"' in new:
+            new = new.replace('nav_title: "Segments RFM"', 'nav_title: "Segmentos RFM"')
+            repairs.append("pt-br-rfm — nav_title Segments RFM → Segmentos RFM (PR #13387)")
+        if "# Segments SQL RFM {#" in new:
+            new = new.replace("# Segments SQL RFM {#", "# Segmentos RFM {#")
+            repairs.append("pt-br-rfm — H1 Segments SQL RFM → Segmentos RFM (PR #13387)")
+    elif lang_key == "es":
+        if 'nav_title: "Segments RFM"' in new:
+            new = new.replace('nav_title: "Segments RFM"', 'nav_title: "Segmentos RFM"')
+            repairs.append("es-rfm — nav_title Segments RFM → Segmentos RFM (PR #13387)")
+        if "# Segments SQL RFM {#" in new:
+            new = new.replace("# Segments SQL RFM {#", "# Segmentos RFM {#")
+            repairs.append("es-rfm — H1 Segments SQL RFM → Segmentos RFM (PR #13387)")
+    elif lang_key == "ko":
+        if 'nav_title: "RFM Segments"' in new:
+            new = new.replace('nav_title: "RFM Segments"', 'nav_title: "RFM 세그먼트"')
+            repairs.append("ko-rfm — nav_title RFM Segments → RFM 세그먼트 (PR #13387)")
+        if "# RFM SQL Segments" in new:
+            before_h1 = new
+            new = new.replace("# RFM SQL Segments {#", "# RFM SQL 세그먼트 {#")
+            new = new.replace("# RFM SQL Segments\n", "# RFM SQL 세그먼트\n")
+            if new != before_h1:
+                repairs.append("ko-rfm — H1 RFM SQL Segments → RFM SQL 세그먼트 (PR #13387)")
+
+    if new == translated_content:
+        return translated_content, []
+    return new, repairs
+
+
+def repair_managing_segments_tool_yaml_value(translated_path, translated_content, _lang_key):
+    r"""Restore canonical ``tool: Segments`` when YAML was corrupted to ``segmentos``.
+
+    Models sometimes lowercase the ``tool`` taxonomy value after bulk prose edits
+    (Copilot / auto-translate PR #13387). ``tool`` must stay the English token
+    ``Segments`` for layout filters.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if not rel.endswith("_user_guide/audience/segments/managing_segments.md"):
+        return translated_content, []
+
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    new_fm, n = re.subn(
+        r"(?im)^tool:\s*segmentos\s*$",
+        "tool: Segments",
+        tr_fm,
+    )
+    if not n:
+        return translated_content, []
+
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        [f"managing_segments_fm — tool: segmentos → Segments ({n}x; PR #13387)"],
+    )
 
 
 def repair_japanese_mixed_mail_campaign(
@@ -4765,6 +4924,21 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(fm_repairs)
+
+    translated_content, cdi_desc_repairs = repair_cdi_segments_description_location_drift(
+        english_content, translated_content, translated_path, lang_key
+    )
+    findings["repairs"].extend(cdi_desc_repairs)
+
+    translated_content, mseg_tool_repairs = repair_managing_segments_tool_yaml_value(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(mseg_tool_repairs)
+
+    translated_content, rfm_nav_repairs = repair_rfm_sql_segments_nav_and_title_mix(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(rfm_nav_repairs)
 
     translated_content, fm_display_repairs = repair_front_matter_display_scalar_cleanup(
         translated_content
