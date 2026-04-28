@@ -103,7 +103,7 @@ Refer to the following table for details on the `Divider` editor block.
 | Properties | Description |
 |---|---|
 |Transparent| If enabled, 'line' and 'width' options are removed. |
-|Line| The different line formats, whether dotted, spotted, or solid. In addition, you can modify the thickness and color of the divider line. |
+|Line| The different line formats, whether dotted, dashed, or solid. In addition, you can modify the thickness and color of the divider line. |
 |Width | Adjusts the spread of the divider in increments of 5.  |
 |Align| Moves the line to be either left, center, or right-oriented. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
