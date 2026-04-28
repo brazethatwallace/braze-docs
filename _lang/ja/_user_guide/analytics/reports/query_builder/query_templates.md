@@ -1,0 +1,94 @@
+---
+nav_title: クエリテンプレート
+article_title: クエリビルダーテンプレート
+page_order: 1
+page_type: reference
+toc_headers: h2
+description: "このリファレンス記事では、クエリビルダーでSnowflakeのBrazeデータを使用して作成できるレポートの種類を一覧で紹介します。"
+tool: Reports
+---
+
+# クエリビルダーテンプレート {#query-builder-templates}
+
+> [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)テンプレートにアクセスするには、レポート作成時に**クエリテンプレート**を選択します。すべてのテンプレートは過去最大60日間のデータを表示しますが、エディターで直接その値やその他の値を編集できます。<br><br>クエリビルダーレポートに表示される指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照し、該当するチャネルでフィルタリングしてください。
+
+## チャネルテンプレート {#channel-templates}
+
+<style>
+table th:nth-child(1) {
+    width: 30%;
+}
+table th:nth-child(2) {
+    width: 70%;
+}
+table td {
+    word-break: break-word;
+}
+</style>
+
+| クエリ名 | 説明 |
+| --- | --- |
+| チャネルエンゲージメントと収益 | このレポートは、各チャネルのすべてのエンゲージメント指標（開封やクリックなど）、収益、取引数、平均価格を表示します。{::nomarkdown} <ul> <li> <i>取引数:</i> 購入イベントの数 </li> <li> <i>平均価格:</i> 収益を取引数で割った値 </li> </ul> {:/} ![]({% image_buster /assets/img_archive/channel_engagement_revenue.png %}) |
+| Segment別の購入と収益 | このレポートは、特定のSegmentに送信されたメッセージの指標を表示します。<br><br> 購入指標はレポート期間を通じてユニークです。1人のユーザーが生成できる購入は最大1件です。収益はレポート期間のすべての購入を考慮します。 |
+| Segment別のバリアントまたはステップの購入と収益 | このレポートは、各Segmentに送信されたメッセージのバリアントまたはキャンバスステップの指標を表示します。<br><br> 購入指標はレポート期間を通じてユニークです。1人のユーザーが生成できる購入は最大1件です。収益はレポート期間のすべての購入を考慮します。 |
+| 購入のトップ/ボトムメッセージング | このレポートは、上位または下位のCampaigns、Canvases、またはキャンバスステップの購入指標を表示します。各行はCampaign、Canvas、またはキャンバスステップです。上位または下位のパフォーマーを表示するかどうか、およびこの分析を実行する特定の指標（*受信時のユニーク購入数*、*受信時の収益*、*ユニーク受信者数*など）を指定する必要があります。<br><br> トップパフォーマーレポートの行は最良から最悪の順に並べられ、ボトムパフォーマーレポートの行は最悪から最良の順に並べられます。 |
+{: .reset-td-br-1 .reset-td-br-2 }
+
+## Campaignテンプレート {#campaign-templates}
+
+| クエリ名 | 説明 |
+| --- | --- |
+| 国別のCampaign収益 | このレポートは、特定のCampaignの国別収益を表示します。このレポートを実行するには、CampaignのAPI識別子を指定する必要があります。CampaignのAPI識別子は、そのCampaignの詳細ページの下部にあります。<br><br> このレポートは、各国について、生成された収益額、注文数、返品数、純収益、総収益を表示します。<br><br> {::nomarkdown} <ul> <li> <i>注文数:</i> 購入イベントの数 </li> <li><i> 返品数:</i> 収益値がマイナスの購入イベントの数 </li> <li><i> 純収益:</i> 返品以外のすべての収益 </li> <li><i> 総収益:</i> 返品の値を含む収益 </li></ul>{:/} ![]({% image_buster /assets/img_archive/campaign_revenue_country.png %}){: style="max-width:70%;"} |
+{: .reset-td-br-1 .reset-td-br-2 }
+
+## Canvasテンプレート {#canvas-templates}
+
+| クエリ名 | 説明 |
+| --- | --- |
+| 国別のCanvas収益 | このレポートは、特定のCanvasの国別収益を表示します。このレポートを実行するには、CanvasのAPI識別子を指定する必要があります。CanvasのAPI識別子は**バリアントを分析**の下にあります。<br><br> このレポートは、各国について、生成された収益額、注文数、返品数、純収益、総収益を表示します。<br><br> {::nomarkdown} <ul> <li> <i>注文数:</i> 購入イベントの数 </li> <li><i> 返品数:</i> 収益値がマイナスの購入イベントの数 </li> <li><i> 純収益:</i> 返品以外のすべての収益 </li> <li><i> 総収益:</i> 返品の値を含む収益 </li></ul>{:/} ![]({% image_buster /assets/img_archive/canvas_revenue_country.png %}){: style="max-width:70%;"} |
+{: .reset-td-br-1 .reset-td-br-2 }
+
+## メールテンプレート {#email-templates}
+
+| クエリ名 | 説明 |
+| --- | --- |
+| ドメイン別のメールバウンス | メールドメインごとのバウンス数で、合計バウンス、ハードバウンス、ソフトバウンスに分類されます。<br> ![]({% image_buster /assets/img_archive/query_builder_q4.png %}){: style="max-width:60%;"} |
+| 日別のメール配信指標 | このレポートは、各日に送信されたメッセージの指標（送信数、配信数、ソフトバウンス数、ハードバウンス数など）を表示します。<br><br> すべての指標はレポート期間を通じてユニークです。たとえば、ウェルカムメールが11月21日に1回ソフトバウンスし、11月22日に2回ソフトバウンスし、配信されなかった場合: {::nomarkdown} <ul><li> 11月21日の<i>ソフトバウンス</i>指標は1増加します。</li><li> 11月22日の<i>ソフトバウンス</i>指標は影響を受けません。</li></ul>{:/} ![]({% image_buster /assets/img_archive/email_delivery_day.png %})|
+| Segment別のメールエンゲージメント指標 | このレポートは、各Segmentに送信されたメッセージの指標（送信数、配信数、ソフトバウンス数、ハードバウンス数など）を表示します。<br><br> すべての指標はレポート期間を通じてユニークです。たとえば、ウェルカムメールが11月21日に1回ソフトバウンスし、11月22日に2回ソフトバウンスし、配信されなかった場合: {::nomarkdown} <ul><li> 11月21日の<i>ソフトバウンス</i>指標は1増加します。</li><li> 11月22日の<i>ソフトバウンス</i>指標は影響を受けません。</li></ul>{:/} ![]({% image_buster /assets/img_archive/email_engagement_segment.png %}) |
+| Segment別のバリアントまたはステップのメールエンゲージメント指標 | このレポートは、各Segmentに送信されたメッセージのバリアントまたはキャンバスステップの指標を表示します。これらの指標には、送信数、配信数、ソフトバウンス数、ハードバウンス数が含まれます。<br><br> すべての指標はレポート期間を通じてユニークです。たとえば、ウェルカムメールが11月21日に1回ソフトバウンスし、11月22日に2回ソフトバウンスし、配信されなかった場合: {::nomarkdown} <ul><li> 11月21日の<i>ソフトバウンス</i>指標は1増加します。</li> <li> 11月22日の<i>ソフトバウンス</i>指標は影響を受けません。</li></ul> {:/} |
+| 国別のメールパフォーマンス | このレポートは、各国について以下の指標を表示します: 送信数、間接開封率、直接開封率。国はプッシュ送信時のユーザーの国です。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q3.png %}) |
+| メールサブスクリプション変更ログ | このレポートは、各ユーザーのサブスクリプション変更について記録された指標（メールアドレス、サブスクリプションステータス、ステータスが変更された時刻、関連するCanvasまたはCampaignなど）を表示します。 |
+| メールサブスクリプショングループのオプトインとオプトアウト | このレポートは、任意のメールサブスクリプショングループについて、週ごとのユニークユーザーのオプトイン数とオプトアウト数を表示します。このクエリを実行するには、ワークスペースに少なくとも1つの[メールサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions/)が必要です。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
+| メールのクリックされたURL | このレポートは、メール内の各リンクのクリック数を表示します。このレポートを実行するには、CampaignまたはCanvasのAPI識別子を指定する必要があります。CampaignのAPI識別子はそのCampaignの詳細ページの下部に、CanvasのAPI識別子は**バリアントを分析**の下にあります。<br><br> このレポートは、非パーソナライズリンクと各リンクのクリック数を表示します。CSVダウンロードには、クリックしたすべてのユーザーのユーザーID、クリックしたリンク、クリックした時刻のタイムスタンプが含まれます。<br><br> *非パーソナライズURL:* Liquidタグが除去されたURLです。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
+| メールエンゲージメントのトップ/ボトムメッセージング | このレポートは、上位または下位のCampaigns、Canvases、またはキャンバスステップのメールエンゲージメント指標を表示します。上位または下位のパフォーマーを表示するかどうか、およびこの分析を実行する特定の指標（*送信数*、*ソフトバウンス数*、*ユニーク開封数*など）を指定する必要があります。<br><br> トップパフォーマーレポートの行は最良から最悪の順に並べられ、ボトムパフォーマーレポートの行は最悪から最良の順に並べられます。<br><br> ![]({% image_buster /assets/img_archive/top-bottom-email.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 }
+
+## モバイルテンプレート {#mobile-templates}
+
+| クエリ名 | 説明 |
+| --- | --- |
+| デバイスキャリア | デバイスキャリアごとのユーザー数（VerizonやT-Mobileなど）。<br><br> ![]({% image_buster /assets/img_archive/device_carriers.png %}){: style="max-width:50%;"} |
+| デバイスモデル | デバイスモデルごとのユーザー数（iPhone 15 ProやPixel 7など）。<br><br> ![]({% image_buster /assets/img_archive/device_models.png %}){: style="max-width:50%;"} |
+| デバイスオペレーティングシステム | オペレーティングシステムごとのユーザー数（17.4やAndroid 14など）。<br><br> ![]({% image_buster /assets/img_archive/os_version.png %}){: style="max-width:50%;"} |
+| デバイス画面解像度 | デバイス画面解像度ごとのユーザー数（1179x2556や750x1334など）。<br><br> ![]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
+| SMSエラーコード | このレポートは、各SMSエラーコードのエラータイプとエラー数を表示します。<br><br>![]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
+| ユーザー別のSMSプロバイダーエラー | このレポートは、特定のユーザーのSMSエラーコードを表示します。 |
+{: .reset-td-br-1 .reset-td-br-2 }
+
+## プッシュテンプレート {#push-templates}
+
+| クエリ名 | 説明 |
+| --- | --- |
+| 国別のプッシュパフォーマンス | このレポートは、各国について以下の指標を表示します: 配信数、開封率、クリック率。国はメール送信時のユーザーの国です。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q7.png %}){: style="max-width:70%;"} |
+{: .reset-td-br-1 .reset-td-br-2 }
+
+## Segment内訳 {#segment-breakdown}
+
+| クエリ名 | 説明 |
+| -- | -- |
+| Segment別のメールエンゲージメント指標 | このレポートは、CampaignまたはCanvasレベルでSegment別に分類されたメールパフォーマンス指標を表示します。 |
+| Segment別の購入と収益 | このレポートは、特定のCampaignまたはCanvasについてSegment別に分類された購入と収益の指標を表示します。 |
+| メールエンゲージメントのトップ/ボトムメッセージング | このレポートは、指定されたメールエンゲージメント指標で最も高いまたは最も低いパフォーマンスを示したCampaigns、Canvases、またはキャンバスステップを表示します。|
+| 購入のトップ/ボトムメッセージング | このレポートは、指定された購入または収益の指標で最も高いまたは最も低いパフォーマンスを示したCampaigns、Canvases、またはキャンバスステップを表示します。 |
+| Segment別のプッシュパフォーマンス | このレポートは、Segment別に分類されたプッシュ指標を表示します。|
+{: .reset-td-br-1 .reset-td-br-2 }
