@@ -10,6 +10,7 @@ channel:
 - preference center
 page_order: 3
 page_type: reference
+toc_headers: h2
 description: "This reference article covers editor blocks in the drag-and-drop editor for email, in-app messages, landing pages, Banners, and drag-and-drop email preference centers."
 tool: Media
 ---

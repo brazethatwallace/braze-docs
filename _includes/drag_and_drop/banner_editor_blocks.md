@@ -6,24 +6,28 @@ For the full Banner creation flow, see [Create a Banner]({{site.baseurl}}/user_g
 
 ## Types
 
-The Banner composer offers the same kinds of layout blocks as other drag-and-drop surfaces, but **not** the full in-app form set (for example no radio button, short text, dropdown, or checkbox blocks). You can add **Phone capture** and **Email capture** blocks; only **one** phone capture and **one** email capture block are allowed per message.
+The Banner composer offers the same kinds of layout blocks as other drag-and-drop surfaces, but not the full form block set (for example no radio button, short text, dropdown, or checkbox blocks). You can add **Phone capture** and **Email capture** blocks; only **one** phone capture and **one** email capture block are allowed per message.
+
+The following table describes each editor block type. Select a block to view its properties.
 
 | Name | Description |
 | --- | --- |
-| Title | Adds a heading or title line in the Banner. |
-| Paragraph | Adds body text with rich text options. |
-| Button | Adds a clickable button. You can set links and, where available, analytics options similar to other drag-and-drop surfaces. |
-| Image | Displays an image from a hosted URL and options you set in the properties panel. |
-| Link | Inserts a hyperlink users can select. |
-| Spacer | Adds vertical spacing between blocks. |
-| Custom code | Inserts custom HTML for advanced layouts or embedded content (for example video). Requires explicit click tracking in HTML—see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code/). |
-| Phone capture | Collects a phone number. When submitted, subscribes the user to your selected [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) subscription group. Only one per Banner. |
-| Email capture | Collects an email address and adds it to the user's Braze profile when submitted. Only one per Banner. |
-| Long text | Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. It appears when survey mode is on. |
-| Saved row | Inserts a reusable row you saved earlier. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
+| [Title](#banners_title-and-paragraph) | Adds a heading or title line in the Banner. |
+| [Paragraph](#banners_title-and-paragraph) | Adds body text with rich text options. |
+| [Button](#banners_button) | Adds a clickable button. You can set links and analytics options in the properties panel. |
+| [Image](#banners_image) | Displays an image from a hosted URL and options you set in the properties panel. |
+| [Link](#banners_link) | Inserts a hyperlink users can select. |
+| [Spacer](#banners_spacer) | Adds vertical spacing between blocks. |
+| [Custom code](#banners_custom-code) | Inserts custom HTML for advanced layouts or embedded content (for example video). Requires explicit click tracking in HTML—see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code/). |
+| [Phone capture](#banners_phone-capture-and-email-capture) | Collects a phone number. When submitted, subscribes the user to your selected [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) subscription group. Only one per Banner. |
+| [Email capture](#banners_phone-capture-and-email-capture) | Collects an email address and adds it to the user's Braze profile when submitted. Only one per Banner. |
+| [Long text](#banners_long-text) | Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. It appears when survey mode is on. |
+| [Saved row](#banners_saved-row) | Inserts a reusable row you saved earlier. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Properties
+
+Details for each editor block's properties are provided in the following tables.
 
 ### Title and paragraph
 
@@ -70,7 +74,7 @@ You can only add **one** phone capture block and **one** email capture block per
 
 ### Long text
 
-When **Long text** is available in your workspace, it behaves like the in-app message long-text block for survey-style flows. Use the properties panel after you place the block.
+{% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 ### Saved row
 

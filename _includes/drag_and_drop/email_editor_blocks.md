@@ -12,25 +12,28 @@ You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation
 
 ## Types
 
-The following table describes each editor block type.
+The following table describes each editor block type. Select a block to view its properties.
 
 | Name | Description |
 |---|---|
-|Title| Adds text for Headers within the email. | 
-|Paragraph| Enters text into their message. A toolbar helps with font and text editing functionality. | 
-|List| Adds a bulleted list. |
-|Button| Adds a standard button. Properties for this block allow for editing and setting links easily. | 
-|Divider| Inserts a solid, dotted, or dashed line to help with spacing.|
-|Spacer| Adds space, or "padding", between other blocks. |
-|Image| Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | 
-|Video| Creates a link to the video content. |
-|Social| Inserts social media platform icon. You can upload custom images for brand specific icons. |
-|Icons| Inserts an icon. You can upload custom images. Braze uses an oversized placeholder icon until you upload an image. |
-|HTML| Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Connected Content or conditional statements. | 
-|Menu| Creates a flexible menu for the message you're designing. |
+| [Title](#email_title) | Adds text for headers within the email. |
+| [Paragraph](#email_paragraph) | Enters text into the message. A toolbar helps with font and text editing functionality. |
+| [List](#email_list) | Adds a bulleted list. |
+| [Button](#email_button) | Adds a standard button. Properties for this block allow for editing and setting links easily. |
+| [Divider](#email_divider) | Inserts a solid, dotted, or dashed line to help with spacing. |
+| [Spacer](#email_spacer) | Adds space, or "padding", between other blocks. |
+| [Image](#email_image) | Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). |
+| [Video](#email_video) | Creates a link to video content. |
+| [Social](#email_social) | Inserts social media platform icons. You can upload custom images for brand-specific icons. |
+| [Icons](#email_icons) | Inserts an icon. You can upload custom images. Braze uses an oversized placeholder icon until you upload an image. |
+| [HTML](#email_html) | Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Connected Content or conditional statements. |
+| [Menu](#email_menu) | Creates a flexible menu for the message you're designing. |
+| [Product](#email_product) | Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), either as static items from a catalog Selection (up to 12) or as dynamic products driven by a Canvas eCommerce trigger (up to 24). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Personalization
+
+You can add personalization to your email using Liquid or Connected Content.
 
 - **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a text block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in text blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
 - **Connected Content:** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.
@@ -225,6 +228,26 @@ Refer to the following table for details on the `Button` editor block properties
 |---|---|
 |Button options| Sets various button options, such as font, size, width, color, and padding.|
 |Button Hover| The style of the button when a user hovers over it using a mouse or trackpad. Includes the button's background color, font color, and border styles.|
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+### Product
+
+| Property | Description |
+| --- | --- |
+| Content type | Sets whether products come from a fixed catalog **Selection** (**Static**, up to 12 products) or from a Canvas eCommerce recommendation trigger (**Dynamic**, up to 24 products). **Dynamic** is only available in Canvas message steps. |
+| Catalog | Selects which Product Catalog supplies product data and field mappings. |
+| Selection | *(Static only)* Selects which filtered set on the catalog defines which products appear. |
+| Show source details | Toggles help text showing the underlying catalog or event field mapped to each product field. |
+| Variant image | Shows or hides the variant image for each product tile. |
+| Product title | Shows or hides the product title for each tile. |
+| Price | Shows or hides the product price. |
+| Button for product URL | Shows or hides a call-to-action button linking to the product URL. |
+| Quantity | *(Dynamic, Canvas only, when the entry trigger is not a product view event)* Shows or hides the product quantity from the trigger event. |
+| Product orientation | Sets the image position within each tile: **Image left**, **Image center**, or **Image right**. |
+| Alignment | Sets the horizontal alignment of content within each tile. |
+| Max products per row | Sets how many products appear per row: **1**, **2**, or **3** (**3** is only available when orientation is **Image center**). |
+| Product spacing | Sets spacing between products: **Auto** or **Custom**. |
+| Custom spacing | *(When **Custom** is selected)* Sets the gap in pixels between products. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Actions

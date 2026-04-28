@@ -6,18 +6,22 @@ Before you edit blocks, add subscription groups and configure the subscription *
 
 ## Types
 
+The following table describes each editor block type. Select a block to view its properties.
+
 | Name | Description |
 | --- | --- |
-| Title | Adds a heading or label text. |
-| Paragraph | Adds body copy with rich text options. |
-| Button | Adds a clickable button (for example **Save** or navigation). |
-| Image | Displays an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) or a URL. |
-| Spacer | Adds vertical spacing between blocks. |
-| Custom code | Inserts custom HTML, CSS, or JavaScript. Inline frames may not generate in delivered preference centers—see the note below. |
-| Subscription groups (smart block) | The template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow. |
+| [Title](#preferencecenter_title-and-paragraph) | Adds a heading or label text. |
+| [Paragraph](#preferencecenter_title-and-paragraph) | Adds body copy with rich text options. |
+| [Button](#preferencecenter_button) | Adds a clickable button (for example **Save** or navigation). |
+| [Image](#preferencecenter_image) | Displays an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) or a URL. |
+| [Spacer](#preferencecenter_spacer) | Adds vertical spacing between blocks. |
+| [Custom code](#preferencecenter_custom-code) | Inserts custom HTML, CSS, or JavaScript. Inline frames may not generate in delivered preference centers—see the note below. |
+| [Subscription groups (smart block)](#preferencecenter_subscription-groups-smart-block) | The template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Properties
+
+Details for each editor block's properties are provided in the following tables.
 
 ### Title and paragraph
 
