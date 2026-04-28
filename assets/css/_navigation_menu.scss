@@ -100,7 +100,7 @@ $nav-nesting-border: $grey-manatee;
 			min-height: 0;
 			overflow-y: auto;
 			align-items: flex-start;
-			padding: 0 8px 16px 24px;
+			padding: 8px 8px 16px 24px;
 			@media (min-width: $window-medium-px) {
 				width: $nav_width;
 			}
