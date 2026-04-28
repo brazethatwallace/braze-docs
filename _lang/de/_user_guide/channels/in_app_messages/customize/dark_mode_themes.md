@@ -8,7 +8,7 @@ channel:
 
 ---
 
-# Dark-Mode-Themes
+# Dark-Mode-Themes {#dark-mode-themes}
 
 > Dieser Artikel gilt für den [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/). Der Dark Mode bietet Nutzer:innen die Möglichkeit, eine systemweite Farbpräferenz festzulegen (eingeführt mit [Android 10](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) und [iOS 13](https://developer.apple.com/documentation/appkit/supporting_dark_mode_in_your_interface/)). „Dunkle“ Themes sollen den Akkuverbrauch senken und die Augen der Nutzer:innen schonen, während sie App-Entwickler:innen die Möglichkeit bieten, dunkle Farbthemen zu implementieren.
 
