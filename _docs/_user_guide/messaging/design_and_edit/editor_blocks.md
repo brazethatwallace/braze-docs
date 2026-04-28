@@ -1,6 +1,6 @@
 ---
 nav_title: Editor blocks
-article_title: Editor blocks
+article_title: Drag-and-drop editor blocks
 alias: "/dnd/editor_blocks/"
 channel: 
 - email
@@ -18,7 +18,7 @@ tool: Media
 
 > Editor blocks are the tiles you drag into rows and columns in the drag-and-drop editor. 
 
-Select the editor you are using:
+Select the editor you're using:
 
 {% sdktabs %}
 
