@@ -82,6 +82,9 @@ Preserve all of the following exactly as they appear in the English source:
 
 - Under each locale, every `alias:` value must be **unique across that locale’s `.md` files** (two articles must not claim the same short path). If the English source introduces or keeps an `alias:` that already exists on another localized page—common after an information-architecture move—**do not** duplicate it on the new file until the old page is retired.
 - For a superseded article, prefer `layout: redirect`, `redirect_to:` pointing at the canonical new doc, `noindex: true`, and **omit** `alias` on the redirect stub so exactly one page owns each alias.
+- **Redirect stubs (`layout: redirect`, paths under `_docs_pages/redirects/`)** — `redirect_to` must be valid YAML: use a plain absolute URL (`https://…/`) **or** a fully double-quoted string. **Never** emit a lone trailing `"` after an unquoted URL (for example `redirect_to: https://braze.com/.../"`) — that breaks YAML and site builds (Copilot / auto-translate PR #13405). The translation QC pass strips that stray quote when it slips through.
+- **Empty English files and includes** — When the English source is **empty or whitespace only**, your output must also be empty. Do **not** add placeholder sentences explaining there is nothing to translate; those strings render if the file is included (Copilot / auto-translate PR #13405). The translation QC pass clears accidental locale body when English is empty.
+- **Partner brand spelling — Talon.One** — Use **`Talon.One`** (capital **O**) in French (and other) YAML `nav_title` / `article_title` and in headings when it names the partner — never `Talon.one` (Copilot / auto-translate PR #13405).
 
 ## Braze product terminology
 
