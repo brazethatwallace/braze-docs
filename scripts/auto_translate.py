@@ -567,6 +567,12 @@ uses bullets such as `* **Rows with errors:** …` / `* **All rows:** …` that 
 **bold lead-in** to the target language so the line is not half English. Keep \
 tokens such as **Error** when English uses them as a literal status label \
 (auto-translate PR #13375).
+30. **Heading anchors + YAML titles**: Never reuse the same `{#slug}` on \
+multiple headings in one file unless the English source does. If the English \
+heading line has **no** explicit `{#…}` ID, do not add one in translation. \
+When both `nav_title` and `article_title` exist and denote the same words, \
+keep their **casing consistent** (match `article_title` to `nav_title` when \
+they would otherwise differ only by capitalization) (auto-translate PR #13380).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1260,6 +1266,118 @@ def repair_front_matter_display_scalar_cleanup(translated_content):
     if not repairs:
         return translated_content, []
     return f"---\n{new_fm}\n---\n{tr_body}", repairs
+
+
+def repair_duplicate_kramdown_heading_anchors(translated_content):
+    """Strip duplicate explicit ``{#id}`` tails from markdown headings (keep first).
+
+    Models sometimes repeat the same Kramdown anchor on a later heading that
+    reuses a subsection title, which duplicates HTML ``id`` attributes (Copilot
+    / auto-translate PR #13380). Fenced code blocks are skipped.
+    """
+    fm, body = _extract_front_matter(translated_content)
+    if fm is None:
+        body = translated_content
+        prefix = None
+    else:
+        prefix = f"---\n{fm}\n---\n"
+
+    repairs = []
+    lines = body.split("\n")
+    out_lines = []
+    seen_ids = set()
+    in_fence = False
+    _heading_anchor_tail = re.compile(r"^(#{1,6}\s+.+?)(\s*\{#([^}]+)\})\s*$")
+
+    for line in lines:
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+            out_lines.append(line)
+            continue
+        if in_fence:
+            out_lines.append(line)
+            continue
+        m = _heading_anchor_tail.match(line)
+        if m:
+            aid = m.group(3).strip()
+            if aid in seen_ids:
+                line = m.group(1).rstrip()
+                repairs.append(
+                    f"heading_anchor — removed duplicate explicit {{#{aid}}} "
+                    "(PR #13380)"
+                )
+            else:
+                seen_ids.add(aid)
+        out_lines.append(line)
+
+    new_body = "\n".join(out_lines)
+    if prefix is None:
+        new_content = new_body
+    else:
+        new_content = prefix + new_body
+
+    if not repairs:
+        return translated_content, []
+
+    if translated_content.endswith("\n") and not new_content.endswith("\n"):
+        new_content += "\n"
+    return new_content, repairs
+
+
+def repair_article_title_casefold_matches_nav_title(translated_content):
+    """When ``article_title`` and ``nav_title`` differ only by casing, align to ``nav_title``.
+
+    Reviewers expect display titles to match the navigation label casing when
+    they denote the same phrase (Copilot / auto-translate PR #13380).
+    """
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not tr_fm:
+        return translated_content, []
+
+    lines = tr_fm.split("\n")
+    nav_line = None
+    art_idx = None
+    for i, line in enumerate(lines):
+        if re.match(r"^nav_title\s*:", line):
+            nav_line = line
+        if re.match(r"^article_title\s*:", line):
+            art_idx = i
+    if nav_line is None or art_idx is None:
+        return translated_content, []
+
+    def _scalar_tail(s):
+        idx = s.find(":")
+        if idx < 0:
+            return ""
+        return s[idx + 1 :].strip()
+
+    def _unquote_yaml_scalar(s):
+        if len(s) >= 2 and s[0] == s[-1] and s[0] in "\"'":
+            return s[1:-1]
+        return s
+
+    nav_raw = _scalar_tail(nav_line)
+    art_line = lines[art_idx]
+    art_raw = _scalar_tail(art_line)
+    nav_norm = _unquote_yaml_scalar(nav_raw).casefold()
+    art_norm = _unquote_yaml_scalar(art_raw).casefold()
+    if nav_norm != art_norm:
+        return translated_content, []
+
+    colon = nav_line.find(":")
+    new_art_line = "article_title" + nav_line[colon:]
+    if art_line == new_art_line:
+        return translated_content, []
+
+    lines[art_idx] = new_art_line
+    new_fm = "\n".join(lines)
+    return (
+        f"---\n{new_fm}\n---\n{tr_body}",
+        [
+            "fm — article_title casing aligned to nav_title "
+            "(casefold-equal; PR #13380)"
+        ],
+    )
 
 
 def repair_releases_spurious_leading_fm_rule(translated_path, translated_content):
@@ -5063,6 +5181,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(md_bold_repairs)
+
+    translated_content, dup_ha_repairs = repair_duplicate_kramdown_heading_anchors(
+        translated_content
+    )
+    findings["repairs"].extend(dup_ha_repairs)
+
+    translated_content, art_nav_repairs = (
+        repair_article_title_casefold_matches_nav_title(translated_content)
+    )
+    findings["repairs"].extend(art_nav_repairs)
 
     translated_content, tw_repairs = repair_trailing_whitespace(translated_content)
     findings["repairs"].extend(tw_repairs)

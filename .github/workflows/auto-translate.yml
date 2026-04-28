@@ -198,6 +198,8 @@ jobs:
           --changed-files changed_files.txt
           --languages ${{ matrix.lang }}
 
+      # Deterministic repairs (duplicate {#…} heading IDs, YAML title casing,
+      # etc.) live in scripts/auto_translate.py — extend there rather than here.
       - name: Run translation QC checks
         id: qc
         run: python scripts/auto_translate.py qc
