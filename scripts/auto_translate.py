@@ -2536,6 +2536,34 @@ def repair_redirect_to_trailing_stray_quote_unquoted_url(
     return translated_content, []
 
 
+_REDIRECT_FM_FUSED_CLOSE_RE = re.compile(
+    r"^(redirect_to:\s*https://[^\n]+)/---\s*$",
+    re.MULTILINE,
+)
+
+
+def repair_redirect_front_matter_fused_close_delimiter(
+    translated_path: str, translated_content: str
+) -> tuple[str, list]:
+    r"""Split ``redirect_to: …/---`` when the closing ``---`` was fused onto the URL line.
+
+    Auto-translate PR #13405 / Copilot follow-up: invalid front matter breaks
+    Jekyll and redirect-list validation. Scoped to ``_docs_pages/redirects/``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_docs_pages/redirects/" not in rel:
+        return translated_content, []
+    new, n = _REDIRECT_FM_FUSED_CLOSE_RE.subn(
+        r"\1/\n---\n",
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"yaml-fm — split {n} fused redirect_to/--- closing fence(s)"
+        ]
+    return translated_content, []
+
+
 def repair_markdown_table_column_count(content):
     """Repair markdown tables whose separator row's cell count doesn't match
     the header row's cell count (and prune trailing ``.reset-td-br-N`` IAL
@@ -6163,6 +6191,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(redirect_quote_repairs)
+
+    translated_content, redirect_fuse_repairs = (
+        repair_redirect_front_matter_fused_close_delimiter(
+            str(translated_path), translated_content
+        )
+    )
+    findings["repairs"].extend(redirect_fuse_repairs)
 
     translated_content, dbl_pipe_repairs = (
         repair_markdown_double_leading_pipe_table_rows(translated_content)
