@@ -21,7 +21,7 @@ The Banner composer offers the same kinds of layout blocks as other drag-and-dro
 | Email capture | Collects an email address and adds it to the user's Braze profile when submitted. Only one per Banner. |
 | Long text | Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. It appears when survey mode is on. |
 | Saved row | Inserts a reusable row you saved earlier. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" %}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Properties
 
@@ -58,7 +58,7 @@ For spacer properties, see [Spacer]({{site.baseurl}}/user_guide/messaging/design
 | Property | Description |
 | --- | --- |
 | Custom code | Add or edit HTML (and related assets) for the Banner. Clicks inside custom HTML are not tracked unless you call `brazeBridge.logClick()`—see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" %}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Phone capture and email capture
 

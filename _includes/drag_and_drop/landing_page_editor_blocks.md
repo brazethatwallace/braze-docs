@@ -27,7 +27,7 @@ The following table summarizes landing page editor blocks. Basic blocks add layo
 | Checkbox group | Users pick multiple options; values set or append to a defined array custom attribute. |
 | Long text | Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
 | Saved row | Inserts a reusable row you saved earlier. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" %}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 If a block's behavior matches the in-app message editor, this article links to [in-app message editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages) for full property tables. Landing-specific behavior is called out here. For which blocks appear on each surface, use the tabs on [Editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/).
