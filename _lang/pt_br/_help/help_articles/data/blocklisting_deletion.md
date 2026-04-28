@@ -1,23 +1,23 @@
 ---
-nav_title: Diferença entre lista de bloqueios e exclusão
-article_title: Diferença entre lista de bloqueios e exclusão
+nav_title: Diferença entre lista de bloqueio e exclusão
+article_title: Diferença entre lista de bloqueio e exclusão
 page_order: 2
 
 page_type: solution
-description: "Este artigo de ajuda orienta sobre a diferença entre a lista de bloqueio de atribuições e a exclusão."
+description: "Este artigo de ajuda explica a diferença entre colocar dados personalizados na lista de bloqueio e excluí-los."
 ---
 
-# Diferença entre lista de bloqueio e exclusão
+# Diferença entre lista de bloqueio e exclusão {#difference-between-blocklisting-and-deleting}
 
-Para entender a diferença entre colocar na lista de bloqueio e excluir atribuições no Braze, vamos analisar os resultados de cada ação:
+Para entender a diferença entre colocar na lista de bloqueio e excluir dados personalizados na Braze, veja os resultados de cada ação:
 
-- **Lista de bloqueio:** Se atributos personalizados, eventos ou compras estiverem na lista de bloqueio, eles permanecerão no perfil do usuário, mas nenhuma nova solicitação para o atributo será processada.
-- **Exclusão:** Se atributos personalizados, eventos ou compras forem excluídos, os dados serão removidos. No entanto, a Braze ainda aceitará novas solicitações de entrada para esse atributo se ele ainda estiver sendo rastreado por meio do SDK ou tiver sido feito upload via API ou CSV.
+- **Lista de bloqueio:** Se atributos personalizados, eventos ou compras forem colocados na lista de bloqueio, eles permanecerão nos perfis de usuário, mas a Braze não processará mais novos dados para esses objetos.
+- **Exclusão:** Se atributos personalizados, eventos ou compras forem excluídos, a Braze removerá esses dados dos perfis de usuário. Atributos personalizados e eventos excluídos são movidos para `Trashed` por sete dias, período em que você pode restaurá-los. Após sete dias, a Braze os exclui permanentemente. A exclusão também não impede a entrada de novos dados, então certifique-se de que os dados não estão mais sendo enviados pelo SDK, API ou importações de CSV antes de excluí-los.
 
-## O que devo fazer?
+## O que devo fazer? {#which-should-i-do}
 
-Para realizar a lista de bloqueios, a Braze terá de enviar as informações de lista de bloqueios para o dispositivo de cada usuário, e essa será uma operação com uso intensivo de dados, o que, idealmente, tentamos evitar. Além disso, se a lista for muito grande (> 100 atribuições, eventos ou compras), seu app pode começar a ficar lento. 
+Para realizar a lista de bloqueio, a Braze terá que enviar as informações de bloqueio para o dispositivo de cada usuário, e essa será uma operação com uso intensivo de dados, o que idealmente tentamos evitar. Além disso, se a lista for muito grande (> 100 atributos, eventos ou compras), seu app pode começar a ficar lento.
 
-Se não estiver mais planejando enviar atribuições para a Braze, a rota de exclusão seria a abordagem recomendada.
+Se você não planeja mais enviar atributos para a Braze, a exclusão seria a abordagem recomendada.
 
-Independentemente de sua rota, os atributos personalizados, eventos e compras que deseja remover não aparecerão mais na página **Manage Workspace**, que os remove como filtros de segmento. Os dados de usuários permanecerão nos perfis. 
+Independentemente da rota escolhida, os atributos personalizados, eventos e compras que você remover não aparecerão mais na página **Manage Workspace**, o que os remove como filtros de segmento. Se você excluir dados personalizados, a Braze removerá esses dados de nível de usuário dos perfis.
