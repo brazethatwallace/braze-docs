@@ -306,7 +306,7 @@ Si ya hay una ejecución de sincronización en curso, tus cambios surten efecto 
 
 Esta sección incluye errores comunes y orientación sobre cómo solucionarlos.
 
-### "No preview available"
+### Vista previa no disponible {#no-preview-available}
 
 Cuando ves "No preview available", uno de los siguientes tipos de error subyacentes puede estar causándolo.
 
@@ -317,7 +317,7 @@ Cuando ves "No preview available", uno de los siguientes tipos de error subyacen
 | "SQL syntax error" | Revisa tu sintaxis SQL. |
 | "Object does not exist or not authorized" | Asegúrate de que el rol tenga acceso `SELECT` a la tabla.<br>Confirma los permisos de base de datos y esquema.<br>Verifica errores tipográficos en el nombre de la tabla. |
 
-### "Identity column required"
+### Se requiere una columna de identidad {#identity-column-required}
 
 Asegúrate de que tu consulta incluya un identificador válido, como `external_id`.
 
@@ -325,10 +325,10 @@ Asegúrate de que tu consulta incluya un identificador válido, como `external_i
 
 Añade una columna de marca de tiempo para la sincronización incremental.
 
-### "No attributes to sync"
+### No hay atributos para sincronizar {#no-attributes-to-sync}
 
 Añade al menos una columna adicional además del identificador y `UPDATED_AT`.
 
-### "Query execution timed out"
+### Se agotó el tiempo de espera de ejecución de la consulta {#query-execution-timed-out}
 
 Optimiza tu consulta o usa un almacén más grande.

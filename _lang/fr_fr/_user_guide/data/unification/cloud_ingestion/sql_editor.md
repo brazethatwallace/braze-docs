@@ -16,7 +16,7 @@ Utilisez l'éditeur SQL lorsque vous souhaitez :
 
 - Synchroniser des données sans modifier les tables en amont
 - Travailler avec des données brutes dans votre entrepôt
-- Éviter de construire une colonne `payload`
+- Éviter de construire une colonne `PAYLOAD`
 - Gérer des cas d'utilisation de données plus complexes avec SQL
 
 {% alert important %}
@@ -276,20 +276,20 @@ Si votre requête renvoie zéro ligne :
 - Vous pouvez tout de même créer la synchronisation
 - Aucun utilisateur n'est mis à jour tant que des lignes ne sont pas renvoyées
 
-## Prise en charge du payload (hérité) {#payload-support-legacy}
+## Prise en charge de PAYLOAD (hérité) {#payload-support-legacy}
 
-L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `payload` est présente.
+L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `PAYLOAD` est présente.
 
 Si votre requête inclut :
 
 - Un identifiant valide
 - `UPDATED_AT`
-- Une colonne `payload`
+- Une colonne `PAYLOAD`
 - Des colonnes supplémentaires
 
 Alors :
 
-- Braze synchronise uniquement la colonne `payload`
+- Braze synchronise uniquement la colonne `PAYLOAD`
 - Braze ignore les colonnes supplémentaires
 
 ## Modifier une synchronisation SQL {#edit-a-sql-sync}
@@ -306,7 +306,7 @@ Si une exécution de synchronisation est déjà en cours, vos modifications pren
 
 Cette section présente les erreurs courantes et des conseils pour les résoudre.
 
-### « No preview available »
+### Aucun aperçu disponible {#no-preview-available}
 
 Lorsque vous voyez « No preview available », l'un des types d'erreur sous-jacents suivants peut en être la cause.
 
@@ -317,7 +317,7 @@ Lorsque vous voyez « No preview available », l'un des types d'erreur sous-jace
 | « SQL syntax error » | Vérifiez votre syntaxe SQL. |
 | « Object does not exist or not authorized » | Assurez-vous que le rôle dispose d'un accès `SELECT` à la table.<br>Confirmez les autorisations de base de données et de schéma.<br>Vérifiez les fautes de frappe dans le nom de la table. |
 
-### « Identity column required »
+### Colonne d'identité requise {#identity-column-required}
 
 Assurez-vous que votre requête inclut un identifiant valide, tel que `external_id`.
 
@@ -325,10 +325,10 @@ Assurez-vous que votre requête inclut un identifiant valide, tel que `external_
 
 Ajoutez une colonne d'horodatage pour la synchronisation incrémentielle.
 
-### « No attributes to sync »
+### Aucun attribut à synchroniser {#no-attributes-to-sync}
 
 Ajoutez au moins une colonne supplémentaire en plus de l'identifiant et de `UPDATED_AT`.
 
-### « Query execution timed out »
+### L'exécution de la requête a expiré {#query-execution-timed-out}
 
 Optimisez votre requête ou utilisez un entrepôt plus grand.
