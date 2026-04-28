@@ -591,6 +591,13 @@ mirrored from a bad English string. For ``rfm_segments.md``, localize ``nav_titl
 and the H1 away from English ``Segments RFM`` / ``RFM Segments`` in ES/pt-BR/KO. \
 For ``managing_segments.md``, never set ``tool:`` to a translated word; it must \
 remain ``Segments``.
+34. **Liquid ``{% assign %}`` + default fields**: Never nest ``{{ }}`` around \
+``${…}`` on the right-hand side of ``{% assign var = … %}`` (for example wrong \
+``{% assign my_string = {{${user_id}}} | md5 %}``; correct \
+``{% assign my_string = ${user_id} | md5 %}``). When prose describes a Liquid \
+example that branches on language (for example ``${language} == 'spanish'``), \
+keep the named language in running text **consistent** with that branch \
+(auto-translate PR #13388).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -1698,6 +1705,40 @@ def repair_liquid_image_buster_path_spacing(translated_content):
     if not n:
         return translated_content, []
     return new, [f"liquid — image_buster / path spacing ({n} occurrence(s))"]
+
+
+# ``{% assign x = {{${user_id}}} | md5 %}`` — invalid (output tags inside assign).
+_ASSIGN_NESTED_DEFAULT_IN_ASSIGN_RE = re.compile(
+    r"\{%\s*assign\s+(\w+)\s*=\s*\{\{\s*(\$\{[^}]+\})\s*\}\}\s*\|\s*(\w+)\s*%\}",
+    re.IGNORECASE,
+)
+
+
+def repair_liquid_assign_nested_default_in_output(translated_content):
+    """Strip nested ``{{ }}`` around Braze default fields inside ``{% assign %}``.
+
+    Models sometimes wrap ``${user_id}`` (and similar) as ``{{${user_id}}}`` on
+    the right-hand side of ``{% assign … %}``, which is invalid Liquid (Copilot
+    / auto-translate PR #13388).
+    """
+
+    def _repl(m: re.Match) -> str:
+        return (
+            "{% assign "
+            + m.group(1)
+            + " = "
+            + m.group(2)
+            + " | "
+            + m.group(3)
+            + " %}"
+        )
+
+    new, n = _ASSIGN_NESTED_DEFAULT_IN_ASSIGN_RE.subn(_repl, translated_content)
+    if not n:
+        return translated_content, []
+    return new, [
+        f"liquid — assign RHS: strip {{ }} around default field ({n}x; PR #13388)"
+    ]
 
 
 def repair_de_global_user_management_landing_titles(
@@ -5256,6 +5297,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_content
     )
     findings["repairs"].extend(image_buster_repairs)
+
+    translated_content, assign_nested_repairs = (
+        repair_liquid_assign_nested_default_in_output(translated_content)
+    )
+    findings["repairs"].extend(assign_nested_repairs)
 
     translated_content, de_user_mgmt_repairs = (
         repair_de_global_user_management_landing_titles(
