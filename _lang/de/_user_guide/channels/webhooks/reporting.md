@@ -10,7 +10,7 @@ tool:
 
 ---
 
-# Webhook-Reporting
+# Webhook-Reporting {#webhook-reporting}
 
 > Erfahren Sie mehr über die verschiedenen Webhook-Reporting-Metriken und Analytics-Optionen, die im Braze-Dashboard verfügbar sind.
 

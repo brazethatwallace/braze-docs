@@ -31,7 +31,7 @@ Aquí tienes algunos ejemplos que muestran las diferencias entre el formato loca
 | EE. UU. | `4155552671` | 1 | `+14155552671` |
 | Reino Unido | `2071838750` | 44 | `+442071838750` |
 | Brasil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
 
 ## Importar números de teléfono {#importing-phone-numbers}
 

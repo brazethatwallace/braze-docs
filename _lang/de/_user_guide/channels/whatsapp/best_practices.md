@@ -8,7 +8,7 @@ channel:
   - WhatsApp
 
 ---
-# WhatsApp-Best-Practices
+# WhatsApp-Best-Practices {#whatsapp-best-practices}
 
 > Bevor Sie Ihre WhatsApp-Nachrichten versenden, lesen Sie diese empfohlenen Best Practices, um eine hohe Telefonqualitätsbewertung aufrechtzuerhalten, Blockierungen und Meldungen zu vermeiden und Nutzer:innen für Opt-in und Opt-out zu verwalten.
 
