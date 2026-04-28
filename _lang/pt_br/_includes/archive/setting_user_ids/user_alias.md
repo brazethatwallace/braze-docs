@@ -1,0 +1,1 @@
+Looking at the English source, it appears to be completely empty — there is no content to translate.
