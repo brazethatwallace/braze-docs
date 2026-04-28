@@ -32,6 +32,7 @@
 ## Analytics and reporting vocabulary
 
 - Prefer **desempenho** (and related forms like *desempenho da mensagem*, *desempenho histórico*) for “message performance” / “historical performance” in reporting and analytics prose. Avoid the English loanword **performance** in those contexts unless it is a fixed product string.
+- When English shows the Braze dashboard’s top-level **Analytics** section in bold navigation paths (for example `**Analytics** > **Report Builder (New)**`) or as “the **Analytics** page”, keep **`Analytics`** in Brazilian Portuguese for that product chrome—do **not** swap in `**Análise de dados**` for those UI slots. Generic prose about *análise de dados* (data analysis) is still fine in lowercase or unbolded running text (auto-translate PR #13386).
 
 ## Clarity over literal accuracy
 

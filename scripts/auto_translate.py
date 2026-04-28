@@ -578,6 +578,13 @@ they would otherwise differ only by capitalization) (auto-translate PR #13380).
 selectors valid (no `nth-child(N), {` before `{`). Localize known \
 `aria-label="Open navigation menu"` / `aria-label="Select your language"` \
 when the surrounding prose is localized.
+32. **Brazilian Portuguese — Braze ``Analytics`` menu**: When English uses bold \
+``**Analytics**`` as the dashboard section name in navigation paths (for example \
+``**Analytics** > **Report Builder (New)**``) or phrases like "the **Analytics** \
+page" / "the **Analytics** section", keep ``**Analytics**`` in pt-BR for that \
+product chrome—do **not** substitute ``**Análise de dados**`` in those slots; it \
+drifts from sibling analytics docs (auto-translate PR #13386). QC auto-repairs \
+common ``**Análise de dados**`` UI fragments when they slip through.
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -2392,6 +2399,64 @@ def repair_pt_br_german_low9_double_quote_in_body(
         f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
         f"in pt-BR doc"
     ]
+
+
+def repair_pt_br_analytics_product_menu_label(
+    translated_path, translated_content, lang_key
+):
+    r"""Normalize Braze dashboard **Analytics** chrome in pt-BR Markdown.
+
+    English navigation uses the product label **Analytics** (for example
+    ``**Analytics** > **Report Builder (New)**``). Models sometimes render the
+    parent menu as ``**Análise de dados**``, which drifts from sibling pt-BR
+    analytics docs and in-product wording (Copilot / auto-translate PR #13386).
+    Only high-confidence UI fragments are rewritten — not headings that use
+    *Análise de dados* as a generic section title.
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/pt_br/" not in rel:
+        return translated_content, []
+
+    pairs = (
+        (
+            "navegue até a página **Análise de dados** da",
+            "navegue até a página **Analytics** da",
+        ),
+        (
+            "diretamente na página **Análise de dados** da",
+            "diretamente na página **Analytics** da",
+        ),
+        (
+            "até a página **Análise de dados** da",
+            "até a página **Analytics** da",
+        ),
+        ("**Análise de dados** >", "**Analytics** >"),
+        (
+            "exibida na página **Análise de dados**",
+            "exibida na página **Analytics**",
+        ),
+        ("seção **Análise de dados**", "seção **Analytics**"),
+        ("| **Análise de dados** |", "| **Analytics** |"),
+        ("* **Análise de dados**:", "* **Analytics**:"),
+    )
+
+    repairs = []
+    new = translated_content
+    for old, rep in pairs:
+        if old not in new:
+            continue
+        c = new.count(old)
+        new = new.replace(old, rep)
+        repairs.append(
+            "pt-br-analytics-menu — "
+            f"{old[:48]}{'…' if len(old) > 48 else ''} → **Analytics** ({c}x; PR #13386)"
+        )
+
+    if new == translated_content:
+        return translated_content, []
+    return new, repairs
 
 
 def repair_japanese_mixed_mail_campaign(
@@ -5164,6 +5229,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(pt_low9_repairs)
+
+    translated_content, pt_analytics_menu_repairs = (
+        repair_pt_br_analytics_product_menu_label(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_analytics_menu_repairs)
 
     translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
         translated_path, translated_content, lang_key

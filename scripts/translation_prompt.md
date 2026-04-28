@@ -100,6 +100,7 @@ These are Braze product names and features. Keep them in English:
 - **Linked-page label parity**: when a nav card/popular-topic label points to another localized page, mirror that destination page's locale `nav_title`/`article_title` wording (for example content-card channel labels) instead of inventing a second variant.
 
 Common UI terms (buttons, menus, navigation labels) may be translated according to the target language's conventions if the Braze product UI is localized for that language. When an existing translation is provided, maintain consistency with its terminology choices.
+- **Brazilian Portuguese — dashboard `Analytics`**: When English uses bold **`Analytics`** as the left-nav / reporting section name (for example `**Analytics** > **Report Builder (New)**`, “the **Analytics** page”, or “the **Analytics** section”), keep **`Analytics`** in pt-BR for that chrome—do **not** render it as `**Análise de dados**` in those UI fragments; sibling analytics pages and the in-product label stay in English **Analytics** (Copilot / auto-translate PR #13386). The translation QC pass repairs high-confidence `**Análise de dados**` menu patterns when they slip through.
 
 ### Channel landing — Content Cards (`channels/content_cards.md`)
 
