@@ -26,7 +26,7 @@ If you configure a button with **Submit form when button is clicked** and open a
 
 ### Radio button
 
-Adds a list of options from which users can select one. Use the properties panel to configure the available options and the custom attribute that receives the selected value. The user profile logs the selected value as a string custom attribute when the form is submitted. Custom attributes with other data types do not save to the user profile.
+Adds a list of options from which users can select one. Use the properties panel to configure the available options and the custom attribute that receives the selected value. The user profile logs the selected value as a [string custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) when the form is submitted. Custom attributes with other data types do not save to the user profile.
 
 ### Image
 
@@ -126,7 +126,7 @@ A predefined list of items; users pick one. You can map values to custom attribu
 
 ### Checkbox
 
-When checked, sets the block's attribute to `true`; when unchecked, to `false`.
+When checked, sets the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) to `true`; when unchecked, to `false`.
 
 | Property | Description |
 | --- | --- |
@@ -138,7 +138,7 @@ When checked, sets the block's attribute to `true`; when unchecked, to `false`.
 
 ### Checkbox group
 
-Users pick multiple options; values set or append to a defined array custom attribute.
+Users pick multiple options; values set or append to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types).
 
 | Property | Description |
 | --- | --- |

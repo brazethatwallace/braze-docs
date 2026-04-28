@@ -18,7 +18,7 @@ Adds a clickable button (for example **Save** or navigation).
 
 ### Image
 
-Displays an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) or a URL.
+Displays an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) or a URL.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

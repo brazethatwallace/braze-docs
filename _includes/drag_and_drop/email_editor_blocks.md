@@ -112,7 +112,7 @@ Adds space, or "padding", between other blocks.
 
 ### Image
 
-Inserts an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). For dynamic images (images with Liquid or Connected Content), you must set a fallback image to use the auto-width settings. For image specifications, refer to our [email image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). For dynamic images (images with Liquid or Connected Content), you must set a fallback image to use the auto-width settings. For image specifications, refer to our [email image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -207,7 +207,7 @@ Creates a flexible menu for the message you're designing.
 
 ### Product
 
-Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), either as static items from a catalog Selection (up to 12) or as dynamic products driven by a Canvas eCommerce trigger (up to 24).
+Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), either as static items from a catalog Selection (up to 12) or as dynamic products driven by a [Canvas eCommerce trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) (up to 24).
 
 | Property | Description |
 | --- | --- |
@@ -232,4 +232,4 @@ Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messag
 You can add personalization to your email using Liquid or Connected Content.
 
 - **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a text block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in text blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
-- **Connected Content:** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.
+- **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.

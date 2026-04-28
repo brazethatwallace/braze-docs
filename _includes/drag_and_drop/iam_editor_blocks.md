@@ -22,7 +22,7 @@ Adds a standard button with configurable styling, links, and analytics.
 
 ### Radio button
 
-Adds a list of options from which users can select one. When submitted, the user profile logs the associated custom attribute, which must be a string to be saved. Custom attributes with other data types do not save to the user profile.
+Adds a list of options from which users can select one. When submitted, the user profile logs the associated [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), which must be a string to be saved. Custom attributes with other data types do not save to the user profile.
 
 | Property | Description |
 | --- | --- |
@@ -41,13 +41,13 @@ Adds a list of options from which users can select one. When submitted, the user
 
 ### Image
 
-Inserts an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/).
+Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
-For image specifications, refer to our [in-app message image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages).
+For image specifications, refer to our [in-app message image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#in-app-messages).
 
 **On-click behavior**
 
@@ -133,7 +133,7 @@ Inserts a dropdown with a predefined list of items from which users can select o
 
 ### Checkbox
 
-Inserts a checkbox. If the user checks the box, the block's attribute is set to `true`. If left unchecked, its attribute is set to `false`.
+Inserts a checkbox. If the user checks the box, the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) is set to `true`. If left unchecked, its attribute is set to `false`.
 
 | Property | Description |
 | --- | --- |
@@ -145,7 +145,7 @@ Inserts a checkbox. If the user checks the box, the block's attribute is set to 
 
 ### Checkbox group
 
-Users can select from multiple choices. Values are set or added to a defined array custom attribute.
+Users can select from multiple choices. Values are set or added to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types).
 
 | Property | Description |
 | --- | --- |
