@@ -124,7 +124,7 @@ Shopifyを使用していない場合は、アカウントマネージャーに�
 
 ### ステップ 1: メールキャンペーンまたはメールCanvasステップを作成する {#step-1-create-an-email-campaign-or-email-canvas-step}
 
-#### ダイナミック製品ブロック {#dynamic-product-block}
+#### ダイナミック製品ブロック
 
 {% alert note %}
 ダイナミック製品ブロックには[eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)が必要であり、[Canvases]({{site.baseurl}}/ecommerce_use_cases/)内でのみ使用できます。Braze Shopifyユーザーの場合、これらのイベントは統合の一部として自動的に含まれます。Shopify以外のユーザーの場合は、開発者と協力してこれらのイベントをBrazeに渡し、イベント内のプライマリ製品識別子がカタログアイテムIDとして追加されていることを確認する必要があります。
@@ -138,7 +138,7 @@ Shopifyを使用していない場合は、アカウントマネージャーに�
 
 eコマースCanvasの作成に関する詳細な手順については、[eコマースユースケース]({{site.baseurl}}/ecommerce_use_cases/)を参照してください。
 
-#### 静的製品ブロック {#static-product-block}
+#### 静的製品ブロック
 
 ドラッグ＆ドロップのメールキャンペーン、アクションベースのCanvas、またはドラッグ＆ドロップのメールメッセージステップを持つテンプレートを作成します。
 

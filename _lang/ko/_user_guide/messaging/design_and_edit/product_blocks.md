@@ -124,7 +124,7 @@ Shopify를 사용하지 않는 경우, 계정 매니저에게 문의하여 필�
 
 ### 1단계: 이메일 Campaign 또는 이메일 캔버스 단계 생성 {#step-1-create-an-email-campaign-or-email-canvas-step}
 
-#### 동적 제품 블록 {#dynamic-product-block}
+#### 동적 제품 블록
 
 {% alert note %}
 동적 제품 블록은 [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)가 필요하며 [Canvases]({{site.baseurl}}/ecommerce_use_cases/) 내에서만 사용할 수 있습니다. Braze Shopify 사용자의 경우 이러한 이벤트가 통합의 일부로 자동 포함됩니다. Shopify를 사용하지 않는 사용자의 경우 개발자와 협력하여 이러한 이벤트를 Braze에 전달하고 이벤트 내의 기본 제품 식별자가 카탈로그 항목 ID로 추가되었는지 확인해야 합니다.
@@ -138,7 +138,7 @@ Shopify를 사용하지 않는 경우, 계정 매니저에게 문의하여 필�
 
 eCommerce Canvas 생성에 대한 자세한 안내는 [eCommerce 활용 사례]({{site.baseurl}}/ecommerce_use_cases/)를 참조하세요.
 
-#### 정적 제품 블록 {#static-product-block}
+#### 정적 제품 블록
 
 드래그 앤 드롭 이메일 Campaign, 액션 기반 Canvas 또는 드래그 앤 드롭 이메일 메시지 단계가 있는 템플릿을 생성하세요.
 

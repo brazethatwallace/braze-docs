@@ -124,7 +124,7 @@ Este guia vai orientar você nas etapas para criar, testar e garantir o funciona
 
 ### Etapa 1: Crie uma campanha de e-mail ou uma etapa de e-mail no Canvas {#step-1-create-an-email-campaign-or-email-canvas-step}
 
-#### Bloco de produto dinâmico {#dynamic-product-block}
+#### Bloco de produto dinâmico
 
 {% alert note %}
 Os blocos de produto dinâmicos exigem [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) e só podem ser usados dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases/). Para usuários da Braze com Shopify, esses eventos são incluídos automaticamente como parte da integração. Para usuários que não usam Shopify, é necessário trabalhar com seus desenvolvedores para enviar esses eventos para a Braze e garantir que o identificador principal do produto dentro dos eventos seja adicionado como ID do item do catálogo.
@@ -138,7 +138,7 @@ Crie um novo Canvas que use um dos modelos disponíveis da Braze para o seu caso
 
 Para instruções detalhadas sobre como criar seus Canvas de eCommerce, consulte [Casos de uso de eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
 
-#### Bloco de produto estático {#static-product-block}
+#### Bloco de produto estático
 
 Crie uma campanha de e-mail de arrastar e soltar, um Canvas baseado em ação ou um modelo que tenha uma etapa de mensagem de e-mail de arrastar e soltar.
 

@@ -1,6 +1,6 @@
 ---
 nav_title: Propriedades de entrada persistentes
-article_title: Propriedades de Entrada Persistentes
+article_title: Propriedades de entrada persistentes
 alias: "/persistent_entry/"
 page_type: reference
 description: "Este artigo de referência descreve como usar propriedades de entrada persistentes no seu Canvas para enviar mensagens mais personalizadas e criar uma experiência refinada para o usuário final."
