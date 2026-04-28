@@ -82,6 +82,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 
 There are three status code responses for this endpoint: `202`, `400`, and `404`.
 
+{% alert note %}
+A `400` response can also be returned if your company has reached its catalog storage limit. The free version of catalogs is capped at 100&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+{% endalert %}
+
 ### Example success response
 
 The status code `202` could return the following response body.
@@ -121,6 +125,8 @@ The following table lists possible returned errors and their associated troubles
 | Error | Troubleshooting |
 | --- | --- |
 | `catalog-not-found` | Check that the catalog name is valid. |
+| `company-size-limit-already-reached` | Your company's catalog storage limit has been reached. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
+| `company-size-limit-surge` | The request exceeds your company's remaining catalog storage. Try again with a smaller update. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `ids-not-string` | Confirm that each item ID is a string. |
 | `ids-not-unique` | Check that each item ID is unique. |
 | `ids-too-large` | Character limit for each item ID is 250 characters. |
