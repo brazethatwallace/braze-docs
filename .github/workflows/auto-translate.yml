@@ -198,6 +198,8 @@ jobs:
           --changed-files changed_files.txt
           --languages ${{ matrix.lang }}
 
+      # Deterministic repairs (duplicate {#…} heading IDs, YAML title casing,
+      # etc.) live in scripts/auto_translate.py — extend there rather than here.
       - name: Run translation QC checks
         id: qc
         run: python scripts/auto_translate.py qc
@@ -229,11 +231,6 @@ jobs:
     if: ${{ needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    permissions:
-      contents: write
-      pull-requests: write
-      # Narrow scope: only PR-creation pushes can need this (workflow ref policy).
-      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -333,10 +330,6 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    permissions:
-      contents: write
-      pull-requests: write
-      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6

@@ -6,18 +6,18 @@ description: "Dieser Hilfeartikel zeigt Ihnen, wie Sie Probleme mit HTML-E-Mails
 channel: email
 ---
 
-# Fehlerbehebung
+# Fehlerbehebung {#troubleshooting}
 
 > Dieser Artikel behandelt häufige Probleme mit HTML-E-Mails und deren Lösung, einschließlich Erweiterungskonflikten, Rendering-Unterschieden und CSS-Inlining.
 
-## HTML wird in Test-E-Mails nicht korrekt dargestellt
+## HTML wird in Test-E-Mails nicht korrekt dargestellt {#html-renders-incorrectly-in-test-emails}
 
 Wenn Ihre [Test-E-Mail]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) nicht richtig aussieht, empfehlen wir, zunächst Ihr HTML-Setup zu überprüfen. Anschließend können Sie nach folgenden Problemen suchen:
 * [Erweiterungskonflikte](#check-conflicts)
 * [E-Mail-Rendering](#check-rendering)
 * [CSS-Inlining](#switch-css-inlining)
 
-### Erweiterungskonflikte
+### Erweiterungskonflikte {#extension-conflicts}
 
 Bestimmte Browser-Erweiterungen können Probleme mit unserem E-Mail-Editor verursachen. Ein Beispiel ist [Grammarly](https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen?hl=en) in Verbindung mit Google Chrome. Wenn Sie eine dieser Erweiterungen verwenden, sollten Sie entweder:
 - Braze-E-Mails in einem Browser bearbeiten, in dem Grammarly nicht als Browser-Erweiterung installiert ist
@@ -25,7 +25,7 @@ Bestimmte Browser-Erweiterungen können Probleme mit unserem E-Mail-Editor verur
 
 Die Nur-Text-Ansicht entfernt Ihren `WYSIWYG`-Editor (What You See Is What You Get), daher sollten Sie zunächst sicherstellen, dass alle Team-Mitglieder mit HTML vertraut sind, bevor Sie diese Änderung anfordern.
 
-### E-Mail-Rendering
+### E-Mail-Rendering {#email-rendering}
 
 E-Mails werden je nach Browser und E-Mail-Client unterschiedlich dargestellt. Notieren Sie sich daher, bei welchen Browsern und E-Mail-Clients Probleme auftreten.
 

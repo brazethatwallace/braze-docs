@@ -11,7 +11,7 @@ channel:
 
 guide_featured_title: "Articles de la section"
 guide_featured_list:
-  - name: Envoyer des e-mails au relais privé Apple
+  - name: Envoyer des e-mails à Apple Private Relay
     link: /docs/user_guide/channels/email/apple_mail/email_private_relay_apple_sso
     image: /assets/img/braze_icons/list.svg
   - name: Protection de la confidentialité dans Apple Mail

@@ -31,7 +31,7 @@ Tealium EventStream은 데이터의 중심에 위치하는 데이터 수집 및 
 {% endtab %}
 {% tab AudienceStream %}
 
-Tealium AudienceStream은 옴니채널 고객 세분화 및 실시간 동작 엔진입니다. AudienceStream은 EventStream으로 유입되는 데이터를 가져와 브랜드와의 고객 참여에서 가장 중요한 속성을 나타내는 방문자 프로필을 생성합니다. 설정 단계는 [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) 문서를 참조하세요.
+Tealium AudienceStream은 옴니채널 고객 세분화 및 실시간 액션 엔진입니다. AudienceStream은 EventStream으로 유입되는 데이터를 가져와 브랜드에 대한 고객 참여의 가장 중요한 속성을 나타내는 방문자 프로필을 생성합니다. 설정 단계는 [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/) 문서를 참조하세요.
 
 {% endtab %}
 {% tab iQ 태그 관리 %}

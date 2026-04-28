@@ -28,7 +28,9 @@ Cette intégration sert uniquement à mettre à jour Salesforce depuis Braze dan
 
 ## Conditions préalables {#prerequisites}
 
-Cette intégration nécessite de créer une application connectée dans Salesforce Sales Cloud en suivant les étapes de la documentation Salesforce : [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+Avant de pouvoir procéder à cette intégration, l'assistance Salesforce doit vous accorder la possibilité de créer des applications connectées. Vous pouvez en faire la demande en soumettant une [demande d'assistance Salesforce](https://help.salesforce.com/s/articleView?id=005167035&type=1).
+
+Une fois que l'assistance Salesforce vous a accordé la possibilité de créer une application connectée dans Salesforce Sales Cloud, suivez les étapes de la documentation Salesforce : [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 Lorsque vous configurez les paramètres OAuth nécessaires pour l'application connectée, conservez tous les paramètres OAuth avec leurs valeurs et sélections par défaut, à l'exception des éléments suivants :
 1. Sélectionnez **Enable for device flow**. Vous pouvez laisser le champ **Callback URL** vide, car il sera remplacé par défaut par une marque substitutive.
@@ -162,7 +164,7 @@ Ce webhook est abordé dans le cas d'utilisation du [lead scoring]({{site.baseur
 
 Ajoutez une étape supplémentaire à votre mise à jour utilisateur pour vérifier si un utilisateur a franchi le seuil MQL que vous avez défini. Si c'est le cas, mettez à jour le statut de l'utilisateur en « MQL », puis mettez à jour Salesforce avec le même statut « MQL » à l'aide de ce modèle de webhook. Salesforce s'occupe du reste en acheminant ce prospect vers les équipes commerciales appropriées selon vos règles de routage des prospects.
 
-#### Ajouter une étape du Canvas pour vérifier les utilisateurs ayant franchi le seuil MQL {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
+#### Ajouter une étape Canvas pour vérifier les utilisateurs ayant franchi le seuil MQL {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
 1. Ajoutez une étape de **parcours d'audience** avec deux groupes : « MQL Threshold » et « Tous les autres ».
 2. Dans le groupe « MQL Threshold », recherchez les utilisateurs dont le statut n'est pas « MQL » (par exemple, `lead_stage` est égal à « Lead »), mais dont le score de prospect dépasse le seuil que vous avez défini (par exemple, `lead_score` supérieur à 50). Si c'est le cas, ils passent à l'étape suivante ; sinon, ils sortent du flux.

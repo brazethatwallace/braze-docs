@@ -520,7 +520,7 @@ Si utilizas métodos del SDK predeterminados y listos para usar para insertar ba
 
 ### Bloques de código personalizados {#custom-code-blocks}
 
-Si tu banner utiliza el bloque de editor **Código personalizado** en el panel de Braze, debes utilizar `brazeBridge.logClick()` para registrar los clics desde ese HTML personalizado. Esto se aplica incluso cuando se utilizan métodos del SDK para renderizar el banner, ya que el SDK no puede adjuntar automáticamente listeners a elementos dentro de tu código personalizado.
+Si tu banner utiliza el bloque de editor **Custom Code** en el panel de Braze, debes utilizar `brazeBridge.logClick()` para registrar los clics desde ese HTML personalizado. Esto se aplica incluso cuando se utilizan métodos del SDK para renderizar el banner, ya que el SDK no puede adjuntar automáticamente listeners a elementos dentro de tu código personalizado.
 
 ```html
 <button onclick="brazeBridge.logClick()">
@@ -672,7 +672,7 @@ Si tu banner utiliza el editor de arrastrar y soltar e incluye un componente de 
 
 #### Bloques de código personalizados {#custom-code-blocks}
 
-Si tu banner utiliza el bloque de editor **Código personalizado**, puedes activar un descarte directamente desde el HTML del banner utilizando `brazeBridge.closeMessage()`.
+Si tu banner utiliza el bloque de editor **Custom Code**, puedes activar un descarte directamente desde el HTML del banner utilizando `brazeBridge.closeMessage()`.
 
 ```html
 <button onclick="brazeBridge.closeMessage()">
@@ -807,7 +807,7 @@ Esto es lo que debes saber sobre las dimensiones y el tamaño de los banners:
 
 ## Propiedades personalizadas {#custom-properties}
 
-Puedes utilizar propiedades personalizadas de tu campaña de banner para recuperar datos clave-valor a través del SDK y modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
+Puedes utilizar propiedades personalizadas de tu campaña de banners para recuperar datos clave-valor a través del SDK y modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
 
 - Enviar metadatos para tus análisis o integraciones de terceros.
 - Utilizar metadatos como un `timestamp` o un objeto JSON para desencadenar lógica condicional.
@@ -815,7 +815,7 @@ Puedes utilizar propiedades personalizadas de tu campaña de banner para recuper
 
 ### Requisitos previos {#prerequisites}
 
-Tendrás que [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) a tu campaña de banner. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
+Tendrás que [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) a tu campaña de banners. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

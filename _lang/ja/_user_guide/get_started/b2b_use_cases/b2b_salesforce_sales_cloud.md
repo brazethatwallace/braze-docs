@@ -3,12 +3,12 @@ nav_title: Salesforce Sales Cloud
 article_title: Salesforce Sales Cloud でリードを管理する
 page_order: 3
 page_type: reference
-description: "Braze の Webhook を使用して、Salesforce sobjects/Lead エンドポイントを通じて Salesforce Sales Cloud でリードを作成および更新する方法を学びます。"
+description: "Brazeの Webhook を使用して、Salesforce sobjects/Lead エンドポイントを通じて Salesforce Sales Cloud でリードを作成および更新する方法を学びます。"
 ---
 
 # Salesforce Sales Cloud でリードを管理する {#manage-leads-with-salesforce-sales-cloud}
 
-> [Salesforce](https://www.salesforce.com/) は、リードジェネレーション、オポチュニティトラッキング、アカウント管理など、企業が営業プロセス全体を管理できるように設計された、世界有数のクラウドベースのCRMプラットフォームです。<br><br>このページでは、コミュニティから投稿された統合を通じて、Brazeの Webhook を使用して Salesforce Sales Cloud でリードを作成および更新する方法を紹介します。
+> [Salesforce](https://www.salesforce.com/) は、リードジェネレーション、オポチュニティトラッキング、アカウント管理など、企業が営業プロセス全体を管理できるように設計された、世界有数のクラウドベースのCRMプラットフォームです。<br><br>このページでは、コミュニティから投稿された統合を通じて、BrazeのWebhookを使用してSalesforce Sales Cloudでリードを作成および更新する方法を紹介します。
 
 {% alert important %}
 これはコミュニティから提出された統合であり、Brazeが直接サポートするものではありません。Brazeが提供する公式のWebhookテンプレートのみがBrazeによってサポートされます。
@@ -16,9 +16,9 @@ description: "Braze の Webhook を使用して、Salesforce sobjects/Lead エ�
 
 ## 仕組み {#how-it-works}
 
-Brazeと Salesforce Sales Cloud の統合は、BrazeのWebhookを使用して、Salesforceの[sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html) エンドポイントを通じて Salesforce Sales Cloud でリードを作成および更新します。
+BrazeとSalesforce Sales Cloudの統合は、BrazeのWebhookを使用して、Salesforceの[sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html)エンドポイントを通じてSalesforce Sales Cloudでリードを作成および更新します。
 
-Brazeは現在、以下のユースケース向けに Salesforce Sales Cloud との2つの統合を提供しています。
+Brazeは現在、以下のユースケース向けにSalesforce Sales Cloudとの2つの統合を提供しています。
 1. [Salesforce Sales Cloud でリードを作成する](#creating-lead)
 2. [Salesforce Sales Cloud でリードを更新する](#updating-lead)
 
@@ -28,7 +28,9 @@ Brazeは現在、以下のユースケース向けに Salesforce Sales Cloud と
 
 ## 前提条件 {#prerequisites}
 
-この統合では、Salesforceのドキュメントに記載されたステップに従って、Salesforce Sales Cloud で接続アプリを作成する必要があります：[OAuth 2.0 クライアント認証情報フロー用に接続アプリを設定する](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)。
+この統合を進める前に、Salesforceサポートから接続アプリを作成する権限を付与してもらう必要があります。[Salesforceサポートリクエスト](https://help.salesforce.com/s/articleView?id=005167035&type=1)を送信してリクエストできます。
+
+SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成する権限が付与されたら、Salesforceのドキュメントに記載されたステップに従ってください：[OAuth 2.0 クライアント認証情報フロー用に接続アプリを設定する](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)。
 
 接続アプリに必要なOAuth設定を構成する際は、以下を除き、すべてのOAuth設定をデフォルトの値と選択のままにしてください。
 1. **Enable for device** フローを選択します。**Callback URL** はデフォルトでプレースホルダーになるため、空白のままで構いません。
@@ -114,7 +116,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 | フィールド | 詳細 |
 | --- | --- |
-|Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
+| Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTPメソッド | `PATCH` |
 | リクエスト本文 | JSONキーと値のペア |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -154,7 +156,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ユーザーがメールアドレスを提供したときにSalesforceでリードを作成するには、「Update Lead」Webhookテンプレートを使用するCampaignを作成し、ユーザーがメールアドレスを追加したとき（例えば、Webフォームに入力したとき）にトリガーします。
 
-![アクションベースで「メールアドレスを追加する」というトリガーアクションを持つCampaign作成のステップ 2。]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![アクションベースで「メールアドレスを追加する」というトリガーアクションを持つCampaign作成のステップ2。]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### マーケティング適格リード（MQL）しきい値を超えた場合のリードスコアリングCanvas {#lead-scoring}
 

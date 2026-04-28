@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) は、EventStream、AudienceStream、および iQ Tag Management で構成されるユニバーサルデータハブおよび顧客データプラットフォームであり、サードパーティのソースからモバイルデータ、Webデータ、および代替データを接続できます。TealiumをBrazeと接続することで、カスタムイベント、ユーザー属性、購入のデータフローが実現し、リアルタイムでデータに基づいたアクションを実行できるようになります。
+> [Tealium](https://tealium.com/)は、EventStream、AudienceStream、およびiQ Tag Managementで構成されるユニバーサルデータハブおよび顧客データプラットフォームであり、サードパーティのソースからモバイルデータ、Webデータ、および代替データを接続できます。TealiumをBrazeと接続することで、カスタムイベント、ユーザー属性、購入のデータフローが実現し、リアルタイムでデータに基づいたアクションを実行できるようになります。
 
 ![さまざまなTealium製品とBrazeプラットフォームがどのように連携してクロスチャネルキャンペーンをリアルタイムでアクティブにするかを示すTealiumの概要図。]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
@@ -31,7 +31,7 @@ Tealium EventStreamは、データの中心に位置するデータ収集およ�
 {% endtab %}
 {% tab AudienceStream %}
 
-Tealium AudienceStreamは、オムニチャネルの顧客セグメンテーションおよびリアルタイムアクションエンジンです。AudienceStreamはEventStreamに流入するデータを取得し、ブランドのカスタマーエンゲージメントの最も重要な属性を表す訪問者プロファイルを作成します。設定手順については、[AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)の記事を参照してください。
+Tealium AudienceStreamは、オムニチャネルの顧客セグメンテーションおよびリアルタイムアクションエンジンです。AudienceStreamはEventStreamに流入するデータを取得し、ブランドとのカスタマーエンゲージメントの最も重要な属性を表す訪問者プロファイルを作成します。設定手順については、[AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)の記事を参照してください。
 
 {% endtab %}
 {% tab iQ Tag Management %}
@@ -42,7 +42,7 @@ Tealium iQでは、Tealium iQ Tag Management UIでタグを使用してアプリ
 {% endtabs %}
 
 {% alert important %}
-Tealiumは、バッチと非バッチの両方のコネクターアクションを提供します。非バッチコネクターは、リアルタイムリクエストがユースケースにとって重要であり、BrazeのAPIレート制限仕様に達する懸念がない場合にのみ使用してください。ご質問がある場合は、Brazeサポートまたはカスタマーサクセスマネージャーにお問い合わせください。<br><br>
+Tealiumは、バッチと非バッチの両方のコネクターアクションを提供します。非バッチコネクターは、リアルタイムリクエストがユースケースにとって重要であり、BrazeのAPIレート制限仕様に達する懸念がない場合に使用してください。ご質問がある場合は、Brazeサポートまたはカスタマーサクセスマネージャーにお問い合わせください。<br><br>
 
 バッチコネクターの場合、リクエストは以下のいずれかのしきい値が満たされるまでキューに入れられます。<br><br>
 - 最大リクエスト数：75
@@ -59,9 +59,9 @@ Tealiumは、デフォルトでは同意イベント（サブスクリプショ�
 | Tealiumアカウント | このパートナーシップを活用するには、サーバーおよび/またはクライアントサイドアクセスを持つ[Tealiumアカウント](https://my.tealiumiq.com/)が必要です。 |
 | インストールされたソースとTealiumソースの[ライブラリ](https://docs.tealium.com/platforms/) | モバイルアプリ、Webサイト、バックエンドサーバーなど、Tealiumに送信されるデータの提供元。<br><br>適切なTealiumコネクターを設定できるようにするには、ライブラリをアプリ、サイト、サーバーにインストールしておく必要があります。 |
 | Braze RESTおよびSDKエンドポイント | RESTまたはSDKエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
-| Brazeアプリ識別子キー（サイドバイサイドのみ） | アプリ識別子キー。<br><br>これは、**Brazeダッシュボード > [設定の管理] > [APIキー]** で確認できます。 |
+| Brazeアプリ識別子キー（サイドバイサイドのみ） | アプリ識別子キー。<br><br>これは、**Brazeダッシュボード > 設定の管理 > APIキー**で確認できます。 |
 | コードバージョン（サイドバイサイドのみ） | SDKバージョンに対応し、major.minor形式である必要があります（3.0.1ではなく3.2など）。コードバージョンは3.0以上である必要があります。 |
-| REST APIキー（サーバー間のみ） | `users.track`および`users.delete`権限を持つBraze REST APIキー。<br><br>これは**Brazeダッシュボード > [開発者コンソール] > [REST APIキー] > [新しいAPIキーを作成]** で作成できます。|
+| REST APIキー（サーバー間のみ） | `users.track`および`users.delete`権限を持つBraze REST APIキー。<br><br>これは**Brazeダッシュボード > 開発者コンソール > REST APIキー > 新しいAPIキーを作成**で作成できます。|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 統合タイプを選択する {#choose-your-integration-type}
@@ -234,7 +234,7 @@ Tealiumでは最初に、コネクターの取得元となる有効なデータ�
 
 ### ステップ3:Tealiumコネクターをテストする {#step-3-test-your-tealium-connector}
 
-コネクターが稼動したら、正常に動作していることを確認するためにテストする必要があります。これを検証する最も簡単な方法は、Tealiumの**トレースツール**を使用することです。トレースの使用を開始するには、Tealium Toolsブラウザー拡張機能が追加されていることを確認します。
+コネクターが稼動したら、正常に動作していることを確認するためにテストする必要があります。これを検証する最も簡単な方法は、Tealiumの**トレースツール**を使用することです。トレースの使用を開始するには、Tealium Toolsブラウザー拡張機能が追加されていることを確認してください。
 
 1. 新しいトレースを開始するには、サイドバーの**Server-Side**のオプションから**Trace**を選択します。**Start**を選択し、トレースIDをキャプチャします。
 2. ブラウザー拡張機能を開き、AudienceStream TraceにトレースIDを入力します。

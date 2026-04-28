@@ -3,7 +3,7 @@ nav_title: Tealium
 article_title: Tealium
 page_order: 1
 alias: /partners/tealium/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Tealium, einer universellen Datendrehscheibe, die es Ihnen ermöglicht, mobile, Internet- und alternative Daten mit anderen Drittanbieter-Datenquellen zu verbinden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Tealium, einem universellen Daten-Hub, der es Ihnen ermöglicht, mobile, Web- und alternative Daten mit anderen Drittanbieter-Quellen zu verbinden."
 page_type: partner
 search_tag: Partner
 
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) ist eine universelle Datendrehscheibe und Customer Data Platform, bestehend aus EventStream, AudienceStream und iQ Tag Management, die es Ihnen ermöglicht, Mobil-, Web- und alternative Daten aus Drittanbieter-Quellen zu verbinden. Die Verbindung von Tealium mit Braze ermöglicht einen Datenfluss von angepassten Events, Nutzerattributen und Käufen, die Sie in die Lage versetzen, Ihre Daten in Realtime zu nutzen.
+> [Tealium](https://tealium.com/) ist ein universeller Daten-Hub und eine Customer Data Platform, bestehend aus EventStream, AudienceStream und iQ Tag Management, die es Ihnen ermöglicht, Mobil-, Web- und alternative Daten aus Drittanbieter-Quellen zu verbinden. Die Verbindung von Tealium mit Braze ermöglicht einen Datenfluss von angepassten Events, Nutzerattributen und Käufen, die Sie in die Lage versetzen, Ihre Daten in Realtime zu nutzen.
 
 ![Eine Übersichtsgrafik von Tealium, die zeigt, wie die verschiedenen Produkte von Tealium und die Braze-Plattform zusammenpassen, um kanalübergreifende Campaigns in Realtime zu aktivieren.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
@@ -31,7 +31,7 @@ Tealium EventStream ist eine Datenerfassungs- und API-Drehscheibe, die im Zentru
 {% endtab %}
 {% tab AudienceStream %}
 
-Tealium AudienceStream ist eine Omnichannel-Kundensegmentierung und Realtime Action Engine. AudienceStream nimmt die Daten, die in EventStream einfließen, und erstellt Besucherprofile, die die wichtigsten Attribute des Engagements Ihrer Kund:innen mit Ihrer Marke darstellen. Weitere Informationen zur Einrichtung finden Sie in unserem [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)-Artikel.
+Tealium AudienceStream ist eine Omnichannel-Kundensegmentierung und Realtime-Action-Engine. AudienceStream nimmt die Daten, die in EventStream einfließen, und erstellt Besucherprofile, die die wichtigsten Attribute des Engagements Ihrer Kund:innen mit Ihrer Marke darstellen. Weitere Informationen zur Einrichtung finden Sie in unserem [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)-Artikel.
 
 {% endtab %}
 {% tab iQ Tag Management %}
@@ -59,9 +59,9 @@ Tealium bündelt standardmäßig keine Zustimmungs-Events (Abo-Einstellungen) od
 | Tealium-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Tealium-Konto](https://my.tealiumiq.com/) mit Server- und/oder Client-seitigem Zugriff. |
 | Installierte Quelle und Tealium-Quell-[Bibliotheken](https://docs.tealium.com/platforms/) | Die Herkunft der Daten, die an Tealium gesendet werden, z. B. von mobilen Apps, Websites oder Backend-Servern.<br><br>Sie müssen die Bibliotheken in Ihrer App, Ihrer Website oder Ihrem Server installieren, bevor Sie einen erfolgreichen Tealium-Konnektor einrichten können. |
 | Braze-REST- und SDK-Endpunkt | Ihre REST- oder SDK-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
-| Braze-App-Bezeichner-Schlüssel (nur bei Side-by-side) | Ihr App-Bezeichner-Schlüssel. <br><br>Diesen finden Sie unter **Braze-Dashboard > Einstellungen verwalten > API-Schlüssel**. |
+| Braze-App-Bezeichner-Schlüssel (nur bei Side-by-side) | Ihr App-Bezeichner-Schlüssel. <br><br>Diesen finden Sie unter **Braze Dashboard > Manage Settings > API Key**. |
 | Code-Version (nur bei Side-by-side) | Entspricht der SDK-Version und sollte im Format major.minor angegeben werden (zum Beispiel 3.2 und nicht 3.0.1). Die Code-Version sollte 3.0 oder höher sein. |
-| REST-API-Schlüssel (nur bei Server-zu-Server) | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track` und `users.delete`. <br><br>Dieser kann über **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen** erstellt werden.|
+| REST-API-Schlüssel (nur bei Server-zu-Server) | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track` und `users.delete`. <br><br>Dieser kann über **Braze Dashboard > Developer Console > REST API Key > Create New API Key** erstellt werden.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Wählen Sie Ihren Integrationstyp {#choose-your-integration-type}

@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel behandelt die Vorbereitung auf die Migratio
 tool: Dashboard
 ---
 
-# Migration zu granularen Berechtigungen
+# Migration zu granularen Berechtigungen {#migrating-to-granular-permissions}
 
 > Die Verwaltung der Zugriffsrechte auf Ihr Konto und die Ausführung bestimmter Aktionen ist sowohl für die Sicherheit als auch für die betriebliche Effizienz von entscheidender Bedeutung. Um Ihnen mehr Kontrolle zu geben, führt Braze granulare Berechtigungen ein – eine flexiblere und präzisere Methode zur Verwaltung des Nutzerzugriffs auf Ihr Konto.
 
@@ -17,7 +17,7 @@ Die Migration bietet folgende Vorteile:
 - **Präzisere Steuerung:** Granulare Berechtigungen bieten mehr Kontrolle, höhere Sicherheit und eine übersichtlichere Übersicht. Nutzer:innen erhalten ausschließlich die Zugriffsrechte, die sie benötigen.
 - **Automatische Abbildung:** Alle aktuellen Berechtigungen werden automatisch auf ihre [granularen Entsprechungen](#legacy-to-granular-permissions-mapping) abgebildet. Ihre Nutzer:innen behalten die gleiche Zugriffsebene, sofern Sie diese nicht ändern.
 
-## Was Sie überprüfen sollten
+## Was Sie überprüfen sollten {#what-to-review}
 
 Wenn für Ihr Unternehmen eine Migration geplant ist, erhalten Ihre Braze-Administratoren E-Mails und Banner im Dashboard, die sie über die Migration der granularen Berechtigungen informieren. Zur Vorbereitung auf die Migration empfehlen wir, dass ein Braze-Administrator die folgenden Schritte durchführt.
 
@@ -101,12 +101,12 @@ Diese Tabelle zeigt, wie jede Legacy-Berechtigung auf die granularen Berechtigun
 | Team | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Segments |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-## Häufig gestellte Fragen
+## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Kann ich die Migration ablehnen oder rückgängig machen?
+### Kann ich die Migration ablehnen oder rückgängig machen? {#can-i-opt-out-of-or-revert-the-migration}
 
 Braze unterstützt keine Rücknahme der Migration. Wir begleiten Sie durch die Migration und überwachen den Prozess engmaschig, um auftretende Probleme schnell zu beheben.
 
-### Verlieren bestehende Nutzer:innen während der Migration den Zugriff auf Braze?
+### Verlieren bestehende Nutzer:innen während der Migration den Zugriff auf Braze? {#will-existing-users-lose-access-to-braze-during-the-migration}
 
 Nein, es gibt während der Migration keine Ausfallzeit bei Braze. Allerdings werden Änderungen an Berechtigungen während der Migration gesperrt. Wir gehen davon aus, dass die Migration bis zu 15 Minuten dauert.

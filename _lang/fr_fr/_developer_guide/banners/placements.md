@@ -597,7 +597,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 
 #### Enregistrer les clics {#logging-clicks}
 
-Appelez la méthode de clic de bannière de la plateforme lorsque l'utilisateur appuie sur votre bannière personnalisée (ou sur un bouton spécifique). Passez le paramètre facultatif `buttonId` lorsque le clic concerne un bouton spécifique afin que l'analytique puisse attribuer le clic correctement.
+Appelez la méthode de clic de bannière de la plateforme lorsque l'utilisateur appuie sur votre bannière personnalisée (ou sur un bouton spécifique). Passez le paramètre facultatif `buttonId` lorsque le clic concerne un bouton spécifique afin que les analyses puissent attribuer le clic correctement.
 
 {% tabs %}
 {% tab Web %}
@@ -668,7 +668,7 @@ Voici les versions minimales du SDK requises pour enregistrer les fermetures de 
 ### Intégrations {#integrations}
 #### Intégrations de bannières standard (éditeur par glisser-déposer) {#standard-banner-integrations-drag-and-drop-editor}
 
-Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message sera masqué, déclenchera une fermeture puis enregistrera un événement de fermeture pour l'analytique.
+Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message sera masqué, déclenchera une fermeture puis enregistrera un événement de fermeture pour les analyses.
 
 #### Blocs de code personnalisés {#custom-code-blocks}
 
