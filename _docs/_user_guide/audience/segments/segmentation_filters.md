@@ -51,11 +51,11 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
-    description: Determines whether or not a user matches a custom recorded attribute value. <br><br>Time zone:<br>Company's Time Zone
+    description: Determines whether or not a user matches a custom recorded attribute value. <br><br>If the attribute is a time or date type and you use an interval comparison, time interval filters are limited to 100 years.<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Custom attribute
   - name: Created At
-    description: Segments users by when their user profile was created. If a user was added by CSV or API, then this filter reflects the date they were added. If the user isn't added by CSV or API and has their first session tracked by the SDK, then this filter reflects the date of that first session.
+    description: Segments users by when their user profile was created. If a user was added by CSV or API, then this filter reflects the date they were added. If the user isn't added by CSV or API and has their first session tracked by the SDK, then this filter reflects the date of that first session.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Other Filters
   - name: Created From
@@ -63,7 +63,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: Attributes that are the properties of custom attributes.<br><br>When filtering a nested time custom attribute, you can choose to filter based on "Day of Year" or "Time". "Day of Year" checks only the month and day for comparison. "Time" compares the full timestamp, including the year.
+    description: Attributes that are the properties of custom attributes.<br><br>When filtering a nested time custom attribute, you can choose to filter based on "Day of Year" or "Time". "Day of Year" checks only the month and day for comparison. "Time" compares the full timestamp, including the year.<br><br>When you use the "Time" comparison with an interval, time interval filters are limited to 100 years.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -75,11 +75,11 @@ glossaries:
     tags:
       - Custom events
   - name: First Did Custom Event
-    description: Determines the earliest time that a user has performed a specially recorded event. (24-hour period) <br><br>Example:<br> First Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone
+    description: Determines the earliest time that a user has performed a specially recorded event. (24-hour period) <br><br>Example:<br> First Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Custom events
   - name: Last Did Custom Event
-    description: Determines the latest time that a user has performed a specially recorded event. This filter supports decimals, such as 0.25 hours. (24-hour period) <br><br>Example:<br> Last Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone
+    description: Determines the latest time that a user has performed a specially recorded event. This filter supports decimals, such as 0.25 hours. (24-hour period) <br><br>Example:<br> Last Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Custom events
   - name: X Custom Event In Y Days
@@ -115,19 +115,19 @@ glossaries:
     tags:
       - Sessions
   - name: First Used App
-    description: Segments your users by the earliest recorded time that they opened your app. <em>This captures the first session they have using a version of your app with the Braze SDK integrated.</em> (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the earliest recorded time that they opened your app. <em>This captures the first session they have using a version of your app with the Braze SDK integrated.</em> (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Sessions
   - name: First Used Specific App
-    description: Segments your users by the earliest recorded time that they opened any of your apps within your workspace. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the earliest recorded time that they opened any of your apps within your workspace. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Sessions
   - name: Last Used App
-    description: Segments your users by the most recent time that they have opened your app. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the most recent time that they have opened your app. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Sessions
   - name: Last Used Specific App
-    description: Segments your users by the most recent time that they have opened a specific, designated app. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the most recent time that they have opened a specific, designated app. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Sessions
   - name: Median Session Duration
@@ -147,11 +147,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: Segments your users by when they received a specific Canvas component.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message. Use "Entered Canvas Variation" to isolate user profiles from duplicates.<br><br> This filter doesn't consider when users received other Canvas components.
+    description: Segments your users by when they received a specific Canvas component.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message. Use "Entered Canvas Variation" to isolate user profiles from duplicates.<br><br> This filter doesn't consider when users received other Canvas components.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: Segments your users by whether they have received a specific campaign.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message.<br><br> This filter doesn't consider when users received other campaigns.
+    description: Segments your users by whether they have received a specific campaign.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message.<br><br> This filter doesn't consider when users received other campaigns.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -159,7 +159,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
-    description: Segments your users by when they received a specific campaign or Canvas with a specific tag. This filter doesn't consider when users received other campaigns or Canvases. (24-hour period)
+    description: Segments your users by when they received a specific campaign or Canvas with a specific tag. This filter doesn't consider when users received other campaigns or Canvases. (24-hour period)<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
@@ -167,27 +167,27 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Email
-    description: Segments your users by the last time that they have received one of your email messages. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they have received one of your email messages. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last Received Push
-    description: Segments your users by the last time that they received one of your push notifications. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they received one of your push notifications. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last In App Message Impression
-    description: Segments your users by the last time they viewed an in-app message.
+    description: Segments your users by the last time they viewed an in-app message.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last Received SMS
-    description: Segments your users by the time that the last SMS, MMS, or RCS message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the time that the last SMS, MMS, or RCS message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last Received Webhook
-    description: Segments your users by the last time that Braze sent a webhook for that user. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that Braze sent a webhook for that user. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last Received WhatsApp
-    description: Segments your users by the last time that they received a WhatsApp message. This is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they received a WhatsApp message. This is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device. (24-hour period)<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Live Activities Push to Start Registered for App
@@ -235,7 +235,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Sent Specific SMS Inbound Keyword Category
-    description: Segments your users by when they last sent an SMS, MMS, or RCS to a specific subscription group within a specific keyword category.
+    description: Segments your users by when they last sent an SMS, MMS, or RCS to a specific subscription group within a specific keyword category.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Converted From Campaign
@@ -255,7 +255,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Enrolled in Any Control Group
-    description: Segments your users by the last time that they fell into the control group in a campaign. <br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they fell into the control group in a campaign. <br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -263,11 +263,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Any Message
-    description: Segments your users by determining the last message that was received. (24-hour period)<br><br>For Content Cards, Banners, and in-app messages, this is when a user last logged an impression, not when the card or in-app message was last sent.<br><br>For push and webhooks, this is when any message was sent to the user.<br><br> For WhatsApp, this is when the last message API request was sent to WhatsApp, not when the message was delivered to the user's device.<br><br> For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered).<br><br> For SMS and RCS, this is when the last message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Example:<br>Last Received Message Less than 1 Day ago = less than 24 hours ago<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by determining the last message that was received. (24-hour period)<br><br>For Content Cards, Banners, and in-app messages, this is when a user last logged an impression, not when the card or in-app message was last sent.<br><br>For push and webhooks, this is when any message was sent to the user.<br><br> For WhatsApp, this is when the last message API request was sent to WhatsApp, not when the message was delivered to the user's device.<br><br> For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered).<br><br> For SMS and RCS, this is when the last message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Example:<br>Last Received Message Less than 1 Day ago = less than 24 hours ago<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Last Engaged With Message
-    description: Segments your users by the last time they have clicked or opened one of your messaging channels (Banners, Content Card, email, in-app, SMS, RCS, push, WhatsApp).<br><br>For Content Cards, Banners, and in-app messages, this is when a user logs an impression, not when the card or in-app message is sent.<br><br> For push and webhooks, this is when the message is sent to the user.<br><br> For WhatsApp, this is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device.<br><br> For email messaging, the open event includes both machine opens and non-machine opens. (24-hour period)<br><br>For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered). This also includes the option to filter by "opened any email (machine opens)" and "opened any email (other opens)".<br><br> For SMS and RCS, this is when the user last selected any shortened link in a message that has user click tracking turned on.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time they have clicked or opened one of your messaging channels (Banners, Content Card, email, in-app, SMS, RCS, push, WhatsApp).<br><br>For Content Cards, Banners, and in-app messages, this is when a user logs an impression, not when the card or in-app message is sent.<br><br> For push and webhooks, this is when the message is sent to the user.<br><br> For WhatsApp, this is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device.<br><br> For email messaging, the open event includes both machine opens and non-machine opens. (24-hour period)<br><br>For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered). This also includes the option to filter by "opened any email (machine opens)" and "opened any email (other opens)".<br><br> For SMS and RCS, this is when the user last selected any shortened link in a message that has user click tracking turned on.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Time zone:<br>Company's Time Zone<br><br>Time interval filters are limited to 100 years.
     tags:
       - Retargeting
   - name: Clicked card
@@ -287,7 +287,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
-    description: Segments your users by the date on which they opted into email.
+    description: Segments your users by the date on which they opted into email.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Channel subscription behavior
   - name: Email Subscription Status
@@ -295,7 +295,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Unsubscribed Date
-    description: Segments your users by the date on which they unsubscribed from future emails.
+    description: Segments your users by the date on which they unsubscribed from future emails.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
@@ -311,7 +311,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Opt In Date
-    description: Segments your users by the date on which they opted into push.
+    description: Segments your users by the date on which they opted into push.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
@@ -319,7 +319,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
-    description: Segments your users by the date on which they unsubscribed from future push notifications.
+    description: Segments your users by the date on which they unsubscribed from future push notifications.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Channel subscription behavior
   - name: Purchased Product
@@ -343,19 +343,19 @@ glossaries:
     tags:
       - Purchase behavior
   - name: First Made Purchase
-    description: Segments your users by the earliest time that a user made a purchase in your app.
+    description: Segments your users by the earliest time that a user made a purchase in your app.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Purchase behavior
   - name: First Purchase For App
-    description: Segments your users by the earliest time that a user made a purchase from your app.
+    description: Segments your users by the earliest time that a user made a purchase from your app.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Purchase behavior
   - name: Last Made Purchase
-    description: Filter users by the last time they made a purchase.
+    description: Filter users by the last time they made a purchase.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Purchase behavior
   - name: Last Purchased Product
-    description: Filter users by when they last purchased a specific product.
+    description: Filter users by when they last purchased a specific product.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Purchase behavior
   - name: Money Spent
@@ -455,7 +455,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: Segments your users by whether they have uninstalled your app and have not reinstalled it.
+    description: Segments your users by whether they have uninstalled your app and have not reinstalled it.<br><br>Time interval filters are limited to 100 years.
     tags:
       - Uninstall
   - name: Device Carrier
