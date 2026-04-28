@@ -36,7 +36,7 @@ page_order: 3
     - 채널
     - 태그
 
-    **행** 선택에 따라 [조회할 수 있는 측정기준](#metrics-availability)이 달라집니다. 예를 들어, 다변량 측정기준은 **Canvases**를 보고하거나 **배리언트** 드릴다운이 포함된 **Campaigns**를 보고할 때만 조회할 수 있습니다. **Campaigns 및 Canvases**를 보고할 때는 해당 Campaign과 Canvas에 다변량 테스트가 있더라도 이러한 측정기준을 조회할 수 없습니다.
+    **행** 선택에 따라 [조회할 수 있는 측정기준](#metrics-availability)이 달라집니다. 예를 들어, 다변량 측정기준은 **Canvases**를 보고하거나 **배리언트** 드릴다운이 포함된 **Campaigns**를 보고할 때만 조회할 수 있습니다. **Campaigns 및 Canvases**를 보고할 때는 해당 Campaign과 Canvases에 다변량 테스트가 있더라도 이러한 측정기준을 조회할 수 없습니다.
 
 ![보고서의 행과 그룹을 선택할 수 있는 필드가 있는 "행 및 열" 섹션.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -58,20 +58,20 @@ page_order: 3
 {: start="5"}
 5. **열** 섹션에서 **측정기준 커스터마이즈**를 선택합니다.
 
-!["측정기준 커스터마이즈" 섹션에 여러 측정기준을 선택할 수 있는 옵션이 표시됩니다.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
+![여러 측정기준을 선택할 수 있는 옵션이 있는 "측정기준 커스터마이즈" 섹션.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
 
 {: start="6"}
 6. 카테고리별로 측정기준을 탐색하고 해당 체크박스를 선택하여 보고서에 측정기준을 추가합니다.
     - 점선 아이콘을 위아래로 드래그하여 측정기준과 열의 순서를 변경합니다.
 7. **보고서 콘텐츠**에서 보고서에 데이터를 포함할 날짜 범위를 구성합니다.
 8. 그런 다음, 3단계에서의 선택에 따라 Campaign, Canvas 또는 둘 다를 수동 또는 자동으로 보고서에 추가합니다.
-    - **수동 추가:** **마지막 발송** 날짜 및 태그 또는 채널 필터를 사용하거나 Campaign 또는 Canvas 이름을 검색하여 보고서에 포함할 각 Campaign 또는 Canvas를 선택합니다.<br><br>!["수동으로 Campaign 및 Canvas 추가" 섹션에 선택할 수 있는 Campaign 목록이 표시됩니다.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
+    - **수동 추가:** **마지막 발송** 날짜 및 태그 또는 채널 필터를 사용하거나 Campaign 또는 Canvas 이름을 검색하여 보고서에 포함할 각 Campaign 또는 Canvas를 선택합니다.<br><br>![선택할 수 있는 Campaign 목록이 있는 "수동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **자동 추가:** 보고서에 포함할 Campaign 또는 Canvas에 대한 규칙을 설정합니다. 이 페이지에서 하나의 필드만 선택하면 됩니다.
-        - 추가 Campaign 또는 Canvas가 이 화면에서 설정한 조건을 충족하면 향후 보고서 실행 시 자동으로 추가됩니다.<br><br>!["자동으로 Campaign 및 Canvas 추가" 섹션에 보고서에 추가할 Campaign 및 Canvas에 대한 규칙을 설정하는 필드가 표시됩니다.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - 추가 Campaign 또는 Canvases가 이 화면에서 설정한 조건을 충족하면 향후 보고서 실행 시 자동으로 추가됩니다.<br><br>![보고서에 추가할 Campaign 및 Canvases에 대한 규칙을 설정하는 필드가 있는 "자동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. **저장 및 실행**을 선택하여 보고서를 실행합니다.
 
 {% alert note %}
-구성 단계에서 선택한 날짜 범위와 Campaign 또는 Canvas 수에 따라 보고서 실행에 몇 분이 소요될 수 있습니다.
+구성 단계에서 선택한 날짜 범위와 Campaign 또는 Canvases 수에 따라 보고서 실행에 몇 분이 소요될 수 있습니다.
 {% endalert %}
 
 ## 측정기준 가용성 {#metrics-availability}
@@ -99,7 +99,7 @@ page_order: 3
 
 ### 삭제된 메시지 배리언트 {#deleted-message-variants}
 
-삭제된 메시지 배리언트의 통계는 Campaign 또는 Canvas별로 보고서를 분류할 때 표시되지 않습니다. 그러나 채널 수준 합계에는 배리언트 삭제 여부와 관계없이 모든 통계가 포함됩니다. 예를 들어, 이메일의 *발송*에는 모든 이메일 발송이 포함되지만, Campaign별로 통계를 분류하면 삭제된 메시지 배리언트의 발송이 필터링되므로 숫자가 더 낮을 수 있습니다.
+삭제된 메시지 배리언트의 통계는 Campaign 또는 Canvases별로 보고서를 분류할 때 표시되지 않습니다. 그러나 채널 수준 합계에는 배리언트 삭제 여부와 관계없이 모든 통계가 포함됩니다. 예를 들어, 이메일의 *발송*에는 모든 이메일 발송이 포함되지만, Campaign별로 통계를 분류하면 삭제된 메시지 배리언트의 발송이 필터링되므로 숫자가 더 낮을 수 있습니다.
 
 ## 보고서 조회하기 {#viewing-a-report}
 

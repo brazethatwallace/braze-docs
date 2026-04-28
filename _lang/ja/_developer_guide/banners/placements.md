@@ -29,7 +29,7 @@ platform:
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
-### ステップ 2: アプリの配置を更新する {#requestBannersRefresh}
+### ステップ2:アプリの配置を更新する {#requestBannersRefresh}
 
 配置は、以下に説明する更新メソッドを呼び出すことで更新できます。これらの配置は、ユーザーのセッションが期限切れになったとき、または`changeUser`メソッドを使用して識別済みユーザーを変更したときに自動的にキャッシュされます。
 
@@ -112,7 +112,7 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: 更新をリッスンする {#subscribeToBannersUpdates}
+### ステップ3:更新をリッスンする {#subscribeToBannersUpdates}
 
 {% alert tip %}
 このガイドのSDKメソッドを使ってバナーを挿入する場合、すべての分析イベント（インプレッションやクリックなど）は自動的に処理され、インプレッションはバナーが表示されているときのみ記録されます。
@@ -245,7 +245,7 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4: 配置IDを使って挿入する {#insertBanner}
+### ステップ4:配置IDを使って挿入する {#insertBanner}
 
 {% alert tip %}
 完全なステップバイステップのチュートリアルについては、[配置IDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)を参照してください。
@@ -498,7 +498,7 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5: テストバナーを送信する（オプション） {#handling-test-cards}
+### ステップ5:テストバナーを送信する（オプション） {#handling-test-cards}
 
 バナーCampaignを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
 
@@ -595,7 +595,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### クリックを記録する {#logging-clicks}
+#### クリックを記録する
 
 ユーザーがカスタムバナー（または特定のボタン）をタップしたときに、プラットフォームのバナークリックメソッドを呼び出します。クリックが特定のボタンに対するものである場合は、オプションの`buttonId`を渡して、分析がクリックを正しく帰属できるようにします。
 
@@ -659,7 +659,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 バナーの非表示は現在、早期アクセス段階です。早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
-### 前提条件 {#prerequisites}
+### 前提条件
 
 バナーの非表示を記録するために必要な最小SDKバージョンは以下の通りです。
 
@@ -670,7 +670,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 バナーがドラッグ＆ドロップエディターを使用しており、非表示ボタンコンポーネントが含まれている場合、追加のコードは不要です。ユーザーが非表示ボタンをクリックすると、メッセージが非表示になり、非表示がトリガーされ、分析用の非表示イベントが記録されます。
 
-#### カスタムコードブロック {#custom-code-blocks}
+#### カスタムコードブロック
 
 バナーが**カスタムコード**エディターブロックを使用している場合、バナーのHTML内から`brazeBridge.closeMessage()`を使って直接非表示をトリガーできます。
 
@@ -813,7 +813,7 @@ bannerView.onDismiss = { dismissedBanner in
 - `timestamp`やJSONオブジェクトなどのメタデータを使って条件分岐ロジックをトリガーする。
 - `ratio`や`format`などのメタデータに基づいてバナーの動作をコントロールする。
 
-### 前提条件 {#prerequisites}
+### 前提条件
 
 バナーCampaignに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
 

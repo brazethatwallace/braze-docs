@@ -340,6 +340,12 @@ Les utilisateurs qui ont intégré une solution de stockage de données dans le 
 - Toutes les exportations API ne renvoient pas d'URL de téléchargement dans le corps de la réponse et doivent être récupérées via le stockage de données.
 - Tous les rapports de tableau de bord et les rapports CSV sont envoyés par e-mail à l'utilisateur pour téléchargement (aucune autorisation de stockage n'est requise) et sauvegardés sur Data Storage.
 
+### Erreur `Unable to connect to S3, please validate that your credentials are correct` {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
+
+Si vous voyez cette erreur lors du téléchargement d'une exportation CSV, ouvrez l'intégration [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) sur la page **Partenaires technologiques** et sélectionnez **Test Credentials**. Le résultat explique ce qui a échoué lors de la validation — par exemple, la clé peut ne pas disposer de l'autorisation `GetObject`, ce qui empêche Braze de générer des liens de téléchargement.
+
+Mettez à jour votre politique IAM afin que l'utilisateur ou le rôle d'intégration puisse appeler `s3:GetObject` sur le compartiment S3 et le chemin d'objet configurés dans votre intégration Braze. Pour d'autres problèmes d'exportation, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+
 {% alert important %}
 **Exigences relatives au format JSON :** Pour les exportations JSON, Braze utilise le format JSONL (JSON délimité par des retours à la ligne), où chaque ligne contient un objet JSON distinct. Ce format diffère du JSON standard, qui est un tableau ou un objet JSON unique. Chaque ligne du fichier exporté est un objet JSON valide, mais le fichier dans son ensemble n'est pas un document JSON unique valide. Lorsque vous traitez ces fichiers, analysez chaque ligne individuellement en tant qu'objet JSON distinct plutôt que d'essayer d'analyser l'ensemble du fichier comme un document JSON unique.
 

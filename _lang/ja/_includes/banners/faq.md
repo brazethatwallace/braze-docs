@@ -22,7 +22,7 @@
 
 ## 既存のContent Cardsフィードでバナーを使用できますか？ {#can-i-use-banners-in-my-existing-content-card-feed}
 
-バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
+バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent CardsフィードをバナーにContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
 
 ## バナーに動画を含めることはできますか？ {#can-banners-include-video}
 
@@ -39,13 +39,17 @@
 ユーザーが新しいセッションを開始するか、アクション実行後にバナーをリフレッシュすると、Brazeは適格性を評価します。「購入」Segmentに一致する場合、優先度の高いバナーが表示されます。
 
 
-## ユーザーは手動でバナーを閉じることができますか？ {#can-users-manually-dismiss-a-banner}
+## ユーザーはバナーを閉じることができますか？ {#can-users-dismiss-a-banner}
 
 {% alert important %}
 ユーザーが手動でバナーを閉じる機能は、早期アクセス段階です。詳細については、[閉じる動作の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)を参照してください。早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 ユーザーが手動でバナーを閉じることができるのは、閉じる動作が有効で、ワークスペースが早期アクセスに参加している場合のみです。閉じる動作が有効でない場合やワークスペースで利用できない場合は、ユーザーSegmentの適格性を管理することでバナーの表示をコントロールできます。ユーザーがバナーCampaignのターゲティング条件を満たさなくなると、次のセッションではそのバナーが表示されなくなります。
+
+{% alert important %}
+[バナーの閉じる操作]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals)は現在、早期アクセス段階です。早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
+{% endalert %}
 
 例えば、ユーザーが購入するまでプロモーションバナーを表示する場合、`purchase_completed` などのイベントを記録することで、そのユーザーをターゲットSegmentから除外し、その後のセッションでバナーを非表示にできます。
 

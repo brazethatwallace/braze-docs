@@ -397,7 +397,7 @@ Ponte en contacto con <a href="/docs/braze_support/">soporte de Braze</a> para o
 
 {% api %}
 
-### Direct Opens
+### Direct Opens {#direct-opens}
 
 {% apitags %}
 iOS Push
@@ -501,7 +501,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### Influenced Opens
+### Influenced Opens {#influenced-opens}
 
 {% apitags %}
 iOS Push, Android Push
@@ -831,7 +831,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente reintentaremos dentro de las 72 horas, pero el número de intentos de reintento varía de un receptor a otro.
 
-Ten en cuenta que los _Rebotes blandos_ difieren de los _Aplazamientos_. Si no se entrega correctamente ningún correo electrónico durante este período de reintento, Braze envía un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contaban como múltiples rebotes blandos para un envío de campaña.
+Ten en cuenta que los *Rebotes blandos* difieren de los *Aplazamientos*. Si no se entrega correctamente ningún correo electrónico durante este período de reintento, Braze envía un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contaban como múltiples rebotes blandos para un envío de campaña.
 
 Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). También puedes excluir a estos usuarios de tu envío o consultar la cantidad de rebotes blandos de los últimos 30 días con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los "envíos" y las "entregas" de tus campañas de correo electrónico.
 
@@ -848,7 +848,7 @@ Email
 {% multi_lang_include analytics/metrics.md metric='Spam' %}
 
 {% alert note %}
-Las quejas de correo no deseado son gestionadas directamente por los proveedores de servicios de correo electrónico y luego transmitidas a Braze a través de un bucle de retroalimentación. La mayoría de los bucles de retroalimentación solo informan una parte de las quejas reales, por lo que la métrica de _Correo no deseado_ a menudo representa una fracción del total real. Solo los proveedores de servicios de correo electrónico pueden ver el volumen real de quejas de correo no deseado, lo que significa que _Correo no deseado_ debe verse como una métrica indicativa, no exhaustiva.
+Las quejas de correo no deseado son gestionadas directamente por los proveedores de servicios de correo electrónico y luego transmitidas a Braze a través de un bucle de retroalimentación. La mayoría de los bucles de retroalimentación solo informan una parte de las quejas reales, por lo que la métrica de *Correo no deseado* a menudo representa una fracción del total real. Solo los proveedores de servicios de correo electrónico pueden ver el volumen real de quejas de correo no deseado, lo que significa que *Correo no deseado* debe verse como una métrica indicativa, no exhaustiva.
 {% endalert %}
 
 {::nomarkdown}
@@ -924,7 +924,7 @@ Email, Content Cards, SMS/MMS, LINE
 Content Cards
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumentará en dos. La reelegibilidad te permite incrementar los _Descartes totales_ una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumentará en dos. La reelegibilidad te permite incrementar los *Descartes totales* una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente.
 
 {::nomarkdown}
 <span class="calculation-line">

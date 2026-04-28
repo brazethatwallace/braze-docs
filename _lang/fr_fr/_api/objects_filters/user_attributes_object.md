@@ -41,15 +41,23 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après o
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects
-  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
-  // Removing from an array of objects
-  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
+  // Removing from an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
 - [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+
+{% alert note %}
+Pour les requêtes REST API vers [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), utilisez les clés `add`, `remove` et `update` pour les opérations sur les tableaux. Les clés préfixées par `$` (telles que `$add`) sont destinées aux payloads des méthodes SDK.
+
+Lorsqu'une requête REST API utilise `$add`, `$remove` ou `$update`, Braze peut renvoyer `success` sans appliquer la mise à jour du tableau.
+
+Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) et l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+{% endalert %}
 
 Pour supprimer un attribut de profil, définissez-le sur `null`. Certains champs, tels que `external_id` et `user_alias`, ne peuvent pas être supprimés après avoir été ajoutés à un profil utilisateur.
 
@@ -242,7 +250,7 @@ En guise d'alternative à la migration via l'API, nous vous recommandons d'inté
 {% endalert %}
 
 {% tabs local %}
-{% tab External ID present %}
+{% tab ID externe présent %}
 Pour les utilisateurs identifiés, définissez l'indicateur `push_token_import` sur `false` (ou omettez le paramètre) et spécifiez les valeurs `external_id`, `app_id` et `token` dans l'objet `attributes` utilisateur.
 
 Par exemple :
@@ -268,7 +276,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 {% endtab %}
 
-{% tab External ID missing %}
+{% tab ID externe absent %}
 Lors de l'importation de jetons de notification push provenant d'autres systèmes, un `external_id` n'est pas toujours disponible. Dans ce cas, définissez votre indicateur `push_token_import` sur `true` et spécifiez les valeurs `app_id` et `token`. Braze crée un profil utilisateur temporaire et anonyme pour chaque jeton afin de vous permettre de continuer à envoyer des messages à ces personnes. Si le jeton existe déjà dans Braze, la requête est ignorée.
 
 Par exemple :
@@ -319,7 +327,7 @@ La remarque suivante s'applique uniquement aux applications Android. Les applica
 
 Si vous devez envoyer des notifications push Android à vos utilisateurs avant que l'intégration du SDK Braze ne soit terminée, utilisez des paires clé-valeur pour valider les notifications push.
 
-Vous devez disposer d'un récepteur pour gérer et afficher les payloads de notification push. Pour notifier le récepteur du payload, ajoutez les paires clé-valeur nécessaires à la campagne push. Les valeurs de ces paires dépendent du partenaire push spécifique que vous utilisiez avant Braze.
+Vous devez disposer d'un récepteur pour gérer et afficher les payloads de notification push. Pour notifier le récepteur du payload, ajoutez les paires clé-valeur nécessaires à la Campaign push. Les valeurs de ces paires dépendent du partenaire push spécifique que vous utilisiez avant Braze.
 
 {% alert note %}
 Pour certains fournisseurs de notifications push, Braze doit aplatir les paires clé-valeur afin qu'elles puissent être correctement interprétées. Pour aplatir les paires clé-valeur d'une application Android spécifique, contactez votre gestionnaire de la satisfaction client.

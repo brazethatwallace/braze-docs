@@ -595,7 +595,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### 클릭 기록 {#logging-clicks}
+#### 클릭 기록
 
 사용자가 커스텀 배너(또는 특정 버튼)를 탭할 때 플랫폼의 배너 클릭 메서드를 호출하세요. 클릭이 특정 버튼에 대한 것인 경우 선택적 `buttonId`를 전달하여 분석에서 클릭을 올바르게 귀속시킬 수 있습니다.
 
@@ -659,7 +659,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 배너 해제는 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
-### 필수 조건 {#prerequisites}
+### 필수 조건
 
 배너 해제를 기록하는 데 필요한 최소 SDK 버전은 다음과 같습니다:
 
@@ -670,7 +670,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 배너가 드래그 앤 드롭 편집기를 사용하고 해제 버튼 구성요소를 포함하는 경우 추가 코드가 필요하지 않습니다. 사용자가 해제 버튼을 클릭하면 메시지가 숨겨지고, 해제가 트리거된 후 분석을 위한 해제 이벤트가 기록됩니다.
 
-#### 커스텀 코드 블록 {#custom-code-blocks}
+#### 커스텀 코드 블록
 
 배너가 **커스텀 코드** 편집기 블록을 사용하는 경우 배너의 HTML 내에서 `brazeBridge.closeMessage()`를 사용하여 직접 해제를 트리거할 수 있습니다.
 
@@ -813,7 +813,7 @@ bannerView.onDismiss = { dismissedBanner in
 - `timestamp` 또는 JSON 오브젝트와 같은 메타데이터를 사용하여 조건 로직을 트리거합니다.
 - `ratio` 또는 `format`과 같은 포함된 메타데이터를 기반으로 배너의 동작을 제어합니다.
 
-### 필수 조건 {#prerequisites}
+### 필수 조건
 
 배너 Campaign에 [커스텀 속성을 추가]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties)해야 합니다. 또한 커스텀 속성에 접근하기 위해 필요한 최소 SDK 버전은 다음과 같습니다:
 

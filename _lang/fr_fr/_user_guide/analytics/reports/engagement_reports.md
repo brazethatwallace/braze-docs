@@ -104,8 +104,8 @@ Par défaut, les données affichées dans les rapports d'engagement sont quotidi
 
 Il existe deux options pour planifier votre rapport :
 
-- **Send immediately :** Une fois le rapport lancé, Braze enverra ce rapport immédiatement.
-- **Send at a designated time :** Cette option vous offre la flexibilité de choisir la fréquence à laquelle vous recevez ce rapport. Vous pouvez choisir d'envoyer ce rapport tous les X jours, semaines ou mois. Vous pouvez également définir quand arrêter l'envoi du rapport.
+- **Send immediately :** une fois le rapport lancé, Braze enverra ce rapport immédiatement.
+- **Send at a designated time :** cette option vous offre la flexibilité de choisir la fréquence à laquelle vous recevez ce rapport. Vous pouvez choisir d'envoyer ce rapport tous les X jours, semaines ou mois. Vous pouvez également définir quand arrêter l'envoi du rapport.
 
 ![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 

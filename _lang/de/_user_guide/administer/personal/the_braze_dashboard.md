@@ -60,7 +60,7 @@ Um visuelle Unordnung zu reduzieren, insbesondere bei Aufgaben wie dem Entwerfen
 
 ![Symbole zum Minimieren und Maximieren des Menüs]({% image_buster /assets/img/minimize_expand_menu.png %}){: style="max-width:60%;border:none"}
 
-#### Responsive Navigation
+#### Responsive Navigation {#responsive-navigation}
 
 Die Navigation passt sich nahtlos an verschiedene Bildschirmgrößen an. Auf kleineren Bildschirmen wird die Seitennavigation automatisch eingeklappt. Drücken Sie <i class="fa-solid fa-bars" aria-label="Navigationsmenü öffnen"></i>, um das Menü bei Bedarf zu öffnen.
 
@@ -120,12 +120,12 @@ table td {
 
 <div class="small_table"></div>
 
-| Aktion                        | Tastaturkürzel                                                                |
-| ----------------------------- | ----------------------------------------------------------------------------- |
-| Suchmenü öffnen               | {::nomarkdown} <ul> <li> Mac: <kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> <li>Windows: <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> </ul> {:/}  |
+| Aktion                           | Tastaturkürzel                                                                |
+| -------------------------------- | ----------------------------------------------------------------------------- |
+| Suchmenü öffnen                  | {::nomarkdown} <ul> <li> Mac: <kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> <li>Windows: <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> </ul> {:/}  |
 | Zwischen Suchergebnissen bewegen | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
-| Ein Suchergebnis auswählen    | <kbd>Enter</kbd>    |
-| Suchmenü schließen            | <kbd>Esc</kbd>  |
+| Ein Suchergebnis auswählen       | <kbd>Enter</kbd>    |
+| Suchmenü schließen               | <kbd>Esc</kbd>  |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Produktivitäts-Features {#productivity-features}
@@ -151,7 +151,7 @@ Wenn Sie mit mehreren Workspaces arbeiten, können Sie die am häufigsten genutz
 So fügen Sie bevorzugte Workspaces hinzu:
 
 1. [Greifen Sie auf Ihre Profileinstellungen zu](#access-your-profile-settings).
-2. Suchen Sie im Abschnitt **Account Profile** das Feld **Favorite workspaces**.
+2. Suchen Sie im Abschnitt **Kontoprofil** das Feld **Bevorzugte Workspaces**.
 3. Wählen Sie die Workspaces aus, die Sie als Favoriten markieren möchten.
 
 ### Auf Ihre Profileinstellungen zugreifen {#access-your-profile-settings}
@@ -159,7 +159,7 @@ So fügen Sie bevorzugte Workspaces hinzu:
 So verwalten Sie Ihre Kontoeinstellungen, Präferenzen für Benachrichtigungen und persönliche Informationen:
 
 1. Wählen Sie Ihr Profilsymbol im globalen Header aus.
-2. Wählen Sie **Manage your account**, um auf Ihre Profilseite zuzugreifen.
+2. Wählen Sie **Konto verwalten**, um auf Ihre Profilseite zuzugreifen.
 
 Von Ihrer Profilseite aus können Sie Ihre E-Mail-Einstellungen aktualisieren, die Zwei-Faktor-Authentifizierung konfigurieren, Ihre API-Schlüssel einsehen und andere Kontodetails verwalten.
 
