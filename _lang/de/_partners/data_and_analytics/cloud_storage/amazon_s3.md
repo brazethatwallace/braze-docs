@@ -340,6 +340,12 @@ Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und APIs, Das
 - Alle API-Exporte geben keine Download-URL im Antwortkörper zurück und müssen über den Datenspeicher abgerufen werden.
 - Alle Dashboard-Berichte und CSV-Berichte werden zum Herunterladen an die E-Mail der Nutzer:in gesendet (keine Speicherberechtigungen erforderlich) und im Datenspeicher gesichert.
 
+### Fehler: `Unable to connect to S3, please validate that your credentials are correct` {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
+
+Wenn dieser Fehler beim Herunterladen eines CSV-Exports angezeigt wird, öffnen Sie die [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)-Integration auf der Seite **Technology Partners** und wählen Sie **Test Credentials**. Das Ergebnis erklärt, was bei der Validierung fehlgeschlagen ist – beispielsweise könnte dem Schlüssel die Berechtigung `GetObject` fehlen, was Braze daran hindert, Download-Links zu generieren.
+
+Aktualisieren Sie Ihre IAM-Richtlinie, damit die Integrations-Nutzer:in oder -Rolle `s3:GetObject` auf dem in Ihrer Braze-Integration konfigurierten S3-Bucket und Objektpfad aufrufen kann. Weitere Informationen zu Exportproblemen finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+
 {% alert important %}
 **JSON-Format-Anforderung:** Für JSON-Exporte verwendet Braze das JSONL-Format (Newline-delimited JSON), bei dem jede Zeile ein eigenes JSON-Objekt enthält. Dieses Format unterscheidet sich vom Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Wenn Sie diese Dateien verarbeiten, parsen Sie jede Zeile einzeln als separates JSON-Objekt, anstatt zu versuchen, die gesamte Datei als ein einziges JSON-Dokument zu parsen.
 

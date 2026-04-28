@@ -39,13 +39,17 @@ Por exemplo, para mostrar um Banner especial apenas para usuários que completar
 Quando o usuário inicia uma nova sessão ou atualiza os Banners após realizar a ação, a Braze avalia sua elegibilidade. Se ele corresponder ao segmento "Compra", o Banner de alta prioridade será exibido.
 
 
-## Os usuários podem dispensar manualmente um Banner? {#can-users-manually-dismiss-a-banner}
+## Os usuários podem dispensar um Banner? {#can-users-dismiss-a-banner}
 
 {% alert important %}
 Permitir que os usuários dispensem manualmente um Banner está em acesso antecipado. Consulte [Configurar comportamento de dispensa]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para mais detalhes. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
 Os usuários podem dispensar manualmente os Banners apenas se o comportamento de dispensa estiver ativado e seu espaço de trabalho estiver participando do acesso antecipado. Se a dispensa não estiver ativada ou disponível para o seu espaço de trabalho, você pode controlar a visibilidade do Banner gerenciando a elegibilidade do segmento de usuários. Quando um usuário não atende mais aos critérios de direcionamento de uma campanha de Banner, ele não verá o Banner novamente na próxima sessão.
+
+{% alert important %}
+[Dispensas de Banner]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) estão atualmente em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
+{% endalert %}
 
 Por exemplo, se você exibir um Banner promocional até que um usuário faça uma compra, registrar um evento como `purchase_completed` pode remover esse usuário do segmento direcionado, ocultando efetivamente o Banner nas sessões seguintes.
 

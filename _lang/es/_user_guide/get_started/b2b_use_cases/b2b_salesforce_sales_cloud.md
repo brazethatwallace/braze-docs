@@ -98,7 +98,7 @@ Para configurar un webhook de Braze para Salesforce Sales Cloud que actualice cl
 
 Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente potencial a "MQL" (Marketing Qualified Lead) después de que un cliente potencial supere un determinado umbral. Esta es una parte fundamental de nuestro caso de uso del [flujo de trabajo de puntuación de clientes potenciales B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
 
-### Paso 1: Recopila tu `client_id` y `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Paso 1: Recopila tu `client_id` y `client_secret`
 
 1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Manager**.
 2. Busca tu aplicación Braze recién creada y selecciona **View**.
@@ -106,13 +106,13 @@ Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente po
 4. En la página resultante, toma nota de tu **Consumer Key** y tu **Consumer Secret**.
     - La **Consumer Key** es tu `client_id`, y el **Consumer Secret** es tu `client_secret`.
 
-### Paso 2: Configura tu plantilla de webhook {#step-2-set-up-your-webhook-template}
+### Paso 2: Configura tu plantilla de webhook
 
 1. En Braze, ve a **Plantillas**, selecciona **Plantillas de Webhook** y luego selecciona **+ Crear plantilla de webhook**.
 2. Proporciona un nombre para la plantilla, como "Salesforce Sales Cloud > Actualizar cliente potencial a MQL".
 3. En la pestaña **Redactar**, introduce los siguientes datos:
 
-#### Redactar webhook {#compose-webhook}
+#### Redactar webhook
 
 | Campo | Detalles |
 | --- | --- |
@@ -121,7 +121,7 @@ Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente po
 | Cuerpo de la solicitud | Pares clave-valor de JSON |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Valores clave de la propiedad del cuerpo {#body-property-key-values}
+#### Valores clave de la propiedad del cuerpo
 
 Selecciona **+ Add New Body Property** para el siguiente par clave-valor. Ten en cuenta que `Lead_Stage__c` es un nombre de ejemplo. El campo personalizado que utilizas para hacer seguimiento de los MQL en Salesforce puede tener un nombre diferente, así que asegúrate de que coincidan.
 
@@ -130,7 +130,7 @@ Selecciona **+ Add New Body Property** para el siguiente par clave-valor. Ten en
 | `Lead_Stage__c` | `MQL` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Encabezados de solicitud {#request-headers}
+#### Encabezados de solicitud
 
 Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de solicitud.
 

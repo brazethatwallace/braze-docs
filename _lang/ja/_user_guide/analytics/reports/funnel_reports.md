@@ -34,8 +34,8 @@ CampaignまたはCanvasでコントロールグループや複数のバリアン
 
 ファネルレポートは、ダッシュボードの以下の場所から利用できます。
 
-- 特定のCampaignの**Campaign分析**ページ
-- 特定のCanvasの**Canvas詳細**ページ（**Analyze Variants**ボタンを選択）
+- 特定のCampaignの**Campaign Analytics**ページ
+- 特定のCanvasの**Canvas Details**ページ（**Analyze Variants**ボタンを選択）
 
 {% alert important %}
 ファネルレポートは[API Campaigns]({{site.baseurl}}/api/api_campaigns/)では利用できません。

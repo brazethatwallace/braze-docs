@@ -4713,6 +4713,48 @@ def check_completeness(english_content, translated_content):
     return []
 
 
+_IMG_BUSTER_ALT_RE = re.compile(
+    r"!\[([^\]]*)\]\(\{%\s*image_buster\b",
+    re.IGNORECASE,
+)
+# Lowercase Latin snake_case with multiple segments (internal slug style).
+_SNAKE_CASE_IMAGE_ALT_RE = re.compile(
+    r"^[a-z][a-z0-9]*(?:_[a-z][a-z0-9]*)+$",
+)
+
+
+def check_image_buster_alt_identifier_style(translated_path, translated_content):
+    """Warn when ``image_buster`` image alts look like English slug identifiers.
+
+    Models often copy ``![engagement_reports_foo]({% image_buster ...`` verbatim
+    into localized docs; screen readers and Copilot expect a short descriptive
+    phrase instead (auto-translate PR #13407). Only runs for paths under
+    ``_lang/``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel:
+        return []
+    warnings = []
+    seen = set()
+    for m in _IMG_BUSTER_ALT_RE.finditer(translated_content):
+        alt = m.group(1).strip()
+        if len(alt) < 18 or "_" not in alt:
+            continue
+        if not _SNAKE_CASE_IMAGE_ALT_RE.match(alt):
+            continue
+        if alt in seen:
+            continue
+        seen.add(alt)
+        preview = alt if len(alt) <= 72 else f"{alt[:69]}..."
+        warnings.append(
+            f"image_alt — `{preview}` looks like an English slug/identifier; "
+            f"use descriptive localized alt (PR #13407)"
+        )
+        if len(warnings) >= 12:
+            break
+    return warnings
+
+
 def check_untranslated(english_content, translated_content):
     """Detect large blocks of English prose left verbatim in the translation."""
     _, en_body = _extract_front_matter(english_content)
@@ -6321,6 +6363,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["warnings"].extend(
         check_completeness(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_image_buster_alt_identifier_style(
+            str(translated_path), translated_content
+        )
     )
     findings["warnings"].extend(
         check_untranslated(english_content, translated_content)

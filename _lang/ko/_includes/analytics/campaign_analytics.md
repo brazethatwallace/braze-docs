@@ -85,7 +85,7 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 | **현재 오디언스** | Braze가 워크스페이스 프로필의 전체 스캔으로 기본 통계를 계산할 수 있으므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-샘플링 동작, **정확한 통계 계산** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/)을 참조하세요.
+샘플링 동작, **정확한 통계 계산** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)을 참조하세요.
 
 {% if include.channel == "Content Card" %}
 
@@ -194,6 +194,10 @@ The **Message Performance** panel outlines how well your message has performed a
 히트맵을 사용하면 단일 이메일 캠페인에서 각 링크가 얼마나 성공적인지 확인할 수 있습니다. **메시지 분석** 섹션에서 **이메일 성과** 패널로 이동하세요. **미리보기 & 히트맵**을 선택하여 이메일 캠페인의 미리보기와 히트맵을 확인할 수 있습니다. 또는 배리언트 이름의 하이퍼링크를 선택하여 히트맵을 볼 수도 있습니다.
 
 이 보기에서 **히트맵 표시** 토글을 사용하면 캠페인 기간 동안의 전체 클릭 빈도와 위치를 시각적으로 확인할 수 있습니다. **총 클릭 수별 링크 테이블** 패널에서는 이메일 캠페인의 모든 링크를 확인하고 총 클릭 수로 정렬할 수 있습니다. 이를 통해 사용자가 어디로 이동하는지에 대한 추가 인사이트를 얻을 수 있습니다. 히트맵 사본을 저장하려면 다운로드 버튼을 선택하세요.
+
+{% alert note %}
+링크가 동적 URL에 Liquid를 사용하는 경우, 클릭된 URL이 메시지의 렌더링된 링크와 충분히 일치하지 않아 히트맵이 해당 링크와 클릭을 연결하지 못할 수 있으므로, 해당 링크가 히트맵에 표시되지 않을 수 있습니다. 전체 그림을 보려면 **총 클릭 수별 링크 테이블** 패널의 클릭 데이터를 사용하세요.
+{% endalert %}
 
 ![이메일 캠페인과 총 클릭 수가 포함된 링크 별칭 예시 패널이 있는 미리보기 및 히트맵 페이지 예시.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
@@ -370,7 +374,7 @@ _고유 수신자_는 실제로 본 배너를 의미합니다.
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
             </td>
         </tr>
         <tr>
@@ -437,6 +441,22 @@ _발송 − (전달 + 하드바운스) ≈ 소프트바운스_
 열람 추적 픽셀이 로드되지 않으면 열람 없이 클릭이 기록될 수 있습니다. 예를 들어, Gmail에서 메시지가 잘리거나 사용자가 이미지를 비활성화한 경우(열람 추적 픽셀은 보통 푸터에 위치)가 이에 해당합니다. 일부 클라이언트는 이미지를 프록시 처리하므로(예: Apple Mail), 사용자가 메일을 읽을 때가 아니라 서버가 처음 픽셀을 가져올 때 열람이 기록될 수 있습니다. 기업 도메인은 기본적으로 이미지를 차단하는 경우가 많습니다.
 
 클릭과 열람이 서로 다른 날에 발생할 수도 있습니다. 사용자가 5월 16일에 이미지가 꺼진 상태에서 클릭하고(열람 없음), 5월 17일에 웹메일에서 열람할 수 있습니다(그때 열람이 기록됨).
+
+##### _고유 클릭 수_가 _고유 열람 수_보다 높은 경우 {#higher-unique-clicks-than-unique-opens}
+
+_고유 클릭 수_는 열람이 과소 카운트되거나 클릭이 부풀려질 때 _고유 열람 수_보다 높을 수 있습니다:
+
+**메일함에서 열람 추적 픽셀을 로드하지 않은 경우**
+
+다음과 같은 경우에 발생할 수 있습니다:
+
+- 메시지가 길어서 열람 추적 픽셀이 끝부분에 위치하는 경우. 클라이언트가 메시지를 잘라내면 픽셀이 잘립니다.
+- 메시지가 스팸함에 도착한 경우. 스팸함에서는 원격 이미지(열람 추적 픽셀 포함)가 로드되지 않는 경우가 많습니다.
+- 메일함이 더 엄격한 보안을 사용하는 경우(기업 계정에서 흔함). 사용자가 아직 이미지 로드를 선택하지 않은 경우입니다.
+
+**보안 또는 봇 활동이 링크에 영향을 미치는 경우**
+
+일부 이메일 보안 제품은 위협을 스캔하기 위해 링크를 따라갑니다. 이러한 요청은 이미지를 로드하지 않고 클릭을 기록할 수 있으므로, 일치하는 열람 없이 클릭 활동이 나타날 수 있습니다.
 
 ##### 연기 {#deferrals}
 
@@ -585,7 +605,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
     <tbody>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#bounces">Bounces</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Bounces' %} <a href="#bounced-push">반송된 푸시 알림</a>을 참조하세요.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Bounces' %} <a href="#bounced-push">반송된 푸시 알림</a> 을 참조하세요.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#direct-opens">Direct Opens</a></td>

@@ -34,14 +34,14 @@ table td {
 | Top-/Flop-Messaging für Käufe | Dieser Bericht zeigt Kaufmetriken für die besten oder schlechtesten Campaigns, Canvases oder Canvas-Schritte. Jede Zeile ist eine Campaign, ein Canvas oder ein Canvas-Schritt. Sie müssen angeben, ob die besten oder schlechtesten Performer angezeigt werden sollen, und die spezifische Metrik, für die diese Analyse durchgeführt werden soll (z. B. *Eindeutige Käufe nach Empfang*, *Umsatz nach Empfang*, *Eindeutige Empfänger:innen*). <br><br> Die Zeilen in Top-Performer-Berichten werden von den besten zu den schlechtesten sortiert, während die Zeilen in Flop-Performer-Berichten von den schlechtesten zu den besten sortiert werden. |
 {: .reset-td-br-1 .reset-td-br-2 }
 
-## Campaign-Templates
+## Campaign-Templates {#campaign-templates}
 
 | Abfragename | Beschreibung |
 | --- | --- |
 | Campaign-Umsatz nach Land | Dieser Bericht zeigt den Umsatz pro Land für eine bestimmte Campaign. Um diesen Bericht auszuführen, müssen Sie den API-Bezeichner für eine Campaign angeben. Den API-Bezeichner einer Campaign finden Sie unten auf der Detailseite der jeweiligen Campaign. <br><br> Dieser Bericht zeigt für jedes Land den generierten Umsatz, die Anzahl der Bestellungen, die Anzahl der Retouren, den Nettoumsatz und den Bruttoumsatz.<br><br> {::nomarkdown} <ul> <li> <i>Bestellungen:</i> Anzahl der Kauf-Events </li> <li><i> Retouren:</i> Anzahl der Kauf-Events mit negativen Umsatzwerten </li> <li><i> Nettoumsatz:</i> Umsatz aller Nicht-Retouren </li> <li><i> Bruttoumsatz:</i> Umsatz einschließlich des Werts der Retouren </li></ul>{:/} ![]({% image_buster /assets/img_archive/campaign_revenue_country.png %}){: style="max-width:70%;"} |
 {: .reset-td-br-1 .reset-td-br-2 }
 
-## Canvas-Templates
+## Canvas-Templates {#canvas-templates}
 
 | Abfragename | Beschreibung |
 | --- | --- |
@@ -58,7 +58,7 @@ table td {
 | E-Mail-Engagement-Metriken für Varianten oder Schritte, nach Segment | Dieser Bericht zeigt Metriken für die Varianten oder Canvas-Schritte der an jedes Segment gesendeten Nachrichten. Diese Metriken umfassen, wie viele E-Mails gesendet, zugestellt, als Soft Bounce oder Hard Bounce zurückgewiesen wurden. <br><br> Alle Metriken sind über den gesamten Berichtszeitraum eindeutig. Wenn beispielsweise eine Willkommens-E-Mail am 21. November einmal als Soft Bounce zurückkam, am 22. November zweimal als Soft Bounce zurückkam und nie zugestellt wurde: {::nomarkdown} <ul><li> Die Metrik <i>Soft Bounces</i> für den 21. November erhöht sich um eins. </li> <li> Die Metrik <i>Soft Bounces</i> für den 22. November wird nicht beeinflusst.</li></ul> {:/} |
 | E-Mail-Performance nach Land | Dieser Bericht zeigt die folgenden Metriken für jedes Land: Sendungen, indirekte Öffnungsrate und direkte Öffnungsrate. Das Land ist das Land der Nutzer:innen zum Zeitpunkt des Push-Versands. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q3.png %}) |
 | Protokolle zu E-Mail-Abo-Änderungen | Dieser Bericht zeigt die Metriken, die zu den Abo-Änderungen jeder Nutzer:in protokolliert wurden, wie z. B. E-Mail-Adresse, Abo-Status, Zeitpunkt der Statusänderung und das zugehörige Canvas oder die zugehörige Campaign. |
-| Opt-ins und Opt-outs für E-Mail-Abo-Gruppen | Dieser Bericht zeigt die Anzahl der eindeutigen Nutzer:innen-Opt-ins und -Opt-outs für jede E-Mail-Abo-Gruppe pro Woche. Sie müssen mindestens eine [E-Mail-Abo-Gruppe]({{site.baseurl}}/user_guide/channels/email/subscriptions/) im Workspace haben, um diese Abfrage auszuführen. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
+| Opt-ins und Opt-outs für E-Mail-Abo-Gruppen | Dieser Bericht zeigt die Anzahl der eindeutigen Opt-ins und Opt-outs von Nutzer:innen für jede E-Mail-Abo-Gruppe pro Woche. Sie müssen mindestens eine [E-Mail-Abo-Gruppe]({{site.baseurl}}/user_guide/channels/email/subscriptions/) im Workspace haben, um diese Abfrage auszuführen. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
 | Angeklickte E-Mail-URLs | Dieser Bericht zeigt die Anzahl der Klicks auf jeden Link in einer E-Mail. Um diesen Bericht auszuführen, müssen Sie den API-Bezeichner für eine Campaign oder ein Canvas angeben. Den API-Bezeichner einer Campaign finden Sie unten auf der Detailseite der jeweiligen Campaign und den Canvas-API-Bezeichner unter **Analyze Variants**. <br><br> Dieser Bericht zeigt depersonalisierte Links und eine Klickanzahl für jeden Link. Ihr CSV-Download enthält die Nutzer-IDs aller Nutzer:innen, die geklickt haben, den angeklickten Link und einen Zeitstempel des Klicks. <br><br> *Depersonalisierte URLs:* URLs, bei denen Liquid-Tags entfernt wurden. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
 | Top-/Flop-Messaging für E-Mail-Engagement | Dieser Bericht zeigt E-Mail-Engagement-Metriken für die besten oder schlechtesten Campaigns, Canvases oder Canvas-Schritte. Sie müssen angeben, ob die besten oder schlechtesten Performer angezeigt werden sollen, und die spezifische Metrik, für die diese Analyse durchgeführt werden soll (z. B. *Gesendet*, *Soft Bounces* und *Eindeutige Öffnungen*). <br><br> Die Zeilen in Top-Performer-Berichten werden von den besten zu den schlechtesten sortiert, während die Zeilen in Flop-Performer-Berichten von den schlechtesten zu den besten sortiert werden. <br><br> ![]({% image_buster /assets/img_archive/top-bottom-email.png %}) |
 {: .reset-td-br-1 .reset-td-br-2 }
@@ -75,7 +75,7 @@ table td {
 | SMS-Anbieterfehler nach Nutzer:in | Dieser Bericht zeigt SMS-Fehlercodes für eine:n bestimmte:n Nutzer:in. |
 {: .reset-td-br-1 .reset-td-br-2 }
 
-## Push-Templates
+## Push-Templates {#push-templates}
 
 | Abfragename | Beschreibung |
 | --- | --- |

@@ -62,6 +62,6 @@ Brazeでは、複数のSegmentsを取り込み、それらを組み合わせて�
 
 ## 次のステップ {#next-steps}
 
-オーディエンスを定義したら、オーケストレーションのセットアップに進みます：
+オーディエンスを定義したら、オーケストレーションのセットアップに進みます。
 
 - [オーケストレーションのセットアップ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)

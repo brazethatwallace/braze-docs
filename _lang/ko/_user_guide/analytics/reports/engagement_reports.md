@@ -34,7 +34,7 @@ tool:
 
 ### 1단계: 보고서 생성 {#step-1-create-a-report}
 
-대시보드 계정에서 **분석** > **참여 보고서**로 이동합니다. **+ 새 보고서 생성**을 선택합니다.
+대시보드 계정에서 **Analytics** > **참여 보고서**로 이동합니다. **+ Create New Report**을 선택합니다.
 
 ### 2단계: 메시지 추가 {#step-2-add-messages}
 
@@ -43,7 +43,7 @@ tool:
 - Campaigns 및 Canvases를 수동으로 선택
 - 특정 규칙에 따라 Campaigns 및 Canvases를 자동으로 선택
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![참여 보고서에 포함할 캠페인 및 Canvas 메시지를 선택하는 화면]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Campaigns 또는 Canvases를 수동으로 선택 {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ tool:
 
 **통계 추가** 단계에서는 선택한 Campaigns 또는 Canvases 유형에 대한 통계를 보여줍니다. 예를 들어, 이메일 메시지를 선택한 경우 관련 이메일 통계만 볼 수 있습니다. 이메일과 푸시의 조합을 선택한 경우 두 채널의 통계를 볼 수 있습니다.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Add Stats 단계에서 선택한 채널에 사용 가능한 통계를 표시하는 화면]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 | 채널 | 사용 가능한 통계 |
 | ------| --------------|
@@ -98,7 +98,7 @@ tool:
 
 기본적으로 참여 보고서에 표시되는 데이터는 일별(1일)입니다. 다른 간격으로 이 데이터를 보려면 보고서의 데이터를 집계할 명시적인 일수 또는 주수를 선택합니다. 따라서 일별 측정기준을 보는 대신 주별, 월별, 분기별 또는 유사한 기간별로 참여를 볼 수 있습니다. 시간 중심 집계가 충분하지 않은 경우 캠페인 또는 Canvas 수준에서 데이터를 내보내도록 선택할 수도 있습니다.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![참여 보고서의 데이터 표시 간격을 변경하는 옵션]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 #### 보고서 예약 {#schedule-your-report}
 
@@ -107,11 +107,11 @@ tool:
 - **즉시 발송:** 보고서가 시작된 후 Braze가 이 보고서를 즉시 발송합니다.
 - **지정된 시간에 발송:** 이 옵션을 사용하면 이 보고서를 받는 빈도를 유연하게 선택할 수 있습니다. 설정된 일수, 주수 또는 월수마다 이 보고서를 발송하도록 선택할 수 있습니다. 보고서 발송을 중지할 시점도 정의할 수 있습니다.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![참여 보고서 전송 시점과 빈도를 설정하는 화면]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### 5단계: 검토 및 시작 {#step-5-review-and-launch}
 
-보고서 설정의 마지막 단계에서는 구성된 옵션의 읽기 전용 개요를 보여줍니다. 보고서를 검토하고 만족스러우면 **보고서 시작**을 선택합니다.
+보고서 설정의 마지막 단계에서는 구성된 옵션의 읽기 전용 개요를 보여줍니다. 보고서를 검토하고 만족스러우면 **Launch Report**을 선택합니다.
 
 ### 6단계: 이메일 확인 {#step-6-check-your-email}
 
@@ -125,12 +125,12 @@ tool:
 
 #### 기간 불일치 {#mismatched-time-range}
 
-참여 보고서의 날짜가 Canvas 또는 캠페인 분석의 날짜와 일치하는지 확인하세요(예: 둘 다 12월 1일~15일을 포함). Canvas가 한 번만 발송된 경우에도 마찬가지입니다. 참여 보고서 설정에서 **데이터 표시**를 확인하여 올바른 Canvas 또는 캠페인을 보고 있는지 확인합니다. **데이터 표시**가 *X*일마다 데이터를 표시하도록 설정된 경우, 각 단계에 대해 측정기준이 기록된 날짜별로 한 행씩 표시됩니다.
+참여 보고서의 날짜가 Canvas 또는 캠페인 분석의 날짜와 일치하는지 확인하세요(예: 둘 다 12월 1일~15일을 포함). Canvas가 한 번만 발송된 경우에도 마찬가지입니다. 참여 보고서 설정에서 **Data Display**를 확인하여 올바른 Canvas 또는 캠페인을 보고 있는지 확인합니다. **Data Display**가 *X*일마다 데이터를 표시하도록 설정된 경우, 각 단계에 대해 측정기준이 기록된 날짜별로 한 행씩 표시됩니다.
 
 스프레드시트에서 합계가 잘못된 것처럼 보이면 내보내기에서 추가 필터를 지우세요. 일별 행을 합산하여 동일한 기간의 Canvas 또는 캠페인 합계와 대조할 수 있습니다.
 
 {% alert note %}
-일별, 주별 또는 기타 반복 버킷 대신 전체 범위에 대한 하나의 집계 행을 원하면 **데이터 표시**를 **전체 캠페인 또는 Canvas별 데이터 표시**로 설정하세요.
+일별, 주별 또는 기타 반복 버킷 대신 전체 범위에 대한 하나의 집계 행을 원하면 **Data Display**를 **Show Data by Entire Campaign or Canvas**로 설정하세요.
 {% endalert %}
 
 #### HTML 인앱 메시지의 중복 버튼 클릭 {#duplicate-button-clicks-in-html-in-app-messages}

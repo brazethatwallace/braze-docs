@@ -41,15 +41,23 @@ Utiliza los nombres de campo de perfil de usuario de Braze (enumerados a continu
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects
-  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
-  // Removing from an array of objects
-  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
+  // Removing from an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
 - [ID externo de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+
+{% alert note %}
+Para las solicitudes de REST API a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), utiliza las claves `add`, `remove` y `update` para las operaciones con matrices. Las claves con el prefijo `$` (como `$add`) son para cargas útiles de métodos del SDK.
+
+Cuando una solicitud de REST API utiliza `$add`, `$remove` o `$update`, Braze puede devolver `success` sin aplicar la actualización de la matriz.
+
+Para más detalles, consulta [Ejemplo de API de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) y [Ejemplo de SDK de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+{% endalert %}
 
 Para eliminar un atributo de perfil, ponlo en `null`. Algunos campos, como `external_id` y `user_alias`, no se pueden eliminar después de añadirlos al perfil de usuario.
 
@@ -218,7 +226,7 @@ Como alternativa, puedes [migrar tus tokens de notificaciones push manualmente](
 
 Debido a la naturaleza de los tokens de notificaciones push web, asegúrate de tener en cuenta lo siguiente al implementar notificaciones push para web:
 
-|Consideración|Detalles|
+| Consideración | Detalles |
 |----------------------|------------|
 | **Prestadores de servicios**  | De forma predeterminada, el SDK Web busca un prestador de servicios en `./service-worker` a menos que se especifique otra opción, como `manageServiceWorkerExternally` o `serviceWorkerLocation`. Si tu prestador de servicios no está configurado correctamente, puede provocar que los tokens de notificaciones push de tus usuarios caduquen. |
 | **Tokens caducados**   | Si un usuario no ha iniciado una sesión web en un plazo de 60 días, su token de notificaciones push caduca. Dado que Braze no puede migrar los tokens de notificaciones push caducados, debes enviar un [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para reactivar la interacción. |
@@ -242,7 +250,7 @@ Como alternativa a la migración de API, te recomendamos que integres el SDK y p
 {% endalert %}
 
 {% tabs local %}
-{% tab External ID present %}
+{% tab ID externo presente %}
 Para usuarios identificados, establece el indicador `push_token_import` en `false` (u omite el parámetro) y especifica los valores `external_id`, `app_id` y `token` en el objeto de usuario `attributes`.
 
 Por ejemplo:
@@ -268,7 +276,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 {% endtab %}
 
-{% tab External ID missing %}
+{% tab ID externo ausente %}
 Al importar tokens de notificaciones push de otros sistemas, no siempre se dispone de un `external_id`. En este caso, configura tu indicador `push_token_import` como `true` y especifica los valores `app_id` y `token`. Braze crea un perfil de usuario temporal y anónimo para cada token, lo que te permite seguir enviando mensajes a estas personas. Si el token ya existe en Braze, se ignora la solicitud.
 
 Por ejemplo:
@@ -319,7 +327,7 @@ La siguiente consideración solo se aplica a las aplicaciones Android. Las aplic
 
 Si debes enviar notificaciones push de Android a tus usuarios antes de que se complete la integración del SDK de Braze, utiliza pares clave-valor para validar las notificaciones push.
 
-Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notificar al receptor la carga útil push, añade los pares clave-valor necesarios a la campaña push. Los valores de estos pares dependen del socio de push específico que hayas utilizado antes de Braze.
+Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notificar al receptor la carga útil push, añade los pares clave-valor necesarios a la Campaign push. Los valores de estos pares dependen del socio de push específico que hayas utilizado antes de Braze.
 
 {% alert note %}
 Para algunos proveedores de notificaciones push, Braze necesita aplanar los pares clave-valor para que puedan interpretarse correctamente. Para aplanar los pares clave-valor de una aplicación Android específica, ponte en contacto con tu administrador del éxito del cliente.
