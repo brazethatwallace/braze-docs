@@ -1,8 +1,8 @@
 # Translates English docs into all supported languages using Claude.
 #
 # Triggers:
-#   - push to main when `_docs/` or `_includes/` markdown changes (typical path
-#     after the nightly develop → main deploy merges English doc updates)
+#   - push to main when English markdown under `_docs/` or `_includes/` changes
+#     (path-filtered to `*.md` so non-doc edits do not queue runs)
 #   - weekday schedule as a safety net for doc changes that did not match the
 #     path filter or if a push-triggered run was skipped
 #   - workflow_dispatch for catch-up (`since_commit`, `files`) or orphan-only
@@ -23,8 +23,8 @@ on:
   push:
     branches: [main]
     paths:
-      - '_docs/**'
-      - '_includes/**'
+      - '_docs/**/*.md'
+      - '_includes/**/*.md'
   schedule:
     # Weekdays 10:30 UTC — after the nightly deploy cron (08:00 UTC Mon–Fri) so
     # merges to main are usually present; complements path-filtered pushes.
@@ -118,11 +118,22 @@ jobs:
           elif [ -n "${{ inputs.files }}" ]; then
             echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
           elif [ "${{ github.event_name }}" = "schedule" ]; then
-            FROM=$(git rev-list -n 1 --before="1 day ago" HEAD)
-            echo "Scheduled run: English markdown changed between ${FROM} and HEAD"
-            git diff --find-renames --name-only --diff-filter=ACMR \
-              "$FROM" HEAD \
-              -- '_docs/' '_includes/' > changed_files.txt
+            FROM=$(git rev-list -n 1 --before="1 day ago" HEAD 2>/dev/null || true)
+            if [ -z "$FROM" ]; then
+              FROM=$(git rev-list --max-parents=0 HEAD 2>/dev/null || true)
+            fi
+            if [ -z "$FROM" ]; then
+              FROM=$(git rev-parse --verify HEAD~1 2>/dev/null || true)
+            fi
+            if [ -z "$FROM" ]; then
+              echo "::notice::Schedule: no baseline commit for diff; assuming no English changes."
+              : > changed_files.txt
+            else
+              echo "Scheduled run: English markdown changed between ${FROM} and HEAD"
+              git diff --find-renames --name-only --diff-filter=ACMR \
+                "$FROM" HEAD \
+                -- '_docs/' '_includes/' > changed_files.txt
+            fi
           elif [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
             git diff --name-only --diff-filter=ACMR \
               ${{ github.event.before }} ${{ github.sha }} \
