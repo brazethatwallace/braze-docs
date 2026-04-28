@@ -8,7 +8,8 @@
 #   - workflow_dispatch for catch-up (`since_commit`, `files`) or orphan-only
 #
 # Flow:
-#   1. Identify _docs/ and _includes/ markdown files changed in the push
+#   1. Identify _docs/ and _includes/ markdown files changed (push range,
+#      schedule window, since_commit/files dispatch, or push fallback)
 #   2. Matrix: translate each changed file into one language per job (6 jobs),
 #      then QC + Jekyll verify that locale only (avoids a single 6×locale step
 #      hitting the translate timeout on very large pages)
