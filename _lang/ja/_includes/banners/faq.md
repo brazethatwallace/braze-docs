@@ -22,7 +22,7 @@
 
 ## 既存のContent Cardsフィードでバナーを使用できますか？ {#can-i-use-banners-in-my-existing-content-card-feed}
 
-バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent CardsフィードをバナーにContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
+バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
 
 ## バナーに動画を含めることはできますか？ {#can-banners-include-video}
 

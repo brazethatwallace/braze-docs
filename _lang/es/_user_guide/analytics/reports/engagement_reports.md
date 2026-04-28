@@ -43,7 +43,7 @@ Añade las campañas y los mensajes de Canvas que deseas compilar en tu informe.
 - Seleccionar manualmente campañas y Canvas
 - Seleccionar automáticamente campañas y Canvas en función de reglas específicas
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Pantalla de selección de mensajes para un informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Seleccionar manualmente campañas o Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ Las etiquetas deben coincidir con al menos una campaña o Canvas para que se gen
 
 El paso **Add Stats** te muestra las estadísticas para los tipos de campañas o Canvas que hayas seleccionado. Por ejemplo, si seleccionaste mensajes de correo electrónico, solo podrás ver las estadísticas relevantes de correo electrónico. Si elegiste una combinación de correo electrónico y push, podrás ver las estadísticas de esos dos canales.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Pantalla del paso Add Stats con las estadísticas disponibles para los canales seleccionados]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 | Canal | Estadísticas disponibles |
 | ------| --------------|
@@ -98,7 +98,7 @@ De forma predeterminada, el rango de datos mostrado se basa en la zona horaria d
 
 De forma predeterminada, los datos mostrados en los informes de interacción son diarios (un día). Para ver estos datos en diferentes intervalos, elige un número explícito de días o semanas para agregar los datos del informe. Así, en lugar de ver métricas diarias, puedes ver tu interacción por semana, mes, trimestre o similar. Si una agregación centrada en el tiempo no es suficiente, también puedes optar por exportar datos a nivel de campaña o Canvas.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![Opciones para ajustar la visualización de datos del informe de interacción]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 #### Planificar tu informe {#schedule-your-report}
 
@@ -107,7 +107,7 @@ Hay dos opciones al planificar tu informe:
 - **Enviar inmediatamente:** Después de lanzar el informe, Braze lo enviará de inmediato.
 - **Enviar en un horario designado:** Esta opción te da la flexibilidad de elegir con qué frecuencia recibes este informe. Puedes elegir enviar este informe cada cierto número de días, semanas o meses. También puedes definir cuándo dejar de enviar el informe.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![Opciones para programar el envío de un informe de interacción]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Paso 5: Revisar y lanzar {#step-5-review-and-launch}
 

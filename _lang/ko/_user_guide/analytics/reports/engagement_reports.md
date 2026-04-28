@@ -43,7 +43,7 @@ tool:
 - Campaigns 및 Canvases를 수동으로 선택
 - 특정 규칙에 따라 Campaigns 및 Canvases를 자동으로 선택
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![참여 보고서에 포함할 캠페인 및 Canvas 메시지를 선택하는 화면]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Campaigns 또는 Canvases를 수동으로 선택 {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ tool:
 
 **통계 추가** 단계에서는 선택한 Campaigns 또는 Canvases 유형에 대한 통계를 보여줍니다. 예를 들어, 이메일 메시지를 선택한 경우 관련 이메일 통계만 볼 수 있습니다. 이메일과 푸시의 조합을 선택한 경우 두 채널의 통계를 볼 수 있습니다.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Add Stats 단계에서 선택한 채널에 사용 가능한 통계를 표시하는 화면]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 | 채널 | 사용 가능한 통계 |
 | ------| --------------|
@@ -98,7 +98,7 @@ tool:
 
 기본적으로 참여 보고서에 표시되는 데이터는 일별(1일)입니다. 다른 간격으로 이 데이터를 보려면 보고서의 데이터를 집계할 명시적인 일수 또는 주수를 선택합니다. 따라서 일별 측정기준을 보는 대신 주별, 월별, 분기별 또는 유사한 기간별로 참여를 볼 수 있습니다. 시간 중심 집계가 충분하지 않은 경우 캠페인 또는 Canvas 수준에서 데이터를 내보내도록 선택할 수도 있습니다.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![참여 보고서의 데이터 표시 간격을 변경하는 옵션]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 #### 보고서 예약 {#schedule-your-report}
 
@@ -107,7 +107,7 @@ tool:
 - **즉시 발송:** 보고서가 시작된 후 Braze가 이 보고서를 즉시 발송합니다.
 - **지정된 시간에 발송:** 이 옵션을 사용하면 이 보고서를 받는 빈도를 유연하게 선택할 수 있습니다. 설정된 일수, 주수 또는 월수마다 이 보고서를 발송하도록 선택할 수 있습니다. 보고서 발송을 중지할 시점도 정의할 수 있습니다.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![참여 보고서 전송 시점과 빈도를 설정하는 화면]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### 5단계: 검토 및 시작 {#step-5-review-and-launch}
 
