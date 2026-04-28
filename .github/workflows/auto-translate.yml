@@ -265,6 +265,13 @@ jobs:
         if: steps.merge-artifacts.outcome == 'success'
         run: python scripts/auto_translate.py check-path-case-collisions
 
+      # Matrix locales can diverge on explicit `{#id}` tails when English omits
+      # them but one translation adds a stable fragment (Copilot / PR #13394).
+      # Uses translation_results.json so only this run's paths are touched.
+      - name: Align heading anchor parity across locales
+        if: steps.merge-artifacts.outcome == 'success'
+        run: python scripts/auto_translate.py align-heading-anchor-parity
+
       - name: Clean up orphaned translations
         id: orphan
         if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
