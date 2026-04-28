@@ -268,7 +268,7 @@ $nav-nesting-border: $grey-manatee;
 	a.nav_link {
 		display: inline-flex;
 		align-items: center;
-		min-height: 40px;
+		min-height: 0;
 		width: 100%;
 		padding: 0;
 		border-radius: 8px;
