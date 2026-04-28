@@ -44,6 +44,15 @@ For **email** exports, Canva may ask you to sign in again and approve additional
 
 Use this flow for standard Canva designs when you want a file in the Braze media library.
 
+The following videos show how to send designs from Canva to your Braze media library.
+
+Video: Open the Braze app in Canva and start a media library export.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Video: Choose a Braze workspace and complete the export to the media library.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
 1. From the **Apps** menu in your design, open the Braze app. If you aren't connected yet, select **Connect** and complete the steps in [Authorize your Braze account](#step-2-authorize-your-braze-account).
 2. Choose your destination workspace, optionally enter a filename, and select **Start Export**.
 
