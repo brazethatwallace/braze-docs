@@ -1,10 +1,11 @@
 # Translates English docs into all supported languages using Claude.
 #
-# Trigger: workflow_dispatch only (push-to-main trigger temporarily disabled
-# during catch-up; re-enable after cleanup — restore the `push` block below).
-#
-# When enabled, push runs after deploy merges to main for changed _docs/ and
-# _includes/ markdown files.
+# Triggers:
+#   - push to main when `_docs/` or `_includes/` markdown changes (typical path
+#     after the nightly develop → main deploy merges English doc updates)
+#   - weekday schedule as a safety net for doc changes that did not match the
+#     path filter or if a push-triggered run was skipped
+#   - workflow_dispatch for catch-up (`since_commit`, `files`) or orphan-only
 #
 # Flow:
 #   1. Identify _docs/ and _includes/ markdown files changed in the push
@@ -18,9 +19,15 @@
 name: Auto-translate
 
 on:
-  # push:
-  #   branches: [main]
-  #   paths: ['_docs/**', '_includes/**']
+  push:
+    branches: [main]
+    paths:
+      - '_docs/**'
+      - '_includes/**'
+  schedule:
+    # Weekdays 10:30 UTC — after the nightly deploy cron (08:00 UTC Mon–Fri) so
+    # merges to main are usually present; complements path-filtered pushes.
+    - cron: '30 10 * * 1-5'
   workflow_dispatch:
     inputs:
       files:
@@ -109,6 +116,12 @@ jobs:
               -- '_docs/' '_includes/' > changed_files.txt
           elif [ -n "${{ inputs.files }}" ]; then
             echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
+          elif [ "${{ github.event_name }}" = "schedule" ]; then
+            FROM=$(git rev-list -n 1 --before="1 day ago" HEAD)
+            echo "Scheduled run: English markdown changed between ${FROM} and HEAD"
+            git diff --find-renames --name-only --diff-filter=ACMR \
+              "$FROM" HEAD \
+              -- '_docs/' '_includes/' > changed_files.txt
           elif [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
             git diff --name-only --diff-filter=ACMR \
               ${{ github.event.before }} ${{ github.sha }} \
