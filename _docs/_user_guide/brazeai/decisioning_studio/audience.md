@@ -46,7 +46,7 @@ Provide the extension ID and API key to our AI Decisioning Services team, who wi
 
 ### Google Cloud Storage
 
-If the audience is not currently stored in Braze or Salesforce Marketing Cloud, then the next best step is to configure an automated export directly to a Braze-controlled Google Cloud Services bucket.
+If the audience is not currently stored in Braze or Salesforce Marketing Cloud, then the next best step is to configure an automated export directly to a Braze-controlled Google Cloud Storage (GCS) bucket.
 
 To determine whether this is feasible, refer to the documentation for your platform. For example, mParticle offers a [native integration with Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/). If this is the case, we can provide a GCS bucket to export audience data to.
 
