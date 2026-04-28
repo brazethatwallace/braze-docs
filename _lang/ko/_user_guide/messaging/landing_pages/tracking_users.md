@@ -69,7 +69,7 @@ Liquid 스니펫을 메시지에 삽입한 다음 나머지 메시지를 완성�
 
 {% raw %}
 ```html
-<a href=" {% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
+<a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
 ```
 {% endraw %}
 

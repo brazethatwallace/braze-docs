@@ -37,6 +37,6 @@ Para archivar un Canvas:
 
 ## Desarchivar {#unarchiving}
 
-Cuando desarchivas una campaña o un Canvas, no se pondrá en vivo&mdash;su estado solo cambiará a **Activos**. Después de desarchivar, puedes editar y revisar cómo está configurado el mensaje sin que se envíe ningún mensaje.
+Cuando desarchivas una campaña o un Canvas, no se pondrá en vivo&mdash;su estado solo cambiará a **Activo**. Después de desarchivar, puedes editar y revisar cómo está configurado el mensaje sin que se envíe ningún mensaje.
 
 Para reanudar la campaña o el Canvas y comenzar a enviar mensajes, selecciona el menú <i class="fas fa-ellipsis-vertical"></i> de la fila correspondiente y selecciona **Resume**.

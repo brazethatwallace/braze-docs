@@ -69,7 +69,7 @@ Liquidスニペットをメッセージに埋め込み、残りのメッセー�
 
 {% raw %}
 ```html
-<a href=" {% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
+<a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
 ```
 {% endraw %}
 

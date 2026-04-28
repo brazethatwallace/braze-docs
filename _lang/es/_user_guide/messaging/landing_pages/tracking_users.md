@@ -69,7 +69,7 @@ Incrusta el fragmento de código de Liquid en tu mensaje y finaliza el resto de 
 
 {% raw %}
 ```html
-<a href=" {% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
+<a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
 ```
 {% endraw %}
 
