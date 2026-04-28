@@ -75,8 +75,7 @@ Collects an email address and adds it to the user's Braze profile when submitted
 
 ### Long text
 
-Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. It appears when survey mode is on.
-
+Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 ### Saved row
