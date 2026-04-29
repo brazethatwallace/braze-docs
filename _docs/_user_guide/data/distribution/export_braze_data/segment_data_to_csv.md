@@ -12,7 +12,7 @@ description: "This reference article covers how to export segment data to CSV, r
 > This page covers how to request a CSV export of user data from a segment, and the data included in the export.
 
 {% alert note %}
-CSV export options appear in the **User Data** menu only for company users who have the **Export User Data** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) for that workspace.
+CSV export options appear in the **User Data** dropdown only for company users who have the ["Export User Data" permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) for that workspace.
 {% endalert %}
 
 To export segment data to a CSV, select the **User Data** dropdown while editing a segment and select to export either the user data or email addresses for the segment.
@@ -86,7 +86,7 @@ The following is included in your export depending on your selection.
 {: .reset-td-br-1 .reset-td-br-2 }
 
 {% alert note %}
-When you export user data from a Canvas step, the CSV includes the full timeline of users in that step. You can't limit the export to a date range or other time window. For how to run these exports, see [Export Canvas data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
+When you export user data from a Canvas step, the CSV includes all users who have been in that step over the lifetime of the Canvas step. You can't limit the export to a date range or other time window. For how to run these exports, see [Export Canvas data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
 {% endalert %}
 
 ### CSV Export Email Addresses
