@@ -22,7 +22,7 @@ Adds text for headers within the email.
 | Link color | Modifies the color of the link. |
 | Align | Moves the title to be left, center, or right-oriented. |
 | Line height | Modifies the distance between lines of text. |
-| Line spacing | Modifies the distance in between each character. |
+| Letter spacing | Modifies the distance in between each character. |
 | Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -229,5 +229,5 @@ Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messag
 
 You can add personalization to your email using Liquid or Connected Content.
 
-- **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a text block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in text blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
+- **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a Title, Paragraph, or List block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in Title, Paragraph, and List blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
 - **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.
