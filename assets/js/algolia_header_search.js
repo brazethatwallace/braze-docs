@@ -1,3 +1,5 @@
+// NOTE: This file is no longer loaded. Header search has been replaced by SearchUnify
+// (su_header_search.js + CloudFront-hosted searchbox.js). This file is kept for reference only.
 function headerDocSubmit(){
   window.location = base_url + '/search/?query=' + encodeURIComponent($('#header-search-form .aa-Form .aa-Input').val());
   return false;
@@ -145,13 +147,13 @@ $(document).ready(function () {
     var url = item.url;
 
     result_template += '<hr /><a href="' +
-        url + '" target="_blank" rel="noopener noreferrer"><div class="title lab_title">'  +
+        url + '" target="_blank"><div class="title lab_title">'  +
         title + ' <i class="fas fa-external-link-alt"></i> <div class="category">' +
         tags_list +
         '</div></div> <div class="content">' +
         description +
         "</div>";
-    result_template += '<span class="sr-only"> (opens in new tab)</span></a>';
+    result_template += "</a>";
     return result_template;
   };
   autocomplete({

@@ -786,13 +786,35 @@ $(document).ready(function() {
       });
     }
   });
-  // T7: add rel and sr-only warning to all target="_blank" links
-  $('a[target="_blank"]').attr('rel', function(_, rel) {
-    var tokens = (rel || '').split(/\s+/).filter(Boolean);
-    if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
-    if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
-    return tokens.join(' ');
-  }).not(':has(.sr-only)').append('<span class="sr-only"> (opens in new tab)</span>');
+  // T7: add rel and sr-only warning to all target="_blank" links (static + dynamic)
+  function patchNewWindowLinks(root) {
+    var $links = $(root).find('a[target="_blank"]');
+    if (root.nodeName === 'A' && root.getAttribute('target') === '_blank') {
+      $links = $links.add(root);
+    }
+    $links.each(function() {
+      var $a = $(this);
+      $a.attr('rel', function(_, rel) {
+        var tokens = (rel || '').split(/\s+/).filter(Boolean);
+        if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+        if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+        return tokens.join(' ');
+      });
+      if (!$a.find('.sr-only').length) {
+        $a.append('<span class="sr-only"> (opens in new tab)</span>');
+      }
+    });
+  }
+  patchNewWindowLinks(document.body);
+  var t7Observer = new MutationObserver(function(mutations) {
+    for (var i = 0; i < mutations.length; i++) {
+      var added = mutations[i].addedNodes;
+      for (var j = 0; j < added.length; j++) {
+        if (added[j].nodeType === 1) { patchNewWindowLinks(added[j]); }
+      }
+    }
+  });
+  t7Observer.observe(document.body, { childList: true, subtree: true });
   $('.highlight .highlight .rouge-code pre').each(function(k) {
     $this = $(this);
     if ($this.html().length > 120) {
