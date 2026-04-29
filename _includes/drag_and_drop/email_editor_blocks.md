@@ -142,7 +142,7 @@ Creates a link to video content. Only YouTube and Vimeo are supported.
 | Title | Auto-generated from the video metadata or can be customized. |
 | Play icon style | Includes different options for the play button located at the top of a video image. |
 | Play icon color | Option to select either **Light** or **Dark** for the play button. |
-| Play icon size | Choose the pixel size for the play button. Pre-fixed range from 50&nbsp;px to 80&nbsp;px (incremented by 5&nbsp;px). |
+| Play icon size | Choose the pixel size for the play button. Predefined range from 50&nbsp;px to 80&nbsp;px (incremented by 5&nbsp;px). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
@@ -182,6 +182,11 @@ Inserts an icon. You can upload custom images. Braze uses an oversized placehold
 ### HTML
 
 Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Connected Content or conditional statements.
+
+| Property | Description |
+|---|---|
+| HTML | Add or edit raw HTML, including [Liquid]({{site.baseurl}}/liquid/) for personalization or conditional logic. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Menu
 

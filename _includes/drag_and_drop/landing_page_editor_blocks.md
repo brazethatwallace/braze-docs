@@ -28,6 +28,14 @@ If you configure a button with **Submit form when button is clicked** and open a
 
 Adds a list of options from which users can select one. Use the properties panel to configure the available options and the custom attribute that receives the selected value. The user profile logs the selected value as a [string custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) when the form is submitted. Custom attributes with other data types do not save to the user profile.
 
+#### Properties
+
+| Property | Description |
+|---|---|
+| Options | Define the list of selectable options shown to users. |
+| Custom attribute | Select the string custom attribute that stores the selected value when the form is submitted. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
 ### Image
 
 Displays an image from an upload or external URL.
