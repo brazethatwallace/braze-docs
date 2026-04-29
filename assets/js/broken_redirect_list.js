@@ -4357,7 +4357,11 @@ validurls['/docs/post_user_track_synchronous'] = '/docs/api/endpoints/user_data/
 validurls['/docs/scim_api_appendix'] = '/docs/api/objects_filters/scim_api_appendix';
 validurls['/docs/scim_api_appendix#permissions-object'] = '/docs/api/objects_filters/scim_api_appendix/#permissions-object';
 validurls['/docs/support_contact'] = '/docs/user_guide/administer/personal/braze_support';
-validurls['/docs/target_approvals'] = '/docs/user_guide/messaging/governance/approvals';
+validurls['/docs/target_approvals'] = '/docs/docs_pages/redirects/target_approvals/';
+validurls['/docs/shopify_multiple_store'] = '/docs/docs_pages/redirects/multiple_stores/';
+validurls['/docs/shopify_collections_sync'] = '/docs/docs_pages/redirects/shopify_collections_sync/';
+validurls['/docs/shopify_user_reconciliation'] = '/docs/docs_pages/redirects/shopify_user_reconciliation/';
+validurls['/docs/sms_traffic_pumping_fraud'] = '/docs/docs_pages/redirects/sms_traffic_pumping_fraud/';
 
 // API paths
 validurls['/docs/api/api_key'] = '/docs/api/basics';

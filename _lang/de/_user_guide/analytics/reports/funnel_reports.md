@@ -121,7 +121,7 @@ Große Abfragen können ein Timeout verursachen. Versuchen Sie ein kürzeres Ber
 
 Canvas-Schritt-Analytics können für dieselben Kalenderdaten höhere Zahlen als der Funnel anzeigen, da Schritt-Analytics ein breiteres Engagement und breitere Conversions umfassen, während der Funnel Event-Reihenfolge und Timing-Regeln durchsetzt.
 
-#### Canvas Analytics (Analyze Variants)
+#### Canvas Analytics (Analyze Variants) {#canvas-analytics-analyze-variants}
 
 Der Datumsbereich filtert Events danach, **wann sie aufgetreten sind**. Wenn Sie den 1.–7. Januar auswählen, sehen Sie alle Eintritte und Konversions-Events, die in diesem Zeitfenster stattgefunden haben – unabhängig davon, wann die/der Nutzer:in den Canvas betreten hat. Ein:e Nutzer:in, der/die am 1. Januar eingetreten ist, aber am 8. Januar konvertiert hat, würde einen Eintritt und null Conversions anzeigen, da die Conversion außerhalb der ausgewählten Daten lag. Das auf dem Canvas-Schritt konfigurierte Conversion-Fenster kann über das maximale Nachverfolgungsfenster des Funnels hinausgehen, sodass Schritt-Analytics Conversions über einen längeren Zeitraum erfassen können.
 

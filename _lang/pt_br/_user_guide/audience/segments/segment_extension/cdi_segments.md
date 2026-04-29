@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Este artigo explica como as extensões de segmento CDI usam a ingestão de dados na nuvem para consultar seu data warehouse e definir públicos na Braze."
+description: "Este artigo explica como as extensões de segmento CDI usam a Ingestão de dados na nuvem para consultar seu data warehouse e definir públicos na Braze."
 
 ---
 
@@ -58,7 +58,7 @@ Se os resultados da sua consulta incluírem usuários que não existem na Braze,
 Para saber como pré-visualizar suas extensões de segmento, gerenciá-las e executar atualizações automáticas de membros, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/).
 {% endalert %}
 
-Por fim, você pode [usar essa extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-5-use-your-extension-in-a-segment) dentro de um Segment da Braze para enviar uma Campaign ou Canvas para esse público.
+Por fim, você pode [usar essa extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-5-use-your-extension-in-a-segment) dentro de um segmento da Braze para enviar uma Campaign ou Canvas para esse público.
 
 ## Considerações {#considerations}
 

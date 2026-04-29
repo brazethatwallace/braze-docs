@@ -43,7 +43,7 @@ Adicione as Campaigns e mensagens de Canvas que você deseja compilar no seu rel
 - Selecionar manualmente Campaigns e Canvas
 - Selecionar automaticamente Campaigns e Canvas com base em regras específicas
 
-![Seleção de mensagens do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Tela para escolher mensagens de campanha e Canvas no relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Selecionar manualmente Campaigns ou Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ As tags devem corresponder a pelo menos uma Campaign ou Canvas para que o relat�
 
 A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canvas que você selecionou. Por exemplo, se você selecionou mensagens de e-mail, poderá visualizar apenas as estatísticas relevantes de e-mail. Se você escolheu uma combinação de e-mail e push, poderá visualizar as estatísticas desses dois canais.
 
-![Adicionar estatísticas ao relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Tela da etapa Add Stats com as estatísticas disponíveis para os canais selecionados]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 | Canal | Estatísticas disponíveis |
 | ------| --------------|
@@ -98,7 +98,7 @@ Por padrão, o intervalo de dados exibido é baseado no fuso horário da sua emp
 
 Por padrão, os dados exibidos nos relatórios de engajamento são diários (um dia). Para visualizar esses dados em intervalos diferentes, escolha um número explícito de dias ou semanas para agregar os dados do relatório. Assim, em vez de ver métricas diárias, você pode visualizar seu engajamento por semana, mês, trimestre ou similar. Caso uma agregação baseada em tempo não seja suficiente, você também pode optar por exportar dados no nível de Campaign ou Canvas.
 
-![Cobertura de dados do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![Opções para ajustar a exibição dos dados do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 #### Programar seu relatório {#schedule-your-report}
 
@@ -107,7 +107,7 @@ Existem duas opções ao programar seu relatório:
 - **Send immediately:** Após o lançamento do relatório, a Braze enviará este relatório imediatamente.
 - **Send at a designated time:** Essa opção oferece flexibilidade para escolher com que frequência você recebe este relatório. Você pode optar por enviar este relatório a cada número definido de dias, semanas ou meses. Também é possível definir quando parar de enviar o relatório.
 
-![Programação do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![Opções para agendar o envio do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Etapa 5: Revisar e lançar {#step-5-review-and-launch}
 

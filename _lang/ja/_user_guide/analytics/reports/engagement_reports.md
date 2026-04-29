@@ -34,7 +34,7 @@ tool:
 
 ### ステップ 1:レポートを作成する {#step-1-create-a-report}
 
-ダッシュボードアカウントで、**分析** > **エンゲージメントレポート**に移動します。**+ 新しいレポートを作成**を選択します。
+ダッシュボードアカウントで、**Analytics** > **エンゲージメントレポート**に移動します。**+ 新しいレポートを作成**を選択します。
 
 ### ステップ 2:メッセージを追加する {#step-2-add-messages}
 
@@ -43,7 +43,7 @@ tool:
 - CampaignsとCanvasesを手動で選択する
 - 特定のルールに基づいてCampaignsとCanvasesを自動的に選択する
 
-![エンゲージメントレポートのメッセージ選択]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![キャンペーンとCanvasのメッセージをエンゲージメントレポートに追加するための選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### CampaignsまたはCanvasesを手動で選択する {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ tool:
 
 **統計を追加**ステップでは、選択したCampaignsまたはCanvasesの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
 
-![エンゲージメントレポートの統計追加]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![「統計を追加」ステップで、選択したチャネルに応じた利用可能な統計が表示される画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 | チャネル | 利用可能な統計 |
 | ------| --------------|
@@ -98,7 +98,7 @@ tool:
 
 デフォルトでは、エンゲージメントレポートに表示されるデータは日次（1日単位）です。異なる間隔でデータを表示するには、レポートのデータを集計する明示的な日数または週数を選択します。日次指標の代わりに、週次、月次、四半期ごと、または同様の単位でエンゲージメントを表示できます。時間ベースの集計では不十分な場合は、CampaignまたはCanvasレベルでデータをエクスポートすることもできます。
 
-![エンゲージメントレポートのデータカバレッジ]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![エンゲージメントレポートのデータ表示間隔を変更するためのオプション]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 #### レポートをスケジュールする {#schedule-your-report}
 
@@ -107,7 +107,7 @@ tool:
 - **すぐに送信:** レポートが起動された後、Brazeはこのレポートをすぐに送信します。
 - **指定した時間に送信:** このオプションでは、レポートを受け取る頻度を柔軟に選択できます。設定した日数、週数、または月数ごとにレポートを送信するよう選択できます。レポートの送信を停止する時期も定義できます。
 
-![エンゲージメントレポートのスケジュール設定]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![エンゲージメントレポートの送信タイミングと頻度を設定する画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### ステップ 5:確認して起動する {#step-5-review-and-launch}
 

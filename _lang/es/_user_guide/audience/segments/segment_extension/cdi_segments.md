@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Este artículo te guiará sobre cómo configurar las Extensiones de segmento CDI, que te permiten segmentar usuarios mediante consultas directas a tu almacén de datos."
+description: "Este artículo explica cómo las extensiones de segmento CDI utilizan la Ingesta de datos de Cloud para consultar tu almacén de datos y definir audiencias en Braze."
 
 ---
 
@@ -15,7 +15,7 @@ description: "Este artículo te guiará sobre cómo configurar las Extensiones d
 > Con la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) (CDI) de Braze, puedes configurar una conexión directa desde tu almacén de datos o sistema de almacenamiento de archivos a Braze para sincronizar datos relevantes de usuarios o catálogos de forma recurrente.
 
 {% alert warning %}
-Las Extensiones de segmento CDI consultan tu almacén de datos directamente, por lo que incurrirás en todos los costos asociados con la ejecución de estas consultas en tu almacén de datos. Las Extensiones de segmento CDI no consumen [créditos de segmentos SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage), no cuentan para tu límite de extensiones de segmento y no registran puntos de datos.
+Las extensiones de segmento CDI consultan tu almacén de datos directamente, por lo que incurrirás en todos los costos asociados con la ejecución de estas consultas en tu almacén de datos. Las extensiones de segmento CDI no consumen [créditos de segmentos SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage), no cuentan para tu límite de extensiones de segmento y no registran puntos de datos.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}

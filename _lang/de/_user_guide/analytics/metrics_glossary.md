@@ -56,7 +56,7 @@ All
 
 {% api %}
 
-### Bounces
+### Bounces {#bounces}
 
 {% apitags %}
 Email, Web Push, iOS Push
@@ -140,7 +140,7 @@ In-App Message
 
 {% api %}
 
-### Campaign-Analytics
+### Campaign-Analytics {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
@@ -236,7 +236,7 @@ In-App Message
 
 {% api %}
 
-### Conversions (B, C, D)
+### Conversions (B, C, D) {#conversions-b-c-d}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -463,7 +463,7 @@ WhatsApp
 
 {% api %}
 
-### Feature-Flag-Experiment-Performance
+### Feature-Flag-Experiment-Performance {#feature-flag-experiment-performance}
 
 {% apitags %}
 Feature Flags
@@ -475,7 +475,7 @@ Performance-Metriken für die Nachricht in einem Feature-Flag-Experiment. Die sp
 
 {% api %}
 
-### Hard Bounce
+### Hard Bounce {#hard-bounce}
 
 {% apitags %}
 Email
@@ -599,7 +599,7 @@ Web Push, iOS Push, Android Push
 
 {% api %}
 
-### Opt-Out
+### Opt-Out {#opt-out}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -759,7 +759,7 @@ SMS/MMS
 
 {% api %}
 
-### Sends
+### Sends {#sends}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
@@ -823,7 +823,7 @@ SMS/MMS
 
 {% api %}
 
-### Soft Bounce
+### Soft Bounce {#soft-bounce}
 
 {% apitags %}
 Email
@@ -839,7 +839,7 @@ Obwohl Soft Bounces nicht in Ihren Campaign-Analytics getrackt werden, können S
 
 {% api %}
 
-### Spam
+### Spam {#spam}
 
 {% apitags %}
 Email

@@ -595,7 +595,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### Registrar cliques {#logging-clicks}
+#### Registrar cliques
 
 Chame o método de clique de Banner da plataforma quando o usuário tocar no seu Banner personalizado (ou em um botão específico). Passe o `buttonId` opcional quando o clique for em um botão específico, para que a análise de dados possa atribuir o clique corretamente.
 
@@ -659,7 +659,7 @@ As dispensas de Banner removem programaticamente um Banner de um posicionamento 
 As dispensas de Banner estão atualmente em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, fale com o seu gerente de sucesso do cliente.
 {% endalert %}
 
-### Pré-requisitos {#prerequisites}
+### Pré-requisitos
 
 Estas são as versões mínimas do SDK necessárias para registrar dispensas de Banner:
 
@@ -670,7 +670,7 @@ Estas são as versões mínimas do SDK necessárias para registrar dispensas de 
 
 Se seu Banner usar o editor de arrastar e soltar e incluir um componente de botão de dispensa, nenhum código adicional é necessário. Quando um usuário clicar no botão de dispensa, a mensagem será ocultada, uma dispensa será acionada e um evento de dispensa será registrado para análise de dados.
 
-#### Blocos de código personalizado {#custom-code-blocks}
+#### Blocos de código personalizado
 
 Se seu Banner usar o bloco de editor **Custom Code**, você pode acionar uma dispensa diretamente de dentro do HTML do Banner usando `brazeBridge.closeMessage()`.
 
@@ -813,7 +813,7 @@ Você pode usar propriedades personalizadas da sua Campaign de Banner para recup
 - Usar metadados como um `timestamp` ou objeto JSON para acionar lógica condicional.
 - Controlar o comportamento de um banner com base em metadados incluídos como `ratio` ou `format`.
 
-### Pré-requisitos {#prerequisites}
+### Pré-requisitos
 
 Você precisará [adicionar propriedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) à sua Campaign de Banner. Além disso, estas são as versões mínimas do SDK necessárias para acessar propriedades personalizadas:
 

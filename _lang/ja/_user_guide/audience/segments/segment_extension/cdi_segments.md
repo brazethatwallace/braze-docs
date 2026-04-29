@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "この記事では、クラウドデータ取り込み（CDI）を使った CDI セグメントエクステンションについて、データウェアハウスへのクエリと Braze でのオーディエンス定義の方法を説明します。"
+description: "この記事では、CDI セグメントエクステンションがクラウドデータ取り込みを使用してデータウェアハウスにクエリを実行し、Brazeでオーディエンスを定義する方法について説明します。"
 
 ---
 

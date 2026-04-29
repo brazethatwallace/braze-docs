@@ -508,7 +508,7 @@ Testbanner sind wie alle anderen Banner, nur dass sie bei der nächsten App-Sitz
 
 ## Impressionen protokollieren {#log-impressions}
 
-Braze protokolliert automatisch Impressionen für Banner, die sichtbar sind, wenn Sie SDK-Methoden zum Einfügen eines Banners verwenden – eine manuelle Erfassung von Impressionen ist daher nicht erforderlich.
+Braze protokolliert automatisch Impressionen für Banner, die sichtbar sind, wenn Sie SDK-Methoden zum Einfügen eines Banners verwenden&#8212;eine manuelle Erfassung von Impressionen ist daher nicht erforderlich.
 
 ## Klicks protokollieren {#logging-clicks}
 
@@ -595,7 +595,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### Klicks protokollieren {#logging-clicks}
+#### Klicks protokollieren
 
 Rufen Sie die plattformspezifische Methode für Banner-Klicks auf, wenn Nutzer:innen auf Ihr angepasstes Banner (oder einen bestimmten Button) tippen. Übergeben Sie die optionale `buttonId`, wenn der Klick auf einen bestimmten Button erfolgt, damit Analytics den Klick korrekt zuordnen kann.
 
@@ -659,7 +659,7 @@ Banner-Schließungen entfernen ein Banner programmatisch aus einer Platzierung, 
 Banner-Schließungen befinden sich derzeit im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
-### Voraussetzungen {#prerequisites}
+### Voraussetzungen
 
 Dies sind die erforderlichen Mindestversionen des SDK, um Banner-Schließungen zu protokollieren:
 
@@ -670,7 +670,7 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Banner-Schließungen z
 
 Wenn Ihr Banner den Drag-and-Drop-Editor verwendet und eine Schließen-Button-Komponente enthält, ist kein zusätzlicher Code erforderlich. Wenn Nutzer:innen auf den Schließen-Button klicken, wird die Nachricht ausgeblendet, eine Schließung ausgelöst und anschließend ein Schließungsereignis für Analytics aufgezeichnet.
 
-#### Benutzerdefinierte Codeblöcke {#custom-code-blocks}
+#### Benutzerdefinierte Codeblöcke
 
 Wenn Ihr Banner den **Custom Code**-Editor-Block verwendet, können Sie eine Schließung direkt aus dem HTML des Banners heraus mit `brazeBridge.closeMessage()` auslösen.
 
@@ -813,7 +813,7 @@ Sie können benutzerdefinierte Eigenschaften aus Ihrer Banner-Campaign verwenden
 - Metadaten wie einen `timestamp` oder ein JSON-Objekt verwenden, um bedingte Logik zu triggern.
 - Das Verhalten eines Banners basierend auf enthaltenen Metadaten wie `ratio` oder `format` steuern.
 
-### Voraussetzungen {#prerequisites}
+### Voraussetzungen
 
 Sie müssen Ihrer Banner-Campaign [benutzerdefinierte Eigenschaften hinzufügen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties). Darüber hinaus sind dies die erforderlichen Mindestversionen des SDK, um auf benutzerdefinierte Eigenschaften zugreifen zu können:
 
