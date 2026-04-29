@@ -199,7 +199,8 @@ $doc_transition_time: 0.25s;
 				padding: 17px 25px 30px 25px;
 				a {
 					display: inline-block;
-					border-bottom: 1px solid $braze-link-color;
+					border-bottom-style: solid;
+					border-bottom-color: $braze-link-color;
 					&:hover {
 						background-color: $braze-link-color;
 						color: #fff;
