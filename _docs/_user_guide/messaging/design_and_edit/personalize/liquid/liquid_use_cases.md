@@ -1775,6 +1775,11 @@ This use case aborts the message on a chosen month and day every year (May 5 in 
 
 {% raw %}
 {% endif %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
 ```
 {% endraw %}
 
