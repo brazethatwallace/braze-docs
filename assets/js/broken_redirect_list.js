@@ -3886,6 +3886,7 @@ validurls['/docs/user_guide/message_building_by_channel/in-app_messages/creative
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize/html_in-app_messages'] = '/docs/user_guide/channels/in_app_messages/message_types/custom_html';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize/email_capture_form'] = '/docs/user_guide/channels/in_app_messages/message_types/email_capture_form';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/templates/simple_survey'] = '/docs/user_guide/channels/in_app_messages/message_types/simple_survey';
+validurls['/docs/user_guide/message_building_by_channel/in_app_messages/traditional/templates/simple_survey'] = '/docs/user_guide/channels/in_app_messages/message_types/simple_survey';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize'] = '/docs/user_guide/channels/in_app_messages/customize';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/style_settings'] = '/docs/user_guide/channels/in_app_messages/customize/style_settings';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/dark-mode'] = '/docs/user_guide/channels/in_app_messages/customize/dark_mode_themes';
