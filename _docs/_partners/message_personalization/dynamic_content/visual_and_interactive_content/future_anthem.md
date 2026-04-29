@@ -9,7 +9,9 @@ search_tag: Partner
 
 # Future Anthem
 
-> [Future Anthem](https://www.futureanthem.com/)'s all-in-one product for the real money gaming industry, Amplifier AI, delivers content personalization, real-time experiences, and dynamic audiences. Amplifier AI works seamlessly across sports, casino, and lottery, allowing customers to enhance Braze player profiles with industry-specific player attributes, such as favorite game, favorite team, engagement score, next bet recommendation, expected next bet, and more.
+> [Future Anthem](https://www.futureanthem.com/)'s real-time AI platform powers personalisation across sports, casino, bingo and lottery - allowing Braze customers to enrich player profiles with industry-specific player attributes, including favourite game, favourite team, engagement score, next bet recommendation, expected next bet, and more.
+
+> Delivered through Real-time Experiences, Dynamic Audiences, and Content Recommendations, every attribute is built on live player behaviour - enabling Braze customers to act in the moment.
 
 {% alert important %}
 This feature is currently in Early Access. Contact the Future Anthem Customer Success Team to get started.
