@@ -1774,7 +1774,6 @@ You can replace the line "default copy" with {% raw %}`{% abort_message() %}`{% 
 This use case aborts the message on a chosen month and day every year (May 5 in the example). It compares the current date to an unambiguous month-day string built with the `date` filter.
 
 {% raw %}
-{% endif %}
 ```liquid
 {% assign date = 'now' | date: '%d/%m' %}
 {% if date == '05/05' %}
