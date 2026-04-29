@@ -383,3 +383,17 @@ $doc_transition_time: 0.25s;
 .main_content {
 	position: relative;
 }
+
+// T7: SearchUnify full-page search results are rendered by a React app that
+// removes any DOM children we inject via JavaScript. A CSS ::after pseudo-element
+// is immune to React reconciliation and is announced by modern screen readers.
+[su-container] a[target="_blank"]::after {
+  content: " (opens in new tab)";
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
