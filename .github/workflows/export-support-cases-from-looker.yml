@@ -13,6 +13,8 @@
 # Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
 # Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID (saved Look query id; filters live in Looker)
 #
+# Labels: Create `support analyzer` and `do not merge` in the repo if missing—the digest PR applies both.
+#
 # Schedule: `cron` + `timezone` use GitHub Actions schedule event semantics (IANA timezone, DST-aware).
 # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 # Edit `cron` / `timezone` below to change when the export runs.
@@ -111,6 +113,7 @@ jobs:
             See `.github/support_analyzer_weekly_digest.md` in this PR.
           labels: |
             support analyzer
+            do not merge
           commit-message: "chore: weekly support cases digest (automated)"
           delete-branch: true
           add-paths: |
