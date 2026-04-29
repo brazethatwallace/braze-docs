@@ -151,7 +151,7 @@ $(document).ready(function () {
         '</div></div> <div class="content">' +
         description +
         "</div>";
-    result_template += "</a>";
+    result_template += '<span class="sr-only"> (opens in new tab)</span></a>';
     return result_template;
   };
   autocomplete({

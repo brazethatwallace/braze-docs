@@ -778,8 +778,11 @@ $(document).ready(function() {
     if (is_external){
       $(this).after(' <i class="fas fa-external-link-alt"></i>');
       $(this).attr('target', '_blank');
+      $(this).append('<span class="sr-only"> (opens in new tab)</span>');
     }
   });
+  // T7: add warning to any remaining target="_blank" links not yet annotated
+  $('a[target="_blank"]').not(':has(.sr-only)').append('<span class="sr-only"> (opens in new tab)</span>');
   $('.highlight .highlight .rouge-code pre').each(function(k) {
     $this = $(this);
     if ($this.html().length > 120) {
