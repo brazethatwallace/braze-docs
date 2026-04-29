@@ -250,6 +250,18 @@
 				}
 			}
 		}
+
+		#breadcrumb {
+			nav ol {
+				counter-reset: none;
+				> li {
+					counter-increment: none;
+					&::before {
+						content: none;
+					}
+				}
+			}
+		}
 	}
 
 	details {
