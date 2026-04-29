@@ -596,6 +596,17 @@ div.highlight {
 	line-height: 1.7;
 	color: $grey-boulder;
 
+	nav ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: inline;
+	}
+
+	nav ol li {
+		display: inline;
+	}
+
 	a {
 		border-bottom-width: 1px !important;
 		border-bottom-color: transparent !important;
