@@ -49,6 +49,14 @@ $guide_transition_time : 0.25s;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
     .guide_item {
 
       width: 100%;

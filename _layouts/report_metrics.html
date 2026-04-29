@@ -139,7 +139,7 @@ $(document).ready(function() {
 
     function search_apis(api_hash) {
       var result_cnt = 0;
-      $('#results_msg').hide();
+      $('#results_msg').html('');
       var api_div = $('#api_list .api_div');
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
@@ -188,7 +188,6 @@ $(document).ready(function() {
       })
       if (!result_cnt && !showall) {
         $('#results_msg').html('<p>No metrics matching these filters</p>');
-        $('#results_msg').show();
       }
     };
 
@@ -250,13 +249,15 @@ $(document).ready(function() {
 
     <div id="api_filter">
         <input id="api_search" type="search" placeholder="Search" aria-label="Search glossary" />
-        <div id="api_filter_list"></div>
+        <fieldset id="api_filter_list">
+          <legend>Filter by channel</legend>
+        </fieldset>
     </div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
     </div>
-    <div id="results_msg"></div>
+    <div id="results_msg" role="status" aria-live="polite" aria-atomic="true"></div>
 
 
   </div>
