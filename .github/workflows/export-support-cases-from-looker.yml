@@ -6,10 +6,16 @@
 # The digest PR is not customer docs and does not edit _docs. Full triage and doc PRs
 # still require the support-analyzer Cursor rule on the CSV.
 #
+# Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
+# limit branch access, and scope the Looker saved query appropriately. The export script
+# requires SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 in Actions.
+#
 # Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
 # Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID (saved Look query id; filters live in Looker)
 #
-# Schedule: Mondays 7:00 AM America/New_York (handles DST). Edit cron/timezone below to change.
+# Schedule: `cron` + `timezone` use GitHub Actions schedule event semantics (IANA timezone, DST-aware).
+# See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+# Edit `cron` / `timezone` below to change when the export runs.
 name: Support analyzer (Looker)
 
 on:
@@ -37,7 +43,7 @@ jobs:
           git fetch origin support-analyzer-data 2>/dev/null || true
           git checkout -B support-analyzer-data origin/support-analyzer-data 2>/dev/null || git checkout -b support-analyzer-data
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -49,6 +55,7 @@ jobs:
           LOOKER_CLIENT_SECRET: ${{ secrets.LOOKER_CLIENT_SECRET }}
           LOOKER_SUPPORT_CASES_QUERY_ID: ${{ vars.LOOKER_SUPPORT_CASES_QUERY_ID }}
           SUPPORT_ANALYZER_OUTPUT: _data/support_cases_latest.csv
+          SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA: "1"
         run: python scripts/export_support_cases_from_looker.py
 
       - name: Commit and push CSV
@@ -74,7 +81,7 @@ jobs:
           git show "origin/support-analyzer-data:_data/support_cases_latest.csv" > "$RUNNER_TEMP/support_cases_latest.csv"
           test -s "$RUNNER_TEMP/support_cases_latest.csv" || (echo "CSV empty or missing on support-analyzer-data"; exit 1)
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -92,6 +99,7 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
           branch: support-analyzer/weekly-digest-${{ github.run_id }}
           base: develop
           title: "[SA] Weekly support cases digest — ${{ steps.stamp.outputs.ymd }}"

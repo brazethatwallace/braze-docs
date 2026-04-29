@@ -27,11 +27,27 @@ _STOPWORDS = frozenset(
     .split()
 )
 
+_EMAIL_RE = re.compile(r"\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b")
+_URL_RE = re.compile(r"\b(?:https?://|www\.)\S+", re.IGNORECASE)
+_UUID_RE = re.compile(
+    r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}\b"
+)
+
+
+def _strip_sensitive_content(text: str) -> str:
+    """Remove common PII / high-entropy tokens from text before tokenizing."""
+    text = _EMAIL_RE.sub(" ", text)
+    text = _URL_RE.sub(" ", text)
+    text = _UUID_RE.sub(" ", text)
+    return text
+
 
 def tokenize(text: str) -> list[str]:
     if not text:
         return []
-    words = re.findall(r"[a-z0-9_]{3,}", text.lower())
+    sanitized = _strip_sensitive_content(text).lower()
+    # Letters only (avoids surfacing numeric IDs and mixed tokens in the digest table)
+    words = re.findall(r"[a-z]{3,}", sanitized)
     return [w for w in words if w not in _STOPWORDS]
 
 
@@ -45,11 +61,22 @@ def main() -> None:
     if not input_path.is_file():
         raise SystemExit(f"Input not found: {input_path}")
 
-    rows = []
+    required_columns = {
+        "Support Cases Email Message Case ID",
+        "Support Cases Description",
+    }
     with input_path.open(newline="", encoding="utf-8", errors="replace") as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            rows.append(row)
+        fieldnames = reader.fieldnames or []
+        missing_columns = sorted(required_columns - set(fieldnames))
+        if missing_columns:
+            available_columns = ", ".join(fieldnames) if fieldnames else "(none)"
+            raise SystemExit(
+                "Input CSV is missing required column(s): "
+                + ", ".join(missing_columns)
+                + f". Available columns: {available_columns}"
+            )
+        rows = list(reader)
 
     case_ids = set()
     descriptions = []

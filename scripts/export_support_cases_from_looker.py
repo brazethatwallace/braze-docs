@@ -13,6 +13,13 @@ Environment variables:
                                 this to export a different saved Look; filters and date windows live
                                 in Looker on that saved query—not in this script.
   SUPPORT_ANALYZER_OUTPUT       (optional) Output path; default _data/support_cases_<YYYYMMDD>.csv
+  SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA
+                                (required in CI) Set to "1" when running in GitHub Actions
+                                (GITHUB_ACTIONS=true) to confirm you accept writing raw Support
+                                Case CSV (may contain consumer PII) to the configured output path.
+
+The export is raw Looker CSV. Treat the file as sensitive; this repo should stay private and
+access to the data branch limited to people who may handle support content.
 
 Usage:
   export LOOKER_CLIENT_ID="..." LOOKER_CLIENT_SECRET="..."
@@ -40,6 +47,15 @@ def main():
             file=sys.stderr,
         )
         sys.exit(1)
+
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        if os.environ.get("SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA") != "1":
+            print(
+                "Error: In GitHub Actions, set SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 "
+                "to confirm raw Support Cases CSV (may contain PII) may be written to the output path.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
 
     try:
         import requests
