@@ -9,5 +9,5 @@
 | Button text color | Modifies the color of the text on the button. |
 | Background color | Modifies the color of the button's background. |
 | Border style | Determines the style of the button's border. |
-| Border radius | Determines how round you would like the corners. |
+| Border radius | Determines how round the corners are. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

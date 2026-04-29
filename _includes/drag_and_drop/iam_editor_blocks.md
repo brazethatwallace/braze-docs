@@ -71,7 +71,7 @@ Adds space or padding between other blocks.
 
 ### Custom code
 
-Inserts and runs custom HTML, CSS, or JavaScript for advanced customization.
+Inserts custom HTML, CSS, or JavaScript for advanced customization.
 
 | Property | Description |
 | --- | --- |

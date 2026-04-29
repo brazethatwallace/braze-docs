@@ -26,7 +26,7 @@ For more information, see [Define on-click behavior]({{site.baseurl}}/user_guide
 
 ### Image
 
-Displays an image from a hosted URL and options you set in the properties panel.
+Displays an image from a hosted URL. Configure display options in the properties panel.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -54,7 +54,7 @@ Adds vertical spacing between blocks.
 
 ### Custom code
 
-Inserts custom HTML for advanced layouts or embedded content (for example video). Clicks inside custom HTML are not tracked unless you call `brazeBridge.logClick()`—see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code/).
+Inserts custom HTML for advanced layouts or embedded content (for example video). Clicks inside custom HTML are not tracked unless you call `brazeBridge.logClick()` — see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code/).
 
 | Property | Description |
 | --- | --- |
@@ -63,19 +63,20 @@ Inserts custom HTML for advanced layouts or embedded content (for example video)
 
 ### Phone capture
 
-Collects a phone number. When submitted, subscribes the user to your selected [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) subscription group. Only one per Banner.
+Collects a phone number. On submit, subscribes the user to your selected [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) subscription group. Only one per Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### Email capture
 
-Collects an email address and adds it to the user's Braze profile when submitted. Only one per Banner.
+Collects an email address and adds it to the user's Braze profile on submit. Only one per Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
 ### Long text
 
 Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 ### Saved row

@@ -12,7 +12,7 @@ Adds heading or body text. Useful for structuring sections and improving readabi
 
 ### Button
 
-A clickable element for actions such as opening a link or submitting a form.
+Adds a clickable element for actions such as opening a link or submitting a form.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
@@ -21,7 +21,7 @@ A clickable element for actions such as opening a link or submitting a form.
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 {% alert important %}
-If you configure a button with **Submit form when button is clicked** and open a web URL in a new tab, iOS Safari may block the navigation. Prefer opening the post-submit URL in the same tab when submitting forms. For more information, see [Create landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
+If you configure a button with **Submit form when button is clicked** and open a web URL in a new tab, iOS Safari may block the navigation. Open the post-submit URL in the same tab when submitting forms. For more information, see [Create landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
 {% endalert %}
 
 ### Radio button
@@ -42,7 +42,7 @@ Displays an image from an upload or external URL.
 
 ### Link
 
-A hyperlink users can select to go to a URL. Can sit in text or stand alone.
+Adds a hyperlink users can select to go to a URL. Can sit in text or stand alone.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
@@ -73,19 +73,19 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### Email capture
 
-Form field for email addresses. On submit, the address is saved to the user's Braze profile.
+Adds a form field for email addresses. On submit, the address is saved to the user's Braze profile.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
 ### Phone capture
 
-Form field for phone numbers. On submit, subscribes the user to your selected [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) subscription group.
+Adds a form field for phone numbers. On submit, subscribes the user to your selected [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) or [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) subscription group.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### Input field
 
-Form field for standard attributes (for example first or last name) or a custom attribute string.
+Adds a form field for standard attributes (for example, first or last name) or a custom attribute string.
 
 | Property | Description |
 | --- | --- |

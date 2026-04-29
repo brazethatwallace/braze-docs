@@ -36,12 +36,12 @@ Inserts custom HTML, CSS, or JavaScript. If **Custom code** is not in your block
 
 | Property | Description |
 | --- | --- |
-| Custom code | Add or edit HTML, CSS, or JavaScript. If you use Custom code, inline frames may not generate in the custom code when the preference center is delivered to users. |
+| Custom code | Add or edit HTML, CSS, or JavaScript. If you use Custom code, inline frames may not render in the custom code when the preference center is delivered to users. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Subscription groups (smart block)
 
-The template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow.
+Adds a template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow.
 
 After you [add subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/#step-3-add-subscription-groups-to-the-preference-center), select the smart block in the canvas to:
 
@@ -54,5 +54,5 @@ The **Unsubscribe from all** control at the bottom of the default template is re
 
 ## Things to know
 
-- **Common styles:** You can set page-wide defaults under **Common Styles** before tuning individual blocks. For more information, see [Customize the preference center using the drag-and-drop editor]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/#step-4-customize-the-preference-center-using-the-drag-and-drop-editor).
+- **Common styles:** You can set page-wide defaults under **Common Styles** before adjusting individual blocks. For more information, see [Customize the preference center using the drag-and-drop editor]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/#step-4-customize-the-preference-center-using-the-drag-and-drop-editor).
 - **Confirmation page:** Switch to **Confirmation Page** at the top of the editor to style the post-save experience using the same block types.

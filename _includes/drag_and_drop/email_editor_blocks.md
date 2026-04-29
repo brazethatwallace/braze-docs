@@ -101,7 +101,7 @@ Inserts a solid, dotted, or dashed line to help with spacing.
 
 ### Spacer
 
-Adds space, or "padding", between other blocks.
+Adds space or padding between other blocks.
 
 | Property | Description |
 |---|---|
@@ -110,7 +110,7 @@ Adds space, or "padding", between other blocks.
 
 ### Image
 
-Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). For dynamic images (images with Liquid or Connected Content), you must set a fallback image to use the auto-width settings. For image specifications, refer to our [email image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). For dynamic images (images with Liquid or Connected Content), you must set a fallback image to use the auto-width settings. For image specifications, see [email image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -128,8 +128,8 @@ Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/
 
 {% alert tip %}
 For **Auto width**, automatic image resizing picks the best size for the image based on a combination of image width and available space in the layout:
-- Images wider than the available space will be set at 100% width and will keep this ratio on mobile, using the entire device display width.
-- Images smaller than the available space will use the image's natural size to avoid distortion effects or blurry pictures.
+- Images wider than the available space are set at 100% width and keep this ratio on mobile, using the entire device display width.
+- Images smaller than the available space use the image's natural size to avoid distortion effects or blurry pictures.
 {% endalert %}
 
 ### Video
@@ -146,7 +146,7 @@ Creates a link to video content. Only YouTube and Vimeo are supported.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Videos hosted by Vimeo will only work if they are set to public. All other security settings available within Vimeo (for example, "Hide from Vimeo.com") will generate a different link format that is not supported by this Content Block. These types of links are altered by the builder, which prevents Braze from generating a thumbnail.
+Videos hosted by Vimeo only work if they are set to public. All other security settings available within Vimeo (for example, "Hide from Vimeo.com") generate a different link format that is not supported by this Content Block. These types of links are altered by the builder, which prevents Braze from generating a thumbnail.
 {% endalert %}
 
 ### Social
@@ -190,7 +190,7 @@ Creates a flexible menu for the message you're designing.
 | Property | Description |
 |---|---|
 | Configure menu items | Add a menu item. |
-| Font family | The style to be used for your menu. |
+| Font family | The font style for the menu. |
 | Font size | The size of your menu. |
 | Text color | Modifies the color of the menu. |
 | Link color | Modifies the color of the menu text. |
