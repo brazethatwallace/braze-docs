@@ -798,7 +798,15 @@ $(document).ready(function() {
       if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
       if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
       a.setAttribute('rel', tokens.join(' '));
-      if (!a.querySelector('.sr-only')) {
+      var ariaLabel = a.getAttribute('aria-label');
+      if (ariaLabel) {
+        // aria-label overrides all text content in the accessible name computation,
+        // so the sr-only span inside the link will be ignored. Append the warning
+        // directly to aria-label instead.
+        if (ariaLabel.indexOf('(opens in new tab)') < 0) {
+          a.setAttribute('aria-label', ariaLabel.trim() + ' (opens in new tab)');
+        }
+      } else if (!a.querySelector('.sr-only')) {
         var span = document.createElement('span');
         span.className = 'sr-only';
         span.textContent = ' (opens in new tab)';
