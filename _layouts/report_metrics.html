@@ -137,10 +137,13 @@ $(document).ready(function() {
   }
 
 
+    var noResultsTimer = null;
+
     function search_apis(api_hash) {
       var result_cnt = 0;
       var resultsMsg = $('#results_msg');
       resultsMsg.html('');
+      clearTimeout(noResultsTimer);
       var api_div = $('#api_list .api_div');
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
@@ -188,11 +191,12 @@ $(document).ready(function() {
         }
       })
       if (!result_cnt && !showall) {
-        // Defer the update so the clear and the set are separate DOM mutations;
-        // VoiceOver requires distinct events to reliably announce aria-live changes.
-        setTimeout(function() {
+        // Debounce: cancel any pending announcement, then defer the set so the
+        // clear and set are separate DOM mutations. role="alert" (assertive) is
+        // more reliably announced by VoiceOver than role="status" (polite).
+        noResultsTimer = setTimeout(function() {
           resultsMsg.html('<p>No metrics matching these filters</p>');
-        }, 100);
+        }, 250);
       }
     };
 
@@ -262,7 +266,7 @@ $(document).ready(function() {
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
     </div>
-    <div id="results_msg" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div id="results_msg" role="alert" aria-atomic="true"></div>
 
 
   </div>
