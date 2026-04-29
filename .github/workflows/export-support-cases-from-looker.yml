@@ -106,9 +106,11 @@ jobs:
           base: develop
           title: "[SA] Weekly support cases digest — ${{ steps.stamp.outputs.ymd }}"
           body: |
+            **This PR is for analysis only and is not meant to be merged. Close this PR when you're finished.**
+
             Automated digest from the latest Looker export (keyword themes and counts only).
 
-            **This PR does not update customer documentation.** Merge or close after you use it as input for the support-analyzer Cursor rule on `_data/support_cases_latest.csv` on branch `support-analyzer-data`.
+            **This PR does not update customer documentation.** Use it as input for the support-analyzer Cursor rule on `_data/support_cases_latest.csv` on branch `support-analyzer-data`, then close this PR.
 
             See `.github/support_analyzer_weekly_digest.md` in this PR.
           labels: |
