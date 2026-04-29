@@ -778,11 +778,21 @@ $(document).ready(function() {
     if (is_external){
       $(this).after(' <i class="fas fa-external-link-alt"></i>');
       $(this).attr('target', '_blank');
-      $(this).append('<span class="sr-only"> (opens in new tab)</span>');
+      $(this).attr('rel', function(_, rel) {
+        var tokens = (rel || '').split(/\s+/).filter(Boolean);
+        if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+        if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+        return tokens.join(' ');
+      });
     }
   });
-  // T7: add warning to any remaining target="_blank" links not yet annotated
-  $('a[target="_blank"]').not(':has(.sr-only)').append('<span class="sr-only"> (opens in new tab)</span>');
+  // T7: add rel and sr-only warning to all target="_blank" links
+  $('a[target="_blank"]').attr('rel', function(_, rel) {
+    var tokens = (rel || '').split(/\s+/).filter(Boolean);
+    if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+    if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+    return tokens.join(' ');
+  }).not(':has(.sr-only)').append('<span class="sr-only"> (opens in new tab)</span>');
   $('.highlight .highlight .rouge-code pre').each(function(k) {
     $this = $(this);
     if ($this.html().length > 120) {
