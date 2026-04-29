@@ -1,0 +1,117 @@
+# Support analyzer (Looker): export + weekly digest PR
+#
+# 1) Export Support Cases CSV from Looker and push to branch `support-analyzer-data`.
+# 2) Generate a machine digest (counts + keyword themes) and open ONE draft PR to `develop`.
+#
+# The digest PR is not customer docs and does not edit _docs. Full triage and doc PRs
+# still require the support-analyzer Cursor rule on the CSV.
+#
+# Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
+# limit branch access, and scope the Looker saved query appropriately. The export script
+# requires SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 in Actions.
+#
+# Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
+# Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID (saved Look query id; filters live in Looker)
+#
+# Schedule: `cron` + `timezone` use GitHub Actions schedule event semantics (IANA timezone, DST-aware).
+# See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+# Edit `cron` / `timezone` below to change when the export runs.
+name: Support analyzer (Looker)
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up data branch
+        run: |
+          git fetch origin support-analyzer-data 2>/dev/null || true
+          git checkout -B support-analyzer-data origin/support-analyzer-data 2>/dev/null || git checkout -b support-analyzer-data
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Export from Looker
+        env:
+          LOOKER_CLIENT_ID: ${{ secrets.LOOKER_CLIENT_ID }}
+          LOOKER_CLIENT_SECRET: ${{ secrets.LOOKER_CLIENT_SECRET }}
+          LOOKER_SUPPORT_CASES_QUERY_ID: ${{ vars.LOOKER_SUPPORT_CASES_QUERY_ID }}
+          SUPPORT_ANALYZER_OUTPUT: _data/support_cases_latest.csv
+          SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA: "1"
+        run: python scripts/export_support_cases_from_looker.py
+
+      - name: Commit and push CSV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/support_cases_latest.csv
+          git diff --staged --quiet && echo "No CSV changes to commit" || (git commit -m "chore: weekly Support Cases export from Looker" && git push origin support-analyzer-data)
+
+  digest_and_pr:
+    needs: export
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest CSV from data branch
+        run: |
+          git fetch origin support-analyzer-data
+          git show "origin/support-analyzer-data:_data/support_cases_latest.csv" > "$RUNNER_TEMP/support_cases_latest.csv"
+          test -s "$RUNNER_TEMP/support_cases_latest.csv" || (echo "CSV empty or missing on support-analyzer-data"; exit 1)
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Generate digest
+        run: |
+          python scripts/support_analyzer_weekly_digest.py \
+            "$RUNNER_TEMP/support_cases_latest.csv" \
+            "$GITHUB_WORKSPACE/.github/support_analyzer_weekly_digest.md"
+
+      - name: Date stamp (Eastern)
+        id: stamp
+        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Open digest pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          branch: support-analyzer/weekly-digest-${{ github.run_id }}
+          base: develop
+          title: "[SA] Weekly support cases digest — ${{ steps.stamp.outputs.ymd }}"
+          body: |
+            Automated digest from the latest Looker export (keyword themes and counts only).
+
+            **This PR does not update customer documentation.** Merge or close after you use it as input for the support-analyzer Cursor rule on `_data/support_cases_latest.csv` on branch `support-analyzer-data`.
+
+            See `.github/support_analyzer_weekly_digest.md` in this PR.
+          labels: |
+            support analyzer
+          commit-message: "chore: weekly support cases digest (automated)"
+          delete-branch: true
+          add-paths: |
+            .github/support_analyzer_weekly_digest.md
