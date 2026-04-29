@@ -254,6 +254,7 @@
 		#breadcrumb {
 			nav ol {
 				counter-reset: none;
+				margin-left: 0;
 				> li {
 					counter-increment: none;
 					&::before {

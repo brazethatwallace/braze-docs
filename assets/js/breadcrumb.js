@@ -20,7 +20,7 @@ $(document).ready(function() {
         } else {
           li.append(document.createTextNode(curtext));
         }
-        $('<span>').attr('aria-hidden', 'true').text(' > ').appendTo(li);
+        $('<span>').attr('aria-hidden', 'true').html('&nbsp; &gt; &nbsp;').appendTo(li);
         bc_items.unshift(li);
       }
       dataparent = curpage.attr('data-parent');
@@ -30,7 +30,7 @@ $(document).ready(function() {
       if (page_collection_title) {
         var collection_li = $('<li>');
         $('<a>').attr('href', base_url + '/' + page_collection + '/' + page_collection_default_path).text(page_collection_title).appendTo(collection_li);
-        $('<span>').attr('aria-hidden', 'true').text(' > ').appendTo(collection_li);
+        $('<span>').attr('aria-hidden', 'true').html('&nbsp; &gt; &nbsp;').appendTo(collection_li);
         bc_items.unshift(collection_li);
       }
       bc_items.push($('<li>').attr('aria-current', 'page').text(current_page_text));
