@@ -139,7 +139,8 @@ $(document).ready(function() {
 
     function search_apis(api_hash) {
       var result_cnt = 0;
-      $('#results_msg').html('');
+      var resultsMsg = $('#results_msg');
+      resultsMsg.html('');
       var api_div = $('#api_list .api_div');
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
@@ -187,7 +188,11 @@ $(document).ready(function() {
         }
       })
       if (!result_cnt && !showall) {
-        $('#results_msg').html('<p>No metrics matching these filters</p>');
+        // Defer the update so the clear and the set are separate DOM mutations;
+        // VoiceOver requires distinct events to reliably announce aria-live changes.
+        setTimeout(function() {
+          resultsMsg.html('<p>No metrics matching these filters</p>');
+        }, 100);
       }
     };
 
