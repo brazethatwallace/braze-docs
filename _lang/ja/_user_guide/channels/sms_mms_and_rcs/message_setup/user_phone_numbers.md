@@ -31,7 +31,7 @@ channel:
 | 米国 | `4155552671` | 1 | `+14155552671` |
 | 英国 | `2071838750` | 44 | `+442071838750` |
 | ブラジル | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
 
 ## 電話番号のインポート {#importing-phone-numbers}
 

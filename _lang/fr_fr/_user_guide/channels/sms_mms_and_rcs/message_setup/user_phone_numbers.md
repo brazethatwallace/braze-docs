@@ -2,7 +2,7 @@
 nav_title: "Numéros de téléphone des utilisateurs"
 article_title: Numéros de téléphone des utilisateurs SMS
 page_order: 3
-description: "Cet article de référence couvre le formatage des numéros de téléphone SMS, l'importation des numéros de téléphone, ainsi que l'ajout d'utilisateurs aux groupes d'abonnement SMS."
+description: "Cet article de référence traite du formatage des numéros de téléphone SMS, de l'importation des numéros de téléphone, ainsi que de l'ajout d'utilisateurs aux groupes d'abonnement SMS."
 page_type: reference
 alias: /user_phone_numbers/
 channel:
@@ -31,13 +31,13 @@ Voici quelques exemples illustrant les différences entre le formatage local et 
 | USA | `4155552671` | 1 | `+14155552671` |
 | UK | `2071838750` | 44 | `+442071838750` |
 | Brésil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
 
 ## Importation des numéros de téléphone {#importing-phone-numbers}
 
 Lors de l'importation de numéros de téléphone, il est important de suivre le [format recommandé](#recommended-format). Pour importer des numéros de téléphone, utilisez l'une des méthodes suivantes :
 
-- [Télécharger un CSV vers Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)
+- [Charger un fichier CSV vers Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)
 - [Utiliser l'endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
 
 {% alert important %}

@@ -1,8 +1,8 @@
-## Uso de bloques de editor de mensajes dentro de la aplicación
+## Uso de bloques de editor de mensajes dentro de la aplicación {#using-in-app-message-editor-blocks}
 
-Los bloques de editor se encuentran en la sección **Crear** para los mensajes dentro de la aplicación. Para utilizarlos, arrastra un bloque de editor dentro de una columna. Se ajustará automáticamente al ancho de la columna. Cada bloque de editor tiene su propia configuración, como el control granular del relleno. El panel de la derecha cambia automáticamente a un panel de propiedades para el elemento de contenido seleccionado.
+Los bloques de editor se encuentran en la sección **Build** para los mensajes dentro de la aplicación. Para utilizarlos, arrastra un bloque de editor dentro de una columna. Se ajustará automáticamente al ancho de la columna. Cada bloque de editor tiene su propia configuración, como el control granular del relleno. El panel de la derecha cambia automáticamente a un panel de propiedades para el elemento de contenido seleccionado.
 
-## Tipos
+## Tipos {#types}
 
 La siguiente tabla describe cómo puedes utilizar cada tipo de bloque de editor.
 
@@ -12,7 +12,7 @@ La siguiente tabla describe cómo puedes utilizar cada tipo de bloque de editor.
 | Párrafo | Introduce un párrafo de texto en el mensaje. |
 | Botón | Añade un botón estándar. Las propiedades de este bloque permiten editar, establecer enlaces y registrar análisis. |
 | Botón de radio | Añade una lista de opciones entre las que los usuarios pueden seleccionar una. Cuando se envía, el perfil de usuario registra el atributo personalizado asociado, que debe ser una cadena para poder guardarse. Los atributos personalizados con otros tipos de datos no se guardan en el perfil de usuario. |
-| Imagen | Inserta una imagen de la [biblioteca multimedia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
+| Imagen | Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). |
 | Enlace | Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Se puede integrar en el texto o utilizarse de forma independiente. |
 | Espaciador | Añade espacio o relleno entre otros bloques. |
 | Código personalizado | Inserta y ejecuta HTML, CSS o JavaScript personalizados para una personalización avanzada.  |
@@ -21,14 +21,14 @@ La siguiente tabla describe cómo puedes utilizar cada tipo de bloque de editor.
 | Texto corto    | Inserta un campo de formulario que admite atributos estándar (como nombre y apellido) o una cadena de atributo personalizado de tu elección. |
 | Desplegable      | Inserta un menú desplegable con una lista predefinida de elementos entre los que los usuarios pueden seleccionar uno. Puedes añadir cualquier cadena de atributos personalizados a la lista. |
 | Casilla de verificación      | Inserta una casilla de verificación. Si el usuario marca la casilla, el atributo del bloque se establece en `true`. Si no se marca, su atributo se establece en `false`. |
-| Grupo de casillas de verificación| Los usuarios pueden seleccionar entre varias opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de matriz definido. |
+| Grupo de casillas de verificación | Los usuarios pueden seleccionar entre varias opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de matriz definido. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Propiedades
+## Propiedades {#properties}
 
 En las siguientes tablas se proporcionan detalles sobre las propiedades de cada bloque de editor.
 
-### Título y párrafo
+### Título y párrafo {#title-and-paragraph}
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -41,7 +41,7 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | Color de texto | Modifica el color del texto |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Botón
+### Botón {#button}
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -53,11 +53,11 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | Alineación del botón | Mueve el botón hacia la izquierda, el centro o la derecha |
 | Color de texto del botón | Modifica el color del texto del botón |
 | Color de fondo | Modifica el color del fondo del botón |
-| Estilo del borde | Determina el estilo del borde del botón | 
+| Estilo del borde | Determina el estilo del borde del botón |
 | Radio del borde | Determina cómo de redondeadas quieres las esquinas |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Imagen
+### Imagen {#image}
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -66,11 +66,11 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | URL | La dirección alojada de la imagen |
 | Alineación | Mueve la imagen hacia la izquierda, el centro o la derecha |
 | Color de fondo | Modifica el color del fondo de la imagen |
-| Estilo del borde | Determina el estilo del borde de la imagen | 
+| Estilo del borde | Determina el estilo del borde de la imagen |
 | Radio del borde | Determina el grado de redondeo que quieres para las esquinas de la imagen |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Enlace
+### Enlace {#link}
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -80,7 +80,7 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | Color de texto | Modifica el color del texto |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Espaciador
+### Espaciador {#spacer}
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -88,14 +88,14 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | Altura | Modifica la altura del espaciador. También puedes modificarla utilizando los tiradores de redimensionamiento del espaciador. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Código personalizado
+### Código personalizado {#custom-code}
 
 | Propiedad | Descripción |
 | --- | --- |
 | Código personalizado | Te permite añadir, editar o eliminar HTML, CSS y JavaScript para un mensaje dentro de la aplicación. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Captura de teléfono
+### Captura de teléfono {#phone-capture}
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -104,7 +104,7 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | Texto del marcador de posición | Un número de teléfono de marcador de posición para mostrar |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Captura de correo electrónico
+### Captura de correo electrónico {#email-capture}
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -118,7 +118,7 @@ En las siguientes tablas se proporcionan detalles sobre las propiedades de cada 
 | Texto del marcador de posición | Una dirección de correo electrónico de marcador de posición para mostrar |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Acciones
+## Acciones {#actions}
 
 Puedes asignar una acción que se produzca cuando un usuario pulse un botón, un enlace o una imagen del mensaje. También puedes utilizar [Liquid]({{site.baseurl}}/liquid/) para personalizar las acciones. En las siguientes tablas se proporcionan detalles sobre las acciones de cada bloque de editor.
 

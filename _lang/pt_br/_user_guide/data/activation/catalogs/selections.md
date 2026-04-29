@@ -2,6 +2,7 @@
 nav_title: Seleções
 article_title: Seleções
 page_order: 5
+alias: /catalog_selections/
 description: "Este artigo de referência aborda como criar e usar seleções com seus catálogos para fazer referência a dados em suas Campaigns da Braze."
 ---
 
