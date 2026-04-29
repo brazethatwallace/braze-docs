@@ -1053,7 +1053,7 @@ a:hover {
               <strong>BrazeAI Operator&#8482;로 더 빠르게 문제를 해결하세요</strong>
               <span class="operator-callout-badge">New</span>
             </div>
-            <p class="operator-callout-body">Operator는 많은 문제를 실시간으로 해결할 수 있습니다. 해결할 수 없는 경우 티켓 제출을 도와드립니다. <a href="https://dashboard.braze.com/?openOperator=true" target="_blank" rel="noopener noreferrer">Operator로 도움 받기<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (새 탭에서 열림)</span></a></p>
+            <p class="operator-callout-body">Operator는 많은 문제를 실시간으로 해결할 수 있습니다. 해결할 수 없는 경우 티켓 제출을 도와드립니다. <a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Operator로 도움 받기<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (새 탭에서 열림)</span></a></p>
           </div>
         </aside>
         <div class="main-border">
