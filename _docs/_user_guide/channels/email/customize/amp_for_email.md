@@ -236,8 +236,8 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
 Before you send your AMP email, we recommend:
 
 - Testing according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email)
-- Using the [Gmail Amp for Email Playground](https://amp.gmail.dev/playground/) to validate AMP markup
-  - If your AMP email uses Liquid tags, replace them with static placeholder values before pasting into the Gmail Amp for Email Playground. Unrendered Liquid tags causes validation errors.
+- Using the [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/) to validate AMP markup
+  - If your AMP email uses Liquid tags, replace them with static placeholder values before pasting into the Gmail AMP for Email Playground. Unrendered Liquid tags causes validation errors.
 
 For your AMP email to be delivered to any Gmail account, the email must meet the following conditions:
 
