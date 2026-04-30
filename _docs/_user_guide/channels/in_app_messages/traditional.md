@@ -318,8 +318,8 @@ Note that if you intend to trigger your in-app message based off a custom event,
 
 In-app message delivery is entirely based on the following action triggers:
 
-- Making a purchase
-- Opening the app/webpage
+- Placing an order
+- Opening the app or webpage
 - Performing a custom event (only works with events sent using the SDK)
 - Opening a specific push message
 - Automatically schedule campaigns to send at a certain time with respect to the local time of each of your users.
