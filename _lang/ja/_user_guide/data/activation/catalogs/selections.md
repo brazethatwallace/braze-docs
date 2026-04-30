@@ -2,6 +2,7 @@
 nav_title: セレクション
 article_title: セレクション
 page_order: 5
+alias: /catalog_selections/
 description: "このリファレンス記事では、Braze Campaignでデータを参照するために、カタログでセレクションを作成し使用する方法について説明します。"
 ---
 
@@ -27,11 +28,11 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 
 セレクションを作成するには、以下の手順に従います。
 
-1. **Catalogs**に移動し、リストからカタログを選択します。
-2. **Selection**タブを選択し、**Create Selection**をクリックします。
+1. **カタログ**に移動し、リストからカタログを選択します。
+2. **セレクション**タブを選択し、**セレクションを作成**をクリックします。
 3. セレクションに名前とオプションの説明を入力します。
 4. **Filter Field**で、フィルターしたいカタログの列を選択します。1,000文字を超える文字列フィールドはフィルターとして選択できません。
-5. 関連するOperator（例:「equals」や「does not equal」）と属性を選択して、フィルター基準の定義を完了します。
+5. 関連する演算子（例:「equals」や「does not equal」）と属性を選択して、フィルター基準の定義を完了します。
 6. **Sort type**セクションで、結果のソート方法を決定します。デフォルトでは、結果は順不同で返されます。特定のフィールドでソートするには、**Randomize Sort Order**をオフにし、**Sort Field**と**Sort Order**（昇順または降順）を指定します。
 7. **Results limit**セクションで、結果数を入力します（最大50件）。
 8. **Create Selection**を選択します。
@@ -54,7 +55,7 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 
 セレクションを作成したら、Liquidでメッセージをパーソナライズし、そのカタログからフィルタリングされたアイテムを挿入します。メッセージ作成画面にあるパーソナライゼーションウィンドウから、BrazeにLiquidを生成させることができます。
 
-1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i>を選択してパーソナライゼーションウィンドウを開きます。
+1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="パーソナライゼーションを追加"></i>を選択してパーソナライゼーションウィンドウを開きます。
 2. **Personalization Type**で**Catalog Items**を選択します。
 3. カタログ名を選択します。
 4. **Item selection method**で**Use a selection**を選択します。

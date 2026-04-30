@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Use this endpoint to record custom events and purchases and update user profile attributes.
 
-{% alert note %}
-Braze processes the data passed through the API at face value, and customers should only pass deltas (changing data) to minimize unnecessary data point logging. To read more, refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze processes the data passed through the API at face value, and you should only pass deltas (changing data) to minimize unnecessary data point logging.
 
 ## Need to update users in bulk?
 

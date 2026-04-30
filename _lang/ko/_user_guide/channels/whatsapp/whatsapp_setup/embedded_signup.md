@@ -23,7 +23,7 @@ Braze 워크스페이스에 [여러 WhatsApp Business 계정]({{site.baseurl}}/u
 **파트너 통합** > **기술 파트너**로 이동한 다음 **WhatsApp**을 검색하여 선택합니다. 다음 선택은 사용 사례에 따라 달라집니다:
 
 - 워크스페이스에 WhatsApp을 통합하는 경우 **Begin Integration**을 선택합니다. <br><br>![통합을 시작하는 버튼이 있는 WhatsApp 파트너 페이지.]({% image_buster /assets/img/whatsapp/whatsapp1.png %}){: style="max-width:80%;"}<br><br>
-- 기존 WhatsApp 통합에 WhatsApp Business 계정을 추가하는 경우 **Add WhatsApp Business Account**를 선택합니다. <br><br>![WhatsApp Business 계정 또는 구독 그룹 및 번호를 추가하는 옵션이 있는 'WhatsApp Messaging Integration'.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %}){: style="max-width:80%;"}
+- 기존 WhatsApp 통합에 WhatsApp Business 계정을 추가하는 경우 **Add WhatsApp Business Account**를 선택합니다. <br><br>![WhatsApp Business 계정 또는 구독 그룹 및 번호를 추가하는 옵션이 있는 "WhatsApp Messaging Integration".]({% image_buster /assets/img/whatsapp/multiple_wabas.png %}){: style="max-width:80%;"}
 
 이후 워크플로는 두 사용 사례 모두 동일합니다.
 

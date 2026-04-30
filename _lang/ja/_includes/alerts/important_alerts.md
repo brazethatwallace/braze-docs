@@ -9,7 +9,7 @@
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
-プライベートブラウジングウィンドウはWeb プッシュをサポートしていません。
+プライベートブラウジングウィンドウはWebプッシュをサポートしていません。
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Metaには、特定のエンコーディングやコンテナ設定が原因で�
 この連携では、BrazeがWebhookを正しいユーザープロファイルに一致させるために、ユーザーエイリアスは以下の形式を使用する必要があります。<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-多言語メッセージとロケール翻訳は現在早期アクセス中です。この早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 {% endif %}

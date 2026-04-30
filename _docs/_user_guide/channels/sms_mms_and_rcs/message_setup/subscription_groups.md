@@ -92,6 +92,28 @@ Depending on your integration, Braze can add RCS-verified senders to your existi
 {% endtab %}
 {% endtabs %}
 
+## Handle natural language opt-outs in the Agent Console
+
+For comprehensive subscription management, you can capture opt-out intent that falls outside of standard or custom keywords (such as "Please don’t text me"). By creating an AI agent, you can use sentiment analysis to help identify and act on these requests automatically.
+
+### Setup
+
+1. In the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/), create an "SMS Sentiment Analysis Agent".
+
+{% alert tip %}
+Use [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) to assist with the initial agent configuration.
+{% endalert %}
+
+{: start="2"}
+2. Create an action-based Canvas triggered by **Send an SMS inbound message**, within the **Other** keyword category.
+3. Add the [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) to the Canvas to identify opt-out intent.
+4. Add a subsequent SMS [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) to confirm the request: "It looks like you're trying to unsubscribe from SMS, so we are going to unsubscribe you. If this is a mistake, text START to opt back in."
+5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
+
+{% alert note %}
+Using the Agent Console consumes Message Credits.
+{% endalert %}
+
 ## Migrate SMS traffic to RCS
 
 If you have separate SMS and RCS subscription groups, you can migrate users from SMS to RCS using a one-step Canvas. 

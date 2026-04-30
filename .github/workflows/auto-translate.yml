@@ -12,10 +12,14 @@
 #      schedule window, since_commit/files dispatch, or push fallback)
 #   2. Matrix: translate each changed file into one language per job (6 jobs),
 #      then QC + Jekyll verify that locale only (avoids a single 6×locale step
-#      hitting the translate timeout on very large pages)
+#      hitting the translate timeout on very large pages). QC also applies
+#      small locale repairs (for example ES API “Obligatorio” column tokens,
+#      DE analytics capture phrasing — see scripts/auto_translate.py).
 #   3. Merge _lang/ trees + translation_results.json + qc_results.json, then
 #      orphan cleanup + alias check (full-repo only; skipped for explicit
-#      workflow_dispatch `files:` batches — PR #13327)
+#      workflow_dispatch `files:` batches — PR #13327). If the alias check
+#      runs and fails, merge-and-publish fails so the run is red (no silent
+#      “success” without a PR).
 #   4. Open one PR targeting develop with all locales
 name: Auto-translate
 
@@ -307,7 +311,6 @@ jobs:
       - name: Check for duplicate YAML aliases
         id: aliases
         if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
-        continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
       - name: Generate PR summary

@@ -11,8 +11,6 @@ description: "この記事では、メッセージでロケールを使用する
 
 > ワークスペースにロケールを追加すると、1つのプッシュ、メール、バナー、アプリ内メッセージ、またはContent Blockで、異なる言語のユーザーをターゲットにできます。
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## 前提条件 {#prerequisites}
 
 多言語メッセージの設定と使用方法の概要については、以下の動画をご覧ください。
@@ -45,11 +43,11 @@ description: "この記事では、メッセージでロケールを使用する
 
 ## ロケールの使用 {#use-locales}
 
-### ステップ 1:ロケールを設定する {#step-1-set-up-locales}
+### ステップ1: ロケールを設定する {#step-1-set-up-locales}
 
 メッセージに翻訳を追加する前に、まず[サポートするロケールを作成]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)する必要があります。ロケールは、メッセージングで利用可能な言語（およびオプションで地域）のバリアントを定義します。
 
-### ステップ 2:翻訳するコンテンツをマークする {#step-2-mark-content-for-translation}
+### ステップ2: 翻訳するコンテンツをマークする {#step-2-mark-content-for-translation}
 
 翻訳したいテキストをLiquid翻訳タグ {% raw %}`{% translation your_id_here %}`と`{% endtranslation %}`{% endraw %} で囲み、タグIDを割り当てます。翻訳タグIDはメッセージ内で一意である必要があります。テキストを明確に説明するセマンティックなID名の使用を検討してください（例: {% raw %}`{% translation header %}`{% endraw %}）。
 
@@ -133,7 +131,7 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 
 {% enddetails %}
 
-### ステップ 3:メッセージにロケールを追加する {#step-3-add-locales-to-your-message}
+### ステップ3: メッセージにロケールを追加する {#step-3-add-locales-to-your-message}
 
 メッセージに翻訳タグを追加した後、エディターで**言語を管理**を選択し（メールおよびContent Blocksのドラッグ＆ドロップエディターでは**言語**）、翻訳を追加するロケールを少なくとも1つ選択します。
 
@@ -151,7 +149,7 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 各Content Blockに、メッセージに追加したすべてのロケールの翻訳が含まれていることを確認してください。Content Blockに追加したロケールの翻訳がない場合、そのロケールのユーザーには元の言語で表示されます。
 {% endalert %}
 
-### ステップ 4:翻訳を追加する {#step-4-add-translations}
+### ステップ4: 翻訳を追加する {#step-4-add-translations}
 
 ロケールを選択した後、以下のいずれかの方法でメッセージに翻訳を追加します。
 
@@ -185,7 +183,7 @@ Canvas起動後に作成されたキャンバスステップで翻訳APIを使�
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5:翻訳をプレビューする {#step-5-preview-translations}
+### ステップ5: 翻訳をプレビューする {#step-5-preview-translations}
 
 メッセージをプレビューするには、**ユーザーとしてプレビュー**ドロップダウンから**多言語ユーザー**オプションを選択します。これにより、異なるロケール定義を切り替えて、メッセージのすべての翻訳をプレビューできます。
 
@@ -223,7 +221,7 @@ URLは2つの特殊文字を使用してこの動作を制御します。
   - `?`はまだトラッキングがないURLにトラッキングを追加します。
   - `&`はURLにすでに`?`が含まれている場合に追加のトラッキングを追加します。URLには`?`を1つだけ含めることができます。
 
-| URL | `?`&nbsp;を含む | 説明 | 例 |
+| URL | `?`を含む | 説明 | 例 |
 | --- | --- | --- | --- |
 | 標準URL | いいえ | URLにまだ`?`が含まれていない場合、閉じ翻訳タグの後に`?`を追加します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?">Shop Now</a>```{% endraw %} |
 | 標準URL | はい | URLにすでに`?`が含まれている場合、URLの末尾（閉じ翻訳タグの後）に`&`を使用します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |

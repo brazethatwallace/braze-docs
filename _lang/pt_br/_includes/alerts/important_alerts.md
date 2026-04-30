@@ -155,14 +155,6 @@ Para esta integração, o alias de usuário deve usar o seguinte formato para qu
 
 {% endif %}
 
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Mensagens multilíngues e traduções por localidade estão atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}

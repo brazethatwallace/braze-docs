@@ -204,7 +204,7 @@ Braze syncs up to 250 variants of each Shopify product into your catalog. Varian
 {% endalert %}
 
 {% tabs %}
-{% tab Product tabs %}
+{% tab Product tags %}
 
 Use product tags to personalize messages based on how your products are categorized in Shopify. For example, you can send a promotion featuring all products tagged "Summer Sale" through a [catalog selection]({{site.baseurl}}/catalog_selections/), or build a segment of users who purchased products tagged "Premium." 
 
@@ -341,7 +341,7 @@ Each synced metafield becomes a separate column in your catalog, with data type 
 
 ### Personalization
 
-1. Create a [catalog selection]({{site.baseurl}}/catalog_selections/) that filters for metafields that include the respective value, such as `summer`.
+1. Create a [catalog selection]({{site.baseurl}}/catalog_selections/) that filters for metafields that include the respective value.
 
 ![A catalog selection that filters for metafields that have the attribute summer.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
 
@@ -350,7 +350,7 @@ Each synced metafield becomes a separate column in your catalog, with data type 
 
 {% raw %}
 ```liquid
-{% catalog_selection_items se-team-ecommerce_shopify_catalog sustainable_products %}
+{% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
 {% abort_message('Catalog selection returned no items') %}
@@ -393,12 +393,12 @@ Each synced metafield becomes a separate column in your catalog, with data type 
 ```
 {% endraw %}
 
-Or, if you want to mention specific products with a `summer` metafield value in a push notification, you can use the **Add Personalization** tool and specify your catalog items.
+Or, if you want to mention specific products with a specific metafield value in a push notification, you can use the **Add Personalization** tool and specify your catalog items.
 
 {% raw %}
 ```liquid
-Checkout the latest women's clothing:
-    {% catalog_selection_items se-team-ecommerce_shopify_catalog summer_products %}
+Check out the latest summer products:
+    {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
@@ -412,18 +412,17 @@ Checkout the latest women's clothing:
 Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to build segments based on users who interacted with a product metafield. For example, to find users who triggered an ecommerce event with a product whose metafield array contains a specific value, use this query:
 
 {% raw %}
+```sql
 -- -----------------------------------------------------------------------------
--- Array-type metafield values (all time)
--- -----------------------------------------------------------------------------
--- When the metafield is stored as a JSON array in catalog field_value (e.g.
--- '["organic","vegan"]' or a list-type Shopify metafield serialized to JSON),
+-- When the metafield is stored as a JSON array in catalog field_value (for example,
+-- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
 -- use ARRAY_CONTAINS like product_tags. Cast the element you search for to
 -- VARIANT so types match the parsed array elements.
 -- -----------------------------------------------------------------------------
 
 -- Description:
 -- Fetches users who triggered the ecommerce event with a product whose
--- metafield array contains a specific value (e.g. segment on "accessories").
+-- metafield array contains a specific value (for example, segment on "seasonal").
 -- For a date range, add events.time >= $start_date AND events.time <= $end_date.
 -- For first/last triggered, reuse the CTE pattern from Template 3 with this
 -- ARRAY_CONTAINS predicate instead of items.field_value = '<metafield_value>'.
@@ -452,7 +451,7 @@ WHERE
 If you want to segment customers who have placed an order with the specific product metafields, use one of the following SQL Segment Extension templates (all time, specific time period, first or last triggered an event).
 
 {% raw %}
-```json
+```sql
 -- =============================================================================
 -- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================

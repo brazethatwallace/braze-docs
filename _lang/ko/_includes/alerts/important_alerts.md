@@ -69,7 +69,7 @@ Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 �
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-레거시 구매 이벤트는 지원 중단 상태(유지보수 모드)로 전환됩니다. 구매 이벤트는 계속 정상적으로 작동하지만, [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)를 우선하여 구매 이벤트 위에 새로운 기능이 추가되지 않습니다. 이 변경이 적용되면 세그먼트 필터가 더 이상 구매 동작 아래에 표시되지 않습니다.<br><br> 현재 구매 이벤트를 사용 중인 경우 단계적 중단 계획에 대한 사전 공지를 받게 됩니다. 지금은 공식 지원 중단일까지 구매 이벤트를 계속 사용할 수 있습니다. 자세한 내용은 [추천 이벤트 개요]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/)를 참조하세요.
+레거시 구매 이벤트는 지원 중단 상태(유지보수 모드)로 전환됩니다. 구매 이벤트는 계속 정상적으로 작동하지만, [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)를 우선하여 구매 이벤트 위에 순수하게 새로운 기능이 추가되지 않습니다. 이 변경이 적용되면 Segment 필터가 더 이상 구매 동작 아래에 표시되지 않습니다.<br><br> 현재 구매 이벤트를 사용 중인 경우 단계적 중단 계획에 대한 사전 공지를 받게 됩니다. 지금은 공식 지원 중단일까지 구매 이벤트를 계속 사용할 수 있습니다. 자세한 내용은 [추천 이벤트 개요]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/)를 참조하세요.
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta에는 특정 인코딩 또는 컨테이너 설정으로 인해 일부 MP4 �
 이 통합에서 사용자 별칭은 Braze가 웹훅을 올바른 고객 프로필에 매칭할 수 있도록 다음 형식을 사용해야 합니다:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-다국어 메시지 및 로케일 번역은 현재 얼리 액세스 중입니다. 이 얼리 액세스에 참여하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
 {% endif %}
