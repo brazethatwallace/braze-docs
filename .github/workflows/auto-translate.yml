@@ -228,7 +228,9 @@ jobs:
           --languages ${{ matrix.lang }}
 
       # Deterministic repairs (duplicate {#…} heading IDs, YAML title casing,
-      # etc.) live in scripts/auto_translate.py — extend there rather than here.
+      # re-seeding locale YAML when the model drops the --- block while English
+      # has front matter, etc.) live in scripts/auto_translate.py — extend there
+      # rather than here.
       - name: Run translation QC checks
         id: qc
         run: python scripts/auto_translate.py qc
