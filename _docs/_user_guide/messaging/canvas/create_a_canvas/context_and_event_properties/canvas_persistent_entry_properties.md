@@ -16,7 +16,7 @@ Persistent entry properties are an artifact of the original Canvas editor, so th
 
 If you're using the original Canvas editor and want to use persistent entry properties, you must either create a new Canvas or [clone]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) an existing one.
 
-## Use entry properties
+## Using entry properties
 
 Entry properties can be used in action-based and API-triggered Canvases. These entry properties are defined when a Canvas is triggered by a custom event, purchase, or API call. Refer to the following articles for more information:
 
