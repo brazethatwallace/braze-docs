@@ -258,7 +258,7 @@ You can configure your Gmail inbox to render AMP emails for testing purposes by 
 2. Select **See all settings**.
 3. In the **General** tab, go to the **Dynamic email** section and confirm the **Enable dynamic email** checkbox is selected.
 4. Next, select **Developer Settings**, and select the **Always allow dynamic emails from this sender:** checkbox.
-5. enter the same domain as on your test message’s From address.
+5. Enter the same domain as on your test message’s From address.
 6. Save your changes.
 
 Now you can send the test email to your Gmail account, and AMP emails should render in Gmail.
