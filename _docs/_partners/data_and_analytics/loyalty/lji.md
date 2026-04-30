@@ -59,7 +59,7 @@ The GRAVTY® and Braze integration is API-based, enabling real-time data synchro
 
 ### Step 2: Configure event trigger
 
-Create an event in GRAVTY® that will trigger when a transaction is created or updated for a member based on defined conditions.
+Create an event in GRAVTY® that runs when member activity meets conditions you define (for example, a transaction, points earned, a tier change, or program enrollment).
 
 1. Navigate to the **Events** section in GRAVTY®.
 2. Click **Create Event**.
@@ -70,14 +70,14 @@ Create an event in GRAVTY® that will trigger when a transaction is created or u
 
 The following is an example of an event configured to trigger when a member is enrolled into the program:
 
-![Connecting Braze as a subscriber in GRAVTY®.]({% image_buster /assets/img/lji/event-configuration.png %})
+![GRAVTY® event configuration for member program enrollment, with Braze attached as a subscriber.]({% image_buster /assets/img/lji/event-configuration.png %})
 
-### Step 3: Configure Template Attribute Mapping
+### Step 3: Configure template attribute mapping
 
 After configuring the event, complete the subscriber configuration to enable data sync and communication triggers:
 
 1. Select the **Braze subscriber** created in Step 1 from the subscriber dropdown.
-2. Choose the appropriate **channel** (**Campaign** or **Canvas**) based on your use case. For data sync–only scenarios, the channel can be left unselected.
+2. Choose the appropriate **channel** (**Campaign** or **Canvas**) based on your use case. For data sync-only scenarios, the channel can be left unselected.
 3. Enter the corresponding **Campaign ID** or **Canvas ID** in the **Template Name** field, as applicable.
 4. Configure the communication type to support sync and/or trigger-based messaging.
 
@@ -88,7 +88,7 @@ To configure field mapping in GRAVTY®:
 3. Enter the corresponding **Braze attribute name** where the data should be mapped.
 
 {% alert important %}
-There is no need to map `external_id`. GRAVTY® automatically generates and maps it internally by hashing the member ID, which serves as the unique identifier for members within GRAVTY®.
+You don't need to map `external_id`. GRAVTY® generates it internally by hashing the member ID (the unique member identifier in GRAVTY®), and Braze receives that hashed value as `external_id` on the user profile.<br><br> Before you enable the integration, confirm this matches how you set `external_id` in Braze today. If Braze already uses a different `external_id` for the same people, work with LJI to align identifiers before you sync data.
 {% endalert %}
 
 4. Repeat steps **1–3** to add additional mappings as needed.
