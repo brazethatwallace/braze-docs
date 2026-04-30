@@ -140,7 +140,7 @@ In-App Message
 
 {% api %}
 
-### Análisis de Campaign {#campaign-analytics}
+### Campaign analytics {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
@@ -463,7 +463,7 @@ WhatsApp
 
 {% api %}
 
-### Rendimiento del experimento de conmutador de características {#feature-flag-experiment-performance}
+### Feature flag experiment performance {#feature-flag-experiment-performance}
 
 {% apitags %}
 Feature Flags
@@ -924,7 +924,7 @@ Email, Content Cards, SMS/MMS, LINE
 Content Cards
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumentará en dos. La reelegibilidad te permite incrementar los *Total Dismissals* una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumentará en dos. La reelegibilidad te permite incrementar los _Total Dismissals_ una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1105,7 +1105,7 @@ All
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Para Content Cards, cada Content Card solo se puede recibir una vez, por lo que ver la misma Content Card una segunda vez, independientemente del día, no incrementará este recuento.<br><br>Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de Campaign o paso en Canvas, no a nivel de <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envío</a>.
+Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Para Content Cards, cada Content Card solo se puede recibir una vez, por lo que ver la misma Content Card una segunda vez, independientemente del día, no incrementará este recuento.<br><br>Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de campaña o paso en Canvas, no a nivel de <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envío</a>.
 
 <span class="calculation-line">Cálculo: Recuento</span>
 

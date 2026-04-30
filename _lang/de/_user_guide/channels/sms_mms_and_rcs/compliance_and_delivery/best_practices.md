@@ -78,3 +78,37 @@ Planen Sie einen Versand großer Mengen? Wir haben einige Best Practices für Si
 
 - Passen Sie das Rate-Limiting der Zustellgeschwindigkeit für Ihre Campaign oder Ihre Canvases nach Bedarf an, basierend auf der Größe der Zielgruppe. Dies stellt sicher, dass Sie das benötigte Sendevolumen erreichen und dass Braze die Nachrichten mit der Rate sendet, die Twilio erwartet und verarbeiten kann.
 - Stellen Sie sicher, dass Sie das Limit von 160 Zeichen einhalten, und beachten Sie, dass Sonderzeichen doppelt gezählt werden (z. B. Schrägstriche `\`, Zirkumflexe `^` und Tilden `~`).
+
+## Empfehlungen zu Ruhezeiten {#quiet-hours-recommendations}
+
+{% alert warning %}
+**Die nativen Ruhezeiten von Braze garantieren keine Zustellzeiten auf Geräteebene.** Wenn eine Nachricht gesendet wird, wird sie an einen Mobilfunkbetreiber übergeben. Sobald der Betreiber die Nachricht akzeptiert hat, hat Braze keine Kontrolle mehr über den genauen Zeitpunkt, zu dem sie auf dem Gerät der/des Nutzer:in zugestellt wird.<br><br> Wenn beispielsweise eine Nachricht um 20:59 Uhr an einen Betreiber übergeben wird, kann sie erst um 21:02 Uhr auf dem Gerät ankommen. Um das Risiko zu reduzieren, empfehlen wir die folgende Liquid-basierte Ruhezeiten-Methode. Diese unterdrückt die Nachricht auf Braze-Engine-Ebene vor der Übergabe.
+{% endalert %}
+
+### Native Ruhezeiten von Braze {#braze-native-quiet-hours}
+
+Wir empfehlen dringend, [Ruhezeiten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) für alle SMS-Campaigns und -Canvases zu aktivieren, um regionale Vorschriften und Best Practices einzuhalten.
+
+### Zusätzliche Absicherung durch Content Blocks {#additional-safeguard-through-content-blocks}
+
+Sie können eine Liquid-basierte Prüfung in einem Content-Block hinzufügen. Dies bietet eine zuverlässige, skalierbare Absicherung, die zusammen mit den nativen Einstellungen funktioniert.
+
+#### Einrichtung {#setup}
+
+Fügen Sie das folgende Snippet am Anfang Ihres SMS-Nachrichtentexts ein. Dieses Beispiel bricht den Versand ab, wenn er außerhalb eines Zeitfensters von 9:00 bis 21:00 Uhr in der [Ortszeit]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) der/des Nutzer:in liegt.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: ${time_zone} %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour >= 21 or hour < 9 %}
+  {% abort_message("Outside allowed time window") %}
+{% endif %}
+```
+{% endraw %}
+
+#### Hinweise
+
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} ermöglicht es, das Zeitfenster anhand der Ortszeit jeder/jedes Nutzer:in zu bewerten, nicht anhand einer festen globalen Zeit, wie in [dieser FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) erläutert.
+- Nachrichten, die durch {% raw %}`abort_message()`{% endraw %} unterdrückt werden, werden nicht für den nächsten Tag neu geplant; sie werden abgebrochen.
+- {% raw %} Standardmäßig sind abgebrochene Nachrichten im Standard-Campaign-Reporting nicht sichtbar. Wenn Liquid jedoch einen Versand mit `{% abort_message %}` abbricht, protokolliert Braze dies im Nachrichten-Aktivitätsprotokoll als Nachrichtenfehler (standardmäßig wird `{% abort_message %}` aufgerufen angezeigt). Wenn Sie einen String übergeben, wird dieser Grund im Protokoll angezeigt, z. B. `{% abort_message('language was nil') %}`{% endraw %}. Für Einblicke in diese Unterdrückungen im Dashboard wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zum [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/) zu erhalten.

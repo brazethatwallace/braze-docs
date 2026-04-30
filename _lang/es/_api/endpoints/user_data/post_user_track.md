@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Utiliza este punto final para registrar eventos personalizados y compras, y actualizar los atributos del perfil de usuario.
 
-{% alert note %}
-Braze procesa los datos pasados a través de la API tal cual, y los clientes solo deben pasar deltas (datos que han cambiado) para minimizar el registro innecesario de puntos de datos. Para saber más, consulta [Puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze procesa los datos pasados a través de la API tal cual, y solo debes pasar deltas (datos que han cambiado) para minimizar el registro innecesario de puntos de datos.
 
 ## ¿Necesitas actualizar usuarios de forma masiva? {#need-to-update-users-in-bulk}
 
@@ -368,7 +368,7 @@ Para los clientes que hayan comprado Usuarios activos al mes CY 24-25, MAU unive
 - Además del límite horario, Braze aplica un límite de ráfaga al número de solicitudes que pueden enviarse cada tres segundos.
 - Cada solicitud puede contener hasta 75 actualizaciones combinadas de objetos de atributo, evento o compra.
 
-Los límites actuales basados en la ingesta prevista se pueden encontrar en el dashboard en **Configuración** > **API e identificadores** > **Panel de uso de API**. Podemos modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor caudal de datos en tu cuenta. Ponte en contacto con el soporte de Braze o con tu administrador del éxito del cliente si tienes preguntas o dudas sobre el límite de solicitudes por hora o por segundo y las necesidades de tu empresa.
+Los límites actuales basados en la ingesta prevista se pueden encontrar en el dashboard en **Settings** > **APIs and Identifiers** > **API Usage Dashboard**. Podemos modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor caudal de datos en tu cuenta. Ponte en contacto con el soporte de Braze o con tu administrador del éxito del cliente si tienes preguntas o dudas sobre el límite de solicitudes por hora o por segundo y las necesidades de tu empresa.
 
 ### Encabezados de límite de velocidad para usuarios activos al mes CY 24-25, MAU universal, MAU web y MAU móvil {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

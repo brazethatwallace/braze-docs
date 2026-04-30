@@ -54,7 +54,7 @@ Umschließen Sie Text, den Sie übersetzen möchten, mit den Liquid-Übersetzung
 Hier ist ein Beispiel für eine zur Übersetzung markierte Nachricht: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Add personalization** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
+Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
 {% endalert %}
 
 #### URLs lokalisieren {#localize-urls}

@@ -341,7 +341,7 @@ Cada metacampo sincronizado se torna uma coluna separada no seu catálogo, com o
 
 ### Personalização
 
-1. Crie uma [seleção de catálogo]({{site.baseurl}}/catalog_selections/) que filtre metacampos que incluam o respectivo valor, como `summer`.
+1. Crie uma [seleção de catálogo]({{site.baseurl}}/catalog_selections/) que filtre metacampos que incluam o respectivo valor.
 
 ![Uma seleção de catálogo que filtra metacampos que possuem o atributo summer.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
 
@@ -350,7 +350,7 @@ Cada metacampo sincronizado se torna uma coluna separada no seu catálogo, com o
 
 {% raw %}
 ```liquid
-{% catalog_selection_items se-team-ecommerce_shopify_catalog sustainable_products %}
+{% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
 {% abort_message('Catalog selection returned no items') %}
@@ -393,12 +393,12 @@ Cada metacampo sincronizado se torna uma coluna separada no seu catálogo, com o
 ```
 {% endraw %}
 
-Ou, se você quiser mencionar produtos específicos com o valor de metacampo `summer` em uma notificação por push, pode usar a ferramenta **Add Personalization** e especificar os itens do seu catálogo.
+Ou, se você quiser mencionar produtos específicos com um valor de metacampo específico em uma notificação por push, pode usar a ferramenta **Add Personalization** e especificar os itens do seu catálogo.
 
 {% raw %}
 ```liquid
-Checkout the latest women's clothing:
-    {% catalog_selection_items se-team-ecommerce_shopify_catalog summer_products %}
+Check out the latest summer products:
+    {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
@@ -412,18 +412,17 @@ Checkout the latest women's clothing:
 Use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para criar segmentos com base em usuários que interagiram com um metacampo de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metacampos contém um valor específico, use esta consulta:
 
 {% raw %}
+```sql
 -- -----------------------------------------------------------------------------
--- Array-type metafield values (all time)
--- -----------------------------------------------------------------------------
--- When the metafield is stored as a JSON array in catalog field_value (e.g.
--- '["organic","vegan"]' or a list-type Shopify metafield serialized to JSON),
+-- When the metafield is stored as a JSON array in catalog field_value (for example,
+-- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
 -- use ARRAY_CONTAINS like product_tags. Cast the element you search for to
 -- VARIANT so types match the parsed array elements.
 -- -----------------------------------------------------------------------------
 
 -- Description:
 -- Fetches users who triggered the ecommerce event with a product whose
--- metafield array contains a specific value (e.g. segment on "accessories").
+-- metafield array contains a specific value (for example, segment on "seasonal").
 -- For a date range, add events.time >= $start_date AND events.time <= $end_date.
 -- For first/last triggered, reuse the CTE pattern from Template 3 with this
 -- ARRAY_CONTAINS predicate instead of items.field_value = '<metafield_value>'.
@@ -449,10 +448,10 @@ WHERE
 ```
 {% endraw %}
 
-If you want to segment customers who have placed an order with the specific product metafields, use one of the following SQL Segment Extension templates (all time, specific time period, first or last triggered an event).
+Se você quiser segmentar clientes que fizeram um pedido com metacampos de produto específicos, use um dos seguintes modelos SQL de extensão de segmento (todo o período, período específico, primeiro ou último disparo de um evento).
 
 {% raw %}
-```json
+```sql
 -- =============================================================================
 -- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================
@@ -709,7 +708,7 @@ Você também pode configurar [notificações de queda de preço]({{site.baseurl
 
 A desativação do recurso de sincronização de produtos da Shopify excluirá o catálogo completo e os produtos. Isso também pode afetar quaisquer mensagens que possam estar usando ativamente os dados do produto desse catálogo. Confirme se você atualizou ou pausou essas Campaigns ou Canvas antes da desativação, pois isso pode resultar no envio de mensagens sem detalhes do produto. Não exclua o catálogo da Shopify diretamente na página de catálogos.
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 Se a sincronização de produtos da Shopify apresentar um erro, ele pode ser resultado dos seguintes problemas. Siga as instruções sobre como corrigir o problema e resolver a sincronização:
 
@@ -718,4 +717,4 @@ Se a sincronização de produtos da Shopify apresentar um erro, ele pode ser res
 | Erro do servidor | Isso ocorre se houver um erro de servidor no lado da Shopify quando tentamos sincronizar seus produtos. | [Desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
 | SKU duplicado | Isso ocorre se você usar um SKU como ID do item do catálogo e tiver produtos com o mesmo SKU. Como o ID do item do catálogo deve ser exclusivo, todos os seus produtos devem ter SKUs exclusivos. | Faça uma auditoria na sua lista completa de produtos e variantes na Shopify para garantir que não haja SKUs duplicados. Se houver SKUs duplicados, atualize-os para que sejam SKUs exclusivos somente na sua conta da loja Shopify. Depois que isso for corrigido, [desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
 | Limite de catálogo excedido | Isso ocorre se você exceder o limite do catálogo. A Braze não poderá concluir a sincronização ou manter a sincronização ativa devido à falta de espaço de armazenamento disponível. | Há duas soluções para esse problema:<br><br>1. Entre em contato com o gerente da sua conta para fazer upgrade do seu nível e aumentar o limite do seu catálogo.<br><br>2. Libere espaço de armazenamento excluindo qualquer um dos seguintes itens:<br>- Itens de catálogo de outros catálogos<br>- Outros catálogos<br>- Seleções criadas<br><br> Depois de usar qualquer uma das soluções, a sincronização deve ser desativada e reativada em seguida. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

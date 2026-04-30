@@ -19,7 +19,7 @@ Segmentデータを CSV にエクスポートするには、Segmentの編集中�
 
 ![「User Data」ドロップダウンにエクスポートオプションが表示されている「Segment Details」セクション。]({% image_buster /assets/img_archive/csvexport.png %})
 
-メインの**Segments**ページから、Segmentの<i class="fas fa-gear"></i>**Settings**ドロップダウンを選択して、CSV エクスポートをリクエストすることもできます。
+メインの**Segments**ページから、Segmentの<i class="fas fa-gear" aria-label="設定メニューを開く"></i>**Settings**ドロップダウンを選択して、CSV エクスポートをリクエストすることもできます。
 
 ![メインのSegmentsページの「Settings」ドロップダウン。]({% image_buster /assets/img_archive/csvexport2.png %})
 

@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und die Attribute des Nutzerprofils zu aktualisieren.
 
-{% alert note %}
-Braze verarbeitet die über die API übergebenen Daten zum Nennwert. Kund:innen sollten nur Deltas (sich ändernde Daten) übergeben, um die unnötige Protokollierung von Datenpunkten zu minimieren. Weitere Informationen finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze verarbeitet die über die API übergebenen Daten zum Nennwert. Sie sollten nur Deltas (sich ändernde Daten) übergeben, um die unnötige Protokollierung von Datenpunkten zu minimieren.
 
 ## Müssen Sie Nutzer:innen in großen Mengen aktualisieren? {#need-to-update-users-in-bulk}
 

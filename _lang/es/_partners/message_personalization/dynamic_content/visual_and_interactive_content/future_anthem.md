@@ -41,7 +41,7 @@ El equipo de éxito del cliente de Future Anthem te ayuda a configurar tu integr
 
 | Ejemplo de atributos en Future Anthem | Ejemplo de atributos en Braze |
 | ----------------------------------- | --------------------------- |
-| ![Panel de Future Anthem mostrando atributos de perfil de un jugador.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Perfil de usuario de Braze mostrando atributos de objeto personalizado sincronizados desde Future Anthem.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+| ![Dashboard de Future Anthem mostrando atributos de perfil de un jugador.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Perfil de usuario de Braze mostrando atributos de objeto personalizado sincronizados desde Future Anthem.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
 
 ## Atributos personalizados de Braze {#braze-custom-attributes}
 

@@ -23,6 +23,10 @@ As mensagens bidirecionais permitem que você envie mensagens e processe as resp
 
 SMS, MMS e RCS com a Braze oferecem a opção de criar gatilhos de palavras-chave, respostas personalizadas, definir conjuntos de palavras-chave para vários idiomas e estabelecer categorias de palavras-chave personalizadas.
 
+{% alert note %}
+A Braze usa seu conjunto completo de palavras-chave de descadastramento ([palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) e [palavras-chave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) para tratamento exato de descadastramento e [descadastramento aproximado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+{% endalert %}
+
 {% tabs %}
 {% tab Adicionar gatilhos de palavras-chave %}
 
@@ -131,10 +135,10 @@ Recomendamos fortemente configurar uma resposta automática quando usuários ins
 Para enviar uma resposta padrão — por exemplo, "Desculpe! Não reconhecemos essa palavra-chave." — faça o seguinte:
 
 1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Target Audience**, escolha **All Users** (o gatilho ainda limita quem recebe a mensagem).
-3. Para **Schedule**, escolha **Action-Based delivery**.
+2. Para **Público-alvo**, escolha **Todos os usuários** (o gatilho ainda limita quem recebe a mensagem).
+3. Para **Programar**, escolha **Entrega baseada em ação**.
 4. Defina o gatilho como **Send inbound SMS** para o grupo de inscrições apropriado **within keyword category OTHER**.
-5. Na etapa **Messaging**, insira o corpo da resposta que deseja que os usuários recebam.
+5. Na etapa **Mensagens**, insira o corpo da resposta que deseja que os usuários recebam.
 
 Para saber como a Braze lida com mensagens recebidas de números de telefone **desconhecidos** (antes de um perfil existir), consulte [Lidar com números de telefone desconhecidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
 

@@ -38,6 +38,8 @@ Kund:innen, die die API für Server-zu-Server-Aufrufe verwenden, müssen möglic
 
 ## Rate-Limit {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
 Für diesen Endpunkt gilt für alle Kund:innen ein Basis-Rate-Limit von 500 Anfragen pro Minute. Jede `/users/track/sync`-Anfrage kann bis zu ein Event-Objekt, ein Attribut-Objekt oder ein Kauf-Objekt enthalten. Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren.
 
 ## Anfragetext {#request-body}
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Angepasstes Event per E-Mail aktualisieren {#update-a-custom-event-by-email}
 
-#### Anfrage {#request}
+#### Anfrage
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -183,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Antwort {#response}
+#### Antwort
 
 ```
 {
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Kauf-Event anhand des Nutzer-Alias aktualisieren {#update-a-purchase-event-by-user-alias}
 
-#### Anfrage {#request}
+#### Anfrage
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Antwort {#response}
+#### Antwort
 
 ```
 {

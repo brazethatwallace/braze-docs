@@ -2,7 +2,7 @@
 nav_title: FAQ
 article_title: よくある質問
 page_order: 12
-description: "この記事では、Liquid に関するよくある質問への回答を提供します。"
+description: "この記事では、Liquidに関するよくある質問への回答を提供します。"
 
 ---
 
@@ -20,7 +20,7 @@ Liquidの詳細については、ガイド付きの[Liquidによるダイナミ�
 
 ### パーソナライゼーションにおけるLiquidとコネクテッドコンテンツの違いは何ですか？
 
-BrazeのコネクテッドコンテンツはLiquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)セクションをご覧ください。
+Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)セクションをご覧ください。
 
 ### Liquidテンプレートとは何ですか？
 

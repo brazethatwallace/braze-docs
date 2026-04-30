@@ -56,10 +56,10 @@ Weitere Canvas-spezifische Informationen finden Sie unter [In-App-Nachrichten in
 
 Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Verwenden Sie diese Auswahl, um die Zustellung einer Campaign auf eine bestimmte Gruppe von Apps zu beschränken. Sie könnten beispielsweise **Webbrowser** für eine In-Browser-Nachricht wählen, die Nutzer:innen dazu ermutigt, Ihre mobile App herunterzuladen, um sicherzustellen, dass sie die Nachricht nicht erhalten, nachdem sie Ihre App bereits installiert haben. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen.
 
-| Plattform                        | Nachrichtenzustellung             |
+| Plattform | Nachrichtenzustellung |
 |---------------------------------|------------------------------|
-| Mobile Apps                     | iOS-, Android- und Vega-SDKs |
-| Webbrowser                    | Web-SDK                      |
+| Mobile Apps | iOS-, Android- und Vega-SDKs |
+| Webbrowser | Web-SDK |
 | Sowohl Mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -329,7 +329,7 @@ Ein Startdatum und eine Startzeit müssen ausgewählt werden; ein Enddatum ist j
 
 Weitere Informationen finden Sie in unserer Entwicklerdokumentation zu [serverseitigem Event-Triggering]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) und [lokaler In-App-Nachrichtenzustellung]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Online- versus Offline-Triggering
+##### Online- versus Offline-Triggering {#online-versus-offline-triggering}
 
 In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Gerät der Nutzerin oder des Nutzers gesendet werden. Sobald die In-App-Nachrichten auf einem Gerät sind, wartet es mit der Anzeige, bis die Trigger-Bedingung erfüllt ist. Wenn die In-App-Nachrichten bereits auf dem Gerät der Nutzerin oder des Nutzers zwischengespeichert sind, können Sie In-App-Nachrichten sogar offline ohne Verbindung zu Braze auslösen (z. B. im Flugmodus).
 

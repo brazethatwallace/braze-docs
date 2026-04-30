@@ -20,7 +20,7 @@ Anniversaries and holidays
 
 - [사용자의 가입 기념 연도에 따라 메시지 개인화하기](#anniversary-year)
 - [사용자의 생일 주간에 따라 메시지 개인화하기](#birthday-week)
-- [생일이 있는 달에 사용자에게 캠페인 보내기](#birthday-month)
+- [생일이 있는 달에 사용자에게 Campaign 보내기](#birthday-month)
 - [주요 공휴일에 메시지 발송 피하기](#holiday-avoid)
 
 ### 사용자의 가입 기념 연도에 따라 메시지 개인화하기 {#anniversary-year}
@@ -93,7 +93,7 @@ No birthday for you!
 
 `last_week`와 `next_week`에 대한 문도 포함하여 메시징을 더욱 개인화할 수 있습니다.
 
-### 생일이 있는 달에 사용자에게 캠페인 보내기 {#birthday-month}
+### 생일이 있는 달에 사용자에게 Campaign 보내기 {#birthday-month}
 
 이 사용 사례는 사용자의 생일 월을 계산하고, 생일이 현재 월에 해당하는지 확인한 후, 해당하면 특별한 메시지를 보내는 방법을 보여줍니다.
 
@@ -604,7 +604,7 @@ Custom event
 {% endapitags %}
 
 - [커스텀 이벤트가 현재로부터 2시간 이내인 경우 푸시 알림 중단하기](#event-abort-push)
-- [사용자가 커스텀 이벤트를 3회 수행할 때마다 캠페인 보내기](#event-three-times)
+- [사용자가 커스텀 이벤트를 3회 수행할 때마다 Campaign 보내기](#event-three-times)
 - [한 카테고리에서만 구매한 사용자에게 메시지 보내기](#event-purchased-one-category)
 - [지난 한 달간 커스텀 이벤트 발생 횟수 추적하기](#track)
 
@@ -630,9 +630,9 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 ```
 {% endraw %}
 
-### 사용자가 커스텀 이벤트를 3회 수행할 때마다 캠페인 보내기 {#event-three-times}
+### 사용자가 커스텀 이벤트를 3회 수행할 때마다 Campaign 보내기 {#event-three-times}
 
-이 사용 사례는 사용자가 커스텀 이벤트를 세 번 수행했는지 확인하고, 수행한 경우 메시지를 표시하거나 캠페인을 보냅니다.
+이 사용 사례는 사용자가 커스텀 이벤트를 세 번 수행했는지 확인하고, 수행한 경우 메시지를 표시하거나 Campaign을 보냅니다.
 
 {% raw %}
 ```liquid
@@ -667,7 +667,7 @@ Did you forget something in your shopping cart?
 
 ### 지난 한 달간 커스텀 이벤트 발생 횟수 추적하기 {#track}
 
-이 사용 사례는 현재 월의 1일과 이전 월 사이에 커스텀 이벤트가 기록된 횟수를 계산합니다. 그런 다음 users/track 호출을 실행하여 이 값을 커스텀 속성으로 업데이트하고 저장할 수 있습니다. 이 캠페인은 월간 데이터를 사용하기 전에 연속 두 달 동안 실행되어야 합니다.
+이 사용 사례는 현재 월의 1일과 이전 월 사이에 커스텀 이벤트가 기록된 횟수를 계산합니다. 그런 다음 users/track 호출을 실행하여 이 값을 커스텀 속성으로 업데이트하고 저장할 수 있습니다. 이 Campaign은 월간 데이터를 사용하기 전에 연속 두 달 동안 실행되어야 합니다.
 
 {% raw %}
 ```liquid
@@ -858,7 +858,7 @@ Miscellaneous
 
 ### 마케팅 이메일을 차단한 고객에게 이메일 발송 피하기 {#misc-avoid-blocked-emails}
 
-이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 캠페인이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
+이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 Campaign이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
 
 {% alert important %}
 이 Liquid를 사용하려면 먼저 차단된 이메일 목록을 Content Blocks에 저장해야 합니다. 목록에는 이메일 주소 사이에 추가 공백이나 문자가 삽입되지 않아야 합니다(예: `test@braze.com,abc@braze.com`).
@@ -937,7 +937,7 @@ Today's offer from {{store}}
 
 이 사용 사례를 통해 사용자는 커스텀 이벤트를 기반으로 다가오는 리마인더를 설정할 수 있습니다. 예시 시나리오에서는 사용자가 26일 이상 남은 보험 갱신 날짜에 대한 리마인더를 설정할 수 있으며, 보험 갱신 날짜 26일, 13일, 7일 또는 2일 전에 리마인더가 발송됩니다.
 
-이 사용 사례에서는 다음 내용이 [웹훅 캠페인]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) 또는 캔버스 단계의 본문에 들어가야 합니다.
+이 사용 사례에서는 다음 내용이 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) 또는 캔버스 단계의 본문에 들어가야 합니다.
 
 {% raw %}
 ```liquid
@@ -1367,7 +1367,7 @@ Time zones
 - [커스텀 속성에 CST 시간대 추가하기](#time-append-cst)
 - [타임스탬프 삽입하기](#time-insert-timestamp)
 - [사용자의 현지 시간대에서 특정 시간 범위 내에만 Canvas 푸시 보내기](#time-canvas-window)
-- [사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 캠페인 보내기](#time-reocurring-iam-window)
+- [사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 Campaign 보내기](#time-reocurring-iam-window)
 - [사용자의 현지 시간대에서 평일과 주말에 다른 메시지 보내기](#time-weekdays-vs-weekends)
 - [사용자의 현지 시간대에서 시간대별로 다른 메시지 보내기](#time-of-day)
 - [발송 시점에 시간 범위 밖이면 메시지 중단하기](#abort-send-time-hour-range)
@@ -1466,7 +1466,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### 사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 캠페인 보내기 {#time-reoccurring-iam-window}
+### 사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 Campaign 보내기 {#time-reoccurring-iam-window}
 
 이 사용 사례는 사용자의 현재 시간이 설정된 범위 내에 해당하면 메시지를 표시합니다.
 
@@ -1567,8 +1567,8 @@ Week/Day/Month
 {% endapitags %}
 
 - [이전 월의 이름을 메시지에 가져오기](#month-name)
-- [매월 말에 캠페인 보내기](#month-end)
-- [월의 마지막 (평일)에 캠페인 보내기](#day-of-month-last)
+- [매월 말에 Campaign 보내기](#month-end)
+- [월의 마지막 (평일)에 Campaign 보내기](#day-of-month-last)
 - [매일 다른 메시지 보내기](#day-of-month)
 - [요일별로 다른 메시지 보내기](#day-of-week)
 - [특정 날짜에 메시지 중단하기](#abort-specific-calendar-date)
@@ -1622,7 +1622,7 @@ Here's an overview of what your spending looked like in {{last_month_name}}.
 ```
 {% endraw %}
 
-### 매월 말에 캠페인 보내기 {#month-end}
+### 매월 말에 Campaign 보내기 {#month-end}
 
 이 사용 사례는 현재 날짜가 날짜 목록에 해당하는지 확인하고, 날짜에 따라 특정 메시지를 표시합니다.
 
@@ -1642,7 +1642,7 @@ The date is correct
 ```
 {% endraw %}
 
-### 월의 마지막 (평일)에 캠페인 보내기 {#day-of-month-last}
+### 월의 마지막 (평일)에 Campaign 보내기 {#day-of-month-last}
 
 이 사용 사례는 현재 월과 일을 캡처하고, 현재 일이 해당 월의 마지막 평일에 해당하는지 계산합니다.
 

@@ -19,7 +19,7 @@ Para exportar los datos de un segmento a un CSV, selecciona el menú desplegable
 
 ![Sección de detalles del segmento con el desplegable User Data que muestra las opciones de exportación.]({% image_buster /assets/img_archive/csvexport.png %})
 
-También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear" aria-label="Abrir menú de configuración"></i> **Settings** para un segmento:
+También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear"></i> **Settings** para un segmento:
 
 ![Desplegable de configuración en la página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 

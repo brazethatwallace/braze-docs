@@ -148,6 +148,7 @@ El cliente reconoce que los proveedores externos pueden revisar, examinar y/o el
 ## 7. Documentación de conformidad del archivado de mensajes y cifrado a nivel de campo {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Exención de responsabilidad
+
 El cliente reconoce que el uso del archivado de mensajes y/o el cifrado a nivel de campo (cada uno, la "**Característica**") puede afectar la velocidad de envío de los mensajes enviados a través de los servicios de Braze. Braze no será responsable de dicho impacto, y cualquier compromiso de velocidad de envío no se aplicará cuando el cliente esté utilizando la característica. La característica puede utilizarse para respaldar los esfuerzos de cumplimiento del cliente; sin embargo, el cliente reconoce que Braze no hace declaraciones ni garantías con respecto a si el uso de la característica en sí satisface las obligaciones de cumplimiento del cliente, y renuncia a toda responsabilidad en relación con ello.
 
 ## 8. Documentación de conformidad de la Consola de Agente {#agent-console-compliance-documentation}

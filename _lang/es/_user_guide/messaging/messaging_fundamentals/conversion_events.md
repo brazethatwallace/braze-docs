@@ -17,6 +17,21 @@ tool:
 
 Para una campaña personalizada de festividades dirigida a usuarios activos, un evento de conversión de **Iniciar una sesión** dentro de dos o tres días puede ser apropiado, ya que te permite tener una idea de la interacción de los usuarios al recibir tu mensaje. También puedes seleccionar eventos adicionales como **Realiza un pedido**, **Actualiza la aplicación** o cualquiera de tus eventos personalizados como eventos de conversión.
 
+### ¿Cuándo comienza el seguimiento de conversiones? {#when-does-conversion-tracking-begin}
+
+{% tabs %}
+{% tab Campaign %}
+
+El seguimiento de conversiones comienza cuando un usuario recibe la campaña o entra en el grupo de control de la campaña. Recibir un mensaje y la asignación a una variante generalmente ocurren al mismo tiempo. Para campañas de mensajes dentro de la aplicación, el seguimiento de conversiones comienza cuando Braze registra una impresión.
+
+{% endtab %}
+{% tab Canvas %}
+
+El seguimiento de conversiones comienza cuando un usuario entra al Canvas. Para los pasos en Canvas, las conversiones se atribuyen mientras el usuario está activo en ese paso. Cuando el usuario avanza a otro paso, el seguimiento de conversiones se detiene para el paso anterior y comienza para el siguiente paso.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 Para más información sobre conversiones, consulta nuestro [curso de Braze Learning](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) sobre configuración de campañas.
 {% endalert %}
@@ -59,13 +74,13 @@ Primero, selecciona el tipo general de evento que te gustaría usar:
 
 | Tipo de evento de conversión | Descripción |
 |-------------------------|----------------------------|
-| **Inicia sesión** | Un usuario se cuenta como convertido cuando abre cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo).|
-| **Realiza una compra** | Un usuario se cuenta como convertido cuando registra un [evento de compra]({{site.baseurl}}/api/objects_filters/purchase_object/). Esto rastrea cualquier compra por defecto, o puedes especificar un producto en particular.|
+| **Inicia sesión** | Un usuario se cuenta como convertido cuando abre cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo). |
+| **Realiza una compra** | Un usuario se cuenta como convertido cuando registra un [evento de compra]({{site.baseurl}}/api/objects_filters/purchase_object/). Esto rastrea cualquier compra por defecto, o puedes especificar un producto en particular. |
 | **Realiza un pedido** | Un usuario se cuenta como convertido cuando desencadena el [evento recomendado de comercio electrónico Pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed). Esto rastrea cualquier pedido por defecto, o puedes filtrar por un producto específico.<br><br>El evento "Realiza un pedido" se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si estás interesado en participar en este acceso anticipado. |
-| **Realiza un evento personalizado** | Un usuario se cuenta como convertido cuando realiza uno de tus eventos personalizados existentes (no hay valor predeterminado, debes especificar el evento).|
-| **Actualiza la aplicación** | Un usuario se cuenta como convertido cuando actualiza la versión de la aplicación en cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo). Braze realiza una comparación numérica de mejor esfuerzo para determinar si el cambio fue una actualización. Las versiones no numéricas se cuentan como conversiones si la versión cambia.|
-| **Abre el correo electrónico** | Un usuario se cuenta como convertido cuando abre el correo electrónico (solo para campañas de correo electrónico).|
-| **Hace clic en el correo electrónico** | Un usuario se cuenta como convertido cuando hace clic en un enlace dentro del correo electrónico (solo para campañas de correo electrónico).|
+| **Realiza un evento personalizado** | Un usuario se cuenta como convertido cuando realiza uno de tus eventos personalizados existentes (no hay valor predeterminado, debes especificar el evento). |
+| **Actualiza la aplicación** | Un usuario se cuenta como convertido cuando actualiza la versión de la aplicación en cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo). Braze realiza una comparación numérica de mejor esfuerzo para determinar si el cambio fue una actualización. Las versiones no numéricas se cuentan como conversiones si la versión cambia. |
+| **Abre el correo electrónico** | Un usuario se cuenta como convertido cuando abre el correo electrónico (solo para campañas de correo electrónico). |
+| **Hace clic en el correo electrónico** | Un usuario se cuenta como convertido cuando hace clic en un enlace dentro del correo electrónico (solo para campañas de correo electrónico). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}

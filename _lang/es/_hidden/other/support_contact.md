@@ -1,10 +1,3 @@
----
-permalink: /support_contact/
-nav_title: Ayuda | Braze
-hide_nav: true
-layout: basic
-hide_toc: true
----
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
 
 
@@ -2692,6 +2685,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2708,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,

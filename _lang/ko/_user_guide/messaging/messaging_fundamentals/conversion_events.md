@@ -17,6 +17,21 @@ tool:
 
 활성 사용자를 타겟팅하는 개인화된 휴일 Campaign의 경우, 2~3일 이내의 **세션 시작** 전환 이벤트가 적절할 수 있습니다. 이를 통해 메시지 수신 후 사용자 참여도를 파악할 수 있기 때문입니다. **주문하기**, **앱 업그레이드** 또는 커스텀 이벤트 중 하나를 전환 이벤트로 선택할 수도 있습니다.
 
+### 전환 추적은 언제 시작되나요? {#when-does-conversion-tracking-begin}
+
+{% tabs %}
+{% tab Campaign %}
+
+전환 추적은 사용자가 Campaign을 수신하거나 Campaign의 대조군에 배정될 때 시작됩니다. 메시지 수신과 배리언트 배정은 보통 동시에 이루어집니다. 인앱 메시지 Campaign의 경우, 전환 추적은 Braze가 노출을 기록할 때 시작됩니다.
+
+{% endtab %}
+{% tab Canvas %}
+
+전환 추적은 사용자가 Canvas에 진입할 때 시작됩니다. 캔버스 단계의 경우, 사용자가 해당 단계에서 활성 상태인 동안 전환이 귀속됩니다. 사용자가 다음 단계로 이동하면 이전 단계의 전환 추적이 중지되고 다음 단계의 전환 추적이 시작됩니다.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 전환에 대해 더 알아보려면 Campaign 설정에 관한 [Braze 학습 과정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)을 확인하세요.
 {% endalert %}

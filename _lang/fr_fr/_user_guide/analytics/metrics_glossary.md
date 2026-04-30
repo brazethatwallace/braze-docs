@@ -998,7 +998,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Revenue' %} Cet indicateur n'est disponible que dans les rapports de comparaison de campagnes via le <a href='/docs/user_guide/analytics/reports/report_builder'>générateur de rapports</a>.
+{% multi_lang_include analytics/metrics.md metric='Total Revenue' %} Cet indicateur n'est disponible que dans les rapports de comparaison de Campaigns via le <a href='/docs/user_guide/analytics/reports/report_builder'>générateur de rapports</a>.
 
 {% endapi %}
 
