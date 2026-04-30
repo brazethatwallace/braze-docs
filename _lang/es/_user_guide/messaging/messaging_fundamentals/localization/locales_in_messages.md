@@ -11,8 +11,6 @@ description: "Este artículo proporciona los pasos para usar configuraciones reg
 
 > Después de añadir configuraciones regionales a tu espacio de trabajo, puedes dirigirte a usuarios en diferentes idiomas, todo dentro de un solo push, correo electrónico, banner, mensaje dentro de la aplicación o Content Block.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Requisitos previos {#prerequisites}
 
 Mira el siguiente video para obtener un resumen opcional sobre cómo configurar y usar mensajes multilingües.
@@ -56,7 +54,7 @@ Envuelve el texto que deseas traducir con las etiquetas de traducción de Liquid
 Aquí tienes un ejemplo de mensaje marcado para traducción: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Resalta el texto que deseas traducir y usa el atajo de teclado **Cmd + Alt + L** (macOS) o **Ctrl + Alt + L** (Windows) para envolverlo en etiquetas de traducción.<br><br> Este atajo funciona en todos los canales que admiten mensajería multilingüe, excepto en los editores de arrastrar y soltar para correo electrónico y Content Blocks. Para esos, usa el botón **Añadir personalización** en la barra lateral izquierda para añadir etiquetas de traducción.
+Resalta el texto que deseas traducir y usa el atajo de teclado **Cmd + Alt + L** (macOS) o **Ctrl + Alt + L** (Windows) para envolverlo en etiquetas de traducción.<br><br> Este atajo funciona en todos los canales que admiten mensajería multilingüe, excepto en los editores de arrastrar y soltar para correo electrónico y Content Blocks. Para esos, usa el botón **Add personalization** en la barra lateral izquierda para añadir etiquetas de traducción.
 {% endalert %}
 
 #### Localizar URLs {#localize-urls}
@@ -135,7 +133,7 @@ Este texto está envuelto **incorrectamente**:
 
 ### Paso 3: Añadir configuraciones regionales a tu mensaje {#step-3-add-locales-to-your-message}
 
-Después de añadir etiquetas de traducción a tu mensaje, selecciona **Administrar idiomas** en el editor (**Idiomas** en los editores de arrastrar y soltar para correo electrónico y Content Blocks) y selecciona al menos una configuración regional para la que deseas añadir traducciones.
+Después de añadir etiquetas de traducción a tu mensaje, selecciona **Manage languages** en el editor (**Languages** en los editores de arrastrar y soltar para correo electrónico y Content Blocks) y selecciona al menos una configuración regional para la que deseas añadir traducciones.
 
 ![El menú desplegable Añadir configuración regional con opciones para seleccionar la configuración regional predeterminada o atributos personalizados.]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
 
@@ -143,7 +141,7 @@ Después de añadir etiquetas de traducción a tu mensaje, selecciona **Administ
 
 Si tu mensaje contiene Content Blocks que ya tienen traducciones guardadas, no necesitas volver a cargar esas traducciones. Las traducciones guardadas se aplican automáticamente cuando el Content Block se añade a tu mensaje.
 
-En el modal **Administrar idiomas**, los Content Blocks con traducciones guardadas aparecen en la lista, junto con las configuraciones regionales que admiten. Esto te permite ver qué partes de tu mensaje ya están localizadas antes de añadir nuevas traducciones.
+En el modal **Manage languages**, los Content Blocks con traducciones guardadas aparecen en la lista, junto con las configuraciones regionales que admiten. Esto te permite ver qué partes de tu mensaje ya están localizadas antes de añadir nuevas traducciones.
 
 ![La sección Administrar idiomas con una lista de Content Blocks que tienen traducciones guardadas.]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
 
@@ -160,7 +158,7 @@ Después de seleccionar las configuraciones regionales, añade traducciones a tu
 {% tabs %}
 {% tab Cargar plantilla CSV %}
 
-Selecciona **Descargar plantilla** para descargar un CSV que contiene una matriz de tus ID de traducción y configuraciones regionales seleccionados. Introduce las traducciones para cada configuración regional. Carga el archivo completado y las traducciones se aplicarán a tu mensaje.
+Selecciona **Download template** para descargar un CSV que contiene una matriz de tus ID de traducción y configuraciones regionales seleccionados. Introduce las traducciones para cada configuración regional. Carga el archivo completado y las traducciones se aplicarán a tu mensaje.
 
 {% alert important %}
 Para evitar problemas de visualización con caracteres no ingleses, evita usar Excel para tu CSV de traducción.
@@ -187,15 +185,15 @@ Al usar la API de traducción con pasos en Canvas que se crearon después de que
 
 ### Paso 5: Previsualizar traducciones {#step-5-preview-translations}
 
-Para previsualizar tu mensaje, selecciona la opción **Usuario multilingüe** en el menú desplegable **Previsualizar como usuario**. Esto te permite alternar entre diferentes definiciones de configuración regional para previsualizar todas las traducciones de tu mensaje.
+Para previsualizar tu mensaje, selecciona la opción **Multi-Language User** en el menú desplegable **Preview as User**. Esto te permite alternar entre diferentes definiciones de configuración regional para previsualizar todas las traducciones de tu mensaje.
 
 ![Previsualizaciones de configuraciones regionales]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
 ## Administrar traducciones {#manage-translations}
 
-### Duplicar pasos en Canvas o campañas, y traducciones {#duplicate-canvas-steps-or-campaigns-and-translations}
+### Duplicar pasos en Canvas o Campaigns, y traducciones {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Cuando duplicas un paso en Canvas, una campaña o una variante, las traducciones se incluyen. Esto también aplica al copiar entre espacios de trabajo, siempre que las configuraciones regionales estén definidas en ese espacio de trabajo de destino. Asegúrate de revisar y actualizar las traducciones en consecuencia al hacer modificaciones a tu Canvas o campaña.
+Cuando duplicas un paso en Canvas, una Campaign o una variante, las traducciones se incluyen. Esto también aplica al copiar entre espacios de trabajo, siempre que las configuraciones regionales estén definidas en ese espacio de trabajo de destino. Asegúrate de revisar y actualizar las traducciones en consecuencia al hacer modificaciones a tu Canvas o Campaign.
 
 ### Guardar traducciones en Content Blocks {#save-translations-in-content-blocks}
 
@@ -215,7 +213,7 @@ Al completar el archivo de traducción para idiomas que se escriben de derecha a
 
 ### Seguimiento de enlaces de correo electrónico {#email-link-tracking}
 
-En las campañas de correo electrónico, Braze rastrea los enlaces añadiendo información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+En las Campaigns de correo electrónico, Braze rastrea los enlaces añadiendo información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
 
 Cuando una URL está envuelta en etiquetas de traducción, es posible que Braze no pueda determinar dónde añadir esta información de seguimiento. Para asegurar que esto funcione correctamente, debes incluir un carácter especial al final de la URL para indicar dónde debe añadirse el seguimiento.
 
@@ -243,11 +241,11 @@ Puedes establecer el idioma de accesibilidad en dos niveles:
 
 ##### Nivel de mensaje {#message-level}
 
-En la configuración de tu mensaje, ve a la sección **Accesibilidad** y selecciona un idioma del menú desplegable o usa Liquid para establecer dinámicamente el idioma de accesibilidad. Esto se aplica a todo el contenido del mensaje.
+En la configuración de tu mensaje, ve a la sección **Accessibility** y selecciona un idioma del menú desplegable o usa Liquid para establecer dinámicamente el idioma de accesibilidad. Esto se aplica a todo el contenido del mensaje.
 
 ##### Nivel de configuración regional {#locale-level}
 
-Para mensajes multilingües, establece el idioma de accesibilidad en cada configuración regional en **Configuración de localización**. Cuando se crean nuevos mensajes, {% raw %}`{{accessibility_language}}`{% endraw %} se selecciona de forma predeterminada en la sección **Accesibilidad**. Esto mapea el idioma de accesibilidad a tu configuración regional.
+Para mensajes multilingües, establece el idioma de accesibilidad en cada configuración regional en **Localization Settings**. Cuando se crean nuevos mensajes, {% raw %}`{{accessibility_language}}`{% endraw %} se selecciona de forma predeterminada en la sección **Accessibility**. Esto mapea el idioma de accesibilidad a tu configuración regional.
 
 #### Estándares {#standards}
 

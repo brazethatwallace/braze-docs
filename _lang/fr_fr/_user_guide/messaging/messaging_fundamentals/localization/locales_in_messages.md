@@ -11,8 +11,6 @@ description: "Cet article décrit les étapes pour utiliser les paramètres rég
 
 > Après avoir ajouté des paramètres régionaux à votre espace de travail, vous pouvez cibler des utilisateurs dans différentes langues au sein d'une seule notification push, d'un e-mail, d'une bannière, d'un message in-app ou d'un Content Block.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Conditions préalables {#prerequisites}
 
 Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de l'utilisation des messages multilingues.

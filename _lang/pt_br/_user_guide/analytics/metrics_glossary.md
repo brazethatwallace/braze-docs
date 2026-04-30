@@ -11,7 +11,7 @@ tool: Reports
 
 <style>
   .calculation-line {
-    color: #76848C;
+    color: #5B6B75;
     font-size: 14px;
   }
 </style>
@@ -75,7 +75,7 @@ Email, Web Push, iOS Push
     Cálculo:
     <ul>
         <li><i>Bounces</i>: Contagem</li>
-        <li><i>Bounce %</i> ou <i>Taxa de bounce %</i>: (Bounces) / (Envios)</li>
+        <li><i>Bounce %</i> ou <i>Taxa de bounce %</i>: (Bounces) / (Sends)</li>
     </ul>
 </span>
 {:/}
@@ -301,7 +301,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
     Cálculo:
     <ul>
         <li><b>In-App Messages</b>: (Primary Conversions) / (Unique Impressions)</li>
-        <li><b>Other Channels</b>: (Primary Conversions) / (Unique Recipients)</li>
+        <li><b>Outros canais</b>: (Primary Conversions) / (Unique Recipients)</li>
     </ul>
 </span>
 {:/}
@@ -907,7 +907,7 @@ Email, Content Cards, SMS/MMS, LINE
 <span class="calculation-line">
     Cálculo:
     <ul>
-        <li><b>Email:</b> (Total Clicks) / (Deliveries)</li>
+        <li><b>E-mail:</b> (Total Clicks) / (Deliveries)</li>
         <li><b>Content Cards:</b> (Total Clicks) / (Total Impressions)</li>
         <li><b>SMS:</b> (Click Opens) / (Deliveries)</li>
     </ul>
@@ -982,8 +982,8 @@ Email, iOS Push, Android Push, Web Push, LINE
         <li><b>Email <i>Total Open Rate</i>:</b> (Opens) / (Deliveries)</li>
         <li><b>Web push <i>Total Opens</i>:</b> Contagem de <i>Direct Opens</i></li>
         <li><b>Web push <i>Total Open Rate</i>:</b> (Total Opens) / (Deliveries)</li>
-        <li><b>iOS, Android, and Kindle push <i>Total Opens</i>:</b> (Direct Opens) + (Influenced Opens)</li>
-        <li><b>iOS, Android, and Kindle push <i>Total Open Rate</i>:</b> (Total Opens) / (Deliveries)</li>
+        <li><b>iOS, Android e Kindle push <i>Total Opens</i>:</b> (Direct Opens) + (Influenced Opens)</li>
+        <li><b>iOS, Android e Kindle push <i>Total Open Rate</i>:</b> (Total Opens) / (Deliveries)</li>
     </ul>
 </span>
 {:/}

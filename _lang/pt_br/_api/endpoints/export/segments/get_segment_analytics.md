@@ -14,7 +14,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze para expo
 /segments/data_series
 {% endapimethod %}
 
-> Use esse endpoint para recuperar uma série diária do tamanho estimado de um segmento ao longo do tempo.
+> Use esse endpoint para recuperar uma série diária do tamanho estimado de um segmento ao longo do tempo. <br><br>Se você precisar do tamanho exato de um segmento, exporte seus usuários com o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) e conte os perfis exportados.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e {% endapiref %}
 
