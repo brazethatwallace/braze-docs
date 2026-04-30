@@ -189,18 +189,17 @@ DECISION RULES
 Return true if ANY of the following are present:
 1) Explicit opt-out keywords or phrases:
    - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
-   - “stop texting me”, “stop messaging me”, “no more messages”, “don’t contact me”, “do not contact”, “remove me”, “take me off your list”, “opt me out”, “revoke my consent”, “withdraw my consent”, “I don’t want these”, “leave me alone”
+   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
 2) A clear request to stop a specific channel:
-   - “don’t text me”, “no more texts”, “don’t email me”, “stop calling me”
+   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
 3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
-   - A standalone thumbs down (:-1:) or “thumbs down”
-   - “I hate this”, “this is the worst”, “you suck”, “go away”, “go die”, “f*** off”
-   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
-
+   - A standalone thumbs down (:-1:) or "thumbs down"
+   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
+   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
 Return false if ALL of the following are true:
 - The user is clearly engaging with the content or asking a question, and
 - There is no explicit opt-out intent
-Examples: “Stop by the store?”, “Can you stop the order?”, “This sucks but what’s the discount?”, “I hate this product (but keep me updated)”.
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
 
 EDGE CASES
 - If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.

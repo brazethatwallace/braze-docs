@@ -110,7 +110,7 @@ The following pattern uses three agents for a travel example: someone searched i
 
 ### Use the Experiment Paths step
 
-Add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. For example, send 10-20% of users down a path with the agent and send the rest to a control path or a path without the agent. Compare KPIs, counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch. 
+Add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. For example, send 10-20% of users down a path with the agent and send the rest to a control path or a path without the agent. Compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch. 
 
 Experiment Paths require [Canvas conversion events]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#prerequisites), so plan for those before you launch the Canvas.
 
