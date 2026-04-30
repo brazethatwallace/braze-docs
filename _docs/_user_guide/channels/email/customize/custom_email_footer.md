@@ -94,6 +94,4 @@ If you don't include a plaintext footer, Braze will automatically build one from
 
 ## Limitations
 
-{% raw %}
-- If you're using [BrazeAI Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that `{{{{${email_footer}}}}}` is not a standard Liquid tag. It's pre-processed before Liquid runs, so using `{{{{${email_footer}}}}}` as a context variable value and calling `{{| rerender}}` silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) for an email footer.
-{% endraw %}
+- If you're using [BrazeAI Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that {% raw %}`{{${email_footer}}}`{% endraw %} is not a standard Liquid tag. It's pre-processed before Liquid runs, so using {% raw %}`{{${email_footer}}}`{% endraw %} as a context variable value and calling `{{| rerender}}` silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) for an email footer.
