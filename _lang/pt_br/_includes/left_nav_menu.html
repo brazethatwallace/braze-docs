@@ -13,7 +13,7 @@
 </div>
 {%- endunless -%}
 
-<nav class="bd-links navbar navbar-expand-lg navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation' }}">
+<nav class="bd-links navbar navbar-expand-lg navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation' }}" tabindex="0">
   {%- unless hide_nav_filter -%}
     <div id="filter-msg"  class="flex-column flex-nowrap d-none"></div>
   {%-endunless -%} {%- assign collection = page.collection -%} {%- if page.custom_collection -%} {%- assign collection = page.custom_collection -%} {%- endif -%} {%-UrlNavMenu {{nav_level}}|{{collection}} -%}
