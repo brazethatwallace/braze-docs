@@ -23,6 +23,10 @@ La mensajería bidireccional te permite enviar mensajes y procesar las respuesta
 
 SMS, MMS y RCS con Braze te ofrecen la opción de crear activadores de palabras clave, respuestas personalizadas, definir conjuntos de palabras clave para varios idiomas y establecer categorías de palabras clave personalizadas.
 
+{% alert note %}
+Braze utiliza tu conjunto completo de palabras clave de cancelación de suscripción ([palabras clave predeterminadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) y [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) para la gestión exacta de cancelación de suscripción y la [cancelación de suscripción aproximada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+{% endalert %}
+
 {% tabs %}
 {% tab Añadir activadores de palabras clave %}
 
@@ -131,10 +135,10 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
 1. Crea una [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Target Audience**, elige **All Users** (el activador aún limita quién recibe el mensaje).
-3. Para **Schedule**, elige **Action-Based delivery**.
+2. Para **Target audience**, elige **All users** (el activador aún limita quién recibe el mensaje).
+3. Para **Schedule**, elige **Action-based delivery**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.
-5. En el paso de **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
+5. En el paso **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
 
 Para saber cómo Braze gestiona los mensajes entrantes de números de teléfono **desconocidos** (antes de que exista un perfil), consulta [Gestión de números de teléfono desconocidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
 

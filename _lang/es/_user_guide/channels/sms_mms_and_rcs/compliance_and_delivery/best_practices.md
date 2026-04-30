@@ -78,3 +78,37 @@ Para superar esta limitación, durante el [proceso de configuración]({{site.bas
 
 - Ajusta el límite de velocidad de entrega para tu campaña o Canvas según sea necesario, en función del tamaño de la audiencia objetivo. Esto garantiza que alcances el volumen de envío que necesitas y que Braze envíe los mensajes a la tasa que Twilio espera y puede manejar.
 - Asegúrate de respetar el límite de 160 caracteres y ten en cuenta que los caracteres especiales cuentan doble (por ejemplo, barras invertidas `\`, acentos circunflejos `^` y tildes `~`).
+
+## Recomendaciones sobre horas tranquilas {#quiet-hours-recommendations}
+
+{% alert warning %}
+**Las horas tranquilas nativas de Braze no garantizan los tiempos de entrega a nivel de dispositivo.** Cuando se envía un mensaje, se entrega a un operador. Una vez que el operador acepta el mensaje, Braze ya no tiene control sobre el momento exacto en que se entrega al dispositivo del usuario.<br><br> Por ejemplo, si un mensaje se entrega a un operador a las 8:59 p. m., puede que no llegue al dispositivo hasta las 9:02 p. m. Para reducir el riesgo, recomendamos usar el siguiente método de horas tranquilas basado en Liquid. Esto suprime el mensaje a nivel del motor de Braze antes de la entrega al operador.
+{% endalert %}
+
+### Horas tranquilas nativas de Braze {#braze-native-quiet-hours}
+
+Recomendamos encarecidamente habilitar las [horas tranquilas]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) en todas las campañas y Canvas de SMS para ayudar a cumplir con las regulaciones regionales y las buenas prácticas.
+
+### Protección adicional mediante Content Blocks {#additional-safeguard-through-content-blocks}
+
+Puedes añadir una verificación basada en Liquid dentro de un Content Block. Esto proporciona una protección fiable y escalable que funciona junto con la configuración nativa.
+
+#### Configuración {#setup}
+
+Incluye el siguiente fragmento de código en la parte superior del cuerpo de tu mensaje SMS. Este ejemplo cancela el envío si cae fuera de una ventana de 9 a. m. a 9 p. m. en la [zona horaria local]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) del usuario.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: ${time_zone} %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour >= 21 or hour < 9 %}
+  {% abort_message("Outside allowed time window") %}
+{% endif %}
+```
+{% endraw %}
+
+#### Consideraciones
+
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que la ventana se evalúe en función de la hora local de cada usuario, no de una hora global fija, como se explica en [estas preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- Los mensajes suprimidos por {% raw %}`abort_message()`{% endraw %} no se reprograman para el día siguiente; se cancelan.
+- {% raw %} De forma predeterminada, los mensajes cancelados no son visibles en los informes estándar de la campaña. Sin embargo, cuando Liquid cancela un envío con `{% abort_message %}`, Braze lo registra en el Registro de actividad de mensajes como un error de mensaje (de forma predeterminada muestra `{% abort_message %}` llamado). Si pasas una cadena, esa razón es lo que aparece en el registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para tener visibilidad de estas supresiones en el dashboard, ponte en contacto con tu administrador del éxito del cliente para acceder al [panel de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).

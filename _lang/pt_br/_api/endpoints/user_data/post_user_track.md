@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Use esse endpoint para registrar eventos personalizados e compras, além de atualizar atributos do perfil de usuário.
 
-{% alert note %}
-A Braze processa os dados passados por meio da API pelo valor nominal, e os clientes devem passar apenas deltas (dados alterados) para minimizar o registro desnecessário de pontos de dados. Para saber mais, consulte [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+A Braze processa os dados passados por meio da API pelo valor nominal, e você deve passar apenas deltas (dados alterados) para minimizar o registro desnecessário de pontos de dados.
 
 ## Precisa atualizar usuários em massa? {#need-to-update-users-in-bulk}
 

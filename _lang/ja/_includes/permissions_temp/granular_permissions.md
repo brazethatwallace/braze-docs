@@ -5,7 +5,7 @@
 権限セットを使用して、特定のテーマ領域またはアクションに関連する権限をバンドルします。異なるワークスペース間で同じアクセス権限を必要とするダッシュボードユーザーには、権限セットを適用できます。権限セットを作成するには、**設定** > **権限設定**に移動し、**権限セットを作成**を選択します。各権限については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)を参照してください。
 
 {% tabs local %}
-{% tab example permission sets %}
+{% tab 権限セットの例 %}
 |名前|権限|
 |-----------|----------------|
 |開発者|「APIキーを表示」、「APIキーを編集」、「内部グループを表示」、「内部グループを編集」、「メッセージアクティビティログを表示」、「イベントユーザーログを表示」、「API識別子を表示」、「API使用状況ダッシュボードを表示」、「API制限を表示」、「API使用状況アラートを表示」、「API使用状況アラートを編集」、「SDKデバッガーを表示」、「SDKデバッガーを編集」。|
@@ -20,7 +20,7 @@
 ロールを使用すると、ワークスペースのアクセスコントロールと個別のカスタム権限をバンドルすることで、より体系的な管理が可能になります。これは、1つのダッシュボードに多数のブランドまたは地域ワークスペースがある場合に特に便利です。ロールを使用して、適切なワークスペースにダッシュボードユーザーを追加し、関連付けられた権限を直接付与できます。各権限については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)を参照してください。
 
 {% tabs local %}
-{% tab example roles %}
+{% tab ロールの例 %}
 | ロール名    | ワークスペース | 権限
 ----------- | ----------- | ---------
 | マーケター - ファッションブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを起動」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」。 |
@@ -57,7 +57,7 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 | --- | --- |
 | ワークスペース管理者 | ワークスペース管理者はワークスペース管理に特化した権限を持ちますが、会社管理者と同じ権限は持ちません。限定ユーザーは、必要な権限がチェックされている場合、ワークスペース管理者と同様の権限を継承できます。 |
 | 管理者（会社管理者） | 会社管理者はより広範な権限を持ち、ダッシュボードユーザーの削除も含まれます。ただし、自身のアカウントを削除することはできず、そのアクションを行うには別の会社管理者に連絡する必要があります。 |
-| 閲覧専用アクセス | ダッシュボードの一部（例：Campaignsページ）にアクセスするには、ユーザーに閲覧権限が付与されている必要があります。|
+| 閲覧専用アクセス | ダッシュボードの一部（例：Campaignsページ）にアクセスするには、ユーザーに閲覧権限が付与されている必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### アクセス制限エラー {#limited-access-error}
@@ -75,7 +75,7 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 ![Brazeの「会社ユーザー」ページにダッシュボードユーザーの表が表示されています。]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
-{% tab Admin %}
+{% tab 管理者 %}
 
 ### 管理者 {#admin}
 
@@ -94,27 +94,27 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 {% endalert %}
 
 {% endtab %}
-{% tab Company %}
+{% tab 会社 %}
 
 ### 会社 {#company}
 
 ユーザーの以下の会社レベルの権限を管理するには、その権限の横にあるチェックボックスをオンまたはオフにします。完了したら、**ユーザーを更新**を選択します。
 
-|権限名|説明|
+| 権限名 | 説明 |
 |----------|-----------|
-|会社の設定を管理|ユーザーが権限設定と送信者の検証を変更できるようにします。|
-|ワークスペースの作成と削除|ユーザーにワークスペースの作成および削除を許可します。|
+| 会社の設定を管理 | ユーザーが権限設定と送信者の検証を変更できるようにします。 |
+| ワークスペースの作成と削除 | ユーザーにワークスペースの作成および削除を許可します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
-{% tab Workspace %}
+{% tab ワークスペース %}
 
 ### ワークスペース {#workspace}
 
 Brazeでユーザーが所属するワークスペースごとに、異なる権限を付与できます。ワークスペースレベルの権限を管理するには、**ワークスペースと権限を選択**を選択し、手動で権限を選択するか、事前に作成した[権限セットまたはロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)を割り当てます。ユーザーにワークスペースごとに異なる権限を付与する必要がある場合は、必要なだけこのプロセスを繰り返してください。各権限については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)を参照してください。
 
 {% subtabs %}
-{% subtab Select manually %}
+{% subtab 手動で選択 %}
 
 **ワークスペース**のドロップダウンから1つ以上のワークスペースを選択します。次に、**権限**の下で、1つ以上の権限を選択します。これらの権限は、選択したワークスペースにのみ割り当てられます。オプションとして、代わりにこのワークスペースの完全な権限を付与したい場合は、**ワークスペース管理者アクセスを割り当てる**を選択することもできます。
 
@@ -123,7 +123,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 ![Brazeでワークスペースレベルの権限が手動で選択されています。]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
-{% subtab Assign permission set %}
+{% subtab 権限セットを割り当て %}
 
 **ワークスペース**のドロップダウンから1つ以上のワークスペースを選択します。次に、**権限セット**の下で、1つの権限セットを選択します。これらの権限は、選択したワークスペースにのみ割り当てられます。
 
@@ -132,7 +132,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 ![Brazeで権限セットを通じてワークスペースレベルの権限が割り当てられています。]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
-{% subtab Assign role %}
+{% subtab ロールを割り当て %}
 
 **ワークスペース**のドロップダウンから1つ以上のワークスペースを選択します。次に、**ロール**の下で、1つのロールを選択します。これらの権限は、選択したワークスペースにのみ割り当てられます。
 
@@ -215,9 +215,9 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | キャンバステンプレート | キャンバステンプレートをアーカイブ | Canvasテンプレートをアーカイブに移動します |
 | キャンバステンプレート | キャンバステンプレートを作成および編集 | Canvasテンプレートを作成し更新します |
 | Content Blocks | Content Blocksを表示 | Content Blocksを表示します |
-| Content Blocks | Content Blocksを起動 | Content Blocksを起動します |
+| Content Blocks | Content Blocksを起動 | 下書きのContent Blocksを公開し、起動済みのContent Blocksを編集、アーカイブ、アーカイブ解除します |
 | Content Blocks | Content Blocksをアーカイブ | Content Blocksをアーカイブに移動します |
-| Content Blocks | Content Blocksを編集 | Content Blocksを作成し更新します |
+| Content Blocks | Content Blocksを編集 | Content Blocksを作成し、下書きのContent Blocksを編集します |
 | メールリンクテンプレート | メールリンクテンプレートを表示 | 変更を加えずにリンクテンプレートを表示します |
 | メールリンクテンプレート | メールリンクテンプレートを編集 | リンクテンプレートを作成し更新します |
 | メールテンプレート | メールテンプレートを表示 | メールテンプレートを表示します |
@@ -314,7 +314,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | WhatsApp設定 | WhatsApp設定を表示 | すべてのWhatsAppチャネル設定を表示します |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Decisioning Studio {#decisioning-studio}
+### Decisioning Studio
 
 | 製品エリア | 権限 | 定義 |
 | --- | --- | --- |

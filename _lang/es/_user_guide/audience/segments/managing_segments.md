@@ -10,9 +10,9 @@ description: "Este artículo cubre las acciones que puedes realizar para adminis
 
 # Administrar segmentos {#manage-segments}
 
-> La sección **Segments** te permite ver una lista completa de tus segmentos existentes, crear nuevos segmentos y editar los existentes. Puedes refinar la lista de segmentos seleccionando una variedad de filtros y columnas para que solo se muestre la información más relevante para ti.
+> La sección Segments te permite ver una lista completa de tus segmentos existentes, crear nuevos segmentos y editar los existentes. Puedes refinar la lista de segmentos seleccionando una variedad de filtros y columnas para que solo se muestre la información más relevante para ti.
 
-![La sección **Segments** mostrando una lista de segmentos activos.]({% image_buster /assets/img/segment/segments_page.png %})
+![La sección Segments mostrando una lista de segmentos activos.]({% image_buster /assets/img/segment/segments_page.png %})
 
 ## Personalizar tu vista {#customizing-your-view}
 
@@ -67,6 +67,10 @@ Para administrar un segmento específico, pasa el cursor sobre él y selecciona 
 - **Add to starred:** Destaca el segmento, lo que te permite acceder rápidamente a él marcando la casilla Show starred only en la sección de segmentos.
 
 También puedes realizar acciones masivas —específicamente archivar en masa y etiquetar en masa— marcando las casillas junto a los nombres de múltiples segmentos.
+
+{% alert tip %}
+Si necesitas una exportación legible por máquina de los segmentos existentes en el espacio de trabajo (no solo la vista de tabla actual), usa el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) y pagina a través de los resultados. Para auditar segmentos archivados, revísalos por separado en el dashboard de **Segments** usando el filtro de estado.
+{% endalert %}
 
 ![Múltiples segmentos seleccionados con "CRM" seleccionado en el campo desplegable "Tag As".]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 

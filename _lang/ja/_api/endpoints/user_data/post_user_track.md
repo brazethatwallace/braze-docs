@@ -16,9 +16,9 @@ toc_headers: h2
 
 > このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を更新します。
 
-{% alert note %}
-BrazeはAPIを通じて渡されたデータを額面通りに処理します。顧客は不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡す必要があります。詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を参照してください。
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡す必要があります。
 
 ## ユーザーを一括更新する必要がありますか？ {#need-to-update-users-in-bulk}
 
@@ -186,6 +186,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }'
 ```
 ### サブスクリプショングループを設定する {#set-subscription-groups}
+
 この例では、ユーザーを作成し、ユーザー属性オブジェクト内でサブスクリプショングループを設定する方法を示します。
 
 このエンドポイントでサブスクリプションステータスを更新すると、`external_id`で指定されたユーザー（User1など）が更新され、そのユーザー（User1）と同じメールを持つすべてのユーザーのサブスクリプションステータスも更新されます。
@@ -373,11 +374,11 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 
 レート制限されていない（`429`以外の）すべての応答には、クライアントに対して1時間あたりのレート制限時間枠の状態を示す以下のHTTP応答ヘッダーが含まれます。これらのヘッダーを使用してリクエストレートを管理してください：
 
-| ヘッダー名             | 説明                                                                                 |
+| ヘッダー名 | 説明 |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | 期間ごとに許可されるリクエスト数                                              |
-| `X-RateLimit-Remaining` | 時間枠内に残っているおおよそのリクエスト数                                |
-| `X-RateLimit-Reset`     | 現在の時間枠がリセットされるまでの残り秒数                                    |
+| `X-RateLimit-Limit` | 期間ごとに許可されるリクエスト数 |
+| `X-RateLimit-Remaining` | 時間枠内に残っているおおよそのリクエスト数 |
+| `X-RateLimit-Reset` | 現在の時間枠がリセットされるまでの残り秒数 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 HTTP `429`エラーが発生した場合、`RateLimit-Limit`、`RateLimit-Remaining`、`RateLimit-Reset`ヘッダーは返されないことに注意してください。エラーが発生すると、これらのヘッダーは`X-Ratelimit-Retry-After`ヘッダーに置き換えられ、リクエストを再開できるまでの秒数を示す整数が返されます。

@@ -11,14 +11,14 @@ tool: Reports
 
 <style>
   .calculation-line {
-    color: #76848C;
+    color: #5B6B75;
     font-size: 14px;
   }
 </style>
 
 {% api %}
 
-### AMP Clicks {#amp-clicks}
+### Clics AMP {#amp-clicks}
 
 {% apitags %}
 Email
@@ -30,7 +30,7 @@ Email
 
 {% api %}
 
-### AMP Opens {#amp-opens}
+### Ouvertures AMP {#amp-opens}
 
 {% apitags %}
 Email
@@ -56,7 +56,7 @@ All
 
 {% api %}
 
-### Bounces {#bounces}
+### Rebonds {#bounces}
 
 {% apitags %}
 Email, Web Push, iOS Push
@@ -84,7 +84,7 @@ Email, Web Push, iOS Push
 
 {% api %}
 
-### Body Click {#body-click}
+### Clic sur le corps {#body-click}
 
 {% apitags %}
 iOS Push, Android Push
@@ -98,7 +98,7 @@ iOS Push, Android Push
 
 {% api %}
 
-### Body Clicks {#body-clicks}
+### Clics sur le corps {#body-clicks}
 
 {% apitags %}
 In-App Message
@@ -112,7 +112,7 @@ In-App Message
 
 {% api %}
 
-### Button 1 Clicks {#button-1-clicks}
+### Clics sur le bouton 1 {#button-1-clicks}
 
 {% apitags %}
 In-App Message
@@ -126,7 +126,7 @@ In-App Message
 
 {% api %}
 
-### Button 2 Clicks {#button-2-clicks}
+### Clics sur le bouton 2 {#button-2-clicks}
 
 {% apitags %}
 In-App Message
@@ -140,7 +140,7 @@ In-App Message
 
 {% api %}
 
-### Campaign analytics {#campaign-analytics}
+### Analyses de Campaign {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
@@ -152,7 +152,7 @@ La performance du message à travers les différents canaux. Les indicateurs aff
 
 {% api %}
 
-### Choices Submitted {#choices-submitted}
+### Choix soumis {#choices-submitted}
 
 {% apitags %}
 In-App Message
@@ -164,7 +164,7 @@ In-App Message
 
 {% api %}
 
-### Click-to-Open Rate {#click-to-open-rate}
+### Taux de clic par ouverture {#click-to-open-rate}
 
 {% apitags %}
 Email
@@ -178,7 +178,7 @@ Email
 
 {% api %}
 
-### RCS Confirmed Deliveries ou SMS Confirmed Deliveries {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
+### Livraisons confirmées RCS ou livraisons confirmées SMS {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -200,7 +200,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### Confidence {#confidence}
+### Confiance {#confidence}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -212,7 +212,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Confirmation Page Button {#confirmation-page-button}
+### Bouton de la page de confirmation {#confirmation-page-button}
 
 {% apitags %}
 In-App Message
@@ -224,7 +224,7 @@ In-App Message
 
 {% api %}
 
-### Confirmation Page Dismissals {#confirmation-page-dismissals}
+### Fermetures de la page de confirmation {#confirmation-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -255,7 +255,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Total Conversions {#total-conversions}
+### Conversions totales {#total-conversions}
 
 {% apitags %}
 In-App Message
@@ -271,7 +271,7 @@ Par exemple, si un utilisateur déclenche un message in-app deux fois et convert
 
 {% api %}
 
-### Close Message {#close-message}
+### Fermeture du message {#close-message}
 
 {% apitags %}
 In-App Message
@@ -283,7 +283,7 @@ In-App Message
 
 {% api %}
 
-### Conversion Rate {#conversion-rate}
+### Taux de conversion {#conversion-rate}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -310,7 +310,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Conversion Window {#conversion-window}
+### Fenêtre de conversion {#conversion-window}
 
 {% apitags %}
 All
@@ -322,7 +322,7 @@ All
 
 {% api %}
 
-### Deliveries {#deliveries}
+### Livraisons {#deliveries}
 
 {% apitags %}
 Email, Web Push, iOS Push, Android Push, WhatsApp
@@ -349,7 +349,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 
 {% api %}
 
-### RCS Delivery Failures ou SMS Delivery Failures {#rcs-delivery-failures-or-sms-delivery-failures}
+### Échecs de livraison RCS ou échecs de livraison SMS {#rcs-delivery-failures-or-sms-delivery-failures}
 
 {% apitags %}
 SMS/MMS
@@ -365,7 +365,7 @@ Contactez l'<a href="/docs/braze_support/">assistance Braze</a> pour obtenir de 
 
 {% api %}
 
-### Delivery Failures {#delivery-failures}
+### Échecs de livraison {#delivery-failures}
 
 {% apitags %}
 RCS
@@ -381,7 +381,7 @@ Contactez l'<a href="/docs/braze_support/">assistance Braze</a> pour obtenir de 
 
 {% api %}
 
-### Failed Delivery Rate {#failed-delivery-rate}
+### Taux d'échec de livraison {#failed-delivery-rate}
 
 {% apitags %}
 SMS/MMS
@@ -397,7 +397,7 @@ Contactez l'<a href="/docs/braze_support/">assistance Braze</a> pour obtenir de 
 
 {% api %}
 
-### Direct Opens {#direct-opens}
+### Ouvertures directes {#direct-opens}
 
 {% apitags %}
 iOS Push
@@ -411,7 +411,7 @@ iOS Push
 
 {% api %}
 
-### Emailable {#emailable}
+### Joignable par e-mail {#emailable}
 
 {% apitags %}
 Email
@@ -425,7 +425,7 @@ Email
 
 {% api %}
 
-### Errors {#errors}
+### Erreurs {#errors}
 
 {% apitags %}
 Webhook
@@ -437,7 +437,7 @@ Webhook
 
 {% api %}
 
-### Estimated Real Opens {#estimated-real-opens}
+### Ouvertures réelles estimées {#estimated-real-opens}
 
 {% apitags %}
 Email
@@ -449,7 +449,7 @@ Email
 
 {% api %}
 
-### Failures {#failures}
+### Échecs {#failures}
 
 {% apitags %}
 WhatsApp
@@ -463,7 +463,7 @@ WhatsApp
 
 {% api %}
 
-### Feature flag experiment performance {#feature-flag-experiment-performance}
+### Performance de l'expérience d'indicateur de fonctionnalité {#feature-flag-experiment-performance}
 
 {% apitags %}
 Feature Flags
@@ -475,7 +475,7 @@ Indicateurs de performance pour le message dans une expérience d'indicateur de 
 
 {% api %}
 
-### Hard Bounce {#hard-bounce}
+### Échec d'envoi définitif {#hard-bounce}
 
 {% apitags %}
 Email
@@ -489,7 +489,7 @@ Lorsque cela se produit, Braze marque l'adresse e-mail comme invalide mais ne me
 
 {% api %}
 
-### Help {#help}
+### Aide {#help}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -501,7 +501,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### Influenced Opens {#influenced-opens}
+### Ouvertures influencées {#influenced-opens}
 
 {% apitags %}
 iOS Push, Android Push
@@ -515,7 +515,7 @@ iOS Push, Android Push
 
 {% api %}
 
-### Lifetime Revenue {#lifetime-revenue}
+### Chiffre d'affaires à vie {#lifetime-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -527,7 +527,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Lifetime Value Per User {#lifetime-value-per-user}
+### Valeur vie client par utilisateur {#lifetime-value-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -539,7 +539,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Average Daily Revenue {#average-daily-revenue}
+### Chiffre d'affaires quotidien moyen {#average-daily-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -551,7 +551,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Daily Purchases {#daily-purchases}
+### Achats quotidiens {#daily-purchases}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -563,7 +563,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Daily Revenue Per User {#daily-revenue-per-user}
+### Chiffre d'affaires quotidien par utilisateur {#daily-revenue-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -575,7 +575,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Machine Opens {#machine-opens}
+### Ouvertures automatiques {#machine-opens}
 
 {% apitags %}
 Email
@@ -587,7 +587,7 @@ Email
 
 {% api %}
 
-### Opens {#opens}
+### Ouvertures {#opens}
 
 {% apitags %}
 Web Push, iOS Push, Android Push
@@ -599,7 +599,7 @@ Web Push, iOS Push, Android Push
 
 {% api %}
 
-### Opt-Out {#opt-out}
+### Désinscription {#opt-out}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -611,7 +611,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### Other Opens {#other-opens}
+### Autres ouvertures {#other-opens}
 
 {% apitags %}
 Email
@@ -623,7 +623,7 @@ Email
 
 {% api %}
 
-### Pending Retry {#pending-retry}
+### Nouvelle tentative en attente {#pending-retry}
 
 {% apitags %}
 Email
@@ -635,7 +635,7 @@ Email
 
 {% api %}
 
-### Primary Conversions (A) ou Primary Conversion Event {#primary-conversions-a-or-primary-conversion-event}
+### Conversions principales (A) ou événement de conversion principal {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -663,7 +663,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Reads {#reads}
+### Lectures {#reads}
 
 {% apitags %}
 WhatsApp
@@ -675,7 +675,7 @@ WhatsApp
 
 {% api %}
 
-### Read Rate {#read-rate}
+### Taux de lecture {#read-rate}
 
 {% apitags %}
 WhatsApp
@@ -689,7 +689,7 @@ WhatsApp
 
 {% api %}
 
-### Received {#received}
+### Reçu {#received}
 
 {% apitags %}
 Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS, WhatsApp
@@ -711,7 +711,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 
 {% api %}
 
-### RCS Rejections ou SMS Rejections {#rcs-rejections-or-sms-rejections}
+### Rejets RCS ou rejets SMS {#rcs-rejections-or-sms-rejections}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -733,7 +733,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### Revenue {#revenue}
+### Chiffre d'affaires {#revenue}
 
 {% apitags %}
 Email
@@ -745,7 +745,7 @@ Email
 
 {% api %}
 
-### Sent {#sent}
+### Envoyé {#sent}
 
 {% apitags %}
 SMS/MMS
@@ -759,7 +759,7 @@ SMS/MMS
 
 {% api %}
 
-### Sends {#sends}
+### Envois {#sends}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
@@ -770,8 +770,8 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% alert tip %}
 Pour les Content Cards, cet indicateur est calculé différemment selon ce que vous avez sélectionné pour la [création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/) :
 
-- **At launch or step entry:** Le nombre de cartes créées et disponibles pour être consultées. Cela ne tient pas compte du fait que les utilisateurs aient consulté la carte ou non.
-- **At first impression:** Le nombre de cartes affichées aux utilisateurs.
+- **Au lancement ou à l'entrée dans l'étape :** le nombre de cartes créées et disponibles pour être consultées. Cela ne tient pas compte du fait que les utilisateurs aient consulté la carte ou non.
+- **À la première impression :** le nombre de cartes affichées aux utilisateurs.
 {% endalert %}
 
 <span class="calculation-line">Calcul : Nombre</span>
@@ -780,7 +780,7 @@ Pour les Content Cards, cet indicateur est calculé différemment selon ce que v
 
 {% api %}
 
-### Messages Sent {#messages-sent}
+### Messages envoyés {#messages-sent}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
@@ -791,8 +791,8 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% alert tip %}
 Pour les Content Cards, cet indicateur est calculé différemment selon ce que vous avez sélectionné pour la [création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/) :
 
-- **At launch or step entry:** Le nombre de cartes créées et disponibles pour être consultées. Cela ne tient pas compte du fait que les utilisateurs aient consulté la carte ou non.
-- **At first impression:** Le nombre de cartes affichées aux utilisateurs.
+- **Au lancement ou à l'entrée dans l'étape :** le nombre de cartes créées et disponibles pour être consultées. Cela ne tient pas compte du fait que les utilisateurs aient consulté la carte ou non.
+- **À la première impression :** le nombre de cartes affichées aux utilisateurs.
 {% endalert %}
 
 <span class="calculation-line">Calcul : Nombre</span>
@@ -801,7 +801,7 @@ Pour les Content Cards, cet indicateur est calculé différemment selon ce que v
 
 {% api %}
 
-### Sends to Carrier {#sends-to-carrier}
+### Envois à l'opérateur {#sends-to-carrier}
 
 {% apitags %}
 SMS/MMS
@@ -823,7 +823,7 @@ SMS/MMS
 
 {% api %}
 
-### Soft Bounce {#soft-bounce}
+### Échec provisoire d'envoi {#soft-bounce}
 
 {% apitags %}
 Email
@@ -865,7 +865,7 @@ Les plaintes pour spam sont traitées directement par les fournisseurs de servic
 
 {% api %}
 
-### Survey Page Dismissals {#survey-page-dismissals}
+### Fermetures de la page de sondage {#survey-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -877,7 +877,7 @@ In-App Message
 
 {% api %}
 
-### Survey Submissions {#survey-submissions}
+### Soumissions de sondage {#survey-submissions}
 
 {% apitags %}
 In-App Message
@@ -889,7 +889,7 @@ In-App Message
 
 {% api %}
 
-### Total Clicks {#total-clicks}
+### Clics totaux {#total-clicks}
 
 {% apitags %}
 Email, Content Cards, SMS/MMS, LINE
@@ -918,7 +918,7 @@ Email, Content Cards, SMS/MMS, LINE
 
 {% api %}
 
-### Total Dismissals {#total-dismissals}
+### Fermetures totales {#total-dismissals}
 
 {% apitags %}
 Content Cards
@@ -940,7 +940,7 @@ Content Cards
 
 {% api %}
 
-### Total Impressions {#total-impressions}
+### Impressions totales {#total-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -960,7 +960,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-### Total Opens {#total-opens}
+### Ouvertures totales {#total-opens}
 
 {% apitags %}
 Email, iOS Push, Android Push, Web Push, LINE
@@ -978,12 +978,12 @@ Email, iOS Push, Android Push, Web Push, LINE
 <span class="calculation-line">
     Calcul :
     <ul>
-        <li><b>E-mail <i>Total Opens</i> :</b> Nombre</li>
-        <li><b>E-mail <i>Total Open Rate</i> :</b> (Ouvertures) / (Livraisons)</li>
-        <li><b>Notification push Web <i>Total Opens</i> :</b> Nombre d'<i>ouvertures directes</i></li>
-        <li><b>Notification push Web <i>Total Open Rate</i> :</b> (Ouvertures totales) / (Livraisons)</li>
-        <li><b>Notification push iOS, Android et Kindle <i>Total Opens</i> :</b> (Ouvertures directes) + (Ouvertures influencées)</li>
-        <li><b>Notification push iOS, Android et Kindle <i>Total Open Rate</i> :</b> (Ouvertures totales) / (Livraisons)</li>
+        <li><b>E-mail <i>Ouvertures totales</i> :</b> Nombre</li>
+        <li><b>E-mail <i>Taux d'ouverture total</i> :</b> (Ouvertures) / (Livraisons)</li>
+        <li><b>Notification push Web <i>Ouvertures totales</i> :</b> Nombre d'<i>ouvertures directes</i></li>
+        <li><b>Notification push Web <i>Taux d'ouverture total</i> :</b> (Ouvertures totales) / (Livraisons)</li>
+        <li><b>Notification push iOS, Android et Kindle <i>Ouvertures totales</i> :</b> (Ouvertures directes) + (Ouvertures influencées)</li>
+        <li><b>Notification push iOS, Android et Kindle <i>Taux d'ouverture total</i> :</b> (Ouvertures totales) / (Livraisons)</li>
     </ul>
 </span>
 {:/}
@@ -992,7 +992,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 
 {% api %}
 
-### Total Revenue {#total-revenue}
+### Chiffre d'affaires total {#total-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -1004,7 +1004,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### Unique Clicks {#unique-clicks}
+### Clics uniques {#unique-clicks}
 
 {% apitags %}
 Email, Content Cards, LINE
@@ -1035,7 +1035,7 @@ Cela inclut les clics sur les liens de désabonnement fournis par Braze.
 
 {% api %}
 
-### Unique Dismissals {#unique-dismissals}
+### Fermetures uniques {#unique-dismissals}
 
 {% apitags %}
 Content Cards
@@ -1049,7 +1049,7 @@ Content Cards
 
 {% api %}
 
-### Unique Impressions {#unique-impressions}
+### Impressions uniques {#unique-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -1059,7 +1059,7 @@ In-App Message, Content Cards
 
 | Canal | Informations complémentaires |
 |-------|-----------------------|
-| Messages in-app | Les impressions uniques peuvent être incrémentées à nouveau un nouveau jour calendaire dans le fuseau horaire de votre espace de travail si la rééligibilité est activée et que l'utilisateur effectue l'action de déclenchement. Si la rééligibilité est activée, <i>Unique Impressions</i> = <i>Unique Recipients</i>. Pour plus de détails, consultez <a href="/docs/user_guide/channels/in_app_messages/reporting/">Reporting des messages in-app</a>. |
+| Messages in-app | Les impressions uniques peuvent être incrémentées à nouveau un nouveau jour calendaire dans le fuseau horaire de votre espace de travail si la rééligibilité est activée et que l'utilisateur effectue l'action de déclenchement. Si la rééligibilité est activée, <i>impressions uniques</i> = <i>destinataires uniques</i>. Pour plus de détails, consultez <a href="/docs/user_guide/channels/in_app_messages/reporting/">Reporting des messages in-app</a>. |
 | Content Cards | Le compteur ne devrait pas être incrémenté la deuxième fois qu'un utilisateur consulte une carte. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
@@ -1069,7 +1069,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-### Unique Opens {#unique-opens}
+### Ouvertures uniques {#unique-opens}
 
 {% apitags %}
 Email, LINE
@@ -1097,7 +1097,7 @@ Email, LINE
 
 {% api %}
 
-### Unique Recipients {#unique-recipients}
+### Destinataires uniques {#unique-recipients}
 
 {% apitags %}
 All
@@ -1105,7 +1105,7 @@ All
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Étant donné qu'un lecteur peut être un destinataire unique chaque jour, vous devez vous attendre à ce que ce nombre soit supérieur aux <i>Unique Impressions</i>. Pour les Content Cards, chaque Content Card ne peut être reçue qu'une seule fois, donc consulter la même Content Card une deuxième fois, quel que soit le jour, n'incrémentera pas ce compteur.<br><br>Ce nombre est reçu de Braze et est basé sur le `user_id`. Les destinataires uniques sont comptabilisés au niveau de la campagne ou de l'étape du Canvas, et non au niveau de l'<a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identifiant d'envoi</a>.
+Étant donné qu'un lecteur peut être un destinataire unique chaque jour, vous devez vous attendre à ce que ce nombre soit supérieur aux <i>impressions uniques</i>. Pour les Content Cards, chaque Content Card ne peut être reçue qu'une seule fois, donc consulter la même Content Card une deuxième fois, quel que soit le jour, n'incrémentera pas ce compteur.<br><br>Ce nombre est reçu de Braze et est basé sur le `user_id`. Les destinataires uniques sont comptabilisés au niveau de la campagne ou de l'étape du Canvas, et non au niveau de l'<a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identifiant d'envoi</a>.
 
 <span class="calculation-line">Calcul : Nombre</span>
 
@@ -1113,7 +1113,7 @@ All
 
 {% api %}
 
-### Unsubscribers or Unsub {#unsubscribers-or-unsub}
+### Désabonnés {#unsubscribers-or-unsub}
 
 {% apitags %}
 Email
@@ -1135,7 +1135,7 @@ Email
 
 {% api %}
 
-### Unsubscribes {#unsubscribes}
+### Désabonnements {#unsubscribes}
 
 {% apitags %}
 Email
@@ -1149,7 +1149,7 @@ Email
 
 {% api %}
 
-### Variation {#variation}
+### Variante {#variation}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp

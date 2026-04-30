@@ -22,15 +22,15 @@ toc_headers: h2
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
-2. Selecciona **Mensaje dentro de la aplicación**. Ten en cuenta que los mensajes dentro de la aplicación no están disponibles en Campaigns multicanal.
+1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
+2. Selecciona **In-App Message**. Ten en cuenta que los mensajes dentro de la aplicación no están disponibles en Campaigns multicanal.
 3. Ponle a tu Campaign un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas específicas.
 5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
+Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -149,7 +149,7 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
     <td>Mensajes personalizados que funcionan según lo definido en tu código personalizado (HTML, CSS y/o JavaScript).</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
-    <td>Esta es una buena opción si quieres todas las ventajas de los mensajes dentro de la aplicación pero necesitas funcionalidad adicional o que la apariencia se mantenga "acorde a tu marca". Puedes modificar cada pequeño detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de casos de uso incluyen pedir a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
+    <td>Esta es una buena opción si quieres todas las ventajas de los mensajes dentro de la aplicación pero necesitas funcionalidad adicional o que la apariencia se mantenga acorde a tu marca. Puedes modificar cada pequeño detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de casos de uso incluyen pedir a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulario de captura de correo electrónico</a></td>

@@ -12,11 +12,11 @@ description: "Cet article fournit des réponses aux questions fréquemment posé
 
 ### Comment utiliser les extraits de code Liquid dans Braze ?
 
-Dans de nombreux cas, vous pouvez intégrer des extraits de code Liquid en accédant à vos campagnes ou Canvas, puis en insérant du Liquid dans la fenêtre modale de personnalisation, par exemple dans le corps d'un e-mail ou dans vos segments.
+Dans de nombreux cas, vous pouvez intégrer des extraits de code Liquid en accédant à vos Campaigns ou Canvas, puis en insérant du Liquid dans la fenêtre modale de personnalisation, par exemple dans le corps d'un e-mail ou dans vos Segments.
 
 #### Où puis-je en savoir plus ?
 
-Pour en savoir plus sur Liquid, consultez notre parcours guidé Braze Learning [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) ! Vous pouvez également consulter la [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
+Pour en savoir plus sur Liquid, consultez notre parcours guidé [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) sur Braze Learning ! Vous pouvez également consulter la [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
 
 ### Quelle est la différence entre l'utilisation de Liquid et du Contenu connecté pour la personnalisation ?
 
@@ -49,12 +49,12 @@ Il existe un attribut par défaut pour la localisation de l'utilisateur : `{{${m
 
 ### Quelle est la différence entre {{campaign.${name}}} et {{campaign.${message_name}}} ?
 
-`{{campaign.${name}}}` et `{{campaign.${message_name}}}` sont toutes deux des étiquettes de personnalisation Liquid prises en charge. Ces deux étiquettes font référence aux attributs de la campagne. `{{campaign.${name}}}` désigne le nom de votre campagne, et `{{campaign.${message_name}}}` est le nom de votre variante de message.
+`{{campaign.${name}}}` et `{{campaign.${message_name}}}` sont toutes deux des étiquettes de personnalisation Liquid prises en charge. Ces deux étiquettes font référence aux attributs de la Campaign. `{{campaign.${name}}}` désigne le nom de votre Campaign, et `{{campaign.${message_name}}}` est le nom de votre variante de message.
 {% endraw %}
 
 ### Comment utiliser Liquid avec des objets imbriqués ?
 
-Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un segment correspondant à plusieurs critères au sein d'un objet.
+Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un segment correspondant à plusieurs critères au sein d'un objet.
 
 Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation).
 
@@ -62,6 +62,12 @@ Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl
 
 {% raw %}
 Vous pouvez accéder aux propriétés des événements déclenchés par API avec l'étiquette `api_triggered_property` : `{{api_trigger_properties.${attribute_key}}}`.
+{% endraw %}
+
+### Pourquoi mon Liquid déclenché par API échoue-t-il dans Braze ?
+
+{% raw %}
+Une paire d'accolades supplémentaire est une cause fréquente. Par exemple, `{{{api_trigger_properties.${attribute_key}}}}` n'est pas une syntaxe de personnalisation Braze valide. Utilisez exactement deux accolades ouvrantes et deux accolades fermantes : `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
 ### Qu'est-ce que la logique d'abandon et comment l'utiliser ?
@@ -87,25 +93,26 @@ Par exemple, supposons que vous ayez un catalogue appelé « Games » avec une s
 
 Une fois les conditions définies remplies, votre message peut être envoyé. Cette logique est un moyen pratique de gagner du temps, plutôt que de répéter des blocs Liquid pour différentes conditions.
 
-### Pourquoi y a-t-il des espaces supplémentaires dans les messages utilisant des Blocs de contenu ?
+### Pourquoi y a-t-il des espaces supplémentaires dans les messages utilisant des Content Blocks ?
 
-Si vous remarquez des espaces supplémentaires dans les messages envoyés qui utilisent des Blocs de contenu avec Liquid, il se peut que vous ayez des sauts de paragraphe ou de ligne inutiles dans vos instructions conditionnelles. Écrivez vos instructions conditionnelles sur une seule ligne plutôt que sur plusieurs lignes.
+Si vous remarquez des espaces supplémentaires dans les messages envoyés qui utilisent des Content Blocks avec Liquid, il se peut que vous ayez des sauts de paragraphe ou de ligne inutiles dans vos instructions conditionnelles. Écrivez vos instructions conditionnelles sur une seule ligne plutôt que sur plusieurs lignes.
 
 #### Exemple
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
+```
 {% endraw %}
 
-### When should I use `assign` versus `capture`?
+### Quand utiliser `assign` plutôt que `capture` ?
 
-Both `assign` and `capture` create Liquid variables, but they serve different purposes:
+`assign` et `capture` créent tous deux des variables Liquid, mais ils ont des usages différents :
 
-- `assign` is for simple variables that store a single value, such as a boolean, number, or simple string. You can also apply a single filter in the same line.
-- `capture` is for storing a block of text that may include multiple variables, strings, or complex expressions. Use `capture` when the value is too complex for a single `assign` statement, such as URLs that utilize other Liquid variables or custom attributes as parameters. `capture` is also preferred when implementing Liquid variables in the body of Connected Content calls.
+- `assign` est destiné aux variables simples qui stockent une seule valeur, comme une valeur booléenne, un nombre ou une chaîne de caractères simple. Vous pouvez également appliquer un seul filtre sur la même ligne.
+- `capture` est destiné au stockage d'un bloc de texte pouvant inclure plusieurs variables, chaînes de caractères ou expressions complexes. Utilisez `capture` lorsque la valeur est trop complexe pour une seule instruction `assign`, comme des URL utilisant d'autres variables Liquid ou des attributs personnalisés en tant que paramètres. `capture` est également préféré lors de l'implémentation de variables Liquid dans le corps des appels de Contenu connecté.
 
-#### Examples
+#### Exemples
 
 {% raw %}
 ```liquid

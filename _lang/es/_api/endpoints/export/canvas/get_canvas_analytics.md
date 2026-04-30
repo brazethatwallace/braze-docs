@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Exportar análisis de series de datos de Canvas"
 article_title: "GET: Exportar análisis de series de datos de Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -15,6 +15,8 @@ description: "En este artículo se describen los detalles del punto de conexión
 {% endapimethod %}
 
 > Usa este punto de conexión para exportar datos de series temporales de un Canvas.
+
+{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 

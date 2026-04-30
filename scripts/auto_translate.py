@@ -101,7 +101,7 @@ QC_RESULTS_FILE = REPO_ROOT / "qc_results.json"
 NON_TRANSLATABLE_FM_KEYS = frozenset({
     "page_order", "layout", "page_type", "channel", "platform", "tool",
     "link", "image", "permalink", "hidden", "noindex", "config_only",
-    "search_rank", "page_layout",
+    "search_rank", "page_layout", "hide_nav", "hide_toc",
 })
 
 BRAZE_PRODUCT_NAMES = [
@@ -1279,6 +1279,30 @@ def repair_spurious_front_matter_when_english_has_none(
     ]
 
 
+def repair_missing_locale_front_matter_from_english(
+    english_content, translated_content
+):
+    """Re-seed YAML front matter from English when the locale file lost it entirely.
+
+    :func:`repair_front_matter` only syncs keys when *both* sides parse with a
+    leading ``---`` block. Models sometimes return a translation body that starts
+    with HTML or markdown while the English source has Jekyll metadata (routing,
+    ``layout``, ``hide_nav``). Without this repair, localized pages lose their
+    front matter entirely (Copilot / auto-translate PR #13466, e.g.
+    ``_hidden/other/support_contact.md``).
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not en_fm or tr_fm is not None:
+        return translated_content, []
+    merged = f"---\n{en_fm}\n---\n{tr_body}"
+    return merged, [
+        "front_matter — re-seeded from English (locale had no parseable "
+        "--- header; translate nav_title/article_title on a follow-up pass "
+        "if needed)"
+    ]
+
+
 def repair_front_matter_display_scalar_cleanup(translated_content):
     """Normalize HTML entities and rare typos in display-oriented YAML keys.
 
@@ -2012,6 +2036,79 @@ def repair_pt_br_push_channel_token(translated_path, translated_content, lang_ke
 
     return f"---\n{new_fm}\n---\n{body}", [
         f"pt_br channel — capitalized Push in YAML list ({n} line(s))",
+    ]
+
+
+def repair_es_api_obligatorio_typo(translated_path, translated_content, lang_key):
+    """Normalize ``Obligatoria`` → ``Obligatorio`` in Spanish API parameter tables.
+
+    MT sometimes uses the feminine form in the fixed ``| Parámetro | … |``
+    column; sibling ES API pages use **Obligatorio** for that column (Copilot /
+    auto-translate PR #13458).
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/es/_api/" not in rel:
+        return translated_content, []
+    if "Obligatoria" not in translated_content:
+        return translated_content, []
+    new_content, n = re.subn(
+        r"(\|)\s*Obligatoria(\*?)\s*(\|)",
+        r"\1 Obligatorio\2 \3",
+        translated_content,
+    )
+    if not n:
+        return translated_content, []
+    return new_content, [
+        f"es api — Obligatorio column/token repair ({n} occurrence(s))",
+    ]
+
+
+def repair_de_dashboard_capture_english_bleed(
+    translated_path, translated_content, lang_key
+):
+    """Replace known English ``dashboard_match`` captures in DE includes.
+
+    Alerts that interpolate ``{{ dashboard_match }}`` read poorly when the
+    capture still uses English hyphen labels (Copilot / auto-translate PR
+    #13458).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/de/" not in rel or "/_includes/" not in rel:
+        return translated_content, []
+    if "dashboard_match" not in translated_content:
+        return translated_content, []
+    replacements = (
+        (
+            "{% capture dashboard_match %}Dashboard-Canvas-Analytics{% endcapture %}",
+            "{% capture dashboard_match %}Canvas-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}Dashboard-Engagement-Analytics{% endcapture %}",
+            "{% capture dashboard_match %}Engagement-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}dashboard Canvas analytics{% endcapture %}",
+            "{% capture dashboard_match %}Canvas-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}dashboard Engagement analytics{% endcapture %}",
+            "{% capture dashboard_match %}Engagement-Analytics im Dashboard{% endcapture %}",
+        ),
+    )
+    out = translated_content
+    applied = 0
+    for old, new_val in replacements:
+        if old in out:
+            out = out.replace(old, new_val)
+            applied += 1
+    if not applied:
+        return translated_content, []
+    return out, [
+        f"de include — localized dashboard_match capture ({applied} block(s))",
     ]
 
 
@@ -5806,6 +5903,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_strip_repairs)
 
+    translated_content, fm_seed_repairs = (
+        repair_missing_locale_front_matter_from_english(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(fm_seed_repairs)
+
     if not english_content.strip():
         if translated_content.strip():
             translated_content = ""
@@ -5872,6 +5976,16 @@ def qc_check_file(english_path, translated_path, lang_key):
         translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(pt_push_ch_repairs)
+
+    translated_content, es_oblig_repairs = repair_es_api_obligatorio_typo(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(es_oblig_repairs)
+
+    translated_content, de_dash_cap_repairs = repair_de_dashboard_capture_english_bleed(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_dash_cap_repairs)
 
     translated_content, dup_anchor_repairs = (
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
