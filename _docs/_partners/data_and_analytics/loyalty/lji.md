@@ -57,7 +57,7 @@ The GRAVTY® and Braze integration is API-based, enabling real-time data synchro
 
 ![GRAVTY® Add Subscriber form with Braze selected, API URL and API key fields, and an active subscriber toggle.]({% image_buster /assets/img/lji/braze-subscriber-setup.png %}){: style="max-width:70%;"}
 
-### Step 2: Configure Event Trigger
+### Step 2: Configure event trigger
 
 Create an event in GRAVTY® that will trigger when a transaction is created or updated for a member based on defined conditions.
 
