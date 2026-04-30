@@ -232,9 +232,12 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
 
 ## Test and troubleshoot
 
-Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
 
-Before you send your AMP email, we recommend that you test according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+Before you send your AMP email, we recommend:
+
+- Testing according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email)
+- Using the [Gmail Amp for Email Playground](https://amp.gmail.dev/playground/) to validate AMP markup
+  - If your AMP email uses Liquid tags, replace them with static placeholder values before pasting into the Gmail Amp for Email Playground. Unrendered Liquid tags causes validation errors.
 
 For your AMP email to be delivered to any Gmail account, the email must meet the following conditions:
 
@@ -242,6 +245,8 @@ For your AMP email to be delivered to any Gmail account, the email must meet the
 - The AMP MIME part must contain a valid AMP document.
 - The email should include the AMP MIME part before the HTML MIME part.
 - The AMP MIME part must be smaller than 100&nbsp;KB.
+
+Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
 
 If none of these conditions are causing the error, contact [Support]({{site.baseurl}}/support_contact/).
 
