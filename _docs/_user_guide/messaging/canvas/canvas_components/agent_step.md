@@ -98,17 +98,21 @@ Refer to the following metrics to track how your Agent steps perform:
 
 ## Best practices
 
-### Add another Agent step to troubleshoot
+### Split tasks between agents
 
-If you find that an agent is struggling with the tasks you’re asking it to do, consider a sub-agent approach. Consider the following example that uses three agents for summarization, scoring, and message generation so that each agent has a narrower job:
+If you find that an agent is struggling with the tasks you’re asking it to do, split the work across more than one Agent step. When one prompt mixes data cleanup, routing logic, and full message writing, those goals compete and output quality can vary.
 
-- Agent 1 standardizes the win-back inputs from Canvas context, such as loyalty tier and high-intent search signals, into a compact summary you store as an output variable.
-- Agent 2 returns a number you use in an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) step (for example, which value proposition to emphasize before you generate creative like member perks versus deals).
-- Agent 3 runs only on the paths where you want agent-written copy, using the summary from Agent 1 so channel limits, tone, and checkout focus don't compete with cleanup and routing in one prompt.
+The following pattern uses three agents for a travel example: someone searched in your app recently but didn’t book, and you want retargeting copy that nudges them toward checkout.
 
-### Use an Experiment Paths step
+- Agent 1 summarizes Canvas context. It reads fields such as loyalty tier, last city searched, and high-intent search behavior, and returns a short structured summary as an output variable that later steps can reuse.
+- Agent 2 returns a routing value your Canvas can branch on. Use a number, boolean, or structured object so the output matches how you branch. Map that value to an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) step. For example, consider separate paths for loyalty-led messaging versus deal-led messaging.
+- Agent 3 drafts generated message text only on branches where you want it. Pass the Agent 1 summary (and any branch-specific context) so this agent focuses on tone and channel limits instead of normalizing inputs and choosing strategy in the same prompt.
 
-Introduce the Agent step into the Canvas journey with an Experiment Path using a small percentage of users, such as 10-20%. From here, you can measure the impact on KPIs and counter-metrics as well as credit consumption rates before scaling. 
+### Use the Experiment Paths step
+
+Add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. For example, send 10-20% of users down a path with the agent and send the rest to a control path or a path without the agent. Compare KPIs, counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch. 
+
+Experiment Paths require [Canvas conversion events]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#prerequisites), so plan for those before you launch the Canvas.
 
 ## Frequently asked questions
 
