@@ -70,7 +70,7 @@ Create an event in GRAVTY® that will trigger when a transaction is created or u
 
 The following is an example of an event configured to trigger when a member is enrolled into the program:
 
-![Connecting Braze as a subscriber in GRAVTY®.]({% image_buster /assets/img/lji/event_configuration.png %})
+![Connecting Braze as a subscriber in GRAVTY®.]({% image_buster /assets/img/lji/event-configuration.png %})
 
 ### Step 3: Configure Template Attribute Mapping
 
