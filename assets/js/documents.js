@@ -778,8 +778,81 @@ $(document).ready(function() {
     if (is_external){
       $(this).after(' <i class="fas fa-external-link-alt"></i>');
       $(this).attr('target', '_blank');
+      $(this).attr('rel', function(_, rel) {
+        var tokens = (rel || '').split(/\s+/).filter(Boolean);
+        if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+        if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+        return tokens.join(' ');
+      });
     }
   });
+  // T7: add rel and sr-only warning to all target="_blank" links (static + dynamic).
+  // Uses native DOM (not jQuery) so it works on both regular DOM and Shadow DOM roots.
+  function patchNewWindowLinks(root) {
+    var links = root.querySelectorAll ? Array.prototype.slice.call(root.querySelectorAll('a[target="_blank"]')) : [];
+    if (root.nodeName === 'A' && root.getAttribute && root.getAttribute('target') === '_blank') {
+      links.push(root);
+    }
+    links.forEach(function(a) {
+      var tokens = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+      if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+      if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+      a.setAttribute('rel', tokens.join(' '));
+      var ariaLabel = a.getAttribute('aria-label');
+      if (ariaLabel) {
+        // aria-label overrides all text content in the accessible name computation,
+        // so the sr-only span inside the link will be ignored. Append the warning
+        // directly to aria-label instead.
+        if (ariaLabel.indexOf('(opens in new tab)') < 0) {
+          a.setAttribute('aria-label', ariaLabel.trim() + ' (opens in new tab)');
+        }
+      } else if (!a.querySelector('.sr-only')) {
+        var span = document.createElement('span');
+        span.className = 'sr-only';
+        span.textContent = ' (opens in new tab)';
+        a.appendChild(span);
+      }
+    });
+  }
+
+  // SearchUnify's full-page search widget (<su-app>) uses Shadow DOM, so we must
+  // also observe its shadow root to patch links injected there.
+  function watchShadowRoot(el) {
+    if (el.shadowRoot) {
+      t7Observer.observe(el.shadowRoot, { childList: true, subtree: true });
+      patchNewWindowLinks(el.shadowRoot);
+    } else {
+      var attempts = 0;
+      var poll = setInterval(function() {
+        if (el.shadowRoot || ++attempts > 50) {
+          clearInterval(poll);
+          if (el.shadowRoot) {
+            t7Observer.observe(el.shadowRoot, { childList: true, subtree: true });
+            patchNewWindowLinks(el.shadowRoot);
+          }
+        }
+      }, 100);
+    }
+  }
+
+  patchNewWindowLinks(document.body);
+  var t7Observer = new MutationObserver(function(mutations) {
+    for (var i = 0; i < mutations.length; i++) {
+      var added = mutations[i].addedNodes;
+      for (var j = 0; j < added.length; j++) {
+        var node = added[j];
+        if (node.nodeType !== 1) { continue; }
+        patchNewWindowLinks(node);
+        if (node.nodeName === 'SU-APP') { watchShadowRoot(node); }
+        var suApps = node.querySelectorAll ? node.querySelectorAll('su-app') : [];
+        for (var k = 0; k < suApps.length; k++) { watchShadowRoot(suApps[k]); }
+      }
+    }
+  });
+  t7Observer.observe(document.body, { childList: true, subtree: true });
+  // Handle su-app already present at load time (e.g. on the /search/ page)
+  var suAppEl = document.querySelector('su-app');
+  if (suAppEl) { watchShadowRoot(suAppEl); }
   $('.highlight .highlight .rouge-code pre').each(function(k) {
     $this = $(this);
     if ($this.html().length > 120) {

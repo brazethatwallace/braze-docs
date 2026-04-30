@@ -1,3 +1,5 @@
+// NOTE: This file is no longer loaded. Main/page search has been replaced by SearchUnify
+// (su_main_search.js + CloudFront-hosted searchbox.js). This file is kept for reference only.
 function mainDocSubmit(){
   window.location = base_url + '/search/?query=' + encodeURIComponent($('#doc-search-home .aa-Form .aa-Input').val());
   return false;
