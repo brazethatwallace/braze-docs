@@ -96,6 +96,20 @@ Refer to the following metrics to track how your Agent steps perform:
 | _Exited Canvas_ | The number of users that exited the Canvas after passing through the Agent step. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+## Best practices
+
+### Add another Agent step to troubleshoot
+
+If you find that an agent is struggling with the tasks you’re asking it to do, consider a sub-agent approach. Consider the following example that uses three agents for summarization, scoring, and message generation so that each agent has a narrower job:
+
+- Agent 1 standardizes the win-back inputs from Canvas context, such as loyalty tier and high-intent search signals, into a compact summary you store as an output variable.
+- Agent 2 returns a number you use in an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) step (for example, which value proposition to emphasize before you generate creative like member perks versus deals).
+- Agent 3 runs only on the paths where you want agent-written copy, using the summary from Agent 1 so channel limits, tone, and checkout focus don't compete with cleanup and routing in one prompt.
+
+### Use an Experiment Paths step
+
+Introduce the Agent step into the Canvas journey with an Experiment Path using a small percentage of users, such as 10-20%. From here, you can measure the impact on KPIs and counter-metrics as well as credit consumption rates before scaling. 
+
 ## Frequently asked questions
 
 ### When should I use an Agent step?
