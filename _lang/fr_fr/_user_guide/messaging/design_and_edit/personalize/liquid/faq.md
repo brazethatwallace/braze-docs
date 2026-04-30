@@ -54,7 +54,7 @@ Il existe un attribut par défaut pour la localisation de l'utilisateur : `{{${m
 
 ### Comment utiliser Liquid avec des objets imbriqués ?
 
-Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un Segment correspondant à plusieurs critères au sein d'un objet.
+Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un segment correspondant à plusieurs critères au sein d'un objet.
 
 Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation).
 

@@ -43,6 +43,8 @@ Wenn Sie Server-zu-Server-Aufrufe hinter einer Firewall durchführen, müssen Si
 
 ## Rate-Limit
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 Für die meisten Kund:innen hat dieser Endpunkt ein Basis-Geschwindigkeitslimit von 50 Anfragen pro Sekunde.
 
 Kund:innen mit neueren Verträgen haben stattdessen möglicherweise Burst- (pro Sekunde) und Steady-Limits (pro Stunde), die auf den vertraglich vereinbarten monatlich aktiven Nutzer:innen basieren.

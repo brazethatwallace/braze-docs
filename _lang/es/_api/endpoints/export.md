@@ -9,7 +9,7 @@ page_type: reference
 
 # Puntos finales de exportación {#export-endpoints}
 
-Con los puntos finales de exportación, puedes acceder y exportar diversos detalles sobre tus KPI, sesiones de aplicación, usuarios, Segments, Campaigns y Canvas. Asegúrate de conocer tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [clave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) al crear tus parámetros y cuerpos de solicitud.
+Con esta colección de puntos finales, puedes acceder y exportar diversos niveles de detalle sobre tus KPI, sesiones de aplicación, usuarios, Segments, Campaigns y Canvas. Asegúrate de conocer tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [clave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) al crear tus parámetros y cuerpos de solicitud.
 
 ## Requisitos previos {#prerequisites}
 
@@ -56,7 +56,7 @@ Las exportaciones de API devuelven datos en formato JSON, a diferencia de los ar
 
 Para más detalles sobre la entrega de exportaciones y la solución de problemas, consulta [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 
-## Puntos finales de exportación {#export-endpoints}
+## Puntos finales de exportación
 
 La siguiente tabla enumera todas las API de exportación disponibles.
 

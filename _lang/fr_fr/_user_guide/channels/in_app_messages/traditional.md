@@ -189,7 +189,7 @@ Le contenu de l'onglet **Compose** varie en fonction des options de message choi
 
 Sélectionnez **Add Languages** et choisissez les langues souhaitées dans la liste fournie. Cela insérera du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) dans votre message. Nous vous recommandons de sélectionner vos langues avant de rédiger votre contenu afin de pouvoir remplir votre texte aux emplacements appropriés dans le Liquid. Consultez notre [liste complète des langues disponibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
 
-### Image
+### Image {#image}
 
 Selon votre type de message, vous pouvez **Upload Image**, **Pick a Badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Add Image** ou fournissez une URL d'image. Sélectionner **Add Image** ouvre la **Bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier celles-ci avant de commander ou de créer une image de zéro.
 
@@ -319,7 +319,7 @@ Notez que si vous avez l'intention de déclencher votre message in-app à partir
 La diffusion des messages in-app est entièrement basée sur les déclencheurs d'action suivants :
 
 - Effectuer un achat
-- Ouvrir l'application/la page web
+- Ouvrir l'application ou la page web
 - Effectuer un événement personnalisé (fonctionne uniquement avec les événements envoyés via le SDK)
 - Ouvrir un message push spécifique
 - Planifier automatiquement des Campaigns pour un envoi à une heure précise en fonction de l'heure locale de chacun de vos utilisateurs.

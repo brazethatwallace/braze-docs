@@ -142,6 +142,6 @@ Um KI-Ausgaben über BrazeAI-Features zu generieren, die OpenAI nutzen („Ausga
 
 ## Nächste Schritte {#next-steps}
 
-- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können.
-- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Reichen Sie Support-Tickets direkt über Operator ein.
+- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können
+- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Reichen Sie Support-Tickets direkt über Operator ein
 - [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Häufige Probleme und Lösungen

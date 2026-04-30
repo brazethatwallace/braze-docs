@@ -38,6 +38,8 @@ Es posible que los clientes que utilicen la API para llamadas de servidor a serv
 
 ## Límite de velocidad {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
 Aplicamos un límite de velocidad base de 500 solicitudes por minuto a este punto de conexión para todos los clientes. Cada solicitud de `/users/track/sync` puede contener hasta un objeto de evento, un objeto de atributo o un objeto de compra. Cada objeto (evento, atributo y matrices de compra) puede actualizar un usuario cada uno.
 
 ## Cuerpo de la solicitud {#request-body}
@@ -61,7 +63,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada componente de solicitud que se indica en la tabla siguiente, debes incluir uno de los siguientes: `external_id`, `user_alias`, `braze_id`, `email` o `phone`.
 {% endalert %}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `attributes` | Opcional | Un objeto de atributos | Ver [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Opcional | Un objeto de evento | Ver [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Actualizar un evento personalizado por correo electrónico {#update-a-custom-event-by-email}
 
-#### Solicitud {#request}
+#### Solicitud
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -183,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Respuesta {#response}
+#### Respuesta
 
 ```
 {
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Actualizar un evento de compra por alias de usuario {#update-a-purchase-event-by-user-alias}
 
-#### Solicitud {#request}
+#### Solicitud
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Respuesta {#response}
+#### Respuesta
 
 ```
 {

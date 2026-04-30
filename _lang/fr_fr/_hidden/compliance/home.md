@@ -15,7 +15,7 @@ _Date de révision : 30 mars 2026_
 
 La documentation de conformité ci-dessous énonce les conditions spécifiques applicables à votre produit, canal, fonctionnalité ou service acheté :
 
-- Pour les fonctionnalités des services Braze qui permettent aux clients d'interagir avec, d'intégrer ou d'accéder au produit, au site Web, à l'application ou au service d'un fournisseur tiers, la documentation de conformité contient les conditions du fournisseur tiers applicables à votre utilisation de cette fonctionnalité ; et
+- Pour les fonctionnalités des services Braze qui permettent aux clients d'interagir avec, d'intégrer ou d'accéder au produit, au site web, à l'application ou au service d'un fournisseur tiers, la documentation de conformité contient les conditions du fournisseur tiers applicables à votre utilisation de cette fonctionnalité ; et
 - Toutes les pratiques et normes industrielles générales auxquelles les clients de Braze sont tenus de se conformer pour l'utilisation de ce produit, canal, fonctionnalité, fonction ou service de Braze.
 
 ## Mises à jour de la documentation de conformité {#updates-to-the-compliance-documentation}
@@ -126,6 +126,7 @@ En utilisant le canal LINE, le client accepte de se conformer et d'être lié pa
 
 Nonobstant toute disposition contraire dans les conditions LINE, le client reste principalement responsable de son utilisation des services LINE.
 
+
 ## 5. Documentation de conformité de l'intégration Shopify {#shopify-integration-compliance-documentation}
 
 Les conditions supplémentaires suivantes s'appliquent dans le cadre de l'utilisation par le client de l'intégration Shopify en lien avec les services Braze (« **Intégration Shopify** ») :
@@ -147,7 +148,6 @@ Le client reconnaît que les fournisseurs tiers peuvent examiner, filtrer et/ou 
 ## 7. Documentation de conformité de l'archivage des messages et du chiffrement au niveau du champ {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Clause de non-responsabilité
-
 Le client reconnaît que l'utilisation de l'archivage des messages et/ou du chiffrement au niveau du champ (chacun, la « **Fonctionnalité** ») peut avoir un impact sur la vitesse d'envoi des messages envoyés via les services Braze. Braze ne saurait être tenu responsable d'un tel impact, et tout engagement relatif à la vitesse d'envoi ne s'appliquera pas lorsque le client utilise la fonctionnalité. La fonctionnalité peut être utilisée pour soutenir les efforts de conformité du client, cependant le client reconnaît que Braze ne fait aucune déclaration ni garantie quant à savoir si l'utilisation de la fonctionnalité elle-même satisfait les obligations de conformité du client, et décline toute responsabilité à cet égard.
 
 ## 8. Documentation de conformité de la Console des agents {#agent-console-compliance-documentation}

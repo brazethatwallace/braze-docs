@@ -19,7 +19,7 @@ description: "Dieser Artikel bietet eine Übersicht über die mehrsprachigen Ein
 1. Gehen Sie zu **Einstellungen** > **Lokalisierungseinstellungen**.
 2. Wählen Sie **Add locale** und dann **Default locale** oder **Custom Attributes**.
 
-![Das Dropdown-Menü „Gebietsschema hinzufügen“ mit Optionen zur Auswahl des Standard-Gebietsschemas oder angepasster Attribute.]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
+![Das Dropdown-Menü „Add locale“ mit Optionen zur Auswahl des Standard-Gebietsschemas oder angepasster Attribute.]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
 
 {: start="3"}
 3. Geben Sie einen Namen für das Gebietsschema ein.

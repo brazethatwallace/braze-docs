@@ -937,7 +937,7 @@ Today's offer from {{store}}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
+このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid

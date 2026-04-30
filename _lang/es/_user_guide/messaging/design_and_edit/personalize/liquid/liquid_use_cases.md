@@ -413,7 +413,7 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 
 ### Mensaje dentro de la aplicación para enviar x días antes de que termine la membresía de los usuarios {#countdown-membership-expiry}
 
-Este caso de uso captura tu fecha de caducidad de membresía, calcula cuánto falta para que expire y muestra diferentes mensajes según cuánto falta para que tu membresía expire.
+Este caso de uso captura la fecha de caducidad de la membresía, calcula cuánto falta para que expire y muestra diferentes mensajes según cuánto falta para que la membresía expire.
 
 {% raw %}
 ```liquid

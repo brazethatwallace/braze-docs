@@ -341,7 +341,7 @@ WHERE
 
 ### 개인화
 
-1. `summer`와 같은 해당 값이 포함된 메타필드를 필터링하는 [카탈로그 선택]({{site.baseurl}}/catalog_selections/)을 생성합니다.
+1. 해당 값이 포함된 메타필드를 필터링하는 [카탈로그 선택]({{site.baseurl}}/catalog_selections/)을 생성합니다.
 
 ![summer 속성이 있는 메타필드를 필터링하는 카탈로그 선택.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
 
@@ -350,7 +350,7 @@ WHERE
 
 {% raw %}
 ```liquid
-{% catalog_selection_items se-team-ecommerce_shopify_catalog sustainable_products %}
+{% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
 {% abort_message('Catalog selection returned no items') %}
@@ -393,12 +393,12 @@ WHERE
 ```
 {% endraw %}
 
-또는 푸시 알림에서 `summer` 메타필드 값이 있는 특정 제품을 언급하려면 **Add Personalization** 도구를 사용하여 카탈로그 항목을 지정할 수 있습니다.
+또는 푸시 알림에서 특정 메타필드 값이 있는 제품을 언급하려면 **Add Personalization** 도구를 사용하여 카탈로그 항목을 지정할 수 있습니다.
 
 {% raw %}
 ```liquid
-Checkout the latest women's clothing:
-    {% catalog_selection_items se-team-ecommerce_shopify_catalog summer_products %}
+Check out the latest summer products:
+    {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
@@ -412,18 +412,17 @@ Checkout the latest women's clothing:
 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용하여 제품 메타필드와 상호작용한 사용자를 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 메타필드 배열에 특정 값이 포함된 제품으로 이커머스 이벤트를 트리거한 사용자를 찾으려면 다음 쿼리를 사용하세요:
 
 {% raw %}
+```sql
 -- -----------------------------------------------------------------------------
--- 배열 유형 메타필드 값(전체 기간)
--- -----------------------------------------------------------------------------
--- 메타필드가 카탈로그 field_value에 JSON 배열로 저장된 경우(예:
--- '["organic","vegan"]' 또는 JSON으로 직렬화된 목록 유형 Shopify 메타필드),
--- product_tags처럼 ARRAY_CONTAINS를 사용합니다. 검색할 요소를
--- VARIANT로 캐스팅하여 파싱된 배열 요소와 유형이 일치하도록 합니다.
+-- When the metafield is stored as a JSON array in catalog field_value (for example,
+-- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
+-- use ARRAY_CONTAINS like product_tags. Cast the element you search for to
+-- VARIANT so types match the parsed array elements.
 -- -----------------------------------------------------------------------------
 
 -- Description:
 -- Fetches users who triggered the ecommerce event with a product whose
--- metafield array contains a specific value (e.g. segment on "accessories").
+-- metafield array contains a specific value (for example, segment on "seasonal").
 -- For a date range, add events.time >= $start_date AND events.time <= $end_date.
 -- For first/last triggered, reuse the CTE pattern from Template 3 with this
 -- ARRAY_CONTAINS predicate instead of items.field_value = '<metafield_value>'.
@@ -449,10 +448,10 @@ WHERE
 ```
 {% endraw %}
 
-If you want to segment customers who have placed an order with the specific product metafields, use one of the following SQL Segment Extension templates (all time, specific time period, first or last triggered an event).
+특정 제품 메타필드로 주문한 고객을 세분화하려면 다음 SQL 세그먼트 확장 템플릿 중 하나를 사용하세요(전체 기간, 특정 기간, 이벤트를 처음 또는 마지막으로 트리거한 경우).
 
 {% raw %}
-```json
+```sql
 -- =============================================================================
 -- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================
@@ -707,9 +706,9 @@ WHERE
 
 ## 제품 동기화 비활성화 {#deactivate}
 
-Shopify 제품 동기화 기능을 비활성화하면 전체 카탈로그와 제품이 삭제됩니다. 이 카탈로그의 제품 데이터를 활발히 사용 중인 메시지에도 영향을 미칠 수 있습니다. 비활성화 전에 해당 Campaign 또는 Canvases를 업데이트하거나 일시 중지했는지 확인하세요. 그렇지 않으면 제품 세부 정보가 없는 메시지가 발송될 수 있습니다. 카탈로그 페이지에서 직접 Shopify 카탈로그를 삭제하지 마세요.
+Shopify 제품 동기화 기능을 비활성화하면 전체 카탈로그와 제품이 삭제됩니다. 이 카탈로그의 제품 데이터를 활발히 사용 중인 메시지에도 영향을 미칠 수 있습니다. 비활성화 전에 해당 Campaign이나 Canvases를 업데이트하거나 일시 중지했는지 확인하세요. 그렇지 않으면 제품 세부 정보가 없는 메시지가 발송될 수 있습니다. 카탈로그 페이지에서 직접 Shopify 카탈로그를 삭제하지 마세요.
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
 Shopify 제품 동기화에서 오류가 발생하면 다음 오류 중 하나가 원인일 수 있습니다. 문제를 수정하고 동기화를 해결하는 방법에 대한 지침을 따르세요:
 
@@ -718,4 +717,4 @@ Shopify 제품 동기화에서 오류가 발생하면 다음 오류 중 하나�
 | 서버 오류 | 제품 동기화를 시도할 때 Shopify 측에서 서버 오류가 발생한 경우입니다. | [동기화를 비활성화](#deactivate)하고 전체 제품 인벤토리를 다시 동기화하세요. |
 | 중복 SKU | SKU를 카탈로그 항목 ID로 사용하고 동일한 SKU를 가진 제품이 있는 경우 발생합니다. 카탈로그 항목 ID는 고유해야 하므로 모든 제품에 고유한 SKU가 있어야 합니다. | Shopify에서 전체 제품 및 배리언트 목록을 감사하여 중복 SKU가 없는지 확인하세요. 중복 SKU가 있는 경우 Shopify 스토어 계정에서만 고유한 SKU로 업데이트하세요. 수정 후 [동기화를 비활성화](#deactivate)하고 전체 제품 인벤토리를 다시 동기화하세요. |
 | 카탈로그 한도 초과 | 카탈로그 한도를 초과한 경우 발생합니다. Braze는 더 이상 저장 공간이 없어 동기화를 완료하거나 동기화를 활성 상태로 유지할 수 없습니다. | 이 문제에 대한 두 가지 해결 방법이 있습니다:<br><br>1. 카탈로그 한도를 늘리려면 계정 매니저에게 문의하여 티어를 업그레이드하세요.<br><br>2. 다음 항목을 삭제하여 저장 공간을 확보하세요:<br>- 다른 카탈로그의 카탈로그 항목<br>- 다른 카탈로그<br>- 생성된 선택 항목<br><br> 두 해결 방법 중 하나를 사용한 후 동기화를 비활성화한 다음 다시 동기화해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

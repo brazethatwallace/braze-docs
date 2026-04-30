@@ -23,11 +23,11 @@ Se conformer aux demandes de désinscription des destinataires est une obligatio
 En vertu de leurs contrats d'abonnement avec nous, nos clients sont seuls responsables de leur conformité aux lois applicables dans le cadre de l'utilisation de nos services. En conséquence, nous recommandons vivement aux clients de porter une attention particulière à la configuration correcte de leur environnement SMS, de tester ces configurations de manière approfondie, de prendre des mesures pour surveiller la conformité des désinscriptions et d'agir rapidement s'ils identifient des cas de non-conformité aux demandes de désinscription.
 
 Lors de la configuration des SMS et MMS dans Braze pour gérer les abonnements et désinscriptions, consultez la liste de ressources suivante :
-* [Groupes d'abonnement SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) : Groupes d'abonnement et méthodes et statuts d'abonnement/désinscription.
-* [API REST des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/) : Comment traiter les abonnements et désinscriptions reçus depuis une source autre qu'une réponse directe à un message.
-* [Traitement des mots-clés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) : Explications sur la manière dont Braze gère le traitement et la gestion des mots-clés.
-* [Double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) : Exige que les utilisateurs confirment explicitement leur intention d'abonnement avant de pouvoir recevoir des messages SMS. Le double abonnement SMS est une obligation dans certains pays, c'est pourquoi Braze recommande de le configurer.
-* [Envoi de messages SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/) : Fondamentaux de l'envoi de SMS avec Braze, y compris l'importance des groupes d'abonnement, les exigences relatives aux segments SMS et aux corps de message, et plus encore.
+* [Groupes d'abonnement SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) : groupes d'abonnement et méthodes et statuts d'abonnement/désinscription.
+* [API REST des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/) : comment traiter les abonnements et désinscriptions reçus depuis une source autre qu'une réponse directe à un message.
+* [Traitement des mots-clés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) : explications sur la manière dont Braze gère le traitement et la gestion des mots-clés.
+* [Double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) : exige que les utilisateurs confirment explicitement leur intention d'abonnement avant de pouvoir recevoir des messages SMS. Le double abonnement SMS est une obligation dans certains pays, c'est pourquoi Braze recommande de le configurer.
+* [Envoi de messages SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/) : fondamentaux de l'envoi de SMS avec Braze, y compris l'importance des groupes d'abonnement, les exigences relatives aux segments SMS et aux corps de message, et plus encore.
 
 ### Points à prendre en compte {#considerations}
 
@@ -78,3 +78,37 @@ Vous prévoyez d'effectuer des envois en grand volume ? Voici quelques bonnes pr
 
 - Ajustez la limite de débit de la vitesse de distribution pour votre campagne ou vos Canvas selon les besoins, en fonction de la taille de l'audience cible. Cela garantit que vous atteignez le volume d'envoi nécessaire et que Braze envoie les messages au rythme que Twilio attend et peut gérer.
 - Assurez-vous de respecter la limite de 160 caractères et soyez conscient que les caractères spéciaux comptent double (par exemple, les barres obliques inversées `\`, les accents circonflexes `^` et les tildes `~`).
+
+## Recommandations pour les heures calmes {#quiet-hours-recommendations}
+
+{% alert warning %}
+**Les heures calmes natives de Braze ne garantissent pas les horaires de distribution au niveau de l'appareil.** Lorsqu'un message est envoyé, il est transmis à un opérateur. Une fois que l'opérateur a accepté le message, Braze n'a plus de contrôle sur le moment précis où il est distribué sur l'appareil de l'utilisateur.<br><br> Par exemple, si un message est transmis à un opérateur à 20 h 59, il peut ne pas arriver sur l'appareil avant 21 h 02. Pour réduire ce risque, nous recommandons d'utiliser la méthode d'heures calmes basée sur Liquid ci-dessous. Celle-ci supprime le message au niveau du moteur Braze avant la transmission.
+{% endalert %}
+
+### Heures calmes natives de Braze {#braze-native-quiet-hours}
+
+Nous recommandons vivement d'activer les [heures calmes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) pour toutes les campagnes et Canvas SMS afin de respecter les réglementations régionales et les bonnes pratiques.
+
+### Protection supplémentaire via les Content Blocks {#additional-safeguard-through-content-blocks}
+
+Vous pouvez ajouter une vérification basée sur Liquid à l'intérieur d'un Content Block. Cela fournit une protection fiable et évolutive qui fonctionne en complément des paramètres natifs.
+
+#### Configuration {#setup}
+
+Incluez l'extrait de code suivant en haut du corps de votre message SMS. Cet exemple annule l'envoi s'il se situe en dehors d'une fenêtre de 9 h à 21 h dans le [fuseau horaire local]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) de l'utilisateur.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: ${time_zone} %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour >= 21 or hour < 9 %}
+  {% abort_message("Outside allowed time window") %}
+{% endif %}
+```
+{% endraw %}
+
+#### Points à prendre en compte
+
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permet d'évaluer la fenêtre par rapport au fuseau horaire local de chaque utilisateur, et non par rapport à un fuseau horaire global fixe, comme expliqué dans [cette FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- Les messages supprimés par {% raw %}`abort_message()`{% endraw %} ne sont pas reprogrammés pour le lendemain ; ils sont annulés.
+- {% raw %} Par défaut, les messages annulés ne sont pas visibles dans les rapports standard de campagne. Cependant, lorsque Liquid annule un envoi avec `{% abort_message %}`, Braze l'enregistre dans le Journal d'activité des messages comme une erreur de message (par défaut, il affiche `{% abort_message %}` appelé). Si vous passez une chaîne de caractères, cette raison est ce qui apparaît dans le journal, par exemple `{% abort_message('language was nil') %}`{% endraw %}. Pour avoir de la visibilité sur ces suppressions dans le tableau de bord, contactez votre gestionnaire de la satisfaction client pour accéder au [tableau de bord de diagnostic de l'envoi de messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).

@@ -23,6 +23,10 @@ channel:
 
 Braze의 SMS, MMS, RCS를 사용하면 키워드 트리거를 생성하고, 커스텀 응답을 정의하며, 여러 언어에 대한 키워드 세트를 정의하고, 커스텀 키워드 카테고리를 설정할 수 있습니다.
 
+{% alert note %}
+Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)을 위해 전체 옵트아웃 키워드 세트([기본 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) 및 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)를 사용합니다.
+{% endalert %}
+
 {% tabs %}
 {% tab 키워드 트리거 추가 %}
 
@@ -32,8 +36,8 @@ Braze의 SMS, MMS, RCS를 사용하면 키워드 트리거를 생성하고, 커�
 
 자체 키워드를 정의하려면 다음을 수행합니다:
 
-1. Braze 대시보드에서 **오디언스** > **구독 그룹 관리**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다.<br><br>
-2. **글로벌 키워드**에서 키워드를 추가하려는 키워드 카테고리 옆의 연필 아이콘을 선택합니다. ![연필 아이콘이 표시된 옵트인 키워드.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
+1. Braze 대시보드에서 **Audience** > **Subscription Group Management**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다.<br><br>
+2. **Global Keywords**에서 키워드를 추가하려는 키워드 카테고리 옆의 연필 아이콘을 선택합니다. ![연필 아이콘이 표시된 옵트인 키워드.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. 열리는 탭에서 이 키워드 카테고리를 트리거할 키워드를 추가합니다. 키워드는 대소문자를 구분하지 않으며, `START`, `YES`, `UNSTOP`과 같은 범용 키워드는 변경할 수 없습니다. !['옵트인' 카테고리의 키워드 편집. 추가된 키워드는 'START', 'UNSTOP', 'YES'입니다. 응답 메시지 필드에는 '이 번호의 메시지 수신이 해제되었습니다. 도움이 필요하면 HELP를 보내세요. 수신 거부하려면 STOP을 보내세요. 메시지 및 데이터 요금이 부과될 수 있습니다.'라고 표시됩니다.]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
 키워드 및 키워드 응답에는 다음 규칙이 적용됩니다:
@@ -54,8 +58,8 @@ Braze의 SMS, MMS, RCS를 사용하면 키워드 트리거를 생성하고, 커�
 
 사용자가 특정 키워드 카테고리에 키워드를 문자로 보낸 후 전송되는 자체 응답을 관리할 수 있습니다.
 
-1. Braze 대시보드에서 **오디언스** > **구독 그룹 관리**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다. <br><br>
-2. **글로벌 키워드**에서 연필 아이콘을 선택하여 응답을 편집할 키워드 카테고리를 선택합니다. ![연필 아이콘이 표시된 옵트인 키워드.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
+1. Braze 대시보드에서 **Audience** > **Subscription Group Management**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다. <br><br>
+2. **Global Keywords**에서 연필 아이콘을 선택하여 응답을 편집할 키워드 카테고리를 선택합니다. ![연필 아이콘이 표시된 옵트인 키워드.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. 열리는 탭에서 응답을 편집합니다. 응답을 작성할 때 [규정 준수를 위한 6가지 규칙]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right)을 유의하고, 키워드 및 키워드 응답에 적용되는 다음 규칙을 읽어보세요. ![응답]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
 4. 응답에서 정적 URL을 자동으로 단축하려면 **Link Shortening** 토글을 선택합니다. 문자 카운터가 업데이트되어 단축된 URL의 예상 길이를 표시합니다. !['Link Shortening' 토글이 켜져 있을 때 문자 카운터가 업데이트되는 GIF.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 

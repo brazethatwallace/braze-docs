@@ -68,6 +68,10 @@ Segment가 서로 참조하는 루프를 방지하기 위해, **Segment Membersh
 
 여러 Segment 이름 옆의 체크박스를 선택하여 일괄 아카이브 및 일괄 태그 지정 등의 일괄 작업을 수행할 수도 있습니다.
 
+{% alert tip %}
+워크스페이스에 있는 기존 Segment의 머신 판독 가능한 내보내기가 필요한 경우(현재 테이블 보기뿐만 아니라), [Segment 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)를 사용하고 결과를 페이지네이션하세요. 아카이브된 Segment를 감사하려면 상태 필터를 사용하여 **Segments** 대시보드에서 별도로 검토하세요.
+{% endalert %}
+
 ![여러 Segment가 선택되어 있고 태그 지정 드롭다운 필드에서 CRM이 선택된 모습.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### 마지막 조회 이후 변경 사항 {#changes-since-last-viewed}

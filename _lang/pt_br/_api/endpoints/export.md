@@ -9,7 +9,7 @@ page_type: reference
 
 # Endpoints de exportação {#export-endpoints}
 
-Com os endpoints de exportação, você pode acessar e exportar vários detalhes sobre seus KPIs, sessões de app, usuários, segmentos, campanhas e Canvas. Certifique-se de conhecer sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [chave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) ao criar seus parâmetros e corpos de solicitação.
+Com esta coleção de endpoints, você pode acessar e exportar vários níveis de detalhes sobre seus KPIs, sessões de app, usuários, segmentos, campanhas e Canvas. Certifique-se de conhecer sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [chave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) ao criar seus parâmetros e corpos de solicitação.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -56,38 +56,38 @@ As exportações via API retornam dados em formato JSON, diferentemente dos arqu
 
 Para mais detalhes sobre entrega de exportação e solução de problemas, consulte [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 
-## Endpoints de exportação {#export-endpoints}
+## Endpoints de exportação
 
 A tabela a seguir lista todas as APIs de exportação disponíveis.
 
 | Categoria | Método | Endpoint |
 | --- | --- | --- |
-| Campaigns | GET | [Análise de dados de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) |
-| Campaigns | GET | [Detalhes de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) |
-| Campaigns | GET | [Lista de Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) |
-| Campaigns | GET | [Análise de envios]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) |
-| Canvas | GET | [Análise de séries de dados de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) |
-| Canvas | GET | [Resumo de análise de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) |
-| Canvas | GET | [Detalhes de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) |
-| Canvas | GET | [Lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |
-| Eventos personalizados | GET | [Eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
-| Eventos personalizados | GET | [Lista de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) |
-| Eventos personalizados | GET | [Análise de dados de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) |
-| Atributos personalizados | GET | [Atributos personalizados]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
-| KPIs | GET | [KPIs para novos usuários diários por data]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) |
-| KPIs | GET | [KPIs para usuários ativos diários por data]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
-| KPIs | GET | [KPIs para usuários ativos mensais nos últimos 30 dias]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) |
-| KPIs | GET | [KPIs para desinstalações por data]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) |
-| Compras | GET | [Lista de IDs de produtos]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) |
-| Compras | GET | [Número de compras]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) |
-| Compras | GET | [Dados de receita por tempo]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
-| Segments | GET | [Lista de Segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
-| Segments | GET | [Análise de dados de Segment]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) |
-| Segments | GET | [Detalhes de Segment]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) |
-| Sessões | GET | [Dados de séries temporais de sessões de app]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) |
-| Dados de usuários | POST | [Dados de usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
-| Dados de usuários | POST | [Dados de usuários por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
-| Dados de usuários | POST | [Dados de usuários por grupo de controle global]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
+| Campaigns | GET | [Campaign Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) |
+| Campaigns | GET | [Campaign Details]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) |
+| Campaigns | GET | [Campaigns List]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) |
+| Campaigns | GET | [Send Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) |
+| Canvas | GET | [Canvas Data Series Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) |
+| Canvas | GET | [Canvas Analytics Summary]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) |
+| Canvas | GET | [Canvas Details]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) |
+| Canvas | GET | [Canvas List]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |
+| Eventos personalizados | GET | [Custom Events]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
+| Eventos personalizados | GET | [Custom Events List]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) |
+| Eventos personalizados | GET | [Custom Event Analytics]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) |
+| Atributos personalizados | GET | [Custom Attributes]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
+| KPIs | GET | [KPIs for Daily New Users by Date]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) |
+| KPIs | GET | [KPIs for Daily Active Users by Date]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
+| KPIs | GET | [KPIs for Monthly Active Users Over Last 30 Days]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) |
+| KPIs | GET | [KPIs for Uninstalls by Date]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) |
+| Compras | GET | [Product IDs List]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) |
+| Compras | GET | [Number of Purchases]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) |
+| Compras | GET | [Revenue Data by Time]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
+| Segments | GET | [Segment List]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
+| Segments | GET | [Segment Analytics]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) |
+| Segments | GET | [Segment Details]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) |
+| Sessões | GET | [App Sessions Time-Series Data]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) |
+| Dados de usuários | POST | [User Data by Identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
+| Dados de usuários | POST | [User Data by Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
+| Dados de usuários | POST | [User Data by Global Control Group]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Artigos relacionados {#related-articles}

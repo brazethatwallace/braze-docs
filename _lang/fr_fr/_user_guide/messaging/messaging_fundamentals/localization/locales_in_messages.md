@@ -213,7 +213,7 @@ Lorsque vous remplissez le fichier de traduction pour les langues écrites de dr
 
 ### Suivi des liens e-mail {#email-link-tracking}
 
-Dans les campagnes par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
 
 Lorsqu'une URL est encadrée par des balises de traduction, Braze peut ne pas être en mesure de déterminer où ajouter ces informations de suivi. Pour garantir le bon fonctionnement, vous devez inclure un caractère spécial à la fin de l'URL pour indiquer où le suivi doit être ajouté.
 

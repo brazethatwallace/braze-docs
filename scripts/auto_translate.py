@@ -101,7 +101,7 @@ QC_RESULTS_FILE = REPO_ROOT / "qc_results.json"
 NON_TRANSLATABLE_FM_KEYS = frozenset({
     "page_order", "layout", "page_type", "channel", "platform", "tool",
     "link", "image", "permalink", "hidden", "noindex", "config_only",
-    "search_rank", "page_layout",
+    "search_rank", "page_layout", "hide_nav", "hide_toc",
 })
 
 BRAZE_PRODUCT_NAMES = [
@@ -1276,6 +1276,30 @@ def repair_spurious_front_matter_when_english_has_none(
     return tr_body, [
         "front_matter — removed (English source has no YAML block; "
         "includes must not start with ---)"
+    ]
+
+
+def repair_missing_locale_front_matter_from_english(
+    english_content, translated_content
+):
+    """Re-seed YAML front matter from English when the locale file lost it entirely.
+
+    :func:`repair_front_matter` only syncs keys when *both* sides parse with a
+    leading ``---`` block. Models sometimes return a translation body that starts
+    with HTML or markdown while the English source has Jekyll metadata (routing,
+    ``layout``, ``hide_nav``). Without this repair, localized pages lose their
+    front matter entirely (Copilot / auto-translate PR #13466, e.g.
+    ``_hidden/other/support_contact.md``).
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not en_fm or tr_fm is not None:
+        return translated_content, []
+    merged = f"---\n{en_fm}\n---\n{tr_body}"
+    return merged, [
+        "front_matter — re-seeded from English (locale had no parseable "
+        "--- header; translate nav_title/article_title on a follow-up pass "
+        "if needed)"
     ]
 
 
@@ -5878,6 +5902,13 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(fm_strip_repairs)
+
+    translated_content, fm_seed_repairs = (
+        repair_missing_locale_front_matter_from_english(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(fm_seed_repairs)
 
     if not english_content.strip():
         if translated_content.strip():
