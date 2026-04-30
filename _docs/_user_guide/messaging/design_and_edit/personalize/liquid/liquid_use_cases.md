@@ -140,7 +140,7 @@ The example provided uses Christmas Eve, Christmas Day, and Boxing Day (the day 
 App usage
 {% endapitags %}
 
-- [Send messages in a user's language if they've logged a session](#app-session-language)
+- [Send messages in a user's language if they haven't logged a session](#app-session-language)
 - [Personalize messages based on when a user last opened the app](#app-last-opened)
 - [Show a different message if a user last used the app less than three days ago](#app-last-opened-less-than)
 

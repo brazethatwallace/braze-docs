@@ -93,7 +93,7 @@ La integración con Shopify admite webhooks de creación y actualización de cli
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Las propiedades de entrada de Canvas forman parte de las variables de contexto de Canvas. Esto significa que `canvas_entry_properties` se referencia como `context`. Cada variable `context` incluye un nombre, un tipo de datos y un valor que puede incluir Liquid. Actualmente, `canvas_entry_properties` es compatible con versiones anteriores. Para más información, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) y [Objeto de contexto de Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
+Las propiedades de entrada de Canvas forman parte de las variables de contexto de Canvas. Esto significa que `canvas_entry_properties` se referencia como `context`. Cada variable `context` incluye un nombre, un tipo de datos y un valor que puede incluir Liquid. Actualmente, `canvas_entry_properties` es compatible con versiones anteriores. Para más detalles, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) y [Objeto de contexto de Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta tiene un problema conocido que puede impedir que algunos videos MP4 se repr
 Para esta integración, el alias de usuario debe utilizar el siguiente formato para que Braze pueda asociar los webhooks con el perfil de usuario correcto:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Los mensajes multilingües y las traducciones de configuración regional se encuentran actualmente en fase de acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en este acceso anticipado.
 {% endalert %}
 
 {% endif %}

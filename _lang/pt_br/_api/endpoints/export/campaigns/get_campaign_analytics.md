@@ -18,6 +18,8 @@ description: "Este artigo descreve informações sobre o endpoint da Braze para 
 
 Os dados retornados incluem quantas mensagens foram enviadas, abertas, clicadas ou convertidas por canal de envio de mensagens.
 
+{% multi_lang_include export_data_series_analytics_dashboard_note.md type='campaign' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
