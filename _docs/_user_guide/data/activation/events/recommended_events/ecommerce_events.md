@@ -1422,3 +1422,7 @@ If events are not showing in user profiles or logs, check the following:
 - **SDK data flush timing**: The Braze SDK caches data locally and uploads it periodically (typically within 10–60 seconds). Call `requestImmediateDataFlush()` after `logCustomEvent()` to force an immediate upload.
 - **Required properties**: eCommerce events have required properties. If a required property is missing or has an invalid data type, the event may be rejected. Verify that your event payload matches the [required schema](#types-of-ecommerce-recommended-events).
 - **Event name accuracy**: eCommerce event names are case-sensitive and must match exactly (for example, `ecommerce.checkout_started`, not `ecommerce.checkoutStarted`).
+
+### Do eCommerce events count toward data points?
+
+No. Braze eCommerce events and their segmentable event properties don't count toward [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
