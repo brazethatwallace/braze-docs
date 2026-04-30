@@ -38,7 +38,7 @@ Before you can send AMP emails to users, you must register with our email client
 
 For a full list of supported email clients, refer to [AMP documentation](https://amp.dev/support/faq/email-support).
 
-### Enabling Gmail account
+### Enable Gmail account
 
 Go to your Gmail settings, and select **Enable Dynamic Email** under **General**.
 
@@ -69,7 +69,7 @@ You can also use AMP for email with our API. If you use any of the Braze [Messag
 }
 ```
 
-## Creating your AMP email
+## Create your AMP email
 
 First, build your AMP email using [components](#components). Next, use the [Braze API](#api-usage) to send your message, making sure to include `amp_body` for your AMP HTML.
 
@@ -189,7 +189,7 @@ Examples include:
 {% endtab %}
 {% endtabs %}
 
-### Using amp-mustache
+### Use amp-mustache
 
 Similar to Liquid, AMP supports a scripting language for more advanced use cases. This component is called [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). When including any Mustache markup language, you'll need to wrap it around the [`raw`](https://shopify.github.io/liquid/tags/raw/) tag from Liquid. Note that Liquid and Mustache share syntax styling. 
 
@@ -230,7 +230,7 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
     </tbody>
 </table>
 
-## Testing and troubleshooting
+## Test and troubleshoot
 
 Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
 
@@ -245,10 +245,21 @@ For your AMP email to be delivered to any Gmail account, the email must meet the
 
 If none of these conditions are causing the error, contact [Support]({{site.baseurl}}/support_contact/).
 
+### Configure Gmail inbox to render AMP emails
+
+You can configure your Gmail inbox to render AMP emails for testing purposes by doing the following:
+
+1. Select **Settings** (gear icon) in the top right corner of your inbox in Gmail.
+2. Select **See all settings**.
+3. In the **General** tab, go to the **Dyanmic email** section and confirm the **Enable dynamic email** checkbox is selected. 
+4. Next, select **Developer Settings**, and select the **Always allow dynamic emails from this sender:** checkbox.
+5. Enter the sending domain you are sending the test email with.
+6. Save your changes.
+
+Now, you can send the test email to your Gmail account, and AMP should begin to work.
+
 ### Frequently asked questions
 
 #### Should I segment with AMP emails?
 
 We advocate not segmenting to send to all different types of users. This is because we send AMP messages in multipart, having different versions included in the original email. If a user can't see the AMP version, it will default back to HTML.
-
-
