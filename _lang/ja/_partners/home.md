@@ -6,8 +6,8 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "テクノロジーパートナー"
-partner_top_text: "Alloys（Braze のテクノロジーパートナー）の一覧へようこそ。このページを活用して、テクノロジーパートナーを Braze SDK に実装してください。Braze で<b>パートナー連携</b> > <b>テクノロジーパートナー</b>に移動すると、このページに掲載されているパートナーと接続できます。<br> <br> Braze を活用してカスタマーエクスペリエンスやマーケティングを革新している顧客コミュニティ「Firebrands」への参加をご検討の場合は、<a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> をご覧ください。"
-description: "このランディングページにはすべての Braze パートナーが含まれています。テクノロジーパートナーを Braze SDK に実装する際に役立つ技術ドキュメントを探すときにご利用ください。"
+partner_top_text: "Alloys（Brazeのテクノロジーパートナー）の一覧へようこそ。このページを活用して、テクノロジーパートナーをBraze SDKに実装してください。Brazeで<b>パートナー連携</b> > <b>テクノロジーパートナー</b>に移動すると、このページに掲載されているパートナーと接続できます。<br> <br> Brazeを活用してカスタマーエクスペリエンスやマーケティングを革新している顧客コミュニティ「Firebrands」への参加をご検討の場合は、<a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> をご覧ください。"
+description: "このランディングページにはすべてのBrazeパートナーが含まれています。テクノロジーパートナーをBraze SDKに実装する際に役立つ技術ドキュメントを探すときにご利用ください。"
 
 valid_partner_list:
 - name: Jampp
@@ -104,6 +104,8 @@ valid_partner_list:
   url: /docs/partners/amazon_personalize/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -284,6 +286,8 @@ valid_partner_list:
   url: /docs/partners/celebrus/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY by Loyalty Juggernaut
+  url: /docs/partners/lji/
 - name: Alpaco
   url: /docs/partners/alpaco/
 - name: NiftyImages
@@ -346,8 +350,8 @@ valid_partner_list:
   url: /docs/partners/tapcart/
 - name: Mention Me
   url: /docs/partners/mention_me/
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Eagle Eye
   url: /docs/partners/eagle_eye/
 - name: Eppo
@@ -410,6 +414,8 @@ valid_partner_list:
   url: /docs/partners/figma/
 - name: Poq
   url: /docs/partners/poq/
+- name: The Trade Desk
+  url: /docs/partners/trade_desk_audience_sync/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---

@@ -79,9 +79,10 @@ For email campaigns and Canvases, the stop button does not immediately stop the 
 
 While Braze won't send further requests once the campaign or Canvas is stopped, analytics may still increase while the ESP finishes processing requests already in flight.
 
-### Why am I seeing more email clicks than opens?
+### Why am I seeing more _Total Clicks_ than _Total Opens_ in my email analytics?
 
-You may be seeing more clicks than opens for any of the following reasons:
+_Total Opens_ is the count of how many times the email was opened by users, whereas _Total Clicks_ is the count of how many times users clicked within the delivered email, including any type of clicks such as link clicks. You may be seeing more clicks than opens for any of the following reasons:
+
 - Users are performing multiple clicks on the body of the email within a single open.
 - Users click on some email links within the preview pane of their phones. In this case, Braze logs this email as being clicked but not opened.
 - Users reopen an email that they previewed earlier.
@@ -113,6 +114,14 @@ If the total number of clicks on the body unsubscribe link is greater than the n
 No. Braze does not offer this functionality. This is because a growing majority of email is opened on mobile devices and in modern email clients, which render images and content without issues.
 
 **Workaround:** To achieve this same result, you can host the content of your email on an external landing page (such as your website), which can then be linked to from the email campaign you are building using the **Link** tool when editing the email body.
+
+### Does Braze automatically turn plain text URLs or "www." text into links?
+
+No. Braze does not scan your message and convert plain text, such as text that starts with `www.` or looks like a URL, into hyperlinks. Only links you define with HTML anchor tags (`<a href="...">`) are processed through normal rendering and link features in Braze.
+
+If a recipient sees plain text shown as a clickable link, that behavior usually comes from their email client (for example, Gmail, Outlook, or Apple Mail). Many clients detect URL-like strings after the message is delivered and turn them into links on the recipient's device. Braze does not control that behavior and cannot turn it off for the recipient.
+
+For predictable link appearance, tracking, and styling, use explicit `<a href>` tags instead of plain text URLs.
 
 ### Why are my users being auto-unsubscribed by email security software?
 

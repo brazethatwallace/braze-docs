@@ -10,9 +10,9 @@ channel: email
 
 # SSL at Braze
 
-{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
-
 > A secure socket layer (SSL) encrypts a URL with HTTPS instead of HTTP. HTTPS indicates that a valid and trusted SSL or TLS certificate exists and that the website is safe to visit.
+
+{% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
 ## Why is SSL important?
 

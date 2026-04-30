@@ -106,12 +106,12 @@ We apply a shared rate limit of 1,000 requests per hour to this endpoint. This r
 <!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
-When using Connected Audience filters in your request, we apply a rate limit of 250 requests per minute to this endpoint. Otherwise, if specifying an `external_id`, this endpoint has a default rate limit of 250,000 requests per hour shared between `/messages/send`, `/campaigns/trigger/send`, and `/canvas/trigger/send`, as documented in [API rate limits]({{site.baseurl}}/api/api_limits/).
+When using Connected Audience filters in your request, we apply a rate limit of 250 requests per minute to this endpoint. Otherwise, if specifying an `external_id`, this endpoint has a default rate limit of 250,000 requests per hour shared between the endpoints documented in [API rate limits]({{site.baseurl}}/api/api_limits/#requests-with-shared-rate-limits).
 
-Braze endpoints support batching API requests. A single request to the messaging endpoints can reach any of the following:
+Braze endpoints support [batching API requests]({{site.baseurl}}/api/api_limits/#batching-api-requests). A single request to the messaging endpoints can reach any of the following:
 
 - Up to 50 specific `external_ids`, each with individual message parameters
-- An audience segment of any size, defined in the request as a Connected Audience object
+- An audience segment of any size, defined in the request as a [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/) object
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 

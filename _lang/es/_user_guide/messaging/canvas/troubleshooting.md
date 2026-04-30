@@ -1,0 +1,102 @@
+---
+nav_title: Solución de problemas
+article_title: Solución de problemas de Canvas
+page_order: 7
+page_type: reference
+description: "Esta página proporciona pasos de solución de problemas para Canvas."
+tool: Canvas
+---
+
+# Solución de problemas de Canvas
+
+> Esta página te ayuda a solucionar problemas con tus Canvas.
+
+## ¿Por qué un usuario no recibió un paso en Canvas desencadenado?
+
+Primero, confirma que el evento personalizado se está enviando a Braze. Ve a **Análisis** > **Informe de eventos personalizados** y selecciona el evento personalizado y el rango de fechas correspondientes. Si el evento no aparece, confirma que está configurado correctamente y que el usuario realizó la acción correcta.
+
+Si el evento personalizado aparece, continúa con la solución de problemas haciendo lo siguiente:
+
+- Revisa la descarga del perfil del usuario para confirmar que desencadenó el evento y cuándo lo hizo. Si el evento fue desencadenado, compara la marca de tiempo de cuándo se desencadenó el evento con el momento en que el Canvas se activó. Es posible que el evento se haya desencadenado antes de que el Canvas estuviera en vivo.
+- Revisa los registros de cambios del Canvas y de cualquier segmento utilizado en la segmentación para determinar si el usuario estaba en el segmento cuando se desencadenó su evento personalizado. Si no estaba en el segmento, no habría recibido el paso en Canvas.
+- Verifica si el usuario fue incluido en un grupo de control a través de la segmentación y, en consecuencia, se le impidió recibir el paso en Canvas.
+- Si hay un retraso planificado, comprueba si el evento personalizado del usuario se desencadenó antes del retraso. Si el evento se desencadenó antes del retraso, no habría recibido el paso en Canvas.
+
+{% alert note %}
+Los mensajes dentro de la aplicación solo pueden ser desencadenados por eventos enviados a través del SDK, no de la API REST.
+{% endalert %}
+
+## ¿Por qué mi Canvas no se envía como se esperaba?
+
+Los Canvas son robustos y complejos, y sabemos que dedicas tiempo y cuidado al crearlos. Así que, si descubres que tu Canvas no se envía como deseas, te recomendamos revisar la planificación de tu Canvas, la audiencia de entrada y la configuración de entrada, y repasar los pasos para [crear un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
+
+### Planificación
+
+- ¿Está el Canvas [planificado correctamente]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)?
+- ¿Has seleccionado la fecha y hora correctas?
+- Para la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=action-based%20delivery#entry-schedule-types), ¿los usuarios han realizado las acciones especificadas desde que lanzaste el Canvas?
+
+### Configuración de entrada
+
+La [configuración de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) es importante para entender cómo se envían tus Canvas. Comprueba si has limitado el número de personas que potencialmente entrarán en el Canvas.
+
+Los usuarios también pueden salir de un Canvas si ya no son elegibles para recibir mensajes. Por ejemplo, si el Canvas solo contiene notificaciones push y un usuario cancela la suscripción a push después de recibir el primer paso, ese usuario abandonaría el Canvas. Considera usar [diferentes pasos en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/) para añadir recorridos de usuario alternativos.
+
+### Segmentar tu audiencia
+
+Considera las siguientes preguntas para tu audiencia objetivo:
+
+- ¿Has seleccionado el segmento correcto?
+- ¿Cómo está configurado el segmento?
+- ¿Has confirmado que el segmento contiene usuarios?
+- ¿Has añadido filtros adicionales que limiten el número de usuarios que entran en el Canvas?
+- ¿Los usuarios califican para recibir el primer paso de tus variantes? Por ejemplo, si el primer paso de tu Canvas es una notificación push, pero la audiencia de entrada tiene push deshabilitado, entonces ningún usuario recibirá mensajes.
+
+## ¿Por qué los envíos o entregas son menores que el tamaño de mi audiencia objetivo?
+
+El número de mensajes enviados o entregados a menudo difiere de la audiencia estimada o del recuento de destinatarios. Las razones comunes incluyen:
+
+- **Reevaluación de la audiencia:** Los usuarios pueden salir del segmento entre el momento en que entran a un paso y el momento en que se envía el mensaje.
+- **Elegibilidad del canal:** Es posible que a los usuarios les falten direcciones de correo electrónico, tokens de notificaciones push o el estado de suscripción requerido para ese canal en ese paso.
+- **Grupos de control:** Un grupo de control global o de Canvas puede excluir a usuarios de la mensajería.
+- **Horas tranquilas, Intelligent Timing y límites de velocidad:** Estas configuraciones pueden diferir o suprimir envíos.
+- **Pasos de mensajes dentro de la aplicación:** Los mensajes dentro de la aplicación pueden mostrar cero _Envíos_ mientras existen impresiones. Esto es esperado porque la entrega dentro de la aplicación funciona de manera diferente a las notificaciones push o el correo electrónico. Consulta [¿Por qué un Canvas puede mostrar cero envíos aunque se registren impresiones?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) en las preguntas frecuentes de Canvas.
+
+Para correo electrónico y otros canales, aplican muchos de los mismos factores que para las campañas. Para una lista detallada, consulta [¿Por qué los envíos son menores que el tamaño estimado de la audiencia?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
+
+## ¿Por qué ningún usuario entró en mi Canvas planificado diariamente el día del cambio de horario?
+
+En los días de transición del horario de verano (DST), los Canvas planificados diariamente pueden ejecutarse hasta una hora antes o después de lo habitual. Si tus criterios de entrada dependen de atributos personalizados o eventos con marcas de tiempo que caen dentro de una hora del horario de entrada planificado, es posible que los usuarios aún no califiquen en el día del DST porque el atributo o evento no se ha registrado.
+
+Por ejemplo, supongamos que los usuarios normalmente reciben una actualización de atributo personalizado a las 3:00 p.m. en la zona horaria de tu Canvas y tu Canvas se ejecuta diariamente a las 3:30 p.m. en esa misma zona horaria. En un día de adelanto de reloj por DST, el Canvas puede evaluar a los usuarios hasta una hora antes de lo habitual en relación con esa actualización de atributo, antes de que el atributo se haya registrado. Si la reelegibilidad está desactivada, los usuarios que entraron en días anteriores no pueden volver a entrar, lo que resulta en cero entradas para ese día.
+
+Para evitar esto, asegúrate de que las actualizaciones de tus atributos personalizados o eventos ocurran más de una hora antes del horario de entrada planificado del Canvas.
+
+## ¿Por qué mi audiencia no se dividió equitativamente entre el grupo de control y el grupo de variante?
+
+Al crear tu Canvas, es posible que hayas esperado que tu audiencia se dividiera equitativamente entre tu grupo de control y tu grupo de variante, como en el siguiente [caso de uso](#use-case). Analicemos por qué sucede esto y cómo solucionarlo.
+
+El grupo al que se une un usuario depende de su configuración. Puede ser el grupo de control o el grupo de variante. Un usuario entrará en un Canvas cuando cumpla con todos los criterios definidos en el [paso de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule). Al configurar tu Canvas, defines qué porcentaje de usuarios entrará en cada variante y en el grupo de control.
+
+Si tu grupo de control es grande en comparación con tu grupo de variante (y esta no es tu intención), te recomendamos lo siguiente:
+1. Configura tu filtro de audiencia de entrada como **is Foreground Push Enabled**.
+2. Configura tu filtro de audiencia de entrada para **Push Subscription Status**, **Email Subscription Status**, o ambos como **Opted In** o **Subscribed**.
+
+Al crear un Canvas con un grupo de control, confirma que todos los usuarios en la audiencia de entrada puedan recibir mensajes dentro del Canvas (por ejemplo, si el Canvas contiene mensajes push y de correo electrónico).
+
+### Caso de uso
+
+Imaginemos el siguiente escenario:
+- Un Canvas tiene una sola variante y un grupo de control.
+- El primer paso de la variante es una notificación push.
+- El 90% de los usuarios fueron seleccionados para entrar en la variante y el 10% para entrar en el grupo de control.
+
+![Ejemplo de Canvas con 90% de variante y 10% de grupo de control.]({% image_buster /assets/img_archive/trouble15.png %})
+
+En este escenario, el 90% de los usuarios que entran en el Canvas entrarán en la variante.
+
+Si revisamos los usuarios activos, podemos ver que aunque contiene 29.8k usuarios, solo el 64% de ellos tienen push habilitado:
+
+![Segmento con el filtro "Push Enabled" configurado como "true" y usuarios estimados de 29.8k.]({% image_buster /assets/img_archive/trouble16.png %})
+
+Esto significa que, aunque especificamos que el 90% de los usuarios entraran en la variante, no todos esos usuarios pueden realmente recibir una notificación push. Estos usuarios que no pueden recibir una notificación push seguirán entrando en la variante de todos modos.

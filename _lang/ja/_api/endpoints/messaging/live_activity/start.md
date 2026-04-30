@@ -10,22 +10,22 @@ description: "この記事では、「ライブアクティビティを開始」
 
 ---
 {% api %}
-# ライブアクティビティを開始
+# ライブアクティビティを開始 {#start-live-activity}
 {% apimethod post %}
 /messages/live_activity/start
 {% endapimethod %}
 
-> このエンドポイントを使用して、iOS アプリに表示される [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) をリモートで開始します。このエンドポイントには追加のセットアップが必要です。
+> このエンドポイントを使用して、iOS アプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)をリモートで開始します。このエンドポイントには追加のセットアップが必要です。
 
-ライブアクティビティを作成した後、任意の Segment のアクティビティをリモートで開始するために POST リクエストを送信できます。Apple のライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
+ライブアクティビティを作成した後、任意のSegmentのアクティビティをリモートで開始するために POST リクエストを送信できます。Apple のライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
 
-`content-available` が設定されていない場合、Apple プッシュ通知サービス（APNs）のデフォルトの優先度は 10 です。`content-available` が設定されている場合、この優先度は 5 です。詳細については、[Apple プッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object)を参照してください。
+`content-available` が設定されていない場合、Apple プッシュ通知サービス（APNs）のデフォルトの優先度は 10 です。`content-available` が設定されている場合、この優先度は 5 です。詳細については、[Apple プッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)を参照してください。
 
 {% alert tip %}
 ライブアクティビティを終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) エンドポイントで `end_activity` を `true` に設定して使用します。
 {% endalert %}
 
-## 自動非表示のスケジュール設定
+## 自動非表示のスケジュール設定 {#arranging-automatic-dismissal}
 
 ライブアクティビティの開始後に自動非表示をスケジュールするには、バックエンドから更新エンドポイントへのフォローアップリクエストをスケジュールします。
 
@@ -37,20 +37,20 @@ description: "この記事では、「ライブアクティビティを開始」
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、以下を完了する必要があります。
 
 - `messages.live_activity.start` 権限を持つ API キーを生成します。
-- Braze Swift SDK を使用して[ライブアクティビティを作成]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift#swift_create-an-activity)します。
+- Braze Swift SDKを使用して[ライブアクティビティを作成]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift#swift_create-an-activity)します。
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエスト本文
+## リクエスト本文 {#request-body}
 
 ```json
 {
@@ -68,11 +68,11 @@ description: "この記事では、「ライブアクティビティを開始」
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |-----------|----------|----------|--------------|
-| `app_id` | 必須 | 文字列 | [API キー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/)ページから取得したアプリ [API 識別子]({{site.baseurl}}/api/identifier_types/#the-app-identifier)。 |
+| `app_id` | 必須 | 文字列 | [API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから取得したアプリ [API 識別子]({{site.baseurl}}/api/identifier_types/#the-app-identifier)。 |
 | `activity_id` | 必須 | 文字列 | カスタム文字列を `activity_id` として定義します。この ID は、ライブアクティビティに更新または終了イベントを送信する際に使用します。 |
 | `activity_attributes_type` | 必須 | 文字列 | アプリ内の `liveActivities.registerPushToStart` で定義するアクティビティ属性タイプ。 |
 | `activity_attributes` | 必須 | オブジェクト | アクティビティタイプの静的属性値（スポーツチームの名前など、変更されないもの）。 |
@@ -80,11 +80,11 @@ description: "この記事では、「ライブアクティビティを開始」
 | `stale_date` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | このパラメーターは、ライブアクティビティのコンテンツがユーザーの UI で古いものとしてマークされる時間をシステムに通知します。 |
 | `notification` | 必須 | オブジェクト | プッシュ通知を定義する [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) オブジェクトを含めます。このプッシュ通知の動作は、ユーザーがアクティブかどうか、またはユーザーがプロキシデバイスを使用しているかどうかによって異なります。{::nomarkdown}<ul><li><code>notification</code> が含まれており、更新が配信されたときにユーザーが iPhone でアクティブである場合、更新されたライブアクティビティ UI がスライドダウンしてプッシュ通知のように表示されます。</li><li><code>notification</code> が含まれており、ユーザーが iPhone でアクティブでない場合、ロック画面に更新されたライブアクティビティ UI を表示するために画面が点灯します。</li><li><code>notification alert</code> は、標準のプッシュ通知として表示されません。さらに、ユーザーが Apple Watch のようなプロキシデバイスを持っている場合、<code>alert</code> がそこに表示されます。</li></ul>{:/} |
 | `external_user_ids` | `segment_id` または `audience` が提供されている場合はオプション | 文字列の配列 | [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) を参照してください。最大 50 の外部ユーザー ID。 |
-| `segment_id ` | `external_user_ids` または `audience` が提供されている場合はオプション | 文字列 | [Segment 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `segment_id ` | `external_user_ids` または `audience` が提供されている場合はオプション | 文字列 | [Segment識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `custom_audience` | `external_user_ids` または `segment_id` が提供されている場合はオプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## リクエスト例
+## リクエスト例 {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
@@ -116,11 +116,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## 応答
+## 応答 {#response}
 
 このエンドポイントには `201` と `4XX` の2つのステータスコード応答があります。
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 リクエストが正しくフォーマットされ、受信された場合、`201` ステータスコードが返されます。ステータスコード `201` は、次の応答本文を返す可能性があります。
 
@@ -130,7 +130,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }
 ```
 
-### エラー応答の例
+### エラー応答の例 {#example-error-response}
 
 `4XX` クラスのステータスコードはクライアントエラーを示します。発生する可能性のあるエラーの詳細については、[API エラーと応答の記事]({{site.baseurl}}/api/errors/)を参照してください。
 

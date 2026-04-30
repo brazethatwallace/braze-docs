@@ -35,3 +35,6 @@ If a recipient uses the keywords `HELP` or `INFO`, a response will be triggered 
 Interested in expanding your opt-out processing? Try [fuzzy opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/), a feature that attempts to recognize when an inbound message does not match an opt-out keyword, but indicates opt-out intent.
 {% endalert %}
 
+## Handle natural language opt-outs
+
+You can create a [Braze Agent]({{site.baseurl}}/user_guide/brazeai/agents/) that uses sentiment analysis to help capture opt-out intent that falls outside of standard or custom keywords (such as “Please don’t text me”). See [Handle natural language opt-outs in the Agent Console]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console) for steps.

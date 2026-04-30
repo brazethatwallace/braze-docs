@@ -5,12 +5,12 @@ noindex: true
 page_type: update
 description: "Dieser Artikel enthält Versionshinweise für Januar 2020."
 ---
-# Januar 2020
+# Januar 2020 {#january-2020}
 
-Willkommen in einem neuen Jahr und einem neuen Jahrzehnt! 
+Willkommen in einem neuen Jahr und einem neuen Jahrzehnt!
 
-## SMS-Funktion hinzugefügt
+## SMS-Funktion hinzugefügt {#added-sms-capability}
 
-Braze erlaubt es Ihnen jetzt, das Frequency-Capping]({{ site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/rate-limiting/) von SMS Nachrichten zu aktivieren. Sie können auch eine zusätzliche [Segmente Filter]({{ site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) "Zuletzt empfangene SMS" implementieren.
+Braze erlaubt es Ihnen jetzt, das [Frequency-Capping]({{ site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/rate-limiting/) von SMS-Nachrichten zu aktivieren. Sie können auch einen zusätzlichen [Segment-Filter]({{ site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) „Zuletzt empfangene SMS“ implementieren.
 
-Weitere Informationen zu Nutzer:innen-Einstellungen und Verhalten finden Sie unter [SMS Schlüsselwortverarbeitung]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/)
+Weitere Informationen zu Nutzer:innen-Einstellungen und Verhalten finden Sie unter [SMS-Schlüsselwortverarbeitung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).

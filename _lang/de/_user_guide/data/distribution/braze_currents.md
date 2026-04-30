@@ -1,62 +1,44 @@
 ---
-page_order: 3
+page_order: 1
 nav_title: Currents
 article_title: Currents
 
 layout: dev_guide
 
 page_type: landing
-description: "Auf dieser Landing Page finden Sie Artikel über das Braze Daten Produkt Currents. Hier erfahren Sie, wie Sie Currents einrichten, welche Partner es gibt, wie die Zustellung funktioniert, was es mit dem Ereignisglossar auf sich hat und vieles mehr."
+description: "Auf dieser Landing-Page finden Sie Artikel über das Braze-Datenprodukt Currents. Hier erfahren Sie, wie Sie Currents einrichten, welche Partner verfügbar sind, wie die Zustellung funktioniert, was es mit dem Event-Glossar auf sich hat und vieles mehr."
 tool: currents
 search_rank: 9
 guide_top_header: "Braze-Currents"
-guide_top_text: "Die Wirkung Ihrer Engagement-Strategie sollten Sie genau kennen. Denn nur so können Sie Ihre Nutzerkommunikation unterfüttern und laufend nachschärfen. Um diese wertvollen Daten über das Engagement eng mit Ihren übrigen Abläufen zu verknüpfen und Ihre Investitionen in Data Science zu verstärken, verfolgt die Braze-Plattform eine breite Palette von Ereignisdaten aus Ihrer Integration für Analysen, Retargeting und andere Anwendungsfälle in Ihren eigenen Systemen. <br> <br>Currents ist ein Echtzeit-Datenstream zu Ihren Engagement-Ereignissen. Es ist der robusteste und zugleich kleinteiligste Export in Braze. Es stellt Ihnen Daten in einem Avro-Dateityp für einen unserer zahlreichen <a href='https://www.braze.com/docs/user_guide/data_and_analytics/braze_currents/available_partners/'>Partner</a> zur Verfügung und ermöglicht es Ihnen, die eindeutigen und wertvollen Daten, die Braze erstellt, für Ihre Business-Intelligence (BI) und Analytics-Bemühungen in anderen erstklassigen Plattformen zu nutzen."
+guide_top_text: "Die Wirkung Ihrer Engagement-Strategie zu verstehen, ist entscheidend, um Ihre Kommunikation mit Ihren Nutzer:innen gezielt weiterzuentwickeln und zu optimieren. Um diese wertvollen Engagement-Daten eng mit Ihren übrigen Abläufen zu verknüpfen und Ihre Investitionen in Data Science zu verstärken, verfolgt die Braze-Plattform eine breite Palette von Event-Daten aus Ihrer Integration für Analysen, Retargeting und andere Anwendungsfälle in Ihren eigenen Systemen. <br> <br>Currents ist ein Realtime-Datenstream Ihrer Engagement-Events – der robusteste und zugleich granularste Export der Braze-Plattform. Currents stellt Ihnen Daten im Avro-Dateiformat für einen unserer zahlreichen <a href='/docs/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners'>Datenpartner</a> bereit und ermöglicht es Ihnen, die einzigartigen und wertvollen Daten, die Braze erzeugt, für Ihre Business-Intelligence-(BI-) und Analytics-Initiativen in anderen erstklassigen Plattformen zu nutzen."
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:
-- name: "Currents einrichten"
-  link: /docs/user_guide/data/braze_currents/setting_up_currents/
-  image: /assets/img/braze_icons/building-01.svg
-- name: "Verfügbare Partner"
-  link: /docs/user_guide/data/braze_currents/available_partners/
-  image: /assets/img/braze_icons/heart-hand.svg
-- name: "Zustellung"
-  link: /docs/user_guide/data/braze_currents/event_delivery_semantics/
-  image: /assets/img/braze_icons/data.svg
-- name: "Nachrichten-Engagement-Events"
-  link: /docs/user_guide/data/braze_currents/event_glossary/message_engagement_events/
-  image: /assets/img/braze_icons/message-plus-square.svg
-- name: "Kundenverhalten-Events"
-  link: /docs/user_guide/data/braze_currents/event_glossary/customer_behavior_events/
-  image: /assets/img/braze_icons/users-01.svg
-- name: "Currents Changelog"
-  link: /docs/user_guide/data/braze_currents/currents_changelog/
-  image: /assets/img/braze_icons/arrows-right.svg
-- name: "Wie Braze Currents verwendet"
-  link: /docs/user_guide/data/braze_currents/how_braze_uses_currents/
-  image: /assets/img/braze_icons/expand-05.svg
-- name: "Daten von Amazon übertragen"
-  link: /docs/user_guide/data/braze_currents/s3_to_snowflake/
-  image: /assets/img/braze_icons/amazon.svg
-- name: "Datenübertragung an Redshift"
-  link: /docs/user_guide/data/braze_currents/transferring_data_to_redshift/
-  image: /assets/img/braze_icons/switch-horizontal-01.svg
-- name: "Currents FAQ"
-  link: /docs/user_guide/data/braze_currents/faq/
-  image: /assets/img/braze_icons/annotation-question.svg
+  - name: Currents einrichten
+    link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents
+    image: /assets/img/braze_icons/building-01.svg
+  - name: Currents-Event-Glossar
+    link: /docs/user_guide/data/distribution/braze_currents/event_glossary
+    image: /assets/img/braze_icons/data.svg
+  - name: Anwendungsfälle
+    link: /docs/user_guide/data/distribution/braze_currents/use_cases
+    image: /assets/img/braze_icons/expand-05.svg
+  - name: FAQ
+    link: /docs/user_guide/data/distribution/braze_currents/faq
+    image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Funktionen
+## Funktionen von Currents
 
-Das können Sie mit Currents tun:
-* Übertragen Sie Braze-Ereignisdaten an ein Data Warehouse oder einen unserer [Analytics-Partner]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) zur detaillierten Analyse.
-* Übertragen Sie laufend Daten zu Braze-Ereignissen an BI-Tools, ML-Algorithmen usw.
-* Leiten Sie Braze-Ereignisdaten über [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/), [Segmente]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) oder [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) an eine Vielzahl anderer Systeme weiter.
+Mit Currents können Sie:
+* Braze-Event-Daten an ein Data Warehouse oder einen unserer [Analytics-Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) zur detaillierten Analyse streamen.
+* Braze-Event-Daten kontinuierlich streamen, um Business-Intelligence-Tools, Algorithmen für maschinelles Lernen und vieles mehr zu betreiben.
+* Braze-Event-Daten über [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) oder [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) an eine Vielzahl anderer Systeme weiterleiten.
 
-Es gibt noch viel mehr, was Sie mit Ereignisdaten in Currents anstellen können. Vertrauen Sie uns – denn auch [Braze nutzt Currents]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/).
+Es gibt noch viel mehr, was Sie mit Event-Daten über Currents tun können. [Braze nutzt Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) ebenfalls!
 
-## Auf Currents zugreifen
+## Zugriff auf Currents
 
-Ein Konnektor für Currents ist bereits in vielen Pro- und Enterprise-Pakete enthalten. Wenn Sie daran interessiert sind, Currents zu nutzen, wenden Sie sich an Ihren Account Manager:in. Ihr Account Manager und unsere Datenspezialisten können Sie bei der [Einrichtung und Integration von Currents]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents/) unterstützen.
+Ein Currents-Konnektor ist bereits in vielen unserer Pro- und Enterprise-Pakete enthalten. Wenn Sie daran interessiert sind, Currents zu nutzen, wenden Sie sich an Ihren Account Manager. Ihr Account Manager und unsere Datenspezialist:innen können Sie bei der [Einrichtung und Integration von Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) unterstützen.
 
 <br><br>

@@ -95,6 +95,26 @@ To stagger sends or use different times per path, try the following methods:
 
 For multivariate and A/B concepts in campaigns, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### Why are sends lower than the estimated audience size?
+
+Sends can be lower than the **Estimated audience** for many of the same reasons as [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), including frequency caps, strict device or browser filters, re-eligibility windows, rate limiting, and channel-level exclusions (for example, push reachability or email subscription and deliverability checks).
+
+Canvas-specific factors also apply:
+
+- **Action-based or API-triggered entry:** Users only enter (and receive steps) after they perform the entry behavior, so realized sends trail the upfront estimate until those actions occur.
+- **Audience Paths:** Users are routed to the highest-priority branch they qualify for, so downstream branches may receive fewer users than a flat segment count suggests.
+- **Audience and send-time checks:** Full steps re-evaluate filters at send time unless you configure otherwise. Users who qualified when the Canvas was built may drop out before a message sends.
+- **Control groups:** Global or Canvas control groups withhold a share of entrants from messaging.
+- **Quiet Hours and delays:** Messages can be held or rescheduled, shifting sends out of the reporting window you're viewing.
+- **Maximum entry or audience caps:** Entry or send caps stop additional users even when the underlying segment is larger.
+- **Reporting window:** The analytics range may not include every send you're comparing to the estimate.
+
+### Why is _Unique Recipients_ higher than the number of users I targeted?
+
+_Unique Recipients_ can be higher than the audience you expected because Braze tracks **unique daily recipients** for Canvas and campaign reporting. That supports accurate conversion attribution each time a user receives a message in the journey.
+
+For example, if a user receives a Canvas step on Monday and again on Friday and converts after each send, Braze can count two recipient rows and two in-scope conversions. With recurring entries or re-eligibility, the same small set of profiles can produce multiple _Unique Recipients_ over several days.
+
 ## Analytics and conversions
 
 ### How are user conversions tracked in a Canvas?

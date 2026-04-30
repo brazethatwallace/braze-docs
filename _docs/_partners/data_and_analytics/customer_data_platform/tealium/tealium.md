@@ -93,7 +93,7 @@ Use Braze mobile remote command data mappings to set default user attributes and
 | appendcustomarrayattribute | addToCustomAttributeArrayWithKey()|
 | emailnotification | setEmailNotificationSubscriptionType() |
 | incrementcustomattribute | incrementCustomAttribute() |
-| Initialize | startWithApiKey() |
+| initialize | startWithApiKey() |
 | logcustomevent | logCustomEvent() |
 | logpurchase | logPurchase() |
 | pushnotification | setPushNotificationSubscriptionType() |
@@ -247,7 +247,7 @@ Refer to Tealium's [Trace documentation](https://docs.tealium.com/server-side/co
 ## Integration demo
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Potential data point overages

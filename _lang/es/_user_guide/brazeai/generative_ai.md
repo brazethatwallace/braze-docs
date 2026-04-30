@@ -10,21 +10,21 @@ description: "BrazeAI<sup>TM</sup> impulsa varias características de automatiza
 guide_featured_title: "Características"
 guide_featured_list:
 - name: Asistente de redacción con inteligencia artificial
-  link: /docs/user_guide/brazeai/generative_ai/copywriting/
+  link: /docs/user_guide/brazeai/generative_ai/copywriting
   image: /assets/img/braze_icons/edit-05.svg
-- name: Generador de imágenes por IA
-  link: /docs/user_guide/engagement_tools/templates_and_media/media_library/#generate-ai
+- name: Generador de imágenes con IA
+  link: /docs/user_guide/brazeai/generative_ai/images
   image: /assets/img/braze_icons/image-03.svg
-- name: Control de calidad de contenidos de IA
-  link: /docs/user_guide/brazeai/generative_ai/content_qa/
+- name: Control de calidad del contenido con IA
+  link: /docs/user_guide/brazeai/generative_ai/content_qa
   image: /assets/img/braze_icons/clipboard-check.svg
-- name: Asistente de IA de Liquid
-  link: /docs/user_guide/brazeai/generative_ai/liquid/
+- name: Asistente de IA Liquid
+  link: /docs/user_guide/brazeai/generative_ai/liquid
   image: /assets/img/braze_icons/beaker-02.svg
 - name: Generador de consultas SQL
-  link: /docs/user_guide/analytics/query_builder/
+  link: /docs/user_guide/analytics/reports/query_builder
   image: /assets/img/braze_icons/tool-01.svg
-- name: Extensiones de segmentos SQL
+- name: Extensiones de segmento SQL
   link: /docs/sql_segments/
   image: /assets/img/braze_icons/users-01.svg
 

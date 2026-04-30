@@ -11,7 +11,7 @@ tool: Reports
 
 <style>
   .calculation-line {
-    color: #76848C;
+    color: #5B6B75;
     font-size: 14px;
   }
 </style>
@@ -293,7 +293,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 |Channel|Additional information|
 |-------|-----------------------|
-|In-app messages|The metric of total daily <i>Unique Impressions</i> is used to calculate the <i>Conversion Rate</i> for in-app messages.<br><br>Impressions for in-app messages can only be counted once per day. On the other hand, the number of times a user completes a desired action (a "conversion") can increase within a 24-hour period. While conversions can happen more than once per day, impressions cannot. Therefore, if a user completes a conversion multiple times within a day, the <i>Conversion Rate</i> can increase accordingly, but impressions will only be counted once.|
+|In-app messages|The metric of total daily <i>Unique Impressions</i> is used to calculate the <i>Conversion Rate</i> for in-app messages.<br><br><i>Unique Impressions</i> for in-app messages can only be counted once per calendar day in your workspace's time zone. The number of times a user completes a desired action (a "conversion") can increase within that same calendar day. While conversions can happen more than once per day, <i>Unique Impressions</i> cannot. Therefore, if a user completes a conversion multiple times within a day, the <i>Conversion Rate</i> can increase accordingly, but <i>Unique Impressions</i> are only counted once for that calendar day. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-app message reporting</a>.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {::nomarkdown}
@@ -951,7 +951,7 @@ In-App Message, Content Cards
 |Channel|Additional information|
 |-------|-----------------------|
 |Content Cards|The total count of impressions logged for a given Content Card. This can increment multiple times for the same user.|
-|In-app messages|If there are multiple devices and re-eligibility is off, the user should only see the in-app message once. Even if the user uses multiple devices, they will only see it on the first device that is targeted. This assumes that the profile has consolidated devices and a user has one user ID that they are logged into across devices. If re-eligibility is on, an impression is logged for every time that user sees the in-app message.|
+|In-app messages|If there are multiple devices and re-eligibility is off, the user should only see the in-app message once. Even if the user uses multiple devices, they will only see it on the first device that is targeted. This assumes that the profile has consolidated devices and a user has one user ID that they are logged into across devices. If re-eligibility is on, an impression is logged for every time that user sees the in-app message. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-app message reporting</a>.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 <span class="calculation-line">Calculation: Count</span>
@@ -1059,7 +1059,7 @@ In-App Message, Content Cards
 
 |Channel|Additional information|
 |-------|-----------------------|
-|In-app messages|Unique impressions can be incremented again after 24 hours if re-eligibility is on and a user performs the trigger action. If re-eligibility is on, <i>Unique Impressions</i> = <i>Unique Recipients</i>.|
+|In-app messages|Unique impressions can be incremented again on a new calendar day in your workspace's time zone if re-eligibility is on and a user performs the trigger action. If re-eligibility is on, <i>Unique Impressions</i> = <i>Unique Recipients</i>. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-app message reporting</a>.|
 |Content Cards|The count should not increment the second time a user views a card.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 

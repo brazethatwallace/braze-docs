@@ -21,7 +21,7 @@ $doc_transition_time: 0.25s;
 		padding: 20px 10px;
 		color: $text-color;
 		.doc_name {
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			color: $black-shark;
 			font-size: 20px;
 			line-height: 1.8;
@@ -54,7 +54,7 @@ $doc_transition_time: 0.25s;
 
 	h2 {
 		color: $black-shark;
-		font-family: $braze-medium;
+		font-family: $braze-bold;
 	}
 	.doc_menu_title {
 		margin-top: 30px;
@@ -199,9 +199,10 @@ $doc_transition_time: 0.25s;
 				padding: 17px 25px 30px 25px;
 				a {
 					display: inline-block;
-					border-bottom-color: $braze-link-color;
+					border-bottom: 1px solid $braze-link-color;
 					&:hover {
 						background-color: $braze-link-color;
+						color: #fff;
 					}
 				}
 				#help-search-form {
@@ -354,14 +355,14 @@ $doc_transition_time: 0.25s;
 		}
 		.status-title {
 			display: block;
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			opacity: 0.7;
 			letter-spacing: 0.46px;
 			color: $black-shark;
 			font-size: 11px;
 		}
 		.color-description {
-			font-family: $braze-medium;
+			font-family: $braze-bold;
 			color: $black-shark;
 			opacity: 0.7;
 			display: inline-block;

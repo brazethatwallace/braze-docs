@@ -20,13 +20,18 @@ The following table describes how users can use each editor block type.
 |Button| Adds a standard button. Properties for this block allow for editing and setting links easily. | 
 |Divider| Inserts a solid, dotted, or dashed line to help with spacing.|
 |Spacer| Adds space, or "padding", between other blocks. |
-|Image| Inserts an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). | 
+|Image| Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | 
 |Video| Creates a link to the video content. |
 |Social| Inserts social media platform icon. You can upload custom images for brand specific icons. |
 |Icons| Inserts an icon. You can upload custom images. Braze uses an oversized placeholder icon until you upload an image. |
 |HTML| Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Connected Content or conditional statements. | 
 |Menu| Creates a flexible menu for the message you're designing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+### Personalization in email
+
+- **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a text block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in text blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
+- **Connected Content:** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.
 
 ## Properties
 
