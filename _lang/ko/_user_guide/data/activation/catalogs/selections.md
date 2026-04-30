@@ -2,6 +2,7 @@
 nav_title: 선택
 article_title: 선택
 page_order: 5
+alias: /catalog_selections/
 description: "이 참조 문서에서는 카탈로그를 사용하여 Braze Campaigns에서 데이터를 참조하기 위해 선택 항목을 생성하고 사용하는 방법을 다룹니다."
 ---
 
@@ -54,15 +55,15 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Braze Camp
 
 선택을 만든 후, Liquid를 사용하여 해당 카탈로그에서 필터링된 항목을 삽입하여 메시지를 개인화합니다. 메시지 작성기에 있는 개인화 창에서 Braze가 Liquid를 자동으로 생성하도록 할 수 있습니다.
 
-1. 개인화를 지원하는 메시지 작성기에서 <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i>을 선택하여 개인화 창을 엽니다.
+1. 개인화를 지원하는 메시지 작성기에서 <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="개인화 추가"></i>를 선택하여 개인화 창을 엽니다.
 2. **Personalization Type**에서 **Catalog Items**를 선택합니다.
 3. 카탈로그 이름을 선택합니다.
 4. **Item selection method**에서 **Use a selection**을 선택합니다.
-4. 목록에서 선택 항목을 선택합니다.
-5. **Information to Display**에서 각 항목에 포함할 카탈로그 필드를 선택합니다.
-6. **Copy** 아이콘을 선택하고 메시지에서 필요한 위치에 Liquid를 붙여넣습니다.
+5. 목록에서 선택 항목을 선택합니다.
+6. **Information to Display**에서 각 항목에 포함할 카탈로그 필드를 선택합니다.
+7. **Copy** 아이콘을 선택하고 메시지에서 필요한 위치에 Liquid를 붙여넣습니다.
 
-!["Personalization Type"은 "Catalog Items", "Catalog Name"은 "Games", "Selection Type"은 "Selections", "Selection"은 "game_selection", "Information to Display"는 "title"과 "description_en"이 선택된 Add Personalization 모달입니다.]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
+!["Personalization Type"은 "Catalog Items", "Catalog Name"은 "Games", "Selection Type"은 "Selections", "Selection"은 "game_selection", "Information to Display"는 "title"과 "description_en"이 선택된 개인화 추가 모달입니다.]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
 
 ## 활용 사례 {#use-case}
 

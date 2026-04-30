@@ -2,7 +2,8 @@
 nav_title: Selecciones
 article_title: Selecciones
 page_order: 5
-description: "Este artículo de referencia explica cómo crear y usar selecciones con tus catálogos para referenciar datos en tus Campaigns de Braze."
+alias: /catalog_selections/
+description: "Este artículo de referencia explica cómo crear y usar selecciones con tus catálogos para referenciar datos en tus campañas de Braze."
 ---
 
 # Selecciones {#selections}
@@ -11,9 +12,9 @@ description: "Este artículo de referencia explica cómo crear y usar seleccione
 
 ## Cómo funciona {#how-it-works}
 
-Las selecciones son grupos de datos que pueden usarse para personalizar un mensaje para cada usuario en tu Campaign. Cuando usas una selección, básicamente estás configurando filtros personalizados basados en columnas específicas de tu catálogo. Esto puede incluir filtros por marca, tamaño, ubicación, fecha de adición y más. Te da control sobre lo que muestras a los usuarios al permitirte definir criterios que los artículos deben cumplir primero.
+Las selecciones son grupos de datos que pueden usarse para personalizar un mensaje para cada usuario en tu campaña. Cuando usas una selección, básicamente estás configurando filtros personalizados basados en columnas específicas de tu catálogo. Esto puede incluir filtros por marca, tamaño, ubicación, fecha de adición y más. Te da control sobre lo que muestras a los usuarios al permitirte definir criterios que los artículos deben cumplir primero.
 
-Después de crear un catálogo, puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus Campaigns o recomendaciones de Braze.
+Después de crear un catálogo, puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus campañas o recomendaciones de Braze.
 
 ![La sección Selecciones en un catálogo de ejemplo.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -54,7 +55,7 @@ El Liquid de Contenido conectado no es compatible con esta configuración de fil
 
 Después de crear tu selección, personaliza tus mensajes con Liquid para insertar los elementos filtrados de ese catálogo. Puedes hacer que Braze genere el Liquid por ti desde la ventana de personalización que se encuentra en los creadores de mensajes:
 
-1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> para abrir la ventana de personalización.
+1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> para abrir la ventana de personalización.
 2. En **Personalization Type**, selecciona **Catalog Items**.
 3. Selecciona el nombre de tu catálogo.
 4. En **Item selection method**, selecciona **Use a selection**.
@@ -72,7 +73,7 @@ Usando un catálogo con la información de tu servicio de reparto de comidas par
 
 ![Un ejemplo de selección para un servicio de reparto de comidas con dos filtros: uno que identifica un tipo de producto como comida, y otro que identifica la categoría como la consultada más recientemente. La selección está configurada para aleatorizar el orden en que se devuelven los tres resultados.]({% image_buster /assets/img_archive/catalog_selections2.png %}){: style="max-width:90%;"}
 
-Para usar este catálogo y esta selección en una Campaign, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una Campaign. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
+Para usar este catálogo y esta selección en una campaña, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una campaña. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
 
 ![Una tarjeta de contenido con el encabezado "¡Te ENCANTARÁN estas comidas tan valoradas!" con la selección "recommendations_be_recent_category" en la sección de composición del mensaje.]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 

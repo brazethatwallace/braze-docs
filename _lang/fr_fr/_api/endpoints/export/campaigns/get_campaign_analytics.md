@@ -18,6 +18,8 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les ana
 
 Les données renvoyées comprennent le nombre de messages envoyés, ouverts, cliqués ou convertis par canal de communication.
 
+{% multi_lang_include export_data_series_analytics_dashboard_note.md type='campaign' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
@@ -32,7 +34,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Requis | Chaîne de caractères | Voir l'[identifiant API de la campagne]({{site.baseurl}}/api/identifier_types/).<br><br> Le `campaign_id` pour les Campaigns API se trouve sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) et sur la page **Campaign Details** dans votre tableau de bord, ou vous pouvez utiliser l'[endpoint Lister les campagnes]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
+| `campaign_id` | Requis | Chaîne de caractères | Voir l'[identifiant API de la campagne]({{site.baseurl}}/api/identifier_types/).<br><br> Le `campaign_id` pour les campagnes API se trouve sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) et sur la page **Campaign Details** dans votre tableau de bord, ou vous pouvez utiliser l'[endpoint Lister les campagnes]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
 | `length` | Requis | Entier | Nombre maximum de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 100 (inclus). |
 | `ending_at` | Facultatif | DateTime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle la série de données doit se terminer. Par défaut, correspond à l'heure de la requête. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }

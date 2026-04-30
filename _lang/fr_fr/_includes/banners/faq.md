@@ -4,7 +4,7 @@
 
 ## Quand les mises à jour des bannières apparaissent-elles pour les utilisateurs ? {#when-do-banner-updates-appear-for-users}
 
-Les bannières sont actualisées avec leurs dernières données chaque fois que vous appelez la méthode d'actualisation. Il n'est pas nécessaire de renvoyer ou de mettre à jour votre campagne de bannières.
+Les bannières sont actualisées avec leurs dernières données chaque fois que vous appelez la méthode d'actualisation&#8212;il n'est pas nécessaire de renvoyer ou de mettre à jour votre campagne de bannières.
 
 ## Combien d'emplacements puis-je demander au cours d'une session ? {#how-many-placements-can-i-request-in-a-session}
 
@@ -39,13 +39,17 @@ Par exemple, pour afficher une bannière spéciale uniquement aux utilisateurs a
 Lorsque l'utilisateur démarre une nouvelle session ou actualise les bannières après avoir effectué l'action, Braze évalue son éligibilité. S'il correspond au segment « Achat », la bannière à priorité élevée sera affichée.
 
 
-## Les utilisateurs peuvent-ils fermer manuellement une bannière ? {#can-users-manually-dismiss-a-banner}
+## Les utilisateurs peuvent-ils fermer manuellement une bannière ? {#can-users-dismiss-a-banner}
 
 {% alert important %}
 La possibilité pour les utilisateurs de fermer manuellement une bannière est en accès anticipé. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
 Les utilisateurs peuvent fermer manuellement les bannières uniquement si le comportement de fermeture est activé et si votre espace de travail participe à l'accès anticipé. Si la fermeture n'est pas activée ou disponible pour votre espace de travail, vous pouvez contrôler la visibilité des bannières en gérant l'éligibilité des segments d'utilisateurs. Lorsqu'un utilisateur ne répond plus aux critères de ciblage d'une campagne de bannières, il ne la verra plus lors de sa prochaine session.
+
+{% alert important %}
+Les [fermetures de bannières]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
+{% endalert %}
 
 Par exemple, si vous affichez une bannière promotionnelle jusqu'à ce qu'un utilisateur effectue un achat, l'enregistrement d'un événement tel que `purchase_completed` peut retirer cet utilisateur du segment ciblé, masquant ainsi la bannière lors des sessions suivantes.
 

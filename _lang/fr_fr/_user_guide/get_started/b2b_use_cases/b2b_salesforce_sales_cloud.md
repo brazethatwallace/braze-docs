@@ -98,7 +98,7 @@ Pour configurer un webhook Braze Salesforce Sales Cloud qui met à jour les pros
 
 Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect en « MQL » (Marketing Qualified Lead) après qu'il a franchi un certain seuil de score. Il s'agit d'un élément central de notre cas d'utilisation de [workflow de scoring des prospects B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
 
-### Étape 1 : Récupérez vos `client_id` et `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Étape 1 : Récupérez vos `client_id` et `client_secret`
 
 1. Dans Salesforce, accédez à **Platform Tools** > **Apps** > **App Manager**.
 2. Recherchez votre application Braze nouvellement créée et sélectionnez **View**.
@@ -106,13 +106,13 @@ Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect
 4. Sur la page qui s'affiche, notez votre **Consumer Key** et votre **Consumer Secret**.
     - La **Consumer Key** correspond à votre `client_id`, et le **Consumer Secret** correspond à votre `client_secret`.
 
-### Étape 2 : Configurez votre modèle de webhook {#step-2-set-up-your-webhook-template}
+### Étape 2 : Configurez votre modèle de webhook
 
 1. Dans Braze, accédez à **Modèles**, sélectionnez **Modèles de webhook**, puis sélectionnez **+ Créer un modèle de webhook**.
 2. Donnez un nom au modèle, par exemple « Salesforce Sales Cloud > Mettre à jour le prospect en MQL ».
 3. Dans l'onglet **Rédiger**, saisissez les informations suivantes :
 
-#### Rédiger le webhook {#compose-webhook}
+#### Rédiger le webhook
 
 | Champ | Détails |
 | --- | --- |
@@ -121,7 +121,7 @@ Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect
 | Corps de la requête | Paires clé/valeur JSON |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Valeurs clés des propriétés du corps {#body-property-key-values}
+#### Valeurs clés des propriétés du corps
 
 Sélectionnez **+ Add New Body Property** pour la paire clé/valeur suivante. Notez que `Lead_Stage__c` est un exemple de nom. Le champ personnalisé que vous utilisez pour suivre les MQL dans Salesforce peut avoir un nom différent ; assurez-vous qu'ils correspondent.
 
@@ -130,7 +130,7 @@ Sélectionnez **+ Add New Body Property** pour la paire clé/valeur suivante. No
 | `Lead_Stage__c` | `MQL` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### En-têtes de requête {#request-headers}
+#### En-têtes de requête
 
 Sélectionnez **+ Add New Header** pour chacun des en-têtes de requête suivants.
 
@@ -149,18 +149,18 @@ Sélectionnez **+ Add New Header** pour chacun des en-têtes de requête suivant
 
 Vous pouvez rapidement ajouter vos modèles à vos flux de travail opérationnels dans Braze, par exemple :
 
-1. Dans le cadre d'une [Campaign pour les nouveaux prospects](#new-lead) qui crée un prospect dans Salesforce.
+1. Dans le cadre d'une [campagne pour les nouveaux prospects](#new-lead) qui crée un prospect dans Salesforce.
 2. Dans le cadre d'un [Canvas de scoring des prospects](#lead-scoring) qui met à jour les utilisateurs ayant franchi votre seuil MQL en « MQL » et qui met à jour Salesforce Sales Cloud avec les mêmes informations.
 
-### Campaign pour les nouveaux prospects {#new-lead}
+### Campagne pour les nouveaux prospects {#new-lead}
 
-Pour créer un prospect dans Salesforce lorsqu'un utilisateur fournit son adresse e-mail, vous pouvez créer une Campaign qui utilise le modèle de webhook « Update Lead » et se déclenche lorsqu'un utilisateur ajoute son adresse e-mail (par exemple, lorsqu'il remplit un formulaire web).
+Pour créer un prospect dans Salesforce lorsqu'un utilisateur fournit son adresse e-mail, vous pouvez créer une campagne qui utilise le modèle de webhook « Update Lead » et se déclenche lorsqu'un utilisateur ajoute son adresse e-mail (par exemple, lorsqu'il remplit un formulaire web).
 
-![Étape 2 de la création d'une Campaign basée sur des actions dont l'action de déclenchement est « Ajouter une adresse e-mail ».]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Étape 2 de la création d'une campagne basée sur des actions dont l'action de déclenchement est « Ajouter une adresse e-mail ».]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Canvas de scoring des prospects pour le franchissement du seuil MQL (Marketing Qualified Lead) {#lead-scoring}
 
-Ce webhook est abordé dans le cas d'utilisation du [lead scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mais vous pouvez également vérifier les MQL et mettre directement à jour Salesforce dans le Canvas de scoring des prospects (au lieu de créer une Campaign webhook distincte) :
+Ce webhook est abordé dans le cas d'utilisation du [lead scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mais vous pouvez également vérifier les MQL et mettre directement à jour Salesforce dans le Canvas de scoring des prospects (au lieu de créer une campagne webhook distincte) :
 
 Ajoutez une étape supplémentaire à votre mise à jour utilisateur pour vérifier si un utilisateur a franchi le seuil MQL que vous avez défini. Si c'est le cas, mettez à jour le statut de l'utilisateur en « MQL », puis mettez à jour Salesforce avec le même statut « MQL » à l'aide de ce modèle de webhook. Salesforce s'occupe du reste en acheminant ce prospect vers les équipes commerciales appropriées selon vos règles de routage des prospects.
 

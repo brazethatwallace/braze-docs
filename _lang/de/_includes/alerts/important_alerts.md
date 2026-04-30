@@ -69,7 +69,7 @@ Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) überg
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter dem Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta hat ein bekanntes Problem, das dazu führen kann, dass einige MP4-Videos au
 Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, damit Braze Webhooks dem richtigen Nutzerprofil zuordnen kann:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Mehrsprachige Nachrichten und Gebietsschema-Übersetzungen befinden sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 {% endif %}

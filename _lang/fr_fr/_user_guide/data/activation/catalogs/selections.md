@@ -2,6 +2,7 @@
 nav_title: Sélections
 article_title: Sélections
 page_order: 5
+alias: /catalog_selections/
 description: "Cet article de référence explique comment créer et utiliser des sélections avec vos catalogues pour référencer des données dans vos campagnes Braze."
 ---
 
@@ -32,7 +33,7 @@ Pour créer une sélection, procédez comme suit.
 3. Donnez un nom à votre sélection et, éventuellement, une description.
 4. Dans le champ **Filter Field**, sélectionnez la colonne du catalogue sur laquelle vous souhaitez filtrer. Les champs de type chaîne de caractères de plus de 1 000 caractères ne peuvent pas être sélectionnés pour les filtres.
 5. Terminez la définition de vos critères de filtrage en sélectionnant l'opérateur approprié (par exemple, « equals » ou « does not equal ») et l'attribut.
-6. Dans la section **Sort type**, déterminez comment les résultats sont triés. Par défaut, les résultats sont renvoyés sans ordre particulier. Pour spécifier un tri sur un champ spécifique, désactivez l'option **Randomize Sort Order** et précisez le **Sort Field** et l'**Sort Order** (croissant ou décroissant).
+6. Dans la section **Sort type**, déterminez comment les résultats sont triés. Par défaut, les résultats sont renvoyés sans ordre particulier. Pour spécifier un tri sur un champ spécifique, désactivez l'option **Randomize Sort Order** et précisez le **Sort Field** et l'ordre de tri (**Sort Order** : croissant ou décroissant).
 7. Dans la section **Results limit**, saisissez le nombre de résultats (jusqu'à 50).
 8. Sélectionnez **Create Selection**.
 
@@ -54,7 +55,7 @@ Le Contenu connecté Liquid n'est pas pris en charge dans ces paramètres de fil
 
 Après avoir créé votre sélection, personnalisez vos messages avec Liquid pour insérer les éléments filtrés de ce catalogue. Vous pouvez demander à Braze de générer le Liquid pour vous à partir de la fenêtre de personnalisation disponible dans les éditeurs de messages :
 
-1. Dans tout éditeur de messages prenant en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> pour ouvrir la fenêtre de personnalisation.
+1. Dans tout éditeur de messages prenant en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Ajouter une personnalisation"></i> pour ouvrir la fenêtre de personnalisation.
 2. Pour **Personalization Type**, sélectionnez **Catalog Items**.
 3. Sélectionnez le nom de votre catalogue.
 4. Pour **Item selection method**, sélectionnez **Use a selection**.

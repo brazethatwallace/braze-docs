@@ -143,7 +143,7 @@ The **In-App Message Performance** panel outlines how well your message has perf
 ![In-app message performance analytics]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
-### Push Performance
+### Push Performance {#push-performance}
 
 The **Push Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 
@@ -653,6 +653,18 @@ For a different workaround, we also recommend creating a custom event for push u
 ##### Understanding opens
 
 Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification, as stated in the table above. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
+
+##### Push action buttons and reporting {#push-action-buttons-and-reporting}
+
+When you add [push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), the **Push Performance** panel can include **Body Clicks**, **Button 1 Clicks**, and **Button 2 Clicks** alongside metrics such as **Direct Opens**. These columns measure different interactions, so compare them when you interpret engagement.
+
+_Direct Opens_ reflects dashboard metrics for interactions that count as a direct open of your message. **Push Notification Open** events in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) or Snowflake describe push interactions more broadly and can include optional fields such as `button_action_type` (for example, `close`) and `button_string`. For field definitions, see [Push Notification Open events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+For **iOS**, Braze default notification categories (such as **Yes** / **No**, **Accept** / **Decline**, or **Confirm** / **Cancel**) use a fixed pairing: the first action supports `OPEN_APP`, a URI, or a deep link (aligned with **On-Click Behavior** in the composer). The companion action uses `CLOSE` by default—it dismisses the notification and does not open the app. See the default mapping in [Apple push action button object]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Because of that, taps on the dismissive preset button (for example, **No** or **Decline**) typically do **not** count toward _Direct Opens_. Those taps may still appear in **Push Notification Open** exports when logged, with `button_action_type` set to `close` and `button_string` identifying the tapped action. When you compare campaign analytics to warehouse data, use those payload fields so you don't treat dismissive taps the same as taps on the notification body or the primary action.
+
+For **Android**, you set **On-Click Behavior** per button (**Open App**, **Redirect to Web URL**, or **Deep Link**), so reporting follows the actions you configure rather than the iOS default `OPEN_APP` / `CLOSE` split.
 
 ##### Why push sends can exceed unique recipients
 

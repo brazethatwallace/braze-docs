@@ -20,7 +20,7 @@ The Compliance Documentation below sets forth specific terms applicable to your 
 
 ## Updates to the Compliance Documentation
 
-You can subscribe to receive updates to our documentation (including the Compliance Documentation) through [Braze’s GitHub repository](https://github.com/braze-inc/braze-docs).
+You can subscribe to receive updates to our documentation (including the Compliance Documentation) through [Braze’s GitHub repository](https://github.com/braze-inc/release-notes).
 
 ## Compliance Documentation for Specific Channels, Integrations, and Features
 

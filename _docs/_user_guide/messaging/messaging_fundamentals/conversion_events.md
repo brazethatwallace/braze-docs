@@ -17,6 +17,21 @@ tool:
 
 For a personalized holiday campaign targeting active users, a conversion event of **Start a Session** within two or three days may be appropriate because it allows you to gather a sense of user engagement from receiving your message. You can also select additional events like **Places Order**, **Upgrade App**, or any of your custom events as conversion events.
 
+### When does conversion tracking begin?
+
+{% tabs %}
+{% tab Campaign %}
+
+Conversion tracking begins when a user receives the campaign or enters the campaign's control group. Receiving a message and assignment to a variant usually happen at the same time. For in-app message campaigns, conversion tracking begins when Braze records an impression.
+
+{% endtab %}
+{% tab Canvas %}
+
+Conversion tracking begins when a user enters the Canvas. For Canvas steps, conversions are attributed while the user is active in that step. When the user advances to another step, conversion tracking stops for the previous step and starts for the next step.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 For more on conversions, check out our [Braze Learning course](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) on campaign setup.
 {% endalert %}

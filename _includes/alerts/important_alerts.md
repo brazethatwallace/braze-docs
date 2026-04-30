@@ -61,7 +61,7 @@ There are certain browsers, such as the Naver Android and iOS apps, that don’t
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-The legacy purchase event will enter a deprecated state (maintenance mode). Purchase events will continue to work as expected, but no new functionality will be built on top of them, in favor of [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). If you're currently using purchase events, you will receive advance notice regarding the phase-out plans. For now, you can continue using purchase events until the official deprecation date. For more information, see the [recommended events overview]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+The legacy purchase event is entering maintenance mode. Existing purchase events continue to work as expected, but no new functionality is being built on top of them in favor of eCommerce recommended events. You can continue using purchase events for the foreseeable future. Braze provides advance notice well before any end-of-life date is set.
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta has a known issue that can prevent some MP4 videos from playing on Android 
 For this integration, the user alias must use the following format so that Braze can match webhooks to the correct user profile:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Multi-language messages and locale translations are currently in early access. Contact your customer success manager if you’re interested in participating in this early access.
 {% endalert %}
 
 {% endif %}

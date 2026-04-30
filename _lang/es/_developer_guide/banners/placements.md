@@ -595,7 +595,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### Registrar clics {#logging-clicks}
+#### Registrar clics
 
 Llama al método de clic de banner de la plataforma cuando el usuario toque tu banner personalizado (o un botón específico). Pasa el `buttonId` opcional cuando el clic sea en un botón específico para que los análisis puedan atribuir el clic correctamente.
 
@@ -659,7 +659,7 @@ Los descartes de banners eliminan programáticamente un banner de una ubicación
 Los descartes de banners se encuentran actualmente en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
 
-### Requisitos previos {#prerequisites}
+### Requisitos previos
 
 Estas son las versiones mínimas del SDK necesarias para registrar descartes de banners:
 
@@ -670,7 +670,7 @@ Estas son las versiones mínimas del SDK necesarias para registrar descartes de 
 
 Si tu banner utiliza el editor de arrastrar y soltar e incluye un componente de botón de descarte, no se necesita código adicional. Cuando un usuario hace clic en el botón de descarte, el mensaje se ocultará, se activará un descarte y luego se registrará un evento de descarte para los análisis.
 
-#### Bloques de código personalizados {#custom-code-blocks}
+#### Bloques de código personalizados
 
 Si tu banner utiliza el bloque de editor **Custom Code**, puedes activar un descarte directamente desde el HTML del banner utilizando `brazeBridge.closeMessage()`.
 
@@ -813,7 +813,7 @@ Puedes utilizar propiedades personalizadas de tu campaña de banners para recupe
 - Utilizar metadatos como un `timestamp` o un objeto JSON para desencadenar lógica condicional.
 - Controlar el comportamiento de un banner basándote en metadatos incluidos como `ratio` o `format`.
 
-### Requisitos previos {#prerequisites}
+### Requisitos previos
 
 Tendrás que [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) a tu campaña de banners. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
 

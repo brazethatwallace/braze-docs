@@ -39,13 +39,17 @@ Um beispielsweise ein spezielles Banner nur für Nutzer:innen anzuzeigen, die ei
 Wenn ein:e Nutzer:in eine neue Sitzung startet oder Banner nach der Aktion aktualisiert, überprüft Braze die Berechtigung. Wenn die Person dem Segment „Kauf“ entspricht, wird das Banner mit hoher Priorität angezeigt.
 
 
-## Können Nutzer:innen ein Banner manuell schließen? {#can-users-manually-dismiss-a-banner}
+## Können Nutzer:innen ein Banner schließen? {#can-users-dismiss-a-banner}
 
 {% alert important %}
 Die Möglichkeit, Nutzer:innen ein Banner manuell schließen zu lassen, befindet sich im Early Access. Weitere Details finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior). Wenn Sie am Early Access teilnehmen möchten, kontaktieren Sie Ihren Customer-Success-Manager.
 {% endalert %}
 
 Nutzer:innen können Banner nur dann manuell schließen, wenn das Schließverhalten aktiviert ist und Ihr Workspace am Early Access teilnimmt. Wenn das Schließen nicht aktiviert oder für Ihren Workspace nicht verfügbar ist, können Sie die Sichtbarkeit von Bannern steuern, indem Sie die Segment-Berechtigung der Nutzer:innen verwalten. Wenn ein:e Nutzer:in die Targeting-Kriterien für eine Banner-Campaign nicht mehr erfüllt, wird das Banner bei der nächsten Sitzung nicht mehr angezeigt.
+
+{% alert important %}
+[Banner-Schließungen]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, kontaktieren Sie Ihren Customer-Success-Manager.
+{% endalert %}
 
 Wenn Sie beispielsweise ein Werbebanner anzeigen, bis ein:e Nutzer:in einen Kauf tätigt, kann die Protokollierung eines Events wie `purchase_completed` diese:n Nutzer:in aus dem Ziel-Segment entfernen und das Banner in nachfolgenden Sitzungen effektiv ausblenden.
 

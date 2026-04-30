@@ -84,7 +84,7 @@ Le tableau suivant explique quand chaque libellé est utilisé et ce qu'il signi
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -193,6 +193,10 @@ Si vous souhaitez simplifier votre vue, cliquez sur <i class="fas fa-plus"></i> 
 Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents liens d'une même campagne e-mail. Dans la section **Message Analytics**, accédez au panneau **Email Performance**. Sélectionnez **Preview & Heatmap** pour afficher un aperçu de votre campagne e-mail et de la carte thermique. Vous pouvez également sélectionner le lien hypertexte dans le nom de la variante pour afficher la carte thermique.
 
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
+
+{% alert note %}
+Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Utilisez les données de clics dans le panneau **Link Table by Total Clicks** pour obtenir une vue complète.
+{% endalert %}
 
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
@@ -438,6 +442,22 @@ Un clic peut être enregistré sans ouverture lorsque le pixel d'ouverture ne se
 
 Un clic et une ouverture peuvent également se produire à des jours différents : un utilisateur peut cliquer le 16 mai avec les images désactivées (pas d'ouverture), puis ouvrir dans le webmail le 17 mai (ouverture enregistrée à ce moment-là).
 
+##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-unique-clicks-than-unique-opens}
+
+Les _clics uniques_ peuvent être supérieurs aux _ouvertures uniques_ lorsque les ouvertures sont sous-comptabilisées ou que les clics sont gonflés :
+
+**La boîte de réception n'a jamais chargé le pixel de suivi d'ouverture**
+
+Cela peut se produire lorsque :
+
+- Le message est long et le pixel d'ouverture se trouve à la fin. Lorsque le client tronque le message, le pixel est coupé.
+- Le message a atterri dans le dossier spam, où les images distantes (y compris le pixel d'ouverture) ne se chargent souvent pas.
+- La boîte de réception utilise une sécurité plus stricte (fréquent sur les comptes d'entreprise) et l'utilisateur n'a pas encore choisi de charger les images.
+
+**Activité de sécurité ou de bots sur les liens**
+
+Certains produits de sécurité des e-mails suivent les liens pour détecter les menaces. Ces requêtes peuvent enregistrer un clic sans charger les images, de sorte que vous pouvez voir une activité de clics sans ouverture correspondante.
+
 ##### Reports {#deferrals}
 
 On parle de report ou d'ajournement lorsqu'un e-mail n'a pas été livré immédiatement, mais que Braze relance l'e-mail jusqu'à 72 heures après cet échec temporaire de distribution afin de maximiser les chances de réussite avant l'arrêt des tentatives pour cette campagne spécifique. Les raisons habituelles de ces reports sont la limitation du débit du volume d'e-mails basée sur la réputation par le fournisseur de la boîte de réception, des problèmes temporaires de connectivité ou des erreurs DNS.
@@ -607,7 +627,7 @@ Les désabonnements push ne sont pas inclus dans les indicateurs analytiques des
 Cependant, le suivi manuel des désabonnements push peut fournir des informations précieuses sur les réponses des utilisateurs à votre fréquence de notification et à la pertinence du contenu. Voici deux options pour suivre les désabonnements push : les filtres de segment ou les filtres personnalisés.
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Filtres de segment %}
 
 Vous pouvez créer un segment pour identifier les utilisateurs qui ne sont pas activés pour les notifications push, c'est-à-dire qui ne sont pas abonnés ou en situation d'abonnement et qui ne disposent pas d'un [jeton push au premier plan]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens). Par exemple, pour visualiser le nombre de désabonnements dans votre application, vous pouvez utiliser une combinaison « OU » des segments suivants :
 
@@ -619,7 +639,7 @@ Vous pouvez créer un segment pour identifier les utilisateurs qui ne sont pas a
 Notez que les filtres de segmentation sont approximatifs et ne peuvent pas être spécifiquement liés à une date et à une campagne.
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab Filtres personnalisés %}
 
 {% alert important %}
 L'enregistrement d'un événement personnalisé pour un changement d'abonnement consommera des [points de donnée]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Vous pouvez également utiliser des filtres de segmentation pour identifier et cibler les utilisateurs qui ne sont pas activés pour les notifications push.
@@ -804,7 +824,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page.
 
-Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
+Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars" aria-label="Ouvrir le menu de navigation"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
 ![Graphique du panneau Performances historiques avec des exemples de statistiques pour un e-mail envoyé entre février 2021 et mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

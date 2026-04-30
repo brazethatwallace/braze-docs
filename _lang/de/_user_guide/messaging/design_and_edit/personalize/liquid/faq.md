@@ -12,7 +12,7 @@ description: "Dieser Artikel enthält Antworten auf häufig gestellte Fragen zu 
 
 ### Wie verwende ich Liquid-Snippets in Braze?
 
-In vielen Fällen können Sie Liquid-Snippets einbinden, indem Sie zu Ihren Kampagnen oder Canvases navigieren und Liquid im Personalisierungs-Modal in Bereichen wie dem E-Mail-Nachrichtentext oder in Ihren Segmenten einfügen.
+In vielen Fällen können Sie Liquid-Snippets einbinden, indem Sie zu Ihren Campaigns oder Canvases navigieren und Liquid im Personalisierungs-Modal in Bereichen wie dem E-Mail-Nachrichtentext oder in Ihren Segmenten einfügen.
 
 #### Wo kann ich mehr erfahren?
 
@@ -42,14 +42,14 @@ Für eine personalisierte Begrüßung mit dem Vornamen einer Nutzerin oder eines
 
 Sie können auch eine Liquid-`{% if X %}`{% endraw %}-Anweisung für bedingtes Rendering verwenden, basierend auf beliebigen Kriterien wie dem Wochentag oder angepassten Attributen. Weitere Informationen zu den unterstützten Liquid-Operatoren, die in bedingten Anweisungen verwendet werden können, finden Sie unter [Operatoren]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
 
-### Wie kann ich eine Nachricht basierend auf dem Standort einer Kundin oder eines Kunden personalisieren?
+### Wie kann ich eine Nachricht basierend auf dem Standort einer Kund:in personalisieren?
 
 {% raw %}
 Es gibt ein Standardattribut für den Standort der Nutzerin oder des Nutzers: `{{${most_recent_location}}}`.
 
 ### Was ist der Unterschied zwischen {{campaign.${name}}} und {{campaign.${message_name}}}?
 
-Sowohl `{{campaign.${name}}}` als auch `{{campaign.${message_name}}}` sind unterstützte Liquid-Personalisierungs-Tags. Beide Tags referenzieren Kampagnenattribute. `{{campaign.${name}}}` bezeichnet den Namen Ihrer Kampagne, und `{{campaign.${message_name}}}` ist der Name Ihrer Nachrichtenvariante.
+Sowohl `{{campaign.${name}}}` als auch `{{campaign.${message_name}}}` sind unterstützte Liquid-Personalisierungs-Tags. Beide Tags referenzieren Campaign-Attribute. `{{campaign.${name}}}` bezeichnet den Namen Ihrer Campaign, und `{{campaign.${message_name}}}` ist der Name Ihrer Nachrichtenvariante.
 {% endraw %}
 
 ### Wie verwende ich Liquid mit verschachtelten Objekten?
@@ -64,6 +64,12 @@ Weitere Informationen finden Sie unter [Multi-Kriterien-Segmentierung]({{site.ba
 Sie können auf Eigenschaften von API-getriggerten Events mit dem `api_triggered_property`-Tag zugreifen: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
+### Warum schlägt mein API-getriggertes Liquid in Braze fehl?
+
+{% raw %}
+Eine häufige Ursache ist ein zusätzliches Paar geschweifter Klammern. Zum Beispiel ist `{{{api_trigger_properties.${attribute_key}}}}` keine gültige Braze-Personalisierungssyntax. Verwenden Sie genau zwei öffnende und zwei schließende Klammern: `{{api_trigger_properties.${attribute_key}}}`.
+{% endraw %}
+
 ### Was ist Abbruchlogik, und wie kann ich sie verwenden?
 
 Abbruchlogik ermöglicht es Ihnen, den Versand einer Nachricht zu stoppen, wenn die Bedingungen erfüllt sind. Dies ist besonders hilfreich, um zu verhindern, dass unvollständige Nachrichten an Ihre Nutzer:innen gesendet werden. Beispiele für Abbruchlogik in Ihren Marketingkampagnen finden Sie unter [Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
@@ -74,7 +80,7 @@ For-Loops werden auch als [Iterations-Tags](https://shopify.github.io/liquid/tag
 
 In Braze kann dies verwendet werden, um Elemente in einem Array-Attribut oder eine Liste von Werten und Objekten zu prüfen, die von einem [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/), einer [Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) oder einem [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)-Aufruf zurückgegeben werden. Konkret können Sie For-Loop-Logik als Teil Ihres Messagings verwenden, um zu prüfen, ob ein Produkt auf Lager ist oder ob ein Produkt eine Mindestbewertung hat.
 
-Nehmen wir zum Beispiel an, Sie haben einen Katalog namens „Games" mit einer Auswahl namens „cheap_games". Um die Titel der Spiele in „cheap_games" abzurufen, können Sie dieses Liquid-Snippet verwenden:
+Nehmen wir zum Beispiel an, Sie haben einen Katalog namens „Games“ mit einer Auswahl namens „cheap_games“. Um die Titel der Spiele in „cheap_games“ abzurufen, können Sie dieses Liquid-Snippet verwenden:
 
 {% raw %}
 ```liquid
@@ -87,25 +93,26 @@ Nehmen wir zum Beispiel an, Sie haben einen Katalog namens „Games" mit einer A
 
 Sobald die festgelegten Bedingungen erfüllt sind, kann Ihre Nachricht fortfahren. Die Verwendung dieser Logik ist eine hilfreiche Möglichkeit, Zeit zu sparen, anstatt Liquid-Blöcke für verschiedene Bedingungen zu wiederholen.
 
-### Warum gibt es zusätzliche Abstände in Nachrichten, die Content-Blöcke verwenden?
+### Warum gibt es zusätzliche Abstände in Nachrichten, die Content Blocks verwenden?
 
-Wenn Sie zusätzliche Abstände in gesendeten Nachrichten bemerken, die Content-Blöcke mit Liquid verwenden, haben Sie möglicherweise unnötige Absatz- oder Zeilenumbrüche innerhalb Ihrer bedingten Anweisungen. Schreiben Sie Ihre bedingten Anweisungen in einer einzigen Zeile statt über mehrere Zeilen.
+Wenn Sie zusätzliche Abstände in gesendeten Nachrichten bemerken, die Content Blocks mit Liquid verwenden, haben Sie möglicherweise unnötige Absatz- oder Zeilenumbrüche innerhalb Ihrer bedingten Anweisungen. Schreiben Sie Ihre bedingten Anweisungen in einer einzigen Zeile statt über mehrere Zeilen.
 
 #### Beispiel
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
+```
 {% endraw %}
 
-### When should I use `assign` versus `capture`?
+### Wann sollte ich `assign` und wann `capture` verwenden?
 
-Both `assign` and `capture` create Liquid variables, but they serve different purposes:
+Sowohl `assign` als auch `capture` erstellen Liquid-Variablen, dienen aber unterschiedlichen Zwecken:
 
-- `assign` is for simple variables that store a single value, such as a boolean, number, or simple string. You can also apply a single filter in the same line.
-- `capture` is for storing a block of text that may include multiple variables, strings, or complex expressions. Use `capture` when the value is too complex for a single `assign` statement, such as URLs that utilize other Liquid variables or custom attributes as parameters. `capture` is also preferred when implementing Liquid variables in the body of Connected Content calls.
+- `assign` ist für einfache Variablen gedacht, die einen einzelnen Wert speichern, z. B. einen booleschen Wert, eine Zahl oder einen einfachen String. Sie können auch einen einzelnen Filter in derselben Zeile anwenden.
+- `capture` ist zum Speichern eines Textblocks gedacht, der mehrere Variablen, Strings oder komplexe Ausdrücke enthalten kann. Verwenden Sie `capture`, wenn der Wert für eine einzelne `assign`-Anweisung zu komplex ist, z. B. bei URLs, die andere Liquid-Variablen oder angepasste Attribute als Parameter verwenden. `capture` wird auch bevorzugt, wenn Liquid-Variablen im Body von Connected-Content-Aufrufen implementiert werden.
 
-#### Examples
+#### Beispiele
 
 {% raw %}
 ```liquid

@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool: 
 - Segments
-description: "This how-to article will walk you through how to set up Location targeting, allowing you to segment users by location."
+description: "This article explains how CDI Segment Extensions use Cloud Data Ingestion to query your data warehouse and define audiences in Braze."
 
 ---
 

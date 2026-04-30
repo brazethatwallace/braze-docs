@@ -1,26 +1,38 @@
 # Translates English docs into all supported languages using Claude.
 #
-# Trigger: workflow_dispatch only (push-to-main trigger temporarily disabled
-# during catch-up; re-enable after cleanup — restore the `push` block below).
-#
-# When enabled, push runs after deploy merges to main for changed _docs/ and
-# _includes/ markdown files.
+# Triggers:
+#   - push to main when English markdown under `_docs/` or `_includes/` changes
+#     (path-filtered to `*.md` so non-doc edits do not queue runs)
+#   - weekday schedule as a safety net for doc changes that did not match the
+#     path filter or if a push-triggered run was skipped
+#   - workflow_dispatch for catch-up (`since_commit`, `files`) or orphan-only
 #
 # Flow:
-#   1. Identify _docs/ and _includes/ markdown files changed in the push
+#   1. Identify _docs/ and _includes/ markdown files changed (push range,
+#      schedule window, since_commit/files dispatch, or push fallback)
 #   2. Matrix: translate each changed file into one language per job (6 jobs),
 #      then QC + Jekyll verify that locale only (avoids a single 6×locale step
-#      hitting the translate timeout on very large pages)
+#      hitting the translate timeout on very large pages). QC also applies
+#      small locale repairs (for example ES API “Obligatorio” column tokens,
+#      DE analytics capture phrasing — see scripts/auto_translate.py).
 #   3. Merge _lang/ trees + translation_results.json + qc_results.json, then
 #      orphan cleanup + alias check (full-repo only; skipped for explicit
-#      workflow_dispatch `files:` batches — PR #13327)
+#      workflow_dispatch `files:` batches — PR #13327). If the alias check
+#      runs and fails, merge-and-publish fails so the run is red (no silent
+#      “success” without a PR).
 #   4. Open one PR targeting develop with all locales
 name: Auto-translate
 
 on:
-  # push:
-  #   branches: [main]
-  #   paths: ['_docs/**', '_includes/**']
+  push:
+    branches: [main]
+    paths:
+      - '_docs/**/*.md'
+      - '_includes/**/*.md'
+  schedule:
+    # Weekdays 10:30 UTC — after the nightly deploy cron (08:00 UTC Mon–Fri) so
+    # merges to main are usually present; complements path-filtered pushes.
+    - cron: '30 10 * * 1-5'
   workflow_dispatch:
     inputs:
       files:
@@ -109,6 +121,23 @@ jobs:
               -- '_docs/' '_includes/' > changed_files.txt
           elif [ -n "${{ inputs.files }}" ]; then
             echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
+          elif [ "${{ github.event_name }}" = "schedule" ]; then
+            FROM=$(git rev-list -n 1 --before="1 day ago" HEAD 2>/dev/null || true)
+            if [ -z "$FROM" ]; then
+              FROM=$(git rev-list --max-parents=0 HEAD 2>/dev/null || true)
+            fi
+            if [ -z "$FROM" ]; then
+              FROM=$(git rev-parse --verify HEAD~1 2>/dev/null || true)
+            fi
+            if [ -z "$FROM" ]; then
+              echo "::notice::Schedule: no baseline commit for diff; assuming no English changes."
+              : > changed_files.txt
+            else
+              echo "Scheduled run: English markdown changed between ${FROM} and HEAD"
+              git diff --find-renames --name-only --diff-filter=ACMR \
+                "$FROM" HEAD \
+                -- '_docs/' '_includes/' > changed_files.txt
+            fi
           elif [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
             git diff --name-only --diff-filter=ACMR \
               ${{ github.event.before }} ${{ github.sha }} \
@@ -265,6 +294,13 @@ jobs:
         if: steps.merge-artifacts.outcome == 'success'
         run: python scripts/auto_translate.py check-path-case-collisions
 
+      # Matrix locales can diverge on explicit `{#id}` tails when English omits
+      # them but one translation adds a stable fragment (Copilot / PR #13394).
+      # Uses translation_results.json so only this run's paths are touched.
+      - name: Align heading anchor parity across locales
+        if: steps.merge-artifacts.outcome == 'success'
+        run: python scripts/auto_translate.py align-heading-anchor-parity
+
       - name: Clean up orphaned translations
         id: orphan
         if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
@@ -275,7 +311,6 @@ jobs:
       - name: Check for duplicate YAML aliases
         id: aliases
         if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
-        continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
       - name: Generate PR summary

@@ -39,13 +39,17 @@ Por ejemplo, para mostrar un Banner especial solo a los usuarios que hayan compl
 Cuando el usuario inicia una nueva sesión o actualiza los Banners después de realizar la acción, Braze evalúa su elegibilidad. Si coincide con el segmento "Compra", se mostrará el Banner de alta prioridad.
 
 
-## ¿Pueden los usuarios cerrar manualmente un Banner? {#can-users-manually-dismiss-a-banner}
+## ¿Pueden los usuarios cerrar manualmente un Banner? {#can-users-dismiss-a-banner}
 
 {% alert important %}
 Permitir que los usuarios cierren manualmente un Banner está en acceso anticipado. Consulta [Configurar el comportamiento de cierre]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para obtener más detalles. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
 
 Los usuarios pueden cerrar manualmente los Banners solo si el comportamiento de cierre está habilitado y tu espacio de trabajo participa en el acceso anticipado. Si el cierre no está habilitado o no está disponible para tu espacio de trabajo, puedes controlar la visibilidad de los Banners administrando la elegibilidad de los segmentos de usuarios. Cuando un usuario ya no cumple los criterios de segmentación de una campaña de Banners, no lo verá de nuevo en su próxima sesión.
+
+{% alert important %}
+Los [cierres de Banners]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) están actualmente en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
+{% endalert %}
 
 Por ejemplo, si muestras un Banner promocional hasta que un usuario realiza una compra, registrar un evento como `purchase_completed` puede eliminar a ese usuario del segmento objetivo, ocultando efectivamente el Banner en sesiones posteriores.
 

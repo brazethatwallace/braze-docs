@@ -30,7 +30,7 @@ Essa integração serve exclusivamente para atualizar o Salesforce a partir da B
 
 Antes de prosseguir com essa integração, o Suporte da Salesforce precisa conceder a você a capacidade de criar apps conectados. Você pode solicitar isso enviando uma [solicitação de suporte da Salesforce](https://help.salesforce.com/s/articleView?id=005167035&type=1).
 
-Depois que o Suporte da Salesforce conceder a você a capacidade de criar um app conectado no Salesforce Sales Cloud, siga as etapas da documentação da Salesforce: [Configure um aplicativo conectado para o fluxo de credenciais de cliente OAuth 2.0](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
+Depois que o Suporte da Salesforce conceder a você a capacidade de criar um app conectado no Salesforce Sales Cloud, siga as etapas da documentação da Salesforce: [Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5).
 
 Ao definir as configurações de OAuth necessárias para o app conectado, mantenha todas as configurações de OAuth com seus valores e seleções padrão, exceto as seguintes:
 1. Selecione **Enable for device flow**. Você pode deixar o **Callback URL** em branco, pois o padrão será um espaço reservado.
@@ -98,7 +98,7 @@ Para configurar um webhook da Braze para o Salesforce Sales Cloud que atualiza l
 
 Este exemplo demonstra especificamente como atualizar o estágio de um lead para "MQL" (Marketing Qualified Lead) depois que ele ultrapassa um determinado limite de pontuação. Essa é uma parte essencial do nosso caso de uso de [fluxo de trabalho de pontuação de leads B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
 
-### Etapa 1: Colete seu `client_id` e `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Etapa 1: Colete seu `client_id` e `client_secret`
 
 1. No Salesforce, acesse **Platform Tools** > **Apps** > **App Manager**.
 2. Encontre seu Braze App recém-criado e selecione **View**.
@@ -106,13 +106,13 @@ Este exemplo demonstra especificamente como atualizar o estágio de um lead para
 4. Na página resultante, anote sua **Consumer Key** e **Consumer Secret**.
     - A **Consumer Key** é seu `client_id`, e o **Consumer Secret** é seu `client_secret`.
 
-### Etapa 2: Configure seu modelo de webhook {#step-2-set-up-your-webhook-template}
+### Etapa 2: Configure seu modelo de webhook
 
 1. Na Braze, acesse **Modelos**, selecione **Modelos de webhook** e, em seguida, selecione **+ Criar modelo de webhook**.
 2. Forneça um nome para o modelo, como "Salesforce Sales Cloud > Atualizar lead para MQL".
 3. Na guia **Redigir**, insira os seguintes detalhes:
 
-#### Redigir webhook {#compose-webhook}
+#### Redigir webhook
 
 | Campo | Informações |
 | --- | --- |
@@ -121,7 +121,7 @@ Este exemplo demonstra especificamente como atualizar o estágio de um lead para
 | Corpo da solicitação | Pares de chave-valor JSON |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Valores-chave da propriedade do corpo {#body-property-key-values}
+#### Valores-chave da propriedade do corpo
 
 Selecione **+ Add New Body Property** para o seguinte par de chave/valor. Note que `Lead_Stage__c` é um nome de exemplo. O campo personalizado que você usa para rastrear MQLs no Salesforce pode ter um nome diferente, portanto, certifique-se de que eles correspondam.
 
@@ -130,7 +130,7 @@ Selecione **+ Add New Body Property** para o seguinte par de chave/valor. Note q
 | `Lead_Stage__c` | `MQL` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Cabeçalhos da solicitação {#request-headers}
+#### Cabeçalhos da solicitação
 
 Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicitação.
 
