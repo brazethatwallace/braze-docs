@@ -2694,9 +2694,10 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
                 const citation_text = this.textContent;
                 const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
-                const citation_rank = 1;
-                if(Number.isInteger(Number(citation_num))) {
-                  citation_rank = Number(citation_num);
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
                 }
 
                 citationClicked = true;
