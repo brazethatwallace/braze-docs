@@ -256,7 +256,7 @@ You can configure your Gmail inbox to render AMP emails for testing purposes by 
 5. Enter the sending domain you are sending the test email with.
 6. Save your changes.
 
-Now, you can send the test email to your Gmail account, and AMP should begin to work.
+Now you can send the test email to your Gmail account, and AMP emails should render in Gmail.
 
 ### Frequently asked questions
 
