@@ -22,7 +22,7 @@ Para obter uma lista completa dos Canvas no seu espaço de trabalho (por exemplo
 
 ![]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Para criar uma nova versão, clique em **Atualizar Canvas**. Isso permite que você faça alterações sem sobrescrever a configuração anterior do Canvas. Quando uma nova versão do Canvas é criada, os usuários que já estão no Canvas avançarão pelo fluxo de trabalho da nova versão. Os usuários que entrarem no Canvas também entrarão na nova versão.
+Para criar uma nova versão, clique em **Update Canvas**. Isso permite que você faça alterações sem sobrescrever a configuração anterior do Canvas. Quando uma nova versão do Canvas é criada, os usuários que já estão no Canvas avançarão pelo fluxo de trabalho da nova versão. Os usuários que entrarem no Canvas também entrarão na nova versão.
 
 Para acessar o histórico de versões, navegue até os detalhes do Canvas na parte superior do seu Canvas e selecione **# Versions**. Aqui, você tem acesso à barra lateral **Version history**. Selecione qualquer uma das versões do Canvas na barra lateral para visualizar e comparar os detalhes do Canvas. Para alternar entre a análise de dados do Canvas e a configuração do Canvas, clique em **View Analytics** ou **View Canvas** na barra de ferramentas inferior.
 

@@ -1,3 +1,10 @@
+---
+permalink: /support_contact/
+nav_title: Help | Braze
+hide_nav: true
+layout: basic
+hide_toc: true
+---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
 
 

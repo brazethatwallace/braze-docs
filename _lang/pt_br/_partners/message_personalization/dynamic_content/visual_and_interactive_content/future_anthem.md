@@ -106,7 +106,7 @@ Estes são os atributos personalizados disponíveis na Braze. Para saber mais, c
 | Subcategoria | Exemplo | Tipo de dado |
 | ----------- | ------- | --------- |
 | Pontuação de risco | 0.5 | Número |
-| Jogador arriscado | True | booleano |
+| Jogador arriscado | True | Booleano |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}

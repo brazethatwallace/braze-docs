@@ -135,8 +135,8 @@ Wir empfehlen dringend, eine automatische Antwort einzurichten, wenn abonnierte 
 Um eine Standardantwort zu senden – zum Beispiel „Sorry! Wir konnten dieses Keyword nicht erkennen.“ – gehen Sie wie folgt vor:
 
 1. Erstellen Sie eine [SMS-Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Wählen Sie als **Zielgruppe** die Option **Alle Nutzer:innen** (der Trigger schränkt weiterhin ein, wer die Nachricht erhält).
-3. Wählen Sie als **Zeitplan** die Option **Aktionsbasierte Zustellung**.
+2. Wählen Sie für **Target audience** die Option **All users** (der Trigger schränkt weiterhin ein, wer die Nachricht erhält).
+3. Wählen Sie für **Schedule** die Option **Action-based delivery**.
 4. Setzen Sie den Trigger auf **Send inbound SMS** an die entsprechende Abo-Gruppe **within keyword category OTHER**.
 5. Geben Sie im **Messaging**-Schritt den Antworttext ein, den Nutzer:innen erhalten sollen.
 

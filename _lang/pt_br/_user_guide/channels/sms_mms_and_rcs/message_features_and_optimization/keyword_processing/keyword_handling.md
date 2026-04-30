@@ -135,10 +135,10 @@ Recomendamos fortemente configurar uma resposta automática quando usuários ins
 Para enviar uma resposta padrão — por exemplo, "Desculpe! Não reconhecemos essa palavra-chave." — faça o seguinte:
 
 1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Público-alvo**, escolha **Todos os usuários** (o gatilho ainda limita quem recebe a mensagem).
-3. Para **Programar**, escolha **Entrega baseada em ação**.
+2. Para **Target audience**, escolha **All users** (o gatilho ainda limita quem recebe a mensagem).
+3. Para **Schedule**, escolha **Action-based delivery**.
 4. Defina o gatilho como **Send inbound SMS** para o grupo de inscrições apropriado **within keyword category OTHER**.
-5. Na etapa **Mensagens**, insira o corpo da resposta que deseja que os usuários recebam.
+5. Na etapa **Messaging**, insira o corpo da resposta que deseja que os usuários recebam.
 
 Para saber como a Braze lida com mensagens recebidas de números de telefone **desconhecidos** (antes de um perfil existir), consulte [Lidar com números de telefone desconhecidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
 

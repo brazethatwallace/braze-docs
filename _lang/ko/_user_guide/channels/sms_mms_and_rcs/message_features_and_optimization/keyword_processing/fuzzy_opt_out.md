@@ -35,7 +35,7 @@ page_order: 4
 
 퍼지 수신 거부를 구성하려면 구독 그룹 키워드 관리 페이지로 이동합니다.
 
-1. **오디언스** > **구독 그룹 관리**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다.
+1. **Audience** > **Subscription Group Management**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다.
 2. **Global Keywords**에서 **Opt-out** 카테고리를 찾아 연필 아이콘을 선택합니다.
 3. **Fuzzy Opt-Out**을 **On**으로 토글합니다.
 4. 원하는 **Fuzzy Opt-Out Logic** 옵션을 선택합니다:
