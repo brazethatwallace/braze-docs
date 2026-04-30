@@ -16,9 +16,13 @@ channel:
 
 > Regulations require that there are responses to all opt-in, opt-out, and help/info keyword responses. Braze automatically processes the following _exact, single-word, case-insensitive_ messages, automatically updating the [subscription group state]({{site.baseurl}}/sms_rcs_subscription_groups/) for the user and their associated phone number on all inbound requests.
 
-## Keyword overview
+## Default keywords
 
-Braze will process the following keywords automatically and update the subscription group state for the phone number on all inbound requests. Note that these default keywords and responses may also be customized. 
+Braze processes the following keywords automatically and updates the subscription group state for the phone number on all inbound requests. Note that these default keywords and responses may also be customized, and you can add [custom keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/).
+
+{% alert tip %}
+Interested in expanding your opt-out processing? Try [fuzzy opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/), a feature that attempts to recognize when an inbound message does not match an opt-out keyword, but indicates opt-out intent.
+{% endalert %}
 
 | Type | Keyword | Change |
 |-|-------|---|
