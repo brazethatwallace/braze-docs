@@ -12,7 +12,7 @@ description: "Esta landing page reúne exemplos de casos de uso de Liquid organi
 
 {% api %}
 
-## Aniversários e feriados
+## Aniversários e feriados {#anniversaries-and-holidays}
 
 {% apitags %}
 Anniversaries and holidays
@@ -134,7 +134,7 @@ O exemplo fornecido usa a véspera de Natal, o dia de Natal e o dia seguinte ao 
 
 {% api %}
 
-## Uso do app
+## Uso do app {#app-usage}
 
 {% apitags %}
 App usage
@@ -218,7 +218,7 @@ Message for a less active user
 
 {% api %}
 
-## Contagens regressivas
+## Contagens regressivas {#countdowns}
 
 {% apitags %}
 Countdowns
@@ -536,7 +536,7 @@ Este caso de uso exibe a data de 30 dias a partir de agora para uso em mensagens
 
 {% api %}
 
-## Atributo personalizado
+## Atributo personalizado {#custom-attribute}
 
 {% apitags %}
 Custom attribute
@@ -597,7 +597,7 @@ Hi {{name[0]}}, here's your message!
 
 {% api %}
 
-## Evento personalizado
+## Evento personalizado {#custom-event}
 
 {% apitags %}
 Custom event
@@ -723,7 +723,7 @@ Este caso de uso calcula o número de vezes que um evento personalizado foi regi
 
 {% api %}
 
-## Idioma
+## Idioma {#language}
 
 {% apitags %}
 Language
@@ -838,7 +838,7 @@ tuesday default
 
 {% api %}
 
-## Diversos
+## Diversos {#miscellaneous}
 
 {% apitags %}
 Miscellaneous
@@ -858,10 +858,10 @@ Miscellaneous
 
 ### Evitar o envio de e-mails para clientes que bloquearam e-mails de marketing {#misc-avoid-blocked-emails}
 
-Este caso de uso pega uma lista de usuários bloqueados salva em um bloco de conteúdo e verifica se esses usuários bloqueados não são contatados ou direcionados em campanhas ou Canvas futuros.
+Este caso de uso pega uma lista de usuários bloqueados salva em um Content Block e verifica se esses usuários bloqueados não são contatados ou direcionados em Campaigns ou Canvas futuros.
 
 {% alert important %}
-Para usar este Liquid, primeiro salve a lista de e-mails bloqueados em um bloco de conteúdo. A lista não deve ter espaços ou caracteres adicionais inseridos entre os endereços de e-mail (por exemplo, `test@braze.com,abc@braze.com`).
+Para usar este Liquid, primeiro salve a lista de e-mails bloqueados em um Content Block. A lista não deve ter espaços ou caracteres adicionais inseridos entre os endereços de e-mail (por exemplo, `test@braze.com,abc@braze.com`).
 {% endalert %}
 
 {% raw %}
@@ -877,10 +877,10 @@ Your message here!
 ```
 {% endraw %}
 
-**Explicação:** Aqui, verificamos se o e-mail do potencial destinatário está nesta lista, referenciando o bloco de conteúdo de e-mails bloqueados. Se o e-mail for encontrado, a mensagem não será enviada.
+**Explicação:** Aqui, verificamos se o e-mail do potencial destinatário está nesta lista, referenciando o Content Block de e-mails bloqueados. Se o e-mail for encontrado, a mensagem não será enviada.
 
 {% alert note %}
-Blocos de conteúdo têm um limite de tamanho de 5 MB.
+Content Blocks têm um limite de tamanho de 5 MB.
 {% endalert %}
 
 ### Usar o estado de inscrição de um cliente para personalizar conteúdo em mensagens {#misc-personalize-content}
@@ -1199,7 +1199,7 @@ Este caso de uso mostra como indexar o campo de perfil de usuário `phone_number
 
 {% api %}
 
-## Direcionamento por plataforma
+## Direcionamento por plataforma {#platform-targeting}
 
 {% apitags %}
 Platform targeting
@@ -1356,7 +1356,7 @@ Thanks for joining our SMS program!
 
 {% api %}
 
-## Fusos horários
+## Fusos horários {#time-zones}
 
 {% apitags %}
 Time zones
@@ -1370,12 +1370,14 @@ Time zones
 - [Enviar uma campanha recorrente de mensagem no app durante um período de tempo no fuso horário local do usuário](#time-reocurring-iam-window)
 - [Enviar mensagens diferentes em dias úteis versus fins de semana no fuso horário local do usuário](#time-weekdays-vs-weekends)
 - [Enviar mensagens diferentes com base no horário do dia no fuso horário local do usuário](#time-of-day)
+- [Cancelar uma mensagem fora de um intervalo de horas no momento do envio](#abort-send-time-hour-range)
+- [Cancelar uma mensagem fora de um período de tempo em um fuso horário fixo](#abort-fixed-timezone-window)
 
 ### Inserir o fuso horário do usuário no modelo {#users-time-zone}
 
 Por padrão, datas e horários em Liquid são renderizados em Tempo Universal Coordenado (UTC). Para exibir datas e horários no fuso horário local do usuário, use o filtro `time_zone` com o filtro `date`.
 
-#### Atribuir data e hora locais
+#### Atribuir data e hora locais {#assign-local-date-and-time}
 
 Para atribuir uma variável que reflita a data e hora atuais no fuso horário local do usuário, use este formato:
 
@@ -1390,7 +1392,7 @@ Para atribuir uma variável que reflita a data e hora atuais no fuso horário lo
 - `time_zone`: Recupera o fuso horário local do usuário a partir do atributo padrão usando a tag de personalização {% raw %}`{{${time_zone}}}`{% endraw %}.
 - `date`: Formata a data e hora locais do usuário de acordo com suas especificações. No exemplo anterior, o sistema exibe uma string formatada como "February 26, 2026". Para mais opções de formatação, consulte [strftime.net](strftime.net).
 
-#### Aplicar o fuso horário do usuário com atributos personalizados
+#### Aplicar o fuso horário do usuário com atributos personalizados {#apply-the-users-time-zone-with-custom-attributes}
 
 Você pode aplicar o filtro `time_zone` a atributos personalizados, assim:
 
@@ -1520,11 +1522,45 @@ Check out this new bar after work today. HH specials!
 
 {% alert note %} Isso é o oposto do [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
 
+### Cancelar uma mensagem fora de um intervalo de horas no momento do envio {#abort-send-time-hour-range}
+
+Este caso de uso cancela a mensagem quando a hora atual está fora de um intervalo definido. Ele usa o horário em que a mensagem é renderizada, que é UTC por padrão, a menos que você aplique o filtro `time_zone`, e não o fuso horário local do usuário. Para enviar mensagens com base no fuso horário local do usuário, consulte [Enviar mensagens diferentes com base no horário do dia no fuso horário local do usuário](#time-of-day).
+
+{% raw %}
+```liquid
+{% assign time = 'now' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour > 20 or hour < 8 %}
+{% abort_message("Outside hour range") %}
+{% endif %}
+
+Check out this new bar after work today. HH specials!
+```
+{% endraw %}
+
+### Cancelar uma mensagem fora de um período de tempo em um fuso horário fixo {#abort-fixed-timezone-window}
+
+Este caso de uso cancela a mensagem quando o horário atual está fora de um período definido em um fuso horário específico (horário de Singapura neste exemplo). Você pode usar esse padrão quando precisar de uma regra inspirada no horário de silêncio que esteja vinculada a uma região em vez do atributo `time_zone` de cada usuário.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: 'Asia/Singapore' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% assign minute = time | date: '%M' | plus: 0 %}
+
+{% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
+{% endif %}
+
+Sign up for our exclusive time-limited offer now!
+```
+{% endraw %}
+
 {% endapi %}
 
 {% api %}
 
-## Semana/Dia/Mês
+## Semana/Dia/Mês {#weekdaymonth}
 
 {% apitags %}
 Week/Day/Month
@@ -1535,6 +1571,8 @@ Week/Day/Month
 - [Enviar uma campanha no último (dia útil) do mês](#day-of-month-last)
 - [Enviar uma mensagem diferente a cada dia do mês](#day-of-month)
 - [Enviar uma mensagem diferente a cada dia da semana](#day-of-week)
+- [Cancelar uma mensagem em uma data específica do calendário](#abort-specific-calendar-date)
+- [Cancelar uma mensagem em um dia específico da semana](#abort-specific-weekday)
 
 ### Inserir o nome do mês anterior em uma mensagem {#month-name}
 
@@ -1730,5 +1768,31 @@ Default copy
 {% alert note %}
 Você pode substituir a linha "Default copy" por {% raw %}`{% abort_message() %}`{% endraw %} para impedir que a mensagem seja enviada se o dia da semana for desconhecido.
 {% endalert %}
+
+### Cancelar uma mensagem em uma data específica do calendário {#abort-specific-calendar-date}
+
+Este caso de uso cancela a mensagem em um mês e dia escolhidos todos os anos (5 de maio no exemplo). Ele compara a data atual com uma string inequívoca de mês e dia construída com o filtro `date`.
+
+{% raw %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
+```
+{% endraw %}
+
+### Cancelar uma mensagem em um dia específico da semana {#abort-specific-weekday}
+
+Este caso de uso cancela a mensagem quando o Liquid é executado em um determinado dia da semana (`Wednesday` no exemplo). O filtro `%A` retorna o nome completo do dia da semana em inglês.
+
+{% raw %}
+```liquid
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
+{% endif %}
+```
+{% endraw %}
 
 {% endapi %}

@@ -11,8 +11,6 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 
 > Nachdem Sie Locales zu Ihrem Workspace hinzugefügt haben, können Sie Nutzer:innen in verschiedenen Sprachen innerhalb einer einzigen Push-Nachricht, E-Mail, eines Banners, einer In-App-Nachricht oder eines Content-Blocks ansprechen.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die Einrichtung und Verwendung mehrsprachiger Nachrichten zu erhalten.
@@ -249,7 +247,7 @@ Gehen Sie in Ihren Nachrichteneinstellungen zum Abschnitt **Accessibility** und 
 
 Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Wenn neue Nachrichten erstellt werden, ist {% raw %}`{{accessibility_language}}`{% endraw %} standardmäßig im Abschnitt **Accessibility** ausgewählt. Dies ordnet die Barrierefreiheitssprache Ihren Locale-Einstellungen zu.
 
-#### Standards
+#### Standards {#standards}
 
 Die Barrierefreiheitssprache wird dem HTML-Attribut `lang` zugeordnet, einer [WCAG 2.1 Level A-Anforderung](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Erfolgskriterium 3.1.1). Für mehrsprachige Inhalte können Sie die Sprache auch für einzelne Content-Blöcke festlegen, indem Sie das `lang`-Attribut direkt in Ihrem HTML verwenden.
 

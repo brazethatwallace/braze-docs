@@ -12,7 +12,7 @@ description: "Este artículo ofrece respuestas a preguntas frecuentes sobre Liqu
 
 ### ¿Cómo uso fragmentos de código de Liquid en Braze?
 
-En muchos casos, puedes incorporar fragmentos de código de Liquid navegando a tus campañas o Canvas e insertando Liquid en el modal de personalización en áreas como el cuerpo del mensaje de correo electrónico o en tus segmentos.
+En muchos casos, puedes incorporar fragmentos de código de Liquid navegando a tus Campaigns o Canvas e insertando Liquid en el modal de personalización en áreas como el cuerpo del mensaje de correo electrónico o en tus Segments.
 
 #### ¿Dónde puedo aprender más?
 
@@ -64,6 +64,12 @@ Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/
 Puedes acceder a las propiedades de eventos desencadenados por API con la etiqueta `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
+### ¿Por qué mi Liquid desencadenado por API falla en Braze?
+
+{% raw %}
+Una causa común es un par extra de llaves. Por ejemplo, `{{{api_trigger_properties.${attribute_key}}}}` no es una sintaxis de personalización válida en Braze. Usa exactamente dos llaves de apertura y dos de cierre: `{{api_trigger_properties.${attribute_key}}}`.
+{% endraw %}
+
 ### ¿Qué es la lógica de cancelación y cómo puedo usarla?
 
 La lógica de cancelación te permite detener el envío de un mensaje si se cumplen las condiciones. Esto es especialmente útil para evitar que se envíen mensajes incompletos a tus usuarios. Para ver ejemplos de lógica de cancelación en tus campañas de marketing, lee más en [Cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
@@ -87,25 +93,26 @@ Por ejemplo, supongamos que tienes un catálogo llamado "Games" que tiene una se
 
 Una vez que se cumplan las condiciones establecidas, tu mensaje puede continuar. Usar esta lógica es una forma útil de ahorrar tiempo, en lugar de repetir bloques de Liquid para diferentes condiciones.
 
-### ¿Por qué hay espaciado extra en los mensajes que usan Bloques de contenido?
+### ¿Por qué hay espaciado extra en los mensajes que usan Content Blocks?
 
-Si notas espaciado extra en los mensajes enviados que usan Bloques de contenido con Liquid, es posible que tengas saltos de párrafo o de línea innecesarios dentro de tus sentencias condicionales. Escribe tus sentencias condicionales en una sola línea en lugar de en múltiples líneas.
+Si notas espaciado extra en los mensajes enviados que usan Content Blocks con Liquid, es posible que tengas saltos de párrafo o de línea innecesarios dentro de tus sentencias condicionales. Escribe tus sentencias condicionales en una sola línea en lugar de en múltiples líneas.
 
 #### Ejemplo
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
+```
 {% endraw %}
 
-### When should I use `assign` versus `capture`?
+### ¿Cuándo debo usar `assign` en lugar de `capture`?
 
-Both `assign` and `capture` create Liquid variables, but they serve different purposes:
+Tanto `assign` como `capture` crean variables de Liquid, pero tienen propósitos diferentes:
 
-- `assign` is for simple variables that store a single value, such as a boolean, number, or simple string. You can also apply a single filter in the same line.
-- `capture` is for storing a block of text that may include multiple variables, strings, or complex expressions. Use `capture` when the value is too complex for a single `assign` statement, such as URLs that utilize other Liquid variables or custom attributes as parameters. `capture` is also preferred when implementing Liquid variables in the body of Connected Content calls.
+- `assign` es para variables simples que almacenan un solo valor, como un booleano, un número o una cadena simple. También puedes aplicar un solo filtro en la misma línea.
+- `capture` es para almacenar un bloque de texto que puede incluir múltiples variables, cadenas o expresiones complejas. Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URLs que utilizan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible cuando implementas variables de Liquid en el cuerpo de llamadas de Contenido conectado.
 
-#### Examples
+#### Ejemplos
 
 {% raw %}
 ```liquid

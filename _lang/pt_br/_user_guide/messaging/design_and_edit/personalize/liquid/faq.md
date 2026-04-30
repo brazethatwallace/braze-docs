@@ -12,7 +12,7 @@ description: "Este artigo fornece respostas para perguntas frequentes sobre Liqu
 
 ### Como uso snippets de Liquid na Braze?
 
-Em muitos casos, você pode incorporar snippets de Liquid navegando até suas campanhas ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo do e-mail ou nos seus segmentos.
+Em muitos casos, você pode incorporar snippets de Liquid navegando até suas Campaigns ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo do e-mail ou nos seus Segments.
 
 #### Onde posso saber mais?
 
@@ -49,12 +49,12 @@ Existe um atributo padrão para o local do usuário: `{{${most_recent_location}}
 
 ### Qual é a diferença entre {{campaign.${name}}} e {{campaign.${message_name}}}?
 
-Tanto `{{campaign.${name}}}` quanto `{{campaign.${message_name}}}` são Liquid tags de personalização suportadas. Ambas as tags fazem referência a atributos da campanha. `{{campaign.${name}}}` indica o nome da sua campanha, e `{{campaign.${message_name}}}` é o nome da variante da sua mensagem.
+Tanto `{{campaign.${name}}}` quanto `{{campaign.${message_name}}}` são Liquid tags de personalização suportadas. Ambas as tags fazem referência a atributos da Campaign. `{{campaign.${name}}}` indica o nome da sua Campaign, e `{{campaign.${message_name}}}` é o nome da variante da sua mensagem.
 {% endraw %}
 
 ### Como uso Liquid com objetos aninhados?
 
-A Braze tem um recurso integrado que gera código Liquid para segmentos que podem ser usados em uma mensagem. Especificamente, você pode criar um segmento que corresponda a múltiplos critérios em um objeto.
+A Braze tem um recurso integrado que gera código Liquid para Segments que podem ser usados em uma mensagem. Especificamente, você pode criar um Segment que corresponda a múltiplos critérios em um objeto.
 
 Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation).
 
@@ -64,9 +64,15 @@ Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseur
 Você pode acessar propriedades de eventos disparados por API com a tag `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
+### Por que meu Liquid disparado por API está falhando na Braze?
+
+{% raw %}
+Uma causa comum é um par extra de chaves. Por exemplo, `{{{api_trigger_properties.${attribute_key}}}}` não é uma sintaxe de personalização válida na Braze. Use exatamente duas chaves de abertura e duas de fechamento: `{{api_trigger_properties.${attribute_key}}}`.
+{% endraw %}
+
 ### O que é lógica de cancelamento e como posso usá-la?
 
-A lógica de cancelamento permite que você interrompa o envio de uma mensagem se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de cancelamento nas suas campanhas de marketing, leia mais em [Cancelamento de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+A lógica de cancelamento permite que você interrompa o envio de uma mensagem se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de cancelamento nas suas Campaigns de marketing, leia mais em [Cancelamento de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
 
 ### O que é lógica de loop for e como posso usá-la?
 
@@ -87,25 +93,26 @@ Por exemplo, digamos que você tenha um catálogo chamado "Games" que tem uma se
 
 Quando as condições definidas forem atendidas, sua mensagem pode prosseguir. Usar essa lógica é uma forma útil de economizar tempo, em vez de repetir blocos de Liquid para diferentes condições.
 
-### Por que há espaçamento extra em mensagens que usam Blocos de conteúdo?
+### Por que há espaçamento extra em mensagens que usam Content Blocks?
 
-Se você notar espaçamento extra em mensagens enviadas que usam Blocos de conteúdo com Liquid, pode haver quebras de parágrafo ou de linha desnecessárias dentro das suas instruções condicionais. Escreva suas instruções condicionais em uma única linha em vez de em múltiplas linhas.
+Se você notar espaçamento extra em mensagens enviadas que usam Content Blocks com Liquid, pode haver quebras de parágrafo ou de linha desnecessárias dentro das suas instruções condicionais. Escreva suas instruções condicionais em uma única linha em vez de em múltiplas linhas.
 
 #### Exemplo
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
+```
 {% endraw %}
 
-### When should I use `assign` versus `capture`?
+### Quando devo usar `assign` versus `capture`?
 
-Both `assign` and `capture` create Liquid variables, but they serve different purposes:
+Tanto `assign` quanto `capture` criam variáveis de Liquid, mas servem a propósitos diferentes:
 
-- `assign` is for simple variables that store a single value, such as a boolean, number, or simple string. You can also apply a single filter in the same line.
-- `capture` is for storing a block of text that may include multiple variables, strings, or complex expressions. Use `capture` when the value is too complex for a single `assign` statement, such as URLs that utilize other Liquid variables or custom attributes as parameters. `capture` is also preferred when implementing Liquid variables in the body of Connected Content calls.
+- `assign` é para variáveis simples que armazenam um único valor, como um booleano, número ou string simples. Você também pode aplicar um único filtro na mesma linha.
+- `capture` é para armazenar um bloco de texto que pode incluir múltiplas variáveis, strings ou expressões complexas. Use `capture` quando o valor for complexo demais para uma única instrução `assign`, como URLs que utilizam outras variáveis de Liquid ou atributos personalizados como parâmetros. `capture` também é preferido ao implementar variáveis de Liquid no corpo de chamadas de Conteúdo conectado.
 
-#### Examples
+#### Exemplos
 
 {% raw %}
 ```liquid

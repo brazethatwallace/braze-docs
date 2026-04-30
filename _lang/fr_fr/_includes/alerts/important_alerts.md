@@ -17,7 +17,7 @@ Les fenêtres de navigation privée ne prennent pas en charge les notifications 
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-L'ajout d'une adresse CCI à votre campagne ou Canvas entraîne le doublement de vos e-mails facturables pour la campagne ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
+L'ajout d'une adresse CCI à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta présente un problème connu qui peut empêcher la lecture de certaines vid
 Pour cette intégration, l'alias d'utilisateur doit respecter le format suivant afin que Braze puisse associer les webhooks au profil utilisateur correspondant :<br><br>
 - `alias_label` : `shopify_cart_${cartToken}`
 - `alias_name` : `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Les messages multilingues et les traductions par paramètres régionaux sont actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
 {% endalert %}
 
 {% endif %}
