@@ -100,7 +100,7 @@ There is no need to map `external_id`. GRAVTY® automatically generates and maps
 The integration supports all Braze custom attribute data types, including numbers (integer, float), strings, arrays, booleans, objects, arrays of objects, and dates.
 {% endalert %}
 
-### Step 4: Test the Integration
+### Step 4: Test the integration
 
 Trigger a sample event in GRAVTY® to verify that sync, communication triggers, and overall integration are working as expected.
 
