@@ -30,10 +30,10 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatoria | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `ending_at` | Obligatoria | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la exportación de datos. De forma predeterminada, la hora de la solicitud. |
+| `canvas_id` | Obligatorio | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `ending_at` | Obligatorio | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la exportación de datos. De forma predeterminada, la hora de la solicitud. |
 | `starting_at` | Opcional* | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe comenzar la exportación de datos. <br><br>* Se requiere `length` o `starting_at`. |
 | `length` | Opcional* | Cadena | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 14 (ambos inclusive). <br><br>* Se requiere `length` o `starting_at`. |
 | `include_variant_breakdown` | Opcional | Booleano | Incluir o no estadísticas de variantes (por defecto `false`).  |
