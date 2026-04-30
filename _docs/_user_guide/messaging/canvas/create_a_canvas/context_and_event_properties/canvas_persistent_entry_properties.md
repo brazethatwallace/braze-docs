@@ -14,7 +14,7 @@ page_order: 5
 
 Persistent entry properties are an artifact of the original Canvas editor, so there are deprecated references to terms like Canvas entry properties that remain for historical reference. For the current updated Canvas editor, refer to [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
 
-If you're using the original Canvas editor and want to use persistent entry properties, you must either create a new Canvas or [clone]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) an existing one.
+To use persistent entry properties in the current Canvas experience, you must either create a new Canvas or [clone]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) an existing one to the current editor.
 
 ## Using entry properties
 
