@@ -510,9 +510,14 @@ $nav-focus-offset-rail: 0; // main rail toggle — ring hugs 40px target (less �
 	.nav {
 		font-family: $braze-regular;
 		width: 100%;
-.nav_title {
-			display: inline;
+		// Do not set display here — nested `.nav_item_row` titles need flex/inline-block from `.nav_item_row`
+		// rules; `#nav_bar .nav .nav_title` would override `#nav_bar .nav_item_row > span.nav_title` (higher class count).
+		.nav_title {
 			color: $black-shark;
+		}
+		// Legacy section-only row (no `.nav_item_row`): combined `nav_reg nav_title` div
+		.nav_block .nav_reg.nav_title {
+			display: inline;
 		}
 		div {
 			// Vertical nesting lines — GitLab-style subtle indent
