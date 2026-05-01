@@ -176,7 +176,7 @@ In the **Target Population** section, you can view a summary of your audience, s
 Note that:
 
 - Calculating exact statistics can take a few minutes to run. This function only calculates the exact statistics at the segment level, not at the filter or filter group level.
-- - While exact statistics are loading, a rounded estimate may appear. The exact figure appears in the **Reachable Users** section when loaded. You can select **Show Additional Stats** for a fuller breakdown.
+- While exact statistics are loading, a rounded estimate may appear. The exact figure appears in the **Reachable Users** section when loaded. You can select **Show Additional Stats** for a fuller breakdown.
 - For large segments, it is normal to see slight variation even when calculating exact statistics. The accuracy of this feature is expected to be 99.999% or greater.
 
 To view additional statistics, such as the average lifetime revenue for targeted users, select **Show Additional Statistics**.
