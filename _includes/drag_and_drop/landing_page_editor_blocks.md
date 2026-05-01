@@ -67,11 +67,13 @@ Inserts custom HTML, CSS, or JavaScript for advanced customization, such as [Goo
 | Custom code | Allows you to add, edit, or delete HTML, CSS, and JavaScript. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+<!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
 
 Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
+-->
 
 ### Email capture
 
