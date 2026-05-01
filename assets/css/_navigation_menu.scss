@@ -134,6 +134,19 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 				width: $nav_width;
 			}
 		}
+		#doc_nav_flyout {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			flex: 1 1 auto;
+			min-height: 0;
+			@media (min-width: $window-medium-px) {
+				width: $nav_width;
+			}
+		}
+		.doc-nav-flyout-toolbar {
+			display: none;
+		}
 		#left_navmenu {
 			display: flex;
 			flex-direction: column;
@@ -143,9 +156,8 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 			overflow-y: auto;
 			align-items: flex-start;
 			padding: 20px 8px 16px 24px;
-			@media (min-width: $window-medium-px) {
-				width: $nav_width;
-			}
+			width: 100%;
+			box-sizing: border-box;
 		}
 		&.scrollnav {
 			height: calc(100vh - #{$header_height});
@@ -188,9 +200,78 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 				max-width: 100%;
 				margin-top: 0;
 			}
-			#nav_bottom,
-			#left_navmenu {
+			#nav_bottom {
 				display: none;
+			}
+			&:not(.doc-nav-flyout-open) #doc_nav_flyout {
+				display: none !important;
+			}
+		}
+		&.hide_sidebar.doc-nav-flyout-open {
+			#doc_nav_flyout {
+				display: flex !important;
+				flex-direction: column;
+				position: fixed;
+				top: $header_height;
+				left: 0;
+				width: $nav_width;
+				min-width: $nav_width;
+				max-width: $nav_width;
+				max-height: calc(100vh - #{$header_height});
+				z-index: 200;
+				background-color: $nav_background-color;
+				box-shadow: 4px 0 24px rgba($black-shark, 0.12);
+				overflow: hidden;
+				box-sizing: border-box;
+				overscroll-behavior: contain;
+				@media (prefers-reduced-motion: no-preference) {
+					transition: box-shadow 0.2s ease, transform 0.2s ease;
+					transform: translateX(0);
+				}
+				@media (prefers-reduced-motion: reduce) {
+					transition: none;
+					transform: none;
+				}
+			}
+			#left_navmenu {
+				display: flex !important;
+				overflow-y: auto;
+				overscroll-behavior: contain;
+			}
+			.doc-nav-flyout-toolbar {
+				display: flex;
+				flex-shrink: 0;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 6px 12px 8px;
+				border-top: 1px solid $grey-ghost;
+				box-sizing: border-box;
+			}
+			.doc-nav-flyout-escape-hint {
+				margin: 0;
+				max-width: 100%;
+				text-align: right;
+				font-size: 11px;
+				line-height: 1.35;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				font-family: $braze-regular;
+				color: $grey-stardust;
+				kbd {
+					display: inline-block;
+					margin: 0 0.2em;
+					padding: 0.1em 0.35em;
+					font-size: 10px;
+					font-family: $braze-code, monospace;
+					font-weight: normal;
+					text-transform: none;
+					letter-spacing: 0;
+					color: $grey-dust;
+					background-color: $grey-athens;
+					border: 1px solid $grey-french;
+					border-radius: 4px;
+					box-shadow: 0 1px 0 rgba($black-shark, 0.06);
+				}
 			}
 		}
 	}
@@ -276,6 +357,15 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 		position: relative;
 		z-index: 2;
 		isolation: isolate;
+	}
+
+	// Collection root (Home): when it is the current page, nudge the title to align with other top-level rows
+	#nav_top > .nav-item--rail .nav-item--rail__main .nav_item_row > span.nav_title[aria-current="page"] {
+		padding-left: 14px; // +6px vs default 8px (rail column beside the row variant)
+	}
+	#nav_top > .nav-item--rail .nav-item--rail__main > .nav_reg > span.nav_title[aria-current="page"] {
+		display: inline-block;
+		padding-left: 6px;
 	}
 
 	// GitLab-style row: link on left, caret on right
@@ -619,6 +709,40 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 			color: $black-shark;
 			opacity: 0.7;
 			display: inline-block;
+		}
+	}
+
+	// Narrow / hamburger layout: hide desktop-only rail toggle; ease vertical rhythm in the drawer
+	@media (max-width: ($window-medium-px - 1px)) {
+		.left-nav-collapsed-slot,
+		#sidebar_toggle,
+		.nav-item--rail__toggle {
+			display: none !important;
+		}
+
+		#nav_top > .nav-item--rail {
+			gap: 0;
+		}
+
+		// Esc hint is desktop rail/flyout only â€” drawer closes with the header control on small screens
+		.doc-nav-flyout-toolbar {
+			display: none !important;
+		}
+
+		#left_navmenu {
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+
+		// Separate status strip from article when the drawer sits above continuous content
+		#nav_bottom {
+			border-bottom: 1px solid $grey-ghost;
+			padding-bottom: 12px;
+		}
+
+		#nav_bottom .nav_bottom_item {
+			padding-top: 14px;
 		}
 	}
 }

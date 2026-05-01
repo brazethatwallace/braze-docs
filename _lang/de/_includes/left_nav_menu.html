@@ -8,20 +8,29 @@
 {%-endunless -%}
 {%- assign _rail_collapse_icon = site.baseurl | append: '/assets/img/sidebar-rail-collapse.svg' -%}
 {%- assign _rail_expand_icon = site.baseurl | append: '/assets/img/sidebar-rail-expand.svg' -%}
+{%- assign _esc_hint_before = site.data.i18n[site.language]['nav_flyout_esc_hint_before'] | default: 'Press ' -%}
+{%- assign _esc_hint_after = site.data.i18n[site.language]['nav_flyout_esc_hint_after'] | default: ' to close the menu' -%}
+{%- assign _flyout_hint = site.data.i18n[site.language]['nav_flyout_shortcut_hint'] | default: 'Press Arrow down to open the documentation menu without expanding the sidebar.' -%}
 
 <div class="left-nav-primary">
   <div class="left-nav-collapsed-slot">
-    <button type="button" id="sidebar_toggle" class="left-nav-rail-toggle" aria-label="{{ site.data.i18n[site.language]['collapse_navigation'] | default: 'Collapse navigation' }}" aria-expanded="true" data-rail-src-narrow="{{ _rail_collapse_icon }}" data-rail-src-widen="{{ _rail_expand_icon }}">
+    <button type="button" id="sidebar_toggle" class="left-nav-rail-toggle" aria-label="{{ site.data.i18n[site.language]['collapse_navigation'] | default: 'Collapse navigation' }}" title="{{ site.data.i18n[site.language]['collapse_navigation'] | default: 'Collapse navigation' }}" aria-expanded="true" aria-controls="doc_nav_flyout" aria-keyshortcuts="ArrowDown" data-rail-src-narrow="{{ _rail_collapse_icon }}" data-rail-src-widen="{{ _rail_expand_icon }}">
       <img id="sidebar_toggle_icon" class="sidebar-toggle-icon" src="{{ _rail_collapse_icon }}" width="24" height="24" alt="" decoding="async" aria-hidden="true" />
     </button>
+    <span id="sidebar_toggle_flyout_hint" class="sr-only" hidden>{{ _flyout_hint }}</span>
   </div>
-  <nav class="bd-links left-nav-doc navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation' }}">
-    {%- assign collection = page.collection -%}
-    {%- if page.custom_collection -%}
-      {%- assign collection = page.custom_collection -%}
-    {%- endif -%}
-  {%-UrlNavMenu {{nav_level}}|{{collection}} -%}
-  </nav>
+  <div id="doc_nav_flyout" class="doc-nav-flyout">
+    <nav class="bd-links left-nav-doc navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation' }}">
+      {%- assign collection = page.collection -%}
+      {%- if page.custom_collection -%}
+        {%- assign collection = page.custom_collection -%}
+      {%- endif -%}
+    {%-UrlNavMenu {{nav_level}}|{{collection}} -%}
+    </nav>
+    <div class="doc-nav-flyout-toolbar">
+      <p class="doc-nav-flyout-escape-hint" aria-hidden="true">{{ _esc_hint_before }}<kbd>Esc</kbd>{{ _esc_hint_after }}</p>
+    </div>
+  </div>
 </div>
 <div id="nav_bottom">
   <!-- a href="https://www.braze.com/terms/" target="_blank"><div class="nav_bottom_item"><i class="fa fa-balance-scale"></i> LEGAL</div></a>

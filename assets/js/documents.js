@@ -440,16 +440,64 @@ $(document).ready(function() {
     img.attr('src', isCollapsed ? widenSrc : narrowSrc);
   }
 
-  function updateSidebarToggleAccessibility() {
+  var docNavFlyoutHoverLeaveTimer = null;
+
+  // Keep in sync with `$window-medium-px` / Bootstrap `md` (see assets/css/main.scss).
+  function isDocNavRailLayout() {
+    return window.matchMedia('(min-width: 768px)').matches;
+  }
+
+  function syncDocNavDisclosureState() {
     var nav_bar = $('#nav_bar');
     var btn = $('#sidebar_toggle');
     if (!btn.length) { return; }
     var isCollapsed = nav_bar.hasClass('hide_sidebar');
+    var flyoutOpen = nav_bar.hasClass('doc-nav-flyout-open');
     var collapseLabel = (typeof site_i18n !== 'undefined' && site_i18n['collapse_navigation']) ? site_i18n['collapse_navigation'] : 'Collapse navigation';
     var expandLabel = (typeof site_i18n !== 'undefined' && site_i18n['expand_navigation']) ? site_i18n['expand_navigation'] : 'Expand navigation';
-    var label = isCollapsed ? expandLabel : collapseLabel;
-    btn.attr('aria-label', label);
-    btn.attr('aria-expanded', !isCollapsed);
+    btn.attr('aria-label', isCollapsed ? expandLabel : collapseLabel);
+    btn.attr('title', isCollapsed ? expandLabel : collapseLabel);
+    var expanded = !isCollapsed || (isCollapsed && flyoutOpen);
+    btn.attr('aria-expanded', expanded ? 'true' : 'false');
+    var hint = $('#sidebar_toggle_flyout_hint');
+    if (hint.length) {
+      hint.prop('hidden', !isCollapsed);
+      if (isCollapsed) {
+        btn.attr('aria-describedby', 'sidebar_toggle_flyout_hint');
+      } else {
+        btn.removeAttr('aria-describedby');
+      }
+    }
+  }
+
+  function closeDocNavFlyout() {
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    nav_bar.removeClass('doc-nav-flyout-open');
+    if (docNavFlyoutHoverLeaveTimer) {
+      clearTimeout(docNavFlyoutHoverLeaveTimer);
+      docNavFlyoutHoverLeaveTimer = null;
+    }
+    syncDocNavDisclosureState();
+    requestAnimationFrame(function() { syncSidebarToggleDock(); });
+  }
+
+  function openDocNavFlyoutFromKeyboard() {
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('hide_sidebar') || nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    nav_bar.addClass('doc-nav-flyout-open');
+    syncDocNavDisclosureState();
+    requestAnimationFrame(function() {
+      syncSidebarToggleDock();
+      var firstFocusable = $('#left_navmenu').find('a, button').filter(':visible').first();
+      if (firstFocusable.length) {
+        firstFocusable[0].focus();
+      } else {
+        var tgl = document.getElementById('sidebar_toggle');
+        if (tgl) { tgl.focus(); }
+      }
+    });
   }
 
   // Move rail toggle between the first nav row host (expanded / peek) and the collapsed strip.
@@ -459,7 +507,8 @@ $(document).ready(function() {
     var slot = $('.left-nav-collapsed-slot');
     var btn = $('#sidebar_toggle');
     if (!btn.length) { return; }
-    var peeking = nav_bar.hasClass('hide_sidebar') && $('#left_navmenu').is(':visible');
+    var peeking = nav_bar.hasClass('hide_sidebar') &&
+      ($('#left_navmenu').is(':visible') || nav_bar.hasClass('doc-nav-flyout-open'));
     if (nav_bar.hasClass('hide_sidebar') && !peeking) {
       if (slot.length) { btn.appendTo(slot); }
     } else {
@@ -467,9 +516,9 @@ $(document).ready(function() {
         btn.appendTo(host);
       } else {
         var primary = $('.left-nav-primary');
-        var nav = $('#left_navmenu');
-        if (primary.length && nav.length) {
-          btn.insertAfter(nav);
+        var flyout = $('#doc_nav_flyout');
+        if (primary.length && flyout.length) {
+          btn.insertAfter(flyout);
         } else if (slot.length) {
           btn.appendTo(slot);
         }
@@ -477,20 +526,75 @@ $(document).ready(function() {
     }
   }
 
+  $('#sidebar_toggle').on('keydown', function(e) {
+    if (e.key !== 'ArrowDown') { return; }
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('hide_sidebar') || nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    e.preventDefault();
+    openDocNavFlyoutFromKeyboard();
+  });
+
+  document.addEventListener('keydown', function docNavFlyoutOnEscape(e) {
+    if (e.key !== 'Escape') { return; }
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.length || !nav_bar.hasClass('hide_sidebar') || !nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    e.preventDefault();
+    closeDocNavFlyout();
+    var t = document.getElementById('sidebar_toggle');
+    if (t) { t.focus(); }
+  }, true);
+
+  $('#nav_bar').on('mouseenter.docNavFlyout', function() {
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('hide_sidebar')) { return; }
+    if (docNavFlyoutHoverLeaveTimer) {
+      clearTimeout(docNavFlyoutHoverLeaveTimer);
+      docNavFlyoutHoverLeaveTimer = null;
+    }
+    nav_bar.addClass('doc-nav-flyout-open');
+    syncDocNavDisclosureState();
+    syncSidebarToggleDock();
+  });
+
+  $('#nav_bar').on('mouseleave.docNavFlyout', function(e) {
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    var to = e.relatedTarget;
+    if (to && nav_bar[0].contains(to)) { return; }
+    if (docNavFlyoutHoverLeaveTimer) { clearTimeout(docNavFlyoutHoverLeaveTimer); }
+    docNavFlyoutHoverLeaveTimer = setTimeout(function() {
+      docNavFlyoutHoverLeaveTimer = null;
+      var nb = $('#nav_bar');
+      if (!nb.hasClass('doc-nav-flyout-open')) { return; }
+      var ae = document.activeElement;
+      if (ae && nb[0].contains(ae)) { return; }
+      nb.removeClass('doc-nav-flyout-open');
+      syncDocNavDisclosureState();
+      syncSidebarToggleDock();
+    }, 200);
+  });
+
   $('#sidebar_toggle').click(function(e){
     e.preventDefault();
     e.stopPropagation();
+    if (!isDocNavRailLayout()) { return; }
     var nav_bar = $('#nav_bar');
     var curstate = nav_bar.hasClass('hide_sidebar');
     if (curstate) {
+      nav_bar.removeClass('doc-nav-flyout-open');
       nav_bar.removeClass('hide_sidebar');
       Cookies.set('ln', '', { expires: 365 });
     } else {
+      nav_bar.removeClass('doc-nav-flyout-open');
       nav_bar.addClass('hide_sidebar');
       Cookies.set('ln','1',  { expires: 365 });
     }
     setSidebarToggleIcon(nav_bar.hasClass('hide_sidebar'));
-    updateSidebarToggleAccessibility();
+    syncDocNavDisclosureState();
     syncSidebarToggleDock();
   });
   // Pinned collapsed state uses cookie `ln` only (no URL param). Synthetic click avoided so layout/ARIA stay in sync on first paint.
@@ -500,7 +604,14 @@ $(document).ready(function() {
     setSidebarToggleIcon(true);
   }
   syncSidebarToggleDock();
-  updateSidebarToggleAccessibility();
+  syncDocNavDisclosureState();
+
+  $(window).on('resize.docNavRail', function() {
+    if (!isDocNavRailLayout()) {
+      closeDocNavFlyout();
+    }
+    syncSidebarToggleDock();
+  });
 
   // Keep collapse containers out of tab order; section caret buttons stay focusable (GitLab-style)
   function setNavCollapseTabindex() {

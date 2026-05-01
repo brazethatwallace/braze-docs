@@ -18,6 +18,9 @@ en:
   clear_filter: Clear filter
   documentation_nav: Documentation
   sidebar_home: Home
+  nav_flyout_esc_hint_before: "Press "
+  nav_flyout_esc_hint_after: " to close the menu"
+  nav_flyout_shortcut_hint: Press Arrow down to open the documentation menu without expanding the sidebar.
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -40,6 +43,9 @@ fr:
   clear_filter: Effacer le filtre
   documentation_nav: Documentation
   sidebar_home: Accueil
+  nav_flyout_esc_hint_before: "Appuyez sur "
+  nav_flyout_esc_hint_after: " pour fermer le menu"
+  nav_flyout_shortcut_hint: Appuyez sur la flèche vers le bas pour ouvrir le menu de documentation sans développer la barre latérale.
 ja:
   next: 次へ
   previous: 前へ
@@ -62,6 +68,9 @@ ja:
   clear_filter: フィルターをクリア
   documentation_nav: ドキュメント
   sidebar_home: ホーム
+  nav_flyout_esc_hint_before: "メニューを閉じるには "
+  nav_flyout_esc_hint_after: " を押してください"
+  nav_flyout_shortcut_hint: サイドバーを広げずにドキュメントメニューを開くには、下矢印キーを押します。
 ko:
   next: 다음
   previous: 이전
@@ -84,6 +93,9 @@ ko:
   clear_filter: 필터 지우기
   documentation_nav: 문서
   sidebar_home: 홈
+  nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
+  nav_flyout_esc_hint_after: " 키를 누르세요"
+  nav_flyout_shortcut_hint: 사이드바를 넓히지 않고 문서 메뉴를 열려면 아래쪽 화살표 키를 누르세요.
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -106,6 +118,9 @@ pt-br:
   clear_filter: Limpar filtro
   documentation_nav: Documentação
   sidebar_home: Início
+  nav_flyout_esc_hint_before: "Pressione "
+  nav_flyout_esc_hint_after: " para fechar o menu"
+  nav_flyout_shortcut_hint: Pressione a seta para baixo para abrir o menu de documentação sem expandir a barra lateral.
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -128,6 +143,9 @@ es:
   clear_filter: Borrar filtro
   documentation_nav: Documentación
   sidebar_home: Inicio
+  nav_flyout_esc_hint_before: "Pulse "
+  nav_flyout_esc_hint_after: " para cerrar el menú"
+  nav_flyout_shortcut_hint: Pulse la flecha hacia abajo para abrir el menú de documentación sin expandir la barra lateral.
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -150,3 +168,6 @@ de:
   clear_filter: Filter löschen
   documentation_nav: Dokumentation
   sidebar_home: Startseite
+  nav_flyout_esc_hint_before: "Drücken Sie "
+  nav_flyout_esc_hint_after: ", um das Menü zu schließen"
+  nav_flyout_shortcut_hint: Drücken Sie die Abwärtspfeiltaste, um das Dokumentationsmenü zu öffnen, ohne die Seitenleiste zu erweitern.
