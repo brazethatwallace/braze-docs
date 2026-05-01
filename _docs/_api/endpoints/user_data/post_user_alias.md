@@ -97,7 +97,7 @@ When an alias is skipped because the same `alias_label` and `alias_name` already
 
 ## Troubleshooting
 
-### Why are my attributes not updating after I create or update a user alias using this endpoint?
+### Why are my attributes not updating after I create a user alias using this endpoint?
 
 This usually happens when `/users/alias/new` is followed by a separate `/users/track` request that tries to update attributes by alias. The track request can be processed before Braze can consistently resolve the new `alias_label` and `alias_name` pair to a profile, so attributes do not land on the user you expect.
 
