@@ -74,4 +74,13 @@ Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HT
 
 ### Can I create a webhook inside a landing page?
 
-No, this isn't currently supported.
+### Can I create a webhook inside a landing page?
+
+No, but the **Submitted a Landing Page form** event can act as a trigger for Canvases or webhook campaigns:
+
+- **Canvas:** Use the **Submitted a Landing Page form** event as a Canvas entry trigger and add a webhook step.
+- **Campaign:** Use the **Submitted a Landing Page form** event to trigger based on form submission. 
+
+When the page isn't sent through a Braze channel (such as through a website or ad), a new user profile may be created on submission—even if that person already exists in Braze. To handle this, set up a Canvas triggered by **Submitted a Landing Page form** and add a Braze-to-Braze webhook step that calls the [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) endpoint to merge the new profile into the existing one.
+
+When you use the `landing_page_url` Liquid tag to share the page, form submissions are automatically tied to the existing user profile. You can then reference the user attributes submitted on the landing page through Liquid for subsequent templating. 
