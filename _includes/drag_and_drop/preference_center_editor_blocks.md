@@ -30,15 +30,6 @@ Adds vertical spacing between blocks.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
-### Custom code
-
-Inserts custom HTML, CSS, or JavaScript. If **Custom code** is not in your block list, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
-
-| Property | Description |
-| --- | --- |
-| Custom code | Add or edit HTML, CSS, or JavaScript. If you use Custom code, inline frames may not render in the custom code when the preference center is delivered to users. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
 ### Subscription groups (smart block)
 
 Adds a template block that lists subscription groups, optional **Subscribe to all** / **Unsubscribe from all** controls, and descriptions. Configure it after you add groups in the preference center workflow.

@@ -24,20 +24,7 @@ Adds a standard button with configurable styling, links, and analytics.
 
 Adds a list of options from which users can select one. When submitted, the user profile logs the associated [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), which must be a string to be saved. Custom attributes with other data types do not save to the user profile.
 
-| Property | Description |
-| --- | --- |
-| Custom attribute name | Selects which custom user attribute stores the user's selected option when the form is submitted. |
-| Total choices | The list of options; each option has a **Label text** (what users see) and an **Attribute value** (what is stored). You can add up to 15 choices, with a minimum of 2. |
-| Font family | Typeface for the radio group text. |
-| Font weight | Thickness (such as light, normal, or bold) of the text. |
-| Font size | Size of the text. |
-| Line height | Vertical spacing between lines of text. |
-| Text color | Color of the option label text. |
-| Letter spacing | Horizontal spacing between characters. |
-| Align | Horizontal alignment of the choices within the block. |
-| Accent color | Color used for the radio button controls (such as the selected state indicator). |
-| Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
 ### Image
 
@@ -94,77 +81,25 @@ Inserts a form field for email addresses. When submitted, the email address is a
 
 Inserts a form field that supports standard attributes (such as first and last name) or a custom attribute string of your choice.
 
-| Property | Description |
-| --- | --- |
-| Required input field | Marks whether the field must be filled before the form can be submitted. |
-| Maximum characters | Limits how many characters a user can type (string custom attributes cap at 255). |
-| Placeholder text | Text shown inside the input until the user types. |
-| Attribute | Stores the submitted value as **First name**, **Last name**, or a **Custom attribute** on the user profile. |
-| Custom attribute name | Selects which string custom attribute receives the submitted value (available when **Attribute** is set to **Custom attribute**). |
-| Font family | Typeface for the input text. |
-| Font weight | Thickness (such as light, normal, or bold) of the input text. |
-| Font size | Size of the input text. |
-| Line height | Vertical spacing between lines of text. |
-| Letter spacing | Horizontal spacing between characters. |
-| Color | Color of the text typed in the field. |
-| Text alignment | Horizontal alignment of the input text within the field. |
-| Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/short_text_properties.md %}
 
 ### Dropdown
 
 Inserts a dropdown with a predefined list of items from which users can select one. You can add any custom attribute strings to the list.
 
-| Property | Description |
-| --- | --- |
-| Required input field | Marks whether the user must select an option before the form can be submitted. |
-| Placeholder text | Text shown in the dropdown until a user selects an option. |
-| Custom attribute name | Selects which custom user attribute receives the selected value. |
-| Total options | The list of options; each option has an **Option label** (what users see) and an **Attribute value** (what is stored). |
-| Font family | Typeface for the dropdown text. |
-| Font weight | Thickness (such as light, normal, or bold) of the text. |
-| Font size | Size of the text. |
-| Line height | Vertical line spacing. |
-| Text color | Color of the dropdown text. |
-| Letter spacing | Horizontal spacing between characters. |
-| Align | Horizontal alignment of the dropdown (left or center). |
-| Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/dropdown_properties.md %}
 
 ### Checkbox
 
 Inserts a checkbox. If the user checks the box, the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) is set to `true`. If left unchecked, its attribute is set to `false`.
 
-| Property | Description |
-| --- | --- |
-| Required input field | Marks whether the checkbox must be checked before the form can be submitted. |
-| Custom attribute name | Selects which boolean custom attribute receives `true` when checked or `false` when unchecked. |
-| Accent color | Color used for the checkbox control styling. |
-| Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
 
 ### Checkbox group
 
 Users can select from multiple choices. Values are set or added to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types).
 
-| Property | Description |
-| --- | --- |
-| Required input field | Marks whether the user must select at least the minimum number of options before submitting. |
-| Minimum choices | Minimum number of options a user must select (when the field is required). |
-| Maximum choices | Maximum number of options a user can select. |
-| Custom attribute name | Selects which array custom attribute the selected values write to. |
-| Action | Sets whether submission **Sets items** (replaces the array) or **Adds items** (appends to the array). |
-| Total choices | The list of options; each option has a **Label text** (what users see) and an **Attribute value** (what is stored). |
-| Font family | Typeface for option labels. |
-| Font weight | Thickness (such as light, normal, or bold) of the option label text. |
-| Font size | Size of the option label text. |
-| Line height | Vertical spacing between lines of text. |
-| Text color | Color of the option label text. |
-| Letter spacing | Horizontal spacing between characters. |
-| Align | Horizontal alignment of the group (start or center). |
-| Accent color | Color of the checkbox controls. |
-| Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
 ### Long text
 
@@ -175,3 +110,7 @@ Multi-line text field for survey-style flows. If you don't see this block, conta
 ### Saved row
 
 Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+
+## Things to know
+
+- **Video:** The standard composer does not include a dedicated video block. Use **Custom code** to embed a player if needed. For more information, see [In-app messages: Frequently asked questions]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
