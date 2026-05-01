@@ -154,9 +154,9 @@ For instance `JP-01`, these are the relevant IP addresses:
 {% endsubtab %}
 {% subtab South Korea (KR) %}
 For instance `KR-01`, these are the relevant IP addresses:
-- 43.200.215.4
-- 52.79.67.175
-- 52.79.113.60
+- `43.200.215.4`
+- `52.79.67.175`
+- `52.79.113.60`
 
 {% endsubtab %}
 {% endsubtabs %}
