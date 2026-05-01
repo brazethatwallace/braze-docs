@@ -229,8 +229,8 @@ jobs:
 
       # Deterministic repairs (duplicate {#…} heading IDs, YAML title casing,
       # re-seeding locale YAML when the model drops the --- block while English
-      # has front matter, etc.) live in scripts/auto_translate.py — extend there
-      # rather than here.
+      # has front matter—including indented English --- openers, etc.) live in
+      # scripts/auto_translate.py — extend there rather than here.
       - name: Run translation QC checks
         id: qc
         run: python scripts/auto_translate.py qc
