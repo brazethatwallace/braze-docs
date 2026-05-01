@@ -40,9 +40,9 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 
 ### Gmail 계정 활성화 {#enabling-gmail-account}
 
-Gmail 설정으로 이동하여 **기본설정** 탭에서 **동적 이메일 사용**을 선택합니다.
+Gmail 설정으로 이동하여 **General** 탭에서 **Enable dynamic email**을 선택합니다.
 
-![Gmail 설정에서 '동적 이메일 사용' 체크박스가 선택된 예시.]({% image_buster /assets/img/dynamic-content.png %})
+![Gmail 설정에서 'Enable dynamic email' 체크박스가 선택된 예시.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## API 사용법 {#api-usage}
 

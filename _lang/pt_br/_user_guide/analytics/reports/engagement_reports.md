@@ -43,7 +43,7 @@ Adicione as Campaigns e mensagens de Canvas que você deseja compilar no seu rel
 - Selecionar manualmente Campaigns e Canvas
 - Selecionar automaticamente Campaigns e Canvas com base em regras específicas
 
-![Tela para escolher mensagens de campanha e Canvas no relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Tela para escolher mensagens de Campaign e Canvas no relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Selecionar manualmente Campaigns ou Canvas {#manually-select-campaigns-or-canvases}
 
@@ -63,6 +63,12 @@ A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canv
 
 ![Tela da etapa Add Stats com as estatísticas disponíveis para os canais selecionados]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nível do espaço de trabalho. Para monitorar o volume total de envios ou impressões em todas as Campaigns e Canvas ativos, como envios e impressões por canal em todo o espaço de trabalho, use o [Criador de relatórios]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Envios para operadora* está descontinuado, mas continuará sendo suportado para usuários que já o utilizam.
+{% endalert %}
+
 | Canal | Estatísticas disponíveis |
 | ------| --------------|
 | E-mail | Envios, Aberturas, Aberturas únicas, Cliques, Cliques únicos, Taxa de cliques por abertura, Cancelamentos de inscrição, Bounces, Entregas, Spam reportado |
@@ -72,10 +78,6 @@ A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canv
 | Webhook  |  Envios, Erros |
 | SMS | Envios, Envios para operadora, Entregas confirmadas, Falhas de entrega, Rejeições |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Envios para operadora* está descontinuado, mas continuará sendo suportado para usuários que já o utilizam.
-{% endalert %}
 
 ### Etapa 4: Concluir a configuração do relatório {#step-4-complete-report-setup}
 

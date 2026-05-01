@@ -111,7 +111,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 * `UPDATED_AT`: この行が更新されたか、テーブルに追加された時刻です。Braze は `UPDATED_AT` が最後に同期された値より後の行を同期します。同じタイムスタンプを持つ新しい行がある場合、境界タイムスタンプの行は再同期される可能性があります。
 * ユーザー識別子列として、`external_id` または `alias_name` と `alias_label` のいずれかを使用します。これらは、Canvasメッセージングをトリガーしたいユーザーを識別するものです。
   * `EXTERNAL_ID`: ユーザーを識別し、Canvasにエントリさせます。これは Braze で使用されている `external_id` 値と一致する必要があります。
-  * `ALIAS_NAME` と `ALIAS_LABEL`: これらの列はユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子であるべきであり、alias_label はエイリアスの種類を指定します。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つしか持てません。
+  * `ALIAS_NAME` と `ALIAS_LABEL`: これらの列はユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子であるべきであり、`alias_label` はエイリアスの種類を指定します。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つしか持てません。
 * `PROPERTIES`: Canvas内でパーソナライゼーションプロパティとして利用可能なフィールドの JSON 文字列です。ユーザー固有の情報を含める必要があります。
 
 {% alert note %}
@@ -240,7 +240,7 @@ Databricks で個人用アクセストークンを作成します。
 
 1. ユーザー名を選択し、次に **User Settings** を選択します。
 2. **Access tokens** タブで、**Generate new token** を選択します。
-3. トークンを識別するためのコメントを追加します（例：「Braze CDI」）。
+3. トークンを識別するためのコメントを追加します（例:「Braze CDI」）。
 4. 有効期限を無期限にするには **Lifetime (days)** を空白のままにし、**Generate** を選択します。
 5. トークンをコピーして安全に保存し、Braze ダッシュボードで使用します。
 
@@ -300,7 +300,7 @@ GO
 2. API トリガーによる配信スケジュールタイプを選択した後、Canvasの設定を続けてCanvasを構築します。Canvasは、単純な単一メッセージ送信から、複数のステップを含む複雑な顧客ワークフローまでさまざまです。
 3. キャンバスステップ内で、ソーステーブルから同期する予定のプロパティフィールドを使って、[Canvasエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)でメッセージをパーソナライズします。
   * 例えば、ステップ 1 でプロパティフィールドに `account_balance` を設定した場合、メッセージをパーソナライズするには以下の Liquid テンプレートを使用します: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`
-5. Canvasを構築したら、起動して[ステップ 3](#step-3-create-your-zero-copy-sync) に進みます。
+5. Canvasを構築したら、起動して[ステップ 3](#step-3-create-your-zero-copy-sync)に進みます。
 
 #### ステップ 3: ゼロコピー同期を作成する {#step-3-create-your-zero-copy-sync}
 
