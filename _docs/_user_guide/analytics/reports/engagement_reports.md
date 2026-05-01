@@ -102,6 +102,14 @@ By default, the data displayed in the engagement reports is daily (one day). To 
 
 ![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
+##### Show Data by Entire Campaign or Canvas
+
+When you select **Show Data by Entire Campaign or Canvas**, Braze aggregates metrics in 1,825-day (five year) chunks across the report's time range. 
+
+If the time range spans more than one chunk, you may see multiple rows for the same campaign or Canvas with different dates in the date column. Some rows may only include metrics recorded later in the range (for example, unsubscribes). Dates may also fall years before you started sending in the workspace, because they reflect chunk boundaries in the export, not only your first send. 
+
+To align the date column with when your selected campaigns and Canvases actually sent, set the report [start date in **Select time frame**](#select-time-frame) to the earliest date you want in the file—typically when those messages started sending—rather than leaving the default range that reaches back to the oldest selected message.
+
 #### Schedule your report
 
 There are two options when scheduling your report:
@@ -132,7 +140,7 @@ Make sure the dates in the engagement report match the dates in the Canvas or ca
 If totals look wrong in a spreadsheet, clear extra filters on the export. You can sum the daily rows to reconcile them with Canvas or campaign totals for the same time range.
 
 {% alert note %}
-If you want one aggregate row for the full range instead of daily, weekly, or other recurring buckets, set **Data Display** to **Show Data by Entire Campaign or Canvas**.
+If you want rows aggregated by entire campaign or Canvas instead of daily, weekly, or other recurring buckets, set **Data Display** to **Show Data by Entire Campaign or Canvas**. If row counts or dates look wrong in the CSV, see [Show Data by Entire Campaign or Canvas](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Duplicate button clicks in HTML in-app messages
