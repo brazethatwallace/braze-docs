@@ -95,6 +95,30 @@ When an alias is skipped because the same `alias_label` and `alias_name` already
 }
 ```
 
+## Troubleshooting
+
+### Why are my attributes not updating after I create or update a user alias using this endpoint?
+
+This usually happens when `/users/alias/new` is followed by a separate `/users/track` request that tries to update attributes by alias. The track request can be processed before Braze can consistently resolve the new `alias_label` and `alias_name` pair to a profile, so attributes do not land on the user you expect.
+
+**Recommended approach:** Use a single [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) call. In the `attributes` array, put `user_alias` and your profile fields in the same [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) so Braze resolves the user and applies the update in one step.
+
+Set `_update_existing_only` to `false` when you may need to create an alias-only profile from that object. If you omit it while using `user_alias`, Braze defaults to update-only behavior and does not create the alias-only profile. If the alias already exists on a user in your workspace, the same request updates that profile with your new attributes.
+
+If you already added the alias to a user with an `external_id`, you can instead target that profile with `external_id` in the `/users/track` endpoint, such as in the following example body:
+```json
+{
+  "attributes": [
+    {
+      "user_alias": {
+        "alias_name": "example@example.com",
+        "alias_label": "email"
+      },
+      "_update_existing_only": false,
+      "string_attribute": "test_alias_only_update"
+    }
+  ]
+}
+```
 
 {% endapi %}
-
