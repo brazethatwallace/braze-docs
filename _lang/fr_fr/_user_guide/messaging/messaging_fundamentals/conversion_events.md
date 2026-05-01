@@ -17,6 +17,21 @@ tool:
 
 Pour une campagne personnalisée de fêtes ciblant les utilisateurs actifs, un événement de conversion **Démarrer une session** dans un délai de deux à trois jours peut être approprié, car il vous permet d'évaluer l'engagement des utilisateurs suite à la réception de votre message. Vous pouvez également sélectionner des événements supplémentaires comme **Passer une commande**, **Mettre à jour l'application**, ou n'importe lequel de vos événements personnalisés comme événements de conversion.
 
+### Quand le suivi des conversions commence-t-il ? {#when-does-conversion-tracking-begin}
+
+{% tabs %}
+{% tab Campaign %}
+
+Le suivi des conversions commence lorsqu'un utilisateur reçoit la campagne ou entre dans le groupe de contrôle de la campagne. La réception d'un message et l'affectation à une variante se produisent généralement en même temps. Pour les campagnes de messages in-app, le suivi des conversions commence lorsque Braze enregistre une impression.
+
+{% endtab %}
+{% tab Canvas %}
+
+Le suivi des conversions commence lorsqu'un utilisateur entre dans le Canvas. Pour les étapes du Canvas, les conversions sont attribuées tant que l'utilisateur est actif dans cette étape. Lorsque l'utilisateur passe à une autre étape, le suivi des conversions s'arrête pour l'étape précédente et commence pour l'étape suivante.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 Pour en savoir plus sur les conversions, consultez notre [cours Braze Learning](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) sur la configuration des campagnes.
 {% endalert %}

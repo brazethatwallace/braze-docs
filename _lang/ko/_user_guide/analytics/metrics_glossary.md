@@ -18,7 +18,7 @@ tool: Reports
 
 {% api %}
 
-### AMP 클릭 수 {#amp-clicks}
+## AMP 클릭 수 {#amp-clicks}
 
 {% apitags %}
 Email
@@ -30,7 +30,7 @@ Email
 
 {% api %}
 
-### AMP 열람 수 {#amp-opens}
+## AMP 열람 수 {#amp-opens}
 
 {% apitags %}
 Email
@@ -42,7 +42,7 @@ Email
 
 {% api %}
 
-### 오디언스 {#audience}
+## 오디언스 {#audience}
 
 {% apitags %}
 All
@@ -56,7 +56,7 @@ All
 
 {% api %}
 
-### 반송 {#bounces}
+## 반송 {#bounces}
 
 {% apitags %}
 Email, Web Push, iOS Push
@@ -84,7 +84,7 @@ Email, Web Push, iOS Push
 
 {% api %}
 
-### 본문 클릭 {#body-click}
+## 본문 클릭 {#body-click}
 
 {% apitags %}
 iOS Push, Android Push
@@ -98,7 +98,7 @@ iOS Push, Android Push
 
 {% api %}
 
-### 본문 클릭 수 {#body-clicks}
+## 본문 클릭 수 {#body-clicks}
 
 {% apitags %}
 In-App Message
@@ -112,7 +112,7 @@ In-App Message
 
 {% api %}
 
-### 버튼 1 클릭 수 {#button-1-clicks}
+## 버튼 1 클릭 수 {#button-1-clicks}
 
 {% apitags %}
 In-App Message
@@ -126,7 +126,7 @@ In-App Message
 
 {% api %}
 
-### 버튼 2 클릭 수 {#button-2-clicks}
+## 버튼 2 클릭 수 {#button-2-clicks}
 
 {% apitags %}
 In-App Message
@@ -140,7 +140,7 @@ In-App Message
 
 {% api %}
 
-### Campaign 분석 {#campaign-analytics}
+## Campaign 분석 {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
@@ -152,7 +152,7 @@ Feature Flags
 
 {% api %}
 
-### 제출된 선택 항목 {#choices-submitted}
+## 제출된 선택 항목 {#choices-submitted}
 
 {% apitags %}
 In-App Message
@@ -164,7 +164,7 @@ In-App Message
 
 {% api %}
 
-### 클릭 대비 열람률 {#click-to-open-rate}
+## 클릭 대비 열람률 {#click-to-open-rate}
 
 {% apitags %}
 Email
@@ -178,7 +178,7 @@ Email
 
 {% api %}
 
-### RCS 확인된 전달 또는 SMS 확인된 전달 {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
+## RCS 확인된 전달 또는 SMS 확인된 전달 {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -200,7 +200,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 신뢰도 {#confidence}
+## 신뢰도 {#confidence}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -212,7 +212,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 확인 페이지 버튼 {#confirmation-page-button}
+## 확인 페이지 버튼 {#confirmation-page-button}
 
 {% apitags %}
 In-App Message
@@ -224,7 +224,7 @@ In-App Message
 
 {% api %}
 
-### 확인 페이지 닫기 {#confirmation-page-dismissals}
+## 확인 페이지 닫기 {#confirmation-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -236,7 +236,7 @@ In-App Message
 
 {% api %}
 
-### 전환 (B, C, D) {#conversions-b-c-d}
+## 전환 (B, C, D) {#conversions-b-c-d}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -255,7 +255,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 총 전환 수 {#total-conversions}
+## 총 전환 수 {#total-conversions}
 
 {% apitags %}
 In-App Message
@@ -271,7 +271,7 @@ In-App Message
 
 {% api %}
 
-### 메시지 닫기 {#close-message}
+## 메시지 닫기 {#close-message}
 
 {% apitags %}
 In-App Message
@@ -283,7 +283,7 @@ In-App Message
 
 {% api %}
 
-### 전환율 {#conversion-rate}
+## 전환율 {#conversion-rate}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -310,7 +310,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 전환 기간 {#conversion-window}
+## 전환 기간 {#conversion-window}
 
 {% apitags %}
 All
@@ -322,7 +322,7 @@ All
 
 {% api %}
 
-### 전달 {#deliveries}
+## 전달 {#deliveries}
 
 {% apitags %}
 Email, Web Push, iOS Push, Android Push, WhatsApp
@@ -349,7 +349,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 
 {% api %}
 
-### RCS 전달 실패 또는 SMS 전달 실패 {#rcs-delivery-failures-or-sms-delivery-failures}
+## RCS 전달 실패 또는 SMS 전달 실패 {#rcs-delivery-failures-or-sms-delivery-failures}
 
 {% apitags %}
 SMS/MMS
@@ -365,7 +365,7 @@ SMS/MMS
 
 {% api %}
 
-### 전달 실패 {#delivery-failures}
+## 전달 실패 {#delivery-failures}
 
 {% apitags %}
 RCS
@@ -381,7 +381,7 @@ RCS
 
 {% api %}
 
-### 전달 실패율 {#failed-delivery-rate}
+## 전달 실패율 {#failed-delivery-rate}
 
 {% apitags %}
 SMS/MMS
@@ -397,7 +397,7 @@ SMS/MMS
 
 {% api %}
 
-### 직접 열람 수 {#direct-opens}
+## 직접 열람 수 {#direct-opens}
 
 {% apitags %}
 iOS Push
@@ -411,7 +411,7 @@ iOS Push
 
 {% api %}
 
-### 이메일 수신 가능 {#emailable}
+## 이메일 수신 가능 {#emailable}
 
 {% apitags %}
 Email
@@ -425,7 +425,7 @@ Email
 
 {% api %}
 
-### 오류 수 {#errors}
+## 오류 수 {#errors}
 
 {% apitags %}
 Webhook
@@ -437,7 +437,7 @@ Webhook
 
 {% api %}
 
-### 추정 실제 열람 수 {#estimated-real-opens}
+## 추정 실제 열람 수 {#estimated-real-opens}
 
 {% apitags %}
 Email
@@ -449,7 +449,7 @@ Email
 
 {% api %}
 
-### 실패 {#failures}
+## 실패 {#failures}
 
 {% apitags %}
 WhatsApp
@@ -463,7 +463,7 @@ WhatsApp
 
 {% api %}
 
-### 피처 플래그 실험 성과 {#feature-flag-experiment-performance}
+## 피처 플래그 실험 성과 {#feature-flag-experiment-performance}
 
 {% apitags %}
 Feature Flags
@@ -475,7 +475,7 @@ Feature Flags
 
 {% api %}
 
-### 하드바운스 {#hard-bounce}
+## 하드바운스 {#hard-bounce}
 
 {% apitags %}
 Email
@@ -489,7 +489,7 @@ Email
 
 {% api %}
 
-### 도움말 {#help}
+## 도움말 {#help}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -501,7 +501,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 영향받은 열람 수 {#influenced-opens}
+## 영향받은 열람 수 {#influenced-opens}
 
 {% apitags %}
 iOS Push, Android Push
@@ -515,7 +515,7 @@ iOS Push, Android Push
 
 {% api %}
 
-### 생애주기 매출 {#lifetime-revenue}
+## 생애주기 매출 {#lifetime-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -527,7 +527,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 사용자당 생애주기 가치 {#lifetime-value-per-user}
+## 사용자당 생애주기 가치 {#lifetime-value-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -539,7 +539,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 일평균 매출 {#average-daily-revenue}
+## 일평균 매출 {#average-daily-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -551,7 +551,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 일일 구매 수 {#daily-purchases}
+## 일일 구매 수 {#daily-purchases}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -563,7 +563,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 사용자당 일일 매출 {#daily-revenue-per-user}
+## 사용자당 일일 매출 {#daily-revenue-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -575,7 +575,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 머신 열람 수 {#machine-opens}
+## 머신 열람 수 {#machine-opens}
 
 {% apitags %}
 Email
@@ -587,7 +587,7 @@ Email
 
 {% api %}
 
-### 열람 수 {#opens}
+## 열람 수 {#opens}
 
 {% apitags %}
 Web Push, iOS Push, Android Push
@@ -599,7 +599,7 @@ Web Push, iOS Push, Android Push
 
 {% api %}
 
-### 수신 거부 {#opt-out}
+## 수신 거부 {#opt-out}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -611,7 +611,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 기타 열람 수 {#other-opens}
+## 기타 열람 수 {#other-opens}
 
 {% apitags %}
 Email
@@ -623,7 +623,7 @@ Email
 
 {% api %}
 
-### 재시도 대기 중 {#pending-retry}
+## 재시도 대기 중 {#pending-retry}
 
 {% apitags %}
 Email
@@ -635,7 +635,7 @@ Email
 
 {% api %}
 
-### 주요 전환 (A) 또는 주요 전환 이벤트 {#primary-conversions-a-or-primary-conversion-event}
+## 주요 전환 (A) 또는 주요 전환 이벤트 {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -663,7 +663,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 읽음 {#reads}
+## 읽음 {#reads}
 
 {% apitags %}
 WhatsApp
@@ -675,7 +675,7 @@ WhatsApp
 
 {% api %}
 
-### 읽음률 {#read-rate}
+## 읽음률 {#read-rate}
 
 {% apitags %}
 WhatsApp
@@ -689,7 +689,7 @@ WhatsApp
 
 {% api %}
 
-### 수신 {#received}
+## 수신 {#received}
 
 {% apitags %}
 Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS, WhatsApp
@@ -711,7 +711,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 
 {% api %}
 
-### RCS 거부 또는 SMS 거부 {#rcs-rejections-or-sms-rejections}
+## RCS 거부 또는 SMS 거부 {#rcs-rejections-or-sms-rejections}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -733,7 +733,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 매출 {#revenue}
+## 매출 {#revenue}
 
 {% apitags %}
 Email
@@ -745,7 +745,7 @@ Email
 
 {% api %}
 
-### 발송됨 {#sent}
+## 발송됨 {#sent}
 
 {% apitags %}
 SMS/MMS
@@ -759,7 +759,7 @@ SMS/MMS
 
 {% api %}
 
-### 발송 {#sends}
+## 발송 {#sends}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
@@ -780,7 +780,7 @@ Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/us
 
 {% api %}
 
-### 발송된 메시지 {#messages-sent}
+## 발송된 메시지 {#messages-sent}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
@@ -801,7 +801,7 @@ Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/us
 
 {% api %}
 
-### 통신사 전송 {#sends-to-carrier}
+## 통신사 전송 {#sends-to-carrier}
 
 {% apitags %}
 SMS/MMS
@@ -823,7 +823,7 @@ SMS/MMS
 
 {% api %}
 
-### 소프트바운스 {#soft-bounce}
+## 소프트바운스 {#soft-bounce}
 
 {% apitags %}
 Email
@@ -839,7 +839,7 @@ _소프트바운스_는 _지연_과 다릅니다. 이 재시도 기간 동안 �
 
 {% api %}
 
-### 스팸 {#spam}
+## 스팸 {#spam}
 
 {% apitags %}
 Email
@@ -865,7 +865,7 @@ Email
 
 {% api %}
 
-### 설문조사 페이지 닫기 {#survey-page-dismissals}
+## 설문조사 페이지 닫기 {#survey-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -877,7 +877,7 @@ In-App Message
 
 {% api %}
 
-### 설문조사 제출 {#survey-submissions}
+## 설문조사 제출 {#survey-submissions}
 
 {% apitags %}
 In-App Message
@@ -889,7 +889,7 @@ In-App Message
 
 {% api %}
 
-### 총 클릭 수 {#total-clicks}
+## 총 클릭 수 {#total-clicks}
 
 {% apitags %}
 Email, Content Cards, SMS/MMS, LINE
@@ -918,7 +918,7 @@ Email, Content Cards, SMS/MMS, LINE
 
 {% api %}
 
-### 총 닫기 수 {#total-dismissals}
+## 총 닫기 수 {#total-dismissals}
 
 {% apitags %}
 Content Cards
@@ -940,7 +940,7 @@ Content Cards
 
 {% api %}
 
-### 총 노출 횟수 {#total-impressions}
+## 총 노출 횟수 {#total-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -960,7 +960,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-### 총 열람 수 {#total-opens}
+## 총 열람 수 {#total-opens}
 
 {% apitags %}
 Email, iOS Push, Android Push, Web Push, LINE
@@ -992,7 +992,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 
 {% api %}
 
-### 총 매출 {#total-revenue}
+## 총 매출 {#total-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -1004,7 +1004,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 고유 클릭 수 {#unique-clicks}
+## 고유 클릭 수 {#unique-clicks}
 
 {% apitags %}
 Email, Content Cards, LINE
@@ -1035,7 +1035,7 @@ Email, Content Cards, LINE
 
 {% api %}
 
-### 고유 닫기 수 {#unique-dismissals}
+## 고유 닫기 수 {#unique-dismissals}
 
 {% apitags %}
 Content Cards
@@ -1049,7 +1049,7 @@ Content Cards
 
 {% api %}
 
-### 고유 노출 횟수 {#unique-impressions}
+## 고유 노출 횟수 {#unique-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -1069,7 +1069,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-### 고유 열람 수 {#unique-opens}
+## 고유 열람 수 {#unique-opens}
 
 {% apitags %}
 Email, LINE
@@ -1097,7 +1097,7 @@ Email, LINE
 
 {% api %}
 
-### 고유 수신자 수 {#unique-recipients}
+## 고유 수신자 수 {#unique-recipients}
 
 {% apitags %}
 All
@@ -1113,7 +1113,7 @@ All
 
 {% api %}
 
-### 구독 취소자 또는 구독 취소 {#unsubscribers-or-unsub}
+## 구독 취소자 또는 구독 취소 {#unsubscribers-or-unsub}
 
 {% apitags %}
 Email
@@ -1135,7 +1135,7 @@ Email
 
 {% api %}
 
-### 구독 취소 수 {#unsubscribes}
+## 구독 취소 수 {#unsubscribes}
 
 {% apitags %}
 Email
@@ -1149,7 +1149,7 @@ Email
 
 {% api %}
 
-### 배리언트 {#variation}
+## 배리언트 {#variation}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp

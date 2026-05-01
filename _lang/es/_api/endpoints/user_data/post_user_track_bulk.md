@@ -43,6 +43,8 @@ Si estás realizando llamadas de servidor a servidor detrás de un firewall, es 
 
 ## Límite de velocidad {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 Para la mayoría de los clientes, este punto de conexión tiene un límite de velocidad base de 50 solicitudes por segundo.
 
 Los clientes con contratos más recientes pueden tener en su lugar límites de ráfaga (por segundo) y estables (por hora) basados en los usuarios activos al mes contratados.
@@ -72,7 +74,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada objeto de solicitud, debes incluir uno de los siguientes: `external_id`, `user_alias`, `braze_id`, `email` o `phone`.
 {% endalert %}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
 | `attributes` | Opcional | Array de objetos de atributos | Consulta [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
 | `events` | Opcional | Array de objetos de eventos | Consulta [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |

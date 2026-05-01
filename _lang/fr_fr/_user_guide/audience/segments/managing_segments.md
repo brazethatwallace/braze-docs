@@ -42,7 +42,7 @@ Voici les colonnes d'informations que vous pouvez sélectionner pour les affiche
 - **Teams :** Équipes associées au segment
 - **Estimated size :** Nombre estimé d'utilisateurs dans le segment
 - **Canvases :** Nombre de Canvas qui utilisent le segment
-- **Campaigns :** Nombre de campagnes qui utilisent le segment
+- **Campaigns :** Nombre de Campaigns qui utilisent le segment
 
 ### Afficher uniquement les favoris {#show-starred-only}
 
@@ -50,7 +50,7 @@ Sélectionner **Show Starred Only** restreint votre vue aux segments que vous av
 
 ## Consulter l'utilisation d'un segment dans l'envoi de messages {#messaging-use}
 
-Accédez à la section **Messaging Use** d'un segment pour obtenir un aperçu des endroits où le segment est utilisé, par exemple dans d'autres segments, campagnes et Canvas.
+Accédez à la section **Messaging Use** d'un segment pour obtenir un aperçu des endroits où le segment est utilisé, par exemple dans d'autres segments, Campaigns et Canvas.
 
 {% alert note %}
 Pour éviter les boucles de segments se référençant mutuellement, les segments qui utilisent le filtre **Segment Membership** ne peuvent pas être référencés par d'autres segments. Pour plus de détails, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
@@ -63,10 +63,14 @@ Pour éviter les boucles de segments se référençant mutuellement, les segment
 Pour gérer un segment spécifique, survolez-le et sélectionnez l'icône de menu à la fin de la ligne pour afficher les options suivantes :
 - **Edit :** Modifier les filtres de votre segment.
 - **Duplicate :** Créer une copie de votre segment.
-- **Archive :** Archiver le segment. Notez que cela archivera également toutes les campagnes ou Canvas qui utilisent ce segment.
+- **Archive :** Archiver le segment. Notez que cela archivera également toutes les Campaigns ou Canvas qui utilisent ce segment.
 - **Add to starred :** Marquer le segment comme favori, ce qui vous permet d'y accéder rapidement en cochant la case « Show starred only » dans la section des segments.
 
 Vous pouvez également effectuer des actions groupées, notamment l'archivage groupé et l'étiquetage groupé, en cochant les cases à côté de plusieurs noms de segments.
+
+{% alert tip %}
+Si vous avez besoin d'un export lisible par une machine des segments existants dans l'espace de travail (et pas seulement la vue actuelle du tableau), utilisez l'[endpoint Exporter la liste des segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) et paginez les résultats. Pour auditer les segments archivés, consultez-les séparément dans le tableau de bord **Segments** en utilisant le filtre par état.
+{% endalert %}
 
 ![Plusieurs segments sélectionnés avec « CRM » sélectionné dans le champ déroulant « Tag As ».]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
@@ -84,6 +88,6 @@ Tous les termes et chaînes de caractères saisis dans ce champ seront recherch�
 
 ### Segments dans les Canvas {#segments-in-canvases}
 
-Pour rechercher toutes les références de segments, y compris celles dans d'autres segments, campagnes ou Canvas, accédez à la section [Utilisation dans l'envoi de messages](#messaging-use) d'un segment. Le filtre **Target segment** sur la page **Canvas** recherche uniquement les segments d'audience Canvas.
+Pour rechercher toutes les références de segments, y compris celles dans d'autres segments, Campaigns ou Canvas, accédez à la section [Utilisation dans l'envoi de messages](#messaging-use) d'un segment. Le filtre **Target segment** sur la page **Canvas** recherche uniquement les segments d'audience Canvas.
 
 ![Filtre Target segment sur la page Canvas.]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}

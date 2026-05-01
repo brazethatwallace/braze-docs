@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# Push-Action-Buttons
+# Push-Action-Buttons {#push-action-buttons}
 
 > Mit Push-Action-Buttons können Sie Inhalte und Aktionen für Buttons festlegen, wenn Sie Push-Benachrichtigungen von Braze für iOS und Android verwenden. Mit Aktions-Buttons können Ihre Nutzer:innen direkt über eine Benachrichtigung mit Ihrer App interagieren, ohne in ein App-Erlebnis klicken zu müssen.
 
@@ -41,6 +41,8 @@ Um Aktions-Buttons in Ihren iOS-Push-Nachrichten zu verwenden, gehen Sie wie fol
 {% alert note %}
 Aufgrund der Art und Weise, wie iOS Buttons handhabt, müssen Sie beim Einrichten von Push-Action-Buttons zusätzliche Integrationsschritte durchführen, die in unserer [Entwickler:innen-Dokumentation]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories) beschrieben sind. Insbesondere müssen Sie entweder iOS-Kategorien konfigurieren oder aus bestimmten Standard-Button-Optionen auswählen. Bei Android-Integrationen funktionieren diese Buttons automatisch.
 {% endalert %}
+
+Voreingestellte Paare wie **Yes** / **No** ordnen dem zweiten Button standardmäßig eine abweisende (**CLOSE**) Aktion zu, sodass er die App nicht auf die gleiche Weise öffnet wie der erste Button. **_Direkte Öffnungen_** umfassen diese Art von Tippen nicht, aber **Push Notification Open**-Daten in Currents oder Snowflake können es dennoch mit `button_action_type` und `button_string` protokollieren. Weitere Informationen finden Sie unter [Push-Action-Buttons und Berichterstattung]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}

@@ -76,13 +76,16 @@ def _load_assignees_mapping(path: Path) -> list[tuple[str, str]]:
             raw_u = (row.get(user_key) or "").strip()
             if not raw_p or not raw_u or raw_p.startswith("#"):
                 continue
-            if not _GH_LOGIN_RE.match(raw_u):
-                print(
-                    f"assignees map: skipping invalid GitHub Username {raw_u!r} for path {raw_p!r}",
-                    file=sys.stderr,
-                )
-                continue
-            rows.append((raw_p, raw_u))
+            # Allow multiple assignees per path (comma-separated in the spreadsheet cell).
+            login_parts = [p.strip() for p in raw_u.split(",") if p.strip()]
+            for part in login_parts:
+                if not _GH_LOGIN_RE.match(part):
+                    print(
+                        f"assignees map: skipping invalid GitHub Username {part!r} for path {raw_p!r}",
+                        file=sys.stderr,
+                    )
+                    continue
+                rows.append((raw_p, part))
     rows.sort(key=lambda t: len(t[0]), reverse=True)
     return rows
 
@@ -93,19 +96,29 @@ def _assignees_for_doc_paths(
     root: Path,
     mapping: list[tuple[str, str]],
 ) -> list[str]:
-    """GitHub logins for paths (stable order, unique). Longest registered path prefix wins."""
+    """GitHub logins for paths (stable order, unique).
+
+    Longest matching path prefix wins. Multiple CSV rows (or comma-separated
+    logins expanded at load) for the same winning prefix all contribute assignees.
+    """
     if not mapping:
         return []
     ordered: dict[str, None] = {}
     root = root.resolve()
     for path in paths:
         rel = path.resolve().relative_to(root).as_posix()
-        login = None
+        best_len = -1
+        matched: list[str] = []
         for prefix, user in mapping:
-            if rel == prefix or rel.startswith(prefix + "/"):
-                login = user
-                break
-        if login:
+            if not (rel == prefix or rel.startswith(prefix + "/")):
+                continue
+            plen = len(prefix)
+            if plen > best_len:
+                best_len = plen
+                matched = [user]
+            elif plen == best_len:
+                matched.append(user)
+        for login in matched:
             ordered.setdefault(login, None)
     return list(ordered.keys())
 

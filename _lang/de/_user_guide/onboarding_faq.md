@@ -79,11 +79,11 @@ Es gibt drei Optionen für den Push-Abo-Status: abonniert, eingewilligt und abge
 
 Standardmäßig muss der Push-Abo-Status Ihrer Nutzer:innen entweder „abonniert“ oder „eingewilligt“ sein und Push muss aktiviert sein, damit sie Ihre Nachrichten per Push erhalten können. Sie können diese Einstellung bei Bedarf beim Verfassen einer Nachricht überschreiben.
 
-|Einwilligungsstatus|Beschreibung|
+| Einwilligungsstatus | Beschreibung |
 |---|---|
-|Abonniert| Standard-Push-Abo-Status, wenn ein Nutzerprofil in Braze erstellt wird. |
-|Eingewilligt| Eine Person hat ausdrücklich den Wunsch geäußert, Push-Benachrichtigungen zu erhalten. Braze ändert den Einwilligungsstatus automatisch auf `Opted-In`, wenn eine Person eine Push-Aufforderung auf Betriebssystemebene akzeptiert.<br><br>Dies gilt nicht für Nutzer:innen mit Android 12 oder darunter.|
-|Abgemeldet| Eine Person hat sich über Ihre Anwendung oder andere von Ihrer Marke angebotene Methoden explizit von Push abgemeldet. Standardmäßig richten sich Push-Campaigns von Braze nur an Nutzer:innen, die `Subscribed` oder `Opted-in` für Push sind.|
+| Abonniert | Standard-Push-Abo-Status, wenn ein Nutzerprofil in Braze erstellt wird. |
+| Eingewilligt | Eine Person hat ausdrücklich den Wunsch geäußert, Push-Benachrichtigungen zu erhalten. Braze ändert den Einwilligungsstatus automatisch auf `Opted-In`, wenn eine Person eine Push-Aufforderung auf Betriebssystemebene akzeptiert.<br><br>Dies gilt nicht für Nutzer:innen mit Android 12 oder darunter. |
+| Abgemeldet | Eine Person hat sich über Ihre Anwendung oder andere von Ihrer Marke angebotene Methoden explizit von Push abgemeldet. Standardmäßig richten sich Push-Campaigns von Braze nur an Nutzer:innen, die `Subscribed` oder `Opted-in` für Push sind. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}
@@ -145,7 +145,7 @@ Das Braze SDK bietet Ihnen ein leistungsstarkes Arsenal an Filtern, mit denen Si
 {% endapi %}
 {% api %}
 
-### Wie richte ich Standort-Targeting ein, damit ich Nutzer:innen nach ihrem letzten Standort segmentieren und in meinen standortbezogenen Campaigns und Strategien verwenden kann? {#how-do-i-set-up-location-targeting-so-that-i-can-segment-users-by-their-most-recent-location-and-use-it-in-my-location-based-campaigns-and-strategies}
+### Wie richte ich Standort-Targeting ein, damit ich Nutzer:innen nach ihrem letzten Standort segmentieren und in meinen standortbezogenen Kampagnen und Strategien verwenden kann? {#how-do-i-set-up-location-targeting-so-that-i-can-segment-users-by-their-most-recent-location-and-use-it-in-my-location-based-campaigns-and-strategies}
 
 {% apitags %}
 Segments
@@ -370,17 +370,19 @@ Stellen Sie sicher, dass Sie die Campaign-Zeitpläne so anpassen, dass der Versa
 Campaigns
 {% endapitags %}
 
-Für die Zustellung in der lokalen Zeitzone bewertet Braze Nutzer:innen in diesen beiden Fällen auf ihre Zugangsberechtigung:
+Braze bewertet Nutzer:innen auf ihre Zugangsberechtigung zu folgenden Zeitpunkten:
 
 - Zur Samoa-Zeit (UTC+13) des geplanten Tages
-- Zur Ortszeit des geplanten Tages
+- Zur Ortszeit der Person am geplanten Tag
 
 Damit eine Person für den Eintritt berechtigt ist, muss sie beide Prüfungen bestehen. Wenn ein Canvas beispielsweise am 7. August 2021 um 14 Uhr Ortszeit gestartet werden soll, würde das Targeting einer Person in New York die folgenden Berechtigungsprüfungen erfordern:
 
 - New York am 6. August 2021 um 21 Uhr
 - New York am 7. August 2021 um 14 Uhr
 
-Die Person muss 24 Stunden vor dem Start im Segment sein. Wenn die Person bei der ersten Prüfung nicht berechtigt ist, wird Braze die zweite Prüfung nicht durchführen.
+Um einzutreten, muss eine Person Ihre Zielgruppe und Filter zu beiden Bewertungszeitpunkten erfüllen. Wenn die Person bei der ersten Prüfung nicht berechtigt ist, führt Braze die zweite Prüfung nicht durch. Es gibt keine Mindestdauer, die eine Person vor dem Start im Segment gewesen sein muss – es zählt nur die Berechtigung bei jeder Prüfung.
+
+Dieses Bewertungsverhalten ist unabhängig davon, [wie weit im Voraus Sie die Campaign im Dashboard planen]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). Die vollständige Erklärung, Beispiele und Planungshinweise finden Sie unter [Wann bewertet Braze Nutzer:innen für die Zustellung in der lokalen Zeitzone?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) und [Wie plane ich eine Campaign für die lokale Zeitzone?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) in den Campaign-FAQ.
 
 {% endapi %}
 {% api %}
@@ -391,7 +393,7 @@ Die Person muss 24 Stunden vor dem Start im Segment sein. Wenn die Person bei de
 Campaigns
 {% endapitags %}
 
-Die Anzahl der Nutzer:innen, die eine Campaign betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem [Trigger „Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie zunächst nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die eine Campaign betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem [Trigger „Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie zunächst nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% endapi %}
 {% api %}
@@ -515,7 +517,7 @@ Der Segmenter liefert genauere Statistiken für eindeutige Nutzerdaten als Canva
 Canvases
 {% endapitags %}
 
-Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem Trigger [„Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem Trigger [„Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% endapi %}
 {% api %}
@@ -569,7 +571,7 @@ So planen Sie einen wiederkehrenden Engagement-Bericht:
 
 1. Navigieren Sie in Ihrem Dashboard-Konto unter **Daten** zu **Engagement-Berichte**.
 2. Klicken Sie auf **+ Neuen Bericht erstellen**.
-3. Fügen Sie die [Campaigns und Canvas-Nachrichten]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (einzeln oder [nach Tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) hinzu, die Sie in Ihrem Bericht zusammenstellen möchten.
+3. Fügen Sie die [Campaigns und Canvas-Nachrichten]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (einzeln oder [nach Tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) hinzu, die Sie in Ihrem Bericht zusammenstellen möchten.
 4. [Fügen Sie Statistiken]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) zu Ihrem Bericht hinzu.
 5. Wählen Sie die Komprimierung und das Trennzeichen für Ihren Bericht.
 6. Geben Sie die E-Mail-Adressen der Unternehmensnutzer:innen ein, die diesen Bericht erhalten sollen.

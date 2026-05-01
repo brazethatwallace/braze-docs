@@ -17,6 +17,21 @@ tool:
 
 Para uma Campaign personalizada de feriado direcionada a usuários ativos, um evento de conversão de **Iniciar uma sessão** dentro de dois ou três dias pode ser apropriado, pois permite que você tenha uma noção do engajamento do usuário ao receber sua mensagem. Você também pode selecionar eventos adicionais como **Realiza pedido**, **Faz upgrade do app** ou qualquer um dos seus eventos personalizados como eventos de conversão.
 
+### Quando o rastreamento de conversão começa? {#when-does-conversion-tracking-begin}
+
+{% tabs %}
+{% tab Campaign %}
+
+O rastreamento de conversão começa quando um usuário recebe a Campaign ou entra no grupo de controle da Campaign. Receber uma mensagem e ser atribuído a uma variante geralmente acontecem ao mesmo tempo. Para Campaigns de mensagem no app, o rastreamento de conversão começa quando a Braze registra uma impressão.
+
+{% endtab %}
+{% tab Canvas %}
+
+O rastreamento de conversão começa quando um usuário entra no Canvas. Para etapas do Canvas, as conversões são atribuídas enquanto o usuário está ativo naquela etapa. Quando o usuário avança para outra etapa, o rastreamento de conversão para a etapa anterior é interrompido e começa para a próxima etapa.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 Para saber mais sobre conversões, confira nosso [curso do Braze Learning](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) sobre configuração de Campaigns.
 {% endalert %}

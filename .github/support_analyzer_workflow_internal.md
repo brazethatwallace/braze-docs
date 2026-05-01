@@ -42,6 +42,7 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 **Keeping the ownership map current**
 
 - **`.github/support_analyzer_doc_assignees.csv`** should stay aligned with the team’s **Docs – Page Paths / ownership** spreadsheet (re-export CSV and replace the file in a PR).
+- **Two assignees for one path:** put **comma-separated GitHub logins** in the **GitHub Username** cell (quoted in CSV if needed), for example `"lydia-xie,zairro"`. Multiple spreadsheet rows for the same path also combine when they share the longest matching prefix length.
 
 ---
 

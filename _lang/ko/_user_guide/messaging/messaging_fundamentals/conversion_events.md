@@ -17,6 +17,21 @@ tool:
 
 활성 사용자를 타겟팅하는 개인화된 휴일 Campaign의 경우, 2~3일 이내의 **세션 시작** 전환 이벤트가 적절할 수 있습니다. 이를 통해 메시지 수신 후 사용자 참여도를 파악할 수 있기 때문입니다. **주문하기**, **앱 업그레이드** 또는 커스텀 이벤트 중 하나를 전환 이벤트로 선택할 수도 있습니다.
 
+### 전환 추적은 언제 시작되나요? {#when-does-conversion-tracking-begin}
+
+{% tabs %}
+{% tab Campaign %}
+
+전환 추적은 사용자가 Campaign을 수신하거나 Campaign의 대조군에 배정될 때 시작됩니다. 메시지 수신과 배리언트 배정은 보통 동시에 이루어집니다. 인앱 메시지 Campaign의 경우, 전환 추적은 Braze가 노출을 기록할 때 시작됩니다.
+
+{% endtab %}
+{% tab Canvas %}
+
+전환 추적은 사용자가 Canvas에 진입할 때 시작됩니다. 캔버스 단계의 경우, 사용자가 해당 단계에서 활성 상태인 동안 전환이 귀속됩니다. 사용자가 다음 단계로 이동하면 이전 단계의 전환 추적이 중지되고 다음 단계의 전환 추적이 시작됩니다.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 전환에 대해 더 알아보려면 Campaign 설정에 관한 [Braze 학습 과정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)을 확인하세요.
 {% endalert %}
@@ -74,7 +89,7 @@ Liquid `abort` 태그를 사용하여 메시지를 중단하면, Braze는 배리
 
 전환 기한을 설정하세요. 이는 Braze가 전환으로 간주하기 전에 경과할 수 있는 최대 시간입니다. 사용자가 지정된 행동을 수행하면 Braze가 전환을 집계하는 최대 30일의 기간을 설정할 수 있습니다.
 
-![전환 기한이 12시간인, 구매를 수행한 사용자의 전환을 기록하는 "구매 수행" 전환 이벤트 유형 예시.]({% image_buster /assets/img_archive/conversion_event_selection.png %})
+![구매를 수행한 사용자의 전환을 기록하는 "구매 수행" 전환 이벤트 유형 예시. 전환 기한은 12시간입니다.]({% image_buster /assets/img_archive/conversion_event_selection.png %})
 
 전환 이벤트를 선택한 후, Campaign 생성 프로세스를 계속 진행하고 Campaign 전송을 시작하세요.
 

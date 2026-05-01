@@ -79,11 +79,11 @@ Hay tres opciones de estado de suscripción push: suscrito, adhesión voluntaria
 
 Por defecto, para que tu usuario reciba tus mensajes a través de push, su estado de suscripción push debe ser suscrito o adhesión voluntaria, y debe estar habilitado para push. Puedes anular esta configuración si es necesario al redactar un mensaje.
 
-|Estado de adhesión voluntaria|Descripción|
+| Estado de adhesión voluntaria | Descripción |
 |---|---|
-|Suscrito| Estado predeterminado de la suscripción push cuando se crea un perfil de usuario en Braze. |
-|Adhesión voluntaria| Un usuario ha expresado explícitamente su preferencia por recibir notificaciones push. Braze cambiará automáticamente el estado de adhesión voluntaria de un usuario a `Opted-In` si acepta un aviso push a nivel del sistema operativo.<br><br>Esto no se aplica a usuarios con Android 12 o inferior.|
-|No suscrito| Un usuario se da de baja explícitamente de push a través de tu aplicación o de otros métodos que tu marca proporciona. Por defecto, las campañas push de Braze solo se dirigen a los usuarios que están en `Subscribed` o `Opted-in` para push.|
+| Suscrito | Estado predeterminado de la suscripción push cuando se crea un perfil de usuario en Braze. |
+| Adhesión voluntaria | Un usuario ha expresado explícitamente su preferencia por recibir notificaciones push. Braze cambiará automáticamente el estado de adhesión voluntaria de un usuario a `Opted-In` si acepta un aviso push a nivel del sistema operativo.<br><br>Esto no se aplica a usuarios con Android 12 o inferior. |
+| No suscrito | Un usuario se da de baja explícitamente de push a través de tu aplicación o de otros métodos que tu marca proporciona. Por defecto, las Campaigns push de Braze solo se dirigen a los usuarios que están en `Subscribed` o `Opted-in` para push. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}
@@ -108,7 +108,7 @@ Te recomendamos que primero importes los nuevos perfiles de usuario con el `exte
 
 Algunas cosas adicionales a tener en cuenta:
 
-- Cualquier dato de interacción (como campañas o Canvas recibidos) en perfiles de usuario duplicados se perderá. La única forma de conservar el contexto histórico de interacción es añadirlo como atributo personalizado (como un atributo personalizado de matriz de todas las campañas o Canvas recibidos).
+- Cualquier dato de interacción (como Campaigns o Canvas recibidos) en perfiles de usuario duplicados se perderá. La única forma de conservar el contexto histórico de interacción es añadirlo como atributo personalizado (como un atributo personalizado de matriz de todas las Campaigns o Canvas recibidos).
 - Al migrar perfiles de usuario, también depende de tu equipo decidir qué perfil de usuario de los duplicados se conservará. Braze no puede decidir ni proporcionarte una lista de perfiles que eliminar.
 - En última instancia, será importante que tu equipo evalúe el proceso de registro desde la experiencia de los usuarios y se asegure de que solo se llama al método `changeUser()` cuando un usuario se identifica.
 
@@ -370,17 +370,19 @@ Asegúrate de reajustar las horas de programación de la campaña para tener en 
 Campaigns
 {% endapitags %}
 
-Para la entrega en zona horaria local, Braze evalúa la elegibilidad de los usuarios para la entrada en estas dos instancias:
+Braze evalúa la elegibilidad de los usuarios para la entrada en:
 
-- A la hora de Samoa (UTC+13) del día programado
-- A la hora local del día programado
+- La hora de Samoa (UTC+13) del día programado
+- La hora local del usuario en el día programado
 
 Para que un usuario sea elegible para la entrada, debe ser elegible en ambas comprobaciones. Por ejemplo, si el lanzamiento de un Canvas está programado para el 7 de agosto de 2021 a las 14:00 hora local, la segmentación de un usuario ubicado en Nueva York requeriría las siguientes comprobaciones de elegibilidad:
 
 - Nueva York el 6 de agosto de 2021 a las 21:00
 - Nueva York el 7 de agosto de 2021 a las 14:00
 
-El usuario debe estar en el segmento 24 horas antes del lanzamiento. Si el usuario no cumple los requisitos en la primera comprobación, Braze no intentará la segunda.
+Para entrar, un usuario debe coincidir con tu audiencia y filtros en ambos momentos de evaluación. Si el usuario no cumple los requisitos en la primera comprobación, Braze no ejecuta la segunda comprobación. No hay una duración mínima que un usuario deba haber estado en el segmento antes del lanzamiento; solo importa la elegibilidad en cada comprobación.
+
+Este comportamiento de evaluación es independiente de [con cuánta antelación programas la campaña en el dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). Para la explicación completa, ejemplos y orientación sobre programación, consulta [¿Cuándo evalúa Braze a los usuarios para la entrega en zona horaria local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) y [¿Cómo programo una campaña en zona horaria local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) en las preguntas frecuentes de Campaigns.
 
 {% endapi %}
 {% api %}
@@ -391,7 +393,7 @@ El usuario debe estar en el segmento 24 horas antes del lanzamiento. Si el usuar
 Campaigns
 {% endapitags %}
 
-El número de usuarios que entran en una campaña puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un [desencadenante por cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios abandonen la campaña si inicialmente no forman parte de la audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran en una campaña puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un [desencadenante por cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios abandonen la campaña si inicialmente no forman parte de la audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 {% endapi %}
 {% api %}
@@ -504,7 +506,7 @@ El usuario contará como convertido en la variante general del Canvas, pero no e
 Canvases
 {% endapitags %}
 
-El segmentador es una estadística más precisa para los datos de usuarios únicos en comparación con las estadísticas de Canvas o de campañas. Esto se debe a que las estadísticas de Canvas y de campañas son números que Braze incrementa cuando ocurre algo, lo que significa que hay variables que podrían hacer que este número fuera diferente al del segmentador. Por ejemplo, los usuarios pueden convertir más de una vez en un Canvas o una campaña.
+El segmentador es una estadística más precisa para los datos de usuarios únicos en comparación con las estadísticas de Canvas o de Campaigns. Esto se debe a que las estadísticas de Canvas y de Campaigns son números que Braze incrementa cuando ocurre algo, lo que significa que hay variables que podrían hacer que este número fuera diferente al del segmentador. Por ejemplo, los usuarios pueden convertir más de una vez en un Canvas o una campaña.
 
 {% endapi %}
 {% api %}
@@ -515,7 +517,7 @@ El segmentador es una estadística más precisa para los datos de usuarios únic
 Canvases
 {% endapitags %}
 
-El número de usuarios que entran en un Canvas puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un desencadenante de [cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios abandonen el Canvas si no forman parte de la audiencia seleccionada antes de que se evalúe cualquier acción desencadenante.
+El número de usuarios que entran en un Canvas puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un desencadenante de [cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios abandonen el Canvas si no forman parte de la audiencia seleccionada antes de que se evalúe cualquier acción desencadenante.
 
 {% endapi %}
 {% api %}
@@ -569,7 +571,7 @@ Para programar un informe de interacción recurrente, haz lo siguiente:
 
 1. En tu cuenta del dashboard, ve a **Engagement Reports**, en **Data**.
 2. Haz clic en **+ Create New Report**.
-3. Añade las [campañas y los mensajes de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente o [por etiqueta]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que desees compilar en tu informe.
+3. Añade las [Campaigns y los mensajes de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente o [por etiqueta]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que desees compilar en tu informe.
 4. [Añade estadísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) a tu informe.
 5. Selecciona la compresión y el delimitador para tu informe.
 6. Introduce las direcciones de correo electrónico de los usuarios de la empresa que deben recibir este informe.
@@ -587,9 +589,9 @@ Para programar un informe de interacción recurrente, haz lo siguiente:
 Analytics
 {% endapitags %}
 
-Los informes de participación te proporcionan CSV de estadísticas de interacción para mensajes específicos de campañas y Canvas a través de un correo electrónico activado. Determinados datos se agregan a nivel de campaña o Canvas en lugar de a nivel de variante o paso individual. Los informes no se guardan en el dashboard, y volver a ejecutar el informe puede dar lugar a estadísticas actualizadas.
+Los informes de participación te proporcionan CSV de estadísticas de interacción para mensajes específicos de Campaigns y Canvas a través de un correo electrónico activado. Determinados datos se agregan a nivel de campaña o Canvas en lugar de a nivel de variante o paso individual. Los informes no se guardan en el dashboard, y volver a ejecutar el informe puede dar lugar a estadísticas actualizadas.
 
-El generador de informes te permite comparar los resultados de varias campañas o Canvas en una sola vista para que puedas determinar fácilmente qué estrategias de interacción han tenido un mayor impacto en tus métricas clave. Tanto para las campañas como para los Canvas, puedes exportar los datos y guardar el informe para consultarlo en el futuro.
+El generador de informes te permite comparar los resultados de varias Campaigns o Canvas en una sola vista para que puedas determinar fácilmente qué estrategias de interacción han tenido un mayor impacto en tus métricas clave. Tanto para las Campaigns como para los Canvas, puedes exportar los datos y guardar el informe para consultarlo en el futuro.
 
 Para obtener más información sobre los usos de los informes y análisis en Braze, consulta el [resumen de informes]({{site.baseurl}}/user_guide/analytics/reports/).
 

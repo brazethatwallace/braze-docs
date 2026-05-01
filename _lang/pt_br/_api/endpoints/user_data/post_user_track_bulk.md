@@ -43,6 +43,8 @@ Se você estiver fazendo chamadas servidor-a-servidor atrás de um firewall, pod
 
 ## Limite de taxa {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 Para a maioria dos clientes, este endpoint tem um limite de velocidade base de 50 solicitações por segundo.
 
 Clientes com contratos mais recentes podem ter limites de pico (por segundo) e estáveis (por hora) baseados nos usuários ativos mensais contratados.

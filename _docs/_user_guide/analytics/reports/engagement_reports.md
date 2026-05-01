@@ -63,6 +63,12 @@ The **Add Stats** step shows you statistics for the types of campaigns or Canvas
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Engagement reports aggregate data per campaign or Canvas, not at the workspace level. To monitor total send or impression volume across all active campaigns and Canvases, such as per-channel sends and impressions across an entire workspace, use [Report Builder]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Sends to Carrier* is deprecated, but will continue to be supported for users who already have it.
+{% endalert %}
+
 | Channel | Available statistics |
 | ------| --------------|
 | Email | Sends, Opens, Unique Opens, Clicks, Unique Clicks, Click to Open, Unsubscribes, Bounces, Delivered, Reported Spam |
@@ -72,10 +78,6 @@ The **Add Stats** step shows you statistics for the types of campaigns or Canvas
 | Webhook  |  Sends, Errors |
 | SMS | Sends, Sends to Carrier, Confirmed Deliveries, Delivery Failures, Rejections |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Sends to Carrier* is deprecated, but will continue to be supported for users that already have it.
-{% endalert %}
 
 ### Step 4: Complete report setup
 

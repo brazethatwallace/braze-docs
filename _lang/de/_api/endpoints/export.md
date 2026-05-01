@@ -56,7 +56,7 @@ API-Exporte geben Daten im JSON-Format zurück, im Gegensatz zu den CSV-Dateien,
 
 Weitere Details zur Exportbereitstellung und Fehlerbehebung finden Sie unter [Export-Fehlerbehebung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 
-## Export-Endpunkte {#export-endpoints}
+## Export-Endpunkte
 
 Die folgende Tabelle listet alle verfügbaren Export-APIs auf.
 

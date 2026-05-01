@@ -92,17 +92,39 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 {% endtab %}
 {% endtabs %}
 
+## エージェントコンソールで自然言語のオプトアウトを処理する {#handle-natural-language-opt-outs-in-the-agent-console}
+
+包括的なサブスクリプション管理のために、標準キーワードやカスタムキーワード以外のオプトアウト意図（「もうテキストを送らないでください」など）をキャプチャできます。AIエージェントを作成することで、感情分析を使用してこれらのリクエストを自動的に識別し、対応できます。
+
+### セットアップ {#setup}
+
+1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents/)で「SMSセンチメント分析エージェント」を作成します。
+
+{% alert tip %}
+初期エージェント設定のサポートには[Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)を使用してください。
+{% endalert %}
+
+{: start="2"}
+2. **その他**のキーワードカテゴリ内で、**SMS受信メッセージを送信**によってトリガーされるアクションベースのCanvasを作成します。
+3. Canvasに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)を追加して、オプトアウト意図を識別します。
+4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加します：「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
+5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
+
+{% alert note %}
+エージェントコンソールの使用にはメッセージクレジットが消費されます。
+{% endalert %}
+
 ## SMSトラフィックをRCSに移行する {#migrate-sms-traffic-to-rcs}
 
 SMSとRCSのサブスクリプショングループが別々にある場合、1ステップのCanvasを使用してユーザーをSMSからRCSに移行できます。
 
 Brazeでは、最初は少数のユーザーにRCSの送信をテストし、時間をかけてより多くのユーザーをRCSサブスクリプショングループに移行することを推奨しています。たとえば、SMSサブスクリプショングループに1,000,000人のユーザーが購読している場合、まずすべてのユーザーを新しいサブスクリプショングループに移行し、次に50,000〜100,000人（5〜10%）の小規模なオーディエンスにセグメントしてRCSメッセージをテストするという方法が考えられます。
 
-### ステップ 1: Canvasを作成してエントリスケジュールを設定する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
+### ステップ1: Canvasを作成してエントリスケジュールを設定する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでCanvasをスケジュールします。
+Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
 
-### ステップ 2: オーディエンスを定義する {#step-2-define-your-audience}
+### ステップ2: オーディエンスを定義する {#step-2-define-your-audience}
 
 以下のいずれかの方法でオーディエンスを定義します。次に、**送信設定**ステップに進み、**購読中またはオプトイン済みのユーザー**を選択します。
 
@@ -112,7 +134,7 @@ Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブ�
 | **CampaignまたはCanvasフィルターを適用する** | CampaignまたはCanvasの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### ステップ 3: ユーザーの更新ステップを設定する {#step-3-configure-a-user-update-step}
+### ステップ3: ユーザーの更新ステップを設定する {#step-3-configure-a-user-update-step}
 
 Canvasにユーザーの更新ステップを追加します。ステップ内で**高度なJSONエディター**を開き、以下を入力します（一意のユーザー識別子フィールドには、`braze_id`フィールドの使用を推奨します）。
 
@@ -137,11 +159,11 @@ Canvasにユーザーの更新ステップを追加します。ステップ内�
 
 ![前述のJSONコードを含む「ユーザーの更新オブジェクト」。]({% image_buster /assets/img/sms/user_update_object.png %})
 
-### ステップ 4: Canvasをテストする {#step-4-test-the-canvas}
+### ステップ4: Canvasをテストする {#step-4-test-the-canvas}
 
 より広いオーディエンスに送信する前に、[Canvasをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)して期待どおりに動作することを確認することを強く推奨します。
 
-### ステップ 5: Canvasを起動する {#step-5-launch-your-canvas}
+### ステップ5: Canvasを起動する {#step-5-launch-your-canvas}
 
 Canvasのテストが成功したら、ユーザーのサブセットに対して起動しましょう！
 
@@ -159,15 +181,15 @@ RCS送信者とサブスクリプショングループの設定については�
 2つのワークスペースにまたがる4つのサブスクリプショングループの例を考えてみましょう。
 
 - **本番ワークスペース**
-  - マーケティング - PROD for SMS
-  - トランザクション - PROD for SMS
+  - Marketing - PROD for SMS
+  - Transactional - PROD for SMS
 - **開発ワークスペース（テスト用）**
-  - マーケティング - DEV for SMS
-  - トランザクション - DEV for SMS
+  - Marketing - DEV for SMS
+  - Transactional - DEV for SMS
 
 ### 明確な命名規則を使用する {#use-clear-naming-conventions}
 
-SMS Campaignを作成する際に正しいグループが選択されるよう、わかりやすく明確なサブスクリプショングループ名を選択してください。
+SMSのCampaignを作成する際に正しいグループが選択されるよう、わかりやすく明確なサブスクリプショングループ名を選択してください。
 
 ### 国別にグループを分ける {#separate-groups-by-country}
 

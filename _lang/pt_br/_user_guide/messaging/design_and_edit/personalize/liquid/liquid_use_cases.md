@@ -140,7 +140,7 @@ O exemplo fornecido usa a véspera de Natal, o dia de Natal e o dia seguinte ao 
 App usage
 {% endapitags %}
 
-- [Enviar mensagens no idioma do usuário se ele tiver registrado uma sessão](#app-session-language)
+- [Enviar mensagens no idioma do usuário se ele não tiver registrado uma sessão](#app-session-language)
 - [Personalizar mensagens com base em quando o usuário abriu o app pela última vez](#app-last-opened)
 - [Exibir uma mensagem diferente se o usuário usou o app há menos de três dias](#app-last-opened-less-than)
 

@@ -91,12 +91,12 @@ Operatorの回答はMarkdown形式でフォーマットされています。回�
 まず、**Tools** > **Preferences**に移動し、**Automatically detect Markdown**を選択します。次に、Markdownを貼り付けるには、**Edit** > **Paste from Markdown**に移動します。右クリックして**Paste from Markdown**を選択することもできます。
 
 {% endtab %}
-{% tab Microsoft Word と Outlook %}
+{% tab Microsoft WordとOutlook %}
 
 WordとOutlookはMarkdownをネイティブにレンダリングしません。回答をWebベースのMarkdownプレビューアーに貼り付け、レンダリングされた出力をコピーして、**Keep Source Formatting**でWordまたはOutlookに貼り付けます。または、プレーンテキストとして貼り付けて手動でフォーマットします。
 
 {% endtab %}
-{% tab Confluence と Notion %}
+{% tab ConfluenceとNotion %}
 
 直接貼り付けます。両方のプラットフォームがMarkdownを自動的にレンダリングします。
 
