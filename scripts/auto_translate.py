@@ -4,6 +4,7 @@ Auto-translate English Braze docs into all supported languages using Claude.
 
 Usage:
     python auto_translate.py translate --changed-files changed_files.txt
+    python auto_translate.py stale-english-sources
     python auto_translate.py qc
     python auto_translate.py check-aliases
     python auto_translate.py check-path-case-collisions
@@ -659,6 +660,143 @@ def _relative_for_translation(fpath):
 def translation_path(english_relative, lang_dir):
     """Map an English-relative path to its _lang/ counterpart."""
     return REPO_ROOT / "_lang" / lang_dir / english_relative
+
+
+def _git_path_last_commit_ts(rel_path: str) -> int:
+    """Latest commit unix time touching ``rel_path`` (0 if unknown)."""
+    r = subprocess.run(
+        ["git", "log", "-1", "--format=%ct", "--", rel_path],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+    )
+    if r.returncode != 0:
+        return 0
+    s = (r.stdout or "").strip()
+    return int(s) if s.isdigit() else 0
+
+
+def _parse_git_touch_map(max_commits: int) -> dict[str, int]:
+    """Map repo-relative paths to the latest commit time touching them.
+
+    Built from recent first-parent history so routine ``workflow_dispatch``
+    runs avoid one ``git log`` per file.
+    """
+    lang_roots = [f"_lang/{info['dir']}/" for info in LANGUAGES.values()]
+    r = subprocess.run(
+        [
+            "git",
+            "log",
+            "-m",
+            "--first-parent",
+            f"-n{max_commits}",
+            "--format=%ct",
+            "--name-only",
+            "HEAD",
+            "--",
+            "_docs/",
+            "_includes/",
+            *lang_roots,
+        ],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if r.returncode != 0:
+        return {}
+    touch: dict[str, int] = {}
+    current_ts: Optional[int] = None
+    for raw in (r.stdout or "").splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.isdigit():
+            current_ts = int(line)
+            continue
+        if current_ts is None:
+            continue
+        prev = touch.get(line)
+        if prev is None or current_ts > prev:
+            touch[line] = current_ts
+    return touch
+
+
+def _list_git_english_markdown_paths() -> list[str]:
+    """Tracked ``*.md`` under ``_docs/`` and ``_includes/`` (repo-relative)."""
+    r = subprocess.run(
+        ["git", "ls-files"],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    paths: list[str] = []
+    for line in r.stdout.splitlines():
+        p = line.strip()
+        if not p.endswith(".md"):
+            continue
+        if p.startswith("_docs/") or p.startswith("_includes/"):
+            paths.append(p)
+    return paths
+
+
+def cmd_stale_english_sources(args: argparse.Namespace) -> None:
+    """Print English paths that are missing or older than any locale mirror.
+
+    Used when ``workflow_dispatch`` runs with no ``since_commit`` / ``files``:
+    compare last-touch times from git so operators do not paste SHAs.
+    Locale files live under ``_lang/<dir>/`` using ``_relative_for_translation``
+    (``_docs/`` prefix stripped); stdout still lists canonical ``_docs/…`` /
+    ``_includes/…`` paths for the workflow.
+    """
+    lang_dirs = [info["dir"] for info in LANGUAGES.values()]
+    touch_map = _parse_git_touch_map(args.max_history_commits)
+    fallback_cache: dict[str, int] = {}
+
+    def ts_for(rel: str) -> int:
+        if rel in touch_map:
+            return touch_map[rel]
+        if rel in fallback_cache:
+            return fallback_cache[rel]
+        t = _git_path_last_commit_ts(rel)
+        fallback_cache[rel] = t
+        return t
+
+    english_paths = _list_git_english_markdown_paths()
+    stale: list[str] = []
+    for en in english_paths:
+        en_ts = ts_for(en)
+        trans_rel = _relative_for_translation(en)
+        need = False
+        for ld in lang_dirs:
+            loc_rel = f"_lang/{ld}/{trans_rel}"
+            loc_path = REPO_ROOT / loc_rel
+            if not loc_path.is_file():
+                need = True
+                break
+            loc_ts = ts_for(loc_rel)
+            if loc_ts < en_ts:
+                need = True
+                break
+        if need:
+            stale.append(en)
+
+    stale.sort()
+    if len(stale) > 250:
+        print(
+            "stale-english-sources: WARNING: large batch - consider "
+            "`since_commit` or `files` to narrow scope if this was unintentional.",
+            file=sys.stderr,
+        )
+    print(
+        f"stale-english-sources: {len(stale)} file(s) need translation "
+        f"(of {len(english_paths)} English markdown paths tracked in git)",
+        file=sys.stderr,
+    )
+    body = "\n".join(stale) + ("\n" if stale else "")
+    sys.stdout.write(body)
+    sys.stdout.flush()
 
 
 # Keys whose values carry cross-section terminology (nav labels, page
@@ -7005,6 +7143,25 @@ def main():
 
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)
+
+    st = sub.add_parser(
+        "stale-english-sources",
+        help=(
+            "Print English doc paths that need translation (missing or older "
+            "locale mirror vs English in git)"
+        ),
+    )
+    st.add_argument(
+        "--max-history-commits",
+        type=int,
+        default=12000,
+        metavar="N",
+        help=(
+            "First-parent commits to scan for path→time map (default: 12000); "
+            "paths not touched there use per-path git log"
+        ),
+    )
+    st.set_defaults(func=cmd_stale_english_sources)
 
     args = parser.parse_args()
     args.func(args)
