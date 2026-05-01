@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+# Overview
+
+| Your goal | Recommended feature |
+| --- | --- |
+| Personalize message copy per user using their context | Braze Agents (Canvas/catalog); for one-off draft copy, Generative AI |
+| Optimize which message content (such as subject, CTA) performs best over time | Content Optimizer (email), Intelligent Selection, or Winning Variant |
+| Maximize a business metric (revenue, conversions) with 1:1 decisions across offers, channels, and timing | Decisioning Studio |
+| Find users likely to churn or to perform an event | Predictive Churn or Predictive Events |
+| Recommend products or content in messages | Item recommendations |
+| Send at the best time or the best channel per user | Intelligent Timing, Intelligent Channel |
+| Create or refine copy and creative directly in the dashboard | Generative AI (copywriting, images, QA), Operator for help |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
