@@ -14,7 +14,7 @@ description: "Este artigo descreve informações sobre o endpoint da Braze para 
 /campaigns/data_series
 {% endapimethod %}
 
-> Use este endpoint para recuperar uma série diária de diversas estatísticas de uma Campaign ao longo do tempo.
+> Use este endpoint para recuperar uma série diária de diversas estatísticas de uma campanha ao longo do tempo.
 
 Os dados retornados incluem quantas mensagens foram enviadas, abertas, clicadas ou convertidas por canal de envio de mensagens.
 
@@ -34,7 +34,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte o [identificador de API da Campaign]({{site.baseurl}}/api/identifier_types/).<br><br> O `campaign_id` para Campaigns da API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) e na página **Campaign Details** no seu dashboard, ou você pode usar o [endpoint Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
+| `campaign_id` | Obrigatória | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types/).<br><br> O `campaign_id` para Campaigns da API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) e na página **Campaign Details** no seu dashboard, ou você pode usar o [endpoint Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
 | `length` | Obrigatória | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é o horário da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }

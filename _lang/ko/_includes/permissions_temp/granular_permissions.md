@@ -6,11 +6,11 @@
 
 {% tabs local %}
 {% tab example permission sets %}
-|이름|권한|
+| 이름 | 권한 |
 |-----------|----------------|
-|개발자|"API 키 보기", "API 키 편집", "내부 그룹 보기", "내부 그룹 편집", "메시지 활동 로그 보기", "이벤트 사용자 로그 보기", "API 식별자 보기", "API 사용 대시보드 보기", "API 한도 보기", "API 사용 알림 보기", "API 사용 알림 편집", "SDK 디버거 보기", "SDK 디버거 편집".|
-|마케터|"Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "최대 게재빈도 설정 규칙 보기", "최대 게재빈도 설정 규칙 편집", "메시지 우선순위 보기", "메시지 우선순위 편집", "Content Blocks 보기", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "글로벌 컨트롤 그룹 편집", "IAM 템플릿 보기", "IAM 템플릿 편집", "IAM 템플릿 아카이브", "이메일 템플릿 보기", "이메일 템플릿 편집", "이메일 템플릿 아카이브", "웹훅 템플릿 보기", "웹훅 템플릿 편집", "웹훅 템플릿 아카이브", "이메일 링크 템플릿 보기", "이메일 링크 템플릿 편집", "미디어 라이브러리 자산 보기", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집", "대시보드 보고서 편집", "배너 템플릿 보기", "현지화 설정 보기", "Operator 사용", "Decisioning Studio 에이전트 보기".|
-|사용자 관리|"대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브".|
+| 개발자 | "API 키 보기", "API 키 편집", "내부 그룹 보기", "내부 그룹 편집", "메시지 활동 로그 보기", "이벤트 사용자 로그 보기", "API 식별자 보기", "API 사용 대시보드 보기", "API 한도 보기", "API 사용 알림 보기", "API 사용 알림 편집", "SDK 디버거 보기", "SDK 디버거 편집". |
+| 마케터 | "Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "최대 게재빈도 설정 규칙 보기", "최대 게재빈도 설정 규칙 편집", "메시지 우선순위 보기", "메시지 우선순위 편집", "Content Blocks 보기", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "글로벌 컨트롤 그룹 편집", "IAM 템플릿 보기", "IAM 템플릿 편집", "IAM 템플릿 아카이브", "이메일 템플릿 보기", "이메일 템플릿 편집", "이메일 템플릿 아카이브", "웹훅 템플릿 보기", "웹훅 템플릿 편집", "웹훅 템플릿 아카이브", "이메일 링크 템플릿 보기", "이메일 링크 템플릿 편집", "미디어 라이브러리 자산 보기", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집", "대시보드 보고서 편집", "배너 템플릿 보기", "현지화 설정 보기", "Operator 사용", "Decisioning Studio 에이전트 보기". |
+| 사용자 관리 | "대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브". |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -36,7 +36,7 @@
 
 ### Teams에 사용자 권한을 추가할 때 고려 사항 {#considerations-for-adding-user-permissions-to-teams}
 
-Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에서 사용자를 추가하거나 제거하거나 Teams에 추가할 때 문제가 발생할 수 있습니다. 사용자의 권한이 워크스페이스 수준에서 이미 보유한 권한과 동일한 경우 **사용자 저장/업데이트** 버튼이 비활성화될 수 있습니다. 모든 사용자가 전체 워크스페이스와 동일한 권한을 가지고 있다면 Teams를 사용할 이점이 없기 때문에 이러한 제한이 존재합니다.
+Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에서 사용자를 추가하거나 제거하거나 Teams에 추가할 때 문제가 발생할 수 있습니다. 사용자의 권한이 워크스페이스 수준에서 이미 보유한 권한과 동일한 경우 **Save/Update Users** 버튼이 비활성화될 수 있습니다. 모든 사용자가 전체 워크스페이스와 동일한 권한을 가지고 있다면 Teams를 사용할 이점이 없기 때문에 이러한 제한이 존재합니다.
 
 동일한 권한을 유지하면서 사용자를 Teams에 성공적으로 추가하려면 워크스페이스 수준에서 권한을 할당하지 마세요. 대신 팀 수준에서만 권한을 할당하세요.
 
@@ -75,7 +75,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 ![Braze의 "회사 사용자" 페이지에 대시보드 사용자 테이블이 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
-{% tab Admin %}
+{% tab 관리자 %}
 
 ### 관리자 {#admin}
 
@@ -94,27 +94,27 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 {% endalert %}
 
 {% endtab %}
-{% tab Company %}
+{% tab 회사 %}
 
 ### 회사 {#company}
 
 사용자의 회사 수준 권한을 관리하려면 해당 권한 옆의 체크박스를 선택하거나 해제하세요. 완료되면 **Update user**를 선택합니다.
 
-|권한 이름|설명|
+| 권한 이름 | 설명 |
 |----------|-----------|
-|회사 설정 관리|사용자가 권한 설정 및 발송자 확인을 수정할 수 있도록 허용합니다.|
-|워크스페이스 생성 및 삭제|사용자가 워크스페이스를 생성하고 삭제할 수 있도록 허용합니다.|
+| 회사 설정 관리 | 사용자가 권한 설정 및 발송자 확인을 수정할 수 있도록 허용합니다. |
+| 워크스페이스 생성 및 삭제 | 사용자가 워크스페이스를 생성하고 삭제할 수 있도록 허용합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
-{% tab Workspace %}
+{% tab 워크스페이스 %}
 
 ### 워크스페이스 {#workspace}
 
 Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 권한을 수동으로 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당하세요. 사용자에게 워크스페이스별로 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복하세요. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% subtabs %}
-{% subtab Select manually %}
+{% subtab 수동 선택 %}
 
 **Workspaces**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Permissions**에서 하나 이상의 권한을 선택하세요. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다. 선택적으로, 해당 워크스페이스에 대한 전체 권한을 부여하려면 **Assign workspace admin access**를 선택할 수 있습니다.
 
@@ -123,7 +123,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 ![Braze에서 수동으로 선택하는 워크스페이스 수준 권한.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
-{% subtab Assign permission set %}
+{% subtab 권한 세트 할당 %}
 
 **Workspaces**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Permission Sets**에서 하나의 권한 세트를 선택합니다. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다.
 
@@ -132,7 +132,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 ![Braze에서 권한 세트를 통해 할당하는 워크스페이스 수준 권한.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
-{% subtab Assign role %}
+{% subtab 역할 할당 %}
 
 **Workspaces**에서 드롭다운을 통해 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Role**에서 하나의 역할을 선택하세요. 선택한 워크스페이스에 대해서만 해당 권한이 할당됩니다.
 
@@ -215,9 +215,9 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 캔버스 템플릿 | 캔버스 템플릿 아카이브 | Canvas 템플릿을 아카이브로 이동합니다 |
 | 캔버스 템플릿 | 캔버스 템플릿 생성 및 편집 | Canvas 템플릿을 생성하고 업데이트합니다 |
 | Content Blocks | Content Blocks 보기 | Content Blocks를 봅니다 |
-| Content Blocks | Content Blocks 실행 | Content Blocks를 실행합니다 |
+| Content Blocks | Content Blocks 실행 | 초안 Content Blocks를 게시하고, 실행된 Content Blocks를 편집, 아카이브 및 아카이브 해제합니다 |
 | Content Blocks | Content Blocks 아카이브 | Content Blocks를 아카이브로 이동합니다 |
-| Content Blocks | Content Blocks 편집 | Content Blocks를 생성하고 업데이트합니다 |
+| Content Blocks | Content Blocks 편집 | Content Blocks를 생성하고 초안 Content Blocks를 편집합니다 |
 | 이메일 링크 템플릿 | 이메일 링크 템플릿 보기 | 변경 없이 링크 템플릿을 봅니다 |
 | 이메일 링크 템플릿 | 이메일 링크 템플릿 편집 | 링크 템플릿을 생성하고 업데이트합니다 |
 | 이메일 템플릿 | 이메일 템플릿 보기 | 이메일 템플릿을 봅니다 |
@@ -314,7 +314,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | WhatsApp 설정 | WhatsApp 설정 보기 | 모든 WhatsApp 채널 설정을 봅니다 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Decisioning Studio {#decisioning-studio}
+### Decisioning Studio
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |

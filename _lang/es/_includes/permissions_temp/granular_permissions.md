@@ -6,11 +6,11 @@ Usa conjuntos de permisos para agrupar permisos relacionados con áreas temátic
 
 {% tabs local %}
 {% tab example permission sets %}
-|Nombre|Permisos|
+| Nombre | Permisos |
 |-----------|----------------|
-|Desarrolladores|«Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de eventos de usuario», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK».|
-|Especialistas en marketing|«Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver reglas de limitación de frecuencia», «Editar reglas de limitación de frecuencia», «Ver priorización de mensajes», «Editar priorización de mensajes», «Ver Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Editar grupo de control global», «Ver plantillas de IAM», «Editar plantillas de IAM», «Archivar plantillas de IAM», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Archivar plantillas de correo electrónico», «Ver plantillas de webhook», «Editar plantillas de webhook», «Archivar plantillas de webhook», «Ver plantillas de enlaces de correo electrónico», «Editar plantillas de enlaces de correo electrónico», «Ver activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias», «Editar informes del dashboard», «Ver plantillas de banners», «Ver configuración de localización», «Usar Operator», «Ver agentes de Decisioning Studio».|
-|Gestión de usuarios|«Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos».|
+| Desarrolladores | «Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de eventos de usuario», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK». |
+| Especialistas en marketing | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver reglas de limitación de frecuencia», «Editar reglas de limitación de frecuencia», «Ver priorización de mensajes», «Editar priorización de mensajes», «Ver Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Editar grupo de control global», «Ver plantillas de IAM», «Editar plantillas de IAM», «Archivar plantillas de IAM», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Archivar plantillas de correo electrónico», «Ver plantillas de webhook», «Editar plantillas de webhook», «Archivar plantillas de webhook», «Ver plantillas de enlaces de correo electrónico», «Editar plantillas de enlaces de correo electrónico», «Ver activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias», «Editar informes del dashboard», «Ver plantillas de banners», «Ver configuración de localización», «Usar Operator», «Ver agentes de Decisioning Studio». |
+| Gestión de usuarios | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos». |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -24,8 +24,8 @@ Los roles permiten una mayor estructura al agrupar los permisos personalizados i
 | Nombre del rol    | Espacio de trabajo | Permisos
 ----------- | ----------- | ---------
 | Especialista en marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias». |
-| Especialista en marketing - Marcas de cuidado de la piel | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |«Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias».|
-| Gestión de usuarios - Todas las marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos»|
+| Especialista en marketing - Marcas de cuidado de la piel | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias». |
+| Gestión de usuarios - Todas las marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos» |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -100,10 +100,10 @@ Si eliminas los privilegios de administrador de un usuario, este no podrá acced
 
 Para gestionar los siguientes permisos a nivel de empresa para un usuario, marca o desmarca la casilla junto a ese permiso. Cuando hayas terminado, selecciona **Actualizar usuario**.
 
-|Nombre del permiso|Descripción|
+| Nombre del permiso | Descripción |
 |----------|-----------|
-|Administrar configuración de empresa|Permite a los usuarios modificar la configuración de permisos y la verificación del remitente.|
-|Crear y eliminar espacios de trabajo|Permite a los usuarios crear y eliminar espacios de trabajo.|
+| Administrar configuración de empresa | Permite a los usuarios modificar la configuración de permisos y la verificación del remitente. |
+| Crear y eliminar espacios de trabajo | Permite a los usuarios crear y eliminar espacios de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
@@ -215,9 +215,9 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Plantillas de Canvas | Archivar plantillas de Canvas | Mover plantillas de Canvas al archivo |
 | Plantillas de Canvas | Crear y editar plantillas de Canvas | Crear y actualizar plantillas de Canvas |
 | Content Blocks | Ver Content Blocks | Ver Content Blocks |
-| Content Blocks | Lanzar Content Blocks | Lanzar Content Blocks |
+| Content Blocks | Lanzar Content Blocks | Publicar borradores de Content Blocks, y editar, archivar y desarchivar Content Blocks lanzados |
 | Content Blocks | Archivar Content Blocks | Mover Content Blocks al archivo |
-| Content Blocks | Editar Content Blocks | Crear y actualizar Content Blocks |
+| Content Blocks | Editar Content Blocks | Crear Content Blocks y editar borradores de Content Blocks |
 | Plantillas de enlaces de correo electrónico | Ver plantillas de enlaces de correo electrónico | Ver plantillas de enlaces sin realizar cambios |
 | Plantillas de enlaces de correo electrónico | Editar plantillas de enlaces de correo electrónico | Crear y actualizar plantillas de enlaces |
 | Plantillas de correo electrónico | Ver plantillas de correo electrónico | Ver plantillas de correo electrónico |
@@ -314,7 +314,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Configuración de WhatsApp | Ver configuración de WhatsApp | Ver toda la configuración del canal de WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Decisioning Studio {#decisioning-studio}
+### Decisioning Studio
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |

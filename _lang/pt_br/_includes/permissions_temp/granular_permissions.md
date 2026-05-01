@@ -2,15 +2,15 @@
 
 ## Criando um conjunto de permissões {#creating-a-permission-set}
 
-Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de Permissão** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de Permissão** e selecione **Create permission set**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
-|Nome|Permissões|
+| Nome | Permissões |
 |-----------|----------------|
-|Desenvolvedores|"View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger".|
-|Profissionais de marketing|"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents".|
-|Gerenciamento de usuários|"Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams".|
+| Desenvolvedores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
+| Profissionais de marketing | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents". |
+| Gerenciamento de usuários | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams". |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -100,10 +100,10 @@ Se você remover os privilégios de administrador de um usuário, ele não poder
 
 Para gerenciar as seguintes permissões em nível de empresa para um usuário, marque ou desmarque a caixa ao lado da permissão. Quando terminar, selecione **Update user**.
 
-|Nome da permissão|Descrição|
+| Nome da permissão | Descrição |
 |----------|-----------|
-|Gerenciar configurações da empresa|Permite que os usuários modifiquem as configurações de permissão e verificação do remetente.|
-|Criar e excluir espaços de trabalho|Permite que os usuários criem e excluam espaços de trabalho.|
+| Gerenciar configurações da empresa | Permite que os usuários modifiquem as configurações de permissão e verificação do remetente. |
+| Criar e excluir espaços de trabalho | Permite que os usuários criem e excluam espaços de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
@@ -114,7 +114,7 @@ Para gerenciar as seguintes permissões em nível de empresa para um usuário, m
 Você pode dar a um usuário diferentes permissões para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões em nível de espaço de trabalho, selecione **Select workspaces and permissions** e escolha as permissões manualmente ou atribua um [conjunto de permissões ou função]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que você criou anteriormente. Se você precisar dar a um usuário permissões diferentes para diferentes espaços de trabalho, repita este processo quantas vezes forem necessárias. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
-{% subtab Select manually %}
+{% subtab Selecionar manualmente %}
 
 Em **Workspaces**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Permissions**, selecione uma ou mais permissões. Os usuários receberão essas permissões apenas nos espaços de trabalho que você selecionou. Opcionalmente, você pode selecionar **Assign workspace admin access** se desejar dar a eles permissões completas para este espaço de trabalho.
 
@@ -123,7 +123,7 @@ Quando terminar, selecione **Update user**.
 ![Permissões em nível de espaço de trabalho sendo selecionadas manualmente na Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
-{% subtab Assign permission set %}
+{% subtab Atribuir conjunto de permissões %}
 
 Em **Workspaces**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Permission Sets**, escolha um conjunto de permissões. Os usuários receberão essas permissões apenas nos espaços de trabalho que você selecionou.
 
@@ -132,7 +132,7 @@ Quando terminar, selecione **Update user**.
 ![Permissões em nível de espaço de trabalho sendo atribuídas por meio de um conjunto de permissões na Braze.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
-{% subtab Assign role %}
+{% subtab Atribuir função %}
 
 Em **Workspaces**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Role**, escolha uma função. Os usuários receberão essas permissões apenas nos espaços de trabalho que você selecionou.
 
@@ -186,8 +186,8 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Grupo de Controle Global | View Global Control Group | Ver página de configuração do Grupo de Controle Global |
-| Grupo de Controle Global | Edit Global Control Group | Criar e salvar alterações no Grupo de Controle Global. Os usuários com a permissão "Edit Global Control Group" também devem ter permissões para "Edit Campaigns" e "Edit Canvases". Os usuários com a permissão "Edit Global Control Group" também recebem a permissão "View Global Control Group". |
+| Grupo de controle global | View Global Control Group | Ver página de configuração do grupo de controle global |
+| Grupo de controle global | Edit Global Control Group | Criar e salvar alterações no grupo de controle global. Os usuários com a permissão "Edit Global Control Group" também devem ter permissões para "Edit Campaigns" e "Edit Canvases". Os usuários com a permissão "Edit Global Control Group" também recebem a permissão "View Global Control Group". |
 | Locais | Archive Locations | Mover locais para o arquivo |
 | Locais | View Locations | Ver locais |
 | Locais | Edit Locations | Criar e editar locais |
@@ -215,9 +215,9 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Modelos de Canvas | Archive Canvas Templates | Mover Modelos de Canvas para o arquivo |
 | Modelos de Canvas | Create and Edit Canvas Templates | Criar e atualizar Modelos de Canvas |
 | Content Blocks | View Content Blocks | Ver Content Blocks |
-| Content Blocks | Launch Content Blocks | Lançar Content Blocks |
+| Content Blocks | Launch Content Blocks | Publicar Content Blocks em rascunho e editar, arquivar e desarquivar Content Blocks publicados |
 | Content Blocks | Archive Content Blocks | Mover Content Blocks para o arquivo |
-| Content Blocks | Edit Content Blocks | Criar e atualizar Content Blocks |
+| Content Blocks | Edit Content Blocks | Criar Content Blocks e editar Content Blocks em rascunho |
 | Modelos de link de e-mail | View Email Link Templates | Ver modelos de link sem fazer alterações |
 | Modelos de link de e-mail | Edit Email Link Templates | Criar e atualizar modelos de link |
 | Modelos de e-mail | View Email Templates | Ver modelos de e-mail |
@@ -314,7 +314,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Configurações do WhatsApp | View WhatsApp Settings | Ver todas as configurações do canal WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Decisioning Studio {#decisioning-studio}
+### Decisioning Studio
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |

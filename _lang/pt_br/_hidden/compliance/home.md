@@ -39,7 +39,7 @@ Sem limitar quaisquer obrigações do Cliente nos termos do Contrato, e para evi
 5. [Documentação de conformidade da integração Shopify](#shopify-integration-compliance-documentation)
 6. [Documentação de conformidade do Audience Sync](#audience-sync-compliance-documentation)
 7. [Documentação de conformidade de arquivamento de mensagens e criptografia em nível de campo](#message-archiving-and-field-level-encryption-compliance-documentation)
-8. [Documentação de conformidade do console do agente](#agent-console-compliance-documentation)
+8. [Documentação de conformidade do Console do agente](#agent-console-compliance-documentation)
 9. [Documentação de conformidade do canal KakaoTalk](#kakaotalk-channel-compliance-documentation)
 
 ## 1. Canal de mensagens para celular {#mobile-messages-channel}
@@ -150,7 +150,7 @@ O Cliente reconhece que os Prestadores de Serviços Terceirizados podem revisar,
 ### Isenção de responsabilidade
 O Cliente reconhece que o uso do Arquivamento de Mensagens e/ou da Criptografia em Nível de Campo (cada um, o "**Recurso**") pode impactar a velocidade de envio de Mensagens enviadas por meio dos Serviços da Braze. A Braze não será responsável por qualquer impacto desse tipo, e quaisquer compromissos de velocidade de envio não se aplicarão quando o Cliente estiver usando o Recurso. O Recurso pode ser usado para apoiar os esforços de conformidade do Cliente, no entanto, o Cliente reconhece que a Braze não faz representações ou garantias sobre se o uso do Recurso em si satisfaz as obrigações de conformidade do Cliente, e se isenta de toda responsabilidade em relação a isso.
 
-## 8. Documentação de conformidade do console do agente {#agent-console-compliance-documentation}
+## 8. Documentação de conformidade do Console do agente {#agent-console-compliance-documentation}
 
 ### Provedores de LLM como subprocessadores ou prestadores de serviços terceirizados {#llm-providers-as-sub-processors-or-third-party-providers}
 

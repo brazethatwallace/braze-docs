@@ -23,6 +23,10 @@ Bidirektionales Messaging ermöglicht es Ihnen, Nachrichten zu senden und die An
 
 SMS, MMS und RCS mit Braze bieten Ihnen die Möglichkeit, Keyword-Trigger zu erstellen, benutzerdefinierte Antworten zu definieren, Keyword-Sets für mehrere Sprachen festzulegen und benutzerdefinierte Keyword-Kategorien einzurichten.
 
+{% alert note %}
+Braze verwendet Ihren vollständigen Satz an Opt-out-Keywords ([Standard-Keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) und [benutzerdefinierte Keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) für die exakte Opt-out-Verarbeitung und [Fuzzy-Opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+{% endalert %}
+
 {% tabs %}
 {% tab Keyword-Trigger hinzufügen %}
 
@@ -54,10 +58,10 @@ Möchten Sie erfahren, wie diese Keywords in Ihren Campaigns und Canvases zum Re
 
 Sie können eigene Antworten verwalten, die an Nutzer:innen gesendet werden, nachdem diese ein Keyword an eine bestimmte Keyword-Kategorie gesendet haben.
 
-1. Gehen Sie im Braze-Dashboard zu **Audience** > **Subscription Group Management** und wählen Sie eine **SMS/MMS/RCS**-Abo-Gruppe aus.<br><br>
+1. Gehen Sie im Braze-Dashboard zu **Audience** > **Subscription Group Management** und wählen Sie eine **SMS/MMS/RCS**-Abo-Gruppe aus. <br><br>
 2. Wählen Sie unter **Global Keywords** eine Keyword-Kategorie aus, für die Sie eine Antwort bearbeiten möchten, indem Sie das Stiftsymbol auswählen. ![Opt-in-Keywords mit angezeigtem Stiftsymbol.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. Bearbeiten Sie im sich öffnenden Tab Ihre Antwort. Beachten Sie unsere [sechs Regeln für korrekte Compliance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) bei der Erstellung Ihrer Antwort und lesen Sie die folgenden Regeln, die für Keywords und Keyword-Antworten gelten. ![Antworten]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
-4. Um statische URLs in Ihrer Antwort automatisch zu kürzen, wählen Sie den **Link Shortening**-Toggle. Der Zeichenzähler wird aktualisiert und zeigt die erwartete Länge der gekürzten URL an. ![Ein GIF, das zeigt, wie der Zeichenzähler aktualisiert wird, wenn der „Link Shortening“-Toggle aktiviert ist.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
+4. Um statische URLs in Ihrer Antwort automatisch zu kürzen, aktivieren Sie den **Link Shortening**-Toggle. Der Zeichenzähler wird aktualisiert und zeigt die erwartete Länge der gekürzten URL an. ![Ein GIF, das zeigt, wie der Zeichenzähler aktualisiert wird, wenn der „Link Shortening“-Toggle aktiviert ist.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 ##### Hinweise {#considerations}
 
@@ -131,8 +135,8 @@ Wir empfehlen dringend, eine automatische Antwort einzurichten, wenn abonnierte 
 Um eine Standardantwort zu senden – zum Beispiel „Sorry! Wir konnten dieses Keyword nicht erkennen.“ – gehen Sie wie folgt vor:
 
 1. Erstellen Sie eine [SMS-Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Wählen Sie als **Target Audience** die Option **All Users** (der Trigger schränkt weiterhin ein, wer die Nachricht erhält).
-3. Wählen Sie als **Schedule** die Option **Action-Based delivery**.
+2. Wählen Sie für **Target audience** die Option **All users** (der Trigger schränkt weiterhin ein, wer die Nachricht erhält).
+3. Wählen Sie für **Schedule** die Option **Action-based delivery**.
 4. Setzen Sie den Trigger auf **Send inbound SMS** an die entsprechende Abo-Gruppe **within keyword category OTHER**.
 5. Geben Sie im **Messaging**-Schritt den Antworttext ein, den Nutzer:innen erhalten sollen.
 

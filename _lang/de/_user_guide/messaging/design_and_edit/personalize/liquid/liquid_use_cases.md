@@ -140,7 +140,7 @@ Das bereitgestellte Beispiel verwendet Heiligabend, den ersten und den zweiten W
 App usage
 {% endapitags %}
 
-- [Nachrichten in der Sprache senden, wenn eine Sitzung protokolliert wurde](#app-session-language)
+- [Nachrichten in der Sprache senden, wenn keine Sitzung protokolliert wurde](#app-session-language)
 - [Nachrichten basierend auf der letzten App-Öffnung personalisieren](#app-last-opened)
 - [Andere Nachricht anzeigen, wenn die App vor weniger als drei Tagen genutzt wurde](#app-last-opened-less-than)
 
@@ -218,7 +218,7 @@ Message for a less active user
 
 {% api %}
 
-## Countdowns {#countdowns}
+## Countdowns
 
 {% apitags %}
 Countdowns

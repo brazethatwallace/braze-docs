@@ -19,13 +19,13 @@ Si une recherche d'utilisateurs renvoie des profils en double, vous pouvez fusio
 
 ### Étape 1 : Rechercher un profil en double {#step-1-search-for-a-duplicate-profile}
 
-Dans Braze, sélectionnez **Audience** > **Recherche d'utilisateurs**.
+Dans Braze, sélectionnez **Audience** > **User Search**.
 
-![La tuile « Recherche d'utilisateurs » mise en évidence dans le menu de navigation.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
+![La tuile « User Search » mise en évidence dans le menu de navigation.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
 
-Saisissez un identifiant unique, tel qu'une adresse e-mail ou un numéro de téléphone, pour le profil en double, puis sélectionnez **Rechercher**.
+Saisissez un identifiant unique, tel qu'une adresse e-mail ou un numéro de téléphone, pour le profil en double, puis sélectionnez **Search**.
 
-![La page « Recherche d'utilisateurs » dans le tableau de bord de Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
+![La page « User Search » dans le tableau de bord de Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
 
 ### Étape 2 : Fusionner les doublons {#step-2-merge-duplicates}
 
@@ -43,9 +43,9 @@ Les profils utilisateur en double ne peuvent pas être récupérés après la fu
 
 ## Fusion en masse {#bulk-merging}
 
-Lorsque vous fusionnez des utilisateurs en double en masse, Braze recherche les profils ayant des identifiants correspondants (tels qu'une adresse e-mail) et fusionne toutes leurs données dans le profil le plus récemment mis à jour possédant un `external_id`. S'il n'existe aucun profil avec un `external_id`, le profil le plus récemment mis à jour sans `external_id` sera utilisé à la place.
+Lorsque vous fusionnez des utilisateurs en double en masse, Braze recherche les profils ayant des identifiants correspondants (tels qu'une adresse e-mail) et conserve un seul profil. Braze donne d'abord la priorité aux profils possédant un `external_id`, puis applique vos paramètres de **résolution des égalités** : **Resolve ties using** et **Prioritization**. S'il n'existe aucun profil avec un `external_id`, Braze utilise **Resolve ties using** et **Prioritization** sur les profils sans `external_id`. Braze ne fusionne les utilisateurs que lorsque ces paramètres identifient un profil à conserver. Par exemple, si **Resolve ties using** est défini sur **Updated date** et que les deux profils ont le même horodatage de dernière mise à jour, Braze ne peut pas résoudre l'égalité, et ces utilisateurs ne sont donc pas fusionnés.
 
-### Étape 1 : Accéder à Gérer l'audience {#step-1-go-to-manage-audience}
+### Étape 1 : Accéder à Manage Audience {#step-1-go-to-manage-audience}
 
 Dans le tableau de bord de Braze, sélectionnez **Audience** > **Manage Audience**.
 

@@ -259,6 +259,19 @@
 				}
 			}
 		}
+
+		#breadcrumb {
+			nav ol {
+				counter-reset: none;
+				margin-left: 0;
+				> li {
+					counter-increment: none;
+					&::before {
+						content: none;
+					}
+				}
+			}
+		}
 	}
 
 	details {
@@ -604,6 +617,17 @@ div.highlight {
 	font-family: $braze-regular;
 	line-height: 1.7;
 	color: $grey-boulder;
+
+	nav ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: inline;
+	}
+
+	nav ol li {
+		display: inline;
+	}
 
 	a {
 		border-bottom-width: 1px !important;

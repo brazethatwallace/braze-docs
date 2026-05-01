@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Utilisez cet endpoint pour enregistrer des événements personnalisés et des achats, et pour mettre à jour les attributs du profil utilisateur.
 
-{% alert note %}
-Braze traite les données transmises par l'API telles quelles. Les clients ne doivent transmettre que les deltas (données modifiées) afin de minimiser la consommation inutile de points de données. Pour en savoir plus, consultez la rubrique [Points de données]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze traite les données transmises par l'API telles quelles. Vous ne devez transmettre que les deltas (données modifiées) afin de minimiser la consommation inutile de points de données.
 
 ## Besoin de mettre à jour des utilisateurs en masse ? {#need-to-update-users-in-bulk}
 
@@ -301,7 +301,7 @@ Si votre message comporte une erreur fatale, vous recevez la réponse suivante :
 
 Pour connaître les codes d'état et les messages d'erreur associés que Braze renvoie si votre demande rencontre une erreur fatale, reportez-vous à la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
 
-Si vous recevez l'erreur "provided external_id is blacklisted and disallowed", il se peut que votre demande ait inclus un « utilisateur fictif ». Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Si vous recevez l'erreur « provided external_id is blacklisted and disallowed », il se peut que votre demande ait inclus un « utilisateur fictif ». Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
 
 ### Erreurs spécifiques à l'endpoint {#endpoint-specific-errors}
 

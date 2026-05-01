@@ -570,6 +570,7 @@ If you prefer to store each attribute in its own column internally, you need to 
 
 {% tabs local %}
 {% tab Snowflake %}
+Use this query in Snowflake to format source columns into CDI fields.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -592,6 +593,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
+Use this query in Redshift to format source columns into CDI fields.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -614,6 +616,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
+Use this query in BigQuery to format source columns into CDI fields.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
@@ -634,6 +637,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Databricks %}
+Use this query in Databricks to format source columns into CDI fields.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
@@ -656,6 +660,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
+Use this query in Microsoft Fabric to format source columns into CDI fields.
 ```sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
@@ -688,99 +693,12 @@ We have a public [GitHub repository](https://github.com/braze-inc/braze-examples
 
 ### Data formatting
 
-Any operations that are possible through the Braze `/users/track` endpoint are supported through Cloud Data Ingestion, including updating nested custom attributes, adding subscription status, and syncing custom events or purchases. 
+Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
 
-Fields within the payload should follow the same format as the corresponding `/users/track` endpoint. For detailed formatting requirements, refer to the following:
+Use that page to distinguish:
 
-| Data type | Formatting specifications |
-| --------- | ---------| --------- | ----------- |
-| `attributes` | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-Note the special requirement for [capturing dates]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties) in nested attributes. 
-
-{% tabs local %}
-{% tab Nested Custom Attributes %}
-You may include nested custom attributes in the payload column for a custom attributes sync. 
-
-```json
-{
-      "most_played_song": {
-        "song_name": "Solea",
-        "artist_name": "Miles Davis",
-        "album_name": "Sketches of Spain",
-        "genre": "Jazz",
-        "play_analytics": {
-            "count": 1000,
-            "top_10_listeners": true
-        }
-      }
-}
-```
-
-{% endtab %}
-{% tab Event %}
-To sync events, an event name is required. Format the `time` field as an ISO 8601 string or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. If the `time` field is not present, Braze uses the `UPDATED_AT` column value as the event time. Other fields including `app_id` and `properties` are optional. 
-
-Note that you can only sync one event per row.
-
-```json
-{
-    "app_id" : "your-app-id",
-    "name" : "rented_movie",
-    "time" : "2013-07-16T19:20:45+01:00",
-    "properties": {
-        "movie": "The Sad Egg",
-        "director": "Dan Alexander"
-    }
-} 
-```
-
-{% endtab %}
-{% tab Purchase %}
-To sync purchase events, `product_id`, `currency`, and `price` are required. Format the `time` field, which is optional, as an ISO 8601 string or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. If the `time` field is not present, Braze uses the `UPDATED_AT` column value as the event time. Other fields, including `app_id`, `quantity` and `properties` are optional.
-
-Note that you can only sync one purchase event per row.
-
-```json
-{
-    "app_id" : "11ae5b4b-2445-4440-a04f-bf537764c9ad",
-    "product_id" : "Completed Order",
-    "currency" : "USD",
-    "price" : 219.98,
-    "time" : "2013-07-16T19:20:30+01:00",
-    "properties" : {
-        "products" : [ { "name": "Monitor", "category": "Gaming", "product_amount": 19.99 },
-        { "name": "Gaming Keyboard", "category": "Gaming ", "product_amount": 199.99 }
-        ]
-    }
-}
-```
-
-{% endtab %}
-{% tab Subscription Groups %}
-```json
-{
-    "subscription_groups" : [
-        {
-            "subscription_group_id": "subscription_group_identifier_1",
-            "subscription_state": "unsubscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_2",
-            "subscription_state": "subscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_3",
-            "subscription_state": "subscribed"
-        }
-      ]
-}
-```
-{% endtab %}
-{% endtabs %}
+- Source table requirements (required columns, identifier columns, and `UPDATED_AT` behavior)
+- Payload requirements (which fields must match the `/users/track` object format for each data type)
 
 ### Avoid timeouts for data warehouse queries
 

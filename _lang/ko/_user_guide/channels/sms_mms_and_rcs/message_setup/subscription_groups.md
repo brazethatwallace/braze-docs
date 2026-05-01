@@ -57,7 +57,7 @@ Canvas 플로우의 일부로 사용자의 구독 그룹 상태를 업데이트�
 
 ## 구독 그룹으로 메시지 발송 {#send-messages-with-a-subscription-group}
 
-Braze를 통해 SMS 또는 RCS Campaign을 시작하려면 **SMS/MMS/RCS 배리언트** 드롭다운에서 구독 그룹을 선택하세요. 선택하면 오디언스 필터가 Campaign 또는 Canvas에 자동으로 추가되어, 선택한 구독 그룹에 `subscribed`된 사용자만 타겟 오디언스에 포함됩니다.
+Braze를 통해 SMS 또는 RCS Campaign을 시작하려면 **SMS/MMS/RCS Variants** 드롭다운에서 구독 그룹을 선택하세요. 선택하면 오디언스 필터가 Campaign 또는 Canvas에 자동으로 추가되어, 선택한 구독 그룹에 `subscribed`된 사용자만 타겟 오디언스에 포함됩니다.
 
 {% alert important %}
 국제 [통신 규정 준수 및 가이드라인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)을 준수하여, Braze는 선택한 구독 그룹에 가입하지 않은 사용자에게 SMS 또는 RCS를 발송하지 않습니다.
@@ -92,6 +92,28 @@ RCS 인증 발신자를 추가하는 방법은 두 가지입니다:
 {% endtab %}
 {% endtabs %}
 
+## 에이전트 콘솔에서 자연어 옵트아웃 처리 {#handle-natural-language-opt-outs-in-the-agent-console}
+
+포괄적인 구독 관리를 위해, 표준 또는 커스텀 키워드 범위를 벗어나는 옵트아웃 의도(예: "문자 보내지 마세요")를 캡처할 수 있습니다. AI 에이전트를 생성하면 감성 분석을 사용하여 이러한 요청을 자동으로 식별하고 처리할 수 있습니다.
+
+### 설정 {#setup}
+
+1. [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents/)에서 "SMS 감성 분석 에이전트"를 생성합니다.
+
+{% alert tip %}
+초기 에이전트 구성을 지원하려면 [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)를 사용하세요.
+{% endalert %}
+
+{: start="2"}
+2. **기타** 키워드 카테고리 내에서 **SMS 인바운드 메시지 발송**에 의해 트리거되는 액션 기반 Canvas를 생성합니다.
+3. Canvas에 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)를 추가하여 옵트아웃 의도를 식별합니다.
+4. 요청을 확인하는 후속 SMS [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가합니다: "SMS 수신 거부를 원하시는 것 같아 수신 거부 처리를 진행합니다. 실수인 경우 START를 문자로 보내 다시 옵트인하세요."
+5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
+
+{% alert note %}
+에이전트 콘솔을 사용하면 메시지 크레딧이 소모됩니다.
+{% endalert %}
+
 ## SMS 트래픽을 RCS로 마이그레이션 {#migrate-sms-traffic-to-rcs}
 
 별도의 SMS 및 RCS 구독 그룹이 있는 경우, 한 단계 Canvas를 사용하여 사용자를 SMS에서 RCS로 마이그레이션할 수 있습니다.
@@ -100,7 +122,7 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 
 ### 1단계: Canvas 생성 및 진입 스케줄 작성 {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 Campaign을 스케줄하세요.
+Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 캠페인을 스케줄하세요.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
 
@@ -114,7 +136,7 @@ Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 �
 
 ### 3단계: 사용자 업데이트 단계 구성 {#step-3-configure-a-user-update-step}
 
-Canvas에 사용자 업데이트 단계를 추가하세요. 단계에서 **고급 JSON 에디터**를 열고 다음을 입력하세요(고유 사용자 식별자 필드에는 `braze_id` 필드를 사용하는 것을 권장합니다):
+Canvas에 사용자 업데이트 단계를 추가하세요. 단계에서 **Advanced JSON Editor**를 열고 다음을 입력하세요(고유 사용자 식별자 필드에는 `braze_id` 필드를 사용하는 것을 권장합니다):
 
 {% raw %}
 ```json
@@ -145,7 +167,7 @@ Canvas에 사용자 업데이트 단계를 추가하세요. 단계에서 **고�
 
 Canvas를 성공적으로 테스트한 후, 사용자 하위 집합에 대해 시작하세요!
 
-사용자가 성공적으로 마이그레이션되었는지 확인하려면, 업데이트된 개별 사용자 프로필 몇 개를 확인하는 것을 권장합니다. **참여** 탭에서 **연락처 설정**을 찾아 스크롤하여 사용자가 가입한 구독 그룹을 확인하세요. RCS 구독 그룹 토글이 켜져 있어야 합니다.
+사용자가 성공적으로 마이그레이션되었는지 확인하려면, 업데이트된 개별 사용자 프로필 몇 개를 확인하는 것을 권장합니다. **Engagement** 탭에서 **Contact Settings**를 찾아 스크롤하여 사용자가 가입한 구독 그룹을 확인하세요. RCS 구독 그룹 토글이 켜져 있어야 합니다.
 
 RCS 발신자 및 구독 그룹 설정에 대해서는 [RCS 설정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/)도 참조하세요.
 

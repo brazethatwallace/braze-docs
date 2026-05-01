@@ -43,6 +43,8 @@ description: "この記事では、一括ユーザートラッキングエンド
 
 ## レート制限 {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 ほとんどの顧客の場合、このエンドポイントの基本速度制限は1秒あたり50リクエストです。
 
 新しい契約の顧客は、契約された月間アクティブユーザー数に基づくバースト（秒単位）およびステディ（時間単位）の制限が適用される場合があります。

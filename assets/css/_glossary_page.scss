@@ -107,6 +107,14 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
     b {
       font-size: 30px;
       line-height: 1.4;

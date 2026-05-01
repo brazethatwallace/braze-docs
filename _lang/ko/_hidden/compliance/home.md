@@ -38,7 +38,7 @@ _개정 날짜: 2026년 3월 30일_
 4. [LINE 채널 규정 준수 설명서](#line-channel-compliance-documentation)
 5. [Shopify 통합 규정 준수 설명서](#shopify-integration-compliance-documentation)
 6. [오디언스 동기화 규정 준수 설명서](#audience-sync-compliance-documentation)
-7. [메시지 아카이빙 및 필드 수준 암호화 규정 준수 설명서](#message-archiving-and-field-level-encryption-compliance-documentation)
+7. [메시지 아카이브 및 필드 수준 암호화 규정 준수 설명서](#message-archiving-and-field-level-encryption-compliance-documentation)
 8. [에이전트 콘솔 규정 준수 설명서](#agent-console-compliance-documentation)
 9. [KakaoTalk 채널 규정 준수 설명서](#kakaotalk-channel-compliance-documentation)
 
@@ -135,7 +135,7 @@ LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사
 
 고객은 Shopify가 언제든지 자체 재량에 따라 다음을 수행할 수 있음을 인정합니다: (i) Braze가 고객의 Shopify 통합 액세스를 비활성화하거나 차단하도록 요구하는 것, 또는 (ii) 고객의 Shopify 통합 액세스 제공을 중단, 일시 중지 또는 종료하는 것. Braze는 Shopify가 고객 또는 Braze 서비스 전반을 통해 Shopify 통합에 대한 액세스 제공을 중단하는 것과 관련하여 어떠한 책임도 지지 않습니다.
 
-## 6. 오디언스 동기화 규정 준수 설명서 {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
+## 6. 오디언스 동기화 규정 준수 설명서 {#audience-sync-compliance-documentation}
 
 다음 추가 조건은 고객의 오디언스 동기화 사용에 적용됩니다.
 
@@ -145,10 +145,10 @@ LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사
 
 고객은 타사 제공자가 자사 서비스와 관련하여 사용되는 모든 데이터, 광고 또는 콘텐츠를 검토, 심사 및/또는 제거할 수 있음을 인정합니다.
 
-## 7. 메시지 아카이빙 및 필드 수준 암호화 규정 준수 설명서 {#message-archiving-and-field-level-encryption-compliance-documentation}
+## 7. 메시지 아카이브 및 필드 수준 암호화 규정 준수 설명서 {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### 면책 조항
-고객은 메시지 아카이빙 및/또는 필드 수준 암호화(각각 "**기능**")의 사용이 Braze 서비스를 통해 발송되는 메시지의 발송 속도에 영향을 미칠 수 있음을 인정합니다. Braze는 이러한 영향에 대해 책임을 지지 않으며, 고객이 해당 기능을 사용하는 경우 발송 속도 약속은 적용되지 않습니다. 해당 기능은 고객의 규정 준수 노력을 지원하기 위해 사용될 수 있지만, 고객은 Braze가 해당 기능의 사용 자체가 고객의 규정 준수 의무를 충족하는지 여부에 대해 어떠한 진술이나 보증도 하지 않으며, 이와 관련된 모든 책임을 부인함을 인정합니다.
+고객은 메시지 아카이브 및/또는 필드 수준 암호화(각각 "**기능**")의 사용이 Braze 서비스를 통해 발송되는 메시지의 발송 속도에 영향을 미칠 수 있음을 인정합니다. Braze는 이러한 영향에 대해 책임을 지지 않으며, 고객이 해당 기능을 사용하는 경우 발송 속도 약속은 적용되지 않습니다. 해당 기능은 고객의 규정 준수 노력을 지원하기 위해 사용될 수 있지만, 고객은 Braze가 해당 기능의 사용 자체가 고객의 규정 준수 의무를 충족하는지 여부에 대해 어떠한 진술이나 보증도 하지 않으며, 이와 관련된 모든 책임을 부인함을 인정합니다.
 
 ## 8. 에이전트 콘솔 규정 준수 설명서 {#agent-console-compliance-documentation}
 

@@ -245,7 +245,7 @@ HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Con
 
 ##### 로캘 수준 {#locale-level}
 
-다국어 메시지의 경우, **Localization Settings**에서 각 로캘에 접근성 언어를 설정합니다. 새 메시지가 생성되면 **Accessibility** 섹션에서 기본적으로 {% raw %}`{{accessibility_language}}`{% endraw %}가 선택됩니다. 이는 접근성 언어를 로캘 설정에 매핑합니다.
+다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. 새 메시지가 생성되면 **Accessibility** 섹션에서 기본적으로 {% raw %}`{{accessibility_language}}`{% endraw %}가 선택됩니다. 이는 접근성 언어를 로캘 설정에 매핑합니다.
 
 #### 표준 {#standards}
 

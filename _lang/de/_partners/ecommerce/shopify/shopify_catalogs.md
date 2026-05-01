@@ -22,12 +22,12 @@ Wenn Sie Ihren Shopify-Shop bereits installiert haben, können Sie Ihre Produkte
 
 Sie können Ihre Produkte mit einem Braze-Katalog über den Shopify-Installationsablauf oder auf der Shopify-Partnerseite synchronisieren.
 
-![Schritt 3 der Einrichtung mit „Shopify Variant ID“ als „Bezeichner für das Produkt im Katalog“.]({% image_buster /assets/img/Shopify/sync_products_step1.png %})
+![Schritt 3 der Einrichtung mit „Shopify Variant ID“ als „Catalog product identifier“.]({% image_buster /assets/img/Shopify/sync_products_step1.png %})
 
 ### 2. Schritt: Produktbezeichner auswählen {#step-2-select-your-product-identifier}
 
 Wählen Sie den Produktbezeichner aus, der als Katalog-ID verwendet werden soll:
-- Shopify-Varianten-ID
+- Shopify Variant ID
 - SKU
 
 Die ID- und Header-Werte für den von Ihnen gewählten Produktbezeichner dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. Wenn der Produktbezeichner nicht diesem Format entspricht, filtert Braze ihn aus Ihrer Katalogsynchronisierung heraus.
@@ -81,18 +81,18 @@ Fügen Sie Produkt-Tags, Shopify-Kollektionen und Metafelder zuerst in Shopify h
 
 Braze unterstützt die folgenden Metafeld-Objekte und einige ihrer jeweiligen Typen.
 
-| Metafeld-Typ                                    | Datentyp                                               |
+| Metafeld-Typ | Datentyp |
 |--------------------------------------------------|--------------------------------------------------------|
-| `boolean`                                        | Boolescher Wert                                        |
-| `color`, `list.color`                            | String (Hex-Farbcode, z. B. `#FFF123`), String-Array   |
-| `date`, `list.date`                              | String (ISO-8601-Datum), String-Array (ISO-8601-Daten) |
-| `date_time`, `list.date_time`                    | String (ISO-8601-Datetime), String-Array (ISO-8601-Datetimes) |
-| `id`, `list.id`                                  | String, String-Array                                   |
-| `multi_line_text_field`                          | String                                                 |
-| `number_decimal`                                 | String                                                 |
-| `number_integer`                                 | Integer                                                |
-| `single_line_text_field`, `list.single_line_text_field` | String, String-Array                            |
-| `url`, `list.url`                                | String (URL), String-Array (URLs)                      |
+| `boolean` | Boolescher Wert |
+| `color`, `list.color` | String (Hex-Farbcode, z. B. `#FFF123`), String-Array |
+| `date`, `list.date` | String (ISO-8601-Datum), String-Array (ISO-8601-Daten) |
+| `date_time`, `list.date_time` | String (ISO-8601-Datetime), String-Array (ISO-8601-Datetimes) |
+| `id`, `list.id` | String, String-Array |
+| `multi_line_text_field` | String |
+| `number_decimal` | String |
+| `number_integer` | Integer |
+| `single_line_text_field`, `list.single_line_text_field` | String, String-Array |
+| `url`, `list.url` | String (URL), String-Array (URLs) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endsubtab %}
@@ -164,31 +164,31 @@ Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Can
 
 ## Unterstützte Shopify-Katalogdaten {#supported-shopify-catalog-data}
 
-| Feld                 | Datentyp        | Beispiele                                                                  |
+| Feld | Datentyp | Beispiele |
 |----------------------|----------------|-----------------------------------------------------------------------------------|
-| `id`                 | String         | `45264808411274` wenn der Katalog-Produktbezeichner **Shopify-Varianten-ID** ist<br><br>`12345` wenn der Katalog-Produktbezeichner **SKU** ist (entspricht dem Wert, den Sie in [Schritt 2](#step-2-select-your-product-identifier) ausgewählt haben) |
-| `store_name`         | String         | „your-store“ (Shopify-Shop-Subdomain, ohne `.myshopify.com`)                |
-| `shopify_product_id` | Zahl           | `7939032613002` (als Zahl in Ihrem Braze-Katalog gespeichert; Shopify-APIs können diese ID als String zurückgeben) |
-| `shopify_variant_id` | Zahl           | `45264808411274` (als Zahl in Ihrem Braze-Katalog gespeichert; Shopify-APIs können diese ID als String zurückgeben) |
-| `product_title`      | String         | „Classic leather jacket“                                                      |
-| `variant_title`      | String         | „Large / Red“, „Medium“ oder „Default Title“ für Produkte mit einer einzelnen Variante |
-| `status`             | String         | „active“, „draft“, „archived“                                                     |
-| `product_image_url`  | String         | „https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760“ |
-| `variant_image_url`  | String         | Gleiche CDN-URL wie das Produktbild, wenn kein Variantenbild vorhanden ist; andernfalls eine variantenspezifische Bild-URL |
-| `vendor`             | String         | „Flash and Thread“, „PantsLabyrinth“                                            |
-| `product_type`       | String         | „Outerwear“, „T-Shirts“ (aus dem **Produkttyp** des Produkts in Shopify)      |
-| `product_url`        | String         | „https://your-store.myshopify.com/products/classic-leather-jacket“            |
-| `product_handle`     | String         | „classic-leather-jacket“                                                          |
-| `published_scope`    | String         | „web“, „global“                                                                   |
-| `price`              | Zahl           | `10.00`, `24.99`<br><br>Shopify gibt Preise häufig als Strings zurück (z. B. `"199.00"` in der REST Admin API). Braze konvertiert sie für dieses Katalogfeld in Zahlen. |
-| `compare_at_price`   | Zahl           | `15.00` wenn **Compare at price** in Shopify gesetzt ist<br><br>`0` wenn Shopify keinen Vergleichspreis hat. Shopify-APIs geben typischerweise `null` für einen nicht gesetzten Vergleichspreis zurück; Braze speichert `0` im Katalog, damit das Feld immer numerisch ist (dies ist ein Braze-Standardwert, kein Wert, den Shopify als `0` sendet). |
-| `inventory_quantity` | Zahl           | `20`, `0` oder ein negativer Wert, wenn Überverkauf erlaubt ist (z. B. `-18`)   |
-| `options`            | String         | „Size,Color“<br><br>Shopify erlaubt bis zu drei Optionstypen pro Produkt (z. B. Size, Color, Material). Der `options`-Wert ist eine kommagetrennte Liste dieser Namen. |
-| `option_values`      | String         | „Medium,Red“, „Large,Red“<br><br>Jeder Wert entspricht der gleichen Reihenfolge wie `options` (bis zu drei Werte). |
-| `sku`                | String         | „12345“, „SKU-001-RED-L“                                                    |
-| `product_tags`       | Array          | `["Summer", "Sale", "New"]`<br><br>Erfordert die Synchronisierung von Produkt-Tags.                 |
-| `collection_ids`     | Array          | `[123456789012, 987654321098]` (Shopify-Kollektions-IDs)<br><br>Erfordert die Synchronisierung von Shopify-Kollektionen. |
-| `Metafeld-Spalten`   | Variiert je nach Typ | Jedes synchronisierte Metafeld erscheint als separate Spalte, benannt nach seinem Schlüssel. Informationen finden Sie unter [Unterstützte Metafelder](#step-3) im Tab „Produkt-Metafelder“ von Schritt 3. |
+| `id` | String | `45264808411274` wenn der Katalog-Produktbezeichner **Shopify Variant ID** ist<br><br>`12345` wenn der Katalog-Produktbezeichner **SKU** ist (entspricht dem Wert, den Sie in [Schritt 2](#step-2-select-your-product-identifier) ausgewählt haben) |
+| `store_name` | String | „your-store“ (Shopify-Shop-Subdomain, ohne `.myshopify.com`) |
+| `shopify_product_id` | Zahl | `7939032613002` (als Zahl in Ihrem Braze-Katalog gespeichert; Shopify-APIs können diese ID als String zurückgeben) |
+| `shopify_variant_id` | Zahl | `45264808411274` (als Zahl in Ihrem Braze-Katalog gespeichert; Shopify-APIs können diese ID als String zurückgeben) |
+| `product_title` | String | „Classic leather jacket“ |
+| `variant_title` | String | „Large / Red“, „Medium“ oder „Default Title“ für Produkte mit einer einzelnen Variante |
+| `status` | String | „active“, „draft“, „archived“ |
+| `product_image_url` | String | „https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760“ |
+| `variant_image_url` | String | Gleiche CDN-URL wie das Produktbild, wenn kein Variantenbild vorhanden ist; andernfalls eine variantenspezifische Bild-URL |
+| `vendor` | String | „Flash and Thread“, „PantsLabyrinth“ |
+| `product_type` | String | „Outerwear“, „T-Shirts“ (aus dem **Product type** des Produkts in Shopify) |
+| `product_url` | String | „https://your-store.myshopify.com/products/classic-leather-jacket“ |
+| `product_handle` | String | „classic-leather-jacket“ |
+| `published_scope` | String | „web“, „global“ |
+| `price` | Zahl | `10.00`, `24.99`<br><br>Shopify gibt Preise häufig als Strings zurück (z. B. `"199.00"` in der REST Admin API). Braze konvertiert sie für dieses Katalogfeld in Zahlen. |
+| `compare_at_price` | Zahl | `15.00` wenn **Compare at price** in Shopify gesetzt ist<br><br>`0` wenn Shopify keinen Vergleichspreis hat. Shopify-APIs geben typischerweise `null` für einen nicht gesetzten Vergleichspreis zurück; Braze speichert `0` im Katalog, damit das Feld immer numerisch ist (dies ist ein Braze-Standardwert, kein Wert, den Shopify als `0` sendet). |
+| `inventory_quantity` | Zahl | `20`, `0` oder ein negativer Wert, wenn Überverkauf erlaubt ist (z. B. `-18`) |
+| `options` | String | „Size,Color“<br><br>Shopify erlaubt bis zu drei Optionstypen pro Produkt (z. B. Size, Color, Material). Der `options`-Wert ist eine kommagetrennte Liste dieser Namen. |
+| `option_values` | String | „Medium,Red“, „Large,Red“<br><br>Jeder Wert entspricht der gleichen Reihenfolge wie `options` (bis zu drei Werte). |
+| `sku` | String | „12345“, „SKU-001-RED-L“ |
+| `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Erfordert die Synchronisierung von Produkt-Tags. |
+| `collection_ids` | Array | `[123456789012, 987654321098]` (Shopify-Kollektions-IDs)<br><br>Erfordert die Synchronisierung von Shopify-Kollektionen. |
+| `Metafeld-Spalten` | Variiert je nach Typ | Jedes synchronisierte Metafeld erscheint als separate Spalte, benannt nach seinem Schlüssel. Informationen finden Sie unter [Unterstützte Metafelder](#step-3) im Tab „Produkt-Metafelder“ von Schritt 3. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% alert warning %}
@@ -341,7 +341,7 @@ Jedes synchronisierte Metafeld wird zu einer separaten Spalte in Ihrem Katalog, 
 
 ### Personalisierung
 
-1. Erstellen Sie eine [Katalogauswahl]({{site.baseurl}}/catalog_selections/), die nach Metafeldern mit dem jeweiligen Wert filtert, z. B. `summer`.
+1. Erstellen Sie eine [Katalogauswahl]({{site.baseurl}}/catalog_selections/), die nach Metafeldern mit dem jeweiligen Wert filtert.
 
 ![Eine Katalogauswahl, die nach Metafeldern mit dem Attribut „summer“ filtert.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
 
@@ -350,7 +350,7 @@ Jedes synchronisierte Metafeld wird zu einer separaten Spalte in Ihrem Katalog, 
 
 {% raw %}
 ```liquid
-{% catalog_selection_items se-team-ecommerce_shopify_catalog sustainable_products %}
+{% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
 {% abort_message('Catalog selection returned no items') %}
@@ -393,12 +393,12 @@ Jedes synchronisierte Metafeld wird zu einer separaten Spalte in Ihrem Katalog, 
 ```
 {% endraw %}
 
-Wenn Sie bestimmte Produkte mit dem Metafeld-Wert `summer` in einer Push-Benachrichtigung erwähnen möchten, können Sie das Tool **Add Personalization** verwenden und Ihre Katalogartikel angeben.
+Wenn Sie bestimmte Produkte mit einem bestimmten Metafeld-Wert in einer Push-Benachrichtigung erwähnen möchten, können Sie das Tool **Add Personalization** verwenden und Ihre Katalogartikel angeben.
 
 {% raw %}
 ```liquid
-Checkout the latest women's clothing:
-    {% catalog_selection_items se-team-ecommerce_shopify_catalog summer_products %}
+Check out the latest summer products:
+    {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
@@ -412,19 +412,17 @@ Checkout the latest women's clothing:
 Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), um Segmente basierend auf Nutzer:innen zu erstellen, die mit einem Produkt-Metafeld interagiert haben. Um beispielsweise Nutzer:innen zu finden, die ein E-Commerce-Event mit einem Produkt ausgelöst haben, dessen Metafeld-Array einen bestimmten Wert enthält, verwenden Sie diese Abfrage:
 
 {% raw %}
+```sql
 -- -----------------------------------------------------------------------------
--- Array-Typ-Metafeld-Werte (gesamter Zeitraum)
--- -----------------------------------------------------------------------------
--- Wenn das Metafeld als JSON-Array im Katalogfeld field_value gespeichert ist
--- (z. B. '["organic","vegan"]' oder ein als JSON serialisierter Shopify-
--- Listentyp-Metafeld), verwenden Sie ARRAY_CONTAINS wie bei product_tags.
--- Casten Sie das gesuchte Element zu VARIANT, damit die Typen mit den
--- geparsten Array-Elementen übereinstimmen.
+-- When the metafield is stored as a JSON array in catalog field_value (for example,
+-- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
+-- use ARRAY_CONTAINS like product_tags. Cast the element you search for to
+-- VARIANT so types match the parsed array elements.
 -- -----------------------------------------------------------------------------
 
 -- Description:
 -- Fetches users who triggered the ecommerce event with a product whose
--- metafield array contains a specific value (e.g. segment on "accessories").
+-- metafield array contains a specific value (for example, segment on "seasonal").
 -- For a date range, add events.time >= $start_date AND events.time <= $end_date.
 -- For first/last triggered, reuse the CTE pattern from Template 3 with this
 -- ARRAY_CONTAINS predicate instead of items.field_value = '<metafield_value>'.
@@ -450,10 +448,10 @@ WHERE
 ```
 {% endraw %}
 
-If you want to segment customers who have placed an order with the specific product metafields, use one of the following SQL Segment Extension templates (all time, specific time period, first or last triggered an event).
+Wenn Sie Kund:innen segmentieren möchten, die eine Bestellung mit bestimmten Produkt-Metafeldern aufgegeben haben, verwenden Sie eines der folgenden SQL-Segmenterweiterungs-Templates (gesamter Zeitraum, bestimmter Zeitraum, erstes oder letztes Auslösen eines Events).
 
 {% raw %}
-```json
+```sql
 -- =============================================================================
 -- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================
@@ -710,7 +708,7 @@ Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/d
 
 Wenn Sie das Shopify-Feature zur Produkt-Synchronisation deaktivieren, werden Ihr gesamter Katalog und Ihre Produkte gelöscht. Dies kann sich auch auf alle Nachrichten auswirken, die die Produktdaten dieses Katalogs aktiv nutzen. Vergewissern Sie sich, dass Sie diese Campaigns oder Canvases vor der Deaktivierung entweder aktualisiert oder pausiert haben, da dies dazu führen kann, dass Nachrichten ohne Produktangaben versendet werden. Löschen Sie den Shopify-Katalog nicht direkt auf der Katalogseite.
 
-## Fehlerbehebung
+## Fehlerbehebung {#troubleshooting}
 
 Wenn bei der Shopify Produkt-Synchronisation ein Fehler auftritt, kann dies auf die folgenden Fehler zurückzuführen sein. Folgen Sie den Anweisungen, um das Problem zu beheben und die Synchronisierung wiederherzustellen:
 
@@ -719,4 +717,4 @@ Wenn bei der Shopify Produkt-Synchronisation ein Fehler auftritt, kann dies auf 
 | Server-Fehler | Dies tritt auf, wenn ein Server-Fehler auf Seiten von Shopify auftritt, wenn wir versuchen, Ihre Produkte zu synchronisieren. | [Deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Doppelte SKU | Dies tritt auf, wenn Sie eine SKU als ID für Ihren Katalogartikel verwenden und Produkte mit der gleichen SKU haben. Da die ID des Katalogartikels eindeutig sein muss, müssen alle Ihre Produkte eindeutige SKUs haben. | Prüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass es keine doppelten SKUs gibt. Wenn es doppelte SKUs gibt, aktualisieren Sie diese so, dass sie nur in Ihrem Shopify-Konto eindeutige SKUs sind. Nachdem das Problem behoben ist, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Katalog-Limit überschritten | Dies geschieht, wenn Sie Ihr Katalog-Limit überschreiten. Braze ist nicht in der Lage, die Synchronisierung zu beenden oder aktiv zu halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Wenden Sie sich an Ihren Account Manager, um Ihre Stufe zu upgraden und Ihr Katalog-Limit zu erhöhen.<br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Auswahlen<br><br> Nachdem Sie eine der beiden Lösungen verwendet haben, müssen Sie die Synchronisierung deaktivieren und dann erneut synchronisieren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

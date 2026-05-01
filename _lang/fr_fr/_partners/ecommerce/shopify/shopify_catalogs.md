@@ -341,7 +341,7 @@ Chaque métachamp synchronisé devient une colonne distincte dans votre catalogu
 
 ### Personnalisation
 
-1. Créez une [sélection de catalogue]({{site.baseurl}}/catalog_selections/) qui filtre les métachamps incluant la valeur correspondante, comme `summer`.
+1. Créez une [sélection de catalogue]({{site.baseurl}}/catalog_selections/) qui filtre les métachamps incluant la valeur correspondante.
 
 ![Une sélection de catalogue qui filtre les métachamps ayant l'attribut summer.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
 
@@ -350,7 +350,7 @@ Chaque métachamp synchronisé devient une colonne distincte dans votre catalogu
 
 {% raw %}
 ```liquid
-{% catalog_selection_items se-team-ecommerce_shopify_catalog sustainable_products %}
+{% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
 {% abort_message('Catalog selection returned no items') %}
@@ -393,12 +393,12 @@ Chaque métachamp synchronisé devient une colonne distincte dans votre catalogu
 ```
 {% endraw %}
 
-Ou, si vous souhaitez mentionner des produits spécifiques avec une valeur de métachamp `summer` dans une notification push, vous pouvez utiliser l'outil **Ajouter une personnalisation** et spécifier vos éléments de catalogue.
+Ou, si vous souhaitez mentionner des produits spécifiques avec une valeur de métachamp donnée dans une notification push, vous pouvez utiliser l'outil **Ajouter une personnalisation** et spécifier vos éléments de catalogue.
 
 {% raw %}
 ```liquid
-Checkout the latest women's clothing:
-    {% catalog_selection_items se-team-ecommerce_shopify_catalog summer_products %}
+Check out the latest summer products:
+    {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
@@ -412,18 +412,17 @@ Checkout the latest women's clothing:
 Utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour créer des segments basés sur les utilisateurs ayant interagi avec un métachamp de produit. Par exemple, pour trouver les utilisateurs ayant déclenché un événement e-commerce avec un produit dont le tableau de métachamps contient une valeur spécifique, utilisez cette requête :
 
 {% raw %}
+```sql
 -- -----------------------------------------------------------------------------
--- Array-type metafield values (all time)
--- -----------------------------------------------------------------------------
--- When the metafield is stored as a JSON array in catalog field_value (e.g.
--- '["organic","vegan"]' or a list-type Shopify metafield serialized to JSON),
+-- When the metafield is stored as a JSON array in catalog field_value (for example,
+-- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
 -- use ARRAY_CONTAINS like product_tags. Cast the element you search for to
 -- VARIANT so types match the parsed array elements.
 -- -----------------------------------------------------------------------------
 
 -- Description:
 -- Fetches users who triggered the ecommerce event with a product whose
--- metafield array contains a specific value (e.g. segment on "accessories").
+-- metafield array contains a specific value (for example, segment on "seasonal").
 -- For a date range, add events.time >= $start_date AND events.time <= $end_date.
 -- For first/last triggered, reuse the CTE pattern from Template 3 with this
 -- ARRAY_CONTAINS predicate instead of items.field_value = '<metafield_value>'.
@@ -449,10 +448,10 @@ WHERE
 ```
 {% endraw %}
 
-If you want to segment customers who have placed an order with the specific product metafields, use one of the following SQL Segment Extension templates (all time, specific time period, first or last triggered an event).
+Si vous souhaitez segmenter les clients ayant passé une commande avec des métachamps de produit spécifiques, utilisez l'un des modèles SQL d'Extension de segments suivants (toutes les périodes, période spécifique, premier ou dernier déclenchement d'un événement).
 
 {% raw %}
-```json
+```sql
 -- =============================================================================
 -- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================
@@ -709,7 +708,7 @@ Vous pouvez également configurer des [notifications de baisse de prix]({{site.b
 
 La désactivation de la fonctionnalité de synchronisation des produits Shopify supprimera l'intégralité de votre catalogue et de vos produits. Cela peut également avoir un impact sur les messages qui utilisent activement les données produit de ce catalogue. Confirmez que vous avez mis à jour ou mis en pause ces Campaigns ou Canvas avant la désactivation, car cela pourrait entraîner l'envoi de messages sans détails sur les produits. Ne supprimez pas directement le catalogue Shopify sur la page des catalogues.
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
 Si la synchronisation de vos produits Shopify rencontre une erreur, cela pourrait être dû aux erreurs suivantes. Suivez les instructions pour corriger le problème et résoudre la synchronisation :
 
@@ -718,4 +717,4 @@ Si la synchronisation de vos produits Shopify rencontre une erreur, cela pourrai
 | Erreur du serveur | Cela se produit lorsqu'il y a une erreur de serveur du côté de Shopify au moment de la synchronisation de vos produits. | [Désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
 | SKU en double | Cela se produit si vous utilisez un SKU comme ID d'article de catalogue et que plusieurs produits partagent le même SKU. Comme l'ID de l'article du catalogue doit être unique, tous vos produits doivent avoir des SKU uniques. | Vérifiez votre liste complète de produits et de variantes dans Shopify pour vous assurer qu'il n'y a pas de SKU en double. S'il y en a, mettez-les à jour pour qu'ils soient uniques dans votre compte de boutique Shopify. Une fois la correction effectuée, [désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
 | Limite du catalogue dépassée | Cela se produit lorsque vous dépassez votre limite de catalogue. Braze ne pourra pas terminer la synchronisation ou la maintenir active en raison de l'absence d'espace de stockage disponible. | Il existe deux solutions à ce problème :<br><br>1. Contactez votre gestionnaire de compte pour passer à un niveau supérieur afin d'augmenter votre limite de catalogue.<br><br>2. Libérez de l'espace de stockage en supprimant l'un des éléments suivants :<br>- Des articles de catalogue d'autres catalogues<br>- D'autres catalogues<br>- Des sélections créées<br><br> Après avoir utilisé l'une ou l'autre des solutions, la synchronisation doit être désactivée puis relancée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

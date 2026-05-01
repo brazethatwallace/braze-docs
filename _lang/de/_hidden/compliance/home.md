@@ -126,6 +126,7 @@ Durch die Nutzung des LINE-Kanals erklären sich die Kund:innen damit einverstan
 
 Ungeachtet anderslautender Bestimmungen in den LINE-Bedingungen bleiben die Kund:innen in erster Linie für ihre Nutzung der LINE-Dienste haftbar.
 
+
 ## 5. Shopify-Integration – Compliance-Dokumentation {#shopify-integration-compliance-documentation}
 
 Die folgenden zusätzlichen Bedingungen gelten für die Nutzung der Shopify-Integration durch die Kund:innen in Verbindung mit den Braze-Diensten („**Shopify-Integration**“):
