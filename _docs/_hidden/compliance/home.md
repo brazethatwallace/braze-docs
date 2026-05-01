@@ -68,7 +68,7 @@ Notwithstanding the above, in the event that Customer sends Mobile Messages usin
 
 ### Webhook Use Exception Terms
 
-Applicable to Customers who have subscribed to Message Credits on or after December 9, 2024 (as per the Order Form Effective Date): the restrictions outlined in the Webhooks Channel Compliance Documentation do not apply to the use of webhooks for sending Mobile Messages through a Third Party Provider platform.
+Applicable to Customers who have subscribed to Action Credits on or after December 9, 2024 (as per the Order Form Effective Date): the restrictions outlined in the Webhooks Channel Compliance Documentation do not apply to the use of webhooks for sending Mobile Messages through a Third Party Provider platform.
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -118,7 +118,7 @@ The following additional terms apply in relation to Customer’s use of the LINE
 
 ### Pre-requisites
 
-To send Messages via the LINE Channel, customers must obtain a LINE Verified Official Account, which is approved and granted by LINE at its own discretion. Customers should ensure they obtain a Verified Official Account from LINE before purchasing Braze Message Credits for the use of the LINE Channel.
+To send Messages via the LINE Channel, customers must obtain a LINE Verified Official Account, which is approved and granted by LINE at its own discretion. Customers should ensure they obtain a Verified Official Account from LINE before purchasing Braze Action Credits for the use of the LINE Channel.
 
 ### Applicable Third-Party Provider Terms
 
