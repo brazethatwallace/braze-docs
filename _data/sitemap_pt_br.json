@@ -67,7 +67,7 @@
   "_user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications.md": "2026-04-26T02:37:46+00:00",
   "_user_guide/data/activation/catalogs/catalog_triggers.md": "2026-04-26T02:37:46+00:00",
   "_user_guide/data/activation/catalogs/create.md": "2026-04-26T02:37:46+00:00",
-  "_user_guide/data/activation/catalogs/selections.md": "2026-04-26T02:37:46+00:00",
+  "_user_guide/data/activation/catalogs/selections.md": "2026-04-29T15:39:08+00:00",
   "_user_guide/data/activation/catalogs/use.md": "2026-04-26T02:37:46+00:00",
   "_user_guide/data/activation/catalogs.md": "2026-04-26T02:37:46+00:00",
   "_user_guide/data/activation/custom_data/managing_custom_data.md": "2026-04-26T02:37:46+00:00",
@@ -780,7 +780,7 @@
   "_partners/ecommerce/product_search_recommendations.md": "2025-08-20T22:20:39+00:00",
   "_partners/ecommerce/shopify/discount_codes.md": "2026-04-27T20:30:43+00:00",
   "_partners/ecommerce/shopify/multiple_stores.md": "2026-04-27T20:30:43+00:00",
-  "_partners/ecommerce/shopify/shopify_catalogs.md": "2026-04-27T20:30:43+00:00",
+  "_partners/ecommerce/shopify/shopify_catalogs.md": "2026-04-29T15:39:08+00:00",
   "_partners/ecommerce/shopify/shopify_custom_integration.md": "2026-04-27T20:30:43+00:00",
   "_partners/ecommerce/shopify/shopify_data_features.md": "2026-04-27T20:30:43+00:00",
   "_partners/ecommerce/shopify/shopify_overview.md": "2026-04-27T20:30:43+00:00",
@@ -1316,7 +1316,7 @@
   "_user_guide/channels/push/platform_specific_resources/ios/notification_options.md": "2026-04-28T13:31:40+00:00",
   "_user_guide/channels/push/platform_specific_resources/ios/rich_notifications.md": "2026-04-28T13:31:40+00:00",
   "_user_guide/channels/push/platform_specific_resources/ios/utilizing_badge_count.md": "2026-04-28T16:14:35+00:00",
-  "_user_guide/channels/push/platform_specific_resources/ios.md": "2026-04-28T16:14:35+00:00",
+  "_user_guide/channels/push/platform_specific_resources/ios.md": "2026-04-29T15:39:08+00:00",
   "_user_guide/channels/push/platform_specific_resources/web.md": "2026-04-28T13:44:21+00:00",
   "_user_guide/channels/push/platform_specific_resources.md": "2026-04-28T13:31:40+00:00",
   "_user_guide/channels/push/push_error_codes.md": "2026-04-28T13:44:21+00:00",
@@ -1391,7 +1391,7 @@
   "_user_guide/channels/whatsapp/use_cases/whatsapp_and_external_systems.md": "2026-04-28T14:09:52+00:00",
   "_user_guide/channels/whatsapp/use_cases.md": "2026-04-28T14:09:52+00:00",
   "_user_guide/channels/whatsapp/whatsapp_setup/byo_connector.md": "2026-04-28T14:09:52+00:00",
-  "_user_guide/channels/whatsapp/whatsapp_setup/embedded_signup.md": "2026-04-28T16:34:10+00:00",
+  "_user_guide/channels/whatsapp/whatsapp_setup/embedded_signup.md": "2026-04-29T15:39:08+00:00",
   "_user_guide/channels/whatsapp/whatsapp_setup/multiple_business_accounts.md": "2026-04-28T14:09:52+00:00",
   "_user_guide/channels/whatsapp/whatsapp_setup/subscription_groups.md": "2026-04-28T14:09:52+00:00",
   "_user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers.md": "2026-04-28T14:09:52+00:00",
@@ -1475,5 +1475,6 @@
   "_partners/message_personalization/dynamic_content/content_optimization_testing/just_ai.md": "2026-04-28T20:19:28+00:00",
   "_partners/message_personalization/dynamic_content/personalization_engines/limbik.md": "2026-04-27T20:44:06+00:00",
   "_partners/message_personalization/dynamic_content/visual_and_interactive_content/cataboom.md": "2026-04-27T20:44:06+00:00",
-  "_partners/message_personalization/location/flybuy.md": "2026-04-28T20:19:28+00:00"
+  "_partners/message_personalization/location/flybuy.md": "2026-04-28T20:19:28+00:00",
+  "_partners/ecommerce/shopify/shopify_catalogs/faq.md": "2026-04-29T15:39:08+00:00"
 }
