@@ -107,7 +107,7 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 {: start="2"}
 2. **その他**のキーワードカテゴリ内で、**SMS受信メッセージを送信**によってトリガーされるアクションベースのCanvasを作成します。
 3. Canvasに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)を追加して、オプトアウト意図を識別します。
-4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加します。「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
+4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加します：「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
 5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
 
 {% alert note %}

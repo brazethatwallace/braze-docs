@@ -194,7 +194,7 @@ Después de añadir locales a tu espacio de trabajo, usa las [traducciones multi
 En Canvas, ahora puedes hacer referencia a variables de contexto para configurar:
 
 - Una [expiración]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#set-an-expiration) para Banners y mensajes dentro de la aplicación en un paso de mensaje
-- [Retrasos personalizados]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#action-path-delays) para los pasos de rutas de acción
+- [Retrasos personalizados]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#action-path-delays) para los pasos de Rutas de acción
 
 En el campo de nombre de variable de contexto, también puedes escribir el nombre de la variable de contexto o seleccionarlo del menú desplegable en el editor de pasos. Para más detalles, consulta [Contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/) y [Variables de contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/).
 
@@ -908,11 +908,11 @@ Las [listas de supresión]({{site.baseurl}}/user_guide/audience/suppression_list
 
 Sincroniza los desencadenantes de Canvas utilizando la Ingesta de datos en la nube para una [personalización sin copia]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/zero_copy_sync/). Esta característica accede a información específica del usuario desde tu solución de almacenamiento de datos y la pasa a un Canvas de destino. Los pasos en Canvas pueden incluir opcionalmente campos de personalización que no persisten en los perfiles de usuario de Braze.
 
-#### Variables de contexto de Canvas para rutas de audiencia y pasos de división de decisiones {#canvas-context-variables-for-audience-paths-and-decision-split-steps}
+#### Variables de contexto de Canvas para Rutas de audiencia y pasos de División de decisiones {#canvas-context-variables-for-audience-paths-and-decision-split-steps}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Puedes [crear filtros de variables de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters) que utilicen variables de contexto previamente declaradas en las [rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) y en los pasos de [división de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/).
+Puedes [crear filtros de variables de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters) que utilicen variables de contexto previamente declaradas en las [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) y en los pasos de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/).
 
 ### Desbloquear la creatividad {#unlocking-creativity}
 

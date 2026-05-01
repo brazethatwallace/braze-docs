@@ -1,7 +1,7 @@
 ---
 nav_title: Accueil
 article_title: Quoi de neuf dans Braze ?
-description: "Les notes de mise à jour de Braze sont publiées mensuellement afin que vous puissiez vous tenir au courant des versions majeures du produit, des améliorations continues du produit, des partenariats de Braze, des changements de SDK et de l'abandon de fonctionnalités."
+description: "Les notes de mise à jour de Braze sont publiées mensuellement afin que vous puissiez vous tenir au courant des versions majeures du produit, des améliorations continues du produit, des partenariats de Braze, des changements majeurs du SDK et de l'abandon de fonctionnalités."
 page_order: 0
 search_rank: 1
 page_type: reference

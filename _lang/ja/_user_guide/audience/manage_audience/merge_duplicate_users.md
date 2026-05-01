@@ -19,13 +19,13 @@ Braze REST APIを使用して重複ユーザーを統合するには、[POST: �
 
 ### ステップ 1:重複プロファイルを検索する {#step-1-search-for-a-duplicate-profile}
 
-Brazeで、**オーディエンス** > **ユーザー検索**を選択します。
+Brazeで、**Audience** > **User Search**を選択します。
 
-![ナビゲーションメニューでハイライトされた「ユーザー検索」タイル。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
+![ナビゲーションメニューでハイライトされた「User Search」タイル。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
 
 メールアドレスや電話番号などのユニーク識別子を入力して重複プロファイルを検索し、**Search**を選択します。
 
-![Brazeダッシュボードの「ユーザー検索」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
+![Brazeダッシュボードの「User Search」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
 
 ### ステップ 2:重複を統合する {#step-2-merge-duplicates}
 
@@ -43,19 +43,19 @@ Brazeで、**オーディエンス** > **ユーザー検索**を選択します�
 
 ## 一括統合 {#bulk-merging}
 
-重複ユーザーを一括統合すると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、すべてのデータを`external_id`を持つ最も最近更新されたプロファイルに統合します。`external_id`を持つプロファイルがない場合は、`external_id`を持たない最も最近更新されたプロファイルが代わりに使用されます。
+重複ユーザーを一括統合すると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、1つのプロファイルを保持します。Brazeはまず`external_id`を持つプロファイルを優先し、次に**Resolving ties**設定（**Resolve ties using**と**Prioritization**）を適用します。`external_id`を持つプロファイルがない場合、Brazeは`external_id`を持たないプロファイル全体に対して**Resolve ties using**と**Prioritization**を使用します。Brazeは、これらの設定で保持するプロファイルが1つに特定できる場合にのみユーザーを統合します。たとえば、**Resolve ties using**が**Updated date**で、両方のプロファイルの最終更新タイムスタンプが同じ場合、Brazeはタイブレークを解決できないため、それらのユーザーは統合されません。
 
-### ステップ 1:オーディエンスを管理に移動する {#step-1-go-to-manage-audience}
+### ステップ 1:Manage Audienceに移動する {#step-1-go-to-manage-audience}
 
-Brazeダッシュボードで、**オーディエンス** > **オーディエンスを管理**を選択します。
+Brazeダッシュボードで、**Audience** > **Manage Audience**を選択します。
 
-![ナビゲーションメニューでハイライトされた「オーディエンスを管理」タイル。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
+![ナビゲーションメニューでハイライトされた「Manage Audience」タイル。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
 
 ### ステップ 2:結果をプレビューする（オプション） {#step-2-preview-the-results-optional}
 
 重複を統合する前に結果をプレビューするには、**Generate list of duplicates**を選択します。
 
-![「Generate list of duplicates」がハイライトされた「オーディエンスを管理」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
+![「Generate list of duplicates」がハイライトされた「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
 
 Brazeがプレビューを生成し、CSVファイルとしてメールアドレスに送信します。
 
@@ -86,7 +86,7 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
-![「Merge all duplicates」がハイライトされた「オーディエンスを管理」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
+![「Merge all duplicates」がハイライトされた「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## ルールベースの統合 {#rules-based-merging}
 
@@ -94,7 +94,7 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 
 ### ステップ 1:ルールを定義する {#step-1-define-your-rules}
 
-1. **オーディエンス** > **オーディエンスを管理** > **Edit rules**に移動します。
+1. **Audience** > **Manage Audience** > **Edit rules**に移動します。
 2. **Edit rules**パネルの**Profile to keep**セクションで、重複統合時に保持するプロファイルの**Identifier**を選択します。メールアドレスまたは電話番号を指定できます。
 3. **Resolving ties**セクションで、**Profile to keep**の一致条件を持つプロファイル間のタイブレーク方法を決定する条件を選択します。以下を選択できます:<br>
 - **Resolve ties using**: Created date、Updated date、Last session
@@ -110,7 +110,7 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 
 ### ステップ 3:重複を統合する {#step-3-merge-duplicates}
 
-プレビューの結果に問題がなければ、**オーディエンスを管理**ページに戻り、**Merge all duplicates**を選択します。
+プレビューの結果に問題がなければ、**Manage Audience**ページに戻り、**Merge all duplicates**を選択します。
 
 {% alert warning %}
 重複ユーザープロファイルは、統合後に復元できません。
@@ -120,7 +120,7 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 
 ルールベースの統合と同様に、スケジュール統合では、事前設定されたルールを使用してユーザープロファイルの統合を毎日自動化できます。
 
-![「schedule」ボタンがある「オーディエンスを管理」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
+![「schedule」ボタンがある「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
 
 この機能を有効にすると、Brazeはユーザーの会社のタイムゾーンで毎日午前0時頃に統合プロセスを実行するタイムスロットを自動的に割り当てます。スケジュール統合はいつでも無効にできます。Brazeは、スケジュールされた統合が実行される24時間前にワークスペースの管理者に通知し、設定を確認するためのリマインダーと時間を提供します。
 

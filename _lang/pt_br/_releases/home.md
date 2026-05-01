@@ -137,7 +137,7 @@ As seguintes atualizações do SDK foram lançadas. As atualizações significat
 - [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
     - Suporte à inicialização atrasada.
 - [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
-    - Correções de bugs para In-App Messages e Banners.
+    - Correções de bugs para mensagens no app e Banners.
 - [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
     - Suporte a dispensas de Banner.
 - [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
@@ -538,7 +538,7 @@ Dois novos [eventos](http://braze.com/docs/user_guide/data/distribution/braze_cu
 
 Novos [eventos de nova tentativa](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) agora estão disponíveis para canais de e-mail, LINE, notificações por push, SMS, webhooks e WhatsApp. Esses eventos fornecem visibilidade de quando o limite de frequência resulta no atraso de uma mensagem programada em vez de abortá-la. Quando uma mensagem é despriorizada ou tem limite de frequência, ela agora pode ser repetida dentro de uma janela de repetição configurada, o que lhe dá uma visão melhor dos padrões de entrega de mensagens e dos impactos do limite de frequência. Para saber mais, consulte o [changelog do Currents](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
 
-#### Adicionar novo campo 'time_ms' ao evento TokenStateChange {#add-new-timems-field-to-tokenstatechange-event}
+#### Novo campo "time_ms" adicionado ao evento TokenStateChange {#add-new-timems-field-to-tokenstatechange-event}
 
 {% multi_lang_include release_type.md release="General availability" %}
 

@@ -24,8 +24,8 @@
 | 역할 이름    | 워크스페이스 | 권한
 ----------- | ----------- | ---------
 | 마케터 - 패션 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집". |
-| 마케터 - 스킨케어 브랜드 | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집". |
-| 사용자 관리 - 모든 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브" |
+| 마케터 - 스킨케어 브랜드 | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"Campaign 보기", "Campaign 편집", "Campaign 아카이브", "Canvas 보기", "Canvas 편집", "Canvas 아카이브", "Content Blocks 보기", "Content Blocks 편집", "Content Blocks 아카이브", "Content Blocks 실행", "기능 플래그 보기", "기능 플래그 편집", "기능 플래그 아카이브", "Segments 보기", "Segments 편집", "배너 템플릿 보기", "배너 템플릿 편집", "이메일 템플릿 보기", "이메일 템플릿 편집", "미디어 라이브러리 자산 보기", "미디어 라이브러리 자산 편집", "미디어 라이브러리 자산 삭제", "위치 보기", "위치 편집", "위치 아카이브", "프로모션 코드 보기", "프로모션 코드 편집", "프로모션 코드 내보내기", "환경설정 센터 보기", "환경설정 센터 편집".|
+| 사용자 관리 - 모든 브랜드 | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "대시보드 사용자 편집", "Teams 보기", "Teams 편집", "Teams 아카이브"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -36,7 +36,7 @@
 
 ### Teams에 사용자 권한을 추가할 때 고려 사항 {#considerations-for-adding-user-permissions-to-teams}
 
-Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에서 사용자를 추가하거나 제거하거나 Teams에 추가할 때 문제가 발생할 수 있습니다. 사용자의 권한이 워크스페이스 수준에서 이미 보유한 권한과 동일한 경우 **사용자 저장/업데이트** 버튼이 비활성화될 수 있습니다. 모든 사용자가 전체 워크스페이스와 동일한 권한을 가지고 있다면 Teams를 사용할 이점이 없기 때문에 이러한 제한이 존재합니다.
+Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에서 사용자를 추가하거나 제거하거나 Teams에 추가할 때 문제가 발생할 수 있습니다. 사용자의 권한이 워크스페이스 수준에서 이미 보유한 권한과 동일한 경우 **Save/Update Users** 버튼이 비활성화될 수 있습니다. 모든 사용자가 전체 워크스페이스와 동일한 권한을 가지고 있다면 Teams를 사용할 이점이 없기 때문에 이러한 제한이 존재합니다.
 
 동일한 권한을 유지하면서 사용자를 Teams에 성공적으로 추가하려면 워크스페이스 수준에서 권한을 할당하지 마세요. 대신 팀 수준에서만 권한을 할당하세요.
 

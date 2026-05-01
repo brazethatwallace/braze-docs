@@ -9,7 +9,7 @@ page_type: reference
 
 # 내보내기 엔드포인트 {#export-endpoints}
 
-내보내기 엔드포인트를 사용하면 KPI, 앱 세션, 사용자, 세그먼트, 캠페인, Canvases에 대한 다양한 세부 정보에 액세스하고 내보낼 수 있습니다. 매개변수 및 요청 본문을 작성할 때 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [API 키]({{site.baseurl}}/api/api_key/), [API 식별자]({{site.baseurl}}/api/identifier_types/)를 알고 있어야 합니다.
+이 엔드포인트 모음을 사용하면 KPI, 앱 세션, 사용자, 세그먼트, 캠페인, Canvases에 대한 다양한 수준의 세부 정보에 액세스하고 내보낼 수 있습니다. 매개변수 및 요청 본문을 작성할 때 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [API 키]({{site.baseurl}}/api/api_key/), [API 식별자]({{site.baseurl}}/api/identifier_types/)를 알고 있어야 합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -36,7 +36,7 @@ API 액세스 권한이 없는 마케터 또는 팀원인 경우, 조직 내 개
 | Canvases | 데이터 시리즈 분석, 분석 요약, Canvas 세부 정보, Canvas 목록 | [캔버스 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) |
 | Segments | 세그먼트 목록, 세그먼트 분석, 세그먼트 세부 정보 | [세그먼트 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
 | 사용자 데이터 | 식별자 또는 세그먼트별 전체 사용자 프로필, 글로벌 컨트롤 그룹별 사용자 | [사용자 데이터 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
-| KPI | 일일 활성 사용자, 월간 활성 사용자, 일일 신규 사용자, 날짜별 제거 | [KPI 엔드포인트]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
+| KPI | 일일 활성 사용자, 월간 활성 사용자, 일일 신규 사용자, 날짜별 삭제 | [KPI 엔드포인트]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
 | 세션 | 앱 세션 시계열 데이터 | [세션 엔드포인트]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) |
 | 커스텀 이벤트 | 이벤트 이름, 이벤트 목록, 시간별 이벤트 분석 | [커스텀 이벤트 엔드포인트]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
 | 커스텀 속성 | 속성 이름 | [커스텀 속성 엔드포인트]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
@@ -56,7 +56,7 @@ API 내보내기는 대시보드에서 다운로드하는 CSV 파일과 달리 J
 
 내보내기 전달 및 문제 해결에 대한 자세한 내용은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
 
-## 내보내기 엔드포인트 목록
+## 내보내기 엔드포인트
 
 다음 표는 사용 가능한 모든 내보내기 API를 나열합니다.
 
@@ -94,6 +94,6 @@ API 내보내기는 대시보드에서 다운로드하는 CSV 파일과 달리 J
 
 대시보드에서 일회성 내보내기를 수행하려면 다음 문서를 참조하세요.
 
-- [Campaign 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/)
+- [캠페인 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/)
 - [Canvas 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)
 - [세그먼트 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)

@@ -191,7 +191,7 @@ Selecciona **Add Languages** y elige los idiomas deseados de la lista proporcion
 
 ### Imagen {#image}
 
-Dependiendo de tu tipo de mensaje, puedes **Upload Image**, **Pick a Badge** o usar **Font Awesome**. Para cargar una imagen, selecciona **Add Image** o proporciona una URL de imagen. Al seleccionar **Add Image** se abre la **Biblioteca de medios**, donde puedes seleccionar una imagen cargada previamente o añadir una nueva. Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisitos sugeridos; asegúrate de verificar cuáles son antes de encargar o crear una imagen desde cero.
+Dependiendo de tu tipo de mensaje, puedes **Upload Image**, **Pick a Badge** o usar **Font Awesome**. Para cargar una imagen, selecciona **Añadir imagen** o proporciona una URL de imagen. Al seleccionar **Añadir imagen** se abre la **Biblioteca de medios**, donde puedes seleccionar una imagen cargada previamente o añadir una nueva. Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisitos sugeridos; asegúrate de verificar cuáles son antes de encargar o crear una imagen desde cero.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -352,7 +352,7 @@ Las opciones de alta, media y baja prioridad para mensajes desencadenados son co
 - **Contenedor de prioridad predeterminada:** Cuando dos Campaigns comparten el mismo desencadenante y usan la prioridad predeterminada (media), la Campaign creada más recientemente recibe el desencadenante.
 - **Contenedor de prioridad específica:** Cuando múltiples Campaigns comparten el mismo desencadenante y se asignan a un contenedor de prioridad específico, la Campaign asignada más recientemente a ese contenedor recibe el desencadenante.
 
-Para establecer prioridades dentro de estos contenedores, haz clic en **Set Exact Priority**, y puedes arrastrar y soltar Campaigns para ordenarlas con la prioridad correcta.
+Para establecer prioridades dentro de estos contenedores, haz clic en **Establece la prioridad exacta**, y puedes arrastrar y soltar Campaigns para ordenarlas con la prioridad correcta.
 
 ![Un ejemplo de cómo se establece la prioridad para una Campaign y un Canvas de mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
@@ -368,7 +368,7 @@ Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenenci
 
 En algunos escenarios, es posible que desees reevaluar la elegibilidad de un usuario cuando desencadena un mensaje dentro de la aplicación para mostrarse. Los ejemplos incluyen Campaigns que se dirigen a un atributo personalizado que cambia con frecuencia o mensajes que deben reflejar cualquier cambio de perfil de último momento.
 
-![Casilla de verificación "Re-evaluate campaign eligibility before displaying" seleccionada.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
+![Casilla de verificación para reevaluar la elegibilidad de la Campaign antes de mostrar, seleccionada.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
 Cuando seleccionas **Re-evaluate campaign eligibility before displaying**, se realizará una solicitud adicional a Braze para confirmar que el usuario sigue siendo elegible para este mensaje antes de enviarlo. Además, cualquier variable de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) o [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) se procesará en ese momento antes de que se muestre el mensaje.
 

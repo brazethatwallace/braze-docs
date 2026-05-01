@@ -30,10 +30,10 @@ Para usar botones de acción en tus mensajes push de iOS, haz lo siguiente:
 
 1. Activa los botones de acción en la pestaña **Compose** para una Campaign estándar o en la pestaña **Settings** para push rápido.
 2. Selecciona tu **iOS Notification Category** de las siguientes combinaciones de botones disponibles:
- - Aceptar / Rechazar
- - Sí / No
- - Confirmar / Cancelar
- - Más
+ - Accept / Decline
+ - Yes / No
+ - Confirm / Cancel
+ - More
  - Categoría personalizada de iOS preregistrada
 
 ![Menú desplegable de categoría de notificación de iOS.]({% image_buster /assets/img_archive/push_action_buttons_ios.png %}){: style="max-width:70%"}
@@ -41,6 +41,8 @@ Para usar botones de acción en tus mensajes push de iOS, haz lo siguiente:
 {% alert note %}
 Debido a la forma en que iOS gestiona los botones, necesitas realizar pasos de integración adicionales al configurar los botones de acción push, que se describen en nuestra [documentación para desarrolladores]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). En particular, necesitas configurar las categorías de iOS o seleccionar entre ciertas opciones de botones predeterminadas. Para las integraciones de Android, estos botones funcionarán automáticamente.
 {% endalert %}
+
+Los pares predefinidos como **Yes** / **No** asignan el segundo botón a una acción de descarte (**CLOSE**) de forma predeterminada, por lo que no abre la aplicación de la misma manera que el primer botón. **_Direct Opens_** no incluye ese tipo de toque, pero los datos de **Push Notification Open** en Currents o Snowflake pueden registrarlo con `button_action_type` y `button_string`. Para más información, consulta [Botones de acción push e informes]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -49,11 +51,11 @@ Para usar botones de acción en tus mensajes push de Android, haz lo siguiente:
 
 1. Activa los botones de acción en la pestaña **Compose** para una Campaign estándar o en la pestaña **Settings** para push rápido.
 2. Selecciona <i class="fas fa-plus-circle"></i> **Add Button** y especifica el texto del botón y el **On-Click Behavior**. Puedes seleccionar entre las siguientes acciones disponibles:
-  - Abrir aplicación
-  - Redirigir a URL web
+  - Open App
+  - Redirect to Web URL
   - [Vínculo profundo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) a la aplicación
 
-![Seleccionando "Abrir aplicación" como el comportamiento al hacer clic para un botón de notificación.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
+![Seleccionando "Open App" como el comportamiento al hacer clic para un botón de notificación.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
 
 Puedes añadir hasta tres botones en tu push.
 

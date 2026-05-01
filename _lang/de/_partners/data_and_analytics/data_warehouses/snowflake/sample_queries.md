@@ -15,9 +15,9 @@ search_tag: Partner
 {% tabs %}
 {% tab Filter By Time%}
 
-Eine gängige Abfrage ist das Filtern von Ereignissen nach Zeit.
+Eine gängige Abfrage ist das Filtern von Events nach Zeit.
 
-Sie können sie nach dem Zeitpunkt des Vorkommens filtern. Die Ereignistabellen sind nach `time` geclustert, sodass die Filterung nach `time` optimal ist:
+Sie können sie nach dem Zeitpunkt des Vorkommens filtern. Die Event-Tabellen sind nach `time` geclustert, sodass die Filterung nach `time` optimal ist:
 ```sql
 -- find custom events that occurred after 04/15/2019 @ 7:02pm (UTC) i.e., timestamp=1555354920
 SELECT *
@@ -25,7 +25,7 @@ FROM users_behaviors_customevent_shared
 WHERE time > 1555354920
 LIMIT 10;
 ```
-Sie können Ereignisse auch nach dem Zeitpunkt filtern, zu dem sie im Snowflake Data Warehouse persistiert wurden, indem Sie `sf_created_at` verwenden. `sf_created_at` und `time` sind nicht identisch, liegen aber in der Regel nahe beieinander, sodass diese Abfrage ähnliche Performance-Eigenschaften haben sollte:
+Sie können Events auch nach dem Zeitpunkt filtern, zu dem sie im Snowflake Data Warehouse persistiert wurden, indem Sie `sf_created_at` verwenden. `sf_created_at` und `time` sind nicht identisch, liegen aber in der Regel nahe beieinander, sodass diese Abfrage ähnliche Performance-Eigenschaften haben sollte:
 ```sql
 -- find custom events that arrived in Snowflake after time 04/15/2019 @ 7:02pm (UTC)
 SELECT *
@@ -34,15 +34,15 @@ WHERE sf_created_at > to_timestamp_ntz('2019-04-15 19:02:00')
 LIMIT 10;
 ```
 {% alert note %}
-Der Wert von `sf_created_at` ist nur für Ereignisse zuverlässig, die nach dem `15. November 2019, 21:31 Uhr UTC` persistiert wurden.
+Der Wert von `sf_created_at` ist nur für Events zuverlässig, die nach dem `15. November 2019, 21:31 Uhr UTC` persistiert wurden.
 {% endalert %}
 {% endtab %}
 
 {% tab Querying Changelogs%}
 
-Campaign- und Canvas-Namen sind nicht in den Ereignissen selbst enthalten. Stattdessen werden sie in einer Changelog-Tabelle veröffentlicht.
+Campaign- und Canvas-Namen sind nicht in den Events selbst enthalten. Stattdessen werden sie in einer Changelog-Tabelle veröffentlicht.
 
-Sie können Campaign-Namen für Ereignisse im Zusammenhang mit einer Campaign anzeigen, indem Sie über eine Abfrage wie die folgende mit der Campaign-Changelog-Tabelle verknüpfen:
+Sie können Campaign-Namen für Events im Zusammenhang mit einer Campaign anzeigen, indem Sie über eine Abfrage wie die folgende mit der Campaign-Changelog-Tabelle verknüpfen:
 
 ```sql
 SELECT event.id, event.time, ccs.time, ccs.name, ccs.conversion_behaviors[event.conversion_behavior_index]
@@ -54,8 +54,8 @@ qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 ```
 Einige wichtige Punkte sind zu beachten:
 - Hier werden die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwendet.
-- Der Left Join sorgt dafür, dass auch Ereignisse, die nicht mit einer Campaign in Verbindung stehen, berücksichtigt werden.
-- Wenn Sie Ereignisse mit `campaign_id`s sehen, aber keine Campaign-Namen, besteht die Möglichkeit, dass die Campaign mit einem Namen erstellt wurde, bevor Datenfreigabe als Produkt existierte.
+- Der Left Join sorgt dafür, dass auch Events, die nicht mit einer Campaign in Verbindung stehen, berücksichtigt werden.
+- Wenn Sie Events mit `campaign_id`s sehen, aber keine Campaign-Namen, besteht die Möglichkeit, dass die Campaign mit einem Namen erstellt wurde, bevor Datenfreigabe als Produkt existierte.
 - Sie können Canvas-Namen mit einer ähnlichen Abfrage anzeigen, indem Sie stattdessen mit der Tabelle `CHANGELOGS_CANVAS_SHARED` verknüpfen.
 
 Wenn Sie sowohl Campaign- als auch Canvas-Namen sehen möchten, müssen Sie möglicherweise die folgende Unterabfrage verwenden:
@@ -148,11 +148,11 @@ LIMIT 500;
 {% tab Unique Email Clicks %}
 
 Sie können diese Abfrage für eindeutige E-Mail-Klicks verwenden, um die eindeutigen E-Mail-Klicks in einem bestimmten Zeitfenster zu analysieren. Der Algorithmus zur Berechnung lautet wie folgt:
-  1. Unterteilen Sie die Ereignisse nach dem Schlüssel (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
-  2. Ordnen Sie die Ereignisse in jeder Partition nach Zeit, wobei das erste Ereignis immer ein eindeutiges Ereignis ist.
-  3. Jedes nachfolgende Ereignis, das mehr als sieben Tage nach seinem Vorgänger eintritt, wird als eindeutiges Ereignis betrachtet.
+  1. Unterteilen Sie die Events nach dem Schlüssel (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
+  2. Ordnen Sie die Events in jeder Partition nach Zeit, wobei das erste Event immer ein eindeutiges Event ist.
+  3. Jedes nachfolgende Event, das mehr als sieben Tage nach seinem Vorgänger eintritt, wird als eindeutiges Event betrachtet.
 
-Dazu können wir die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwenden. Die folgende Abfrage liefert uns alle E-Mail-Klicks der letzten 365 Tage und zeigt in der Spalte `is_unique` an, welche Ereignisse eindeutig sind:
+Dazu können wir die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwenden. Die folgende Abfrage liefert uns alle E-Mail-Klicks der letzten 365 Tage und zeigt in der Spalte `is_unique` an, welche Events eindeutig sind:
 
 ```sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
@@ -166,7 +166,7 @@ WHERE
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
 ```
 
-Wenn Sie nur die eindeutigen Ereignisse sehen möchten, verwenden Sie die `QUALIFY`-Klausel:
+Wenn Sie nur die eindeutigen Events sehen möchten, verwenden Sie die `QUALIFY`-Klausel:
 ```sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
@@ -179,7 +179,7 @@ WHERE
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
 QUALIFY is_unique = true;
 ```
-Um die Anzahl eindeutiger Ereignisse gruppiert nach E-Mail-Adresse anzuzeigen:
+Um die Anzahl eindeutiger Events gruppiert nach E-Mail-Adresse anzuzeigen:
 ```sql
 WITH unique_events AS(
   SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
@@ -199,13 +199,13 @@ GROUP BY email_address;
 {% endtab %}
 {% tab Unique Email Opens %}
 
-Verwenden Sie diese Abfrage, um **eindeutige Öffnungen** aus Snowflake-E-Mail-Öffnungsereignissen zu approximieren – zum Beispiel, um sie mit der Spalte **Unique Opens** im Dashboard abzugleichen.
+Verwenden Sie diese Abfrage, um **eindeutige Öffnungen** aus Snowflake-E-Mail-Öffnungs-Events zu approximieren – zum Beispiel, um sie mit der Spalte **Unique Opens** im Dashboard abzugleichen.
 
 Dieses Beispiel gibt drei Zählwerte zurück:
 
-- **Unique Opens (über 7 Tage):** Eindeutige Öffnungen über einen rollierenden Zeitraum von sieben Tagen.
-- **Unique Opens (im Datumsfenster):** Eindeutige Öffnungen innerhalb des angegebenen Zeitraums. Dies gilt unabhängig von Öffnungen, die vor dem Zeitraum stattgefunden haben.
-- **Unique Opens (für E-Mails, die im selben Zeitraum zugestellt wurden):** Eindeutige Öffnungen, bei denen das zugehörige Zustellungsereignis ebenfalls innerhalb desselben Fensters stattfand (nützlich, wenn Sie nur Öffnungen für Nachrichten sehen möchten, die in diesem Zeitraum zugestellt wurden).
+- **Unique Opens (over 7 days):** Eindeutige Öffnungen über einen rollierenden Zeitraum von sieben Tagen.
+- **Unique Opens (during date window):** Eindeutige Öffnungen innerhalb des angegebenen Zeitraums. Dies gilt unabhängig von Öffnungen, die vor dem Zeitraum stattgefunden haben.
+- **Unique Opens (for emails delivered within same timeframe):** Eindeutige Öffnungen, bei denen das zugehörige Zustellungs-Event ebenfalls innerhalb desselben Fensters stattfand (nützlich, wenn Sie nur Öffnungen für Nachrichten sehen möchten, die in diesem Zeitraum zugestellt wurden).
 
 {% raw %}
 ```sql

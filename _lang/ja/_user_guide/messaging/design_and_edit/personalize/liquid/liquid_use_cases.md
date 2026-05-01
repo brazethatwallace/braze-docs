@@ -1466,7 +1466,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージCampaignを送信する {#time-reoccurring-iam-window}
+### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージCampaignを送信する {#time-reocurring-iam-window}
 
 このユースケースでは、ユーザーの現在の時刻が設定された時間枠内にある場合にメッセージを表示します。
 

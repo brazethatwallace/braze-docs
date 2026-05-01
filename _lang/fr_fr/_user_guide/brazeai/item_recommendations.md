@@ -34,7 +34,7 @@ Les recommandations IA personnalisées fonctionnent au mieux avec des centaines 
 En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure :
 
 {% tabs local %}
-{% tab Most likely to purchase next %}
+{% tab Achat le plus probable %}
 Prédire et recommander les articles qu'un utilisateur est le plus susceptible d'acheter ensuite, en fonction des événements d'achat ou des événements personnalisés liés aux achats. Par exemple :
 
 - Un site de voyage pourrait suggérer des forfaits vacances, des vols ou des séjours à l'hôtel en fonction de l'historique de navigation de l'utilisateur et de ses réservations précédentes, anticipant ainsi sa prochaine destination et facilitant l'organisation de son séjour.
@@ -67,7 +67,7 @@ Le modèle de recommandation « Les plus populaires » met en avant les articles
 En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
-{% tab most popular %}
+{% tab Les plus populaires %}
 Encouragez les utilisateurs à explorer les articles populaires de votre catalogue en fonction des achats. Pour vous assurer de ne mettre en avant que du contenu pertinent, nous vous recommandons de filtrer à l'aide d'une sélection. Par exemple, un service de livraison de repas pourrait mettre en avant les plats ou les restaurants les mieux notés dans la zone d'un utilisateur, en fonction de la popularité des commandes sur la plateforme, encourageant ainsi l'essai et la découverte.
 
 {% details Conditions requises %}
@@ -87,7 +87,7 @@ Encouragez les utilisateurs à explorer les articles populaires de votre catalog
 {% enddetails %}
 {% endtab %}
 
-{% tab most liked %}
+{% tab Les plus aimés %}
 Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimés ou les articles populaires, sur la base d'un événement personnalisé pour les likes. Par exemple, une application de streaming musical pourrait créer des playlists personnalisées ou suggérer de nouvelles sorties d'albums en fonction des genres ou des artistes qu'un utilisateur a aimés par le passé, améliorant ainsi l'engagement et le temps passé sur l'application.
 
 {% details Conditions requises %}
@@ -107,7 +107,7 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 {% enddetails %}
 {% endtab %}
 
-{% tab most viewed %}
+{% tab Les plus consultés %}
 Mettez en avant les articles qui ont attiré l'attention de votre base d'utilisateurs grâce aux vues, afin d'encourager l'engagement ou les achats. Par exemple, un site immobilier pourrait afficher les annonces les plus consultées dans la zone de recherche d'un utilisateur pour mettre en évidence les biens qui attirent beaucoup d'attention, signalant potentiellement de bonnes affaires ou des emplacements recherchés.
 
 {% details Conditions requises %}
@@ -127,7 +127,7 @@ Mettez en avant les articles qui ont attiré l'attention de votre base d'utilisa
 {% enddetails %}
 {% endtab %}
 
-{% tab popular in cart %}
+{% tab Populaires dans le panier %}
 Mettez en avant les articles ajoutés au panier par de nombreux autres acheteurs, offrant ainsi aux utilisateurs un aperçu des tendances actuelles parmi vos produits.
 
 Par exemple, un détaillant de mode pourrait promouvoir des vêtements et des accessoires tendance en se basant sur les ajouts fréquents au panier par d'autres clients. Il peut ensuite créer une section dynamique « Tendances du moment » sur sa page d'accueil et son application mobile, mise à jour en temps réel pour encourager les acheteurs à passer commande avant que les articles ne soient épuisés.
@@ -159,7 +159,7 @@ Le modèle de recommandation « Les plus récents » met en avant les articles a
 En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
-{% tab Recently clicked %}
+{% tab Cliqués récemment %}
 Encouragez les utilisateurs à revenir sur les articles sur lesquels ils ont récemment cliqué, en vous appuyant sur un événement personnalisé pour les clics. Par exemple, un détaillant de mode en ligne pourrait créer une recommandation pour envoyer des e-mails de suivi ou des notifications push présentant des vêtements pour lesquels un utilisateur a montré de l'intérêt en cliquant dessus, l'encourageant ainsi à revenir sur l'article et à effectuer un achat.
 
 {% details Conditions requises %}
@@ -179,7 +179,7 @@ Encouragez les utilisateurs à revenir sur les articles sur lesquels ils ont ré
 {% enddetails %}
 
 {% endtab %}
-{% tab Recently liked %}
+{% tab Aimés récemment %}
 Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimés ou les articles populaires, sur la base d'un événement personnalisé pour les likes. Par exemple, une application de streaming musical pourrait créer des playlists personnalisées ou suggérer de nouvelles sorties d'albums en fonction des genres ou des artistes qu'un utilisateur a aimés par le passé, améliorant ainsi l'engagement et le temps passé sur l'application.
 
 {% details Conditions requises %}
@@ -199,7 +199,7 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 {% enddetails %}
 {% endtab %}
 
-{% tab Recently engaged %}
+{% tab Interactions récentes %}
 Mettez en avant les articles avec lesquels les utilisateurs ont récemment interagi, qu'il s'agisse de vues, de clics ou d'achats. Cette approche permet de garder vos recommandations à jour et alignées sur les derniers centres d'intérêt de l'utilisateur. Par exemple :
 
 - **Éducation :** Une plateforme d'éducation en ligne pourrait encourager les utilisateurs qui ont récemment regardé une vidéo éducative mais ne se sont pas inscrits à un cours à consulter des cours similaires ou des sujets d'intérêt, afin de maintenir leur engagement et de les motiver à commencer l'apprentissage.
@@ -223,7 +223,7 @@ Mettez en avant les articles avec lesquels les utilisateurs ont récemment inter
 {% enddetails %}
 {% endtab %}
 
-{% tab Recently added %}
+{% tab Ajoutés récemment %}
 Rappelez aux utilisateurs leur intérêt pour les articles qu'ils ont récemment ajoutés à leur panier mais qu'ils n'ont pas encore achetés. Par exemple, un détaillant en ligne pourrait envoyer des rappels ou proposer des réductions à durée limitée sur les articles de leur panier, encourageant ainsi les utilisateurs à finaliser leurs achats avant l'expiration des offres.
 {% details Conditions requises %}
 
@@ -255,7 +255,7 @@ Contrairement au modèle « Les plus populaires », qui met en avant des article
 En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
-{% tab Trending purchased %}
+{% tab Achats en vogue %}
 Mettez en évidence les articles que vos utilisateurs ont récemment achetés avec une fréquence accrue. Par exemple, une entreprise d'e-commerce pourrait recommander des articles saisonniers que les utilisateurs commencent à stocker en prévision de la prochaine saison.
 
 {% details Conditions requises %}
@@ -275,7 +275,7 @@ Mettez en évidence les articles que vos utilisateurs ont récemment achetés av
 {% enddetails %}
 {% endtab %}
 
-{% tab Trending liked %}
+{% tab Likes en vogue %}
 Mettez en évidence les articles que vos utilisateurs ont récemment aimés de manière plus fréquente. Par exemple, une application musicale pourrait mettre en avant des artistes émergents ayant connu une hausse récente du nombre de likes.
 
 {% details Conditions requises %}
@@ -311,7 +311,7 @@ Si vous utilisez des sélections, le champ de tri et les limites ne seront pas p
 En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
-{% tab New items %}
+{% tab Nouveaux articles %}
 Ce scénario ne repose pas directement sur les actions de l'utilisateur mais plutôt sur les données du catalogue. Vous pouvez filtrer les nouveaux articles en fonction de leur date d'ajout au catalogue et les promouvoir par le biais de Campaigns ciblées ou de Canvas sans avoir besoin d'entraîner un modèle de recommandation.
 
 Par exemple, une plateforme d'e-commerce technologique pourrait alerter les passionnés de technologie sur les derniers gadgets ou les précommandes à venir, en utilisant des filtres pour cibler les articles récemment ajoutés au catalogue.
@@ -321,7 +321,7 @@ Par exemple, une plateforme d'e-commerce technologique pourrait alerter les pass
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une sélection à partir de votre catalogue. Assurez-vous que votre catalogue dispose d'un champ temporel (champ dont le **Data type** est défini sur **Time**) correspondant à la date d'ajout de l'article.
+1. Créez une sélection à partir de votre catalogue. Assurez-vous que votre catalogue dispose d'un champ temporel (champ dont le **type de données** est défini sur **Time**) correspondant à la date d'ajout de l'article.
 2. (Facultatif) Ajoutez des filtres si vous le souhaitez.
 3. Assurez-vous que l'option **Randomize Sort Order** est désactivée.
 4. Pour **Sort Field**, sélectionnez votre champ de date d'ajout.
@@ -330,7 +330,7 @@ Par exemple, une plateforme d'e-commerce technologique pourrait alerter les pass
 {% enddetails %}
 {% endtab %}
 
-{% tab Random items %}
+{% tab Articles aléatoires %}
 Pour une expérience utilisateur diversifiée, recommander des articles aléatoires peut introduire de la variété et potentiellement susciter de l'intérêt pour des parties moins visitées du catalogue. Cette méthode ne nécessite pas de modèles ou d'événements spécifiques, mais utilise plutôt une sélection de catalogue pour s'assurer que les articles sont affichés de manière aléatoire.
 
 Par exemple, une librairie en ligne pourrait proposer une fonctionnalité « Surprenez-moi », recommandant un livre au hasard en fonction des achats antérieurs de l'utilisateur ou de ses habitudes de navigation, encourageant ainsi l'exploration en dehors de ses genres de lecture habituels.

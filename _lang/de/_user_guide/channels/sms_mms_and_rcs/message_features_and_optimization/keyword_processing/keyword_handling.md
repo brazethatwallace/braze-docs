@@ -58,7 +58,7 @@ Möchten Sie erfahren, wie diese Keywords in Ihren Campaigns und Canvases zum Re
 
 Sie können eigene Antworten verwalten, die an Nutzer:innen gesendet werden, nachdem diese ein Keyword an eine bestimmte Keyword-Kategorie gesendet haben.
 
-1. Gehen Sie im Braze-Dashboard zu **Audience** > **Subscription Group Management** und wählen Sie eine **SMS/MMS/RCS**-Abo-Gruppe aus.<br><br>
+1. Gehen Sie im Braze-Dashboard zu **Audience** > **Subscription Group Management** und wählen Sie eine **SMS/MMS/RCS**-Abo-Gruppe aus. <br><br>
 2. Wählen Sie unter **Global Keywords** eine Keyword-Kategorie aus, für die Sie eine Antwort bearbeiten möchten, indem Sie das Stiftsymbol auswählen. ![Opt-in-Keywords mit angezeigtem Stiftsymbol.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. Bearbeiten Sie im sich öffnenden Tab Ihre Antwort. Beachten Sie unsere [sechs Regeln für korrekte Compliance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) bei der Erstellung Ihrer Antwort und lesen Sie die folgenden Regeln, die für Keywords und Keyword-Antworten gelten. ![Antworten]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
 4. Um statische URLs in Ihrer Antwort automatisch zu kürzen, aktivieren Sie den **Link Shortening**-Toggle. Der Zeichenzähler wird aktualisiert und zeigt die erwartete Länge der gekürzten URL an. ![Ein GIF, das zeigt, wie der Zeichenzähler aktualisiert wird, wenn der „Link Shortening“-Toggle aktiviert ist.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}

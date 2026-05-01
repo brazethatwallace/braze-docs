@@ -1,10 +1,3 @@
----
-permalink: /support_contact/
-nav_title: Help | Braze
-hide_nav: true
-layout: basic
-hide_toc: true
----
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
 
 
@@ -2656,9 +2649,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>お役に立てそうな記事をご紹介します:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>提案が見つかりませんでした。</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2773,7 +2766,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 // Optional: Add a back button to return to the 3-step form
 function addBackButton() {
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Suggestions';
+    backButton.textContent = '推奨コンテンツに戻る';
     backButton.className = 'submit-btn';
     backButton.style.backgroundColor = 'grey';
     backButton.style.marginTop = '20px';

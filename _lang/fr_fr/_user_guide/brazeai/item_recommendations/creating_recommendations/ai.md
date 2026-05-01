@@ -329,4 +329,4 @@ Cet événement a pour propriété `"sku": "ADI-RD-8"`, qui correspond au deuxi�
 
 Lorsque vous êtes prêt, sélectionnez **Create Recommendation**. Ce processus peut prendre de 10 minutes à 36 heures. Vous recevrez un e-mail de confirmation lorsque la recommandation aura été entraînée avec succès, ou une explication en cas d'échec.
 
-Vous trouverez la recommandation sur la page **Predictions**, où vous pourrez la modifier ou l'archiver selon vos besoins. Les recommandations sont automatiquement ré-entraînées une fois par semaine (version payante) ou par mois (version gratuite).
+Vous trouverez la recommandation sur la page **Predictions**, où vous pourrez la modifier ou l'archiver selon vos besoins. Les recommandations sont automatiquement réentraînées une fois par semaine (version payante) ou par mois (version gratuite).

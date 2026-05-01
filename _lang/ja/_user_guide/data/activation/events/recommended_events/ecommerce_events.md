@@ -8,7 +8,7 @@ description: "Brazeでeコマース推奨イベントを使用する方法につ
 
 # eコマースイベントの使い方 {#how-to-use-ecommerce-events}
 
-> eコマースの[推奨イベント]({{site.baseurl}}/recommended_events/)は、共有された注文レベルのスキーマを使用しており、Brazeがeコマースデータの上に信頼性の高い機能を構築できるようにします。これには、ユーザープロファイル、セグメンテーション、メッセージング、レポート、AIを活用したレコメンデーションが含まれます。この記事の各セクションでは、Brazeで各機能を使用する方法について説明します。<br><br>プロパティの要件とデータタイプについては[イベントスキーマ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas)を、イベントがバリデーションに失敗した場合の動作については[イベントのバリデーションとトラブルシューティング]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting)を参照してください。
+> eコマースの[推奨イベント]({{site.baseurl}}/recommended_events/)は、共有された注文レベルのスキーマを使用しており、Brazeがeコマースデータの上に信頼性の高い機能を構築できるようにします。これには、ユーザープロファイル、セグメンテーション、メッセージング、レポート、AIを活用したレコメンデーションが含まれます。この記事の各セクションでは、Brazeで各機能を使用する方法について説明します。<br><br> プロパティの要件とデータタイプについては[イベントスキーマ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas)を、イベントがバリデーションに失敗した場合の動作については[イベントのバリデーションとトラブルシューティング]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting)を参照してください。
 
 eコマースイベントは予測可能なスキーマに従っているため、Brazeは収益トラッキングや構築済みのCanvasテンプレートからAIを活用したレコメンデーションまで、信頼性の高い機能を構築できます。以下のセクションでは、各機能の概要と詳細ドキュメントへのリンクを紹介します。
 
@@ -94,7 +94,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-`ecommerce.cart_updated` イベントは置換モデルを使用します。送信されるたびにユーザーのカート状態が上書きされます。メッセージ内で {% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用して、送信時の現在のカート内容を動的に表示してください。
+`ecommerce.cart_updated`イベントは置換モデルを使用します。送信されるたびにユーザーのカート状態が上書きされます。メッセージ内で{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用して、送信時の現在のカート内容を動的に表示してください。
 {% endalert %}
 
 {% endtab %}
@@ -121,7 +121,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | 設定 | 値 |
 | --- | --- |
 | エントリイベント | `ecommerce.order_placed` |
-| コンバージョンイベント | セッション開始または `ecommerce.product_viewed` |
+| コンバージョンイベント | セッション開始または`ecommerce.product_viewed` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
@@ -148,7 +148,7 @@ eコマース推奨イベントは、顧客が現在使用しているものと�
 | 収益レポート | 選択した日付範囲とアプリにおける、すべてのソースの合計収益、平均日次収益、日次購入数、ユーザーあたりの収益の推移。 |
 | ラストタッチアトリビューション収益ダッシュボード | 注文確定前にユーザーが最後にインタラクションしたCampaignまたはCanvasに帰属する収益。タッチイベントには、メールクリック、プッシュ開封、コンテンツカードクリック、アプリ内メッセージクリック、SMSまたはWhatsAppショートリンククリックが含まれます。 |
 | CampaignおよびCanvasの分析 | 1次コンバージョンウィンドウ内で特定のCampaignまたはCanvasに帰属する合計収益。 |
-| コンバージョンレポート | CampaignsおよびCanvasesのコンバージョンイベントに紐づく収益。<br> **注:** `ecommerce.order_placed` の収益をカウントするには、CampaignまたはCanvasのコンバージョンイベントとして「Place Order」コンバージョンイベントタイプを使用する必要があります。 |
+| コンバージョンレポート | CampaignsおよびCanvasesのコンバージョンイベントに紐づく収益。<br> **注:** `ecommerce.order_placed`の収益をカウントするには、CampaignまたはCanvasのコンバージョンイベントとして「Place Order」コンバージョンイベントタイプを使用する必要があります。 |
 | セグメントインサイト | セグメントインサイトダッシュボードにおけるSegment間の収益比較。 |
 | レポートビルダー | レポートビルダーで構築されたカスタムレポートの収益指標。 |
 | ダッシュボードビルダー | ダッシュボードビルダーで構築されたカスタムダッシュボードの収益指標。 |

@@ -49,7 +49,7 @@ Depois que um cartão de conteúdo expira, ele será automaticamente removido do
 
 ## Remoção do cartão de conteúdo {#removal}
 
-Os Content Cards podem ser removidos quando os usuários concluem uma compra ou realizam um evento personalizado. Você pode selecionar uma das seguintes opções como evento de remoção: **Realizar evento personalizado** e **Fazer compra**. Em seguida, selecione **Adicionar gatilho**.
+Os Content Cards podem ser removidos quando os usuários concluem uma compra ou realizam um evento personalizado. Você pode selecionar uma das seguintes opções como evento de remoção: **Perform Custom Event** e **Place Order**. Em seguida, selecione **Add Trigger**.
 
 !["Remover cartões quando os usuários concluírem uma compra ou realizarem um evento personalizado." selecionado com o gatilho para remover cartões de usuários que fazem uma compra específica.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
 

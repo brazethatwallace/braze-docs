@@ -41,6 +41,8 @@ iOS 푸시 메시지에서 실행 버튼을 사용하려면 다음을 수행하�
 {% alert note %}
 iOS의 버튼 처리 방식으로 인해, 푸시 실행 버튼을 설정할 때 추가 통합 단계를 수행해야 합니다. 이 단계는 [개발자 설명서]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories)에 설명되어 있습니다. 특히 iOS 카테고리를 구성하거나 특정 기본 버튼 옵션 중에서 선택해야 합니다. Android 통합의 경우 이러한 버튼은 자동으로 작동합니다.
 {% endalert %}
+
+**Yes** / **No**와 같은 사전 설정 쌍은 두 번째 버튼을 기본적으로 닫기(**CLOSE**) 동작에 매핑하므로, 첫 번째 버튼과 같은 방식으로 앱을 열지 않습니다. **_직접 열람 수_**에는 이러한 유형의 탭이 포함되지 않지만, Currents 또는 Snowflake의 **Push Notification Open** 데이터에서는 `button_action_type` 및 `button_string`과 함께 기록될 수 있습니다. 자세한 내용은 [푸시 실행 버튼과 리포팅]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting)을 참조하세요.
 {% endtab %}
 {% tab Android %}
 ### Android {#android}

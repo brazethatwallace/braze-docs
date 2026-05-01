@@ -64,7 +64,7 @@ A população de previsão não pode exceder 100 milhões de usuários.
 
 Quando a janela de previsão é de 14 dias ou menos, a janela de tempo para filtros que começam com "Last...", como "Last Used App" e "Last placed an order", **não pode exceder a janela de churn especificada** na definição de churn. Por exemplo, se sua definição de churn tiver uma janela de 14 dias, a janela de tempo para os filtros "Last..." não poderá exceder 14 dias.
 
-A janela de churn é avaliada olhando para trás no número de dias a partir do dia em que o modelo foi executado pela última vez. Então, se a janela de churn é de 15 dias e o modelo foi executado pela última vez em 1º de dezembro, o modelo analisa de 16 de novembro a 30 de novembro para entender a atividade do usuário para elegibilidade do público e treinamento.
+A janela de churn é avaliada olhando para o número de dias a partir do dia em que o modelo foi executado pela última vez. Então, se a janela de churn é de 15 dias e o modelo foi executado pela última vez em 1º de dezembro, o modelo analisa de 16 de novembro a 30 de novembro para entender a atividade do usuário para elegibilidade do público e treinamento.
 
 #### Modo de filtro completo {#full-filter-mode}
 
