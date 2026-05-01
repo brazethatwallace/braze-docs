@@ -3,11 +3,15 @@ nav_title: Use case library
 article_title: Use case library for agent instructions
 description: "Browse through our dedicated use case library for Braze Agents."
 page_order: 4
+toc_headers: h2
 ---
 
 # Use case library for agent instructions
 
 > This page includes a range of sample instructions for Braze Agents to accomplish a defined goal.
+
+- Canvas agents
+- Catalog agents
 
 ## Analyze user feedback to determine next steps
 This use case describes how a Canvas agent can analyze user feedback from post-trip surveys and categorize sentiment and topics. The goal of this agent is to determine the next steps for a separate CRM platform.

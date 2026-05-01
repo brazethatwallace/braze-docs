@@ -53,7 +53,7 @@ guide_featured_list:
 
 <br>
 
-# Overview
+## Feature overview
 
 | Your goal | Recommended feature |
 | --- | --- |

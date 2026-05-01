@@ -2,7 +2,6 @@
 nav_title: Use case
 article_title: Use case: Intelligent Suite
 description: "This example shows how a fictional brand uses Braze AI item recommendations to deliver personalized content and product suggestions across key customer moments."
-page_type: tutorial
 ---
 
 # Use case: Turn past app behavior into personalized offers on the right channel
