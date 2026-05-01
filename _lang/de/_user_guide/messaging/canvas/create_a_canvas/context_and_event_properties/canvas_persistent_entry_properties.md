@@ -13,7 +13,7 @@ page_order: 5
 > Wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird, können Sie Metadaten aus dem API-Aufruf, dem angepassten Event oder dem Kauf-Event zur Personalisierung in jedem Schritt Ihres Canvas-Workflows verwenden. Sie können diese Eigenschaften nutzen, um besser kuratierte Nachrichten zu senden.
 
 {% alert important %}
-Persistente Eingangs-Eigenschaften sind ein Artefakt des ursprünglichen Canvas-Editors, daher gibt es veraltete Verweise auf Begriffe wie Canvas-Eingangs-Eigenschaften, die aus historischen Gründen bestehen bleiben. Für den aktuellen aktualisierten Canvas-Editor lesen Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+Persistente Eingangs-Eigenschaften sind ein Artefakt des ursprünglichen Canvas-Editors, daher gibt es veraltete Verweise auf Begriffe wie Canvas-Eingangs-Eigenschaften, die aus historischen Gründen bestehen bleiben. Für den aktuellen Canvas-Editor lesen Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).<br><br>Um persistente Eingangs-Eigenschaften im aktuellen Canvas-Editor zu verwenden, müssen Sie entweder einen neuen Canvas erstellen oder einen bestehenden in den aktuellen Editor [klonen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 {% endalert %}
 
 ## Eingangs-Eigenschaften verwenden {#using-entry-properties}

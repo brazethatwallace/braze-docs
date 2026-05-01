@@ -1,4 +1,4 @@
-## Analytik anzeigen {#viewing-analytics}
+## Analytics anzeigen {#viewing-analytics}
 
 Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
 
@@ -22,7 +22,7 @@ Standardmäßig zeigt **Kampagnen-Analytics** die letzten 90 Tage ab dem aktuell
 
 ### Kampagnendetails {#campaign-details}
 
-Das Panel **Kampagnendetails** zeigt einen Überblick über die gesamte Performance Ihrer
+Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performance Ihrer
   {% if include.channel == "banner" %}Banner.
   {% elsif include.channel == "Content Card" %}Content-Card.
   {% elsif include.channel == "email" %}E-Mail.
@@ -74,9 +74,9 @@ In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen er
 
 #### Estimated Audience und Current Audience {#estimated-audience-and-current-audience}
 
-Je nach Größe Ihres Workspace kann das Panel **Kampagnendetails** die Zielgruppenstatistiken als **Estimated Audience** oder **Current Audience** bezeichnen.
+Je nach Größe Ihres Workspace kann das Panel **Campaign Details** die Zielgruppenstatistiken als **Estimated Audience** oder **Current Audience** bezeichnen.
 
-Die folgende Tabelle erklärt, wann welche Bezeichnung verwendet wird und was sie bedeutet.
+Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 
 | Bezeichnung in der Fußzeile | Wann sie verwendet wird |
 | --- | --- |
@@ -90,25 +90,25 @@ Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics*
 
 #### Kontrollgruppen {#cc-control-group}
 
-Um die Wirkung einer einzelnen Content-Card zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen Content-Card zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "SMS" %}
 
 #### Kontrollgruppen {#sms-control-group}
 
-Um die Wirkung einer einzelnen SMS-, MMS- oder RCS-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen SMS-, MMS- oder RCS-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "whatsapp" %}
 
 #### Kontrollgruppen {#whatsapp-control-group}
 
-Um die Wirkung einer einzelnen WhatsApp-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen WhatsApp-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "webhook" %}
 
 #### Kontrollgruppen {#webhook-control-group}
 
-Um die Wirkung einer einzelnen Webhook-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen Webhook-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% endif %}
 
@@ -143,7 +143,7 @@ Das Panel **In-App Message Performance** zeigt Ihnen, wie gut Ihre Nachricht in 
 ![In-App-Nachrichten-Performance-Analytics]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
-### Push-Performance
+### Push-Performance {#push-performance}
 
 Das Panel **Push Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
@@ -654,6 +654,18 @@ Als weitere Möglichkeit empfehlen wir, ein angepasstes Event für Push-Abmeldun
 
 Auch wenn _Direct Opens_ und _Influenced Opens_ das Wort „Opens“ enthalten, handelt es sich um unterschiedliche Metriken. _Direct Opens_ bezieht sich auf das direkte Öffnen einer Push-Benachrichtigung, wie in der Tabelle oben beschrieben. _Influenced Opens_ bezieht sich auf das Öffnen einer App, ohne dass eine Push-Benachrichtigung innerhalb eines bestimmten Zeitraums nach Erhalt geöffnet wurde. _Influenced Opens_ bezieht sich also auf App-Öffnungen, nicht auf das Öffnen von Push-Benachrichtigungen.
 
+##### Push-Action-Buttons und Berichterstattung {#push-action-buttons-and-reporting}
+
+Wenn Sie [Push-Action-Buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/) hinzufügen, kann das Panel **Push Performance** neben Metriken wie **Direct Opens** auch **Body Clicks**, **Button 1 Clicks** und **Button 2 Clicks** enthalten. Diese Spalten messen unterschiedliche Interaktionen – vergleichen Sie sie daher bei der Interpretation des Engagements.
+
+_Direct Opens_ spiegelt die Dashboard-Metriken für Interaktionen wider, die als direkte Öffnung Ihrer Nachricht gezählt werden. **Push Notification Open**-Events in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) oder Snowflake beschreiben Push-Interaktionen umfassender und können optionale Felder wie `button_action_type` (z. B. `close`) und `button_string` enthalten. Felddefinitionen finden Sie unter [Push Notification Open-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Für **iOS** verwenden die Standard-Benachrichtigungskategorien von Braze (wie **Yes** / **No**, **Accept** / **Decline** oder **Confirm** / **Cancel**) eine feste Zuordnung: Die erste Aktion unterstützt `OPEN_APP`, eine URI oder einen Deeplink (entsprechend dem **On-Click Behavior** im Composer). Die Begleitaktion verwendet standardmäßig `CLOSE` – sie schließt die Benachrichtigung und öffnet die App nicht. Siehe die Standardzuordnung unter [Apple Push-Action-Button-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Aus diesem Grund werden Taps auf den abweisenden voreingestellten Button (z. B. **No** oder **Decline**) in der Regel **nicht** als _Direct Opens_ gezählt. Diese Taps können dennoch in **Push Notification Open**-Exporten erscheinen, wenn sie protokolliert werden, wobei `button_action_type` auf `close` und `button_string` die getippte Aktion identifiziert. Wenn Sie Kampagnen-Analytics mit Warehouse-Daten vergleichen, verwenden Sie diese Payload-Felder, damit Sie abweisende Taps nicht mit Taps auf den Nachrichtentext oder die primäre Aktion gleichsetzen.
+
+Für **Android** legen Sie das **On-Click Behavior** pro Button fest (**Open App**, **Redirect to Web URL** oder **Deep Link**), sodass die Berichterstattung den von Ihnen konfigurierten Aktionen folgt und nicht der iOS-Standard-Aufteilung `OPEN_APP` / `CLOSE`.
+
 ##### Warum Push-Sendungen die Zahl der eindeutigen Empfänger:innen übersteigen können {#why-push-sends-can-exceed-unique-recipients}
 
 Die Anzahl der _Sendungen_ kann die Anzahl der _eindeutigen Empfänger:innen_ aus folgenden Gründen übersteigen:
@@ -824,7 +836,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 Im Panel **Historical Performance** können Sie die Metriken aus dem Panel **Message Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
-Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das Hamburger-Menü <i class="fas fa-bars"></i> und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
+Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
 
 ![Ein Diagramm des Panels „Historical Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

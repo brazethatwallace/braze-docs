@@ -48,7 +48,7 @@ Braze는 고객 프로필(`user_id`) 수준과 전화번호(`channel_id`) 수준
 
 * 이러한 종류의 사기를 지원하는 프리미엄 요금 번호는 항상 그런 것은 아니지만, 일반적인 발송 지역 외의 국가에 설정되는 경우가 많습니다.
 * 온라인 양식에서의 비정상적인 메시지 발송 급증은 트래픽 펌핑을 나타낼 수 있습니다.
-    * 비현실적으로 많은 수의 메시지가 발송될 경우 상한을 설정하고 알림을 받을 수 있도록 [캠페인 알림]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/)을 설정하는 것을 권장합니다.
+    * 비현실적으로 많은 수의 메시지가 발송될 경우 상한을 설정하고 알림을 받을 수 있도록 [Campaign 알림]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/)을 설정하는 것을 권장합니다.
 * 불완전한 온라인 양식은 프로그래밍 방식의 양식 작성을 나타낼 수 있습니다.
 * 온라인 양식을 구축할 때 양식이 완전히 작성되도록 규칙을 설정하고 CAPTCHA와 같은 도구를 사용하여 위험을 최소화하는 것을 권장합니다.
 
@@ -111,4 +111,4 @@ SMS 메시지 본문 상단에 다음 스니펫을 포함하세요. 이 예시�
 
 - {% raw %}`time_zone: ${time_zone}`{% endraw %}를 사용하면 고정된 글로벌 시간이 아닌 각 사용자의 현지 시간을 기준으로 시간 범위를 평가할 수 있습니다. 자세한 내용은 [이 FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer)를 참조하세요.
 - {% raw %}`abort_message()`{% endraw %}에 의해 억제된 메시지는 다음 날로 재스케줄되지 않으며 취소됩니다.
-- {% raw %}기본적으로 중단된 메시지는 표준 캠페인 보고서에 표시되지 않습니다. 그러나 Liquid가 `{% abort_message %}`로 발송을 중단하면 Braze는 이를 메시지 활동 로그에 메시지 오류로 기록합니다(기본적으로 `{% abort_message %}`가 호출된 것으로 표시됩니다). 문자열을 전달하면 해당 사유가 로그에 표시됩니다(예: `{% abort_message('language was nil') %}`){% endraw %}. 대시보드에서 이러한 억제 내역을 확인하려면 고객 성공 매니저에게 연락하여 [메시징 진단 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/)에 대한 액세스를 요청하세요.
+- {% raw %}기본적으로 중단된 메시지는 표준 Campaign 보고서에 표시되지 않습니다. 그러나 Liquid가 `{% abort_message %}`로 발송을 중단하면 Braze는 이를 메시지 활동 로그에 메시지 오류로 기록합니다(기본적으로 `{% abort_message %}`가 호출된 것으로 표시됩니다). 문자열을 전달하면 해당 사유가 로그에 표시됩니다(예: `{% abort_message('language was nil') %}`){% endraw %}. 대시보드에서 이러한 억제 내역을 확인하려면 고객 성공 매니저에게 연락하여 [메시징 진단 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/)에 대한 액세스를 요청하세요.

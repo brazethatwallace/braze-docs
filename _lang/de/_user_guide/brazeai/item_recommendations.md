@@ -323,9 +323,9 @@ Eine E-Commerce-Plattform für Technik könnte zum Beispiel Technikbegeisterte �
 {% details Einrichtung %}
 1. Erstellen Sie eine Auswahl auf der Grundlage Ihres Katalogs. Vergewissern Sie sich, dass Ihr Katalog ein Zeitfeld enthält (ein Feld, dessen **Datentyp** auf **Zeit** eingestellt ist), das dem Datum entspricht, an dem der Artikel hinzugefügt wurde.
 2. (Optional) Fügen Sie ggf. Filter hinzu.
-3. Stellen Sie sicher, dass **Zufällige Sortierung** ausgeschaltet ist.
-4. Wählen Sie unter **Sortierfeld** Ihr Feld für das Hinzufügedatum aus.
-5. Setzen Sie die **Sortierreihenfolge** auf absteigend.
+3. Stellen Sie sicher, dass **Randomize Sort Order** ausgeschaltet ist.
+4. Wählen Sie unter **Sort Field** Ihr Feld für das Hinzufügedatum aus.
+5. Setzen Sie die **Sort Order** auf absteigend.
 6. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
@@ -337,13 +337,13 @@ Eine Online-Buchhandlung könnte zum Beispiel eine „Überrasch mich“-Funktio
 
 {% details Voraussetzungen %}
 - Katalog der relevanten Artikel
-- Auswahl mit aktivierter **Zufälliger Sortierreihenfolge**
+- Auswahl mit aktivierter Option **Randomize Sort Order**
 {% enddetails %}
 
 {% details Einrichtung %}
 1. [Erstellen Sie eine Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#creating-a-selection) auf der Grundlage Ihres Katalogs.
 2. (Optional) Fügen Sie ggf. Filter hinzu.
-3. Aktivieren Sie **Zufällige Sortierung**.
+3. Aktivieren Sie **Randomize Sort Order**.
 4. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}

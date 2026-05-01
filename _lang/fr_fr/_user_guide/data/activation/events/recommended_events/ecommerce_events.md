@@ -147,7 +147,7 @@ Les événements recommandés pour le commerce électronique alimentent les mêm
 |---------------------------------------------|-------------------------------------------|
 | Rapport sur les revenus | Chiffre d'affaires total, chiffre d'affaires quotidien moyen, achats quotidiens et chiffre d'affaires par utilisateur au fil du temps, toutes sources confondues, pour la plage de dates et les applications sélectionnées. |
 | Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
-| Analyses de campagne et Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
+| Analyses des campagnes et des Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
 | Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les campagnes et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la campagne ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
 | Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord Statistiques des segments. |
 | Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le Générateur de rapports. |

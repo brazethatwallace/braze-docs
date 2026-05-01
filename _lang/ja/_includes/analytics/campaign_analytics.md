@@ -654,6 +654,18 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 *直接開封数*と*誘発された開封数*には「開封」という言葉が含まれていますが、実際には異なる指標です。*直接開封数*は、上の表に記載されているように、プッシュ通知を直接開封することを指します。*誘発された開封数*は、プッシュ通知を受け取った後、特定の時間内にプッシュ通知を開かずにアプリを開封することを指します。つまり、*誘発された開封数*はアプリの開封を指し、プッシュ通知の開封ではありません。
 
+##### プッシュアクションボタンとレポート {#push-action-buttons-and-reporting}
+
+[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)を追加すると、**プッシュパフォーマンス**パネルに**直接開封数**などの指標とともに、**本文クリック数**、**ボタン1のクリック数**、**ボタン2のクリック数**が表示されます。これらの列は異なるインタラクションを測定するため、エンゲージメントを解釈する際に比較してください。
+
+*直接開封数*は、メッセージの直接開封としてカウントされるインタラクションのダッシュボード指標を反映します。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)またはSnowflakeの**Push Notification Open**イベントは、プッシュインタラクションをより広範に記述し、`button_action_type`（例：`close`）や`button_string`などのオプションフィールドを含むことがあります。フィールドの定義については、[Push Notification Openイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events)を参照してください。
+
+**iOS**の場合、Brazeのデフォルト通知カテゴリ（**Yes** / **No**、**Accept** / **Decline**、**Confirm** / **Cancel**など）は固定のペアリングを使用します。最初のアクションは`OPEN_APP`、URI、またはディープリンクをサポートし（コンポーザーの**On-Click Behavior**に対応）、もう一方のアクションはデフォルトで`CLOSE`を使用します。これは通知を閉じ、アプリを開きません。デフォルトのマッピングについては、[Apple push action button object]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons)を参照してください。
+
+そのため、閉じるプリセットボタン（例：**No**や**Decline**）のタップは通常、*直接開封数*にはカウントされません。これらのタップは、ログに記録された場合、`button_action_type`が`close`に設定され、`button_string`がタップされたアクションを識別する形で**Push Notification Open**エクスポートに表示されることがあります。Campaign分析とウェアハウスデータを比較する際は、これらのペイロードフィールドを使用して、閉じるタップを通知本文やプライマリアクションのタップと同じように扱わないようにしてください。
+
+**Android**の場合、ボタンごとに**On-Click Behavior**（**Open App**、**Redirect to Web URL**、**Deep Link**）を設定するため、レポートはiOSのデフォルトの`OPEN_APP` / `CLOSE`分割ではなく、設定したアクションに従います。
+
 ##### プッシュ通知の送信数がユニーク受信者数を超える可能性がある理由 {#why-push-sends-can-exceed-unique-recipients}
 
 以下の理由により、*送信数*が*ユニーク受信者数*を上回る場合があります：

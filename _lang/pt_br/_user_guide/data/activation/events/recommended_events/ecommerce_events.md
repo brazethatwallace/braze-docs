@@ -176,7 +176,6 @@ A Braze oferece várias formas de exportar dados de eventos de eCommerce para us
 | [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Exportação CSV de membros do segmento. Para incluir eventos de eCommerce, selecione-os pelo nome no dropdown de eventos personalizados. |
 | [Exportar perfil de usuário por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Dados de perfil de usuário para membros do segmento, retornados via API. Os eventos de eCommerce são incluídos como eventos personalizados. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
 ### Como segmentar usuários por um produto específico? {#how-do-i-segment-users-by-a-specific-product}
 
 O segmentador permite filtrar pelo número de vezes que um usuário realizou um evento de eCommerce. Para filtrar por propriedades específicas do produto (como `product_id` ou `product_name`), use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que suportam filtragem de propriedades de evento aninhadas. Por exemplo, você pode encontrar todos os usuários que compraram o produto "SKU-123" nos últimos 90 dias.

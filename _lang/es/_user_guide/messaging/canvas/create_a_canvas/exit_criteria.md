@@ -99,7 +99,7 @@ Supongamos que queremos dirigirnos a usuarios que aún no han realizado ninguna 
 1. Seleccionar **Place an Order** como el evento de excepción.
 2. Seleccionar **Add Trigger**.
 3. Para **Segments**, seleccionar **Used in last day** para que cuando se lance nuestro Canvas, la audiencia excluya a los usuarios que hayan realizado alguna compra.
-4. Para **Filtros**, seleccionar **Purchase behavior** > **Number of purchases** > **Purchased product**.
+4. Para **Filters**, seleccionar **Purchase behavior** > **Number of purchases** > **Purchased product**.
 5. Configurar el grupo de filtros a `backpack-example exactly 1`. Esto significa que los usuarios que hayan comprado nuestro producto de mochila saldrán del Canvas.
 
 ![Configuración de criterios de salida con "Makes Any Purchase" como evento de excepción, de modo que si un usuario realiza cualquier compra, saldrá de este Canvas.]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}

@@ -25,22 +25,22 @@ description: "이 문서에서는 Segment 목록 필터링, Segment 생성, Segm
 ### 필터 {#filters}
 
 다음 필터를 조정하여 목록에서 Segment를 정렬할 수 있습니다:
-- **Last Edited By:** Segment를 마지막으로 편집한 사용자
-- **Last Edited:** Segment가 마지막으로 편집된 시간 범위
-- **Estimated Size:** Segment에 포함된 사용자 수의 대략적인 범위
-- **Tags:** Segment에 연결된 태그
+- **마지막 수정자:** Segment를 마지막으로 편집한 사용자
+- **마지막 수정일:** Segment가 마지막으로 편집된 시간 범위
+- **예상 크기:** Segment에 포함된 사용자 수의 대략적인 범위
+- **태그:** Segment에 연결된 태그
 - **Teams:** Segment에 연결된 Teams
-- **Advanced Tracking Segments Only:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화된 Segment만 표시합니다.
+- **고급 추적 Segment만:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화된 Segment만 표시합니다.
 
 ### 열 {#columns}
 
 Segment 목록에 표시할 수 있는 정보 열은 다음과 같습니다:
-- **Filters:** Segment의 필터 수
-- **Last edited:** Segment가 마지막으로 편집된 날짜
-- **Last edited by:** Segment를 마지막으로 편집한 사용자
-- **Tags:** Segment에 연결된 태그
+- **필터:** Segment의 필터 수
+- **마지막 수정일:** Segment가 마지막으로 편집된 날짜
+- **마지막 수정자:** Segment를 마지막으로 편집한 사용자
+- **태그:** Segment에 연결된 태그
 - **Teams:** Segment에 연결된 Teams
-- **Estimated size:** Segment의 예상 사용자 수
+- **예상 크기:** Segment의 예상 사용자 수
 - **Canvases:** Segment를 사용하는 Canvases 수
 - **Campaigns:** Segment를 사용하는 Campaigns 수
 

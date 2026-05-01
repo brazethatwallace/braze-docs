@@ -1340,11 +1340,18 @@ def _extract_front_matter(content):
     glossary substring counts for keys like ``segment`` inside YAML (PR
     #13348). Only horizontal space may follow the closing ``---`` before that
     newline or EOF so blank lines after the delimiter stay in the body.
+
+    Optional leading spaces or tabs before the opening ``---`` are ignored so
+    files such as ``_docs/_hidden/other/support_contact.md`` (indented YAML)
+    still parse; otherwise QC treats English as having no front matter and
+    cannot re-seed dropped locale YAML (auto-translate PR #13475).
     """
     # After the closing ``---``, only horizontal space may appear before the
     # body newline or EOF — ``\s*`` would swallow blank lines that belong to
     # the markdown body.
-    match = re.match(r'^---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL)
+    match = re.match(
+        r'^[ \t]*---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL
+    )
     if match:
         return match.group(1), content[match.end():]
     return None, content

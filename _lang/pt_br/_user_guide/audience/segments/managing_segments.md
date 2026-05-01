@@ -10,7 +10,7 @@ description: "Este artigo aborda as ações que você pode realizar para gerenci
 
 # Gerenciar segmentos {#manage-segments}
 
-> A seção **Segments** permite visualizar uma lista completa dos seus segmentos existentes, criar novos segmentos e editar segmentos existentes. Você pode refinar a lista de segmentos selecionando diversos filtros e colunas para que apenas as informações mais relevantes para você sejam exibidas.
+> A seção Segments permite visualizar uma lista completa dos seus segmentos existentes, criar novos segmentos e editar segmentos existentes. Você pode refinar a lista de segmentos selecionando diversos filtros e colunas para que apenas as informações mais relevantes para você sejam exibidas.
 
 ![A seção Segments exibindo uma lista de segmentos ativos.]({% image_buster /assets/img/segment/segments_page.png %})
 

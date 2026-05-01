@@ -105,7 +105,7 @@ Utilisez [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas
 {% endalert %}
 
 {: start="2"}
-2. Créez un Canvas basé sur une action déclenché par **Envoyer un message SMS entrant**, dans la catégorie de mot-clé **Autre**.
+2. Créez un Canvas basé sur une action déclenché par **Send an SMS inbound message**, dans la catégorie de mot-clé **Other**.
 3. Ajoutez l'[étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) au Canvas pour identifier l'intention de désabonnement.
 4. Ajoutez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) SMS ultérieure pour confirmer la demande : « Il semble que vous souhaitiez vous désabonner des SMS, nous allons donc vous désabonner. Si c'est une erreur, envoyez START pour vous réabonner. »
 5. Ajoutez une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) pour modifier le statut de l'utilisateur dans le groupe d'abonnement SMS spécifique en « Désabonné ».
@@ -157,7 +157,7 @@ Ajoutez une étape de mise à jour utilisateur à votre Canvas. Dans l'étape, o
 ```
 {% endraw %}
 
-![« Objet de mise à jour utilisateur » contenant le code JSON indiqué précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objet de mise à jour utilisateur contenant le code JSON indiqué précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Étape 4 : Tester le Canvas {#step-4-test-the-canvas}
 

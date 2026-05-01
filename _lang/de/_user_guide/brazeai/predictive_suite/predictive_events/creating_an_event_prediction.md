@@ -82,7 +82,7 @@ Nachdem Sie auf **Build Prediction** geklickt haben, beginnt der Prozess zur Ers
 
 Wenn der Vorgang abgeschlossen ist, wechselt die Seite automatisch in die Analytics-Ansicht, und Sie erhalten eine E-Mail, die Sie darüber informiert, dass die Prognose und die Ergebnisse bereit sind. Im Falle eines Fehlers kehrt die Seite in den Bearbeitungsmodus zurück und gibt eine Erklärung, was schiefgelaufen ist.
 
-Die Prognose wird alle **zwei Wochen** automatisch neu erstellt („trainiert“), um sie auf dem neuesten Stand der verfügbaren Daten zu halten. Beachten Sie, dass dies ein anderer Prozess ist als die Erstellung der Wahrscheinlichkeitswerte der Nutzer:innen, die die Ausgabe der Prognose darstellen. Letzteres hängt von der Häufigkeit der Updates ab, die Sie in [Schritt 4](#schritt-4-aktualisierungszeitplan-wählen) gewählt haben.
+Die Prognose wird alle **zwei Wochen** automatisch neu erstellt („trainiert“), um sie auf dem neuesten Stand der verfügbaren Daten zu halten. Beachten Sie, dass dies ein anderer Prozess ist als die Erstellung der Wahrscheinlichkeitswerte der Nutzer:innen, die die Ausgabe der Prognose darstellen. Letzteres hängt von der Häufigkeit der Updates ab, die Sie in [Schritt 4](#step-4-choose-the-update-schedule) gewählt haben.
 
 ## Archivierte Prognosen {#archived-predictions}
 

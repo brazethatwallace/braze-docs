@@ -118,7 +118,7 @@ El uso de la Consola de Agente consume créditos de mensaje.
 
 Si tienes grupos de suscripción de SMS y RCS separados, puedes migrar usuarios de SMS a RCS usando un Canvas de un solo paso.
 
-Braze recomienda que primero pruebes el envío de RCS a volúmenes más pequeños de usuarios y migres más usuarios al grupo de suscripción de RCS con el tiempo. Por ejemplo, si tienes 1,000,000 de usuarios suscritos a un grupo de suscripción de SMS, esto podría verse como primero migrar a todos los usuarios al nuevo grupo de suscripción y luego segmentar en una audiencia más pequeña de 50,000 a 100,000 (5-10%) para probar los mensajes RCS.
+Braze recomienda que primero pruebes el envío de RCS a volúmenes más pequeños de usuarios y migres más usuarios al grupo de suscripción de RCS con el tiempo. Por ejemplo, si tienes 1 000 000 de usuarios suscritos a un grupo de suscripción de SMS, esto podría verse como primero migrar a todos los usuarios al nuevo grupo de suscripción y luego segmentar en una audiencia más pequeña de 50 000 a 100 000 (5-10 %) para probar los mensajes RCS.
 
 ### Paso 1: Crear un Canvas y completar el horario de entrada {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
@@ -130,8 +130,8 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10% aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+| **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10 % aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
+| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Target Audience** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}

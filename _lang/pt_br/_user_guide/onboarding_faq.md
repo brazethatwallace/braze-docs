@@ -79,11 +79,11 @@ Existem três opções de estado de inscrição push: inscrito, aceitou e cancel
 
 Por padrão, para que seu usuário receba suas mensagens por push, o estado de inscrição push dele deve ser inscrito ou aceitou, e ele deve estar habilitado para push. Você pode substituir essa configuração, se necessário, ao redigir uma mensagem.
 
-|Estado de aceitação|Descrição|
+| Estado de aceitação | Descrição |
 |---|---|
-|Inscreveu-se| Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
-|Aceitou| Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior.|
-|Cancelou inscrição| Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push.|
+| Subscribed | Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
+| Aceitou | Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior. |
+| Cancelou inscrição | Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}
@@ -370,17 +370,19 @@ Certifique-se de reajustar os horários da Campaign para permitir o envio por fu
 Campaigns
 {% endapitags %}
 
-Para entrega no fuso local, a Braze avalia os usuários para elegibilidade de entrada nestas duas instâncias:
+A Braze avalia os usuários para elegibilidade de entrada em:
 
-- No horário de Samoa (UTC+13) do dia agendado
-- No horário local do dia agendado
+- Horário de Samoa (UTC+13) no dia agendado
+- Horário local do usuário no dia agendado
 
 Para que um usuário seja elegível para entrada, ele deve ser elegível em ambas as verificações. Por exemplo, se um Canvas estiver programado para ser lançado em 7 de agosto de 2021 às 14h no fuso local, então direcionar um usuário localizado em Nova York exigiria as seguintes verificações de elegibilidade:
 
 - Nova York em 6 de agosto de 2021 às 21h
 - Nova York em 7 de agosto de 2021 às 14h
 
-O usuário precisa estar no segmento por 24 horas antes do lançamento. Se o usuário não for elegível na primeira verificação, a Braze não tentará a segunda verificação.
+Para entrar, o usuário precisa corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no segmento antes do lançamento — apenas a elegibilidade em cada verificação importa.
+
+Esse comportamento de avaliação é separado de [com quanta antecedência você agenda a Campaign no dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). Para a explicação completa, exemplos e orientações de agendamento, consulte [Quando a Braze avalia os usuários para a entrega no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) e [Como faço para agendar uma Campaign no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) nas perguntas frequentes de Campaigns.
 
 {% endapi %}
 {% api %}
@@ -391,7 +393,7 @@ O usuário precisa estar no segmento por 24 horas antes do lançamento. Se o usu
 Campaigns
 {% endapitags %}
 
-O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
@@ -515,7 +517,7 @@ O segmentador é uma estatística mais precisa para dados de usuários únicos e
 Canvases
 {% endapitags %}
 
-O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
@@ -569,7 +571,7 @@ Para agendar um relatório de engajamento recorrente, faça o seguinte:
 
 1. No seu dashboard, navegue até **Relatórios de Engajamento**, em **Dados**.
 2. Clique em **+ Criar Novo Relatório**.
-3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que você gostaria de compilar no seu relatório.
+3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que você gostaria de compilar no seu relatório.
 4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) ao seu relatório.
 5. Selecione a compressão e o delimitador para o seu relatório.
 6. Insira os endereços de e-mail dos usuários da empresa que devem receber este relatório.

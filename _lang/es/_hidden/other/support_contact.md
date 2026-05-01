@@ -2656,9 +2656,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>Estos artículos podrían ayudarte:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>No se encontraron sugerencias.</p>";
         }
 
         // --- Citation hover tooltip ---

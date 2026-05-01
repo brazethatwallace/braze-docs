@@ -116,7 +116,7 @@ Für die Auswahl Ihrer Eigenschaft gelten einige Anforderungen:
 
 - Sie muss dem Feld `id` des ausgewählten Katalogs zugeordnet sein.
 - **Wenn Sie das Event „Bestellung aufgegeben“ ausgewählt haben oder [E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) zum Trainieren von Artikelempfehlungen verwenden:** Geben Sie `products.product_id` für die Produkt-ID ein.
-  - Das Feld kann sich innerhalb eines Arrays von Produkten befinden oder mit einem Array von IDs enden. In beiden Fällen wird jede Produkt-ID als separates, aufeinanderfolgendes Ereignis mit demselben Zeitstempel behandelt.
+  - Das Feld kann sich innerhalb eines Arrays von Produkten befinden oder mit einem Array von IDs enden. In beiden Fällen wird jede Produkt-ID als separates, aufeinanderfolgendes Event mit demselben Zeitstempel behandelt.
 - **Wenn Sie Kauf-Objekt ausgewählt haben:** Muss die `product_id` oder ein Feld der `properties` Ihres Interaktions-Events sein.
 - **Wenn Sie Angepasstes Event ausgewählt haben:** Muss ein Feld der `properties` Ihres angepassten Events sein.
 - Verschachtelte Felder müssen in der Dropdown-Liste **Property Name** in Punktnotation im Format `event_property.nested_property` eingegeben werden. Wenn Sie zum Beispiel die verschachtelte Eigenschaft `district_name` innerhalb der Event-Eigenschaft `location` auswählen möchten, geben Sie `location.district_name` ein.
@@ -191,7 +191,7 @@ Dieses Event enthält `"product_sku": "ADI-BL-7"`, das mit dem ersten Artikel im
 
 ##### Beispiel für ein angepasstes Event-Objekt mit einem Array von Produkten {#example-custom-event-object-with-an-array-of-products}
 
-Wenn die Event-Eigenschaften mehrere Produkte in einem Array enthalten, wird jede Produkt-ID als separates, aufeinanderfolgendes Ereignis behandelt. Dieses Event kann mit der Eigenschaft `products.sku` den ersten und dritten Artikel im Beispielkatalog zuordnen.
+Wenn die Event-Eigenschaften mehrere Produkte in einem Array enthalten, wird jede Produkt-ID als separates, aufeinanderfolgendes Event behandelt. Dieses Event kann mit der Eigenschaft `products.sku` den ersten und dritten Artikel im Beispielkatalog zuordnen.
 
 ```json
 {
@@ -215,7 +215,7 @@ Wenn die Event-Eigenschaften mehrere Produkte in einem Array enthalten, wird jed
 
 ##### Beispiel für ein angepasstes Event-Objekt mit einem verschachtelten Objekt, das ein Produkt-ID-Array enthält {#example-custom-event-object-with-a-nested-object-containing-a-product-id-array}
 
-Wenn Ihre Produkt-IDs Werte in einem Array statt Objekte sind, können Sie dieselbe Notation verwenden, und jede Produkt-ID wird als separates, aufeinanderfolgendes Ereignis behandelt. Dies lässt sich im folgenden Event flexibel mit verschachtelten Objekten kombinieren, indem Sie die Eigenschaft als `purchase.product_skus` konfigurieren, um den ersten und dritten Artikel im Beispielkatalog zuzuordnen.
+Wenn Ihre Produkt-IDs Werte in einem Array statt Objekte sind, können Sie dieselbe Notation verwenden, und jede Produkt-ID wird als separates, aufeinanderfolgendes Event behandelt. Dies lässt sich im folgenden Event flexibel mit verschachtelten Objekten kombinieren, indem Sie die Eigenschaft als `purchase.product_skus` konfigurieren, um den ersten und dritten Artikel im Beispielkatalog zuzuordnen.
 
 ```json
 {

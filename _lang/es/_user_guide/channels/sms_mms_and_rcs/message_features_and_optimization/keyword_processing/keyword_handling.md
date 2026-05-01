@@ -135,7 +135,7 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
 1. Crea una [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Target audience**, elige **All users** (el activador aún limita quién recibe el mensaje).
+2. Para **Target Audience**, elige **All users** (el activador aún limita quién recibe el mensaje).
 3. Para **Schedule**, elige **Action-based delivery**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.
 5. En el paso **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.

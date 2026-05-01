@@ -72,7 +72,7 @@ Vous pouvez vérifier le fuseau horaire de votre entreprise dans les [paramètre
 
 Braze évalue l'éligibilité des utilisateurs à l'entrée aux moments suivants :
 
-- Heure des Samoa (UTC+13) ou UTC+14 pendant l'heure d'été
+- Heure des Samoa (UTC+13) le jour planifié
 - L'heure locale du jour planifié
 
 Pour qu'un utilisateur soit éligible à l'entrée, il doit être éligible aux deux vérifications. Par exemple, si un Canvas est planifié pour être lancé le 7 août 2021 à 14 h en fuseau horaire local, le ciblage d'un utilisateur situé à New York nécessiterait les vérifications d'éligibilité suivantes :
@@ -80,7 +80,9 @@ Pour qu'un utilisateur soit éligible à l'entrée, il doit être éligible aux 
 - New York le 6 août 2021 à 21 h
 - New York le 7 août 2021 à 14 h
 
-L'utilisateur doit être dans le segment pendant 24 heures avant le lancement. Si l'utilisateur n'est pas éligible lors de la première vérification, Braze ne tente pas la seconde.
+Pour entrer, un utilisateur doit correspondre à votre audience et à vos filtres aux deux moments d'évaluation. Si l'utilisateur n'est pas éligible lors de la première vérification, Braze ne tente pas la seconde. Il n'y a pas de durée minimale pendant laquelle un utilisateur doit avoir été dans le segment avant le lancement. Seule l'éligibilité à chaque vérification compte.
+
+Ce comportement d'évaluation est distinct de [la planification anticipée de la campagne dans le tableau de bord](#how-do-i-schedule-a-local-time-zone-campaign). Planifier au moins 24 heures à l'avance est une recommandation, car cela aide les messages à être distribués sur l'ensemble de la fenêtre de 24 heures en fuseau horaire local, et non une exigence que chaque utilisateur ait été dans l'audience pendant 24 heures.
 
 #### Exemples {#examples}
 
@@ -88,7 +90,7 @@ Par exemple, si une campagne est planifiée pour être livrée à 19 h UTC, nous
 
 Autre exemple : supposons que vous souhaitiez créer deux campagnes planifiées pour être envoyées le même jour — une le matin et une le soir — et ajouter un filtre pour que les utilisateurs ne puissent recevoir la seconde campagne que s'ils ont déjà reçu la première. Avec la livraison en fuseau horaire local, certains utilisateurs pourraient ne pas recevoir la seconde campagne. En effet, nous vérifions l'éligibilité lorsque le fuseau horaire de l'utilisateur est identifié, et si l'heure planifiée n'est pas encore arrivée dans leur fuseau horaire, ils n'ont pas reçu la première campagne, ce qui signifie qu'ils ne seront pas éligibles pour la seconde.
 
-Pour une représentation visuelle de la façon dont un utilisateur peut être dans un segment lors de la première vérification mais pas lors de la seconde, consultez cette chronologie :
+La chronologie suivante suppose une définition de segment qui inclut une fenêtre d'appartenance limitée dans le temps. Dans cet exemple, les utilisateurs quittent le segment 24 heures après y être entrés. Ce comportement de filtre est l'une des raisons pour lesquelles un utilisateur peut réussir la première vérification et échouer à la seconde.
 
 ![Chronologie d'un utilisateur entrant dans le segment avant la première vérification, puis le quittant avant la seconde.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -102,6 +104,8 @@ Pour une représentation visuelle de la façon dont un utilisateur peut être da
 {% enddetails %}
 
 ### Comment planifier une campagne en fuseau horaire local ? {#how-do-i-schedule-a-local-time-zone-campaign}
+
+La section précédente décrit quand Braze évalue l'éligibilité pour la livraison en fuseau horaire local (les deux vérifications). Cette section décrit quand vous définissez la planification de la campagne dans le tableau de bord (délai de planification) et quels utilisateurs reçoivent tout de même le message si vous planifiez avec moins de 24 heures de préavis.
 
 Lors de la planification d'une campagne, choisissez de l'envoyer à une heure désignée, puis sélectionnez **Send campaign to users in their local time zone**.
 

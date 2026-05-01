@@ -122,7 +122,7 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 
 ### 1단계: Canvas 생성 및 진입 스케줄 작성 {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 Campaign을 스케줄하세요.
+Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 캠페인을 스케줄하세요.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
 

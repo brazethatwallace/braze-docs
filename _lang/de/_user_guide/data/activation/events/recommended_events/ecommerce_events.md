@@ -31,7 +31,7 @@ Empfohlene E-Commerce-Events werden nicht im Abschnitt **Kaufhistorie** des Tabs
 | Gesamter Erstattungswert | Summe (`order_refunded.total_value`) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-![Abschnitt „Bestellaktivität“ mit Gesamtumsatz, Gesamtbestellungen und Gesamtem Erstattungswert.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+![Abschnitt „Bestellaktivität“ mit Gesamtumsatz, Gesamtbestellungen und gesamtem Erstattungswert.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
 
 ## E-Commerce-Orchestrierung {#ecommerce-orchestration}
 
