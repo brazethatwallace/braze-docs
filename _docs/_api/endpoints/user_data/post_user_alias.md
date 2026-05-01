@@ -101,11 +101,13 @@ When an alias is skipped because the same `alias_label` and `alias_name` already
 
 This usually happens when `/users/alias/new` is followed by a separate `/users/track` request that tries to update attributes by alias. The track request can be processed before Braze can consistently resolve the new `alias_label` and `alias_name` pair to a profile, so attributes do not land on the user you expect.
 
-**Recommended approach:** Use a single [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) call. In the `attributes` array, put `user_alias` and your profile fields in the same [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) so Braze resolves the user and applies the update in one step.
+**Recommended approach:** Use a single [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) call only when you want to create an alias-only profile or update a profile by an alias that already exists. In the `attributes` array, put `user_alias` and your profile fields in the same [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) so Braze resolves the user and applies the update in one step.
 
 Set `_update_existing_only` to `false` when you may need to create an alias-only profile from that object. If you omit it while using `user_alias`, Braze defaults to update-only behavior and does not create the alias-only profile. If the alias already exists on a user in your workspace, the same request updates that profile with your new attributes.
 
-If you already added the alias to a user with an `external_id`, you can instead target that profile with `external_id` in the `/users/track` endpoint, such as in the following example body:
+You can't use `/users/track` to add a new alias to an existing user identified by `external_id`. In a user attributes object, `external_id` and `user_alias` are mutually exclusive. To add an alias to an identified user, first call `/users/alias/new`. After the alias is attached, you can update that profile with `/users/track` by `external_id` or by the existing alias.
+
+For example, the following `/users/track` body creates an alias-only profile if the alias doesn't exist yet, or updates the existing profile that already has that alias:
 ```json
 {
   "attributes": [
