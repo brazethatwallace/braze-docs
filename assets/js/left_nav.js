@@ -7,6 +7,9 @@ $(document).ready(function(){
   });
   var filter_action = $('#filter-action');
   var nav_input = $('#nav_filter_input');
+  if (!filter_action.length || !nav_input.length) {
+    return;
+  }
   filter_action.click(function(e){
     nav_input.val('');
     filter_action.find('i').removeClass('fa-times');

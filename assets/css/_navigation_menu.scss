@@ -14,7 +14,6 @@ $nav_background-color: white;
 $nav_font_size: 14px;
 $nav_transition_time: 0.35s;
 
-$nav_filter_height: 0; //hidding filter 75px;
 $nav_bottom_height: 60px;
 
 // Sidebar toggle: colors chosen for WCAG 2.2 AA (3:1 for UI components)
@@ -26,6 +25,11 @@ $nav-active-bg: $grey-athens;
 // $grey-manatee (#828284) achieves ~3.84:1 on white — meets WCAG 1.4.11 for structural lines
 $nav-nesting-border: $grey-manatee;
 
+// Keyboard focus: keep outline weight consistent; offset tuned per control (see design ref)
+$nav-focus-ring: 2px solid $braze-purple;
+$nav-focus-offset-outside: 2px; // caret + padded links — matches subpage expand control
+$nav-focus-offset-rail: 0; // main rail toggle — ring hugs 40px target (less “air” than +2px)
+
 #nav_bar {
 	padding-top: 24px;
 	background-color: white;
@@ -33,8 +37,9 @@ $nav-nesting-border: $grey-manatee;
 		display: none !important;
 	}
 	width: 100%;
-	.sidebar-toggle-row {
-		display: none;
+	// Persistent right edge (independent of scrollbar gutter); match #nav_bottom / status strip borders
+	@media (min-width: $window-medium-px) {
+		border-right: 1px solid $grey-ghost;
 	}
 	#nav_col {
 		@media (min-width: $window-medium-px) {
@@ -42,23 +47,40 @@ $nav-nesting-border: $grey-manatee;
 			flex-direction: column;
 			height: 100%;
 			min-height: 0;
-			.sidebar-toggle-row {
+			.left-nav-primary {
 				display: flex;
+				flex-direction: column;
+				flex: 1 1 auto;
+				min-height: 0;
+				position: relative;
+			}
+			.left-nav-collapsed-slot {
+				display: none;
 				flex-shrink: 0;
-				padding: 0;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 4px 0 2px;
+				box-sizing: border-box;
+				position: relative;
+				z-index: 2;
+				&:empty {
+					display: none !important;
+				}
 			}
 			#sidebar_toggle {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 100%;
-				min-height: 36px;
-				padding: 8px;
-				border-radius: 0;
+				flex-shrink: 0;
+				width: 40px;
+				min-width: 40px;
+				height: 40px;
+				min-height: 40px;
+				padding: 0;
+				border-radius: 8px;
 				background-color: transparent;
 				border: none;
-				border-top: 1px solid $grey-ghost;
-				border-right: 1px solid $grey-ghost;
 				color: $grey-boulder;
 				cursor: pointer;
 				@media (prefers-reduced-motion: no-preference) {
@@ -69,8 +91,14 @@ $nav-nesting-border: $grey-manatee;
 					color: $black-shark;
 				}
 				&:focus-visible {
-					outline: 2px solid $braze-purple;
-					outline-offset: -2px;
+					outline: $nav-focus-ring;
+					outline-offset: $nav-focus-offset-rail;
+				}
+				.sidebar-toggle-icon {
+					display: block;
+					width: 24px;
+					height: 24px;
+					pointer-events: none;
 				}
 			}
 		}
@@ -94,13 +122,27 @@ $nav-nesting-border: $grey-manatee;
 		font-size: 15px;
 		line-height: 20px;
 		height: calc(100vh - #{$header_height});
+		@media (prefers-reduced-motion: no-preference) {
+			transition: width $nav_transition_time ease, min-width $nav_transition_time ease,
+				max-width $nav_transition_time ease, box-shadow 0.2s ease;
+		}
 
+		.left-nav-primary {
+			flex: 1 1 auto;
+			min-height: 0;
+			@media (min-width: $window-medium-px) {
+				width: $nav_width;
+			}
+		}
 		#left_navmenu {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
 			flex: 1 1 auto;
 			min-height: 0;
 			overflow-y: auto;
 			align-items: flex-start;
-			padding: 30px 8px 16px 24px;
+			padding: 20px 8px 16px 24px;
 			@media (min-width: $window-medium-px) {
 				width: $nav_width;
 			}
@@ -117,35 +159,35 @@ $nav-nesting-border: $grey-manatee;
 			overflow-y: visible;
 			z-index: 102;
 			pointer-events: auto;
+			@media (prefers-reduced-motion: no-preference) {
+				transition: width $nav_transition_time ease, min-width $nav_transition_time ease,
+					max-width $nav_transition_time ease, box-shadow 0.2s ease;
+			}
 			#nav_col {
 				width: 100%;
 				min-width: 0;
 				overflow: visible;
 				pointer-events: auto;
 			}
-			.sidebar-toggle-row {
-				padding: 0;
+			// Rail is 48px wide — do not keep the expanded 280px width on .left-nav-primary or the toggle's 100% blows out
+			.left-nav-primary {
+				width: 100%;
+				max-width: 100%;
 				min-width: 0;
+			}
+			// Must beat `#nav_bar #nav_col .left-nav-collapsed-slot { display: none }` (two IDs), or the strip never shows
+			#nav_col .left-nav-collapsed-slot:not(:empty) {
+				display: flex;
 				width: 100%;
-				flex: 1 1 auto;
-				position: relative;
-				z-index: 1;
-				pointer-events: auto;
+				max-width: 100%;
+				min-width: 0;
 			}
-			#sidebar_toggle {
-				width: 100%;
-				height: 100%;
-				position: relative;
-				z-index: 2;
-				cursor: pointer;
-				pointer-events: auto;
-				border-top: none;
-				background-color: $nav-hover-bg;
+			#nav_col #sidebar_toggle {
+				width: 40px;
+				min-width: 40px;
+				max-width: 100%;
+				margin-top: 0;
 			}
-			#nav_filter {
-				display: none !important;
-			}
-			#nav_top,
 			#nav_bottom,
 			#left_navmenu {
 				display: none;
@@ -203,6 +245,39 @@ $nav-nesting-border: $grey-manatee;
 		}
 	}
 
+	// First root item (for example Home) + sidebar rail toggle on one row
+	#nav_top > .nav-item--rail {
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		width: 100%;
+		min-width: 0;
+		gap: 2px;
+	}
+	#nav_top > .nav-item--rail > .nav-item--rail__main {
+		flex: 1 1 auto;
+		min-width: 0;
+		// Beat `#nav_top > .nav-item div { width: fit-content }` so the row shares the same horizontal track as sibling `.nav-item` rows
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		> .nav_item_row,
+		> .nav_reg {
+			min-height: 36px;
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
+	}
+	#nav_top > .nav-item--rail > .nav-item--rail__toggle {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 2;
+		isolation: isolate;
+	}
+
 	// GitLab-style row: link on left, caret on right
 	.nav_item_row {
 		display: flex;
@@ -226,14 +301,43 @@ $nav-nesting-border: $grey-manatee;
 		.nav_title[data-toggle="collapse"] {
 			cursor: pointer;
 		}
+		// Shrink-wrap the label so :focus-visible doesn’t span the gap to the caret (see .nav_link + .nav_title flex rule above)
 		button.nav_title {
 			background: none;
 			border: none;
-			padding: 0;
+			flex: 0 1 auto;
+			min-width: 0;
+			width: auto;
+			max-width: calc(100% - 36px);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 6px 6px 6px 8px;
 			margin: 0;
 			font: inherit;
 			color: inherit;
 			text-align: left;
+			border-radius: 8px;
+			&:focus-visible {
+				outline: $nav-focus-ring;
+				outline-offset: $nav-focus-offset-outside;
+			}
+		}
+		// Current page uses span; sibling section rows use a.nav_link — use the same box model as .nav_link (not button.nav_title)
+		> span.nav_title {
+			display: flex;
+			align-items: center;
+			flex: 1 1 auto;
+			min-width: 0;
+			width: 100%;
+			padding: 6px 8px;
+			margin: 0;
+			border-radius: 8px;
+			box-sizing: border-box;
+			color: $black-shark;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 		&:hover {
 			background-color: $nav-hover-bg;
@@ -262,8 +366,8 @@ $nav-nesting-border: $grey-manatee;
 			color: $black-shark;
 		}
 		&:focus-visible {
-			outline: 2px solid $braze-purple;
-			outline-offset: 2px;
+			outline: $nav-focus-ring;
+			outline-offset: $nav-focus-offset-outside;
 		}
 		i {
 			width: 8px;
@@ -278,23 +382,26 @@ $nav-nesting-border: $grey-manatee;
 		display: flex;
 		align-items: center;
 		width: 100%;
-		padding: 0;
+		padding: 6px 8px;
 		border-radius: 8px;
 		color: $black-shark;
 		text-decoration: none;
+		box-sizing: border-box;
 		&:hover {
 			text-decoration: none;
 			color: $black-shark;
 		}
 		&:focus-visible {
-			outline: 2px solid $braze-purple;
-			outline-offset: -2px;
+			outline: $nav-focus-ring;
+			outline-offset: $nav-focus-offset-outside;
 		}
 	}
 
 	// Consistent row height for leaf items — same as nav_item_row
 	.nav div.nav-item > .nav_reg,
-	.nav div.nav-item > .nav_block {
+	.nav div.nav-item > .nav_block,
+	.nav div.nav-item > .nav-item--rail__main > .nav_reg,
+	.nav div.nav-item > .nav-item--rail__main > .nav_block {
 		display: flex;
 		align-items: center;
 		min-height: 40px;
@@ -385,7 +492,10 @@ $nav-nesting-border: $grey-manatee;
 					color: $black-shark;
 					> .nav_item_row,
 					> .nav_reg,
-					> .nav_block {
+					> .nav_block,
+					> .nav-item--rail__main > .nav_item_row,
+					> .nav-item--rail__main > .nav_reg,
+					> .nav-item--rail__main > .nav_block {
 						background-color: $nav-active-bg;
 						border-radius: 8px;
 						&::before {
@@ -418,96 +528,6 @@ $nav-nesting-border: $grey-manatee;
 		border-width: 0;
 		border-style: solid;
 	}
-	#filter-msg {
-		line-height: 2;
-		display: flex;
-		display: -webkit-flex; /* Safari */
-
-		margin-top: 15px;
-		flex-direction: column;
-		flex-shrink: 0;
-		width: 100%;
-		padding: 0 15px 0 15px;
-		a {
-			display: inline;
-			color: $black-shark;
-			font-weight: 700;
-			width: fit-content;
-			font-family: $braze-bold;
-			border-bottom-width: 2px;
-			border-color: $braze-link-color;
-			text-decoration: none;
-			&:hover {
-				text-decoration: none;
-				background-color: $braze-link-color;
-			}
-		}
-	}
-	#filter-action {
-		cursor: pointer;
-		border: none;
-		background: transparent;
-		padding: 0.5rem 0.75rem;
-		&:focus-visible {
-			outline: 2px solid $braze-purple;
-			outline-offset: 2px;
-		}
-	}
-	#nav_filter {
-		display: none;
-		margin: 0 30px 15px 30px;
-		@media (min-width: $window-medium-px) {
-			margin-top: 24px;
-		}
-		background-color: white;
-		opacity: 0.7;
-		font-family: $braze-bold;
-		&:hover,
-		&:focus {
-			opacity: 1;
-			#filter-form {
-				border-color: $black-shark;
-			}
-		}
-		#filter-form {
-			width: 100%;
-			border: 2px solid $grey-ghost;
-		}
-		#nav_filter_input {
-			font-size: 12px;
-			border: none;
-			background-color: transparent;
-			background-image: url(#{$base_url}/assets/img/filter.svg);
-			background-position: 10px 7px;
-			background-size: 16px 16px;
-			background-repeat: no-repeat;
-			padding-left: 30px;
-		}
-
-		.input-group-append {
-			#filter-action i,
-			i {
-				font-size: 15px;
-				padding-top: 0;
-				padding-left: 0;
-				width: 2rem;
-			}
-		}
-		::-ms-clear {
-			display: none;
-		}
-
-		.form-control-clear {
-			z-index: 10;
-			pointer-events: auto;
-			cursor: pointer;
-		}
-		.mark,
-		mark {
-			background-color: $braze-purple;
-		}
-	}
-
 	/* Status Monitor */
 	#nav_bottom {
 		display: block;

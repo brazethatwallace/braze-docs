@@ -205,6 +205,8 @@ module Jekyll
             results = ''
             navclass = ''
             ariaexpanded = false
+            # First root item shares one row with the sidebar rail toggle (see left_nav_menu.html + documents.js).
+            rail_slot_used = false
 
             # if less then 2, then always show
             if (level < @minlevel)
@@ -297,7 +299,11 @@ module Jekyll
                     cur_url = curinfo['redirect_to'].gsub!(/^\/docs\//, "#{@baseurl}\/")
                   end
 
-                  items << "<div class='#{@nav_item_class}  #{curclass}' id='parent_#{@nav_prefix}_#{parent_page_key}' data-parent='parent_#{@nav_prefix}_#{parent_key}'>"
+                  apply_rail_layout = (level == 0 && !rail_slot_used)
+                  nav_item_classes = [@nav_item_class, curclass.strip]
+                  nav_item_classes << 'nav-item--rail' if apply_rail_layout
+                  items << "<div class='#{nav_item_classes.reject(&:empty?).join(' ')}' id='parent_#{@nav_prefix}_#{parent_page_key}' data-parent='parent_#{@nav_prefix}_#{parent_key}'>"
+                  items << "<div class='nav-item--rail__main'>" if apply_rail_layout
                   # If has children: GitLab-style row = link/title on left, caret button on right
                   unless item.empty?
                     items << "<div class='#{ @nav_active_page_class } nav_item_row'  data-parent='parent_#{@nav_prefix}_#{parent_key}'>"
@@ -318,6 +324,11 @@ module Jekyll
                       items << "<a href='#{ cur_url }' class='#{@nav_item_link_class}' data-parent='parent_#{@nav_prefix}_#{parent_key}' aria-label='#{page_title_escaped}'>#{page_title_escaped}</a>"
                     end
                     items << "</div>\n"
+                  end
+                  if apply_rail_layout
+                    items << "</div>\n"
+                    items << "<div class='nav-item--rail__toggle' id='sidebar_toggle_host'></div>\n"
+                    rail_slot_used = true
                   end
                   items << "</div>\n"
 

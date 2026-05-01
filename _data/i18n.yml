@@ -17,6 +17,7 @@ en:
   filter_navigation_topics: Filter navigation topics
   clear_filter: Clear filter
   documentation_nav: Documentation
+  sidebar_home: Home
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -38,6 +39,7 @@ fr:
   filter_navigation_topics: Filtrer les sujets de navigation
   clear_filter: Effacer le filtre
   documentation_nav: Documentation
+  sidebar_home: Accueil
 ja:
   next: 次へ
   previous: 前へ
@@ -59,6 +61,7 @@ ja:
   filter_navigation_topics: ナビゲーションのトピックをフィルター
   clear_filter: フィルターをクリア
   documentation_nav: ドキュメント
+  sidebar_home: ホーム
 ko:
   next: 다음
   previous: 이전
@@ -80,6 +83,7 @@ ko:
   filter_navigation_topics: 탐색 주제 필터
   clear_filter: 필터 지우기
   documentation_nav: 문서
+  sidebar_home: 홈
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -101,6 +105,7 @@ pt-br:
   filter_navigation_topics: Filtrar tópicos da navegação
   clear_filter: Limpar filtro
   documentation_nav: Documentação
+  sidebar_home: Início
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -122,6 +127,7 @@ es:
   filter_navigation_topics: Filtrar temas de navegación
   clear_filter: Borrar filtro
   documentation_nav: Documentación
+  sidebar_home: Inicio
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -143,3 +149,4 @@ de:
   filter_navigation_topics: Navigationsthemen filtern
   clear_filter: Filter löschen
   documentation_nav: Dokumentation
+  sidebar_home: Startseite

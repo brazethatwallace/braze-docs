@@ -430,46 +430,77 @@ $(document).ready(function() {
   // link image fix for underline
   $('#article-main a:has(> img)').css('display','inline-block');
 
+  function setSidebarToggleIcon(isCollapsed) {
+    var btn = $('#sidebar_toggle');
+    var img = $('#sidebar_toggle_icon');
+    if (!btn.length || !img.length) { return; }
+    var narrowSrc = btn.attr('data-rail-src-narrow');
+    var widenSrc = btn.attr('data-rail-src-widen');
+    if (!narrowSrc || !widenSrc) { return; }
+    img.attr('src', isCollapsed ? widenSrc : narrowSrc);
+  }
+
   function updateSidebarToggleAccessibility() {
     var nav_bar = $('#nav_bar');
     var btn = $('#sidebar_toggle');
+    if (!btn.length) { return; }
     var isCollapsed = nav_bar.hasClass('hide_sidebar');
-    var minimizeLabel = (typeof site_i18n !== 'undefined' && site_i18n['minimize_menu']) ? site_i18n['minimize_menu'] : 'Minimize menu';
-    var expandLabel = (typeof site_i18n !== 'undefined' && site_i18n['expand_menu']) ? site_i18n['expand_menu'] : 'Expand menu';
-    var label = isCollapsed ? expandLabel : minimizeLabel;
+    var collapseLabel = (typeof site_i18n !== 'undefined' && site_i18n['collapse_navigation']) ? site_i18n['collapse_navigation'] : 'Collapse navigation';
+    var expandLabel = (typeof site_i18n !== 'undefined' && site_i18n['expand_navigation']) ? site_i18n['expand_navigation'] : 'Expand navigation';
+    var label = isCollapsed ? expandLabel : collapseLabel;
     btn.attr('aria-label', label);
-    btn.attr('title', label);
     btn.attr('aria-expanded', !isCollapsed);
-    if (typeof $.fn.tooltip !== 'undefined' && btn.data('bs.tooltip')) {
-      btn.tooltip('dispose');
-      btn.tooltip({ placement: 'right', trigger: 'hover focus' });
+  }
+
+  // Move rail toggle between the first nav row host (expanded / peek) and the collapsed strip.
+  function syncSidebarToggleDock() {
+    var nav_bar = $('#nav_bar');
+    var host = $('#sidebar_toggle_host');
+    var slot = $('.left-nav-collapsed-slot');
+    var btn = $('#sidebar_toggle');
+    if (!btn.length) { return; }
+    var peeking = nav_bar.hasClass('hide_sidebar') && $('#left_navmenu').is(':visible');
+    if (nav_bar.hasClass('hide_sidebar') && !peeking) {
+      if (slot.length) { btn.appendTo(slot); }
+    } else {
+      if (host.length) {
+        btn.appendTo(host);
+      } else {
+        var primary = $('.left-nav-primary');
+        var nav = $('#left_navmenu');
+        if (primary.length && nav.length) {
+          btn.insertAfter(nav);
+        } else if (slot.length) {
+          btn.appendTo(slot);
+        }
+      }
     }
   }
 
   $('#sidebar_toggle').click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
     var nav_bar = $('#nav_bar');
-    var nav_icon = $('#sidebar_toggle i');
     var curstate = nav_bar.hasClass('hide_sidebar');
     if (curstate) {
       nav_bar.removeClass('hide_sidebar');
-      nav_icon.removeClass('fa-angle-double-right');
-      nav_icon.addClass('fa-angle-double-left');
       Cookies.set('ln', '', { expires: 365 });
     } else {
       nav_bar.addClass('hide_sidebar');
-      nav_icon.removeClass('fa-angle-double-left');
-      nav_icon.addClass('fa-angle-double-right');
       Cookies.set('ln','1',  { expires: 365 });
     }
+    setSidebarToggleIcon(nav_bar.hasClass('hide_sidebar'));
     updateSidebarToggleAccessibility();
+    syncSidebarToggleDock();
   });
+  // Pinned collapsed state uses cookie `ln` only (no URL param). Synthetic click avoided so layout/ARIA stay in sync on first paint.
   if (Cookies.get('ln')) {
-    $('#sidebar_toggle').trigger('click');
+    var nav_barInit = $('#nav_bar');
+    nav_barInit.addClass('hide_sidebar');
+    setSidebarToggleIcon(true);
   }
+  syncSidebarToggleDock();
   updateSidebarToggleAccessibility();
-  if ($('#sidebar_toggle').length && typeof $.fn.tooltip !== 'undefined') {
-    $('#sidebar_toggle').tooltip({ placement: 'right', trigger: 'hover focus' });
-  }
 
   // Keep collapse containers out of tab order; section caret buttons stay focusable (GitLab-style)
   function setNavCollapseTabindex() {

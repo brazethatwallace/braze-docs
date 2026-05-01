@@ -109,6 +109,15 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
 
       expect(html).to include("aria-current='page'")
     end
+
+    it 'wraps the first root item in nav-item--rail for the sidebar toggle host' do
+      menu     = build_test_menu('/docs/guide/intro')
+      instance = build_menu_instance('/docs/guide/intro/', '/docs/guide/intro')
+      html     = instance.send(:build_menu_html, menu, '', 0)
+
+      expect(html).to include('nav-item--rail')
+      expect(html).to include("id='sidebar_toggle_host'")
+    end
   end
 
   describe 'active section page (has children, is current page)' do
