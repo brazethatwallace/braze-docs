@@ -7,6 +7,10 @@
 # If an older open auto-deploy-* PR already targets main, this workflow creates the new
 # PR first, then comments on the old PR, closes it, and deletes its remote head branch.
 #
+# After that, updates _data/sitemap_*.json last-modified dates on the snapshot branch
+# (same Ruby step as the manual sitemap workflow) and adds the status: done label so
+# on-call knows the run is ready for approval.
+#
 name: Nightly Release Deploy
 
 on:
@@ -33,12 +37,19 @@ jobs:
           fetch-depth: 0
 
       - name: Snapshot branch, body, PR, supersede previous deploy PRs
+        id: snapshot_deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           REPO="${{ github.repository }}"
           RUN_ID="${{ github.run_id }}"
+          {
+            echo "skip=true"
+            echo "branch="
+            echo "pr="
+            echo "repo=${REPO}"
+          } >> "$GITHUB_OUTPUT"
 
           git fetch origin main develop
           if git diff --quiet origin/main..origin/develop; then
@@ -98,3 +109,60 @@ jobs:
               || echo "Warning: could not close PR #${old_num} (may already be closed; continuing)."
             git push origin ":refs/heads/${old_ref}" || echo "Note: could not delete origin/${old_ref} (may already be gone)."
           done
+
+          {
+            echo "skip=false"
+            echo "branch=${BRANCH}"
+            echo "pr=${NEW_NUM}"
+            echo "repo=${REPO}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Checkout deploy snapshot branch
+        if: steps.snapshot_deploy.outputs.skip != 'true'
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ steps.snapshot_deploy.outputs.branch }}
+          fetch-depth: 0
+
+      - name: Set up Ruby
+        if: steps.snapshot_deploy.outputs.skip != 'true'
+        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1.299.0
+        with:
+          ruby-version: "3.3"
+
+      - name: Update sitemaps on snapshot branch
+        if: steps.snapshot_deploy.outputs.skip != 'true'
+        run: ruby scripts/generate_sitemap_lastmodified.rb all
+
+      - name: Commit and push sitemap changes
+        if: steps.snapshot_deploy.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain _data/sitemap_*.json 2>/dev/null)" ]; then
+            echo "No sitemap file changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/sitemap_*.json
+          git commit -m "chore: nightly sitemap last-modified update"
+          git push origin HEAD
+
+      - name: Mark deploy PR ready for on-call (status done)
+        if: steps.snapshot_deploy.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr edit "${{ steps.snapshot_deploy.outputs.pr }}" \
+            --repo "${{ steps.snapshot_deploy.outputs.repo }}" \
+            --add-label "status: done" \
+            || echo "Note: could not add label status: done (may already be present)."
+
+      - name: Comment on deploy PR if a follow-up step failed
+        if: failure() && steps.snapshot_deploy.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment "${{ steps.snapshot_deploy.outputs.pr }}" \
+            --repo "${{ steps.snapshot_deploy.outputs.repo }}" \
+            --body "The nightly deploy workflow failed after this PR was created (for example during the sitemap last-modified update or when adding the \`status: done\` label). Check the [workflow run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details. This PR might be missing fresh \`_data/sitemap_*.json\` updates until you fix the failure and re-run the workflow or apply the manual sitemap workflow to \`develop\` and sync."
