@@ -10,7 +10,10 @@
 # After that, updates _data/sitemap_*.json last-modified dates on the snapshot branch
 # (same Ruby step as the manual sitemap workflow), mirrors those files to develop when
 # they changed, then adds the status: done label so on-call knows the run is ready.
-# Pushing to develop requires branch rules to allow github-actions[bot] (see docs).
+#
+# Pushing to develop: set repository secret AUTOMATION_PUSH_PAT (PAT for an account
+# that is allowed to push to develop). The step temporarily sets origin to that token;
+# the account that owns the PAT must be on develop’s push allowlist / ruleset bypass.
 #
 name: Nightly Release Deploy
 
@@ -156,13 +159,22 @@ jobs:
         if: steps.snapshot_deploy.outputs.skip != 'true' && steps.sitemap_snapshot.outputs.sitemap_pushed == 'true'
         env:
           SNAPSHOT_BRANCH: ${{ steps.snapshot_deploy.outputs.branch }}
+          GH_REPO: ${{ github.repository }}
+          AUTOMATION_PUSH_PAT: ${{ secrets.AUTOMATION_PUSH_PAT }}
         run: |
           set -euo pipefail
+          if [ -z "${AUTOMATION_PUSH_PAT:-}" ]; then
+            echo "Configure repository secret AUTOMATION_PUSH_PAT with a PAT whose user can push to develop."
+            exit 1
+          fi
+          # PAT auth for this step only (GITHUB_TOKEN cannot push to protected develop).
+          git remote set-url origin "https://x-access-token:${AUTOMATION_PUSH_PAT}@github.com/${GH_REPO}.git"
           git fetch origin develop "${SNAPSHOT_BRANCH}"
           git checkout origin/develop -B push-sitemap-to-develop
           git checkout "origin/${SNAPSHOT_BRANCH}" -- _data/sitemap_*.json
           if git diff --quiet origin/develop -- _data/sitemap_*.json; then
             echo "develop already has the same sitemap files as the snapshot."
+            git remote set-url origin "https://github.com/${GH_REPO}.git"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -171,6 +183,7 @@ jobs:
           git commit -m "chore: sync sitemap last-modified from deploy snapshot (${SNAPSHOT_BRANCH})"
           git pull --rebase origin develop
           git push origin HEAD:develop
+          git remote set-url origin "https://github.com/${GH_REPO}.git"
 
       - name: Mark deploy PR ready for on-call (status done)
         if: steps.snapshot_deploy.outputs.skip != 'true'
