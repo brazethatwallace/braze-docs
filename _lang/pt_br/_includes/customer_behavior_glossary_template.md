@@ -17,7 +17,7 @@ Fale com seu representante da Braze ou abra um [ticket de suporte]({{site.baseur
 
 {% details Explicação da estrutura de comportamento do cliente e eventos do usuário e valores de plataforma %}
 
-### Estrutura do evento
+### Estrutura do evento {#event-structure}
 
 Este detalhamento do comportamento do cliente e dos eventos do usuário mostra que tipo de informação é geralmente incluído em um evento de comportamento do cliente ou do usuário. Com uma compreensão sólida de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos recebidos do Currents para criar relatórios e gráficos orientados por dados e aproveitar outras métricas de dados valiosas.
 
@@ -25,7 +25,7 @@ Este detalhamento do comportamento do cliente e dos eventos do usuário mostra q
 
 O comportamento do cliente e os eventos do usuário são compostos por propriedades **específicas do usuário**, propriedades **específicas do comportamento** e propriedades **específicas do dispositivo**.
 
-### Valores de plataforma
+### Valores de plataforma {#platform-values}
 
 Certos eventos retornam um valor `platform` que especifica a plataforma do dispositivo do usuário.
 <br>A tabela a seguir detalha os possíveis valores retornados:

@@ -1,4 +1,4 @@
-## Registro do local atual
+## Registro do local atual {#logging-the-current-location}
 
 Mesmo que o rastreamento contínuo esteja desativado, você pode registrar manualmente o local atual do usuário usando o método [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html).
 
@@ -26,7 +26,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## Monitoramento contínuo de localização
+## Monitoramento contínuo da localização {#continuously-tracking-the-location}
 
 {% alert important %}
 [A partir do Android Marshmallow](https://developer.android.com/training/permissions/index.html), você precisa solicitar que os usuários façam opt-in explícito no monitoramento de localização. Assim que aceitarem, a Braze poderá começar a rastrear a localização deles no início da próxima sessão. Isso é diferente das versões anteriores do Android, em que bastava declarar as permissões de local no `AndroidManifest.xml`.
@@ -53,7 +53,7 @@ Seu `AndroidManifest.xml` deve ser semelhante ao seguinte:
 </manifest>
 ```
 
-## Desativar o rastreamento contínuo
+## Desativar o rastreamento contínuo {#disabling-continuous-tracking}
 
 Você pode desativar o rastreamento contínuo em tempo de compilação ou em tempo de execução.
 
@@ -80,7 +80,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 

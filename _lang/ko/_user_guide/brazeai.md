@@ -5,7 +5,7 @@ description: "BrazeAI<sup>TM</sup>은 참여 전략의 창의성, 개인화 및 
 page_order: 8
 layout: dev_guide
 search_rank: 12
-Tool:
+tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
@@ -22,7 +22,7 @@ guide_featured_list:
   - name: 콘텐츠 최적화 프로그램
     link: /docs/user_guide/brazeai/content_optimizer
     image: /assets/img/braze_icons/image-user-check.svg
-  - name: Decisioning Studio
+  - name: 결정 스튜디오
     link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/stars-03.svg
   - name: 생성형 AI
@@ -38,7 +38,7 @@ guide_featured_list:
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
   - name: Predictive Suite
-    link: /docs/user_guide/brazeai
+    link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: 개인화된 경로
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths

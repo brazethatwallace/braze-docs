@@ -1,24 +1,24 @@
-# Expéditeurs de SMS et de RCS
+# Expéditeurs de SMS et de RCS {#sms-and-rcs-senders}
 
 > Cet article fournit un aperçu des codes et des expéditeurs disponibles pour l'envoi de SMS et de messages RCS.
 
-## Types d'expéditeurs de SMS et de RCS
+## Types d'expéditeurs de SMS et de RCS {#types-of-sms-and-rcs-senders}
 
 {% tabs %}
 {% tab RCS-Verified Sender %}
 
-#### Expéditeur vérifié RCS
+#### Expéditeur vérifié RCS {#rcs-verified-sender}
 
-RCS est un système d'envoi de messages moderne qui offre davantage de fonctionnalités que les SMS traditionnels, en introduisant des capacités telles que les ID d'expéditeur de marque, les médias enrichis et les contenus interactifs, comme les carrousels défilants, les réponses rapides, les boutons CTA, etc. Il est conçu pour offrir une expérience utilisateur plus élégante et plus engageante.  
+RCS est un système d'envoi de messages moderne qui offre davantage de fonctionnalités que les SMS traditionnels, en introduisant des capacités telles que les ID d'expéditeur de marque, les médias enrichis et les contenus interactifs, comme les carrousels défilants, les réponses rapides, les boutons CTA, etc. Il est conçu pour offrir une expérience utilisateur plus élégante et plus engageante.
 
-##### Détails
+##### Détails {#details}
 
-| Composants visuels | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Composants visuels | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
-| - Nom de marque<br>- logo<br>- légende facultative<br> - badge vérifié | 4 à 6 semaines pour l'approbation de l'opérateur | Le débit et la réception/distribution dépendent de la connexion de données active du destinataire (données mobiles ou Wi-Fi). Le RCS ne dépend pas des limites imposées par les réseaux fixes comme le font les SMS ; les messages RCS sont envoyés via des réseaux de données plutôt que via les canaux de signalisation cellulaire traditionnels utilisés par les SMS. | S.O. | Bidirectionnel |
+| - Nom de marque<br>- logo<br>- légende facultative<br> - badge vérifié | 4 à 6 semaines pour l'approbation de l'opérateur | Le débit et la distribution dépendent de la connexion de données active du destinataire (données mobiles ou Wi-Fi). Le RCS ne dépend pas des limites imposées par les réseaux fixes comme le font les SMS ; les messages RCS sont envoyés via des réseaux de données plutôt que via les canaux de signalisation cellulaire traditionnels utilisés par les SMS. | S.O. | Bidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
-##### Avantages et inconvénients
+##### Avantages et inconvénients {#pros-and-cons}
 
 | Avantages |
 | ---- |
@@ -35,20 +35,20 @@ RCS est un système d'envoi de messages moderne qui offre davantage de fonctionn
 {% endtab %}
 {% tab SMS Short Codes %}
 
-#### Codes courts SMS
+#### Codes courts SMS {#sms-short-codes}
 
 Un code court est un numéro à 5 ou 6 chiffres qui permet d'envoyer et de recevoir des SMS vers et depuis des téléphones mobiles à des débits plus élevés que les codes longs. Les codes courts sont recommandés pour les envois volumineux et urgents.
 
 Certains pays vous permettent de choisir un numéro spécifique moyennant des frais supplémentaires. Ces codes courts sont appelés codes courts personnalisés. Si vous êtes intéressé par les codes courts personnalisés, contactez votre conseiller Braze pour plus de détails.
 
-##### Détails
+##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
-| 5-6 chiffres | Demande de 4 à 12 semaines| 100 messages par seconde ou plus | Oui | Bidirectionnel |
+| 5-6 chiffres | Demande de 4 à 12 semaines | 100 messages par seconde ou plus | Oui | Bidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
-##### Avantages et inconvénients
+##### Avantages et inconvénients {#pros-and-cons}
 
 | Avantages |
 | ---- |
@@ -66,18 +66,18 @@ Certains pays vous permettent de choisir un numéro spécifique moyennant des fr
 {% endtab %}
 {% tab SMS Long Codes %}
 
-#### Codes longs SMS
+#### Codes longs SMS {#sms-long-codes}
 
 Un code long est un numéro de téléphone standard utilisé pour envoyer et recevoir des messages SMS. Ces numéros de téléphone sont généralement appelés « codes longs » (numéros à 10 chiffres dans de nombreux pays) par opposition aux codes courts SMS (numéros à 5 ou 6 chiffres).
 
-##### Détails
+##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 10 chiffres | Demande de 4 à 6 semaines (peut être plus courte ou plus longue selon les pays) | Aux États-Unis, le débit des codes longs dépend de votre score de confiance 10DLC ; sur les marchés internationaux, le débit peut varier ou augmenter dans certaines circonstances, mais il commence généralement autour de 10 segments de message par seconde (MPS). | Oui | Bidirectionnel (en fonction de l'endroit où vous envoyez) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
-##### Avantages et inconvénients
+##### Avantages et inconvénients {#pros-and-cons}
 
 | Avantages |
 | ---- |
@@ -94,42 +94,42 @@ Un code long est un numéro de téléphone standard utilisé pour envoyer et rec
 {% endtab %}
 {% tab SMS Alphanumeric Sender ID %}
 
-#### ID alphanumérique de l'expéditeur SMS
+#### ID alphanumérique de l'expéditeur SMS {#sms-alphanumeric-sender-id}
 
 Un ID alphanumérique de l'expéditeur (souvent appelé « alpha ») est une chaîne de caractères reconnaissable composée d'une combinaison de lettres et de chiffres (généralement le nom de votre entreprise ou votre marque) qui s'affiche comme ID de l'expéditeur pour les SMS unidirectionnels.
 
 Ils peuvent comporter jusqu'à 11 caractères et contenir des lettres majuscules (A-Z) et minuscules (a-z), des espaces et des chiffres (0-9). Ils **ne peuvent pas** contenir uniquement des chiffres.
 
-##### Détails
+##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | Jusqu'à 11 caractères | Disponible immédiatement si aucune préinscription n'est requise. Dans la plupart des pays où l'enregistrement est obligatoire, le délai est généralement de 1 à 4 semaines. | Varie selon le pays | Non | Unidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
-##### Avantages et inconvénients
+##### Avantages et inconvénients {#pros-and-cons}
 
 | Avantages | Inconvénients |
-| ---- | ---- | 
+| ---- | ---- |
 | {::nomarkdown} <ul><li> Reconnaissance accrue de la marque </li><li> Sur de nombreux marchés internationaux, les opérateurs locaux préenregistrent et vérifient les expéditeurs alphanumériques afin que vos messages soient moins susceptibles d'être interceptés par les filtres anti-spam agressifs des opérateurs, qui pourraient autrement bloquer les codes longs aléatoires. </li><li> Disponible sous une semaine si aucune préinscription n'est requise. </li></ul> {:/} | {::nomarkdown} <ul><li> L'<a href='/docs/user_guide/message_building_by_channel/sms/keywords/#two-way-messaging-custom-keyword-responses/'>envoi de messages bidirectionnel</a> n'est pas pris en charge. </li><li> Cette fonctionnalité n'est pas disponible dans tous les pays. Par exemple, elle est prise en charge au Royaume-Uni, mais bloquée aux États-Unis. </li><li> Certains pays ont mis en place un processus de préinscription complexe qui nécessite la soumission de documents juridiques et des délais plus longs. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-Pour plus d'informations sur les ID alphanumériques de l'expéditeur, contactez votre gestionnaire de la satisfaction client. 
+Pour plus d'informations sur les ID alphanumériques de l'expéditeur, contactez votre gestionnaire de la satisfaction client.
 {% endtab %}
 {% tab SMS toll-free numbers %}
 
-#### Numéros gratuits compatibles SMS
+#### Numéros gratuits compatibles SMS {#sms-enabled-toll-free-numbers}
 
 Les numéros gratuits ont des indicatifs régionaux distincts à trois chiffres (par exemple, 800, 888, 877 et 866), ce qui permet aux utilisateurs de joindre les entreprises sans frais. Largement utilisés pour le service client, ils peuvent également traiter tous les types d'envoi de messages A2P (application-to-person), y compris le marketing.
 
-##### Détails
+##### Détails {#details}
 
-| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou Bidirectionnel |
+| Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 10 chiffres	 | Demande de 2 à 4 semaines | Commence à 3 MPS (segments par seconde), possibilité d'augmentation moyennant des frais supplémentaires | Oui | Bidirectionnel |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
-##### Avantages et inconvénients
+##### Avantages et inconvénients {#pros-and-cons}
 
 | Avantages |
 | ---- |
@@ -143,28 +143,28 @@ Les numéros gratuits ont des indicatifs régionaux distincts à trois chiffres 
 | **Couche supplémentaire de filtrage STOP**<br> Les numéros gratuits comportent une couche de gestion des désabonnements en dehors de Braze qui ne peut être ni supprimée ni personnalisée. Lorsqu'un utilisateur envoie « STOP » par SMS à votre numéro gratuit, il est désabonné de tout envoi de messages ultérieur depuis votre numéro et reçoit une réponse automatique générée par le réseau. Il ne recevra plus de messages de votre numéro gratuit tant qu'il n'aura pas envoyé « START » pour être retiré de la liste de blocage du numéro gratuit. |
 {: .reset-td-br-1 role="presentation"}
 
-{% endtab %} 
+{% endtab %}
 {% endtabs %}
 
-## Configuration
+## Configuration {#setup}
 
 Les exigences de configuration et les délais varient selon le type d'expéditeur et le pays dans lequel celui-ci est provisionné.
 
 {% tabs local %}
 {% tab RCS-verified sender %}
 
-### Expéditeur vérifié RCS
+### Expéditeur vérifié RCS {#rcs-verified-sender}
 
 Les expéditeurs vérifiés RCS sont provisionnés pays par pays. Le processus de vérification et de configuration se concentre sur votre agent ou expéditeur, c'est-à-dire le personnage numérique qui interagit avec les utilisateurs. Vous fournirez les ressources de marque et les détails de vérification.
 
-#### Ressources de marque
+#### Ressources de marque {#brand-assets}
 
 - **Nom vérifié :** Le nom que les utilisateurs voient en haut du fil de messages. Il doit s'agir d'un nom commercial reconnaissable, pas nécessairement de la dénomination sociale de votre entreprise.
 - **Logo :** Une image haute résolution de 224x224 px. Elle est affichée dans un cadre circulaire, veillez donc à centrer les éléments essentiels.
 - **Bannière (image principale) :** Une image d'arrière-plan pour votre carte de profil professionnel (similaire à une photo de couverture Facebook ou LinkedIn).
 - **Couleur de la marque :** Une valeur hexadécimale pour les boutons et les éléments d'interface afin de correspondre au style de votre entreprise.
 
-#### Détails de la vérification
+#### Détails de la vérification {#verification-details}
 
 - **Personne de contact :** C'est un point essentiel. Vous devez fournir l'adresse e-mail d'un employé direct de la marque (et non celle d'une agence). Google ou l'opérateur enverra un e-mail à cette personne pour confirmer qu'elle a autorisé Braze à agir en votre nom.
 - **Site web et politique de confidentialité :** Un site web fonctionnel et une politique de confidentialité expliquant comment vous traitez les données des utilisateurs et l'envoi de messages.
@@ -175,7 +175,7 @@ Les délais de mise en œuvre du RCS varient selon les pays et à mesure que de 
 {% endtab %}
 {% tab SMS short codes %}
 
-### Codes courts SMS
+### Codes courts SMS {#sms-short-codes}
 
 Les codes courts sont provisionnés pays par pays. Selon le pays, le processus de demande de code court est réputé pour son caractère imprévisible. Braze est là pour vous accompagner à chaque étape. Si vous souhaitez obtenir un code court, contactez votre gestionnaire d'onboarding ou un autre conseiller Braze.
 
@@ -200,20 +200,20 @@ Si vous disposez déjà de votre propre code court, contactez votre gestionnaire
 {% endtab %}
 {% tab SMS long codes and toll-free numbers %}
 
-### Codes longs SMS (10DLC) et numéros gratuits
+### Codes longs SMS (10DLC) et numéros gratuits {#sms-long-codes-10dlc-and-toll-free-numbers}
 
 Dans de nombreux pays, la configuration de codes longs (également appelés « 10DLC » ou « codes longs à 10 chiffres ») et de numéros gratuits pour l'envoi de SMS est passée d'un processus « plug and play » à un système de vérification réglementé. Les opérateurs veulent savoir exactement qui vous êtes et ce que vous comptez envoyer avant de vous autoriser à le faire.
 
 Au cours du processus de configuration du code long, vous serez invité à fournir des informations détaillées sur l'identité de votre marque et l'intention de votre campagne.
 
-#### Identité de marque
+#### Identité de marque {#brand-identity}
 
 - **Nom de l'entité juridique :** Doit correspondre exactement à vos documents fiscaux (par exemple, « Acme Corp LLC » et non « Acme »).
 - **Numéro d'identification fiscale :** Aux États-Unis, il s'agit de votre numéro d'identification d'employeur (EIN). À l'international, vous aurez besoin d'un numéro de taxe sur la valeur ajoutée (TVA) ou d'un numéro d'enregistrement commercial local (BRN).
 - **Présence numérique :** Un site web fonctionnel et en ligne. Les opérateurs peuvent le vérifier pour s'assurer que vous n'êtes pas une société fictive.
 - **Personne de contact autorisée :** Nom, adresse e-mail et numéro de téléphone de la personne responsable du compte.
 
-#### Intention de la campagne
+#### Intention de la campagne {#campaign-intent}
 
 - **Cas d'utilisation :** Indiquez si vous envoyez des codes 2FA, des rappels de rendez-vous, des promotions marketing ou autre.
 - **Exemples de messages :** Fournissez 2 à 5 exemples de ce que vous enverrez.
@@ -230,7 +230,7 @@ Tous les clients qui possèdent et/ou utilisent actuellement des codes longs am�
 {% endtab %}
 {% tab SMS alphanumeric sender ID %}
 
-### ID alphanumérique de l'expéditeur SMS
+### ID alphanumérique de l'expéditeur SMS {#sms-alphanumeric-sender-id}
 
 Les ID alphanumériques des expéditeurs sont soumis à une réglementation stricte, car ils peuvent être facilement usurpés à des fins d'hameçonnage. Bien que certains pays autorisent toute personne à créer et à envoyer des messages à partir d'un nom, dans de nombreux pays, vous devez d'abord prouver que vous êtes propriétaire de la marque.
 
@@ -246,6 +246,6 @@ Le délai de configuration d'un ID alphanumérique d'expéditeur dépend forteme
 {% endtab %}
 {% endtabs %}
 
-## Foire aux questions
+## Foire aux questions {#frequently-asked-questions}
 
-Pour obtenir des réponses aux questions fréquentes concernant les expéditeurs de SMS et RCS, consultez notre page de [questions fréquentes sur les SMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/sms/faqs#frequently-asked-questions).
+Pour obtenir des réponses aux questions fréquentes concernant les expéditeurs de SMS et de RCS, consultez notre page de [questions fréquentes sur les SMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/sms/faqs/#frequently-asked-questions).

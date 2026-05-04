@@ -1,4 +1,4 @@
-## Como meus dados são usados e enviados para a OpenAI? {#ai-policy} 
+## Como meus dados são usados e enviados para a OpenAI? {#ai-policy}
 <!-- Braze Legal must approve any changes to this content. -->
 <!-- Note: Keep these comments under this H2 heading to avoid breaking how headings on certain pages are rendered. -->
 

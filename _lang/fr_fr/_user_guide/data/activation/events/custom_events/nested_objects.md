@@ -3,29 +3,29 @@ nav_title: Objets imbriqués
 article_title: Objets imbriqués dans les événements personnalisés
 page_order: 1
 page_type: reference
-description: "Cet article décrit comment envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats, et comment utiliser ces objets imbriqués dans vos messages."
+description: "Cet article décrit comment envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats, et comment utiliser ces objets imbriqués dans votre envoi de messages."
 ---
 
-# Objets imbriqués dans les événements personnalisés
+# Objets imbriqués dans les événements personnalisés {#nested-objects-in-custom-events}
 
-> Cette page explique comment envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats, et comment utiliser ces objets imbriqués dans vos messages.
+> Cette page explique comment envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats, et comment utiliser ces objets imbriqués dans votre envoi de messages.
 
-Vous pouvez utiliser des objets imbriqués, c'est-à-dire des objets contenus dans un autre objet, pour envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats. Ces données imbriquées peuvent servir à créer des modèles d'informations personnalisées dans les messages, à déclencher des envois de messages et à segmenter les utilisateurs.
+Vous pouvez utiliser des objets imbriqués (c.-à-d. des objets qui se trouvent à l'intérieur d'un autre objet) pour envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats. Ces données imbriquées peuvent être utilisées pour créer des modèles d'informations personnalisées dans les messages, déclencher l'envoi de messages et segmenter les utilisateurs.
 
-## Considérations
+## Restrictions {#considerations}
 
 - Les données imbriquées sont prises en charge pour les [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) et les [événements d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), mais pas pour les autres types d'événements.
-- Les objets de propriétés d'événement contenant des valeurs de type tableau ou objet peuvent avoir un PAYLOAD de propriétés d'événement allant jusqu'à 100 Ko.
+- Les objets de propriétés d'événement contenant des valeurs de type tableau ou objet peuvent avoir une charge utile de propriétés d'événement allant jusqu'à 100 Ko.
 - Les schémas de propriétés d'événement ne peuvent pas être générés pour les événements d'achat.
 - Les schémas de propriétés d'événement sont générés par échantillonnage des événements personnalisés des dernières 24 heures.
 
-### Versions minimales du SDK
+### Versions minimales du SDK {#minimum-sdk-versions}
 
 Les versions suivantes du SDK prennent en charge les objets imbriqués :
 
 {% sdk_min_versions swift:5.0.0 android:20.0.0 web:3.3.0 %}
 
-## Étape 1 : Générer un schéma
+## Étape 1 : Générer un schéma {#step-1-generate-a-schema}
 
 Vous pouvez accéder aux données imbriquées de votre événement personnalisé en générant un schéma pour chaque événement comportant des propriétés d'événement imbriquées. Pour générer un schéma :
 
@@ -37,7 +37,7 @@ Vous pouvez accéder aux données imbriquées de votre événement personnalisé
 
 Si de nouvelles propriétés sont envoyées ultérieurement, elles ne figureront pas dans le schéma tant que celui-ci n'aura pas été régénéré. Les schémas peuvent être régénérés toutes les 24 heures.
 
-## Étape 2 : Utiliser l'objet imbriqué
+## Étape 2 : Utiliser l'objet imbriqué {#step-2-use-the-nested-object}
 
 Vous pouvez référencer les données imbriquées lors de la segmentation et de la personnalisation. Notez qu'un schéma n'est pas requis. Consultez les sections suivantes pour des exemples d'utilisation :
 
@@ -47,7 +47,7 @@ Vous pouvez référencer les données imbriquées lors de la segmentation et de 
 - [Segmentation](#segmentation)
 - [Personnalisation](#personalization)
 
-### Corps de la requête API
+### Corps de la requête API {#api-request-body}
 
 {% tabs %}
 {% tab Music Example %}
@@ -108,7 +108,7 @@ Voici un exemple `/users/track` avec un événement personnalisé « Ordered ».
 Pour les propriétés d'événement personnalisé imbriquées, si l'année est inférieure à 0 ou supérieure à 3000, Braze ne stocke pas ces valeurs sur l'utilisateur.
 {% endalert %}
 
-### Modèles Liquid
+### Modèles Liquid {#liquid-templating}
 
 Voici comment créer un modèle Liquid qui référence les propriétés imbriquées demandées dans la [requête API précédente](#api-request-body).
 
@@ -132,7 +132,7 @@ Modèle Liquid dans un message déclenché par l'événement « Ordered » :
 {% endtab %}
 {% endtabs %}
 
-### Déclenchement de messages
+### Déclenchement de messages {#message-triggering}
 
 Pour utiliser ces propriétés afin de déclencher une campagne, sélectionnez votre événement personnalisé ou achat, puis ajoutez un filtre **Propriété imbriquée**. Notez que le déclenchement de messages n'est pas encore pris en charge pour les messages in-app, mais les propriétés imbriquées dans la personnalisation Liquid des messages s'afficheront tout de même.
 
@@ -165,7 +165,7 @@ Déclenchement d'une campagne avec des propriétés imbriquées de l'événement
 Si votre propriété d'événement contient les caractères `[]` ou `.`, échappez-les en encadrant la portion concernée avec des guillemets doubles. Par exemple, `"songs[].album".yearReleased` correspondra à un événement avec la propriété littérale `"songs[].album"`.
 {% endalert %}
 
-### Segmentation
+### Segmentation {#segmentation}
 
 Pour segmenter les utilisateurs en fonction de propriétés d'événement imbriquées, vous devez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Après avoir généré un schéma, l'explorateur d'objets imbriqués s'affichera dans la section de segmentation.
 
@@ -175,37 +175,37 @@ La segmentation utilise la même notation que le déclenchement (voir [Déclench
 
 Pour modifier ou créer des Extensions de segments, vous devez disposer de la permission « Modifier les segments ».
 
-### Personnalisation
+### Personnalisation {#personalization}
 
 À l'aide de la fenêtre modale **Ajouter une personnalisation**, sélectionnez **Propriétés d'événement avancées** comme type de personnalisation. Cela permet d'ajouter des propriétés d'événement imbriquées après la génération d'un schéma.
 
 ![]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
 
-## Tester les objets imbriqués dans les messages
+## Tester les objets imbriqués dans les messages {#testing-nested-objects-in-messages}
 
 L'outil **Prévisualisation et test** du tableau de bord ne prend pas en charge l'ajout de données fictives pour les objets imbriqués ou les attributs personnalisés imbriqués. Pour tester les messages qui référencent des données imbriquées via Liquid, vous pouvez prévisualiser les messages avec des attributs imbriqués en tant qu'utilisateur existant possédant cet attribut imbriqué, ou prévisualiser les messages avec des propriétés d'événement personnalisé en lançant une campagne en production vers des utilisateurs test.
 
-### Attributs personnalisés imbriqués
+### Attributs personnalisés imbriqués {#nested-custom-attributes}
 
 1. Importez les attributs imbriqués dans le profil de l'utilisateur test via l'API.
 2. Dans votre campagne ou Canvas, accédez à **Prévisualisation et test**.
 3. Sélectionnez **Prévisualiser en tant qu'utilisateur** et recherchez l'utilisateur test. Le Liquid sera résolu en utilisant les attributs imbriqués réels du profil de cet utilisateur.
 
-### Propriétés d'événement imbriquées
+### Propriétés d'événement imbriquées {#nested-event-properties}
 
 Les propriétés d'événement imbriquées ne peuvent pas être prévisualisées dans le tableau de bord car elles nécessitent un déclenchement d'événement en temps réel. Pour tester :
 
 1. Créez une campagne ou une étape du Canvas qui cible uniquement vos utilisateurs test et qui est déclenchée par (ou référence) l'événement personnalisé avec des propriétés imbriquées.
 2. Lancez la campagne vers votre audience test.
-3. Enregistrez l'événement personnalisé avec le PAYLOAD d'objet imbriqué sur le profil de votre utilisateur test (via l'API ou le SDK).
+3. Enregistrez l'événement personnalisé avec le payload d'objet imbriqué sur le profil de votre utilisateur test (via l'API ou le SDK).
 4. Vérifiez que le message s'affiche correctement avec les valeurs des propriétés imbriquées.
 
-## Questions fréquentes
+## Questions fréquentes {#frequently-asked-questions}
 
-### L'utilisation d'objets imbriqués entraîne-t-elle la consommation de points de donnée supplémentaires ?
+### L'utilisation d'objets imbriqués entraîne-t-elle la consommation de points de donnée supplémentaires ? {#does-using-nested-objects-log-additional-data-points}
 
 La façon dont nous comptabilisons les points de donnée ne change pas avec l'ajout de cette fonctionnalité. La segmentation basée sur des objets imbriqués utilise les Extensions de segments, qui ne consomment pas de points de donnée supplémentaires.
 
-### Quelle quantité de données imbriquées peut être envoyée ?
+### Quelle quantité de données imbriquées peut être envoyée ? {#how-much-nested-data-can-be-sent}
 
-Si une ou plusieurs propriétés de l'événement contiennent des données imbriquées, le PAYLOAD maximum pour l'ensemble des propriétés combinées d'un événement est de 100 Ko. Toute requête dépassant cette limite de taille sera rejetée.
+Si une ou plusieurs propriétés de l'événement contiennent des données imbriquées, le payload maximum pour l'ensemble des propriétés combinées d'un événement est de 100 Ko. Toute requête dépassant cette limite de taille sera rejetée.

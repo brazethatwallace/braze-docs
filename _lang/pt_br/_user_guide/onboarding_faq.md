@@ -16,7 +16,7 @@ description: "Esta página contém uma coleção de perguntas frequentes, organi
 
 {% api %}
 
-### Como eu lido com dados de usuários anônimos?
+### Como eu lido com dados de usuários anônimos? {#how-do-i-handle-anonymous-user-data}
 
 {% apitags %}
 Users
@@ -24,7 +24,7 @@ Users
 
 Inicialmente, quando um perfil de usuário é reconhecido via SDK, a Braze cria um perfil de usuário anônimo com um `braze_id` associado: um identificador de usuário único definido pela Braze.
 
-Para acompanhar melhor os usuários anônimos, você pode implementar [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases), que permitem marcar usuários anônimos com um identificador. Esses usuários podem então ser exportados usando seus aliases ou referenciados pela API.
+Para acompanhar melhor os usuários anônimos, você pode implementar [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases), que permitem marcar usuários anônimos com um identificador. Esses usuários podem então ser exportados usando seus aliases ou referenciados pela API.
 
 Se um perfil de usuário anônimo com um alias for posteriormente reconhecido com um `external_id`, ele será tratado como um perfil de usuário identificado normal, mas manterá seu alias existente e ainda poderá ser referenciado por esse alias.
 
@@ -35,7 +35,7 @@ Para uma análise completa dos diferentes métodos de coleta de dados de usuári
 {% endapi %}
 {% api %}
 
-### Como posso importar usuários que já coletei e identifiquei fora da Braze?
+### Como posso importar usuários que já coletei e identifiquei fora da Braze? {#how-can-i-import-users-i-have-already-collected-and-identified-outside-of-braze}
 
 {% apitags %}
 Users
@@ -51,7 +51,7 @@ Antes de iniciar sua importação de CSV, é importante entender com sua equipe 
 
 Quando você fornece um `external_id` na sua importação, a Braze atualizará qualquer usuário existente com o mesmo `external_id` ou criará um novo usuário identificado com esse `external_id` definido, caso nenhum seja encontrado.
 
-Para saber mais e baixar modelos de importação de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+Para saber mais e baixar modelos de importação de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv).
 
 #### API
 
@@ -69,7 +69,7 @@ Tenha em mente as seguintes nuances ao usar o endpoint `/users/track`:
 {% endapi %}
 {% api %}
 
-### Qual é a diferença entre os status de inscrição push?
+### Qual é a diferença entre os status de inscrição push? {#whats-the-difference-between-the-push-subscription-statuses}
 
 {% apitags %}
 Users
@@ -79,17 +79,17 @@ Existem três opções de estado de inscrição push: inscrito, aceitou e cancel
 
 Por padrão, para que seu usuário receba suas mensagens por push, o estado de inscrição push dele deve ser inscrito ou aceitou, e ele deve estar habilitado para push. Você pode substituir essa configuração, se necessário, ao redigir uma mensagem.
 
-|Estado de aceitação|Descrição|
+| Estado de aceitação | Descrição |
 |---|---|
-|Inscreveu-se| Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
-|Aceitou| Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior.|
-|Cancelou inscrição| Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as campanhas de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push.|
+| Subscribed | Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
+| Aceitou | Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior. |
+| Cancelou inscrição | Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}
 {% api %}
 
-### E se eu identifiquei usuários duplicados?
+### E se eu identifiquei usuários duplicados? {#what-if-ive-identified-duplicated-users}
 
 {% apitags %}
 Users
@@ -108,8 +108,8 @@ Recomendamos que você primeiro importe os novos perfis de usuário com o `exter
 
 Alguns pontos adicionais a observar:
 
-- Qualquer dado de engajamento (como campanhas ou Canvas recebidos) em perfis de usuário duplicados será perdido. A única maneira de reter o contexto histórico de engajamento é adicioná-lo como um atributo personalizado (como um atributo personalizado de array de todas as campanhas ou Canvas recebidos).
-- Ao migrar perfis de usuário, também cabe à sua equipe decidir qual perfil de usuário dos duplicados será mantido. A Braze não pode decidir ou fornecer uma lista de perfis para excluir.  
+- Qualquer dado de engajamento (como Campaigns ou Canvas recebidos) em perfis de usuário duplicados será perdido. A única maneira de reter o contexto histórico de engajamento é adicioná-lo como um atributo personalizado (como um atributo personalizado de array de todas as Campaigns ou Canvas recebidos).
+- Ao migrar perfis de usuário, também cabe à sua equipe decidir qual perfil de usuário dos duplicados será mantido. A Braze não pode decidir ou fornecer uma lista de perfis para excluir.
 - Em última análise, será importante para sua equipe avaliar o processo de cadastro a partir da experiência dos seus usuários e garantir que você esteja chamando o método `changeUser()` apenas quando um usuário se tornar identificado.
 
 {% endapi %}
@@ -117,7 +117,7 @@ Alguns pontos adicionais a observar:
 
 <!-- Segments -->
 
-### Como crio um segmento quando importo um grupo de usuários por CSV?
+### Como crio um segmento quando importo um grupo de usuários por CSV? {#how-do-i-create-a-segment-when-i-import-a-group-of-users-through-csv}
 
 {% apitags %}
 Segments
@@ -129,12 +129,12 @@ O painel **Importar CSV** contém instruções de importação e um botão para 
 
 Selecione **Importar Usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um segmento dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar Importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um segmento.
 
-Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv).
 
 {% endapi %}
 {% api %}
 
-### Quais tipos de filtros posso usar ao criar um segmento?
+### Quais tipos de filtros posso usar ao criar um segmento? {#what-types-of-filters-can-i-use-when-creating-a-segment}
 
 {% apitags %}
 Segments
@@ -145,13 +145,13 @@ O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direciona
 {% endapi %}
 {% api %}
 
-### Como configuro o direcionamento por local para segmentar os usuários pelo local mais recente e usá-lo em minhas campanhas e estratégias baseadas em localização?
+### Como configuro o direcionamento por local para segmentar os usuários pelo local mais recente e usá-lo em minhas campanhas e estratégias baseadas em localização? {#how-do-i-set-up-location-targeting-so-that-i-can-segment-users-by-their-most-recent-location-and-use-it-in-my-location-based-campaigns-and-strategies}
 
 {% apitags %}
 Segments
 {% endapitags %}
 
-Navegue até a página **Segmentos**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar Segmento** e dê um nome ao seu segmento.
+Navegue até a página **Segments**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar Segmento** e dê um nome ao seu segmento.
 
 Depois de criar seu segmento, adicione um filtro `Most Recent Location` para segmentar os usuários pelo último lugar em que usaram seu app. Você pode destacar usuários em uma região circular padrão ou criar uma região poligonal personalizada.
 
@@ -165,37 +165,37 @@ Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? 
 {% endapi %}
 {% api %}
 
-### Como posso segmentar listas precisas de usuários com base em seus eventos personalizados e comportamento de compra nos últimos 365 dias?
+### Como posso segmentar listas precisas de usuários com base em seus eventos personalizados e comportamento de compra nos últimos 365 dias? {#how-can-i-target-precise-lists-of-users-based-on-their-custom-event-and-purchase-behavior-in-the-past-365-days}
 
 {% apitags %}
 Segments
 {% endapitags %}
 
-Você pode usar [Extensões de Segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! As extensões de segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
+Você pode usar [Extensões de Segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! As Extensões de Segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
 
-Você pode criar até 10 extensões de segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
+Você pode criar até 10 Extensões de Segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
 
-1. Em Engajamentos, expanda **Segmentos** e clique em **Extensão de Segmento**.
+1. Em Engajamentos, expanda **Segments** e clique em **Extensão de Segmento**.
 2. Na tabela de Extensões de Segmento, clique em **+ Criar Nova Extensão**.
 3. Nomeie sua extensão de segmento descrevendo o tipo de usuários que você pretende filtrar. Isso garantirá que esta extensão possa ser facilmente e precisamente encontrada ao aplicá-la como um filtro em seu segmento.
 4. Selecione entre um critério de compra ou evento personalizado para direcionamento.
-5. Escolha qual item comprado ou evento personalizado específico você gostaria de direcionar para sua lista de usuários. 
+5. Escolha qual item comprado ou evento personalizado específico você gostaria de direcionar para sua lista de usuários.
 6. Escolha quantas vezes (mais que, menos que ou igual a) o usuário precisaria ter completado o evento, e quantos dias retroceder, até 365 dias.
 
 Para aumentar a precisão do direcionamento, você pode selecionar **Adicionar Filtros de Propriedade** e segmentar com base nas propriedades específicas da sua compra ou evento personalizado. A Braze suporta segmentação de propriedades de eventos com base em string, numéricos, booleanos e objetos de tempo.
 
 Também suportamos segmentação com base em [propriedades de eventos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 
-As extensões de segmento dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
+As Extensões de Segmento dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
 
 {% alert note %}
-O uso de propriedades de eventos dentro de extensões de segmento não impacta o uso de pontos de dados.
+O uso de propriedades de eventos dentro de Extensões de Segmento não impacta o uso de pontos de dados.
 {% endalert %}
 
 {% endapi %}
 {% api %}
 
-#### Manter as Extensões de Segmento atualizadas
+#### Manter as Extensões de Segmento atualizadas {#keeping-segment-extensions-up-to-date}
 
 {% apitags %}
 Segments
@@ -205,62 +205,62 @@ Você pode especificar se deseja que esta extensão represente um momento espec�
 
 Quando terminar, clique em **Salvar**. Sua extensão começará a ser processada. O tempo necessário para gerar sua extensão depende de quantos usuários você tem, quantos eventos personalizados ou eventos de compra você está capturando e quantos dias está consultando no histórico.
 
-Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma campanha ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **Atributos do Usuário**. Na lista de filtros de Extensão de Segmento da Braze, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **Ver Detalhes da Extensão**. Agora você pode continuar normalmente criando seu segmento.
+Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **Atributos do Usuário**. Na lista de filtros de Extensão de Segmento da Braze, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **Ver Detalhes da Extensão**. Agora você pode continuar normalmente criando seu segmento.
 
 {% endapi %}
 {% api %}
 
 <!-- Campaigns -->
 
-### Como você cria uma campanha multicanal?
+### Como você cria uma Campaign multicanal? {#how-do-you-create-a-multichannel-campaign}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Para criar uma campanha multicanal, acesse a página **Campanhas**, selecione **Criar Campanha** e então selecione **Campanha Multicanal**. Dentro de uma campanha multicanal, selecione **Adicionar Canal de Envio de Mensagens** na aba de composição para adicionar os canais desejados. Clique nos ícones de canal que aparecem para alternar entre diferentes criadores de mensagens enquanto você elabora o conteúdo da sua campanha para os diferentes canais.
+Para criar uma Campaign multicanal, acesse a página **Campaigns**, selecione **Create Campaign** e então selecione **Multichannel Campaign**. Dentro de uma Campaign multicanal, selecione **Add Messaging Channel** na aba de composição para adicionar os canais desejados. Clique nos ícones de canal que aparecem para alternar entre diferentes criadores de mensagens enquanto você elabora o conteúdo da sua Campaign para os diferentes canais.
 
 {% endapi %}
 {% api %}
 
-### Quais são algumas maneiras de começar a testar e otimizar campanhas?
+### Quais são algumas maneiras de começar a testar e otimizar Campaigns? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Criar campanhas multivariantes e executar Canvas com várias variantes é uma ótima maneira de começar! Por exemplo, você pode executar uma [campanha multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/) para testar uma mensagem com diferentes textos ou linhas de assunto. Canvas com várias variantes são úteis para testar fluxos de trabalho inteiros.
+Criar Campaigns multivariantes e executar Canvas com várias variantes é uma ótima maneira de começar! Por exemplo, você pode executar uma [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/) para testar uma mensagem com diferentes textos ou linhas de assunto. Canvas com várias variantes são úteis para testar fluxos de trabalho inteiros.
 
 {% endapi %}
 {% api %}
 
-### Por que há uma diferença entre o número de destinatários únicos e o número de envios para uma determinada campanha ou Canvas?
+### Por que há uma diferença entre o número de destinatários únicos e o número de envios para uma determinada Campaign ou Canvas? {#why-is-there-a-difference-between-the-number-of-unique-recipients-and-the-number-of-sends-for-a-given-campaign-or-canvas}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Uma possível explicação para essa diferença pode ser a campanha ou Canvas ter a re-elegibilidade ativada. Com isso ativado, os usuários que se qualificarem para o segmento e as configurações de entrega poderão receber a mensagem mais de uma vez. Se a re-elegibilidade não estiver ativada, a provável explicação para a diferença entre envios e destinatários únicos pode ser que os usuários possuem vários dispositivos em diferentes plataformas associados aos seus perfis.
+Uma possível explicação para essa diferença pode ser a Campaign ou Canvas ter a re-elegibilidade ativada. Com isso ativado, os usuários que se qualificarem para o segmento e as configurações de entrega poderão receber a mensagem mais de uma vez. Se a re-elegibilidade não estiver ativada, a provável explicação para a diferença entre envios e destinatários únicos pode ser que os usuários possuem vários dispositivos em diferentes plataformas associados aos seus perfis.
 
 Por exemplo, se você tiver um Canvas com notificações por push para iOS e web, um determinado usuário com dispositivos móveis e desktop pode receber mais de uma mensagem.
 
 {% endapi %}
 {% api %}
 
-### O que a entrega no fuso local oferece?
+### O que a entrega no fuso local oferece? {#what-does-local-time-zone-delivery-offer}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-A entrega no fuso local permite que você entregue campanhas de mensagens para um segmento com base no fuso horário individual de cada usuário. Sem a entrega no fuso local, as campanhas serão agendadas com base nas configurações de fuso horário da sua empresa na Braze.
+A entrega no fuso local permite que você entregue Campaigns de mensagens para um segmento com base no fuso horário individual de cada usuário. Sem a entrega no fuso local, as Campaigns serão agendadas com base nas configurações de fuso horário da sua empresa na Braze.
 
-Por exemplo, uma empresa com sede em Londres que envia uma campanha às 12h atingirá usuários na costa oeste dos Estados Unidos às 4h da manhã. Se o seu app estiver disponível apenas em alguns países, isso pode não ser um risco para você. Caso contrário, recomendamos fortemente evitar enviar notificações por push de madrugada para sua base de usuários!
+Por exemplo, uma empresa com sede em Londres que envia uma Campaign às 12h atingirá usuários na costa oeste dos Estados Unidos às 4h da manhã. Se o seu app estiver disponível apenas em alguns países, isso pode não ser um risco para você. Caso contrário, recomendamos fortemente evitar enviar notificações por push de madrugada para sua base de usuários!
 
 {% endapi %}
 {% api %}
 
-### Como a Braze reconhece o fuso horário de um usuário?
+### Como a Braze reconhece o fuso horário de um usuário? {#how-does-braze-recognize-a-users-time-zone}
 
 {% apitags %}
 Campaigns
@@ -273,36 +273,36 @@ Você pode verificar o fuso horário da sua empresa nas [configurações da empr
 {% endapi %}
 {% api %}
 
-### Como faço para agendar uma campanha no fuso local?
+### Como faço para agendar uma Campaign no fuso local? {#how-do-i-schedule-a-local-time-zone-campaign}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Ao agendar uma campanha, você precisa escolher enviá-la em um horário designado e então selecionar **Enviar campanha para usuários no fuso local deles**.
+Ao agendar uma Campaign, você precisa escolher enviá-la em um horário designado e então selecionar **Enviar Campaign para usuários no fuso local deles**.
 
-A Braze recomenda fortemente que todas as campanhas no fuso local sejam agendadas com 24 horas de antecedência. Como essa campanha precisa ser enviada ao longo de um dia inteiro, agendá-la com 24 horas de antecedência permite que sua mensagem alcance todo o seu segmento. No entanto, você pode agendar essas campanhas com menos de 24 horas de antecedência, se necessário. Lembre-se de que a Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de 1 hora.
+A Braze recomenda fortemente que todas as Campaigns no fuso local sejam agendadas com 24 horas de antecedência. Como essa Campaign precisa ser enviada ao longo de um dia inteiro, agendá-la com 24 horas de antecedência permite que sua mensagem alcance todo o seu segmento. No entanto, você pode agendar essas Campaigns com menos de 24 horas de antecedência, se necessário. Lembre-se de que a Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de 1 hora.
 
-Por exemplo, se for 13h e você agendar uma campanha no fuso local para 15h, a campanha será enviada imediatamente para todos os usuários cujo horário local é entre 15h e 16h, mas não para os usuários cujo horário local é 17h. Além disso, o horário de envio que você escolher para sua campanha ainda não deve ter ocorrido no fuso horário da sua empresa.
+Por exemplo, se for 13h e você agendar uma Campaign no fuso local para 15h, a Campaign será enviada imediatamente para todos os usuários cujo horário local é entre 15h e 16h, mas não para os usuários cujo horário local é 17h. Além disso, o horário de envio que você escolher para sua Campaign ainda não deve ter ocorrido no fuso horário da sua empresa.
 
-Editar uma campanha no fuso local que está agendada para menos de 24 horas de antecedência não alterará o cronograma da mensagem. Se você decidir editar uma campanha no fuso local para enviar em um horário posterior (por exemplo, 19h em vez de 18h), os usuários que estavam no segmento-alvo quando o horário de envio original foi escolhido ainda receberão a mensagem no horário original (18h). Se você editar o fuso local para enviar em um horário anterior (por exemplo, 16h em vez de 17h), a campanha ainda será enviada a todos os membros do segmento no horário original (17h).
+Editar uma Campaign no fuso local que está agendada para menos de 24 horas de antecedência não alterará o cronograma da mensagem. Se você decidir editar uma Campaign no fuso local para enviar em um horário posterior (por exemplo, 19h em vez de 18h), os usuários que estavam no segmento-alvo quando o horário de envio original foi escolhido ainda receberão a mensagem no horário original (18h). Se você editar o fuso local para enviar em um horário anterior (por exemplo, 16h em vez de 17h), a Campaign ainda será enviada a todos os membros do segmento no horário original (17h).
 
 {% alert note %}
 Para etapas do Canvas, os usuários não precisam estar na etapa por 24 horas para receber a próxima etapa na entrega no fuso local.
 {% endalert %}
 
-Se você permitiu que os usuários se tornassem re-elegíveis para a campanha, eles a receberão novamente no horário original (17h). Para todas as ocorrências subsequentes da sua campanha, no entanto, suas mensagens serão enviadas apenas no horário atualizado.
+Se você permitiu que os usuários se tornassem re-elegíveis para a Campaign, eles a receberão novamente no horário original (17h). Para todas as ocorrências subsequentes da sua Campaign, no entanto, suas mensagens serão enviadas apenas no horário atualizado.
 
 {% endapi %}
 {% api %}
 
-### Quando as alterações nas campanhas de fuso local entram em vigor?
+### Quando as alterações nas Campaigns de fuso local entram em vigor? {#when-do-changes-to-local-time-zone-campaigns-take-effect}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Os segmentos-alvo para campanhas de fuso local devem incluir pelo menos uma janela de 48 horas para quaisquer filtros baseados em tempo, a fim de garantir a entrega a todo o segmento. Por exemplo, considere um segmento direcionando usuários no seu segundo dia com os seguintes filtros:
+Os segmentos-alvo para Campaigns de fuso local devem incluir pelo menos uma janela de 48 horas para quaisquer filtros baseados em tempo, a fim de garantir a entrega a todo o segmento. Por exemplo, considere um segmento direcionando usuários no seu segundo dia com os seguintes filtros:
 
 - Usou o app pela primeira vez há mais de 1 dia
 - Usou o app pela primeira vez há menos de 2 dias
@@ -312,38 +312,38 @@ A entrega no fuso local pode não alcançar os usuários deste segmento com base
 {% endapi %}
 {% api %}
 
-### Quais mudanças posso fazer nas campanhas agendadas antes do lançamento?
+### Quais mudanças posso fazer nas Campaigns agendadas antes do lançamento? {#what-changes-can-i-make-to-scheduled-campaigns-ahead-of-launch}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Quando a campanha está agendada, edições em qualquer coisa além da composição da mensagem precisam ser feitas antes de colocarmos as mensagens na fila para envio. Como em todas as campanhas, você não pode editar eventos de conversão após o lançamento da campanha.
+Quando a Campaign está agendada, edições em qualquer coisa além da composição da mensagem precisam ser feitas antes de colocarmos as mensagens na fila para envio. Como em todas as Campaigns, você não pode editar eventos de conversão após o lançamento da Campaign.
 
 {% endapi %}
 {% api %}
 
-### Qual é a "zona segura" antes que as mensagens de uma campanha agendada sejam enfileiradas?
+### Qual é a "zona segura" antes que as mensagens de uma Campaign agendada sejam enfileiradas? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-queued}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-- Campanhas agendadas únicas podem ser editadas até o horário de envio agendado.
-- Campanhas recorrentes agendadas podem ser editadas até o horário de envio agendado.
-- Campanhas de envio no horário local podem ser editadas até 24 horas antes do horário de envio agendado.
-- Campanhas de envio no horário ideal podem ser editadas até 24 horas antes do dia em que a campanha está programada para ser enviada.
+- Campaigns agendadas únicas podem ser editadas até o horário de envio agendado.
+- Campaigns recorrentes agendadas podem ser editadas até o horário de envio agendado.
+- Campaigns de envio no horário local podem ser editadas até 24 horas antes do horário de envio agendado.
+- Campaigns de envio no horário ideal podem ser editadas até 24 horas antes do dia em que a Campaign está programada para ser enviada.
 
 {% endapi %}
 {% api %}
 
-### E se eu fizer uma edição dentro da "zona segura"?
+### E se eu fizer uma edição dentro da "zona segura"? {#what-if-i-make-an-edit-within-the-safe-zone}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Alterar o horário de envio das campanhas dentro desse período pode levar a um comportamento indesejado, por exemplo:
+Alterar o horário de envio das Campaigns dentro desse período pode levar a um comportamento indesejado, por exemplo:
 
 - A Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de uma hora.
 - Mensagens que já estavam na fila podem ainda ser enviadas no horário originalmente agendado, em vez do horário ajustado.
@@ -351,54 +351,56 @@ Alterar o horário de envio das campanhas dentro desse período pode levar a um 
 {% endapi %}
 {% api %}
 
-### O que devo fazer se a "zona segura" já passou?
+### O que devo fazer se a "zona segura" já passou? {#what-should-i-do-if-the-safe-zone-has-already-passed}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Para garantir que as campanhas operem conforme desejado, recomendamos parar a campanha atual (isso interromperá quaisquer mensagens na fila). Você pode então duplicar a campanha, fazer as alterações necessárias e lançar a nova campanha. Pode ser necessário excluir desta campanha os usuários que já receberam a primeira campanha.
+Para garantir que as Campaigns operem conforme desejado, recomendamos parar a Campaign atual (isso interromperá quaisquer mensagens na fila). Você pode então duplicar a Campaign, fazer as alterações necessárias e lançar a nova Campaign. Pode ser necessário excluir desta Campaign os usuários que já receberam a primeira Campaign.
 
-Certifique-se de reajustar os horários da campanha para permitir o envio por fuso horário.
+Certifique-se de reajustar os horários da Campaign para permitir o envio por fuso horário.
 
 {% endapi %}
 {% api %}
 
-### Quando a Braze avalia os usuários para a entrega no fuso local?
+### Quando a Braze avalia os usuários para a entrega no fuso local? {#when-does-braze-evaluate-users-for-local-time-zone-delivery}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-Para entrega no fuso local, a Braze avalia os usuários para elegibilidade de entrada nestas duas instâncias:
+A Braze avalia os usuários para elegibilidade de entrada em:
 
-- No horário de Samoa (UTC+13) do dia agendado
-- No horário local do dia agendado
+- Horário de Samoa (UTC+13) no dia agendado
+- Horário local do usuário no dia agendado
 
 Para que um usuário seja elegível para entrada, ele deve ser elegível em ambas as verificações. Por exemplo, se um Canvas estiver programado para ser lançado em 7 de agosto de 2021 às 14h no fuso local, então direcionar um usuário localizado em Nova York exigiria as seguintes verificações de elegibilidade:
 
 - Nova York em 6 de agosto de 2021 às 21h
 - Nova York em 7 de agosto de 2021 às 14h
 
-O usuário precisa estar no segmento por 24 horas antes do lançamento. Se o usuário não for elegível na primeira verificação, a Braze não tentará a segunda verificação.
+Para entrar, o usuário precisa corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no segmento antes do lançamento — apenas a elegibilidade em cada verificação importa.
+
+Esse comportamento de avaliação é separado de [com quanta antecedência você agenda a Campaign no dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). Para a explicação completa, exemplos e orientações de agendamento, consulte [Quando a Braze avalia os usuários para a entrega no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) e [Como faço para agendar uma Campaign no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) nas perguntas frequentes de Campaigns.
 
 {% endapi %}
 {% api %}
 
-### Por que o número de usuários que entram em uma campanha não corresponde ao número esperado?
+### Por que o número de usuários que entram em uma Campaign não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
 {% apitags %}
 Campaigns
 {% endapitags %}
 
-O número de usuários que entram em uma campanha pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Isso fará com que os usuários saiam da campanha se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
 
 <!-- Canvases -->
 
-### O que acontece se o público e o horário de envio forem idênticos para um Canvas que tem uma variante, mas várias ramificações?
+### O que acontece se o público e o horário de envio forem idênticos para um Canvas que tem uma variante, mas várias ramificações? {#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches}
 
 {% apitags %}
 Canvases
@@ -411,7 +413,7 @@ Além disso, não podemos garantir exatamente como será essa distribuição. Se
 {% endapi %}
 {% api %}
 
-### O que acontece quando você para um Canvas?
+### O que acontece quando você para um Canvas? {#what-happens-when-you-stop-a-canvas}
 
 {% apitags %}
 Canvases
@@ -430,7 +432,7 @@ Parar um Canvas não fará com que os usuários que estão esperando em uma etap
 {% endapi %}
 {% api %}
 
-### Quando um evento de exceção é disparado?
+### Quando um evento de exceção é disparado? {#when-does-an-exception-event-trigger}
 
 {% apitags %}
 Canvases
@@ -443,7 +445,7 @@ Se você quiser excluir usuários que realizaram um determinado evento antecipad
 {% endapi %}
 {% api %}
 
-### Como a edição de um Canvas afeta os usuários que já estão nele?
+### Como a edição de um Canvas afeta os usuários que já estão nele? {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
 {% apitags %}
 Canvases
@@ -456,7 +458,7 @@ Para saber mais sobre o que você pode ou não editar após o lançamento, confi
 {% endapi %}
 {% api %}
 
-### Como as conversões de usuários são rastreadas em um Canvas?
+### Como as conversões de usuários são rastreadas em um Canvas? {#how-are-user-conversions-tracked-in-a-canvas}
 
 {% apitags %}
 Canvases
@@ -468,7 +470,7 @@ As conversões são atribuídas à mensagem mais recente recebida pelo usuário 
 
 {% details Casos de uso %}
 
-#### Caso de uso 1
+#### Caso de uso 1 {#use-case-1}
 
 Há um caminho de Canvas com 10 notificações por push e o evento de conversão é "início de sessão" ("Abre o App"):
 
@@ -482,7 +484,7 @@ O resumo mostrará duas conversões, enquanto as etapas individuais mostrarão u
 Se o horário de silêncio estiver ativo quando o evento de conversão acontecer, as mesmas regras se aplicam.
 {% endalert %}
 
-#### Caso de uso 2
+#### Caso de uso 2 {#use-case-2}
 
 Há um Canvas de uma etapa com horário de silêncio:
 
@@ -498,55 +500,55 @@ O usuário será contado como convertido na variante geral do Canvas, mas não n
 {% endapi %}
 {% api %}
 
-### Ao observar o número de usuários únicos, a análise de dados do Canvas ou o segmentador é mais preciso?
+### Ao observar o número de usuários únicos, a análise de dados do Canvas ou o segmentador é mais preciso? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
 {% apitags %}
 Canvases
 {% endapitags %}
 
-O segmentador é uma estatística mais precisa para dados de usuários únicos em comparação com as estatísticas de Canvas ou campanha. Isso ocorre porque as estatísticas de Canvas e campanha são números que a Braze incrementa quando algo acontece — o que significa que há variáveis que podem resultar em esse número ser diferente do segmentador. Por exemplo, os usuários podem converter mais de uma vez para um Canvas ou campanha.
+O segmentador é uma estatística mais precisa para dados de usuários únicos em comparação com as estatísticas de Canvas ou Campaign. Isso ocorre porque as estatísticas de Canvas e Campaign são números que a Braze incrementa quando algo acontece — o que significa que há variáveis que podem resultar em esse número ser diferente do segmentador. Por exemplo, os usuários podem converter mais de uma vez para um Canvas ou Campaign.
 
 {% endapi %}
 {% api %}
 
-### Por que o número de usuários entrando em um Canvas não corresponde ao número esperado?
+### Por que o número de usuários entrando em um Canvas não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
 {% apitags %}
 Canvases
 {% endapitags %}
 
-O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
 
 <!-- Analytics -->
 
-### Quais métricas a Braze mede?
+### Quais métricas a Braze mede? {#what-metrics-does-braze-measure}
 
 {% apitags %}
 Analytics
 {% endapitags %}
 
-Dependendo do canal, a Braze mede uma variedade de métricas para permitir que você determine o sucesso de uma campanha e planeje as futuras. Você pode encontrar uma lista completa em nosso [glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Dependendo do canal, a Braze mede uma variedade de métricas para permitir que você determine o sucesso de uma Campaign e planeje as futuras. Você pode encontrar uma lista completa em nosso [glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 {% endapi %}
 {% api %}
 
-### Como a receita é calculada na Braze?
+### Como a receita é calculada na Braze? {#how-is-revenue-calculated-in-braze}
 
 {% apitags %}
 Analytics
 {% endapitags %}
 
-Na página **Receita**, você pode visualizar dados sobre receita ou compras em períodos específicos, para um produto específico, ou a receita ou compras totais do seu app. Esses números de receita são gerados a partir das compras feitas pelos destinatários da campanha dentro de um determinado período de conversão.
+Na página **Receita**, você pode visualizar dados sobre receita ou compras em períodos específicos, para um produto específico, ou a receita ou compras totais do seu app. Esses números de receita são gerados a partir das compras feitas pelos destinatários da Campaign dentro de um determinado período de conversão.
 
 Dito isso, é importante notar que a Braze é uma ferramenta de marketing e não uma ferramenta de gestão de receita. Nosso [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) não suporta reembolsos e cancelamentos, então você pode ver discrepâncias ao comparar dados com outras ferramentas.
 
 {% endapi %}
 {% api %}
 
-### Quais capacidades de relatórios o Currents oferece?
+### Quais capacidades de relatórios o Currents oferece? {#what-reporting-capabilities-does-currents-enable}
 
 {% apitags %}
 Analytics
@@ -554,12 +556,12 @@ Analytics
 
 Nossa ferramenta Currents transmite continuamente tanto dados de engajamento de mensagens quanto dados de comportamento do cliente para um dos nossos muitos parceiros de dados, capacitando você a usar os dados únicos e valiosos que a Braze cria para impulsionar seus esforços de business intelligence e análise de dados em outros parceiros de excelência.
 
-Esses dados vão além das métricas de engajamento de mensagens e também podem incluir números mais complexos, como performance de atributos personalizados e eventos. Para mais detalhes, consulte nosso [glossário de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Esses dados vão além das métricas de engajamento de mensagens e também podem incluir números mais complexos, como desempenho de atributos personalizados e eventos. Para mais detalhes, consulte nosso [glossário de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
 
 {% endapi %}
 {% api %}
 
-### Como posso agendar um relatório de engajamento recorrente?
+### Como posso agendar um relatório de engajamento recorrente? {#how-can-i-schedule-a-recurring-engagement-report}
 
 {% apitags %}
 Analytics
@@ -569,27 +571,27 @@ Para agendar um relatório de engajamento recorrente, faça o seguinte:
 
 1. No seu dashboard, navegue até **Relatórios de Engajamento**, em **Dados**.
 2. Clique em **+ Criar Novo Relatório**.
-3. Adicione as [campanhas e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)) que você gostaria de compilar no seu relatório.
-4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report) ao seu relatório.
+3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que você gostaria de compilar no seu relatório.
+4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) ao seu relatório.
 5. Selecione a compressão e o delimitador para o seu relatório.
 6. Insira os endereços de e-mail dos usuários da empresa que devem receber este relatório.
-7. Selecione o [período de tempo]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame) a partir do qual você gostaria que seu relatório processasse os dados.
-8. Selecione os [intervalos (diários, semanais, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display) nos quais gostaria de ver a divisão dos seus dados.
-9. Agende seu relatório para [enviar imediatamente]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately) ou em um [momento futuro especificado]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time).
+7. Selecione o [período de tempo]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#time-frame) a partir do qual você gostaria que seu relatório processasse os dados.
+8. Selecione os [intervalos (diários, semanais, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#data-display) nos quais gostaria de ver a divisão dos seus dados.
+9. Agende seu relatório para [enviar imediatamente]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#send-immediately) ou em um [momento futuro especificado]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#send-at-designated-time).
 10. Execute o relatório e abra-o no seu e-mail quando ele chegar!
 
 {% endapi %}
 {% api %}
 
-### Qual é a diferença entre Relatórios de Engajamento e o Criador de Relatórios?
+### Qual é a diferença entre Relatórios de Engajamento e o Criador de Relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
 
 {% apitags %}
 Analytics
 {% endapitags %}
 
-Os Relatórios de Engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de campanhas e Canvas via um e-mail disparado. Certos dados são agregados no nível da campanha ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
+Os Relatórios de Engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
 
-O Criador de Relatórios permite que você compare os resultados de várias campanhas ou Canvas em uma única visualização, para que você possa determinar facilmente quais estratégias de engajamento mais impactaram suas métricas principais. Para campanhas e Canvas, você pode exportar seus dados e salvar seu relatório para visualizar no futuro.
+O Criador de Relatórios permite que você compare os resultados de várias Campaigns ou Canvas em uma única visualização, para que você possa determinar facilmente quais estratégias de engajamento mais impactaram suas métricas principais. Para Campaigns e Canvas, você pode exportar seus dados e salvar seu relatório para visualizar no futuro.
 
 Para saber mais sobre os usos de relatórios e análise de dados na Braze, consulte a [visão geral dos relatórios]({{site.baseurl}}/user_guide/analytics/reports/).
 

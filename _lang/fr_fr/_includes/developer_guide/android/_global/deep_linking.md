@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Création d'un délégué universel
+## Création d'un délégué universel {#creating-a-universal-delegate}
 
-Le SDK Android permet de définir un objet délégué unique pour gérer de manière personnalisée tous les liens profonds ouverts par Braze via les Cartes de contenu, les messages in-app et les notifications push.
+Le SDK Android permet de définir un objet délégué unique pour gérer de manière personnalisée tous les liens profonds ouverts par Braze via les Content Cards, les messages in-app et les notifications push.
 
 Votre objet délégué doit implémenter l'interface [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) et être défini à l'aide de [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html). Dans la plupart des cas, le délégué doit être défini dans le `Application.onCreate()` de votre application.
 
@@ -86,7 +86,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## Création de liens profonds vers les paramètres de l'application
+## Création de liens profonds vers les paramètres de l'application {#deep-linking-to-app-settings}
 
 Pour permettre aux liens profonds d'ouvrir directement les paramètres de votre application, vous aurez besoin d'un `BrazeDeeplinkHandler` personnalisé. Dans l'exemple suivant, la présence d'une paire clé-valeur personnalisée appelée `open_notification_page` fait en sorte que le lien profond ouvre la page des paramètres de l'application :
 
@@ -185,7 +185,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
 Si les liens profonds provenant des notifications push ne fonctionnent pas sur Android, essayez les étapes suivantes :
 
@@ -194,7 +194,7 @@ Si les liens profonds provenant des notifications push ne fonctionnent pas sur A
 3. **Vérifiez votre délégué de gestion des liens profonds.** Si vous avez défini un `IBrazeDeeplinkHandler` personnalisé, confirmez que votre implémentation de `gotoUri` gère bien l'URI et ne l'ignore pas.
 4. **Testez sur différents canaux.** Si le même lien profond fonctionne dans un message in-app mais pas depuis une notification push, le problème se situe probablement dans la gestion des liens profonds push, et non dans le lien profond lui-même.
 
-## Utilisation de Jetpack Compose
+## Utilisation de Jetpack Compose {#using-jetpack-compose}
 
 Pour gérer les liens profonds avec Jetpack Compose et NavHost :
 

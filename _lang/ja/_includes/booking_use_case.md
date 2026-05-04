@@ -1,27 +1,27 @@
-# ユースケース: 予約リマインダーメールシステム
+# ユースケース: 予約リマインダーメールシステム {#use-case-booking-reminder-email-system}
 
-> Braze は、プログラムで高度に制御できるように設計された包括的なカスタマーエンゲージメントプラットフォームです。このユースケースでは、予約システムなど、製品とマーケティングが交わるユースケースに適用できる Braze の機能をいくつかご紹介します。
+> Brazeは、プログラムで高度に制御できるように設計された包括的なカスタマーエンゲージメントプラットフォームです。このユースケースでは、予約システムなど、製品とマーケティングが交わるユースケースに適用できるBrazeの機能をいくつかご紹介します。
 
-このユースケースでは、Braze の機能を使用して予約リマインダーメールメッセージングサービスを構築する方法を説明します。このサービスを使用すると、ユーザーは予定を予約でき、次回の予定のリマインダーメッセージが送信されます。このユースケースではメールメッセージを使用しますが、ユーザープロファイルを一度更新するだけで、任意のチャネルまたは複数のチャネルでメッセージを送信できます。
+このユースケースでは、Brazeの機能を使用して予約リマインダーメールメッセージングサービスを構築する方法を説明します。このサービスを使用すると、ユーザーは予定を予約でき、次回の予定のリマインダーメッセージが送信されます。このユースケースではメールメッセージを使用しますが、ユーザープロファイルを一度更新するだけで、任意のチャネルまたは複数のチャネルでメッセージを送信できます。
 
 このサービスを作成するその他の利点は次のとおりです。
 - 送信されたメッセージは完全にトラッキングされ、レポートに含まれます。
 - 技術的な知識を持たない会社ユーザーでもメッセージのコンテンツを更新できます。
-- メッセージは、キャンペーン設定に基づくユーザープロファイルのオプトインおよびオプトアウトステータスに従います。
+- メッセージは、Campaignの設定に基づくユーザープロファイルのオプトインおよびオプトアウトステータスに従います。
 - 予約データとメッセージのインタラクションデータの両方を使用して、ユーザーをセグメンテーションし、追加のメッセージングのターゲットにできます。例えば、最初のリマインダーメッセージを開封しなかったユーザーに対して、予約前に追加のリマインダーを送信してリターゲティングすることができます。
 
 このユースケースを実現するには、次のステップに従ってください。
-1. [次の予約データを Braze ユーザープロファイルに書き込む](#step-1)
+1. [次の予約データをBrazeユーザープロファイルに書き込む](#step-1)
 2. [予約リマインダーメッセージを設定して起動する](#step-2)
 3. [更新された予約とキャンセルを処理する](#step-3)
 
-## ステップ 1: 次の予約データを Braze ユーザープロファイルに書き込む {#step-1}
+## ステップ 1: 次の予約データをBrazeユーザープロファイルに書き込む {#step-1}
 
-予約が行われるたびに、Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) エンドポイントを使用して、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)をユーザープロファイルに書き込みます。階層化カスタム属性には、リマインダーメッセージの送信とパーソナライズに必要な情報がすべて含まれていることを確認してください。このユースケースでは、階層化カスタム属性に「trips」という名前を付けます。
+予約が行われるたびに、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを使用して、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)をユーザープロファイルに書き込みます。階層化カスタム属性には、リマインダーメッセージの送信とパーソナライズに必要な情報がすべて含まれていることを確認してください。このユースケースでは、階層化カスタム属性に「trips」という名前を付けます。
 
-### 予約の追加
+### 予約の追加 {#add-booking}
 
-ユーザーが予約を作成する場合、オブジェクトの配列に次の構造を使用して、`/users/track` エンドポイント経由でデータを Braze に送信します。
+ユーザーが予約を作成する場合、オブジェクトの配列に次の構造を使用して、`/users/track`エンドポイント経由でデータをBrazeに送信します。
 
 {% raw %}
 ```json
@@ -44,8 +44,8 @@
 
 ![ロンドン旅行とシドニー旅行の2つの階層化カスタム属性。]({% image_buster /assets/img/use_cases/2_nested_attributes.png %}){: style="max-width:70%;"}
 
-### 予約の更新
-ユーザーが予約を更新する場合、オブジェクトの配列に次の構造を使用して、`/users/track` エンドポイント経由でデータを Braze に送信します。
+### 予約の更新 {#update-booking}
+ユーザーが予約を更新する場合、オブジェクトの配列に次の構造を使用して、`/users/track`エンドポイント経由でデータをBrazeに送信します。
 
 {% raw %}
 ```json
@@ -69,12 +69,12 @@
 ```
 {% endraw %}
 
-### 予約の削除
+### 予約の削除 {#remove-booking}
 
 {% tabs %}
 {% tab /users/track endpoint %}
-#### `/users/track` エンドポイント経由でデータを送信する
-ユーザーが予約を削除する場合、オブジェクトの配列に次の構造を使用して、`/users/track` エンドポイント経由でデータを Braze に送信します。
+#### `/users/track`エンドポイント経由でデータを送信する {#send-data-through-the-userstrack-endpoint}
+ユーザーが予約を削除する場合、オブジェクトの配列に次の構造を使用して、`/users/track`エンドポイント経由でデータをBrazeに送信します。
 
 {% raw %}
 ```json
@@ -99,9 +99,9 @@
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
-#### SDK 経由で階層化属性をユーザープロファイルに書き込む
+#### SDK経由で階層化属性をユーザープロファイルに書き込む {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-アプリ、Web サイト、またはその両方で予約を収集し、そのデータをユーザープロファイルに直接書き込む場合は、Braze SDK を使用してこのデータを送信できます。以下は Web SDK を使用した例です。
+アプリ、Webサイト、またはその両方で予約を収集し、そのデータをユーザープロファイルに直接書き込む場合は、Braze SDKを使用してこのデータを送信できます。以下はWeb SDKを使用した例です。
 
 {% raw %}
 ```json
@@ -120,23 +120,23 @@ braze.getUser().setCustomUserAttribute("trips", json);
 {% endtab %}
 {% endtabs %}
 
-Braze はユーザープロファイルの階層化カスタム属性から指定された予約を削除し、残りの予約を表示します。
+Brazeはユーザープロファイルの階層化カスタム属性から指定された予約を削除し、残りの予約を表示します。
 
 ![ロンドン旅行の階層化カスタム属性。]({% image_buster /assets/img/use_cases/1_nested_attribute.png %}){: style="max-width:70%;"}
 
 ## ステップ 2: 予約リマインダーメッセージを設定して起動する {#step-2}
 
-### ステップ 2a: ターゲットオーディエンスを作成する
+### ステップ 2a: ターゲットオーディエンスを作成する {#step-2a-create-a-target-audience}
 複数条件のセグメンテーションを使用して、リマインダーを受信するターゲットオーディエンスを作成します。例えば、予約日の2日前にリマインダーを送信する場合は、次のように選択します。
 
 - 開始日まで**1日超**かつ
-- 開始日まで**2日以内** 
+- 開始日まで**2日以内**
 
 ![開始日が1日以上かつ2日未満という条件を持つ、階層化カスタム属性「trips」。]({% image_buster /assets/img/use_cases/custom_nested_attribute.png %})
 
-### ステップ 2b: メッセージを作成する
+### ステップ 2b: メッセージを作成する {#step-2b-create-your-message}
 
-[カスタム HTML を使用したメールの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquid を使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
+[カスタムHTMLを使用したメールの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquidを使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
 
 {% raw %}
 ```liquid
@@ -146,28 +146,28 @@ Braze はユーザープロファイルの階層化カスタム属性から指�
 You have the following booked in 2 days! Check the information below:
 {% for date in dates %}
 {% if date.start_date == two_days %}
-{{date.trip_id}} 
+{{date.trip_id}}
 {{date.name}}
 {% endif %}
 {% endfor %}
 ```
 {% endraw %}
 
-### ステップ 2c: キャンペーンを起動する
+### ステップ 2c: Campaignを起動する {#step-2c-launch-your-campaign}
 
-リマインダーメールメッセージのキャンペーンを起動します。Braze が「trips」カスタム属性を受信するたびに、該当する予約オブジェクトに含まれるデータに基づいてメッセージをスケジュールします。
+リマインダーメールメッセージのCampaignを起動します。Brazeが「trips」カスタム属性を受信するたびに、該当する予約オブジェクトに含まれるデータに基づいてメッセージをスケジュールします。
 
 ## ステップ 3: 更新された予約とキャンセルを処理する {#step-3}
 
 リマインダーメッセージの送信を開始したら、予約が更新またはキャンセルされたときに送信する確認メッセージを設定できます。
 
-### ステップ 3a: 更新データを送信する
+### ステップ 3a: 更新データを送信する {#step-3a-send-updated-data}
 
 {% tabs %}
 {% tab /users/track %}
 
-#### `/users/track` エンドポイント経由でデータを送信する
-ユーザーが予約を更新またはキャンセルしたときにカスタムイベントを送信するには、Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) エンドポイントを使用します。このイベントでは、変更を確認するために必要なデータをイベントプロパティに含めます。 
+#### `/users/track`エンドポイント経由でデータを送信する {#send-data-through-the-userstrack-endpoint}
+ユーザーが予約を更新またはキャンセルしたときにカスタムイベントを送信するには、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを使用します。このイベントでは、変更を確認するために必要なデータをイベントプロパティに含めます。
 
 このユースケースでは、ユーザーがシドニー旅行の日付を更新したとします。イベントは次のようになります。
 
@@ -193,13 +193,13 @@ You have the following booked in 2 days! Check the information below:
 {% endtab %}
 {% tab SDK %}
 
-#### SDK 経由でカスタムイベントをユーザープロファイルに送信する
+#### SDK経由でカスタムイベントをユーザープロファイルに送信する {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-SDK を使用してカスタムイベントをユーザープロファイルに送信します。例えば、Web SDK を使用している場合は、次のように送信できます。
+SDK経由でカスタムイベントをユーザープロファイルに送信します。例えば、Web SDKを使用している場合は、次のように送信できます。
 
 {% raw %}
 ```json
-braze.logCustomEvent("trip_updated", { 
+braze.logCustomEvent("trip_updated", {
   id: 2,
   name: "Sydney Trip",
   old_time: "2025-11-12",
@@ -210,9 +210,9 @@ braze.logCustomEvent("trip_updated", {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3b: 更新を確認するメッセージを作成する
+### ステップ 3b: 更新を確認するメッセージを作成する {#step-3b-create-a-message-to-confirm-the-update}
 
-[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を作成して、更新された予約の確認をユーザーに送信します。[Liquid を使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
+[アクションベースのCampaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
 
 例えば、次のようなメッセージを作成できます。
 
@@ -222,13 +222,13 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 ```
 {% endraw %}
 
-### ステップ 3c: 更新を反映するようにユーザープロファイルを変更する
+### ステップ 3c: 更新を反映するようにユーザープロファイルを変更する {#step-3c-modify-the-user-profile-to-reflect-the-update}
 
-最後に、最新のデータに基づいてステップ 1 および 2 の予約リマインダーを送信するために、階層化カスタム属性を更新して予約の変更またはキャンセルを反映します。
+最後に、最新のデータに基づいてステップ1および2の予約リマインダーを送信するために、階層化カスタム属性を更新して予約の変更またはキャンセルを反映します。
 
-#### 予約の更新
+#### 予約の更新 {#updated-booking}
 
-このユースケースのユーザーがシドニー旅行を更新した場合、`/users/track` エンドポイントを使用して、次のようなコールで日付を変更します。
+このユースケースのユーザーがシドニー旅行を更新した場合、`/users/track`エンドポイントを使用して、次のようなコールで日付を変更します。
 
 {% raw %}
 ```json
@@ -254,9 +254,9 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 ```
 {% endraw %}
 
-#### 予約のキャンセル
+#### 予約のキャンセル {#cancelled-booking}
 
-このユースケースのユーザーがシドニー旅行をキャンセルした場合、`/users/track` エンドポイントに次のコールを送信します。
+このユースケースのユーザーがシドニー旅行をキャンセルした場合、`/users/track`エンドポイントに次のコールを送信します。
 
 {% raw %}
 ```json

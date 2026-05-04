@@ -1,68 +1,68 @@
-## Apple のプライバシーマニフェスト {#privacy-manifest}
+## Appleのプライバシーマニフェスト {#privacy-manifest}
 
-### トラッキングデータとは？
+### トラッキングデータとは？ {#what-is-tracking-data}
 
-Apple は「トラッキングデータ」を、アプリ内でエンドユーザーやデバイスについて収集され、サードパーティのデータ（ターゲット広告など）やデータブローカーにリンクされたデータと定義しています。完全な定義と例については、[Apple: Tracking](https://developer.apple.com/app-store/app-privacy-details/#user-tracking) を参照してください。
+Appleは「トラッキングデータ」を、アプリ内でエンドユーザーやデバイスについて収集され、サードパーティのデータ（ターゲット広告など）やデータブローカーにリンクされたデータと定義しています。完全な定義と例については、[Apple: Tracking](https://developer.apple.com/app-store/app-privacy-details/#user-tracking)を参照してください。
 
-デフォルトでは、Braze SDK はトラッキングデータを収集しません。ただし、Braze SDK の設定によっては、アプリのプライバシーマニフェストに Braze 固有のデータを記載する必要がある場合があります。
+デフォルトでは、Braze SDKはトラッキングデータを収集しません。ただし、Braze SDKの設定によっては、アプリのプライバシーマニフェストにBraze固有のデータを記載する必要がある場合があります。
 
-### プライバシーマニフェストとは？
+### プライバシーマニフェストとは？ {#what-is-a-privacy-manifest}
 
-プライバシーマニフェストは、アプリとサードパーティ SDK がデータを収集する理由と、そのデータ収集方法を説明する Xcode プロジェクト内のファイルです。データをトラッキングするサードパーティ SDK には、それぞれ独自のプライバシーマニフェストが必要です。[アプリのプライバシーレポートを作成](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187)すると、これらのプライバシーマニフェストファイルは自動的に1つのレポートに集約されます。
+プライバシーマニフェストは、アプリとサードパーティSDKがデータを収集する理由と、そのデータ収集方法を説明するXcodeプロジェクト内のファイルです。データをトラッキングするサードパーティSDKには、それぞれ独自のプライバシーマニフェストが必要です。[アプリのプライバシーレポートを作成](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187)すると、これらのプライバシーマニフェストファイルは自動的に1つのレポートに集約されます。
 
-### API トラッキングデータドメイン
+### APIトラッキングデータドメイン {#api-tracking-data-domains}
 
-iOS 17.2 以降、Apple はエンドユーザーが [Ad Tracking Transparency (ATT) プロンプト](https://support.apple.com/en-us/HT212025)を受け入れるまで、アプリ内で宣言されたすべてのトラッキングエンドポイントをブロックします。Braze はトラッキングデータをルーティングするためのトラッキングエンドポイントを提供しており、トラッキング以外のファーストパーティデータは元のエンドポイントにルーティングすることもできます。 
+iOS 17.2以降、Appleはエンドユーザーが[Ad Tracking Transparency (ATT) プロンプト](https://support.apple.com/en-us/HT212025)を受け入れるまで、アプリ内で宣言されたすべてのトラッキングエンドポイントをブロックします。Brazeはトラッキングデータをルーティングするためのトラッキングエンドポイントを提供しており、トラッキング以外のファーストパーティデータは元のエンドポイントにルーティングすることもできます。
 
-## Braze のトラッキングデータを宣言する
+## Brazeのトラッキングデータを宣言する {#declaring-braze-tracking-data}
 
 {% alert tip %}
-詳細な手順については、[Privacy Tracking Data tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/) を参照してください。
+詳細な手順については、[Privacy Tracking Data tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/)を参照してください。
 {% endalert %}
 
-### 前提条件
+### 前提条件 {#prerequisites}
 
-この機能を実装するには、以下の Braze SDK バージョンが必要です。
+この機能を実装するには、以下のBraze SDKバージョンが必要です。
 
 {% sdk_min_versions swift:9.0.0 %}
 
-### ステップ 1: 現在のポリシーを確認する
+### ステップ1：現在のポリシーを確認する {#step-1-review-your-current-policies}
 
-Braze SDK の現在のデータ収集ポリシーを法務チームと確認し、アプリが [Apple の定義に従って](#what-is-tracking-data)トラッキングデータを収集しているかどうかを判断してください。トラッキングデータを収集していない場合は、現時点で Braze SDK のプライバシーマニフェストをカスタマイズする必要はありません。Braze SDK のデータ収集ポリシーの詳細については、[SDK データ収集]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/)を参照してください。
+Braze SDKの現在のデータ収集ポリシーを法務チームと確認し、アプリが[Appleの定義に従って](#what-is-tracking-data)トラッキングデータを収集しているかどうかを判断してください。トラッキングデータを収集していない場合は、現時点でBraze SDKのプライバシーマニフェストをカスタマイズする必要はありません。Braze SDKのデータ収集ポリシーの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/)を参照してください。
 
 {% alert important %}
-Braze 以外の SDK がトラッキングデータを収集する場合は、それらのポリシーを別途確認する必要があります。
+Braze以外のSDKがトラッキングデータを収集する場合は、それらのポリシーを別途確認する必要があります。
 {% endalert %}
 
-### ステップ 2: プライバシーマニフェストを作成する
+### ステップ2：プライバシーマニフェストを作成する {#step-2-create-a-privacy-manifest}
 
-まず、Xcode プロジェクトで `PrivacyInfo.xcprivacy` ファイルを検索して、プライバシーマニフェストがすでに存在するかどうかを確認します。すでにこのファイルがある場合は、次のステップに進んでください。ない場合は、[Apple: Create a privacy manifest](sdk-tracking.iad-01.braze.com) を参照してください。
+まず、Xcodeプロジェクトで`PrivacyInfo.xcprivacy`ファイルを検索して、プライバシーマニフェストがすでに存在するかどうかを確認します。すでにこのファイルがある場合は、次のステップに進んでください。ない場合は、[Apple: Create a privacy manifest](sdk-tracking.iad-01.braze.com)を参照してください。
 
-### ステップ 3: エンドポイントをプライバシーマニフェストに追加する
+### ステップ3：エンドポイントをプライバシーマニフェストに追加する {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
-Xcode プロジェクトでアプリの `PrivacyInfo.xcprivacy` ファイルを開き、テーブルを右クリックして **Raw Keys and Values** にチェックを入れます。
+Xcodeプロジェクトでアプリの`PrivacyInfo.xcprivacy`ファイルを開き、テーブルを右クリックして**Raw Keys and Values**にチェックを入れます。
 
 {% alert note %}
 
 {% endalert %}
 
-![コンテキストメニューが開かれ、「Raw Keys and Values」がハイライトされた Xcode プロジェクト。]({% image_buster /assets/img/apple/privacy_manifest/check_raw_keys_and_values.png %})
+![コンテキストメニューが開かれ、「Raw Keys and Values」がハイライトされたXcodeプロジェクト。]({% image_buster /assets/img/apple/privacy_manifest/check_raw_keys_and_values.png %})
 
-**App Privacy Configuration** で **NSPrivacyTracking** を選択し、値を **YES** に設定します。
+**App Privacy Configuration**で**NSPrivacyTracking**を選択し、値を**YES**に設定します。
 
 ![「NSPrivacyTracking」が「YES」に設定された状態で開かれた「PrivacyInfo.xcprivacy」ファイル。]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytracking.png %})
 
-**App Privacy Configuration** で **NSPrivacyTrackingDomains** を選択します。ドメイン配列に新しい要素を追加し、その値を、`sdk-tracking` プレフィックスを付けて[以前に `AppDelegate` に追加した]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration/#update-your-app-delegate)エンドポイントに設定します。
+**App Privacy Configuration**で**NSPrivacyTrackingDomains**を選択します。ドメイン配列に新しい要素を追加し、その値を、[以前に`AppDelegate`に追加した]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration/#update-your-app-delegate)エンドポイントに`sdk-tracking`プレフィックスを付けたものに設定します。
 
-![「NSPrivacyTrackingDomains」の下に Braze トラッキングエンドポイントが記載された状態で開かれた「PrivacyInfo.xcprivacy」ファイル。]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
+![「NSPrivacyTrackingDomains」の下にBrazeトラッキングエンドポイントが記載された状態で開かれた「PrivacyInfo.xcprivacy」ファイル。]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
-### ステップ 4: トラッキングデータを宣言する
+### ステップ4：トラッキングデータを宣言する {#step-4-declare-your-tracking-data}
 
-次に `AppDelegate.swift` を開き、静的または動的トラッキングリストを作成して、宣言する各[トラッキングプロパティ](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)をリストします。Apple はエンドユーザーが ATT プロンプトを受け入れるまでこれらのプロパティをブロックするため、あなたと法務チームがトラッキングと見なすプロパティのみをリストしてください。以下に例を示します。
+次に`AppDelegate.swift`を開き、静的または動的トラッキングリストを作成して、宣言する各[トラッキングプロパティ](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)をリストします。Appleはエンドユーザーが ATTプロンプトを受け入れるまでこれらのプロパティをブロックするため、あなたと法務チームがトラッキングと見なすプロパティのみをリストしてください。以下に例を示します。
 
 {% tabs %}
-{% tab static example %}
-以下の例では、`dateOfBirth`、`customEvent`、および `customAttribute` が静的リスト内でトラッキングデータとして宣言されています。 
+{% tab 静的な例 %}
+以下の例では、`dateOfBirth`、`customEvent`、および`customAttribute`が静的リスト内でトラッキングデータとして宣言されています。
 
 ```swift
 import UIKit
@@ -92,8 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 {% endtab %}
 
-{% tab dynamic example %}
-以下の例では、エンドユーザーが ATT プロンプトを受け入れた後、トラッキングリストが自動的に更新されます。
+{% tab 動的な例 %}
+以下の例では、エンドユーザーがATTプロンプトを受け入れた後、トラッキングリストが自動的に更新されます。
 
 ```swift
 func applicationDidBecomeActive(_ application: UIApplication) {
@@ -114,9 +114,9 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5: 無限リトライループを防止する
+### ステップ5：無限リトライループを防止する {#step-5-prevent-infinite-retry-loops}
 
-SDK が無限リトライループに入るのを防ぐため、`set(adTrackingEnabled: enableAdTracking)` メソッドを使用して ATT 権限を処理します。メソッド内の `adTrackingEnabled` プロパティは、以下のように処理する必要があります。
+SDKが無限リトライループに入るのを防ぐため、`set(adTrackingEnabled: enableAdTracking)`メソッドを使用してATT権限を処理します。メソッド内の`adTrackingEnabled`プロパティは、以下のように処理する必要があります。
 
 ```swift
 func applicationDidBecomeActive(_ application: UIApplication) {
@@ -129,54 +129,54 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 }
 ```
 
-## データトラッキングを無効にする
+## データトラッキングを無効にする {#disabling-data-tracking}
 
-Swift SDK のデータトラッキングアクティビティを無効にするには、Braze インスタンスの [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) プロパティを `false` に設定します。`enabled` が `false` に設定されると、Braze SDK はパブリック API への呼び出しをすべて無視します。また、SDK はネットワークリクエストやイベント処理など、進行中のすべてのアクションもキャンセルします。 
+Swift SDKのデータトラッキングアクティビティを無効にするには、Brazeインスタンスの[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled)プロパティを`false`に設定します。`enabled`を`false`に設定すると、Braze SDKはパブリックAPIへの呼び出しをすべて無視します。また、SDKはネットワークリクエストやイベント処理など、進行中のすべてのアクションもキャンセルします。
 
-## 以前に保存したデータを消去する
+## 以前に保存したデータを消去する {#wiping-previously-stored-data}
 
-[`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) メソッドを使用すると、ユーザーのデバイスにローカルに保存された SDK データを完全に消去できます。
+[`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata())メソッドを使用すると、ユーザーのデバイスにローカルに保存されたSDKデータを完全に消去できます。
 
-Braze Swift バージョン 7.0.0 以降では、SDK と `wipeData()` メソッドがデバイス ID の UUID をランダムに生成します。ただし、`useUUIDAsDeviceId` が `false` に設定されている場合、_または_ Swift SDK バージョン 5.7.0 以前を使用している場合は、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) への POST リクエストも行う必要があります。これは、IDFV がそのユーザーのデバイス ID として自動的に使用されるためです。
+Braze Swiftバージョン7.0.0以降では、SDKと`wipeData()`メソッドがデバイスIDのUUIDをランダムに生成します。ただし、`useUUIDAsDeviceId`が`false`に設定されている場合、_または_ Swift SDKバージョン5.7.0以前を使用している場合は、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)へのPOSTリクエストも行う必要があります。これは、IDFV（Identifier for Vendors）がそのユーザーのデバイスIDとして自動的に使用されるためです。
 
-手動プッシュ連携を使用していて、アプリが `wipeData()` を呼び出した後、同じアプリ実行中に SDK を再度有効にする場合は、`registerForRemoteNotifications()` を再度呼び出して、Braze が更新されたデバイストークンを受信できるようにしてください。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
+手動プッシュ連携を使用していて、アプリが`wipeData()`を呼び出した後、同じアプリ実行中にSDKを再度有効にする場合は、`registerForRemoteNotifications()`を再度呼び出して、Brazeが更新されたデバイストークンを受信できるようにしてください。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
 
-## データトラッキングを再開する
+## データトラッキングを再開する {#resuming-data-tracking}
 
-データ収集を再開するには、[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) を `true` に設定します。ただし、以前に消去されたデータは復元されないことに注意してください。
+データ収集を再開するには、[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/)を`true`に設定します。ただし、以前に消去されたデータは復元されないことに注意してください。
 
-## IDFV の収集
+## IDFVの収集 {#idfv-collection}
 
-Braze iOS SDK の以前のバージョンでは、IDFV（Identifier for Vendor）フィールドがユーザーのデバイス ID として自動的に収集されていました。Swift SDK `v5.7.0` 以降、IDFV フィールドはオプションで無効にできるようになり、代わりに Braze がランダムな UUID をデバイス ID として設定するようになりました。Swift SDK `v7.0.0` 以降、IDFV フィールドはデフォルトでは収集されず、代わりに UUID がデバイス ID として設定されます。
+Braze iOS SDKの以前のバージョンでは、IDFV（Identifier for Vendor）フィールドがユーザーのデバイスIDとして自動的に収集されていました。Swift SDK `v5.7.0`以降、IDFVフィールドはオプションで無効にできるようになり、代わりにBrazeがランダムなUUIDをデバイスIDとして設定するようになりました。Swift SDK `v7.0.0`以降、IDFVフィールドはデフォルトでは収集されず、代わりにUUIDがデバイスIDとして設定されます。
 
-`useUUIDAsDeviceId` 機能は、デバイス ID を UUID として設定するよう [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) を構成します。従来、iOS SDK では Apple が生成した IDFV 値と同じデバイス ID が割り当てられていました。iOS アプリでこの機能がデフォルトで有効になっている場合、SDK を介して作成されたすべての新規ユーザーに UUID と同じデバイス ID が割り当てられます。
+`useUUIDAsDeviceId`機能は、デバイスIDをUUIDとして設定するよう[Swift SDK](https://github.com/braze-inc/braze-swift-sdk)を構成します。従来、iOS SDKではAppleが生成したIDFV値と同じデバイスIDが割り当てられていました。iOSアプリでこの機能がデフォルトで有効になっている場合、SDKを介して作成されたすべての新規ユーザーにUUIDと同じデバイスIDが割り当てられます。
 
-それでも IDFV を別途収集したい場合は、[`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)) を使用できます。
+それでもIDFVを別途収集したい場合は、[`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:))を使用できます。
 
-### 考慮事項
+### 考慮事項 {#considerations}
 
-#### SDK バージョン
+#### SDKバージョン {#sdk-version}
 
-Swift SDK `v7.0.0+` で `useUUIDAsDeviceId` が有効（デフォルト）の場合、新規作成されたすべてのユーザーにはランダムなデバイス ID が割り当てられます。既存のユーザーは同じデバイス ID 値を保持します（IDFV である場合もあります）。
+Swift SDK `v7.0.0+`で`useUUIDAsDeviceId`が有効（デフォルト）の場合、新規作成されたすべてのユーザーにはランダムなデバイスIDが割り当てられます。既存のユーザーは同じデバイスID値を保持します（IDFVである場合もあります）。
 
-この機能が有効でない場合、デバイスには引き続き作成時に IDFV が割り当てられます。
+この機能が有効でない場合、デバイスには引き続き作成時にIDFVが割り当てられます。
 
-#### ダウンストリーム 
+#### ダウンストリーム {#downstream}
 
-**テクノロジーパートナー**: この機能を有効にすると、Braze デバイス ID から IDFV 値を取得するテクノロジーパートナーは、このデータにアクセスできなくなります。パートナー連携にデバイスから得られる IDFV 値が必要な場合は、この機能を `false` に設定することを推奨します。
+**テクノロジーパートナー**: この機能を有効にすると、BrazeデバイスIDからIDFV値を取得するテクノロジーパートナーは、このデータにアクセスできなくなります。パートナー連携にデバイスから得られるIDFV値が必要な場合は、この機能を`false`に設定することを推奨します。
 
-**Currents**: `useUUIDAsDeviceId` が true に設定されている場合、Currents で送信されるデバイス ID は IDFV 値と等しくなくなります。
+**Currents**: `useUUIDAsDeviceId`をtrueに設定すると、Currentsで送信されるデバイスIDはIDFV値と等しくなくなります。
 
-### よくある質問
+### よくある質問 {#frequently-asked-questions}
 
-#### この変更は Braze の既存ユーザーに影響しますか？
+#### この変更はBrazeの既存ユーザーに影響しますか？ {#will-this-change-impact-my-existing-users-in-braze}
 
-いいえ。この機能を有効にしても、Braze のユーザーデータは上書きされません。新しい UUID デバイス ID は、新しいデバイスまたは `wipedata()` が呼び出された場合にのみ作成されます。
+いいえ。この機能を有効にしても、Brazeのユーザーデータは上書きされません。新しいUUIDデバイスIDは、新しいデバイスまたは`wipedata()`が呼び出された場合にのみ作成されます。
 
-#### この機能をオンにした後にオフにすることはできますか？
+#### この機能をオンにした後にオフにすることはできますか？ {#can-i-turn-this-feature-off-after-turning-it-on}
 
-はい、この機能は自由にオンとオフを切り替えることができます。以前に保存されたデバイス ID は上書きされません。
+はい、この機能は自由にオンとオフを切り替えることができます。以前に保存されたデバイスIDは上書きされません。
 
-#### Braze を介して IDFV 値を別の場所で収集することはできますか？
+#### Brazeを介してIDFV値を別の場所で収集することはできますか？ {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
 
-はい、オプションで Swift SDK を使用して IDFV を収集することもできます（収集はデフォルトでは無効です）。
+はい、オプションでSwift SDKを使用してIDFVを収集することもできます（収集はデフォルトでは無効です）。

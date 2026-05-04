@@ -19,10 +19,10 @@ guide_featured_list:
   - name: Suivi
     link: /docs/user_guide/analytics/tracking
     image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: Glossaire des indicateurs
+  - name: Glossaire des indicateurs de rapport
     link: /docs/user_guide/analytics/metrics_glossary
     image: /assets/img/braze_icons/book-closed.svg
 
 ---
 
-Utilisez les **Tableaux de bord** pour un suivi des performances en un coup d'œil, les **Rapports** pour une analyse approfondie de vos campagnes et Canvas, et le **Suivi** pour configurer la manière dont Braze capture les actions des utilisateurs. Si vous n'êtes pas sûr de la signification d'un indicateur, consultez le **Glossaire des indicateurs**.
+Utilisez les **Tableaux de bord** pour un suivi des performances en un coup d'œil, les **Rapports** pour une analyse approfondie de vos campagnes et Canvas, et le **Suivi** pour configurer la manière dont Braze capture les actions des utilisateurs. Si vous n'êtes pas sûr de la signification d'un indicateur, consultez le **Glossaire des indicateurs de rapport**.

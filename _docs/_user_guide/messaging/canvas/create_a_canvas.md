@@ -100,7 +100,7 @@ You can choose one of three ways in which users can enter your Canvas.
 
     ![The "Entry Schedule" page with the type set to "Scheduled". Due to the selection, time-based options are shown, including frequency, start time, recurrence, days, and more.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-    When using local time zone delivery, Braze evaluates entry eligibility twice: first at Samoa time (UTC+13 or UTC+14 during Daylight Saving Time) on the scheduled day, and again at the user's local time. A user must be eligible for both checks to enter the Canvas. If your entry filters use relative time windows (for example, "more than 2 days ago"), the 24-hour period may not have elapsed at the time of the first check, causing users to enter one day late. To avoid this, use a broader time window, such as at least two days. For more details, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
+    When using local time zone delivery, Braze evaluates entry eligibility twice: first at Samoa time (UTC+13) on the scheduled day, and again at the user's local time. A user must be eligible for both checks to enter the Canvas. If your entry filters use relative time windows (for example, "more than 2 days ago"), the 24-hour period may not have elapsed at the time of the first check, causing users to enter one day late. To avoid this, use a broader time window, such as at least two days. For more details, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
   {% endtab %}
   {% tab Action-Based Delivery %}
     With action-based delivery, users will enter the Canvas and begin receiving messages when they take particular actions, such as opening your app, making a purchase, or triggering a custom event.
@@ -176,6 +176,7 @@ In the **Target Population** section, you can view a summary of your audience, s
 Note that:
 
 - Calculating exact statistics can take a few minutes to run. This function only calculates the exact statistics at the segment level, not at the filter or filter group level.
+- While exact statistics are loading, a rounded estimate may appear. The exact figure appears in the **Reachable Users** section when loaded. You can select **Show Additional Stats** for a detailed breakdown.
 - For large segments, it is normal to see slight variation even when calculating exact statistics. The accuracy of this feature is expected to be 99.999% or greater.
 
 To view additional statistics, such as the average lifetime revenue for targeted users, select **Show Additional Statistics**.

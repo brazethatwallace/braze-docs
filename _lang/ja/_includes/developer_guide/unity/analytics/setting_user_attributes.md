@@ -1,10 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## デフォルトのユーザー属性
+## デフォルトのユーザー属性 {#default-user-attributes}
 
-### 定義済みのメソッド
+### 事前定義されたメソッド {#predefined-methods}
 
-Braze は、`BrazeBinding` オブジェクトを使用して以下のユーザー属性を設定するための定義済みメソッドを提供しています。詳しくは [Braze Unity 宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。
+Brazeは、`BrazeBinding`オブジェクトを使用して以下のユーザー属性を設定するための事前定義されたメソッドを提供しています。詳しくは[Braze Unity宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。
 
 - 名
 - 姓
@@ -17,9 +17,9 @@ Braze は、`BrazeBinding` オブジェクトを使用して以下のユーザ�
 - ユーザーのプッシュサブスクリプション
 - ユーザーの電話番号
 
-### デフォルト属性の設定
+### デフォルト属性の設定 {#setting-default-attributes}
 
-デフォルト属性を設定するには、`BrazeBinding` オブジェクトの関連メソッドを呼び出します。
+デフォルト属性を設定するには、`BrazeBinding`オブジェクトの関連メソッドを呼び出します。
 
 {% tabs local %}
 {% tab First name %}
@@ -74,19 +74,19 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 {% endtab %}
 {% endtabs %}
 
-### デフォルト属性の設定解除
+### デフォルト属性の解除 {#unsetting-default-attributes}
 
-デフォルトのユーザー属性の設定を解除するには、関連するメソッドに `null` を渡します。
+デフォルトのユーザー属性を解除するには、関連するメソッドに`null`を渡します。
 
 ```csharp
 BrazeBinding.SetUserFirstName(null);
 ```
 
-## カスタムユーザー属性
+## カスタムユーザー属性 {#custom-user-attributes}
 
-デフォルトのユーザー属性に加え、Braze ではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics)を参照してください。
+デフォルトのユーザー属性に加え、Brazeではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[データ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
 
-### カスタム属性の設定
+### カスタム属性の設定 {#setting-custom-attributes}
 
 カスタム属性を設定するには、属性タイプに対応するメソッドを使用します。
 
@@ -135,7 +135,7 @@ AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute ke
 ```
 
 {% alert note %}
-Braze に渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 形式（`2013-07-16T19:20:30+01:00` など）か、`yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式（`2016-12-14T13:32:31.601-0800` など）でなければなりません。
+Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（`2013-07-16T19:20:30+01:00`など）か、`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（`2016-12-14T13:32:31.601-0800`など）でなければなりません。
 {% endalert %}
 
 {% endtab %}
@@ -154,24 +154,24 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 {% endtabs %}
 
 {% alert important %}
-カスタム属性値の最大長は 255 文字です。これより長い値は切り捨てられます。
+カスタム属性値の最大長は255文字です。これより長い値は切り捨てられます。
 {% endalert %}
 
-### カスタム属性の設定解除
+### カスタム属性の解除 {#unsetting-custom-attributes}
 
-カスタム属性の設定を解除するには、`UnsetCustomUserAttribute` メソッドに関連する属性キーを渡します。
+カスタム属性を解除するには、`UnsetCustomUserAttribute`メソッドに関連する属性キーを渡します。
 
 ```csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### REST API の使用
+### REST APIの使用 {#using-the-rest-api}
 
-REST API を使用して、ユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+REST APIを使用して、ユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
 
-## ユーザーサブスクリプションの設定
+## ユーザーサブスクリプションの設定 {#setting-user-subscriptions}
 
-ユーザーにメールまたはプッシュサブスクリプションを設定するには、以下のいずれかの関数を呼び出します。
+ユーザーのメールまたはプッシュサブスクリプションを設定するには、以下のいずれかの関数を呼び出します。
 
 ```csharp
 // Email notifications
@@ -181,7 +181,7 @@ AppboyBinding.SetUserEmailNotificationSubscriptionType()
 AppboyBinding.SetPushNotificationSubscriptionType()`
 ```
 
-どちらの関数も引数として `Appboy.Models.AppboyNotificationSubscriptionType` を取り、3 つの異なるステータスがあります。
+どちらの関数も引数として`Appboy.Models.AppboyNotificationSubscriptionType`を取り、3つの異なるステータスがあります。
 
 | サブスクリプションステータス | 定義 |
 | ------------------- | ---------- |
@@ -191,26 +191,26 @@ AppboyBinding.SetPushNotificationSubscriptionType()`
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-Windows では、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで `OPTED_IN` ではなく `SUBSCRIBED` に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)に関するドキュメントを参照してください。
+Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)に関するドキュメントを参照してください。
 {% endalert %}
 
 | サブスクリプションタイプ                        | 説明 |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | 有効なメールアドレスを受信すると、ユーザーは自動的に `SUBSCRIBED` に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を `OPTED_IN` に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
-| `PushNotificationSubscriptionType`       | 有効なプッシュ登録時に、ユーザーは自動的に `SUBSCRIBED` に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を `OPTED_IN` に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
+| `EmailNotificationSubscriptionType`      | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
+| `PushNotificationSubscriptionType`       | 有効なプッシュ登録時に、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-これらのタイプは `Appboy.Models.AppboyNotificationSubscriptionType` に属します。
+これらのタイプは`Appboy.Models.AppboyNotificationSubscriptionType`に属します。
 {% endalert %}
 
-### メールサブスクリプションの設定
+### メールサブスクリプションの設定 {#setting-email-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
 ```
 
-### プッシュ通知サブスクリプションの設定
+### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscriptions}
 
 ```csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);

@@ -58,12 +58,12 @@ CONTENT.
 
 CONTENT.
 
-<!-- Fügen Sie bei optionalen Schritten „(optional)" am Ende der Überschrift hinzu. -->
+<!-- Fügen Sie bei optionalen Schritten „(optional)“ am Ende der Überschrift hinzu. -->
 ### 3. Schritt: OPTIONAL_ACTION_TO_COMPLETE (optional)
 
 CONTENT.
 <!-- Ein optionaler Abschnitt für unterstützte Elemente. Fügen Sie verschachtelte Überschriften hinzu, um spezifischer zu sein. -->
-## Unterstützte Datentypen / Unterstützte Attribute / Unterstützte Events / Unterstützte ETC.
+## Unterstützte Datentypen / Unterstützte Attribute / Unterstützte Ereignisse / Unterstützte ETC.
 CONTENT.
 <!-- Ein optionaler Abschnitt mit wichtigen Hinweisen, die Nutzer:innen vor der Verwendung des Features beachten sollten. -->
 ## Hinweise

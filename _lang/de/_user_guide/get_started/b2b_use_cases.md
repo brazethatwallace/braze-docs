@@ -3,7 +3,7 @@ nav_title: B2B-Anwendungsfälle
 page_order: 11
 layout: dev_guide
 guide_top_header: "B2B-Anwendungsfälle"
-guide_top_text: "Braze verfügt über eine leistungsstarke Customer-Engagement-Suite, die Ihnen vielfältige Möglichkeiten bietet, Interessenten und Kund:innen anzusprechen – von Lead-Akquisestrategien über produktorientierte Vertriebs- und Wachstumsinitiativen bis hin zur Churn-Prävention.<br><br>In diesem Abschnitt erfahren Sie, wie Sie Braze für Business-to-Business-Anwendungsfälle (B2B) einrichten – einschließlich der Erstellung eines ersten Datenmodells, kontobasierter Segmentierung, operativer Kampagnen wie Lead Scoring und mehr."
+guide_top_text: "Braze verfügt über eine leistungsstarke Customer-Engagement-Suite, die Ihnen vielfältige Möglichkeiten bietet, Interessent:innen und Kund:innen anzusprechen – von Lead-Akquisestrategien über produktorientierte Vertriebs- und Wachstumsinitiativen bis hin zur Churn-Prävention.<br><br>In diesem Abschnitt erfahren Sie, wie Sie Braze für Business-to-Business-Anwendungsfälle (B2B) einrichten – einschließlich der Erstellung eines ersten Datenmodells, kontobasierter Segmentierung, operativer Kampagnen wie Lead Scoring und mehr."
 description: "Entdecken Sie die verschiedenen Möglichkeiten, wie Sie Braze für Ihre B2B-Anwendungsfälle nutzen können."
 
 guide_featured_title: "Vorgestellte Anwendungsfälle"
@@ -17,7 +17,7 @@ guide_featured_list:
   - name: Lead Scoring
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/user-plus-01.svg
-  - name: Lead-Management mit Salesforce Sales Cloud
+  - name: Leads mit Salesforce Sales Cloud verwalten
     link: /docs/user_guide/get_started/b2b_use_cases/b2b_salesforce_sales_cloud
     image: /assets/img/braze_icons/user-plus-01.svg
   - name: Landing-Pages

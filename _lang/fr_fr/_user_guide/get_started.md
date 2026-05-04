@@ -7,9 +7,9 @@ description: "Familiarisez-vous avec les concepts fondamentaux à connaître pou
 
 ---
 
-# Pour commencer : Aperçu de Braze
+# Pour commencer : Aperçu de Braze {#get-started-braze-overview}
 
-Bienvenue dans Braze ! Cette collection d'articles vous aidera à prendre en main notre plateforme et vous présentera les termes clés, les fonctionnalités et les caractéristiques de Braze. Cette page présente les concepts fondamentaux que vous devrez connaître pour travailler avec Braze.
+> Bienvenue dans Braze ! Cette collection d'articles vous aidera à prendre en main notre plateforme et vous présentera les termes clés, les fonctionnalités et les caractéristiques de Braze. Cette page présente les concepts fondamentaux que vous devrez connaître pour travailler avec Braze.
 
 {% alert tip %}
 Nous vous recommandons vivement de suivre notre cours gratuit [Les fondements de Braze pour tous](https://learning.braze.com/page/braze-foundations-for-everyone) en complément de ces articles. Aucun identifiant ou compte spécial n'est nécessaire pour ce cours. Si vous êtes développeur et que vous recherchez une présentation technique de Braze, consultez également la rubrique [Démarrage pour les développeurs]({{site.baseurl}}/developer_guide/getting_started/platform_overview/).
@@ -19,7 +19,7 @@ Dans les sections Démarrage, nous nous concentrons sur les implémentations cou
 
 Explorons ensemble la puissance de Braze.
 
-## Comment fonctionne Braze
+## Comment fonctionne Braze {#how-braze-works}
 
 Braze est une plateforme d'engagement client qui aide les marques de toutes tailles à créer des campagnes personnalisées et ciblées sur différents canaux. Braze vous donne la possibilité d'écouter vos clients, de comprendre ce que leur comportement signifie, puis d'agir en envoyant le bon message, par le bon canal, au bon moment.
 
@@ -27,7 +27,7 @@ Braze est une plateforme d'engagement client qui aide les marques de toutes tail
 N'oubliez pas d'[ajouter vos collègues à Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) pour qu'ils puissent explorer la plateforme avec vous.
 {% endalert %}
 
-## Utilisateurs et segments
+## Utilisateurs et segments {#users-and-segments}
 
 Les utilisateurs sont vos clients, c'est-à-dire les personnes qui reçoivent les messages que vous envoyez via Braze. Toutes les données que vous collectez sur un utilisateur et que vous ingérez dans Braze sont stockées dans son profil utilisateur : données démographiques, informations personnelles, préférences et comportements. Ces informations alimentent votre envoi de messages et vous permettent d'adapter vos messages au bon utilisateur.
 
@@ -41,17 +41,17 @@ Les segments sont dynamiques : les utilisateurs peuvent entrer et sortir des seg
 
 Pour en savoir plus, consultez : [Pour commencer : Utilisateurs et segments]({{site.baseurl}}/user_guide/get_started/users_and_segments/).
 
-## Campagnes et Canvas
+## Campagnes et Canvas {#campaigns-and-canvases}
 
 Les campagnes et les Canvas vous permettent d'envoyer des messages à vos utilisateurs.
 
 Les campagnes sont idéales pour les messages uniques envoyés à un segment d'audience spécifique sur différents canaux. Vous pouvez exploiter tous les canaux de communication pris en charge dans votre campagne (e-mail, push, messages in-app, SMS, et plus encore).
 
-Les Canvas sont des workflows de campagne avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Dans un Canvas, vous pouvez mettre en place une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas assurent une communication cohérente et fluide sur différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients. 
+Les Canvas sont des workflows avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Dans un Canvas, vous pouvez mettre en place une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas assurent une communication cohérente et fluide sur différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients.
 
 Pour en savoir plus, consultez : [Pour commencer : Campagnes et Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 
-## Espaces de travail
+## Espaces de travail {#workspaces}
 
 Les espaces de travail regroupent vos données — utilisateurs, segments, campagnes et Canvas — en un seul emplacement. Les informations ne sont pas partagées entre les espaces de travail, gardez donc cela à l'esprit lorsque vous ajoutez des sites web et des applications à vos espaces de travail. Nous vous conseillons de ne regrouper que les différentes versions d'une même application ou d'applications très similaires au sein d'un même espace de travail.
 
@@ -64,7 +64,7 @@ Voici quelques exemples d'utilisation des espaces de travail :
 
 Pour en savoir plus, consultez : [Pour commencer : Espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces/).
 
-## Intégrer Braze
+## Intégrer Braze {#integrating-braze}
 
 Braze est conçu pour être opérationnel rapidement et facilement. Notre délai moyen de rentabilisation est de six semaines pour notre clientèle composée de centaines de marques.
 

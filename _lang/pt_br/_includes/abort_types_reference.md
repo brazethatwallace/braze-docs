@@ -6,7 +6,7 @@ A tabela a seguir lista os possíveis valores de `abort_type`. Um tipo de cancel
 {% assign ch = "all" %}
 {% endif %}
 
-### Geral
+### Geral {#general}
 
 Esses tipos de cancelamento podem ocorrer em qualquer canal de envio de mensagens.
 
@@ -15,9 +15,9 @@ Esses tipos de cancelamento podem ocorrer em qualquer canal de envio de mensagen
 | `liquid_abort_message` | A Liquid tag [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) foi chamada, então o envio foi cancelado. |
 | `template_parse_error` | O modelo de mensagem não pôde ser analisado devido a um erro de sintaxe ou renderização, então o envio foi cancelado. |
 | `rate_limit` | A mensagem foi cancelada porque excedeu o [limite de taxa]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) configurado. |
-| `campaign_disabled` | A campanha foi desativada antes que a mensagem pudesse ser enviada. |
-| `campaign_does_not_exist` | A campanha associada a esta mensagem não existe mais. |
-| `campaign_action_does_not_exist` | A ação de campanha associada a esta mensagem não existe mais. |
+| `campaign_disabled` | A campaign foi desativada antes que a mensagem pudesse ser enviada. |
+| `campaign_does_not_exist` | A campaign associada a esta mensagem não existe mais. |
+| `campaign_action_does_not_exist` | A ação de campaign associada a esta mensagem não existe mais. |
 | `message_variation_does_not_exist` | A variação de mensagem atribuída a este usuário não existe mais. |
 | `user_not_in_segment` | O usuário não está no segmento alvo, então a mensagem não foi enviada. |
 | `trigger_event_blacklisted` | O evento de gatilho está na lista de proibições, então a mensagem não foi enviada. |
@@ -27,7 +27,7 @@ Esses tipos de cancelamento podem ocorrer em qualquer canal de envio de mensagen
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
-### Conteúdo e renderização
+### Conteúdo e renderização {#content-and-rendering}
 
 | Valor de `abort_type` | Descrição |
 | --- | --- |
@@ -48,7 +48,7 @@ Esses tipos de cancelamento podem ocorrer em qualquer canal de envio de mensagen
 
 {% if ch == "all" or ch == "email" %}
 
-### E-mail
+### E-mail {#email}
 
 | Valor de `abort_type` | Descrição |
 | --- | --- |
@@ -127,21 +127,21 @@ Esses tipos de cancelamento podem ocorrer em qualquer canal de envio de mensagen
 
 {% if ch == "all" or ch == "contentcard" %}
 
-### Cartões de conteúdo
+### Content Cards
 
 | Valor de `abort_type` | Descrição |
 | --- | --- |
-| `content_card_size_exceeded` | A carga útil do cartão de conteúdo excede o limite máximo de tamanho (2 KB). |
-| `content_card_content_invalid` | O conteúdo do cartão de conteúdo é inválido ou contém caracteres não compatíveis. |
-| `content_card_expiration_invalid` | A data de expiração do cartão de conteúdo é inválida. |
-| `content_card_general` | O cartão de conteúdo não pôde ser criado devido a um erro geral. |
+| `content_card_size_exceeded` | A carga útil do Content Card excede o limite máximo de tamanho (2 KB). |
+| `content_card_content_invalid` | O conteúdo do Content Card é inválido ou contém caracteres não compatíveis. |
+| `content_card_expiration_invalid` | A data de expiração do Content Card é inválida. |
+| `content_card_general` | O Content Card não pôde ser criado devido a um erro geral. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endif %}
 
 {% if ch == "all" or ch == "inappmessage" %}
 
-### Mensagens no app
+### Mensagens no app {#in-app-messages}
 
 | Valor de `abort_type` | Descrição |
 | --- | --- |

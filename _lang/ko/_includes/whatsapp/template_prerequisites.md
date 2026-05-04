@@ -6,10 +6,10 @@ WhatsApp 템플릿을 생성하기 전에 [WhatsApp 설정]({{site.baseurl}}/use
     - 사용자가 템플릿 빌더에서 새 템플릿을 생성하려면:
         - "View WhatsApp Message Templates"
         - "Edit WhatsApp Message Templates"
-    - 사용자가 캐러셀 템플릿으로 캠페인 또는 캔버스를 작성하려면:
+    - 사용자가 캐러셀 템플릿으로 Campaign 또는 Canvases를 작성하려면:
         - "View WhatsApp Message Templates"
 - Liquid 템플릿에 대한 이해(선택 사항, 동적 콘텐츠용)
 
 {% alert important %}
-동일한 WhatsApp 비즈니스 계정(WABA) 내의 모든 전화번호와 구독 그룹은 템플릿을 공유합니다. 하나의 WABA 내에 다중 구독 그룹이 있는 경우 모두 동일한 캐러셀 템플릿에 접근할 수 있습니다. 그러나 서로 다른 WABA 간에는 템플릿이 공유되지 않습니다.
+동일한 WhatsApp 비즈니스 계정(WABA) 내의 모든 전화번호와 구독 그룹은 템플릿을 공유합니다. 하나의 WABA 내에 여러 구독 그룹이 있는 경우 모두 동일한 캐러셀 템플릿에 접근할 수 있습니다. 그러나 서로 다른 WABA 간에는 템플릿이 공유되지 않습니다.
 {% endalert %}

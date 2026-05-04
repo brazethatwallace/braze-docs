@@ -20,15 +20,15 @@ Kontaktieren Sie Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({
 
 {% details Erläuterung der Struktur von Nachrichtenengagement-Events und Plattformwerte %}
 
-### Event-Struktur
+### Event-Struktur {#event-structure}
 
 Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichtenengagement-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Eventdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Metriken auszuwerten.
 
-![Aufschlüsselung eines Nachrichtenengagement-Events, das ein E-Mail-Abmelde-Event mit den aufgeführten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Kampagnen- oder Canvas-Tracking-Eigenschaften und eventspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
+![Aufschlüsselung eines Nachrichtenengagement-Events, das ein E-Mail-Abmelde-Event mit den aufgeführten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und eventspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
 
-Nachrichtenengagement-Events bestehen aus **nutzerspezifischen** Eigenschaften, **Kampagnen-/Canvas-Tracking**-Eigenschaften und **eventspezifischen** Eigenschaften.
+Nachrichtenengagement-Events bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **eventspezifischen** Eigenschaften.
 
-### Nutzer-ID-Schema
+### Nutzer-ID-Schema {#user-id-schema}
 
 Beachten Sie die Namenskonventionen für Nutzer-IDs.
 
@@ -38,7 +38,7 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 | `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der Kundschaft festgelegt wird. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-### Plattformwerte
+### Plattformwerte {#platform-values}
 
 Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutzergeräts angibt.
 <br>Die folgende Tabelle zeigt die möglichen Rückgabewerte:
@@ -61,7 +61,7 @@ Currents verwirft Events mit übermäßig großen Nutzdaten von mehr als 900&nbs
 {% endalert %}
 
 {% alert note %}
-Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren"]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
+Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
 {% endalert %}
 
 {% alert note %}

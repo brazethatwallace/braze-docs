@@ -1,8 +1,8 @@
-## Acerca del SDK de Braze para React Native
+## Acerca del SDK de Braze para React Native {#about-the-react-native-braze-sdk}
 
-La integración del SDK de React Native Braze proporciona funciones básicas de análisis y te permite integrar mensajes dentro de la aplicación y Tarjetas de contenido tanto para iOS como para Android con un solo código base.
+La integración del SDK de React Native Braze proporciona funciones básicas de análisis y te permite integrar mensajes dentro de la aplicación y Content Cards tanto para iOS como para Android con un solo código base.
 
-## Compatibilidad con la nueva arquitectura
+## Compatibilidad con la nueva arquitectura {#new-architecture-compatibility}
 
 La siguiente versión mínima del SDK es compatible con todas las aplicaciones que utilizan [la nueva arquitectura de React Native](https://reactnative.dev/docs/the-new-architecture/landing-page):
 
@@ -14,13 +14,13 @@ A partir de la versión 6.0.0 del SDK, Braze utiliza un módulo React Native Tur
 Si tu aplicación iOS cumple con `RCTAppDelegate` y sigue nuestra configuración `AppDelegate` anterior, revisa los ejemplos en [Configuración nativa completa](#reactnative_step-2-complete-native-setup) para evitar que se produzcan fallos al suscribirte a eventos en el módulo Turbo.
 {% endalert %}
 
-## Integración del SDK de React Native
+## Integración del SDK de React Native {#integrating-the-react-native-sdk}
 
-### Requisitos previos
+### Requisitos previos {#prerequisites}
 
 Para integrar el SDK, se requiere React Native versión 0.71 o posterior. Para ver la lista completa de versiones compatibles, consulta nuestro [repositorio GitHub del SDK para React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
 
-### Paso 1: Integrar la biblioteca de Braze
+### Paso 1: Integrar la biblioteca de Braze {#step-1-integrate-the-braze-library}
 
 {% tabs local %}
 {% tab npm %}
@@ -37,7 +37,7 @@ yarn add @braze/react-native-sdk
 
 <a id="step-2-choose-a-setup-option"></a>
 <a id="reactnative_step-2-complete-native-setup"></a>
-### Paso 2: Configuración nativa completa
+### Paso 2: Configuración nativa completa {#step-2-complete-native-setup}
 
 Si tu aplicación usa Expo, consulta [Uso del plugin Expo](#reactnative-using-the-expo-plugin). Si tu aplicación usa React Native puro, consulta [Uso de React Native CLI](#reactnative-using-react-native-cli).
 Elige un método de configuración en cada pestaña de versión: plugin Expo o React Native CLI.
@@ -47,7 +47,7 @@ Elige un método de configuración en cada pestaña de versión: plugin Expo o R
 
 #### Método 1: Uso del plugin Expo {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Instala el plugin Braze Expo
+##### 2.1 Instala el plugin Braze Expo {#21-install-the-braze-expo-plugin}
 
 Asegúrate de que tu versión del plugin Braze Expo sea al menos 4.1.0. Para ver la lista completa de versiones compatibles, consulta el [repositorio del plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support).
 
@@ -57,7 +57,7 @@ El siguiente fragmento de código muestra el comando para instalar el plugin Bra
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 Añade el plugin a tu app.json
+##### 2.2 Añade el plugin a tu app.json {#22-add-the-plugin-to-your-appjson}
 
 En tu `app.json`, añade el plugin Braze Expo. La clave de API y el punto de conexión ya no se configuran aquí. Proporciónalos en tiempo de ejecución a través de `Braze.initialize()` desde JavaScript. Añade los siguientes parámetros de configuración opcionales según las necesidades de tu implementación:
 
@@ -175,7 +175,7 @@ El plugin Braze Expo hace referencia a tus archivos de iconos desde los director
 
 Para obtener más información sobre los iconos de notificación de Android, consulta las [directrices sobre iconos de notificación de Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### 2.3 Compila y ejecuta tu aplicación
+##### 2.3 Compila y ejecuta tu aplicación {#23-build-and-run-your-application}
 
 La precompilación de tu aplicación genera los archivos nativos necesarios para que el plugin Braze Expo funcione.
 
@@ -189,7 +189,7 @@ Ejecuta tu aplicación como se especifica en la [documentación de Expo](https:/
 
 #### Método 2: Uso de React Native CLI {#reactnative-using-react-native-cli}
 
-##### Configurar Android
+##### Configurar Android {#set-up-android}
 
 **2.1 Añade el plugin Kotlin Gradle**
 
@@ -288,7 +288,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configurar iOS
+##### Configurar iOS {#set-up-ios}
 
 **2.5 (Opcional) Configura el Podfile para XCFrameworks dinámicos**
 
@@ -401,9 +401,9 @@ Cuando llamas a `Braze.initialize()` de nuevo, los mismos bloques `configure` y 
 {% endtab %}
 {% tab React Native SDK 19.1.0 y anteriores %}
 
-#### Método 1: Uso del plugin Expo
+#### Método 1: Uso del plugin Expo {#method-1-using-the-expo-plugin}
 
-##### Paso 2.1: Instala el plugin Braze Expo
+##### Paso 2.1: Instala el plugin Braze Expo {#step-21-install-the-braze-expo-plugin}
 
 Asegúrate de que tu versión del SDK de React Native de Braze sea al menos 1.37.0. Para ver la lista completa de versiones compatibles, consulta el [repositorio de Braze React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
 
@@ -413,7 +413,7 @@ El siguiente fragmento de código muestra el comando para instalar el plugin Bra
 npx expo install @braze/expo-plugin
 ```
 
-##### Paso 2.2: Añade el plugin a tu app.json
+##### Paso 2.2: Añade el plugin a tu app.json {#step-22-add-the-plugin-to-your-appjson}
 
 En tu `app.json`, añade el plugin Braze Expo. Puedes proporcionar las siguientes opciones de configuración:
 
@@ -485,7 +485,7 @@ El siguiente fragmento de código muestra un ejemplo de configuración de `app.j
 }
 ```
 
-###### Configuración de los iconos de notificaciones push en Android
+###### Configuración de los iconos de notificaciones push en Android {#configuring-android-push-notification-icons}
 
 Cuando utilices `androidNotificationLargeIcon` y `androidNotificationSmallIcon`, sigue estas prácticas recomendadas para que los iconos se muestren correctamente:
 
@@ -536,7 +536,7 @@ El plugin Braze Expo hace referencia a tus archivos de iconos desde los director
 
 Para obtener más información sobre los iconos de notificación de Android, consulta las [directrices sobre iconos de notificación de Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### Paso 2.3: Compila y ejecuta tu aplicación
+##### Paso 2.3: Compila y ejecuta tu aplicación {#step-23-build-and-run-your-application}
 
 La precompilación de tu aplicación genera los archivos nativos necesarios para que el plugin Braze Expo funcione.
 
@@ -548,9 +548,9 @@ npx expo prebuild
 
 Ejecuta tu aplicación como se especifica en la [documentación de Expo](https://docs.expo.dev/workflow/customizing/). Ten en cuenta que, si realizas algún cambio en las opciones de configuración, tendrás que precompilar y ejecutar la aplicación de nuevo.
 
-#### Método 2: Uso de React Native CLI
+#### Método 2: Uso de React Native CLI {#method-2-using-react-native-cli}
 
-##### Configurar Android
+##### Configurar Android {#set-up-android-1}
 
 **Paso 2.1: Añade el plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configurar iOS
+##### Configurar iOS {#set-up-ios-1}
 
 **Paso 2.5: (Opcional) Configura el Podfile para XCFrameworks dinámicos**
 
@@ -773,7 +773,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### Paso 3: Inicializa el SDK
+### Paso 3: Inicializa el SDK {#step-3-initialize-the-sdk}
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
@@ -786,7 +786,7 @@ import Braze from "@braze/react-native-sdk";
 
 Luego llama a `Braze.initialize()` con tu clave de API del identificador de la aplicación y el punto de conexión del SDK para crear la instancia de Braze. Consulta las opciones a continuación para saber dónde llamar a este método en tu aplicación.
 
-#### Inicialización estándar
+#### Inicialización estándar {#standard-initialization}
 
 El siguiente fragmento de código muestra cómo inicializar el SDK cuando tu aplicación se inicia llamando a `Braze.initialize()` en un `useEffect`:
 
@@ -805,7 +805,7 @@ const App = () => {
 };
 ```
 
-#### Inicialización diferida
+#### Inicialización diferida {#delayed-initialization}
 
 El siguiente fragmento de código muestra cómo diferir la inicialización del SDK hasta más adelante en la sesión. Por ejemplo, después de que el usuario otorgue su consentimiento o complete el inicio de sesión:
 
@@ -819,7 +819,7 @@ function onUserConsent() {
 En iOS, las notificaciones push recibidas antes de `Braze.initialize()` se ponen en cola y se procesan después de la inicialización. En Android, los vínculos profundos de las notificaciones push no se resuelven mientras el SDK está esperando ser inicializado. Si tu aplicación depende del manejo inmediato de vínculos profundos al inicio, usa la [inicialización estándar](#standard-initialization) en su lugar.
 {% endalert %}
 
-#### Claves de API específicas por plataforma
+#### Claves de API específicas por plataforma {#platform-specific-api-keys}
 
 El siguiente fragmento de código muestra cómo usar la detección de plataforma cuando tus aplicaciones Android e iOS usan claves de API diferentes:
 
@@ -835,7 +835,7 @@ const apiKey = Platform.select({
 Braze.initialize(apiKey, "YOUR-SDK-ENDPOINT");
 ```
 
-#### Reinicialización
+#### Reinicialización {#re-initialization}
 
 Puedes llamar a `Braze.initialize()` varias veces para reinicializar el SDK con una clave de API y punto de conexión diferentes durante la sesión. Cada llamada destruye la instancia de Braze anterior y crea una nueva.
 
@@ -855,12 +855,12 @@ import Braze from "@braze/react-native-sdk";
 {% endtab %}
 {% endtabs %}
 
-### Paso 4: Prueba la integración (opcional)
+### Paso 4: Prueba la integración (opcional) {#step-4-test-the-integration-optional}
 
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
 
-Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Resumen**).
+Puedes verificar que el SDK está integrado comprobando las estadísticas de sesión en el dashboard. Si ejecutas tu aplicación en cualquiera de las plataformas, deberías ver una nueva sesión en el dashboard (en la sección **Overview**).
 
 El siguiente fragmento de código muestra cómo abrir una sesión para un usuario en particular en tu aplicación:
 
@@ -871,7 +871,7 @@ Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 Braze.changeUser("{some-user-id}");
 ```
 
-Busca al usuario con `{some-user-id}` en el dashboard en **Audiencia** > **Buscar usuarios**. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
+Busca al usuario con `{some-user-id}` en el dashboard en **Audience** > **Search Users**. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
 
 {% endtab %}
 {% tab React Native SDK 19.1.0 y anteriores %}
@@ -900,15 +900,15 @@ const App = () => {
   )
 ```
 
-En el panel de Braze, ve a [Búsqueda de usuarios]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search#using-user-search) y busca al usuario con el ID correspondiente a `some-user-id`. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
+En el panel de Braze, ve a [Búsqueda de usuarios]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search) y busca al usuario con el ID correspondiente a `some-user-id`. Ahí puedes verificar que se hayan registrado los datos de sesión y dispositivo.
 
 {% endtab %}
 {% endtabs %}
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
 Después de integrar el SDK de Braze, puedes empezar a implementar características de mensajería comunes:
 
 - [Notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/): Configura y envía notificaciones push a tus usuarios.
-- [Mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/): Muestra mensajes contextuales dentro de tu aplicación.
+- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/): Muestra mensajes contextuales dentro de tu aplicación.
 - [Banners]({{site.baseurl}}/developer_guide/banners/): Muestra banners persistentes en la interfaz de tu aplicación.

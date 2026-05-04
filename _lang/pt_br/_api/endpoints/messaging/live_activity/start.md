@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade
 
 ---
 {% api %}
-# Iniciar atividade ao vivo
+# Iniciar atividade ao vivo {#start-live-activity}
 {% apimethod post %}
 /messages/live_activity/start
 {% endapimethod %}
@@ -19,13 +19,13 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade
 
 Depois de criar uma Live Activity, você pode fazer uma solicitação POST para iniciar remotamente sua atividade para qualquer segmento específico. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
-Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APNs) é 10. Se `content-available` estiver definido, essa prioridade é 5. Consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para mais detalhes.
+Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APNs) é 10. Se `content-available` estiver definido, essa prioridade é 5. Consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) para mais detalhes.
 
 {% alert tip %}
 Para encerrar uma Live Activity, use o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) com `end_activity` definido como `true`.
 {% endalert %}
 
-## Configurando o encerramento automático
+## Configurando o encerramento automático {#arranging-automatic-dismissal}
 
 Para configurar o encerramento automático após o início de uma Live Activity, agende uma solicitação de acompanhamento para o endpoint de atualização a partir do seu backend.
 
@@ -33,11 +33,11 @@ Para configurar o encerramento automático após o início de uma Live Activity,
 2. Armazene esse `activity_id` e o horário de encerramento desejado no agendador do seu backend.
 3. No horário de encerramento desejado, envie uma solicitação `/messages/live_activity/update` com `end_activity` definido como `true`.
 4. Configure o comportamento de encerramento na mesma solicitação de atualização. Para mais detalhes, consulte o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/).
-5. Verifique os eventos de envio e resultado no [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
+5. Verifique os eventos de envio e resultado no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar este endpoint, você precisará concluir o seguinte:
 
@@ -46,11 +46,11 @@ Para usar este endpoint, você precisará concluir o seguinte:
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```json
 {
@@ -68,11 +68,11 @@ Para usar este endpoint, você precisará concluir o seguinte:
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados| Descrição  |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição  |
 |-----------|----------|----------|--------------|
-| `app_id` | Obrigatória | String | [Identificador da API]({{site.baseurl}}/api/identifier_types/#the-app-identifier) do app recuperado da página [Chaves da API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/).  |
+| `app_id` | Obrigatória | String | [Identificador de API]({{site.baseurl}}/api/identifier_types/#the-app-identifier) do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/).  |
 | `activity_id` | Obrigatória | String  | Defina uma string personalizada como seu `activity_id`. Você usará esse ID quando desejar enviar eventos de atualização ou encerramento para sua Live Activity.  |
 | `activity_attributes_type`  | Obrigatória | String | O tipo de atributo de atividade que você define em `liveActivities.registerPushToStart` no seu app.  |
 | `activity_attributes` | Obrigatória | Objeto  | Os valores de atributo estáticos para o tipo de atividade (como os nomes das equipes esportivas, que não mudam). |
@@ -84,7 +84,7 @@ Para usar este endpoint, você precisará concluir o seguinte:
 | `custom_audience` | Opcional se `external_user_ids` ou `segment_id` for fornecido | Objeto de público conectado  | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
@@ -116,11 +116,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## Resposta
+## Resposta {#response}
 
 Existem dois códigos de status para este endpoint: `201` e `4XX`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 Um código de status `201` é retornado se a solicitação foi formatada corretamente e a recebemos. O código de status `201` pode retornar o seguinte corpo de resposta.
 
@@ -130,7 +130,7 @@ Um código de status `201` é retornado se a solicitação foi formatada correta
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
 A classe de código de status `4XX` indica um erro do cliente. Consulte o artigo [erros e respostas da API]({{site.baseurl}}/api/errors/) para saber mais sobre os erros que você pode encontrar.
 

@@ -1,23 +1,27 @@
 ---
-nav_title: Daten für Segmente nach CSV exportieren
-article_title: Daten der Segmente in CSV exportieren
-page_order: 2
+nav_title: Segmentdaten
+article_title: Segmentdaten exportieren
+page_order: 4
 page_type: reference
-description: "In diesem Referenzartikel erfahren Sie, wie Sie Daten aus Segmenten nach CSV exportieren."
+description: "In diesem Referenzartikel erfahren Sie, wie Sie Segmentdaten nach CSV exportieren, welche Berechtigungen für den Export von Nutzerdaten erforderlich sind, wie Canvas-Schritt-Exporte funktionieren und welche Felder im Export enthalten sind."
 
 ---
 
-# Daten für Segmente nach CSV exportieren
+# Segmentdaten nach CSV exportieren {#export-segment-data-to-csv}
 
 > Auf dieser Seite erfahren Sie, wie Sie einen CSV-Export von Nutzerdaten eines Segments anfragen können und welche Daten im Export enthalten sind.
 
-Um Segmentdaten in eine CSV-Datei zu exportieren, wählen Sie bei der Bearbeitung eines Segments das Dropdown-Menü **Nutzerdaten** aus und wählen Sie, ob Sie die Nutzerdaten oder die E-Mail-Adressen für das Segment exportieren möchten.
+{% alert note %}
+CSV-Exportoptionen werden im Dropdown-Menü **User Data** nur für Unternehmensnutzer:innen angezeigt, die über die [Berechtigung „Nutzerdaten als CSV exportieren“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für diesen Workspace verfügen.
+{% endalert %}
 
-![Abschnitt Segmentdetails mit Nutzerdaten-Dropdown mit Exportoptionen.]({% image_buster /assets/img_archive/csvexport.png %})
+Um Segmentdaten in eine CSV-Datei zu exportieren, wählen Sie bei der Bearbeitung eines Segments das Dropdown-Menü **User Data** aus und wählen Sie, ob Sie die Nutzerdaten oder die E-Mail-Adressen für das Segment exportieren möchten.
 
-Sie können einen CSV-Export auch von der Hauptseite **Segmente** aus anfragen, indem Sie das Dropdown-Menü <i class="fas fa-gear"></i> **Einstellungen** für ein Segment auswählen:
+![Abschnitt „Segmentdetails“ mit dem Dropdown-Menü „User Data“ und Exportoptionen.]({% image_buster /assets/img_archive/csvexport.png %})
 
-![Dropdown-Menü Einstellungen auf der Hauptseite Segmente.]({% image_buster /assets/img_archive/csvexport2.png %})
+Sie können einen CSV-Export auch von der Hauptseite **Segments** aus anfragen, indem Sie das Dropdown-Menü <i class="fas fa-gear"></i> **Settings** für ein Segment auswählen:
+
+![Dropdown-Menü „Settings“ auf der Hauptseite „Segments“.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
 Um Daten aus all Ihren Nutzerprofilen zu exportieren, erstellen Sie ein Segment ohne Filter und fragen dann einen CSV-Export an.
@@ -33,11 +37,11 @@ Wenn Sie Ihre [Amazon S3-Anmeldedaten]({{site.baseurl}}/partners/data_and_infras
 
 {% multi_lang_include alerts/important_alerts.md alert='S3 file bucket export' %}
 
-## Im Export enthaltene Daten
+## Im Export enthaltene Daten {#data-included-in-export}
 
 Abhängig von Ihrer Auswahl ist Folgendes in Ihrem Export enthalten.
 
-### CSV-Export von Nutzerdaten
+### Nutzerdaten als CSV exportieren {#csv-export-user-data}
 
 | Feldname                    | Beschreibung                                              |
 | --------------------------- | -------------------------------------------------------- |
@@ -81,7 +85,11 @@ Abhängig von Ihrer Auswahl ist Folgendes in Ihrem Export enthalten.
 | Custom attributes           | Basierend auf der Auswahl beim Export                             |
 {: .reset-td-br-1 .reset-td-br-2 }
 
-### CSV-Export von E-Mail-Adressen
+{% alert note %}
+Wenn Sie Nutzerdaten aus einem Canvas-Schritt exportieren, enthält die CSV alle Nutzer:innen, die sich im Laufe der Lebensdauer des Canvas-Schritts in diesem Schritt befunden haben. Sie können den Export nicht auf einen Datumsbereich oder ein anderes Zeitfenster beschränken. Informationen zur Durchführung dieser Exporte finden Sie unter [Canvas-Daten exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
+{% endalert %}
+
+### E-Mail-Adressen als CSV exportieren {#csv-export-email-addresses}
 
 | Feldname                    | Beschreibung            |
 | --------------------------- | ---------------------- |
@@ -95,27 +103,27 @@ Abhängig von Ihrer Auswahl ist Folgendes in Ihrem Export enthalten.
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie in unserem Artikel zur [Fehlerbehebung]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
-{% endalert %} 
+Hilfe zu CSV- und API-Exporten finden Sie in unserem Artikel zur [Fehlerbehebung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+{% endalert %}
 
-## Exportieren großer Segmente
+## Exportieren großer Segmente {#exporting-large-segments}
 
 Es gibt mehrere Methoden, um ein großes Segment mit mehr als 500.000 Nutzer:innen zu exportieren.
 
 {% tabs %}
-{% tab Multiple segments %}
+{% tab Mehrere Segmente %}
 
-Sie können ein großes Segment in kleinere Segmente aufteilen und dann jedes der kleineren Segmente aus Braze exportieren. 
-
-{% endtab %}
-{% tab Random bucket numbers %}
-
-Sie können auch [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/engagement_tools/testing/random_bucket_numbers/) verwenden, um Ihre Nutzerbasis in mehrere Segmente aufzuteilen, die Sie dann nach dem Export kombinieren können. Wenn Sie zum Beispiel Ihr Segment in zwei verschiedene Segmente aufteilen möchten, können Sie dies mit den folgenden Filtern tun:
-- Segment 1: Zufällige Bucket-Nummer ist kleiner als 5000 (umfasst 0-4999)
-- Segment 2: Zufällige Bucket-Nummer ist größer als 4999 (umfasst 5000-9999)
+Sie können ein großes Segment in kleinere Segmente aufteilen und dann jedes der kleineren Segmente aus Braze exportieren.
 
 {% endtab %}
-{% tab Endpoints %}
+{% tab Zufällige Bucket-Nummern %}
+
+Sie können auch [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) verwenden, um Ihre Nutzerbasis in mehrere Segmente aufzuteilen, die Sie dann nach dem Export kombinieren können. Wenn Sie zum Beispiel Ihr Segment in zwei verschiedene Segmente aufteilen möchten, können Sie dies mit den folgenden Filtern tun:
+- Segment 1: Zufällige Bucket-Nummer ist kleiner als 5000 (umfasst 0–4999)
+- Segment 2: Zufällige Bucket-Nummer ist größer als 4999 (umfasst 5000–9999)
+
+{% endtab %}
+{% tab Endpunkte %}
 
 Sie können auch die folgenden Endpunkte nutzen, um Nutzerdaten für ein bestimmtes Segment zu exportieren. Beachten Sie, dass für diese Endpunkte Datenbeschränkungen gelten.
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)

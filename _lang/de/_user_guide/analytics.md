@@ -25,4 +25,4 @@ guide_featured_list:
 
 ---
 
-Verwenden Sie **Dashboards** für einen schnellen Überblick über die Performance, **Berichte** für tiefergehende Analysen über Kampagnen und Canvases hinweg und **Tracking**, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Wenn Sie sich nicht sicher sind, was eine bestimmte Metrik bedeutet, schauen Sie im **Metriken-Glossar** nach.
+Verwenden Sie **Dashboards** für einen schnellen Performance-Überblick, **Berichte** für tiefergehende Analysen über Campaigns und Canvases hinweg und **Tracking**, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Wenn Sie sich nicht sicher sind, was eine bestimmte Metrik bedeutet, schauen Sie im **Metriken-Glossar** nach.

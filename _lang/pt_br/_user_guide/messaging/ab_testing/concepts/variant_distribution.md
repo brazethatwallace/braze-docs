@@ -9,17 +9,17 @@ tool:
   - Canvas
 ---
 
-# Distribuição de variantes
+# Distribuição de variantes {#variant-distribution}
 
 > Quando você configura um teste A/B ou multivariante, cada envio atribui usuários às variantes de forma independente, com base nas porcentagens que você configurar. Como a atribuição é aleatória, a distribuição real pode não corresponder exatamente às suas porcentagens — especialmente com amostras menores.
 
-## Como funciona
+## Como funciona {#how-it-works}
 
 Toda vez que uma mensagem é enviada em uma campanha multivariante, o sistema seleciona de forma independente uma opção aleatória de acordo com as porcentagens que você definiu e atribui uma variante com base no resultado. É como jogar uma moeda — anomalias são possíveis. Se você já jogou uma moeda 100 vezes, sabe que provavelmente não vai obter uma divisão exata de 50-50 entre cara e coroa todas as vezes, mesmo tendo apenas duas opções. Você pode obter 52 caras e 48 coroas.
 
 Se você tem múltiplas variantes que deseja dividir igualmente, certifique-se de que o número de variantes seja um múltiplo de 100. Caso contrário, algumas variantes terão uma porcentagem maior de usuários distribuídos em comparação com outras. Por exemplo, se sua campanha tem 7 variantes, não é possível ter uma distribuição uniforme, já que 7 não divide 100 igualmente como número inteiro. Nesse caso, você teria 2 variantes de 15% e 5 variantes de 14%.
 
-## Distribuição de mensagens no app
+## Distribuição de mensagens no app {#in-app-message-distribution}
 
 Ao executar um teste A/B em mensagens no app, sua análise de dados pode parecer mostrar uma distribuição de variantes mais alta entre uma variante e outra, mesmo que elas tenham uma divisão percentual igual. Por exemplo, considere o gráfico a seguir de *Destinatários Únicos* para a Variante A e a Variante C.
 

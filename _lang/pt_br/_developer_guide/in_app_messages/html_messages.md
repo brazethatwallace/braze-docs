@@ -1,15 +1,14 @@
 ---
 nav_title: Mensagens HTML
-article_title: Adição da interface JavaScript do Braze a WebViews para Swift
-platform: Swift
+article_title: Mensagens no app em HTML
 page_order: 0.5
-description: "Aprenda como adicionar a interface JavaScript do Braze ao seu app."
+description: "Aprenda como adicionar a interface JavaScript da Braze ao seu app."
 
 ---
 
-# Mensagens no app em HTML
+# Mensagens no app em HTML {#html-in-app-messages}
 
-> Aprenda como adicionar a interface JavaScript do Braze ao seu app, para que você possa usar a API do Braze para criar [mensagens HTML no app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages) em suas WebViews personalizadas.
+> Aprenda como adicionar a interface JavaScript da Braze ao seu app, para que você possa usar a API da Braze para criar [mensagens HTML no app]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) em suas WebViews personalizadas.
 
 {% sdktabs %}
 {% sdktab android %}

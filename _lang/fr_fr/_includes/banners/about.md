@@ -1,8 +1,8 @@
-# Bannières
+# Bannières {#banners}
 
 > Avec les bannières, vous pouvez créer des messages personnalisés pour vos utilisateurs, tout en élargissant la portée de vos autres canaux, tels que les e-mails ou les notifications push. Vous pouvez intégrer des bannières directement dans votre application ou votre site web, ce qui vous permet d'interagir avec les utilisateurs à travers une expérience naturelle.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 La disponibilité des bannières dépend de votre forfait Braze. Contactez votre gestionnaire de compte ou votre gestionnaire de la satisfaction client pour commencer.
 
@@ -10,7 +10,7 @@ Avant de démarrer, assurez-vous d'avoir [créé des emplacements de bannières]
 
 ![Exemple de bannière affichée sur un appareil.]({% image_buster /assets/img/banners/sample_banner.png %})
 
-## Pourquoi utiliser des bannières ?
+## Pourquoi utiliser des bannières ? {#why-use-banners}
 
 Les bannières permettent aux équipes marketing et produit de personnaliser dynamiquement le contenu des applications ou des sites web, en tenant compte en temps réel de l'éligibilité et du comportement des utilisateurs. Elles affichent de manière persistante des messages en ligne, offrant des expériences non intrusives et contextuellement pertinentes qui peuvent être actualisées au début d'une session ou en cours de session lorsque votre application ou votre site web en fait explicitement la demande.
 
@@ -24,7 +24,7 @@ Une fois les bannières intégrées à une application ou à un site web, les ma
 | Soldes et promotions | Mettez en avant le contenu phare, les produits tendance et les campagnes de marque en cours de manière persistante et directement sur votre page d'accueil, sans perturber l'expérience utilisateur. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Fonctionnalités
+## Fonctionnalités {#features}
 
 Les fonctionnalités des bannières comprennent :
 
@@ -58,7 +58,7 @@ Si plusieurs bannières sont définies avec la même priorité, la bannière la 
 
 {% multi_lang_include banners/placement_requests.md %}
 
-### Distribution des messages
+### Distribution des messages {#message-delivery}
 
 Les messages de bannière sont diffusés sur votre application ou votre site web sous forme de contenu HTML, généralement affiché dans un iframe. Cela garantit un rendu cohérent de vos bannières sur tous les appareils et vous aide à séparer leurs styles et leurs scripts du reste de votre code.
 
@@ -66,7 +66,7 @@ Les iframes permettent des mises à jour dynamiques et personnalisées du conten
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
-### Dimensions et taille
+### Dimensions et taille {#dimensions-and-sizing}
 
 Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 
@@ -74,7 +74,7 @@ Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 - Le HTML occupe toute la largeur du conteneur dans lequel il est affiché.
 - Nous vous recommandons de créer un élément de dimension fixe et de tester ces dimensions dans le compositeur.
 
-## Limitations
+## Limitations {#limitations}
 
 Chaque espace de travail peut prendre en charge jusqu'à 200 campagnes de bannières actives. Si cette limite est atteinte, vous devrez [archiver ou désactiver]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) une campagne existante avant d'en créer une nouvelle.
 
@@ -90,11 +90,11 @@ De plus, les messages de bannière ne prennent pas en charge les fonctionnalité
 La possibilité pour les utilisateurs de fermer manuellement une bannière est en accès anticipé. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
 - [Créer des emplacements de bannières dans votre application ou votre site web]({{site.baseurl}}/developer_guide/banners/placements/)
 - [Créer une campagne de bannières dans Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
-- [Tutoriel : Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Tutoriel : Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
 
 {% alert tip %}
 Vous souhaitez contribuer à définir les priorités pour la suite ? Contactez [banners-feedback@braze.com](mailto:banners-feedback@braze.com).

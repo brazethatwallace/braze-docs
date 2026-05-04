@@ -20,7 +20,7 @@ The following table describes how users can use each editor block type.
 |Button| Adds a standard button. Properties for this block allow for editing and setting links easily. | 
 |Divider| Inserts a solid, dotted, or dashed line to help with spacing.|
 |Spacer| Adds space, or "padding", between other blocks. |
-|Image| Inserts an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). | 
+|Image| Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | 
 |Video| Creates a link to the video content. |
 |Social| Inserts social media platform icon. You can upload custom images for brand specific icons. |
 |Icons| Inserts an icon. You can upload custom images. Braze uses an oversized placeholder icon until you upload an image. |

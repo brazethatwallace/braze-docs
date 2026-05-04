@@ -17,7 +17,7 @@ Janelas de navegação privada não oferecem suporte a push para a web.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Adicionar um endereço BCC à sua campanha ou Canvas resulta na duplicação dos seus e-mails faturáveis para a campanha ou componente do Canvas, já que a Braze envia uma mensagem para o seu usuário e uma para o seu endereço BCC.
+Adicionar um endereço BCC à sua Campaign ou Canvas resulta na duplicação dos seus e-mails faturáveis para a Campaign ou componente do Canvas, já que a Braze envia uma mensagem para o seu usuário e uma para o seu endereço BCC.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Existem certos navegadores, como os apps Naver para Android e iOS, que não ofer
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+O evento de compra legado está entrando em modo de manutenção. Os eventos de compra existentes continuam funcionando como esperado, mas nenhuma nova funcionalidade está sendo desenvolvida sobre eles, em favor dos eventos recomendados de eCommerce. Você pode continuar usando eventos de compra por tempo indeterminado. A Braze fornecerá aviso prévio bem antes de qualquer data de fim de vida ser definida.
 {% endalert %}
 
 {% endif %}
@@ -78,14 +78,14 @@ O evento de compra legado entrará em estado de descontinuação (modo de manute
 
 {% alert important %}
 Os arquivos exportados armazenados em buckets S3 são automaticamente excluídos após o link de download expirar (quatro horas a partir do envio do e-mail de exportação, a menos que indicado de outra forma).
-{% endalert %} 
+{% endalert %}
 
 {% endif %}
 
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-A integração do Shopify oferece suporte a webhooks de criação e atualização de clientes do Shopify, que estão localizados nas suas configurações de dados. Quando um perfil de usuário é criado ou atualizado no Shopify, um perfil de usuário correspondente na Braze será criado ou atualizado. <br><br>Essas ações não disparam eventos personalizados na Braze e são usadas exclusivamente para [sincronizar dados de usuários do Shopify com a Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Os dados sincronizados incluem [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) e, se ativado na sua configuração, [estados de grupo de inscrições]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+A integração do Shopify oferece suporte a webhooks de criação e atualização de clientes do Shopify, que estão localizados nas suas configurações de dados. Quando um perfil de usuário é criado ou atualizado no Shopify, um perfil de usuário correspondente na Braze será criado ou atualizado. <br><br>Essas ações não disparam eventos personalizados na Braze e são usadas exclusivamente para [sincronizar dados de usuários do Shopify com a Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Os dados sincronizados incluem [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) e, se ativado na sua configuração, [estados de grupo de inscrições]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ A integração do Shopify oferece suporte a webhooks de criação e atualizaçã
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object).
+As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -109,14 +109,14 @@ Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Escolhendo entre os tipos de filtro "Dia do ano" e "Hora"**: Ao filtrar variáveis de contexto que contêm datas, escolha o tipo de comparação correto com base em se a data se repete a cada ano:
+**Escolhendo entre os tipos de filtro "Day of year" e "Time"**: Ao filtrar variáveis de contexto que contêm datas, escolha o tipo de comparação correto com base em se a data se repete a cada ano:
 
-- **Use "Dia do ano"** quando a data se repete a cada ano (por exemplo, aniversários, datas comemorativas ou feriados como o Natal). Esse tipo de comparação calcula com base no dia do ano (1-365/366), ignorando o componente do ano.
-- **Use "Hora"** quando a data for uma data absoluta que não se repete (por exemplo, datas de término de contrato, datas de compromissos ou datas de renovação de inscrição). Esse tipo de comparação calcula com base no timestamp completo, incluindo o ano.
+- **Use "Day of year"** quando a data se repete a cada ano (por exemplo, aniversários, datas comemorativas ou feriados como o Natal). Esse tipo de comparação calcula com base no dia do ano (1-365/366), ignorando o componente do ano.
+- **Use "Time"** quando a data for uma data absoluta que não se repete (por exemplo, datas de término de contrato, datas de compromissos ou datas de renovação de inscrição). Esse tipo de comparação calcula com base no timestamp completo, incluindo o ano.
 
-Usar "Dia do ano" para datas absolutas pode produzir resultados incorretos ou inesperados porque o cálculo ignora o componente do ano. Por exemplo, se você estiver comparando uma data futura de término de contrato em abril para determinar se está dentro de 63 dias, usar "Dia do ano" pode corresponder incorretamente às datas porque compara apenas os números dos dias (119 vs 359) sem considerar que abril está na verdade a 188 dias de distância.
+Usar "Day of year" para datas absolutas pode produzir resultados incorretos ou inesperados porque o cálculo ignora o componente do ano. Por exemplo, se você estiver comparando uma data futura de término de contrato em abril para determinar se está dentro de 63 dias, usar "Day of year" pode corresponder incorretamente às datas porque compara apenas os números dos dias (119 vs 359) sem considerar que abril está na verdade a 188 dias de distância.
 
-**Diretriz geral**: A data se repete a cada ano? **Sim** → Use "Dia do ano". **Não** → Use "Hora".
+**Diretriz geral**: A data se repete a cada ano? **Sim** → Use "Day of year". **Não** → Use "Time".
 {% endalert %}
 
 {% endif %}
@@ -155,18 +155,10 @@ Para esta integração, o alias de usuário deve usar o seguinte formato para qu
 
 {% endif %}
 
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Mensagens multilíngues e traduções por localidade estão atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
-Cartões de conteúdo, mensagens no app, Banners e Feature Flags dependem da conectividade do dispositivo para sincronizar com os servidores da Braze. Como as condições de rede podem variar, existe a possibilidade de que o conteúdo ou as atualizações não sejam sincronizados, exibidos ou removidos imediatamente (por exemplo, se o usuário estiver offline). Recomendamos evitar esses canais para atualizações críticas e urgentes.
+Content Cards, mensagens no app, Banners e Feature Flags dependem da conectividade do dispositivo para sincronizar com os servidores da Braze. Como as condições de rede podem variar, existe a possibilidade de que o conteúdo ou as atualizações não sejam sincronizados, exibidos ou removidos imediatamente (por exemplo, se o usuário estiver offline). Recomendamos evitar esses canais para atualizações críticas e urgentes.
 {% endalert %}
 
 {% endif %}
@@ -174,7 +166,7 @@ Cartões de conteúdo, mensagens no app, Banners e Feature Flags dependem da con
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
+Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
 {% endalert %}
 
 {% endif %}

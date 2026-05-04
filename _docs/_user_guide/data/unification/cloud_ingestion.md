@@ -74,7 +74,9 @@ When syncing user data through Cloud Data Ingestion, you can identify users usin
 | `PHONE` | The user's phone number. If multiple profiles with the same phone number exist, the most recently updated profile is prioritized for updates. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-For detailed information about setting up tables with these identifiers, refer to the [Data Warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/) documentation.
+For detailed information about setting up table columns and payload formatting requirements, see [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+
+For source-specific setup instructions and SQL examples, see [Data Warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
 
 ## Data point usage
 

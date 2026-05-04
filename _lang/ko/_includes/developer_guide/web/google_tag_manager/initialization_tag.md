@@ -1,47 +1,47 @@
-### 필수 조건
+### 필수 조건 {#prerequisites}
 
 이 통합 방법을 사용하기 전에 [Google Tag Manager에 대한 계정과 컨테이너를 생성](https://support.google.com/tagmanager/answer/14842164)해야 합니다.
 
-### 1단계: 태그 템플릿 갤러리 열기
+### 1단계: 태그 템플릿 갤러리 열기 {#step-1-open-the-tag-template-gallery}
 
-[Google Tag Manager](https://tagmanager.google.com/)에서 워크스페이스를 선택한 다음 **템플릿**을 선택합니다. **태그 템플릿** 창에서 **갤러리 검색**을 선택합니다.
+[Google Tag Manager](https://tagmanager.google.com/)에서 워크스페이스를 선택한 다음 **Templates**를 선택합니다. **Tag Template** 창에서 **Search Gallery**를 선택합니다.
 
 ![Google Tag Manager의 예제 워크스페이스에 대한 템플릿 페이지입니다.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
-### 2단계: 초기화 태그 템플릿 추가
+### 2단계: 초기화 태그 템플릿 추가 {#step-2-add-the-initialization-tag-template}
 
 템플릿 갤러리에서 `braze-inc`을 검색한 다음 **Braze Initialization Tag**를 선택합니다.
 
 ![다양한 'braze-inc' 템플릿을 보여주는 템플릿 갤러리입니다.]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
-**워크스페이스에 추가** > **추가**를 선택합니다.
+**Add to workspace** > **Add**를 선택합니다.
 
 ![Google Tag Manager의 'Braze Initialization Tag' 페이지입니다.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
-### 3단계: 태그 구성
+### 3단계: 태그 구성 {#step-3-configure-the-tag}
 
-**템플릿** 섹션에서 새로 추가한 템플릿을 선택합니다.
+**Templates** 섹션에서 새로 추가한 템플릿을 선택합니다.
 
-![Braze Initialization Tag 템플릿을 보여주는 Google Tag Manager의 "템플릿" 페이지입니다.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![Braze Initialization Tag 템플릿을 보여주는 Google Tag Manager의 "Templates" 페이지입니다.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
-연필 아이콘을 선택하여 **태그 구성** 드롭다운을 엽니다.
+연필 아이콘을 선택하여 **Tag Configuration** 드롭다운을 엽니다.
 
-![연필 아이콘이 표시된 태그 구성 타일입니다.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![연필 아이콘이 표시된 Tag Configuration 타일입니다.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 필수 최소 정보를 입력합니다:
 
 | 필드         | 설명 |
 | ------------- | ----------- |
-| **API 키**   | Braze 대시보드의 **설정** > **앱 설정**에서 찾을 수 있는 [Braze API 키]({{site.baseurl}}/api/basics/#about-rest-api-keys)입니다. |
-| **API 엔드포인트** | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 대한 Braze URL에 따라 달라집니다. |
-| **SDK 버전**  | [체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)에 나열된 웹 Braze SDK의 가장 최근 `MAJOR.MINOR` 버전입니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. 자세한 내용은 [SDK 버전 관리에 대한 정보]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)를 참조하세요. |
+| **API Key**   | Braze 대시보드의 **Settings** > **App Settings**에서 찾을 수 있는 [Braze API 키]({{site.baseurl}}/api/basics/#about-rest-api-keys)입니다. |
+| **API Endpoint** | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 대한 Braze URL에 따라 달라집니다. |
+| **SDK Version**  | [체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)에 나열된 웹 Braze SDK의 가장 최근 `MAJOR.MINOR` 버전입니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. 자세한 내용은 [SDK 버전 관리에 대한 정보]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 추가 초기화 설정을 위해 **Braze Initialization Options**를 선택하고 필요한 옵션을 선택합니다.
 
-!['태그 구성' 아래의 Braze Initialization Options 목록입니다.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+!['Tag Configuration' 아래의 Braze Initialization Options 목록입니다.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
-### 4단계: 초기화 옵션 선택
+### 4단계: 초기화 옵션 선택 {#step-4-choose-initialization-options}
 
 Braze Initialization Tag는 다음 옵션을 제공합니다. 대부분은 [웹 SDK `InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)에 직접 매핑되며, 일부는 초기화 중 태그가 호출할 웹 SDK 메서드에 해당합니다. 통합 요구 사항에 맞는 옵션을 선택하세요:
 
@@ -68,11 +68,11 @@ Google Tag Manager Braze Initialization Tag를 사용할 때 [커스텀 HTML 인
 
 GTM 템플릿에서 노출되지 않는 옵션(예: `contentSecurityNonce`, `localization` 또는 `devicePropertyAllowlist`)의 경우 [런타임 초기화]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)를 대신 사용하세요.
 
-### 5단계: *모든 페이지*에서 트리거되도록 설정
+### 5단계: *모든 페이지*에서 트리거되도록 설정 {#step-5-set-to-trigger-on-all-pages}
 
 초기화 태그는 사이트의 모든 페이지에서 실행되어야 합니다. 이를 통해 Braze SDK 메서드를 사용하고 웹 푸시 분석을 기록할 수 있습니다.
 
-### 6단계: 통합 확인
+### 6단계: 통합 확인 {#step-6-verify-your-integration}
 
 다음 옵션 중 하나를 사용하여 통합을 확인할 수 있습니다:
 

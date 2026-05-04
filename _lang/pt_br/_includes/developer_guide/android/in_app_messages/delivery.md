@@ -1,24 +1,24 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Gatilhos de mensagem
+## Gatilhos de mensagem {#message-triggers}
 
-### Tipos de disparo
+### Tipos de disparo {#trigger-types}
 
-As mensagens no app são disparadas automaticamente quando o SDK registra um dos seguintes tipos de evento personalizado: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` e `Push Click`. Observe que os gatilhos `Specific Purchase` e `Custom Event` também contêm filtros de propriedade robustos.
+As mensagens no app são acionadas automaticamente quando o SDK registra um dos seguintes tipos de evento personalizado: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` e `Push Click`. Observe que os gatilhos `Specific Purchase` e `Custom Event` também contêm filtros de propriedade robustos.
 
 {% alert note %}
-As mensagens no app não podem ser disparadas pela API ou por eventos da API—apenas por eventos personalizados registrados pelo SDK. Para saber mais sobre registro, consulte [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+As mensagens no app não podem ser acionadas pela API ou por eventos da API&#8212;apenas por eventos personalizados registrados pelo SDK. Para saber mais sobre registro, consulte [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
-### Semântica de entrega
+### Semântica de entrega {#delivery-semantics}
 
-Todas as mensagens no app elegíveis são entregues ao dispositivo do usuário no início da sessão. Quando entregues, o SDK faz o pré-carregamento dos ativos para que estejam disponíveis no momento do disparo, minimizando a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue.
+Todas as mensagens no app elegíveis são entregues ao dispositivo do usuário no início da sessão. Quando entregues, o SDK faz o pré-carregamento dos ativos para que estejam disponíveis no momento do acionamento, minimizando a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue.
 
 Para saber mais sobre a semântica de início de sessão do SDK, consulte [Ciclo de vida da sessão]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android).
 
-### Limite de taxa
+### Limite de taxa {#rate-limit}
 
-Por padrão, o SDK limita a frequência das mensagens no app disparadas para uma vez a cada 30 segundos, garantindo uma experiência de qualidade para o usuário.
+Por padrão, o SDK limita o disparo de mensagens no app a uma vez a cada 30 segundos, garantindo uma experiência de qualidade para o usuário.
 
 Para apps em produção, não defina esse valor abaixo de 10 segundos, para que os usuários não sejam sobrecarregados com mensagens no app consecutivas. Para testes e fluxos de apps de exemplo, 5 segundos é uma configuração comum.
 
@@ -30,9 +30,9 @@ Para substituir esse valor, defina `com_braze_trigger_action_minimum_time_interv
   <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 
-## Pares de chave-valor
+## Pares de chave-valor {#key-value-pairs}
 
-Quando você cria uma campanha na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagem no app pode usar para enviar dados ao seu app. Por exemplo:
+Quando você cria uma campaign na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagem no app pode usar para enviar dados ao seu app. Por exemplo:
 
 {% tabs %}
 {% tab JAVA %}
@@ -51,9 +51,9 @@ extras: Map<String, String>
 Para saber mais, consulte o [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721).
 {% endalert %}
 
-## Desativando gatilhos automáticos
+## Desativando gatilhos automáticos {#disabling-automatic-triggers}
 
-Para evitar que mensagens no app sejam disparadas automaticamente:
+Para evitar que mensagens no app sejam acionadas automaticamente:
 
 1. Certifique-se de usar o inicializador de integração automática, que está ativado por padrão a partir da versão `2.2.0`.
 2. Defina o padrão da operação de mensagem no app como `DISCARD` adicionando a seguinte linha ao seu arquivo `braze.xml`.
@@ -62,15 +62,15 @@ Para evitar que mensagens no app sejam disparadas automaticamente:
 <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
 ```
 
-## Disparando mensagens manualmente
+## Disparando mensagens manualmente {#manually-triggering-messages}
 
-Por padrão, as mensagens no app são disparadas automaticamente quando o SDK registra um evento personalizado. No entanto, você pode disparar uma mensagem manualmente usando os métodos a seguir.
+Por padrão, as mensagens no app são acionadas automaticamente quando o SDK registra um evento personalizado. No entanto, você pode disparar uma mensagem manualmente usando os métodos a seguir.
 
-### Usando um evento do lado do servidor
+### Usando um evento do lado do servidor {#using-a-server-side-event}
 
 Para disparar uma mensagem no app usando um evento enviado pelo servidor, envie uma notificação por push silenciosa para o dispositivo. Isso permite que um retorno de chamada de push personalizado registre um evento baseado no SDK, que então disparará a mensagem no app voltada para o usuário.
 
-#### Etapa 1: Crie um retorno de chamada push para receber o push silencioso
+#### Etapa 1: Crie um retorno de chamada push para receber o push silencioso {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
 Registre [seu retorno de chamada de evento push personalizado]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#push-callback) para escutar uma notificação por push silenciosa específica.
 
@@ -113,31 +113,31 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endtab %}
 {% endtabs %}
 
-#### Etapa 2: Crie uma campanha de push
+#### Etapa 2: Crie uma campaign de push {#step-2-create-a-push-campaign}
 
-Crie uma [campanha de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) disparada pelo evento enviado pelo servidor.
+Crie uma [campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) disparada pelo evento enviado pelo servidor.
 
 ![]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-A campanha de push deve incluir extras de pares de chave-valor que indiquem que essa campanha de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
+A campaign de push deve incluir extras de pares de chave-valor que indiquem que essa campaign de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
 
 ![Dois conjuntos de pares de chave-valor: IS_SERVER_EVENT definido como "true" e CAMPAIGN_NAME definido como "nome da campanha de exemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 O código de exemplo do retorno de chamada push anterior reconhece os pares de chave-valor e registra o evento personalizado apropriado do SDK.
 
-Se você quiser incluir propriedades de evento para anexar ao seu evento "gatilho de mensagem no app", passe-as nos pares de chave-valor da carga útil do push. Neste exemplo, o nome da campanha da mensagem no app subsequente foi incluído. Seu retorno de chamada de push personalizado pode então passar o valor como parâmetro da propriedade do evento ao registrar o evento personalizado.
+Se você quiser incluir propriedades de evento para anexar ao seu evento "gatilho de mensagem no app", passe-as nos pares de chave-valor da carga útil do push. Neste exemplo, o nome da campaign da mensagem no app subsequente foi incluído. Seu retorno de chamada de push personalizado pode então passar o valor como parâmetro da propriedade do evento ao registrar o evento personalizado.
 
-#### Etapa 3: Crie uma campanha de mensagem no app
+#### Etapa 3: Crie uma campaign de mensagem no app {#step-3-create-an-in-app-message-campaign}
 
-Crie sua campanha de mensagem no app visível para o usuário no dashboard da Braze. Essa campanha deve ter uma entrega baseada em ação e ser disparada a partir do evento personalizado registrado dentro do seu retorno de chamada push personalizado.
+Crie sua campaign de mensagem no app visível para o usuário no dashboard da Braze. Essa campaign deve ter uma entrega baseada em ação e ser disparada a partir do evento personalizado registrado dentro do seu retorno de chamada push personalizado.
 
 No exemplo a seguir, a mensagem no app específica a ser disparada foi configurada enviando a propriedade do evento como parte do push silencioso inicial.
 
-![Uma campanha de entrega baseada em ação onde uma mensagem no app será disparada quando "campaign_name" for igual a "exemplo de nome da campanha IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Uma campaign de entrega baseada em ação onde uma mensagem no app será disparada quando "campaign_name" for igual a "exemplo de nome da campaign IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 Se um evento enviado pelo servidor for registrado enquanto o app não estiver em primeiro plano, o evento será registrado, mas a mensagem no app não será exibida. Se você quiser que o evento seja postergado até que o aplicativo esteja em primeiro plano, uma verificação deve ser incluída no seu receptor de push personalizado para dispensar ou postergar o evento até que o app entre em primeiro plano.
 
-### Exibindo uma mensagem pré-definida
+### Exibindo uma mensagem pré-definida {#displaying-a-pre-defined-message}
 
 Para exibir manualmente uma mensagem no app pré-definida, use o seguinte método:
 
@@ -158,7 +158,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% endtab %}
 {% endtabs %}
 
-### Exibindo uma mensagem em tempo real
+### Exibindo uma mensagem em tempo real {#displaying-a-message-in-real-time}
 
 Você também pode criar e exibir mensagens no app locais em tempo real, usando as mesmas opções de personalização disponíveis no dashboard. Para isso:
 

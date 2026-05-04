@@ -46,7 +46,7 @@ guide_menu_list2:
 - name: 청구
   link: /docs/user_guide/administer/global/billing
   image: /assets/img/braze_icons/currency-dollar-circle.svg
-- name: 개인정보 보호
+- name: 개인 정보 보호
   link: /docs/user_guide/administer/global/privacy
   image: /assets/img/braze_icons/user-square.svg
 ---

@@ -11,14 +11,14 @@
 
 {% if include.variable_name == "payload size" %}
 
-Nous recommandons les tailles de PAYLOAD suivantes :
+Nous recommandons les tailles de payloads suivantes :
 
-| Système d'envoi de messages | PAYLOAD recommandé |
+| Système d'envoi de messages | Payload recommandé |
 | --- | --- |
 | iOS (avant iOS 8) | 0,256 Ko |
 | iOS (après iOS 8) | 2 Ko |
 | Android (FCM) | 4 Ko |
-{: .reset-td-br_1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2}
 
 {% endif %}
 
@@ -107,7 +107,7 @@ table td {
       <td>1038 x 1038</td>
       <td>5 Mo</td>
       <td>PNG, JPEG, GIF</td>
-      <td>Depuis janvier 2020, les notifications push enrichies iOS peuvent gérer des images de 1038 x 1038 px tant que leur taille est inférieure à 10 Mo, mais nous recommandons d'utiliser des fichiers aussi petits que possible. En pratique, l'envoi de fichiers volumineux peut entraîner une surcharge inutile du réseau et rendre les délais d'expiration de téléchargement plus fréquents.<br><br>Pour plus d'informations, consultez la rubrique <a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/">Notifications push enrichies iOS</a>.</td>
+      <td>Depuis janvier 2020, les notifications push riches iOS peuvent gérer des images de 1038 x 1038 px tant que leur taille est inférieure à 10 Mo, mais nous recommandons d'utiliser des fichiers aussi petits que possible. En pratique, l'envoi de fichiers volumineux peut entraîner une surcharge inutile du réseau et rendre les délais d'expiration de téléchargement plus fréquents.<br><br>Pour plus d'informations, consultez la rubrique <a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/">Notifications push riches iOS</a>.</td>
     </tr>
     <tr>
       <td>Icône push Android</td>
@@ -123,7 +123,7 @@ table td {
       <td><b>Petite :</b><br>512 x 256<br><br><b>Moyenne :</b><br>1024 x 512<br><br><b>Grande :</b><br>2048 x 1024</td>
       <td>500 Ko</td>
       <td>PNG, JPEG</td>
-      <td>Utilisée dans les <a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">notifications push enrichies Android</a>.</td>
+      <td>Utilisée dans les <a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">notifications push riches Android</a>.</td>
     </tr>
     <tr>
       <td>Image intégrée Android</td>
@@ -142,21 +142,21 @@ table td {
 {% if include.variable_name == "email" %}
 
 | Type d'e-mail | Propriétés maximales recommandées |
-| --- | --- | 
+| --- | --- |
 | Texte uniquement | 25 Ko |
 | Texte avec images | 60 Ko |
 | Largeur de l'e-mail | 600 px |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Spécifications des images | Propriétés maximales recommandées |
-| --- | --- | 
+| --- | --- |
 | Taille | 5 Mo |
 | Largeur | En-tête : 600 px<br>Corps : 480 px |
 | Types de fichier | PNG, JPEG, GIF<br><br> La prise en charge des images WebP varie selon les clients de messagerie. Pour garantir un rendu fiable, convertissez les images WebP au format PNG ou JPEG avant de les ajouter à vos e-mails. |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Spécifications du texte | Propriétés maximales recommandées |
-| --- | --- | 
+| --- | --- |
 | Longueur de la ligne d'objet | 35 caractères<br>6 à 10 mots |
 | Longueur du `"From: Name"` | 25 caractères |
 | Longueur du pré-en-tête | 85 caractères |
@@ -166,14 +166,14 @@ table td {
 
 {% if include.variable_name == "content cards" %}
 
-| Type de carte | Rapport hauteur/largeur     | Qualité de l'image       |
+| Type de carte | Rapport hauteur/largeur | Qualité de l'image |
 | --------- | ---------------- | ------------------- |
 | Classique   | Format 1:1 | 60 x 60&nbsp;px        |
 | Avec légende | Format 4:3 | Largeur minimale de 600&nbsp;px |
 | Bannière    | N'importe quel rapport hauteur/largeur | Largeur minimale de 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
 
-Pour plus d'informations, reportez-vous aux [détails créatifs des cartes de contenu]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+Pour plus d'informations, reportez-vous aux [détails créatifs des Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
 
 {% endif %}
 

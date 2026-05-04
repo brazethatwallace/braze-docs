@@ -1,6 +1,10 @@
 # Translation catch-up (post–March 31, 2026)
 
-Use this when you need to backfill auto-translation after automation was paused.
+## Steady state (default)
+
+When **Auto-translate** is wired for **push to `main`** (`_docs/**`, `_includes/**`) and the **weekday schedule**, routine English updates are picked up automatically after nightly **develop → main** deploys. You **do not** need this catch-up folder for day-to-day work.
+
+Use the steps below only when automation was **paused**, you need a **historical diff** (`since_commit`), or you want **smaller batched PRs** instead of one huge workflow run.
 
 ## Baseline
 
@@ -25,7 +29,7 @@ In GitHub Actions, run **Auto-translate** with:
 | Input | Value |
 |--------|--------|
 | `since_commit` | `3e2a7ea3cac0f973b2cf6a901954739e285c512e` (or your recomputed SHA) |
-| `skip_orphan_cleanup` | `true` for intermediate catch-up runs; `false` on the **final** run to delete stale `_lang/` mirrors |
+| `skip_orphan_cleanup` | `true` for intermediate catch-up runs; `false` on the **final** run to delete stale `_lang/` mirrors (ignored when `files` is set — the workflow never runs global orphan cleanup on explicit path batches; PR #13327) |
 
 This diffs that commit to the current ref and translates every changed English `.md` under `_docs/` and `_includes/`. `since_commit` takes precedence over `files` if both are set.
 
@@ -57,9 +61,26 @@ For ~1000+ files this is one very large job (API + Jekyll). Prefer **Option B** 
 
    Set `REPO` (default `braze-inc/braze-docs`), `REF` (default `develop`), `SKIP_ORPHAN` (`true`/`false`, default `true` for catch-up).
 
+   **Do not** fire many `gh workflow run` / `dispatch_batch.sh` calls in rapid succession for the same workflow: pending runs can be **cancelled** when new dispatches stack up. For multiple batches, either wait for each run to finish, or use:
+
+   ```bash
+   ./scripts/translation_catchup/dispatch_batches_sequential.sh \
+     scripts/translation_catchup/generated/batches/phase_a_includes_batch_002.txt \
+     scripts/translation_catchup/generated/batches/phase_b_user_guide__root_batch_003.txt
+   ```
+
 3. Merge each PR to `develop` before the next batch when order matters (e.g. `_includes` before heavy `_user_guide` batches).
 
 4. On the **last** batch (or a dedicated run), set `skip_orphan_cleanup` to **false** so `clean_orphaned_translations.py` runs once `_lang/` mirrors the new English IA.
+
+5. **Orphan cleanup only (no translation)** — After batched runs with `skip_orphan_cleanup=true`, run **Auto-translate** on `develop` with **`orphan_cleanup_only`** set to **true** and **`files`** / **`since_commit`** left empty. That opens a PR that only deletes stale `_lang/` mirrors (plus duplicate-alias check). Requires the workflow version on `develop` that defines this input.
+
+   ```bash
+   gh workflow run auto-translate.yml --repo braze-inc/braze-docs --ref develop \
+     -f orphan_cleanup_only=true
+   ```
+
+   Queue this **after** any in-flight translate run finishes (same workflow concurrency group).
 
 ## Phase order (IA / `_user_guide`)
 

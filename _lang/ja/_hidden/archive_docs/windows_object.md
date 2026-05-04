@@ -1,19 +1,19 @@
 ---
-nav_title: "ウィンドウズオブジェクト"
-article_title: Windowsメッセージング・オブジェクト
+nav_title: "Windowsオブジェクト"
+article_title: Windowsメッセージングオブジェクト
 page_order: 14
 page_type: reference
 channel: push
 platform:
   - Windows Universal
-description: "このリファレンス記事では、Brazeで使用されているさまざまなWindowsオブジェクトをリストアップし、説明している。"
+description: "このリファレンス記事では、Brazeで使用されるさまざまなWindowsオブジェクトを一覧にして説明します。"
 hidden: true
 ---
-# Windowsオブジェクト仕様
+# Windowsオブジェクト仕様 {#windows-object-specification}
 
-`windows_phone8_push` および `windows_universal_push` オブジェクトは、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を介して、Windows Phone 8 Push および Windows Universal Push コンテンツに関連する情報を定義または要求するために使用されます。
+`windows_phone8_push`および`windows_universal_push`オブジェクトは、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を介して、Windows Phone 8 PushおよびWindows Universal Pushコンテンツに関連する情報を定義または要求するために使用されます。
 
-## Windows Phone 8のプッシュオブジェクト
+## Windows Phone 8プッシュオブジェクト {#windows-phone-8-push-object}
 
 ```json
 {
@@ -26,9 +26,9 @@ hidden: true
 }
 ```
 
-## Windowsユニバーサル・プッシュ・オブジェクト
+## Windowsユニバーサルプッシュオブジェクト {#windows-universal-push-object}
 
-`push_type` のオプションの詳細については、Windows Universal [トーストテンプレートカタログ](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) を参照してください。
+`push_type`のオプションの詳細については、Windows Universalの[トーストテンプレートカタログ](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)を参照してください。
 
 ```json
 {
@@ -42,5 +42,4 @@ hidden: true
 }
 ```
 
-[ディープリンク]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking)の `extra_launch_string` パラメーターの使用に関する詳細は、[Windows Universal でのディープリンク]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)を参照してください。
-
+[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)に`extra_launch_string`パラメーターを使用する方法の詳細については、[Windows Universalでのディープリンク]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)を参照してください。

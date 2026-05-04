@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Erstellen eines universellen Delegaten
+## Erstellen eines universellen Delegaten {#creating-a-universal-delegate}
 
-Das Android SDK bietet die Möglichkeit, ein einzelnes Delegatenobjekt festzulegen, um alle von Braze geöffneten Deeplinks über Content-Cards, In-App-Nachrichten und Push-Benachrichtigungen individuell zu verarbeiten.
+Das Android SDK bietet die Möglichkeit, ein einzelnes Delegatenobjekt festzulegen, um alle von Braze geöffneten Deeplinks über Content Cards, In-App-Nachrichten und Push-Benachrichtigungen individuell zu verarbeiten.
 
 Ihr Delegatenobjekt sollte die [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html)-Schnittstelle implementieren und mit [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html) festgelegt werden. In den meisten Fällen sollte der Delegat in `Application.onCreate()` Ihrer App festgelegt werden.
 
@@ -86,7 +86,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% endtab %}
 {% endtabs %}
 
-## Deeplinking zu den App-Einstellungen
+## Deeplinking zu den App-Einstellungen {#deep-linking-to-app-settings}
 
 Um Deeplinks zu erlauben, die direkt die Einstellungen Ihrer App öffnen, benötigen Sie einen angepassten `BrazeDeeplinkHandler`. Im folgenden Beispiel bewirkt das Vorhandensein eines angepassten Schlüssel-Wert-Paares namens `open_notification_page`, dass der Deeplink die Einstellungsseite der App öffnet:
 
@@ -185,7 +185,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-## Fehlerbehebung
+## Fehlerbehebung {#troubleshooting}
 
 Wenn Deeplinks aus Push-Benachrichtigungen auf Android nicht funktionieren, probieren Sie die folgenden Schritte:
 
@@ -194,7 +194,7 @@ Wenn Deeplinks aus Push-Benachrichtigungen auf Android nicht funktionieren, prob
 3. **Überprüfen Sie Ihren Deeplink-Handler-Delegaten.** Wenn Sie einen angepassten `IBrazeDeeplinkHandler` festgelegt haben, stellen Sie sicher, dass Ihre `gotoUri`-Implementierung die URI verarbeitet und nicht verwirft.
 4. **Testen Sie kanalübergreifend.** Wenn derselbe Deeplink in einer In-App-Nachricht funktioniert, aber nicht über Push, liegt das Problem wahrscheinlich in Ihrer Push-Deeplink-Verarbeitung und nicht im Deeplink selbst.
 
-## Verwendung von Jetpack Compose
+## Verwendung von Jetpack Compose {#using-jetpack-compose}
 
 Um Deeplinks bei der Verwendung von Jetpack Compose mit NavHost zu verarbeiten:
 

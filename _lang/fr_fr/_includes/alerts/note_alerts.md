@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-La limite de fréquence ne s'applique pas aux Cartes de contenu.
+La limite de fréquence ne s'applique pas aux Content Cards.
 {% endalert %}
 
 {% endif %}
@@ -9,7 +9,7 @@ La limite de fréquence ne s'applique pas aux Cartes de contenu.
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-Une chaîne de caractères de date telle que "12-1-2021" ou "12/1/2021" sera convertie en objet datetime et traitée comme un [attribut time]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Une chaîne de caractères de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut time]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Braze ne crée pas de profil pour un utilisateur tant qu'il n'a pas utilisé l'a
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-Tous les attributs proviennent de l'API REST de Braze.
+Tous les attributs proviennent de la REST API de Braze.
 {% endalert %}
 
 {% endif %}

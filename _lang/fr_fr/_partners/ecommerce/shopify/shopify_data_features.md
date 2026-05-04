@@ -8,13 +8,13 @@ alias: /shopify_data_features/
 page_order: 4
 ---
 
-# Fonctionnalités des données de Shopify
+# Fonctionnalités des données de Shopify {#shopify-data-features}
 
-> Cet article donne un aperçu de nos fonctionnalités Shopify, y compris les données Shopify suivies et des exemples de PAYLOAD, de backfill historique et de synchronisation des produits.
+> Cet article donne un aperçu de nos fonctionnalités Shopify, y compris les données Shopify suivies et des exemples de payloads, de backfill historique et de synchronisation des produits.
 
-## Suivi des événements Shopify
+## Événements Shopify suivis {#tracked-shopify-events}
 
-L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/custom_data/recommended_events/ecommerce_events/) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/user_guide/engagement_tools/canvas/ideas_and_strategies/ecommerce_use_cases/).
+L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -81,6 +81,9 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
     "properties": {
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "products": [
             {
@@ -113,6 +116,9 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
         "order_id": "820982911946154508",
         "cart_id": "eeafa272cebfd4b22385bc4b645e762c",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -131,7 +137,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -331,6 +337,9 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
         "order_id": "820982911946154508",
         "cancel_reason": "no longer necessary",
         "total_value": 421.88,
+        "subtotal_value": 396.88,
+        "tax": 15.00,
+        "shipping": 10.00,
         "currency": "USD",
         "total_discounts": 5,
         "discounts": [],
@@ -349,7 +358,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
         "source": "braze-mock-storefront.myshopify.com",
         "metadata": {
             "order_status_url": "https://apple.myshopify.com/690933842/orders/123456abcd/authenticate?key=abcdefg",
-            "order_number": 1234,
+            "order_number": "1234",
             "tags": [
                 "heavy",
                 "heavy2"
@@ -385,7 +394,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 		"order_note": "item was broken"
         }
     }
-} 
+}
 ```
 {% endsubtab %}
 {% subtab Account login %}
@@ -472,7 +481,7 @@ Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajou
 **Événement** : `ecommerce.checkout_started`<br>
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur accède à la page de paiement<br>
-**Source de données** : API REST Braze<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : Abandon du paiement
 
 {% alert important %}
@@ -514,7 +523,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 **Événement** : `ecommerce.order_placed`<br>
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur finalise le processus de paiement et passe une commande<br>
-**Source de données** : API REST Braze<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : Confirmation de commande, reciblage post-achat, ventes incitatives ou croisées
 
 {% raw %}
@@ -545,9 +554,9 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **Événement** : `shopify_fulfilled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est exécutée et prête à être expédiée<br>
-**Source de données** : API REST Braze<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
 
 {% raw %}
@@ -596,9 +605,9 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **Événement** : `shopify_partially_fulfilled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
-**Déclenché** : Lorsqu'une partie de la commande d'un utilisateur est exécutée et prête à être expédiée<br> 
-**Source de données** : API REST Braze<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Déclenché** : Lorsqu'une partie de la commande d'un utilisateur est exécutée et prête à être expédiée<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
 
 {% raw %}
@@ -647,9 +656,9 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Paid order %}
 **Événement** : `shopify_paid_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est marquée comme payée dans Shopify<br>
-**Source de données** : API REST Braze<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Confirmation de paiement
 
 {% raw %}
@@ -681,9 +690,9 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Order cancelled %}
 **Événement** : `shopify_cancelled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
-**Déclenché** : Lorsque la commande d'un utilisateur est annulée<br> 
-**Source de données** : API REST Braze<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Déclenché** : Lorsque la commande d'un utilisateur est annulée<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Confirmation d'annulation de commande
 
 {% raw %}
@@ -717,9 +726,9 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Order refunded %}
 **Événement** : `shopify_order_refunded`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est remboursée<br>
-**Source de données** : API REST Braze<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Confirmation de remboursement
 
 {% raw %}
@@ -744,9 +753,9 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% subtab Account login %}
 
 **Événement** : `shopify_account_login`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
 **Déclenché** : Lorsqu'un utilisateur se connecte à son compte<br>
-**Source de données** : API REST Braze<br>
+**Source de données** : REST API Braze<br>
 **Cas d'utilisation** : Série de bienvenue
 
 {% raw %}
@@ -757,7 +766,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endraw %}
 
 {% alert note %}
-L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events) Braze. Par conséquent, les filtres d'achat, les étiquettes Liquid, les déclencheurs basés sur l'action et les analyses doivent utiliser l'événement `ecommerce.order_placed`.
+L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events) Braze. Par conséquent, les filtres d'achat, les étiquettes Liquid, les déclencheurs basés sur l'action et les analyses doivent utiliser l'événement `ecommerce.order_placed`.
 {% endalert %}
 
 {% endsubtab %}
@@ -765,7 +774,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 {% endtab %}
 {% endtabs %}
 
-## Attributs personnalisés Shopify pris en charge
+## Attributs personnalisés Shopify pris en charge {#supported-shopify-custom-attributes}
 
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
@@ -811,11 +820,11 @@ Un problème connu avec la version actuelle de l'API Shopify empêche l'attribut
 Cette page sera mise à jour dès que Shopify aura résolu ce problème.
 {% endalert %}
 
-### Personnalisation Liquid
+### Personnalisation Liquid {#liquid-personalization}
 
-Pour ajouter une personnalisation Liquid à vos attributs personnalisés Shopify, sélectionnez **+ Personnalisation**. Sélectionnez ensuite **Attributs personnalisés** comme type de personnalisation.
+Pour ajouter une personnalisation Liquid à vos attributs personnalisés Shopify, sélectionnez **+ Personalization**. Sélectionnez ensuite **Custom Attributes** comme type de personnalisation.
 
-![La section « Ajouter une personnalisation » avec la liste déroulante « Attribut » étendue.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![La section « Add Personalization » avec la liste déroulante « Attribute » étendue.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 Après avoir sélectionné votre attribut personnalisé, saisissez une valeur par défaut et copiez l'extrait de code Liquid dans votre message.
 
@@ -823,7 +832,7 @@ Après avoir sélectionné votre attribut personnalisé, saisissez une valeur pa
 {% endtab %}
 {% endtabs %}
 
-## Attributs standard Shopify pris en charge
+## Attributs standard Shopify pris en charge {#supported-shopify-standard-attributes}
 
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
@@ -838,13 +847,13 @@ Après avoir sélectionné votre attribut personnalisé, saisissez une valeur pa
 Braze ne met à jour les attributs personnalisés Shopify et les attributs standard Braze que lorsqu'il détecte une différence par rapport aux données du profil utilisateur existant. Par exemple, si les données entrantes de Shopify contiennent le prénom « Bob » et que « Bob » est déjà enregistré comme prénom sur le profil utilisateur Braze, aucune mise à jour n'est déclenchée et aucun point de donnée ne vous est facturé.
 {% endalert %}
 
-## Collecte de données SDK
+## Collecte de données SDK {#sdk-data-collection}
 
-Pour plus d'informations sur les données collectées par les SDK Braze, consultez la section [Collecte de données SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Pour plus d'informations sur les données collectées par les SDK Braze, consultez la section [Collecte de données SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-## Backfill historique
+## Backfill historique {#historical-backfill}
 
-Lors de l'onboarding de votre boutique Shopify, vous pouvez lancer une synchronisation initiale des données via un backfill historique afin d'engager immédiatement vos clients. Dans le cadre de ce backfill, Braze effectue une synchronisation initiale de l'ensemble des clients et des commandes passées au cours des 90 derniers jours précédant la connexion de votre intégration Shopify. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+Lors de l'onboarding de votre boutique Shopify, vous pouvez lancer une synchronisation initiale des données via un backfill historique afin d'engager immédiatement vos clients. Dans le cadre de ce backfill, Braze effectue une synchronisation initiale de l'ensemble des clients et des événements de commande passée au cours des 90 derniers jours précédant la connexion de votre intégration Shopify. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
 {% alert note %}
 Si vous prévoyez d'utiliser un ID externe personnalisé (pour l'[intégration standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) ou l'[intégration personnalisée]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), vous devrez ajouter votre ID externe personnalisé en tant que méta-champ client Shopify à tous les profils clients Shopify existants, puis effectuer le backfill historique.
@@ -852,18 +861,18 @@ Si vous prévoyez d'utiliser un ID externe personnalisé (pour l'[intégration s
 
 Les données d'événements de commande synchronisées sont disponibles pour la segmentation, mais les données de chiffre d'affaires elles-mêmes ne sont pas renseignées dans le profil utilisateur ni dans le [tableau de bord Chiffre d'affaires – Attribution au dernier contact]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution).
 
-### Mise en place du backfill historique Shopify
+### Mise en place du backfill historique Shopify {#setting-up-shopify-historical-backfill}
 
-1. Activez le backfill historique dans l'étape **Suivi des données Shopify**.
+1. Activez le backfill historique dans l'étape **Track Shopify data**.
 
-![L'étape « Suivi des données Shopify » de l'intégration Shopify montrant le backfill historique sélectionné.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![L'étape « Track Shopify data » de l'intégration Shopify montrant le backfill historique sélectionné.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
-2. Une fois la configuration de votre intégration terminée, Braze lance la synchronisation initiale des données. Vous pouvez suivre la progression dans l'onglet **Données Shopify** de vos paramètres d'intégration.
+2. Une fois la configuration de votre intégration terminée, Braze lance la synchronisation initiale des données. Vous pouvez suivre la progression dans l'onglet **Shopify Data** de vos paramètres d'intégration.
 
 ![La page des paramètres d'intégration Shopify avec un indicateur de chargement montrant que les événements sont en cours de synchronisation.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
 
-### Données synchronisées
+### Données synchronisées {#synced-data}
 
 Lors de la synchronisation initiale, Braze importe les clients et les commandes passées au cours des 90 derniers jours précédant la connexion de votre intégration Shopify. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.

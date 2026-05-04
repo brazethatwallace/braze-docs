@@ -7,25 +7,25 @@ page_type: reference
 description: "Este artigo de referência aborda o uso de atributos personalizados aninhados como um tipo de dados para atributos personalizados, incluindo limitações e exemplos de uso."
 ---
 
-# Atributos personalizados aninhados
+# Atributos personalizados aninhados {#nested-custom-attributes}
 
-> Esta página aborda atributos personalizados aninhados, que permitem definir um conjunto de atributos como propriedade de outro atributo. Em outras palavras, ao definir um objeto de atributo personalizado, você pode definir um conjunto de atributos adicionais para esse objeto.
+> Esta página aborda os atributos personalizados aninhados, que permitem definir um conjunto de atributos como uma propriedade de outro atributo. Em outras palavras, quando você define um objeto de atributo personalizado, pode definir um conjunto de atributos adicionais para esse objeto.
 
 {% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Considerações
+## Considerações {#considerations}
 
-- Atributos personalizados aninhados são destinados a atributos personalizados enviados pelo SDK ou pela API da Braze. 
-- Objetos têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o objeto exceda 100&nbsp;KB, a Braze descarta a atualização e o atributo permanece inalterado.
-- Nomes de chaves e valores de string têm um limite de 255 caracteres.
-- Nomes de chaves não podem conter espaços.
-- Pontos (`.`) e cifrões (`$`) não são caracteres suportados em uma carga útil de API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
-- Nem todos os parceiros da Braze oferecem suporte a atributos personalizados aninhados. Consulte a [documentação de parceiros]({{site.baseurl}}/partners/home) para confirmar se integrações específicas de parceiros oferecem suporte a esse recurso.
-- Atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada de API de Connected Audience.
+- Os atributos personalizados aninhados destinam-se a atributos personalizados enviados por meio do Braze SDK ou da API.
+- Os objetos têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o objeto exceda 100&nbsp;KB, a Braze descarta a atualização e o atributo permanece inalterado.
+- Os nomes das chaves e os valores das strings têm um limite de tamanho de 255 caracteres.
+- Os nomes das chaves não podem conter espaços.
+- Períodos (`.`) e sinais de dólar (`$`) não são caracteres suportados em uma carga útil de API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
+- Nem todos os parceiros da Braze suportam atributos personalizados aninhados. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home/) para confirmar se integrações com parceiros específicos suportam esse recurso.
+- Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada à API do Connected Audience.
 
-## Exemplo de API
+## Exemplo de API {#api-example}
 
 {% tabs local %}
 {% tab Create %}
@@ -111,7 +111,7 @@ Essa abordagem não pode ser usada para excluir uma chave aninhada dentro de um 
 {% endtab %}
 {% endtabs %}
 
-## Exemplo de SDK
+## Exemplo de SDK {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
 
@@ -225,17 +225,17 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 {% endtab %}
 {% endtabs %}
 
-## Capturando datas como propriedades de objetos
+## Capturando datas como propriedades de objetos {#capturing-dates-as-object-properties}
 
 Para capturar datas como propriedades de objetos, você deve usar a chave `$time`. No exemplo a seguir, um objeto "Important Dates" é usado para capturar o conjunto de propriedades do objeto, `birthday` e `wedding_anniversary`. Os valores dessas datas são objetos com uma chave `$time`, que não pode ser um valor nulo.
 
 {% alert note %}
-Se você não capturou datas como propriedades de objetos inicialmente, recomendamos reenviar esses dados usando a chave `$time` para todos os usuários. Caso contrário, isso pode resultar em segmentos incompletos ao usar o atributo `$time`. No entanto, se o valor de `$time` em um atributo personalizado aninhado não estiver formatado corretamente, o atributo personalizado aninhado inteiro não será atualizado.
+Se você não capturou datas como propriedades de objetos inicialmente, recomendamos reenviar esses dados usando a chave `$time` para todos os usuários. Caso contrário, isso pode resultar em Segments incompletos ao usar o atributo `$time`. No entanto, se o valor de `$time` em um atributo personalizado aninhado não estiver formatado corretamente, o atributo personalizado aninhado inteiro não será atualizado.
 {% endalert %}
 
 ```json
 {
-  "attributes": [ 
+  "attributes": [
     {
       "external_id": "time_with_nca_test",
       "important_dates": {
@@ -251,7 +251,7 @@ Se você não capturou datas como propriedades de objetos inicialmente, recomend
 Para atributos personalizados aninhados, se o ano for menor que 0 ou maior que 3000, a Braze não armazena esses valores no usuário.
 {% endalert %}
 
-## Templates com Liquid
+## Templates com Liquid {#liquid-templating}
 
 O exemplo de template Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas na solicitação de API anterior e usá-las no seu envio de mensagens.
 
@@ -265,9 +265,9 @@ Use a tag de personalização `custom_attribute` e a notação de ponto para ace
 
 ![Usando Liquid para inserir o nome de uma música e o número de vezes que um ouvinte reproduziu essa música em uma mensagem]({% image_buster /assets/img_archive/nca_liquid_2.png %})
 
-### Personalização
+### Personalização {#personalization}
 
-Usando o modal **Adicionar personalização**, você também pode inserir atributos personalizados aninhados no seu envio de mensagens. Selecione **Atributos personalizados aninhados** como o tipo de personalização. Em seguida, selecione o atributo de nível superior e a chave do atributo. 
+Usando o modal **Adicionar personalização**, você também pode inserir atributos personalizados aninhados no seu envio de mensagens. Selecione **Atributos personalizados aninhados** como o tipo de personalização. Em seguida, selecione o atributo de nível superior e a chave do atributo.
 
 Por exemplo, no modal de personalização abaixo, isso insere o atributo personalizado aninhado de um escritório de bairro local com base nas preferências do usuário.
 
@@ -296,17 +296,17 @@ Para redefinir o esquema de um vetor de objetos com um objeto existente, você p
 
 Se os dados não aparecerem como esperado após regenerar o esquema, o atributo pode não estar sendo ingerido com frequência suficiente. Os dados de usuários são amostrados com base em dados anteriores enviados à Braze para o atributo aninhado em questão. Se o atributo não for ingerido com frequência suficiente, ele não será capturado para o esquema.
 
-## Disparar alterações em atributos personalizados aninhados
+## Disparar alterações em atributos personalizados aninhados {#trigger-nested-custom-attribute-changes}
 
 Você pode disparar ações quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objetos. Se você não vir a opção de visualizar o explorador de jornadas, verifique se você gerou um esquema.
 
-Por exemplo, em uma campanha baseada em ação, você pode adicionar uma nova ação-gatilho para **Alterar valor do atributo personalizado** para direcionar usuários que alteraram suas preferências de escritório de bairro.
+Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova ação-gatilho para **Alterar valor do atributo personalizado** para direcionar usuários que alteraram suas preferências de escritório de bairro.
 
-![Configurações de entrega de campanha baseada em ação com um gatilho de Alterar valor do atributo personalizado para preferências aninhadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Configurações de entrega de Campaign baseada em ação com um gatilho de Alterar valor do atributo personalizado para preferências aninhadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
-## Comportamento de segmentação com vetores de objetos
+## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Quando você usa múltiplos filtros de `Atributo personalizado aninhado` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o segmento se *qualquer* item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao *mesmo* item.
+Quando você usa múltiplos filtros de `Atributo personalizado aninhado` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se *qualquer* item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao *mesmo* item.
 
 Por exemplo, suponha que um usuário tenha o seguinte vetor:
 
@@ -319,16 +319,16 @@ Por exemplo, suponha que um usuário tenha o seguinte vetor:
 }
 ```
 
-Um segmento com os seguintes filtros AND:
+Um Segment com os seguintes filtros AND:
 
 - `orders[].price` é maior que 50
 - `orders[].price` é menor que 30
 
-Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no segmento.
+Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no Segment.
 
 Se você precisar que todas as condições correspondam ao mesmo item dentro de um vetor, use [segmentação multicritério](#multi-criteria-segmentation) na mesma jornada, ou reestruture seus dados para evitar correspondência entre itens diferentes.
 
-## Pontos de dados
+## Pontos de dados {#data-points}
 
 Qualquer chave enviada consome um ponto de dados. Por exemplo, este objeto inicializado no perfil de usuário conta como sete (7) pontos de dados:
 

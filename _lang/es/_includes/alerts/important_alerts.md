@@ -17,7 +17,7 @@ Las ventanas de navegación privada no admiten notificaciones push web.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Añadir una dirección BCC a tu campaña o Canvas hace que se dupliquen los correos electrónicos facturables para la campaña o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección BCC.
+Añadir una dirección BCC a tu Campaign o Canvas hace que se dupliquen los correos electrónicos facturables para la Campaign o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección BCC.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Hay ciertos navegadores, como las aplicaciones Naver para Android e iOS, que no 
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+El evento de compra heredado está entrando en modo de mantenimiento. Los eventos de compra existentes seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades sobre ellos, en favor de los eventos recomendados de comercio electrónico. Puedes seguir utilizando los eventos de compra en el futuro previsible. Braze proporcionará un aviso previo con suficiente antelación antes de que se establezca cualquier fecha de fin de vida.
 {% endalert %}
 
 {% endif %}
@@ -69,7 +69,7 @@ El evento de compra heredado entrará en un estado obsoleto (modo de mantenimien
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Cuando esto ocurra, los filtros de segmento ya no aparecerán en el comportamiento de compra.<br><br> Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades netas sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Cuando esto ocurra, los filtros de segmento ya no aparecerán en el comportamiento de compra.<br><br> Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -78,14 +78,14 @@ El evento de compra heredado entrará en un estado obsoleto (modo de mantenimien
 
 {% alert important %}
 Los archivos de exportación almacenados en los contenedores de S3 se eliminan automáticamente una vez que caduca el enlace de descarga (cuatro horas después del envío del correo electrónico de exportación, a menos que se indique lo contrario).
-{% endalert %} 
+{% endalert %}
 
 {% endif %}
 
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-La integración con Shopify admite webhooks de creación y actualización de clientes de Shopify, que se encuentran en la configuración de datos. Cuando se crea o actualiza un perfil de usuario en Shopify, se creará o actualizará el perfil de usuario correspondiente en Braze. <br><br>Estas acciones no desencadenan eventos personalizados en Braze y se utilizan únicamente para [sincronizar los datos de usuario de Shopify con Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Los datos sincronizados incluyen [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) y, si está habilitado en tu configuración, [estados de grupos de suscripción]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+La integración con Shopify admite webhooks de creación y actualización de clientes de Shopify, que se encuentran en la configuración de datos. Cuando se crea o actualiza un perfil de usuario en Shopify, se creará o actualizará el perfil de usuario correspondiente en Braze. <br><br>Estas acciones no desencadenan eventos personalizados en Braze y se utilizan únicamente para [sincronizar los datos de usuario de Shopify con Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Los datos sincronizados incluyen [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) y, si están habilitados en tu configuración, [estados de grupos de suscripción]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ La integración con Shopify admite webhooks de creación y actualización de cli
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Las propiedades de entrada de Canvas forman parte de las variables de contexto de Canvas. Esto significa que `canvas_entry_properties` se referencia como `context`. Cada variable `context` incluye un nombre, un tipo de datos y un valor que puede incluir Liquid. Actualmente, `canvas_entry_properties` es compatible con versiones anteriores. Para más información, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) y [Objeto de contexto de Canvas]({{site.baseurl}}/api/objects_filters/context_object).
+Las propiedades de entrada de Canvas forman parte de las variables de contexto de Canvas. Esto significa que `canvas_entry_properties` se referencia como `context`. Cada variable `context` incluye un nombre, un tipo de datos y un valor que puede incluir Liquid. Actualmente, `canvas_entry_properties` es compatible con versiones anteriores. Para más detalles, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) y [Objeto de contexto de Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -109,14 +109,14 @@ Este socio aparece en tu página de **Socios tecnológicos** solo si tienes habi
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Elegir entre los tipos de filtro «Día del año» y «Hora»**: Al filtrar variables de contexto que contienen fechas, elige el tipo de comparación correcto en función de si la fecha se repite cada año:
+**Elegir entre los tipos de filtro «Día del año» y «Hora»**: al filtrar variables de contexto que contienen fechas, elige el tipo de comparación correcto en función de si la fecha se repite cada año:
 
 - **Usa «Día del año»** cuando la fecha se repita cada año (por ejemplo, cumpleaños, aniversarios o fiestas como Navidad). Este tipo de comparación calcula en función del día del año (1-365/366), ignorando el componente del año.
 - **Usa «Hora»** cuando la fecha sea una fecha absoluta que no se repita (por ejemplo, fechas de finalización de contratos, fechas de citas o fechas de renovación de suscripciones). Este tipo de comparación calcula basándose en la marca de tiempo completa, incluido el año.
 
 El uso de «Día del año» para fechas absolutas puede producir resultados incorrectos o inesperados, ya que el cálculo ignora el componente del año. Por ejemplo, si comparas la fecha de vencimiento de un contrato futuro en abril para determinar si está dentro de los 63 días, el uso de «Día del año» puede hacer que las fechas coincidan incorrectamente, ya que solo compara los números de los días (119 frente a 359) sin tener en cuenta que, en realidad, quedan 188 días para abril.
 
-**Directriz general**: ¿La fecha se repite cada año? **Sí** → Usa «Día del año». **No** → Usa «Hora».
+**Directriz general**: ¿la fecha se repite cada año? **Sí** → Usa «Día del año». **No** → Usa «Hora».
 {% endalert %}
 
 {% endif %}
@@ -155,18 +155,10 @@ Para esta integración, el alias de usuario debe utilizar el siguiente formato p
 
 {% endif %}
 
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Los mensajes multilingües y las traducciones de configuración regional se encuentran actualmente en fase de acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en este acceso anticipado.
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
-Las Tarjetas de contenido, los mensajes dentro de la aplicación, los Banners y los conmutadores de características dependen de la conectividad del dispositivo para sincronizarse con los servidores de Braze. Dado que las condiciones de la red pueden variar, existe la posibilidad de que el contenido o las actualizaciones no se sincronicen, muestren o eliminen de inmediato (por ejemplo, si un usuario está sin conexión). Recomendamos evitar estos canales para actualizaciones críticas y urgentes.
+Content Cards, los mensajes dentro de la aplicación, los banners y los conmutadores de características dependen de la conectividad del dispositivo para sincronizarse con los servidores de Braze. Dado que las condiciones de la red pueden variar, existe la posibilidad de que el contenido o las actualizaciones no se sincronicen, muestren o eliminen de inmediato (por ejemplo, si un usuario está sin conexión). Recomendamos evitar estos canales para actualizaciones críticas y urgentes.
 {% endalert %}
 
 {% endif %}
@@ -174,7 +166,7 @@ Las Tarjetas de contenido, los mensajes dentro de la aplicación, los Banners y 
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Si estás cargando imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` provocará que tu aplicación se bloquee.
+Si estás cargando imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` provocará que tu aplicación se bloquee.
 {% endalert %}
 
 {% endif %}

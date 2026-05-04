@@ -1,47 +1,47 @@
-### Pré-requisitos
+### Pré-requisitos {#prerequisites}
 
 Antes de usar este método de integração, você precisará [criar uma conta e um contêiner para o Google Tag Manager](https://support.google.com/tagmanager/answer/14842164).
 
-### Etapa 1: Abra a galeria de modelos de tag
+### Etapa 1: Abra a galeria de modelos de tag {#step-1-open-the-tag-template-gallery}
 
-No [Google Tag Manager](https://tagmanager.google.com/), escolha seu espaço de trabalho e selecione **Modelos**. No painel **Modelo de Tag**, selecione **Pesquisar Galeria**.
+No [Google Tag Manager](https://tagmanager.google.com/), escolha seu espaço de trabalho e selecione **Templates**. No painel **Tag Template**, selecione **Search Gallery**.
 
 ![A página de modelos para um espaço de trabalho de exemplo no Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
-### Etapa 2: Adicione o modelo de tag de inicialização
+### Etapa 2: Adicione o modelo de tag de inicialização {#step-2-add-the-initialization-tag-template}
 
 Na galeria de modelos, procure por `braze-inc` e selecione **Braze Initialization Tag**.
 
-![A galeria de modelos mostrando os vários modelos 'braze-inc'.]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
+![A galeria de modelos mostrando os vários modelos "braze-inc".]({% image_buster /assets/img/web-gtm/template_gallery_results.png %}){: style="max-width:80%;"}
 
 Selecione **Add to workspace** > **Add**.
 
-![A página 'Braze Initialization Tag' no Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
+![A página "Braze Initialization Tag" no Google Tag Manager.]({% image_buster /assets/img/web-gtm/add_to_workspace.png %}){: style="max-width:70%;"}
 
-### Etapa 3: Configure a tag
+### Etapa 3: Configure a tag {#step-3-configure-the-tag}
 
-Na seção **Modelos**, selecione o modelo recém-adicionado.
+Na seção **Templates**, selecione o modelo recém-adicionado.
 
-![A página "Modelos" no Google Tag Manager mostrando o modelo Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
+![A página "Templates" no Google Tag Manager mostrando o modelo Braze Initialization Tag.]({% image_buster /assets/img/web-gtm/select_tag_template.png %}){: style="max-width:95%;"}
 
 Selecione o ícone de lápis para abrir o menu suspenso **Tag Configuration**.
 
-![O bloco Tag Configuration com o ícone de 'lápis' mostrado.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
+![O bloco Tag Configuration com o ícone de "lápis" mostrado.]({% image_buster /assets/img/web-gtm/gtm-initialization-tag.png %})
 
 Insira as informações mínimas necessárias:
 
 | Campo         | Descrição |
 | ------------- | ----------- |
-| **API Key**   | Sua [chave de API da Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), encontrada no dashboard da Braze em **Configurações** > **Configurações do app**. |
+| **API Key**   | Sua [chave de API da Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), encontrada no dashboard da Braze em **Settings** > **App Settings**. |
 | **API Endpoint** | A URL do seu endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
 | **SDK Version**  | A versão `MAJOR.MINOR` mais recente do SDK Web da Braze listada no [changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Para saber mais, consulte [Sobre o gerenciamento de versões do SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 Para configurações adicionais de inicialização, selecione **Braze Initialization Options** e escolha as opções que você precisar.
 
-![A lista de Braze Initialization Options em 'Tag Configuration'.]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
+![A lista de Braze Initialization Options em "Tag Configuration".]({% image_buster /assets/img/web-gtm/braze_initialization_options.png %}){: style="max-width:65%;"}
 
-### Etapa 4: Escolha as opções de inicialização
+### Etapa 4: Escolha as opções de inicialização {#step-4-choose-initialization-options}
 
 A Braze Initialization Tag expõe as seguintes opções. A maioria delas mapeia diretamente para as [`InitializationOptions` do SDK Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions), e algumas correspondem a métodos do SDK Web que a tag chamará durante a inicialização. Selecione as opções que correspondem às suas necessidades de integração:
 
@@ -58,7 +58,7 @@ A Braze Initialization Tag expõe as seguintes opções. A maioria delas mapeia 
 | **Enable SDK Authentication** | `enableSdkAuthentication` | Ativa a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/). |
 | **Enable Web SDK Logging** | `enableLogging` | Ativa o registro no console para depuração. Remova antes de ir para produção. |
 | **Minimum Interval Between Triggered Messages** | `minimumIntervalBetweenTriggerActionsInSeconds` | Segundos mínimos entre ações-gatilho (padrão: 30). |
-| **Open Cards in New Tab** | `openCardsInNewTab` | Abre links de cartão de conteúdo em uma nova guia ao usar a interface padrão do feed. |
+| **Open Cards in New Tab** | `openCardsInNewTab` | Abre links de cartões de conteúdo em uma nova guia ao usar a interface padrão do feed. |
 | **Service Worker Location** | `serviceWorkerLocation` | Caminho personalizado para o arquivo do service worker (padrão: `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | Tempo limite da sessão em segundos (padrão: 1800). |
 
@@ -68,11 +68,11 @@ Para ativar [mensagens no app em HTML personalizado]({{site.baseurl}}/user_guide
 
 Para opções não expostas no modelo GTM (como `contentSecurityNonce`, `localization` ou `devicePropertyAllowlist`), use a [inicialização em tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
 
-### Etapa 5: Defina para disparar em *todas as páginas*
+### Etapa 5: Defina para disparar em *todas as páginas* {#step-5-set-to-trigger-on-all-pages}
 
 A tag de inicialização deve ser executada em todas as páginas do seu site. Isso permite que você use métodos do SDK da Braze e registre análise de dados de push para a web.
 
-### Etapa 6: Verifique sua integração
+### Etapa 6: Verifique sua integração {#step-6-verify-your-integration}
 
 Você pode verificar sua integração usando qualquer uma das seguintes opções:
 

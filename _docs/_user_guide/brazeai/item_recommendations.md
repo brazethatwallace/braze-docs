@@ -43,7 +43,7 @@ Predict and recommend the items a user is most likely to purchase next, based on
 {% details Requirements %}
 - AI item recommendations
 - Catalog of relevant items
-- A method for tracking purchases, either a purchase object or a custom event
+- A method for tracking purchases: a purchase object, a custom event, or an [order placed event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details Setting it up %}
@@ -73,7 +73,7 @@ Encourage users to explore popular items in your catalog based on purchases. To 
 {% details Requirements %}
 - AI item recommendations
 - Catalog of relevant items
-- A purchase object or any custom event
+- A purchase object, an order placed event, or any custom event
 {% enddetails %}
 
 {% details Setting it up %}
@@ -209,7 +209,7 @@ Promote items that users have recently interacted with, including views, clicks,
 {% details Requirements %}
 - AI item recommendations
 - Catalog of relevant items
-- A purchase object or any custom event for an engagement interaction
+- A purchase object, order placed event, or any custom event for an engagement interaction
 {% enddetails %}
 
 {% details Setting it up %}
@@ -261,7 +261,7 @@ Highlight items that your users have recently purchased with increased frequency
 {% details Requirements %}
 - AI item recommendations
 - Catalog of relevant items
-- A method for tracking purchases (either a purchase object or a custom event)
+- A method for tracking purchases (either a purchase object, an order placed event, or a custom event)
 {% enddetails %}
 
 {% details Setting it up %}

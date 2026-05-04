@@ -43,6 +43,8 @@ If you're making server-to-server calls behind a firewall, you may need to allow
 
 ## Rate limit
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 For most customers, this endpoint has a base speed limit of 50 requests per second.
 
 Customers on newer contracts may instead have burst (per-second) and steady (per-hour) limits based on contracted monthly active users.

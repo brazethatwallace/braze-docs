@@ -17,7 +17,7 @@ Les fenêtres de navigation privée ne prennent pas en charge les notifications 
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-L'ajout d'une adresse CCI à votre campagne ou canvas entraîne le doublement de vos e-mails facturables pour la campagne ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
+L'ajout d'une adresse CCI à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Certains navigateurs, comme les applications Naver Android et iOS, ne prennent p
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-L'ancien événement d'achat passera en état obsolète (mode maintenance). Les événements d'achat continueront de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Si vous utilisez actuellement les événements d'achat, vous recevrez un préavis concernant les plans de suppression progressive. Pour l'instant, vous pouvez continuer à utiliser les événements d'achat jusqu'à la date officielle de dépréciation. Pour en savoir plus, consultez l'[aperçu des événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+L'ancien événement d'achat passe en mode maintenance. Les événements d'achat existants continuent de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des événements recommandés pour le commerce électronique. Vous pouvez continuer à utiliser les événements d'achat dans un avenir prévisible. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée.
 {% endalert %}
 
 {% endif %}
@@ -78,14 +78,14 @@ L'ancien événement d'achat passera en état obsolète (mode maintenance). Les 
 
 {% alert important %}
 Les fichiers exportés stockés dans les compartiments S3 sont automatiquement supprimés après l'expiration du lien de téléchargement (quatre heures après l'envoi de l'e-mail d'exportation, sauf indication contraire).
-{% endalert %} 
+{% endalert %}
 
 {% endif %}
 
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-L'intégration Shopify prend en charge les webhooks de création et de mise à jour des clients Shopify, qui se trouvent dans vos paramètres de configuration des données. Lorsqu'un profil utilisateur est créé ou mis à jour dans Shopify, un profil utilisateur correspondant est créé ou mis à jour dans Braze. <br><br>Ces actions ne déclenchent pas d'événements personnalisés dans Braze et servent uniquement à [synchroniser les données utilisateur Shopify avec Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Les données synchronisées comprennent les [attributs personnalisés]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), les [attributs standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) et, si cette option est activée dans votre configuration, les [états des groupes d'abonnement]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+L'intégration Shopify prend en charge les webhooks de création et de mise à jour des clients Shopify, qui se trouvent dans vos paramètres de configuration des données. Lorsqu'un profil utilisateur est créé ou mis à jour dans Shopify, un profil utilisateur correspondant est créé ou mis à jour dans Braze. <br><br>Ces actions ne déclenchent pas d'événements personnalisés dans Braze et servent uniquement à [synchroniser les données utilisateur Shopify avec Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Les données synchronisées comprennent les [attributs personnalisés]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), les [attributs standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) et, si cette option est activée dans votre configuration, les [états des groupes d'abonnement]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ L'intégration Shopify prend en charge les webhooks de création et de mise à j
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. Cela signifie que `canvas_entry_properties` est référencé en tant que `context`. Chaque variable `context` comprend un nom, un type de données et une valeur pouvant inclure du Liquid. Actuellement, `canvas_entry_properties` reste rétrocompatible. Pour plus de détails, consultez les sections [Contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) et [Objet de contexte Canvas]({{site.baseurl}}/api/objects_filters/context_object).
+Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. Cela signifie que `canvas_entry_properties` est référencé en tant que `context`. Chaque variable `context` comprend un nom, un type de données et une valeur pouvant inclure du Liquid. Actuellement, `canvas_entry_properties` reste rétrocompatible. Pour plus de détails, consultez les sections [Contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) et [Objet de contexte Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -124,7 +124,7 @@ L'utilisation de « Jour de l'année » pour des dates absolues peut produire de
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Les autorisations granulaires sont actuellement en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
+Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
 {% endalert %}
 
 {% endif %}
@@ -155,18 +155,10 @@ Pour cette intégration, l'alias d'utilisateur doit respecter le format suivant 
 
 {% endif %}
 
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Les messages multilingues et les traductions par paramètres régionaux sont actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
-Les Cartes de contenu, les messages in-app, les bannières et les indicateurs de fonctionnalité dépendent de la connectivité de l'appareil pour se synchroniser avec les serveurs Braze. Les conditions réseau pouvant varier, il est possible que le contenu ou les mises à jour ne soient pas synchronisés, affichés ou supprimés immédiatement (par exemple, si un utilisateur est hors ligne). Nous vous recommandons d'éviter ces canaux pour les mises à jour critiques et urgentes.
+Les Content Cards, les messages in-app, les bannières et les indicateurs de fonctionnalité dépendent de la connectivité de l'appareil pour se synchroniser avec les serveurs Braze. Les conditions réseau pouvant varier, il est possible que le contenu ou les mises à jour ne soient pas synchronisés, affichés ou supprimés immédiatement (par exemple, si un utilisateur est hors ligne). Nous vous recommandons d'éviter ces canaux pour les mises à jour critiques et urgentes.
 {% endalert %}
 
 {% endif %}
@@ -174,7 +166,7 @@ Les Cartes de contenu, les messages in-app, les bannières et les indicateurs de
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Si vous intégrez des images via le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), assurez-vous que l'URL de votre image commence par `https://`. L'utilisation de `http://` provoquera le plantage de votre application.
+Si vous intégrez des images via le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), assurez-vous que l'URL de votre image commence par `https://`. L'utilisation de `http://` provoquera le plantage de votre application.
 {% endalert %}
 
 {% endif %}

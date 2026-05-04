@@ -1,22 +1,22 @@
 ---
 nav_title: "Objeto do cartão de conteúdo"
-article_title: Objeto de envio e mensagem em cartão de conteúdo
+article_title: Objeto de envio de mensagens de Content Card
 page_order: 4
 page_type: reference
 channel: content cards
-description: "Este artigo de referência explica os diferentes componentes do objeto cartão de conteúdo da Braze."
+description: "Este artigo de referência explica os diferentes componentes do objeto de Content Card da Braze."
 
 ---
 
-# objeto cartão de conteúdo
+# Objeto de Content Card {#content-card-object}
 
-> O objeto `content_card` permite que você crie Cartões de Conteúdo através dos nossos endpoints de [envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+> O objeto `content_card` permite que você crie Content Cards por meio dos nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
 
 ```json
 {
   "type": (required, string) one of "CLASSIC", "CAPTIONED_IMAGE", or "BANNER",
-  "title": (required, string) the card's title,
-  "description": (required, string) the card's description,
+  "title": (required, string) the card's title. Not applicable for "BANNER". Accepts an empty string,
+  "description": (required, string) the card's description. Not applicable for "BANNER",
   "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under (must be a Content Card Message),
   "pinned": (optional, boolean) whether the card is pinned. Defaults to false,
   "image_url": (optional, string) the card's image URL. Required for "CAPTIONED_IMAGE" and "BANNER",
@@ -34,5 +34,5 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 ```
 
 {% alert important %}
-Atualmente, Braze aceita um tempo máximo de expiração de 30 dias.
+Atualmente, a Braze aceita um tempo máximo de expiração de 30 dias.
 {% endalert %}

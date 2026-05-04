@@ -10,7 +10,7 @@ Para enviar uma mensagem de teste, adicione um grupo de teste de conteúdo ou um
 
 Ao revisar seu Banner de teste, verifique o seguinte:
 
-- A sua campanha de Banner está atribuída a um posicionamento?
+- A sua Campaign de Banner está atribuída a um posicionamento?
 - As imagens e mídias aparecem e funcionam como esperado nos tipos de dispositivos e tamanhos de tela segmentados?
 - Os links e botões direcionam o usuário para onde deveriam ir?
 - O Liquid funciona conforme o esperado? Você definiu um valor de atributo padrão para o caso de o Liquid não retornar nenhuma informação?

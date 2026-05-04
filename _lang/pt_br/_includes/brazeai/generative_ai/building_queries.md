@@ -1,24 +1,24 @@
 > Saiba como usar o Criador de consultas para gerar relatórios usando dados da Braze no Snowflake. O Criador de consultas vem com [modelos de consultas]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/) de SQL pré-construídos para você começar, ou você pode escrever suas próprias consultas de SQL personalizadas para desbloquear ainda mais insights.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Você precisará de [permissões "View IPI"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para usar o Criador de consultas, pois ele permite acesso direto a alguns dados de cliente.
 
-## Uso do Criador de consultas
+## Uso do Criador de consultas {#using-the-query-builder}
 
-### Etapa 1: Criar uma consulta de SQL
+### Etapa 1: Criar uma consulta de SQL {#step-1-create-an-sql-query}
 
-Para criar uma nova consulta, acesse **Análise de dados** > **Criador de consultas** e selecione **Criar consulta de SQL**.
+Para criar uma nova consulta, acesse **Analytics** > **Query Builder** e selecione **Create SQL Query**.
 
 ![As opções "Query Template" e "SQL Editor" encontradas no menu suspenso "Create SQL Query".]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
 Se precisar de inspiração ou ajuda para elaborar sua consulta, escolha **Query Template** e selecione um [modelo pronto]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). Para começar com uma consulta em branco, selecione **SQL Editor**.
 
-Seu relatório recebe automaticamente um nome com a data e a hora atuais. Passe o mouse sobre o nome e selecione <i class="fas fa-pencil" alt="Edit"></i> para dar à sua consulta de SQL um nome significativo.
+Seu relatório recebe automaticamente um nome com a data e a hora atuais. Passe o mouse sobre o nome e selecione <i class="fas fa-pencil" alt="Editar"></i> para dar à sua consulta de SQL um nome significativo.
 
 ![Um exemplo de relatório chamado "Channel engagement for May 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
-### Etapa 2: Crie sua consulta
+### Etapa 2: Crie sua consulta {#step-2-build-your-query}
 
 Ao criar sua consulta, você pode optar por obter ajuda da IA ou criá-la por conta própria.
 
@@ -27,12 +27,12 @@ Ao criar sua consulta, você pode optar por obter ajuda da IA ou criá-la por co
 O Criador de consultas com IA usa o [GPT](https://openai.com/gpt-4), desenvolvido pela OpenAI, para recomendar SQL para sua consulta. Para gerar SQL com o Criador de consultas com IA:
 
 1. Depois de criar um relatório no Criador de consultas, selecione a guia **AI Query Builder**.
-2. Digite seu prompt ou selecione um prompt de exemplo e selecione **Gerar** para traduzir seu prompt para SQL.
-3. Revise o SQL gerado para ter certeza de que está correto e, em seguida, selecione **Inserir no editor**.
+2. Digite seu prompt ou selecione um prompt de exemplo e selecione **Generate** para traduzir seu prompt para SQL.
+3. Revise o SQL gerado para ter certeza de que está correto e, em seguida, selecione **Insert into Editor**.
 
-![O construtor de consultas de SQL com IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![O Criador de consultas de SQL com IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-#### Dicas
+#### Dicas {#tips}
 
 - Familiarize-se com as [tabelas de dados do Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) disponíveis. Solicitar dados que não existem nessas tabelas pode fazer com que o ChatGPT invente uma tabela falsa.
 - Familiarize-se com as [regras de escrita SQL]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql) para esse recurso. O não cumprimento dessas regras causará um erro.
@@ -46,7 +46,7 @@ Escreva sua consulta de SQL usando [a sintaxe do Snowflake](https://docs.snowfla
 
 Para visualizar os detalhes da tabela no Criador de consultas:
 
-1. Na página do **Criador de consultas**, abra o painel **Referência** e selecione **Available Data Tables** para visualizar as tabelas de dados disponíveis e seus nomes.
+1. Na página do **Query Builder**, abra o painel **Reference** e selecione **Available Data Tables** para visualizar as tabelas de dados disponíveis e seus nomes.
 3. Selecione <i class="fas fa-chevron-down" alt=""></i> **See Details** para visualizar a descrição da tabela e as informações sobre as colunas da tabela, como os tipos de dados.
 4. Para inserir o nome da tabela em seu SQL, selecione <i class="fas fa-copy" title="Copiar nome da tabela para o editor SQL"></i>.
 
@@ -71,19 +71,19 @@ Se você consultar `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CAMPAIGN_ID`, suas
 | Nome do ID | Coluna de nome associada |
 | --- | --- |
 | `CANVAS_ID` | Nome do Canvas |
-| `CANVAS_VARIATION_API_ID` | Nome da variante do Canvas |
-| `CAMPAIGN_ID` | Nome da campanha |
+| `CANVAS_VARIATION_API_ID` | Nome da Variante do Canvas |
+| `CAMPAIGN_ID` | Nome da Campaign |
 {: .reset-td-br-1 .reset-td-br-2 }
 
 Essa consulta recupera todos os três IDs e suas colunas de nome associadas com um máximo de 100 linhas:
 
 ```sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
-FROM USERS_MESSAGES_EMAIL_SEND_SHARED 
+FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
 ```
 
-#### Solução de problemas
+#### Solução de problemas {#troubleshooting}
 
 Sua consulta pode falhar por qualquer um dos seguintes motivos:
 
@@ -94,11 +94,11 @@ Sua consulta pode falhar por qualquer um dos seguintes motivos:
 {% endtab %}
 {% endtabs %}
 
-### Etapa 3: Gerar seu relatório
+### Etapa 3: Gerar seu relatório {#step-3-generate-your-report}
 
 Quando terminar de criar sua consulta, selecione **Run Query**. Se não houver erros ou [tempo limite do relatório](#report-timeouts), um arquivo CSV será gerado a partir da consulta.
 
-Para baixar o relatório CSV, selecione **Exportar**.
+Para baixar o relatório CSV, selecione **Export**.
 
 ![O Criador de consultas mostra os resultados da consulta modelada "Channel engagement and revenue for the last 30 days".]({% image_buster /assets/img_archive/query_builder.png %})
 
@@ -106,13 +106,13 @@ Para baixar o relatório CSV, selecione **Exportar**.
 Cada relatório só pode gerar resultados uma vez por dia. Se você executar o mesmo relatório várias vezes em um único dia do calendário, verá os mesmos resultados em cada relatório.
 {% endalert %}
 
-## Tempo limite de relatórios
+## Tempo limite de relatórios {#report-timeouts}
 
 Os relatórios que demorarem mais de seis minutos para serem executados serão encerrados. Se esta for a primeira consulta que você está executando em algum tempo, ela poderá levar mais tempo para ser processada e, portanto, terá uma probabilidade maior de atingir o tempo limite. Se isso acontecer, tente executar o relatório novamente.
 
-Se o seu relatório continuar a apresentar tempo limite após várias tentativas, [fale com o Suporte]({{site.baseurl}}/help/support#braze-support).
+Se o seu relatório continuar a apresentar tempo limite após várias tentativas, [fale com o Suporte]({{site.baseurl}}/help/support/#braze-support).
 
-## Consultando motivos de cancelamento
+## Consultando motivos de cancelamento {#querying-abort-reasons}
 
 Você pode consultar a coluna `ABORT_TYPE` em qualquer tabela `USERS_MESSAGES_*_ABORT_SHARED` para analisar por que as mensagens não foram enviadas. O campo `ABORT_TYPE` contém um valor da string descrevendo o motivo específico do cancelamento, e o campo complementar `ABORT_LOG` contém informações adicionais (como a regra de limite de frequência que foi acionada).
 
@@ -128,11 +128,11 @@ ORDER BY abort_count DESC
 
 Para a lista completa de valores de `ABORT_TYPE` e suas descrições, consulte [Tipos de cancelamento]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/#abort-types).
 
-## Dados e resultados
+## Dados e resultados {#data-and-results}
 
-Todas as consultas apresentam dados dos últimos 60 dias. Quando você exportar seus resultados, eles conterão apenas até 1.000 linhas. Para relatórios que exigem grandes quantidades de dados, você pode usar ferramentas como o [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) ou o [endpoint da API de exportação]({{site.baseurl}}/api/endpoints/export).
+Todas as consultas apresentam dados dos últimos 60 dias. Quando você exportar seus resultados, eles conterão apenas até 1.000 linhas. Para relatórios que exigem grandes quantidades de dados, você pode usar ferramentas como o [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) ou o [endpoint da API de exportação]({{site.baseurl}}/api/endpoints/export/).
 
-## Créditos do Snowflake
+## Créditos do Snowflake {#snowflake-credits}
 
 Cada empresa tem 5 créditos Snowflake disponíveis por mês, compartilhados em todos os espaços de trabalho. Uma pequena parte de um crédito do Snowflake é usada sempre que você executa uma consulta ou visualiza a pré-visualização de uma tabela.
 

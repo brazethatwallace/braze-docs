@@ -1,15 +1,15 @@
 ---
 nav_title: BrazeAI
 article_title: BrazeAI
-description: "BrazeAI<sup>TM</sup> は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのエントリの障壁を低くする、利用しやすく使いやすいツールのコレクションを提供します。"
+description: "BrazeAI<sup>TM</sup>は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのハードルを下げる、利用しやすく使いやすいツールのコレクションを提供します。"
 page_order: 8
 layout: dev_guide
 search_rank: 12
-Tool:
+tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup> は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのエントリの障壁を低くする、利用しやすく使いやすいツールのコレクションを提供します。BrazeAI<sup>TM</sup> の機能を活用すれば、信頼できるアドバイザーとして創造性を導き、より良い意思決定を行い、顧客のユーザーエクスペリエンスを最適化できます。"
+guide_top_text: "BrazeAI<sup>TM</sup>は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのハードルを下げる、利用しやすく使いやすいツールのコレクションを提供します。BrazeAI<sup>TM</sup>の機能を活用すれば、信頼できるアドバイザーとして創造性を導き、より良い意思決定を行い、顧客のユーザーエクスペリエンスを最適化できます。"
 
 guide_featured_title: "機能"
 guide_featured_list:
@@ -38,7 +38,7 @@ guide_featured_list:
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
   - name: Predictive Suite
-    link: /docs/user_guide/brazeai
+    link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: パーソナライズ済みパス
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths

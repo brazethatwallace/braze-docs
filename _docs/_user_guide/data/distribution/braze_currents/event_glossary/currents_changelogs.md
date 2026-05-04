@@ -8,6 +8,8 @@ tool: Currents
 
 # Currents changelog
 
+> This page lists event and schema changes for each Braze Currents release.
+
 ## Changes in Version 8 (release date 2026-05-06)
 
 ### Changes for Storage:

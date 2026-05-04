@@ -1,8 +1,8 @@
-## Usando blocos de editor de mensagem no app
+## Usando blocos de editor de mensagem no app {#using-in-app-message-editor-blocks}
 
 Os blocos de editor estão localizados na seção **Build** para mensagens no app. Para usá-los, arraste um bloco do editor para dentro de uma coluna. Ele se ajustará automaticamente à largura da coluna. Cada bloco do editor tem suas próprias configurações, como o controle granular do preenchimento. O painel do lado direito muda automaticamente para um painel de propriedades do elemento de conteúdo selecionado.
 
-## Tipos
+## Tipos {#types}
 
 A tabela a seguir descreve como você pode usar cada tipo de bloco de editor.
 
@@ -12,23 +12,23 @@ A tabela a seguir descreve como você pode usar cada tipo de bloco de editor.
 | Parágrafo | Insere um texto de parágrafo na mensagem. |
 | Botão | Adiciona um botão padrão. As propriedades desse bloco permitem a edição, a configuração de links e o registro de análise de dados. |
 | Botão de opção | Adiciona uma lista de opções das quais os usuários podem selecionar uma. Quando enviado, o perfil de usuário registra o atributo personalizado associado, que deve ser uma string para ser salvo. Atributos personalizados com outros tipos de dados não são salvos no perfil de usuário. |
-| Imagem | Insere uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
+| Imagem | Insere uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). |
 | Link | Insere um hyperlink que os usuários podem clicar para navegar para uma URL especificada. Pode ser incorporado dentro do texto ou de forma independente. |
 | Espaçador | Adiciona espaço ou preenchimento entre outros blocos. |
-| Código personalizado | Insere e executa HTML, CSS ou JavaScript personalizados para personalização avançada.  |
+| Código personalizado | Insere e executa HTML, CSS ou JavaScript personalizados para personalização avançada. |
 | Captura de telefone | Insere um campo de formulário para números de telefone. Quando enviado, o usuário é inscrito no grupo de inscrições de [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) ou [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/). |
 | Captura de e-mail | Insere um campo de formulário para endereços de e-mail. Quando enviado, o endereço de e-mail é adicionado ao perfil desse usuário na Braze. |
-| Texto curto    | Insere um campo de formulário que aceita atributos padrão (como nome e sobrenome) ou uma string de atributo personalizado de sua escolha. |
-| Menu suspenso      | Insere um dropdown com uma lista predefinida de itens dos quais os usuários podem selecionar um. Você pode adicionar quaisquer strings de atributos personalizados à lista. |
-| Caixa de seleção      | Insere uma caixa de seleção. Se o usuário marcar a caixa, o atributo do bloco é definido como `true`. Se deixado desmarcado, seu atributo é definido como `false`. |
-| Grupo de caixas de seleção| Os usuários podem selecionar entre várias opções apresentadas. Os valores são definidos ou adicionados a um atributo personalizado de array definido. |
+| Texto curto | Insere um campo de formulário que aceita atributos padrão (como nome e sobrenome) ou uma string de atributo personalizado de sua escolha. |
+| Menu suspenso | Insere um dropdown com uma lista predefinida de itens dos quais os usuários podem selecionar um. Você pode adicionar quaisquer strings de atributos personalizados à lista. |
+| Caixa de seleção | Insere uma caixa de seleção. Se o usuário marcar a caixa, o atributo do bloco é definido como `true`. Se deixado desmarcado, seu atributo é definido como `false`. |
+| Grupo de caixas de seleção | Os usuários podem selecionar entre várias opções apresentadas. Os valores são definidos ou adicionados a um atributo personalizado de array definido. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Propriedades
+## Propriedades {#properties}
 
 As informações das propriedades de cada bloco de editor são fornecidas nas tabelas a seguir.
 
-### Título e parágrafo
+### Título e parágrafo {#title-and-paragraph}
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -41,7 +41,7 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | Cor do texto | Modifica a cor do texto |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Botão
+### Botão {#button}
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -53,11 +53,11 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | Alinhamento do botão | Move o botão para ser alinhado à esquerda, ao centro ou à direita |
 | Cor do texto do botão | Modifica a cor do texto no botão |
 | Cor de fundo | Modifica a cor do fundo do botão |
-| Estilo da borda | Determina o estilo da borda do botão | 
+| Estilo da borda | Determina o estilo da borda do botão |
 | Raio da borda | Determina o quão arredondados você deseja que sejam os cantos |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Imagem
+### Imagem {#image}
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -66,7 +66,7 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | URL | O endereço hospedado da imagem |
 | Alinhamento | Move a imagem para ser alinhada à esquerda, ao centro ou à direita |
 | Cor de fundo | Modifica a cor do fundo da imagem |
-| Estilo da borda | Determina o estilo da borda da imagem | 
+| Estilo da borda | Determina o estilo da borda da imagem |
 | Raio da borda | Determina o quão arredondados você deseja que sejam os cantos da imagem |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -80,7 +80,7 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | Cor do texto | Modifica a cor do texto |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Espaçador
+### Espaçador {#spacer}
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -88,14 +88,14 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | Altura | Modifica a altura do espaçador. Você também pode modificar isso usando as alças de redimensionamento no espaçador. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Código personalizado
+### Código personalizado {#custom-code}
 
 | Propriedade | Descrição |
 | --- | --- |
 | Código personalizado | Permite adicionar, editar ou excluir HTML, CSS e JavaScript de uma mensagem no app. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Captura de telefone
+### Captura de telefone {#phone-capture}
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -104,7 +104,7 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | Texto do espaço reservado | Um número de telefone de exemplo para exibir |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Captura de e-mail
+### Captura de e-mail {#email-capture}
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -118,7 +118,7 @@ As informações das propriedades de cada bloco de editor são fornecidas nas ta
 | Texto do espaço reservado | Um endereço de e-mail de exemplo para exibir |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Ações
+## Ações {#actions}
 
 Você pode atribuir uma ação que ocorre quando um usuário toca em um botão, link ou imagem na mensagem. Você também pode usar [Liquid]({{site.baseurl}}/liquid/) para personalizar as ações. As informações das ações de cada bloco de editor são fornecidas nas tabelas a seguir.
 
@@ -138,7 +138,7 @@ Para especificações de imagem, consulte nossas [especificações de imagem de 
 
 | Ação | Descrição |
 | --- | --- |
-| Texto alternativo | O texto que aparece no lugar de uma imagem se a imagem não for carregada. Leitores de tela anunciam o texto alternativo para explicar imagens, então use uma linguagem simples para fornecer informações-chave sobre uma imagem. |
+| Texto alternativo | O texto que aparece no lugar de uma imagem se ela não for carregada. Leitores de tela anunciam o texto alternativo para explicar imagens, então use uma linguagem simples para fornecer informações-chave sobre a imagem. |
 | Enviar formulário quando a imagem for clicada | Envia o formulário e executa o comportamento ao clicar selecionado. Desative esta opção para executar apenas o comportamento ao clicar. |
 | Definir comportamentos específicos para cada plataforma | Personaliza o comportamento da imagem para cada plataforma separadamente. |
 | Comportamento ao clicar | Determina a ação quando o usuário clica na imagem, como fechar a mensagem, abrir a URL da web, fazer deeplinking em uma página específica do app, ir para outra página ou [solicitar permissão de push]({{site.baseurl}}/push_primer/). |
@@ -149,6 +149,6 @@ Para especificações de imagem, consulte nossas [especificações de imagem de 
 
 | Ação | Descrição |
 | --- | --- |
-| URL | O hyperlink para navegar |
+| URL | O hyperlink para navegação |
 | Identificador para relatório | Determina qual identificador é usado para relatórios |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

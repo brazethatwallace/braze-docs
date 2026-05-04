@@ -7,8 +7,8 @@ In-App-Nachrichten werden als Template-basierte In-App-Nachrichten zugestellt, w
 - `catalog_selection_items`
 - `event_properties`
 
-Das bedeutet, dass das Gerät beim Sitzungsstart den Trigger dieser In-App-Nachricht anstelle der gesamten Nachricht erhält. Wenn der/die Nutzer:in die In-App-Nachricht triggert, stellt das Gerät eine Netzwerkanfrage, um die eigentliche Nachricht abzurufen.
+Das bedeutet, dass das Gerät beim Sitzungsstart den Trigger dieser In-App-Nachricht anstelle der gesamten Nachricht erhält. Wenn Nutzer:innen die In-App-Nachricht triggern, stellt das Gerät eine Netzwerkanfrage, um die eigentliche Nachricht abzurufen.
 
 {% alert note %}
-Die Nachricht wird nicht zugestellt, wenn das Gerät keinen Internetzugang hat. Die Nachricht wird möglicherweise nicht zugestellt, wenn die Liquid-Logik zu lange für die Auflösung benötigt.
+Die Nachricht wird nicht zugestellt, wenn das Gerät keinen Internetzugang hat. Die Nachricht wird möglicherweise nicht zugestellt, wenn die Auflösung der Liquid-Logik zu lange dauert.
 {% endalert %}

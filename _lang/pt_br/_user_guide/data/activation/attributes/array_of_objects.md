@@ -1,40 +1,40 @@
 ---
-nav_title: Array de objetos
-article_title: Array de objetos
+nav_title: Vetor de objetos
+article_title: Vetor de objetos
 alias: "/array_of_objects/"
 page_order: 2
 page_type: reference
-description: "Este artigo de referência aborda o uso de um array de objetos como tipo de dados para atributos personalizados, incluindo limitações e exemplos de uso."
+description: "Este artigo de referência aborda o uso de um vetor de objetos como um tipo de dados para atributos personalizados, incluindo limitações e exemplos de uso."
 ---
 
-# Array de objetos
+# Vetor de objetos {#array-of-objects}
 
-> Esta página explica como usar um array de objetos para agrupar atributos relacionados. Por exemplo, você pode ter um grupo de objetos de animais de estimação, objetos de músicas e objetos de contas, todos pertencentes a um único usuário. Esses arrays de objetos podem ser usados para personalizar suas mensagens com Liquid ou criar segmentos de público quando qualquer elemento dentro de um objeto corresponder aos critérios.
+> Esta página aborda como usar um vetor de objetos para agrupar atributos relacionados. Por exemplo, você pode ter um grupo de objetos de animais de estimação, objetos de música e objetos de conta que pertencem a um único usuário. Esses vetores de objetos podem ser usados para personalizar o envio de mensagens com Liquid ou criar segmentos de público se algum elemento de um objeto corresponder aos critérios.
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Considerações
+## Considerações {#considerations}
 
-- Arrays de objetos são destinados a atributos personalizados enviados pela API. Uploads de arquivo CSV não são compatíveis. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e vírgulas nos valores causarão erros de análise.
-- Arrays de objetos não têm limite no número de itens, mas possuem um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o array exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API ainda retorna uma resposta de sucesso. Para manter o array dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do array primeiro.
-- Nem todos os parceiros da Braze oferecem suporte a arrays de objetos. Consulte a [documentação de parceiros]({{site.baseurl}}/partners/home) para confirmar se a integração é compatível com esse recurso.
+- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para fazer upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
+- Os vetores de objetos não têm limite para o número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o vetor exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API ainda retorna uma resposta de sucesso. Para manter o vetor dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do vetor primeiro.
+- Nem todos os parceiros da Braze suportam vetores de objetos. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home/) para confirmar se a integração suporta esse recurso.
 
-Atualizar ou remover itens de um array requer identificar o item por chave e valor. Portanto, considere incluir um identificador único para cada item no array. A unicidade é limitada ao escopo do array e é útil quando você deseja atualizar e remover objetos específicos. Isso não é imposto pela Braze.
+A atualização ou remoção de itens em um vetor exige a identificação do item por chave e valor, portanto, considere incluir um identificador exclusivo para cada item do vetor. A exclusividade tem escopo apenas para o vetor e é útil se você quiser atualizar e remover objetos específicos do vetor. Isso não é imposto pela Braze.
 
 {% alert important %}
 Quando um atributo personalizado aninhado na sua requisição contém valores inválidos (como formatos de hora inválidos ou valores `null`), a Braze descarta todas as atualizações de atributos personalizados aninhados da requisição durante o processamento. Isso se aplica a todas as estruturas aninhadas dentro desse atributo específico. Verifique se todos os valores dentro dos atributos personalizados aninhados são válidos antes de enviar. Para saber mais, consulte [Criar e atualizar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-Para saber mais sobre o uso de arrays de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
 {% endalert %}
 
-## Exemplo de API
+## Exemplo de API {#api-example}
 
 {% tabs local %}
 {% tab Create %}
 
-A seguir, um exemplo de `/users/track` com um array `pets`. Para capturar as propriedades dos animais de estimação, envie uma requisição de API que liste `pets` como um array de objetos. Observe que cada objeto recebeu um `id` único que pode ser referenciado posteriormente ao fazer atualizações.
+A seguir, um exemplo de `/users/track` com um vetor `pets`. Para capturar as propriedades dos animais de estimação, envie uma requisição de API que liste `pets` como um vetor de objetos. Observe que cada objeto recebeu um `id` único que pode ser referenciado posteriormente ao fazer atualizações.
 
 ```json
 {
@@ -62,7 +62,7 @@ A seguir, um exemplo de `/users/track` com um array `pets`. Para capturar as pro
 {% endtab %}
 {% tab Add %}
 
-Adicione outro item ao array usando o operador `$add`. O exemplo a seguir mostra a adição de mais três objetos de animais de estimação ao array `pets` do usuário.
+Adicione outro item ao vetor usando o operador `$add`. O exemplo a seguir mostra a adição de mais três objetos de animais de estimação ao vetor `pets` do usuário.
 
 ```json
 {
@@ -98,9 +98,9 @@ Adicione outro item ao array usando o operador `$add`. O exemplo a seguir mostra
 {% endtab %}
 {% tab Update %}
 
-Atualize valores de objetos específicos dentro de um array usando o parâmetro `_merge_objects` e o operador `$update`. Semelhante às atualizações de objetos simples de [atributos personalizados aninhados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), isso realiza um merge profundo.
+Atualize valores de objetos específicos dentro de um vetor usando o parâmetro `_merge_objects` e o operador `$update`. Semelhante às atualizações de objetos simples de [atributos personalizados aninhados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), isso realiza um merge profundo.
 
-Observe que `$update` não pode ser usado para remover uma propriedade aninhada de um objeto dentro de um array. Para isso, você precisará remover o item inteiro do array e depois adicionar o objeto sem essa chave específica (usando uma combinação de `$remove` e `$add`).
+Observe que `$update` não pode ser usado para remover uma propriedade aninhada de um objeto dentro de um vetor. Para isso, você precisará remover o item inteiro do vetor e depois adicionar o objeto sem essa chave específica (usando uma combinação de `$remove` e `$add`).
 
 O exemplo a seguir mostra a atualização da propriedade `breed` para `goldfish` no objeto com `id` igual a `4`. Este exemplo de requisição também atualiza o objeto com `id` igual a `5` com um novo `name` de `Annette`. Como o parâmetro `_merge_objects` está definido como `true`, todos os outros campos desses dois objetos permanecem inalterados.
 
@@ -140,9 +140,9 @@ Você deve definir `_merge_objects` como true, caso contrário seus objetos ser�
 {% endtab %}
 {% tab Remove %}
 
-Remova objetos de um array usando o operador `$remove` em combinação com uma chave correspondente (`$identifier_key`) e valor (`$identifier_value`).
+Remova objetos de um vetor usando o operador `$remove` em combinação com uma chave correspondente (`$identifier_key`) e valor (`$identifier_value`).
 
-O exemplo a seguir mostra a remoção de qualquer objeto no array `pets` que tenha um `id` com valor `1`, um `id` com valor `2` e um `type` com valor `dog`. Se houver múltiplos objetos com o valor de `type` igual a `dog`, todos os objetos correspondentes serão removidos.
+O exemplo a seguir mostra a remoção de qualquer objeto no vetor `pets` que tenha um `id` com valor `1`, um `id` com valor `2` e um `type` com valor `dog`. Se houver múltiplos objetos com o valor de `type` igual a `dog`, todos os objetos correspondentes serão removidos.
 
 ```json
 {
@@ -174,9 +174,9 @@ O exemplo a seguir mostra a remoção de qualquer objeto no array `pets` que ten
 {% endtab %}
 {% endtabs %}
 
-### Ordem de processamento
+### Ordem de processamento {#processing-order}
 
-Quando uma única requisição `/users/track` inclui operações `$add`, `$remove` e `$update` para o mesmo atributo de array, a Braze as processa nesta ordem:
+Quando uma única requisição `/users/track` inclui operações `$add`, `$remove` e `$update` para o mesmo atributo de vetor, a Braze as processa nesta ordem:
 
 1. `$add`
 2. `$remove`
@@ -186,7 +186,7 @@ Como `$add` é executado antes de `$remove`, você não pode usar um `$remove` s
 
 ### Timestamps
 
-Ao incluir campos como timestamps em um array de objetos, use o formato `$time` em vez de strings simples ou inteiros de época Unix.
+Ao incluir campos como timestamps em um vetor de objetos, use o formato `$time` em vez de strings simples ou inteiros de época Unix.
 
 ```json
 {
@@ -211,7 +211,7 @@ Ao incluir campos como timestamps em um array de objetos, use o formato `$time` 
 Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
 {% endalert %}
 
-## Exemplo de SDK
+## Exemplo de SDK {#sdk-example}
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -519,38 +519,38 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endtab %}
 {% endtabs %}
 
-## Templates com Liquid
+## Templates com Liquid {#liquid-templating}
 
-Você pode usar esse array `pets` para personalizar uma mensagem. O exemplo de template Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas na requisição de API anterior e usá-las no envio de mensagens.
+Você pode usar esse vetor `pets` para personalizar uma mensagem. O exemplo de template Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas na requisição de API anterior e usá-las no envio de mensagens.
 
 {% raw %}
 ```liquid
-{% assign pets = {{custom_attribute.${pets}}} %} 
- 
+{% assign pets = {{custom_attribute.${pets}}} %}
+
 {% for pet in pets %}
 I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
-{% endfor %} 
+{% endfor %}
 ```
 {% endraw %}
 
-Nesse cenário, você pode usar Liquid para percorrer o array `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
+Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
 
-## Segmentação
+## Segmentação {#segmentation}
 
-Ao segmentar usuários com base em arrays de objetos, um usuário se qualificará para o segmento se qualquer objeto no array corresponder aos critérios.
+Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o Segment se qualquer objeto no vetor corresponder aos critérios.
 
-Crie um novo segmento e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu array de objetos.
+Crie um novo Segment e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
 
-![Filtrar por array de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
+![Filtrar por vetor de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
-Use a notação de ponto para especificar qual campo no array de objetos você deseja usar. Comece o campo de texto com um par vazio de colchetes `[]` para indicar à Braze que você está buscando dentro de um array de objetos. Depois, adicione um ponto `.`, seguido do nome do campo que deseja usar.
+Use a notação de ponto para especificar qual campo no vetor de objetos você deseja usar. Comece o campo de texto com um par vazio de colchetes `[]` para indicar à Braze que você está buscando dentro de um vetor de objetos. Depois, adicione um ponto `.`, seguido do nome do campo que deseja usar.
 
-Por exemplo, se você quiser filtrar um array de objetos `top_3_movies` com base no campo `type`, insira `[].type` e escolha os filmes para filtrar, como `Fantasy Movie`.
+Por exemplo, se você quiser filtrar um vetor de objetos `top_3_movies` com base no campo `type`, insira `[].type` e escolha os filmes para filtrar, como `Fantasy Movie`.
 
 
-### Níveis de aninhamento
+### Níveis de aninhamento {#levels-of-nesting}
 
-Você pode criar um segmento com até um nível de aninhamento de array (array dentro de outro array). Por exemplo, considerando os atributos a seguir, você pode criar um segmento para `pets[].name` contém `Gus`, mas não pode criar um segmento para `pets[].nicknames[]` contém `Gugu`.
+Você pode criar um Segment com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um Segment para `pets[].name` contém `Gus`, mas não pode criar um Segment para `pets[].nicknames[]` contém `Gugu`.
 
 {% raw %}
 ```json
@@ -586,14 +586,14 @@ Você pode criar um segmento com até um nível de aninhamento de array (array d
 ```
 {% endraw %}
 
-## Pontos de dados
+## Pontos de dados {#data-points}
 
 Os pontos de dados são registrados de forma diferente dependendo se você cria, atualiza ou remove uma propriedade.
 
 {% tabs local %}
 {% tab Create %}
 
-Criar um novo array registra um ponto de dados para cada atributo em um objeto. Este exemplo custa oito pontos de dados — cada objeto de animal de estimação tem quatro atributos e há dois objetos.
+Criar um novo vetor registra um ponto de dados para cada atributo em um objeto. Este exemplo custa oito pontos de dados — cada objeto de animal de estimação tem quatro atributos e há dois objetos.
 
 ```json
 {
@@ -621,7 +621,7 @@ Criar um novo array registra um ponto de dados para cada atributo em um objeto. 
 {% endtab %}
 {% tab Update %}
 
-Atualizar um array existente registra um ponto de dados para cada propriedade adicionada. Este exemplo custa dois pontos de dados, pois atualiza apenas uma propriedade em cada um dos dois objetos.
+Atualizar um vetor existente registra um ponto de dados para cada propriedade adicionada. Este exemplo custa dois pontos de dados, pois atualiza apenas uma propriedade em cada um dos dois objetos.
 
 ```json
 {
@@ -654,7 +654,7 @@ Atualizar um array existente registra um ponto de dados para cada propriedade ad
 {% endtab %}
 {% tab Remove %}
 
-Remover um objeto de um array registra um ponto de dados para cada critério de remoção enviado. Este exemplo custa três pontos de dados, mesmo que você possa estar removendo múltiplos cachorros com essa instrução.
+Remover um objeto de um vetor registra um ponto de dados para cada critério de remoção enviado. Este exemplo custa três pontos de dados, mesmo que você possa estar removendo múltiplos cachorros com essa instrução.
 
 ```json
 {

@@ -61,7 +61,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 
 | Typ | Seitenverhältnis | Bildqualität | Anmerkungen |
 | --- | --- | --- | --- |
-| Modal (nur Bild) | 1:1 | Empfohlene maximale Auflösung: 1200 x 2000 px <br> Mindestauflösung: 600 x 600 px | Die Nachricht passt sich an die meisten Seitenverhältnisse an. Die empfohlene maximale Auflösung hat ein Seitenverhältnis von 3:5, was möglicherweise nicht zu optimalen Ergebnissen führt. Größere Bilder sind zwar verwendbar, können jedoch zu längeren Ladezeiten führen. <br> Das ideale Seitenverhältnis für Bilder ist 1:1. Wird dieses Verhältnis nicht eingehalten, kann dies beim Hochladen eine Warnung triggern. Diese Warnung ist ein Vorschlag für optimale Ergebnisse und verhindert nicht das Hochladen größerer Bilder. |
+| Modal (nur Bild) | 1:1 | Empfohlene maximale Auflösung: 1200 x 2000 px <br> Mindestauflösung: 600 x 600 px | Die Nachricht passt sich an die meisten Seitenverhältnisse an. Die empfohlene maximale Auflösung hat ein Seitenverhältnis von 3:5, was möglicherweise nicht zu optimalen Ergebnissen führt. Größere Bilder sind zwar verwendbar, können jedoch zu längeren Ladezeiten führen. <br> Das ideale Seitenverhältnis für Bilder ist 1:1. Wird dieses Verhältnis nicht eingehalten, kann dies beim Hochladen eine Warnung auslösen. Diese Warnung ist ein Vorschlag für optimale Ergebnisse und verhindert nicht das Hochladen größerer Bilder. |
 | Modal mit Text | 29:10 | Hohe Auflösung 1450 x 500 px <br> Mindestauflösung 600 x 205 px | Hohe Bilder werden verkleinert und horizontal zentriert. Breite Bilder werden am linken und rechten Rand abgeschnitten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
 
@@ -142,21 +142,21 @@ table td {
 {% if include.variable_name == "email" %}
 
 | E-Mail-Typ | Empfohlene Maximalwerte |
-| --- | --- | 
+| --- | --- |
 | Nur Text | 25 KB |
 | Text mit Bildern | 60 KB |
 | E-Mail-Breite | 600 px |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Bildspezifikationen | Empfohlene Maximalwerte |
-| --- | --- | 
+| --- | --- |
 | Größe | 5 MB |
 | Breite | Header: 600 px<br>Text: 480 px |
 | Dateitypen | PNG, JPEG, GIF<br><br> Die Unterstützung für WebP-Bilder variiert je nach E-Mail-Client. Um eine zuverlässige Darstellung zu gewährleisten, konvertieren Sie WebP-Bilder in das PNG- oder JPEG-Format, bevor Sie sie zu E-Mail-Nachrichten hinzufügen. |
 {: .reset-td-br-1 .reset-td-br-2}
 
 | Textspezifikationen | Empfohlene Maximalwerte |
-| --- | --- | 
+| --- | --- |
 | Länge der Betreffzeile | 35 Zeichen<br>6 bis 10 Wörter |
 | `"From: Name"` Länge | 25 Zeichen |
 | Preheader-Länge | 85 Zeichen |
@@ -173,7 +173,7 @@ table td {
 | Banner    | Beliebiges Seitenverhältnis | 600&nbsp;px Mindestbreite |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
 
-Weitere Informationen finden Sie unter [Kreative Details für Content-Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
 
 {% endif %}
 

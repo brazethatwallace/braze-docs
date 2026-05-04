@@ -45,7 +45,9 @@ To have these folders available in the workspace, open **`braze-workspace.code-w
 
 ### PR descriptions and public output
 
-When content has been verified using these Braze source repos, **never publish code paths** (e.g. file paths inside `platform` or SDK repos) in PR descriptions or other public-facing output. Use a generic phrase such as **"Verified against Braze source code."** instead.
+When content has been verified using these Braze source repos, include the relevant repo-relative source file paths in PR descriptions so reviewers can trace the verification (for example, `platform/shared_code/...`). Do not include local filesystem paths such as `/Users/...` or `../platform/...`. All reference repos are private.
+
+For other public-facing output (for example, content that may be pasted externally), don't include private repo paths, internal file names, or other details from these private repos. Instead, summarize the verification at a high level without exposing private source information.
 
 ### Keeping repos up to date
 

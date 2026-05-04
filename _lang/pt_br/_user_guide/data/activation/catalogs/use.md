@@ -5,11 +5,11 @@ page_order: 1.5
 description: "Este artigo de referência aborda como usar catálogos para fazer referência a dados de não usuários em suas campanhas da Braze por meio do Liquid."
 ---
 
-# Usando catálogos
+# Usando catálogos {#using-catalogs}
 
 > Depois de criar um catálogo, é possível fazer referência a dados de não usuários em suas campanhas da Braze por meio do [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Você pode usar catálogos em todos os seus canais de envio de mensagens, inclusive em qualquer lugar do editor de arrastar e soltar em que o Liquid seja compatível.
 
-## Uso de catálogos em uma mensagem
+## Uso de catálogos em uma mensagem {#using-catalogs-in-a-message}
 
 O vídeo a seguir mostra como usar catálogos em uma mensagem.
 
@@ -29,7 +29,7 @@ Podemos ver imediatamente a prévia do Liquid a seguir:
 ```
 {% endraw %}
 
-### Etapa 2: Selecione os itens do catálogo
+### Etapa 2: Selecione os itens do catálogo {#step-2-select-catalog-items}
 
 Em seguida, é hora de adicionar seus itens de catálogo! Usando o menu suspenso, selecione os itens do catálogo e as informações a serem exibidas. Essas informações correspondem às colunas do arquivo CSV do qual foi feito upload e usado para gerar seu catálogo.
 
@@ -38,7 +38,7 @@ Por exemplo, para fazer referência ao título e ao preço do nosso jogo Tales, 
 {% raw %}
 ```liquid
 {% catalog_items Games 1234 %}
- 
+
 Get {{ items[0].title }} for just {{ items[0].price }}!
 ```
 {% endraw %}
@@ -47,18 +47,18 @@ O resultado é o seguinte:
 
 > Adquira o Tales por apenas 7,49!
 
-## Exportando catálogos
+## Exportando catálogos {#exporting-catalogs}
 
-Existem duas maneiras de exportar catálogos do dashboard: 
+Existem duas maneiras de exportar catálogos do dashboard:
 
 - Passe o mouse sobre a linha do catálogo na seção **Catálogos**. Em seguida, selecione o botão **Exportar catálogo**.
 - Selecione seu catálogo. Em seguida, selecione o botão **Exportar catálogo** na guia **Pré-visualização** do catálogo.
 
 Você receberá um e-mail para baixar o arquivo CSV após iniciar a exportação. Você terá até quatro horas para recuperar esse arquivo.
 
-## Casos de uso adicionais
+## Casos de uso adicionais {#additional-use-cases}
 
-### Vários itens
+### Vários itens {#multiple-items}
 
 Você não está limitado a um item em uma mensagem. Use o modal **Adicionar Personalização** para adicionar até três itens do catálogo de cada vez. Para adicionar mais, selecione **Adicionar Personalização** novamente no criador e selecione itens e informações adicionais do catálogo para exibir.
 
@@ -106,13 +106,13 @@ Neste exemplo, a tag `catalog_items` busca o item `1234` do catálogo `Games`, e
 
 {% raw %}
 ```liquid
-{% catalog_selection_items item-list selections %} 
+{% catalog_selection_items item-list selections %}
 {% if items[0].venue_name.size > 10 %}
-Message if the venue name's size is more than 10 characters. 
+Message if the venue name's size is more than 10 characters.
 {% elsif items[0].venue_name.size <= 10 %}
-Message if the venue name's size is 10 characters or fewer. 
-{% else %} 
-{% abort_message('no venue_name') %} 
+Message if the venue name's size is 10 characters or fewer.
+{% else %}
+{% abort_message('no venue_name') %}
 {% endif %}
 ```
 {% endraw %}
@@ -162,7 +162,7 @@ Você também pode usar templates para extrair dinamicamente itens do catálogo 
 Os objetos JSON nos catálogos só são ingeridos por meio da API. Não é possível fazer upload de um objeto JSON usando um arquivo CSV.
 {% endalert %}
 
-Usando templates Liquid, você pode extrair dinamicamente os IDs da lista de desejos e usá-los em sua mensagem. Para fazer isso, [atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) ao seu atributo personalizado e depois use o modal **Adicionar Personalização** para puxar um item específico do array. Variáveis referenciadas como o ID do item do catálogo devem estar envolvidas em chaves para serem referenciadas corretamente, como `{{result}}`.
+Usando templates Liquid, você pode extrair dinamicamente os IDs da lista de desejos e usá-los em sua mensagem. Para fazer isso, [atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) ao seu atributo personalizado e depois use o modal **Adicionar Personalização** para puxar um item específico do array. Variáveis referenciadas como o ID do item do catálogo devem estar envolvidas em chaves para serem referenciadas corretamente, como `{{result}}`.
 
 {% alert tip %}
 Lembre-se de que os arrays começam em `0`, e não em `1`.

@@ -7,7 +7,7 @@ description: "Referência dos tipos de dados compatíveis com atributos personal
 toc_headers: h2
 ---
 
-# Tipos de dados
+# Tipos de dados {#data-types}
 
 > Esta página reúne os tipos de dados compatíveis com atributos personalizados, propriedades de eventos e catálogos. Cada tipo de dado personalizado tem suporte e restrições ligeiramente diferentes.
 
@@ -78,7 +78,7 @@ Use esta tabela para ver quais tipos de dados você pode usar para atributos de 
   </tbody>
 </table>
 
-### Considerações importantes
+### Considerações importantes {#important-considerations}
 
 - **Array:** Atributos personalizados e propriedades de eventos têm limites de tamanho. Datas e horas não são compatíveis dentro de arrays em propriedades de eventos. Catálogos suportam apenas arrays de strings, com no máximo 100 elementos.
 - **Objeto:** Na Braze, isso aparece como "atributos personalizados aninhados" para atributos personalizados, "objetos aninhados" para propriedades de eventos e "objeto JSON" para catálogos.
@@ -93,26 +93,26 @@ Os atributos personalizados são compatíveis com os tipos de dados listados na 
 
 Você pode bloquear atributos personalizados individualmente no menu de ações, ou selecionar e bloquear até 100 atributos em massa. Se você bloquear um atributo personalizado, nenhum dado será coletado para esse atributo, os dados existentes ficarão indisponíveis a menos que sejam reativados, e os atributos bloqueados não aparecerão em filtros ou gráficos. Além disso, se o atributo estiver sendo referenciado por filtros ou gatilhos em outras áreas do dashboard da Braze, um modal de aviso aparecerá explicando que todas as instâncias dos filtros ou gatilhos que o referenciam serão removidas e arquivadas.
 
-### Marcando como informação de identificação pessoal (IPI)
+### Marcando como informação de identificação pessoal (IPI) {#marking-as-personally-identifiable-information-pii}
 
-Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "Visualizar atributos personalizados marcados como IPI".
+Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
 
-### Adicionando descrições
+### Adicionando descrições {#adding-descriptions}
 
 Você pode adicionar uma descrição a um atributo personalizado após sua criação, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edite o atributo personalizado e insira o que desejar, como uma nota para sua equipe.
 
-### Adicionando tags
+### Adicionando tags {#adding-tags}
 
 Você pode adicionar tags a um atributo personalizado após sua criação, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". Depois, você pode usar as tags para filtrar a lista de atributos.
 
-### Removendo atributos personalizados
+### Removendo atributos personalizados {#removing-custom-attributes}
 
 Existem duas formas de remover atributos personalizados dos perfis de usuário:
 
 * Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
 
-#### Definindo o valor `null`
+#### Definindo o valor `null` {#setting-the-null-value}
 
 {% alert important %}
 Definir um atributo como `null` e defini-lo como `""` (string vazia) não é a mesma coisa.
@@ -123,23 +123,23 @@ Definir um atributo como `null` e defini-lo como `""` (string vazia) não é a m
 
 Além disso, `""` é válido apenas para atributos do tipo string. Se o tipo de dado do atributo estiver definido como um tipo não-string (como booleano, número ou hora) no dashboard, enviar `""` não limpa o valor — use `null` em vez disso.
 
-### Exportando dados
+### Exportando dados {#exporting-data}
 
 Para exportar a lista de atributos personalizados como um arquivo CSV, selecione **Export all** no topo da página. O sistema gera um arquivo CSV e envia um link de download por e-mail.
 
-## Visualizando relatórios de uso
+## Visualizando relatórios de uso {#viewing-usage-reports}
 
-O relatório de uso lista todos os Canvas, campanhas e segmentos que usam um atributo personalizado específico. Esta lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, Campaigns e Segments que usam um atributo personalizado específico. Esta lista não inclui usos de Liquid.
 
 Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos atributos personalizados e depois selecionando **View usage report**.
 
-### Guia de valores
+### Guia de valores {#values-tab}
 
 Ao visualizar um relatório de uso, selecione a guia **Values** para ver os principais valores dos atributos personalizados selecionados com base em uma amostra de aproximadamente 250.000 usuários. Como os resultados são amostrados de um subconjunto de usuários, a amostra não inclui todos os valores existentes. Portanto, a guia **Values** não deve ser usada para solução de problemas ou para casos de uso que exigem dados de todos os usuários.
 
 ![Relatório de uso para atributos personalizados selecionados com a guia "Values" aberta, mostrando um gráfico de pizza dos valores do atributo de país, como "US" e "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
-## Definindo atributos personalizados
+## Definindo atributos personalizados {#setting-custom-attributes}
 
 A seguir estão os métodos em várias plataformas usados para definir atributos personalizados.
 
@@ -155,11 +155,11 @@ A seguir estão os métodos em várias plataformas usados para definir atributos
 
 {% enddetails %}
 
-## Armazenamento de atributos personalizados
+## Armazenamento de atributos personalizados {#custom-attribute-storage}
 
 Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
-## Tipos de dados de atributos personalizados
+## Tipos de dados de atributos personalizados {#custom-attribute-data-types}
 
 Os atributos personalizados são ferramentas extremamente flexíveis que permitem um ótimo direcionamento.
 
@@ -205,7 +205,7 @@ Para atributos **numéricos**, as seguintes opções de segmentação estão dis
 | Verificar se o atributo numérico **não existe** no perfil do usuário ou é nulo | **IS BLANK** | **N/A** | Se o perfil do usuário não contiver o atributo numérico especificado ou o valor do atributo for nulo, o usuário corresponderá a este filtro.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Detalhes de atributos numéricos
+#### Detalhes de atributos numéricos {#number-attribute-details}
 
 - Os filtros "Exatamente 0" e "Menor que" incluem usuários com campos NULL
   - Para excluir usuários sem um valor para atributos personalizados, você precisa incluir o filtro **is not blank**.
@@ -276,7 +276,7 @@ Para saber mais sobre como usar expressões regulares (regex), confira estes rec
 
 Atributos de hora são úteis para armazenar a última vez que uma ação específica foi realizada, permitindo que você ofereça mensagens de reengajamento específicas aos seus usuários.
 
-Filtros de hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer campanha que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a campanha é executada. O mesmo vale para campanhas com intervalos de datas mais longos — cinco dias a partir da ativação significam as 120 horas anteriores.
+Filtros de hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer Campaign que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a Campaign é executada. O mesmo vale para Campaigns com intervalos de datas mais longos — cinco dias a partir da ativação significam as 120 horas anteriores.
 
 Para direcionar usuários que têm um atributo de hora dentro de um intervalo de tempo, use dois filtros de público: `in more than` para o limite inferior e `in less than` para o limite superior. Um único filtro não consegue expressar ambos os lados desse intervalo. Por exemplo, para direcionar usuários com um atributo de hora nas próximas 24 horas (entre agora e um dia a partir de agora), aplique `in more than 0 days` e `in less than 1 day`.
 
@@ -298,7 +298,7 @@ Para atributos de **hora**, as seguintes opções de segmentação estão dispon
 | Verificar se o atributo de hora **não existe** no perfil do usuário ou é nulo | **IS BLANK** | **N/A** | Se este filtro especificar um atributo de hora que não está no perfil do usuário, o usuário corresponderá a este filtro. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-#### Detalhes de atributos de hora
+#### Detalhes de atributos de hora {#time-attribute-details}
 
 - Dia de evento recorrente
   - Ao usar o filtro "Dia de evento recorrente" e ser solicitado a selecionar o "Dia do calendário do evento recorrente", se você selecionar `IS LESS THAN` ou `IS MORE THAN`, a data atual será contada para esse filtro de segmentação.
@@ -381,8 +381,8 @@ Para alterar o tipo de dado de um atributo personalizado ou evento:
 
 Se você alterar o tipo de dado de um atributo personalizado ou evento (por exemplo, alterando `time` para `string`), considere o seguinte:
 
-- **Os filtros não são atualizados automaticamente.** Segmentos, campanhas, Canvas ou outros locais que usam o atributo ou evento alterado não são atualizados. Antes de alterar o tipo de dado, pare quaisquer campanhas ou Canvas que usem o atributo em segmentos ou filtros, e remova o atributo dos filtros que o referenciam.
-- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de segmentos que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) para que correspondam ao novo tipo e reentrem no segmento, se necessário.
+- **Os filtros não são atualizados automaticamente.** Segments, Campaigns, Canvas ou outros locais que usam o atributo ou evento alterado não são atualizados. Antes de alterar o tipo de dado, pare quaisquer Campaigns ou Canvas que usem o atributo em Segments ou filtros, e remova o atributo dos filtros que o referenciam.
+- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de Segments que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) para que correspondam ao novo tipo e reentrem no Segment, se necessário.
 - **Os novos dados devem corresponder ao novo tipo.** Chamadas de API que enviam o tipo de dado anterior para o atributo alterado não são aceitas. Envie o novo tipo de dado.
 
 {% alert important %}
@@ -403,7 +403,7 @@ Os catálogos são compatíveis com os tipos listados na tabela de [Definições
 | Array de strings (Array) | Uma lista de strings. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ❌ Não | ✅ Sim |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-### Formato e exemplos
+### Formato e exemplos {#format-and-examples}
 
 | Tipo de dado | Formato | Exemplo |
 | --- | --- | --- |

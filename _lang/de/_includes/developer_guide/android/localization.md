@@ -1,12 +1,12 @@
-# Lokalisierung
+# Lokalisierung {#localization}
 
-> Die Lokalisierung wird im Braze Android SDK unterstützt. Neben Englisch unterstützt Braze mehrere weitere Sprachen für die integrierten SDK-Nachrichten. Diese beziehen sich auf die Standardmeldungen, die in mit Braze integrierten Anwendungen angezeigt werden, z. B. an Stellen in der App, an denen Verbindungsprobleme auftreten (etwa „Netzwerkverbindung kann nicht hergestellt werden. Bitte versuchen Sie es später noch einmal.").
+> Die Lokalisierung wird im Braze Android SDK unterstützt. Neben Englisch unterstützt Braze mehrere weitere Sprachen für die integrierten SDK-Nachrichten. Diese beziehen sich auf die Standardmeldungen, die in mit Braze integrierten Anwendungen angezeigt werden, z. B. an Stellen in der App, an denen Verbindungsprobleme auftreten (etwa „Netzwerkverbindung kann nicht hergestellt werden. Bitte versuchen Sie es später noch einmal.“).
 
 Wenn die Sprache des Telefons auf eine der unterstützten Sprachen eingestellt ist, werden alle Braze-Standard-Strings, die innerhalb einer integrierten Anwendung getriggert werden, automatisch in dieser Sprache angezeigt.
 
 Eine vollständige Liste der unterstützten Sprachen, die Sie Ihren Nutzer:innen in deren Profilen zuweisen können, finden Sie in unserer [Liste der Nutzersprachen]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Unterstützte Sprachen
+## Unterstützte Sprachen {#languages-supported}
 
 - Afrikaans
 - Aghem

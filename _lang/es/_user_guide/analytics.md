@@ -25,4 +25,4 @@ guide_featured_list:
 
 ---
 
-Usa **Dashboards** para monitorear el rendimiento de un vistazo, **Informes** para un análisis más profundo de campañas y Canvas, y **Seguimiento** para configurar cómo Braze captura las acciones de los usuarios. Si no tienes claro qué significa una métrica específica, consulta el **Glosario de métricas**.
+Usa **Dashboards** para monitorear el rendimiento de un vistazo, **Informes** para un análisis más profundo de las campañas y los Canvas, y **Seguimiento** para configurar cómo Braze captura las acciones de los usuarios. Si no tienes claro qué significa una métrica específica, consulta el **Glosario de métricas**.
