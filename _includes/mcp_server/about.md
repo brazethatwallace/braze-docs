@@ -1,6 +1,6 @@
 # The Braze MCP server
 
-> Learn about the Braze MCP server, a secure, read-only connection that lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, and provide insights without altering data.
+> Learn about the Braze MCP server, a secure connection that lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, and provide insights.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -19,10 +19,10 @@ After [setting up the Braze MCP server]{% if include.section == "user" %}({{site
 - CRM engineers creating multi-step agent workflows.
 - Technical marketers experimenting with natural language queries.
 
-The Braze MCP server supports 38 read-only endpoints that do not return data from Braze user profiles. You can choose to assign only some of these endpoints to your Braze API key to further restrict which data an agent can access.
+The Braze MCP server supports 39 endpoints that do not return data from Braze user profiles. You can choose which endpoints to assign to your Braze API key to control what an agent can access or change.
 
 {% alert warning %}
-Do not assign permissions to your API key that are **not** read-only. Agents may try to write or delete data in Braze, which could cause unintended consequences.
+Only assign the API key permissions you want your agent to have. If you don't want your agent to make changes in Braze, ensure you leave write permissions off. Agents may try to write data through any permission you grant.
 {% endalert %}
 
 ## Usage example
@@ -47,19 +47,19 @@ Only [Claude](https://claude.ai/) and [Cursor](https://cursor.com/) are official
 
 ### What Braze data can my MCP client access?
 
-MCP clients can only access read-only endpoints that are not built to retrieve PII. They cannot manipulate data in Braze.
+MCP clients can access endpoints that don't return PII. You control which endpoints an agent can use through the permissions you assign to your API key.
 
-### Can my MCP client manipulate Braze data?
+### Can my MCP client change Braze data?
 
-No. The MCP server only exposes tools that handle non-PII, read-only data.
+The server only exposes the `/media_library/create` write endpoint, which enables you to upload media assets into your media library. If you don't want your agent to make those changes in Braze, leave the `media_library.create` permission unchecked when you create your API key.
 
 ### Can I use a third-party MCP server for Braze?
 
 Using a third-party MCP server for Braze data is not recommended. Only use the official Braze MCP server hosted on [PyPi](https://pypi.org/project/braze-mcp-server/).
 
-### Why doesn’t the Braze MCP server offer PII or write access?
+### Why doesn't the Braze MCP server offer PII access?
 
-To protect data while still enabling innovation, the server is limited to endpoints that are read-only and do not typically return PII. This reduces risk while supporting valuable use cases.
+To protect user data while supporting valuable use cases, the server is limited to endpoints that don't typically return PII. This reduces risk for your workspace and the people in it.
 
 ### Can I reuse my API keys?
 
