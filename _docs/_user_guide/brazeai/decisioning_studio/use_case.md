@@ -23,7 +23,7 @@ This walkthrough describes how Poppy:
 
 Poppy confirms the success metric the agent should maximize: revenue from repurchases among customers who’ve stopped buying. 
 
-She defines who enters the program: a Braze segment of lapsed purchasers or high-value dormants. Now, Poppy only needs to share which segment the agent should target with the AI Decisioning Services team. The integration to pull that segment's data happens in the background without Poppy needing to set up an integration.
+She defines who enters the program: a Braze segment of lapsed purchasers or high-value dormant users. Now, Poppy only needs to share which segment the agent should target with the AI Decisioning Services team. The integration to pull that segment's data happens in the background without Poppy needing to set up an integration.
 
 ## Step 2: Build the action bank and constraints
 
