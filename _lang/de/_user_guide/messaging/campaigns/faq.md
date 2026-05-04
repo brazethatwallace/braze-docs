@@ -107,7 +107,7 @@ Die folgende Zeitleiste geht von einer Segment-Definition aus, die ein zeitlich 
 
 Im vorherigen Abschnitt wird beschrieben, wann Braze die Berechtigung für die Zustellung nach Ortszeit auswertet (die beiden Prüfungen). In diesem Abschnitt geht es darum, wann Sie den Campaign-Zeitplan im Dashboard festlegen (Vorlaufzeit für die Planung) und welche Nutzer:innen die Nachricht noch erhalten, wenn Sie mit weniger als 24 Stunden Vorlauf planen.
 
-Wenn Sie eine Campaign planen, wählen Sie den Versand zu einem bestimmten Zeitpunkt und dann **Kampagne an Nutzer:innen in ihrer Ortszeit senden**.
+Wenn Sie eine Campaign planen, wählen Sie den Versand zu einem bestimmten Zeitpunkt und dann **Campaign an Nutzer:innen in ihrer Ortszeit senden**.
 
 Braze empfiehlt dringend, alle Ortszeit-Campaigns 24 Stunden im Voraus zu planen. Da eine solche Campaign über einen ganzen Tag hinweg gesendet werden muss, stellt die Planung 24 Stunden im Voraus sicher, dass Ihre Nachricht Ihr gesamtes Segment erreicht. Sie können diese Campaigns jedoch bei Bedarf auch weniger als 24 Stunden im Voraus planen. Beachten Sie, dass Braze keine Nachrichten an Nutzer:innen sendet, die den Sendezeitpunkt um mehr als 1 Stunde verpasst haben.
 
@@ -136,7 +136,7 @@ Wenn die Campaign geplant ist, müssen Sie Änderungen an allem außer der Nachr
 
 ### Ich habe meine geplante Campaign aktualisiert. Warum wurde sie nicht gestartet? {#i-updated-my-scheduled-campaign-why-didnt-it-launch}
 
-Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Kampagne aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass der geplante Startzeitpunkt bereits verstrichen ist. Anstatt die Campaign für denselben Zeitpunkt zu planen, wählen Sie **Senden, sobald die Kampagne gestartet wird**.
+Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Campaign aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass der geplante Startzeitpunkt bereits verstrichen ist. Anstatt die Campaign für denselben Zeitpunkt zu planen, wählen Sie **Senden, sobald die Campaign gestartet wird**.
 
 ### Was ist die „sichere Zone“, bevor Nachrichten einer geplanten Campaign eingereiht werden? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-enqueued}
 

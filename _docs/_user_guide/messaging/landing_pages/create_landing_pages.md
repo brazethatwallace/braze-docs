@@ -162,7 +162,7 @@ Use landing page templates to create templates for your next campaigns. These te
 
 ## Managing templates
 
-You can preview, archive, edit, or duplicate landing page templates. When editing a landing page, you can also save your landing page as a template, make changes to the template, or delete the content of the landing page. 
+You can preview, archive, or edit landing page templates. You can duplicate your own landing page templates (located in **Your Templates**), but not Braze Templates. When editing a landing page, you can save your landing page as a template, make changes to the template, or delete the content of the landing page.
 
 ![A dropdown with options to save, change, and delete a landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
