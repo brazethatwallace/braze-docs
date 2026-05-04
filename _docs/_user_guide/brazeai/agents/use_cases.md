@@ -231,7 +231,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 ## Write high-converting descriptions that align with brand guidelines
 
 {% apitags %}
-catalog agent
+Catalog agent
 {% endapitags %}
 
 This use case describes how a catalog agent can leverage user data and brand guidelines. The goal of this catalog agent is to use brand guidelines to generate short descriptions for each travel destination and explanations for how the agent generated them.
@@ -298,7 +298,7 @@ Price Tier: $$$
 ## Provide translations based on language used by region
 
 {% apitags %}
-catalog agent
+Catalog agent
 {% endapitags %}
 
 This use case describes how a catalog agent can translate English UI and marketing strings into each region’s target language using catalog rows that define locale, UI placement, and character limits. The goal is to produce localized text you map back to your catalog columns, with explanations when shortening, locale choices, or manual review apply.
