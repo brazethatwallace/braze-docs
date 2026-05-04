@@ -1,13 +1,13 @@
 ---
 nav_title: Workspace time zones
-article_title: Workspace Time Zones for Message Sending
+article_title: Workspace time zones
 alias: /workspace_time_zones/
 page_order: 3
 description: "This reference article covers how to configure different time zones for your Braze workspaces, providing more control over campaign and Canvas scheduling for teams operating in various geographical locations."
 toc_headers: h2
 ---
 
-# Workspace time zones for message sending
+# Workspace time zones
 
 > Workspace time zones allow admins to define specific time zones for individual workspaces. This makes scheduled campaigns and Canvases (that don't use local time or Intelligent Timing) send according to the workspace's designated time zone, rather than the overarching company time zone.
 
