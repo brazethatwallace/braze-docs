@@ -1,7 +1,11 @@
 ---
-nav_title: Use case
-article_title: Use case: Intelligent Suite
-description: "This example shows how a fictional brand uses Braze AI item recommendations to deliver personalized content and product suggestions across key customer moments."
+nav_title: "Use case"
+article_title: "Use case: Intelligent Suite"
+page_order: 10
+search_rank: 12
+description: "New to the Braze intelligence suite? Read this use case on how Intelligent Timing and Intelligent Selection can be leveraged to send personalized promotions in a unified Canvas."
+tool:
+  - Dashboard
 ---
 
 # Use case: Turn past app behavior into personalized offers on the right channel
@@ -30,12 +34,15 @@ Next, Marvin creates a Canvas for new users to enter on a steady schedule while 
 
 1. In the Braze dashboard, Marvin navigates to **Messaging** > **Canvas**.
 2. He creates a Canvas and names it “Limited item - Super Sub”.
-3. He then adds at least one conversion event in the Canvas, which Intelligent Selection needs to compare variants.
+3. He then adds one conversion event and another variant in the Canvas, which Intelligent Selection needs to compare variants.
+
+![A/B Testing section of a Canvas with Intelligent Selection enabled.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
+
 4. He completes the remaining Canvas details and is now ready to map the user journey in the Canvas builder.
 
 ## Step 2: Set up delivery settings
 
-In the Delivery settings tab of the Message step, Marvin plans to use Intelligent Timing to analyze their users’ past interactions with the app and each messaging channel, then automatically select the best time to promote the Super Sub to each user. This means some users may receive the promotion in the afternoon, while others may receive it in the evening.
+In the **Delivery settings** tab of the Message step, Marvin plans to use Intelligent Timing to analyze their users’ past interactions with the app and each messaging channel, then automatically select the best time to promote the Super Sub to each user. This means some users may receive the promotion in the afternoon, while others may receive it in the evening.
 
 He selects **the most popular time to use the app amongst all users** for users who don’t have enough past interactions to analyze.
 
@@ -48,6 +55,7 @@ In each push notification, email, and SMS Message step, he opens **Delivery Sett
 He also decides to configure quiet hours, so these promotional messages avoid overnight sends while still respecting personalized timing outside that window. This way, their users can receive the messages when they’re able to make purchases at SandwichEmperor.
 
 ## Step 4: Monitor and optimize
+
 Marvin coordinates Super Sub promotional assets across push, email, and SMS in the Message steps (and any subsequent steps his variants use) and launches the Canvas.
 
 After launch, he watches Canvas analytics and conversion counts and concludes that:

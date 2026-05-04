@@ -3672,7 +3672,6 @@ validurls['/docs/user_guide/brazeai/operator/getting_started'] = '/docs/user_gui
 validurls['/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/#things-to-know'] = '/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables';
 validurls['/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties'] = '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties';
 
-// validurls['OLD'] = 'NEW';
 validurls['/docs/user_guide/personalization_and_dynamic_content'] = '/docs/user_guide/messaging/design_and_edit/personalize';
 validurls['/docs/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#inserting-pre-formatted-variables'] = '/docs/user_guide/messaging/design_and_edit/personalize/dashboard_tools/#insert-pre-formatted-variables-and-defaults';
 validurls['/docs/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#liquid-editor-enhancements'] = '/docs/user_guide/messaging/design_and_edit/personalize/dashboard_tools/#liquid-editor-enhancements';
@@ -4641,3 +4640,7 @@ validurls['/docs/user_guide/messaging_fundamentals/localization/right_to_left_me
 validurls['/docs/user_guide/messaging_fundamentals/re_eligibility'] = '/docs/user_guide/messaging/messaging_fundamentals/re_eligibility';
 validurls['/docs/user_guide/messaging_fundamentals/sending_test_messages'] = '/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages';
 validurls['/docs/user_guide/messaging_fundamentals/target_users'] = '/docs/user_guide/messaging/messaging_fundamentals/target_users';
+
+validurls['/docs/user_guide/brazeai/intelligence_suite/tutorial/'] = '/docs/user_guide/brazeai/intelligence_suite/use_case/';
+
+// validurls['OLD'] = 'NEW';
