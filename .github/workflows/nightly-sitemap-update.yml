@@ -14,7 +14,7 @@ name: "Nightly sitemap last-modified update"
 
 on:
   schedule:
-    - cron: '0 7 * * 1-5'  # 11pm PT / 2am ET Sun–Thu nights (Mon–Fri UTC), 1h before nightly deploy
+    - cron: '0 7 * * 1-5' # 11pm PT / 2am ET Sun–Thu nights (Mon–Fri UTC), 1h before nightly deploy
   workflow_dispatch:
 
 permissions:
@@ -33,13 +33,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout develop"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: develop
           fetch-depth: 0
 
       - name: "Set up Ruby"
-        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64  # v1.299.0
+        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1.299.0
         with:
           ruby-version: "3.3"
 
