@@ -63,6 +63,12 @@ Im Schritt **Add Stats** werden Ihnen Statistiken für die Typen der ausgewählt
 
 ![Statistiken zum Engagement-Bericht hinzufügen]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Workspace-Ebene. Um das gesamte Sende- oder Impressionsvolumen über alle aktiven Campaigns und Canvases hinweg zu überwachen, z. B. kanalübergreifende Sends und Impressionen für einen gesamten Workspace, verwenden Sie den [Berichts-Builder]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Sends an Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits verwenden, weiterhin unterstützt.
+{% endalert %}
+
 | Kanal | Verfügbare Statistiken |
 | ------| --------------|
 | E-Mail | Sends, Öffnungen, eindeutige Öffnungen, Klicks, eindeutige Klicks, Click-to-Open, Abmeldungen, Bounces, zugestellt, als Spam gemeldet |
@@ -72,10 +78,6 @@ Im Schritt **Add Stats** werden Ihnen Statistiken für die Typen der ausgewählt
 | Webhook  |  Sends, Fehler |
 | SMS | Sends, Sends an Carrier, bestätigte Zustellungen, Zustellungsfehler, Ablehnungen |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Sends an Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits verwenden, weiterhin unterstützt.
-{% endalert %}
 
 ### 4. Schritt: Berichtseinrichtung abschließen {#step-4-complete-report-setup}
 

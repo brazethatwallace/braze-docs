@@ -146,7 +146,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 
 | Nom du champ | Type | Requis ? |
 | :---- | :---- | :---- |
-| **`UPDATED_AT`** | Horodatage | Oui |
+| **`UPDATED_AT`** | Timestamp | Oui |
 | **`PROPERTIES`** | JSON | Oui |
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
@@ -202,7 +202,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 
 | Nom du champ | Type | Requis |
 | :---- | :---- | :---- |
-| `UPDATED_AT` | Horodatage | Oui |
+| `UPDATED_AT` | Timestamp | Oui |
 | `PROPERTIES` | JSON | Oui |
 | `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |

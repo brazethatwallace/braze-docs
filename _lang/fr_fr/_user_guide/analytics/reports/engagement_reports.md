@@ -43,7 +43,7 @@ Ajoutez les Campaigns et les messages Canvas que vous souhaitez compiler dans vo
 - Sélectionner manuellement les Campaigns et les Canvas
 - Sélectionner automatiquement les Campaigns et les Canvas en fonction de règles spécifiques
 
-![Écran de sélection des messages de campagne et Canvas pour un rapport d'engagement]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Sélectionner manuellement les Campaigns ou les Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,13 @@ Les étiquettes doivent correspondre à au moins une Campaign ou un Canvas pour 
 
 L'étape **Add Stats** vous présente les statistiques correspondant aux types de Campaigns ou de Canvas que vous avez sélectionnés. Par exemple, si vous avez sélectionné des messages e-mail, vous ne pouvez consulter que les statistiques e-mail pertinentes. Si vous avez choisi une combinaison d'e-mail et de push, vous pouvez consulter les statistiques de ces deux canaux.
 
-![Écran de l'étape Add Stats avec les statistiques disponibles pour les canaux sélectionnés]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+
+Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et non au niveau de l'espace de travail. Pour surveiller le volume total d'envois ou d'impressions sur l'ensemble des Campaigns et Canvas actifs, comme les envois et impressions par canal à l'échelle d'un espace de travail entier, utilisez le [Générateur de rapports]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Envois à l'opérateur* est obsolète, mais continuera d'être pris en charge pour les utilisateurs qui en disposent déjà.
+{% endalert %}
 
 | Canal | Statistiques disponibles |
 | ------| --------------|
@@ -72,10 +78,6 @@ L'étape **Add Stats** vous présente les statistiques correspondant aux types d
 | Webhook  |  Envois, Erreurs |
 | SMS | Envois, Envois à l'opérateur, Réceptions confirmées, Échecs de réception, Rejets |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Envois à l'opérateur* est obsolète, mais continuera d'être pris en charge pour les utilisateurs qui en disposent déjà.
-{% endalert %}
 
 ### Étape 4 : Finaliser la configuration du rapport {#step-4-complete-report-setup}
 
@@ -98,7 +100,7 @@ Par défaut, la plage de données affichée est basée sur le fuseau horaire de 
 
 Par défaut, les données affichées dans les rapports d'engagement sont quotidiennes (un jour). Pour visualiser ces données sur différents intervalles, choisissez un nombre explicite de jours ou de semaines pour agréger les données du rapport. Ainsi, au lieu de voir des indicateurs quotidiens, vous pouvez visualiser votre engagement par semaine, mois, trimestre ou autre. Si une agrégation temporelle ne suffit pas, vous pouvez également choisir d'exporter les données au niveau de la Campaign ou du Canvas.
 
-![Options pour ajuster l'affichage des données du rapport d'engagement]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 #### Planifier votre rapport {#schedule-your-report}
 
@@ -107,7 +109,7 @@ Il existe deux options pour planifier votre rapport :
 - **Send immediately :** une fois le rapport lancé, Braze enverra ce rapport immédiatement.
 - **Send at a designated time :** cette option vous offre la flexibilité de choisir la fréquence à laquelle vous recevez ce rapport. Vous pouvez choisir d'envoyer ce rapport tous les X jours, semaines ou mois. Vous pouvez également définir quand arrêter l'envoi du rapport.
 
-![Options pour planifier l'envoi du rapport d'engagement]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Étape 5 : Vérifier et lancer {#step-5-review-and-launch}
 

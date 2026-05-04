@@ -423,7 +423,7 @@ Lorsque vous arrêtez un Canvas, les éléments suivants s'appliquent :
 
 - Les utilisateurs ne pourront plus entrer dans le Canvas.
 - Plus aucun message ne sera envoyé, quel que soit le niveau auquel se situe un utilisateur dans le flux.
-    - **Exception :** Les Canvas par e-mail ne s'arrêteront pas immédiatement. Une fois que les requêtes d'envoi sont transmises à SendGrid, il n'est plus possible d'empêcher leur distribution à l'utilisateur.
+    - **Exception :** les Canvas par e-mail ne s'arrêteront pas immédiatement. Une fois que les requêtes d'envoi sont transmises à SendGrid, il n'est plus possible d'empêcher leur distribution à l'utilisateur.
 
 {% alert note %}
 Arrêter un Canvas ne fera pas sortir les utilisateurs qui attendent dans une étape. Si vous réactivez le Canvas et que les utilisateurs attendent toujours, ils termineront l'étape et passeront au composant suivant. Cependant, si le moment où l'utilisateur aurait dû passer au composant suivant est dépassé, il quittera le Canvas.
