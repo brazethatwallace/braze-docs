@@ -1,15 +1,20 @@
-# Sitemap last-modified update (manual / develop PR path).
+# Nightly sitemap last-modified update.
 #
-# Routine nightly updates run inside **Nightly Release Deploy** on the auto-deploy
-# snapshot branch so deploy PRs include fresh _data/sitemap_*.json without a second PR.
+# Runs on a schedule just before the nightly deploy, checks out develop, and
+# opens a PR with any changed _data/sitemap_*.json files targeting develop.
+# This ensures up-to-date lastmod dates land in every nightly release without
+# polluting PR history with bot commits or breaking on fork PRs.
 #
-# Use this workflow when you need an ad-hoc sitemap refresh on develop (for example
-# after a failed deploy sitemap step or between deploys). It opens a PR to develop
-# because branch protection blocks direct pushes to develop.
+# Branch protection on develop requires a PR — the bot cannot push directly.
+# Merge is manual: someone with permission to merge to develop must approve and merge (no auto-merge).
 #
+# Also supports manual dispatch (workflow_dispatch) for ad-hoc runs.
+
 name: "Nightly sitemap last-modified update"
 
 on:
+  schedule:
+    - cron: '0 7 * * 1-5' # 11pm PT / 2am ET Sun–Thu nights (Mon–Fri UTC), 1h before nightly deploy
   workflow_dispatch:
 
 permissions:
@@ -17,7 +22,7 @@ permissions:
   pull-requests: write
   issues: write
 
-# Prevent overlapping runs from racing.
+# Prevent overlapping nightly runs from racing.
 concurrency:
   group: nightly-sitemap-update
   cancel-in-progress: false
@@ -52,13 +57,11 @@ jobs:
 
           BRANCH="chore/nightly-sitemap-update-$(date -u +'%Y-%m-%d')"
           PR_TITLE="chore: nightly sitemap last-modified update ($(date -u +'%Y-%m-%d'))"
-          PR_BODY="Automated update of \`_data/sitemap_*.json\` last-modified dates.
+          PR_BODY="Automated nightly update of \`_data/sitemap_*.json\` last-modified dates.
 
-          This PR was created by the **Nightly sitemap last-modified update** workflow (manual run).
+          This PR was created by the **Nightly sitemap last-modified update** workflow.
 
-          Routine nightly updates are applied on the **Nightly Release Deploy** snapshot branch. Use this PR path when you need sitemap JSON on \`develop\` between deploys or after a failed sitemap step in deploy.
-
-          > **On-call:** merge into \`develop\` when ready, then sync \`main\` → \`develop\` after deploy merges if needed so both branches stay aligned."
+          > **On-call writer:** merge this PR into develop **before** approving the nightly deploy PR so the deploy includes the latest sitemap dates."
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

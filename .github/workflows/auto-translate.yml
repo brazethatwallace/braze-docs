@@ -31,9 +31,8 @@ on:
       - '_docs/**/*.md'
       - '_includes/**/*.md'
   schedule:
-    # Weekdays 10:30 UTC — after the nightly deploy cron (08:00 UTC Mon–Fri), which
-    # includes sitemap last-modified updates on the deploy snapshot branch, so merges
-    # to main are usually present; complements path-filtered pushes.
+    # Weekdays 10:30 UTC — after the nightly deploy cron (08:00 UTC Mon–Fri) so
+    # merges to main are usually present; complements path-filtered pushes.
     - cron: '30 10 * * 1-5'
   workflow_dispatch:
     inputs:
