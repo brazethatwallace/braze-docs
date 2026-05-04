@@ -382,7 +382,7 @@ Braze는 다음 두 가지 시점에서 사용자의 참가 자격을 평가합�
 
 사용자는 두 평가 시점 모두에서 오디언스 및 필터 조건에 부합해야 합니다. 사용자가 첫 번째 확인에서 자격이 없는 경우, Braze는 두 번째 확인을 실행하지 않습니다. Segment에 출시 전 최소 체류 시간은 필요하지 않으며, 각 확인 시점의 자격 여부만 중요합니다.
 
-이 평가 동작은 [대시보드에서 캠페인을 얼마나 미리 스케줄하는지]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)와는 별개입니다. 전체 설명, 예시 및 스케줄 가이드는 [Braze는 현지 시간대 전달을 위해 언제 사용자를 평가하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) 및 [현지 시간대 캠페인을 스케줄하려면 어떻게 해야 하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)를 참조하세요.
+이 평가 동작은 [대시보드에서 캠페인을 얼마나 미리 스케줄하는지]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)와는 별개입니다. 전체 설명, 예시 및 스케줄 가이드는 Campaigns FAQ의 [Braze는 현지 시간대 전달을 위해 언제 사용자를 평가하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) 및 [현지 시간대 캠페인을 스케줄하려면 어떻게 해야 하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)를 참조하세요.
 
 {% endapi %}
 {% api %}

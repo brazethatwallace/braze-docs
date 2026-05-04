@@ -190,7 +190,7 @@ Se sua conta tiver políticas de rede, inclua os IPs da Braze na lista de permis
 {% endtab %}
 {% tab Databricks %}
 
-##### Etapa 1.1: Crie um catálogo ou esquema para sua tabela de origem. {#step-11-create-a-catalog-or-schema-for-your-source-table}
+##### Etapa 1.1: Crie um catálogo ou esquema para sua tabela de origem {#step-11-create-a-catalog-or-schema-for-your-source-table}
 
 ```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;

@@ -204,7 +204,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | :---- | :---- | :---- |
 | `UPDATED_AT` | Timestamp | 예 |
 | `PROPERTIES` | JSON | 예 |
-| `EXTERNAL_ID` | STRING |  NULLABLE |
+| `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
