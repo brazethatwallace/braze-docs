@@ -59,9 +59,9 @@ For local runs, `./bdocs deploy` always compares `origin/main` to `origin/develo
 
 When a new nightly run opens while an older `auto-deploy-*` deploy PR is still open, the workflow creates the new PR first, posts a superseded comment on the old PR, closes it, and removes the old snapshot branch on `origin`. After you merge the current deploy PR into `main`, the **Delete auto-deploy branch after merge** workflow removes the merged snapshot branch on `origin` so stale heads do not accumulate.
 
-The same **Nightly Release Deploy** workflow then runs `scripts/generate_sitemap_lastmodified.rb` on the snapshot branch and pushes any `_data/sitemap_*.json` updates as a bot commit on that branch (no separate sitemap PR for the routine path). When that finishes successfully, it adds the `status: done` label to the deploy PR so on-call knows the run is ready for approval. If the sitemap or label step fails, the workflow run turns red and the deploy PR may be missing fresh sitemap JSON until you fix the failure or use the manual **Nightly sitemap last-modified update** workflow toward `develop`.
+The same **Nightly Release Deploy** workflow then runs `scripts/generate_sitemap_lastmodified.rb` on the snapshot branch and pushes any `_data/sitemap_*.json` updates as a bot commit on that branch (no separate sitemap PR for the routine path). When those files change, it also applies the same JSON to `develop` (rebase on the latest `origin/develop`, then push) so `develop` stays aligned without a manual sitemap sync. That push needs branch rules to allow `github-actions[bot]` on `develop`. When the sitemap and `develop` sync steps finish successfully, the workflow adds the `status: done` label to the deploy PR so on-call knows the run is ready for approval. If a step fails, the run turns red, `status: done` is not added, and you can use the manual **Nightly sitemap last-modified update** workflow toward `develop` if you need a PR-based fallback.
 
-After a deploy merges to `main`, sync `main` back into `develop` on your usual cadence so `develop` picks up the same sitemap files that shipped on `main`.
+After a deploy merges to `main`, keep syncing `main` back into `develop` on your usual cadence for everything else that landed on `main`; sitemap JSON is already on `develop` when the nightly sitemap step changed files.
 
 ### Usage example
 

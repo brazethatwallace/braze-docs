@@ -8,8 +8,9 @@
 # PR first, then comments on the old PR, closes it, and deletes its remote head branch.
 #
 # After that, updates _data/sitemap_*.json last-modified dates on the snapshot branch
-# (same Ruby step as the manual sitemap workflow) and adds the status: done label so
-# on-call knows the run is ready for approval.
+# (same Ruby step as the manual sitemap workflow), mirrors those files to develop when
+# they changed, then adds the status: done label so on-call knows the run is ready.
+# Pushing to develop requires branch rules to allow github-actions[bot] (see docs).
 #
 name: Nightly Release Deploy
 
@@ -135,9 +136,11 @@ jobs:
         run: ruby scripts/generate_sitemap_lastmodified.rb all
 
       - name: Commit and push sitemap changes
+        id: sitemap_snapshot
         if: steps.snapshot_deploy.outputs.skip != 'true'
         run: |
           set -euo pipefail
+          echo "sitemap_pushed=false" >> "$GITHUB_OUTPUT"
           if [ -z "$(git status --porcelain _data/sitemap_*.json 2>/dev/null)" ]; then
             echo "No sitemap file changes."
             exit 0
@@ -147,6 +150,27 @@ jobs:
           git add _data/sitemap_*.json
           git commit -m "chore: nightly sitemap last-modified update"
           git push origin HEAD
+          echo "sitemap_pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Sync sitemap JSON to develop
+        if: steps.snapshot_deploy.outputs.skip != 'true' && steps.sitemap_snapshot.outputs.sitemap_pushed == 'true'
+        env:
+          SNAPSHOT_BRANCH: ${{ steps.snapshot_deploy.outputs.branch }}
+        run: |
+          set -euo pipefail
+          git fetch origin develop "${SNAPSHOT_BRANCH}"
+          git checkout origin/develop -B push-sitemap-to-develop
+          git checkout "origin/${SNAPSHOT_BRANCH}" -- _data/sitemap_*.json
+          if git diff --quiet origin/develop -- _data/sitemap_*.json; then
+            echo "develop already has the same sitemap files as the snapshot."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/sitemap_*.json
+          git commit -m "chore: sync sitemap last-modified from deploy snapshot (${SNAPSHOT_BRANCH})"
+          git pull --rebase origin develop
+          git push origin HEAD:develop
 
       - name: Mark deploy PR ready for on-call (status done)
         if: steps.snapshot_deploy.outputs.skip != 'true'
@@ -165,4 +189,4 @@ jobs:
         run: |
           gh pr comment "${{ steps.snapshot_deploy.outputs.pr }}" \
             --repo "${{ steps.snapshot_deploy.outputs.repo }}" \
-            --body "The nightly deploy workflow failed after this PR was created (for example during the sitemap last-modified update or when adding the \`status: done\` label). Check the [workflow run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details. This PR might be missing fresh \`_data/sitemap_*.json\` updates until you fix the failure and re-run the workflow or apply the manual sitemap workflow to \`develop\` and sync."
+            --body "The nightly deploy workflow failed after this PR was created (for example during the sitemap last-modified update, syncing sitemap files to \`develop\`, or when adding the \`status: done\` label). Check the [workflow run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details. This PR might be missing fresh \`_data/sitemap_*.json\` updates until you fix the failure and re-run the workflow or apply the manual sitemap workflow to \`develop\`."
