@@ -204,7 +204,7 @@ Consulta lo siguiente al crear tu tabla de origen:
 | :---- | :---- | :---- |
 | `UPDATED_AT` | Marca de tiempo | Sí |
 | `PROPERTIES` | JSON | Sí |
-| `EXTERNAL_ID` | STRING | NULLABLE |
+| `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -276,7 +276,7 @@ Crea una entidad de servicio y concede permisos. Si ya tienes credenciales de ot
 Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
 
 {% endtab %}
-{% tab File Storage %}
+{% tab Almacenamiento de archivos %}
 
 Para sincronizar los desencadenantes de Canvas desde el almacenamiento de archivos, crea un archivo de origen con los siguientes campos.
 

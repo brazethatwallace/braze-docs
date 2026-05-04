@@ -42,7 +42,7 @@ Email
 
 {% api %}
 
-## Público {#audience}
+## Audience {#audience}
 
 {% apitags %}
 All
@@ -200,7 +200,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-## Intervalo de confiança {#confidence}
+## Confidence {#confidence}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -212,7 +212,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Botão da página de confirmação {#confirmation-page-button}
+## Confirmation Page Button {#confirmation-page-button}
 
 {% apitags %}
 In-App Message
@@ -224,7 +224,7 @@ In-App Message
 
 {% api %}
 
-## Dispensas da página de confirmação {#confirmation-page-dismissals}
+## Confirmation Page Dismissals {#confirmation-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -236,7 +236,7 @@ In-App Message
 
 {% api %}
 
-## Conversões (B, C, D) {#conversions-b-c-d}
+## Conversions (B, C, D) {#conversions-b-c-d}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -283,7 +283,7 @@ In-App Message
 
 {% api %}
 
-## Taxa de conversão {#conversion-rate}
+## Conversion Rate {#conversion-rate}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -310,7 +310,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Janela de conversão {#conversion-window}
+## Conversion Window {#conversion-window}
 
 {% apitags %}
 All
@@ -322,7 +322,7 @@ All
 
 {% api %}
 
-## Entregas {#deliveries}
+## Deliveries {#deliveries}
 
 {% apitags %}
 Email, Web Push, iOS Push, Android Push, WhatsApp
@@ -381,7 +381,7 @@ Entre em contato com o <a href="/docs/braze_support/">suporte da Braze</a> para 
 
 {% api %}
 
-## Taxa de falha na entrega {#failed-delivery-rate}
+## Failed Delivery Rate {#failed-delivery-rate}
 
 {% apitags %}
 SMS/MMS
@@ -397,7 +397,7 @@ Entre em contato com o <a href="/docs/braze_support/">suporte da Braze</a> para 
 
 {% api %}
 
-## Aberturas diretas {#direct-opens}
+## Direct Opens {#direct-opens}
 
 {% apitags %}
 iOS Push
@@ -425,7 +425,7 @@ Email
 
 {% api %}
 
-## Erros {#errors}
+## Errors {#errors}
 
 {% apitags %}
 Webhook
@@ -449,7 +449,7 @@ Email
 
 {% api %}
 
-## Falhas {#failures}
+## Failures {#failures}
 
 {% apitags %}
 WhatsApp
@@ -463,7 +463,7 @@ WhatsApp
 
 {% api %}
 
-## Desempenho do experimento de Feature Flag {#feature-flag-experiment-performance}
+## Feature flag experiment performance {#feature-flag-experiment-performance}
 
 {% apitags %}
 Feature Flags
@@ -501,7 +501,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-## Aberturas por influência {#influenced-opens}
+## Influenced Opens {#influenced-opens}
 
 {% apitags %}
 iOS Push, Android Push
@@ -539,7 +539,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Receita diária média {#average-daily-revenue}
+## Average Daily Revenue {#average-daily-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -551,7 +551,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Compras diárias {#daily-purchases}
+## Daily Purchases {#daily-purchases}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -563,7 +563,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Receita diária por usuário {#daily-revenue-per-user}
+## Daily Revenue Per User {#daily-revenue-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -599,7 +599,7 @@ Web Push, iOS Push, Android Push
 
 {% api %}
 
-## Descadastramento {#opt-out}
+## Opt-Out {#opt-out}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -623,7 +623,7 @@ Email
 
 {% api %}
 
-## Tentativa pendente {#pending-retry}
+## Pending Retry {#pending-retry}
 
 {% apitags %}
 Email
@@ -689,7 +689,7 @@ WhatsApp
 
 {% api %}
 
-## Recebido {#received}
+## Received {#received}
 
 {% apitags %}
 Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS, WhatsApp
@@ -733,7 +733,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-## Receita {#revenue}
+## Revenue {#revenue}
 
 {% apitags %}
 Email
@@ -889,7 +889,7 @@ In-App Message
 
 {% api %}
 
-## Total de cliques {#total-clicks}
+## Total Clicks {#total-clicks}
 
 {% apitags %}
 Email, Content Cards, SMS/MMS, LINE
@@ -940,7 +940,7 @@ Content Cards
 
 {% api %}
 
-## Total de impressões {#total-impressions}
+## Total Impressions {#total-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -960,7 +960,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-## Total de aberturas {#total-opens}
+## Total Opens {#total-opens}
 
 {% apitags %}
 Email, iOS Push, Android Push, Web Push, LINE
@@ -992,7 +992,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 
 {% api %}
 
-## Receita total {#total-revenue}
+## Total Revenue {#total-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -1004,7 +1004,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Cliques únicos {#unique-clicks}
+## Unique Clicks {#unique-clicks}
 
 {% apitags %}
 Email, Content Cards, LINE
@@ -1049,7 +1049,7 @@ Content Cards
 
 {% api %}
 
-## Impressões únicas {#unique-impressions}
+## Unique Impressions {#unique-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -1069,7 +1069,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-## Aberturas únicas {#unique-opens}
+## Unique Opens {#unique-opens}
 
 {% apitags %}
 Email, LINE
@@ -1097,7 +1097,7 @@ Email, LINE
 
 {% api %}
 
-## Destinatários únicos {#unique-recipients}
+## Unique Recipients {#unique-recipients}
 
 {% apitags %}
 All
@@ -1149,7 +1149,7 @@ Email
 
 {% api %}
 
-## Variação {#variation}
+## Variation {#variation}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp

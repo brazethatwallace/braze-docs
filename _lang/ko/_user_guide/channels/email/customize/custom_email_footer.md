@@ -30,7 +30,7 @@ channel:
 
 ![커스텀 바닥글의 예시.]({% image_buster /assets/img_archive/custom_footer.png %})
 
-기본 바닥글은 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 속성과 실제 우편 주소를 사용합니다. 이 기본값을 사용하는 경우 **프로토콜**에서 **&#60;other&#62;**를 선택해야 합니다.
+기본 바닥글은 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 속성과 실제 우편 주소를 사용합니다. 이 기본값을 사용하는 경우 **Protocol**에서 **&#60;other&#62;**를 선택해야 합니다.
 
 {% alert important %}
 CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포함해야 합니다. 이 Liquid 속성 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 또는 커스텀 탈퇴 URL을 사용할 수 있습니다. 탈퇴 링크가 없으면 커스텀 바닥글을 저장할 수 없습니다.
@@ -88,7 +88,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 
 **이메일 환경설정** 페이지의 **가입 페이지 및 바닥글** 탭에서 일반 텍스트 이메일용 커스텀 바닥글을 설정할 수도 있으며, HTML 이메일용 커스텀 바닥글과 동일한 규칙을 따릅니다.
 
-일반 텍스트 바닥글을 포함하지 않으면 Braze가 HTML 바닥글에서 자동으로 생성합니다. 커스텀 바닥글이 만족스러우면 **저장**을 선택합니다.
+일반 텍스트 바닥글을 포함하지 않으면 Braze가 HTML 바닥글에서 자동으로 생성합니다. 커스텀 바닥글이 만족스러우면 **Save**를 선택합니다.
 
 ![커스텀 일반 텍스트 바닥글 설정 옵션이 선택된 이메일.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
