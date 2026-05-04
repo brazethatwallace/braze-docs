@@ -100,3 +100,11 @@ If we look back to the active users, we can see that even though it contains 29.
 ![Segment with the "Push Enabled" filter set to "true", and estimated users of 29.8k.]({% image_buster /assets/img_archive/trouble16.png %})
 
 This means that even though we specified 90% of users to enter the variant, not all of those users are actually able to receive a push notification. These users who are unable to receive a push notification will still enter the variant regardless.
+
+## Why is the Canvas editor freezing or not loading?
+
+If you're making edits to large or complex Canvases with many branches or variants, lots of steps, or very wide flows, the editor may fail to load or freeze. In this case, we recommend the following:
+
+- Clear browser cache and cookies, then reload the page. If you use any company ad blockers or browser extensions, this may interfere with the Braze platform.
+- Use Canvas zoom controls to reduce the view to 25% or 10%. This reduces the amount of UI the browser must render at once.
+- Try a different web browser.
