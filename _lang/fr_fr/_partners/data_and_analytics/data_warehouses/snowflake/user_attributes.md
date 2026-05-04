@@ -126,7 +126,7 @@ Ces vues fournissent des mises à jour quasi en temps réel des attributs du pro
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### Utilisation {#usage}
+### Utilisation
 
 * Fournit des attributs utilisateur actualisés avec un délai minimal (~10 minutes).
 * Utile pour les analyses en temps réel et les scénarios nécessitant des données récentes.
@@ -182,9 +182,9 @@ Ces vues stockent les journaux de modifications historiques des attributs utilis
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### Utilisation {#usage}
+### Utilisation
 
-* Fournit un enregistrement des modifications historiques des attributs utilisateur.
+* Fournit un enregistrement des modifications historiques des attributs utilisateur sur une période glissante de 6 mois.
 * Les données sont capturées toutes les 12 heures, ce qui signifie que les mises à jour multiples dans cette fenêtre sont combinées en un seul enregistrement. Les modifications individuelles au cours de cette période ne sont pas conservées séparément.
 * `EFF_DT` et `END_DT` marquent le début et la fin de l'état des attributs d'un utilisateur.
 

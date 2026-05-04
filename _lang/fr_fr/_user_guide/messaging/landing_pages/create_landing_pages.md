@@ -70,7 +70,7 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-##### Span text
+##### Span text {#span-text}
 
 {% multi_lang_include span_text.md %}
 
@@ -162,7 +162,7 @@ Utilisez les modèles de pages d'accueil pour créer des modèles pour vos proch
 
 ## Gérer les modèles {#managing-templates}
 
-Vous pouvez prévisualiser, archiver, modifier ou dupliquer les modèles de pages d'accueil. Lors de la modification d'une page d'accueil, vous pouvez également enregistrer votre page d'accueil en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page d'accueil.
+Vous pouvez prévisualiser, archiver ou modifier les modèles de pages d'accueil. Vous pouvez dupliquer vos propres modèles de pages d'accueil (situés dans **Your Templates**), mais pas les modèles Braze. Lors de la modification d'une page d'accueil, vous pouvez enregistrer votre page d'accueil en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page d'accueil.
 
 ![Un menu déroulant avec des options pour enregistrer, modifier et supprimer une page d'accueil.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 

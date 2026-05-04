@@ -45,7 +45,7 @@ Te sugerimos seguir estas buenas prácticas:
 
 ### Paso 3: Personalizar la página {#step-3-customize-the-page}
 
-Si aún no lo has hecho, selecciona **Save as draft**. Para empezar a personalizar tu página, selecciona **Edit landing page**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
+Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a personalizar tu página, selecciona **Edit landing page**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
 
 ![Un ejemplo de página de inicio creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
@@ -162,7 +162,7 @@ Usa plantillas de páginas de inicio para crear plantillas para tus próximas ca
 
 ## Gestionar plantillas {#managing-templates}
 
-Puedes previsualizar, archivar, editar o duplicar plantillas de páginas de inicio. Al editar una página de inicio, también puedes guardar tu página de inicio como plantilla, hacer cambios en la plantilla o eliminar el contenido de la página de inicio.
+Puedes previsualizar, archivar o editar plantillas de páginas de inicio. Puedes duplicar tus propias plantillas de páginas de inicio (ubicadas en **Your Templates**), pero no las plantillas de Braze. Al editar una página de inicio, puedes guardar tu página de inicio como plantilla, hacer cambios en la plantilla o eliminar el contenido de la página de inicio.
 
 ![Un menú desplegable con opciones para guardar, cambiar y eliminar una página de inicio.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
