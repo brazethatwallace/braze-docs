@@ -92,7 +92,9 @@ jobs:
               continue
             fi
             gh pr comment --repo "$REPO" "$old_num" \
-              --body "Superseded by #${NEW_NUM}. This deploy PR was replaced by a newer snapshot cut from \`develop\`."
-            gh pr close --repo "$REPO" "$old_num"
+              --body "Superseded by #${NEW_NUM}. This deploy PR was replaced by a newer snapshot cut from \`develop\`." \
+              || echo "Warning: could not comment on PR #${old_num} (continuing)."
+            gh pr close --repo "$REPO" "$old_num" \
+              || echo "Warning: could not close PR #${old_num} (may already be closed; continuing)."
             git push origin ":refs/heads/${old_ref}" || echo "Note: could not delete origin/${old_ref} (may already be gone)."
           done

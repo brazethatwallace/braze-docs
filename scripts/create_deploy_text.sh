@@ -7,7 +7,8 @@
 # Optional env (CI nightly deploy):
 #   DEPLOY_SOURCE_BRANCH — branch name only (no origin/ prefix). When set, commit
 #   logs use origin/$PRIMARY_BRANCH..origin/$DEPLOY_SOURCE_BRANCH (snapshot deploy).
-#   When unset, defaults to develop for ./bdocs deploy and local use.
+#   When unset, defaults to develop for ./bdocs deploy and local use (including the
+#   optional date-bounded log when start/end dates are passed).
 
 main() {
     TEMP_FILE="$PROJECT_ROOT/scripts/temp/deploy_output"
@@ -26,7 +27,7 @@ main() {
         # Optional date-bounded log (e.g. explicit ./bdocs release start/end).
         START_DATE="$1"
         END_DATE="$2"
-        COMMIT_LOGS=$(git log --first-parent --since="$START_DATE" --until="$END_DATE" origin/develop --pretty=%s»¦«%b)
+        COMMIT_LOGS=$(git log --first-parent --since="$START_DATE" --until="$END_DATE" "origin/$SOURCE_BRANCH" --pretty=%s»¦«%b)
     fi
 
     # Parses the commit logs, formats them, then writes them to the temp file.
