@@ -184,7 +184,7 @@ These views store historical change logs of user attributes, capturing changes w
 
 ### Usage
 
-* Provides a record of historical changes to user attributes.
+* Provides a record of historical changes to user attributes for a rolling 6 month period.
 * Data is snapshotted every 12 hours, meaning multiple updates in this window are combined into a single record. Individual changes within this period are not separately retained.
 * `EFF_DT` and `END_DT` mark the start and end of a user’s attribute state.
 
