@@ -9,7 +9,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 ---
 {% api %}
-# Excluir usuários
+# Excluir usuários {#delete-users}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
@@ -18,7 +18,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 Até 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` podem ser incluídos em uma única solicitação. Somente um dos campos `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` pode ser incluído em uma única solicitação.
 
-Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API, entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support/) para obter assistência.
+Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API, entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para obter assistência.
 
 {% alert warning %}
 A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Saiba mais sobre o que acontece quando você [exclui um perfil de usuário usando a API]({{site.baseurl}}/help/help_articles/api/delete_user/) em nossa documentação de Ajuda.
@@ -26,15 +26,15 @@ A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanen
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.delete`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users delete' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
   "phone_numbers": (optional, array of string) User phone numbers to be deleted
 }
 ```
-### Parâmetros de solicitação
+### Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro         | Obrigatória | Tipo de dados                  | Descrição                                                                                      |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
@@ -61,7 +61,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `phone_numbers` | Opcional | Array de strings | Números de telefone do usuário a serem excluídos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Exclusão de usuários por endereços de e-mail e números de telefone
+### Exclusão de usuários por endereços de e-mail e números de telefone {#deleting-users-by-email-addresses-and-phone-numbers}
 
 Se um endereço de e-mail ou número de telefone for especificado como identificador, será necessário um valor adicional `prioritization` no identificador. `prioritization` deve ser um array ordenado e deve especificar qual usuário deve ser excluído se houver vários usuários. Isso significa que a exclusão de usuários não ocorrerá se mais de um usuário corresponder a uma priorização.
 
@@ -76,7 +76,7 @@ Somente uma das opções a seguir pode existir no array `prioritization` por vez
 - `identified` refere-se à priorização de um usuário com um `external_id`
 - `unidentified` refere-se à priorização de um usuário sem um `external_id`
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
@@ -102,7 +102,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 }'
 ```
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -110,9 +110,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
-### Uma resposta de sucesso foi retornada, mas o usuário ainda aparece
+### Uma resposta de sucesso foi retornada, mas o usuário ainda aparece {#a-success-response-was-returned-but-the-user-still-appears}
 
 Uma resposta de sucesso confirma que a solicitação foi enfileirada, não que a exclusão foi concluída. A exclusão normalmente é finalizada em menos de um segundo, mas pode levar até cinco minutos para que a alteração se propague por todos os caches. Se você pesquisar o usuário imediatamente no dashboard ou exportar os dados dele pela API, ainda poderá ver resultados durante esse período de propagação.
 

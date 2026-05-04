@@ -53,11 +53,21 @@ This option gives you the freedom to choose whichever campaigns or Canvases you 
 
 This option lets you automatically include all messages that include a specific [tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/). You can target messages that have any one or all of the tags listed. This option is useful if you are setting up recurring reports and you regularly tag your engagement messages.
 
+{% alert important %}
+The tags must match at least one campaign or Canvas for a report to generate. If you use **Automatically select campaigns and Canvases based on specific rules** and see an error, confirm that at least one campaign or Canvas matches your tags and other filters (for example, when you require all listed tags, every matching message must have every tag).
+{% endalert %}
+
 ### Step 3: Add statistics {#add-statistics-to-your-reports}
 
 The **Add Stats** step shows you statistics for the types of campaigns or Canvases you have selected. For example, if you selected email messages, you can only view relevant email statistics. If you picked a combination of email and push, you can view the statistics for those two channels.
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+
+Engagement reports aggregate data per campaign or Canvas, not at the workspace level. To monitor total send or impression volume across all active campaigns and Canvases, such as per-channel sends and impressions across an entire workspace, use [Report Builder]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Sends to Carrier* is deprecated, but will continue to be supported for users who already have it.
+{% endalert %}
 
 | Channel | Available statistics |
 | ------| --------------|
@@ -68,10 +78,6 @@ The **Add Stats** step shows you statistics for the types of campaigns or Canvas
 | Webhook  |  Sends, Errors |
 | SMS | Sends, Sends to Carrier, Confirmed Deliveries, Delivery Failures, Rejections |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Sends to Carrier* is deprecated, but will continue to be supported for users that already have it.
-{% endalert %}
 
 ### Step 4: Complete report setup
 
@@ -115,4 +121,21 @@ You will receive an email with links to your reports at your chosen time or sche
 
 The report contains all statistics selected in the [Add Stats](#add-statistics-to-your-reports) section of the setup process.
 
+## Troubleshooting
+
+### Engagement report doesn't match metrics from the Canvas or campaign
+
+#### Mismatched time range
+
+Make sure the dates in the engagement report match the dates in the Canvas or campaign analytics (for example, both cover December 1–15), even if the Canvas only sent once. In the engagement report settings, check **Data Display** to confirm you are looking at the correct Canvas or campaign. If **Data Display** is set to show data every *X* days, you get one row per date when metrics were recorded for each step.
+
+If totals look wrong in a spreadsheet, clear extra filters on the export. You can sum the daily rows to reconcile them with Canvas or campaign totals for the same time range.
+
+{% alert note %}
+If you want one aggregate row for the full range instead of daily, weekly, or other recurring buckets, set **Data Display** to **Show Data by Entire Campaign or Canvas**.
+{% endalert %}
+
+#### Duplicate button clicks in HTML in-app messages
+
+If you use HTML in-app messages and **Body clicks** look high in the engagement report, you may be firing click logging twice—for example by calling `brazeBridge.logClick()` for a generic body click and also `brazeBridge.logClick('body click')` (or another ID) on the same interaction. Search your markup for `brazeBridge.logClick(` and align with one pattern per control. For recommended usage, see [Button tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
 

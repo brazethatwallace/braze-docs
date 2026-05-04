@@ -1,101 +1,101 @@
 ---
-nav_title: Segmente für Currents
-article_title: Segmente für Currents
+nav_title: Segment für Currents
+article_title: Segment für Currents
 page_order: 2
 alias: /partners/segment_for_currents/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze-Currents und Segment, einer Customer Data Platform, die Informationen sammelt und zwischen den Quellen in Ihrem Marketing Stack weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Segment, einer Customer Data Platform, die Informationen zwischen Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# Segmente für Currents  
+# Segment für Currents {#segment-for-currents}
 
-> [Segmente](https://segment.com) ist eine Customer Data Platform (CDP), mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser referenzierte Artikel gibt eine Übersicht über die Verbindung zwischen Braze-Currents und Segmenten und beschreibt die Anforderungen und Prozesse für die richtige Implementierung und Verwendung.
+> [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen Braze-Currents und Segment und beschreibt die Anforderungen und Prozesse für die korrekte Implementierung und Nutzung.
 
-Die Integration von Braze und Segment erlaubt es Ihnen, Braze-Currents zu nutzen, um Ihre Braze-Events nach Segment zu exportieren und so tiefgreifendere Analytics zu Konversionen, Bindung und Produktnutzung zu ermöglichen. 
+Die Integration von Braze und Segment ermöglicht es Ihnen, Braze-Currents zu nutzen, um Ihre Braze-Ereignisse nach Segment zu exportieren und so tiefgreifendere Analytics zu Conversions, Bindung und Produktnutzung zu erzielen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Segmente Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
-| Braze Ziel | Sie müssen [Braze bereits als Ziel]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) in Ihrer Segment Integration eingerichtet haben.<br><br>Dazu gehört die Angabe des richtigen Braze Datenzentrums und des REST API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Currents | Um Daten zurück in Segmente zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
+| Segment-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
+| Braze-Ziel | Sie müssen [Braze bereits als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben in Ihrer Segment-Integration.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
+| Currents | Um Daten zurück nach Segment zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
 
-### Schritt 1: Schreibschlüssel für Segmente abrufen
+### 1. Schritt: Segment-Schreibschlüssel abrufen {#step-1-obtain-segment-write-key}
 
-Wählen Sie in Ihrem Dashboard für Segmente Ihre Segmentquelle aus. Gehen Sie dann zu **Einstellungen > API-Schlüssel**. Hier finden Sie den **Schreibschlüssel für Segmente**.
+Wählen Sie in Ihrem Segment-Dashboard Ihre Segment-Quelle aus. Gehen Sie dann zu **Settings > API keys**. Hier finden Sie den **Segment Write Key**.
 
 {% alert warning %}
-Es ist wichtig, dass Sie Ihren Schreibschlüssel für Segmente auf dem neuesten Stand halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, wird der Konnektor keine Ereignisse mehr senden. Wenn dieser Zustand länger als **5 Tage** anhält, werden die Ereignisse des Konnektors gelöscht und die Daten gehen dauerhaft verloren.
+Es ist wichtig, dass Sie Ihren Segment-Schreibschlüssel auf dem neuesten Stand halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, wird der Konnektor keine Ereignisse mehr senden. Wenn dieser Zustand länger als **5 Tage** anhält, werden die Ereignisse des Konnektors gelöscht und die Daten gehen dauerhaft verloren.
 {% endalert %}
 
-### Schritt 2: Erstellen Sie einen neuen Currents Konnektor
+### 2. Schritt: Neuen Currents-Konnektor erstellen {#step-2-create-a-new-currents-connector}
 
 1. Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**.
-2. Klicken Sie auf **\+ Neuen Strom erstellen** > **Segment Daten exportieren**.
-3. Als nächstes geben Sie den Namen der Integration, die E-Mail des Kontakts, den Schreibschlüssel des Segments und die Region des Segments an.
+2. Klicken Sie auf **+ Create New Current** > **Segment Data Export**.
+3. Geben Sie anschließend den Integrationsnamen, die Kontakt-E-Mail, den Segment-Schreibschlüssel und die Segment-Region an.
 
-![Die Seite Segment Currents in Braze. Hier finden Sie Felder für den Namen der Integration, die E-Mail des Kontakts, die Region des Segments und den API-Schlüssel.]({% image_buster /assets/img/segment/segment_currents_integration_config.png %})
+![Die Segment-Currents-Seite in Braze. Hier finden Sie Felder für den Integrationsnamen, die Kontakt-E-Mail, die Segment-Region und den API-Schlüssel.]({% image_buster /assets/img/segment/segment_currents_integration_config.png %})
 
-### Schritt 3: Nachrichten Engagement Ereignisse exportieren
+### 3. Schritt: Nachrichten-Engagement-Ereignisse exportieren {#step-3-export-message-engagement-events}
 
-Wählen Sie dann die Ereignisse für das Engagement in Nachrichten aus, die Sie exportieren möchten. Referenzieren Sie die nachfolgend aufgelisteten Exportereignisse und Eigenschaften. Alle Ereignisse, die an Segmente gesendet werden, enthalten die `external_user_id` des Nutzers:innen als `userId` und die `braze_id` des Nutzers als `anonymousId`.
+Wählen Sie als Nächstes die Nachrichten-Engagement-Ereignisse aus, die Sie exportieren möchten. Beachten Sie die nachfolgend aufgelistete Tabelle der Exportereignisse und Eigenschaften. Alle an Segment gesendeten Ereignisse enthalten die `external_user_id` der Nutzer:innen als `userId` und die `braze_id` der Nutzer:innen als `anonymousId`.
 
-Denken Sie daran, dass Braze nur dann Ereignisdaten für Nutzer:innen ohne `external_user_id` sendet, wenn die Option **Ereignisse von anonymen Nutzer:innen einbeziehen** aktiviert ist.
+Beachten Sie, dass Braze nur dann Ereignisdaten für Nutzer:innen ohne `external_user_id` sendet, wenn die Option **Ereignisse von anonymen Nutzer:innen einbeziehen** aktiviert ist.
 
-{% include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
 
-![Liste aller verfügbaren Messaging-Ereignisse auf der Seite Segment Currents in Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
+![Liste aller verfügbaren Nachrichten-Engagement-Ereignisse auf der Segment-Currents-Seite in Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
-Und schließlich wählen Sie **Launch Current**.
+Wählen Sie abschließend **Launch Current**.
 
-{% include alerts/warning_alerts.md alert='Segment Currents multiple connectors' %}
+{% multi_lang_include alerts/warning_alerts.md alert='Segment Currents multiple connectors' %}
 
-Um mehr zu erfahren, besuchen Sie die [Dokumentation](https://segment.com/docs/connections/sources/catalog/cloud-apps/braze/) Segmentierung.
+Weitere Informationen finden Sie in der Segment-[Dokumentation](https://segment.com/docs/connections/sources/catalog/cloud-apps/braze/).
 
-## Update Ihres Currents
+## Ihren Current aktualisieren {#updating-your-current}
 
 {% multi_lang_include updating_currents.md %}
 
-## Unterstützte Currents Ereignisse
+## Unterstützte Currents-Ereignisse {#supported-currents-events}
 
-Braze unterstützt den Export der folgenden Daten, die in den Currents-Glossaren zum [Nutzer:innen-Verhalten]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/) und zum [Messaging-Engagement]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/) in Segmente aufgeführt sind:
- 
-### Verhaltensweisen
-- Deinstallieren: `users.behaviors.Uninstall`
+Braze unterstützt den Export der folgenden Daten, die in den Currents-Glossaren für [Nutzer:innen-Verhalten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Nachrichten-Engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) aufgeführt sind, nach Segment:
+
+### Verhaltensweisen {#behaviors}
+- Deinstallation: `users.behaviors.Uninstall`
 - Abo (globale Statusänderung): `users.behaviors.subscription.GlobalStateChange`
 - Abo-Gruppe (Statusänderung): `users.behaviors.subscriptiongroup.StateChange`
-  
-### Kampagnen
-- Abbrechen: `users_campaigns_abort`
-- Konversion: `users.campaigns.Conversion`
+
+### Campaigns
+- Abbruch: `users_campaigns_abort`
+- Conversion: `users.campaigns.Conversion`
 - EnrollinControl: `users.campaigns.EnrollInControl`
-  
+
 ### Canvas
-- Abbrechen: `users_canvas_abort`
-- Konversion: `users.canvas.Conversion`
+- Abbruch: `users_canvas_abort`
+- Conversion: `users.canvas.Conversion`
 - Eingang: `users.canvas.Entry`
-- Exit (angepasste Zielgruppe, aufgeführtes Ereignis)
+- Exit (übereinstimmende Zielgruppe, ausgeführtes Ereignis)
   - `users.canvas.exit.MatchedAudience`
   - `users.canvas.exit.PerformedEvent`
-- Experiment Schritt (Konversion, getrennter Eingang)
+- Experiment-Schritt (Conversion, aufgeteilter Eingang)
   - `users.canvas.experimentstep.Conversion`
   - `users.canvas.experimentstep.SplitEntry`
 
-### Nachrichten
-- Content-Card (Abbrechen, Klicken, Ablehnen, Impression, Senden)
+### Nachrichten {#messages}
+- Content-Card (Abbruch, Klick, Schließen, Impression, Senden)
   - `users.messages.contentcard.Abort`
   - `users.messages.contentcard.Click`
   - `users.messages.contentcard.Dismiss`
   - `users.messages.contentcard.Impression`
   - `users.messages.contentcard.Send`
-- E-Mail (Abbruch, Bounce, Klick, Zustellung, Markasspam, Öffnen, Senden, Softbounce, Abmelden)
+- E-Mail (Abbruch, Bounce, Klick, Zustellung, als Spam markieren, Öffnung, Senden, Soft-Bounce, Abmeldung)
   - `users.messages.email.Abort`
   - `users.messages.email.Bounce`
   - `users.messages.email.Click`
@@ -109,13 +109,13 @@ Braze unterstützt den Export der folgenden Daten, die in den Currents-Glossaren
   - `users.messages.inappmessage.Abort`
   - `users.messages.inappmessage.Click`
   - `users.messages.inappmessage.Impression`
-- Push-Benachrichtigung (Abbruch, Bounce, iOSforeground, Öffnen, Senden)
+- Push-Benachrichtigung (Abbruch, Bounce, iOS-Vordergrund, Öffnung, Senden)
   - `users.messages.pushnotification.Abort`
   - `users.messages.pushnotification.Bounce`
   - `users.messages.pushnotification.IosForeground`
   - `users.messages.pushnotification.Open`
   - `users.messages.pushnotification.Send`
-- SMS (Abbruch, Träger senden, Zustellung, Zustellungsfehler, eingehender Empfang, Ablehnung, Senden, Klick auf Kurzlink)
+- SMS (Abbruch, Carrier-Versand, Zustellung, Zustellungsfehler, eingehender Empfang, Ablehnung, Senden, Kurzlink-Klick)
   - `users.messages.sms.Abort`
   - `users.messages.sms.Delivery`
   - `users.messages.sms.DeliveryFailure`
@@ -126,11 +126,10 @@ Braze unterstützt den Export der folgenden Daten, die in den Currents-Glossaren
 - Webhook (Abbruch, Senden)
   - `users.messages.webhook.Abort`
   - `users.messages.webhook.Send`
-- WhatsApp (Abbruch, Zustellung, Fehlschlag, eingehender Empfang, Lesen, Senden)
+- WhatsApp (Abbruch, Zustellung, Fehler, eingehender Empfang, Gelesen, Senden)
   - `users.messages.whatsapp.Abort`
   - `users.messages.whatsapp.Delivery`
   - `users.messages.whatsapp.Failure`
   - `users.messages.whatsapp.InboundReceive`
   - `users.messages.whatsapp.Read`
   - `users.messages.whatsapp.Send`
-

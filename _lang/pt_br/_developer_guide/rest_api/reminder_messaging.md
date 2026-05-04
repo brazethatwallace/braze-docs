@@ -6,31 +6,31 @@ page_type: reference
 description: "Este artigo de referência explica como usar landing pages, atributos personalizados e campanhas da Braze para permitir que os usuários se inscrevam para receber mensagens de lembrete personalizadas sobre eventos ou compromissos futuros."
 ---
 
-# Mensagens de lembrete selecionadas pelo usuário
+# Mensagens de lembrete selecionadas pelo usuário {#user-selected-reminder-messaging}
 
-> Use [landing pages]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/), atributos personalizados e campanhas da Braze para permitir que os usuários escolham quando desejam receber mensagens de lembrete sobre eventos ou compromissos futuros. Essa abordagem permite que usuários não técnicos da Braze criem e editem o conteúdo das páginas de inscrição para lembretes, enquanto as preferências selecionadas pelos usuários podem orientar a segmentação, o direcionamento e a personalização em todo o envio de mensagens da Braze.
+> Use [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) da Braze, atributos personalizados e campanhas para permitir que os usuários escolham quando desejam receber mensagens de lembrete sobre eventos ou compromissos futuros. Essa abordagem permite que usuários não técnicos da Braze criem e editem o conteúdo das páginas de inscrição para lembretes, enquanto as preferências selecionadas pelos usuários podem orientar a segmentação, o direcionamento e a personalização em todo o envio de mensagens da Braze.
 
 Com essa abordagem, você pode:
 
 - Permitir que os usuários selecionem a data da mensagem de lembrete em relação a um evento futuro.
 - Capturar preferências diretamente dos usuários usando uma landing page da Braze e gravá-las nos perfis de usuário — sem necessidade de backend adicional.
 - Enviar mensagens nas datas escolhidas pelos usuários, para que o envio de mensagens permaneça relevante e baseado em permissão.
-- Expandir o caso de uso com recursos adicionais da Braze, como postergação de mensagens, redirecionamento de acompanhamento e Testes A/B.
+- Expandir o caso de uso com recursos adicionais da Braze, como postergação de mensagens, redirecionamento de acompanhamento e testes A/B.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para concluir este guia, você precisa de:
 
 | Requisito | Descrição |
 | --- | --- |
-| Acesso a landing pages | Acesso e permissões para criar [landing pages]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/) na Braze. |
+| Acesso a landing pages | Acesso e permissões para criar [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) na Braze. |
 | Conhecimento de HTML e JavaScript | Familiaridade básica com HTML e JavaScript para personalizar sua landing page. Necessário apenas para a [Opção B](#option-b-personal-dates-custom-code-block). |
-| Conhecimento de Liquid | Familiaridade básica com [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) para criar templates de variáveis personalizadas. |
+| Conhecimento de Liquid | Familiaridade básica com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) para criar templates de variáveis personalizadas. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Etapa 1: Criar uma landing page e vinculá-la a uma mensagem
+## Etapa 1: Criar uma landing page e vinculá-la a uma mensagem {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
-Primeiro, [crie uma landing page da Braze]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/). Em seguida, crie uma mensagem (como um e-mail) que direcione os usuários para a landing page.
+Primeiro, [crie uma landing page da Braze]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/). Em seguida, crie uma mensagem (como um e-mail) que direcione os usuários para a landing page.
 
 {% raw %}
 Para associar automaticamente a atividade da landing page ao perfil de usuário do destinatário, use a Liquid tag `{% landing_page_url %}` ao vincular à página a partir de uma mensagem da Braze. Por exemplo:
@@ -40,13 +40,13 @@ Para associar automaticamente a atividade da landing page ao perfil de usuário 
 ```
 {% endraw %}
 
-Quando um usuário clica nesse link, a Braze o identifica automaticamente, de modo que quaisquer preferências enviadas são gravadas no perfil existente — sem necessidade de parâmetros de URL manuais. Para um passo a passo completo, consulte [Rastrear usuários por meio de um formulário]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/tracking_users/).
+Quando um usuário clica nesse link, a Braze o identifica automaticamente, de modo que quaisquer preferências enviadas são gravadas no perfil existente — sem necessidade de parâmetros de URL manuais. Para um passo a passo completo, consulte [Rastrear usuários por meio de um formulário]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/).
 
-## Etapa 2: Capturar preferências na landing page
+## Etapa 2: Capturar preferências na landing page {#step-2-capture-preferences-on-the-landing-page}
 
 A forma como você captura as preferências dos usuários depende de estar coletando datas compartilhadas ou datas pessoais. Escolha a opção que se encaixa no seu caso de uso.
 
-### Opção A: Datas compartilhadas (blocos de formulário de arrastar e soltar)
+### Opção A: Datas compartilhadas (blocos de formulário de arrastar e soltar) {#option-a-shared-dates-dnd-form-blocks}
 
 Para eventos em que muitos usuários compartilham a mesma data (como feriados ou eventos esportivos), use os [blocos de formulário **Checkbox**]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks) integrados do editor de arrastar e soltar para capturar preferências. Cada checkbox define nativamente um atributo personalizado booleano (`true` ou `false`) no perfil do usuário quando o formulário é enviado — sem necessidade de código personalizado.
 
@@ -56,11 +56,11 @@ Por exemplo, adicione um checkbox com o rótulo "Lembrete do Super Bowl 2026" qu
 super_bowl_2026_reminder = true
 ```
 
-Esses atributos booleanos podem então ser usados diretamente em [filtros de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/) para construir seu público-alvo.
+Esses atributos booleanos podem então ser usados diretamente em [filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/) para construir seu público-alvo.
 
-### Opção B: Datas pessoais (bloco de código personalizado)
+### Opção B: Datas pessoais (bloco de código personalizado) {#option-b-personal-dates-custom-code-block}
 
-Para datas únicas de cada usuário (como aniversários), use um [bloco de **Código Personalizado**]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#basic-blocks) na sua landing page para capturar a data e gravá-la na Braze usando a API `lpBridge`. Essa abordagem oferece uma entrada de data (ou seletor) e permite armazenar preferências em um [array de objetos de atributo personalizado aninhado]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/array_of_objects/), que os blocos de formulário de arrastar e soltar não suportam.
+Para datas únicas de cada usuário (como aniversários), use um [bloco de **Código Personalizado**]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#basic-blocks) na sua landing page para capturar a data e gravá-la na Braze usando a API `lpBridge`. Essa abordagem oferece uma entrada de data (ou seletor) e permite armazenar preferências em um [array de objetos de atributo personalizado aninhado]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/), que os blocos de formulário de arrastar e soltar não suportam.
 
 Quando os usuários chegam por meio da Liquid tag {% raw %}`{% landing_page_url %}`{% endraw %}, a Braze já sabe quem eles são, então seu script só precisa:
 
@@ -70,7 +70,7 @@ Quando os usuários chegam por meio da Liquid tag {% raw %}`{% landing_page_url 
 
 Armazene essas preferências usando um array de objetos de atributo personalizado aninhado. Essa estrutura permite armazenar múltiplos lembretes por usuário e adicionar campos derivados posteriormente, como `next_reminder_name` ou `last_reminder_date`.
 
-#### Exemplo de script
+#### Exemplo de script {#example-script}
 
 O exemplo de script a seguir desabilita o comportamento padrão do botão e executa métodos personalizados ao clicar no botão. Substitua os IDs dos elementos e os valores dos atributos pelos seus próprios.
 
@@ -114,7 +114,7 @@ O exemplo de script a seguir desabilita o comportamento padrão do botão e exec
 
 Para encontrar os IDs dos elementos dos componentes da sua landing page, visualize a prévia da página, clique com o botão direito e selecione **Inspecionar** no seu navegador. Localize os IDs do botão e dos componentes de mensagem no HTML.
 
-## Etapa 3: Configurar e disparar mensagens de lembrete
+## Etapa 3: Configurar e disparar mensagens de lembrete {#step-3-set-up-and-trigger-reminder-messages}
 
 Após coletar atributos personalizados por meio da landing page, crie campanhas para enviar mensagens aos usuários sobre eventos futuros.
 
@@ -128,7 +128,7 @@ Se você usou atributos personalizados aninhados (Opção B na [Etapa 2](#option
 
 Para enviar lembretes de forma contínua, configure uma campanha recorrente diária para que, a cada dia, os usuários com lembretes futuros dentro do seu período recebam suas mensagens.
 
-## Etapa 4: Verificar sua integração
+## Etapa 4: Verificar sua integração {#step-4-verify-your-integration}
 
 Após concluir a configuração, verifique sua integração:
 
@@ -137,9 +137,9 @@ Após concluir a configuração, verifique sua integração:
 3. Envie uma mensagem de lembrete de teste para o seu perfil e verifique se os detalhes personalizados são renderizados corretamente.
 4. Monitore os resultados de perto ao lançar sua campanha.
 
-## Considerações
+## Considerações {#considerations}
 
-- Para um exemplo detalhado de como enviar mensagens com base em atributos personalizados baseados em data, consulte o caso de uso de e-mail no [guia de envio de mensagens da API REST]({{site.baseurl}}/developer_guide/rest_api/messaging/).
+- Para um exemplo detalhado de como enviar mensagens com base em atributos personalizados baseados em data, consulte o caso de uso de e-mail no [guia de envio de mensagens da REST API]({{site.baseurl}}/api/endpoints/messaging/).
 - Se você duplicar uma landing page ou substituir quaisquer campos, os IDs dos componentes mudam. Atualize seu bloco de código personalizado para refletir os novos IDs.
 - Atributos personalizados aninhados consomem [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) para cada chave no array de objetos. Atualizar um objeto de atributo personalizado para null também consome um ponto de dados.
 - O código apresentado neste guia é um exemplo ilustrativo. Teste completamente todo o código e os componentes no seu ambiente antes de implantar em produção.

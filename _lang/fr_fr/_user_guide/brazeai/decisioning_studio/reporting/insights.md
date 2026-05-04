@@ -11,7 +11,7 @@ description: "Découvrez comment utiliser le rapport d'informations pour compren
 
 {% tabs local %}
 {% tab agent preferences %}
-Le rapport **Préférences de l'agent** vous aide à identifier les tendances saisonnières et à évaluer la pertinence des choix dans la banque d'actions, pour orienter vos décisions de mise à jour.
+Le rapport **Préférences de l'agent** vous aide à identifier les tendances saisonnières et à évaluer la pertinence des choix dans la banque d'actions, afin d'orienter vos décisions de mise à jour.
 
 ![Rapport des préférences de l'agent affichant un graphique à barres comparant la fréquence de sélection des différentes options de recommandation sur une période donnée. Le graphique présente plusieurs barres colorées, chacune représentant une option de recommandation de la banque d'actions, avec l'axe des ordonnées indiquant le pourcentage de sélection et l'axe des abscisses listant les noms des options.]({% image_buster /assets/img/decisioning_studio/reporting_insights_agent_preferences.png %})
 
@@ -22,7 +22,7 @@ Consultez le tableau suivant pour plus de détails sur ce rapport :
 | Dimension | L'attribut utilisé pour organiser les résultats, comme le canal, la campagne ou la plateforme. |
 | Groupe de comparaison | Les groupes que vous souhaitez comparer dans votre rapport. Vous pouvez sélectionner plusieurs groupes de comparaison. |
 | Paramètre | L'indicateur appliqué à cet attribut, comme les ouvertures, les clics ou le taux de conversion. |
-| Segment | Le [segment d'audience]({{site.baseurl}}/user_guide/engagement_tools/segments/) que vous avez créé dans Braze. |
+| Segment | Le [segment d'audience]({{site.baseurl}}/user_guide/audience/segments/) que vous avez créé dans Braze. |
 | Option             | L'option de recommandation spécifique sélectionnée dans la banque d'actions. |
 | Description        | Une courte explication de ce que représente l'option.            |
 | Nombre de sélections  | Le nombre total de fois où l'option a été sélectionnée.         |

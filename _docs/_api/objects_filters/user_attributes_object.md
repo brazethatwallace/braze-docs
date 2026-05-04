@@ -41,15 +41,23 @@ Use Braze user profile field names (listed as follows or any listed in the secti
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects
-  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
-  // Removing from an array of objects
-  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
+  // Removing from an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
 - [External user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+
+{% alert note %}
+For REST API requests to [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), use `add`, `remove`, and `update` keys for array operations. Keys prefixed with `$` (such as `$add`) are for SDK method payloads.
+
+When a REST API request uses `$add`, `$remove`, or `$update`, Braze can return `success` without applying the array update.
+
+For more details, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) and [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+{% endalert %}
 
 To remove a profile attribute, set it to `null`. Some fields, such as `external_id` and `user_alias` cannot be removed after they're added to a user profile.
 

@@ -76,15 +76,15 @@ In Canvas, you'll see in-app message performance mapped onto the Canvas you've c
 
 Depending on how large your workspace is, the **Campaign Details** panel may label audience statistics **Estimated Audience** or **Current Audience**.
 
-The following table explains when each label is used and what it means.
+The following table summarizes what each label means.
 
 | Footer label | When it is used |
 | --- | --- |
-| **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable Users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
+| **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
 | **Current Audience** | Braze can compute the default statistic with a full scan of workspace profiles, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -143,7 +143,7 @@ The **In-App Message Performance** panel outlines how well your message has perf
 ![In-app message performance analytics]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
-### Push Performance
+### Push Performance {#push-performance}
 
 The **Push Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 
@@ -193,6 +193,10 @@ If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remov
 Using heatmaps, you can see how successful different links in a single email campaign. From the **Message Analytics** section, go to the **Email Performance** panel. Select **Preview & Heatmap** to view a preview of your email campaign and the heatmap. Alternatively, you can select the hyperlink in the variant name to view the heatmap.
 
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
+
+{% alert note %}
+If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
+{% endalert %}
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
@@ -438,6 +442,22 @@ A click can be logged without an open when the open pixel never loads. For examp
 
 A click and open can also land on different days: a user might click on May 16 with images off (no open), then open in webmail on May 17 (open logged then).
 
+##### Higher _Unique clicks_ than _Unique opens_
+
+_Unique clicks_ can be higher than _Unique opens_ when opens are under counted or clicks are inflated:
+
+**The mailbox never loaded the open tracking pixel**
+
+This can happen when:
+
+- The message is long and the open pixel sits at the end. When the client clips the message, the pixel is cut off.
+- The message landed in spam, where remote images (including the open pixel) often don't load.
+- The mailbox uses stricter security (common on corporate accounts) and the user hasn't chosen to load images yet.
+
+**Security or bot activity on links**
+
+Some email security products follow links to scan for threats. Those requests can log a click without loading images, so you can see click activity without a matching open.
+
 ##### Deferrals
 
 Deferred or deferral is when an email was not immediately delivered, but Braze will retry the email for up to 72 hours after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
@@ -633,6 +653,18 @@ For a different workaround, we also recommend creating a custom event for push u
 ##### Understanding opens
 
 Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification, as stated in the table above. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
+
+##### Push action buttons and reporting {#push-action-buttons-and-reporting}
+
+When you add [push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), the **Push Performance** panel can include **Body Clicks**, **Button 1 Clicks**, and **Button 2 Clicks** alongside metrics such as **Direct Opens**. These columns measure different interactions, so compare them when you interpret engagement.
+
+_Direct Opens_ reflects dashboard metrics for interactions that count as a direct open of your message. **Push Notification Open** events in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) or Snowflake describe push interactions more broadly and can include optional fields such as `button_action_type` (for example, `close`) and `button_string`. For field definitions, see [Push Notification Open events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+For **iOS**, Braze default notification categories (such as **Yes** / **No**, **Accept** / **Decline**, or **Confirm** / **Cancel**) use a fixed pairing: the first action supports `OPEN_APP`, a URI, or a deep link (aligned with **On-Click Behavior** in the composer). The companion action uses `CLOSE` by default—it dismisses the notification and does not open the app. See the default mapping in [Apple push action button object]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Because of that, taps on the dismissive preset button (for example, **No** or **Decline**) typically do **not** count toward _Direct Opens_. Those taps may still appear in **Push Notification Open** exports when logged, with `button_action_type` set to `close` and `button_string` identifying the tapped action. When you compare campaign analytics to warehouse data, use those payload fields so you don't treat dismissive taps the same as taps on the notification body or the primary action.
+
+For **Android**, you set **On-Click Behavior** per button (**Open App**, **Redirect to Web URL**, or **Deep Link**), so reporting follows the actions you configure rather than the iOS default `OPEN_APP` / `CLOSE` split.
 
 ##### Why push sends can exceed unique recipients
 

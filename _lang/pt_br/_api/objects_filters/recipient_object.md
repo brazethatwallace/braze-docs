@@ -7,15 +7,15 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 
 ---
 
-# Objeto destinatários
+# Objeto destinatários {#recipients-object}
 
 > O objeto recipients permite que você solicite ou grave informações em nossos endpoints.
 
 Você deve incluir um dos seguintes neste objeto: `external_user_id`, `user_alias`, `braze_id` ou `email`. **As solicitações devem especificar apenas um.**
 
-O objeto de destinatários permite combinar o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/), o [objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), o [objeto de propriedades de entrada do Canvas]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/) e o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
+O objeto de destinatários permite combinar o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/), o [objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), o [objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) e o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
 
-## Corpo do objeto
+## Corpo do objeto {#object-body}
 
 ```json
 [{
@@ -33,13 +33,13 @@ O objeto de destinatários permite combinar o [objeto de alias do usuário]({{si
 
 Quando `send_to_existing_only` é `true`, a Braze envia a mensagem apenas para usuários existentes. No entanto, você não pode usar essa flag com aliases de usuário. Quando `send_to_existing_only` é `false`, você deve incluir um atributo. A Braze cria um usuário com o `id` e os atributos antes de enviar a mensagem.
 
-- [ID da Braze]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/)
+- [ID da Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
 - [Aliases do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 - [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [Priorização]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/)
+- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
 
-## Deduplicação do objeto de destinatário
+## Deduplicação do objeto de destinatário {#recipient-object-deduping}
 
 Ao fazer uma chamada de API com o objeto de destinatário, **se existir um destinatário duplicado direcionado para o mesmo endereço (ou seja, e-mail, push), a Braze deduplica o usuário**, o que significa que a Braze remove usuários idênticos, deixando apenas um.
 

@@ -59,12 +59,12 @@ In the **Product Fields** section, select your product block type, then toggle o
 #### Static product block
 
 | Product field | Source |
-| --- | --- | --- |
+| --- | --- |
 | Variant image | Catalogs |
 | Product title | Catalogs |
 | Button for product URL | Catalogs |
 | Price | Catalogs |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=“presentation” }
+{: .reset-td-br-1 .reset-td-br-2 role=“presentation” }
 
 ![Product fields for a static product block, which are all categorized as catalog data.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 

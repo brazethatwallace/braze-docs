@@ -1,6 +1,6 @@
-## Utilisation des blocs éditeurs de messages in-app
+## Utilisation des blocs éditeurs de messages in-app {#using-in-app-message-editor-blocks}
 
-Les blocs éditeurs se trouvent dans la section **Créer** pour les messages in-app. Pour les utiliser, faites glisser un bloc éditeur dans une colonne. Il s'ajuste automatiquement à la largeur de la colonne. Chaque bloc éditeur possède ses propres paramètres, comme le contrôle granulaire de la marge intérieure. Le panneau latéral droit bascule automatiquement vers un panneau de propriétés correspondant à l'élément de contenu sélectionné.
+Les blocs éditeurs se trouvent dans la section **Build** pour les messages in-app. Pour les utiliser, faites glisser un bloc éditeur dans une colonne. Il s'ajuste automatiquement à la largeur de la colonne. Chaque bloc éditeur possède ses propres paramètres, comme le contrôle granulaire de la marge intérieure. Le panneau latéral droit bascule automatiquement vers un panneau de propriétés correspondant à l'élément de contenu sélectionné.
 
 ## Types
 
@@ -12,7 +12,7 @@ Le tableau suivant décrit comment exploiter chaque type de bloc éditeur.
 | Paragraphe | Permet d'insérer un paragraphe dans le message. |
 | Bouton | Ajoute un bouton standard. Les propriétés de ce bloc permettent de modifier le texte, de configurer les liens et d'enregistrer les analyses. |
 | Bouton radio | Ajoute une liste d'options parmi lesquelles les utilisateurs peuvent en choisir une. Lors de l'envoi du formulaire, le profil utilisateur enregistre l'attribut personnalisé associé, qui doit être une chaîne de caractères pour être sauvegardé. Les attributs personnalisés avec d'autres types de données ne sont pas enregistrés dans le profil utilisateur. |
-| Image | Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). |
+| Image | Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). |
 | Lien | Insère un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Il peut être intégré dans un texte ou utilisé de manière autonome. |
 | Espaceur | Ajoute de l'espace ou une marge intérieure entre les autres blocs. |
 | Code personnalisé | Insère et exécute du code HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée.  |
@@ -21,14 +21,14 @@ Le tableau suivant décrit comment exploiter chaque type de bloc éditeur.
 | Texte court    | Insère un champ de formulaire prenant en charge les attributs standard (tels que le prénom et le nom) ou une chaîne de caractères d'attribut personnalisé de votre choix. |
 | Liste déroulante      | Insère une liste déroulante avec une liste prédéfinie d'éléments parmi lesquels les utilisateurs peuvent en sélectionner un. Vous pouvez ajouter à la liste des chaînes de caractères d'attributs personnalisés. |
 | Case à cocher      | Insère une case à cocher. Si l'utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si la case reste décochée, l'attribut est défini sur `false`. |
-| Groupe de cases à cocher| Les utilisateurs peuvent choisir parmi plusieurs options proposées. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau. |
+| Groupe de cases à cocher | Les utilisateurs peuvent choisir parmi plusieurs options proposées. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Propriétés
+## Propriétés {#properties}
 
 Les détails des propriétés de chaque bloc éditeur sont fournis dans les tableaux suivants.
 
-### Titre et paragraphe
+### Titre et paragraphe {#title-and-paragraph}
 
 | Propriété | Description |
 | --- | --- |
@@ -41,7 +41,7 @@ Les détails des propriétés de chaque bloc éditeur sont fournis dans les tabl
 | Couleur du texte | Modifie la couleur du texte |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Bouton
+### Bouton {#button}
 
 | Propriété | Description |
 | --- | --- |
@@ -53,7 +53,7 @@ Les détails des propriétés de chaque bloc éditeur sont fournis dans les tabl
 | Alignement du bouton | Positionne le bouton à gauche, au centre ou à droite |
 | Couleur du texte du bouton | Modifie la couleur du texte sur le bouton |
 | Couleur d'arrière-plan | Modifie la couleur de l'arrière-plan du bouton |
-| Style de bordure | Détermine le style de la bordure du bouton | 
+| Style de bordure | Détermine le style de la bordure du bouton |
 | Rayon de bordure | Détermine le degré d'arrondi des coins |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -66,11 +66,11 @@ Les détails des propriétés de chaque bloc éditeur sont fournis dans les tabl
 | URL | L'adresse hébergée de l'image |
 | Alignement | Positionne l'image à gauche, au centre ou à droite |
 | Couleur d'arrière-plan | Modifie la couleur de l'arrière-plan de l'image |
-| Style de bordure | Détermine le style de la bordure de l'image | 
+| Style de bordure | Détermine le style de la bordure de l'image |
 | Rayon de bordure | Détermine le degré d'arrondi des coins de l'image |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Lien
+### Lien {#link}
 
 | Propriété | Description |
 | --- | --- |
@@ -80,7 +80,7 @@ Les détails des propriétés de chaque bloc éditeur sont fournis dans les tabl
 | Couleur du texte | Modifie la couleur du texte |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Espaceur
+### Espaceur {#spacer}
 
 | Propriété | Description |
 | --- | --- |
@@ -88,14 +88,14 @@ Les détails des propriétés de chaque bloc éditeur sont fournis dans les tabl
 | Hauteur | Modifie la hauteur de l'espaceur. Vous pouvez également ajuster cette valeur à l'aide des poignées de redimensionnement de l'espaceur. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Code personnalisé
+### Code personnalisé {#custom-code}
 
 | Propriété | Description |
 | --- | --- |
 | Code personnalisé | Permet d'ajouter, de modifier ou de supprimer du code HTML, CSS et JavaScript pour un message in-app. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Capture de numéros de téléphone
+### Capture de numéros de téléphone {#phone-capture}
 
 | Propriété | Description |
 | --- | --- |
@@ -104,7 +104,7 @@ Les détails des propriétés de chaque bloc éditeur sont fournis dans les tabl
 | Texte de la marque substitutive | Un numéro de téléphone de marque substitutive à afficher |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Capture d'adresses e-mail
+### Capture d'adresses e-mail {#email-capture}
 
 | Propriété | Description |
 | --- | --- |

@@ -37,7 +37,7 @@ $guide_transition_time : 0.25s;
 
   h1 {
     color: $black-shark;
-    font-family: $braze-medium;
+    font-family: $braze-bold;
     margin-top: 10px;
   }
   .guide_menu_title {
@@ -49,6 +49,24 @@ $guide_transition_time : 0.25s;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 0 0 100%;
+      margin-bottom: 2%;
+      @media (min-width: $window-medium-px) {
+        flex: 0 0 46%;
+        margin-right: 2%;
+      }
+      @media (min-width: $window-large-px) {
+        flex: 0 1 30.3%;
+        margin-right: 3%;
+      }
+    }
     .guide_item {
 
       width: 100%;
@@ -96,18 +114,7 @@ $guide_transition_time : 0.25s;
       border: 1px solid $grey-ghost;
       box-shadow: 0 0 6px 0 rgba(32,32,36,0.12);
       border-radius: 8px;
-      margin-bottom: 2%;
-
-      flex: 0 0 100%;
-
-      @media (min-width:  $window-medium-px) {
-        flex: 0 0 46%;
-        margin-right: 2%;
-      }
-      @media (min-width:  $window-large-px) {
-        flex: 0 1 30.3%;
-        margin-right: 3%;
-      }
+      display: block;
       color: $black-shark;
       text-decoration: none;
       background-color: inherit;
@@ -127,7 +134,7 @@ $guide_transition_time : 0.25s;
   }
   // Styling for regular text links
   a {
-    font-family: $braze-medium;
+    font-family: $braze-bold;
     font-weight: 700;
     display: inline;
     color: $black-shark;

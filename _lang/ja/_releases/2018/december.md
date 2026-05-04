@@ -3,20 +3,20 @@ nav_title: 12月
 page_order: 2
 noindex: true
 page_type: update
-description: "この記事には2018年12月のリリースノートが含まれている。"
+description: "この記事には2018年12月のリリースノートが含まれています。"
 ---
-# 2018年12月
+# 2018年12月 {#december-2018}
 
-## コンテンツブロック
+## Content Blocks
 
-[コンテンツブロック]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/)を使用すると、再利用可能なクロスチャネルコンテンツを1か所で管理できます。この機能にアクセスするには、Braze アカウントの**Templates & Media** セクションのContent Blocks Library タブに移動します。 
+[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)を使用すると、再利用可能なクロスチャネルのコンテンツを単一の一元化されたロケーションで管理できます。この機能にアクセスするには、Brazeアカウントの**テンプレートとメディア**セクションにある**コンテンツブロックライブラリ**タブに移動します。
 
-コンテンツブロックを使用すると、次のことができます。
- - コンテンツブロックをヘッダーやフッターとして使用することで、メールキャンペーンに一貫性のあるルック＆フィールを作成できる。
- - 同じオファーコードを別のチャネルに配布してください。
- - あらかじめ定義されたアセットを作成して、一貫性のある情報やアセットを含むメッセージを作成できます。
- - メッセージ本文全体を他のメッセージにコピーします。
+Content Blocksを使用すると、次のことができます。
+ - Content Blocksをヘッダーやフッターとして使用することで、メールキャンペーンに一貫性のあるルック＆フィールを作成できます。
+ - 同じオファーコードを異なるチャネルを通じて配布できます。
+ - あらかじめ定義されたアセットを作成して、一貫性のある情報やアセットを含むメッセージを構築できます。
+ - メッセージ本文全体を他のメッセージにコピーできます。
 
-## Gmailプロモーションツール
+## Gmailプロモーションツール {#gmail-promotional-tool}
 
-Gmail でモバイルの [プロモーション] タブが更新され、マーケターが件名やプリヘッダー情報だけでなく、「カード」の注釈をを使用してより多くの情報を送信できるようになりました。[Gmailプロモーションツール]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/gmail_promotions_tab/)で、Brazeは弊社商品からのカード構築をお手伝いします。
+Gmailでモバイルの「プロモーション」タブが更新され、マーケターが件名やプリヘッダー情報だけでなく、「カード」の注釈を使用してより多くの情報を送信できるようになりました。[Gmailプロモーションツール]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab/)を使用すると、Brazeの製品からカードを構築できます。

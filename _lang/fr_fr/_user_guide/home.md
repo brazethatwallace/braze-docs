@@ -1,48 +1,48 @@
 ---
 page_order: 0
 nav_title: Accueil
-article_title: Guide de l’utilisateur Braze
+article_title: Guide de l'utilisateur Braze
 layout: user_guide
 
-user_top_header: "Guide de l’utilisateur Braze"
-user_top_text: "C’est ici que les spécialistes du marketing et administrateurs peuvent apprendre tout ce qu’il leur faut pour démarrer avec Braze et comment concevoir des interactions clientèle significatives axées sur les données."
-description: "Ceci est la page d’accueil du Guide de l’utilisateur. Ici, les spécialistes du marketing et administrateurs peuvent apprendre tout ce qu’il leur faut pour démarrer avec Braze et comment concevoir des interactions clientèle significatives axées sur les données."
+user_top_header: "Guide de l'utilisateur Braze"
+user_top_text: "C'est ici que les marketeurs et administrateurs trouveront tout ce dont ils ont besoin pour démarrer avec Braze et concevoir des interactions client pertinentes et axées sur les données."
+description: "Ceci est la page d'accueil du Guide de l'utilisateur. Les marketeurs et administrateurs y trouveront tout ce dont ils ont besoin pour démarrer avec Braze et concevoir des interactions client pertinentes et axées sur les données."
 
 user_menu_list:
-  - name: Gérer votre compte
+  - name: Gérer les utilisateurs de l'entreprise
     image: /assets/img/braze_icons/settings-01-braze-purple-dark.svg
     bg_color: '#C9C4FF'
-    link: /docs/user_guide/administrative/app_settings/company_settings/
-    description: "Gérez les paramètres pour votre entreprise, vos utilisateurs et plus encore."
-  - name: Connexion à Braze
+    link: /docs/user_guide/administer/global/user_management/manage_company_users/
+    description: Ajoutez des utilisateurs Braze et gérez les paramètres associés aux utilisateurs de l'entreprise
+  - name: Accéder à votre compte
     image: /assets/img/braze_icons/log-in-04-braze-pink-dark.svg
     bg_color: '#F8D3E8'
-    link: /docs/user_guide/administrative/access_braze/accessing_your_account/
-    description: Veuillez vous connecter à la plateforme.
+    link: /docs/user_guide/administer/personal/accessing_your_account/
+    description: Connectez-vous via SSO ou votre URL Braze et résolvez les problèmes éventuels
   - name: Créer un Canvas
     bg_color: '#FFD4BC'
-    link: /docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/
+    link: /docs/user_guide/messaging/canvas/create_a_canvas/
     image: /assets/img/braze_icons/users-01-braze-orange-dark.svg
-    description: Ce guide vous explique comment commencer à créer un parcours client.
+    description: Créez et lancez un Canvas de A à Z
 
 popular_topic_list:
-  - name: Importation d’utilisateurs
-    link: /docs/user_guide/data/user_data_collection/user_import/
-  - name: Événements personnalisés
-    link: /docs/user_guide/data/custom_data/custom_events/
-  - name: Gérer les inscriptions des utilisateurs
-    link: /docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/
-  - name: Currents Braze
-    link: /docs/user_guide/data/braze_currents/
+  - name: Suivi de la localisation
+    link: /docs/user_guide/audience/locations_and_geofences/location_tracking/
+  - name: Raccourcissement de liens
+    link: /docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/
+  - name: Currents
+    link: /docs/user_guide/data/distribution/braze_currents/
+  - name: Ingestion de données cloud
+    link: /docs/user_guide/data/unification/cloud_ingestion/
+  - name: Messages in-app
+    link: /docs/user_guide/channels/in_app_messages/
+  - name: Content Cards
+    link: /docs/user_guide/channels/content_cards/
+  - name: Événements d'engagement liés aux messages
+    link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/
   - name: Attributs personnalisés
-    link: /docs/user_guide/data/custom_data/custom_attributes/
-  - name: Personnaliser les messages in-app
-    link: /docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize/
-  - name: Liquid
-    link: /docs/user_guide/personalization_and_dynamic_content/liquid/
-  - name: Effectuer un appel API
-    link: /docs/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/
-  - name: Événements d’engagement liés aux messages
-    link: /docs/user_guide/data/braze_currents/event_glossary/message_engagement_events/
+    link: /docs/user_guide/data/activation/attributes/custom_attributes/
+  - name: Importer des utilisateurs par CSV
+    link: /docs/user_guide/audience/manage_audience/import_users/csv_import/
 
 ---
