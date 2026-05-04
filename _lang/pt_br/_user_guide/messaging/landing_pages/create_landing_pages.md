@@ -70,7 +70,7 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 | Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-##### Span text
+##### Span text {#span-text}
 
 {% multi_lang_include span_text.md %}
 
@@ -158,11 +158,11 @@ Quando estiver pronto, selecione **Publish Landing Page**.
 
 ## Usando modelos {#using-templates}
 
-Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
+Use modelos de landing page para criar templates para suas próximas campanhas. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
 
 ## Gerenciando modelos {#managing-templates}
 
-Você pode pré-visualizar, arquivar, editar ou duplicar modelos de landing page. Ao editar uma landing page, você também pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
+Você pode pré-visualizar, arquivar ou editar modelos de landing page. Você pode duplicar seus próprios modelos de landing page (localizados em **Your Templates**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
 
 ![Um menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 

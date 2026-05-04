@@ -45,7 +45,7 @@ Wir empfehlen die folgenden Best Practices:
 
 ### 3. Schritt: Die Seite anpassen {#step-3-customize-the-page}
 
-Falls noch nicht geschehen, wählen Sie **Save as draft**. Um mit der Anpassung Ihrer Seite zu beginnen, wählen Sie **Edit landing page**. Der Drag-and-Drop-Editor wird mit einem Standard-Template vorgeladen, das Sie an Ihren Anwendungsfall anpassen können.
+Falls noch nicht geschehen, wählen Sie **Als Entwurf speichern**. Um mit der Anpassung Ihrer Seite zu beginnen, wählen Sie **Edit landing page**. Der Drag-and-Drop-Editor wird mit einem Standard-Template vorgeladen, das Sie an Ihren Anwendungsfall anpassen können.
 
 ![Eine Beispiel-Landing-Page, die im Drag-and-Drop-Editor erstellt wird.]({% image_buster /assets/img/landing_pages/template.png %})
 
@@ -70,7 +70,7 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 | Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-##### Span-Text
+##### Span-Text {#span-text}
 
 {% multi_lang_include span_text.md %}
 
@@ -162,7 +162,7 @@ Verwenden Sie Landing-Page-Templates, um Templates für Ihre nächsten Campaigns
 
 ## Templates verwalten {#managing-templates}
 
-Sie können Landing-Page-Templates in der Vorschau anzeigen, archivieren, bearbeiten oder duplizieren. Beim Bearbeiten einer Landing-Page können Sie Ihre Landing-Page auch als Template speichern, Änderungen am Template vornehmen oder den Inhalt der Landing-Page löschen.
+Sie können Landing-Page-Templates in der Vorschau anzeigen, archivieren oder bearbeiten. Sie können Ihre eigenen Landing-Page-Templates (unter **Your Templates**) duplizieren, jedoch keine Braze-Templates. Beim Bearbeiten einer Landing-Page können Sie Ihre Landing-Page als Template speichern, Änderungen am Template vornehmen oder den Inhalt der Landing-Page löschen.
 
 ![Ein Dropdown-Menü mit Optionen zum Speichern, Ändern und Löschen einer Landing-Page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
