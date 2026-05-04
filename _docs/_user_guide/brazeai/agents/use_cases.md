@@ -27,8 +27,9 @@ These instructions assume the following information is available:
 - Custom attribute for the user's loyalty status
 - Context variable for the city the user last searched
 - Context variable for the user's last survey response
-- **Agent context** settings:
-    - All Canvas context for access to all of the defined context variables in the Canvas
+- **Agent context**
+    - **Canvas context:** All Canvas context variables used in this journey (for example, `city_searched`, `last_survey_response`, and any others your Canvas defines).
+    - **Brand guidelines:** `<Brand guidelines name>` — required so the agent can apply voice, tone, and formatting rules referenced in these instructions.
 
 ### Instructions
 
@@ -100,8 +101,8 @@ These instructions assume the following information is available:
 - Custom attribute for a user’s loyalty tier
 - Context variables for the user’s most recent destination
 - Context variable for user feedback as text
-- **Agent context** settings:
-    - All Canvas context for access to all of the defined context variables in the Canvas
+- **Agent context**
+    - **Canvas context:** All Canvas context variables used in this journey (for example, `survey_text`, `trip_destination`, and any others your Canvas defines).
 
 ### Instructions
 
@@ -164,10 +165,11 @@ These instructions assume the following information is available:
 - Custom attributes:
     - Number of days since the free trial started
     - Number of flights and hotel searches during the free trial
-    - Number of how many premium features were used during the free trial
+    - Count of premium features used during the free trial
 - Context variable for the day the app was last opened 
-- **Agent context** settings:
-    - All Canvas context for access to all of the defined context variables in the Canvas
+- **Agent context**
+    - **Canvas context:** All Canvas context variables used in this journey (for example, `last_app_session` and any custom attributes the Agent step is configured to receive).
+    - **Segment membership:** To check whether the user is in the segment "Has Valid Payment Method on File"
 
 ### Instructions
 
@@ -240,13 +242,11 @@ This use case describes how a catalog agent can leverage user data and brand gui
 
 These instructions assume the following information is available:
 
-- **Agent context** settings: 
-    - [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) for StyleRyde
-- A catalog that has columns for:
-    - Destination name
-    - Country
-    - Trip category
-    - Pricing
+- **Agent context**
+    - **Catalog fields:**
+        - **Catalog:** `<Destination Catalog name>` which contains one row per destination (for example, your in-app destination catalog).
+        - **Fields:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>`
+    - **Brand guidelines:** StyleRyde's [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)
 
 ### Instructions
 
@@ -307,13 +307,10 @@ This use case describes how a catalog agent can translate English UI and marketi
 
 These instructions assume the following information is available:
 
-- **Agent context** settings:
-    - Access to catalog data for the strings you translate
-- A catalog that has fields for:
-    - Source text
-    - Target language code
-    - UI category
-    - Maximum character count
+- **Agent context**
+    - **Catalog fields:**
+        - **Catalog:** "App Localization" that includes one row per string to translate.
+        - **Fields:** `<Source text>`, `<Target language code>`, `<UI category>`, `<Maximum character count>` which are column names that map to the source string, locale, placement, and length limit that the instructions use.
 
 ### Instructions
 
@@ -384,8 +381,8 @@ This use case describes how a Canvas agent can evaluate one inbound customer mes
 These instructions assume the following information is available:
 
 - Inbound message text available to the agent (for example, a context variable for the user's latest SMS reply or other inbound text)
-- **Agent context** settings:
-    - Canvas context so the Agent step receives the inbound message and can branch on the boolean result for suppression or subscription handling
+- **Agent context**
+    - **Canvas context:** Configure the Agent step to receive the inbound message (for example, via a context variable such as `latest_sms_reply` or the field your journey uses) so the agent can return a boolean and you can branch for suppression or subscription handling.
 
 ### Instructions
 
