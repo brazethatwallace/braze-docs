@@ -96,6 +96,24 @@ Refer to the following metrics to track how your Agent steps perform:
 | _Exited Canvas_ | The number of users that exited the Canvas after passing through the Agent step. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+## Best practices
+
+### Split tasks between agents for complicated use cases
+
+If you find that an agent is struggling with the complexity of tasks you’re asking it to do, split the work across more than one Agent step. When one prompt mixes data cleanup, routing logic, and full message writing, those goals compete and output quality can vary.
+
+The following pattern uses three agents for a travel example: someone searched in your app recently but didn’t book, and you want retargeting copy that nudges them toward checkout.
+
+- Agent 1 summarizes Canvas context. It reads fields such as loyalty tier, last city searched, and high-intent search behavior, and returns a short structured summary as an output variable that later steps can reuse.
+- Agent 2 returns a routing value your Canvas can branch on. Use a number, boolean, or structured object so the output matches how you branch. Map that value to an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) step. For example, consider separate paths for loyalty-led messaging versus deal-led messaging.
+- Agent 3 drafts generated message text only on branches where you want it. Pass the Agent 1 summary (and any branch-specific context) so this agent focuses on tone and channel limits instead of normalizing inputs and choosing strategy in the same prompt.
+
+### Use the Experiment Paths step to test agentic journeys at small scale
+
+To test your agent's performance and credit consumption against your existing journeys, add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. 
+
+For example, send a few thousand users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch.
+
 ## Frequently asked questions
 
 ### When should I use an Agent step?

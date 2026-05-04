@@ -70,6 +70,13 @@ Each LLM provider has a slightly different mix of model capabilities, costs, and
 - During testing, make sure to balance the reliability and accuracy with token usage and invocation duration.
 - Each use case may have a different optimal model and thinking level. We recommend thoroughly testing to check for consistent quality without timeouts.
 
+### Rate limits
+
+The following rate limits apply per workspace:
+
+- **Braze-powered model:** 1,000 invocations per minute 
+- **Bringing your own API key:** 2,500 invocations per minute 
+
 ## Writing instructions
 
 Instructions are the rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. System instructions can be up to 25 KB.

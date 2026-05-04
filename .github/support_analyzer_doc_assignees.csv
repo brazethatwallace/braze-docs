@@ -932,14 +932,14 @@ _docs/_releases/sdk_changelogs.md,Docs Team,n/a,docs-team
 _docs/_user_guide/administer.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/admin_settings.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/global/admin_settings/contact_information.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/global/admin_settings/notification_preferences.md,Rachel,CLIP,rachel-feinberg
+_docs/_user_guide/administer/global/admin_settings/contact_information.md,Docs Team,n/a,docs-team
+_docs/_user_guide/administer/global/admin_settings/notification_preferences.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/administer/global/admin_settings/security_settings.md,Rachel,CLIP,rachel-feinberg
 _docs/_user_guide/administer/global/admin_settings/security_settings/security_export_s3.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/global/admin_settings/workspace_time_zone.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/global/billing.md,Rachel,CLIP,rachel-feinberg
+_docs/_user_guide/administer/global/admin_settings/workspace_time_zone.md,Lydia,Core Messaging,lydia-xie
+_docs/_user_guide/administer/global/billing.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/administer/global/billing/message_usage_dashboard.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/global/create_and_manage_workspaces.md,Rachel,CLIP,rachel-feinberg
+_docs/_user_guide/administer/global/create_and_manage_workspaces.md,Zair,Feature Flags,zairro
 _docs/_user_guide/administer/global/privacy.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/privacy/managing_consent.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/privacy/spam_regulations.md,Docs Team,,docs-team

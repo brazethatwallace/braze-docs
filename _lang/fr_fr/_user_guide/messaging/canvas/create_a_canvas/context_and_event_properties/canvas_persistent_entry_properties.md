@@ -13,7 +13,7 @@ page_order: 5
 > Lorsqu'un Canvas est déclenché par un événement personnalisé, un achat ou un appel API, vous pouvez utiliser les métadonnées de l'appel API, de l'événement personnalisé ou de l'événement d'achat pour la personnalisation à chaque étape de votre flux de travail Canvas. Vous pouvez utiliser ces propriétés pour envoyer des messages mieux agencés.
 
 {% alert important %}
-Les propriétés d'entrées persistantes sont un vestige de l'éditeur Canvas d'origine. Certaines références obsolètes à des termes comme « propriétés d'entrées Canvas » subsistent à titre historique. Pour l'éditeur Canvas actuel mis à jour, consultez [Propriétés de contexte et d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+Les propriétés d'entrées persistantes sont un vestige de l'éditeur Canvas d'origine. Certaines références obsolètes à des termes comme « propriétés d'entrées Canvas » subsistent à titre historique. Pour l'éditeur Canvas actuel, consultez [Propriétés de contexte et d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).<br><br>Pour utiliser les propriétés d'entrées persistantes dans l'éditeur Canvas actuel, vous devez soit créer un nouveau Canvas, soit [cloner]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) un Canvas existant vers l'éditeur actuel.
 {% endalert %}
 
 ## Utilisation des propriétés d'entrées {#using-entry-properties}

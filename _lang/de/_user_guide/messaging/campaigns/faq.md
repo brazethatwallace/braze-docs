@@ -72,7 +72,7 @@ Sie können die Zeitzone Ihres Unternehmens in Ihren [Unternehmenseinstellungen]
 
 Braze wertet die Eintrittsberechtigung der Nutzer:innen aus zu:
 
-- Samoa-Zeit (UTC+13) oder UTC+14 während der Sommerzeit
+- Samoa-Zeit (UTC+13) am geplanten Tag
 - Der Ortszeit des geplanten Tages
 
 Damit eine Nutzerin oder ein Nutzer eintrittsberechtigt ist, muss sie oder er beide Prüfungen bestehen. Wenn beispielsweise ein Canvas am 7. August 2021 um 14 Uhr Ortszeit gestartet werden soll, erfordert das Targeting einer Nutzerin oder eines Nutzers in New York die folgenden Berechtigungsprüfungen:
@@ -80,7 +80,9 @@ Damit eine Nutzerin oder ein Nutzer eintrittsberechtigt ist, muss sie oder er be
 - New York am 6. August 2021 um 21 Uhr
 - New York am 7. August 2021 um 14 Uhr
 
-Die Nutzerin oder der Nutzer muss 24 Stunden vor dem Start im Segment sein. Wenn die Nutzerin oder der Nutzer bei der ersten Prüfung nicht berechtigt ist, versucht Braze die zweite Prüfung nicht.
+Die Nutzerin oder der Nutzer muss zu beiden Auswertungszeitpunkten Ihrer Zielgruppe und Ihren Filtern entsprechen. Wenn die Nutzerin oder der Nutzer bei der ersten Prüfung nicht berechtigt ist, führt Braze die zweite Prüfung nicht durch. Es gibt keine Mindestdauer, die eine Nutzerin oder ein Nutzer vor dem Start im Segment gewesen sein muss. Nur die Berechtigung bei jeder Prüfung ist entscheidend.
+
+Dieses Auswertungsverhalten ist unabhängig davon, [wie weit im Voraus Sie die Campaign im Dashboard planen](#how-do-i-schedule-a-local-time-zone-campaign). Die Planung mindestens 24 Stunden im Voraus ist eine Empfehlung, da sie dazu beiträgt, dass Nachrichten über das gesamte 24-Stunden-Ortszeitfenster zugestellt werden – es ist keine Voraussetzung, dass jede Nutzerin oder jeder Nutzer 24 Stunden lang in der Zielgruppe gewesen sein muss.
 
 #### Beispiele {#examples}
 
@@ -88,7 +90,7 @@ Wenn beispielsweise eine Campaign für 19 Uhr UTC zugestellt werden soll, beginn
 
 Ein weiteres Beispiel: Angenommen, Sie möchten zwei Campaigns erstellen, die am selben Tag gesendet werden sollen – eine morgens und eine abends – und einen Filter hinzufügen, dass Nutzer:innen die zweite Campaign nur erhalten können, wenn sie die erste bereits erhalten haben. Bei der Zustellung nach Ortszeit erhalten einige Nutzer:innen möglicherweise die zweite Campaign nicht. Das liegt daran, dass wir die Berechtigung prüfen, wenn die Zeitzone der Nutzerin oder des Nutzers identifiziert wird. Wenn der geplante Zeitpunkt in ihrer Zeitzone noch nicht eingetreten ist, haben sie die erste Campaign noch nicht erhalten und sind daher nicht für die zweite Campaign berechtigt.
 
-Eine visuelle Darstellung, wie eine Nutzerin oder ein Nutzer bei der ersten Prüfung im Segment sein kann, aber nicht bei der zweiten, finden Sie in dieser Zeitleiste:
+Die folgende Zeitleiste geht von einer Segment-Definition aus, die ein zeitlich begrenztes Mitgliedschaftsfenster enthält. In diesem Beispiel verlassen Nutzer:innen das Segment 24 Stunden nach ihrem Beitritt. Dieses Filterverhalten ist ein Grund, warum eine Nutzerin oder ein Nutzer die erste Prüfung bestehen, aber die zweite nicht bestehen kann.
 
 ![Zeitleiste, die zeigt, wie eine Nutzerin oder ein Nutzer vor der ersten Prüfung in das Segment eintritt und es dann vor der zweiten Prüfung wieder verlässt.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -103,7 +105,9 @@ Eine visuelle Darstellung, wie eine Nutzerin oder ein Nutzer bei der ersten Prü
 
 ### Wie plane ich eine Ortszeit-Campaign? {#how-do-i-schedule-a-local-time-zone-campaign}
 
-Wenn Sie eine Campaign planen, wählen Sie den Versand zu einem bestimmten Zeitpunkt und dann **Kampagne an Nutzer:innen in ihrer Ortszeit senden**.
+Im vorherigen Abschnitt wird beschrieben, wann Braze die Berechtigung für die Zustellung nach Ortszeit auswertet (die beiden Prüfungen). In diesem Abschnitt geht es darum, wann Sie den Campaign-Zeitplan im Dashboard festlegen (Vorlaufzeit für die Planung) und welche Nutzer:innen die Nachricht noch erhalten, wenn Sie mit weniger als 24 Stunden Vorlauf planen.
+
+Wenn Sie eine Campaign planen, wählen Sie den Versand zu einem bestimmten Zeitpunkt und dann **Campaign an Nutzer:innen in ihrer Ortszeit senden**.
 
 Braze empfiehlt dringend, alle Ortszeit-Campaigns 24 Stunden im Voraus zu planen. Da eine solche Campaign über einen ganzen Tag hinweg gesendet werden muss, stellt die Planung 24 Stunden im Voraus sicher, dass Ihre Nachricht Ihr gesamtes Segment erreicht. Sie können diese Campaigns jedoch bei Bedarf auch weniger als 24 Stunden im Voraus planen. Beachten Sie, dass Braze keine Nachrichten an Nutzer:innen sendet, die den Sendezeitpunkt um mehr als 1 Stunde verpasst haben.
 
@@ -132,7 +136,7 @@ Wenn die Campaign geplant ist, müssen Sie Änderungen an allem außer der Nachr
 
 ### Ich habe meine geplante Campaign aktualisiert. Warum wurde sie nicht gestartet? {#i-updated-my-scheduled-campaign-why-didnt-it-launch}
 
-Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Kampagne aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass der geplante Startzeitpunkt bereits verstrichen ist. Anstatt die Campaign für denselben Zeitpunkt zu planen, wählen Sie **Senden, sobald die Kampagne gestartet wird**.
+Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Campaign aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass der geplante Startzeitpunkt bereits verstrichen ist. Anstatt die Campaign für denselben Zeitpunkt zu planen, wählen Sie **Senden, sobald die Campaign gestartet wird**.
 
 ### Was ist die „sichere Zone“, bevor Nachrichten einer geplanten Campaign eingereiht werden? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-enqueued}
 

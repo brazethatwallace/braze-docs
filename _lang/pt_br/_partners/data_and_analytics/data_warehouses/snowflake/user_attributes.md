@@ -126,7 +126,7 @@ Essas visualizações fornecem atualizações quase em tempo real sobre os atrib
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### Uso {#usage}
+### Uso
 
 * Fornece atributos de usuário atualizados com atraso mínimo (~10 minutos).
 * Útil para análises em tempo real e cenários em que dados recentes são necessários.
@@ -182,9 +182,9 @@ Essas visualizações armazenam registros históricos de alterações de atribut
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### Uso {#usage}
+### Uso
 
-* Fornece um registro de alterações históricas nos atributos de usuário.
+* Fornece um registro de alterações históricas nos atributos de usuário por um período contínuo de 6 meses.
 * Os dados são capturados a cada 12 horas, o que significa que várias atualizações nesse período são combinadas em um único registro. Alterações individuais dentro desse intervalo não são mantidas separadamente.
 * `EFF_DT` e `END_DT` marcam o início e o fim do estado de um atributo do usuário.
 
@@ -246,5 +246,5 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 ### Considerações de desempenho {#performance-considerations}
 
 * Consultas em `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` devem retornar em menos de 10 segundos para grandes conjuntos de dados (~1 bilhão de usuários) em um warehouse grande.
-* Consultas em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` para um único usuário retornam em menos de um minuto, mas escalam mal sem a filtragem por `USER_ID`.
+* Consultas em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` para um único usuário retornam em menos de um minuto, mas escalam mal sem a filtragem por `USER_ID`.
 * Consultas sobre mais de 100 milhões de usuários em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` podem levar vários minutos devido à agregação por usuário.

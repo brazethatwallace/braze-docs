@@ -218,7 +218,7 @@ Message for a less active user
 
 {% api %}
 
-## Countdowns {#countdowns}
+## Countdowns
 
 {% apitags %}
 Countdowns

@@ -89,7 +89,7 @@ Liquid `abort` 태그를 사용하여 메시지를 중단하면, Braze는 배리
 
 전환 기한을 설정하세요. 이는 Braze가 전환으로 간주하기 전에 경과할 수 있는 최대 시간입니다. 사용자가 지정된 행동을 수행하면 Braze가 전환을 집계하는 최대 30일의 기간을 설정할 수 있습니다.
 
-![전환 기한이 12시간인, 구매를 수행한 사용자의 전환을 기록하는 "구매 수행" 전환 이벤트 유형 예시.]({% image_buster /assets/img_archive/conversion_event_selection.png %})
+![구매를 수행한 사용자의 전환을 기록하는 "구매 수행" 전환 이벤트 유형 예시. 전환 기한은 12시간입니다.]({% image_buster /assets/img_archive/conversion_event_selection.png %})
 
 전환 이벤트를 선택한 후, Campaign 생성 프로세스를 계속 진행하고 Campaign 전송을 시작하세요.
 

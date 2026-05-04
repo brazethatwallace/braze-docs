@@ -62,13 +62,13 @@ Liquidの`abort`タグを使用してメッセージを中止した場合、Braz
 
 ## コンバージョントラッキング付きCampaignの作成 {#creating-a-campaign-with-conversion-tracking}
 
-### ステップ 1:Campaignを設定する {#step-1-set-up-your-campaign}
+### ステップ 1: Campaignを設定する {#step-1-set-up-your-campaign}
 
 目的のメッセージングチャネルで[Campaignを作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)します。Campaignのメッセージとスケジュールを設定した後、トラッキング用に最大4つのコンバージョンイベントを追加できます。
 
 必要に応じて、できるだけ多くのコンバージョンイベントを使用してください。2つ目または3つ目のコンバージョンイベントを追加すると、レポートが大幅に充実します。例えば、離脱ユーザーをターゲットにしたCampaignの場合、1次の**セッションを開始する**コンバージョンイベントに加えて2次コンバージョンイベントを追加すると、Campaignがユーザーをアプリに呼び戻す効果をより深く理解できます。
 
-### ステップ 2:コンバージョンイベントを追加する {#step-2-add-the-conversion-events}
+### ステップ 2: コンバージョンイベントを追加する {#step-2-add-the-conversion-events}
 
 まず、使用するイベントの一般的なタイプを選択します。
 
@@ -93,7 +93,7 @@ Liquidの`abort`タグを使用してメッセージを中止した場合、Braz
 
 コンバージョンイベントを選択したら、Campaign作成プロセスを続行し、Campaignの送信を開始します。
 
-### ステップ 3:結果を確認する {#step-3-view-your-results}
+### ステップ 3: 結果を確認する {#step-3-view-your-results}
 
 **詳細**ページに移動して、作成したCampaignに関連する各コンバージョンイベントの詳細を確認します。選択したコンバージョンイベントに関係なく、1次コンバージョンイベントの時間枠中に、この特定のCampaignおよび特定のバリアントに帰属する合計収益も確認できます。
 

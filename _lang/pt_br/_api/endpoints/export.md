@@ -9,7 +9,7 @@ page_type: reference
 
 # Endpoints de exportação {#export-endpoints}
 
-Com esta coleção de endpoints, você pode acessar e exportar vários níveis de detalhes sobre seus KPIs, sessões de app, usuários, segmentos, campanhas e Canvas. Certifique-se de conhecer sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [chave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) ao criar seus parâmetros e corpos de solicitação.
+Com esta coleção de endpoints, você pode acessar e exportar vários níveis de detalhes sobre seus KPIs, sessões de app, usuários, Segments, Campaigns e Canvas. Certifique-se de conhecer sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [chave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) ao criar seus parâmetros e corpos de solicitação.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -32,9 +32,9 @@ A tabela a seguir resume as categorias de dados disponíveis por meio das APIs d
 
 | Categoria | O que inclui | Referência da API |
 | --- | --- | --- |
-| Campaigns | Análise de desempenho, detalhes de campanhas, listas de campanhas e análise de envios | [Endpoints de Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) |
+| Campaigns | Análise de desempenho, detalhes de Campaigns, listas de Campaigns e análise de envios | [Endpoints de Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) |
 | Canvas | Análise de séries de dados, resumos de análise, detalhes de Canvas e listas de Canvas | [Endpoints de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) |
-| Segments | Listas de segmentos, análise de segmentos e detalhes de segmentos | [Endpoints de Segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
+| Segments | Listas de Segments, análise de Segments e detalhes de Segments | [Endpoints de Segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) |
 | Dados de usuários | Perfis completos de usuários por identificador ou por segmento, e usuários por grupo de controle global | [Endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
 | KPIs | Usuários ativos diários, usuários ativos mensais, novos usuários diários e desinstalações por data | [Endpoints de KPIs]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |
 | Sessões | Dados de séries temporais de sessões de app | [Endpoint de sessões]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) |

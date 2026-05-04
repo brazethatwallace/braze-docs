@@ -654,6 +654,18 @@ Para uma solução alternativa, também recomendamos a criação de um evento pe
 
 Mesmo que _Direct Opens_ e _Influenced Opens_ incluam a palavra "opens", na verdade são métricas diferentes. _Direct Opens_ refere-se à abertura direta de uma notificação por push, conforme declarado na tabela acima. _Influenced Opens_ refere-se à abertura de um app sem abrir uma notificação por push dentro de um período de tempo específico após recebê-la. Portanto, _Influenced Opens_ refere-se às aberturas do app, não às aberturas de notificação por push.
 
+##### Botões de ação por push e relatórios {#push-action-buttons-and-reporting}
+
+Quando você adiciona [botões de ação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), o painel **Push Performance** pode incluir **Body Clicks**, **Button 1 Clicks** e **Button 2 Clicks** junto com métricas como **Direct Opens**. Essas colunas medem interações diferentes, então compare-as ao interpretar o engajamento.
+
+_Direct Opens_ reflete as métricas do dashboard para interações que contam como uma abertura direta da sua mensagem. Os eventos **Push Notification Open** no [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake descrevem interações de push de forma mais ampla e podem incluir campos opcionais como `button_action_type` (por exemplo, `close`) e `button_string`. Para definições de campos, consulte [Eventos de Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Para **iOS**, as categorias de notificação padrão da Braze (como **Yes** / **No**, **Accept** / **Decline** ou **Confirm** / **Cancel**) usam um pareamento fixo: a primeira ação suporta `OPEN_APP`, uma URI ou um deep link (alinhado com **On-Click Behavior** no criador). A ação complementar usa `CLOSE` por padrão — ela descarta a notificação e não abre o app. Veja o mapeamento padrão em [Objeto de botão de ação por push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados de Campaign com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
+
+Para **Android**, você define o **On-Click Behavior** por botão (**Open App**, **Redirect to Web URL** ou **Deep Link**), então os relatórios seguem as ações que você configura, em vez da divisão padrão `OPEN_APP` / `CLOSE` do iOS.
+
 ##### Por que os envios de push podem exceder os destinatários únicos {#why-push-sends-can-exceed-unique-recipients}
 
 O número de _Sends_ pode exceder o número de _Unique Recipients_ devido aos seguintes motivos:

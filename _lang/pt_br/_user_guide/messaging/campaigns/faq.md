@@ -72,7 +72,7 @@ Você pode verificar o fuso horário da sua empresa nas [configurações da empr
 
 A Braze avalia os usuários para elegibilidade de entrada em:
 
-- Horário de Samoa (UTC+13) ou UTC+14 durante o horário de verão
+- Horário de Samoa (UTC+13) no dia programado
 - O horário local do dia programado
 
 Para que um usuário seja elegível para entrada, ele deve ser elegível em ambas as verificações. Por exemplo, se um Canvas está programado para ser lançado em 7 de agosto de 2021 às 14h no fuso horário local, o direcionamento de um usuário localizado em Nova York exigiria as seguintes verificações de elegibilidade:
@@ -80,7 +80,9 @@ Para que um usuário seja elegível para entrada, ele deve ser elegível em amba
 - Nova York em 6 de agosto de 2021 às 21h
 - Nova York em 7 de agosto de 2021 às 14h
 
-O usuário deve estar no segmento por 24 horas antes do lançamento. Se o usuário não for elegível na primeira verificação, a Braze não tentará a segunda verificação.
+Para entrar, o usuário deve corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no segmento antes do lançamento. Apenas a elegibilidade em cada verificação importa.
+
+Esse comportamento de avaliação é separado de [com quanta antecedência você programa a Campaign no dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Programar com pelo menos 24 horas de antecedência é uma recomendação porque ajuda as mensagens a serem entregues ao longo de toda a janela de 24 horas de fuso horário local, não um requisito de que cada usuário esteja no público por 24 horas.
 
 #### Exemplos {#examples}
 
@@ -88,7 +90,7 @@ Por exemplo, se uma Campaign está programada para ser entregue às 19h UTC, com
 
 Como outro exemplo, digamos que você queira criar duas Campaigns programadas para enviar no mesmo dia — uma de manhã e uma à noite — e adicionar um filtro para que os usuários só possam receber a segunda Campaign se já tiverem recebido a primeira. Com a entrega por fuso horário local, alguns usuários podem não receber a segunda Campaign. Isso acontece porque verificamos a elegibilidade quando o fuso horário do usuário é identificado. Portanto, se o horário programado ainda não ocorreu no fuso horário dele, ele não recebeu a primeira Campaign, o que significa que não será elegível para a segunda Campaign.
 
-Para uma visualização de como um usuário pode estar em um segmento durante a primeira verificação, mas não na segunda, veja esta linha do tempo:
+A linha do tempo a seguir assume uma definição de segmento que inclui uma janela de associação limitada por tempo. Neste exemplo, os usuários saem do segmento 24 horas após entrarem. Esse comportamento de filtro é uma razão pela qual um usuário pode passar na primeira verificação e falhar na segunda.
 
 ![Linha do tempo de um usuário entrando no segmento antes da primeira verificação e saindo antes da segunda.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -102,6 +104,8 @@ Para uma visualização de como um usuário pode estar em um segmento durante a 
 {% enddetails %}
 
 ### Como programo uma Campaign por fuso horário local? {#how-do-i-schedule-a-local-time-zone-campaign}
+
+A seção anterior descreve quando a Braze avalia a elegibilidade para entrega por fuso horário local (as duas verificações). Esta seção descreve quando você define a programação da Campaign no dashboard (tempo de antecedência) e quais usuários ainda recebem a mensagem se você programar com menos de 24 horas de antecedência.
 
 Ao programar uma Campaign, escolha enviá-la em um horário designado e selecione **Send campaign to users in their local time zone**.
 

@@ -301,7 +301,7 @@ Si votre message comporte une erreur fatale, vous recevez la réponse suivante :
 
 Pour connaître les codes d'état et les messages d'erreur associés que Braze renvoie si votre demande rencontre une erreur fatale, reportez-vous à la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
 
-Si vous recevez l'erreur "provided external_id is blacklisted and disallowed", il se peut que votre demande ait inclus un « utilisateur fictif ». Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Si vous recevez l'erreur « provided external_id is blacklisted and disallowed », il se peut que votre demande ait inclus un « utilisateur fictif ». Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
 
 ### Erreurs spécifiques à l'endpoint {#endpoint-specific-errors}
 

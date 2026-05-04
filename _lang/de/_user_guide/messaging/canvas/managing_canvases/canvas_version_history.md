@@ -22,7 +22,7 @@ Für eine vollständige Liste der Canvases in Ihrem Workspace (z. B. für ein Au
 
 ![]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Um eine neue Version zu erstellen, klicken Sie auf **Canvas aktualisieren**. So können Sie Änderungen vornehmen, ohne das vorherige Setup des Canvas zu überschreiben. Wenn eine neue Canvas-Version erstellt wird, durchlaufen die Nutzer:innen, die sich bereits im Canvas befinden, den Workflow der neuen Version. Nutzer:innen, die den Canvas betreten, gelangen ebenfalls in die neue Version.
+Um eine neue Version zu erstellen, klicken Sie auf **Update Canvas**. So können Sie Änderungen vornehmen, ohne das vorherige Setup des Canvas zu überschreiben. Wenn eine neue Canvas-Version erstellt wird, durchlaufen die Nutzer:innen, die sich bereits im Canvas befinden, den Workflow der neuen Version. Nutzer:innen, die den Canvas betreten, gelangen ebenfalls in die neue Version.
 
 Um auf den Versionsverlauf zuzugreifen, navigieren Sie zu den Canvas-Details oben in Ihrem Canvas und wählen Sie **# Versions** aus. Hier haben Sie Zugriff auf die Seitenleiste **Version history**. Wählen Sie eine beliebige Canvas-Version in der Seitenleiste aus, um Canvas-Details einzusehen und zu vergleichen. Um zwischen den Canvas-Analytics und dem Canvas-Setup zu wechseln, klicken Sie auf **View Analytics** oder **View Canvas** in der unteren Symbolleiste.
 

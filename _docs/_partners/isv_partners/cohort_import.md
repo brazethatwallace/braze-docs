@@ -10,7 +10,7 @@ hidden: true
 
 ## Cluster URLs
 
-Braze hosts our application on multiple clusters throughout the US and EU. The URL for the import endpoints will be different depending on the cluster the client's company instance is hosted on:
+Braze hosts our application on multiple clusters throughout the world. The URL for the import endpoints depends on the cluster the client's company instance is hosted on:
 
 | INSTANCE | REST ENDPOINT |
 | ----- | ------------------------------- |
@@ -27,6 +27,7 @@ Braze hosts our application on multiple clusters throughout the US and EU. The U
 | AU-01 | `https://rest.au-01.braze.com`  |
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
+| KR-01 | `https://rest.kr-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Endpoint URLs

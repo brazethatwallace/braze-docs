@@ -122,7 +122,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 #### Canvas
 
-![アクションベースのCanvasステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
+![アクションベースのキャンバスステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
 #### Campaign
 

@@ -654,6 +654,18 @@ Para una solución diferente, también recomendamos crear un evento personalizad
 
 Aunque _Direct Opens_ e _Influenced Opens_ incluyen la palabra "opens" (aperturas), en realidad son métricas diferentes. _Direct Opens_ se refiere a la apertura directa de una notificación push, como se indica en la tabla anterior. _Influenced Opens_ se refiere a la apertura de una aplicación sin abrir una notificación push dentro de un plazo de tiempo determinado tras recibirla. Por tanto, _Influenced Opens_ se refiere a las aperturas de la aplicación, no a las aperturas de las notificaciones push.
 
+##### Botones de acción push e informes {#push-action-buttons-and-reporting}
+
+Cuando añades [botones de acción push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), el panel **Rendimiento de push** puede incluir **Body Clicks**, **Button 1 Clicks** y **Button 2 Clicks** junto con métricas como **Direct Opens**. Estas columnas miden interacciones diferentes, así que compáralas cuando interpretes la interacción.
+
+_Direct Opens_ refleja las métricas del dashboard para las interacciones que cuentan como una apertura directa de tu mensaje. Los eventos **Push Notification Open** en [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) o Snowflake describen las interacciones push de forma más amplia y pueden incluir campos opcionales como `button_action_type` (por ejemplo, `close`) y `button_string`. Para las definiciones de los campos, consulta [Eventos Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Para **iOS**, las categorías de notificación predeterminadas de Braze (como **Yes** / **No**, **Accept** / **Decline** o **Confirm** / **Cancel**) utilizan un emparejamiento fijo: la primera acción admite `OPEN_APP`, un URI o un vínculo profundo (alineado con **On-Click Behavior** en el compositor). La acción complementaria utiliza `CLOSE` de forma predeterminada: descarta la notificación y no abre la aplicación. Consulta el mapeo predeterminado en [Objeto de botón de acción push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Debido a esto, los toques en el botón preestablecido de descarte (por ejemplo, **No** o **Decline**) normalmente **no** cuentan para _Direct Opens_. Esos toques pueden seguir apareciendo en las exportaciones de **Push Notification Open** cuando se registran, con `button_action_type` establecido en `close` y `button_string` identificando la acción tocada. Cuando compares los análisis de Campaign con los datos del almacén, utiliza esos campos de la carga útil para no tratar los toques de descarte de la misma manera que los toques en el cuerpo de la notificación o la acción principal.
+
+Para **Android**, tú configuras el **On-Click Behavior** por botón (**Open App**, **Redirect to Web URL** o **Deep Link**), por lo que los informes siguen las acciones que configures en lugar de la división predeterminada `OPEN_APP` / `CLOSE` de iOS.
+
 ##### Por qué los envíos push pueden superar los destinatarios únicos {#why-push-sends-can-exceed-unique-recipients}
 
 El número de _envíos_ puede superar el número de _destinatarios únicos_ debido a las siguientes razones:
@@ -824,7 +836,7 @@ Se puede acceder a métricas adicionales a través del [panel del administrador 
 
 El panel **Rendimiento histórico** te permite ver las métricas del panel **Rendimiento de mensajes** como un gráfico a lo largo del tiempo. Utiliza los filtros de la parte superior del panel para modificar las estadísticas y los canales que aparecen en el gráfico. El intervalo de tiempo de este gráfico siempre reflejará el intervalo de tiempo especificado en la parte superior de la página.
 
-Para obtener un desglose día a día, haz clic en el menú hamburguesa <i class="fas fa-bars"></i> y selecciona **Download CSV** para recibir una exportación CSV del informe.
+Para obtener un desglose día a día, haz clic en el menú hamburguesa <i class="fas fa-bars" aria-label="Abrir menú de navegación"></i> y selecciona **Download CSV** para recibir una exportación CSV del informe.
 
 ![Gráfico del panel Rendimiento histórico con estadísticas de ejemplo para un correo electrónico desde febrero de 2021 hasta mayo de 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

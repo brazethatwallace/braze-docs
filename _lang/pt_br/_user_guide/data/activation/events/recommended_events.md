@@ -725,15 +725,15 @@ Os eventos de eCommerce alimentam recursos que dependem de dados consistentes e 
 
 ### Quando a validação é aprovada {#when-validation-passes}
 
-O evento é processado como um evento recomendado de eCommerce com todo o pós-processamento associado. Consulte [Eventos recomendados de eCommerce](#event-schemas) para a lista completa de comportamentos disparados por cada tipo de evento.
+O evento é processado como um evento recomendado de eCommerce com todo o pós-processamento associado. Consulte [Esquemas de eventos](#event-schemas) para a lista completa de comportamentos disparados por cada tipo de evento.
 
 #### Verificar um evento bem-sucedido {#verify-a-successful-event}
 
 Após enviar um evento, você pode confirmar que ele foi aceito e processado corretamente usando qualquer um dos seguintes métodos:
 
-- [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): Abra o perfil do usuário no dashboard e revise a atividade. Os eventos recomendados aparecem com a carga útil completa de propriedades, para que você possa confirmar que o evento chegou e os valores correspondem ao que foi enviado.
-- [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): Acesse **Analytics** > **Custom Events** para ver contagens agregadas de cada evento recomendado ao longo do tempo. Isso é útil para confirmar que o tráfego de produção está fluindo conforme esperado quando sua integração está ativa.
-- [Usuários teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Marque um usuário no seu espaço de trabalho de desenvolvimento como usuário teste e, em seguida, dispare eventos da sua integração para esse usuário. Os usuários teste são sinalizados no dashboard, facilitando o isolamento e a inspeção do comportamento de ponta a ponta.
+- [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): abra o perfil do usuário no dashboard e revise a atividade. Os eventos recomendados aparecem com a carga útil completa de propriedades, para que você possa confirmar que o evento chegou e os valores correspondem ao que foi enviado.
+- [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): acesse **Analytics** > **Custom Events** para ver contagens agregadas de cada evento recomendado ao longo do tempo. Isso é útil para confirmar que o tráfego de produção está fluindo conforme esperado quando sua integração está ativa.
+- [Usuários teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): marque um usuário no seu espaço de trabalho de desenvolvimento como usuário teste e, em seguida, dispare eventos da sua integração para esse usuário. Os usuários teste são sinalizados no dashboard, facilitando o isolamento e a inspeção do comportamento de ponta a ponta.
 
 ### Quando a validação falha {#when-validation-fails}
 
@@ -747,8 +747,8 @@ O evento não é processado como um evento recomendado. Especificamente:
 
 A forma como os erros são reportados depende do caminho de ingestão:
 
-- **REST API (`/users/track`):** Cada evento inválido é reportado no array de erros da resposta. Cada entrada informa qual evento falhou (índice) e por quê (tipo). O campo `message` de nível superior ainda diz "success", o que significa apenas que sua requisição chegou à Braze, não que todos os eventos eram válidos. Sempre verifique se há um array de erros na resposta.
-- **SDKs da Braze:** As chamadas do SDK retornam imediatamente e a validação é executada em segundo plano, então os erros não são enviados de volta ao seu app. Para saber sobre falhas de validação de eventos de eCommerce, fique atento ao e-mail de resumo de falhas (consulte [Encontrar falhas](#find-failures)).
+- **REST API (`/users/track`):** cada evento inválido é reportado no array de erros da resposta. Cada entrada informa qual evento falhou (índice) e por quê (tipo). O campo `message` de nível superior ainda diz "success", o que significa apenas que sua requisição chegou à Braze, não que todos os eventos eram válidos. Sempre verifique se há um array de erros na resposta.
+- **SDKs da Braze:** as chamadas do SDK retornam imediatamente e a validação é executada em segundo plano, então os erros não são enviados de volta ao seu app. Para saber sobre falhas de validação de eventos de eCommerce, fique atento ao e-mail de resumo de falhas (consulte [Encontrar falhas](#find-failures)).
 
 #### Exemplo de resposta de erro da API {#example-api-error-response}
 
@@ -780,9 +780,9 @@ A Braze envia aos administradores do seu espaço de trabalho um resumo por e-mai
 
 O e-mail de resumo inclui:
 
-- **Contagem total de erros:** Contagens de erros para o período de relatório.
-- **Erros por evento:** Uma divisão de quantos eventos falharam para cada tipo de evento recomendado (por exemplo, `ecommerce.cart_updated` e `ecommerce.order_placed`). Use isso para identificar quais eventos na sua integração precisam de atenção primeiro.
-- **Erros por origem:** Uma divisão entre API e SDK, para que você possa identificar qual integração está gerando as falhas.
+- **Contagem total de erros:** contagens de erros para o período de relatório.
+- **Erros por evento:** uma divisão de quantos eventos falharam para cada tipo de evento recomendado (por exemplo, `ecommerce.cart_updated` e `ecommerce.order_placed`). Use isso para identificar quais eventos na sua integração precisam de atenção primeiro.
+- **Erros por origem:** uma divisão entre API e SDK, para que você possa identificar qual integração está gerando as falhas.
 
 Se você não está recebendo esses e-mails ou deseja verificar a lista de destinatários, entre em contato com a equipe da sua conta Braze.
 
@@ -792,9 +792,9 @@ Quando você receber um e-mail de resumo de falhas:
 
 1. **Identifique o evento e a origem com falha.** O e-mail separa as falhas por nome de evento e origem da integração (`sdk` versus `rest_api`), para que você possa identificar qual integração precisa da correção. Se você tem múltiplas origens enviando o mesmo evento (por exemplo, o SDK da sua loja e um webhook de backend ambos enviando `cart_updated`), trate-os independentemente.
 2. **Compare sua carga útil com o esquema** em [Esquemas de eventos](#event-schemas). A maioria das falhas se enquadra em um dos três padrões:
-   - `missing_property`: Um campo obrigatório está ausente. Para resolver, adicione o campo obrigatório.
-   - `extra_property`: Um campo personalizado está no nível superior de `properties`. Para resolver, mova o campo personalizado para dentro de `metadata` (nível do evento) ou `products[].metadata` (por produto).
-   - `unexpected_data_type`: Um valor está com o tipo errado (por exemplo, `total_value` enviado como string). Para resolver, converta o valor antes de enviar.
+   - `missing_property`: um campo obrigatório está ausente. Para resolver, adicione o campo obrigatório.
+   - `extra_property`: um campo personalizado está no nível superior de `properties`. Para resolver, mova o campo personalizado para dentro de `metadata` (nível do evento) ou `products[].metadata` (por produto).
+   - `unexpected_data_type`: um valor está com o tipo errado (por exemplo, `total_value` enviado como string). Para resolver, converta o valor antes de enviar.
 3. **Teste a carga útil corrigida em um espaço de trabalho de desenvolvimento** antes de implantar em produção. Envie um evento de teste conhecido para um usuário teste e, em seguida, verifique o comportamento esperado do evento recomendado no perfil desse usuário (por exemplo, o objeto de carrinho é atualizado, a receita é incrementada ou o gatilho de carrinho abandonado é disparado).
 4. **Monitore o próximo e-mail de falhas** para confirmar que a contagem de falhas para aquele evento, origem e tipo caiu para zero.
 
