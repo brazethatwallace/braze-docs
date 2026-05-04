@@ -84,7 +84,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#userdefaultattributesviewshared-schema}
 
-| Nombre de columna     | Tipo de datos     |
+| Nombre de columna | Tipo de datos |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
@@ -108,7 +108,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#usercustomattributesviewshared-schema}
 
-| Nombre de columna     | Tipo de datos     |
+| Nombre de columna | Tipo de datos |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
@@ -126,7 +126,7 @@ Estas vistas proporcionan actualizaciones casi en tiempo real de los atributos d
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### Uso {#usage}
+### Uso
 
 * Proporciona atributos de usuario actualizados con un retraso mínimo (~10 minutos).
 * Útil para análisis en tiempo real y situaciones en las que se necesitan datos recientes.
@@ -141,7 +141,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#userlateststatedefaultattributesviewshared-schema}
 
-| Nombre de columna     | Tipo de datos     |
+| Nombre de columna | Tipo de datos |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
@@ -164,7 +164,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#userlateststatecustomattributeviewshared-schema}
 
-| Nombre de columna     | Tipo de datos     |
+| Nombre de columna | Tipo de datos |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
@@ -182,9 +182,9 @@ Estas vistas almacenan registros de cambios históricos de los atributos de los 
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### Uso {#usage}
+### Uso
 
-* Proporciona un registro de los cambios históricos en los atributos de los usuarios.
+* Proporciona un registro de los cambios históricos en los atributos de los usuarios durante un periodo continuo de 6 meses.
 * Los datos se capturan en instantáneas cada 12 horas, lo que significa que varias actualizaciones en esta ventana se combinan en un único registro. Los cambios individuales dentro de este periodo no se conservan por separado.
 * `EFF_DT` y `END_DT` marcan el inicio y el final del estado de atributo de un usuario.
 
@@ -194,7 +194,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#userdefaultattributeshistoryviewshared-schema}
 
-| Nombre de columna     | Tipo de datos     |
+| Nombre de columna | Tipo de datos |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
@@ -219,7 +219,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#usercustomattributeshistoryviewshared-schema}
 
-| Nombre de columna     | Tipo de datos     |
+| Nombre de columna | Tipo de datos |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
@@ -236,11 +236,11 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 
 ### Uso recomendado de consultas {#recommended-query-usage}
 
-| Caso de uso                                               | Vistas recomendadas                                   | Notas                                                                 |
+| Caso de uso | Vistas recomendadas | Notas |
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
-| **Consultas generales** que no requieren actualizaciones recientes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Ejecución rápida, con datos de hasta 12 horas de antigüedad.                          |
-| Consultas que requieren los **últimos atributos del usuario**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Proporciona actualizaciones casi en tiempo real, pero puede ser más lento para grandes conjuntos de datos. |
-| **Seguimiento histórico** de los cambios de atributos           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Almacena los cambios de atributos con una granularidad de 12 horas.                     |
+| **Consultas generales** que no requieren actualizaciones recientes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` | Ejecución rápida, con datos de hasta 12 horas de antigüedad. |
+| Consultas que requieren los **últimos atributos del usuario** | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Proporciona actualizaciones casi en tiempo real, pero puede ser más lento para grandes conjuntos de datos. |
+| **Seguimiento histórico** de los cambios de atributos | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` | Almacena los cambios de atributos con una granularidad de 12 horas. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
 
 ### Consideraciones de rendimiento {#performance-considerations}

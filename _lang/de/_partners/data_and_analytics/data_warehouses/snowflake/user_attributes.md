@@ -1,6 +1,6 @@
 ---
 nav_title: "Attribute des Nutzerprofils"
-article_title: Nutzer:innen-Attributansichten in Snowflake
+article_title: Attributansichten für Nutzer:innen in Snowflake
 page_order: 10
 page_type: partner
 search_tag: Partner
@@ -126,7 +126,7 @@ Diese Ansichten bieten nahezu Realtime-Updates der Attribute des Nutzerprofils, 
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### Verwendung {#usage}
+### Verwendung
 
 * Liefert aktuelle Attribute der Nutzer:innen mit minimaler Verzögerung (~10 Minuten).
 * Nützlich für Realtime-Analysen und Szenarien, in denen aktuelle Daten benötigt werden.
@@ -177,14 +177,14 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 
 ## Historische Änderungsprotokolle {#historical-change-logs}
 
-Diese Ansichten speichern historische Änderungsprotokolle von Nutzer:innen-Attributen, wobei Änderungen mit einer Granularität von 12 Stunden erfasst werden.
+Diese Ansichten speichern historische Änderungsprotokolle von Nutzerattributen, wobei Änderungen mit einer Granularität von 12 Stunden erfasst werden.
 
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### Verwendung {#usage}
+### Verwendung
 
-* Bietet eine Aufzeichnung historischer Änderungen an Nutzer:innen-Attributen.
+* Bietet eine Aufzeichnung historischer Änderungen an Nutzerattributen für einen rollierenden Zeitraum von 6 Monaten.
 * Die Daten werden alle 12 Stunden in einem Snapshot festgehalten, d. h. mehrere Updates in diesem Fenster werden zu einem einzigen Datensatz zusammengefasst. Einzelne Änderungen innerhalb dieses Zeitraums werden nicht separat gespeichert.
 * `EFF_DT` und `END_DT` markieren den Beginn und das Ende des Attribut-Status einer:eines Nutzer:in.
 
