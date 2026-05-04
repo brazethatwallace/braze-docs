@@ -15,7 +15,7 @@ Tool:
 
 ## Feature availability
 
-All Braze customers immediately have access to Audience Sync to Google and Facebook, but customers on message credits can access all Audience Sync partners. To unlock additional Audience Sync destinations for customers not on message credits, purchase Audience Sync Pro. Contact your Braze account manager for more details.
+All Braze customers immediately have access to Audience Sync to Google and Facebook, but customers on Action Credits can access all Audience Sync partners. To unlock additional Audience Sync destinations for customers not on Action Credits, purchase Audience Sync Pro. Contact your Braze account manager for more details.
 
 ## Use cases
 

@@ -149,4 +149,4 @@ Rich media messages include a media file (image, video) or a Rich Card and are b
 
 As you create your message, the message composer will display the billing type in real-time through a label (Basic RCS, Single RCS, Rich, or Rich Media), helping you track costs before you send.
 
-Your [Message Usage dashboard]({{site.baseurl}}/message_usage_dashboard/) will reflect these billing types and will provide the number of segments used for US messages, providing a transparent view of your message credit consumption.
+Your [Message Usage dashboard]({{site.baseurl}}/message_usage_dashboard/) will reflect these billing types and will provide the number of segments used for US messages, providing a transparent view of your Action Credits consumption.

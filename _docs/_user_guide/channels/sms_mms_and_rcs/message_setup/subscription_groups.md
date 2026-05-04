@@ -111,7 +111,7 @@ Use [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agen
 5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
 
 {% alert note %}
-Using the Agent Console consumes Message Credits.
+Using the Agent Console consumes Action Credits.
 {% endalert %}
 
 ## Migrate SMS traffic to RCS
