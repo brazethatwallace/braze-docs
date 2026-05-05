@@ -132,10 +132,9 @@ Use this template when you want to streamline post-purchase communication and ga
 These templates are designed to be a starting point. Common customizations include:
   - **Customize the email:** Each template includes a pre-configured email built with the drag-and-drop editor which is fully editable to match your brand and content.
   - **Add channels:** Pair email with push, SMS, or in-app messages for cross-channel reinforcement.
-  Within each template, there is a pre-configured email that is fully customizable. 
   - **Add delays and decision splits:** Branch users by behavior (for example, high-value cart compared to low-value cart) or wait periods between messages.
   - **Swap creative:** Replace the included email template with your brand's visual style.
-  Use drag-and-drop product blocks (in the early access program) to dynamically render abandoned cart contents or browsed products without writing custom Liquid.
+  - **Use product blocks:** Use drag-and-drop product blocks (in the early access program) to dynamically render abandoned cart contents or browsed products without writing custom Liquid.
 
 For more advanced lifecycle strategies, including Liquid personalization examples, see [eCommerce use cases]({{site.baseurl}}/ecommerce_use_cases/).
 
