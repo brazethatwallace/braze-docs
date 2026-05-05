@@ -20,11 +20,11 @@ channel:
 
 ## Abo-Gruppenstatus {#subscription-group-states}
 
-Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubscribed`. Der Abo-Status eines Nutzers bzw. einer Nutzerin befindet sich auf Abo-Gruppenebene und wird nicht über Abo-Gruppen hinweg geteilt. Das bedeutet, dass ein:e Nutzer:in bei einer transaktionalen Abo-Gruppe `subscribed` sein kann, aber bei einer werblichen `unsubscribed`. Für Marken stellt diese Trennung der Status sicher, dass sie weiterhin relevante SMS- und RCS-Nachrichten an ihre Nutzer:innen senden können.
+Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubscribed`. Der Abo-Status einer Nutzer:in befindet sich auf Abo-Gruppenebene und wird nicht über Abo-Gruppen hinweg geteilt. Das bedeutet, dass eine Nutzer:in bei einer transaktionalen Abo-Gruppe `subscribed` sein kann, aber bei einer werblichen `unsubscribed`. Für Marken stellt diese Trennung der Status sicher, dass sie weiterhin relevante SMS- und RCS-Nachrichten an ihre Nutzer:innen senden können.
 
 | Status | Definition |
 | --------- | ---------- |
-| Abonniert | Nutzer:in ist für den Empfang von SMS und RCS aus einer bestimmten Abo-Gruppe angemeldet. Ein:e Nutzer:in kann abonniert werden, indem der Abo-Status über die Braze-Abo-API aktualisiert wird oder indem ein Opt-in-Schlüsselwort per SMS gesendet wird. Ein:e Nutzer:in muss bei einer SMS- oder RCS-Abo-Gruppe abonniert sein, um SMS, RCS oder beides zu empfangen. Wenn [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) aktiviert ist, müssen Nutzer:innen ihre Opt-in-Absicht bestätigen, bevor ihr Abo-Status auf `Subscribed` aktualisiert wird. |
+| Abonniert | Nutzer:in ist für den Empfang von SMS und RCS aus einer bestimmten Abo-Gruppe angemeldet. Eine Nutzer:in kann abonniert werden, indem der Abo-Status über die Braze-Abo-API aktualisiert wird oder indem ein Opt-in-Schlüsselwort per SMS gesendet wird. Eine Nutzer:in muss bei einer SMS- oder RCS-Abo-Gruppe abonniert sein, um SMS, RCS oder beides zu empfangen. Wenn [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) aktiviert ist, müssen Nutzer:innen ihre Opt-in-Absicht bestätigen, bevor ihr Abo-Status auf `Subscribed` aktualisiert wird. |
 | Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -32,7 +32,7 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 
 Wenn eine Telefonnummer in einem Nutzerprofil aktualisiert wird, übernimmt die neue Telefonnummer den Abo-Gruppenstatus der Nutzer:in. Wenn die Telefonnummer auf eine Nummer aktualisiert wird, die bereits in Braze existiert, wird der Abo-Status dieser bestehenden Telefonnummer übernommen.
 
-Wenn beispielsweise Nutzer:in A eine Telefonnummer hat, die bei mehreren Abo-Gruppen abonniert ist, und diese Telefonnummer dann zu Nutzer:in B hinzugefügt wird, wird Nutzer:in B bei denselben Abo-Gruppen abonniert. Um zu verhindern, dass ein:e Nutzer:in die bestehenden Abos übernimmt, können Sie die Abo-Gruppen der alten Nummer über die Braze REST API zurücksetzen, wenn ein:e Nutzer:in die Nummer ändert. Wenn mehrere Nutzer:innen diese Telefonnummer teilen, werden alle abgemeldet.
+Wenn beispielsweise Nutzer:in A eine Telefonnummer hat, die bei mehreren Abo-Gruppen abonniert ist, und diese Telefonnummer dann zu Nutzer:in B hinzugefügt wird, wird Nutzer:in B bei denselben Abo-Gruppen abonniert. Um zu verhindern, dass eine Nutzer:in die bestehenden Abos übernimmt, können Sie die Abo-Gruppen der alten Nummer über die Braze REST API zurücksetzen, wenn eine Nutzer:in die Nummer ändert. Wenn mehrere Nutzer:innen diese Telefonnummer teilen, werden alle abgemeldet.
 
 Um den Abo-Gruppenstatus einer Nutzer:in festzulegen, verwenden Sie eine der folgenden Methoden:
 
@@ -57,7 +57,7 @@ Um die Abo-Gruppe einer Nutzer:in zu prüfen, verwenden Sie eine der folgenden M
 
 ## Nachrichten mit einer Abo-Gruppe senden {#send-messages-with-a-subscription-group}
 
-Um eine SMS- oder RCS-Campaign über Braze zu starten, wählen Sie eine Abo-Gruppe aus dem Dropdown-Menü **SMS/MMS/RCS-Varianten** aus. Nach der Auswahl wird automatisch ein Zielgruppen-Filter zu Ihrer Campaign oder Ihrem Canvas hinzugefügt, der sicherstellt, dass nur Nutzer:innen, die bei der ausgewählten Abo-Gruppe `subscribed` sind, zur Zielgruppe gehören.
+Um eine SMS- oder RCS-Campaign über Braze zu starten, wählen Sie eine Abo-Gruppe aus dem Dropdown-Menü **SMS/MMS/RCS Variants** aus. Nach der Auswahl wird automatisch ein Zielgruppen-Filter zu Ihrer Campaign oder Ihrem Canvas hinzugefügt, der sicherstellt, dass nur Nutzer:innen, die bei der ausgewählten Abo-Gruppe `subscribed` sind, zur Zielgruppe gehören.
 
 {% alert important %}
 In Übereinstimmung mit internationalen [Telekommunikations-Compliance-Richtlinien und -Vorschriften]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) wird Braze niemals SMS oder RCS an Nutzer:innen senden, die nicht bei der ausgewählten Abo-Gruppe abonniert sind.
@@ -92,6 +92,28 @@ Je nach Ihrer Integration kann Braze RCS-verifizierte Absender zu Ihren bestehen
 {% endtab %}
 {% endtabs %}
 
+## Opt-outs in natürlicher Sprache in der Agentenkonsole verarbeiten {#handle-natural-language-opt-outs-in-the-agent-console}
+
+Für ein umfassendes Abo-Management können Sie Opt-out-Absichten erfassen, die außerhalb von Standard- oder benutzerdefinierten Schlüsselwörtern liegen (z. B. „Bitte schreiben Sie mir nicht mehr“). Durch das Erstellen eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
+
+### Einrichtung {#setup}
+
+1. Erstellen Sie in der [Agentenkonsole]({{site.baseurl}}/user_guide/brazeai/agents/) einen „SMS-Sentimentanalyse-Agenten“.
+
+{% alert tip %}
+Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples), um bei der anfänglichen Agentenkonfiguration zu unterstützen.
+{% endalert %}
+
+{: start="2"}
+2. Erstellen Sie einen aktionsbasierten Canvas, der durch **Send an SMS inbound message** ausgelöst wird, innerhalb der Schlüsselwortkategorie **Other**.
+3. Fügen Sie den [Agentenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) zum Canvas hinzu, um die Opt-out-Absicht zu erkennen.
+4. Fügen Sie einen nachfolgenden SMS-[Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) hinzu, um die Anfrage zu bestätigen: „Es sieht so aus, als möchten Sie sich von SMS abmelden, daher werden wir Sie abmelden. Falls dies ein Fehler war, senden Sie START, um sich wieder anzumelden.“
+5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
+
+{% alert note %}
+Die Nutzung der Agentenkonsole verbraucht Message Credits.
+{% endalert %}
+
 ## SMS-Traffic zu RCS migrieren {#migrate-sms-traffic-to-rcs}
 
 Wenn Sie separate SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithilfe eines einstufigen Canvas von SMS zu RCS migrieren.
@@ -114,7 +136,7 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 
 ### 3. Schritt: Nutzeraktualisierung-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 
-Fügen Sie Ihrem Canvas einen Nutzeraktualisierung-Schritt hinzu. Öffnen Sie im Schritt den **Erweiterten JSON-Editor** und geben Sie Folgendes ein (für das Feld zur eindeutigen Nutzeridentifikation empfehlen wir die Verwendung des Feldes `braze_id`):
+Fügen Sie Ihrem Canvas einen Nutzeraktualisierung-Schritt hinzu. Öffnen Sie im Schritt den **Advanced JSON Editor** und geben Sie Folgendes ein (für das Feld zur eindeutigen Nutzeridentifikation empfehlen wir die Verwendung des Feldes `braze_id`):
 
 {% raw %}
 ```json
@@ -145,7 +167,7 @@ Wir empfehlen dringend, [Ihren Canvas zu testen]({{site.baseurl}}/user_guide/mes
 
 Nachdem Sie Ihren Canvas erfolgreich getestet haben, starten Sie ihn für Ihre Teilmenge von Nutzer:innen!
 
-Um zu bestätigen, dass Ihre Nutzer:innen erfolgreich migriert wurden, empfehlen wir, einige einzelne Nutzerprofile zu überprüfen, die aktualisiert wurden. Suchen Sie im Tab **Engagement** nach **Kontakteinstellungen** und scrollen Sie, um die Abo-Gruppen anzuzeigen, bei denen die Nutzer:in abonniert ist. Der Schalter für die RCS-Abo-Gruppe sollte jetzt aktiviert sein.
+Um zu bestätigen, dass Ihre Nutzer:innen erfolgreich migriert wurden, empfehlen wir, einige einzelne Nutzerprofile zu überprüfen, die aktualisiert wurden. Suchen Sie im Tab **Engagement** nach **Contact Settings** und scrollen Sie, um die Abo-Gruppen anzuzeigen, bei denen die Nutzer:in abonniert ist. Der Schalter für die RCS-Abo-Gruppe sollte jetzt aktiviert sein.
 
 Informationen zur Einrichtung von RCS-Absendern und Abo-Gruppen finden Sie auch unter [RCS einrichten]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/).
 

@@ -213,6 +213,7 @@
       -moz-transition:  all ease 0.2s;
       &:hover {
         background-color: $braze-link-color;
+        color: #fff;
         img {
           background-color: transparent;
         }

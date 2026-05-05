@@ -16,9 +16,9 @@ toc_headers: h2
 
 > 이 엔드포인트를 사용하여 커스텀 이벤트 및 구매를 기록하고 고객 프로필 속성을 업데이트하세요.
 
-{% alert note %}
-Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 고객은 불필요한 데이터 포인트 로깅을 최소화하기 위해 델타(변경된 데이터)만 전달해야 합니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)를 참조하세요.
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 불필요한 데이터 포인트 로깅을 최소화하기 위해 델타(변경된 데이터)만 전달해야 합니다.
 
 ## 대량으로 사용자를 업데이트해야 하나요? {#need-to-update-users-in-bulk}
 

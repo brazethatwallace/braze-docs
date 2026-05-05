@@ -92,11 +92,33 @@ Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à 
 {% endtab %}
 {% endtabs %}
 
+## Gérer les désabonnements en langage naturel dans la console des agents {#handle-natural-language-opt-outs-in-the-agent-console}
+
+Pour une gestion complète des abonnements, vous pouvez capturer les intentions de désabonnement qui ne correspondent pas aux mots-clés standard ou personnalisés (comme « Ne m'envoyez plus de SMS »). En créant un agent IA, vous pouvez utiliser l'analyse de sentiment pour identifier et traiter automatiquement ces demandes.
+
+### Configuration {#setup}
+
+1. Dans la [console des agents]({{site.baseurl}}/user_guide/brazeai/agents/), créez un « Agent d'analyse de sentiment SMS ».
+
+{% alert tip %}
+Utilisez [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) pour vous aider dans la configuration initiale de l'agent.
+{% endalert %}
+
+{: start="2"}
+2. Créez un Canvas basé sur une action déclenché par **Send an SMS inbound message**, dans la catégorie de mot-clé **Other**.
+3. Ajoutez l'[étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) au Canvas pour identifier l'intention de désabonnement.
+4. Ajoutez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) SMS ultérieure pour confirmer la demande : « Il semble que vous souhaitiez vous désabonner des SMS, nous allons donc vous désabonner. Si c'est une erreur, envoyez START pour vous réabonner. »
+5. Ajoutez une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) pour modifier le statut de l'utilisateur dans le groupe d'abonnement SMS spécifique en « Désabonné ».
+
+{% alert note %}
+L'utilisation de la console des agents consomme des crédits de message.
+{% endalert %}
+
 ## Migrer le trafic SMS vers RCS {#migrate-sms-traffic-to-rcs}
 
 Si vous avez des groupes d'abonnement SMS et RCS séparés, vous pouvez migrer les utilisateurs de SMS vers RCS en utilisant un Canvas en une seule étape.
 
-Braze recommande de tester l'envoi de RCS à des volumes d'utilisateurs plus réduits dans un premier temps et de migrer davantage d'utilisateurs vers le groupe d'abonnement RCS au fil du temps. Par exemple, si vous avez 1 000 000 d'utilisateurs abonnés à un groupe d'abonnement SMS, cela pourrait consister à d'abord migrer tous les utilisateurs vers le nouveau groupe d'abonnement, puis à segmenter sur une audience plus restreinte de 50 000 à 100 000 (5-10 %) pour tester les messages RCS.
+Braze recommande de tester l'envoi de RCS à des volumes d'utilisateurs plus réduits dans un premier temps et de migrer davantage d'utilisateurs vers le groupe d'abonnement RCS au fil du temps. Par exemple, si vous avez 1 000 000 d'utilisateurs abonnés à un groupe d'abonnement SMS, cela pourrait consister à d'abord migrer tous les utilisateurs vers le nouveau groupe d'abonnement, puis à segmenter sur une audience plus restreinte de 50 000 à 100 000 (5‑10 %) pour tester les messages RCS.
 
 ### Étape 1 : Créer un Canvas et remplir la planification d'entrée {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
@@ -108,7 +130,7 @@ Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, 
 
 | Méthode | Description |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble en utilisant des filtres de segmentation (comme un échantillon aléatoire de 5-10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
+| **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble en utilisant des filtres de segmentation (comme un échantillon aléatoire de 5‑10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
 | **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience dans l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
@@ -135,7 +157,7 @@ Ajoutez une étape de mise à jour utilisateur à votre Canvas. Dans l'étape, o
 ```
 {% endraw %}
 
-![« Objet de mise à jour utilisateur » contenant le code JSON indiqué précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objet de mise à jour utilisateur contenant le code JSON indiqué précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Étape 4 : Tester le Canvas {#step-4-test-the-canvas}
 

@@ -41,6 +41,8 @@ To use action buttons in your iOS push messages, do the following:
 {% alert note %}
 Due to iOS's handling of buttons, you need to perform additional integration steps when setting up push action buttons, which are outlined in our [developer documentation]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). In particular, you need to either configure iOS Categories or select from certain default button options. For Android integrations, these buttons will work automatically.
 {% endalert %}
+
+Preset pairs such as **Yes** / **No** map the second button to a dismissive (**CLOSE**) action by default, so it doesn't open the app the same way as the first button. **_Direct Opens_** doesn't include that kind of tap, but **Push Notification Open** data in Currents or Snowflake may still log it with `button_action_type` and `button_string`. For more information, see [Push action buttons and reporting]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}

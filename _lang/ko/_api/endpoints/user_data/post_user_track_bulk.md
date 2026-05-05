@@ -43,6 +43,8 @@ description: "이 문서에서는 대량 사용자 추적 엔드포인트에 대
 
 ## 사용량 제한 {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 대부분의 고객에게 이 엔드포인트의 기본 속도 제한은 초당 50건의 요청입니다.
 
 최신 계약을 사용하는 고객은 계약된 월간 활성 사용자 수에 따라 버스트(초당) 및 정상(시간당) 제한이 적용될 수 있습니다.

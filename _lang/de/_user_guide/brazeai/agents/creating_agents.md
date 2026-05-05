@@ -16,10 +16,9 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 - [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) für den Zugriff auf die **Agentenkonsole** in Ihrem Workspace. Wenden Sie sich an Ihre Braze-Administratoren, falls diese Option nicht angezeigt wird.
 - Berechtigung zum Erstellen und Bearbeiten von angepassten KI-Agenten.
-- Einen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/), der mit Braze integriert ist.
 - Eine Idee davon, was der Agent erreichen soll. Braze-Agenten können die folgenden Aktionen unterstützen:
-   - **Messaging:** Generieren Sie Betreffzeilen, Überschriften, Produkttexte oder andere Inhalte.
-   - **Entscheidungsfindung:** Leiten Sie Nutzer:innen in Canvas basierend auf Verhalten, Präferenzen oder angepassten Attributen weiter.
+   - **Personalisiertes Messaging:** Generieren Sie Betreffzeilen, Überschriften, Produkttexte oder andere Inhalte.
+   - **Nutzer:innen-Routing:** Leiten Sie Nutzer:innen in Canvas basierend auf Verhalten, Präferenzen oder angepassten Attributen weiter.
    - **Datenmanagement:** Berechnen Sie Werte, ergänzen Sie Katalogeinträge oder aktualisieren Sie Profilfelder.
 
 ## Funktionsweise {#how-it-works}
@@ -61,7 +60,7 @@ Richten Sie anschließend die Details für Ihren Agenten ein:
 
 Geben Sie dem Agenten Anweisungen. Wir empfehlen, Anweisungen dafür aufzunehmen, wie der Agent in unerwarteten oder unklaren Szenarien vorgehen soll. Dadurch wird das Risiko minimiert, dass Verwirrung beim Agenten zu Fehlern führt. Anstatt beispielsweise den Agenten nur nach „positiven“ oder „negativen“ Stimmungswerten zu fragen, bitten Sie ihn, „unsicher“ zurückzugeben, wenn er sich nicht entscheiden kann.
 
-Lesen Sie den Abschnitt [Anweisungen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) für bewährte Verfahren und [Beispiele]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) für Anregungen, wie Sie Ihren Agenten anweisen können.
+Lesen Sie den Abschnitt [Anweisungen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) für bewährte Verfahren und [Beispiele]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) für Anregungen, wie Sie Ihren Agenten anweisen können.
 
 {% alert tip %}
 Für Canvas-Agenten können Sie Liquid in Ihren Anweisungen verwenden, um auf Nutzerattribute wie Vor- und Nachname oder angepasste Attribute zu referenzieren. Jede Liquid-Variable in den Agentenanweisungen wird automatisch an den Agentenschritt übergeben, wenn eine Nutzer:in den Schritt betritt.

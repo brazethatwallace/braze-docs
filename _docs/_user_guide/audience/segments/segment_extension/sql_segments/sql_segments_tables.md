@@ -33,7 +33,12 @@ These SQL tables correspond to the events documented in the [Currents event glos
 Table | Description
 ------|------------
 [AGENTCONSOLE_AGENTEXECUTED_SHARED](#AGENTCONSOLE_AGENTEXECUTED_SHARED) | When an Agent Console agent is executed (**Snowflake Data Sharing only**)
+[AGENTCONSOLE_RAWLLMREQUEST_SHARED](#AGENTCONSOLE_RAWLLMREQUEST_SHARED) | Raw information from each LLM call (**Snowflake Data Sharing only**)
 [AGENTCONSOLE_TOOLINVOCATION_SHARED](#AGENTCONSOLE_TOOLINVOCATION_SHARED) | When a tool is executed (**Snowflake Data Sharing only**)
+[USER_CUSTOM_ATTRIBUTES_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED) | Periodic snapshot of custom profile attributes per user
+[USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | Historical default profile attributes with effective date ranges
+[USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Periodic snapshot of default profile attributes per user
+[USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Near real-time default profile attributes per user
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | Non-deleted catalog items
 [CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | When a campaign is changed (**Snowflake Data Sharing only**)
 [CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | When a Canvas is changed (**Snowflake Data Sharing only**)
@@ -186,6 +191,26 @@ Field | Type | Description
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
+### AGENTCONSOLE_RAWLLMREQUEST_SHARED {#AGENTCONSOLE_RAWLLMREQUEST_SHARED}
+
+Field | Type | Description
+------|------|------------
+`id` | `string` | Globally unique ID for this event
+`invocation_id` | `string` | Globally unique ID for this message
+`request_id` | `string` | Unique ID for this overall LLM request and complete execution
+`time` | `int` | UNIX timestamp at which the event happened
+`app_group_id` | `string` | BSON ID of the app group this event belongs to
+`agent_id` | `string` | BSON ID of the CustomerDefinedAgent
+`agent_name` | `string` | Name of the CustomerDefinedAgent
+`model_provider` | `string` | Name of the LLM model provider
+`model_name` | `string` | Name of the LLM model used in this request
+`duration` | `int`,&nbsp;`null` | Duration of the session in seconds
+`request` | `string` | [PII] Prompt used in the request
+`http_status_code` | `int`,&nbsp;`null` | HTTP status code of the response
+`response_body` | `string`,&nbsp;`null` | [PII] Response from the LLM
+`sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
 ### AGENTCONSOLE_TOOLINVOCATION_SHARED {#AGENTCONSOLE_TOOLINVOCATION_SHARED}
 
 Field | Type | Description
@@ -202,6 +227,92 @@ Field | Type | Description
 `tool_arguments` | `null,`&nbsp;`string` | [PII] JSON of the tool arguments
 `invocation_source` | `null,`&nbsp;`string` | Which ruby object invoked the LLM request
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+## User profile attribute views {#user-profile-attribute-views}
+
+### USER_CUSTOM_ATTRIBUTES_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED}
+
+Field | Type | Description
+------|------|------------
+`app_group_id` | `string` | BSON ID of the workspace
+`app_id` | `string` | BSON ID of the app
+`user_id` | `string` | [PII] Braze user ID
+`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`update_source` | `string` | Source of the update to the profile
+`sf_updated_at` | `timestamp` | When this row was updated in Snowflake
+`custom_attributes` | `variant` | [PII] Custom attributes as a JSON object
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED}
+
+Field | Type | Description
+------|------|------------
+`app_group_id` | `string` | BSON ID of the workspace
+`app_id` | `string` | BSON ID of the app
+`user_id` | `string` | [PII] Braze user ID
+`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`update_source` | `string` | Source of the update to the profile
+`sf_updated_at` | `timestamp` | When this row was updated in Snowflake
+`external_id` | `string` | [PII] External ID for the user
+`first_name` | `string` | [PII] First name
+`last_name` | `string` | [PII] Last name
+`email` | `string` | [PII] Email address
+`gender` | `string` | [PII] Gender
+`phone` | `string` | [PII] Phone number
+`dob` | `string` | [PII] Date of birth
+`time_zone` | `string` | [PII] Time zone
+`home_city` | `string` | [PII] Home city
+`country` | `string` | [PII] Country
+`language` | `string` | [PII] Language
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED}
+
+Field | Type | Description
+------|------|------------
+`app_group_id` | `string` | BSON ID of the workspace
+`user_id` | `string` | [PII] Braze user ID
+`app_id` | `string` | BSON ID of the app
+`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`update_source` | `string` | Source of the update to the profile
+`sf_updated_at` | `timestamp` | When this row was updated in Snowflake
+`external_id` | `string` | [PII] External ID for the user
+`first_name` | `string` | [PII] First name
+`last_name` | `string` | [PII] Last name
+`email` | `string` | [PII] Email address
+`gender` | `string` | [PII] Gender
+`phone` | `string` | [PII] Phone number
+`dob` | `string` | [PII] Date of birth
+`time_zone` | `string` | [PII] Time zone
+`home_city` | `string` | [PII] Home city
+`country` | `string` | [PII] Country
+`language` | `string` | [PII] Language
+`eff_dt` | `timestamp` | Start of the interval when this attribute state was current
+`end_dt` | `timestamp` | End of that interval
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED}
+
+Field | Type | Description
+------|------|------------
+`app_group_id` | `string` | BSON ID of the workspace
+`app_id` | `string` | BSON ID of the app
+`user_id` | `string` | [PII] Braze user ID
+`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`update_source` | `string` | Source of the update to the profile
+`sf_updated_at` | `timestamp` | When this row was updated in Snowflake
+`external_id` | `string` | [PII] External ID for the user
+`first_name` | `string` | [PII] First name
+`last_name` | `string` | [PII] Last name
+`email` | `string` | [PII] Email address
+`gender` | `string` | [PII] Gender
+`phone` | `string` | [PII] Phone number
+`dob` | `string` | [PII] Date of birth
+`home_city` | `string` | [PII] Home city
+`country` | `string` | [PII] Country
+`language` | `string` | [PII] Language
+`time_zone` | `string` | [PII] Time zone
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Catalogs

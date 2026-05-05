@@ -51,7 +51,7 @@ Na etapa **Públicos-alvo** do criador da sua Campaign, você também pode limit
 
 ![Resumo do público com uma caixa de seleção marcada para limitar o número de pessoas que recebem a Campaign.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
-Ao selecionar o limite máximo de usuários, você pode limitar o volume de mensagens enviadas por canal ou globalmente em todos os tipos de mensagem.
+Ao selecionar o limite máximo de usuários, você pode limitar o volume de mensagens enviadas por canal ou globalmente em todos os tipos de mensagem. A Braze não despacha mensagens para usuários atribuídos a grupos de controle, então eles não contam para o limite.
 
 {% alert note %}
 O limite máximo de usuários limita o número de usuários despachados, não o número de mensagens enviadas com sucesso. Como mensagens abortadas contam para esse limite, o número real de mensagens enviadas pode ser menor que o limite configurado. Por exemplo, se você definir um limite de 10.000 e 2.000 mensagens forem abortadas devido à lógica Liquid ou outras condições, apenas 8.000 mensagens serão enviadas.
@@ -170,7 +170,7 @@ As solicitações de Conteúdo conectado não são limitadas independentemente e
 
 {% alert note %}
 **Limites de taxa são limites de velocidade e não definem uma velocidade exata de envio.** Geralmente, as mensagens são distribuídas uniformemente dentro de qualquer minuto dado, e na grande maioria dos casos, são enviadas no limite configurado ou muito próximo dele. Nem sempre é o caso — por exemplo, quando as mensagens são muito grandes (como e-mails com muitos Content Blocks, tags de Conteúdo conectado ou tags de itens de Catálogo), ou quando há muitos abortos Liquid (mensagens abortadas ainda consomem um slot e podem reduzir as taxas efetivas de envio).<br><br>
-Na prática, a taxa de envio sustentada (mensagens concluídas por minuto) pode ser menor que o limite de taxa configurado devido a novas tentativas, variabilidade de rede, latência do endpoint de destino e suavização por minuto. Se você consistentemente observar uma taxa de transferência significativamente menor do que o esperado, verifique os tempos de resposta do Conteúdo conectado, taxas de erro (como `429`) e comportamento de novas tentativas.
+Na prática, a taxa de envio sustentada (mensagens concluídas por minuto) pode ser menor que o limite de taxa configurado devido a novas tentativas, variabilidade de rede, latência do endpoint de destino e suavização por minuto. Se você consistentemente observar um desempenho significativamente menor do que o esperado, verifique os tempos de resposta do Conteúdo conectado, taxas de erro (como `429`) e comportamento de novas tentativas.
 {% endalert %}
 
 ## Sobre o limite de frequência {#about-frequency-capping}
@@ -301,7 +301,7 @@ Considere as seguintes Campaigns e regra de limite de frequência por tag:
 
 | Ação | Resultado |
 |---|---|
-| A tag `promotional` é removida da **Campaign A** depois que seu usuário recebeu a mensagem, mas antes da **Campaign B ser enviada.** | Seu usuário recebe a **Campaign B**.|
+| A tag `promotional` é removida da **Campaign A** depois que seu usuário recebeu a mensagem, mas antes da **Campaign B ser enviada.** | Seu usuário recebe a **Campaign B**. |
 | A tag `promotional` é removida por engano da **Campaign A** depois que seu usuário recebeu a mensagem. <br> A tag é adicionada de volta à **Campaign A** na terça-feira, antes da **Campaign B** ser enviada. | Seu usuário não recebe a **Campaign B**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

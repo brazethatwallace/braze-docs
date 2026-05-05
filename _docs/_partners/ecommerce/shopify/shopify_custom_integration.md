@@ -595,18 +595,13 @@ Enhance your integration by adding more Shopify events and attributes, which wil
 
 ### Step 4: Historical backfill (optional)
 
-Through the custom setup, you have the option to load your Shopify customers and orders from the past 90 days before connecting your Shopify integration. To include this initial data load, check the box for the initial data load option.
+Through the custom setup, you can optionally include the same historical Shopify data load as the [standard integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup): order events from the past 90 days and user profiles from the past year, each counted back from the date you complete your integration. To include this initial data load, select the checkbox for the initial data load option.
 
 If you prefer to perform the backfill later, you can complete the initial setup now and return to this step at a later time.
 
 ![Section to set up historical data backfill.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-This table contains the data that will be initially loaded through the backfill.
-
-| Braze recommended events | Shopify custom events | Braze standard attributes | Braze subscription statuses |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Email marketing subscriptions associated with this Shopify store</li><li>SMS marketing subscriptions associated with this Shopify store</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+For the full list of data in the initial load, revenue reporting behavior, and monitoring the sync, see [Historical backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### Step 5: Custom data tracking setup (advanced) 
 

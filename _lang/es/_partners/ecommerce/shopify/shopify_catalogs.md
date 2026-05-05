@@ -159,7 +159,7 @@ Puedes modificar tu sincronización de productos de Shopify, incluida la adminis
 ![Página de configuración de la integración con una sincronización de catálogo de productos activa.]({% image_buster /assets/img/Shopify/active_catalog_sync.png %})
 
 {% alert important %}
-Cambiar tus selecciones sincronizadas puede afectar a campañas, Canvas o selecciones de catálogo activas que hagan referencia a ellas. Actualiza el contenido activo para que funcione correctamente cuando apliques los cambios.
+Cambiar tus selecciones sincronizadas puede afectar a Campaigns, Canvas o selecciones de catálogo activas que hagan referencia a ellas. Actualiza el contenido activo para que funcione correctamente cuando apliques los cambios.
 {% endalert %}
 
 ## Datos de catálogo de Shopify compatibles {#supported-shopify-catalog-data}
@@ -341,7 +341,7 @@ Cada metacampo sincronizado se convierte en una columna separada en tu catálogo
 
 ### Personalización
 
-1. Crea una [selección de catálogo]({{site.baseurl}}/catalog_selections/) que filtre por metacampos que incluyan el valor correspondiente, como `summer`.
+1. Crea una [selección de catálogo]({{site.baseurl}}/catalog_selections/) que filtre por metacampos que incluyan el valor correspondiente.
 
 ![Una selección de catálogo que filtra por metacampos que tienen el atributo summer.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
 
@@ -350,7 +350,7 @@ Cada metacampo sincronizado se convierte en una columna separada en tu catálogo
 
 {% raw %}
 ```liquid
-{% catalog_selection_items se-team-ecommerce_shopify_catalog sustainable_products %}
+{% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
 {% abort_message('Catalog selection returned no items') %}
@@ -393,12 +393,12 @@ Cada metacampo sincronizado se convierte en una columna separada en tu catálogo
 ```
 {% endraw %}
 
-O, si quieres mencionar productos específicos con un valor de metacampo `summer` en una notificación push, puedes usar la herramienta **Add Personalization** y especificar los artículos de tu catálogo.
+O, si quieres mencionar productos específicos con un valor de metacampo específico en una notificación push, puedes usar la herramienta **Add Personalization** y especificar los artículos de tu catálogo.
 
 {% raw %}
 ```liquid
-Checkout the latest women's clothing:
-    {% catalog_selection_items se-team-ecommerce_shopify_catalog summer_products %}
+Check out the latest summer products:
+    {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
@@ -412,18 +412,17 @@ Checkout the latest women's clothing:
 Usa las [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para crear segmentos basados en usuarios que interactuaron con un metacampo de producto. Por ejemplo, para encontrar usuarios que desencadenaron un evento de comercio electrónico con un producto cuya matriz de metacampos contiene un valor específico, usa esta consulta:
 
 {% raw %}
+```sql
 -- -----------------------------------------------------------------------------
--- Array-type metafield values (all time)
--- -----------------------------------------------------------------------------
--- When the metafield is stored as a JSON array in catalog field_value (e.g.
--- '["organic","vegan"]' or a list-type Shopify metafield serialized to JSON),
+-- When the metafield is stored as a JSON array in catalog field_value (for example,
+-- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
 -- use ARRAY_CONTAINS like product_tags. Cast the element you search for to
 -- VARIANT so types match the parsed array elements.
 -- -----------------------------------------------------------------------------
 
 -- Description:
 -- Fetches users who triggered the ecommerce event with a product whose
--- metafield array contains a specific value (e.g. segment on "accessories").
+-- metafield array contains a specific value (for example, segment on "seasonal").
 -- For a date range, add events.time >= $start_date AND events.time <= $end_date.
 -- For first/last triggered, reuse the CTE pattern from Template 3 with this
 -- ARRAY_CONTAINS predicate instead of items.field_value = '<metafield_value>'.
@@ -449,10 +448,10 @@ WHERE
 ```
 {% endraw %}
 
-If you want to segment customers who have placed an order with the specific product metafields, use one of the following SQL Segment Extension templates (all time, specific time period, first or last triggered an event).
+Si quieres segmentar clientes que han realizado un pedido con metacampos de producto específicos, usa una de las siguientes plantillas SQL de extensiones de segmento (todo el tiempo, período de tiempo específico, primer o último evento desencadenado).
 
 {% raw %}
-```json
+```sql
 -- =============================================================================
 -- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================
@@ -707,9 +706,9 @@ También puedes configurar [notificaciones de bajada de precios]({{site.baseurl}
 
 ## Desactivar la sincronización de productos {#deactivate}
 
-Desactivar la característica de sincronización de productos de Shopify eliminará todo tu catálogo y productos. Esto también puede afectar a cualquier mensaje que pueda estar utilizando activamente los datos de producto de este catálogo. Confirma que has actualizado o pausado estas campañas o Canvas antes de la desactivación, ya que esto podría dar lugar al envío de mensajes sin detalles del producto. No elimines el catálogo de Shopify directamente en la página de catálogos.
+Desactivar la característica de sincronización de productos de Shopify eliminará todo tu catálogo y productos. Esto también puede afectar a cualquier mensaje que pueda estar utilizando activamente los datos de producto de este catálogo. Confirma que has actualizado o pausado estas Campaigns o Canvas antes de la desactivación, ya que esto podría dar lugar al envío de mensajes sin detalles del producto. No elimines el catálogo de Shopify directamente en la página de catálogos.
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 Si la sincronización de tu producto de Shopify se encuentra con un error, podría ser el resultado de los siguientes errores. Sigue las instrucciones para corregir el problema y resolver la sincronización:
 
@@ -718,4 +717,4 @@ Si la sincronización de tu producto de Shopify se encuentra con un error, podr�
 | Error del servidor | Esto ocurre si hay un error de servidor por parte de Shopify cuando intentamos sincronizar tus productos. | [Desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
 | SKU duplicado | Esto ocurre si utilizas un SKU como ID de artículo del catálogo y tienes productos con el mismo SKU. Como el ID de artículo del catálogo debe ser único, todos tus productos deben tener SKU únicos. | Audita tu lista completa de productos y variantes en Shopify para asegurarte de que no hay SKU duplicados. Si los hay, actualízalos para que sean SKU únicos solo en la cuenta de tu tienda Shopify. Una vez corregido esto, [desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
 | Límite de catálogo superado | Esto ocurre si superas el límite de tu catálogo. Braze no podrá finalizar la sincronización o mantenerla activa debido a que no hay más almacenamiento disponible. | Hay dos soluciones a este problema:<br><br>1. Ponte en contacto con tu director de cuentas para subir de nivel y aumentar el límite de tu catálogo.<br><br>2. Libera espacio de almacenamiento eliminando cualquiera de los siguientes elementos:<br>- Artículos de otros catálogos<br>- Otros catálogos<br>- Selecciones creadas<br><br> Después de utilizar cualquiera de las dos soluciones, hay que desactivar la sincronización y volver a sincronizarla. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

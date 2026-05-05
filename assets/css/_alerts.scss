@@ -75,7 +75,7 @@ div.alert {
   &.alert-note{
 
     b {
-      color: $green-grass;
+      color: #0A7A5C;
     }
     border-color: $green-pea;
     background-image: url(#{$base_url}/assets/img/message-note.png) ;
@@ -85,7 +85,7 @@ div.alert {
   }
   &.alert-service-notice{
     b {
-      color: $green-grass;
+      color: #0A7A5C;
     }
     border-color: $green-pea;
     background-image: url(#{$base_url}/assets/img/message-note.png) ;
@@ -95,7 +95,7 @@ div.alert {
   }
   &.alert-tip{
     b {
-      color: $blue-scooter;
+      color: #0D728D;
     }
     border-color: $blue-blizzard;
     background-image: url(#{$base_url}/assets/img/message-tip.png) ;

@@ -5,14 +5,17 @@
 #     (path-filtered to `*.md` so non-doc edits do not queue runs)
 #   - weekday schedule as a safety net for doc changes that did not match the
 #     path filter or if a push-triggered run was skipped
-#   - workflow_dispatch for catch-up (`since_commit`, `files`) or orphan-only
+#   - workflow_dispatch for catch-up (`since_commit`, `files`), auto stale
+#     detection when both are empty, or orphan-only
 #
 # Flow:
 #   1. Identify _docs/ and _includes/ markdown files changed (push range,
 #      schedule window, since_commit/files dispatch, or push fallback)
 #   2. Matrix: translate each changed file into one language per job (6 jobs),
 #      then QC + Jekyll verify that locale only (avoids a single 6×locale step
-#      hitting the translate timeout on very large pages)
+#      hitting the translate timeout on very large pages). QC also applies
+#      small locale repairs (for example ES API “Obligatorio” column tokens,
+#      DE analytics capture phrasing — see scripts/auto_translate.py).
 #   3. Merge _lang/ trees + translation_results.json + qc_results.json, then
 #      orphan cleanup + alias check (full-repo only; skipped for explicit
 #      workflow_dispatch `files:` batches — PR #13327). If the alias check
@@ -35,17 +38,21 @@ on:
     inputs:
       files:
         description: >
-          Space-separated _docs/ or _includes/ paths to translate
-          (leave empty unless using since_commit or push-based detection).
-          When set, skips global orphan cleanup and duplicate-YAML-alias check
-          even if skip_orphan_cleanup is false — partial batches must not
-          delete or gate the whole _lang tree after IA moves (PR #13327).
+          Space-separated _docs/ or _includes/ paths to translate (optional).
+          Leave empty with since_commit empty on manual runs to auto-detect
+          stale English vs _lang mirrors (scripts/auto_translate.py
+          stale-english-sources). When non-empty, skips global orphan cleanup
+          and duplicate-YAML-alias check even if skip_orphan_cleanup is false
+          — partial batches must not delete or gate the whole _lang tree after
+          IA moves (PR #13327).
         required: false
         type: string
       since_commit:
         description: >
           Optional commit SHA: diff this commit..current ref for all changed
-          English .md under _docs/ and _includes/ (catch-up; ignores files input)
+          English .md under _docs/ and _includes/ (catch-up; ignores files input).
+          Leave empty with files empty on manual runs to auto-detect stale English
+          vs _lang mirrors instead of a commit range.
         required: false
         type: string
       skip_orphan_cleanup:
@@ -109,10 +116,9 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
              [ -z "${{ inputs.since_commit }}" ] && \
              [ -z "${{ inputs.files }}" ]; then
-            echo "workflow_dispatch requires since_commit (catch-up diff) and/or files (explicit paths), unless orphan_cleanup_only is true."
-            exit 1
-          fi
-          if [ -n "${{ inputs.since_commit }}" ]; then
+            echo "workflow_dispatch: auto-detecting stale English sources (vs _lang/)..."
+            python3 scripts/auto_translate.py stale-english-sources > changed_files.txt
+          elif [ -n "${{ inputs.since_commit }}" ]; then
             echo "Using since_commit=${{ inputs.since_commit }}..${{ github.sha }}"
             git diff --find-renames --name-only --diff-filter=ACMR \
               "${{ inputs.since_commit }}" "${{ github.sha }}" \
@@ -226,7 +232,11 @@ jobs:
           --languages ${{ matrix.lang }}
 
       # Deterministic repairs (duplicate {#…} heading IDs, YAML title casing,
-      # etc.) live in scripts/auto_translate.py — extend there rather than here.
+      # re-seeding locale YAML when the model drops the --- block while English
+      # has front matter—including indented English --- openers, transactional
+      # frequency_capping parenthesis repair, duplicate engagement_reports
+      # subsections, etc.) live in scripts/auto_translate.py — extend there rather
+      # than here.
       - name: Run translation QC checks
         id: qc
         run: python scripts/auto_translate.py qc

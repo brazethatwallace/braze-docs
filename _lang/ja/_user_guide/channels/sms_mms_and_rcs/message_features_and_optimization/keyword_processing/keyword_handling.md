@@ -23,6 +23,10 @@ channel:
 
 BrazeのSMS、MMS、RCSでは、キーワードトリガーの作成、カスタム応答の設定、複数言語のキーワードセットの定義、カスタムキーワードカテゴリの設定が可能です。
 
+{% alert note %}
+Brazeは、オプトアウトキーワードの完全なセット（[デフォルトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)および[カスタムキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)）を使用して、正確なオプトアウト処理と[ファジーオプトアウト]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)を行います。
+{% endalert %}
+
 {% tabs %}
 {% tab キーワードトリガーの追加 %}
 
@@ -56,7 +60,7 @@ BrazeのSMS、MMS、RCSでは、キーワードトリガーの作成、カスタ
 
 1. Brazeダッシュボードで、**Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。<br><br>
 2. **Global Keywords**の下で、鉛筆アイコンを選択して応答を編集するキーワードカテゴリを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。![応答]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
+3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。![応答画面]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
 4. 応答内の静的URLを自動的に短縮するには、**Link Shortening**トグルを選択します。文字カウンターが更新され、短縮URLの予想される長さが表示されます。![「Link Shortening」トグルがオンのときに文字カウンターが更新される様子を示すGIF。]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 ##### 考慮事項 {#considerations}
@@ -118,7 +122,7 @@ BrazeのSMS、MMS、RCSでは、キーワードトリガーの作成、カスタ
 
 #### Canvas
 
-![アクションベースのCanvasステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
+![アクションベースのキャンバスステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
 #### Campaign
 

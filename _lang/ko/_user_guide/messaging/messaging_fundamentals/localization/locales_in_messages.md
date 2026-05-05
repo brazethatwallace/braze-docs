@@ -11,8 +11,6 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 
 > 워크스페이스에 로캘을 추가한 후, 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어로 사용자를 타겟팅할 수 있습니다.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## 필수 조건 {#prerequisites}
 
 다국어 메시지 설정 및 사용에 대한 선택적 개요를 보려면 다음 동영상을 시청하세요.
@@ -135,7 +133,7 @@ URL이 Liquid로 생성되는 경우(예: {% raw %}`{% landing_page_url %}`{% en
 
 ### 3단계: 메시지에 로캘 추가 {#step-3-add-locales-to-your-message}
 
-메시지에 번역 태그를 추가한 후, 에디터에서 **언어 관리**를 선택하고(이메일 및 Content Blocks용 드래그 앤 드롭 에디터에서는 **언어**) 번역을 추가할 로캘을 하나 이상 선택합니다.
+메시지에 번역 태그를 추가한 후, 에디터에서 **Manage languages**를 선택하고(이메일 및 Content Blocks용 드래그 앤 드롭 에디터에서는 **Languages**) 번역을 추가할 로캘을 하나 이상 선택합니다.
 
 ![기본 로캘 또는 커스텀 속성을 선택할 수 있는 옵션이 있는 로캘 추가 드롭다운.]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
 
@@ -143,9 +141,9 @@ URL이 Liquid로 생성되는 경우(예: {% raw %}`{% landing_page_url %}`{% en
 
 메시지에 이미 번역이 저장된 Content Blocks가 포함되어 있는 경우, 해당 번역을 다시 업로드할 필요가 없습니다. 저장된 번역은 Content Block이 메시지에 추가될 때 자동으로 적용됩니다.
 
-**언어 관리** 모달에서 저장된 번역이 있는 Content Blocks가 지원하는 로캘과 함께 목록에 표시됩니다. 이를 통해 새 번역을 추가하기 전에 메시지의 어떤 부분이 이미 현지화되었는지 확인할 수 있습니다.
+**Manage languages** 모달에서 저장된 번역이 있는 Content Blocks가 지원하는 로캘과 함께 목록에 표시됩니다. 이를 통해 새 번역을 추가하기 전에 메시지의 어떤 부분이 이미 현지화되었는지 확인할 수 있습니다.
 
-![저장된 번역이 있는 Content Blocks 목록이 표시된 언어 관리 섹션.]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
+![저장된 번역이 있는 Content Blocks 목록이 표시된 Manage languages 섹션.]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
 
 {% alert important %}
 각 Content Block에 메시지에 추가된 모든 로캘에 대한 번역이 포함되어 있는지 확인하세요. Content Block에 추가한 로캘 중 하나에 대한 번역이 누락된 경우, 해당 로캘의 사용자에게는 원래 언어로 표시됩니다.
@@ -160,7 +158,7 @@ URL이 Liquid로 생성되는 경우(예: {% raw %}`{% landing_page_url %}`{% en
 {% tabs %}
 {% tab CSV 템플릿 업로드 %}
 
-**템플릿 다운로드**를 선택하여 선택한 번역 ID와 로캘의 매트릭스가 포함된 CSV를 다운로드합니다. 각 로캘에 대한 번역을 입력합니다. 완성된 파일을 업로드하면 번역이 메시지에 적용됩니다.
+**Download template**을 선택하여 선택한 번역 ID와 로캘의 매트릭스가 포함된 CSV를 다운로드합니다. 각 로캘에 대한 번역을 입력합니다. 완성된 파일을 업로드하면 번역이 메시지에 적용됩니다.
 
 {% alert important %}
 영어가 아닌 문자의 표시 문제를 방지하려면 번역 CSV에 Excel을 사용하지 마세요.
@@ -187,7 +185,7 @@ Canvas가 시작된 후에 생성된 캔버스 단계에서 번역 API를 사용
 
 ### 5단계: 번역 미리보기 {#step-5-preview-translations}
 
-메시지를 미리보려면 **사용자로 미리보기** 드롭다운에서 **다국어 사용자** 옵션을 선택합니다. 이를 통해 다양한 로캘 정의 간에 전환하여 메시지의 모든 번역을 미리볼 수 있습니다.
+메시지를 미리보려면 **Preview as User** 드롭다운에서 **Multi-Language User** 옵션을 선택합니다. 이를 통해 다양한 로캘 정의 간에 전환하여 메시지의 모든 번역을 미리볼 수 있습니다.
 
 ![로캘 미리보기]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -243,11 +241,11 @@ HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Con
 
 ##### 메시지 수준 {#message-level}
 
-메시지 설정에서 **접근성** 섹션으로 이동하여 드롭다운에서 언어를 선택하거나 Liquid를 사용하여 접근성 언어를 동적으로 설정합니다. 이는 메시지의 모든 콘텐츠에 적용됩니다.
+메시지 설정에서 **Accessibility** 섹션으로 이동하여 드롭다운에서 언어를 선택하거나 Liquid를 사용하여 접근성 언어를 동적으로 설정합니다. 이는 메시지의 모든 콘텐츠에 적용됩니다.
 
 ##### 로캘 수준 {#locale-level}
 
-다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. 새 메시지가 생성되면 **접근성** 섹션에서 기본적으로 {% raw %}`{{accessibility_language}}`{% endraw %}가 선택됩니다. 이는 접근성 언어를 로캘 설정에 매핑합니다.
+다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. 새 메시지가 생성되면 **Accessibility** 섹션에서 기본적으로 {% raw %}`{{accessibility_language}}`{% endraw %}가 선택됩니다. 이는 접근성 언어를 로캘 설정에 매핑합니다.
 
 #### 표준 {#standards}
 

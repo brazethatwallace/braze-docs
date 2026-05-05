@@ -25,22 +25,22 @@ description: "이 문서에서는 Segment 목록 필터링, Segment 생성, Segm
 ### 필터 {#filters}
 
 다음 필터를 조정하여 목록에서 Segment를 정렬할 수 있습니다:
-- **Last Edited By:** Segment를 마지막으로 편집한 사용자
-- **Last Edited:** Segment가 마지막으로 편집된 시간 범위
-- **Estimated Size:** Segment에 포함된 사용자 수의 대략적인 범위
-- **Tags:** Segment에 연결된 태그
+- **마지막 수정자:** Segment를 마지막으로 편집한 사용자
+- **마지막 수정일:** Segment가 마지막으로 편집된 시간 범위
+- **예상 크기:** Segment에 포함된 사용자 수의 대략적인 범위
+- **태그:** Segment에 연결된 태그
 - **Teams:** Segment에 연결된 Teams
-- **Advanced Tracking Segments Only:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화된 Segment만 표시합니다.
+- **고급 추적 Segment만:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화된 Segment만 표시합니다.
 
 ### 열 {#columns}
 
 Segment 목록에 표시할 수 있는 정보 열은 다음과 같습니다:
-- **Filters:** Segment의 필터 수
-- **Last edited:** Segment가 마지막으로 편집된 날짜
-- **Last edited by:** Segment를 마지막으로 편집한 사용자
-- **Tags:** Segment에 연결된 태그
+- **필터:** Segment의 필터 수
+- **마지막 수정일:** Segment가 마지막으로 편집된 날짜
+- **마지막 수정자:** Segment를 마지막으로 편집한 사용자
+- **태그:** Segment에 연결된 태그
 - **Teams:** Segment에 연결된 Teams
-- **Estimated size:** Segment의 예상 사용자 수
+- **예상 크기:** Segment의 예상 사용자 수
 - **Canvases:** Segment를 사용하는 Canvases 수
 - **Campaigns:** Segment를 사용하는 Campaigns 수
 
@@ -67,6 +67,10 @@ Segment가 서로 참조하는 루프를 방지하기 위해, **Segment Membersh
 - **Add to starred:** Segment를 즐겨찾기로 표시하면 Segments 섹션에서 즐겨찾기만 표시 체크박스를 선택하여 빠르게 접근할 수 있습니다.
 
 여러 Segment 이름 옆의 체크박스를 선택하여 일괄 아카이브 및 일괄 태그 지정 등의 일괄 작업을 수행할 수도 있습니다.
+
+{% alert tip %}
+워크스페이스에 있는 기존 Segment의 머신 판독 가능한 내보내기가 필요한 경우(현재 테이블 보기뿐만 아니라), [Segment 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)를 사용하고 결과를 페이지네이션하세요. 아카이브된 Segment를 감사하려면 상태 필터를 사용하여 **Segments** 대시보드에서 별도로 검토하세요.
+{% endalert %}
 
 ![여러 Segment가 선택되어 있고 태그 지정 드롭다운 필드에서 CRM이 선택된 모습.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 

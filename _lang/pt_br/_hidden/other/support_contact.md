@@ -1,6 +1,6 @@
 ---
 permalink: /support_contact/
-nav_title: Ajuda | Braze
+nav_title: Help | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
@@ -1105,7 +1105,7 @@ a:hover {
   <path d="M9.14095 7.94993L7.54095 4.37893C7.46284 4.20119 7.33468 4.05003 7.17211 3.9439C7.00954 3.83776 6.81959 3.78125 6.62545 3.78125C6.4313 3.78125 6.24135 3.83776 6.07878 3.9439C5.91621 4.05003 5.78806 4.20119 5.70995 4.37893L4.10995 7.94993L0.584947 9.57193C0.408701 9.6548 0.259678 9.78611 0.155296 9.95053C0.0509136 10.1149 -0.0045166 10.3057 -0.0045166 10.5004C-0.0045166 10.6952 0.0509136 10.8859 0.155296 11.0503C0.259678 11.2148 0.408701 11.3461 0.584947 11.4289L4.10695 13.0509L5.70695 16.6219C5.78506 16.7997 5.91321 16.9508 6.07578 17.057C6.23835 17.1631 6.4283 17.2196 6.62245 17.2196C6.81659 17.2196 7.00654 17.1631 7.16911 17.057C7.33168 16.9508 7.45984 16.7997 7.53795 16.6219L9.13795 13.0509L12.6599 11.4289C12.8362 11.3461 12.9852 11.2148 13.0896 11.0503C13.194 10.8859 13.2494 10.6952 13.2494 10.5004C13.2494 10.3057 13.194 10.1149 13.0896 9.95053C12.9852 9.78611 12.8362 9.6548 12.6599 9.57193L9.14095 7.94993Z" fill="#801ED7"/>
   <path d="M17.0259 6.41957L17.8209 4.63457L19.5819 3.82857C19.6699 3.78709 19.7443 3.72143 19.7964 3.63928C19.8485 3.55712 19.8761 3.46185 19.8761 3.36457C19.8761 3.2673 19.8485 3.17203 19.7964 3.08987C19.7443 3.00772 19.6699 2.94206 19.5819 2.90057L17.8209 2.09257L17.0259 0.292575C16.9869 0.203559 16.9229 0.127833 16.8415 0.074658C16.7602 0.0214831 16.6651 -0.00683594 16.5679 -0.00683594C16.4708 -0.00683594 16.3757 0.0214831 16.2943 0.074658C16.213 0.127833 16.1489 0.203559 16.1099 0.292575L15.3149 2.07757L13.5449 2.89257C13.4569 2.93406 13.3826 2.99972 13.3305 3.08187C13.2784 3.16403 13.2507 3.2593 13.2507 3.35658C13.2507 3.45385 13.2784 3.54912 13.3305 3.63128C13.3826 3.71343 13.4569 3.77909 13.5449 3.82057L15.3059 4.62657L16.1009 6.42657C16.142 6.51509 16.2076 6.58992 16.29 6.64212C16.3724 6.69433 16.4681 6.7217 16.5657 6.72096C16.6632 6.72022 16.7585 6.69141 16.8401 6.63796C16.9218 6.58452 16.9863 6.5087 17.0259 6.41957Z" fill="#E9371F"/>
 </svg>
-<div class='gpt-text'>Gerando… </div>
+<div class='gpt-text'>Gerando... </div>
 <div class='gpt-text1'>Resposta gerada para você </div>
                  </div>
 
@@ -2692,6 +2692,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2715,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,

@@ -14,11 +14,146 @@ page_type: reference
 このページに記載されている更新の詳細については、アカウントマネージャーにお問い合わせいただくか、[サポートチケットを開封]({{site.baseurl}}/user_guide/administer/personal/braze_support/)してください。また、[SDK変更ログ]({{site.baseurl}}/developer_guide/changelogs/)では、毎月のSDKリリース、改良、および破壊的変更に関する詳細を確認することもできます。
 {% endalert %}
 
+{% details 2026年4月30日 %}
+
+## 2026年4月30日リリース {#april-30-2026-release}
+
+### データ＆レポート {#data-reporting}
+
+#### 個別プロファイル作成のためのクイックユーザー追加 {#quick-user-add-for-individual-profile-creation}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+**ユーザーをインポート**から**クイックユーザー追加**を選択し、メールアドレスまたはexternal IDを入力することで、個別のユーザープロファイルを作成できるようになりました。
+
+以前は、このワークフローからユーザーを作成するにはCSVアップロードまたは自動取り込み方法が必要でした。
+
+詳細については、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)を参照してください。
+
+#### ゼロコピーCDI同期によるCanvasトリガー {#zero-copy-cdi-syncs-for-canvas-triggers}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+CDIがゼロコピーパーソナライゼーション用の`Canvas triggers`データタイプをサポートするようになりました。ウェアハウスまたはS3データからCanvasesをトリガーし、Brazeユーザープロファイルにフィールドを保持せずにコンテキストフィールドを渡すことができます。
+
+以前は、CDI同期ではこのタイプのパーソナライゼーションワークフローのためにデータをBrazeプロファイルに書き込む必要がありました。
+
+詳細については、[CDIを使用したゼロコピーパーソナライゼーション]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/zero_copy_sync/)を参照してください。
+
+#### eコマース推奨イベント {#ecommerce-recommended-events}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/)は、購入ジャーニーの6つのステップをカバーします：`product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータを検証し、拡大するプラットフォーム機能のセットで利用可能にします。
+
+### Currentsとデータ共有 {#currents-and-datashare}
+
+#### 新しいバナーおよびWhatsApp Currents更新 {#new-banner-and-whatsapp-currents-updates}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Currentsとデータ共有に、新しい`Banner.Dismiss`イベントと既存のWhatsAppイベントの追加フィールドが含まれるようになりました。
+
+以前は、これらのバナー却下イベントとWhatsAppフィールドはエクスポートデータで利用できませんでした。
+
+詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/)を参照してください。
+
+### オーケストレーション {#orchestration}
+
+#### 多言語翻訳 {#multi-language-translations}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+複雑なコードを必要としないワンタイムのロケール設定で[多言語メッセージ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を作成し、すべての市場に自信を持って送信できます。
+
+#### きめ細かな権限の移行 {#granular-permissions-migration}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+アカウントにアクセスし特定のアクションを実行できるユーザーを管理することは、セキュリティと運用効率の両方にとって重要です。より多くのコントロールを提供するために、Brazeはアカウント全体でユーザーアクセスを管理するためのより柔軟で正確な方法である[きめ細かな権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration/)を導入しています。
+
+#### 送信先Canvasコンポーネント {#send-to-destination-canvas-component}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[送信先ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination/)を使用すると、あるCanvasから別のCanvasにユーザーを送信できます。たとえば、プロモーションオファーのメッセージングを共有する2つのCanvasesがある場合、送信先を使用してこれらのCanvasesを接続できます。
+
+#### Canvasコンテキストの機能強化 {#canvas-context-enhancements}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Canvasで、コンテキスト変数を参照して以下を設定できるようになりました。
+
+- Content Cardsの削除イベント
+- Content Cardsの有効期限
+
+詳細については、[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/?tab=canvas)を参照してください。
+
+#### メッセージステップの配信バリデーション進行動作 {#delivery-validation-advancement-behavior-for-message-steps}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)は、メッセージ送信時にオーディエンスが配信基準を満たしていることを確認するための追加チェックを提供します。ユーザーがメッセージステップの設定された配信バリデーションを満たさない場合、**配信バリデーション進行動作**設定を使用して、ユーザーが次のステップに進むかCanvasを退出するかを決定できます。
+
+#### ワークスペースメッセージングレート制限 {#workspace-messaging-rate-limits}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を使用して、プラットフォームからの送信メッセージの配信レートを調整し、ユーザーが必要なメッセージを確実に受信できるようにします。ワークスペースメッセージングレート制限は段階的に展開されているため、ダッシュボードにこれらの設定がまだ表示されない場合があります。
+
+### チャネルとタッチポイント {#channels-touchpoints}
+
+#### WhatsAppテンプレートビルダー {#whatsapp-template-builder}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/)を使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成・送信できます。Metaがテンプレートを承認した後、必要な数のCampaignsやCanvasesで使用できます。
+
+#### Shopify製品タグ、メタフィールド、コレクション {#shopify-product-tags-metafields-and-collections}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Shopifyストアから[Shopify製品タグ、コレクション、メタフィールドをBrazeカタログに同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/)できるようになりました。これにより、カスタムの回避策なしで、パーソナライゼーション、セグメンテーション、カタログベースのメッセージングのためのより豊富な製品データが提供されます。
+
+### パートナーシップ {#partnerships}
+
+#### GRAVITY - データと分析 - ロイヤルティ {#gravity-data-and-analytics-loyalty}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[GRAVTY®](https://www.lji.io/)は、Loyalty Juggernaut Inc.（LJI）のエンタープライズグレードのロイヤルティプラットフォームで、小売、旅行、レストラン（クイックサービスレストランを含む）、金融サービスのブランドが次世代プログラムを設計、管理、スケールできるようにし、パーソナライズされたデータ主導のエクスペリエンスを通じて、エンゲージメント、リテンション、顧客生涯価値の測定可能な成長を促進します。
+
+<!-- Use this section to list any new SDKs or SDK updates that are already released. -->
+### SDK
+
+以下のSDK更新がリリースされました。詳細については、[SDK変更ログ]({{site.baseurl}}/releases/sdk_changelogs/)を参照してください。
+
+#### SDKの破壊的更新 {#sdk-breaking-updates}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
+
+- [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
+    - 遅延初期化サポート。
+- [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
+    - アプリ内メッセージとバナーのバグ修正。
+- [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
+    - バナー却下サポート。
+- [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
+    - バナー却下サポート。
+- [Android SDK 42.1.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.1.0)
+    - バナー却下サポート。
+- [Braze Segment Android 17.0.0](https://github.com/braze-inc/braze-segment-android/releases/tag/v17.0.0)
+    - これはBraze Segment Androidプラグインの最終リリースです。Analytics-Androidを使用しており、2026年3月にサポート終了となりました。[Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin)を使用する[Braze Segment Kotlinプラグイン](https://github.com/braze-inc/braze-segment-kotlin)に移行してください。
+    - ネイティブSDKバージョンをアップグレード。
+
+{% enddetails %}
 {% details 2026年4月2日 %}
 
 ## 2026年4月2日リリース {#april-2-2026-release}
 
-### データ＆レポート {#data-reporting}
+### データ＆レポート
 
 #### Currentsおよびデータ共有イベントの新しいバナーチャネルフィールド {#new-banner-channel-fields-in-currents-and-datashare-events}
 
@@ -42,28 +177,28 @@ Currents Mixpanelインテグレーションが、MixpanelのEUおよびイン�
 
 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)に、ダッシュボードを離れずにBrazeサポートチケットを提出するフローが追加されました。手順、自動的に含まれるコンテキスト、および迅速な解決のためのヒントについては、[BrazeAI Operatorでサポートチケットを提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/)を参照してください。
 
-### オーケストレーション {#orchestration}
+### オーケストレーション
 
-#### 多言語翻訳 {#multi-language-translations}
+#### 多言語翻訳
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-ワークスペースにロケールを追加した後、[多言語翻訳]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を使用して、1つのプッシュ、メール、バナー、アプリ内メッセージ、またはContent Block内で異なる言語のユーザーをターゲットにできます。
+ワークスペースにロケールを追加した後、[多言語翻訳]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)を使用して、1つのプッシュ、メール、バナー、アプリ内メッセージ、またはContent Block内で異なる言語のユーザーをターゲットにできます。
 
 ![ロケールプレビュー]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
-#### Canvasコンテキストの機能強化 {#canvas-context-enhancements}
+#### Canvasコンテキストの機能強化
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Canvasで、コンテキスト変数を参照して以下を設定できるようになりました。
 
-- メッセージステップのバナーおよびアプリ内メッセージの[有効期限]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/#set-an-expiration)
-- アクションパスステップの[パーソナライズされた遅延]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/#action-path-delays)
+- メッセージステップのバナーおよびアプリ内メッセージの[有効期限]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#set-an-expiration)
+- アクションパスステップの[パーソナライズされた遅延]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#action-path-delays)
 
-コンテキスト変数名フィールドでは、コンテキスト変数名を入力するか、ステップエディタのドロップダウンから選択することもできます。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)および[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/)を参照してください。
+コンテキスト変数名フィールドでは、コンテキスト変数名を入力するか、ステップエディタのドロップダウンから選択することもできます。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/)および[コンテキスト変数]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/)を参照してください。
 
-### チャネル＆タッチポイント {#channels-touchpoints}
+### チャネルとタッチポイント
 
 #### KakaoTalk
 
@@ -77,11 +212,11 @@ Canvasで、コンテキスト変数を参照して以下を設定できるよ�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Canvasの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)のメッセージングチャネルとして[バナー]({{site.baseurl}}/user_guide/channels/banners/)を使用できます。バナーを使用すると、リアルタイムのユーザー適格性と動作を反映して、アプリやWebサイトのコンテンツを動的にパーソナライズできます。
+Canvasの[メッセージステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step/)のメッセージングチャネルとして[バナー]({{site.baseurl}}/user_guide/message_building_by_channel/banners/)を使用できます。バナーを使用すると、リアルタイムのユーザー適格性と動作を反映して、アプリやWebサイトのコンテンツを動的にパーソナライズできます。
 
-### パートナーシップ {#partnerships}
+### パートナーシップ
 
-#### CataBoom - メッセージパーソナライゼーション - ビジュアル＆インタラクティブコンテンツ {#cataboom-message-personalization-visual-and-interactive-content}
+#### CataBoom - メッセージパーソナライゼーション - ビジュアルとインタラクティブコンテンツ {#cataboom-message-personalization-visual-and-interactive-content}
 
 [CataBoom]({{site.baseurl}}/partners/cataboom/)はゲーミフィケーションプラットフォームです。ブランドはこれを使用して、スピン・トゥ・ウィンゲーム、クイズ、インスタントウィンゲームなどのインタラクティブなデジタルエクスペリエンスを構築・起動します。これらのエクスペリエンスはエンゲージメントを深め、ファーストパーティデータを収集します。
 
@@ -103,7 +238,7 @@ Canvasの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/can
 
 AIコーディングアシスタントを使用して、統合開発環境（IDE）をContext7経由でBraze Docs MCPに接続することで、Brazeインテグレーションワークフローを加速できます。これにより、アシスタントが最新のBrazeドキュメントに直接アクセスでき、開発環境でより正確なSDKガイダンス、コード例、トラブルシューティングヘルプを生成できます。Cursor、Claude Desktop、VS Codeでのセットアップ手順については、[LLMを使用した構築]({{site.baseurl}}/developer_guide/getting_started/build_with_llm/#connecting-to-the-braze-docs-mcp)を参照してください。
 
-#### SDKの破壊的更新 {#sdk-breaking-updates}
+#### SDKの破壊的更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -133,7 +268,7 @@ AIコーディングアシスタントを使用して、統合開発環境（IDE
 
 ## 2026年3月5日リリース {#march-5-2026-release}
 
-### データ＆レポート {#data-reporting}
+### データ＆レポート
 
 #### 新しいデータセンター {#new-data-center}
 
@@ -163,11 +298,11 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 - `agentconsole.ToolInvocation`：`request_id`（文字列）を追加—全体的なLLMリクエストと完全な実行のための一意のID。
 - `users.messages.rcs.InboundReceive`：`canvas_variation_name`（文字列）を追加—ユーザーが受け取ったCanvasバリエーションの名前。
 
-#### Snowflakeデータ共有のキャンペーンおよびCanvasフィールド {#campaign-and-canvas-fields-for-snowflake-data-share}
+#### Snowflakeデータ共有のCampaignおよびCanvasフィールド {#campaign-and-canvas-fields-for-snowflake-data-share}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflakeデータ共有]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-for-data-sharing-3)に、66の既存テーブルにわたるキャンペーンおよびCanvas情報を反映する追加フィールドが含まれるようになりました。
+[Snowflakeデータ共有]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-for-data-sharing-3)に、66の既存テーブルにわたるCampaignおよびCanvas情報を反映する追加フィールドが含まれるようになりました。
 
 - `campaign_name`
 - `canvas_name`
@@ -197,7 +332,7 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 
 [Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)は、Braze内で作成できるAIパワーのヘルパーです。エージェントは、コンテンツを生成し、インテリジェントな決定を行い、データを拡張して、よりパーソナライズされたカスタマーエクスペリエンスを提供できます。エージェントを作成する際に、その目的を定義し、動作のガードレールを設定します。ライブになった後、エージェントはBrazeに[デプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)して、パーソナライズされたコピーの生成、リアルタイムの意思決定、またはカタログフィールドの更新を行うことができます。
 
-### オーケストレーション {#orchestration}
+### オーケストレーション
 
 #### きめ細かなユーザー権限 {#granular-user-permissions}
 
@@ -209,7 +344,7 @@ Brazeは、ユーザーアクセスを管理するためのより柔軟な方法
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-マルチチャネルのキャンペーンまたはCanvasの配信速度レート制限を設定する際に、共有レート制限または[チャネルベースの制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases)のいずれかを設定できます。マルチチャネルのキャンペーンまたはCanvasがチャネルベースのレート制限を使用する場合、レート制限は選択した各チャネルに適用されます。たとえば、キャンペーンまたはCanvasを設定して、キャンペーンまたはCanvas全体で1分あたり最大5,000件のWebhookと2,500件のSMSメッセージを送信できます。
+マルチチャネルのCampaignまたはCanvasの配信速度レート制限を設定する際に、共有レート制限または[チャネルベースの制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases)のいずれかを設定できます。マルチチャネルのCampaignまたはCanvasがチャネルベースのレート制限を使用する場合、レート制限は選択した各チャネルに適用されます。たとえば、CampaignまたはCanvasを設定して、CampaignまたはCanvas全体で1分あたり最大5,000件のwebhookと2,500件のSMSメッセージを送信できます。
 
 #### Canvasコンテキストステップ {#canvas-context-step}
 
@@ -217,7 +352,7 @@ Brazeは、ユーザーアクセスを管理するためのより柔軟な方法
 
 [Canvasコンテキストステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)を使用すると、ユーザーがCanvas内を移動する際に1つ以上の変数を作成・更新できます。たとえば、季節割引を管理するCanvasがある場合、コンテキスト変数を使用して、ユーザーがCanvasに入るたびに異なる割引コードを保存できます。
 
-### チャネル＆タッチポイント {#channels-touchpoints}
+### チャネルとタッチポイント
 
 #### Content Blocksでのロケール翻訳 {#translate-locales-in-content-blocks}
 
@@ -225,7 +360,7 @@ Brazeは、ユーザーアクセスを管理するためのより柔軟な方法
 
 ワークスペースにロケールを追加した後、Content Block内で[異なる言語のユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)にできます。
 
-### パートナーシップ {#partnerships}
+### パートナーシップ
 
 #### Algolia - 検索レコメンデーション {#algolia-search-recommendations}
 
@@ -267,7 +402,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 [Mailizio]({{site.baseurl}}/partners/message_orchestration/templates/Mailizio/)は、直感的なビジュアルエディタを使用して再利用可能でブランドセーフなコンテンツを簡単にデザインできるメール作成・管理プラットフォームです。MailizioのBrazeへのインテグレーションにより、コンテンツブロックとメールテンプレートをエクスポートし、同じアセットからアプリ内メッセージを自動的に生成でき、迅速かつ完全にコントロールされたキャンペーン展開が可能になります。
 
-#### Open Loyalty - データ＆分析 - ロイヤルティ {#open-loyalty-data-and-analytics-loyalty}
+#### Open Loyalty - データと分析 - ロイヤルティ {#open-loyalty-data-and-analytics-loyalty}
 
 [Open Loyalty]({{site.baseurl}}/partners/data_and_analytics/loyalty/openloyalty/)は、顧客ロイヤルティおよびリワードプログラムを構築・管理できるクラウドベースのロイヤルティプログラムプラットフォームです。BrazeとOpen Loyaltyのインテグレーションは、ポイント残高、ティア変更、有効期限警告などのロイヤルティデータをリアルタイムでBrazeに直接同期します。これにより、ユーザーのロイヤルティステータスが変更されたときに、パーソナライズされたメッセージ（メール、プッシュ、SMS）をトリガーできます。
 
@@ -279,13 +414,13 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 [Shopgate]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/shopgate/)は、マーチャントがショッピングアプリを作成し、フルフィルメントツールとクライアンテリング（顧客データに基づくパーソナライズされた店内カスタマーサポート）を通じて実店舗の効率を向上させるのに役立つモバイルコマースおよびオムニチャネルプラットフォームです。
 
-#### Splio - データ＆分析 - コホートインポート {#splio-data-and-analytics-cohort-import}
+#### Splio - データと分析 - コホートインポート {#splio-data-and-analytics-cohort-import}
 
 [Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio/)は、カスタマーエクスペリエンスを損なうことなくキャンペーン数と収益を増加させるオーディエンス構築ツールで、オンラインとオフラインの両方でCRMキャンペーンのパフォーマンスを追跡する分析を提供します。
 
 ### SDK
 
-#### SDKの破壊的更新 {#sdk-breaking-updates}
+#### SDKの破壊的更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -325,17 +460,17 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer/)は、継続的で高バリアントなコンテンツテストのキャンバスステップで、自動エンゲージメント最適化を実現します。メッセージステップと同様のドラッグアンドドロップ可能なインターフェイスを使用して、テストするコンポーネントを定義し、AIを使用してバリアントを生成し（または手動で入力）、Liquidタグを使用してこれらのコンポーネントをメッセージコンテンツにマッピングできます。
 
-非コンテキストのマルチアームバンディットオプティマイザに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信Canvasで最適に動作します。
+非コンテキストのマルチアームバンディットオプティマイザに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信Canvasesで最適に動作します。
 
-### データ＆レポート {#data-reporting}
+### データ＆レポート
 
-#### eコマース推奨イベント {#ecommerce-recommended-events}
+#### eコマース推奨イベント
 
 {% multi_lang_include release_type.md release="Early access" %}
 
 eコマース推奨イベントと既存の購入イベントを照合するために、[「Places Order」コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/#conversions-report)を追加しました。これは「Makes Purchase」に似ています。
 
-### チャネル＆タッチポイント {#channels-touchpoints}
+### チャネルとタッチポイント
 
 #### バナーでのロケール翻訳 {#translate-locales-in-banners}
 
@@ -355,13 +490,13 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 [自動IPウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#automated-ip-warming)を使用して、毎日の送信量を徐々に増やし、受信トレイプロバイダーが送信パターンを学習し信頼できるようにします。Brazeは最もエンゲージメントの高いサブスクライバーに最初に送信し、ベストプラクティスに合ったペースで毎日のボリュームが増加します。
 
-### パートナーシップ {#partnerships}
+### パートナーシップ
 
 #### LinkedIn – Canvas Audience Sync
 
-[Braze Audience Sync to LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync/)を使用すると、BrazeインテグレーションのユーザーデータをLinkedIn顧客リストに追加して、行動トリガー、セグメンテーションなどに基づいた広告を配信できます。通常、メッセージをトリガーするために使用する基準（プッシュ、メール、SMS、Webhookなど）が、BrazeのCanvasでユーザーデータに基づいて、LinkedIn顧客リストのそのユーザーに広告をトリガーできるようになりました。
+[Braze Audience Sync to LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync/)を使用すると、BrazeインテグレーションのユーザーデータをLinkedIn顧客リストに追加して、行動トリガー、セグメンテーションなどに基づいた広告を配信できます。通常、メッセージをトリガーするために使用する基準（プッシュ、メール、SMS、webhookなど）が、BrazeのCanvasでユーザーデータに基づいて、LinkedIn顧客リストのそのユーザーに広告をトリガーできるようになりました。
 
-#### Oracle Crowdtwist - データ＆分析 {#oracle-crowdtwist-data-analytics}
+#### Oracle Crowdtwist - データと分析 {#oracle-crowdtwist-data-analytics}
 
 [Oracle Crowdtwist]({{site.baseurl}}/partners/crowdtwist/)は、ブランドがパーソナライズされたカスタマーエクスペリエンスを提供できるようにする、主要なクラウドネイティブ顧客ロイヤルティソリューションです。100以上のエンゲージメントパスを提供し、マーケターが顧客のより完全なビューを開発するための迅速な価値実現を提供します。
 
@@ -369,7 +504,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 [Fullstory]({{site.baseurl}}/partners/fullstory/)の行動データプラットフォームは、テクノロジーリーダーがより優れた、より情報に基づいた意思決定を行うのに役立ちます。デジタル行動データを分析スタックに注入することで、Fullstoryの特許取得済みテクノロジーは、行動データの質の力をスケールで解き放ち、すべてのデジタル訪問をアクション可能なインサイトに変換します。
 
-#### Open Loyalty - データ＆分析 {#open-loyalty-data-analytics}
+#### Open Loyalty - データと分析 {#open-loyalty-data-analytics}
 
 [Open Loyalty]({{site.baseurl}}/partners/openloyalty/)は、顧客ロイヤルティおよびリワードプログラムを構築・管理できるクラウドベースのロイヤルティプログラムプラットフォームです。BrazeとOpen Loyaltyのインテグレーションは、ポイント残高、ティア変更、有効期限警告などのロイヤルティデータをリアルタイムでBrazeに直接同期します。これにより、ユーザーのロイヤルティステータスが変更されたときに、パーソナライズされたメッセージ（メール、プッシュ、SMS）をトリガーできます。
 
@@ -389,7 +524,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 メディアライブラリアセットをAPI経由で追加できるようになり、顧客、パートナー、代理店がメッセージ作成ワークフローをより自動化できるようになりました。[API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/)を使用して、アセットファイルを直接アップロードしたり、既存のURLからファイルをコピーしたりできます。この機能は、インテグレーションとオートメーション機能を解放します。
 
-### Currentsとデータ共有 {#currents-and-datashare}
+### Currentsとデータ共有
 
 #### ストレージ送信先およびデータ共有のエージェントコンソールイベント {#agent-console-events-for-storage-destinations-and-datashare}
 
@@ -401,7 +536,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-新しい[再試行イベント](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が、メール、LINE、プッシュ通知、SMS、Webhook、およびWhatsAppチャネルで利用可能になりました。これらのイベントは、フリークエンシーキャップによってスケジュールされたメッセージがアボートされるのではなく遅延される場合の可視性を提供します。メッセージが優先度を下げられたりフリークエンシーキャップが適用されたりすると、設定された再試行ウィンドウ内で再試行できるようになり、メッセージ配信パターンとフリークエンシーキャップの影響についてより良いインサイトが得られます。詳細については、[Currents変更ログ](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
+新しい[再試行イベント](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が、メール、LINE、プッシュ通知、SMS、webhook、およびWhatsAppチャネルで利用可能になりました。これらのイベントは、フリークエンシーキャップによってスケジュールされたメッセージがアボートされるのではなく遅延される場合の可視性を提供します。メッセージが優先度を下げられたりフリークエンシーキャップが適用されたりすると、設定された再試行ウィンドウ内で再試行できるようになり、メッセージ配信パターンとフリークエンシーキャップの影響についてより良いインサイトが得られます。詳細については、[Currents変更ログ](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
 
 #### TokenStateChangeイベントに新しい「time_ms」フィールドを追加 {#add-new-timems-field-to-tokenstatechange-event}
 
@@ -429,7 +564,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 以下のSDK更新がリリースされました。Swift SDK v14.0.1はユニバーサルリンクの処理に関する問題を修正します。Android SDK v40.2.0は潜在的なメモリリークを修正し、透明なアクティビティが存在する場合に複数のセッションが開かれる問題を解決します。Expo SDK v3.2.0は、ユニバーサルリンクのネイティブSwift SDK処理を設定する`forwardUniversalLinks`オプション（デフォルト：false）を追加します。
 
-#### SDKの破壊的更新 {#sdk-breaking-updates}
+#### SDKの破壊的更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -446,7 +581,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 {% details 2026年1月8日 %}
 ## 2026年1月8日リリース {#january-8-2026-release}
 
-### データ＆レポート {#data-reporting}
+### データ＆レポート
 
 #### Currentsイベントの更新 {#updates-to-currents-events}
 
@@ -476,16 +611,16 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 [クラウドデータ取り込み**同期ログ**ダッシュボード]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_logs/#exporting-sync-logs)で、同期実行の行レベルログのエクスポートを以下から選択できます。
 
-* **エラーのある行：** **エラー**ステータスの行のみを含むファイルをダウンロードします。
+* **エラーのある行：** **Error**ステータスの行のみを含むファイルをダウンロードします。
 * **すべての行：** 実行で処理されたすべての行を含むファイルをダウンロードします。
 
-### チャネル＆タッチポイント {#channels-touchpoints}
+### チャネルとタッチポイント
 
 #### Bring Your Own（BYO）WhatsAppコネクター {#bring-your-own-byo-whatsapp-connector}
 
-[Bring Your Own（BYO）WhatsAppコネクター]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector/)は、BrazeとInfobipの間のパートナーシップで、InfobipのWhatsApp Business Manager（WABA）へのBrazeアクセスを提供します。これにより、セグメンテーション、パーソナライゼーション、キャンペーンオーケストレーションにBrazeを使用しながら、Infobipで直接メッセージングコストを管理・支払いできます。
+[Bring Your Own（BYO）WhatsAppコネクター]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector/)は、BrazeとInfobipの間のパートナーシップで、InfobipのWhatsApp Business Manager（WABA）へのBrazeアクセスを提供します。これにより、セグメンテーション、パーソナライゼーション、Campaignオーケストレーションにはbrazeを使用しながら、Infobipで直接メッセージングコストを管理・支払いできます。
 
-#### Canvasのバナー {#banners-in-canvas}
+#### Canvasのバナー
 
 {% multi_lang_include release_type.md release="Early access" %}
 
@@ -495,19 +630,19 @@ Canvasの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/can
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[ダイナミックBCC]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=bcc%20address#dynamic-bcc)では、BCCアドレスにLiquidを使用できます。この機能は**メール設定**でのみ利用可能で、キャンペーン自体では設定できません。メール受信者ごとに1つのBCCアドレスのみが許可されます。
+[ダイナミックBCC]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=bcc%20address#dynamic-bcc)では、BCCアドレスにLiquidを使用できます。この機能は**メール設定**でのみ利用可能で、Campaign自体では設定できません。メール受信者ごとに1つのBCCアドレスのみが許可されます。
 
 #### チャネルベースのレート制限 {#channel-based-rate-limits}
 
-マルチチャネルのキャンペーンまたはCanvas全体で共有されるレート制限の代わりに、チャネルごとに特定のレート制限を選択できます。この場合、レート制限は選択した各チャネルに適用されます。たとえば、キャンペーンまたはCanvasを設定して、キャンペーンまたはCanvas全体で1分あたり最大5,000件のWebhookと2,500件のSMSメッセージを送信できます。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
+マルチチャネルのCampaignまたはCanvas全体で共有されるレート制限の代わりに、チャネルごとに特定のレート制限を選択できます。この場合、レート制限は選択した各チャネルに適用されます。たとえば、CampaignまたはCanvasを設定して、CampaignまたはCanvas全体で1分あたり最大5,000件のwebhookと2,500件のSMSメッセージを送信できます。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
 
-### パートナーシップ {#partnerships}
+### パートナーシップ
 
 #### LILT - ローカライゼーション {#lilt-localization}
 
 [LILT]({{site.baseurl}}/partners/lilt/)は、エンタープライズ翻訳とコンテンツ作成のための完全なAIソリューションです。LILTにより、グローバル組織はAIエージェントと完全に自動化されたワークフローを使用して、コンテンツ、製品、コミュニケーション、サポート業務を拡張・最適化できます。
 
-### SDKの破壊的更新 {#sdk-breaking-updates}
+### SDKの破壊的更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -524,13 +659,13 @@ Canvasの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/can
 
 ## 2025年12月9日 {#december-9-2025}
 
-### データ＆レポート {#data-reporting}
+### データ＆レポート
 
 #### ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
 
 ランディングページにGoogle Tag Managerを追加するには、ドラッグアンドドロップエディタでランディングページにカスタムコードブロックを追加し、[Tag Managerコード]({{site.baseurl}}/user_guide/messaging/landing_pages/#adding-google-tag-manager-to-a-landing-page)をブロックに挿入します。
 
-### オーケストレーション {#orchestration}
+### オーケストレーション
 
 #### SMS Liquidユースケース {#sms-liquid-use-case}
 
@@ -540,11 +675,11 @@ Canvasの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/can
 
 [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)に使用する特定のURLを許可リストに登録できます。この機能にアクセスするには、カスタマーサクセスマネージャーにお問い合わせください。
 
-### チャネル＆タッチポイント {#channels-touchpoints}
+### チャネルとタッチポイント
 
 #### SMS文字エンコーディング {#sms-character-encoding}
 
-[SMSセグメント計算機]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)に文字エンコーディング機能が追加されました！**文字エンコーディングを表示**を選択して、どの文字がGSM-7またはUCS-2としてエンコードされているかを確認できます。
+[SMSセグメント計算機]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)に文字エンコーディング機能が追加されました。**文字エンコーディングを表示**を選択して、どの文字がGSM-7またはUCS-2としてエンコードされているかを確認できます。
 
 ![SMSセグメント計算機。テキストボックスにSMSのサンプルメッセージが入力され、文字エンコーディングが有効になっています。]({% image_buster /assets/img/sms/character_encoding.png %}){: style="max-width:70%;"}
 
@@ -554,7 +689,7 @@ WhatsApp用のMM APIは100%の配信可能性を提供しないため、他の�
 
 ユーザーをリターゲティングするには、特定のメッセージを受信しなかったユーザーのセグメントを構築することをお勧めします。これを行うには、エラーコード`131049`でフィルタリングします。これは、WhatsAppのユーザーごとのマーケティングテンプレート制限の適用によりマーケティングテンプレートメッセージが送信されなかったことを示します。[Braze CurrentsまたはSQLセグメントエクステンションを使用]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/#retargeting-users-on-other-braze-channels)して実行できます。
 
-### パートナーシップ {#partnerships}
+### パートナーシップ
 
 #### OtherLevels - ダイナミックコンテンツ {#otherlevels-dynamic-content}
 
@@ -562,7 +697,7 @@ WhatsApp用のMM APIは100%の配信可能性を提供しないため、他の�
 
 ### SDK
 
-#### SDKの破壊的更新 {#sdk-breaking-updates}
+#### SDKの破壊的更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -679,7 +814,7 @@ WhatsApp FlowメッセージをBraze CanvasまたはCampaignに組み込む場�
 
 #### Cloudinary - ダイナミックコンテンツ {#cloudinary-dynamic-content}
 
-[Cloudinary]({{site.baseurl}}/partners/cloudinary/)は、チャネルやカスタマージャーニー全体のあらゆるキャンペーンに大規模に画像や動画を管理、編集、最適化、配信できる画像・動画プラットフォームです。統合して有効にすると、Cloudinaryのメディア管理がBraze CampaignsおよびCanvasesにダイナミックでコンテキストに応じたパーソナライズされたアセット配信を提供します。
+[Cloudinary]({{site.baseurl}}/partners/cloudinary/)は、チャネルやカスタマージャーニー全体のあらゆるCampaignに大規模に画像や動画を管理、編集、最適化、配信できる画像・動画プラットフォームです。統合して有効にすると、Cloudinaryのメディア管理がBraze CampaignsおよびCanvasesにダイナミックでコンテキストに応じたパーソナライズされたアセット配信を提供します。
 
 #### Kameleoon - ABテスト {#kameleoon-ab-testing}
 
@@ -728,7 +863,7 @@ WhatsApp FlowメッセージをBraze CanvasまたはCampaignに組み込む場�
 
 [BrazeAI Decisioning Studio™](https://www.braze.com/product/brazeai-decisioning-studio/)は、ABテストをAI意思決定に置き換え、すべてをパーソナライズし、クリックではなくあらゆるメトリクスを最大化します。BrazeAI Decisioning Studio™を使用すると、任意のビジネスKPIを最適化できます。サンプルユースケースと主な機能については、専用セクション[BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/)を参照してください。
 
-### データの柔軟性 {#data-flexibility}
+### データの柔軟性
 
 #### Currentsの新しいイベント {#new-currents-events}
 
@@ -789,9 +924,9 @@ WhatsApp FlowメッセージをBraze CanvasまたはCampaignに組み込む場�
 
 [バナーを作成]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)する際に、空白のテンプレートから始めたり、Brazeテンプレートを使用したり、保存済みのバナーテンプレートを選択したりできるようになりました。
 
-### 強力なチャネル {#robust-channels}
+### 強力なチャネル
 
-#### 抑制リスト {#suppression-lists}
+#### 抑制リスト
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -807,7 +942,7 @@ WhatsApp FlowメッセージをBraze CanvasまたはCampaignに組み込む場�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[SMSおよびRCSボットクリックフィルタリング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering/)は、ボットクリックの疑いを除外することでキャンペーン分析とワークフローを強化します。「ボットクリック」とは、Webクローラー、AndroidおよびiOSリンクプレビュー、またはCPaaSセキュリティソフトウェアなどによるSMSおよびRCSメッセージの短縮リンクの自動クリックを指します。この機能により、正確なレポート、セグメンテーション、オーケストレーションが実際のユーザーに対して行えるようになります。
+[SMSおよびRCSボットクリックフィルタリング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering/)は、ボットクリックの疑いを除外することでCampaign分析とワークフローを強化します。「ボットクリック」とは、Webクローラー、AndroidおよびiOSリンクプレビュー、またはCPaaSセキュリティソフトウェアなどによるSMSおよびRCSメッセージの短縮リンクの自動クリックを指します。この機能により、正確なレポート、セグメンテーション、オーケストレーションが実際のユーザーに対して行えるようになります。
 
 #### WhatsApp電話番号の移行 {#transfer-whatsapp-phone-numbers}
 
@@ -825,7 +960,7 @@ Canvasで、[レスポンスメッセージ]({{site.baseurl}}/user_guide/channel
 
 WhatsAppチャネルで[AIチャットボットとライブエージェントハンドオフの力を活用]({{site.baseurl}}/user_guide/channels/whatsapp/use_cases/whatsapp_and_external_systems/)して、カスタマーサポート業務を合理化しましょう。日常的な問い合わせを自動化し、必要に応じて人間のエージェントにシームレスに移行することで、応答時間を大幅に改善し、全体的なカスタマーエクスペリエンスを向上させることができます。
 
-### AIとMLのオートメーション {#ai-and-ml-automation}
+### AIとMLのオートメーション
 
 #### Brazeエージェント {#braze-agents}
 
@@ -833,17 +968,17 @@ WhatsAppチャネルで[AIチャットボットとライブエージェントハ
 
 [Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)は、Braze内で作成できるAIパワーのヘルパーです。エージェントは、コンテンツを生成し、インテリジェントな決定を行い、データを拡張して、よりパーソナライズされたカスタマーエクスペリエンスを提供できます。
 
-### 新しいBrazeパートナーシップ {#new-braze-partnerships}
+### 新しいBrazeパートナーシップ
 
 #### Jasper - テンプレート {#jasper-templates}
 
-Brazeとの[Jasper]({{site.baseurl}}/partners/jasper/)インテグレーションにより、コンテンツ作成とキャンペーン実行を合理化できます。Jasperを使用すると、マーケティングチームが高品質でオンブランドのコピーを数分で作成できます。そして、Brazeはこれらのメッセージを最適なタイミングで適切なオーディエンスに配信することを容易にします。このインテグレーションにより、シームレスなワークフローが促進され、手作業の労力が削減され、より強力なエンゲージメント成果がもたらされます。
+Brazeとの[Jasper]({{site.baseurl}}/partners/jasper/)インテグレーションにより、コンテンツ作成とCampaign実行を合理化できます。Jasperを使用すると、マーケティングチームが高品質でオンブランドのコピーを数分で作成できます。そして、Brazeはこれらのメッセージを最適なタイミングで適切なオーディエンスに配信することを容易にします。このインテグレーションにより、シームレスなワークフローが促進され、手作業の労力が削減され、より強力なエンゲージメント成果がもたらされます。
 
 #### Swym - ロイヤルティとリターゲティング {#swym-loyalty-and-retargeting}
 
-[Swym]({{site.baseurl}}/partners/swym/)は、eコマースブランドがウィッシュリスト、後で保存、ギフトレジストリ、再入荷アラートでショッピングインテントをキャプチャするのに役立ちます。豊富な許可ベースのデータを使用して、ハイパーターゲットのキャンペーンを作成し、エンゲージメントを促進し、コンバージョンを向上させ、ロイヤルティを高めるパーソナライズされたショッピングエクスペリエンスを提供できます。
+[Swym]({{site.baseurl}}/partners/swym/)は、eコマースブランドがウィッシュリスト、後で保存、ギフトレジストリ、再入荷アラートでショッピングインテントをキャプチャするのに役立ちます。豊富な許可ベースのデータを使用して、ハイパーターゲットのCampaignsを作成し、エンゲージメントを促進し、コンバージョンを向上させ、ロイヤルティを高めるパーソナライズされたショッピングエクスペリエンスを提供できます。
 
-### SDKの更新 {#sdk-updates}
+### SDKの更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -880,7 +1015,7 @@ Brazeとの[Jasper]({{site.baseurl}}/partners/jasper/)インテグレーショ�
 
 ## 2025年9月16日リリース {#september-16-2025-release}
 
-### データの柔軟性 {#data-flexibility}
+### データの柔軟性
 
 #### Brazeデータプラットフォーム {#braze-data-platform}
 
@@ -894,7 +1029,7 @@ Brazeデータプラットフォームは、包括的で構成可能なデータ
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-バナーキャンペーンからカスタムプロパティを使用して、SDKを通じてキーバリューデータを取得し、アプリの動作や外観を変更できます。詳細については、[カスタムバナープロパティ]({{site.baseurl}}/developer_guide/banners/placements/#custom-properties)を参照してください。
+バナーCampaignからカスタムプロパティを使用して、SDKを通じてキーバリューデータを取得し、アプリの動作や外観を変更できます。詳細については、[カスタムバナープロパティ]({{site.baseurl}}/developer_guide/banners/placements/#custom-properties)を参照してください。
 
 #### トークン認証 {#token-authentication}
 
@@ -906,15 +1041,15 @@ Brazeコネクテッドコンテンツを使用する際、特定のAPIではユ
 
 ユーザーの更新ステップを通じて、プロモーションコードをユーザーのプロファイルに保存できます。詳細については、[プロモーションコードをユーザープロファイルに保存]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#save-to-profile)を参照してください。
 
-### 創造性を引き出す {#unlocking-creativity}
+### 創造性を引き出す
 
 #### Brazeパイロット {#braze-pilot}
 
 [Brazeパイロット]({{site.baseurl}}/user_guide/get_started/braze_pilot/)は、AndroidおよびiOSで一般に利用可能なアプリで、Brazeダッシュボードからスマートフォンにメッセージを起動できます。アプリのダウンロード、Brazeダッシュボードへの接続の初期化、セットアップの完了については、[Brazeパイロットの使用開始]({{site.baseurl}}/user_guide/get_started/braze_pilot/getting_started/)を参照してください。
 
-### 新しいBrazeパートナーシップ {#new-braze-partnerships}
+### 新しいBrazeパートナーシップ
 
-#### Blings - ビジュアル＆インタラクティブコンテンツ {#blings-visual-and-interactive-content}
+#### Blings - ビジュアルとインタラクティブコンテンツ {#blings-visual-and-interactive-content}
 
 [Blings]({{site.baseurl}}/partners/blings/)は、リアルタイム、インタラクティブ、データドリブン型の動画エクスペリエンスをチャネル全体で大規模に配信できる次世代パーソナライズ動画プラットフォームです。
 
@@ -924,7 +1059,7 @@ Shopifyオンラインストアでは、サイトでBraze SDKをサポートす�
 
 ただし、Google Tag Managerなどのサードパーティツールを使用することを好む場合もあると理解していますので、その方法についてのガイドをまとめました。開始するには、[Shopify：サードパーティタグ付け]({{site.baseurl}}/shopify_standard_integration_third_party_tagging/)を参照してください。
 
-### SDKの更新 {#sdk-updates}
+### SDKの更新
 
 以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -934,115 +1069,5 @@ Shopifyオンラインストアでは、サイトでBraze SDKをサポートす�
 
 - [Braze Swift SDK 7.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1300)
   - `13.0.0+` SemVer仕様のリリースを必要とするようにBraze Swift SDKバインディングを更新。これにより、Braze SDKの`13.0.0`から`14.0.0`（含まない）までのあらゆるバージョンとの互換性が確保されます。
-
-{% enddetails %}
-{% details 2025年8月19日 %}
-
-## 2025年8月19日リリース {#august-19-2025-release}
-
-### Canvasコンテキストへのタイムゾーン整合性の標準化 {#time-zone-consistency-standardization-to-canvas-context}
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-[Canvasコンテキストステップのアーリーアクセス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)に参加している場合、アクションベースのCanvasesのトリガーイベントプロパティからの日時型を持つすべてのタイムスタンプは、常に[UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)に正規化されます。詳細については、[タイムゾーン整合性の標準化]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#time-zone-consistency-standardization)を参照してください。
-
-### データの柔軟性 {#data-flexibility}
-
-#### セルフサービスカスタムドメイン {#self-serve-custom-domains}
-
-{% multi_lang_include release_type.md release="General access" %}
-
-[セルフサービスカスタムドメイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)は、SMS、RCS、WhatsApp用の独自のカスタムドメインをBrazeダッシュボードから直接設定・管理できるようにします。1か所で最大10個のカスタムドメインを簡単に追加、監視、管理できます。
-
-#### セグメントファネル統計 {#segment-funnel-statistics}
-
-[ファネル統計を表示]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#viewing-funnel-statistics)を選択して、そのフィルターグループの統計を表示し、追加された各フィルターがセグメント統計にどのように影響するかを確認します。その時点までのすべてのフィルターによってターゲットされているユーザーの推定数とパーセンテージが表示されます。フィルターグループの統計が表示されると、フィルターを変更するたびに自動的に更新されます。
-
-#### プッシュ通知の`/campaigns/details`エンドポイントの新しいレスポンスフィールド {#new-response-fields-for-campaignsdetails-endpoint-for-push-notifications}
-
-プッシュ通知の`messages`レスポンスに2つの新しいフィールドが含まれるようになりました。
-
-- `image_url`：Android通知画像、iOS通知画像、またはWebプッシュアイコン画像の画像URL。
-- `large_image_url`：Android ChromeおよびWindows Webプッシュアクション用のWeb通知画像URL。
-
-#### PIIフィールドの定義 {#defining-pii-fields}
-
-特定のフィールドを[PIIフィールドとして選択・定義]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#view-pii)することは、ユーザーがBrazeダッシュボードで表示できるものにのみ影響し、そのようなPIIフィールドのエンドユーザーデータの処理方法には影響しません。
-
-[データリテンション]({{site.baseurl}}/api/data_retention/)に関連するものを含め、会社に適用されるプライバシー規制およびポリシーとダッシュボードの設定を整合させるために、法務チームにご相談ください。
-
-#### レポートビルダーのダウンロードリンクの共有 {#sharing-a-report-builder-download-link}
-
-**共有**を選択し、**リンクを共有**または**メールを送信またはスケジュール**を選択して、レポートへの[ダッシュボードリンクを共有]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/#sharing-a-report)できます。
-
-### 創造性を引き出す {#unlocking-creativity}
-
-#### ドラッグアンドドロップメール用のカスタムヘッドタグ {#custom-head-tags-for-drag-and-drop-emails}
-
-`<head>`タグを使用して、メールメッセージにCSSとメタデータを追加できます。たとえば、これらのタグを使用してスタイルシートやファビコンを追加できます。`<head>`タグではLiquidがサポートされています。
-
-### 強力なチャネル {#robust-channels}
-
-#### ファジーオプトアウトのベストプラクティス {#fuzzy-out-out-best-practices}
-
-ファジーオプトアウトメッセージを思慮深く設定し、サブスクライバーにとって明確で、準拠し、ポジティブなエクスペリエンスを作成するための[ベストプラクティスセクション]({{site.baseurl}})を追加しました。
-
-#### WhatsApp Flows
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-[WhatsApp Flows]({{site.baseurl}}/whatsapp_flows/)は、既存のWhatsAppチャネルの拡張機能で、インタラクティブでダイナミックなメッセージングエクスペリエンスを作成できます。
-
-#### WhatsAppインバウンド製品質問 {#whatsapp-inbound-product-questions}
-
-ユーザーは[製品質問]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/product_messages/#receiving-inbound-product-questions)で製品またはカタログメッセージに応答できます。これらは受信メッセージとして到着し、アクションパスでソートできます。
-
-さらに、Brazeはこれらの質問から製品IDとカタログIDを抽出するため、回答を自動化したり、他のチーム（カスタマーサポートなど）に質問を送信したりする場合に、それらの詳細を含めることができます。
-
-### AIとMLのオートメーション {#ai-and-ml-automation}
-
-#### 新しいBrazeAI<sup>TM</sup>ユースケース記事 {#new-brazeai-use-case-articles}
-
-BrazeAI<sup>TM</sup>を最大限に活用するための新しいユースケース記事を追加しました。これらのガイドでは、AIをエンゲージメント戦略に適用するための実用的な方法を紹介しています。
-
-- [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/use_case/)：解約リスクのある顧客を特定し、早期にアクションを取ります。
-- [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/use_case/)：主要なユーザーアクションを予測し、リアルタイムでエクスペリエンスを形成します。
-- [レコメンデーション]({{site.baseurl}}/user_guide/brazeai/recommendations/use_case /)：顧客行動に基づいて、より関連性の高いコンテンツと製品を提供します。
-
-#### MCPサーバー {#mcp-server}
-
-{% multi_lang_include release_type.md release="Beta" %}
-
-[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)は、セキュアで読み取り専用の接続で、ClaudeやCursorなどのAIツールが非PIIのBrazeデータにアクセスして、質問に答え、トレンドを分析し、データを変更せずにインサイトを提供できます。
-
-### SDKの更新 {#sdk-updates}
-
-以下のSDK更新がリリースされました。破壊的更新は下記のとおりです。その他すべての更新は、対応するSDK変更ログをご確認ください。
-
-- [Swift SDK 13.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - `BrazeSDKAuthDelegate.braze(_:sdkAuthenticationFailedWithError:)`の機能を拡張し、「Optional」認証エラーでもトリガーされるようになりました。
-        - デリゲートメソッド`BrazeSDKAuthDelegate.braze(_:sdkAuthenticationFailedWithError:)`は、「Required」と「Optional」の両方の認証エラーでトリガーされるようになりました。
-        - 「Required」SDK認証エラーのみを処理する場合は、このデリゲートメソッドの実装内で`BrazeSDKAuthError.optional`がfalseであることを確認するチェックを追加してください。
-    - `Braze.Configuration.sdkAuthentication`の使用を有効にした場合に効果を発揮するように修正。
-        - 以前は、この設定の値はSDKによって消費されず、トークンが存在する場合は常にリクエストにアタッチされていました。
-        - 現在、SDKはこの設定が有効な場合にのみ、SDK認証トークンを送信ネットワークリクエストにアタッチします。
-    - `Braze.FeatureFlag`のすべてのプロパティと`Braze.Banner`のすべてのプロパティのセッターが`private`になりました。これらのクラスのプロパティは読み取り専用になりました。
-    - バージョン`11.4.0`で非推奨になった`Braze.Banner.id`プロパティを削除。
-        - 代わりに、`Braze.Banner.trackingId`を使用してバナーのキャンペーントラッキングIDを読み取ります。
-- [React Native SDK 16.0.0](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)
-    - ネイティブAndroid SDKバージョンバインディングを[Braze Android SDK 36.0.0から37.0.0に](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed)更新。
-    - ネイティブSwift SDKバージョンバインディングを[Braze Swift SDK 12.0.0から13.0.0に](https://github.com/braze-inc/braze-swift-sdk/compare/12.0.0...13.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed)更新。
-        - `sdkAuthenticationError`イベントが「Required」と「Optional」の両方の認証エラーでトリガーされるようになりました。
-- [Xamarin SDK 7.0.0](https://github.com/braze-inc/braze-xamarin-sdk/blob/7.0.0/CHANGELOG.md)
-    - iOSおよびAndroidバインディングの.NET 9.0サポートを追加。
-        - .NET 8.0のサポートを削除。
-        - [iOS 12.2の最小バージョン](https://learn.microsoft.com/en-us/dotnet/maui/whats-new/dotnet-9?view=net-maui-9.0)が必要です。
-    - Androidバインディングを[Braze Android 32.0.0から37.0.0に](https://github.com/braze-inc/braze-android-sdk/compare/v32.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed)更新。
-    - iOSバインディングを[Braze Swift SDK 10.0.0から12.1.0に](https://github.com/braze-inc/braze-swift-sdk/compare/10.0.0...12.1.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed)更新。
-    - このリリースにはバナー機能のAPIが含まれていますが、現在このSDKでは完全にサポートされていません。.NET MAUIアプリでバナーを使用する場合は、アプリケーションに統合する前にカスタマーサポートマネージャーにお問い合わせください。
-- [Cordova SDK 13.0.0](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md#1300)
-    - 内部iOSの`enableSdk`メソッドの実装を更新し、Swift SDKで非推奨になった`_requestEnableSDKOnNextAppRun`の代わりに`setEnabled:`を使用。
-    - このメソッドを呼び出すと、アプリを再起動して有効にする必要がなくなりました。SDKは、このメソッドが実行されるとすぐに有効になります。
-    - ネイティブAndroidブリッジを[Braze Android SDK `36.0.0`から`37.0.0`に](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed)更新。
 
 {% enddetails %}

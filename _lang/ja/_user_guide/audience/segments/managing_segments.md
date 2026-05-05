@@ -68,6 +68,10 @@ Segmentが相互に参照するループを防ぐため、**Segment Membership**
 
 複数のSegment名の横にあるチェックボックスをオンにすることで、一括アーカイブや一括タグ付けなどの一括アクションを実行することもできます。
 
+{% alert tip %}
+ワークスペース内の既存のSegmentの機械可読なエクスポートが必要な場合（現在のテーブルビューだけでなく）、[Segmentリストエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用し、結果をページネーションで取得してください。アーカイブされたSegmentを監査するには、ステータスフィルターを使用して**Segments**ダッシュボードで個別に確認してください。
+{% endalert %}
+
 ![複数のSegmentが選択され、「Tag As」ドロップダウンフィールドで「CRM」が選択されている状態。]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### 最終閲覧以降の変更 {#changes-since-last-viewed}

@@ -11,8 +11,6 @@ description: "Este artigo fornece etapas sobre como usar locais nas suas mensage
 
 > Depois de adicionar locais ao seu espaço de trabalho, você pode direcionar usuários em diferentes idiomas, tudo dentro de um único push, e-mail, banner, mensagem no app ou Content Block.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Pré-requisitos {#prerequisites}
 
 Assista ao vídeo a seguir para uma visão geral opcional sobre como configurar e usar mensagens multilíngues.

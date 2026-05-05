@@ -1079,7 +1079,7 @@ a:hover {
 
 <div class="form-container">
         <form id="supportForm">
-            <!-- Step 1 -->
+            <!-- Étape 1 -->
             <div id="step1">
                 <div class="form-group">
                     <label for="subject" class="required">Objet</label>
@@ -1094,7 +1094,7 @@ a:hover {
                 <button type="button" class="submit-btn" id="toStep2" >Continuer vers le contenu suggéré</button>
             </div>
 
-            <!-- Step 2 -->
+            <!-- Étape 2 -->
             <div id="step2" style="display:none;">
                 <h2 class='gpt-heading'></h2>
                  <h2 class='gpt-heading'></h2>
@@ -1174,7 +1174,7 @@ a:hover {
     <form  id="ticket_form">
       <div id="step3">
         <h2>Vous ne trouvez pas ce dont vous avez besoin ? Contactez notre équipe d'assistance.</h2>
-        <!-- Row 1 -->
+        <!-- Ligne 1 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -1190,7 +1190,7 @@ a:hover {
           </div>
         </div>
 
-        <!-- Row 2 -->
+        <!-- Ligne 2 -->
         <div class="row">
           <div class="col-md-6" id="subcategory_div" style="display:none;">
             <div class="form-group">
@@ -1208,7 +1208,7 @@ a:hover {
 
         <!-- <h2>Vous ne trouvez pas ce dont vous avez besoin ? Contactez notre équipe d'assistance.</h2> -->
 
-        <!-- Row 3 -->
+        <!-- Ligne 3 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -1224,7 +1224,7 @@ a:hover {
           </div>
         </div>
 
-        <!-- Row 4 -->
+        <!-- Ligne 4 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -1245,24 +1245,24 @@ a:hover {
           </div>
         </div>
 
-        <!-- Subject (Full width) -->
+        <!-- Objet (pleine largeur) -->
         <div class="form-group">
           <label for="ticket_subject" class="required">Objet </label>
           <input type="text" id="ticket_subject" name="Subject" placeholder="Quel est le sujet de votre question ?" class="form-control" required>
         </div>
 
-        <!-- Question (Full width) -->
+        <!-- Question (pleine largeur) -->
         <div class="form-group">
           <label for="ticket_issue" class="required">Question </label>
           <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Incluez des détails tels que la plateforme, la version du SDK, les endpoints REST API, les étapes pour reproduire le problème…"></textarea>
         </div>
 
-        <!-- Info text -->
+        <!-- Texte d'information -->
         <div class="form-group small-text">
           <p>Afin de vous fournir une assistance technique ou de résoudre des problèmes de service ou techniques, sachez que Braze peut avoir besoin d'accéder à votre tableau de bord et à vos données. L'assistance technique de Braze fonctionne pendant les heures ouvrables standard sur plusieurs fuseaux horaires pour servir notre clientèle mondiale. Pour connaître les horaires d'assistance spécifiques à votre région ou pour les problèmes signalés en dehors des heures ouvrables, veuillez consulter le guide d'assistance. Les délais de réponse peuvent varier en fonction du moment où votre demande est soumise, de votre niveau d'assistance et de la gravité du problème.</p>
         </div>
 
-        <!-- Submit button -->
+        <!-- Bouton d'envoi -->
         <div class="form-group text-right">
           <button type="submit" name="Submit" value="Submit" class="btn btn-black" id="ticket_submit_button" role="button"> ENVOYER </button>
         </div>
@@ -2656,9 +2656,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>Voici quelques articles qui pourraient vous aider :</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>Aucune suggestion trouvée.</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2692,6 +2692,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2715,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,

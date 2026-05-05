@@ -21,11 +21,11 @@ Braze REST API를 사용하여 중복 사용자를 병합하려면 [POST: 사용
 
 Braze에서 **오디언스** > **사용자 검색**을 선택합니다.
 
-![내비게이션 메뉴에서 강조 표시된 '사용자 검색' 타일.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
+![내비게이션 메뉴에서 강조 표시된 사용자 검색 타일.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
 
 중복 프로필의 이메일 주소나 전화번호와 같은 고유 식별자를 입력한 다음 **Search**를 선택합니다.
 
-![Braze 대시보드의 '사용자 검색' 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
+![Braze 대시보드의 사용자 검색 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
 
 ### 2단계: 중복 항목 병합 {#step-2-merge-duplicates}
 
@@ -43,19 +43,19 @@ Braze에서 **오디언스** > **사용자 검색**을 선택합니다.
 
 ## 일괄 병합 {#bulk-merging}
 
-중복 사용자를 일괄 병합하면 Braze가 일치하는 식별자(예: 이메일 주소)를 가진 프로필을 찾아 모든 데이터를 `external_id`가 있는 가장 최근에 업데이트된 프로필로 병합합니다. `external_id`가 있는 프로필이 없는 경우 `external_id`가 없는 가장 최근에 업데이트된 프로필이 대신 사용됩니다.
+중복 사용자를 일괄 병합하면 Braze가 일치하는 식별자(예: 이메일 주소)를 가진 프로필을 찾아 하나의 프로필을 유지합니다. Braze는 먼저 `external_id`가 있는 프로필을 우선시한 다음 **Resolving ties** 설정인 **Resolve ties using** 및 **Prioritization**을 적용합니다. `external_id`가 있는 프로필이 없는 경우 Braze는 `external_id`가 없는 프로필 전체에 **Resolve ties using** 및 **Prioritization**을 사용합니다. Braze는 이러한 설정이 유지할 프로필 하나를 식별하는 경우에만 사용자를 병합합니다. 예를 들어, **Resolve ties using**이 **Updated date**이고 두 프로필의 마지막 업데이트 타임스탬프가 동일한 경우 Braze는 동점을 해결할 수 없으므로 해당 사용자는 병합되지 않습니다.
 
 ### 1단계: 오디언스 관리로 이동 {#step-1-go-to-manage-audience}
 
 Braze 대시보드에서 **오디언스** > **오디언스 관리**를 선택합니다.
 
-![내비게이션 메뉴에서 강조 표시된 '오디언스 관리' 타일.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
+![내비게이션 메뉴에서 강조 표시된 오디언스 관리 타일.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
 
 ### 2단계: 결과 미리보기(선택 사항) {#step-2-preview-the-results-optional}
 
 중복 항목을 병합하기 전에 결과를 미리 보려면 **Generate list of duplicates**를 선택합니다.
 
-!['Generate list of duplicates'가 강조 표시된 '오디언스 관리' 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
+![Generate list of duplicates가 강조 표시된 오디언스 관리 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
 
 Braze가 미리보기를 생성하여 이메일 주소로 CSV 파일로 전송합니다.
 
@@ -86,7 +86,7 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
 {% endalert %}
 
-!['Merge all duplicates'가 강조 표시된 '오디언스 관리' 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
+![Merge all duplicates가 강조 표시된 오디언스 관리 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## 규칙 기반 병합 {#rules-based-merging}
 
@@ -100,7 +100,7 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 - **Resolve ties using**: Created date, Updated date, Last session
 - **Prioritization**: Newest, Oldest
 
-!['Profile to keep'과 'Resolving ties' 옵션을 선택하는 섹션이 있는 'Edit rules' 패널.]({% image_buster /assets/img/audience_management/duplicate_users/edit_rules.png %}){: style="max-width:40%;"}
+![Profile to keep과 Resolving ties 옵션을 선택하는 섹션이 있는 Edit rules 패널.]({% image_buster /assets/img/audience_management/duplicate_users/edit_rules.png %}){: style="max-width:40%;"}
 
 예를 들어, 전화번호가 있는 프로필을 유지할 수 있습니다. 여러 사용자가 동일한 전화번호를 가진 경우 **Updated date** 필드를 사용하여 동점을 해결하고 가장 최근에 업데이트된 사용자를 우선시할 수 있습니다.
 
@@ -120,7 +120,7 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 
 규칙 기반 병합과 유사하게, 예약 병합을 사용하면 사전 구성된 규칙을 사용하여 매일 사용자 프로필 병합을 자동화할 수 있습니다.
 
-!['schedule' 버튼이 있는 '오디언스 관리' 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
+![schedule 버튼이 있는 오디언스 관리 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
 
 기능이 활성화되면 Braze가 자동으로 시간대를 할당하여 사용자의 회사 시간대 기준 매일 약 오전 12시에 병합 프로세스를 수행합니다. 예약 병합은 언제든지 비활성화할 수 있습니다. Braze는 예약된 병합이 실행되기 24시간 전에 워크스페이스 관리자에게 알림을 보내 구성을 검토할 시간을 제공합니다.
 

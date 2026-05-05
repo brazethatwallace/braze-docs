@@ -1,6 +1,6 @@
 ---
 permalink: /support_contact/
-nav_title: 도움말 | Braze
+nav_title: Help | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
@@ -2656,9 +2656,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>도움이 될 수 있는 문서가 있습니다:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>추천 결과를 찾을 수 없습니다.</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2692,6 +2692,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2715,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,
@@ -2765,7 +2773,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 // Optional: Add a back button to return to the 3-step form
 function addBackButton() {
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Suggestions';
+    backButton.textContent = '추천 콘텐츠로 돌아가기';
     backButton.className = 'submit-btn';
     backButton.style.backgroundColor = 'grey';
     backButton.style.marginTop = '20px';

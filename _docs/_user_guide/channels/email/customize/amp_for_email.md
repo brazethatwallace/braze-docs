@@ -38,9 +38,9 @@ Before you can send AMP emails to users, you must register with our email client
 
 For a full list of supported email clients, refer to [AMP documentation](https://amp.dev/support/faq/email-support).
 
-### Enabling Gmail account
+### Enable Gmail account {#enabling-gmail-account}
 
-Go to your Gmail settings, and select **Enable Dynamic Email** under **General**.
+Go to your Gmail settings, and select **Enable dynamic email** in the **General** tab.
 
 ![An example of Gmail settings with the "Enable dynamic email" checkbox selected.]({% image_buster /assets/img/dynamic-content.png %})
 
@@ -69,7 +69,7 @@ You can also use AMP for email with our API. If you use any of the Braze [Messag
 }
 ```
 
-## Creating your AMP email
+## Create your AMP email
 
 First, build your AMP email using [components](#components). Next, use the [Braze API](#api-usage) to send your message, making sure to include `amp_body` for your AMP HTML.
 
@@ -189,7 +189,7 @@ Examples include:
 {% endtab %}
 {% endtabs %}
 
-### Using amp-mustache
+### Use amp-mustache
 
 Similar to Liquid, AMP supports a scripting language for more advanced use cases. This component is called [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). When including any Mustache markup language, you'll need to wrap it around the [`raw`](https://shopify.github.io/liquid/tags/raw/) tag from Liquid. Note that Liquid and Mustache share syntax styling. 
 
@@ -230,11 +230,14 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
     </tbody>
 </table>
 
-## Testing and troubleshooting
+## Test and troubleshoot
 
-Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
 
-Before you send your AMP email, we recommend that you test according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+Before you send your AMP email, we recommend:
+
+- Testing according to these [Gmail guidelines](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+- Using the [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/) to validate AMP markup.
+  - If your AMP email uses Liquid tags, replace them with static placeholder values before pasting into the Gmail AMP for Email Playground. Unrendered Liquid tags causes validation errors.
 
 For your AMP email to be delivered to any Gmail account, the email must meet the following conditions:
 
@@ -243,12 +246,25 @@ For your AMP email to be delivered to any Gmail account, the email must meet the
 - The email should include the AMP MIME part before the HTML MIME part.
 - The AMP MIME part must be smaller than 100&nbsp;KB.
 
+Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
+
 If none of these conditions are causing the error, contact [Support]({{site.baseurl}}/support_contact/).
+
+### Configure Gmail inbox to render AMP emails
+
+You can configure your Gmail inbox to render AMP emails for testing purposes by doing the following:
+
+1. In Gmail, select **Settings** in the top right corner of your inbox.
+2. Select **See all settings**.
+3. In the **General** tab, go to the **Dynamic email** section and confirm the **Enable dynamic email** checkbox is selected.
+4. Next, select **Developer Settings**, and select the **Always allow dynamic emails from this sender:** checkbox.
+5. Enter the same domain as on your test message’s From address.
+6. Save your changes.
+
+Now you can send the test email to your Gmail account, and AMP emails should render in Gmail.
 
 ### Frequently asked questions
 
 #### Should I segment with AMP emails?
 
 We advocate not segmenting to send to all different types of users. This is because we send AMP messages in multipart, having different versions included in the original email. If a user can't see the AMP version, it will default back to HTML.
-
-

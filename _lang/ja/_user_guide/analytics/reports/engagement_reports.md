@@ -34,7 +34,7 @@ tool:
 
 ### ステップ 1:レポートを作成する {#step-1-create-a-report}
 
-ダッシュボードアカウントで、**Analytics** > **エンゲージメントレポート**に移動します。**+ 新しいレポートを作成**を選択します。
+ダッシュボードアカウントで、**Analytics** > **Engagement Reports** に移動します。**+ Create New Report** を選択します。
 
 ### ステップ 2:メッセージを追加する {#step-2-add-messages}
 
@@ -43,7 +43,7 @@ tool:
 - CampaignsとCanvasesを手動で選択する
 - 特定のルールに基づいてCampaignsとCanvasesを自動的に選択する
 
-![キャンペーンとCanvasのメッセージをエンゲージメントレポートに追加するための選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![エンゲージメントレポートのメッセージ選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### CampaignsまたはCanvasesを手動で選択する {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,13 @@ tool:
 
 **統計を追加**ステップでは、選択したCampaignsまたはCanvasesの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
 
-![「統計を追加」ステップで、選択したチャネルに応じた利用可能な統計が表示される画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![エンゲージメントレポートの統計追加画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+
+エンゲージメントレポートはCampaignまたはCanvasごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなCampaignsおよびCanvasesにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder/)を使用してください。
+
+{% alert note %}
+*キャリアへの送信数*は非推奨ですが、すでに使用しているユーザーには引き続きサポートされます。
+{% endalert %}
 
 | チャネル | 利用可能な統計 |
 | ------| --------------|
@@ -72,10 +78,6 @@ tool:
 | Webhook | 送信数、エラー数 |
 | SMS | 送信数、キャリアへの送信数、確認済み配信数、配信失敗数、拒否数 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*キャリアへの送信数*は非推奨ですが、すでに使用しているユーザーには引き続きサポートされます。
-{% endalert %}
 
 ### ステップ 4:レポート設定を完了する {#step-4-complete-report-setup}
 
@@ -98,7 +100,15 @@ tool:
 
 デフォルトでは、エンゲージメントレポートに表示されるデータは日次（1日単位）です。異なる間隔でデータを表示するには、レポートのデータを集計する明示的な日数または週数を選択します。日次指標の代わりに、週次、月次、四半期ごと、または同様の単位でエンゲージメントを表示できます。時間ベースの集計では不十分な場合は、CampaignまたはCanvasレベルでデータをエクスポートすることもできます。
 
-![エンゲージメントレポートのデータ表示間隔を変更するためのオプション]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![エンゲージメントレポートのデータカバレッジ画面]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### CampaignまたはCanvas全体でデータを表示する {#show-data-by-entire-campaign-or-canvas}
+
+**Show Data by Entire Campaign or Canvas** を選択すると、Brazeはレポートの期間全体にわたって1,825日（5年）のチャンク単位で指標を集計します。
+
+期間が1つのチャンクを超える場合、同じCampaignまたはCanvasに対して日付列に異なる日付を持つ複数の行が表示されることがあります。一部の行には、期間の後半に記録された指標のみが含まれる場合があります（例えば、配信停止数）。また、日付がワークスペースで送信を開始するよりも数年前になることもあります。これは、エクスポートのチャンク境界を反映しているためであり、最初の送信日のみを反映しているわけではありません。
+
+日付列を選択したCampaignsやCanvasesの実際の送信時期に合わせるには、レポートの[**期間を選択する**](#select-time-frame)で開始日をファイルに含めたい最も早い日付（通常、それらのメッセージが送信を開始した時期）に設定してください。選択された最も古いメッセージまで遡るデフォルトの範囲をそのまま使用しないでください。
 
 #### レポートをスケジュールする {#schedule-your-report}
 
@@ -107,11 +117,11 @@ tool:
 - **すぐに送信:** レポートが起動された後、Brazeはこのレポートをすぐに送信します。
 - **指定した時間に送信:** このオプションでは、レポートを受け取る頻度を柔軟に選択できます。設定した日数、週数、または月数ごとにレポートを送信するよう選択できます。レポートの送信を停止する時期も定義できます。
 
-![エンゲージメントレポートの送信タイミングと頻度を設定する画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![エンゲージメントレポートのスケジュール設定画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### ステップ 5:確認して起動する {#step-5-review-and-launch}
 
-レポート設定の最終ステップでは、設定したオプションの読み取り専用の概要が表示されます。レポートを確認し、問題がなければ**レポートを起動**を選択します。
+レポート設定の最終ステップでは、設定したオプションの読み取り専用の概要が表示されます。レポートを確認し、問題がなければ **Launch Report** を選択します。
 
 ### ステップ 6:メールを確認する {#step-6-check-your-email}
 
@@ -125,12 +135,12 @@ tool:
 
 #### 期間の不一致 {#mismatched-time-range}
 
-エンゲージメントレポートの日付がCanvasまたはCampaign分析の日付と一致していることを確認してください（例えば、両方が12月1日〜15日をカバーしている場合）。Canvasが1回しか送信されていない場合でも同様です。エンゲージメントレポートの設定で、**データ表示**を確認して、正しいCanvasまたはCampaignを表示していることを確認してください。**データ表示**が*X*日ごとにデータを表示するように設定されている場合、各ステップの指標が記録された日付ごとに1行が表示されます。
+エンゲージメントレポートの日付がCanvasまたはCampaignの分析の日付と一致していることを確認してください（例えば、両方が12月1日〜15日をカバーしている場合）。Canvasが1回しか送信されていない場合でも同様です。エンゲージメントレポートの設定で、**Data Display** を確認して、正しいCanvasまたはCampaignを表示していることを確認してください。**Data Display** が *X* 日ごとにデータを表示するように設定されている場合、各ステップの指標が記録された日付ごとに1行が表示されます。
 
 スプレッドシートで合計が正しくない場合は、エクスポートの追加フィルターをクリアしてください。日次の行を合計して、同じ期間のCanvasまたはCampaignの合計と照合できます。
 
 {% alert note %}
-日次、週次、またはその他の定期的なバケットではなく、全範囲の集計行を1つだけ取得したい場合は、**データ表示**を**Campaign全体またはCanvas全体でデータを表示**に設定してください。
+日次、週次、またはその他の定期的なバケットではなく、CampaignまたはCanvas全体で集計された行を取得したい場合は、**Data Display**を**Show Data by Entire Campaign or Canvas**に設定してください。行数や日付がCSVで正しくない場合は、[CampaignまたはCanvas全体でデータを表示する](#show-data-by-entire-campaign-or-canvas)を参照してください。
 {% endalert %}
 
 #### HTMLアプリ内メッセージでのボタンクリックの重複 {#duplicate-button-clicks-in-html-in-app-messages}

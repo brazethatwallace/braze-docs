@@ -61,7 +61,7 @@ Existem certos navegadores, como os apps Naver para Android e iOS, que não ofer
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+O evento de compra legado está entrando em modo de manutenção. Os eventos de compra existentes continuam funcionando como esperado, mas nenhuma nova funcionalidade está sendo desenvolvida sobre eles, em favor dos eventos recomendados de eCommerce. Você pode continuar usando eventos de compra por tempo indeterminado. A Braze fornecerá aviso prévio bem antes de qualquer data de fim de vida ser definida.
 {% endalert %}
 
 {% endif %}
@@ -109,14 +109,14 @@ Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Escolhendo entre os tipos de filtro "Dia do ano" e "Hora"**: Ao filtrar variáveis de contexto que contêm datas, escolha o tipo de comparação correto com base em se a data se repete a cada ano:
+**Escolhendo entre os tipos de filtro "Day of year" e "Time"**: Ao filtrar variáveis de contexto que contêm datas, escolha o tipo de comparação correto com base em se a data se repete a cada ano:
 
-- **Use "Dia do ano"** quando a data se repete a cada ano (por exemplo, aniversários, datas comemorativas ou feriados como o Natal). Esse tipo de comparação calcula com base no dia do ano (1-365/366), ignorando o componente do ano.
-- **Use "Hora"** quando a data for uma data absoluta que não se repete (por exemplo, datas de término de contrato, datas de compromissos ou datas de renovação de inscrição). Esse tipo de comparação calcula com base no timestamp completo, incluindo o ano.
+- **Use "Day of year"** quando a data se repete a cada ano (por exemplo, aniversários, datas comemorativas ou feriados como o Natal). Esse tipo de comparação calcula com base no dia do ano (1-365/366), ignorando o componente do ano.
+- **Use "Time"** quando a data for uma data absoluta que não se repete (por exemplo, datas de término de contrato, datas de compromissos ou datas de renovação de inscrição). Esse tipo de comparação calcula com base no timestamp completo, incluindo o ano.
 
-Usar "Dia do ano" para datas absolutas pode produzir resultados incorretos ou inesperados porque o cálculo ignora o componente do ano. Por exemplo, se você estiver comparando uma data futura de término de contrato em abril para determinar se está dentro de 63 dias, usar "Dia do ano" pode corresponder incorretamente às datas porque compara apenas os números dos dias (119 vs 359) sem considerar que abril está na verdade a 188 dias de distância.
+Usar "Day of year" para datas absolutas pode produzir resultados incorretos ou inesperados porque o cálculo ignora o componente do ano. Por exemplo, se você estiver comparando uma data futura de término de contrato em abril para determinar se está dentro de 63 dias, usar "Day of year" pode corresponder incorretamente às datas porque compara apenas os números dos dias (119 vs 359) sem considerar que abril está na verdade a 188 dias de distância.
 
-**Diretriz geral**: A data se repete a cada ano? **Sim** → Use "Dia do ano". **Não** → Use "Hora".
+**Diretriz geral**: A data se repete a cada ano? **Sim** → Use "Day of year". **Não** → Use "Time".
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ A Meta tem um problema conhecido que pode impedir a reprodução de alguns víde
 Para esta integração, o alias de usuário deve usar o seguinte formato para que a Braze possa associar os webhooks ao perfil de usuário correto:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Mensagens multilíngues e traduções por localidade estão atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
 {% endalert %}
 
 {% endif %}

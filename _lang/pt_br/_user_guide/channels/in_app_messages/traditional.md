@@ -38,8 +38,8 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
-4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique um delay conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
+4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após o delay, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
 
@@ -319,7 +319,7 @@ Observe que, se você pretende disparar sua mensagem no app com base em um event
 A entrega de mensagens no app é inteiramente baseada nos seguintes gatilhos de ação:
 
 - Realizar uma compra
-- Abrir o app/página web
+- Abrir o app ou página web
 - Realizar um evento personalizado (funciona apenas com eventos enviados usando o SDK)
 - Abrir uma mensagem push específica
 - Agendar automaticamente campanhas para envio em um determinado horário com relação ao horário local de cada um dos seus usuários.
@@ -361,7 +361,7 @@ Para definir prioridades dentro desses agrupamentos, clique em **Set Exact Prior
 Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente um snapshot de como é a população aproximada desse Segment. Tenha em mente que a associação exata ao Segment é sempre calculada antes de a mensagem ser enviada.
 
 {% alert note %}
-Se houver uma postergação na etapa de mensagem no app, a associação ao Segment será avaliada após a postergação. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
+Se houver um delay na etapa de mensagem no app, a associação ao Segment será avaliada após o delay. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
 {% endalert %}
 
 ##### Reavaliar elegibilidade da campanha e Liquid {#re-evaluate-campaign-eligibility-and-liquid}
@@ -384,7 +384,7 @@ Não use essa opção para mensagens que podem ser disparadas enquanto o usuári
 
 Dados de usuário que o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) adiciona na mesma sessão podem, às vezes, ser usados na mensagem no app desse usuário. Por exemplo, se um usuário está no público de uma mensagem no app que está aguardando um gatilho, inicia uma sessão e, nessa mesma sessão, a REST API atualiza seu perfil, esses novos dados podem aparecer na mensagem no app quando **Re-evaluate campaign eligibility before displaying** estiver selecionado. A Braze não processará o template da mensagem no app até que seja hora de renderizá-la.
 
-Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com uma postergação agendada. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
+Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com um delay agendado. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 
@@ -412,7 +412,7 @@ Em seguida, confira [Relatórios de mensagens no app]({{site.baseurl}}/user_guid
 
 A Braze valoriza confiabilidade e velocidade. Sugerimos que você envie apenas os dados necessários para a Braze e desative quaisquer campanhas que não agreguem mais valor à sua marca.
 
-O processamento de campanhas de mensagens no app baseadas em ação que ainda estão em estado ativo, mas não estão mais enviando mensagens ou não são mais necessárias, desacelera o desempenho geral dos serviços da Braze para você e outros clientes. Esse tempo extra necessário para processar esses grandes números de campanhas inativas significa que quaisquer mensagens no app levarão mais tempo para aparecer nos dispositivos dos usuários finais, o que impacta a experiência do usuário final.
+O processamento de campanhas de mensagens no app baseadas em ação que ainda estão em estado ativo, mas não estão mais enviando mensagens ou não são mais necessárias, desacelera o desempenho geral dos serviços da Braze para você e outros clientes. Esse tempo extra necessário para processar esses grandes números de campanhas sem atividades significa que quaisquer mensagens no app levarão mais tempo para aparecer nos dispositivos dos usuários finais, o que impacta a experiência do usuário final.
 
 {% alert important %}
 Você pode ter até 200 campanhas ativas de mensagens no app baseadas em ação por espaço de trabalho para otimizar a velocidade de entrega de mensagens e evitar timeouts. Isso não se aplica a Canvas.

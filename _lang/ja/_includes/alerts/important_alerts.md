@@ -9,7 +9,7 @@
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
-プライベートブラウジングウィンドウはWeb プッシュをサポートしていません。
+プライベートブラウジングウィンドウはWebプッシュをサポートしていません。
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)が優先されるため、購入イベントの上に新しい機能が構築されることはありません。現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/)を参照してください。
+レガシーの購入イベントはメンテナンスモードに移行します。既存の購入イベントは引き続き期待どおりに動作しますが、eコマース推奨イベントが優先されるため、購入イベントの上に新しい機能が構築されることはありません。当面の間、購入イベントを引き続き使用できます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Metaには、特定のエンコーディングやコンテナ設定が原因で�
 この連携では、BrazeがWebhookを正しいユーザープロファイルに一致させるために、ユーザーエイリアスは以下の形式を使用する必要があります。<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-多言語メッセージとロケール翻訳は現在早期アクセス中です。この早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 {% endif %}

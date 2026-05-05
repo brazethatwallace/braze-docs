@@ -38,6 +38,8 @@ Customers using the API for server-to-server calls may need to allowlist `rest.i
 
 ## Rate limit
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
 We apply a base speed limit of 500 requests per minute to this endpoint for all customers. Each `/users/track/sync` request can contain up to one event object, one attribute object, or one purchase object. Each object (event, attribute, and purchase arrays) can update one user each.
 
 ## Request body

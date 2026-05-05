@@ -17,7 +17,7 @@ Les fenêtres de navigation privée ne prennent pas en charge les notifications 
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-L'ajout d'une adresse CCI à votre campagne ou Canvas entraîne le doublement de vos e-mails facturables pour la campagne ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
+L'ajout d'une adresse CCI à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Certains navigateurs, comme les applications Naver Android et iOS, ne prennent p
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-L'ancien événement d'achat passera en état obsolète (mode maintenance). Les événements d'achat continueront de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Si vous utilisez actuellement les événements d'achat, vous recevrez un préavis concernant les plans de suppression progressive. Pour l'instant, vous pouvez continuer à utiliser les événements d'achat jusqu'à la date officielle de dépréciation. Pour en savoir plus, consultez l'[aperçu des événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+L'ancien événement d'achat passe en mode maintenance. Les événements d'achat existants continuent de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des événements recommandés pour le commerce électronique. Vous pouvez continuer à utiliser les événements d'achat dans un avenir prévisible. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée.
 {% endalert %}
 
 {% endif %}
@@ -124,7 +124,7 @@ L'utilisation de « Jour de l'année » pour des dates absolues peut produire de
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Les autorisations granulaires sont actuellement en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
+Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta présente un problème connu qui peut empêcher la lecture de certaines vid
 Pour cette intégration, l'alias d'utilisateur doit respecter le format suivant afin que Braze puisse associer les webhooks au profil utilisateur correspondant :<br><br>
 - `alias_label` : `shopify_cart_${cartToken}`
 - `alias_name` : `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Les messages multilingues et les traductions par paramètres régionaux sont actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
 {% endalert %}
 
 {% endif %}

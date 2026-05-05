@@ -6,7 +6,7 @@ page_type: reference
 description: "Este artigo de referência cobre cenários comuns de solução de problemas para exportações em fluxos de trabalho CSV e API."
 ---
 
-# Solução de problemas de exportação
+# Solução de problemas de exportação {#export-troubleshooting}
 
 > Esta página cobre cenários comuns de solução de problemas para exportações em fluxos de trabalho CSV e API.
 
@@ -17,19 +17,19 @@ Use as guias para selecionar se você está exportando para o **bucket S3 padrã
 
 Quando você não tem um parceiro de armazenamento marcado como seu destino de exportação padrão, a Braze usa seu próprio bucket Amazon S3 para armazenar seus arquivos de exportação. Os arquivos nessa configuração são temporários e expiram após quatro horas.
 
-## Exportações CSV
+## Exportações CSV {#csv-exports}
 Quando você exporta um CSV do dashboard, a Braze envia um link de download por e-mail para o usuário logado. Esse link aponta para um arquivo ZIP hospedado no bucket S3 da Braze. Dentro do ZIP estão vários arquivos menores que juntos compõem sua exportação.
 
 Você deve estar logado no dashboard da Braze para usar o link, e o arquivo fica disponível por apenas quatro horas. Depois disso, o link não funciona mais e os dados são excluídos. Se você encontrar falhas repetidas com exportações muito grandes (mais de 500.000 usuários), a exportação pode falhar. Nesse caso, tente dividir sua exportação em grupos ou campos menores, ou considere configurar um parceiro de armazenamento.
 
-### Erros comuns
+### Erros comuns {#common-errors}
 
 - Se você vir um erro `AccessDenied`, o arquivo pode já ter expirado ou você pode ter tentado abri-lo antes de estar pronto. Relatórios maiores demoram mais para serem gerados, então aguarde alguns minutos e tente novamente.
 - Um erro `ExpiredToken` significa que o período de quatro horas passou. Reexecute a exportação para gerar um novo link.
 - A mensagem `Looks like the file doesn't exist anymore` geralmente aparece quando o e-mail é enviado, mas o arquivo ainda não terminou de ser enviado para o S3. Aguardar alguns minutos geralmente resolve o problema.
 - Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
-## Exportações de API
+## Exportações de API {#api-exports}
 Quando você exporta através das APIs de exportação sem armazenamento em nuvem, a Braze grava os arquivos no seu bucket S3. Você não receberá um e-mail — em vez disso, a resposta da API inclui uma URL de download temporária. A exportação vem como um ZIP contendo vários arquivos JSON, cada um com um usuário por linha.
 
 Assim como as exportações CSV, os links da API expiram após quatro horas. Se você clicar no link cedo demais, pode ver erros porque o arquivo ainda não está pronto. Você pode fornecer um `callback_endpoint` na sua solicitação se quiser que a Braze notifique você quando o arquivo estiver disponível.
@@ -68,3 +68,38 @@ Quando você exporta dados através das APIs com um parceiro de armazenamento co
 
 {% endsdktab %}
 {% endsdktabs %}
+
+## Análise de dados de Campaign e Canvas {#campaign-and-canvas-analytics}
+
+### O número de usuários na exportação CSV não corresponde a _Messages Sent_ ou _Unique Recipients_ {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+
+A exportação CSV de uma Campaign pode mostrar um número diferente de usuários em relação a _Messages Sent_ e _Unique Recipients_ pelos seguintes motivos:
+
+#### A reelegibilidade está ativada {#re-eligibility-is-turned-on}
+
+Se os usuários podem (ou puderam em algum momento) receber a Campaign mais de uma vez, os números de análise de dados da Campaign e o número de linhas na exportação de dados de usuários não coincidem. _Messages Sent_ conta cada envio, inclusive quando o mesmo usuário recebe a mensagem mais de uma vez. O download de **Exportar dados de usuários em CSV** lista usuários únicos — uma linha por perfil que recebeu a Campaign — e não uma linha por envio. Por exemplo, se _Messages Sent_ é 12 e o CSV tem 10 linhas, esses 12 envios foram para 10 usuários distintos (alguns usuários receberam a Campaign mais de uma vez).
+
+#### Usuários foram excluídos ou mesclados desde o envio da Campaign ou do Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
+
+A exportação CSV fornece um snapshot dos usuários existentes que receberam uma determinada Campaign ou Canvas. Como os usuários podem ser excluídos ou mesclados, a contagem da exportação CSV pode ser menor do que a contagem de destinatários únicos. Por exemplo, se 1.000 usuários recebem uma Campaign, a Campaign mostra 1.000 destinatários únicos, e a exportação CSV no mesmo dia também mostra 1.000 usuários. Se um mês depois 50 desses 1.000 usuários forem excluídos, a exportação CSV conterá 950 usuários, enquanto a contagem incrementada de destinatários únicos ainda será 1.000.
+
+## E-mails de exportação de Segment do dashboard {#dashboard-segment-export-emails}
+
+### Por que não estou recebendo e-mails de exportação de Segment? {#why-arent-i-receiving-segment-export-emails}
+
+Primeiro, verifique sua pasta de spam em busca de um e-mail de `no-reply@alerts.braze.com`. Se o e-mail estiver lá, adicione esse endereço à sua lista de remetentes confiáveis para que futuras mensagens de exportação não sejam filtradas.
+
+Se o e-mail não estiver na sua pasta de spam, verifique se outra pessoa da sua equipe consegue receber a exportação. Se ninguém conseguir, considere o tamanho da sua exportação. O tempo de entrega varia conforme o tamanho da exportação, mas se o e-mail não chegar após uma hora, entre em contato com o [Suporte]({{site.baseurl}}/braze_support/).
+
+## Downloads da API de exportação de Segment {#segment-export-api-downloads}
+
+### Não consigo baixar um arquivo ZIP de Segment exportado a partir de uma URL da Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
+
+Se você receber um erro `403 Forbidden` ao usar o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), o arquivo pode ainda não estar pronto. Exportações grandes podem demorar para serem processadas. Aguarde até uma hora antes de tentar baixar novamente.
+
+Se você usa um script automatizado para recuperar o arquivo, também pode receber um erro `403 Forbidden` ao solicitar a URL cedo demais. Se você exporta dados de Segment regularmente, considere conectar sua própria integração de bucket S3 e encaminhar os arquivos para seu próprio pipeline de extração, transformação e carregamento (ETL).
+
+As exportações levam tempo para serem concluídas, então o acesso imediato a partir de um script frequentemente falha. Você pode:
+
+- Consultar a URL de download com backoff exponencial, ou
+- Usar o [parâmetro `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) e apontá-lo para um serviço que execute seu script quando a exportação estiver pronta.

@@ -1,9 +1,9 @@
 ---
 nav_title: Propiedades de entrada persistentes
-article_title: Propiedades de entrada persistente
+article_title: Propiedades de entrada persistentes
 alias: "/persistent_entry/"
 page_type: reference
-description: "Este artículo de referencia describe cómo utilizar propiedades de entrada persistentes en su Canvas para enviar mensajes más curados y crear una experiencia de usuario final altamente refinada."
+description: "Este artículo de referencia describe cómo utilizar propiedades de entrada persistentes en tu Canvas para enviar mensajes más seleccionados y crear una experiencia de usuario final altamente refinada."
 tool: Canvas
 page_order: 5
 ---
@@ -13,7 +13,7 @@ page_order: 5
 > Cuando un Canvas se desencadena mediante un evento personalizado, una compra o una llamada a la API, puedes usar metadatos de la llamada a la API, el evento personalizado o el evento de compra para la personalización en cada paso del flujo de trabajo de tu Canvas. Puedes usar estas propiedades para enviar mensajes más seleccionados.
 
 {% alert important %}
-Las propiedades de entrada persistentes son un artefacto del editor original de Canvas, por lo que existen referencias obsoletas a términos como propiedades de entrada de Canvas que permanecen como referencia histórica. Para el editor actualizado de Canvas, consulta [Propiedades de contexto y propiedades del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+Las propiedades de entrada persistentes son un artefacto del editor original de Canvas, por lo que existen referencias obsoletas a términos como propiedades de entrada de Canvas que permanecen como referencia histórica. Para el editor actual de Canvas, consulta [Propiedades de contexto y propiedades del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).<br><br>Para usar propiedades de entrada persistentes en el editor actual de Canvas, debes crear un nuevo Canvas o [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) uno existente en el editor actual.
 {% endalert %}
 
 ## Uso de las propiedades de entrada {#using-entry-properties}

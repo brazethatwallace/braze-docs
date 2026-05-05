@@ -137,9 +137,13 @@ $(document).ready(function() {
   }
 
 
+    var noResultsTimer = null;
+
     function search_apis(api_hash) {
       var result_cnt = 0;
-      $('#results_msg').hide();
+      var resultsMsg = $('#results_msg');
+      resultsMsg.html('');
+      clearTimeout(noResultsTimer);
       var api_div = $('#api_list .api_div');
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
@@ -187,8 +191,12 @@ $(document).ready(function() {
         }
       })
       if (!result_cnt && !showall) {
-        $('#results_msg').html('<p>No metrics matching these filters</p>');
-        $('#results_msg').show();
+        // Debounce: cancel any pending announcement, then defer the set so the
+        // clear and set are separate DOM mutations. role="alert" (assertive) is
+        // more reliably announced by VoiceOver than role="status" (polite).
+        noResultsTimer = setTimeout(function() {
+          resultsMsg.html('<p>No metrics matching these filters</p>');
+        }, 250);
       }
     };
 
@@ -250,13 +258,15 @@ $(document).ready(function() {
 
     <div id="api_filter">
         <input id="api_search" type="search" placeholder="Search" aria-label="Search glossary" />
-        <div id="api_filter_list"></div>
+        <fieldset id="api_filter_list">
+          <legend>Filter by channel</legend>
+        </fieldset>
     </div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
     </div>
-    <div id="results_msg"></div>
+    <div id="results_msg" role="alert" aria-atomic="true"></div>
 
 
   </div>

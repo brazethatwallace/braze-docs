@@ -43,6 +43,8 @@ Si vous effectuez des appels serveur à serveur derrière un pare-feu, vous devr
 
 ## Limite de débit {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 Pour la plupart des clients, cet endpoint a une limite de vitesse de base de 50 requêtes par seconde.
 
 Les clients disposant de contrats plus récents peuvent avoir des limites en rafale (par seconde) et régulières (par heure) basées sur le nombre d'utilisateurs actifs par mois contractualisé.

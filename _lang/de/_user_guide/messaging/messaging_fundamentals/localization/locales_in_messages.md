@@ -11,8 +11,6 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 
 > Nachdem Sie Locales zu Ihrem Workspace hinzugefügt haben, können Sie Nutzer:innen in verschiedenen Sprachen innerhalb einer einzigen Push-Nachricht, E-Mail, eines Banners, einer In-App-Nachricht oder eines Content-Blocks ansprechen.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die Einrichtung und Verwendung mehrsprachiger Nachrichten zu erhalten.
@@ -56,7 +54,7 @@ Umschließen Sie Text, den Sie übersetzen möchten, mit den Liquid-Übersetzung
 Hier ist ein Beispiel für eine zur Übersetzung markierte Nachricht: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Add personalization** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
+Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
 {% endalert %}
 
 #### URLs lokalisieren {#localize-urls}
@@ -249,7 +247,7 @@ Gehen Sie in Ihren Nachrichteneinstellungen zum Abschnitt **Accessibility** und 
 
 Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Wenn neue Nachrichten erstellt werden, ist {% raw %}`{{accessibility_language}}`{% endraw %} standardmäßig im Abschnitt **Accessibility** ausgewählt. Dies ordnet die Barrierefreiheitssprache Ihren Locale-Einstellungen zu.
 
-#### Standards
+#### Standards {#standards}
 
 Die Barrierefreiheitssprache wird dem HTML-Attribut `lang` zugeordnet, einer [WCAG 2.1 Level A-Anforderung](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Erfolgskriterium 3.1.1). Für mehrsprachige Inhalte können Sie die Sprache auch für einzelne Content-Blöcke festlegen, indem Sie das `lang`-Attribut direkt in Ihrem HTML verwenden.
 
