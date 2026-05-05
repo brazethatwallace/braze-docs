@@ -243,6 +243,8 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 				display: flex !important;
 				overflow-y: auto;
 				overscroll-behavior: contain;
+				// Push first nav item below the rail toggle button (slot padding 4px + button 40px + buffer 8px).
+				padding-top: 52px;
 			}
 			.doc-nav-flyout-toolbar {
 				display: flex;
