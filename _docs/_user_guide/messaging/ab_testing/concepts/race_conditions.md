@@ -22,7 +22,8 @@ The most common types of race conditions may occur when you’re doing the follo
 
 - Targeting new users
 - Using multiple API endpoints
-- Matching action-based trigger and audience filters. 
+- Matching action-based trigger and audience filters
+- Using the "Interact with Step" trigger 
 
 Consider the following scenarios and implement best practices to avoid these race conditions.
 
@@ -133,9 +134,9 @@ If a user triggers the Canvas entry event multiple times within the same second,
 
 We recommend confirming how user data is managed and updated, specifically when and how specific attributes are updated, such as by SDK, API, batch API, and other methods. This can help identify and clarify why a user has entered a campaign or Canvas versus when a user's profile was updated.
 
-## Scenario 4: Using the Interact with Step trigger
+## Scenario 4: Using the "Interact with Step" trigger
 
-In a Canvas, when a Message step is immediately followed by an Action Path step that uses the “Interact With Step” trigger, a race condition can occur. Because users can interact with a message as soon as it is delivered, it is possible for a user to complete the tracked action before they officially enter the Action Path step.
+In a Canvas, when a Message step is immediately followed by an Action Path step that uses the "Interact With Step" trigger, a race condition can occur. Because users can interact with a message as soon as it is delivered, it is possible for a user to complete the tracked action before they officially enter the Action Path step.
 
 In this case, the Action Path step does not register the interaction since it only evaluates events that occur after entry into the step, which means the user may be routed down an unintended path.
 
@@ -145,7 +146,7 @@ A Canvas sends a push notification in a Message step, followed by an Action Path
 
 #### Track engagement using a custom event
 
-Avoid relying on “Interact With Step” immediately after a Message step when user interactions are expected to occur quickly. Instead, track engagement using a custom event (for example, triggered from the app or website after the interaction) and evaluate that event in a downstream step. This ensures the event is recorded after the user has entered the step.
+Avoid relying on "Interact With Step" immediately after a Message step when user interactions are expected to occur quickly. Instead, track engagement using a custom event (for example, triggered from the app or website after the interaction) and evaluate that event in a downstream step. This ensures the event is recorded after the user has entered the step.
 
 #### Avoid branches that are dependent on interaction
 
