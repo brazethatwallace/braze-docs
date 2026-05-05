@@ -208,6 +208,12 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 			}
 		}
 		&.hide_sidebar.doc-nav-flyout-open {
+			// Keep the rail slot (and toggle button inside it) above the flyout overlay
+			// so the button remains clickable without the user having to chase it.
+			#nav_col .left-nav-collapsed-slot:not(:empty) {
+				position: relative;
+				z-index: 201;
+			}
 			#doc_nav_flyout {
 				display: flex !important;
 				flex-direction: column;
