@@ -15,7 +15,7 @@ description: "Cet article fournit des informations détaillées sur l'endpoint `
 /media_library/create
 {% endapimethod %}
 
-> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia Braze](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`). Cet endpoint prend en charge les images et les fichiers ZIP contenant des images.
+> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`). Cet endpoint prend en charge les images et les fichiers ZIP contenant des images.
 
 {% alert tip %}
 Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) en utilisant la fonction [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library). Cela permet à des outils d'intelligence artificielle comme Claude et Cursor de télécharger des ressources dans votre bibliothèque multimédia via des instructions en langage naturel.

@@ -1,6 +1,6 @@
 # Configurar el servidor Braze MCP {#setting-up-the-braze-mcp-server}
 
-> Aprende a configurar el servidor Braze MCP, para que puedas interactuar con tus datos Braze utilizando herramientas de lenguaje natural como Claude y Cursor. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Aprende a configurar el servidor Braze MCP, para que puedas interactuar con tus datos de Braze utilizando herramientas de lenguaje natural como Claude y Cursor. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -100,7 +100,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Catálogos {#catalogs}
+#### Catalogs
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -109,7 +109,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Ingesta de datos de Cloud {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -125,14 +125,14 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Atributos personalizados {#custom-attributes}
+#### Custom Attributes
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Eventos {#events}
+#### Events
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -141,7 +141,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### KPI {#kpis}
+#### KPIs
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -151,7 +151,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Biblioteca de medios {#media-library}
+#### Media Library
 
 Este punto de conexión es un punto de conexión de escritura compatible con el servidor Braze MCP. Añade este permiso solo si quieres que tu agente cargue activos a tu biblioteca de medios.
 
@@ -160,14 +160,14 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Mensajes {#messages}
+#### Messages
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Centro de preferencias {#preference-center}
+#### Preference Center
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -175,7 +175,7 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Compras {#purchases}
+#### Purchases
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -193,28 +193,28 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Envíos {#sends}
+#### Sends
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Sesiones {#sessions}
+#### Sessions
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Claves de Autenticación SDK {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Suscripción {#subscription}
+#### Subscription
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -222,7 +222,7 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Plantillas {#templates}
+#### Templates
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|

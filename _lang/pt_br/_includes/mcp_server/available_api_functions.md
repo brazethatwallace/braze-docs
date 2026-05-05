@@ -149,11 +149,11 @@ Esta é a única função de escrita no servidor Braze MCP. Para usá-la, sua ch
 | `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | Dados de séries temporais para contagem de sessões do app. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-### Chaves de autenticação do SDK {#sdk-authentication-keys}
+### Chaves de Autenticação do SDK {#sdk-authentication-keys}
 
 | Função | Endpoint | Descrição |
 |----------|----------|-------------|
-| `get_sdk_authentication_keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | Lista todas as chaves de autenticação do SDK para seu app. |
+| `get_sdk_authentication_keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | Lista todas as chaves de Autenticação do SDK para seu app. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ### Inscrição {#subscription}

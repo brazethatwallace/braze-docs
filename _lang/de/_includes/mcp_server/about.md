@@ -53,7 +53,7 @@ MCP-Clients können auf Endpunkte zugreifen, die keine PII zurückgeben. Sie ste
 
 Der Server stellt nur den Schreib-Endpunkt `/media_library/create` bereit, mit dem Sie Medien-Assets in Ihre Medienbibliothek hochladen können. Wenn Sie nicht möchten, dass Ihr Agent diese Änderungen in Braze vornimmt, lassen Sie die Berechtigung `media_library.create` beim Erstellen Ihres API-Schlüssels deaktiviert.
 
-### Ist es möglich, einen MCP-Server eines Drittanbieters für Braze zu verwenden? {#can-i-use-a-third-party-mcp-server-for-braze}
+### Kann ich einen MCP-Server eines Drittanbieters für Braze verwenden? {#can-i-use-a-third-party-mcp-server-for-braze}
 
 Die Verwendung eines MCP-Servers eines Drittanbieters für Braze-Daten wird nicht empfohlen. Bitte verwenden Sie ausschließlich den offiziellen Braze MCP-Server, der auf [PyPi](https://pypi.org/project/braze-mcp-server/) gehostet wird.
 
@@ -61,7 +61,7 @@ Die Verwendung eines MCP-Servers eines Drittanbieters für Braze-Daten wird nich
 
 Um Nutzerdaten zu schützen und gleichzeitig wertvolle Anwendungsfälle zu unterstützen, ist der Server auf Endpunkte beschränkt, die in der Regel keine PII zurückgeben. Dies verringert das Risiko für Ihren Workspace und die darin enthaltenen Personen.
 
-### Darf ich meine API-Schlüssel wiederverwenden? {#can-i-reuse-my-api-keys}
+### Kann ich meine API-Schlüssel wiederverwenden? {#can-i-reuse-my-api-keys}
 
 Nein. Sie müssen einen neuen API-Schlüssel für Ihren MCP-Client erstellen. Bitte beachten Sie, dass Sie Ihren KI-Tools nur Zugriff auf das gewähren sollten, womit Sie einverstanden sind, und vermeiden Sie erweiterte Berechtigungen.
 

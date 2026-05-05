@@ -51,9 +51,9 @@ MCPクライアントは、PIIを返さないエンドポイントにアクセ�
 
 ### MCPクライアントはBrazeデータを変更できますか？ {#can-my-mcp-client-change-braze-data}
 
-サーバーが公開している書き込みエンドポイントは`/media_library/create`のみで、メディアライブラリにメディアアセットをアップロードできます。エージェントにBraze内でそのような変更を加えさせたくない場合は、APIキーを作成する際に`media_library.create`権限のチェックを外してください。
+サーバーが公開している書き込みエンドポイントは `/media_library/create` のみで、メディアライブラリにメディアアセットをアップロードできます。エージェントにBraze内でそのような変更を加えさせたくない場合は、APIキーを作成する際に `media_library.create` 権限のチェックを外してください。
 
-### BrazeでサードパーティのMCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
+### Brazeでサードパーティの MCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
 
 Brazeデータに対してサードパーティのMCPサーバーを使用することは推奨されません。[PyPi](https://pypi.org/project/braze-mcp-server/)でホストされている公式のBraze MCPサーバーのみを使用してください。
 

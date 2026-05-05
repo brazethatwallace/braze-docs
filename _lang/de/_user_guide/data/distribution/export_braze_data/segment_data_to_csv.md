@@ -19,7 +19,7 @@ Um Segmentdaten in eine CSV-Datei zu exportieren, wählen Sie bei der Bearbeitun
 
 ![Abschnitt „Segmentdetails“ mit dem Dropdown-Menü „User Data“ und Exportoptionen.]({% image_buster /assets/img_archive/csvexport.png %})
 
-Sie können einen CSV-Export auch von der Hauptseite **Segments** aus anfragen, indem Sie das Dropdown-Menü <i class="fas fa-gear"></i> **Settings** für ein Segment auswählen:
+Sie können einen CSV-Export auch von der Hauptseite **Segments** aus anfragen, indem Sie das Dropdown-Menü <i class="fas fa-gear" aria-label="Einstellungen"></i> **Settings** für ein Segment auswählen:
 
 ![Dropdown-Menü „Settings“ auf der Hauptseite „Segments“.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -28,6 +28,14 @@ Um Daten aus all Ihren Nutzerprofilen zu exportieren, erstellen Sie ein Segment 
 {% endalert %}
 
 Die CSV-Ausgabe enthält die Daten der einzelnen Nutzerprofile, die zum Zeitpunkt des Exports im Segment erfasst wurden. Sie können jedes Segment exportieren, indem Sie das Zahnradsymbol und den CSV-Export auswählen. Braze erstellt den Bericht im Hintergrund und sendet ihn per E-Mail an die Person, die gerade angemeldet ist.
+
+## Details zum Segment-CSV-Export {#segment-csv-export-details}
+
+{% alert note %}
+Dashboard-Nutzer:innen benötigen die Berechtigung **Nutzerdaten exportieren**, um CSV-Exportoptionen verwenden zu können. Wenn sie diese Berechtigung nicht haben, werden die CSV-Exportoptionen nicht angezeigt.
+{% endalert %}
+
+**E-Mail-Adressen als CSV exportieren** enthält nur Zeilen für Nutzer:innen im Segment, die eine E-Mail-Adresse haben. Wenn Ihr Segment beispielsweise 100.000 Nutzer:innen umfasst, aber nur 50.000 eine E-Mail-Adresse haben, erzeugt **E-Mail-Adressen als CSV exportieren** etwa 50.000 Zeilen. **Nutzerdaten als CSV exportieren** exportiert alle Nutzerdaten für das Segment.
 
 {% alert important %}
 Aufgrund von Dateigrößenbeschränkungen kann Ihr Export fehlschlagen, wenn die geschätzte Größe Ihres Segments über 500.000 Nutzer:innen liegt. Beachten Sie, dass diese Einschränkung die geschätzte Größe Ihres Segments verwendet und nicht die genaue Berechnung. Weitere Einzelheiten finden Sie unter [Exportieren großer Segmente](#exporting-large-segments).

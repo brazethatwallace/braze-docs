@@ -158,7 +158,7 @@ Quando estiver pronto, selecione **Publish Landing Page**.
 
 ## Usando modelos {#using-templates}
 
-Use modelos de landing page para criar templates para suas próximas campanhas. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
+Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
 
 ## Gerenciando modelos {#managing-templates}
 

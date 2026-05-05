@@ -70,6 +70,13 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 - 테스트 중에는 신뢰성과 정확성을 토큰 사용량 및 호출 시간과 균형 있게 맞추세요.
 - 각 사용 사례마다 최적의 모델과 사고 수준이 다를 수 있습니다. 타임아웃 없이 일관된 품질을 확인하기 위해 철저히 테스트하는 것을 권장합니다.
 
+### 사용량 제한 {#rate-limits}
+
+다음 사용량 제한은 워크스페이스별로 적용됩니다:
+
+- **Braze 기반 모델:** 분당 1,000회 호출
+- **자체 API 키 가져오기:** 분당 2,500회 호출
+
 ## 지침 작성 {#writing-instructions}
 
 지침은 에이전트(시스템 프롬프트)에게 주는 규칙 또는 가이드라인입니다. 에이전트가 실행될 때마다 어떻게 행동해야 하는지를 정의합니다. 시스템 지침은 최대 25KB까지 가능합니다.
@@ -77,12 +84,12 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 프롬프트를 시작하는 데 도움이 되는 일반적인 모범 사례는 다음과 같습니다:
 
 1. 결과를 염두에 두고 시작하세요. 목표를 먼저 명시하세요.
-2. 모델에 역할이나 페르소나를 부여하세요 ("당신은 ...입니다").
-3. 명확한 컨텍스트와 제약 조건을 설정하세요 (오디언스, 길이, 톤, 형식).
-4. 구조를 요청하세요 ("JSON/글머리 목록/표로 반환...").
+2. 모델에 역할이나 페르소나를 부여하세요("당신은 ...입니다").
+3. 명확한 컨텍스트와 제약 조건을 설정하세요(오디언스, 길이, 톤, 형식).
+4. 구조를 요청하세요("JSON/글머리 목록/표로 반환...").
 5. 말하지 말고 보여주세요. 몇 가지 고품질 예제를 포함하세요.
-6. 복잡한 작업을 순서가 있는 단계로 나누세요 ("1단계... 2단계...").
-7. 추론을 장려하세요 ("단계를 내부적으로 생각한 다음 간결한 최종 답변을 제공하세요," 또는 "결정을 간략하게 설명하세요").
+6. 복잡한 작업을 순서가 있는 단계로 나누세요("1단계... 2단계...").
+7. 추론을 장려하세요("단계를 내부적으로 생각한 다음 간결한 최종 답변을 제공하세요," 또는 "결정을 간략하게 설명하세요").
 8. 파일럿, 검사 및 반복하세요. 작은 조정이 큰 품질 향상으로 이어질 수 있습니다.
 9. 엣지 케이스를 처리하고, 가드레일을 추가하고, 거부 지침을 추가하세요.
 10. 내부에서 효과가 있는 것을 측정하고 문서화하여 재사용 및 확장할 수 있도록 하세요.
@@ -155,6 +162,61 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 <output_example>
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
+```
+{% endraw %}
+
+{% endtab %}
+{% tab SMS 수신 거부 %}
+
+{% raw %}
+```
+ROLE
+You are a compliance-focused classifier for inbound customer messages.
+
+PRIMARY TASK
+Given a single inbound message from a user, decide whether it should be treated as a request to opt out of future messaging (unsubscribe, stop, revoke consent).
+
+OUTPUT (STRICT)
+Return a single boolean only:
+- true = treat as an opt-out request
+- false = do not treat as an opt-out request
+Do not output any other words, punctuation, or explanation.
+
+COMPLIANCE INTENT (NON-LEGAL GUIDANCE)
+Classify conservatively to reduce the risk of sending messages after a user revokes consent. This supports common requirements and expectations in laws and standards such as TCPA (US SMS consent and revocation), GDPR (withdrawal of consent and right to object to marketing), and other subscription management regimes. When in doubt, return true.
+
+DECISION RULES
+Return true if ANY of the following are present:
+1) Explicit opt-out keywords or phrases:
+   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
+   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
+2) A clear request to stop a specific channel:
+   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
+3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
+   - A standalone thumbs down (:-1:) or "thumbs down"
+   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
+   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
+Return false if ALL of the following are true:
+- The user is clearly engaging with the content or asking a question, and
+- There is no explicit opt-out intent
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
+
+EDGE CASES
+- If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
+- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
+- If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
+
+EXAMPLES
+Input: “STOP” → true
+Input: “unsubscribe” → true
+Input: “Please stop texting me” → true
+Input: “Remove me from your list” → true
+Input: “:-1:” → true
+Input: “I hate this. Leave me alone.” → true
+Input: “This is the worst, you suck” → true
+Input: “Stop by tomorrow?” → false
+Input: “Can you stop the delivery?” → false
+Input: “This sucks—what’s the promo code?” → false
 ```
 {% endraw %}
 

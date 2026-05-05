@@ -51,7 +51,7 @@ Im Schritt **Target Audiences** Ihres Campaign-Composers können Sie auch die Ge
 
 ![Zielgruppen-Zusammenfassung mit einem aktivierten Kontrollkästchen zur Begrenzung der Anzahl der Personen, die die Campaign erhalten.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
-Durch Festlegen der maximalen Nutzer:innenobergrenze können Sie das Nachrichtenvolumen auf Kanalbasis oder global über alle Nachrichtentypen hinweg begrenzen.
+Durch Festlegen der maximalen Nutzer:innenobergrenze können Sie das Nachrichtenvolumen auf Kanalbasis oder global über alle Nachrichtentypen hinweg begrenzen. Braze versendet keine Nachrichten an Nutzer:innen, die Kontrollgruppen zugewiesen sind, sodass diese nicht auf das Limit angerechnet werden.
 
 {% alert note %}
 Die maximale Nutzer:innenobergrenze begrenzt die Anzahl der versendeten Nutzer:innen, nicht die Anzahl der erfolgreich zugestellten Nachrichten. Da abgebrochene Nachrichten auf diese Obergrenze angerechnet werden, kann die tatsächliche Anzahl gesendeter Nachrichten niedriger sein als das konfigurierte Limit. Wenn Sie beispielsweise eine Obergrenze von 10.000 festlegen und 2.000 Nachrichten aufgrund von Liquid-Logik oder anderen Bedingungen abgebrochen werden, werden nur 8.000 Nachrichten gesendet.
@@ -81,7 +81,7 @@ Bei Verwendung von Rate-Limiting mit einem A/B-Test wird das Rate-Limit nicht au
 
 Wenn Sie erwarten, dass große Campaigns einen Anstieg der Nutzeraktivität verursachen und Ihre Server überlasten, können Sie ein Rate-Limit pro Minute für den Nachrichtenversand festlegen, was bedeutet, dass Braze innerhalb einer Minute nicht mehr als Ihre Rate-Limit-Einstellung sendet.
 
-Beim Targeting von Nutzer:innen während der Campaign-Erstellung können Sie zu **Target Audiences** (für Campaigns) oder **Sendeeinstellungen** (für Canvas) navigieren, um ein Rate-Limit auszuwählen (in verschiedenen Abstufungen von nur 10 bis zu 500.000 Nachrichten pro Minute).
+Beim Targeting von Nutzer:innen während der Campaign-Erstellung können Sie zu **Target Audiences** (für Campaigns) oder **Send Settings** (für Canvas) navigieren, um ein Rate-Limit auszuwählen (in verschiedenen Abstufungen von nur 10 bis zu 500.000 Nachrichten pro Minute).
 
 Beachten Sie, dass Campaigns ohne Rate-Limit diese Zustellungslimits überschreiten können. Seien Sie sich jedoch bewusst, dass Nachrichten abgebrochen werden, wenn sie aufgrund eines niedrigen Rate-Limits 72 Stunden oder länger verzögert werden. Wenn das Rate-Limit zu niedrig ist, erhält die erstellende Person der Campaign Warnungen im Dashboard und per E-Mail.
 
@@ -142,7 +142,7 @@ Einige Hinweise, die Sie bei der Konfiguration von Rate-Limits beachten sollten,
     - Content Cards, die so konfiguriert sind, dass sie „bei erster Impression“ erstellt werden (Dies wird durch die Rate der App-Impressionen gesteuert. Weitere Informationen zu den Unterschieden zwischen den Optionen zur Card-Erstellung finden Sie unter [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences).)
 - Zustellgeschwindigkeits-Rate-Limits werden für Folgendes nicht unterstützt:
     - SMS-Autoantworten
-    - SLA-gestützte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
+    - SLA-gestützte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
     - In-App-Nachrichten
     - Feature-Flags
     - Banner
@@ -205,7 +205,7 @@ Wenn Sie möchten, dass eine bestimmte Campaign die Frequency-Capping-Regeln üb
 
 Danach werden Sie gefragt, ob diese Campaign trotzdem auf Ihr Frequency-Cap angerechnet werden soll. Nachrichten, die auf das Frequency-Capping angerechnet werden, sind in den Berechnungen für den Filter „Intelligenter Kanal“ enthalten.
 
-Beim Senden von [API-Campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), die oft transaktional sind, haben Sie die Möglichkeit anzugeben, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
+Beim Senden von [API-Kampagnen]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), die oft transaktional sind, haben Sie die Möglichkeit anzugeben, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
 
 Standardmäßig werden neue Campaigns und Canvases, die Frequency-Caps nicht einhalten, auch nicht darauf angerechnet. Dies ist für jede Campaign und jedes Canvas konfigurierbar.
 

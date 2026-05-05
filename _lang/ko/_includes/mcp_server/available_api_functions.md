@@ -36,10 +36,10 @@ MCP 클라이언트는 다음 API 기능을 참조하여 Braze MCP 서버와 상
 
 | 기능 | 엔드포인트 | 설명 |
 |----------|----------|-------------|
-| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | 메타데이터와 함께 Canvases 목록을 내보냅니다. |
+| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | 메타데이터와 함께 Canvas 목록을 내보냅니다. |
 | `get_canvas_details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | 특정 Canvas에 대한 상세 정보를 가져옵니다. |
 | `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | Canvas 성과에 대한 요약 분석을 가져옵니다. |
-| `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Canvases에 대한 시계열 분석 데이터를 검색합니다. |
+| `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Canvas에 대한 시계열 분석 데이터를 검색합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ### 카탈로그 {#catalogs}

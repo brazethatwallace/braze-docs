@@ -16,10 +16,9 @@ Antes de começar, você precisará do seguinte:
 
 - [Permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) para acessar o **Console do agente** no seu espaço de trabalho. Verifique com seus administradores da Braze se você não vê essa opção.
 - Permissão para criar e editar agentes de IA personalizados.
-- Um [provedor de modelo de IA]({{site.baseurl}}/partners/ai_model_providers/) integrado com a Braze.
 - Uma ideia do que você quer que o agente realize. Os Braze Agents podem suportar as seguintes ações:
-   - **Envio de mensagens:** Gerar linhas de assunto, manchetes, textos dentro do produto ou outros conteúdos.
-   - **Tomada de decisões:** Direcionar usuários no Canvas com base em comportamento, preferências ou atributos personalizados.
+   - **Envio de mensagens personalizado:** Gerar linhas de assunto, manchetes, textos dentro do produto ou outros conteúdos.
+   - **Direcionamento de usuários:** Direcionar usuários no Canvas com base em comportamento, preferências ou atributos personalizados.
    - **Gerenciamento de dados:** Calcular valores, enriquecer entradas de catálogo ou atualizar campos de perfil.
 
 ## Como funciona {#how-it-works}
@@ -31,7 +30,7 @@ Os seguintes casos de uso mostram algumas maneiras de aproveitar agentes persona
 | Caso de uso | Descrição |
 | --- | --- |
 | Tratamento de feedback do cliente | Passe o feedback do usuário para um agente analisar o sentimento e gerar mensagens de acompanhamento empáticas. Para usuários de alto valor, o agente pode escalar a resposta ou incluir benefícios. |
-| Localizar conteúdo | Traduza o texto do catálogo para outro idioma para campaigns globais, ou ajuste o tom e o comprimento para canais específicos da região. Por exemplo, traduza "Classic Clubmaster Sunglasses" para o espanhol como "Gafas de sol Classic Clubmaster", ou encurte descrições para campaigns de SMS. |
+| Localizar conteúdo | Traduza o texto do catálogo para outro idioma para Campaigns globais, ou ajuste o tom e o comprimento para canais específicos da região. Por exemplo, traduza "Classic Clubmaster Sunglasses" para o espanhol como "Gafas de sol Classic Clubmaster", ou encurte descrições para Campaigns de SMS. |
 | Resumir avaliações ou feedback | Resuma o sentimento ou feedback em um novo campo, como atribuir pontuações de sentimento como Positivo, Neutro ou Negativo, ou criar um resumo de texto curto como "A maioria dos clientes menciona um ótimo caimento, mas nota o envio lento." |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -61,7 +60,7 @@ Em seguida, configure as informações do seu agente:
 
 Dê instruções ao agente. Recomendamos incluir instruções sobre o que o agente deve fazer em cenários inesperados ou ambíguos. Isso minimiza o risco de que a confusão do agente leve a erros. Por exemplo, em vez de pedir ao agente apenas valores de sentimento "positivo" ou "negativo", peça para retornar "incerto" se ele não conseguir decidir.
 
-Consulte [Escrevendo instruções]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para melhores práticas e [Exemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) para inspiração sobre como orientar seu agente.
+Consulte [Escrevendo instruções]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para melhores práticas e [Exemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) para inspiração sobre como orientar seu agente.
 
 {% alert tip %}
 Para agentes Canvas, você pode usar Liquid nas suas instruções para referenciar atributos do usuário, como primeiro e último nome, ou atributos personalizados. Qualquer variável Liquid nas instruções do agente é automaticamente passada para a etapa do agente quando um usuário entra na etapa.
@@ -72,7 +71,7 @@ Para agentes Canvas, você pode usar Liquid nas suas instruções para referenci
 Selecione **Adicionar recursos** para escolher o que seu agente pode referenciar. Isso inclui:
 
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Dê ao agente acesso aos dados do seu catálogo para respostas mais precisas.
-- [Associação a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos Segments aos quais um usuário pertence. Você pode selecionar até cinco Segments.
+- [Associação a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos segmentos aos quais um usuário pertence. Você pode selecionar até cinco segmentos.
 - [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Referencie a voz da marca e as diretrizes de estilo para o agente seguir. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz da marca motivacional e em negrito predefinida.
 - [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
 
@@ -102,7 +101,7 @@ O painel de **Pré-visualização** é uma instância do agente que aparece como
 Os testes contam para o seu limite diário de execução.
 {% endalert %}
 
-![Console do agente mostrando o painel de Pré-visualização para testar um agente personalizado. A interface exibe um campo de Entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Console do agente mostrando o painel de Pré-visualização para testar um agente personalizado. A interface exibe um campo de entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Revise a saída com um olhar crítico. Considere as seguintes perguntas:
 
