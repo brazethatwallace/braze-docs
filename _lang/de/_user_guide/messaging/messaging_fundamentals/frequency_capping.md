@@ -142,7 +142,7 @@ Einige Hinweise, die Sie bei der Konfiguration von Rate-Limits beachten sollten,
     - Content Cards, die so konfiguriert sind, dass sie „bei erster Impression“ erstellt werden (Dies wird durch die Rate der App-Impressionen gesteuert. Weitere Informationen zu den Unterschieden zwischen den Optionen zur Card-Erstellung finden Sie unter [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences).)
 - Zustellgeschwindigkeits-Rate-Limits werden für Folgendes nicht unterstützt:
     - SMS-Autoantworten
-    - SLA-gestützte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+    - SLA-gestützte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
     - In-App-Nachrichten
     - Feature-Flags
     - Banner
