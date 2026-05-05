@@ -132,7 +132,7 @@ Si vous recevez cette erreur, consultez [Databricks : Erreur Forbidden lors de l
 
 Chaque intégration dispose de ses propres préférences de notification. Accédez à la page CDI et sélectionnez le nom de l'intégration que vous souhaitez mettre à jour. Dans la section **Notification preferences**, vous pouvez modifier la façon dont vous recevez les alertes pour l'intégration sélectionnée.
 
-## Que se passe-t-il si un UPDATED_AT futur est synchronisé avec une intégration ? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## Que se passe-t-il si un `UPDATED_AT` futur est synchronisé avec une intégration ? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
 
 CDI utilise `UPDATED_AT` pour déterminer quelles données sont nouvelles. Une fois qu'un `UPDATED_AT` situé dans le futur a été synchronisé, toutes les données antérieures à cette date et heure ne seront pas traitées. Pour corriger cela :
 
@@ -152,6 +152,58 @@ CDI utilise `UPDATED_AT` pour décider quels enregistrements récupérer lors d'
 Pour éviter ces comportements à l'avenir, nous recommandons d'utiliser des valeurs `UPDATED_AT` croissantes de manière monotone et de ne pas mettre à jour la table pendant l'exécution de votre synchronisation planifiée.
 {% endalert %}
 
+## Ai-je besoin de valeurs `UPDATED_AT` principalement distinctes pour les importations CDI volumineuses ? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+
+Oui. Pour les exécutions à fort volume (par exemple, plus d'environ 10 millions de lignes), assurez-vous que vos données sources possèdent des valeurs `UPDATED_AT` principalement distinctes. Si trop de lignes partagent le même horodatage, CDI est plus susceptible de re-sélectionner des lignes aux horodatages limites lors des exécutions suivantes. Cela peut augmenter les synchronisations en double et la consommation de points de donnée.
+
+Pour plus d'informations sur le comportement de CDI aux limites, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+
+### Où exécuter ces vérifications SQL ? {#where-do-i-run-these-sql-checks}
+
+Exécutez les vérifications directement dans l'éditeur SQL de votre entrepôt de données, sur la même table ou vue utilisée par votre intégration CDI :
+
+- Snowflake : **Projects** > **Worksheets** (pour plus d'informations, consultez [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
+- Redshift : Query Editor v2 (pour plus d'informations, consultez [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
+- BigQuery : BigQuery Studio SQL workspace (pour plus d'informations, consultez [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks : SQL editor (SQL warehouse) (pour plus d'informations, consultez [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Fabric : SQL query editor
+
+Suivez ce processus avant d'activer ou de dimensionner une synchronisation volumineuse :
+
+1. Identifiez la table ou vue source CDI exacte ainsi que la fenêtre de synchronisation que vous souhaitez valider.
+2. Ouvrez l'éditeur SQL de votre entrepôt de données et sélectionnez la même base de données et le même schéma utilisés par CDI, puis utilisez un rôle disposant d'un accès en lecture à la table ou vue source.
+3. Exécutez la requête de comptage d'horodatages distincts pour mesurer le nombre de valeurs `UPDATED_AT` distinctes dans cette fenêtre.
+4. Exécutez la requête qui regroupe par `UPDATED_AT` et compte les lignes pour identifier les horodatages avec un nombre de lignes anormalement élevé.
+5. Si de nombreuses lignes partagent des horodatages identiques, ajustez votre processus d'ingestion afin que les lots consécutifs utilisent des valeurs `UPDATED_AT` progressivement plus récentes, ou augmentez la précision des horodatages pour mieux répartir les lignes.
+6. Relancez les deux requêtes jusqu'à ce que la concentration soit réduite, puis lancez ou dimensionnez votre synchronisation.
+7. Après le lancement, surveillez **CDI** > **Sync Log** pour détecter un volume de re-synchronisation inattendu aux horodatages limites.
+
+Utilisez des vérifications comme celles-ci dans votre entrepôt de données :
+
+```sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNT(DISTINCT UPDATED_AT) AS distinct_timestamps,
+  ROUND(COUNT(*) * 1.0 / NULLIF(COUNT(DISTINCT UPDATED_AT), 0), 2) AS avg_rows_per_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
+```
+
+```sql
+SELECT
+  UPDATED_AT,
+  COUNT(*) AS rows_at_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP)
+GROUP BY UPDATED_AT
+ORDER BY rows_at_timestamp DESC
+LIMIT 20;
+```
+
+Si votre entrepôt de données ne prend pas en charge `LIMIT` (par exemple, Fabric), utilisez une syntaxe équivalente telle que `TOP`.
+
 ## Pourquoi une synchronisation CDI avec un petit nombre de lignes peut-elle tout de même prendre plusieurs minutes ? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
 Une synchronisation CDI comprend une période de démarrage fixe avant que le traitement des lignes ne commence. Comme ce temps de démarrage est similaire quelle que soit la taille de la synchronisation, une petite synchronisation peut tout de même prendre plusieurs minutes et sembler plus lente en termes de lignes par minute. Le temps total de synchronisation dépend toujours de la complexité de votre requête source, de la forme des données et de la capacité disponible dans votre entrepôt de données. Pour plus d'informations, consultez [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
@@ -164,7 +216,7 @@ L'ordre de traitement n'est pas prévisible à 100 %. Par exemple, s'il y a plus
 
 Si l'option **Update existing users only** est activée dans votre intégration CDI, seuls les utilisateurs déjà présents dans Braze sont mis à jour, et aucun nouvel utilisateur n'est créé. Cela signifie que si une ligne de votre table de synchronisation fait référence à un `EXTERNAL_ID` qui ne correspond à aucun utilisateur Braze existant, cette ligne est ignorée.
 
-Pour créer de nouveaux utilisateurs via CDI, désactivez l'option **Update existing users only** dans les paramètres de votre intégration. Rendez-vous dans **Data Settings** > **Cloud Data Ingestion** et sélectionnez une intégration.
+Pour créer de nouveaux utilisateurs via CDI, désactivez l'option **Update existing users only** dans les paramètres de votre intégration. Rendez-vous dans **Paramètres des données** > **Ingestion de données cloud** et sélectionnez une intégration.
 
 ## Quelles sont les mesures de sécurité pour CDI ? {#what-are-the-security-measures-for-cdi}
 

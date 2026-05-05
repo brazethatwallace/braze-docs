@@ -40,7 +40,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Auf Zugangsdaten basierende Antwortdetails {#credentials-based-response-details}
 
-Wenn Sie Ihre [S3-][1], [Azure-][2] oder [Google Cloud Storage][3]-Zugangsdaten zu Braze hinzugefügt haben, wird jede Datei als ZIP-Datei in Ihren Bucket hochgeladen. Das Schlüsselformat sieht wie folgt aus: `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Wenn Sie Azure verwenden, vergewissern Sie sich, dass Sie auf der Übersichtsseite für Azure-Partner in Braze das Kontrollkästchen **Dies zum Standardziel für den Datenexport machen** aktiviert haben. Im Allgemeinen erstellt Braze eine Datei pro 5.000 Nutzer:innen, um die Verarbeitung zu optimieren. Das Exportieren kleinerer Segmente innerhalb eines großen Workspace kann zu mehreren Dateien führen. Sie können dann die Dateien extrahieren und bei Bedarf alle `json`-Dateien zu einer einzigen Datei zusammenfügen. Wenn Sie als `output_format` den Wert `gzip` angeben, wird die Dateiendung `.gz` anstelle von `.zip` verwendet.
+Wenn Sie Ihre [S3-][1], [Azure-][2] oder [Google Cloud Storage][3]-Zugangsdaten zu Braze hinzugefügt haben, wird jede Datei als ZIP-Datei in Ihren Bucket hochgeladen. Das Schlüsselformat sieht wie folgt aus: `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Wenn Sie Azure verwenden, vergewissern Sie sich, dass Sie auf der Übersichtsseite für Azure-Partner in Braze das Kontrollkästchen **Make this the default data export destination** aktiviert haben. Im Allgemeinen erstellt Braze eine Datei pro 5.000 Nutzer:innen, um die Verarbeitung zu optimieren. Das Exportieren kleinerer Segmente innerhalb eines großen Workspace kann zu mehreren Dateien führen. Sie können dann die Dateien extrahieren und bei Bedarf alle `json`-Dateien zu einer einzigen Datei zusammenfügen. Wenn Sie als `output_format` den Wert `gzip` angeben, wird die Dateiendung `.gz` anstelle von `.zip` verwendet.
 
 {% details Aufschlüsselung des Exportpfads für ZIP %}
 **ZIP-Format:**
@@ -93,7 +93,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `segment_id`                  | Erforderlich  | String           | Bezeichner für das zu exportierende Segment. Siehe [Segment-Bezeichner]({{site.baseurl}}/api/identifier_types/).<br><br>Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) in Ihrem Braze-Konto oder Sie können den [Endpunkt Segmentliste]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) verwenden. |
 | `callback_endpoint`           | Optional      | String           | Endpunkt, an den eine Download-URL gesendet wird, wenn der Export verfügbar ist.                                                                                                                                                                                                                                                                                                                             |
 | `fields_to_export`            | Erforderlich* | String-Array     | Name der zu exportierenden Nutzerdatenfelder. Sie können auch alle angepassten Attribute exportieren, indem Sie `custom_attributes` in diesen Parameter aufnehmen. Eine vollständige Liste der exportierbaren Felder finden Sie unter [Zu exportierende Felder](#fields-to-export).                                                                                                                            |
-| `custom_attributes_to_export` | Optional      | String-Array     | Name des spezifischen angepassten Attributs, das exportiert werden soll. Es können bis zu 500 angepasste Attribute exportiert werden. Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.                                                                                                                                     |
+| `custom_attributes_to_export` | Optional      | String-Array     | Name des spezifischen angepassten Attributs, das exportiert werden soll. Es können bis zu 500 angepasste Attribute exportiert werden. Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu **Data Settings** > **Custom Attributes**.                                                                                                                                     |
 | `output_format`               | Optional      | String           | Das Ausgabeformat Ihrer Datei. Standardmäßig ist das Dateiformat `zip` eingestellt. Wenn Sie Ihren eigenen S3-Bucket verwenden, können Sie `zip` oder `gzip` angeben.                                                                                                                                                                                                                                       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
@@ -173,6 +173,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 - Sowohl `custom_events` als auch `purchases` enthalten Felder für `first` und `count`. Beide Felder enthalten Informationen aus dem gesamten Zeitraum und sind nicht auf Daten der letzten 90 Tage beschränkt. Wenn beispielsweise eine bestimmte Nutzer:in das Event vor mehr als 90 Tagen zum ersten Mal ausgeführt hat, wird dies im Feld `first` korrekt wiedergegeben, und das Feld `count` berücksichtigt auch Events, die vor den letzten 90 Tagen stattgefunden haben.
 - Die Anzahl der gleichzeitigen Segmentexporte, die ein Unternehmen auf Endpunktebene ausführen kann, ist auf 100 begrenzt. Versuche, die diese Grenze überschreiten, führen zu einem Fehler.
 - Der Versuch, ein Segment ein zweites Mal zu exportieren, während der erste Exportvorgang noch läuft, führt zu einem 429-Fehler.
+- Eine [`403 Forbidden`-Antwort]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) bedeutet häufig, dass die Exportdatei noch nicht bereit ist.
 
 ## Antwort {#response}
 
@@ -183,6 +184,10 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }
 ```
+
+### `null`-URL
+
+Wenn die Antwort `"url": null` enthält (oder keine Download-URL zurückgibt) und Sie eine [Cloud-Speicher-Integration]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) wie einen Amazon S3-Bucket oder einen Azure Blob Storage-Container konfiguriert haben, schreibt Braze den Export in Ihren verbundenen Bucket oder Container, anstatt eine temporäre Download-URL in der API-Antwort zurückzugeben. Rufen Sie die Dateien aus Ihrem verbundenen Cloud-Speicher-Bucket oder -Container ab.
 
 Nachdem die URL bereitgestellt wurde, ist sie nur für einige Stunden gültig. Wir empfehlen Ihnen daher dringend, Ihre eigenen S3-Anmeldedaten zu Braze hinzuzufügen.
 

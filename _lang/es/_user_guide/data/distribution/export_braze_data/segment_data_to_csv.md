@@ -19,7 +19,7 @@ Para exportar los datos de un segmento a un CSV, selecciona el menú desplegable
 
 ![Sección de detalles del segmento con el desplegable User Data que muestra las opciones de exportación.]({% image_buster /assets/img_archive/csvexport.png %})
 
-También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear" aria-label="Settings"></i> **Settings** para un segmento:
+También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear"></i> **Settings** para un segmento:
 
 ![Desplegable de configuración en la página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -28,6 +28,14 @@ Para exportar los datos de todos tus perfiles de usuario, crea un segmento sin f
 {% endalert %}
 
 La salida CSV contiene los datos de cada perfil de usuario capturado en el segmento en el momento de la exportación. Puedes exportar cualquier segmento seleccionando el ícono de engranaje y la exportación CSV. Braze generará el informe en segundo plano y lo enviará por correo electrónico al usuario que esté conectado en ese momento.
+
+## Detalles de la exportación CSV de segmentos {#segment-csv-export-details}
+
+{% alert note %}
+Los usuarios del dashboard necesitan el permiso **Export user data** para utilizar las opciones de exportación CSV. Si no tienen este permiso, las opciones de exportación CSV no aparecen.
+{% endalert %}
+
+**Exportación de direcciones de correo electrónico a CSV** solo incluye filas para los usuarios del segmento que tienen una dirección de correo electrónico. Por ejemplo, si tu segmento tiene 100 000 usuarios pero solo 50 000 tienen una dirección de correo electrónico, **Exportación de direcciones de correo electrónico a CSV** produce aproximadamente 50 000 filas. **Exportación de datos de usuario a CSV** exporta todos los datos de usuario del segmento.
 
 {% alert important %}
 Debido a las restricciones de tamaño de los archivos, la exportación puede fallar si el tamaño estimado de tu segmento es superior a 500 000 usuarios. Ten en cuenta que esta restricción utiliza el tamaño estimado de tu segmento, y no el cálculo exacto. Para más detalles, consulta [Exportar segmentos grandes](#exporting-large-segments).

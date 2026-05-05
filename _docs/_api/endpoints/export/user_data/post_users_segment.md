@@ -173,6 +173,7 @@ The following is a list of valid `fields_to_export`. Using `fields_to_export` to
 - Both `custom_events` and `purchases` contain fields for `first` and `count`. Both of these fields reflect information from all time, and are not limited to data from the last 90 days. For example, if a particular user first did the event 90 days ago, this is accurately reflected in the `first` field, and the `count` field takes into account events that occurred prior to the last 90 days as well.
 - The number of concurrent segment exports a company can run at the endpoint level is capped at 100. Attempts that surpass this limit result in an error.
 - Attempting to export a segment a second time while the first export job is still running results in a 429 error.
+- A [`403 Forbidden` response]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) often means the export file isn't ready yet.
 
 ## Response
 
@@ -184,7 +185,11 @@ The following is a list of valid `fields_to_export`. Using `fields_to_export` to
 }
 ```
 
-After the URL is made available, it is only valid for a few hours. As such, we highly recommend that you add your own S3 credentials to Braze.
+### `null` URL
+
+If the response includes `"url": null` (or omits a download URL) and you have configured a [cloud storage integration]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) such as an Amazon S3 bucket or Azure Blob Storage container, Braze writes the export to your connected bucket or container instead of returning a temporary download URL in the API response. Retrieve the files from your connected cloud storage bucket or container.
+
+If a download URL is returned, it is valid for only a few hours. As such, we highly recommend that you add your own S3 credentials to Braze.
 
 If you see `object_prefix` in your API response and no URL to download the data, this means you have an Amazon S3 bucket already set up for this endpoint. Any data exported using this endpoint goes directly to your S3 bucket.
 

@@ -1,6 +1,6 @@
 ---
 permalink: /support_contact/
-nav_title: Help | Braze
+nav_title: Ayuda | Braze
 hide_nav: true
 layout: basic
 hide_toc: true

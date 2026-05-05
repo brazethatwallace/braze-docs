@@ -111,6 +111,15 @@ With a POST you don’t need to cache bust, because POST requests are not cached
 
 ## Things to know
 
+{% raw %}
 - Caching can help reduce duplicate Connected Content calls. However, it isn’t guaranteed to always result in a single Connected Content call per user.
 - Connected Content caching is based on the URL and workspace. If the Connected Content call is to the identical URL, it can be cached across campaigns and Canvases.
 - The cache is based on a unique URL, not a user ID or campaign. This means the cached version of a Connected Content call might be used across multiple users and campaigns in a workspace if the URL is the same.
+- Connected Content caching may be skipped if the tag markup includes any of the following high-cardinality snippets:
+    - `{{${user_id}}}`
+    - `{{${braze_id}}}`
+    - `{{${email}}}`
+    - `{{${email_address}}}`
+    - `{{${phone_number}}}`
+    - `{{${date_of_birth}}}`
+{% endraw %}
