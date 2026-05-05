@@ -134,7 +134,7 @@ To see an estimate of how many users receive the message in each hour of the day
 
 ![Example preview of delivery times for Android Push.]({% image_buster /assets/img/intel-timing-preview.png %})
 
-Whenever you change any settings about Intelligent Timing or your campaign audience, refresh the data again to view an updated chart. 
+Whenever you change any settings about Intelligent Timing or your campaign audience, refresh the data again to view an updated chart.
 
 The chart shows users who had relevant events to calculate an optimal time in blue and users who will use the fallback time in red. Use the calculation filters to adjust the preview view for a more granular look at either user group.
 {% endtab %}
