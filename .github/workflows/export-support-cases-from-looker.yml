@@ -18,6 +18,8 @@
 #
 # Phase 2 does not clone Appboy/platform (or other product repos) in CI; no REFERENCE_REPO_TOKEN here.
 #
+# Labels: Create `support analyzer` and `do not merge` in the repo if missing—the digest PR applies both.
+#
 # Schedule: `cron` + `timezone` use GitHub Actions schedule event semantics (IANA timezone, DST-aware).
 # Default: Tuesday and Friday ~7:00 America/New_York (~every three days; Looker export is a rolling ~3-day window).
 # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
@@ -129,13 +131,16 @@ jobs:
           body: |
             ## For tagged reviewers and stakeholders
 
-            This pull request was **generated automatically** by the Braze Support analyzer workflow. That process reviews the latest **Braze Support** case export (Looker). **This PR** is an internal digest only (keyword themes and counts)—it does **not** change customer-facing Braze Docs. The same workflow run opens separate **draft** Phase 2 PRs that may propose `_docs` edits (see `.github/support_analyzer_phase2_rules.yml`).
+            This pull request was **generated automatically** by the Braze Support analyzer workflow. That process reviews the latest **Braze Support** case export (Looker). **This PR** is an internal digest only (keyword themes and counts)—it does **not** change customer-facing Braze Docs. The same workflow run may open separate **draft** Phase 2 PRs that propose `_docs` edits (see `.github/support_analyzer_phase2_rules.yml`).
+
+            **Do not merge:** This digest PR is for **analysis and triage only**. Use `.github/support_analyzer_weekly_digest.md` in this PR and `_data/support_cases_latest.csv` on branch `support-analyzer-data` with the support-analyzer Cursor rule as needed.
 
             When Phase 2 completes successfully, this digest PR is **closed automatically** (the digest file is also attached as a **workflow artifact** on the run).
 
             See `.github/support_analyzer_weekly_digest.md` in this PR.
           labels: |
             support analyzer
+            do not merge
           commit-message: "chore: support cases digest (automated)"
           delete-branch: true
           add-paths: |
