@@ -72,7 +72,6 @@ No, there aren't any technical requirements.
 
 Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HTML.
 
-
 ### Can I create a webhook inside a landing page?
 
 No, but the **Submitted a Landing Page form** event can act as a trigger for Canvases or webhook campaigns:
