@@ -40,7 +40,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert important %}
-**Time zone alignment:** Braze Dashboard analytics are aggregated daily in your company's configured time zone in the dashboard. Make sure your timestamps align with your company's time zone so that your stats match the dashboard. For example, if your company time is UTC+2, then the timestamp should be 12AM UTC+2.
+**Time zone alignment:** Braze dashboard analytics are aggregated daily in your company's configured time zone in the dashboard. Make sure your timestamps align with your company's time zone so that your stats match the dashboard. For example, if your company time is UTC+2, then the timestamp should be 12 am UTC+2.
 {% endalert %}
 
 ## Example request
@@ -53,21 +53,48 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 ## Response
 
+### Conversion event fields
+
+The response includes one pair of conversion fields for each conversion event configured on the Canvas. The primary conversion event uses `conversions` and `conversions_by_entry_time`. Each additional event uses the same base name with a numeric suffix that starts at `1` for the second event and increases by one for each additional event.
+
+| Conversion event order on the Canvas | Conversions field | By entry time field |
+| --- | --- | --- |
+| Primary | `conversions` | `conversions_by_entry_time` |
+| Second | `conversions1` | `conversions1_by_entry_time` |
+| Third | `conversions2` | `conversions2_by_entry_time` |
+| Fourth | `conversions3` | `conversions3_by_entry_time` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+Fifth and later events follow the same pattern (for example, `conversions4` and `conversions4_by_entry_time`). These fields appear in `total_stats` and, when you request breakdowns, in `variant_stats` and `step_stats` using the same names.
+
 ```json
 {
   "data": {
     "name": (string) the Canvas name,
     "total_stats": {
       "revenue": (float) the number of dollars of revenue (USD),
-      "conversions": (int) the number of conversions,
-      "conversions_by_entry_time": (int) the number of conversions for the conversion event by entry time,
-      "entries": (int) the number of entries
+      "entries": (int) the number of entries,
+      "conversions": (int) the number of conversions for the primary conversion event,
+      "conversions_by_entry_time": (int) the number of conversions for the primary conversion event by entry time,
+      "conversions1": (optional, int) the number of conversions for the second conversion event,
+      "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+      "conversions2": (optional, int) the number of conversions for the third conversion event,
+      "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+      "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+      "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time
     },
     "variant_stats": (optional) {
       "00000000-0000-0000-0000-0000000000000": (string) the API identifier for the variant {
         "name": (string) the name of the variant,
         "revenue": (float) the number of dollars of revenue (USD),
-        "conversions": (int) the number of conversions,
+        "conversions": (int) the number of conversions for the primary conversion event,
+        "conversions_by_entry_time": (optional, int) the number of conversions for the primary conversion event by entry time,
+        "conversions1": (optional, int) the number of conversions for the second conversion event,
+        "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+        "conversions2": (optional, int) the number of conversions for the third conversion event,
+        "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+        "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+        "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time,
         "entries": (int) the number of entries
       },
       ... (more variants)
@@ -76,8 +103,14 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
       "00000000-0000-0000-0000-0000000000000": (string) the API identifier for the step {
         "name": (string) the name of the step,
         "revenue": (float) the number of dollars of revenue (USD),
-        "conversions": (int) the number of conversions,
-        "conversions_by_entry_time": (int) the number of conversions for the conversion event by entry time,
+        "conversions": (int) the number of conversions for the primary conversion event,
+        "conversions_by_entry_time": (int) the number of conversions for the primary conversion event by entry time,
+        "conversions1": (optional, int) the number of conversions for the second conversion event,
+        "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+        "conversions2": (optional, int) the number of conversions for the third conversion event,
+        "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+        "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+        "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time,
         "messages": {
           "android_push": (name of channel) [
             {
@@ -99,7 +132,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ```
 
 {% alert important %}
-**`influenced_opens` field:** In the API response, the `influenced_opens` field represents the total number of opens (both direct and influenced opens combined). In the Braze dashboard, 'influenced opens' refers only to influenced opens, excluding direct opens. This is due to a legacy naming convention in the API.
+In the API response, the `influenced_opens` field represents the total number of opens (both direct and influenced opens combined). In the Braze dashboard, "influenced opens" refers only to influenced opens, excluding direct opens. This is due to a legacy naming convention in the API.
 {% endalert %}
 
 {% alert tip %}
