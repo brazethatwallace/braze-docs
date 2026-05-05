@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Auf dieser Seite finden Sie Antworten auf einige häufig gestellte Fragen zur Cloud-Datenaufnahme.
 
-## Warum habe ich eine E-Mail erhalten: „Fehler in der CDI-Synchronisation“? {#why-was-i-emailed-error-in-cdi-sync}
+## Warum habe ich eine E-Mail erhalten: „Error in CDI Sync“? {#why-was-i-emailed-error-in-cdi-sync}
 
 Diese Art von E-Mail bedeutet normalerweise, dass es ein Problem mit Ihrer CDI-Einrichtung gibt. Hier sind einige häufige Probleme und wie Sie sie beheben können:
 
@@ -27,7 +27,7 @@ Versuchen Sie, Ihre Integration mit der richtigen Datenbankkonfiguration zu aktu
 
 Der in der Integration eingerichtete Katalog ist im Braze-Katalog nicht vorhanden. Ein Katalog kann entfernt werden, nachdem die Integration eingerichtet wurde. Um das Problem zu beheben, aktualisieren Sie entweder die Integration, um einen anderen Katalog zu verwenden, oder erstellen Sie einen neuen Katalog, der dem Katalognamen in der Integration entspricht.
 
-## Warum habe ich eine E-Mail erhalten: „Zeilenfehler in Ihrer CDI-Synchronisation“? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
+## Warum habe ich eine E-Mail erhalten: „Row errors in your CDI sync“? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
 
 Diese Art von E-Mail bedeutet, dass einige Ihrer Daten während der Synchronisierung nicht verarbeitet werden konnten. Um den spezifischen Fehler herauszufinden, können Sie die Protokolle in Braze einsehen, indem Sie zu **CDI** > **Sync Log** gehen.
 
@@ -151,6 +151,58 @@ CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Datensätze bei einer Sync
 {% alert tip %}
 Um dieses Verhalten in Zukunft zu vermeiden, empfehlen wir, monoton ansteigende `UPDATED_AT`-Werte zu verwenden und die Tabelle während Ihres geplanten Synchronisierungslaufs nicht zu aktualisieren.
 {% endalert %}
+
+## Benötige ich überwiegend eindeutige `UPDATED_AT`-Werte für große CDI-Importe? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+
+Ja. Bei Läufen mit hohem Volumen (z. B. mehr als ca. 10 Millionen Zeilen) sollten Ihre Quelldaten überwiegend eindeutige `UPDATED_AT`-Werte aufweisen. Wenn zu viele Zeilen denselben Zeitstempel haben, ist es wahrscheinlicher, dass CDI Zeilen an Grenz-Zeitstempeln in späteren Läufen erneut auswählt. Dies kann zu doppelten Synchronisierungen und einem erhöhten Datenpunktverbrauch führen.
+
+Weitere Informationen zum CDI-Grenzverhalten finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+
+### Wo führe ich diese SQL-Prüfungen aus? {#where-do-i-run-these-sql-checks}
+
+Führen Sie die Prüfungen direkt im SQL-Editor Ihres Data Warehouse aus, gegen dieselbe Tabelle oder View, die von Ihrer CDI-Integration verwendet wird:
+
+- Snowflake: **Projects** > **Worksheets** (weitere Informationen finden Sie unter [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
+- Redshift: Query Editor v2 (weitere Informationen finden Sie unter [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
+- BigQuery: BigQuery Studio SQL workspace (weitere Informationen finden Sie unter [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks: SQL editor (SQL warehouse) (weitere Informationen finden Sie unter [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Fabric: SQL query editor
+
+Verwenden Sie diesen Prozess, bevor Sie eine große Synchronisierung aktivieren oder skalieren:
+
+1. Identifizieren Sie die genaue CDI-Quelltabelle oder -View und das Synchronisierungsfenster, das Sie validieren möchten.
+2. Öffnen Sie den SQL-Editor Ihres Warehouse und wählen Sie dieselbe Datenbank und dasselbe Schema aus, die von CDI verwendet werden. Verwenden Sie dann eine Rolle mit Lesezugriff auf die Quelltabelle oder -View.
+3. Führen Sie die Abfrage zur Zählung eindeutiger Zeitstempel aus, um zu messen, wie viele eindeutige `UPDATED_AT`-Werte in diesem Fenster vorhanden sind.
+4. Führen Sie die Abfrage aus, die nach `UPDATED_AT` gruppiert und Zeilen zählt, um Zeitstempel mit ungewöhnlich hoher Zeilenanzahl zu finden.
+5. Wenn viele Zeilen identische Zeitstempel haben, passen Sie Ihren Aufnahmeprozess so an, dass aufeinanderfolgende Batches progressiv neuere `UPDATED_AT`-Werte verwenden, oder erhöhen Sie die Zeitstempelpräzision, damit die Zeilen besser verteilt sind.
+6. Führen Sie beide Abfragen erneut aus, bis die Konzentration reduziert ist, und starten oder skalieren Sie dann Ihre Synchronisierung.
+7. Überwachen Sie nach dem Start unter **CDI** > **Sync Log** das unerwartete Volumen erneuter Synchronisierungen an Grenz-Zeitstempeln.
+
+Verwenden Sie Prüfungen wie diese in Ihrem Warehouse:
+
+```sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNT(DISTINCT UPDATED_AT) AS distinct_timestamps,
+  ROUND(COUNT(*) * 1.0 / NULLIF(COUNT(DISTINCT UPDATED_AT), 0), 2) AS avg_rows_per_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
+```
+
+```sql
+SELECT
+  UPDATED_AT,
+  COUNT(*) AS rows_at_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP)
+GROUP BY UPDATED_AT
+ORDER BY rows_at_timestamp DESC
+LIMIT 20;
+```
+
+Wenn Ihr Warehouse `LIMIT` nicht unterstützt (z. B. Fabric), verwenden Sie eine äquivalente Syntax wie `TOP`.
 
 ## Warum kann eine CDI-Synchronisierung mit einer kleinen Zeilenanzahl trotzdem mehrere Minuten dauern? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 

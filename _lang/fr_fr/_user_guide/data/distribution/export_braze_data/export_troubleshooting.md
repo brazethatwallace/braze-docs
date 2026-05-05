@@ -6,7 +6,7 @@ page_type: reference
 description: "Cet article de référence traite des scénarios de résolution des problèmes courants pour les exportations dans les flux de travail CSV et API."
 ---
 
-# Résolution des problèmes d'exportation
+# Résolution des problèmes d'exportation {#export-troubleshooting}
 
 > Cette page traite des scénarios de résolution des problèmes courants pour les exportations dans les flux de travail CSV et API.
 
@@ -17,19 +17,19 @@ Utilisez les onglets pour indiquer si vous exportez vers le **compartiment S3 pa
 
 Si aucun partenaire de stockage n'est défini comme destination d'exportation par défaut, Braze utilise son propre compartiment Amazon S3 pour stocker vos fichiers d'exportation. Les fichiers dans cette configuration sont temporaires et expirent après quatre heures.
 
-## Exportations CSV
+## Exportations CSV {#csv-exports}
 Lorsque vous exportez un fichier CSV depuis le tableau de bord, Braze envoie un lien de téléchargement par e-mail à l'utilisateur connecté. Ce lien renvoie vers un fichier ZIP hébergé dans le compartiment S3 de Braze. Le fichier ZIP contient plusieurs fichiers plus petits qui, ensemble, constituent votre exportation.
 
 Vous devez être connecté au tableau de bord de Braze pour utiliser le lien, et le fichier n'est disponible que pendant quatre heures. Passé ce délai, le lien ne fonctionne plus et les données sont supprimées. Si vous rencontrez des échecs répétés avec des exportations très volumineuses (plus de 500 000 utilisateurs), l'exportation peut échouer. Dans ce cas, essayez de diviser votre exportation en groupes ou champs plus petits, ou envisagez de configurer un partenaire de stockage.
 
-### Erreurs courantes
+### Erreurs courantes {#common-errors}
 
 - Si vous rencontrez une erreur `AccessDenied`, il est possible que le fichier ait déjà expiré ou que vous ayez tenté de l'ouvrir avant qu'il ne soit prêt. Les rapports volumineux prennent plus de temps à générer ; patientez quelques minutes et réessayez.
 - Une erreur `ExpiredToken` indique que le délai de quatre heures est écoulé. Relancez l'exportation afin de générer un nouveau lien.
 - Le message `Looks like the file doesn't exist anymore` apparaît généralement lorsque l'e-mail est envoyé, mais que le fichier n'a pas encore fini d'être chargé vers S3. Patienter quelques minutes résout généralement le problème.
 - Les apostrophes ajoutées au début de certains champs (tels que `-`, `=`, `+` ou `@`) sont un comportement attendu. Par exemple, `-1943` devient `'-1943` dans le fichier CSV. Braze procède ainsi afin d'éviter que les tableurs n'interprètent incorrectement les données. Cela ne s'applique pas aux exportations JSON, telles que celles renvoyées par l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
-## Exportations API
+## Exportations API {#api-exports}
 Lorsque vous effectuez une exportation via les API d'exportation sans stockage cloud, Braze enregistre les fichiers dans son compartiment S3. Vous ne recevez pas d'e-mail ; la réponse de l'API inclut à la place une URL de téléchargement temporaire. L'exportation se présente sous la forme d'un fichier ZIP contenant plusieurs fichiers JSON, chacun avec un utilisateur par ligne.
 
 Comme pour les exportations CSV, les liens provenant de l'API expirent au bout de quatre heures. Si vous cliquez sur le lien trop tôt, des erreurs peuvent apparaître car le fichier n'est pas encore prêt. Vous pouvez fournir un `callback_endpoint` dans votre requête si vous souhaitez que Braze vous notifie lorsque le fichier est disponible.
@@ -68,3 +68,38 @@ Lorsque vous exportez des données via les API avec un partenaire de stockage co
 
 {% endsdktab %}
 {% endsdktabs %}
+
+## Analyses de campagne et de Canvas {#campaign-and-canvas-analytics}
+
+### Le nombre d'utilisateurs dans l'exportation CSV ne correspond pas aux *messages envoyés* ou aux *destinataires uniques* {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+
+L'exportation CSV d'une campagne peut afficher un nombre d'utilisateurs différent de celui des *messages envoyés* et des *destinataires uniques* pour les raisons suivantes :
+
+#### La rééligibilité est activée {#re-eligibility-is-turned-on}
+
+Si les utilisateurs peuvent (ou ont pu à un moment donné) recevoir la campagne plus d'une fois, les chiffres d'analyse de la campagne et le nombre de lignes dans l'exportation des données utilisateur ne correspondent pas. *Messages envoyés* comptabilise chaque envoi, y compris lorsqu'un même utilisateur reçoit le message plusieurs fois. Le téléchargement **Exporter les données utilisateur en CSV** répertorie les utilisateurs uniques — une ligne par profil ayant reçu la campagne — et non une ligne par envoi. Par exemple, si *Messages envoyés* indique 12 et que le fichier CSV contient 10 lignes, ces 12 envois ont été adressés à 10 utilisateurs distincts (certains utilisateurs ont reçu la campagne plus d'une fois).
+
+#### Des utilisateurs ont été supprimés ou fusionnés depuis l'envoi de la campagne ou du Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
+
+L'exportation CSV fournit un instantané des utilisateurs existants ayant reçu une campagne ou un Canvas donné. Étant donné que des utilisateurs peuvent être supprimés ou fusionnés, le nombre dans l'exportation CSV peut être inférieur au nombre de destinataires uniques. Par exemple, si 1 000 utilisateurs reçoivent une campagne, celle-ci affiche 1 000 destinataires uniques, et l'exportation CSV du même jour indique également 1 000 utilisateurs. Si un mois plus tard, 50 de ces 1 000 utilisateurs sont supprimés, l'exportation CSV contient 950 utilisateurs tandis que le compteur incrémenté de destinataires uniques reste à 1 000.
+
+## E-mails d'exportation de segment depuis le tableau de bord {#dashboard-segment-export-emails}
+
+### Pourquoi est-ce que je ne reçois pas les e-mails d'exportation de segment ? {#why-arent-i-receiving-segment-export-emails}
+
+Commencez par vérifier votre dossier de courrier indésirable pour un e-mail provenant de `no-reply@alerts.braze.com`. Si l'e-mail s'y trouve, ajoutez cette adresse à votre liste d'expéditeurs approuvés afin que les futurs messages d'exportation ne soient pas filtrés.
+
+Si l'e-mail ne se trouve pas dans votre dossier de courrier indésirable, vérifiez si un autre membre de votre équipe peut recevoir l'exportation. Si personne ne la reçoit, tenez compte de la taille de votre exportation. Le délai de réception varie en fonction de la taille de l'exportation, mais si l'e-mail n'est pas arrivé au bout d'une heure, contactez l'[Assistance]({{site.baseurl}}/braze_support/).
+
+## Téléchargements de l'API d'exportation de segment {#segment-export-api-downloads}
+
+### Impossible de télécharger un fichier ZIP de segment exporté depuis une URL Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
+
+Si vous obtenez une erreur `403 Forbidden` lors de l'utilisation de l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), il est possible que le fichier ne soit pas encore prêt. Les exportations volumineuses peuvent prendre du temps à traiter. Patientez jusqu'à une heure avant de réessayer le téléchargement.
+
+Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de segment, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers à votre propre pipeline d'extraction, transformation et chargement (ETL).
+
+Les exportations prennent du temps à se terminer, c'est pourquoi un accès immédiat depuis un script échoue souvent. Vous pouvez :
+
+- Interroger l'URL de téléchargement avec des délais exponentiels, ou
+- Utiliser le [paramètre `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) et le diriger vers un service qui exécute votre script lorsque l'exportation est prête.

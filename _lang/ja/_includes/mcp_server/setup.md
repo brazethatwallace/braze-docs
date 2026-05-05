@@ -100,7 +100,7 @@ APIキーを作成するには：
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### カタログ {#catalogs}
+#### Catalogs
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -109,7 +109,7 @@ APIキーを作成するには：
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### クラウドデータ取り込み {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -125,14 +125,14 @@ APIキーを作成するには：
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### カスタム属性 {#custom-attributes}
+#### Custom Attributes
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### イベント {#events}
+#### Events
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -141,7 +141,7 @@ APIキーを作成するには：
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### KPI {#kpis}
+#### KPIs
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -151,7 +151,7 @@ APIキーを作成するには：
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### メディアライブラリ {#media-library}
+#### Media Library
 
 このエンドポイントは、Braze MCPサーバーがサポートする書き込みエンドポイントです。エージェントにメディアライブラリへのアセットアップロードを許可する場合のみ、この権限を追加してください。
 
@@ -160,14 +160,14 @@ APIキーを作成するには：
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### メッセージ {#messages}
+#### Messages
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### ユーザー設定センター {#preference-center}
+#### Preference Center
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -175,7 +175,7 @@ APIキーを作成するには：
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### 購入 {#purchases}
+#### Purchases
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -193,28 +193,28 @@ APIキーを作成するには：
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### 送信 {#sends}
+#### Sends
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### セッション {#sessions}
+#### Sessions
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### SDK認証キー {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### サブスクリプション {#subscription}
+#### Subscription
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -222,7 +222,7 @@ APIキーを作成するには：
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### テンプレート {#templates}
+#### Templates
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|

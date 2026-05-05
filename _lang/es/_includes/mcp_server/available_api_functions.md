@@ -1,16 +1,16 @@
-# Funciones del servidor Braze MCP {#braze-mcp-server-functions}
+# Funciones del servidor MCP de Braze {#braze-mcp-server-functions}
 
-> El servidor MCP de Braze expone un conjunto de funciones API que se corresponden con puntos finales específicos de la REST API de Braze. Los clientes MCP como Claude y Cursor pueden llamar a estas funciones para recuperar datos sin PII y realizar acciones de escritura sin PII. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> El servidor MCP de Braze expone un conjunto de funciones API que se corresponden con puntos finales específicos de la REST API de Braze. Los clientes MCP como Claude y Cursor pueden llamar a estas funciones para recuperar datos sin PII y realizar acciones de escritura sin PII. Para obtener información más general, consulta [Servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder utilizar esta característica, tendrás que [configurar el servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
+Antes de poder utilizar esta característica, tendrás que [configurar el servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
 
 ## Funciones disponibles de la API de Braze {#available-braze-api-functions}
 
-Tu cliente MCP hace referencia a las siguientes funciones API para interactuar con el servidor Braze MCP.
+Tu cliente MCP hace referencia a las siguientes funciones API para interactuar con el servidor MCP de Braze.
 
 ### Funciones generales {#general-functions}
 
@@ -95,7 +95,7 @@ Estas funciones ayudan a tu cliente MCP a descubrir y ejecutar las funciones dis
 
 ### Biblioteca de medios {#media-library}
 
-Esta es la única función de escritura en el servidor Braze MCP. Para usarla, tu clave de API debe tener el permiso `media_library.create`.
+Esta es la única función de escritura en el servidor MCP de Braze. Para usarla, tu clave de API debe tener el permiso `media_library.create`.
 
 | Función | Punto de conexión | Descripción |
 |----------|----------|-------------|

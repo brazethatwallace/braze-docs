@@ -51,10 +51,10 @@ Campaign 작성기의 **Target Audiences** 단계에서 메시지를 받을 총 
 
 ![Campaign을 받는 사람 수를 제한하는 체크박스가 선택된 오디언스 요약.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
-최대 사용자 제한을 선택하면 채널별 또는 모든 메시지 유형에 걸쳐 전체적으로 발송되는 메시지 양을 제한할 수 있습니다.
+최대 사용자 제한을 선택하면 채널별 또는 모든 메시지 유형에 걸쳐 전체적으로 발송되는 메시지 양을 제한할 수 있습니다. Braze는 대조군에 할당된 사용자에게는 메시지를 발송하지 않으므로, 해당 사용자는 제한에 포함되지 않습니다.
 
 {% alert note %}
-최대 사용자 수 제한은 발송된 사용자 수를 제한하는 것이지, 성공적으로 발송된 메시지 수를 제한하는 것이 아닙니다. 중단된 메시지도 이 제한에 포함되므로 실제 발송된 메시지 수는 설정된 제한보다 적을 수 있습니다. 예를 들어, 제한을 10,000으로 설정하고 Liquid 로직이나 기타 조건으로 인해 2,000개의 메시지가 중단되면 8,000개의 메시지만 발송됩니다.
+최대 사용자 수 제한은 발송 대상 사용자 수를 제한하는 것이지, 성공적으로 발송된 메시지 수를 제한하는 것이 아닙니다. 중단된 메시지도 이 제한에 포함되므로 실제 발송된 메시지 수는 설정된 제한보다 적을 수 있습니다. 예를 들어, 제한을 10,000으로 설정하고 Liquid 로직이나 기타 조건으로 인해 2,000개의 메시지가 중단되면 8,000개의 메시지만 발송됩니다.
 {% endalert %}
 
 ##### 최적화를 사용한 최대 사용자 수 제한 {#maximum-user-cap-with-optimizations}
@@ -144,7 +144,7 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
     - SMS 자동 응답
     - SLA 지원 메시지([트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) 등)
     - 인앱 메시지
-    - 기능 플래그
+    - 피처 플래그
     - 배너
 
 #### 사용량 제한과 연결된 콘텐츠 재시도 {#rate-limiting-and-connected-content-retries}
@@ -301,7 +301,7 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 
 | 동작 | 결과 |
 |---|---|
-| 사용자가 메시지를 받은 후, **Campaign B가 발송되기 전에** **Campaign A**에서 `promotional` 태그가 제거됩니다. | 사용자는 **Campaign B**를 받습니다.|
+| 사용자가 메시지를 받은 후, **Campaign B가 발송되기 전에** **Campaign A**에서 `promotional` 태그가 제거됩니다. | 사용자는 **Campaign B**를 받습니다. |
 | 사용자가 메시지를 받은 후 **Campaign A**에서 `promotional` 태그가 실수로 제거됩니다. <br> **Campaign B**가 발송되기 전 화요일에 **Campaign A**에 태그가 다시 추가됩니다. | 사용자는 **Campaign B**를 받지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

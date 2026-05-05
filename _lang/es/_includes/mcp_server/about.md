@@ -4,9 +4,9 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
-## ¿Qué es el Protocolo de Contexto de Modelo (MCP)? {#what-is-model-context-protocol-mcp}
+## ¿Qué es el protocolo de contexto de modelo (MCP)? {#what-is-model-context-protocol-mcp}
 
-​​El Protocolo de contexto de modelo, o MCP, es un estándar que permite a los agentes de IA conectarse y trabajar con datos de otra plataforma. Tiene dos partes principales:
+​​El protocolo de contexto de modelo, o MCP, es un estándar que permite a los agentes de IA conectarse y trabajar con datos de otra plataforma. Tiene dos partes principales:
 
 - **Cliente MCP:** La aplicación en la que se ejecuta el agente de IA, como Cursor o Claude.
 - **Servidor MCP:** Un servicio proporcionado por otra plataforma, como Braze, que define qué herramientas puede utilizar la IA y a qué datos puede acceder.

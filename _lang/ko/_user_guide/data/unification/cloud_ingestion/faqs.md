@@ -152,7 +152,59 @@ CDI는 `UPDATED_AT`을 사용하여 동기화 중에 어떤 레코드를 가져�
 앞으로 이러한 동작을 방지하려면 단조롭게 증가하는 `UPDATED_AT` 값을 사용하고 스케줄된 동기화 실행 중에 테이블을 업데이트하지 않는 것이 좋습니다.
 {% endalert %}
 
-## 적은 수의 행으로 CDI 동기화를 수행해도 여전히 몇 분이 걸리는 이유는 무엇인가요? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
+## 대규모 CDI 가져오기에 대부분 고유한 `UPDATED_AT` 값이 필요한가요? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+
+네. 대용량 실행(예: 약 1,000만 행 이상)의 경우 소스 데이터에 대부분 고유한 `UPDATED_AT` 값이 있는지 확인하세요. 너무 많은 행이 동일한 타임스탬프를 공유하면 CDI가 이후 실행에서 경계 타임스탬프의 행을 다시 선택할 가능성이 높아집니다. 이로 인해 중복 동기화 및 데이터 포인트 소비가 증가할 수 있습니다.
+
+CDI 경계 동작에 대한 자세한 내용은 [중복 타임스탬프가 있는 행의 재동기화 방지]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
+
+### 이러한 SQL 검사는 어디에서 실행하나요? {#where-do-i-run-these-sql-checks}
+
+CDI 통합에서 사용하는 동일한 테이블 또는 뷰를 대상으로 데이터 웨어하우스 SQL 편집기에서 직접 검사를 실행하세요:
+
+- Snowflake: **Projects** > **Worksheets** (자세한 내용은 [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs) 참조)
+- Redshift: Query Editor v2 (자세한 내용은 [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html) 참조)
+- BigQuery: BigQuery Studio SQL workspace (자세한 내용은 [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction) 참조)
+- Databricks: SQL editor (SQL warehouse) (자세한 내용은 [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/) 참조)
+- Fabric: SQL query editor
+
+대규모 동기화를 활성화하거나 확장하기 전에 다음 프로세스를 사용하세요:
+
+1. 검증하려는 정확한 CDI 소스 테이블 또는 뷰와 동기화 기간을 식별합니다.
+2. 웨어하우스 SQL 편집기를 열고 CDI에서 사용하는 동일한 데이터베이스 및 스키마를 선택한 다음, 소스 테이블 또는 뷰에 대한 읽기 액세스 권한이 있는 역할을 사용합니다.
+3. 고유 타임스탬프 수 쿼리를 실행하여 해당 기간에 존재하는 고유한 `UPDATED_AT` 값의 수를 측정합니다.
+4. `UPDATED_AT`별로 그룹화하고 행 수를 세는 쿼리를 실행하여 비정상적으로 높은 행 수를 가진 타임스탬프를 찾습니다.
+5. 많은 행이 동일한 타임스탬프를 공유하는 경우, 연속 배치가 점진적으로 더 새로운 `UPDATED_AT` 값을 사용하도록 수집 프로세스를 조정하거나 타임스탬프 정밀도를 높여 행이 더 고르게 분포되도록 합니다.
+6. 집중도가 줄어들 때까지 두 쿼리를 다시 실행한 다음 동기화를 시작하거나 확장합니다.
+7. 시작 후 **CDI** > **동기화 로그**에서 경계 타임스탬프에서의 예상치 못한 재동기화 볼륨을 모니터링합니다.
+
+웨어하우스에서 다음과 같은 검사를 사용하세요:
+
+```sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNT(DISTINCT UPDATED_AT) AS distinct_timestamps,
+  ROUND(COUNT(*) * 1.0 / NULLIF(COUNT(DISTINCT UPDATED_AT), 0), 2) AS avg_rows_per_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
+```
+
+```sql
+SELECT
+  UPDATED_AT,
+  COUNT(*) AS rows_at_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP)
+GROUP BY UPDATED_AT
+ORDER BY rows_at_timestamp DESC
+LIMIT 20;
+```
+
+웨어하우스에서 `LIMIT`를 지원하지 않는 경우(예: Fabric), `TOP`과 같은 동등한 구문을 사용하세요.
+
+## 적은 수의 행으로도 CDI 동기화에 여전히 몇 분이 걸리는 이유는 무엇인가요? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
 CDI 동기화에는 행 처리가 시작되기 전에 고정된 시작 시간이 포함됩니다. 이 시작 시간은 동기화 크기에 관계없이 유사하기 때문에, 적은 수의 동기화도 여전히 몇 분이 걸릴 수 있으며 분당 행 수 기준으로 더 느리게 보일 수 있습니다. 전체 동기화 시간은 소스 쿼리 복잡성, 데이터 형태 및 데이터 웨어하우스의 가용 용량에 따라 달라집니다. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하세요.
 
@@ -160,7 +212,7 @@ CDI 동기화에는 행 처리가 시작되기 전에 고정된 시작 시간이
 
 처리 순서는 100% 예측할 수 없습니다. 예를 들어, 동기화 중에 테이블에 동일한 `EXTERNAL_ID`를 가진 행이 여러 개 있는 경우 최종 프로필에 어떤 값이 포함될지 보장할 수 없습니다. 페이로드 열에서 다른 속성으로 동일한 `EXTERNAL_ID`를 업데이트하는 경우 동기화가 완료되면 모든 변경 사항이 반영됩니다.
 
-## 왜 CDI 동기화에서 새로운 사용자가 생성되지 않나요? {#why-are-new-users-not-being-created-from-my-cdi-sync}
+## CDI 동기화에서 새로운 사용자가 생성되지 않는 이유는 무엇인가요? {#why-are-new-users-not-being-created-from-my-cdi-sync}
 
 CDI 통합에 **기존 사용자만 업데이트** 옵션이 활성화되어 있으면, Braze에 이미 존재하는 사용자만 업데이트되고 새로운 사용자는 생성되지 않습니다. 이는 동기화 테이블의 행이 기존 Braze 사용자와 일치하지 않는 `EXTERNAL_ID`를 참조하는 경우 해당 행이 건너뛰어진다는 것을 의미합니다.
 

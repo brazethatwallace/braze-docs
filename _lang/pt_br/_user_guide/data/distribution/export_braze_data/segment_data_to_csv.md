@@ -29,6 +29,14 @@ Para exportar dados de todos os seus perfis de usuários, crie um segmento sem f
 
 A saída CSV contém os dados de cada perfil de usuário capturado no segmento no momento da exportação. Você pode exportar qualquer segmento selecionando o ícone de engrenagem e a exportação CSV. A Braze gerará o relatório em segundo plano e o enviará por e-mail para o usuário que estiver conectado no momento.
 
+## Detalhes da exportação CSV de segmento {#segment-csv-export-details}
+
+{% alert note %}
+Os usuários do dashboard precisam da permissão **Export user data** para usar as opções de exportação CSV. Se não tiverem essa permissão, as opções de exportação CSV não aparecerão.
+{% endalert %}
+
+**Exportar endereços de e-mail em CSV** inclui apenas linhas de usuários no segmento que possuem um endereço de e-mail. Por exemplo, se o seu segmento tem 100.000 usuários, mas apenas 50.000 possuem um endereço de e-mail, **Exportar endereços de e-mail em CSV** produzirá cerca de 50.000 linhas. **Exportar dados de usuários em CSV** exporta todos os dados de usuários do segmento.
+
 {% alert important %}
 Devido a restrições de tamanho de arquivo, sua exportação poderá falhar se o tamanho estimado do seu segmento for superior a 500.000 usuários. Note que essa restrição usa o tamanho estimado do seu segmento, e não o cálculo exato. Para mais detalhes, consulte [Exportação de segmentos grandes](#exporting-large-segments).
 {% endalert %}
@@ -43,7 +51,7 @@ Os itens a seguir estão incluídos na sua exportação, dependendo da sua sele�
 
 ### Exportar dados de usuários em CSV {#csv-export-user-data}
 
-| Nome do campo                  | Descrição                                              |
+| Nome do campo                 | Descrição                                              |
 | --------------------------- | -------------------------------------------------------- |
 | Appboy ID                   | ID interna (não pode ser alterada)                           |
 | country                     | País                                    |
@@ -91,7 +99,7 @@ Quando você exporta dados de usuários de uma etapa do Canvas, o CSV inclui tod
 
 ### Exportar endereços de e-mail em CSV {#csv-export-email-addresses}
 
-| Nome do campo                  | Descrição            |
+| Nome do campo                 | Descrição            |
 | --------------------------- | ---------------------- |
 | user_id                     | ID externo do usuário     |
 | first_name                  | Nome             |

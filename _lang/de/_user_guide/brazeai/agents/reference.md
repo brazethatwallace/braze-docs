@@ -70,6 +70,13 @@ Jeder LLM-Anbieter bietet eine leicht unterschiedliche Mischung aus Modellfähig
 - Achten Sie beim Testen darauf, Zuverlässigkeit und Genauigkeit mit Token-Verbrauch und Aufrufdauer in Einklang zu bringen.
 - Jeder Anwendungsfall kann ein anderes optimales Modell und eine andere optimale Denkstufe haben. Wir empfehlen gründliches Testen, um konsistente Qualität ohne Timeouts sicherzustellen.
 
+### Rate-Limits {#rate-limits}
+
+Die folgenden Rate-Limits gelten pro Workspace:
+
+- **Von Braze bereitgestelltes Modell:** 1.000 Aufrufe pro Minute
+- **Eigener API-Schlüssel:** 2.500 Aufrufe pro Minute
+
 ## Anweisungen verfassen {#writing-instructions}
 
 Anweisungen sind die Regeln oder Richtlinien, die Sie dem Agenten geben (System-Prompt). Sie legen fest, wie sich der Agent bei jeder Ausführung verhalten soll. Systemanweisungen können bis zu 25 KB groß sein.
@@ -155,6 +162,61 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 <output_example>
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
+```
+{% endraw %}
+
+{% endtab %}
+{% tab SMS-Opt-out %}
+
+{% raw %}
+```
+ROLE
+You are a compliance-focused classifier for inbound customer messages.
+
+PRIMARY TASK
+Given a single inbound message from a user, decide whether it should be treated as a request to opt out of future messaging (unsubscribe, stop, revoke consent).
+
+OUTPUT (STRICT)
+Return a single boolean only:
+- true = treat as an opt-out request
+- false = do not treat as an opt-out request
+Do not output any other words, punctuation, or explanation.
+
+COMPLIANCE INTENT (NON-LEGAL GUIDANCE)
+Classify conservatively to reduce the risk of sending messages after a user revokes consent. This supports common requirements and expectations in laws and standards such as TCPA (US SMS consent and revocation), GDPR (withdrawal of consent and right to object to marketing), and other subscription management regimes. When in doubt, return true.
+
+DECISION RULES
+Return true if ANY of the following are present:
+1) Explicit opt-out keywords or phrases:
+   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
+   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
+2) A clear request to stop a specific channel:
+   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
+3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
+   - A standalone thumbs down (:-1:) or "thumbs down"
+   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
+   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
+Return false if ALL of the following are true:
+- The user is clearly engaging with the content or asking a question, and
+- There is no explicit opt-out intent
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
+
+EDGE CASES
+- If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
+- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
+- If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
+
+EXAMPLES
+Input: “STOP” → true
+Input: “unsubscribe” → true
+Input: “Please stop texting me” → true
+Input: “Remove me from your list” → true
+Input: “:-1:” → true
+Input: “I hate this. Leave me alone.” → true
+Input: “This is the worst, you suck” → true
+Input: “Stop by tomorrow?” → false
+Input: “Can you stop the delivery?” → false
+Input: “This sucks—what’s the promo code?” → false
 ```
 {% endraw %}
 
@@ -439,13 +501,13 @@ Wenn Sie Nutzerfeedback zur letzten Restauranterfahrung in Ihrer Restaurantkette
 
 ## Kataloge und Felder {#catalogs-and-fields}
 
-Wählen Sie bestimmte Kataloge aus, die ein Agent referenzieren soll, und geben Sie Ihrem Agenten den Kontext, den er benötigt, um Ihre Produkte und andere nicht-nutzerbezogene Daten zu verstehen. Agenten verwenden Tools, um nur die relevanten Artikel zu finden und diese an das LLM zu senden, um den Token-Verbrauch zu minimieren.
+Wählen Sie bestimmte Kataloge aus, die ein Agent referenzieren soll, und geben Sie Ihrem Agenten den Kontext, den er benötigt, um Ihre Produkte und andere nicht-nutzerbezogene Daten zu verstehen. Agenten verwenden Tools, um nur die relevanten Einträge zu finden und diese an das LLM zu senden, um den Token-Verbrauch zu minimieren.
 
 ![Der Katalog „restaurants“ und die Spalte „Loyalty_Program“, die für die Suche durch den Agenten ausgewählt wurden.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
 ## Segmentzugehörigkeitskontext {#segment-membership-context}
 
-Sie können bis zu fünf Segments auswählen, anhand derer der Agent die Segmentzugehörigkeit jedes Nutzers bzw. jeder Nutzerin abgleichen kann, wenn der Agent in einem Canvas verwendet wird. Angenommen, Ihr Agent hat die Segmentzugehörigkeit für ein Segment „Treue-Nutzer:innen“ ausgewählt und wird in einem Canvas eingesetzt. Wenn Nutzer:innen einen Agenten-Schritt aufrufen, kann der Agent prüfen, ob jede Nutzerin bzw. jeder Nutzer Mitglied der in der Agentenkonsole angegebenen Segments ist, und die Zugehörigkeit (oder Nicht-Zugehörigkeit) als Kontext für das LLM verwenden.
+Sie können bis zu fünf Segmente auswählen, anhand derer der Agent die Segmentzugehörigkeit jedes Nutzers bzw. jeder Nutzerin abgleichen kann, wenn der Agent in einem Canvas verwendet wird. Angenommen, Ihr Agent hat die Segmentzugehörigkeit für ein Segment „Treue-Nutzer:innen“ ausgewählt und wird in einem Canvas eingesetzt. Wenn Nutzer:innen einen Agenten-Schritt aufrufen, kann der Agent prüfen, ob jede Nutzerin bzw. jeder Nutzer Mitglied der in der Agentenkonsole angegebenen Segmente ist, und die Zugehörigkeit (oder Nicht-Zugehörigkeit) als Kontext für das LLM verwenden.
 
 ![Das Segment „Loyalty Users“, das für den Zugang zur Agenten-Mitgliedschaft ausgewählt wurde.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
@@ -465,14 +527,14 @@ Temperaturen werden derzeit nicht für die Verwendung mit OpenAI unterstützt.
 
 Um Verbesserungen oder Iterationen eines Agenten zu testen, können Sie einen Agenten duplizieren und anschließend Änderungen vornehmen, um diese mit dem Original zu vergleichen. Sie können das Duplizieren von Agenten auch als Versionskontrolle nutzen, um Änderungen in den Agentendetails und etwaige Auswirkungen auf Ihr Messaging zu verfolgen. So duplizieren Sie einen Agenten:
 
-1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
-2. Wählen Sie **Duplicate**.
+1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>-Menü aus.
+2. Wählen Sie **Duplizieren**.
 
 ## Agenten archivieren {#archive-agents}
 
 Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenmanagement** organisieren, indem Sie Agenten archivieren, die nicht aktiv verwendet werden. So archivieren Sie einen Agenten:
 
-1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
-2. Wählen Sie **Archive**.
+1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>-Menü aus.
+2. Wählen Sie **Archivieren**.
 
 ![Seite „Agentenmanagement“ mit archivierten Agenten.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

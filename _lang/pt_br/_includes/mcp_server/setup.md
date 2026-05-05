@@ -1,4 +1,4 @@
-# Configurando o servidor Braze MCP {#setting-up-the-braze-mcp-server}
+# Configure o servidor Braze MCP {#setting-up-the-braze-mcp-server}
 
 > Aprenda como configurar o servidor Braze MCP, para que você possa interagir com seus dados Braze usando ferramentas de linguagem natural como Claude e Cursor. Para mais informações gerais, veja [servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
@@ -22,7 +22,7 @@ Antes de começar, você precisará do seguinte:
 Primeiro, instale `uv`&#8212;uma [ferramenta de linha de comando da Astral](https://docs.astral.sh/uv/getting-started/installation/) para gerenciamento de dependências e manipulação de pacotes Python.
 
 {% tabs local %}
-{% tab MacOS and Linux %}
+{% tab MacOS e Linux %}
 Abra seu app de terminal, cole o seguinte comando e pressione <kbd>Enter</kbd>.
 
 ```bash
@@ -100,7 +100,7 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Catálogos {#catalogs}
+#### Catalogs
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -109,7 +109,7 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Ingestão de dados na nuvem {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -125,14 +125,14 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Atributos personalizados {#custom-attributes}
+#### Custom Attributes
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Eventos {#events}
+#### Events
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -151,7 +151,7 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Biblioteca de mídia {#media-library}
+#### Media Library
 
 Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adicione essa permissão apenas se quiser que seu agente faça upload de ativos para sua biblioteca de mídia.
 
@@ -160,14 +160,14 @@ Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adici
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Mensagens {#messages}
+#### Messages
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Central de Preferências {#preference-center}
+#### Preference Center
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -175,7 +175,7 @@ Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adici
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Compras {#purchases}
+#### Purchases
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -193,28 +193,28 @@ Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adici
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Envios {#sends}
+#### Sends
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Sessões {#sessions}
+#### Sessions
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Chaves de autenticação do SDK {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Inscrição {#subscription}
+#### Subscription
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -222,7 +222,7 @@ Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adici
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-#### Modelos {#templates}
+#### Templates
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
