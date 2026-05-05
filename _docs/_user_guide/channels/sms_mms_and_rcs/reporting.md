@@ -52,6 +52,16 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 This returns users who opted out of SMS communications for the given workspace and subscription group, filtered to those associated with campaigns or Canvases.
 
+### Opt-out timing
+
+Keyword and inbound-message events in Currents or your data warehouse, such as timestamps on [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) or subscription group state change events, are the authoritative source for when Braze recorded the opt-out.
+
+{% alert note %}
+Event timestamps reflect when Braze received or processed the inbound message, not necessarily when the user sent the SMS or when a carrier or SMS provider received it. If your analysis treats opt-outs as when Braze processed the inbound opt-out path, these timestamps match that definition.
+{% endalert %}
+
+The user profile shows current subscription state but may not surface a single "SMS unsubscribed at" field unless you set a [custom attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) or similar when processing opt-outs.
+
 ## Charges applied to SMS sending outcomes
 
 This table reflects Braze billing, not your provider's billing. Outcomes that are not charged by Braze may be charged by your provider.

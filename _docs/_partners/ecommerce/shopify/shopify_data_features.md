@@ -853,13 +853,17 @@ For more information on what data is collected by the Braze SDKs, see [SDK data 
 
 ## Historical backfill
 
-During your Shopify store onboarding, you can initiate an initial data sync through historical backfill to immediately engage with your customers. As part of this backfill, Braze runs an initial data sync of all customers and order-placed events from the last 90 days prior to your Shopify integration connection. When Braze imports your Shopify customers, we assign the `external_id` type that you chose in your configuration settings.
+> Historical Shopify data is imported from before you connect Braze—order events from the past 90 days and customer data from the past year. Both timeframes are counted back from the date you complete your integration.
+
+Through the [Shopify standard integration setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) or [Shopify custom integration setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), you can turn on historical backfill to target past customers. This imports your Shopify orders (order-related events) from the past 90 days and user profiles from the past year. Both timeframes are counted back from the date you complete your integration.
+
+When Braze imports your Shopify customers, we assign the `external_id` type that you chose in your configuration settings.
 
 {% alert note %}
-If you plan to integrate with a custom external ID (for either the [standard integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) or the [custom integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), you will be required to add your custom external ID as a Shopify customer metafield to all existing Shopify customer profiles and then perform the historical backfill. 
+If you're an existing Braze customer with active campaigns or Canvases, review how imported customers and order events affect your segments and journeys before you enable historical backfill.
 {% endalert %}
 
-The synced order event data is available for segmentation, but the revenue data itself does not populate in the user profile or the [Revenue – Last Touch Attribution dashboard]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution).
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 ### Setting up Shopify historical backfill
 
@@ -873,6 +877,13 @@ The synced order event data is available for segmentation, but the revenue data 
 
 ![The Shopify Integration Settings page with a spinner showing that events are actively syncing.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
 
-### Synced data 
+### Synced data
 
-For the initial data sync, Braze will import customers and order placed from the last 90 days prior to your Shopify integration connection. When Braze imports your Shopify customers, it will assign the `external_id` type that you chose in your configuration settings.
+For the initial data sync, Braze imports order events from the past 90 days and user profiles from the past year, each counted back from the date you complete your integration. When Braze imports your Shopify customers, it assigns the `external_id` type that you chose in your configuration settings.
+
+The following table summarizes the data included in that initial load.
+
+| Braze recommended events | Shopify custom events | Braze standard attributes | Braze subscription statuses |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Email marketing subscriptions associated with this Shopify store</li><li>SMS marketing subscriptions associated with this Shopify store</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
