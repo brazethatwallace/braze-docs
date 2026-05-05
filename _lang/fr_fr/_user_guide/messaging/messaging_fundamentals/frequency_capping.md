@@ -301,7 +301,7 @@ Considérez les campagnes et la règle de limite de fréquence par étiquette su
 
 | Action | Résultat |
 |---|---|
-| L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B ne soit envoyée.** | Votre utilisateur reçoit **Campaign B**. |
+| L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B** ne soit envoyée. | Votre utilisateur reçoit **Campaign B**. |
 | L'étiquette `promotional` est supprimée par erreur de **Campaign A** après que votre utilisateur a reçu le message. <br> L'étiquette est rajoutée à **Campaign A** le mardi, avant que **Campaign B** ne soit envoyée. | Votre utilisateur ne reçoit pas **Campaign B**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

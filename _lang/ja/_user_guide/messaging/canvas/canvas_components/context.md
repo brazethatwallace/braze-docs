@@ -249,7 +249,7 @@ LiquidでAmerica/Los Angelesタイムゾーンが指定されているため、�
 
 ### コンテキスト変数はCanvasエントリプロパティとどう異なりますか？ {#how-do-context-variables-differ-from-canvas-entry-properties}
 
-CanvasエントリプロパティはCanvasコンテキスト変数として含まれます。つまり、Braze APIを使用してCanvasエントリプロパティを送信し、Liquidスニペットでコンテキスト変数を使用するのと同様に、他のステップで参照できます。
+Canvasエントリプロパティは、Canvasコンテキスト変数として含まれます。つまり、Braze APIを使用してCanvasエントリプロパティを送信し、Liquidスニペットでコンテキスト変数を使用するのと同様に、他のステップで参照できます。
 
 ### 1つのコンテキストステップ内で変数同士を参照できますか？ {#can-variables-reference-each-other-in-a-singular-context-step}
 

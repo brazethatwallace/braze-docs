@@ -41,7 +41,7 @@ toc_headers: h2
 ![워크스페이스 이름 옆에 있는 "편집" 버튼입니다.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
-3. 드롭다운 메뉴에서 해당 워크스페이스에 대한 원하는 시간대를 선택합니다.
+3. 드롭다운 메뉴에서 해당 워크스페이스에 원하는 시간대를 선택합니다.
 4. **저장**을 선택합니다.
 
 ![GMT 시간대가 선택된 드롭다운 메뉴입니다.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})

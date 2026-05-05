@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `push_tokens` | 배열 | 사용자의 푸시 토큰에 대한 정보입니다. |
 | `random_bucket` | 정수 | 무작위 사용자 Segment를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)입니다. |
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
-| `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaign 및 Canvas의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
+| `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
 | `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -187,7 +187,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ### `null` URL
 
-응답에 `"url": null`이 포함되거나 다운로드 URL이 생략되어 있고 Amazon S3 버킷 또는 Azure Blob Storage 컨테이너와 같은 [클라우드 스토리지 통합]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 구성한 경우, Braze는 API 응답에 임시 다운로드 URL을 반환하는 대신 연결된 버킷 또는 컨테이너에 내보내기를 기록합니다. 연결된 클라우드 스토리지 버킷 또는 컨테이너에서 파일을 가져오세요.
+응답에 `"url": null`이 포함되어 있거나 다운로드 URL이 생략된 경우, Amazon S3 버킷 또는 Azure Blob Storage 컨테이너와 같은 [클라우드 스토리지 통합]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 구성했다면, Braze는 API 응답에 임시 다운로드 URL을 반환하는 대신 연결된 버킷 또는 컨테이너에 내보내기를 기록합니다. 연결된 클라우드 스토리지 버킷 또는 컨테이너에서 파일을 가져오세요.
 
 다운로드 URL이 반환되는 경우 몇 시간 동안만 유효합니다. 따라서 Braze에 자체 S3 자격 증명을 추가하는 것을 적극 권장합니다.
 

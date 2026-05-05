@@ -96,13 +96,13 @@ Consulte as métricas a seguir para acompanhar o desempenho das suas etapas de a
 | _Exited Canvas_ | O número de usuários que saíram do Canvas após passar pela etapa de agente. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Boas práticas {#best-practices}
+## Práticas recomendadas {#best-practices}
 
 ### Divida tarefas entre agentes para casos de uso complexos {#split-tasks-between-agents-for-complicated-use-cases}
 
 Se você perceber que um agente está tendo dificuldades com a complexidade das tarefas que você está pedindo, divida o trabalho em mais de uma etapa de agente. Quando um único prompt mistura limpeza de dados, lógica de roteamento e redação completa de mensagens, esses objetivos competem entre si e a qualidade da saída pode variar.
 
-O padrão a seguir usa três agentes para um exemplo de viagem: alguém pesquisou recentemente no seu app mas não fez a reserva, e você quer um texto de redirecionamento que o incentive a concluir a compra.
+O padrão a seguir usa três agentes para um exemplo de viagens: alguém pesquisou no seu app recentemente, mas não fez a reserva, e você quer um texto de redirecionamento que o incentive a concluir a compra.
 
 - O agente 1 resume o contexto do Canvas. Ele lê campos como nível de fidelidade, última cidade pesquisada e comportamento de pesquisa de alta intenção, e retorna um resumo curto e estruturado como uma variável de saída que as etapas seguintes podem reutilizar.
 - O agente 2 retorna um valor de roteamento que seu Canvas pode usar para ramificação. Use um número, booleano ou objeto estruturado para que a saída corresponda à forma como você faz a ramificação. Mapeie esse valor para uma etapa de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/). Por exemplo, considere jornadas separadas para mensagens baseadas em fidelidade versus mensagens baseadas em ofertas.

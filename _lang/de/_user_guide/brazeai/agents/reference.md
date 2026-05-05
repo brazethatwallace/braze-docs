@@ -471,7 +471,7 @@ Wenn Sie Antworten auf eine einfache Feedback-Umfrage formatieren möchten, um z
 | **confidence_score** | Number |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-![Agentenkonsole mit drei Ausgabefeldern für „likelihood score“, „explanation“ und „confidence score“.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
+![Agentenkonsole mit drei Ausgabefeldern für Wahrscheinlichkeitswert, Erklärung und Konfidenzwert.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
 {% endtab %}
 {% tab JSON Schema %}
@@ -528,13 +528,13 @@ Temperaturen werden derzeit nicht für die Verwendung mit OpenAI unterstützt.
 Um Verbesserungen oder Iterationen eines Agenten zu testen, können Sie einen Agenten duplizieren und anschließend Änderungen vornehmen, um diese mit dem Original zu vergleichen. Sie können das Duplizieren von Agenten auch als Versionskontrolle nutzen, um Änderungen in den Agentendetails und etwaige Auswirkungen auf Ihr Messaging zu verfolgen. So duplizieren Sie einen Agenten:
 
 1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>-Menü aus.
-2. Wählen Sie **Duplizieren**.
+2. Wählen Sie **Duplicate**.
 
 ## Agenten archivieren {#archive-agents}
 
 Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenmanagement** organisieren, indem Sie Agenten archivieren, die nicht aktiv verwendet werden. So archivieren Sie einen Agenten:
 
 1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>-Menü aus.
-2. Wählen Sie **Archivieren**.
+2. Wählen Sie **Archive**.
 
 ![Seite „Agentenmanagement“ mit archivierten Agenten.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

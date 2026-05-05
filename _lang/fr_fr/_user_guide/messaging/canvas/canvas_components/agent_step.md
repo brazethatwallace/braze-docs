@@ -112,7 +112,7 @@ Le schéma suivant utilise trois agents pour un exemple dans le domaine du voyag
 
 Pour tester les performances de votre agent et la consommation de crédits par rapport à vos parcours existants, ajoutez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
 
-Par exemple, envoyez quelques milliers d'utilisateurs par jour dans un parcours avec l'agent et le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant 1 à 2 semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours avant d'augmenter le trafic vers la branche avec agent.
+Par exemple, envoyez quelques milliers d'utilisateurs par jour dans un parcours avec l'agent et le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant 1 à 2 semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours avant d'augmenter le trafic vers la branche utilisant l'agent.
 
 ## Questions fréquentes {#frequently-asked-questions}
 

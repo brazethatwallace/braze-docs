@@ -51,7 +51,7 @@ En el paso **Target Audiences** del compositor de tu campaña, también puedes l
 
 ![Resumen de audiencia con una casilla seleccionada para limitar el número de personas que reciben la campaña.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
-Al seleccionar el límite máximo de usuarios, puedes limitar el volumen de mensajes enviados por canal o globalmente en todos los tipos de mensajes. Braze no despacha mensajes a los usuarios asignados a grupos de control, por lo que no cuentan para el límite.
+Al seleccionar el límite máximo de usuarios, puedes limitar el volumen de mensajes enviados por canal o globalmente en todos los tipos de mensajes. Braze no envía mensajes a los usuarios asignados a grupos de control, por lo que no cuentan para el límite.
 
 {% alert note %}
 El límite máximo de usuarios limita el número de usuarios despachados, no el número de mensajes enviados con éxito. Dado que los mensajes abortados cuentan para este límite, el número real de mensajes enviados puede ser inferior al límite configurado. Por ejemplo, si estableces un límite de 10 000 y se abortan 2000 mensajes debido a lógica Liquid u otras condiciones, solo se enviarán 8000 mensajes.

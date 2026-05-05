@@ -100,13 +100,13 @@ Verwenden Sie die folgenden Metriken, um die Performance Ihrer Agent-Schritte zu
 
 ### Aufgaben bei komplexen Anwendungsfällen auf mehrere Agents aufteilen {#split-tasks-between-agents-for-complicated-use-cases}
 
-Wenn Sie feststellen, dass ein Agent mit der Komplexität der Aufgaben, die Sie ihm stellen, Schwierigkeiten hat, verteilen Sie die Arbeit auf mehr als einen Agent-Schritt. Wenn ein Prompt Datenbereinigung, Routing-Logik und vollständige Nachrichtenerstellung vermischt, konkurrieren diese Ziele miteinander und die Ausgabequalität kann variieren.
+Wenn Sie feststellen, dass ein Agent mit der Komplexität der Aufgaben, die Sie ihm stellen, Schwierigkeiten hat, verteilen Sie die Arbeit auf mehr als einen Agent-Schritt. Wenn ein Prompt Datenbereinigung, Routing-Logik und vollständiges Verfassen von Nachrichten vermischt, konkurrieren diese Ziele miteinander und die Ausgabequalität kann variieren.
 
 Das folgende Muster verwendet drei Agents für ein Reisebeispiel: Jemand hat kürzlich in Ihrer App gesucht, aber nicht gebucht, und Sie möchten Retargeting-Texte, die zum Checkout anregen.
 
 - Agent 1 fasst den Canvas-Kontext zusammen. Er liest Felder wie Treuestufe, zuletzt gesuchte Stadt und Suchverhalten mit hoher Kaufabsicht und gibt eine kurze strukturierte Zusammenfassung als Ausgabevariable zurück, die spätere Schritte wiederverwenden können.
-- Agent 2 gibt einen Routing-Wert zurück, auf dem Ihr Canvas verzweigen kann. Verwenden Sie eine Zahl, einen Booleschen Wert oder ein strukturiertes Objekt, damit die Ausgabe zu Ihrer Verzweigungslogik passt. Ordnen Sie diesen Wert einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Schritt zu. Erwägen Sie beispielsweise separate Pfade für Treue-basiertes Messaging gegenüber Angebots-basiertem Messaging.
-- Agent 3 erstellt generierten Nachrichtentext nur auf Branches, auf denen Sie dies wünschen. Übergeben Sie die Zusammenfassung von Agent 1 (und jeden Branch-spezifischen Kontext), damit sich dieser Agent auf Tonalität und Kanallimits konzentriert, anstatt im selben Prompt Eingaben zu normalisieren und eine Strategie zu wählen.
+- Agent 2 gibt einen Routing-Wert zurück, auf dem Ihr Canvas verzweigen kann. Verwenden Sie eine Zahl, einen Booleschen Wert oder ein strukturiertes Objekt, damit die Ausgabe zu Ihrer Verzweigungslogik passt. Ordnen Sie diesen Wert einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Schritt zu. Erwägen Sie beispielsweise separate Pfade für Treue-basiertes Messaging im Vergleich zu Angebots-basiertem Messaging.
+- Agent 3 verfasst generierten Nachrichtentext nur in Branches, in denen Sie dies wünschen. Übergeben Sie die Zusammenfassung von Agent 1 (und jeden Branch-spezifischen Kontext), damit sich dieser Agent auf Tonalität und Kanallimits konzentriert, anstatt im selben Prompt Eingaben zu normalisieren und eine Strategie zu wählen.
 
 ### Experimentpfad-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 

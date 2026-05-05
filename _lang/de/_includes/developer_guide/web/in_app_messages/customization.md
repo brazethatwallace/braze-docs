@@ -4,9 +4,9 @@
 
 Die UI-Elemente von Braze sind standardmäßig so gestaltet, dass sie ein neutrales In-App-Nachricht-Erlebnis bieten und die Konsistenz mit anderen mobilen Plattformen von Braze gewährleisten. Die Standardstile von Braze sind in CSS im Braze SDK definiert.
 
-### Einstellen eines Standardstils {#setting-a-default-style}
+### Einstellen eines Standard-Stils {#setting-a-default-style}
 
-Indem Sie ausgewählte Stile in Ihrer Anwendung überschreiben, können Sie unsere standardmäßigen In-App-Nachrichtentypen mit Ihren eigenen Hintergrundbildern, Schriftfamilien, Stilen, Größen, Animationen und vielem mehr anpassen.
+Indem Sie ausgewählte Stile in Ihrer Anwendung außer Kraft setzen, können Sie unsere standardmäßigen In-App-Nachrichtentypen mit Ihren eigenen Hintergrundbildern, Schriftfamilien, Stilen, Größen, Animationen und vielem mehr anpassen.
 
 Im Folgenden finden Sie ein Beispiel für eine Überschreibung, die bewirkt, dass die Kopfzeilen einer In-App-Nachricht kursiv dargestellt werden:
 
@@ -20,7 +20,7 @@ In den [JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappm
 
 ### Anpassen des Z-Index {#customizing-the-z-index}
 
-In-App-Nachrichten werden standardmäßig über `z-index: 9001` angezeigt. Dies lässt sich über die `inAppMessageZIndex ` [Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) konfigurieren, falls Ihre Website Elemente mit höheren Werten stilisiert.
+In-App-Nachrichten werden standardmäßig über `z-index: 9001` angezeigt. Dies lässt sich mit der [Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) `inAppMessageZIndex ` konfigurieren, falls Ihre Website Elemente mit höheren Werten stilisiert.
 
 ```javascript
 braze.initialize("YOUR-API-KEY", {
@@ -30,12 +30,12 @@ braze.initialize("YOUR-API-KEY", {
 ```
 
 {% alert important %}
-Dieses Feature ist nur für das Web Braze SDK v3.3.0 und höher verfügbar.
+Dieses Feature ist nur für Web Braze SDK v3.3.0 und höher verfügbar.
 {% endalert %}
 
 ## Anpassen von Nachrichtenabweisungen {#customizing-message-dismissals}
 
-Standardmäßig wird eine In-App-Nachricht durch Drücken der Escape-Taste oder durch einen Klick auf den ausgegrauten Hintergrund der Seite geschlossen, wenn sie angezeigt wird. Konfigurieren Sie die `requireExplicitInAppMessageDismissal` [Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) auf `true`, um dieses Verhalten zu verhindern und einen expliziten Klick auf einen Button zu verlangen, um Nachrichten zu schließen.
+Standardmäßig wird eine In-App-Nachricht durch Drücken der Escape-Taste oder durch einen Klick auf den ausgegrauten Hintergrund der Seite verworfen, wenn sie angezeigt wird. Konfigurieren Sie die [Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) `requireExplicitInAppMessageDismissal` auf `true`, um dieses Verhalten zu verhindern und einen expliziten Klick auf einen Button zu verlangen, um Nachrichten zu schließen.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -47,7 +47,7 @@ braze.initialize("YOUR-API-KEY", {
 
 ## Anpassen des Anzeigezeitpunkts {#customizing-display-timing}
 
-Um den standardmäßigen Anzeigezeitpunkt zu überschreiben, entfernen Sie Aufrufe von `braze.automaticallyShowInAppMessages()` und verarbeiten Sie Nachrichten in `braze.subscribeToInAppMessage()`. Registrieren Sie Ihren Callback vor `braze.openSession()`, damit Sie Nachrichten beim Sitzungsstart abfangen und entscheiden können, ob jede Nachricht angezeigt oder zurückgestellt werden soll.
+Um das standardmäßige Anzeigeverhalten zu überschreiben, entfernen Sie Aufrufe von `braze.automaticallyShowInAppMessages()` und verarbeiten Sie Nachrichten in `braze.subscribeToInAppMessage()`. Registrieren Sie Ihren Callback vor `braze.openSession()`, damit Sie Nachrichten beim Sitzungsstart abfangen und entscheiden können, ob Sie jede Nachricht anzeigen oder zurückstellen möchten.
 
 Standardmäßig zeigt Braze In-App-Nachrichten an, wenn sie getriggert werden und zur Anzeige berechtigt sind. Wenn Sie ein anderes Verhalten für Ihr App-Erlebnis benötigen, verwenden Sie einen angepassten Callback, um Nachrichten basierend auf Ihrer eigenen Logik zurückzustellen oder anzuzeigen.
 

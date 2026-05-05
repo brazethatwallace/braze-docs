@@ -71,17 +71,17 @@ Quando você exporta dados através das APIs com um parceiro de armazenamento co
 
 ## Análise de dados de Campaign e Canvas {#campaign-and-canvas-analytics}
 
-### O número de usuários na exportação CSV não corresponde a _Mensagens enviadas_ ou _Destinatários únicos_ {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### O número de usuários na exportação CSV não corresponde a _Messages Sent_ ou _Unique Recipients_ {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
 
-A exportação CSV de uma Campaign pode mostrar um número diferente de usuários em relação a _Mensagens enviadas_ e _Destinatários únicos_ pelos seguintes motivos:
+A exportação CSV de uma Campaign pode mostrar um número diferente de usuários em relação a _Messages Sent_ e _Unique Recipients_ pelos seguintes motivos:
 
 #### A reelegibilidade está ativada {#re-eligibility-is-turned-on}
 
-Se os usuários podem (ou puderam em algum momento) receber a Campaign mais de uma vez, os números de análise de dados da Campaign e o número de linhas na exportação de dados de usuários não coincidem. _Mensagens enviadas_ conta cada envio, inclusive quando o mesmo usuário recebe a mensagem mais de uma vez. O download de **Exportar dados de usuários em CSV** lista usuários únicos — uma linha por perfil que recebeu a Campaign — e não uma linha por envio. Por exemplo, se _Mensagens enviadas_ é 12 e o CSV tem 10 linhas, esses 12 envios foram para 10 usuários distintos (alguns usuários receberam a Campaign mais de uma vez).
+Se os usuários podem (ou puderam em algum momento) receber a Campaign mais de uma vez, os números de análise de dados da Campaign e o número de linhas na exportação de dados de usuários não coincidem. _Messages Sent_ conta cada envio, inclusive quando o mesmo usuário recebe a mensagem mais de uma vez. O download de **Exportar dados de usuários em CSV** lista usuários únicos — uma linha por perfil que recebeu a Campaign — e não uma linha por envio. Por exemplo, se _Messages Sent_ é 12 e o CSV tem 10 linhas, esses 12 envios foram para 10 usuários distintos (alguns usuários receberam a Campaign mais de uma vez).
 
 #### Usuários foram excluídos ou mesclados desde o envio da Campaign ou do Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
-A exportação CSV fornece um snapshot dos usuários existentes que receberam uma determinada Campaign ou Canvas. Como os usuários podem ser excluídos ou mesclados, a contagem da exportação CSV pode ser menor do que a contagem de destinatários únicos. Por exemplo, se 1.000 usuários recebem uma Campaign, a Campaign mostra 1.000 destinatários únicos, e a exportação CSV no mesmo dia também mostra 1.000 usuários. Se um mês depois 50 desses 1.000 usuários forem excluídos, a exportação CSV conterá 950 usuários, enquanto a contagem incremental de destinatários únicos ainda será 1.000.
+A exportação CSV fornece um snapshot dos usuários existentes que receberam uma determinada Campaign ou Canvas. Como os usuários podem ser excluídos ou mesclados, a contagem da exportação CSV pode ser menor do que a contagem de destinatários únicos. Por exemplo, se 1.000 usuários recebem uma Campaign, a Campaign mostra 1.000 destinatários únicos, e a exportação CSV no mesmo dia também mostra 1.000 usuários. Se um mês depois 50 desses 1.000 usuários forem excluídos, a exportação CSV conterá 950 usuários, enquanto a contagem incrementada de destinatários únicos ainda será 1.000.
 
 ## E-mails de exportação de Segment do dashboard {#dashboard-segment-export-emails}
 

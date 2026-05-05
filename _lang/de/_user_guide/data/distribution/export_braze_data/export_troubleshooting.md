@@ -83,23 +83,23 @@ Wenn Nutzer:innen die Campaign mehr als einmal erhalten können (oder konnten), 
 
 Der CSV-Export liefert eine Momentaufnahme der vorhandenen Nutzer:innen, die eine bestimmte Campaign oder einen bestimmten Canvas erhalten haben. Da Nutzer:innen gelöscht oder zusammengeführt werden können, kann die Anzahl im CSV-Export niedriger sein als die Anzahl der eindeutigen Empfänger:innen. Wenn beispielsweise 1.000 Nutzer:innen eine Campaign erhalten, zeigt die Campaign 1.000 eindeutige Empfänger:innen an, und der CSV-Export am selben Tag enthält ebenfalls 1.000 Nutzer:innen. Werden einen Monat später 50 dieser 1.000 Nutzer:innen gelöscht, enthält der CSV-Export 950 Nutzer:innen, während die kumulierte Anzahl eindeutiger Empfänger:innen weiterhin 1.000 beträgt.
 
-## E-Mails zum Segment-Export aus dem Dashboard {#dashboard-segment-export-emails}
+## E-Mails zum Dashboard-Segment-Export {#dashboard-segment-export-emails}
 
 ### Warum erhalte ich keine E-Mails zum Segment-Export? {#why-arent-i-receiving-segment-export-emails}
 
 Überprüfen Sie zunächst Ihren Spam-Ordner auf eine E-Mail von `no-reply@alerts.braze.com`. Wenn die E-Mail dort ist, fügen Sie diese Adresse zu Ihrer Liste sicherer Absender hinzu, damit zukünftige Export-Nachrichten nicht gefiltert werden.
 
-Wenn die E-Mail nicht in Ihrem Spam-Ordner ist, prüfen Sie, ob eine andere Person in Ihrem Team den Export empfangen kann. Falls nicht, berücksichtigen Sie die Größe Ihres Exports. Die Zustellzeit variiert je nach Exportgröße. Sollte die E-Mail nach einer Stunde noch nicht eingetroffen sein, kontaktieren Sie den [Support]({{site.baseurl}}/braze_support/).
+Wenn die E-Mail nicht in Ihrem Spam-Ordner ist, prüfen Sie, ob eine andere Person in Ihrem Team den Export empfangen kann. Falls nicht, berücksichtigen Sie die Größe Ihres Exports. Die Zustellzeit variiert je nach Exportgröße. Sollte die E-Mail nach einer Stunde noch nicht eingetroffen sein, wenden Sie sich an den [Support]({{site.baseurl}}/braze_support/).
 
-## API-Downloads für den Segment-Export {#segment-export-api-downloads}
+## API-Downloads für Segment-Exporte {#segment-export-api-downloads}
 
 ### ZIP-Datei eines exportierten Segments kann nicht von einer Braze-URL heruntergeladen werden {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
 
 Wenn Sie beim Verwenden des [Endpunkts `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) einen `403 Forbidden`-Fehler erhalten, ist die Datei möglicherweise noch nicht bereit. Umfangreiche Exporte können einige Zeit in Anspruch nehmen. Warten Sie bis zu einer Stunde, bevor Sie den Download erneut versuchen.
 
-Wenn Sie ein automatisiertes Skript zum Abrufen der Datei verwenden, kann ebenfalls ein `403 Forbidden`-Fehler auftreten, wenn Sie die URL zu früh aufrufen. Wenn Sie regelmäßig Segmentdaten exportieren, sollten Sie Ihre eigene S3-Bucket-Integration einrichten und die Dateien in Ihre eigene ETL-Pipeline (Extract, Transform, Load) überführen.
+Wenn Sie ein automatisiertes Skript zum Abrufen der Datei verwenden, kann ebenfalls ein `403 Forbidden`-Fehler auftreten, wenn Sie die URL zu früh aufrufen. Wenn Sie regelmäßig Segmentdaten exportieren, sollten Sie eine eigene S3-Bucket-Integration einrichten und die Dateien in Ihre eigene ETL-Pipeline (Extract, Transform, Load) überführen.
 
 Exporte benötigen Zeit bis zur Fertigstellung, daher schlägt ein sofortiger Zugriff über ein Skript häufig fehl. Sie können:
 
 - Die Download-URL mit exponentiellem Backoff abfragen, oder
-- Den [Parameter `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) verwenden und auf einen Dienst verweisen, der Ihr Skript ausführt, sobald der Export bereit ist.
+- den [Parameter `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) verwenden und auf einen Dienst verweisen, der Ihr Skript ausführt, sobald der Export bereit ist.

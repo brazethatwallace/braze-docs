@@ -216,7 +216,7 @@ L'ordre de traitement n'est pas prévisible à 100 %. Par exemple, s'il y a plus
 
 Si l'option **Update existing users only** est activée dans votre intégration CDI, seuls les utilisateurs déjà présents dans Braze sont mis à jour, et aucun nouvel utilisateur n'est créé. Cela signifie que si une ligne de votre table de synchronisation fait référence à un `EXTERNAL_ID` qui ne correspond à aucun utilisateur Braze existant, cette ligne est ignorée.
 
-Pour créer de nouveaux utilisateurs via CDI, désactivez l'option **Update existing users only** dans les paramètres de votre intégration. Rendez-vous dans **Paramètres des données** > **Ingestion de données cloud** et sélectionnez une intégration.
+Pour créer de nouveaux utilisateurs via CDI, désactivez l'option **Update existing users only** dans les paramètres de votre intégration. Rendez-vous dans **Paramètres des données** > **Cloud Data Ingestion** et sélectionnez une intégration.
 
 ## Quelles sont les mesures de sécurité pour CDI ? {#what-are-the-security-measures-for-cdi}
 
