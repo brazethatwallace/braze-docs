@@ -69,7 +69,7 @@ Lorsque vous exportez des données via les API avec un partenaire de stockage co
 {% endsdktab %}
 {% endsdktabs %}
 
-## Analyses de campagne et de Canvas {#campaign-and-canvas-analytics}
+## Analyses des campagnes et Canvas {#campaign-and-canvas-analytics}
 
 ### Le nombre d'utilisateurs dans l'exportation CSV ne correspond pas aux *messages envoyés* ou aux *destinataires uniques* {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
 
@@ -77,7 +77,7 @@ L'exportation CSV d'une campagne peut afficher un nombre d'utilisateurs différe
 
 #### La rééligibilité est activée {#re-eligibility-is-turned-on}
 
-Si les utilisateurs peuvent (ou ont pu à un moment donné) recevoir la campagne plus d'une fois, les chiffres d'analyse de la campagne et le nombre de lignes dans l'exportation des données utilisateur ne correspondent pas. *Messages envoyés* comptabilise chaque envoi, y compris lorsqu'un même utilisateur reçoit le message plusieurs fois. Le téléchargement **Exporter les données utilisateur en CSV** répertorie les utilisateurs uniques — une ligne par profil ayant reçu la campagne — et non une ligne par envoi. Par exemple, si *Messages envoyés* indique 12 et que le fichier CSV contient 10 lignes, ces 12 envois ont été adressés à 10 utilisateurs distincts (certains utilisateurs ont reçu la campagne plus d'une fois).
+Si les utilisateurs sont (ou ont été à un moment donné) en mesure de recevoir la campagne plus d'une fois, les chiffres d'analyse de la campagne et le nombre de lignes dans l'exportation des données utilisateur ne correspondent pas. *Messages envoyés* comptabilise chaque envoi, y compris lorsque le même utilisateur reçoit le message plusieurs fois. Le téléchargement **Exporter les données utilisateur en CSV** répertorie les utilisateurs uniques — une ligne par profil ayant reçu la campagne — et non une ligne par envoi. Par exemple, si *Messages envoyés* indique 12 et que le fichier CSV contient 10 lignes, ces 12 envois ont été adressés à 10 utilisateurs distincts (certains utilisateurs ont reçu la campagne plus d'une fois).
 
 #### Des utilisateurs ont été supprimés ou fusionnés depuis l'envoi de la campagne ou du Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
@@ -97,9 +97,9 @@ Si l'e-mail ne se trouve pas dans votre dossier de courrier indésirable, vérif
 
 Si vous obtenez une erreur `403 Forbidden` lors de l'utilisation de l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), il est possible que le fichier ne soit pas encore prêt. Les exportations volumineuses peuvent prendre du temps à traiter. Patientez jusqu'à une heure avant de réessayer le téléchargement.
 
-Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de segment, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers à votre propre pipeline d'extraction, transformation et chargement (ETL).
+Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de segment, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers à votre propre pipeline ETL (extraire, transformer, charger).
 
-Les exportations prennent du temps à se terminer, c'est pourquoi un accès immédiat depuis un script échoue souvent. Vous pouvez :
+Les exportations prennent du temps, c'est pourquoi un accès immédiat depuis un script échoue souvent. Vous pouvez :
 
 - Interroger l'URL de téléchargement avec des délais exponentiels, ou
 - Utiliser le [paramètre `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) et le diriger vers un service qui exécute votre script lorsque l'exportation est prête.

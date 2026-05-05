@@ -142,7 +142,7 @@ Quelques points à garder à l'esprit lors de la configuration des limites de d�
     - Content Cards configurées pour être créées « à la première impression » (cela sera contrôlé par le taux d'impressions de l'application. Consultez [Création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences) pour plus d'informations sur les différences entre les options de création de carte.)
 - Les limites de débit de vitesse d'envoi ne sont pas prises en charge pour les éléments suivants :
     - Réponses automatiques SMS
-    - Messages avec SLA garanti (comme les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+    - Messages avec SLA garanti (comme les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
     - Messages in-app
     - Indicateurs de fonctionnalité
     - Bannières
@@ -301,7 +301,7 @@ Considérez les campagnes et la règle de limite de fréquence par étiquette su
 
 | Action | Résultat |
 |---|---|
-| L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B ne soit envoyée.** | Votre utilisateur reçoit **Campaign B**. |
+| L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B** ne soit envoyée. | Votre utilisateur reçoit **Campaign B**. |
 | L'étiquette `promotional` est supprimée par erreur de **Campaign A** après que votre utilisateur a reçu le message. <br> L'étiquette est rajoutée à **Campaign A** le mardi, avant que **Campaign B** ne soit envoyée. | Votre utilisateur ne reçoit pas **Campaign B**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

@@ -39,9 +39,9 @@ CDI の認証情報が正しくないか、データウェアハウスの設定�
 
 テスト接続はデータウェアハウス上で実行されるため、ウェアハウスの容量を増やすことでスピードが向上する可能性があります。サーバーレス SQL インスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、統合コストが若干高くなる場合があります。
 
-### Snowflake インスタンスへの接続エラー：IP を含む着信リクエストがSnowflakeへのアクセスを許可されていない {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
+### Snowflake インスタンスへの接続エラー：IP を含む着信リクエストが Snowflakeへのアクセスを許可されていない {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-IP 許可リストにBrazeの公式 IP を追加してみてください。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照するか、該当する IP を許可してください。
+IP 許可リストに Brazeの公式 IP を追加してみてください。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照するか、該当する IP を許可してください。
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
 
@@ -63,7 +63,7 @@ IP 許可リストにBrazeの公式 IP を追加してみてください。詳�
 
 ### 現在のキーと古いキーでSnowflakeインスタンスに接続する際のエラー {#error-connecting-to-snowflake-instance-with-current-and-old-key}
 
-このエラーが発生した場合は、ユーザーがBrazeダッシュボードに表示されている現在の公開キーを使用していることを確認してください。
+このエラーが発生した場合は、ユーザーが Brazeダッシュボードに表示されている現在の公開キーを使用していることを確認してください。
 {% endtab %}
 
 {% tab Redshift %}
@@ -156,7 +156,7 @@ CDI は `UPDATED_AT` を使用して、同期中に取得するレコードを�
 
 はい。大量の行を処理する場合（例：約 1,000 万行以上）、ソースデータの `UPDATED_AT` 値がほぼ一意であることを確認してください。同じタイムスタンプを共有する行が多すぎると、CDI が後続の実行で境界タイムスタンプの行を再選択する可能性が高くなります。これにより、重複同期やデータポイントの消費が増加する可能性があります。
 
-CDI の境界動作の詳細については、[重複タイムスタンプによる行の再同期を回避する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+CDI の境界動作の詳細については、[重複タイムスタンプを持つ行の再同期を回避する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
 
 ### これらの SQL チェックはどこで実行しますか? {#where-do-i-run-these-sql-checks}
 
@@ -174,7 +174,7 @@ CDI 統合で使用しているのと同じテーブルまたはビューに対�
 2. ウェアハウスの SQL エディターを開き、CDI が使用しているのと同じデータベースとスキーマを選択し、ソーステーブルまたはビューへの読み取りアクセス権を持つロールを使用します。
 3. 一意のタイムスタンプ数クエリを実行して、そのウィンドウ内に存在する `UPDATED_AT` の一意の値の数を測定します。
 4. `UPDATED_AT` でグループ化して行数をカウントするクエリを実行し、異常に多い行数を持つタイムスタンプを見つけます。
-5. 同一のタイムスタンプを共有する行が多い場合は、連続するバッチが段階的に新しい `UPDATED_AT` 値を使用するように取り込みプロセスを調整するか、タイムスタンプの精度を上げて行がより分散されるようにします。
+5. 同一のタイムスタンプを共有する行が多い場合は、連続するバッチがより新しい `UPDATED_AT` 値を使用するように取り込みプロセスを調整するか、タイムスタンプの精度を上げて行がより分散されるようにします。
 6. 集中が軽減されるまで両方のクエリを再実行し、その後同期を起動またはスケールします。
 7. 起動後、**CDI** > **同期ログ**で境界タイムスタンプにおける予期しない再同期量を監視します。
 

@@ -43,13 +43,13 @@ Les étapes Contexte traitent les utilisateurs par lots pour optimiser les perfo
 
 Cela signifie :
 
-**Exemple** : Si 3 500 utilisateurs entrent dans une étape Contexte avec du Contenu connecté qui prend 650 ms par utilisateur :
+**Exemple** : Si 3 500 utilisateurs entrent dans une étape Contexte avec du contenu connecté qui prend 650 ms par utilisateur :
 - Braze crée 4 lots d'utilisateurs (1 000, 1 000, 1 000 et 500 utilisateurs dans cet exemple).
 - Chaque lot traite les utilisateurs séquentiellement, donc un lot de 1 000 utilisateurs prend environ 10,8 minutes (650 secondes ; 1 000 × 650 ms).
 - Les lots se terminent à des moments différents, de sorte que les utilisateurs arrivent progressivement à l'étape suivante au fur et à mesure que leur lot se termine.
-- Les premiers utilisateurs peuvent atteindre l'étape suivante plusieurs minutes avant les derniers utilisateurs, en fonction de la taille du lot et des temps de réponse du Contenu connecté.
+- Les premiers utilisateurs peuvent atteindre l'étape suivante plusieurs minutes avant les derniers utilisateurs, en fonction de la taille du lot et des temps de réponse du contenu connecté.
 
-Sans Contenu connecté, les étapes Contexte sont traitées beaucoup plus rapidement car il n'y a pas d'appels API externes à attendre.
+Sans contenu connecté, les étapes Contexte sont traitées beaucoup plus rapidement car il n'y a pas d'appels API externes à attendre.
 
 ## Considérations {#considerations}
 
@@ -113,9 +113,9 @@ Veillez à observer les scénarios courants qui créent des variables de context
 
 Si la variable de contexte est valide, vous pouvez la référencer dans tout votre Canvas. En revanche, si la variable de contexte n'a pas été créée correctement, les étapes suivantes de votre Canvas ne fonctionneront pas correctement non plus. Par exemple, si vous créez une étape Contexte pour attribuer aux utilisateurs une heure de rendez-vous et que vous définissez la valeur de l'heure de rendez-vous à une date passée, l'e-mail de rappel dans votre étape Message ne sera pas envoyé.
 
-## Convertir les chaînes de Contenu connecté en JSON {#converting-connected-content-strings-to-json}
+## Convertir les chaînes de contenu connecté en JSON {#converting-connected-content-strings-to-json}
 
-Lorsque vous effectuez un [appel de Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) dans une étape Contexte, le JSON renvoyé par l'appel est évalué comme un type de données chaîne de caractères par souci de cohérence et de prévention des erreurs. Si vous souhaitez convertir cette chaîne en JSON, utilisez `as_json_string`. Par exemple :
+Lorsque vous effectuez un [appel de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) dans une étape Contexte, le JSON renvoyé par l'appel est évalué comme un type de données chaîne de caractères par souci de cohérence et de prévention des erreurs. Si vous souhaitez convertir cette chaîne en JSON, utilisez `as_json_string`. Par exemple :
 
 {%raw%}
 ```liquid
@@ -130,7 +130,7 @@ Lorsque vous effectuez un [appel de Contenu connecté]({{site.baseurl}}/user_gui
 
 Une variable de contexte est considérée comme invalide lorsque :
 
-- Un appel à un Contenu connecté intégré échoue.
+- Un appel à un contenu connecté intégré échoue.
 - L'expression Liquid au moment de l'exécution renvoie une valeur qui ne correspond pas au type de données ou qui est vide (null).
 
 Par exemple, si le type de données de la variable de contexte est **Nombre** mais que l'expression Liquid renvoie une chaîne de caractères, elle est invalide.
@@ -143,28 +143,28 @@ Lors de la résolution des problèmes, surveillez l'indicateur _Non mis à jour_
 
 Consultez [Types de données]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#data-types) pour les exemples de configuration de chaque type de données.
 
-### Délais d'envoi avec le Contenu connecté {#delays-in-sending-with-connected-content}
+### Délais d'envoi avec le contenu connecté {#delays-in-sending-with-connected-content}
 
 Tous les utilisateurs d'un lot sont traités avant que quiconque ne progresse. Une fois le traitement du lot terminé, les utilisateurs ayant réussi passent à l'étape suivante, tandis que les utilisateurs en échec font l'objet de nouvelles tentatives séparément — les utilisateurs ayant réussi n'attendent pas que les nouvelles tentatives aboutissent avant de progresser.
 
 #### Comportement des nouvelles tentatives {#retry-behavior}
 
-Dans les étapes Canvas (y compris les étapes Contexte), Braze utilise des mécanismes de nouvelles tentatives spécifiques au Canvas plutôt que le comportement standard de nouvelles tentatives du Contenu connecté. Si un appel de Contenu connecté échoue :
+Dans les étapes Canvas (y compris les étapes Contexte), Braze utilise des mécanismes de nouvelles tentatives spécifiques au Canvas plutôt que le comportement standard de nouvelles tentatives du contenu connecté. Si un appel de contenu connecté échoue :
 
- - Pour les étapes Message, les appels de Contenu connecté peuvent être réessayés jusqu'à cinq fois.
+ - Pour les étapes Message, les appels de contenu connecté peuvent être réessayés jusqu'à cinq fois.
  - Pour toutes les autres étapes, Braze réessaie l'étape environ 13 fois avec des délais exponentiels.
 
 Si toutes les tentatives échouent, l'utilisateur quitte le Canvas.
 
-La balise `:retry` utilisée dans le Contenu connecté standard ne s'applique pas aux appels de Contenu connecté effectués dans les étapes Canvas. Les étapes Canvas disposent de leur propre logique de nouvelles tentatives optimisée pour les workflows Canvas.
+La balise `:retry` utilisée dans le contenu connecté standard ne s'applique pas aux appels de contenu connecté effectués dans les étapes Canvas. Les étapes Canvas disposent de leur propre logique de nouvelles tentatives optimisée pour les workflows Canvas.
 
 Le temps nécessaire pour traiter tous les utilisateurs via une étape Contexte dépend de :
 
 - Le nombre d'utilisateurs entrant dans l'étape
-- L'utilisation ou non du Contenu connecté (et son temps de réponse)
+- L'utilisation ou non du contenu connecté (et son temps de réponse)
 - La taille du lot (1 000 utilisateurs par lot par défaut)
 
-Si votre endpoint de Contenu connecté a des limites de débit, sachez que les étapes Contexte traitent les utilisateurs séquentiellement au sein de chaque lot, ce qui aide à respecter naturellement les limites de débit. Cependant, plusieurs lots sont traités en parallèle, alors assurez-vous que votre endpoint peut gérer les requêtes simultanées provenant de plusieurs lots.
+Si votre endpoint de contenu connecté a des limites de débit, sachez que les étapes Contexte traitent les utilisateurs séquentiellement au sein de chaque lot, ce qui aide à respecter naturellement les limites de débit. Cependant, plusieurs lots sont traités en parallèle, alors assurez-vous que votre endpoint peut gérer les requêtes simultanées provenant de plusieurs lots.
 
 ## Standardisation de la cohérence des fuseaux horaires {#time-zone-consistency-standardization}
 

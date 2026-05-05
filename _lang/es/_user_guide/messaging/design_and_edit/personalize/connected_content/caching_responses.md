@@ -113,9 +113,9 @@ Con un POST no necesitas invalidar la caché, ya que las solicitudes POST no se 
 
 {% raw %}
 - El almacenamiento en caché puede ayudar a reducir las llamadas duplicadas de Contenido conectado. Sin embargo, no se garantiza que siempre resulte en una única llamada de Contenido conectado por usuario.
-- El almacenamiento en caché de Contenido conectado se basa en la URL y el espacio de trabajo. Si la llamada de Contenido conectado es a la misma URL, se puede almacenar en caché entre Campaigns y Canvas.
-- La caché se basa en una URL única, no en un ID de usuario o una Campaign. Esto significa que la versión en caché de una llamada de Contenido conectado podría usarse entre múltiples usuarios y Campaigns en un espacio de trabajo si la URL es la misma.
-- El almacenamiento en caché de Contenido conectado puede omitirse si el marcado de la etiqueta incluye alguno de los siguientes fragmentos de código de alta cardinalidad:
+- El almacenamiento en caché de Contenido conectado se basa en la URL y el espacio de trabajo. Si la llamada de Contenido conectado es a la misma URL, se puede almacenar en caché entre campañas y Canvas.
+- La caché se basa en una URL única, no en un ID de usuario o una campaña. Esto significa que la versión en caché de una llamada de Contenido conectado podría usarse entre múltiples usuarios y campañas en un espacio de trabajo si la URL es la misma.
+- El almacenamiento en caché de Contenido conectado puede omitirse si el marcado de la etiqueta incluye alguno de los siguientes fragmentos de alta cardinalidad:
     - `{{${user_id}}}`
     - `{{${braze_id}}}`
     - `{{${email}}}`

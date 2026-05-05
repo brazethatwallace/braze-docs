@@ -12,7 +12,7 @@ toc_headers: h2
 > Les fuseaux horaires des espaces de travail permettent aux administrateurs de définir des fuseaux horaires spécifiques pour chaque espace de travail. Cela permet aux campagnes planifiées et aux Canvas (qui n'utilisent pas l'heure locale ou le timing intelligent) d'être envoyés selon le fuseau horaire désigné de l'espace de travail, plutôt que selon le fuseau horaire global de l'entreprise.
 
 {% alert important %}
-Le déploiement des fuseaux horaires des espaces de travail pour l'envoi de messages est progressif. Il est possible que ces paramètres ne soient pas encore visibles dans votre tableau de bord.
+Les fuseaux horaires des espaces de travail pour l'envoi de messages sont déployés progressivement. Il est possible que ces paramètres ne soient pas encore visibles dans votre tableau de bord.
 {% endalert %}
 
 Par défaut, un nouvel espace de travail hérite du fuseau horaire défini pour votre entreprise. Les administrateurs peuvent remplacer cette valeur par défaut pour un ou plusieurs espaces de travail en utilisant les fuseaux horaires des espaces de travail. Lorsque le fuseau horaire d'un espace de travail est défini, les campagnes planifiées et les Canvas au sein de cet espace de travail se réfèrent à ce nouveau fuseau horaire pour leurs heures d'envoi.
@@ -95,7 +95,7 @@ Les fuseaux horaires des espaces de travail offrent un contrôle précis sur l'e
 
 La mise à jour du fuseau horaire de votre espace de travail affecte la manière dont les données de performance sont agrégées et affichées dans votre tableau de bord. Étant donné que les analyses pour des données telles que les *utilisateurs actifs quotidiens* (DAU) s'appuient sur le fuseau horaire de l'espace de travail pour définir le début et la fin d'une journée de 24 heures, une modification de ce paramètre décale ces fenêtres de reporting.
 
-Lorsque vous modifiez le fuseau horaire, vous pouvez constater des fluctuations ou des « décalages » dans vos données historiques. Cela se produit parce que la fenêtre de 0 h 00 à 23 h 59 s'est déplacée par rapport à l'UTC.
+Lorsque vous modifiez le fuseau horaire, vous pouvez constater des fluctuations ou des « décalages » dans vos données historiques. Cela se produit parce que la fenêtre de 0 h 00 à 23 h 59 s'est déplacée par rapport à UTC.
 
 Prenons l'exemple suivant pour un espace de travail qui passe son fuseau horaire d'UTC à PST (UTC-8) :
 

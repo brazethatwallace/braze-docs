@@ -80,7 +80,7 @@ toc_headers: h2
 - 연결된 모델이 사용량 제한 오류를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 재시도합니다.
 - 에이전트가 다른 이유(예: 타임아웃 오류 또는 잘못된 API 키)로 실패하면, 출력 변수는 `null`로 설정됩니다.
     - 에이전트가 일일 호출 한도에 도달하면, 출력 변수는 `null`로 설정됩니다.
-- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **Add Personalization** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
+- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다.
     - 캐시된 값을 사용하는 응답도 총 호출 수 및 일일 호출 수에 포함됩니다.
 - 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. 이 단계에서 아직 대기 중인 사용자가 보이면, 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
@@ -100,17 +100,17 @@ toc_headers: h2
 
 ### 복잡한 사용 사례에서는 에이전트 간에 작업을 분할하세요 {#split-tasks-between-agents-for-complicated-use-cases}
 
-에이전트가 요청한 작업의 복잡성으로 인해 어려움을 겪고 있다면, 작업을 둘 이상의 에이전트 단계로 분할하세요. 하나의 프롬프트에서 데이터 정리, 라우팅 로직, 전체 메시지 작성을 혼합하면 목표가 서로 경쟁하여 출력 품질이 달라질 수 있습니다.
+에이전트가 요청하는 작업의 복잡성으로 인해 어려움을 겪고 있다면, 작업을 둘 이상의 에이전트 단계로 분할하세요. 하나의 프롬프트에서 데이터 정리, 라우팅 로직, 전체 메시지 작성을 혼합하면 목표가 서로 경쟁하여 출력 품질이 달라질 수 있습니다.
 
-다음 패턴은 여행 예시에 세 개의 에이전트를 사용합니다: 누군가가 앱에서 최근에 검색했지만 예약하지 않았고, 결제를 유도하는 리타겟팅 카피를 원하는 경우입니다.
+다음 패턴은 여행 예시에 세 개의 에이전트를 사용합니다: 누군가가 최근 앱에서 검색했지만 예약하지 않았고, 결제를 유도하는 리타겟팅 카피를 원하는 경우입니다.
 
 - 에이전트 1은 Canvas 컨텍스트를 요약합니다. 로열티 등급, 마지막 검색 도시, 높은 의도의 검색 행동 등의 필드를 읽고, 이후 단계에서 재사용할 수 있는 짧은 구조화된 요약을 출력 변수로 반환합니다.
-- 에이전트 2는 Canvas에서 분기할 수 있는 라우팅 값을 반환합니다. 출력이 분기 방식과 일치하도록 숫자, 부울 또는 구조화된 오브젝트를 사용하세요. 해당 값을 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 단계에 매핑합니다. 예를 들어, 로열티 중심 메시징과 할인 중심 메시징에 대해 별도의 경로를 고려하세요.
+- 에이전트 2는 Canvas에서 분기할 수 있는 라우팅 값을 반환합니다. 출력이 분기 방식과 일치하도록 숫자, 부울 또는 구조화된 오브젝트를 사용하세요. 해당 값을 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 단계에 매핑합니다. 예를 들어, 로열티 중심 메시징과 할인 중심 메시징에 대해 별도의 경로를 고려해 보세요.
 - 에이전트 3은 원하는 분기에서만 생성된 메시지 텍스트를 작성합니다. 에이전트 1의 요약(및 분기별 컨텍스트)을 전달하여 이 에이전트가 동일한 프롬프트에서 입력을 정규화하고 전략을 선택하는 대신 톤과 채널 제한에 집중하도록 합니다.
 
 ### 실험 경로 단계를 사용하여 에이전트 여정을 소규모로 테스트하세요 {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
-기존 여정 대비 에이전트의 성과와 크레딧 소비를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) 단계를 추가하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
+기존 여정 대비 에이전트의 성능과 크레딧 소비를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) 단계를 추가하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
 
 예를 들어, 하루에 수천 명의 사용자를 에이전트가 있는 경로로 보내고 나머지는 대조군 경로 또는 에이전트가 없는 경로로 보냅니다. 1~2주간 데이터를 수집하고 경로 간 핵심 성과 지표(KPI), 반대 측정기준, 에이전트 크레딧 소비를 비교한 후 에이전트 활성화 분기로의 트래픽을 늘리세요.
 

@@ -133,13 +133,13 @@ Uma variável de contexto é considerada inválida quando:
 - Uma chamada a um Conteúdo conectado incorporado falha.
 - A expressão Liquid em tempo de execução retorna um valor que não corresponde ao tipo de dado ou está vazio (nulo).
 
-Por exemplo, se o tipo de dado da variável de contexto for **Número**, mas a expressão Liquid retornar uma string, ela será inválida.
+Por exemplo, se o tipo de dado da variável de contexto for **Number**, mas a expressão Liquid retornar uma string, ela será inválida.
 
 Nessas circunstâncias:
 - O usuário avança para a próxima etapa.
-- A análise de dados da etapa do Canvas conta isso como _Não atualizado_.
+- A análise de dados da etapa do Canvas conta isso como _Not Updated_.
 
-Ao solucionar problemas, monitore a métrica _Não atualizado_ para verificar se sua variável de contexto está sendo atualizada corretamente. Se a variável de contexto for inválida, seus usuários podem continuar no Canvas após a etapa de Contexto, mas podem não se qualificar para etapas posteriores.
+Ao solucionar problemas, monitore a métrica _Not Updated_ para verificar se sua variável de contexto está sendo atualizada corretamente. Se a variável de contexto for inválida, seus usuários podem continuar no Canvas após a etapa de Contexto, mas podem não se qualificar para etapas posteriores.
 
 Consulte [Tipos de dados]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#data-types) para ver exemplos de configuração para cada tipo de dado.
 

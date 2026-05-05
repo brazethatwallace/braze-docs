@@ -171,11 +171,11 @@ Execute as verificações diretamente no editor SQL do seu data warehouse, na me
 Use este processo antes de ativar ou escalar uma sincronização grande:
 
 1. Identifique a tabela ou visualização de origem do CDI e a janela de sincronização que deseja validar.
-2. Abra o editor SQL do seu data warehouse e selecione o mesmo banco de dados e esquema usados pelo CDI, depois use uma função com acesso de leitura à tabela ou visualização de origem.
+2. Abra o editor SQL do seu data warehouse e selecione o mesmo banco de dados e esquema usados pelo CDI. Em seguida, use uma função com acesso de leitura à tabela ou visualização de origem.
 3. Execute a consulta de contagem de timestamps distintos para medir quantos valores `UPDATED_AT` distintos existem nessa janela.
 4. Execute a consulta que agrupa por `UPDATED_AT` e conta as linhas para encontrar timestamps com contagens de linhas incomumente altas.
 5. Se muitas linhas compartilharem timestamps idênticos, ajuste seu processo de ingestão para que lotes consecutivos usem valores `UPDATED_AT` progressivamente mais recentes, ou aumente a precisão do timestamp para que as linhas fiquem mais distribuídas.
-6. Execute ambas as consultas novamente até que a concentração seja reduzida, depois lance ou escale sua sincronização.
+6. Execute ambas as consultas novamente até que a concentração seja reduzida e, em seguida, lance ou escale sua sincronização.
 7. Após o lançamento, monitore **CDI** > **Sync Log** para verificar se há volume inesperado de ressincronização nos timestamps de limite.
 
 Use verificações como estas no seu data warehouse:

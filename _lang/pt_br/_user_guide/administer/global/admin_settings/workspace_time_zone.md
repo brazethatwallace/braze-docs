@@ -17,7 +17,7 @@ Os fusos horários do espaço de trabalho para envio de mensagens estão sendo d
 
 Por padrão, um novo espaço de trabalho herda o fuso horário definido para sua empresa. Os administradores podem substituir esse padrão para um ou mais espaços de trabalho com fusos horários do espaço de trabalho. Quando um fuso horário do espaço de trabalho é definido, Campaigns agendadas e Canvas dentro desse espaço de trabalho referenciam esse novo fuso horário para seus horários de envio.
 
-Por exemplo, se um fuso horário do espaço de trabalho é definido como PST e uma Campaign dentro desse espaço de trabalho está agendada para ser enviada às 15h PST, ela será entregue às 15h PST. Isso é verdade mesmo que o fuso horário geral da sua empresa seja diferente (como EST, onde 15h PST seria 18h EST).
+Por exemplo, se um fuso horário do espaço de trabalho é definido como PST, e uma Campaign dentro desse espaço de trabalho está agendada para ser enviada às 15h PST, ela será entregue às 15h PST. Isso é verdade mesmo que o fuso horário geral da sua empresa seja diferente (como EST, onde 15h PST seria 18h EST).
 
 ## Gerenciar fusos horários do espaço de trabalho {#manage-workspace-time-zones}
 

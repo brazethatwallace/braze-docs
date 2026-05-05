@@ -154,7 +154,7 @@ Um dieses Verhalten in Zukunft zu vermeiden, empfehlen wir, monoton ansteigende 
 
 ## Benötige ich überwiegend eindeutige `UPDATED_AT`-Werte für große CDI-Importe? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
 
-Ja. Bei Läufen mit hohem Volumen (z. B. mehr als ca. 10 Millionen Zeilen) sollten Ihre Quelldaten überwiegend eindeutige `UPDATED_AT`-Werte aufweisen. Wenn zu viele Zeilen denselben Zeitstempel haben, ist es wahrscheinlicher, dass CDI Zeilen an Grenz-Zeitstempeln in späteren Läufen erneut auswählt. Dies kann zu doppelten Synchronisierungen und einem erhöhten Datenpunktverbrauch führen.
+Ja. Bei Läufen mit hohem Volumen (z. B. mehr als ca. 10 Millionen Zeilen) sollten Sie sicherstellen, dass Ihre Quelldaten überwiegend eindeutige `UPDATED_AT`-Werte aufweisen. Wenn zu viele Zeilen denselben Zeitstempel haben, ist es wahrscheinlicher, dass CDI Zeilen an Grenz-Zeitstempeln in späteren Läufen erneut auswählt. Dies kann zu doppelten Synchronisierungen und einem erhöhten Datenpunktverbrauch führen.
 
 Weitere Informationen zum CDI-Grenzverhalten finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
 
@@ -164,9 +164,9 @@ Führen Sie die Prüfungen direkt im SQL-Editor Ihres Data Warehouse aus, gegen 
 
 - Snowflake: **Projects** > **Worksheets** (weitere Informationen finden Sie unter [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
 - Redshift: Query Editor v2 (weitere Informationen finden Sie unter [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
-- BigQuery: BigQuery Studio SQL workspace (weitere Informationen finden Sie unter [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
-- Databricks: SQL editor (SQL warehouse) (weitere Informationen finden Sie unter [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
-- Fabric: SQL query editor
+- BigQuery: BigQuery Studio SQL Workspace (weitere Informationen finden Sie unter [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks: SQL-Editor (SQL Warehouse) (weitere Informationen finden Sie unter [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Fabric: SQL-Abfrage-Editor
 
 Verwenden Sie diesen Prozess, bevor Sie eine große Synchronisierung aktivieren oder skalieren:
 
@@ -174,7 +174,7 @@ Verwenden Sie diesen Prozess, bevor Sie eine große Synchronisierung aktivieren 
 2. Öffnen Sie den SQL-Editor Ihres Warehouse und wählen Sie dieselbe Datenbank und dasselbe Schema aus, die von CDI verwendet werden. Verwenden Sie dann eine Rolle mit Lesezugriff auf die Quelltabelle oder -View.
 3. Führen Sie die Abfrage zur Zählung eindeutiger Zeitstempel aus, um zu messen, wie viele eindeutige `UPDATED_AT`-Werte in diesem Fenster vorhanden sind.
 4. Führen Sie die Abfrage aus, die nach `UPDATED_AT` gruppiert und Zeilen zählt, um Zeitstempel mit ungewöhnlich hoher Zeilenanzahl zu finden.
-5. Wenn viele Zeilen identische Zeitstempel haben, passen Sie Ihren Aufnahmeprozess so an, dass aufeinanderfolgende Batches progressiv neuere `UPDATED_AT`-Werte verwenden, oder erhöhen Sie die Zeitstempelpräzision, damit die Zeilen besser verteilt sind.
+5. Wenn viele Zeilen identische Zeitstempel haben, passen Sie Ihren Aufnahmeprozess so an, dass aufeinanderfolgende Batches progressiv neuere `UPDATED_AT`-Werte verwenden, oder erhöhen Sie die Zeitstempel-Präzision, damit die Zeilen besser verteilt sind.
 6. Führen Sie beide Abfragen erneut aus, bis die Konzentration reduziert ist, und starten oder skalieren Sie dann Ihre Synchronisierung.
 7. Überwachen Sie nach dem Start unter **CDI** > **Sync Log** das unerwartete Volumen erneuter Synchronisierungen an Grenz-Zeitstempeln.
 

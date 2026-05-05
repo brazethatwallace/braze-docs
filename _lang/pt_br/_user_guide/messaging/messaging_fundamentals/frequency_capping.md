@@ -142,7 +142,7 @@ Algumas observações a ter em mente ao configurar limites de taxa e o comportam
     - Content Cards configurados para criar "na primeira impressão" (Isso será controlado pela taxa de impressões do app. Consulte [Criação de cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences) para mais informações sobre as diferenças entre as opções de criação de cartão.)
 - Limites de velocidade de entrega não são suportados para o seguinte:
     - Respostas automáticas de SMS
-    - Mensagens com SLA garantido (como [E-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+    - Mensagens com SLA garantido (como [E-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
     - Mensagens no app
     - Feature Flags
     - Banners

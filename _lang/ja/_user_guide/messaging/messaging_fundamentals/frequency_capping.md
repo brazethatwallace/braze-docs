@@ -205,7 +205,7 @@ Canvasユーザーがグローバルフリークエンシーキャップ設定�
 
 その後、このCampaignをフリークエンシーキャップにカウントするかどうかを尋ねられます。フリークエンシーキャップにカウントされるメッセージは、インテリジェントチャネルフィルターの計算に含まれます。
 
-[API Campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging)を送信する場合（多くの場合トランザクション的なもの）、APIリクエストで`override_frequency_capping`を`true`に設定することで、Campaignがフリークエンシーキャップルールを無視するように指定できます。
+[APIキャンペーン]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging)を送信する場合（多くの場合トランザクション的なもの）、APIリクエストで`override_frequency_capping`を`true`に設定することで、Campaignがフリークエンシーキャップルールを無視するように指定できます。
 
 デフォルトでは、フリークエンシーキャップに従わない新しいCampaignsとCanvasesは、フリークエンシーキャップにカウントもされません。これはCampaignとCanvasごとに設定可能です。
 

@@ -104,11 +104,11 @@ Standardmäßig werden die Daten in den Engagement-Berichten täglich (ein Tag) 
 
 ##### Daten nach gesamter Campaign oder Canvas anzeigen {#show-data-by-entire-campaign-or-canvas}
 
-Wenn Sie **Show Data by Entire Campaign or Canvas** auswählen, aggregiert Braze die Metriken in Blöcken von 1.825 Tagen (fünf Jahre) über den Zeitraum des Berichts.
+Wenn Sie **Show Data by Entire Campaign or Canvas** auswählen, aggregiert Braze die Metriken in Blöcken von 1.825 Tagen (fünf Jahre) über den Zeitraum des Berichts hinweg.
 
-Wenn der Zeitraum mehr als einen Block umfasst, sehen Sie möglicherweise mehrere Zeilen für dieselbe Campaign oder denselben Canvas mit unterschiedlichen Daten in der Datumsspalte. Einige Zeilen enthalten möglicherweise nur Metriken, die später im Zeitraum erfasst wurden (z. B. Abmeldungen). Daten können auch Jahre vor dem Beginn Ihrer Sends im Workspace liegen, da sie die Block-Grenzen im Export widerspiegeln und nicht nur Ihren ersten Send.
+Wenn der Zeitraum mehr als einen Block umfasst, sehen Sie möglicherweise mehrere Zeilen für dieselbe Campaign oder denselben Canvas mit unterschiedlichen Daten in der Datumsspalte. Einige Zeilen enthalten möglicherweise nur Metriken, die später im Zeitraum erfasst wurden (z. B. Abmeldungen). Daten können auch Jahre vor dem Beginn Ihres Versands im Workspace liegen, da sie die Block-Grenzen im Export widerspiegeln und nicht nur Ihren ersten Versand.
 
-Um die Datumsspalte mit dem tatsächlichen Sendezeitpunkt Ihrer ausgewählten Campaigns und Canvases abzugleichen, setzen Sie das [Startdatum des Berichts unter **Zeitraum auswählen**](#select-time-frame) auf das früheste Datum, das Sie in der Datei haben möchten – in der Regel den Zeitpunkt, an dem diese Nachrichten gesendet wurden – anstatt den Standardbereich zu verwenden, der bis zur ältesten ausgewählten Nachricht zurückreicht.
+Um die Datumsspalte mit dem tatsächlichen Versandzeitpunkt Ihrer ausgewählten Campaigns und Canvases abzugleichen, setzen Sie das [Startdatum des Berichts unter **Zeitraum auswählen**](#select-time-frame) auf das früheste Datum, das Sie in der Datei haben möchten – in der Regel den Zeitpunkt, an dem diese Nachrichten gesendet wurden – anstatt den Standardbereich zu verwenden, der bis zur ältesten ausgewählten Nachricht zurückreicht.
 
 #### Bericht planen {#schedule-your-report}
 

@@ -93,7 +93,7 @@ Verwenden Sie beim Referenzieren von Kontextvariablen immer das Format {% raw %}
 
 Sie können Filter mit Kontextvariablen in [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)- und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Schritten erstellen.
 
-Um Nutzer:innen basierend auf der Antwort eines [Agent-Schritts]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) weiterzuleiten, fügen Sie den Agent-Schritt vor Ihrem Zielgruppenpfade- oder Decision-Split-Schritt hinzu. Der Agent-Schritt speichert seine Ausgabe im Canvas-Kontext, den Sie mit Kontextvariablen-Filtern in diesen Verzweigungsschritten auswerten können.
+Um Nutzer:innen basierend auf der Antwort eines [Agent-Schritts]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) weiterzuleiten, fügen Sie den Agent-Schritt vor Ihrem Zielgruppenpfade- oder Decision-Split-Schritt hinzu. Der Agent-Schritt speichert seine Ausgabe im Canvas-Kontext, die Sie mit Kontextvariablen-Filtern in diesen Verzweigungsschritten auswerten können.
 
 Wenn der Agent ein Objekt zurückgibt und Sie nach einer verschachtelten Eigenschaft filtern möchten, geben Sie den Pfad im Feld **Context variable name** in Punktnotation ein, anstatt nur den übergeordneten Variablennamen zu verwenden (z. B. `intent_agent.persona`, wenn `persona` unter `intent_agent` verschachtelt ist).
 

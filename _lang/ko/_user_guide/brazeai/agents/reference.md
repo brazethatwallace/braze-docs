@@ -72,7 +72,7 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 
 ### 사용량 제한 {#rate-limits}
 
-다음 사용량 제한은 워크스페이스별로 적용됩니다:
+다음 사용량 제한은 워크스페이스당 적용됩니다:
 
 - **Braze 기반 모델:** 분당 1,000회 호출
 - **자체 API 키 가져오기:** 분당 2,500회 호출
@@ -104,7 +104,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 ```
 {% endraw %}
 
-**에이전트 콘솔**의 **로그** 섹션에서 에이전트의 입력 및 출력 세부 정보를 검토하여 Liquid에서 렌더링된 값을 확인할 수 있습니다.
+**에이전트 콘솔**의 **Logs** 섹션에서 에이전트의 입력 및 출력 세부 정보를 검토하여 Liquid에서 렌더링된 값을 확인할 수 있습니다.
 
 ![지침에 Liquid가 포함된 에이전트의 세부 정보.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 

@@ -20,7 +20,7 @@ Cuando no tienes un socio de almacenamiento marcado como destino de exportación
 ## Exportaciones CSV {#csv-exports}
 Cuando exportas un archivo CSV desde el dashboard, Braze envía por correo electrónico un enlace de descarga al usuario que ha iniciado sesión. Ese enlace apunta a un archivo ZIP alojado en el contenedor de S3 de Braze. Dentro del ZIP hay varios archivos más pequeños que, juntos, conforman tu exportación.
 
-Debes haber iniciado sesión en el panel de Braze para utilizar el enlace, y el archivo solo estará disponible durante cuatro horas. Después de eso, el enlace deja de funcionar y los datos se eliminan. Si se producen fallos repetidos con exportaciones muy grandes (más de 500 000 usuarios), es posible que la exportación falle. En ese caso, intenta dividir tu exportación en grupos o campos más pequeños, o considera configurar un socio de almacenamiento.
+Debes haber iniciado sesión en el dashboard de Braze para utilizar el enlace, y el archivo solo estará disponible durante cuatro horas. Después de eso, el enlace deja de funcionar y los datos se eliminan. Si se producen fallos repetidos con exportaciones muy grandes (más de 500 000 usuarios), es posible que la exportación falle. En ese caso, intenta dividir tu exportación en grupos o campos más pequeños, o considera configurar un socio de almacenamiento.
 
 ### Errores comunes {#common-errors}
 
@@ -53,7 +53,7 @@ En el almacenamiento en la nube, las exportaciones CSV se agrupan en un archivo 
 ### Errores comunes
 
 - `AccessDenied` significa que Braze no pudo escribir en tu contenedor. Comprueba que tus credenciales y permisos siguen siendo válidos.
-- `ExpiredToken` aparece si Braze ha perdido el acceso a tu contenedor. Actualiza tus credenciales en el panel de Braze.
+- `ExpiredToken` aparece si Braze ha perdido el acceso a tu contenedor. Actualiza tus credenciales en el dashboard de Braze.
 - Si algunos archivos parecen más pequeños de lo esperado, es un comportamiento normal. El proceso de exportación divide los archivos intencionadamente para garantizar la estabilidad.
 - Los apóstrofos que se añaden al principio de ciertos campos (como `-`, `=`, `+` o `@`) son un comportamiento esperado. Por ejemplo, `-1943` se convierte en `'-1943` en el CSV. Braze hace esto para evitar que los programas de hojas de cálculo interpreten erróneamente los datos. Esto no se aplica a las exportaciones JSON, como las devueltas por el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
 
@@ -71,33 +71,33 @@ Cuando exportas datos a través de las API con un socio de almacenamiento conect
 
 ## Análisis de campañas y Canvas {#campaign-and-canvas-analytics}
 
-### El número de usuarios en la exportación CSV no coincide con _Mensajes enviados_ o _Destinatarios únicos_ {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### El número de usuarios en la exportación CSV no coincide con _Messages Sent_ o _Unique Recipients_ {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
 
-La exportación CSV de una campaña puede mostrar un número de usuarios diferente al de _Mensajes enviados_ y _Destinatarios únicos_ por las siguientes razones:
+La exportación CSV de una campaña puede mostrar un número de usuarios diferente al de _Messages Sent_ y _Unique Recipients_ por las siguientes razones:
 
 #### La reelegibilidad está activada {#re-eligibility-is-turned-on}
 
-Si los usuarios pueden (o pudieron en algún momento) recibir la campaña más de una vez, las cifras de análisis de la campaña y el número de filas en la exportación de datos de usuario no coinciden. _Mensajes enviados_ cuenta cada envío, incluso cuando el mismo usuario recibe el mensaje más de una vez. La descarga de **Exportación de datos de usuario a CSV** enumera usuarios únicos: una fila por perfil que recibió la campaña, no una fila por envío. Por ejemplo, si _Mensajes enviados_ es 12 y el CSV tiene 10 filas, esos 12 envíos se dirigieron a 10 usuarios distintos (algunos usuarios recibieron la campaña más de una vez).
+Si los usuarios pueden (o pudieron en algún momento) recibir la campaña más de una vez, las cifras de análisis de la campaña y el número de filas en la exportación de datos de usuario no coinciden. _Messages Sent_ cuenta cada envío, incluso cuando el mismo usuario recibe el mensaje más de una vez. La descarga de **Exportación de datos de usuario a CSV** enumera usuarios únicos: una fila por perfil que recibió la campaña, no una fila por envío. Por ejemplo, si _Messages Sent_ es 12 y el CSV tiene 10 filas, esos 12 envíos se dirigieron a 10 usuarios distintos (algunos usuarios recibieron la campaña más de una vez).
 
-#### Los usuarios se eliminaron o fusionaron después de que se enviara la campaña o Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
+#### Se eliminaron o fusionaron usuarios desde que se envió la campaña o Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
-La exportación CSV ofrece una instantánea de los usuarios existentes que recibieron una campaña o Canvas determinados. Dado que los usuarios pueden eliminarse o fusionarse, el recuento de la exportación CSV puede ser inferior al de destinatarios únicos. Por ejemplo, si 1000 usuarios reciben una campaña, la campaña muestra 1000 destinatarios únicos y la exportación CSV de ese mismo día también muestra 1000 usuarios. Si un mes después se eliminan 50 de esos 1000 usuarios, la exportación CSV contiene 950 usuarios, mientras que el recuento acumulado de destinatarios únicos sigue siendo 1000.
+La exportación CSV ofrece una instantánea de los usuarios existentes que recibieron una campaña o Canvas determinados. Dado que los usuarios pueden eliminarse o fusionarse, el recuento de la exportación CSV puede ser inferior al de destinatarios únicos. Por ejemplo, si 1000 usuarios reciben una campaña, esta muestra 1000 destinatarios únicos y la exportación CSV de ese mismo día también muestra 1000 usuarios. Si un mes después se eliminan 50 de esos 1000 usuarios, la exportación CSV contiene 950 usuarios, mientras que el recuento acumulado de destinatarios únicos sigue siendo 1000.
 
-## Correos electrónicos de exportación de segmentos del dashboard {#dashboard-segment-export-emails}
+## Correos electrónicos de exportación de Segment del dashboard {#dashboard-segment-export-emails}
 
-### ¿Por qué no recibo los correos electrónicos de exportación de segmentos? {#why-arent-i-receiving-segment-export-emails}
+### ¿Por qué no recibo los correos electrónicos de exportación de Segment? {#why-arent-i-receiving-segment-export-emails}
 
 Primero, revisa tu carpeta de correo no deseado en busca de un correo electrónico de `no-reply@alerts.braze.com`. Si el correo está ahí, añade esa dirección a tu lista de remitentes seguros para que los futuros mensajes de exportación no se filtren.
 
 Si el correo no está en tu carpeta de correo no deseado, comprueba si otra persona de tu equipo puede recibir la exportación. Si tampoco puede, considera el tamaño de tu exportación. El tiempo de entrega varía según el tamaño de la exportación, pero si el correo no ha llegado después de una hora, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support/).
 
-## Descargas de la API de exportación de segmentos {#segment-export-api-downloads}
+## Descargas de la API de exportación de Segment {#segment-export-api-downloads}
 
-### No se puede descargar un archivo ZIP de segmento exportado desde una URL de Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
+### No se puede descargar un archivo ZIP de Segment exportado desde una URL de Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
 
 Si obtienes un error `403 Forbidden` al utilizar el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), es posible que el archivo aún no esté listo. Las exportaciones grandes pueden tardar un tiempo en procesarse. Espera hasta una hora antes de intentar la descarga de nuevo.
 
-Si utilizas un script automatizado para recuperar el archivo, también puedes recibir un error `403 Forbidden` cuando solicitas la URL demasiado pronto. Si exportas datos de segmentos de forma regular, considera conectar tu propia integración con un contenedor de S3 y pasar los archivos a tu propio proceso de extracción, transformación y carga (ETL).
+Si utilizas un script automatizado para recuperar el archivo, también puedes recibir un error `403 Forbidden` cuando solicitas la URL demasiado pronto. Si exportas datos de Segment de forma regular, considera conectar tu propia integración con un contenedor de S3 y pasar los archivos a tu propio pipeline de extracción, transformación y carga (ETL).
 
 Las exportaciones tardan en completarse, por lo que el acceso inmediato desde un script suele fallar. Puedes:
 
