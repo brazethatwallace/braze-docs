@@ -126,7 +126,7 @@ Choose a fallback time to use if a user's profile doesn't have any relevant even
 
 ### Step 5: Preview delivery times
 
-To see an estimate of how many users receive the message in each hour of the day, do the following:
+To see an estimate of how many users receive the message in each hour of the day, use the preview chart:
 
 1. Add segments or filters in the **Target Audiences** step.
 2. In the section **Preview Delivery Times for** (which appears in both the **Target Audiences** and **Schedule Delivery** steps), select your channel.
