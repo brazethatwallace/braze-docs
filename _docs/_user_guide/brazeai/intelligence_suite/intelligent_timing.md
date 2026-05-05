@@ -126,7 +126,7 @@ Choose a fallback time to use if a user's profile doesn't have any relevant even
 
 ### Step 5: Preview delivery times
 
-To see an estimate of how many users will receive the message in each hour of the day, use the preview chart.
+To see an estimate of how many users receive the message in each hour of the day, use the preview chart. Note that the time on the preview chart is in your own time zone.
 
 1. Add segments or filters in the **Target Audiences** step.
 2. In the section **Preview Delivery Times for** (which appears in both the **Target Audiences** and **Schedule Delivery** steps), select your channel.
@@ -134,7 +134,7 @@ To see an estimate of how many users will receive the message in each hour of th
 
 ![Example preview of delivery times for Android Push.]({% image_buster /assets/img/intel-timing-preview.png %})
 
-Whenever you change any settings about Intelligent Timing or your campaign audience, refresh the data again to view an updated chart.
+Whenever you change any settings about Intelligent Timing or your campaign audience, refresh the data again to view an updated chart. 
 
 The chart shows users who had relevant events to calculate an optimal time in blue and users who will use the fallback time in red. Use the calculation filters to adjust the preview view for a more granular look at either user group.
 {% endtab %}
