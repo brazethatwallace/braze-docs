@@ -142,7 +142,7 @@ Algunas notas a tener en cuenta al configurar límites de velocidad y qué compo
     - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas).
 - Los límites de velocidad de entrega no son compatibles con lo siguiente:
     - Respuestas automáticas de SMS
-    - Mensajes respaldados por SLA (como [correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+    - Mensajes respaldados por SLA (como [correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
     - Mensajes dentro de la aplicación
     - Conmutadores de características
     - Banners
