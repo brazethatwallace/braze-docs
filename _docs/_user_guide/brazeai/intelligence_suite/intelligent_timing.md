@@ -126,11 +126,13 @@ Choose a fallback time to use if a user's profile doesn't have any relevant even
 
 ### Step 5: Preview delivery times
 
-To see an estimate of how many users receive the message in each hour of the day, use the preview chart. Note that the time on the preview chart is in your own time zone.
+To see an estimate of how many users receive the message in each hour of the day, do the following:
 
 1. Add segments or filters in the **Target Audiences** step.
 2. In the section **Preview Delivery Times for** (which appears in both the **Target Audiences** and **Schedule Delivery** steps), select your channel.
 3. Select **Refresh Data**.
+
+The preview chart shows each hour of the day using your local time. The labels aren’t set to one global time zone; they reflect your viewing context. 
 
 ![Example preview of delivery times for Android Push.]({% image_buster /assets/img/intel-timing-preview.png %})
 
