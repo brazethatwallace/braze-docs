@@ -430,6 +430,25 @@ $(document).ready(function() {
   // link image fix for underline
   $('#article-main a:has(> img)').css('display','inline-block');
 
+  function logDocNavRailCustomEvent(eventName, extraProps) {
+    if (!window.braze || typeof window.braze.logCustomEvent !== 'function') {
+      return;
+    }
+    var payload = {
+      page_url: window.location.pathname,
+      page_title: document.title
+    };
+    if (extraProps) {
+      for (var key in extraProps) {
+        if (Object.prototype.hasOwnProperty.call(extraProps, key)) {
+          payload[key] = extraProps[key];
+        }
+      }
+    }
+    braze.logCustomEvent(eventName, payload);
+    braze.requestImmediateDataFlush();
+  }
+
   function setSidebarToggleIcon(isCollapsed) {
     var btn = $('#sidebar_toggle');
     var img = $('#sidebar_toggle_icon');
@@ -470,9 +489,10 @@ $(document).ready(function() {
     }
   }
 
-  function closeDocNavFlyout() {
+  function closeDocNavFlyout(closeMethod) {
     var nav_bar = $('#nav_bar');
     if (!nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    logDocNavRailCustomEvent('doc_nav_flyout_closed', { close_method: closeMethod });
     nav_bar.removeClass('doc-nav-flyout-open');
     if (docNavFlyoutHoverLeaveTimer) {
       clearTimeout(docNavFlyoutHoverLeaveTimer);
@@ -487,6 +507,7 @@ $(document).ready(function() {
     var nav_bar = $('#nav_bar');
     if (!nav_bar.hasClass('hide_sidebar') || nav_bar.hasClass('doc-nav-flyout-open')) { return; }
     nav_bar.addClass('doc-nav-flyout-open');
+    logDocNavRailCustomEvent('doc_nav_flyout_opened', { open_method: 'keyboard' });
     syncDocNavDisclosureState();
     requestAnimationFrame(function() {
       syncSidebarToggleDock();
@@ -543,7 +564,7 @@ $(document).ready(function() {
     var nav_bar = $('#nav_bar');
     if (!nav_bar.length || !nav_bar.hasClass('hide_sidebar') || !nav_bar.hasClass('doc-nav-flyout-open')) { return; }
     e.preventDefault();
-    closeDocNavFlyout();
+    closeDocNavFlyout('escape');
     var t = document.getElementById('sidebar_toggle');
     if (t) { t.focus(); }
   }, true);
@@ -552,11 +573,15 @@ $(document).ready(function() {
     if (!isDocNavRailLayout()) { return; }
     var nav_bar = $('#nav_bar');
     if (!nav_bar.hasClass('hide_sidebar')) { return; }
+    var wasFlyoutOpen = nav_bar.hasClass('doc-nav-flyout-open');
     if (docNavFlyoutHoverLeaveTimer) {
       clearTimeout(docNavFlyoutHoverLeaveTimer);
       docNavFlyoutHoverLeaveTimer = null;
     }
     nav_bar.addClass('doc-nav-flyout-open');
+    if (!wasFlyoutOpen) {
+      logDocNavRailCustomEvent('doc_nav_flyout_opened', { open_method: 'hover' });
+    }
     syncDocNavDisclosureState();
     syncSidebarToggleDock();
   });
@@ -574,9 +599,7 @@ $(document).ready(function() {
       if (!nb.hasClass('doc-nav-flyout-open')) { return; }
       var ae = document.activeElement;
       if (ae && nb[0].contains(ae)) { return; }
-      nb.removeClass('doc-nav-flyout-open');
-      syncDocNavDisclosureState();
-      syncSidebarToggleDock();
+      closeDocNavFlyout('mouse_leave');
     }, 200);
   });
 
@@ -587,10 +610,18 @@ $(document).ready(function() {
     var nav_bar = $('#nav_bar');
     var curstate = nav_bar.hasClass('hide_sidebar');
     if (curstate) {
+      if (nav_bar.hasClass('doc-nav-flyout-open')) {
+        logDocNavRailCustomEvent('doc_nav_flyout_closed', { close_method: 'sidebar_expanded' });
+      }
+      logDocNavRailCustomEvent('expand_nav_clicked');
       nav_bar.removeClass('doc-nav-flyout-open');
       nav_bar.removeClass('hide_sidebar');
       Cookies.set('ln', '', { expires: 365 });
     } else {
+      if (nav_bar.hasClass('doc-nav-flyout-open')) {
+        logDocNavRailCustomEvent('doc_nav_flyout_closed', { close_method: 'sidebar_collapsed' });
+      }
+      logDocNavRailCustomEvent('collapse_nav_clicked');
       nav_bar.removeClass('doc-nav-flyout-open');
       nav_bar.addClass('hide_sidebar');
       Cookies.set('ln','1',  { expires: 365 });
@@ -610,7 +641,7 @@ $(document).ready(function() {
 
   $(window).on('resize.docNavRail', function() {
     if (!isDocNavRailLayout()) {
-      closeDocNavFlyout();
+      closeDocNavFlyout('viewport_resize');
     }
     syncSidebarToggleDock();
   });
