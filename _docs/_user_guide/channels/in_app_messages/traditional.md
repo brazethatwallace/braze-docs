@@ -268,7 +268,7 @@ This setting only applies to the Custom code message type. Copy and paste HTML i
 
 This setting only applies to the email capture form message type. Enter custom copy that will appear as the placeholder text for the email input field. This defaults to "Enter your email address".
 
-## Step 5: Style your in-app message
+## Step 5: Style your in-app message {#step-5-style-your-in-app-message}
 
 The **Style** tab allows you to adjust all visual aspects of your message. Upload an image or badge, or pick a pre-designed badge icon. Change the colors of the header and body text, buttons, and background by selecting from a palette or entering a hex, RGB, or HSB code.
 
@@ -276,7 +276,7 @@ The content of the **Style** tab varies based on your chosen message options in 
 
 | Formatting | Input | Description |
 |---|---|---|
-|[Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates) | Apply from in-app message templates gallery. | Select **Apply Template** and choose from the gallery. Then, select **Save**. |
+|[Color Profile]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Apply from in-app message templates gallery. | Select **Apply Template** and choose from the gallery. Then, select **Save**. |
 |Text Alignment | Left, Center, or Right.  | Only available for newer Braze SDK versions. |
 |Header | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color.  |
 |Text | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color. |

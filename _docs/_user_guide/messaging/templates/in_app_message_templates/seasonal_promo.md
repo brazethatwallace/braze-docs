@@ -2,7 +2,7 @@
 nav_title: Seasonal promotion with image
 article_title: Seasonal Promotion with Background Image
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "This page covers how to use the in-app message drag-and-drop editor to promote a seasonal offer or deal to drive user engagement."
 ---
 
