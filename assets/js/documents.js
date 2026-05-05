@@ -500,18 +500,20 @@ $(document).ready(function() {
     });
   }
 
-  // Move rail toggle between the first nav row host (expanded / peek) and the collapsed strip.
+  // Move rail toggle between the collapsed rail slot and the expanded-nav position.
+  // During flyout peek (hide_sidebar + doc-nav-flyout-open), the button stays in the
+  // rail slot so it doesn't jump when the flyout opens.
   function syncSidebarToggleDock() {
     var nav_bar = $('#nav_bar');
     var host = $('#sidebar_toggle_host');
     var slot = $('.left-nav-collapsed-slot');
     var btn = $('#sidebar_toggle');
     if (!btn.length) { return; }
-    var peeking = nav_bar.hasClass('hide_sidebar') &&
-      ($('#left_navmenu').is(':visible') || nav_bar.hasClass('doc-nav-flyout-open'));
-    if (nav_bar.hasClass('hide_sidebar') && !peeking) {
-      if (slot.length) { btn.appendTo(slot); }
+    if (nav_bar.hasClass('hide_sidebar')) {
+      // Collapsed (with or without flyout peek): button stays in the rail slot.
+      if (slot.length && !$.contains(slot[0], btn[0])) { btn.appendTo(slot); }
     } else {
+      // Fully expanded: move button to the designated host or below the flyout panel.
       if (host.length) {
         btn.appendTo(host);
       } else {
