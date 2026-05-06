@@ -109,7 +109,7 @@ If there are more _Unsubscribes_ than users who clicked the unsubscribe link in 
 
 If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once.
 
-If a user clicks the unsubscribe button twice (for example, if they unsubscribed, subscribed again, then unsubscribed again), this counts twice in email analytics.
+If a user clicks the unsubscribe link twice (for example, if they unsubscribed, subscribed again, then unsubscribed again), this counts twice in email analytics.
 
 ### Can I add a "view this email in a browser" link to my emails?
 
