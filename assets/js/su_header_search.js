@@ -1,6 +1,16 @@
 // search-form-handler.js
 
 document.addEventListener("DOMContentLoaded", function () {
+  const buttonLabels = {
+    en:     { form: "Site search", search: "Search", clear: "Clear search" },
+    "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
+    ko:     { form: "사이트 검색", search: "검색", clear: "검색 지우기" },
+    fr:     { form: "Recherche sur le site", search: "Rechercher", clear: "Effacer la recherche" },
+    es:     { form: "Búsqueda en el sitio", search: "Buscar", clear: "Borrar búsqueda" },
+    de:     { form: "Sitesuche", search: "Suchen", clear: "Suche löschen" },
+    ja:     { form: "サイト検索", search: "検索", clear: "検索をクリア" },
+  };
+
   /**
    * Bind submit + click listeners to search form
    * @param {HTMLFormElement} form
@@ -8,6 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
   function bindSearchForm(form) {
     if (form && !form.dataset.listenerAdded) {
       const originalAction = form.getAttribute("action") || "";
+      const lang = document.documentElement.lang;
+      const labels = buttonLabels[lang] || buttonLabels.en;
+
+      form.setAttribute("aria-label", labels.form);
 
       // Handle form submit
       form.addEventListener(
@@ -24,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Handle search button click
       const searchButton = form.querySelector(".su__search_btn");
       if (searchButton) {
+        searchButton.setAttribute("type", "submit");
+        searchButton.setAttribute("aria-label", labels.search);
         searchButton.addEventListener(
           "click",
           function (e) {
@@ -39,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Handle clear (×) button click
       const clearButton = form.querySelector(".su__input-close");
       if (clearButton) {
+        clearButton.setAttribute("aria-label", labels.clear);
         clearButton.addEventListener("click", function (e) {
           e.preventDefault();
           e.stopImmediatePropagation();
@@ -97,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const lang = document.documentElement.lang;
     const placeholderText = translations[lang] || translations.en;
     input.setAttribute("placeholder", placeholderText);
+    input.setAttribute("aria-label", placeholderText);
 
     // --- Function to toggle has-text class ---
     function toggleHasTextClass() {

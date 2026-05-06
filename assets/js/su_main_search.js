@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const buttonLabels = {
+    en:     { form: "Site search", search: "Search", clear: "Clear search" },
+    "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
+    ko:     { form: "사이트 검색", search: "검색", clear: "검색 지우기" },
+    fr:     { form: "Recherche sur le site", search: "Rechercher", clear: "Effacer la recherche" },
+    es:     { form: "Búsqueda en el sitio", search: "Buscar", clear: "Borrar búsqueda" },
+    de:     { form: "Sitesuche", search: "Suchen", clear: "Suche löschen" },
+    ja:     { form: "サイト検索", search: "検索", clear: "検索をクリア" },
+  };
 
   function bindSearchForm(container) {
     const form = container.querySelector("form");
@@ -9,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!form || form.dataset.listenerAdded) return;
 
+    const lang = document.documentElement.lang;
+    const labels = buttonLabels[lang] || buttonLabels.en;
+
+    form.setAttribute("aria-label", labels.form);
+
     // Prevent form submit
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -18,12 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Search button click
     if (searchButton) {
-      searchButton.setAttribute("type", "button");
+      searchButton.setAttribute("type", "submit");
+      searchButton.setAttribute("aria-label", labels.search);
       searchButton.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
         handleSearch(queryInput, langSelect);
       });
+    }
+
+    // Clear button
+    if (clearButton) {
+      clearButton.setAttribute("aria-label", labels.clear);
     }
 
     // Enter key
@@ -46,10 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
         ja: "すべて検索"
       };
 
-      let lang = document.documentElement.lang;
-      let placeholderText = translations[lang] || translations.en;
+      const placeholderText = translations[lang] || translations.en;
       queryInput.setAttribute("placeholder", `${placeholderText}...`);
-
+      queryInput.setAttribute("aria-label", placeholderText);
     }
 
     // Clear icon click
