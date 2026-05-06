@@ -905,7 +905,7 @@ blockquote {
 		}
 		/* Generic.Emph */
 		.gr {
-			color: #ff0000;
+			color: #cc0000; // #ff0000 → darkened for 5.3:1 on $grey-athens
 		}
 		/* Generic.Error */
 		.gh {
@@ -1049,7 +1049,7 @@ blockquote {
 		}
 		/* Operator.Word */
 		.w {
-			color: #bbbbbb;
+			color: #666666; // #bbbbbb → darkened for 5.2:1 on $grey-athens
 		}
 		/* Text.Whitespace */
 		.mb {
@@ -1086,7 +1086,7 @@ blockquote {
 		}
 		/* Literal.String.Backtick */
 		.sc {
-			color: #8888ff;
+			color: #4040BB; // #8888ff → darkened for 6.9:1 on $grey-athens
 		}
 		/* Literal.String.Char */
 		.dl {
@@ -1102,12 +1102,13 @@ blockquote {
 		}
 		/* Literal.String.Double */
 		.se {
-			color: #666666;
+			color: #ffffff; // #666666 → white for 5.9:1 on $red-rose background
 			font-weight: bold;
 			background-color: $red-rose;
 		}
 		/* Literal.String.Escape */
 		.sh {
+			color: #ffffff; // explicit white for 5.9:1 on $red-rose background
 			background-color: $red-rose;
 		}
 		/* Literal.String.Heredoc */
@@ -1130,7 +1131,7 @@ blockquote {
 		}
 		/* Literal.String.Single */
 		.ss {
-			color: #ffcc88;
+			color: #8B5E00; // #ffcc88 → darkened for 4.7:1 on $grey-athens
 		}
 		/* Literal.String.Symbol */
 		.bp {
@@ -1143,15 +1144,15 @@ blockquote {
 		}
 		/* Name.Function.Magic */
 		.vc {
-			color: #ccccff;
+			color: #5454B0; // #ccccff → darkened for 5.1:1 on $grey-athens
 		}
 		/* Name.Variable.Class */
 		.vg {
-			color: #ff8844;
+			color: #9E4400; // #ff8844 → darkened for 5.3:1 on $grey-athens
 		}
 		/* Name.Variable.Global */
 		.vi {
-			color: #aaaaff;
+			color: #4444AA; // #aaaaff → darkened for 6.5:1 on $grey-athens
 		}
 		/* Name.Variable.Instance */
 		.vm {

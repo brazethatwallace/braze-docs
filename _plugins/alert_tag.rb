@@ -29,7 +29,9 @@ module Jekyll
         lang = (site.config['language'] || 'en').downcase
         label = (ALERT_LABELS.dig(lang, type.downcase) || type).gsub('-', ' ')
         body = converter.convert(super(context))
-        "<div class='alert alert-#{type}' role='alert'><div class='alert-msg'><span role='heading' aria-level='6'><b>#{label}</b></span><br />#{body}</div></div>"
+        base_url = site.config['baseurl'] || '/docs'
+        icon = "<img src='#{base_url}/assets/img/message-#{type}.png' alt='' class='alert-icon'>"
+        "<div class='alert alert-#{type}' role='alert'>#{icon}<div class='alert-msg'><b>#{label}</b><br />#{body}</div></div>"
       end
 
     end
