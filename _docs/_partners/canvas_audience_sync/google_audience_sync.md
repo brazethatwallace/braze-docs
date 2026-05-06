@@ -226,4 +226,10 @@ Check that your audiences contain at least 5,000 users so that ads can start ser
 
 If you're syncing audiences to Google, this error will trigger if you have selected to sync mobile identifiers as part of your syncs but deleted your mobile app IDs from the Google partner page. To resolve this issue, make sure you've added the appropriate mobile app IDs for iOS and Android to the Google partner page.
 
+### Why did I get a Google Ads invalid credentials email when the dashboard still shows connected?
+
+Braze sends this email automatically when Google's API returns an authorization error. That can happen even when **Google Ads** still appears connected in the dashboard and audiences look like they're syncing—for example, when the connected Google account doesn't have permission for a specific action Google requested, or when Google Ads terms of service still need to be accepted for the account.
+
+Some authorization errors clear on their own. Check your Canvas **Audience Sync** analytics (for example, *Users Synced* and *Users Errored*) to confirm whether users are still syncing. If problems continue, go to **Partner Integrations** > **Technology Partners** > **Google Ads**, find **Google Audience Sync**, and use **Change Account** to reconnect with a Google Ads account that has the required access and completed setup.
+
 
