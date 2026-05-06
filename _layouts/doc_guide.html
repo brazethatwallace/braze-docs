@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: true
 hide_breadcrumb: true
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -176,6 +178,9 @@ hide_breadcrumb: true
         window.addEventListener('load', loadStatusPage, false);
       </script>
 
+      {% unless hide_binary_feedback -%}
+      {% include binary_feedback.html  %}
+      {% endunless -%}
 
     </div>
     </div>
