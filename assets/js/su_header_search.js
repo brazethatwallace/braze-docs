@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * Bind submit + click listeners to search form
+   * Bind submit + click listeners to search form and apply ARIA labels.
    * @param {HTMLFormElement} form
    */
   function bindSearchForm(form) {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Set up placeholder, key events & has-text logic
+   * Set up placeholder, ARIA combobox attributes, key events & has-text logic.
    */
   function setupInputWatcher() {
     const input = document.getElementById("search-box-autocomplete");
@@ -123,6 +123,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const placeholderText = translations[lang] || translations.en;
     input.setAttribute("placeholder", placeholderText);
     input.setAttribute("aria-label", placeholderText);
+
+    // Combobox ARIA — tells assistive technology this input controls a listbox
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-haspopup", "listbox");
+    input.setAttribute("aria-expanded", "false");
+    input.setAttribute("autocomplete", "off");
+
+    input.addEventListener("focus", () =>
+      input.setAttribute("aria-expanded", "true")
+    );
+    input.addEventListener("blur", () => {
+      // Delay so a click on a suggestion isn't cut off before it fires
+      setTimeout(() => input.setAttribute("aria-expanded", "false"), 200);
+    });
+    input.addEventListener("input", () => {
+      input.setAttribute(
+        "aria-expanded",
+        input.value.trim() !== "" ? "true" : "false"
+      );
+    });
 
     // --- Function to toggle has-text class ---
     function toggleHasTextClass() {
@@ -158,38 +178,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * MutationObserver → waits for dynamic injection of searchForm or input
+   * Remove source/type label badges from the tab order — they are metadata
+   * inside result rows, not independent interactive controls.
+   * @param {Element} [root] — scope the search; defaults to document
    */
-  function patchClearButton(clearButton, form, labels) {
-    if (clearButton.dataset.accessibilityBound) return;
-    clearButton.setAttribute("aria-label", labels.clear);
-    clearButton.setAttribute("role", "button");
-    clearButton.setAttribute("tabindex", "0");
-    clearButton.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        clearButton.click();
-      }
-    });
-    clearButton.dataset.accessibilityBound = "true";
+  function patchSourceLabels(root) {
+    (root || document)
+      .querySelectorAll(".su__source-label, .su__ribbon-title")
+      .forEach((el) => {
+        if (el.getAttribute("tabindex") !== "-1") {
+          el.setAttribute("tabindex", "-1");
+        }
+      });
   }
 
+  /**
+   * MutationObserver → waits for dynamic injection of searchForm, input,
+   * or suggestion results.
+   */
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.addedNodes.length) {
         const form = document.getElementById("searchForm");
-        if (form) {
-          bindSearchForm(form);
-          const clearButton = form.querySelector(".su__input-close");
-          if (clearButton) {
-            const lang = document.documentElement.lang;
-            const labels = buttonLabels[lang] || buttonLabels.en;
-            patchClearButton(clearButton, form, labels);
-          }
-        }
+        if (form) bindSearchForm(form);
 
         const input = document.getElementById("search-box-autocomplete");
         if (input) setupInputWatcher();
+
+        patchSourceLabels();
       }
     });
   });
@@ -206,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   setupInputWatcher();
+  patchSourceLabels();
 
   // Override AngularJS form handling (if present)
   setTimeout(() => {

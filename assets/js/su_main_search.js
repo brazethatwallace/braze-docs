@@ -52,6 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
           clearButton.click();
         }
       });
+      clearButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (queryInput) {
+          queryInput.value = "";
+          queryInput.focus();
+        }
+      });
     }
 
     // Enter key
@@ -71,21 +79,31 @@ document.addEventListener("DOMContentLoaded", function () {
         fr: "Rechercher tout",
         es: "Buscar todo",
         de: "Alles durchsuchen",
-        ja: "すべて検索"
+        ja: "すべて検索",
       };
 
       const placeholderText = translations[lang] || translations.en;
       queryInput.setAttribute("placeholder", `${placeholderText}...`);
       queryInput.setAttribute("aria-label", placeholderText);
-    }
 
-    // Clear icon click
-    if (queryInput) {
-      container.addEventListener("click", function (e) {
-        if (e.target.closest(".su__input-close")) {
-          queryInput.value = "";
-          queryInput.focus();
-        }
+      // Combobox ARIA — tells assistive technology this input controls a listbox
+      queryInput.setAttribute("role", "combobox");
+      queryInput.setAttribute("aria-haspopup", "listbox");
+      queryInput.setAttribute("aria-expanded", "false");
+      queryInput.setAttribute("autocomplete", "off");
+
+      queryInput.addEventListener("focus", () =>
+        queryInput.setAttribute("aria-expanded", "true")
+      );
+      queryInput.addEventListener("blur", () => {
+        // Delay so a click on a suggestion isn't cut off before it fires
+        setTimeout(() => queryInput.setAttribute("aria-expanded", "false"), 200);
+      });
+      queryInput.addEventListener("input", () => {
+        queryInput.setAttribute(
+          "aria-expanded",
+          queryInput.value.trim() !== "" ? "true" : "false"
+        );
       });
     }
 
@@ -96,22 +114,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const query = queryInput ? queryInput.value.trim() : "";
     const lang = langSelect ? langSelect.value : "en";
 
-    const targetUrl = `/docs/${lang}/search?searchString=${encodeURIComponent(query)}`;
-    window.location.href = targetUrl;
+    if (query) {
+      const targetUrl = `/docs/${lang}/search?searchString=${encodeURIComponent(query)}`;
+      window.location.href = targetUrl;
+    } else {
+      if (queryInput) queryInput.focus();
+    }
   }
 
-  function patchClearButton(clearButton, labels) {
-    if (clearButton.dataset.accessibilityBound) return;
-    clearButton.setAttribute("aria-label", labels.clear);
-    clearButton.setAttribute("role", "button");
-    clearButton.setAttribute("tabindex", "0");
-    clearButton.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        clearButton.click();
-      }
-    });
-    clearButton.dataset.accessibilityBound = "true";
+  /**
+   * Remove source/type label badges from the tab order — they are metadata
+   * inside result rows, not independent interactive controls.
+   * @param {Element} [root] — scope the search; defaults to document
+   */
+  function patchSourceLabels(root) {
+    (root || document)
+      .querySelectorAll(".su__source-label, .su__ribbon-title")
+      .forEach((el) => {
+        if (el.getAttribute("tabindex") !== "-1") {
+          el.setAttribute("tabindex", "-1");
+        }
+      });
   }
 
   // Watch for dynamic content
@@ -123,15 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (form && input) {
         bindSearchForm(targetNode);
       }
-
-      const clearButton = targetNode.querySelector(".su__input-close");
-      if (clearButton) {
-        const lang = document.documentElement.lang;
-        const labels = buttonLabels[lang] || buttonLabels.en;
-        patchClearButton(clearButton, labels);
-      }
+      patchSourceLabels(targetNode);
     });
 
     observer.observe(targetNode, { childList: true, subtree: true });
+
+    bindSearchForm(targetNode);
   }
+
+  patchSourceLabels();
 });
