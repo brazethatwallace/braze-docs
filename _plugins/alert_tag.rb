@@ -30,7 +30,8 @@ module Jekyll
         label = (ALERT_LABELS.dig(lang, type.downcase) || type).gsub('-', ' ')
         body = converter.convert(super(context))
         base_url = site.config['baseurl'] || '/docs'
-        icon = "<img src='#{base_url}/assets/img/message-#{type}.png' alt='' class='alert-icon'>"
+        icon_file = { 'checkpoint' => 'stop', 'service-notice' => 'note' }.fetch(type, type)
+        icon = "<img src='#{base_url}/assets/img/message-#{icon_file}.png' alt='' class='alert-icon'>"
         "<div class='alert alert-#{type}' role='alert'>#{icon}<div class='alert-msg'><b>#{label}</b><br />#{body}</div></div>"
       end
 
