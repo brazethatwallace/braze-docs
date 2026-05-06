@@ -10,7 +10,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Live-Aktivit�
 
 ---
 {% api %}
-# Live-Aktivität starten
+# Live-Aktivität starten {#start-live-activity}
 {% apimethod post %}
 /messages/live_activity/start
 {% endapimethod %}
@@ -19,13 +19,13 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Live-Aktivit�
 
 Nachdem Sie eine Live-Aktivität erstellt haben, können Sie eine POST-Anfrage senden, um Ihre Aktivität für ein bestimmtes Segment aus der Ferne zu starten. Weitere Informationen über die Live-Aktivitäten von Apple finden Sie unter [Starten und Aktualisieren von Live-Aktivitäten mit Push-Benachrichtigungen von ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
-Wenn `content-available` nicht festgelegt ist, beträgt die Standardpriorität des Apple-Push-Benachrichtigungs-Dienstes (APNs) 10. Wenn `content-available` gesetzt ist, beträgt diese Priorität 5. Weitere Details finden Sie unter [Apple-Push-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object).
+Wenn `content-available` nicht festgelegt ist, beträgt die Standardpriorität des Apple-Push-Benachrichtigungs-Dienstes (APNs) 10. Wenn `content-available` gesetzt ist, beträgt diese Priorität 5. Weitere Details finden Sie unter [Apple-Push-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object/).
 
 {% alert tip %}
 Um eine Live-Aktivität zu beenden, verwenden Sie den Endpunkt [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) mit `end_activity` auf `true` gesetzt.
 {% endalert %}
 
-## Automatisches Entfernen einrichten
+## Automatisches Entfernen einrichten {#arranging-automatic-dismissal}
 
 Um das automatische Entfernen nach dem Start einer Live-Aktivität einzurichten, planen Sie eine Folgeanfrage an den Update-Endpunkt über Ihr Backend.
 
@@ -33,11 +33,11 @@ Um das automatische Entfernen nach dem Start einer Live-Aktivität einzurichten,
 2. Speichern Sie diese `activity_id` und Ihren gewünschten Endzeitpunkt in Ihrem Backend-Scheduler.
 3. Senden Sie zum gewünschten Endzeitpunkt eine `/messages/live_activity/update`-Anfrage mit `end_activity` auf `true` gesetzt.
 4. Konfigurieren Sie das Entfernungsverhalten in derselben Update-Anfrage. Weitere Details finden Sie beim Endpunkt [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/).
-5. Überprüfen Sie Sende- und Ergebnis-Ereignisse im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
+5. Überprüfen Sie Sende- und Ergebnis-Ereignisse im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 
@@ -46,11 +46,11 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Rate-Limits
+## Rate-Limits {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```json
 {
@@ -68,11 +68,11 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 }
 ```
 
-## Anfrageparameter
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |-----------|----------|----------|--------------|
-| `app_id` | Erforderlich | String | [API-Bezeichner]({{site.baseurl}}/api/identifier_types/#the-app-identifier) der App, abgerufen von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/). |
+| `app_id` | Erforderlich | String | [API-Bezeichner]({{site.baseurl}}/api/identifier_types/#the-app-identifier) der App, abgerufen von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). |
 | `activity_id` | Erforderlich | String | Definieren Sie einen angepassten String als Ihre `activity_id`. Sie verwenden diese ID, wenn Sie Update- oder End-Ereignisse an Ihre Live-Aktivität senden möchten. |
 | `activity_attributes_type` | Erforderlich | String | Der Aktivitätsattribut-Typ, den Sie unter `liveActivities.registerPushToStart` in Ihrer App definieren. |
 | `activity_attributes` | Erforderlich | Objekt | Die statischen Attributwerte für den Aktivitätstyp (z. B. die Namen der Sportteams, die sich nicht ändern). |
@@ -84,7 +84,7 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 | `custom_audience` | Optional, wenn `external_user_ids` oder `segment_id` bereitgestellt wird | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
@@ -116,11 +116,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
 Für diesen Endpunkt gibt es zwei Statuscode-Antworten: `201` und `4XX`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
 Ein Statuscode `201` wird zurückgegeben, wenn die Anfrage korrekt formatiert war und wir sie erhalten haben. Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
 
@@ -130,7 +130,7 @@ Ein Statuscode `201` wird zurückgegeben, wenn die Anfrage korrekt formatiert wa
 }
 ```
 
-### Beispiel für eine Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
 Die Statuscode-Klasse `4XX` weist auf einen Client-Fehler hin. Weitere Informationen zu möglichen Fehlern finden Sie im Artikel [API-Fehler und -Antworten]({{site.baseurl}}/api/errors/).
 

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM Loyalty Platform
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) is a customer engagement and loyalty platform that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
+> [SessionM](https://sessionm.com/) is a customer engagement and loyalty platform, part of Capillary Technologies, that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
 
 ## Prerequisites
 

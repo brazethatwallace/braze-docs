@@ -45,7 +45,9 @@ lable.lable-gpt {
     .container-fluid {
         width: 910px !important;
     }
-    .main-border {
+    /* Tablet: matches .main-border width at this breakpoint. */
+    .main-border,
+    .operator-callout {
         width: 950px !important;
     }
     .svg-hr svg {
@@ -102,11 +104,16 @@ lable.lable-gpt {
         display: none !important;
     }
 
+    /* Mobile: matches .main-border width at this breakpoint. */
+    .main-border,
+    .operator-callout {
+        width: 407px !important;
+    }
+
     .main-border {
         border-radius: 14px;
         border: 2px solid #D0D5DD;
         background: #FFF;
-        width: 407px !important;
         box-shadow: 0 4px 27px 0 rgba(0, 0, 0, 0.02);
     }
 
@@ -322,11 +329,17 @@ button.submit-btn {
     margin-bottom: 29px;
   }
 
+  /* Width matches the .main-border form container at this breakpoint.
+     Update both selectors together if the layout changes. */
+  .main-border,
+  .operator-callout {
+    width: 1314px;
+  }
+
   .main-border {
     border-radius: 14px;
     border: 2px solid #D0D5DD;
     background: #FFF;
-    width:1314px;
     box-shadow: 0 4px 27px 0 rgba(0, 0, 0, 0.02);
 }
 
@@ -1023,29 +1036,39 @@ a:hover {
           padding:12px;
       }
 
+
 </style>
 
 <div>
     <div class="container-fluid" id="main-container">
       <div class="row main-form">
           <div class="col" >
-              <h1 class="h1">Need Help? </h1>
+              <h1 class="h1">Need help?</h1>
               <div class="gradient-line"></div>
           </div>
    </div>
+        <aside class="operator-callout" aria-label="Tip: BrazeAI Operator">
+          <div class="operator-callout-content">
+            <div class="operator-callout-title">
+              <strong>Troubleshoot faster with BrazeAI Operator&#8482;</strong>
+              <span class="operator-callout-badge">New</span>
+            </div>
+            <p class="operator-callout-body">Operator can troubleshoot many issues in real time. If it can&#8217;t, it&#8217;ll help you file a ticket. <a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Get help with Operator<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (opens in new tab)</span></a></p>
+          </div>
+        </aside>
         <div class="main-border">
         <div class="steps">
-            <div class="step active">Basic Details</div>
+            <div class="step active">Basic details</div>
             <svg xmlns="http://www.w3.org/2000/svg" width="282" height="2" viewBox="0 0 282 2" fill="none">
   <path d="M0 1L282 1.00002" stroke="#5711E5" stroke-dasharray="3 3"/>
 </svg>
-            <div class="step">Suggested Content</div>
+            <div class="step">Suggested content</div>
             <div class="svg-dot">
             <svg xmlns="http://www.w3.org/2000/svg" width="282" height="2" viewBox="0 0 282 2" >
   <path d="M0 1L282 1.00002"  stroke-dasharray="3 3"/>
 </svg>
 </div>
-            <div class="step">Submit the Case</div>
+            <div class="step">Submit the case</div>
         </div>
 
         <div class='svg-hr'>
@@ -1068,7 +1091,7 @@ a:hover {
                     <textarea id="description" name="description" required></textarea>
                 </div>
 
-                <button type="button" class="submit-btn" id="toStep2" >Continue to Suggested Content</button>
+                <button type="button" class="submit-btn" id="toStep2" >Continue to suggested content</button>
             </div>
 
             <!-- Step 2 -->
@@ -2669,6 +2692,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2684,7 +2715,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,

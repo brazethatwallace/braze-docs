@@ -1,14 +1,14 @@
-## 세분화된 권한 마이그레이션
+## 세분화된 권한 마이그레이션 {#granular-permissions-migration}
 
 {% alert important %}
 세분화된 권한은 얼리 액세스 중입니다. 귀사의 마이그레이션이 계획되면, Braze 관리자에게 [세분화된 권한 마이그레이션]({{site.baseurl}}/granular_permissions_migration/)을 알리는 이메일과 대시보드 내 배너가 전송됩니다.
 {% endalert %}
 
-기존 SCIM 통합 및 [레거시 SCIM API 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api)는 4월 말 세분화된 권한 마이그레이션 후에도 계속 작동합니다. 
+기존 SCIM 통합 및 [레거시 SCIM API 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api)는 4월 말 세분화된 권한 마이그레이션 후에도 계속 작동합니다.
 
 즉각적인 조치를 취할 필요는 없습니다. 그러나 세분화될 권한에 대해 통합을 검토하는 것을 권장합니다. 예를 들어, 현재 API에서 `basic_access`를 전송하고 있다면, 세분화 후 특정 권한(예: `"appGroupPermissions":["view_campaigns","edit_campaigns"]`)을 포함하도록 통합을 업데이트하는 것을 권장합니다. Braze는 세분화된 권한 마이그레이션 후에도 기존 통합이 중단되지 않도록 `basic_access`와 같은 레거시 문자열을 계속 수용합니다.
 
-## 권한 오브젝트
+## 권한 오브젝트 {#permissions-object}
 
 권한 오브젝트는 SCIM ID 권한을 통해 사용자 리소스와 상호 작용할 때 일부 요청 및 응답에서 사용되는 필드입니다.
 
@@ -34,13 +34,13 @@
 | `appGroup` | 필수 | 배열 | [워크스페이스 권한 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object)의 배열입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### 워크스페이스 권한 오브젝트
+### 워크스페이스 권한 오브젝트 {#workspace-permissions-object}
 
 유효한 앱 그룹 권한 오브젝트는 다음 키-값 페어를 가진 JSON 오브젝트입니다:
 
 | 키 | 필수 | 데이터 유형 | 설명 |
 | --- | --- | --- | --- |
-| `appGroupName`| 선택 사항 | 문자열 | 워크스페이스의 이름입니다. 이 오브젝트에 포함된 권한이 적용될 워크스페이스를 지정하는 데 사용됩니다. | 
+| `appGroupName`| 선택 사항 | 문자열 | 워크스페이스의 이름입니다. 이 오브젝트에 포함된 권한이 적용될 워크스페이스를 지정하는 데 사용됩니다. |
 | `appGroupId` | `appGroupName`이 없으면 필수 | 문자열 | 워크스페이스의 ID로, 워크스페이스를 지정하는 대체 방법입니다. |
 | `appGroupPermissionSets` | 선택 사항 | 배열 | 단일 [워크스페이스 권한 세트 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)를 포함하는 배열입니다. |
 | `appGroupPermissions` | 필수 | 배열 | [워크스페이스 권한 문자열]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) 테이블의 워크스페이스 수준 권한 문자열 배열로, 문자열이 존재하면 사용자가 지정된 워크스페이스에 대한 해당 권한을 가지고 있음을 나타냅니다. |
@@ -57,7 +57,7 @@
 | `appGroupPermissionSetID` | `appGroupPermissionSetName`이 없으면 필수 | 문자열 | 워크스페이스의 ID로, 이 워크스페이스에 대해 사용자에게 할당된 워크스페이스 권한 세트를 지정하는 대체 방법입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Teams 권한 오브젝트
+### Teams 권한 오브젝트 {#team-permissions-object}
 
 유효한 Teams 권한 오브젝트는 다음 키-값 페어를 가진 JSON 오브젝트입니다:
 
@@ -68,7 +68,7 @@
 | `teamPermissions` | 필수 | 배열 | [Teams 권한 문자열]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team) 테이블의 팀 수준 권한 문자열 배열로, 문자열이 존재하면 사용자가 지정된 팀에 대한 해당 권한을 가지고 있음을 나타냅니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## 역할 오브젝트
+## 역할 오브젝트 {#role-object}
 
 유효한 역할 오브젝트는 다음 키-값 페어를 가진 JSON 오브젝트입니다:
 
@@ -78,7 +78,7 @@
 | `roleId` | `roleName`이 없으면 필수 | 문자열 | 역할의 ID로, 역할을 지정하는 대체 방법입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## 부록
+## 부록 {#appendix}
 
 ### 회사 권한 문자열 {#company}
 
@@ -86,32 +86,32 @@
 | --- | --- |
 | 관리자 | `admin` |
 | 회사 설정 관리 | `manage_company_settings` |
-| 워크스페이스 생성 및 삭제| `add_remove_app_groups` |
+| 워크스페이스 생성 및 삭제 | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### 워크스페이스 권한 문자열 {#workspace-strings}
 
 | 권한 이름 | SCIM API 문자열 |
 | --- | --- |
-| 캠페인 보기 | `view_campaigns` |
-| 캠페인 편집 | `edit_campaigns` |
-| 캠페인 아카이브 | `archive_campaigns` |
-| 캔버스 보기 | `view_canvases` |
-| 캔버스 편집 | `edit_canvases` |
-| 캔버스 아카이브 | `archive_canvases` |
+| Campaigns 보기 | `view_campaigns` |
+| Campaigns 편집 | `edit_campaigns` |
+| Campaigns 아카이브 | `archive_campaigns` |
+| Canvases 보기 | `view_canvases` |
+| Canvases 편집 | `edit_canvases` |
+| Canvases 아카이브 | `archive_canvases` |
 | 최대 게재빈도 설정 규칙 보기 | `view_frequency_caps` |
 | 최대 게재빈도 설정 규칙 편집 | `edit_frequency_caps` |
 | 메시지 우선순위 보기 | `view_message_prioritization` |
 | 메시지 우선순위 편집 | `edit_message_prioritization` |
-| 콘텐츠 블록 보기 | `view_content_blocks` |
-| 콘텐츠 블록 편집 | `edit_content_blocks` |
-| 콘텐츠 블록 아카이브 | `archive_content_blocks` |
+| Content Blocks 보기 | `view_content_blocks` |
+| Content Blocks 편집 | `edit_content_blocks` |
+| Content Blocks 아카이브 | `archive_content_blocks` |
 | 기능 플래그 보기 | `view_feature_flags` |
 | 기능 플래그 편집 | `edit_feature_flags` |
 | 기능 플래그 아카이브 | `archive_feature_flags` |
-| 세그먼트 보기 | `view_segments` |
-| 세그먼트 편집 | `edit_segments` |
-| 세그먼트 아카이브 | `archive_segments` |
+| Segments 보기 | `view_segments` |
+| Segments 편집 | `edit_segments` |
+| Segments 아카이브 | `archive_segments` |
 | 글로벌 컨트롤 그룹 보기 | `view_global_control_group` |
 | 글로벌 컨트롤 그룹 편집 | `edit_global_control_group` |
 | IAM 템플릿 보기 | `view_iam_templates` |
@@ -140,13 +140,13 @@
 | 배치 아카이브 | `archive_placements` |
 | 배너 템플릿 보기 | `view_banner_templates` |
 | 다국어 설정 보기 | `view_multi_language_settings` |
-| Operator 사용 | `use_operator` |
+| BrazeAI Operator<sup>TM</sup> 사용 | `use_operator` |
 | Decisioning Studio 에이전트 보기 | `view_decisioning_studio_agents` |
-| Decisioning Studio 오디언스 보기 |`view_decisioning_studio_audience` |
+| Decisioning Studio 오디언스 보기 | `view_decisioning_studio_audience` |
 | Decisioning Studio 전환 이벤트 보기 | `view_decisioning_studio_conversion_event` |
 | Decisioning Studio 가드레일 보기 | `view_decisioning_studio_guardrails` |
-| 캠페인 시작 | `launch_campaigns` |
-| 캔버스 시작 | `launch_canvases` |
+| Campaigns 시작 | `launch_campaigns` |
+| Canvases 시작 | `launch_canvases` |
 | 대시보드 사용자 편집 | `edit_dashboard_users` |
 | 미디어 라이브러리 자산 편집 | `edit_media_library_assets` |
 | 미디어 라이브러리 자산 삭제 | `delete_media_library_assets` |
@@ -169,7 +169,7 @@
 | API 사용 알림 편집 | `edit_api_usage_alerts` |
 | SDK 디버거 보기 | `view_sdk_debugger` |
 | SDK 디버거 편집 | `edit_sdk_debugger` |
-| 콘텐츠 블록 실행 | `launch_content_blocks` |
+| Content Blocks 실행 | `launch_content_blocks` |
 | 클라우드 데이터 수집 편집 | `edit_cloud_data_ingestion` |
 | 앱 설정 보기 | `view_app_settings` |
 | 앱 설정 편집 | `edit_app_settings` |
@@ -210,22 +210,22 @@
 
 | 권한 이름 | SCIM API 문자열 |
 | --- | --- |
-| 캠페인 보기 | `view_campaigns` |
-| 캠페인 편집 | `edit_campaigns` |
-| 캠페인 아카이브 | `archive_campaigns` |
-| 캔버스 보기 | `view_canvases` |
-| 캔버스 편집 | `edit_canvases` |
-| 캔버스 아카이브 | `archive_canvases` |
+| Campaigns 보기 | `view_campaigns` |
+| Campaigns 편집 | `edit_campaigns` |
+| Campaigns 아카이브 | `archive_campaigns` |
+| Canvases 보기 | `view_canvases` |
+| Canvases 편집 | `edit_canvases` |
+| Canvases 아카이브 | `archive_canvases` |
 | 최대 게재빈도 설정 규칙 보기 | `view_frequency_caps` |
 | 최대 게재빈도 설정 규칙 편집 | `edit_frequency_caps` |
 | 메시지 우선순위 보기 | `view_message_prioritization` |
 | 메시지 우선순위 편집 | `edit_message_prioritization` |
-| 콘텐츠 블록 보기 | `view_content_blocks` |
+| Content Blocks 보기 | `view_content_blocks` |
 | 기능 플래그 보기 | `view_feature_flags` |
 | 기능 플래그 편집 | `edit_feature_flags` |
 | 기능 플래그 아카이브 | `archive_feature_flags` |
-| 세그먼트 보기 | `view_segments` |
-| 세그먼트 편집 | `edit_segments` |
+| Segments 보기 | `view_segments` |
+| Segments 편집 | `edit_segments` |
 | 글로벌 컨트롤 그룹 편집 | `edit_global_control_group` |
 | IAM 템플릿 보기 | `view_iam_templates` |
 | IAM 템플릿 편집 | `edit_iam_templates` |
@@ -252,15 +252,14 @@
 | 보고서 편집 | `edit_reports` |
 | 배너 템플릿 보기 | `view_banner_templates` |
 | 다국어 설정 보기 | `view_multi_language_settings` |
-| Operator 사용 | `use_operator` |
+| BrazeAI Operator<sup>TM</sup> 사용 | `use_operator` |
 | Decisioning Studio 에이전트 보기 | `view_decisioning_studio_agents` |
-| Decisioning Studio 전환 이벤트 보기 | `view_decisioning_studio_conversion_event` |
-| 캠페인 시작 | `launch_campaigns` |
-| 캔버스 시작 | `launch_canvases` |
+| Campaigns 시작 | `launch_campaigns` |
+| Canvases 시작 | `launch_canvases` |
 | 대시보드 사용자 편집 | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### 부서 문자열
+### 부서 문자열 {#department-strings}
 
 | UI 표시 이름 | SCIM API 문자열 |
 | --- | --- |

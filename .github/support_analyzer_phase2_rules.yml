@@ -1,0 +1,108 @@
+# Support analyzer Phase 2 — rule-driven doc proposals from Support Cases CSV.
+# Edit this file to add themes: match support text with regexes, then insert
+# anchored snippets into _docs. Each firing rule opens one draft PR (all edits
+# in the rule share one PR). If every target file already contains the rule
+# fingerprint, no PR is opened. If an open PR already exists whose head branch
+# starts with support-analyzer/phase2-<rule_id>-, that rule is skipped (avoids
+# duplicate weekly drafts until merged or closed).
+#
+# CI runs `support_analyzer_phase2.py --strict-anchors`: if a rule matches cases
+# but an anchor is missing (and the fingerprint is not already in the file), the
+# workflow fails so anchors can be fixed. Optional `pr.verification_note` adds a
+# short, path-free note to the draft PR body for reviewers.
+#
+# Optional `verification` (per rule): run `rg` under a path such as `platform/`
+# when that directory exists (for example a local sibling clone). CI does not
+# clone product repos; checks are skipped there unless you run Phase 2 in an
+# environment with a checkout. Set `required: true` only when that environment
+# is guaranteed. Patterns use ripgrep regex.
+#
+# CSV columns (Looker export): see .cursor/rules/support-analyzer.mdc
+version: 1
+
+rules:
+  - id: data_series_currents
+    enabled: true
+    min_matching_cases: 1
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        # API export time series
+        - "(?i)(/campaigns/data_series|/canvas/data_series|data_series|data series)"
+        # Reconciliation / comparison context
+        - "(?i)(currents|dashboard|engagement report|engagement analytics)"
+    pr:
+      title: "[SA] Clarify data_series vs dashboard/Currents (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to REST data_series series vs dashboard/Currents aggregation differences.
+        Reviewers should confirm wording against Braze product source before merge.
+    verification:
+      required: false
+      checks:
+        - type: rg
+          root: platform
+          glob: "**/*.{scala,java,kt}"
+          pattern: "(?i)data_series|DataSeries"
+          min_hits: 1
+    edits:
+      - file: _docs/_api/endpoints/export/campaigns/get_campaign_analytics.md
+        fingerprint: support-analyzer-phase2:data_series_currents_campaign
+        anchor_substring: Data returned includes how many messages were sent, opened, clicked, or converted by messaging channel.
+        insert: |+
+
+          <!-- support-analyzer-phase2:data_series_currents_campaign -->
+          {% alert note %}
+          Counts from this endpoint won't always match dashboard Engagement analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
+          {% endalert %}
+
+      - file: _docs/_api/endpoints/export/canvas/get_canvas_analytics.md
+        fingerprint: support-analyzer-phase2:data_series_currents_canvas
+        anchor_substring: "> Use this endpoint to export time series data for a Canvas."
+        insert: |+
+
+          <!-- support-analyzer-phase2:data_series_currents_canvas -->
+          {% alert note %}
+          Counts from this endpoint won't always match dashboard Canvas analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
+          {% endalert %}
+
+  # Disabled: Liquid FAQ already documents triple-brace mistakes on develop; re-enable
+  # only if that section is removed or the rule is retargeted (e.g. append to existing heading).
+  - id: liquid_api_trigger_extra_braces
+    enabled: false
+    min_matching_cases: 1
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(api\\s*trigger|api_trigger_properties|trigger_properties)"
+        - "(?i)(\\{\\{\\{|triple\\s*brace|extra\\s*brace|curly\\s*brace|liquid)"
+    pr:
+      title: "[SA] Liquid FAQ — extra braces in API-triggered properties (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to invalid `{{{...}}}` style personalization around API-triggered properties.
+        Reviewers should confirm against Braze Liquid handling before merge.
+    edits:
+      - file: _docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md
+        fingerprint: "### Why doesn't my API-triggered Liquid look correct but still fail in Braze?"
+        anchor_substring: "### What is abort logic, and how can I use it?"
+        position: before
+        insert: |+
+
+          ### Why doesn't my API-triggered Liquid look correct but still fail in Braze?
+
+          {% raw %}
+          An extra pair of curly braces is a common cause. For example, `{{{api_trigger_properties.${my_key}}}}` is not valid Braze personalization syntax—use exactly two opening braces and two closing braces: `{{api_trigger_properties.${my_key}}}`. The same rule applies to other personalization tags unless your use case explicitly requires different Liquid delimiters.
+          {% endraw %}
+
+          <!-- support-analyzer-phase2:liquid_api_trigger_extra_braces -->

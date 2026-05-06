@@ -1,0 +1,108 @@
+---
+nav_title: URL 커스터마이즈
+article_title: URL 커스터마이즈
+description: "도메인을 Braze 워크스페이스에 연결하여 랜딩 페이지 URL을 회사 브랜드에 맞게 커스터마이즈하는 방법을 알아보세요."
+page_order: 1
+---
+
+# 랜딩 페이지 URL 커스터마이즈 {#customize-landing-page-urls}
+
+> 도메인을 Braze 워크스페이스에 연결하여 랜딩 페이지 URL을 회사 브랜드에 맞게 커스터마이즈하는 방법을 알아보세요.
+
+## 작동 방식 {#how-it-works}
+
+[도메인을 Braze에 연결](#connect-your-domain-to-braze)하면 해당 도메인이 모든 랜딩 페이지의 기본 도메인으로 사용됩니다. 예를 들어, 하위 도메인 `forms.example.com`을 연결하면 랜딩 페이지 URL이 `forms.example.com/holiday-sale`이 됩니다.
+
+Braze 계정에 연결할 수 있는 커스텀 도메인 수는 [플랜 등급]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers)에 따라 다릅니다. 한도를 늘리려면 Braze 계정 매니저에게 문의하세요.
+
+## 도메인을 Braze에 연결하기 {#connect-your-domain-to-braze}
+
+도메인을 Braze 계정에 연결하려면 관리자가 아래 단계를 따르세요.
+
+1. **Settings** > **Landing Page Settings**으로 이동합니다.
+2. 연결하려는 도메인을 입력하고 **Submit**을 선택합니다. 예: `forms.example.com`.
+3. **TXT** 및 **CNAME** 레코드를 복사하여 도메인 공급자의 DNS 설정에 붙여넣습니다.
+4. Braze 대시보드로 돌아가 연결을 확인합니다.
+
+![이름과 값이 각각 표시된 하나의 TXT 레코드와 두 개의 CNAME 레코드가 나열된 랜딩 페이지 설정 페이지.]({% image_buster /assets/img/landing_pages/connect_subdomain.png %})
+
+{% alert note %}
+도메인 공급자에 따라 연결에 최대 48시간이 소요될 수 있습니다. 프로세스가 완료되면 Braze 대시보드에서 랜딩 페이지에 커스텀 도메인을 사용하기 시작합니다.
+{% endalert %}
+
+### SSL 인증서 설정 {#ssl-certificate-setup}
+
+Braze는 Cloudflare를 사용하여 [ACME DNS-01 챌린지](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)를 통해 커스텀 도메인에 대한 SSL 인증서를 자동으로 프로비저닝합니다. 이 지속적인 검증 방법은 설정 중에 제공한 CNAME 레코드 중 하나에 의해 활성화되며, 인증 기관(LetsEncrypt)이 Braze가 도메인을 소유하지 않고도 DNS 레코드를 통해 도메인 소유권을 확인할 수 있도록 합니다.
+
+## 도메인 제거하기 {#remove-your-domain}
+
+Braze 관리자인 경우 다음 단계를 완료하여 이전에 구성한 도메인을 제거할 수 있습니다.
+
+1. **Settings** > **Landing Page Settings**으로 이동합니다.
+2. **Remove Custom Domain**을 선택합니다.
+3. 도메인 제거를 확인합니다.
+4. 도메인 설정에서 나열된 DNS 레코드를 제거합니다.
+
+{% alert important %}
+커스텀 도메인을 제거하면 해당 URL은 더 이상 유효하지 않습니다. 이 도메인을 사용하던 모든 랜딩 페이지는 Braze에서 설정한 기본 도메인으로 자동 복원됩니다.
+{% endalert %}
+
+## 도메인 마이그레이션 {#migrate-your-domain}
+
+커스텀 도메인을 다른 워크스페이스로 마이그레이션하려면:
+
+1. 커스텀 도메인을 제거합니다.
+2. 원하는 워크스페이스에서 새 커스텀 도메인을 생성합니다.
+3. 새 DNS 레코드로 커스텀 도메인을 재구성합니다. 이 과정에서 하위 도메인을 사용할 수 없게 됩니다.
+
+## DNS 리소스 {#dns-resources}
+
+{% multi_lang_include dns_records.md %}
+
+## 문제 해결 {#troubleshooting}
+
+### 도메인 연결에 실패했습니다 {#my-domain-connection-failed}
+
+도메인이 올바르게 입력되었는지, 그리고 도메인 공급자 계정에서 Braze에 제출한 내용과 일치하는지 확인하세요. 올바르고 일치하는 경우, Braze에서 제공한 TXT 및 CNAME 레코드를 확인하세요. 도메인 공급자 계정에 입력한 레코드와 일치해야 합니다.
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 커스텀 도메인에 중첩된 하위 도메인을 사용할 수 있나요? {#can-i-use-nested-subdomains-for-my-custom-domain}
+
+네, 랜딩 페이지에 중첩된 하위 도메인을 사용할 수 있습니다. 예를 들어, `forms.braze.com`, `pages.forms.braze.com` 또는 더 깊은 수준 모두 지원됩니다. 유일한 요구 사항은 Braze가 연결에 CNAME 레코드를 사용하기 때문에 apex 도메인(예: `braze.com`)은 사용할 수 없다는 것입니다.
+
+### 워크스페이스에 여러 하위 도메인을 연결하거나, 하나의 하위 도메인을 여러 워크스페이스에 연결할 수 있나요? {#can-i-connect-multiple-subdomains-to-my-workspace-or-connect-one-subdomain-to-multiple-workspaces}
+
+아니요, 현재 하나의 하위 도메인만 워크스페이스에 연결할 수 있습니다.
+
+### 현재 메인 웹사이트나 발송 도메인에 사용 중인 하위 도메인을 사용할 수 있나요? {#can-i-use-the-same-subdomain-that-i-currently-use-for-my-main-website-or-my-sending-domain}
+
+아니요, 이미 사용 중인 하위 도메인은 사용할 수 없습니다. 이러한 하위 도메인은 유효하지만, 이미 다른 용도에 할당되어 있거나 필수 CNAME 레코드와 충돌하는 DNS 레코드가 있는 경우 랜딩 페이지에 사용할 수 없습니다.
+
+### 유효한 DNS 레코드가 있는데도 커스텀 도메인이 "연결 중" 상태에 멈춰 있는 이유는 무엇인가요? {#why-is-my-custom-domain-stuck-on-connecting-despite-valid-dns-records}
+
+커스텀 도메인의 모든 DNS 레코드가 "연결됨"으로 표시되지만 도메인 상태가 4시간 이상 "연결 중"으로 유지되는 경우, 조직에서 Braze가 페이지를 보호하는 것을 방지하는 CAA(인증 기관 승인) 레코드 또는 Cloudflare 존 홀드를 사용하고 있을 수 있습니다.
+
+#### CAA 레코드 {#caa-records}
+
+CAA 레코드는 도메인에 대해 SSL 인증서를 발급할 수 있는 인증 기관을 제한합니다. CAA 레코드에 LetsEncrypt가 포함되어 있지 않으면 Braze(Cloudflare를 통해)가 필수 SSL 인증서를 발급할 수 없습니다.
+
+이를 해결하려면 IT 팀에 다음 값으로 하위 도메인에 CAA 레코드를 추가하도록 요청하세요.
+- **레코드 유형:** CAA
+- **값:** `0 issue "letsencrypt.org"`
+
+자세한 내용은 [LetsEncrypt의 CAA 문서](https://letsencrypt.org/docs/caa/)를 참조하세요.
+
+#### Cloudflare 존 홀드 {#cloudflare-zone-holds}
+
+조직에서 Cloudflare를 사용하는 경우, 존 홀드 보안 기능이 Braze가 커스텀 도메인을 생성하는 것을 방지할 수 있습니다.
+
+이를 해결하려면 IT 팀에 존 홀드를 일시적으로 해제하도록 요청하세요. 자세한 내용은 [Cloudflare의 존 홀드 문서](https://developers.cloudflare.com/fundamentals/account/account-security/zone-holds/#release-zone-holds)를 참조하세요.
+
+#### 검증 프로세스 재시작 {#restarting-the-validation-process}
+
+두 문제 중 하나를 해결한 후, Braze 대시보드에서 커스텀 도메인을 삭제하고 다시 생성하여 검증 프로세스를 재시작하세요.
+
+### 리버스 프록시를 사용하여 메인 도메인이나 하위 디렉토리에서 랜딩 페이지를 제공할 수 있나요? {#can-i-use-a-reverse-proxy-to-serve-landing-pages-under-my-main-domain-or-a-subdirectory}
+
+아니요, 랜딩 페이지 URL Liquid 태그는 리버스 프록시에서 올바르게 작동하지 않습니다.

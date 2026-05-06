@@ -17,7 +17,7 @@ description: "This article outlines details about the synchronous Track user Bra
 > Use this endpoint to record custom events and purchases and update user profile attributes synchronously. This endpoint functions similarly to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), which updates user profiles asynchronously.
 
 {% alert important %}
-This endpoint is currently in **limited beta** . Although we're not adding new customers to the beta right now, let your Braze account manager know if you think this feature could be useful for your Braze integration.
+This endpoint is currently in **limited beta**. Although we're not adding new customers to the beta right now, let your Braze account manager know if you think this feature could be useful for your Braze integration.
 {% endalert %}
 
 ## Synchronous and asynchronous API calls
@@ -37,6 +37,8 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) wi
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 
 ## Rate limit
+
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
 
 We apply a base speed limit of 500 requests per minute to this endpoint for all customers. Each `/users/track/sync` request can contain up to one event object, one attribute object, or one purchase object. Each object (event, attribute, and purchase arrays) can update one user each.
 

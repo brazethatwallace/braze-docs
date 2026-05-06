@@ -1,0 +1,3 @@
+## Appels de Contenu connecté avec logique d'abandon et de nouvelle tentative {#connected-content-calls-with-abort-and-retry-logic}
+
+Si un appel de Contenu connecté utilise une logique d'abandon pour la même condition que la logique de nouvelle tentative, la logique d'abandon est prioritaire. Cela empêche toute nouvelle tentative d'être effectuée. La logique de nouvelle tentative renvoie déjà l'appel avant de l'abandonner si le code de statut indique un échec. Étant donné que les deux ciblent le même comportement de code de statut, vous pouvez supprimer la logique d'abandon : l'appel sera tout de même abandonné si toutes les nouvelles tentatives échouent.

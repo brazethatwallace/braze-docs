@@ -1,24 +1,33 @@
 #!/bin/bash
 #
 # Creates the body text for deployment PRs in the Braze Docs repository.
-# 
+#
 # Usage: ./bdocs deploy
+#
+# Optional env (CI nightly deploy):
+#   DEPLOY_SOURCE_BRANCH — branch name only (no origin/ prefix). When set, commit
+#   logs use origin/$PRIMARY_BRANCH..origin/$DEPLOY_SOURCE_BRANCH (snapshot deploy).
+#   When unset, defaults to develop for ./bdocs deploy and local use (including the
+#   optional date-bounded log when start/end dates are passed).
 
 main() {
     TEMP_FILE="$PROJECT_ROOT/scripts/temp/deploy_output"
     rm -f "$TEMP_FILE" # Clear contents from any previous runs
 
-    # Commits to deploy: on develop but not yet on main.
+    SOURCE_BRANCH="${DEPLOY_SOURCE_BRANCH:-develop}"
+
+    # Commits to deploy: on SOURCE_BRANCH but not yet on main.
     # Use origin/$PRIMARY_BRANCH explicitly (not LATEST_COMMIT_HASH) so this works when
-    # the workflow checks out develop—otherwise "..origin/develop" would compare to HEAD.
+    # the workflow checks out the snapshot branch—otherwise "..origin/$SOURCE_BRANCH"
+    # would compare to HEAD incorrectly if we used a single ref wrong.
     if [ -z "$1" ] || [ -z "$2" ]; then
-        COMMIT_LOGS=$(git log --first-parent origin/$PRIMARY_BRANCH..origin/develop --pretty=%s»¦«%b)
+        COMMIT_LOGS=$(git log --first-parent "origin/$PRIMARY_BRANCH..origin/$SOURCE_BRANCH" --pretty=%s»¦«%b)
     else
         # Use the provided start and end dates to get the commit logs
         # Optional date-bounded log (e.g. explicit ./bdocs release start/end).
         START_DATE="$1"
         END_DATE="$2"
-        COMMIT_LOGS=$(git log --first-parent --since="$START_DATE" --until="$END_DATE" origin/develop --pretty=%s»¦«%b)
+        COMMIT_LOGS=$(git log --first-parent --since="$START_DATE" --until="$END_DATE" "origin/$SOURCE_BRANCH" --pretty=%s»¦«%b)
     fi
 
     # Parses the commit logs, formats them, then writes them to the temp file.

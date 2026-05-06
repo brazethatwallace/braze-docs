@@ -8,6 +8,8 @@ jobs:
   add-reviewers:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
+      issues: write
       pull-requests: write
     steps:
       - name: Check assignees and PR diff
@@ -138,7 +140,14 @@ jobs:
               reviewersToAdd.push(legalTeam);
             }
             }
-            
+
+            // Auto-translation PRs: request Copilot code review (same login as auto-translate.yml).
+            // Skip when `deploy` is present so Rule 1 stays docs-team only.
+            if (labels.includes('auto-translation') && !labels.includes('deploy')) {
+              console.log('Auto-translation PR - requesting Copilot review');
+              reviewersToAdd.push('copilot-pull-request-reviewer[bot]');
+            }
+
             // Get current reviewers to avoid duplicates
             const { data: currentReviewers } = await github.rest.pulls.listRequestedReviewers({
               owner: context.repo.owner,
@@ -185,6 +194,10 @@ jobs:
                     ? 'PR is large; legal scan may be incomplete (binary/truncated content not scanned)'
                     : 'PR diff contains privacy/legal/GDPR-related content';
                   commentBody += `- ⚖️ **@${legalTeam}** - ${legalReason}\n`;
+                }
+
+                if (labels.includes('auto-translation') && !labels.includes('deploy') && reviewersToAdd.includes('copilot-pull-request-reviewer[bot]')) {
+                  commentBody += '- 🤖 **Copilot** - Auto-translation pull request\n';
                 }
                 
                 await github.rest.issues.createComment({

@@ -70,24 +70,9 @@ For more information on the data tracked through the integration, refer to [Shop
 
 ### Historical backfill setup
 
-Through the standard setup, you have the option to perform an initial load of your Shopify customers and orders from the last 90 days prior to your Shopify integration connection. To do so, select the checkbox to include the initial data load as part of your integration. 
+In the **Track Shopify data** step, select the checkbox to include the initial historical data load as part of your integration.
 
-{% alert note %}
-Historical backfilled data is not included in revenue reporting. Backfilled order placed events are available only for segmentation.
-{% endalert %}
-
-![Historical data backfill toggle.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-This table contains the data that will be initially loaded through the backfill.
-
-| Braze recommended events | Shopify custom events | Braze standard attributes | Braze subscription statuses |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Email marketing subscriptions associated with this Shopify store</li><li>SMS marketing subscriptions associated with this Shopify store</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-If you’re an existing Braze customer with active campaigns or Canvases, review [Shopify data features]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) for more details. 
-{% endalert %}
+For what is imported, revenue reporting behavior, setup screenshots, and guidance if you already use Braze with active campaigns or Canvases, see [Historical backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### (Advanced) Custom data tracking setup
 

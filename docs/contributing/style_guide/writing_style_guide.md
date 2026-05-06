@@ -3,6 +3,10 @@
 
 ## Writing style guide
 
+{% alert note %}
+This file is the canonical source of truth for Braze Docs writing standards. A condensed version is maintained for the AI writing skill at `.github/skills/braze-docs/references/writing-style.md`. If you make changes here that affect UI interaction verbs, placeholder conventions, code sample rules, or voice and tone, update the skill reference to match.
+{% endalert %}
+
 ### General guidelines
 
 #### Voice and tone
@@ -1141,6 +1145,22 @@ At the same time, support the intentionality of the product's development by fra
 * Do not describe [planned functionality or future features](#future-features) as a way to explain current limitations.  
 * When referring to limits around custom data, use the term "capacity" instead of limits.   
  * For example: By default, you can have 20 segmentable event properties per workspace. Contact your Braze account manager to increase your capacity. 
+
+#### Data sizes
+
+Before documenting a size limit, verify the exact byte value using [`reference-repos.mdc`](.cursor/rules/reference-repos.mdc) (or confirm with engineering). Do not infer the byte count from an abbreviated unit alone. For example, "KB" has been used in Braze code to mean both 1,000 bytes and 1,024 bytes depending on the implementation.
+
+When expressing a data size limit, lead with the exact byte count. Follow it with the abbreviated unit in parentheses:
+
+- Use KB for limits based on 1,000 bytes.
+- Use KiB for limits based on 1,024 bytes.
+
+**Examples:**
+
+- "Each key-value pair must not exceed 1,000 bytes (1 KB)."
+- "Event property objects can be up to 102,400 bytes (100 KiB)."
+
+Do not use mixed units within a single table or list. Convert all values to the same unit for easy comparison.
 
 #### Future features
 

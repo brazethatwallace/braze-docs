@@ -1,8 +1,8 @@
 ---
 nav_title: Stil
-article_title: Passen Sie den Stil der Content-Cards an
+article_title: Passen Sie den Stil der Content Cards an
 page_order: 1
-description: "Dieser Artikel behandelt die Gestaltungsmöglichkeiten für Ihre Content-Cards."
+description: "Dieser Artikel behandelt die Gestaltungsmöglichkeiten für Ihre Content Cards."
 channel:
   - content cards
 platform:
@@ -12,25 +12,25 @@ platform:
   - Web
 ---
 
-# Passen Sie den Stil der Content-Cards an
+# Passen Sie den Stil der Content Cards an {#customize-the-style-of-content-cards}
 
-> Braze Content-Cards werden mit einem Standard-Look-and-Feel geliefert. Dieser Artikel befasst sich mit den Styling-Optionen für Ihre Content-Cards, damit Sie sie an Ihre Markenidentität anpassen können. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content-Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Braze Content Cards werden mit einem Standard-Look-and-Feel geliefert. Dieser Artikel befasst sich mit den Styling-Optionen für Ihre Content Cards, damit Sie sie an Ihre Markenidentität anpassen können. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
 
-## Einen angepassten Stil erstellen
+## Einen angepassten Stil erstellen {#creating-a-custom-style}
 
-Die Standard-UI für Content-Cards wird aus der UI-Schicht des Braze SDK importiert. Von dort aus können Sie bestimmte Teile des Kartendesigns, die Reihenfolge der Karten und die Art und Weise, wie der Feed Ihren Nutzer:innen angezeigt wird, anpassen.
+Die Standard-UI für Content Cards wird aus der UI-Schicht des Braze SDK importiert. Von dort aus können Sie bestimmte Teile des Kartendesigns, die Reihenfolge der Karten und die Art und Weise, wie der Feed Ihren Nutzer:innen angezeigt wird, anpassen.
 
-![Zwei Content-Cards, eine mit der Standard-Schriftart und eckigen Ecken und eine mit abgerundeten Ecken und einer geschwungenen Schriftart]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
+![Zwei Content Cards, eine mit der Standard-Schriftart und eckigen Ecken und eine mit abgerundeten Ecken und einer geschwungenen Schriftart]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Eigenschaften von Content-Cards wie `title`, `cardDescription`, `imageUrl` usw. können direkt über das [Dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details) bearbeitet werden – das ist die bevorzugte Methode, um diese Details zu ändern.
+Eigenschaften von Content Cards wie `title`, `cardDescription`, `imageUrl` usw. können direkt über das [Dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/) bearbeitet werden – das ist die bevorzugte Methode, um diese Details zu ändern.
 {% endalert %}
 
 
 {% tabs %}
 {% tab web %}
 
-Die Standardstile von Braze sind in CSS innerhalb des Braze SDK definiert. Durch das Überschreiben ausgewählter Stile in Ihrer Anwendung können Sie unseren Standard-Feed mit Ihren eigenen Hintergrundbildern, Schriftarten, Stilen, Größen, Animationen und vielem mehr anpassen. Das folgende Beispiel zeigt eine Überschreibung, die bewirkt, dass Content-Cards mit einer Breite von 800 px angezeigt werden:
+Die Standardstile von Braze sind in CSS innerhalb des Braze SDK definiert. Durch das Überschreiben ausgewählter Stile in Ihrer Anwendung können Sie unseren Standard-Feed mit Ihren eigenen Hintergrundbildern, Schriftarten, Stilen, Größen, Animationen und vielem mehr anpassen. Das folgende Beispiel zeigt eine Überschreibung, die bewirkt, dass Content Cards mit einer Breite von 800 px angezeigt werden:
 
 ``` css
 body .ab-feed {
@@ -43,7 +43,7 @@ Eine vollständige Liste der Eigenschaften, die Sie ändern können, finden Sie 
 {% endtab %}
 {% tab android %}
 
-Standardmäßig entsprechen die Content-Cards des Android- und FireOS-SDK den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten. Sie können diese Standardstile in der Datei [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) in der Braze-SDK-Distribution einsehen:
+Standardmäßig entsprechen die Content Cards des Android- und FireOS-SDK den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten. Sie können diese Standardstile in der Datei [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) in der Braze-SDK-Distribution einsehen:
 
 ```xml
   <style name="Braze.ContentCards.CaptionedImage.Description">
@@ -59,7 +59,7 @@ Standardmäßig entsprechen die Content-Cards des Android- und FireOS-SDK den St
   </style>
 ```
 
-Um den Stil Ihrer Content-Cards anzupassen, überschreiben Sie diesen Standardstil. Um einen Stil zu überschreiben, kopieren Sie ihn vollständig in die Datei `styles.xml` Ihres Projekts und nehmen Sie die gewünschten Änderungen vor. Der gesamte Stil muss in Ihre lokale Datei `styles.xml` kopiert werden, damit alle Attribute korrekt gesetzt werden.
+Um den Stil Ihrer Content Cards anzupassen, überschreiben Sie diesen Standardstil. Um einen Stil zu überschreiben, kopieren Sie ihn vollständig in die Datei `styles.xml` Ihres Projekts und nehmen Sie die gewünschten Änderungen vor. Der gesamte Stil muss in Ihre lokale Datei `styles.xml` kopiert werden, damit alle Attribute korrekt gesetzt werden.
 
 {% subtabs local %}
 {% subtab Correct style override %}
@@ -91,7 +91,7 @@ Um den Stil Ihrer Content-Cards anzupassen, überschreiben Sie diesen Standardst
 {% endtab %}
 {% tab Jetpack Compose %}
 
-Standardmäßig entsprechen die Content-Cards des Android- und FireOS-SDK den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten.
+Standardmäßig entsprechen die Content Cards des Android- und FireOS-SDK den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten.
 
 Es gibt zwei Möglichkeiten, einen Stil anzuwenden. Die erste besteht darin, ein [`ContentCardListStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html) und [`ContentCardStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html) an [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html) zu übergeben, wie im folgenden Beispiel:
 
@@ -133,7 +133,7 @@ BrazeStyle(
 {% endtab %}
 {% tab swift %}
 
-Mit dem View Controller für Content-Cards können Sie das Aussehen und Verhalten aller Zellen über die Struktur [`BrazeContentCardUI.ViewController.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct) anpassen. Die Konfiguration von Content-Cards mit `Attributes` ist eine unkomplizierte Option, mit der Sie Ihre Content-Cards-UI mit minimalem Aufwand starten können. 
+Mit dem View Controller für Content Cards können Sie das Aussehen und Verhalten aller Zellen über die Struktur [`BrazeContentCardUI.ViewController.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct) anpassen. Die Konfiguration von Content Cards mit `Attributes` ist eine unkomplizierte Option, mit der Sie Ihre Content-Cards-UI mit minimalem Aufwand starten können.
 
 {% alert important %}
 Die Anpassung über `Attributes` ist nur in Swift möglich.
@@ -179,9 +179,9 @@ attributes.cells[BrazeContentCardUI.ClassicImageCell.identifier] = CustomClassic
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
 ```
 
-**Content-Cards programmatisch ändern**
+**Content Cards programmatisch ändern**
 
-Sie können Content-Cards programmatisch ändern, indem Sie die [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform)-Closure Ihrer `Attributes`-Struktur zuweisen. Das folgende Beispiel ändert `title` und `description` kompatibler Karten:
+Sie können Content Cards programmatisch ändern, indem Sie die [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform)-Closure Ihrer `Attributes`-Struktur zuweisen. Das folgende Beispiel ändert `title` und `description` kompatibler Karten:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -201,28 +201,28 @@ attributes.transform = { cards in
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
 ```
 
-Ein vollständiges Beispiel finden Sie in der [Beispiel-App „Examples"](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift).
+Ein vollständiges Beispiel finden Sie in der [Beispiel-App „Examples“](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift).
 
 {% endsubtab %}
 {% subtab Objective-C %}
 
-Die Anpassung von Content-Cards über `Attributes` wird in Objective-C nicht unterstützt.
+Die Anpassung von Content Cards über `Attributes` wird in Objective-C nicht unterstützt.
 
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-## Beispiele für Anpassungen
+## Beispiele für Anpassungen {#customization-examples}
 
-### Eigene Schriftart
+### Eigene Schriftart {#custom-font}
 
-Durch die Anpassung der in Ihren Content-Cards verwendeten Schriftart können Sie Ihre Markenidentität wahren und ein visuell ansprechendes Erlebnis für Ihre Nutzer:innen schaffen. Verwenden Sie die folgenden Vorgehensweisen, um die Schriftart für alle Content-Cards programmatisch festzulegen. 
+Durch die Anpassung der in Ihren Content Cards verwendeten Schriftart können Sie Ihre Markenidentität wahren und ein visuell ansprechendes Erlebnis für Ihre Nutzer:innen schaffen. Verwenden Sie die folgenden Vorgehensweisen, um die Schriftart für alle Content Cards programmatisch festzulegen.
 
 {% tabs %}
 {% tab web %}
 
-Sie können das Aussehen von Content-Cards wie jedes andere Web-Element ganz einfach über CSS anpassen. Verwenden Sie in Ihrer CSS-Datei oder in Inline-Styles die Eigenschaft `font-family` und geben Sie den gewünschten Schriftnamen oder Font-Stack an.
+Sie können das Aussehen von Content Cards wie jedes andere Web-Element ganz einfach über CSS anpassen. Verwenden Sie in Ihrer CSS-Datei oder in Inline-Styles die Eigenschaft `font-family` und geben Sie den gewünschten Schriftnamen oder Font-Stack an.
 
 ```css
 /* CSS selector targeting the Content Card element */
@@ -286,25 +286,25 @@ let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attrib
 {% endsubtab %}
 {% subtab Objective-C %}
 
-Das Anpassen von Schriftarten über `Attributes` wird in Objective-C nicht unterstützt. 
+Das Anpassen von Schriftarten über `Attributes` wird in Objective-C nicht unterstützt.
 
-Ein Beispiel für die Erstellung Ihrer eigenen UI mit angepassten Schriftarten finden Sie in der [Beispiel-App „Examples"](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/ObjC/Sources/ContentCards-Custom-UI/CardsInfoViewController.m#L97).
+Ein Beispiel für die Erstellung Ihrer eigenen UI mit angepassten Schriftarten finden Sie in der [Beispiel-App „Examples“](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/ObjC/Sources/ContentCards-Custom-UI/CardsInfoViewController.m#L97).
 
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-### Angepasste Pin-Symbole
+### Angepasste Pin-Symbole {#custom-pinned-icons}
 
-Bei der Erstellung einer Content-Card haben Marketer die Möglichkeit, die Karte zu pinnen. Eine gepinnte Karte wird oben im Feed der Nutzer:innen angezeigt und kann nicht geschlossen werden. Wenn Sie Ihre Kartenstile anpassen, können Sie auch das Aussehen des Pin-Symbols ändern.
+Bei der Erstellung einer Content Card haben Marketer die Möglichkeit, die Karte zu pinnen. Eine gepinnte Karte wird oben im Feed der Nutzer:innen angezeigt und kann nicht geschlossen werden. Wenn Sie Ihre Kartenstile anpassen, können Sie auch das Aussehen des Pin-Symbols ändern.
 
-![Side-by-Side-Vorschau der Content-Cards in Braze für Mobilgeräte und Internet mit aktivierter Option „Diese Karte oben im Feed pinnen".]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![Side-by-Side-Vorschau der Content Cards in Braze für Mobilgeräte und Internet mit aktivierter Option „Diese Karte oben im Feed pinnen“]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 {% tabs %}
 {% tab web %}
 
-Die Struktur des Pin-Symbols für Content-Cards lautet wie folgt:
+Die Struktur des Pin-Symbols für Content Cards lautet wie folgt:
 
 ```css
 <div class="ab-pinned-indicator">
@@ -312,7 +312,7 @@ Die Struktur des Pin-Symbols für Content-Cards lautet wie folgt:
 </div>
 ```
 
-Wenn Sie ein anderes FontAwesome-Symbol verwenden möchten, ersetzen Sie den Klassennamen des `i`-Elements durch den Klassennamen des gewünschten Symbols. 
+Wenn Sie ein anderes FontAwesome-Symbol verwenden möchten, ersetzen Sie den Klassennamen des `i`-Elements durch den Klassennamen des gewünschten Symbols.
 
 Wenn Sie das Symbol vollständig austauschen möchten, entfernen Sie das `i`-Element und fügen Sie das angepasste Symbol als untergeordnetes Element von `ab-pinned-indicator` hinzu. Es gibt mehrere Möglichkeiten, das Symbol zu ändern. Eine einfache Methode besteht darin, `replaceChildren()` auf dem `ab-pinned-indicator`-Element zu verwenden.
 
@@ -391,7 +391,7 @@ attributes.cellAttributes.pinIndicatorImage = UIImage(named: "my-image")
 let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attributes: attributes)
 ```
 
-Sie können auch Unterklassen verwenden, um Ihre eigene Version von `BrazeContentCardUI.Cell` zu erstellen, die den Pin-Indikator enthält. Zum Beispiel: 
+Sie können auch Unterklassen verwenden, um Ihre eigene Version von `BrazeContentCardUI.Cell` zu erstellen, die den Pin-Indikator enthält. Zum Beispiel:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -410,11 +410,11 @@ Das Anpassen des Pin-Indikators über `Attributes` wird in Objective-C nicht unt
 {% endtab %}
 {% endtabs %}
 
-### Farbe der Ungelesen-Anzeige ändern
+### Farbe der Ungelesen-Anzeige ändern {#changing-the-unread-indicator-color}
 
-Content-Cards enthalten eine blaue Linie am unteren Rand der Karte, die anzeigt, ob die Karte bereits angesehen wurde oder nicht. 
+Content Cards enthalten eine blaue Linie am unteren Rand der Karte, die anzeigt, ob die Karte bereits angesehen wurde oder nicht.
 
-![Zwei Content-Cards werden nebeneinander angezeigt. Die erste Karte hat eine blaue Linie am unteren Rand, was bedeutet, dass sie noch nicht gesehen wurde. Die zweite Karte hat keine blaue Linie, was darauf hinweist, dass sie bereits angesehen wurde.]({% image_buster /assets/img/braze-content-cards-seen-unseen-behavior.png %})
+![Zwei Content Cards werden nebeneinander angezeigt. Die erste Karte hat eine blaue Linie am unteren Rand, was bedeutet, dass sie noch nicht gesehen wurde. Die zweite Karte hat keine blaue Linie, was darauf hinweist, dass sie bereits angesehen wurde.]({% image_buster /assets/img/braze-content-cards-seen-unseen-behavior.png %})
 
 {% tabs %}
 {% tab web %}
@@ -473,7 +473,7 @@ attributes.cellAttributes.unviewedIndicatorColor = .red
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
 ```
 
-Ein vollständiges Beispiel finden Sie in der [Beispiel-App „Examples"](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift).
+Ein vollständiges Beispiel finden Sie in der [Beispiel-App „Examples“](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift).
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -494,7 +494,7 @@ Die Anpassung ausschließlich der Nicht-angesehen-Anzeige über `Attributes` wir
 
 ### Dark Mode
 
-Um je nach Dark Mode oder Light Mode des Geräts unterschiedliche Bilder oder Stile anzuzeigen, verwenden Sie [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs) in Ihrer Content-Card-Nachricht. Fügen Sie beispielsweise ein Schlüssel-Wert-Paar wie `dark_mode_image` mit der URL Ihres Dark-Mode-Bild-Assets hinzu. Fügen Sie dann in Ihrer App eine angepasste Logik hinzu, um den aktuellen Darstellungsmodus des Geräts zu prüfen und das entsprechende Bild anzuzeigen.
+Um je nach Dark Mode oder Light Mode des Geräts unterschiedliche Bilder oder Stile anzuzeigen, verwenden Sie [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs) in Ihrer Content-Card-Nachricht. Fügen Sie beispielsweise ein Schlüssel-Wert-Paar wie `dark_mode_image` mit der URL Ihres Dark-Mode-Bild-Assets hinzu. Fügen Sie dann in Ihrer App eine angepasste Logik hinzu, um den aktuellen Darstellungsmodus des Geräts zu prüfen und das entsprechende Bild anzuzeigen.
 
 {% tabs %}
 {% tab swift %}
@@ -531,9 +531,9 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-Dieses Muster funktioniert für alle darstellungsabhängigen Inhalte, einschließlich Text, Farben oder Layouts. Laden Sie Ihre Dark-Mode-Bild-Assets in die [Mediathek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) hoch und referenzieren Sie sie dann in einem Schlüssel-Wert-Paar.
+Dieses Muster funktioniert für alle darstellungsabhängigen Inhalte, einschließlich Text, Farben oder Layouts. Laden Sie Ihre Dark-Mode-Bild-Assets in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/) hoch und referenzieren Sie sie dann in einem Schlüssel-Wert-Paar.
 
-### Ungelesen-Anzeige deaktivieren
+### Ungelesen-Anzeige deaktivieren {#disabling-unread-indicator}
 
 {% tabs %}
 {% tab web %}
@@ -548,7 +548,7 @@ Blenden Sie den Ungelesen-Balken aus, indem Sie den folgenden Stil zu Ihrem `css
 
 {% tab android %}
 
-Blenden Sie den Ungelesen-Balken aus, indem Sie [`setUnreadBarVisible`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.view/-content-card-view-holder/set-unread-bar-visible.html?query=fun%20setUnreadBarVisible(isVisible:%20Boolean)) auf `ContentCardViewHolder` auf `false` setzen. 
+Blenden Sie den Ungelesen-Balken aus, indem Sie [`setUnreadBarVisible`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.view/-content-card-view-holder/set-unread-bar-visible.html?query=fun%20setUnreadBarVisible(isVisible:%20Boolean)) auf `ContentCardViewHolder` auf `false` setzen.
 
 {% endtab %}
 
@@ -559,7 +559,7 @@ Die Deaktivierung der Ungelesen-Anzeige wird in Jetpack Compose nicht unterstüt
 {% subtabs %}
 {% subtab Swift %}
 
-Blenden Sie den Ungelesen-Balken aus, indem Sie die Eigenschaft `attributes.cellAttributes.unviewedIndicatorColor` in Ihrer `Attributes`-Struktur auf `.clear` setzen. 
+Blenden Sie den Ungelesen-Balken aus, indem Sie die Eigenschaft `attributes.cellAttributes.unviewedIndicatorColor` in Ihrer `Attributes`-Struktur auf `.clear` setzen.
 
 {% endsubtab %}
 {% subtab Objective-C %}

@@ -10,6 +10,12 @@ on:
       - "assets/js/broken_redirect_list.js"
       - "scripts/validate_doc_redirects.rb"
       - "scripts/jekyll_url_map_dump.rb"
+      - "scripts/redirect_target_verify_helpers.rb"
+      - "scripts/redirect_file_io.rb"
+      - "scripts/apply_validurl_by_lhs_csv.rb"
+      - "scripts/apply_validurl_rhs_from_csv.rb"
+      - "scripts/normalize_broken_redirect_list.rb"
+      - "scripts/collapse_validurls_chains.rb"
 
 permissions:
   contents: read
@@ -35,3 +41,18 @@ jobs:
 
       - name: "Validate redirects"
         run: bundle exec ruby scripts/validate_doc_redirects.rb --base "origin/${{ github.base_ref }}" --skip-fetch
+
+  redirect-list-js-syntax:
+    name: "broken_redirect_list.js syntax"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout PR head"
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: "Set up Node"
+        uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+
+      - name: "Parse-check global redirect list"
+        run: node --check assets/js/broken_redirect_list.js

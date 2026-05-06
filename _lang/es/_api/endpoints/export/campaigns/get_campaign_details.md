@@ -9,7 +9,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ---
 {% api %}
-# Exportar detalles de la campaña
+# Exportar detalles de la campaña {#export-campaign-details}
 {% apimethod get %}
 /campaigns/details
 {% endapimethod %}
@@ -20,24 +20,24 @@ Si quieres recuperar datos de Canvas, consulta el punto de conexión [Exportar d
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.details`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatoria | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obligatoria | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) y en la página **Detalles de campaña** dentro de tu dashboard; o puedes utilizar el [punto de conexión Exportar lista de campañas](#campaign-list-endpoint). |
+| `campaign_id` | Obligatoria | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) y en la página **Campaign Details** dentro de tu dashboard; o puedes utilizar el [punto de conexión Exportar lista de campañas](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Opcional | Booleano | Para los mensajes que tienen un borrador posterior al lanzamiento, configurar esto en `true` mostrará los cambios disponibles en el borrador. Predeterminado: `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/details?campaign_id={{campaign_identifier}}' \
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 {% endraw %}
 
-## Respuestas
+## Respuestas {#responses}
 
 ```json
 {
@@ -76,7 +76,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-### Mensajes por canal
+### Mensajes por canal {#messages-by-channel}
 
 La respuesta `messages` contendrá información sobre cada mensaje. A continuación se incluyen ejemplos de respuestas de mensajes para cada canal:
 
@@ -118,7 +118,7 @@ La respuesta `messages` contendrá información sobre cada mensaje. A continuaci
 
 El formato de la respuesta depende del tipo de mensaje dentro de la aplicación. Los mensajes dentro de la aplicación de tipo cuestionario devuelven los campos `type` y `data`. Otros tipos de mensajes dentro de la aplicación (deslizamiento hacia arriba, modal y pantalla completa) devuelven los campos `name`, `message` y `extras`.
 
-#### Cuestionarios
+#### Cuestionarios {#surveys}
 
 ```json
 {
@@ -146,7 +146,7 @@ El formato de la respuesta depende del tipo de mensaje dentro de la aplicación.
 }
 ```
 
-#### Mensajes de deslizamiento hacia arriba, modales y a pantalla completa dentro de la aplicación
+#### Mensajes de deslizamiento hacia arriba, modales y a pantalla completa dentro de la aplicación {#slideup-modal-fullscreen-in-app-messages}
 
 ```json
 {
@@ -202,7 +202,7 @@ El formato de la respuesta depende del tipo de mensaje dentro de la aplicación.
 {% endtab %}
 {% tab WhatsApp %}
 
-#### Mensajes de plantilla
+#### Mensajes de plantilla {#template-messages}
 
 ```json
 {
@@ -217,7 +217,7 @@ El formato de la respuesta depende del tipo de mensaje dentro de la aplicación.
 }
 ```
 
-#### Mensajes de respuesta
+#### Mensajes de respuesta {#response-messages}
 
 ```json
 {
@@ -246,7 +246,7 @@ El formato de la respuesta depende del tipo de mensaje dentro de la aplicación.
 {% endtabs %}
 
 
-### Comportamientos de conversión
+### Comportamientos de conversión {#conversion-behaviors}
 
 La matriz `conversion_behaviors` contiene información sobre cada comportamiento de evento de conversión establecido para la campaña. Estos comportamientos están en el orden definido por la campaña. Por ejemplo, el evento de conversión A es el primer elemento de la matriz, el evento de conversión B es el segundo, y así sucesivamente. A continuación se muestran ejemplos de respuestas de comportamiento de eventos de conversión:
 
@@ -329,7 +329,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 {% endtabs %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

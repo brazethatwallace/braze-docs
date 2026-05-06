@@ -2,12 +2,16 @@
 nav_title: Notificações por push
 article_title: "Notificações por push para o SDK Braze"
 page_order: 2.3
-description: "Esta landing page é o lar de tudo sobre notificações por push."
+description: "Esta landing page reúne tudo sobre notificações por push."
 ---
 
-# Notificações por push
+# Notificações por push {#push-notifications}
 
-> [Notificações por push]({{site.baseurl}}/user_guide/message_building_by_channel/push/about/) permitem que você envie notificações do seu app quando eventos importantes ocorrerem. Você pode enviar uma notificação por push quando tiver novas mensagens instantâneas para entregar, alertas de notícias de última hora para enviar ou o episódio mais recente do programa de TV favorito do seu usuário pronto para ele baixar para visualização offline. Elas também são mais eficientes do que a busca em segundo plano, já que seu aplicativo só é iniciado quando necessário.
+> As [notificações por push]({{site.baseurl}}/user_guide/channels/push/) permitem que você envie notificações do seu app quando eventos importantes ocorrerem. Você pode enviar uma notificação por push quando tiver novas mensagens instantâneas para entregar, alertas de notícias de última hora para enviar ou o episódio mais recente do programa de TV favorito do seu usuário pronto para ele baixar para visualização offline. Elas também são mais eficientes do que a busca em segundo plano, já que seu aplicativo só é iniciado quando necessário.
+
+{% alert note %}
+Se **Redirect to web URL** com **Open web URL inside app** não estiver selecionado, mas o link ainda abrir dentro do app, o app pode estar tratando a URL (por exemplo, com universal links no iOS ou App Links no Android). Para abrir o link no navegador, confirme que seu app delega a URL ao navegador do sistema quando o usuário toca na notificação, ou ajuste o tratamento de URLs do seu app para que a ação de clique corresponda à configuração do dashboard da Braze. Consulte a documentação de push da sua plataforma para saber como as ações de clique e o tratamento de URLs são configurados.
+{% endalert %}
 
 {% sdktabs %}
 {% sdktab web %}

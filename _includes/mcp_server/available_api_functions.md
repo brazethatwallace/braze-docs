@@ -1,6 +1,6 @@
 # Braze MCP server functions
 
-> The Braze MCP server exposes a set of read-only API functions that map to specific Braze REST API endpoints. MCP clients like Claude and Cursor can call these functions to retrieve data without accessing PII or making changes to your workspace. For more general information, see [Braze MCP server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> The Braze MCP server exposes a set of API functions that map to specific Braze REST API endpoints. MCP clients like Claude and Cursor can call these functions to retrieve non-PII data and, perform no-PII write actions. For more general information, see [Braze MCP server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -8,15 +8,19 @@
 
 Before you can use this feature, you'll need to [set up the Braze MCP server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
 
-## Available Braze API Functions
+## Available Braze API functions
 
-Your MCP client references the following API functions to interact with the Braze MCP server:
+Your MCP client references the following API functions to interact with the Braze MCP server.
+
 ### General functions
+
+These functions help your MCP client discover and run the available Braze API functions.
 
 | Function | Description |
 |----------|-------------|
-| `list_functions` | Lists all available Braze API functions with their descriptions and parameters |
-| `call_function` | Calls a specific Braze API function with provided parameters |
+| `list_functions` | Lists all available Braze API functions with their descriptions and parameters. |
+| `call_function` | Calls a specific read-only Braze API function with the provided parameters. |
+| `call_write_function` | Calls a specific write-capable Braze API function with the provided parameters. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### Campaigns
@@ -87,6 +91,15 @@ Your MCP client references the following API functions to interact with the Braz
 | `get_dau_data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | Daily Active Users time series data. |
 | `get_mau_data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | Monthly Active Users time series data. |
 | `get_uninstalls_data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | App uninstall time series data. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+
+### Media Library
+
+This is the only write function in the Braze MCP server. To use it, your API key must have the `media_library.create` permission.
+
+| Function | Endpoint | Description |
+|----------|----------|-------------|
+| `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | Upload an asset to your Braze media library. You can provide either a publicly accessible URL (`asset_url`) or a base64-encoded file (`asset_file_base64`), but not both. Images have a 5 MB size limit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ### Messages

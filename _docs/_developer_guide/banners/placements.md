@@ -335,7 +335,8 @@ AppDelegate.braze?.banners.getBanner(for: "global_banner", { banner in
   self.globalBanner = banner
 })
 
-// If you simply want the Banner view, you may initialize a `UIView` with the placement ID:
+// UIKit implementation:
+// If you simply want the Banner view, initialize a `UIView` with the placement ID:
 if let braze = AppDelegate.braze {
   let bannerUIView = BrazeBannerUI.BannerUIView(
     placementId: "global_banner",
@@ -355,6 +356,7 @@ if let braze = AppDelegate.braze {
   )
 }
 
+// SwiftUI implementation:
 // Similarly, if you want a Banner view in SwiftUI, use the corresponding `BannerView` initializer:
 if let braze = AppDelegate.braze {
   let bannerView = BrazeBannerUI.BannerView(
@@ -572,10 +574,10 @@ Braze.getInstance(context).logBannerImpression("placement_id_homepage_top");
 ```swift
 // Retrieve a banner and log an impression on it (for example, once when it enters viewport)
 braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
- banner?.logImpression(using: braze)
+  banner?.context.logImpression()
 }
 ```
-[Swift SDK reference](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner)
+[Swift SDK reference](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logimpression())
 {% endtab %}
 {% tab React Native %}
 ```javascript
@@ -628,10 +630,10 @@ Braze.getInstance(context).logBannerClick("placement_id_homepage_top", buttonId)
 ```swift
 // Retrieve a banner and log a click on it
 braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
- banner?.logClick(buttonId: buttonId, using: braze)  // buttonID is optional
+  banner?.context.logClick(buttonId: buttonId)  // buttonID is optional
 }
 ```
-[Swift SDK reference](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner)
+[Swift SDK reference](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logclick(buttonid:))
 {% endtab %}
 {% tab React Native %}
 ```javascript
@@ -648,6 +650,152 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 [Flutter SDK reference](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerClicked.html)
 {% endtab %}
 {% endtabs %}
+
+## Log dismissals
+
+Banner dismissals programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user. The next time the list of placements is refreshed, a new banner will be returned if the user is eligible for one.
+
+{% alert important %}
+Banner dismissals are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
+
+### Prerequisites
+
+These are the minimum SDK versions required to log Banner dismissals:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
+
+### Integrations
+#### Standard Banner integrations (drag-and-drop editor)
+
+If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message will be hidden, trigger a dismissal and then record a dismissal event for analytics.
+
+#### Custom Code Blocks
+
+If your Banner uses the **Custom Code** editor block, you can trigger a dismissal directly from within the Banner's HTML using `brazeBridge.closeMessage()`.
+
+```html
+<button onclick="brazeBridge.closeMessage()">
+  Dismiss
+</button>
+```
+
+### Log custom analytics on banner dismissal
+
+To run additional logic such as logging custom analytics upon dismissing a banner, override the optional `onDismiss` callback on your banner view. By default, this callback is empty.
+
+{% tabs %}
+{% tab Web %}
+The Web SDK does not have a dedicated `onDismiss` callback on `insertBanner`. Instead, use `subscribeToBannersUpdates` to detect when a banner has been dismissed by checking if it is no longer present in the updated banners map.
+
+{% subtabs %}
+{% subtab JavaScript %}
+```javascript
+import * as braze from "@braze/web-sdk";
+
+braze.subscribeToBannersUpdates((banners) => {
+  const globalBanner = banners["global_banner"];
+
+  if (!globalBanner) {
+    // The banner was dismissed or the user is no longer eligible.
+    // Run any custom analytics here.
+    console.log("Banner was dismissed");
+    return;
+  }
+});
+
+braze.requestBannersRefresh(["global_banner"]);
+```
+{% endsubtab %}
+{% subtab React %}
+```typescript
+import { useEffect } from "react";
+import * as braze from "@braze/web-sdk";
+
+useEffect(() => {
+  const subscriptionId = braze.subscribeToBannersUpdates((banners) => {
+    const globalBanner = banners["global_banner"];
+
+    if (!globalBanner) {
+      // The banner was dismissed or the user is no longer eligible.
+      // Run any custom analytics here.
+      console.log("Banner was dismissed");
+      return;
+    }
+  });
+
+  braze.requestBannersRefresh(["global_banner"]);
+
+  return () => {
+    braze.removeSubscription(subscriptionId);
+  };
+}, []);
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Android %}
+Set the optional [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) property on [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html).
+
+{% subtabs %}
+{% subtab Java %}
+
+```java
+import android.util.Log;
+import com.braze.ui.banners.BannerView;
+import kotlin.Unit;
+
+// After obtaining your BannerView instance (for example from XML via findViewById, or `new BannerView(context, "global_banner")`)
+
+bannerView.setOnDismissCallback(() -> {
+  Log.d(TAG, "Successfully dismissed banner with placementId: " + bannerView.getPlacementId());
+
+  // Run any custom logic here, such as logging custom analytics
+  return Unit.INSTANCE;
+});
+```
+
+{% endsubtab %}
+{% subtab Kotlin %}
+
+```kotlin
+import android.util.Log
+import com.braze.ui.banners.BannerView
+
+// After obtaining your BannerView instance (for example via findViewById or `BannerView(context, "global_banner")`)
+
+bannerView.onDismissCallback = {
+  Log.d(TAG, "Successfully dismissed banner with placementId: ${bannerView.placementId}")
+
+  // Run any custom logic here, such as logging custom analytics
+}
+```
+
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Swift %}
+```swift
+// After initializing your banner view instance using UIKit or SwiftUI
+
+bannerView.onDismiss = { dismissedBanner in
+  print("Successfully dismissed banner with placementId: \(dismissedBanner.placementId)")
+
+  // Run any custom logic here, such as logging custom analytics
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Pending dismissal storage cap
+
+Dismissal events are stored locally as pending entries until they can be synced to the Braze server on the next `requestBannersRefresh` call.
+
+{% alert warning %}
+In rare cases where a large number of dismissals accumulate without a successful sync, older pending dismissals may be dropped. If this occurs, previously-dismissed Banners may reappear until the next successful sync completes. To minimize this risk, call `requestBannersRefresh` whenever your app regains network connectivity.
+{% endalert %}
 
 ## Dimensions and sizing
 
@@ -834,7 +982,7 @@ _braze.getBanner(placementId).then(('placement_id_homepage_top') {
   // Get the image URL property
   final String? imageProperty = banner?.getImageProperty('homepage_icon');
   
-  // Get the JSON object propertyßß
+  // Get the JSON object property
   final Map<String, dynamic>? jsonObjectProperty = banner?.getJSONProperty('footer_settings');
   
   // Use these properties as needed in your UI or logic

@@ -57,6 +57,14 @@ hide_binary_feedback: false
       </div>
       {%- endunless -%}
 
+      {%- comment -%} Add Copy for LLM button for supported collection pages {%- endcomment -%}
+      {%- assign llm_supported_collections = "user_guide,developer_guide,api,partners,releases" | split: "," -%}
+      {%- if llm_supported_collections contains page.collection -%}
+      <div class="copy-for-llm-page-header">
+        {% include copy_for_llm_button.html %}
+      </div>
+      {%- endif -%}
+
       {% include ai_translation_banner.html %}
       {{content}}
     </div>

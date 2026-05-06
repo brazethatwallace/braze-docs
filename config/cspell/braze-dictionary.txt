@@ -561,6 +561,7 @@ OTT
 ouibounce's
 oversaturating
 Pangle
+Pandoc
 parentheticals
 passback
 PassKit
@@ -601,6 +602,7 @@ Quikly
 Radar
 RAETO
 RANDOMBUCKETNUMBERUPDATE
+RAWLLMREQUEST
 React
 reactnative
 reapproved
@@ -729,6 +731,7 @@ Spamhaus
 spamminess
 spammy
 Sparkpost
+Speedrunning
 Splio
 SPLITENTRY
 springsale
