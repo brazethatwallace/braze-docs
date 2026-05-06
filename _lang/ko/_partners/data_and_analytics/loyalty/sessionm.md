@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM 로열티 플랫폼 {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm)은 마케터가 타겟팅된 아웃리치를 통해 참여와 수익성을 높일 수 있도록 캠페인 관리 기능과 로열티 관리 솔루션을 제공하는 고객 참여 및 로열티 플랫폼입니다.
+> [SessionM](https://sessionm.com/)은 Capillary Technologies의 일부로, 마케터가 타겟팅된 아웃리치를 통해 참여와 수익성을 높일 수 있도록 캠페인 관리 기능과 로열티 관리 솔루션을 제공하는 고객 참여 및 로열티 플랫폼입니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -225,7 +225,7 @@ SessionM의 모든 템플릿에 포함된 표준 필드는 다음과 같습니�
 
 SessionM에 의해 트리거될 API 트리거 Campaign 또는 Canvas를 Braze에서 생성합니다. `offer_id` 또는 `offer title`과 같은 추가 필드가 구성된 경우, Liquid(예: {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %})를 사용하여 메시징에 개인화된 필드를 추가합니다.
 
-![API 트리거 속성.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
+![API 트리거 등록정보.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
 **Schedule Delivery** 탭에서 Campaign 또는 Canvas ID를 기록해 두세요. 이 ID는 SessionM 캠페인 **Advanced Settings**에 추가됩니다.
 

@@ -2,7 +2,7 @@
 nav_title: 背景画像付き季節プロモーション
 article_title: 背景画像付き季節プロモーション
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "このページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用して、季節限定のオファーやセールをプロモーションし、ユーザーエンゲージメントを促進する方法について説明します。"
 ---
 

@@ -2,13 +2,13 @@
 nav_title: 特典付きメールサインアップ
 article_title: 特典付きメールサインアップ
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "このページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用して、サインアップ時に特別割引を提供することでメールリストを構築する方法について説明します。"
 ---
 
 # 特典付きメールサインアップ {#email-sign-up-with-special-offer}
 
-> アプリ内メッセージのドラッグ＆ドロップエディターを使用して、サインアップ時に特別割引を提供することでメールリストを構築します。
+> アプリ内メッセージのドラッグ＆ドロップエディターを使用して、サインアップ時に特別割引を提供することでメールリストを構築できます。
 
 {% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 

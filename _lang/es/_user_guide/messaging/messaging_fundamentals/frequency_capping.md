@@ -29,17 +29,17 @@ A medida que creas más segmentos, habrá casos en los que la pertenencia a esos
 
 Braze proporciona los siguientes filtros para ayudarte a limitar la velocidad a la que tus usuarios reciben mensajes:
 
-- Última interacción con mensaje
-- Último mensaje recibido
-- Último push recibido
-- Último correo electrónico recibido
-- Último SMS recibido
+- Last Engaged With Message
+- Last Received Any Message
+- Last Received Push
+- Last Received Email
+- Last Received SMS
 
 #### Implementación de filtros {#implementing-filters}
 
 Supongamos que hemos creado un segmento llamado "Escaparate de filtros de reorientación" con un filtro "Última vez que usó la aplicación hace más de 7 días" para dirigirnos a los usuarios. Este sería un segmento estándar de reactivación de la interacción.
 
-Si tienes otros segmentos más específicos que reciben notificaciones recientemente, es posible que no quieras que tus usuarios sean objetivo de campañas más genéricas dirigidas a este segmento. Al añadir el filtro "Último push recibido" a este segmento, el usuario se ha asegurado de que, si ha recibido otra notificación en las últimas 24 horas, saldrá de este segmento durante las próximas 24 horas. Si aún cumple los demás criterios del segmento 24 horas después y no ha recibido más notificaciones, volverá a entrar en el segmento.
+Si tienes otros segmentos más específicos que reciben notificaciones recientemente, es posible que no quieras que tus usuarios sean objetivo de campañas más genéricas dirigidas a este segmento. Al añadir el filtro "Last Received Push" a este segmento, el usuario se ha asegurado de que, si ha recibido otra notificación en las últimas 24 horas, saldrá de este segmento durante las próximas 24 horas. Si aún cumple los demás criterios del segmento 24 horas después y no ha recibido más notificaciones, volverá a entrar en el segmento.
 
 ![Un segmento llamado "Escaparate de filtros de reorientación" con el grupo de filtros "Última vez que usó la aplicación hace más de 7 días".]({% image_buster /assets/img_archive/rate_limit_daily.png %}){: style="max-width:80%;"}
 
@@ -51,7 +51,7 @@ En el paso **Target Audiences** del compositor de tu campaña, también puedes l
 
 ![Resumen de audiencia con una casilla seleccionada para limitar el número de personas que reciben la campaña.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
-Al seleccionar el límite máximo de usuarios, puedes limitar el volumen de mensajes enviados por canal o globalmente en todos los tipos de mensajes.
+Al seleccionar el límite máximo de usuarios, puedes limitar el volumen de mensajes enviados por canal o globalmente en todos los tipos de mensajes. Braze no envía mensajes a los usuarios asignados a grupos de control, por lo que no cuentan para el límite.
 
 {% alert note %}
 El límite máximo de usuarios limita el número de usuarios despachados, no el número de mensajes enviados con éxito. Dado que los mensajes abortados cuentan para este límite, el número real de mensajes enviados puede ser inferior al límite configurado. Por ejemplo, si estableces un límite de 10 000 y se abortan 2000 mensajes debido a lógica Liquid u otras condiciones, solo se enviarán 8000 mensajes.
@@ -61,9 +61,9 @@ El límite máximo de usuarios limita el número de usuarios despachados, no el 
 
 Si estás utilizando una optimización como variante ganadora o variante personalizada, la campaña constará de dos envíos: el experimento inicial y el envío final.
 
-Para configurar un límite máximo de usuarios en este escenario, selecciona **Limitar el número de personas que recibirán esta campaña**, luego selecciona **En total esta campaña debería** e introduce un límite de audiencia. Tu límite de audiencia se dividirá según los porcentajes mostrados en el panel **A/B Testing**.
+Para configurar un límite máximo de usuarios en este escenario, selecciona **Limit the number of people who will receive this campaign**, luego selecciona **In total this campaign should** e introduce un límite de audiencia. Tu límite de audiencia se dividirá según los porcentajes mostrados en el panel **A/B Testing**.
 
-Si seleccionas **Cada vez que se planifique la campaña**, esas dos fases se limitarán por separado al número establecido. Esto normalmente no es deseable.
+Si seleccionas **Every time the campaign is scheduled**, esas dos fases se limitarán por separado al número establecido. Esto normalmente no es deseable.
 
 #### Establecer un límite máximo de impresiones en campañas {#setting-a-maximum-impression-cap-on-campaigns}
 
@@ -81,7 +81,7 @@ Al usar el límite de velocidad con una prueba A/B, el límite de velocidad no s
 
 Si anticipas que campañas grandes provocarán un pico en la actividad de los usuarios y sobrecargarán tus servidores, puedes especificar un límite de velocidad por minuto para el envío de mensajes, lo que significa que Braze no enviará más de tu configuración de límite de velocidad en un minuto.
 
-Al dirigirte a usuarios durante la creación de una campaña, puedes navegar a **Target Audiences** (para Campaigns) o **Ajustes de envío** (para Canvas) para seleccionar un límite de velocidad (en varios incrementos desde tan bajo como 10 hasta tan alto como 500 000 mensajes por minuto).
+Al dirigirte a usuarios durante la creación de una campaña, puedes navegar a **Target Audiences** (para Campaigns) o **Send Settings** (para Canvas) para seleccionar un límite de velocidad (en varios incrementos desde tan bajo como 10 hasta tan alto como 500 000 mensajes por minuto).
 
 Ten en cuenta que las campañas sin límite de velocidad pueden superar estos límites de entrega. Sin embargo, ten en cuenta que los mensajes se abortarán si se retrasan 72 horas o más debido a un límite de velocidad bajo. Si el límite de velocidad es demasiado bajo, el creador de la campaña recibirá alertas en el dashboard y por correo electrónico.
 
@@ -117,7 +117,7 @@ Cuando una campaña multicanal o Canvas usa un límite de velocidad basado en ca
 
 ##### Notificaciones push {#push-notifications}
 
-Para campañas o Canvas con plataformas push (como Android, iOS, notificación push web o Kindle), puedes seleccionar **Notificaciones push** para aplicar un límite de velocidad compartido entre todas las plataformas push en tu campaña o Canvas.
+Para campañas o Canvas con plataformas push (como Android, iOS, notificación push web o Kindle), puedes seleccionar **Push notifications** para aplicar un límite de velocidad compartido entre todas las plataformas push en tu campaña o Canvas.
 
 ![El menú desplegable de canal con opciones para plataformas push y notificaciones push.]({% image_buster /assets/img_archive/push_notifications_rate_limit.png %}){: style="max-width:30%;"}
 
@@ -175,11 +175,11 @@ En la práctica, la tasa de envío sostenida (mensajes completados por minuto) p
 
 ## Acerca de la limitación de frecuencia {#about-frequency-capping}
 
-A medida que tu base de usuarios continúa creciendo y tu mensajería se escala para incluir campañas de ciclo de vida, activadas, transaccionales y de conversión, es importante evitar que tus notificaciones parezcan "spam" o disruptivas. Al proporcionar un mayor control sobre la experiencia de tus usuarios, la limitación de frecuencia te permite crear las campañas que desees sin abrumar a tu audiencia.
+A medida que tu base de usuarios continúa creciendo y tu mensajería se escala para incluir campañas de ciclo de vida, activadas, transaccionales y de conversión, es importante evitar que tus notificaciones parezcan correo no deseado o disruptivas. Al proporcionar un mayor control sobre la experiencia de tus usuarios, la limitación de frecuencia te permite crear las campañas que desees sin abrumar a tu audiencia.
 
 ### Resumen de la característica {#freq-cap-feat-over}
 
-La limitación de frecuencia se aplica a nivel de envío de campaña o componente de Canvas, y se puede configurar para cada espacio de trabajo desde **Configuración** > **Reglas de limitación de frecuencia**.
+La limitación de frecuencia se aplica a nivel de envío de campaña o componente de Canvas, y se puede configurar para cada espacio de trabajo desde **Settings** > **Frequency Capping Rules**.
 
 De forma predeterminada, la limitación de frecuencia está activada cuando se crean nuevas campañas. Desde aquí, puedes elegir lo siguiente:
 
@@ -201,7 +201,7 @@ Si un usuario de Canvas tiene limitación de frecuencia debido a la configuraci�
 
 Puede haber algunas campañas, como los mensajes transaccionales, que quieras que siempre lleguen al usuario, incluso si ya han alcanzado su límite de frecuencia. Por ejemplo, una aplicación de entregas puede querer enviar un correo electrónico o push cuando se entrega un artículo, independientemente de cuántas campañas haya recibido el usuario.
 
-Si quieres que una campaña en particular anule las reglas de limitación de frecuencia, puedes configurar esto en el dashboard de Braze al planificar la entrega de esa campaña alternando **Limitación de frecuencia** a **DESACTIVADA**.
+Si quieres que una campaña en particular anule las reglas de limitación de frecuencia, puedes configurar esto en el dashboard de Braze al planificar la entrega de esa campaña alternando **Frequency Capping** a **OFF**.
 
 Después de esto, se te preguntará si aún quieres que esta campaña cuente para tu límite de frecuencia. Los mensajes que cuentan para la limitación de frecuencia se incluyen en los cálculos del filtro de canal inteligente.
 
@@ -301,7 +301,7 @@ Considera las siguientes campañas y la regla de limitación de frecuencia por e
 
 | Acción | Resultado |
 |---|---|
-| La etiqueta `promotional` se elimina de **Campaign A** después de que tu usuario recibió el mensaje, pero antes de que **Campaign B se haya enviado.** | Tu usuario recibe **Campaign B**.|
+| La etiqueta `promotional` se elimina de **Campaign A** después de que tu usuario recibió el mensaje, pero antes de que **Campaign B se haya enviado.** | Tu usuario recibe **Campaign B**. |
 | La etiqueta `promotional` se elimina por error de **Campaign A** después de que tu usuario recibió el mensaje. <br> La etiqueta se vuelve a añadir a **Campaign A** el martes, antes de que se envíe **Campaign B**. | Tu usuario no recibe **Campaign B**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify-Daten-Features
-article_title: "Shopify-Daten-Features"
+article_title: Shopify-Daten-Features
 description: "Dieser Referenzartikel behandelt die Shopify-Daten-Features."
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ page_order: 4
 
 # Shopify-Daten-Features {#shopify-data-features}
 
-> Dieser Artikel bietet eine Übersicht über unsere Shopify Features – einschließlich der Shopify-Daten, die getrackt werden, sowie Beispiel-Payloads, historische Backfills und Produktsynchronisationen.
+> Dieser Artikel bietet eine Übersicht über unsere Shopify-Features – einschließlich der Shopify-Daten, die getrackt werden, sowie Beispiel-Payloads, historische Backfills und Produktsynchronisationen.
 
 ## Getrackte Shopify-Events {#tracked-shopify-events}
 
@@ -853,13 +853,17 @@ Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, 
 
 ## Historischer Backfill {#historical-backfill}
 
-Während des Onboardings Ihres Shopify-Shops können Sie eine erste Datensynchronisation durch einen historischen Backfill initiieren, um sofort mit Ihren Kund:innen zu interagieren. Im Rahmen dieses Backfills führt Braze eine erste Datensynchronisation aller Kund:innen und Bestellungen der letzten 90 Tage vor der Anbindung Ihrer Shopify-Integration durch. Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
+> Historische Shopify-Daten werden importiert, bevor Sie Braze verbinden – Bestell-Events aus den letzten 90 Tagen und Kundendaten aus dem letzten Jahr. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
+
+Über die [Shopify-Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) oder die [angepasste Shopify-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/) können Sie den historischen Backfill aktivieren, um vergangene Kund:innen anzusprechen. Dabei werden Ihre Shopify-Bestellungen (bestellbezogene Events) aus den letzten 90 Tagen und Nutzerprofile aus dem letzten Jahr importiert. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
+
+Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
 
 {% alert note %}
-Wenn Sie die Integration mit einer angepassten externen ID planen (entweder für die [Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) oder die [angepasste Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), müssen Sie Ihre angepasste externe ID als Shopify-Kunden-Metafeld zu allen bestehenden Shopify-Kundenprofilen hinzufügen und dann den historischen Backfill durchführen.
+Wenn Sie bereits Braze-Kund:in sind und aktive Campaigns oder Canvases nutzen, prüfen Sie, wie sich importierte Kund:innen und Bestell-Events auf Ihre Segmente und Journeys auswirken, bevor Sie den historischen Backfill aktivieren.
 {% endalert %}
 
-Die synchronisierten Bestelldaten stehen für die Segmentierung zur Verfügung, aber die Umsatzdaten selbst werden nicht im Nutzerprofil oder im Dashboard [Umsatz – Last-Touch-Attribution]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution) angezeigt.
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 ### Einrichten des historischen Shopify-Backfills {#setting-up-shopify-historical-backfill}
 
@@ -875,4 +879,11 @@ Die synchronisierten Bestelldaten stehen für die Segmentierung zur Verfügung, 
 
 ### Synchronisierte Daten {#synced-data}
 
-Für die anfängliche Datensynchronisation importiert Braze Kund:innen und Bestellungen aus den letzten 90 Tagen vor der Verbindung mit Ihrer Shopify-Integration. Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
+Für die anfängliche Datensynchronisation importiert Braze Bestell-Events aus den letzten 90 Tagen und Nutzerprofile aus dem letzten Jahr, jeweils zurückgerechnet ab dem Datum, an dem Sie Ihre Integration abschließen. Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
+
+Die folgende Tabelle fasst die Daten zusammen, die in diesem anfänglichen Import enthalten sind.
+
+| Empfohlene Braze-Events | Angepasste Shopify-Events | Braze-Standardattribute | Braze-Abo-Status |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail</li><li>Vorname</li><li>Nachname</li><li>Telefon</li><li>Ort</li><li>Land</li><li>Gesamtumsatz</li><li>Gesamterstattungen</li><li>Gesamtbestellungen</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li><li>SMS-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}

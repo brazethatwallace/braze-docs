@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify Angepasste Integration einrichten
-article_title: "Shopify Angepasste Integration einrichten"
+article_title: Shopify Angepasste Integration einrichten
 description: "In diesem Referenzartikel erfahren Sie, wie Sie eine Verbindung zu einem Shopify Hydrogen Shop oder einem beliebigen Headless-Shopify-Shop herstellen, indem Sie eine angepasste Storefront verwenden."
 page_type: partner
 search_tag: Partner
@@ -574,13 +574,13 @@ function CartLineUpdateButton({children, lines}) {
 
 ### 1. Schritt: Verbinden Sie Ihren Shopify-Shop {#step-1-connect-your-shopify-store}
 
-Rufen Sie die Shopify-Partnerseite auf, um Ihre Einrichtung zu starten. Wählen Sie zunächst **Einrichtung beginnen**, um die Braze-Anwendung aus dem Shopify App Store zu installieren. Folgen Sie den geführten Schritten, um den Installationsvorgang abzuschließen.
+Rufen Sie die Shopify-Partnerseite auf, um Ihre Einrichtung zu starten. Wählen Sie zunächst **Begin Setup**, um die Braze-Anwendung aus dem Shopify App Store zu installieren. Folgen Sie den geführten Schritten, um den Installationsvorgang abzuschließen.
 
 ![Einrichtungsseite für die Shopify-Integration im Braze-Dashboard.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
 
 ### 2. Schritt: Braze SDKs aktivieren {#step-2-enable-braze-sdks}
 
-Für Shopify Hydrogen oder Headless-Shops wählen Sie die Option **Angepasste Einrichtung**.
+Für Shopify Hydrogen oder Headless-Shops wählen Sie die Option **Custom setup**.
 
 Bevor Sie mit dem Onboarding-Prozess fortfahren, vergewissern Sie sich, dass Sie das Braze SDK auf Ihrer Shopify-Website aktiviert haben.
 
@@ -594,18 +594,13 @@ Verbessern Sie Ihre Integration, indem Sie weitere Shopify-Events und -Attribute
 
 ### 4. Schritt: Historisches Backfill (optional) {#step-4-historical-backfill-optional}
 
-Durch die angepasste Einrichtung haben Sie die Möglichkeit, Ihre Shopify-Kund:innen und -Bestellungen aus den letzten 90 Tagen zu laden, bevor Sie Ihre Shopify-Integration verbinden. Um diesen initialen Datenladevorgang einzubeziehen, aktivieren Sie das Kontrollkästchen für die Option zum initialen Datenladen.
+Durch die angepasste Einrichtung können Sie optional denselben historischen Shopify-Datenladevorgang wie bei der [Standard-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup) einbeziehen: Bestell-Events der letzten 90 Tage und Nutzerprofile des letzten Jahres, jeweils ab dem Datum Ihrer Integrationsfertigstellung zurückgerechnet. Um diesen initialen Datenladevorgang einzubeziehen, aktivieren Sie das Kontrollkästchen für die Option zum initialen Datenladen.
 
 Wenn Sie das Backfill lieber später durchführen möchten, können Sie die Ersteinrichtung jetzt abschließen und zu einem späteren Zeitpunkt zu diesem Schritt zurückkehren.
 
 ![Abschnitt zum Einrichten des historischen Daten-Backfills.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-Diese Tabelle enthält die Daten, die initial über das Backfill geladen werden.
-
-| Von Braze empfohlene Events | Angepasste Shopify-Events | Braze-Standardattribute | Braze-Abo-Status |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Bestellung aufgegeben</li><li>Bestellung storniert</li><li>Bestellung erstattet</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail</li><li>Vorname</li><li>Nachname</li><li>Telefon</li><li>Ort</li><li>Land</li><li>Gesamtumsatz</li><li>Gesamterstattungen</li><li>Gesamtbestellungen</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li><li>SMS-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Die vollständige Liste der Daten im initialen Ladevorgang, das Verhalten der Umsatzberichte und die Überwachung der Synchronisierung finden Sie unter [Historisches Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### 5. Schritt: Angepasstes Daten-Tracking einrichten (erweitert) {#step-5-custom-data-tracking-setup-advanced}
 
@@ -669,10 +664,10 @@ Die nächsten Schritte hängen von Ihrer Auswahl der externen ID ab:<br><br>
 
 #### Schritt 6.1: Das Metafeld `braze.external_id` erstellen {#step-61-create-the-brazeexternalid-metafield}
 
-1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Einstellungen** > **Metafelder**.
-2. Wählen Sie **Kunden** > **Definition hinzufügen**.
-3. Geben Sie für **Namespace und Schlüssel** den Wert `braze.external_id` ein.
-4. Wählen Sie unter **Typ** den **ID-Typ** aus.
+1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Settings** > **Metafields**.
+2. Wählen Sie **Customers** > **Add definition**.
+3. Geben Sie für **Namespace and key** den Wert `braze.external_id` ein.
+4. Wählen Sie unter **Type** den **ID Type** aus.
 
 Nachdem das Metafeld erstellt wurde, befüllen Sie es für Ihre Kund:innen. Wir empfehlen die folgenden Ansätze:
 
@@ -762,7 +757,7 @@ Um In-App-Nachrichten, Content Cards und Feature-Flags über die direkte Shopify
 
 ### 9. Schritt: Einrichtung abschließen {#step-9-finish-setup}
 
-Nachdem Sie alle Schritte durchlaufen haben, wählen Sie **Einrichtung beenden**, um zur Partnerseite zurückzukehren. Aktivieren Sie dann die Braze-App-Einbettung auf Ihrer Shopify-Admin-Seite, wie durch das angezeigte Banner angezeigt.
+Nachdem Sie alle Schritte durchlaufen haben, wählen Sie **Finish Setup**, um zur Partnerseite zurückzukehren. Aktivieren Sie dann die Braze-App-Einbettung auf Ihrer Shopify-Admin-Seite, wie durch das angezeigte Banner angezeigt.
 
 ![Banner, das Sie auffordert, die Braze-App-Einbettung in Shopify zu aktivieren, damit Sie die Einrichtung Ihrer Integration abschließen können.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
 

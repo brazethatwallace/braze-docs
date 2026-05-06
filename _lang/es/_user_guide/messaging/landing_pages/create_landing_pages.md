@@ -49,7 +49,7 @@ Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a pe
 
 ![Un ejemplo de página de inicio creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila.
+El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia detallada de cada bloque y sus propiedades, consulta [Bloques del editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 ![La sección "Build" que contiene "Rows" y "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 

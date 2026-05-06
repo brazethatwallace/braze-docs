@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify 표준 통합 설정
-article_title: "Shopify 표준 통합 설정"
+article_title: Shopify 표준 통합 설정
 description: "이 참조 문서에서는 표준 Shopify 통합을 설정하는 방법을 설명합니다."
 page_type: partner
 search_tag: Partner
@@ -70,24 +70,9 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 
 ### 과거 데이터 백필 설정 {#historical-backfill-setup}
 
-표준 설정을 통해 과거 데이터 백필을 활성화하여 이전 고객을 타겟팅할 수 있습니다. 이 기능은 지난 90일간의 Shopify 주문과 지난 1년간의 고객 프로필을 가져옵니다. 두 기간 모두 통합을 완료한 날짜부터 역산됩니다. 이를 위해 통합의 일부로 초기 데이터 로드를 포함하는 체크박스를 선택하세요.
+**Track Shopify data** 단계에서 통합의 일부로 초기 과거 데이터 로드를 포함하려면 체크박스를 선택합니다.
 
-{% alert note %}
-과거 백필 데이터는 매출 보고에 포함되지 않습니다. 백필된 주문 완료 이벤트는 세분화에만 사용할 수 있습니다.
-{% endalert %}
-
-![과거 데이터 백필 토글.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-이 표에는 백필을 통해 초기 로드되는 데이터가 포함되어 있습니다.
-
-| Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 구독 상태 |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어와 연결된 이메일 마케팅 구독</li><li>이 Shopify 스토어와 연결된 SMS 마케팅 구독</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-활성 Campaigns 또는 Canvases가 있는 기존 Braze 고객인 경우 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
-{% endalert %}
+가져오는 항목, 매출 보고 동작, 설정 스크린샷, 그리고 활성 Campaigns 또는 Canvases와 함께 이미 Braze를 사용하고 있는 경우의 안내는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
 
 ### (고급) 커스텀 데이터 추적 설정 {#advanced-custom-data-tracking-setup}
 
@@ -145,7 +130,7 @@ braze.logCustomEvent(
 
 이벤트 또는 커스텀 속성을 기록하려면 사용자의 기기에서 SDK가 초기화(활동 수신 대기)되어 있어야 합니다. 커스텀 데이터 기록에 대해 자세히 알아보려면 [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) 및 [logCustomEvent object](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)를 참조하세요.
 
-## 4단계: 사용자 관리 방법 구성하기 {#step-4}
+## 4단계: 사용자 관리 방법 구성 {#step-4}
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 

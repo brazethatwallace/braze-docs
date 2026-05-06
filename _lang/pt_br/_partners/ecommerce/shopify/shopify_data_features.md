@@ -1,6 +1,6 @@
 ---
 nav_title: Recursos de dados da Shopify
-article_title: "Recursos de dados da Shopify"
+article_title: Recursos de dados da Shopify
 description: "Este artigo de referência aborda os recursos de dados da Shopify."
 page_type: partner
 search_tag: Partner
@@ -853,13 +853,17 @@ Para saber mais sobre quais dados são coletados pelos SDKs da Braze, consulte [
 
 ## Backfill histórico {#historical-backfill}
 
-Durante a integração da sua loja Shopify, você pode iniciar uma sincronização inicial de dados por meio do backfill histórico para começar a interagir com seus clientes imediatamente. Como parte desse backfill, a Braze executa uma sincronização inicial de todos os clientes e eventos de pedidos realizados nos últimos 90 dias antes da conexão da sua integração com a Shopify. Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
+> Os dados históricos da Shopify são importados de antes de você conectar a Braze — eventos de pedidos dos últimos 90 dias e dados de clientes do último ano. Ambos os períodos são contados a partir da data em que você concluiu a integração.
+
+Por meio da [configuração de integração padrão da Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) ou da [configuração de integração personalizada da Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), você pode ativar o backfill histórico para direcionar clientes anteriores. Isso importa seus pedidos da Shopify (eventos relacionados a pedidos) dos últimos 90 dias e perfis de usuário do último ano. Ambos os períodos são contados a partir da data em que você concluiu a integração.
+
+Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
 
 {% alert note %}
-Se você planeja integrar com um ID externo personalizado (seja na [integração padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) ou na [integração personalizada]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), será necessário adicionar seu ID externo personalizado como um metacampo de cliente da Shopify a todos os perfis de clientes existentes da Shopify e, em seguida, realizar o backfill histórico.
+Se você já é cliente da Braze com Campaigns ou Canvas ativos, revise como os clientes importados e os eventos de pedidos afetam seus segmentos e jornadas antes de ativar o backfill histórico.
 {% endalert %}
 
-Os dados de eventos de pedidos sincronizados ficam disponíveis para segmentação, mas os dados de receita em si não são preenchidos no perfil de usuário nem no dashboard [Receita – Atribuição de último ponto de contato]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution).
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 ### Configuração do backfill histórico da Shopify {#setting-up-shopify-historical-backfill}
 
@@ -875,4 +879,11 @@ Os dados de eventos de pedidos sincronizados ficam disponíveis para segmentaç�
 
 ### Dados sincronizados {#synced-data}
 
-Na sincronização inicial de dados, a Braze importa os clientes e os pedidos realizados nos últimos 90 dias antes da conexão da sua integração com a Shopify. Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
+Na sincronização inicial de dados, a Braze importa eventos de pedidos dos últimos 90 dias e perfis de usuário do último ano, cada um contado a partir da data em que você concluiu a integração. Quando a Braze importa seus clientes da Shopify, ela atribui o tipo de `external_id` que você escolheu nas suas configurações.
+
+A tabela a seguir resume os dados incluídos nessa carga inicial.
+
+| Eventos recomendados da Braze | Eventos personalizados da Shopify | Atributos padrão da Braze | Status de inscrição da Braze |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Pedido realizado</li><li>Pedido cancelado</li><li>Pedido reembolsado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Nome</li><li>Sobrenome</li><li>Telefone</li><li>Cidade</li><li>País</li><li>Receita total</li><li>Reembolsos totais</li><li>Pedidos totais</li></ul>{:/} | {::nomarkdown}<ul><li>Inscrições de marketing por e-mail associadas a esta loja Shopify</li><li>Inscrições de marketing por SMS associadas a esta loja Shopify</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}

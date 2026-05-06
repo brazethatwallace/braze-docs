@@ -8,7 +8,7 @@
 
 ​​모델 컨텍스트 프로토콜 또는 MCP는 AI 에이전트가 다른 플랫폼의 데이터에 연결하고 작업할 수 있도록 하는 표준입니다. 주요 두 가지 부분이 있습니다:
 
-- **MCP 클라이언트:** AI 에이전트가 실행되는 애플리케이션, 예를 들어 Cursor 또는 Claude입니다.
+- **MCP 클라이언트:** AI 에이전트가 실행되는 애플리케이션으로, Cursor 또는 Claude 등이 있습니다.
 - **MCP 서버:** Braze와 같은 다른 플랫폼에서 제공하는 서비스로, AI가 사용할 수 있는 도구와 접근할 수 있는 데이터를 정의합니다.
 
 ## Braze MCP 서버에 대한 정보 {#about-the-braze-mcp-server}
@@ -25,9 +25,9 @@ Braze MCP 서버는 Braze 고객 프로필에서 데이터를 반환하지 않�
 에이전트에 부여하려는 API 키 권한만 할당하세요. 에이전트가 Braze에서 변경을 수행하지 않기를 원한다면 쓰기 권한을 비활성화 상태로 두세요. 에이전트는 부여된 모든 권한을 통해 데이터를 쓰려고 시도할 수 있습니다.
 {% endalert %}
 
-## 사용 예 {#usage-example}
+## 사용 예시 {#usage-example}
 
-Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호작용할 수 있습니다. 다른 예제와 모범 사례는 [Braze MCP 서버 사용하기]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}를 참조하세요.
+Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호작용할 수 있습니다. 다른 예시와 모범 사례는 [Braze MCP 서버 사용하기]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}를 참조하세요.
 
 {% tabs %}
 {% tab Claude %}
@@ -43,7 +43,7 @@ Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호�
 
 ### 어떤 MCP 클라이언트가 지원되나요? {#which-mcp-clients-are-supported}
 
-오직 [Claude](https://claude.ai/)와 [Cursor](https://cursor.com/)만 공식적으로 지원됩니다. Braze MCP 서버를 사용하려면 이 클라이언트 중 하나에 대한 계정이 있어야 합니다.
+[Claude](https://claude.ai/)와 [Cursor](https://cursor.com/)만 공식적으로 지원됩니다. Braze MCP 서버를 사용하려면 이 클라이언트 중 하나의 계정이 있어야 합니다.
 
 ### 내 MCP 클라이언트가 어떤 Braze 데이터에 접근할 수 있나요? {#what-braze-data-can-my-mcp-client-access}
 
@@ -61,7 +61,7 @@ Braze 데이터에 대해 서드파티 MCP 서버를 사용하는 것은 권장�
 
 유용한 사용 사례를 지원하면서 사용자 데이터를 보호하기 위해, 서버는 일반적으로 PII를 반환하지 않는 엔드포인트로 제한됩니다. 이를 통해 워크스페이스와 그 안의 사용자에 대한 위험을 줄입니다.
 
-### 내 API 키를 재사용할 수 있나요? {#can-i-reuse-my-api-keys}
+### API 키를 재사용할 수 있나요? {#can-i-reuse-my-api-keys}
 
 아니요. MCP 클라이언트를 위해 새로운 API 키를 생성해야 합니다. AI 도구에는 자신이 편안하게 느끼는 수준의 접근 권한만 부여하고, 과도한 권한은 피하세요.
 

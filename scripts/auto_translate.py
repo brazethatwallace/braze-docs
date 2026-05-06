@@ -5444,6 +5444,84 @@ _DUPLICATE_ADJACENT_EXPLICIT_ANCHOR_RE = re.compile(
 )
 
 
+_TRANSACTIONAL_EMAIL_FREQ_CAP_FRAGMENT = (
+    "{{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/"
+)
+_SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR = "{#show-data-by-entire-campaign-or-canvas}"
+
+
+def repair_frequency_capping_transactional_outer_paren(
+    translated_path, translated_content,
+):
+    """Restore a missing outer ``)`` after the transactional-email link bullet.
+
+    English wraps the link in parentheses ending in ``…/))`` (link ``)`` plus
+    parenthetical ``)``). Some locales drop the final ``)``, leaving
+    ``…email/)`` at EOL and breaking the list (Cursor Bugbot / auto-translate
+    PR #13514).
+    """
+    rel = str(translated_path).replace("\\", "/")
+    if "/messaging/messaging_fundamentals/frequency_capping.md" not in rel:
+        return translated_content, []
+    needle = _TRANSACTIONAL_EMAIL_FREQ_CAP_FRAGMENT
+    changed = False
+    out_parts = []
+    for line in translated_content.splitlines(keepends=True):
+        core = line.rstrip("\r\n")
+        sep = line[len(core):]
+        s = core.rstrip()
+        if needle in core and s.endswith("/)"):
+            core = s + ")" + core[len(s):]
+            changed = True
+        out_parts.append(core + sep)
+    if not changed:
+        return translated_content, []
+    return "".join(out_parts), [
+        "md_paren — added missing ) after transactional email link in "
+        "frequency_capping (PR #13514)"
+    ]
+
+
+def repair_duplicate_engagement_show_data_sections(
+    translated_path, translated_content,
+):
+    """Remove a duplicated ``##### … {#show-data-by-entire-campaign-or-canvas}`` block.
+
+    Auto-translation sometimes pasted the same subsection twice with the same
+    explicit Kramdown ID, duplicating HTML anchors (Cursor Bugbot /
+    auto-translate PR #13514).
+    """
+    rel = str(translated_path).replace("\\", "/")
+    if "analytics/reports/engagement_reports.md" not in rel:
+        return translated_content, []
+    if translated_content.count(_SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR) < 2:
+        return translated_content, []
+
+    repairs = []
+    content = translated_content
+    while True:
+        lines = content.splitlines(keepends=True)
+        idxs = [
+            i for i, L in enumerate(lines)
+            if _SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR in L
+            and re.match(r"^#{5}\s", L)
+        ]
+        if len(idxs) < 2:
+            break
+        i0, i1 = idxs[0], idxs[1]
+        if lines[i0].strip() != lines[i1].strip():
+            break
+        content = "".join(lines[:i0] + lines[i1:])
+        repairs.append(
+            "dedupe — removed duplicate «Show data by entire campaign» subsection "
+            "(PR #13514)"
+        )
+
+    if not repairs:
+        return translated_content, []
+    return content, repairs
+
+
 def repair_duplicate_adjacent_explicit_heading_anchors(translated_content):
     """Collapse repeated identical ``{#id}`` tokens on the same markdown heading.
 
@@ -6136,6 +6214,20 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
     )
     findings["repairs"].extend(dup_anchor_repairs)
+
+    translated_content, fc_paren_repairs = (
+        repair_frequency_capping_transactional_outer_paren(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(fc_paren_repairs)
+
+    translated_content, eng_show_repairs = (
+        repair_duplicate_engagement_show_data_sections(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(eng_show_repairs)
 
     translated_content, unused_tr_id_repairs = (
         repair_unreferenced_explicit_heading_ids_when_english_has_none(

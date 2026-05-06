@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify標準統合セットアップ
-article_title: "Shopify標準統合セットアップ"
+article_title: Shopify標準統合セットアップ
 description: "このリファレンス記事では、標準のShopify統合を設定する方法について説明します。"
 page_type: partner
 search_tag: Partner
@@ -70,24 +70,9 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 ### 履歴バックフィルの設定 {#historical-backfill-setup}
 
-標準設定では、履歴バックフィルを有効にして過去の顧客をターゲットにできます。これにより、過去90日間のShopify注文と過去1年間の顧客プロファイルがインポートされます。どちらの期間も、統合を完了した日から遡って計算されます。これを行うには、統合の一部として初期データ読み込みを含めるチェックボックスを選択します。
+**Track Shopify data** ステップで、統合の一部として初期履歴データの読み込みを含めるチェックボックスを選択します。
 
-{% alert note %}
-履歴バックフィルデータは収益レポートには含まれません。バックフィルされた注文完了イベントは、セグメンテーションにのみ使用できます。
-{% endalert %}
-
-![履歴データのバックフィルの切り替え。]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-この表には、バックフィルによって最初に読み込まれるデータが含まれています。
-
-| Brazeおすすめイベント | Shopifyカスタムイベント | Braze標準属性項目 | Brazeサブスクリプションステータス |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>注文完了</li><li>注文キャンセル</li><li>注文返金</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>メール</li><li>名</li><li>姓</li><li>電話</li><li>市区町村</li><li>国</li><li>合計収益</li><li>合計返金</li><li>合計注文数</li></ul>{:/} | {::nomarkdown}<ul><li>このShopifyストアに関連付けられたメールマーケティングサブスクリプション</li><li>このShopifyストアに関連付けられたSMSマーケティングサブスクリプション</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-アクティブなCampaignsまたはCanvasesを持つ既存のBrazeユーザーの場合は、[Shopifyデータ機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照して詳細を確認してください。
-{% endalert %}
+インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなCampaignsやCanvasesで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
 
 ### （詳細）カスタムデータトラッキング設定 {#advanced-custom-data-tracking-setup}
 
@@ -189,11 +174,11 @@ Brazeが呼び出してexternal IDを取得できる公開エンドポイント�
 
 Brazeは、次のパラメーターをエンドポイントに送信します。
 
-| パラメーター            | 必須 | データタイプ | 説明                                                      |
-|----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | はい      | 文字列    | Shopify顧客ID。                                         |
-| shopify_storefront   | はい      | 文字列    | リクエストのストアフロント名。例: `<storefront_name>.myshopify.com` |
-| email_address        | いいえ       | 文字列    | ログインユーザーのメールアドレス。<br><br>このフィールドは、特定のwebhookシナリオでは欠落している場合があります。エンドポイントロジックでは、ここでのnull値を考慮する必要があります（たとえば、内部ロジックで必要な場合は、shopify_customer_idを使用してメールを取得します）。 |
+| パラメーター | 必須 | データタイプ | 説明 |
+|---|---|---|---|
+| shopify_customer_id | はい | 文字列 | Shopify顧客ID。 |
+| shopify_storefront | はい | 文字列 | リクエストのストアフロント名。例: `<storefront_name>.myshopify.com` |
+| email_address | いいえ | 文字列 | ログインユーザーのメールアドレス。<br><br>このフィールドは、特定のwebhookシナリオでは欠落している場合があります。エンドポイントロジックでは、ここでのnull値を考慮する必要があります（たとえば、内部ロジックで必要な場合は、shopify_customer_idを使用してメールを取得します）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 #### サンプルエンドポイント {#example-endpoint}
@@ -240,7 +225,7 @@ ShopifyからメールまたはSMSマーケティングのオプトインを収�
 
 {% alert note %}
 [Shopify概要]({{site.baseurl}}/shopify_overview/)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメールサブスクリプションステータスをキャプチャできます。具体的には、`theme.liquid`ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): ユーザープロファイルのメールアドレスを設定します
+- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): ユーザープロファイルにメールアドレスを設定します
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): グローバルメールサブスクリプションステータスを更新します
 {% endalert %}
 

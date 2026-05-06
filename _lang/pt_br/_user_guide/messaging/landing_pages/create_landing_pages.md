@@ -49,7 +49,7 @@ Se ainda não fez isso, selecione **Salvar como rascunho**. Para começar a pers
 
 ![Um exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha.
+O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência dedicada de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 ![A seção "Build" contendo "Rows" e "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -158,7 +158,7 @@ Quando estiver pronto, selecione **Publish Landing Page**.
 
 ## Usando modelos {#using-templates}
 
-Use modelos de landing page para criar templates para suas próximas campanhas. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
+Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
 
 ## Gerenciando modelos {#managing-templates}
 

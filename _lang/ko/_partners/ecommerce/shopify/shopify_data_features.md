@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify 데이터 기능
-article_title: "Shopify 데이터 기능"
+article_title: Shopify 데이터 기능
 description: "이 참조 문서에서는 Shopify 데이터 기능을 다룹니다."
 page_type: partner
 search_tag: Partner
@@ -853,17 +853,21 @@ Braze SDK가 수집하는 데이터에 대한 자세한 내용은 [SDK 데이터
 
 ## 과거 데이터 백필 {#historical-backfill}
 
-Shopify 스토어 온보딩 중에 과거 데이터 백필을 통해 초기 데이터 동기화를 시작하여 고객과 즉시 소통할 수 있습니다. 이 백필의 일환으로 Braze는 Shopify 통합 연결 이전 최근 90일간의 모든 고객 및 주문 완료 이벤트에 대한 초기 데이터 동기화를 실행합니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
+> 과거 Shopify 데이터는 Braze를 연결하기 전에 가져옵니다. 지난 90일간의 주문 이벤트와 지난 1년간의 고객 데이터가 포함됩니다. 두 기간 모두 통합을 완료한 날짜를 기준으로 역산됩니다.
+
+[Shopify 표준 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) 또는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)을 통해 과거 데이터 백필을 활성화하여 이전 고객을 타겟팅할 수 있습니다. 이를 통해 지난 90일간의 Shopify 주문(주문 관련 이벤트)과 지난 1년간의 고객 프로필을 가져옵니다. 두 기간 모두 통합을 완료한 날짜를 기준으로 역산됩니다.
+
+Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
 
 {% alert note %}
-커스텀 외부 ID로 통합할 계획인 경우([표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) 또는 [커스텀 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional) 모두 해당), 모든 기존 Shopify 고객 프로필에 커스텀 외부 ID를 Shopify 고객 메타필드로 추가한 후 과거 데이터 백필을 수행해야 합니다.
+활성 Campaigns 또는 Canvases가 있는 기존 Braze 고객인 경우, 과거 데이터 백필을 활성화하기 전에 가져온 고객과 주문 이벤트가 세그먼트 및 여정에 미치는 영향을 검토하세요.
 {% endalert %}
 
-동기화된 주문 이벤트 데이터는 세분화에 사용할 수 있지만, 매출 데이터 자체는 고객 프로필이나 [매출 - 라스트 터치 기여도 대시보드]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution)에 채워지지 않습니다.
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 ### Shopify 과거 데이터 백필 설정 {#setting-up-shopify-historical-backfill}
 
-1. **Shopify 데이터 추적** 단계에서 과거 데이터 백필을 켭니다.
+1. **Track Shopify data** 단계에서 과거 데이터 백필을 켭니다.
 
 ![과거 데이터 백필이 선택된 Shopify 통합의 'Shopify 데이터 추적' 단계.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
 
@@ -875,4 +879,11 @@ Shopify 스토어 온보딩 중에 과거 데이터 백필을 통해 초기 데�
 
 ### 동기화된 데이터 {#synced-data}
 
-초기 데이터 동기화에서 Braze는 Shopify 통합 연결 이전 최근 90일간의 고객 및 주문 완료 데이터를 가져옵니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
+초기 데이터 동기화에서 Braze는 지난 90일간의 주문 이벤트와 지난 1년간의 고객 프로필을 가져오며, 각각 통합을 완료한 날짜를 기준으로 역산됩니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
+
+다음 표는 초기 로드에 포함되는 데이터를 요약합니다.
+
+| Braze 추천 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 구독 상태 |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어와 연결된 이메일 마케팅 구독</li><li>이 Shopify 스토어와 연결된 SMS 마케팅 구독</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}

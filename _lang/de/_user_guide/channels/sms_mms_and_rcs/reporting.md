@@ -52,6 +52,16 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 Dies gibt Nutzer:innen zurück, die sich von SMS-Kommunikation für den angegebenen Workspace und die Abo-Gruppe abgemeldet haben, gefiltert nach denjenigen, die mit Campaigns oder Canvases verknüpft sind.
 
+### Opt-out-Zeitpunkt {#opt-out-timing}
+
+Keyword- und Eingangs-Nachrichten-Ereignisse in Currents oder Ihrem Data Warehouse, wie z. B. Zeitstempel auf [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) oder Abo-Gruppen-Statusänderungs-Ereignisse, sind die maßgebliche Quelle dafür, wann Braze das Opt-out erfasst hat.
+
+{% alert note %}
+Ereignis-Zeitstempel geben an, wann Braze die eingehende Nachricht empfangen oder verarbeitet hat, nicht unbedingt, wann die Nutzer:in die SMS gesendet hat oder wann ein Carrier oder SMS-Anbieter sie empfangen hat. Wenn Ihre Analyse Opt-outs als den Zeitpunkt behandelt, an dem Braze den eingehenden Opt-out-Pfad verarbeitet hat, stimmen diese Zeitstempel mit dieser Definition überein.
+{% endalert %}
+
+Das Nutzerprofil zeigt den aktuellen Abo-Status an, enthält aber möglicherweise kein einzelnes Feld „SMS abgemeldet am“, es sei denn, Sie setzen ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) oder Ähnliches bei der Verarbeitung von Opt-outs.
+
 ## Gebühren für SMS-Sendeergebnisse {#charges-applied-to-sms-sending-outcomes}
 
 Diese Tabelle spiegelt die Braze-Abrechnung wider, nicht die Abrechnung Ihres Anbieters. Ergebnisse, die von Braze nicht berechnet werden, können von Ihrem Anbieter berechnet werden.

@@ -52,6 +52,16 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 Cette requête renvoie les utilisateurs qui se sont désabonnés des communications SMS pour l'espace de travail et le groupe d'abonnement donnés, filtrés pour ne retenir que ceux associés à des campagnes ou des Canvas.
 
+### Moment du désabonnement {#opt-out-timing}
+
+Les événements de mots-clés et de messages entrants dans Currents ou votre entrepôt de données, tels que les horodatages sur [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) ou les événements de changement d'état du groupe d'abonnement, constituent la source de référence pour savoir quand Braze a enregistré le désabonnement.
+
+{% alert note %}
+Les horodatages des événements reflètent le moment où Braze a reçu ou traité le message entrant, et pas nécessairement le moment où l'utilisateur a envoyé le SMS ou celui où un opérateur ou un fournisseur SMS l'a reçu. Si votre analyse considère les désabonnements comme le moment où Braze a traité le parcours de désabonnement entrant, ces horodatages correspondent à cette définition.
+{% endalert %}
+
+Le profil utilisateur affiche l'état d'abonnement actuel, mais ne fait pas nécessairement apparaître un champ unique « SMS désabonné le » à moins que vous ne définissiez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) ou un mécanisme similaire lors du traitement des désabonnements.
+
 ## Frais appliqués aux résultats d'envoi SMS {#charges-applied-to-sms-sending-outcomes}
 
 Ce tableau reflète la facturation de Braze, et non celle de votre fournisseur. Les résultats non facturés par Braze peuvent être facturés par votre fournisseur.

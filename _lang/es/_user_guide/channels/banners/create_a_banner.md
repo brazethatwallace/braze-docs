@@ -65,7 +65,7 @@ Para redactar tu banner, puedes elegir:
 
 #### Paso 3.1: Dar estilo al banner {#step-31-style-the-banner}
 
-Puedes arrastrar y soltar bloques y filas en el área del lienzo para empezar a construir tu mensaje.
+Puedes arrastrar y soltar bloques y filas en el área del lienzo para empezar a construir tu mensaje. Para una referencia de los bloques del editor de banners y enlaces a detalles de propiedades compartidas, consulta [Bloques del editor (banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

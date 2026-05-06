@@ -2,7 +2,7 @@
 nav_title: E-Mail-Registrierung mit Bestätigung
 article_title: E-Mail-Registrierung mit Bestätigungsseite
 alias: "/email_confirmation_page/"
-page_order: 6
+page_order: 7
 description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um ein E-Mail-Registrierungsformular mit einer Bestätigungsseite zu erstellen."
 ---
 
@@ -48,6 +48,6 @@ Passen Sie das Erscheinungsbild Ihres E-Mail-Registrierungsformulars und Ihrer B
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 {% multi_lang_include drag_and_drop/templates.md section='email double opt-in' %}

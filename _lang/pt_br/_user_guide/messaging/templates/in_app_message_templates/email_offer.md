@@ -2,7 +2,7 @@
 nav_title: Cadastro de e-mail com oferta
 article_title: Cadastro de e-mail com oferta especial
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "Esta página explica como usar o editor de arrastar e soltar de mensagens no app para construir sua lista de e-mails oferecendo um desconto especial no cadastro."
 ---
 

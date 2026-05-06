@@ -88,7 +88,7 @@ Blöcke repräsentieren verschiedene Arten von Inhalten, die Sie in Ihrer Nachri
 
 ![Option zur Auswahl von Blöcken, einschließlich Titel, Absatz, Button, Bild und Abstandshalter.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung des Paddings. Das rechte Panel wechselt automatisch zu einem Styling-Panel für das ausgewählte Inhaltselement. Weitere Informationen finden Sie unter [Editor-Block-Eigenschaften]({{site.baseurl}}/dnd/editor_blocks/).
+Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung des Paddings. Das rechte Panel wechselt automatisch zu einem Styling-Panel für das ausgewählte Inhaltselement. Weitere Informationen finden Sie unter [Editor-Blöcke (Präferenzzentrum)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
 
 Wenn Sie den Custom-Code-Block in Ihrem Präferenzzentrum verwenden, werden Inline-Frames möglicherweise nicht im benutzerdefinierten Code generiert, wenn er an Ihre Nutzer:innen zugestellt wird.
 

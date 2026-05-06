@@ -16,10 +16,9 @@ alias: /creating-agents/
 
 - 워크스페이스에서 **에이전트 콘솔**에 접근할 수 있는 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions). 이 옵션이 보이지 않으면 Braze 관리자에게 확인하세요.
 - 커스텀 AI 에이전트를 생성하고 편집할 수 있는 권한.
-- Braze와 통합된 [AI 모델 제공업체]({{site.baseurl}}/partners/ai_model_providers/).
 - 에이전트가 달성하기를 원하는 목표에 대한 아이디어. Braze 에이전트는 다음과 같은 동작을 지원할 수 있습니다:
-   - **메시징:** 제목란, 헤드라인, 제품 내 카피 또는 기타 콘텐츠를 생성합니다.
-   - **의사결정:** 동작, 선호도 또는 커스텀 속성에 따라 Canvas에서 사용자를 라우팅합니다.
+   - **개인화된 메시징:** 제목란, 헤드라인, 제품 내 카피 또는 기타 콘텐츠를 생성합니다.
+   - **사용자 라우팅:** 동작, 선호도 또는 커스텀 속성에 따라 Canvas에서 사용자를 라우팅합니다.
    - **데이터 관리:** 값을 계산하고, 카탈로그 항목을 보강하거나, 프로필 필드를 새로고침합니다.
 
 ## 작동 방식 {#how-it-works}
@@ -31,7 +30,7 @@ alias: /creating-agents/
 | 활용 사례 | 설명 |
 | --- | --- |
 | 고객 피드백 처리 | 사용자 피드백을 에이전트에 전달하여 감정을 분석하고 공감하는 후속 메시지를 생성합니다. 고가치 사용자의 경우 에이전트가 응답을 에스컬레이션하거나 특전을 포함할 수 있습니다. |
-| 콘텐츠 현지화 | 글로벌 Campaigns을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaigns을 위해 설명을 줄일 수 있습니다. |
+| 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적과 같은 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -61,7 +60,7 @@ alias: /creating-agents/
 
 에이전트에게 지침을 제공합니다. 예기치 않거나 모호한 시나리오에서 에이전트가 수행해야 할 작업에 대한 지침을 포함하는 것이 좋습니다. 이렇게 하면 에이전트의 혼란으로 인한 오류 위험을 최소화할 수 있습니다. 예를 들어, 에이전트에게 "긍정적" 또는 "부정적" 감정 값만 요청하는 대신, 결정할 수 없는 경우 "확신 없음"을 반환하도록 요청하세요.
 
-모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)를 참조하세요.
+모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples)를 참조하세요.
 
 {% alert tip %}
 Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스텀 속성)을 참조하기 위해 지침에서 Liquid를 사용할 수 있습니다. 에이전트 지침의 모든 Liquid 변수는 사용자가 해당 단계에 진입할 때 자동으로 에이전트 단계로 전달됩니다.

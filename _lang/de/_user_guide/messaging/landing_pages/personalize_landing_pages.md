@@ -50,6 +50,68 @@ Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für a
 - **Identifizierte Nutzer:innen:** Verlinken Sie die Landing-Page aus einer Braze-Nachricht und fügen Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags) hinzu. Dadurch wird die Person mit ihrem Braze-Profil verknüpft und das Seitenerlebnis personalisiert.
 - **Anonyme Besucher:innen:** Verwenden Sie Liquid für kontextuelle, nicht profilbasierte Inhalte, wie z. B. eine Zufallszahl oder eine tageszeitabhängige Begrüßung.
 
+## Externe Daten mit benutzerdefiniertem Code abrufen {#fetching-external-data-with-custom-code}
+
+Sie können einen **Custom-Code**-Block verwenden, um Daten von externen Endpunkten abzurufen und auf Ihrer Landing-Page anzuzeigen. Dieser Ansatz führt die Anfrage clientseitig (im Browser der Nutzer:innen) aus, sodass die Seite schnell geladen wird, ohne serverseitige Rendering-Verzögerungen.
+
+{% alert warning %}
+Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden, siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+{% endalert %}
+
+### Anwendungsfall {#use-case}
+
+Dieses Muster ist nützlich, wenn Sie nutzerspezifische Daten anzeigen müssen, die nicht in Braze gespeichert sind. Beispiele hierfür sind Realtime-Bestandsdaten, personalisierte Empfehlungen oder andere Daten, die Ihre Organisation in separaten Systemen verwaltet.
+
+### Beispielimplementierung {#example-implementation}
+
+Dieses Beispiel zeigt, wie Sie Nutzerdaten von einer externen API abrufen. Ersetzen Sie den API-Endpunkt durch Ihren eigenen sicheren Endpunkt und verwenden Sie einen sicheren Bezeichner.
+
+{% raw %}
+```html
+<script>
+window.onload = () => {
+  // Use Liquid to template the user's external ID
+  const userId = "{{${user_id}}}";
+
+  const loadUserData = async () => {
+    try {
+      // Replace with your own secure API endpoint
+      const response = await fetch(`https://your-api.example.com/user/${userId}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to load data');
+      }
+
+      const data = await response.json();
+
+      // Update the page with the fetched data
+      document.querySelector("#user-data").textContent = JSON.stringify(data, null, 2);
+      document.querySelector("#user-name").textContent = data.name || "User";
+    } catch (error) {
+      // Handle errors gracefully
+      document.querySelector("#user-data").textContent = "Unable to load data at this time.";
+    }
+  };
+
+  loadUserData();
+};
+</script>
+
+<!-- Display area for fetched data -->
+<p>Welcome, <span id="user-name">Loading...</span></p>
+<pre id="user-data">Loading your information...</pre>
+```
+{% endraw %}
+
+### Hinweise {#considerations}
+
+Beim Abrufen externer Daten in Landing-Pages:
+
+- **Ladezustände:** Nutzer:innen sehen Platzhaltertext, bis der Endpunkt antwortet. Erwägen Sie, einen Ladeindikator oder ein Skeleton-Screen hinzuzufügen.
+- **Fehlerbehandlung:** Wenn der Endpunkt fehlschlägt oder langsam antwortet, kann die Seite fehlerhaft erscheinen. Implementieren Sie geeignete Fehlermeldungen und Fallbacks.
+- **Performance:** Die Seite wird sofort geladen, aber die Daten erscheinen erst, nachdem die externe Anfrage abgeschlossen ist. Halten Sie Ihre API-Antworten schnell für das beste Nutzererlebnis.
+- **Sicherheit:** Stellen Sie sicher, dass Ihr API-Endpunkt den Bezeichner validiert und nur Daten zurückgibt, die die Person sehen darf. Implementieren Sie Rate-Limiting, um Missbrauch zu verhindern. Hinweise zur Wahl sicherer Bezeichner finden Sie unter [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+
 ## Fallback-Seiten {#fallback-pages}
 
 Wenn Ihre Nutzer:innen versuchen, auf eine Seite zuzugreifen, die zurückgezogen wurde, sehen sie eine Meldung, dass die Seite derzeit nicht geladen werden kann. Gründe für das Zurückziehen einer Seite sind unter anderem:

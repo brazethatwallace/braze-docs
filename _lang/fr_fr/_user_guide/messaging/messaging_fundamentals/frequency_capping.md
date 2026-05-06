@@ -51,10 +51,10 @@ L'ajout de ce filtre à tous les segments ciblés par des campagnes ferait en so
 
 ![Résumé de l'audience avec une case cochée pour limiter le nombre de personnes qui reçoivent la campagne.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
-En sélectionnant la limite maximale d'utilisateurs, vous pouvez limiter le volume de messages envoyés par canal ou globalement pour tous les types de messages.
+En sélectionnant la limite maximale d'utilisateurs, vous pouvez limiter le volume de messages envoyés par canal ou globalement pour tous les types de messages. Braze n'envoie pas de messages aux utilisateurs affectés aux groupes de contrôle, ils ne comptent donc pas dans la limite.
 
 {% alert note %}
-Le plafond maximum d'utilisateurs limite le nombre d'utilisateurs envoyés, pas le nombre de messages envoyés avec succès. Comme les messages abandonnés comptent dans ce plafond, le nombre réel de messages envoyés peut être inférieur à la limite configurée. Par exemple, si vous définissez un plafond de 10 000 et que 2 000 messages sont abandonnés en raison de la logique Liquid ou d'autres conditions, seuls 8 000 messages sont envoyés.
+Le plafond maximum d'utilisateurs limite le nombre d'utilisateurs ciblés, pas le nombre de messages envoyés avec succès. Comme les messages abandonnés comptent dans ce plafond, le nombre réel de messages envoyés peut être inférieur à la limite configurée. Par exemple, si vous définissez un plafond de 10 000 et que 2 000 messages sont abandonnés en raison de la logique Liquid ou d'autres conditions, seuls 8 000 messages sont envoyés.
 {% endalert %}
 
 ##### Plafond maximum d'utilisateurs avec optimisations {#maximum-user-cap-with-optimizations}
@@ -301,7 +301,7 @@ Considérez les campagnes et la règle de limite de fréquence par étiquette su
 
 | Action | Résultat |
 |---|---|
-| L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B ne soit envoyée.** | Votre utilisateur reçoit **Campaign B**. |
+| L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B** ne soit envoyée. | Votre utilisateur reçoit **Campaign B**. |
 | L'étiquette `promotional` est supprimée par erreur de **Campaign A** après que votre utilisateur a reçu le message. <br> L'étiquette est rajoutée à **Campaign A** le mardi, avant que **Campaign B** ne soit envoyée. | Votre utilisateur ne reçoit pas **Campaign B**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

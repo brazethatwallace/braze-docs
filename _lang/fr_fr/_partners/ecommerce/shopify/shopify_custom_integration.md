@@ -1,6 +1,6 @@
 ---
 nav_title: Configuration de l'intégration personnalisée de Shopify
-article_title: "Configuration de l'intégration personnalisée de Shopify"
+article_title: Configuration de l'intégration personnalisée de Shopify
 description: "Cet article de référence explique comment se connecter à une boutique Shopify Hydrogen ou à n'importe quelle boutique Shopify headless en utilisant une vitrine personnalisée."
 page_type: partner
 search_tag: Partner
@@ -594,18 +594,13 @@ Enrichissez votre intégration en ajoutant davantage d'événements et d'attribu
 
 ### Étape 4 : Remplissage historique (facultatif) {#step-4-historical-backfill-optional}
 
-Grâce à la configuration personnalisée, vous avez la possibilité de charger vos clients et commandes Shopify des 90 derniers jours avant de connecter votre intégration Shopify. Pour inclure ce chargement initial de données, cochez la case correspondante.
+Grâce à la configuration personnalisée, vous pouvez optionnellement inclure le même chargement de données historiques Shopify que l'[intégration standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup) : les événements de commande des 90 derniers jours et les profils utilisateurs de l'année écoulée, chacun comptabilisé à partir de la date à laquelle vous finalisez votre intégration. Pour inclure ce chargement initial de données, cochez la case correspondante.
 
 Si vous préférez effectuer le remplissage plus tard, vous pouvez terminer la configuration initiale maintenant et revenir à cette étape ultérieurement.
 
 ![Section pour configurer le remplissage des données historiques.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-Ce tableau contient les données qui seront initialement chargées via le remplissage.
-
-| Événements recommandés par Braze | Événements personnalisés Shopify | Attributs standard de Braze | États d'abonnement Braze |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Commande passée</li><li>Commande annulée</li><li>Commande remboursée</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Prénom</li><li>Nom</li><li>Téléphone</li><li>Ville</li><li>Pays</li><li>Chiffre d'affaires total</li><li>Remboursements totaux</li><li>Total des commandes</li></ul>{:/} | {::nomarkdown}<ul><li>Abonnements au marketing par e-mail associés à cette boutique Shopify</li><li>Abonnements au marketing par SMS associés à cette boutique Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Pour la liste complète des données du chargement initial, le comportement du reporting des revenus et le suivi de la synchronisation, consultez [Remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### Étape 5 : Configuration personnalisée du suivi des données (avancée) {#step-5-custom-data-tracking-setup-advanced}
 

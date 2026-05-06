@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify Standard-Integration einrichten
-article_title: "Shopify Standard-Integration einrichten"
+article_title: Shopify Standard-Integration einrichten
 description: "In diesem Referenzartikel erfahren Sie, wie Sie die Standard-Shopify-Integration einrichten."
 page_type: partner
 search_tag: Partner
@@ -55,7 +55,7 @@ Nachdem Sie den Standard-Onboarding-Pfad ausgewählt haben, müssen Sie aus eine
 
 Jetzt wählen Sie die Shopify-Daten aus, die Sie tracken möchten.
 
-![Abschnitt „Tracking von Shopify-Daten“ mit einem Kontrollkästchen zum Tracking von Verhaltens-Events und Nutzer:innen-Attributen.]({% image_buster /assets/img/Shopify/tracking_shopify_data.png %})
+![Abschnitt „Tracking von Shopify-Daten“ mit einem Kontrollkästchen zum Tracking von Verhaltens-Events und Nutzerattributen.]({% image_buster /assets/img/Shopify/tracking_shopify_data.png %})
 
 Die folgenden Events werden in der Standardintegration standardmäßig aktiviert.
 
@@ -70,24 +70,9 @@ Weitere Informationen zu den Daten, die durch die Integration getrackt werden, f
 
 ### Historisches Backfill einrichten {#historical-backfill-setup}
 
-Bei der Standardeinrichtung können Sie das historische Backfill aktivieren, um vergangene Kund:innen anzusprechen. Dabei werden Ihre Shopify-Bestellungen der letzten 90 Tage und Kundenprofile des letzten Jahres importiert. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen. Wählen Sie dazu das Kontrollkästchen aus, um den anfänglichen Datenimport als Teil Ihrer Integration einzuschließen.
+Wählen Sie im Schritt **Track Shopify data** das Kontrollkästchen aus, um den anfänglichen historischen Datenimport als Teil Ihrer Integration einzuschließen.
 
-{% alert note %}
-Historisch nachgeladene Daten sind nicht in der Umsatzberichterstattung enthalten. Nachgeladene Events für aufgegebene Bestellungen stehen nur für die Segmentierung zur Verfügung.
-{% endalert %}
-
-![Umschalter für historisches Daten-Backfill.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-Diese Tabelle enthält die Daten, die anfänglich über das Backfill geladen werden.
-
-| Von Braze empfohlene Events | Angepasste Shopify-Events | Braze-Standardattribute | Braze-Abo-Status |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Bestellung aufgegeben</li><li>Bestellung storniert</li><li>Bestellung erstattet</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail</li><li>Vorname</li><li>Nachname</li><li>Telefon</li><li>Ort</li><li>Land</li><li>Gesamtumsatz</li><li>Gesamterstattungen</li><li>Gesamtbestellungen</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail-Marketing-Abos, die mit diesem Shopify-Shop verbunden sind</li><li>SMS-Marketing-Abos, die mit diesem Shopify-Shop verbunden sind</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-Wenn Sie bereits Braze nutzen und aktive Campaigns oder Canvases haben, lesen Sie die [Shopify-Daten-Features]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) für weitere Details.
-{% endalert %}
+Informationen zu den importierten Daten, zum Verhalten der Umsatzberichterstattung, zu Screenshots der Einrichtung und zur Vorgehensweise, wenn Sie Braze bereits mit aktiven Campaigns oder Canvases nutzen, finden Sie unter [Historisches Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### (Fortgeschritten) Angepasstes Daten-Tracking einrichten {#advanced-custom-data-tracking-setup}
 
@@ -166,7 +151,7 @@ Die nächsten Schritte hängen davon ab, welche externe ID Sie ausgewählt haben
 - **Wenn Sie Shopify-Kund:innen-ID, E-Mail oder gehashte E-Mail ausgewählt haben:** Überspringen Sie die Schritte 4.1–4.3 und fahren Sie direkt mit Schritt 4.4 fort.
 {% endalert %}
 
-### Schritt 4.1: Erstellen Sie das Metafeld `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
+### Schritt 4.1: Erstellen Sie das Metafeld `braze.external_id` {#step-41-create-the-brazeexternalid-metafield}
 
 1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Settings** > **Metafields and metaobjects**.
 2. Wählen Sie **Customers** > **Add definition**.

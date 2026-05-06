@@ -65,7 +65,7 @@ Um Ihr Banner zu verfassen, können Sie:
 
 #### Schritt 3.1: Banner gestalten {#step-31-style-the-banner}
 
-Sie können Blöcke und Zeilen per Drag-and-Drop in den Canvas-Bereich ziehen, um mit dem Erstellen Ihrer Nachricht zu beginnen.
+Sie können Blöcke und Zeilen per Drag-and-Drop in den Canvas-Bereich ziehen, um mit dem Erstellen Ihrer Nachricht zu beginnen. Eine Referenz der Banner-Editor-Blöcke und Links zu gemeinsamen Eigenschaftsdetails finden Sie unter [Editor-Blöcke (Banner)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

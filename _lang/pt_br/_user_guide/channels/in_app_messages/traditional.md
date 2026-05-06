@@ -38,8 +38,8 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique um delay conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
-4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após o delay, no momento em que as mensagens forem enviadas.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
+4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
 
@@ -276,7 +276,7 @@ O conteúdo da guia **Style** varia com base nas opções de mensagem escolhidas
 
 | Formatação | Entrada | Descrição |
 |---|---|---|
-| [Perfil de cor]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
+| [Perfil de cor]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
 | Alinhamento do texto | Esquerda, centro ou direita. | Disponível apenas para versões mais recentes do SDK da Braze. |
 | Cabeçalho | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
 | Texto | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
@@ -361,7 +361,7 @@ Para definir prioridades dentro desses agrupamentos, clique em **Set Exact Prior
 Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente um snapshot de como é a população aproximada desse Segment. Tenha em mente que a associação exata ao Segment é sempre calculada antes de a mensagem ser enviada.
 
 {% alert note %}
-Se houver um delay na etapa de mensagem no app, a associação ao Segment será avaliada após o delay. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
+Se houver uma postergação na etapa de mensagem no app, a associação ao Segment será avaliada após a postergação. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
 {% endalert %}
 
 ##### Reavaliar elegibilidade da campanha e Liquid {#re-evaluate-campaign-eligibility-and-liquid}
@@ -384,7 +384,7 @@ Não use essa opção para mensagens que podem ser disparadas enquanto o usuári
 
 Dados de usuário que o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) adiciona na mesma sessão podem, às vezes, ser usados na mensagem no app desse usuário. Por exemplo, se um usuário está no público de uma mensagem no app que está aguardando um gatilho, inicia uma sessão e, nessa mesma sessão, a REST API atualiza seu perfil, esses novos dados podem aparecer na mensagem no app quando **Re-evaluate campaign eligibility before displaying** estiver selecionado. A Braze não processará o template da mensagem no app até que seja hora de renderizá-la.
 
-Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com um delay agendado. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
+Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com uma postergação agendada. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 

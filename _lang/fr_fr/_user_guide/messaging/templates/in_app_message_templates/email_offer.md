@@ -2,7 +2,7 @@
 nav_title: Inscription par e-mail avec offre
 article_title: Inscription par e-mail avec offre spéciale
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "Cette page explique comment utiliser l'éditeur par glisser-déposer de messages in-app pour développer votre liste d'e-mails en proposant une remise spéciale à l'inscription."
 ---
 

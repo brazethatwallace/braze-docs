@@ -2,7 +2,7 @@
 nav_title: Registro de correo electrónico con oferta
 article_title: Registro de correo electrónico con oferta especial
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "Esta página explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para crear tu lista de correo electrónico ofreciendo un descuento especial en el registro."
 ---
 

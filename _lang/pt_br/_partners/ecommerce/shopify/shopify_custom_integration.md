@@ -1,6 +1,6 @@
 ---
 nav_title: Configuração de integração personalizada da Shopify
-article_title: "Configuração de integração personalizada da Shopify"
+article_title: Configuração de integração personalizada da Shopify
 description: "Este artigo de referência aborda como se conectar a uma loja Shopify Hydrogen ou a qualquer loja Shopify headless usando uma vitrine personalizada."
 page_type: partner
 search_tag: Partner
@@ -594,18 +594,13 @@ Aprimore sua integração adicionando mais eventos e atributos do Shopify, que s
 
 ### Etapa 4: Preenchimento histórico (opcional) {#step-4-historical-backfill-optional}
 
-Por meio da configuração personalizada, você tem a opção de carregar seus clientes e pedidos do Shopify dos últimos 90 dias antes de conectar sua integração com o Shopify. Para incluir esse carregamento inicial de dados, marque a caixa da opção de carregamento inicial de dados.
+Por meio da configuração personalizada, você tem a opção de incluir o mesmo carregamento de dados históricos do Shopify que a [integração padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup): eventos de pedidos dos últimos 90 dias e perfis de usuários do último ano, cada um contado a partir da data em que você concluir sua integração. Para incluir esse carregamento inicial de dados, marque a caixa da opção de carregamento inicial de dados.
 
 Se preferir realizar o preenchimento posteriormente, você pode concluir a configuração inicial agora e retornar a essa etapa mais tarde.
 
 ![Seção para configurar o backfill de dados históricos.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-Essa tabela contém os dados que serão carregados inicialmente por meio do backfill.
-
-| Eventos recomendados da Braze | Eventos personalizados do Shopify | Atributos padrão da Braze | Status das inscrições na Braze |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Pedido feito</li><li>Pedido cancelado</li><li>Pedido reembolsado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Nome</li><li>Sobrenome</li><li>Telefone</li><li>Cidade</li><li>País</li><li>Receita total</li><li>Total de reembolsos</li><li>Total de pedidos</li></ul>{:/} | {::nomarkdown}<ul><li>Inscrições de marketing por e-mail associadas a esta loja Shopify</li><li>Inscrições de marketing por SMS associadas a esta loja Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Para a lista completa de dados no carregamento inicial, comportamento de relatórios de receita e monitoramento da sincronização, consulte [Preenchimento histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### Etapa 5: Configuração de rastreamento de dados personalizado (avançado) {#step-5-custom-data-tracking-setup-advanced}
 
@@ -689,11 +684,11 @@ Você deve criar um endpoint público que a Braze possa chamar para recuperar o 
 
 A Braze envia os seguintes parâmetros para seu endpoint:
 
-| Parâmetro            | Obrigatória | Tipo de dados | Descrição                                                      |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Sim      | String    | O ID do cliente do Shopify.                                         |
-| shopify_storefront   | Sim      | String    | O nome da vitrine para a solicitação. Ex: `<storefront_name>.myshopify.com` |
-| email_address        | Não       | String    | O endereço de e-mail do usuário conectado. <br><br>Esse campo pode estar ausente em determinados cenários de webhook. A lógica do seu endpoint deve levar em conta valores nulos aqui (por exemplo, buscar o e-mail usando o shopify_customer_id se sua lógica interna exigir isso). |
+| shopify_customer_id | Sim | String | O ID do cliente do Shopify. |
+| shopify_storefront | Sim | String | O nome da vitrine para a solicitação. Ex: `<storefront_name>.myshopify.com` |
+| email_address | Não | String | O endereço de e-mail do usuário conectado. <br><br>Esse campo pode estar ausente em determinados cenários de webhook. A lógica do seu endpoint deve levar em conta valores nulos aqui (por exemplo, buscar o e-mail usando o shopify_customer_id se sua lógica interna exigir isso). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ##### Exemplo de endpoint {#example-endpoint}

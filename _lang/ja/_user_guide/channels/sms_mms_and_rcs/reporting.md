@@ -52,11 +52,21 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 これにより、指定されたワークスペースとサブスクリプショングループの SMS 通信をオプトアウトしたユーザーが返されます。CampaignまたはCanvasesに関連付けられたユーザーにフィルタリングされています。
 
+### オプトアウトのタイミング {#opt-out-timing}
+
+Currentsまたはデータウェアハウスにおけるキーワードおよび受信メッセージイベント（[`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) のタイムスタンプやサブスクリプショングループの状態変更イベントなど）は、Braze がオプトアウトを記録した時刻の正式なソースです。
+
+{% alert note %}
+イベントのタイムスタンプは、Braze が受信メッセージを受信または処理した時刻を反映しており、ユーザーが SMS を送信した時刻や、キャリアまたは SMS プロバイダーがそれを受信した時刻とは必ずしも一致しません。分析でオプトアウトをBrazeが受信オプトアウトパスを処理した時点として扱う場合、これらのタイムスタンプはその定義に一致します。
+{% endalert %}
+
+ユーザープロファイルには現在のサブスクリプション状態が表示されますが、オプトアウトの処理時に[カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/)などを設定しない限り、単一の「SMS 配信停止日時」フィールドは表示されない場合があります。
+
 ## SMS 送信結果に適用される料金 {#charges-applied-to-sms-sending-outcomes}
 
-このテーブルは Braze の課金を反映しており、プロバイダーの課金ではありません。Braze が課金しない結果でも、プロバイダーによって課金される場合があります。
+このテーブルはBrazeの課金を反映しており、プロバイダーの課金ではありません。Brazeが課金しない結果でも、プロバイダーによって課金される場合があります。
 
-| 結果 | 定義 | Braze による課金 |
+| 結果 | 定義 | Brazeによる課金 |
 |--------|------------|--------|
 | 送信済み | CampaignまたはCanvasステップが起動またはトリガーされ、SMS ペイロードが SMS プロバイダーに送信されました。 | 課金なし |
 | 配信失敗 | SMS ペイロードを SMS プロバイダーに送信できませんでした。これは、キューのオーバーフロー、アカウントの停止、またはメディアエラー（MMS の場合）が原因で発生する可能性があります。 | 課金なし |

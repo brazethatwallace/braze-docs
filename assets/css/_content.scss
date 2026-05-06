@@ -9,6 +9,15 @@
 	@media (min-width: $window-large-px) {
 		width: calc(100% - #{$nav_width + $toc_width});
 	}
+	// Pinned collapsed sidebar: reclaim horizontal space (stable — do not tie to :hover or peek would thrash layout)
+	.row:has(> #nav_bar.hide_sidebar) > & {
+		@media (min-width: $window-medium-px) {
+			width: calc(100% - #{$nav_width_collapsed});
+		}
+		@media (min-width: $window-large-px) {
+			width: calc(100% - #{$nav_width_collapsed + $toc_width});
+		}
+	}
 	padding-left: 15px;
 	padding-right: 15px;
 	@media (min-width: $window-medium-px) {
@@ -601,7 +610,7 @@ div.highlight {
 }
 
 #breadcrumb {
-	margin-top: 45px;
+	margin-top: 40px;
 	padding-bottom: 15px;
 	min-height: 15px;
 	font-size: 13px;

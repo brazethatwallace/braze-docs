@@ -50,6 +50,68 @@ Liquid peut personnaliser l'expérience de la page d'accueil pour les visiteurs 
 - **Utilisateurs identifiés :** créez un lien vers la page d'accueil depuis un message Braze et incluez l'[étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Cela associe l'utilisateur à son profil Braze et personnalise l'expérience de la page.
 - **Visiteurs anonymes :** utilisez Liquid pour du contenu contextuel non basé sur le profil, comme un nombre aléatoire ou un message d'accueil selon l'heure de la journée.
 
+## Récupérer des données externes avec du code personnalisé {#fetching-external-data-with-custom-code}
+
+Vous pouvez utiliser un bloc **Custom Code** pour récupérer des données depuis des endpoints externes et les afficher dans votre page d'accueil. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), de sorte que la page se charge rapidement sans délais de rendu côté serveur.
+
+{% alert warning %}
+Lorsque vous récupérez des données externes, vous êtes responsable de la sécurité de votre implémentation. Les identifiants externes utilisés dans les appels API doivent être des UUID ou utiliser un schéma de nommage équivalent en termes de sécurité. Consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+{% endalert %}
+
+### Cas d'utilisation {#use-case}
+
+Ce modèle est utile lorsque vous devez afficher des données spécifiques à l'utilisateur qui ne sont pas stockées dans Braze. Par exemple : inventaire en temps réel, recommandations personnalisées ou autres données que votre organisation gère dans des systèmes distincts.
+
+### Exemple d'implémentation {#example-implementation}
+
+Cet exemple montre comment récupérer des données utilisateur depuis une API externe. Remplacez l'endpoint de l'API par votre propre endpoint sécurisé et utilisez un identifiant sécurisé.
+
+{% raw %}
+```html
+<script>
+window.onload = () => {
+  // Use Liquid to template the user's external ID
+  const userId = "{{${user_id}}}";
+
+  const loadUserData = async () => {
+    try {
+      // Replace with your own secure API endpoint
+      const response = await fetch(`https://your-api.example.com/user/${userId}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to load data');
+      }
+
+      const data = await response.json();
+
+      // Update the page with the fetched data
+      document.querySelector("#user-data").textContent = JSON.stringify(data, null, 2);
+      document.querySelector("#user-name").textContent = data.name || "User";
+    } catch (error) {
+      // Handle errors gracefully
+      document.querySelector("#user-data").textContent = "Unable to load data at this time.";
+    }
+  };
+
+  loadUserData();
+};
+</script>
+
+<!-- Display area for fetched data -->
+<p>Welcome, <span id="user-name">Loading...</span></p>
+<pre id="user-data">Loading your information...</pre>
+```
+{% endraw %}
+
+### Considérations {#considerations}
+
+Lorsque vous récupérez des données externes dans les pages d'accueil :
+
+- **États de chargement :** les utilisateurs verront un texte de remplacement jusqu'à ce que l'endpoint réponde. Envisagez d'ajouter un indicateur de chargement ou un écran squelette.
+- **Gestion des erreurs :** si l'endpoint échoue ou met du temps à répondre, la page peut sembler défectueuse. Implémentez des messages d'erreur et des solutions de repli appropriés.
+- **Performances :** la page se charge immédiatement, mais les données apparaissent après la fin de la requête externe. Gardez vos réponses API rapides pour une expérience utilisateur optimale.
+- **Sécurité :** assurez-vous que votre endpoint API valide l'identifiant et ne renvoie que les données que l'utilisateur est autorisé à consulter. Implémentez une limitation de débit pour prévenir les abus. Pour des conseils sur le choix d'identifiants sécurisés, consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+
 ## Pages de secours {#fallback-pages}
 
 Si vos utilisateurs tentent d'accéder à une page qui a été dépubliée, ils verront un message indiquant que la page ne peut pas être chargée actuellement. Les raisons pour lesquelles une page a été dépubliée incluent :

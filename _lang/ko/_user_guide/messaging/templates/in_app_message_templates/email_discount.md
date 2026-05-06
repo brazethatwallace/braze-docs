@@ -2,7 +2,7 @@
 nav_title: 할인 포함 이메일 가입
 article_title: 할인 포함 이메일 가입
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "이 참조 페이지에서는 인앱 메시지 드래그 앤 드롭 편집기를 사용하여 신규 가입자에게 할인을 제공하는 이메일 가입 양식을 작성하는 방법을 다룹니다."
 ---
 

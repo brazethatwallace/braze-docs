@@ -2,7 +2,7 @@
 nav_title: Annonce de produit
 article_title: Annonce de produit
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "Cette page explique comment utiliser l'éditeur par glisser-déposer de messages in-app pour accroître la notoriété des lancements de nouveaux produits."
 ---
 
