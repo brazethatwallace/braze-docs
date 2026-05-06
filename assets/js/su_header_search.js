@@ -160,11 +160,33 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * MutationObserver → waits for dynamic injection of searchForm or input
    */
+  function patchClearButton(clearButton, form, labels) {
+    if (clearButton.dataset.accessibilityBound) return;
+    clearButton.setAttribute("aria-label", labels.clear);
+    clearButton.setAttribute("role", "button");
+    clearButton.setAttribute("tabindex", "0");
+    clearButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        clearButton.click();
+      }
+    });
+    clearButton.dataset.accessibilityBound = "true";
+  }
+
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.addedNodes.length) {
         const form = document.getElementById("searchForm");
-        if (form) bindSearchForm(form);
+        if (form) {
+          bindSearchForm(form);
+          const clearButton = form.querySelector(".su__input-close");
+          if (clearButton) {
+            const lang = document.documentElement.lang;
+            const labels = buttonLabels[lang] || buttonLabels.en;
+            patchClearButton(clearButton, form, labels);
+          }
+        }
 
         const input = document.getElementById("search-box-autocomplete");
         if (input) setupInputWatcher();

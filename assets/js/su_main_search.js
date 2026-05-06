@@ -100,6 +100,20 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = targetUrl;
   }
 
+  function patchClearButton(clearButton, labels) {
+    if (clearButton.dataset.accessibilityBound) return;
+    clearButton.setAttribute("aria-label", labels.clear);
+    clearButton.setAttribute("role", "button");
+    clearButton.setAttribute("tabindex", "0");
+    clearButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        clearButton.click();
+      }
+    });
+    clearButton.dataset.accessibilityBound = "true";
+  }
+
   // Watch for dynamic content
   const targetNode = document.querySelector("#su_main_search");
   if (targetNode) {
@@ -108,6 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const input = targetNode.querySelector("#search-box-autocomplete");
       if (form && input) {
         bindSearchForm(targetNode);
+      }
+
+      const clearButton = targetNode.querySelector(".su__input-close");
+      if (clearButton) {
+        const lang = document.documentElement.lang;
+        const labels = buttonLabels[lang] || buttonLabels.en;
+        patchClearButton(clearButton, labels);
       }
     });
 
