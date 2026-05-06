@@ -1,6 +1,6 @@
 ---
 nav_title: Aperçu de Shopify
-article_title: "Aperçu de Shopify"
+article_title: Aperçu de Shopify
 description: "Cet article de référence décrit le partenariat entre Braze et Shopify, une entreprise de commerce mondiale qui vous permet de connecter de façon fluide votre boutique Shopify à Braze pour transmettre certains webhooks Shopify dans Braze. Exploitez les stratégies cross-canal de Braze et Canvas pour inciter les clients à finaliser leurs achats ou recibler les utilisateurs en fonction de leurs achats précédents."
 page_type: partner
 search_tag: Partner
@@ -19,7 +19,7 @@ L'intégration de Braze à Shopify constitue une solution puissante pour les ent
 | Exigence | Description |
 | --- | --- |
 | Boutique Shopify | Vous avez une boutique Shopify active. |
-| Autorisations pour le propriétaire ou l'employé de la boutique Shopify | {::nomarkdown}<ul><li>Accès à tous les paramètres généraux et de la boutique en ligne.</li><li> Autorisations administratives supplémentaires :</li><ul><li>Commandes : Afficher</li><li>Client : Lecture-écriture</li><li>Voir les événements client (pixels Web)</li><li>Gérer les paramètres</li><li>Voir les applications développées par le personnel/collaborateurs</li><li>Gérer/installer des applications et des canaux</li><li>Gérer/Ajouter des pixels personnalisés</li></ul></ul>{:/} |
+| Autorisations pour le propriétaire ou l'employé de la boutique Shopify | {::nomarkdown}<ul><li>Accès à tous les paramètres généraux et de la boutique en ligne.</li><li> Autorisations administratives supplémentaires :</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Comment intégrer {#how-to-integrate}
@@ -30,9 +30,9 @@ Braze propose aux marchands Shopify deux options d'intégration conçues pour r�
 
 ## Comment fonctionne l'intégration {#how-the-integration-works}
 
-Si vous avez déjà configuré et activé le remplissage historique dans vos paramètres de configuration, la synchronisation initiale des données commencera immédiatement. Braze importera tous les clients et les événements de commandes passées au cours des 90 derniers jours précédant votre connexion à l'intégration Shopify. Lorsque Braze importe vos clients Shopify, nous leur attribuons le type d'`external_id` que vous avez choisi dans vos paramètres de configuration.
+Si vous avez déjà configuré et activé le [remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) dans vos paramètres de configuration, la synchronisation initiale des données commencera immédiatement.
 
-Si vous prévoyez d'intégrer un ID externe personnalisé (pour l'[intégration standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) ou l'[intégration personnalisée]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), vous devrez ajouter votre ID externe personnalisé en tant que méta-champ client Shopify à tous les profils clients Shopify existants, puis effectuer le [remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 Après la synchronisation initiale des données, Braze suivra en permanence les nouvelles données et les mises à jour, directement depuis Shopify et les SDK de Braze.
 

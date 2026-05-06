@@ -50,6 +50,68 @@ O Liquid pode personalizar a experiência da landing page tanto para visitantes 
 - **Usuários identificados:** Vincule a landing page a partir de uma mensagem da Braze e inclua a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Isso associa o usuário ao seu perfil na Braze e personaliza a experiência da página.
 - **Visitantes anônimos:** Use Liquid para conteúdo contextual não baseado em perfil, como um número aleatório ou uma saudação baseada no horário do dia.
 
+## Buscar dados externos com código personalizado {#fetching-external-data-with-custom-code}
+
+Você pode usar um bloco de **Custom Code** para buscar dados de endpoints externos e exibi-los na sua landing page. Essa abordagem faz a requisição no lado do cliente (no navegador do usuário), então a página carrega rapidamente sem atrasos de renderização no servidor.
+
+{% alert warning %}
+Ao buscar dados externos, você é responsável pela segurança da sua implementação. Identificadores externos usados em chamadas de API devem ser UUIDs ou usar um esquema de nomenclatura equivalentemente seguro. Consulte as [práticas recomendadas de nomenclatura de ID do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+{% endalert %}
+
+### Caso de uso {#use-case}
+
+Esse padrão é útil quando você precisa exibir dados específicos do usuário que não estão armazenados na Braze. Exemplos incluem inventário em tempo real, recomendações personalizadas ou outros dados que sua organização gerencia em sistemas separados.
+
+### Exemplo de implementação {#example-implementation}
+
+Este exemplo mostra como buscar dados de usuário de uma API externa. Substitua o endpoint da API pelo seu próprio endpoint seguro e use um identificador seguro.
+
+{% raw %}
+```html
+<script>
+window.onload = () => {
+  // Use Liquid to template the user's external ID
+  const userId = "{{${user_id}}}";
+
+  const loadUserData = async () => {
+    try {
+      // Replace with your own secure API endpoint
+      const response = await fetch(`https://your-api.example.com/user/${userId}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to load data');
+      }
+
+      const data = await response.json();
+
+      // Update the page with the fetched data
+      document.querySelector("#user-data").textContent = JSON.stringify(data, null, 2);
+      document.querySelector("#user-name").textContent = data.name || "User";
+    } catch (error) {
+      // Handle errors gracefully
+      document.querySelector("#user-data").textContent = "Unable to load data at this time.";
+    }
+  };
+
+  loadUserData();
+};
+</script>
+
+<!-- Display area for fetched data -->
+<p>Welcome, <span id="user-name">Loading...</span></p>
+<pre id="user-data">Loading your information...</pre>
+```
+{% endraw %}
+
+### Considerações {#considerations}
+
+Ao buscar dados externos em landing pages:
+
+- **Estados de carregamento:** Os usuários verão um texto de placeholder até que o endpoint responda. Considere adicionar um indicador de carregamento ou uma tela esqueleto.
+- **Tratamento de erros:** Se o endpoint falhar ou demorar para responder, a página pode parecer quebrada. Implemente mensagens de erro e fallbacks apropriados.
+- **Desempenho:** A página carrega imediatamente, mas os dados aparecem após a conclusão da requisição externa. Mantenha as respostas da sua API rápidas para a melhor experiência do usuário.
+- **Segurança:** Certifique-se de que seu endpoint de API valide o identificador e retorne apenas dados que o usuário está autorizado a ver. Implemente limite de taxa para evitar abusos. Para orientações sobre como escolher identificadores seguros, consulte as [práticas recomendadas de nomenclatura de ID do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+
 ## Páginas de fallback {#fallback-pages}
 
 Se seus usuários tentarem acessar uma página que foi despublicada, eles verão uma mensagem indicando que a página não pode ser carregada no momento. Os motivos para uma página ter sido despublicada incluem:

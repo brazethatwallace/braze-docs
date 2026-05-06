@@ -2,7 +2,7 @@
 nav_title: Inscription par e-mail avec confirmation
 article_title: Inscription par e-mail avec page de confirmation
 alias: "/email_confirmation_page/"
-page_order: 6
+page_order: 7
 description: "Cette page explique comment utiliser l'éditeur par glisser-déposer de messages in-app pour créer un formulaire d'inscription par e-mail avec une page de confirmation."
 ---
 

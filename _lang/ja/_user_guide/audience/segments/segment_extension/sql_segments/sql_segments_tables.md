@@ -33,7 +33,12 @@ table td {
 テーブル | 説明
 ------|------------
 [AGENTCONSOLE_AGENTEXECUTED_SHARED](#AGENTCONSOLE_AGENTEXECUTED_SHARED) | エージェントコンソールのエージェントが実行されたとき（**Snowflake データ共有のみ**）
+[AGENTCONSOLE_RAWLLMREQUEST_SHARED](#AGENTCONSOLE_RAWLLMREQUEST_SHARED) | 各 LLM コールからの生情報（**Snowflake データ共有のみ**）
 [AGENTCONSOLE_TOOLINVOCATION_SHARED](#AGENTCONSOLE_TOOLINVOCATION_SHARED) | ツールが実行されたとき（**Snowflake データ共有のみ**）
+[USER_CUSTOM_ATTRIBUTES_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED) | ユーザーごとのカスタムプロファイル属性の定期スナップショット
+[USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | 有効日範囲付きのデフォルトプロファイル属性の履歴
+[USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | ユーザーごとのデフォルトプロファイル属性の定期スナップショット
+[USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | ユーザーごとのほぼリアルタイムのデフォルトプロファイル属性
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | 削除されていないカタログアイテム
 [CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | Campaignが変更されたとき（**Snowflake データ共有のみ**）
 [CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | Canvasが変更されたとき（**Snowflake データ共有のみ**）
@@ -48,8 +53,8 @@ table td {
 [USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | ユーザーがNews Feedを閲覧したとき
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | ユーザーがアプリでセッションを終了したとき
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | ユーザーがアプリでセッションを開始したとき
-[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（ジオフェンスへの進入や退出など）。このイベントは他のイベントとバッチ処理され、標準イベントエンドポイントを通じて受信されるため、リアルタイムで表示されない場合があります。<br><br>このテーブルにジオフェンスアクティビティを記録するには、各ジオフェンスの詳細設定で **Enable Analytics for Enter** と **Enable Analytics for Exit** を選択してください。詳細は[ジオフェンスを手動で作成する]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences)のステップ3を参照してください。
-[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（ジオフェンスへの進入や退出など）。このイベントは専用のジオフェンスエンドポイントを通じて受信されるため、ユーザーのデバイスがジオフェンスのトリガーを検出するとリアルタイムで受信されます。<br><br>また、ジオフェンスエンドポイントのレート制限により、一部のジオフェンスイベントが RecordEvent として反映されない場合があります。ただし、すべてのジオフェンスイベントは DataEvent で表現されます（バッチ処理による遅延が発生する可能性があります）。
+[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（例: ジオフェンスへの入場または退出）。このイベントは他のイベントとバッチ処理され、標準イベントエンドポイントを通じて受信されるため、リアルタイムで表示されない場合があります。<br><br>このテーブルにジオフェンスアクティビティを記録するには、各ジオフェンスの詳細設定で **Enable Analytics for Enter** と **Enable Analytics for Exit** を選択してください。詳細は[ジオフェンスを手動で作成する]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences)のステップ 3 を参照してください。
+[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（例: ジオフェンスへの入場または退出）。このイベントは専用のジオフェンスエンドポイントを通じて受信されるため、ユーザーのデバイスがジオフェンスのトリガーを検出するとリアルタイムで受信されます。<br><br>また、ジオフェンスエンドポイントのレート制限により、一部のジオフェンスイベントが RecordEvent として反映されない場合があります。ただし、すべてのジオフェンスイベントは DataEvent として表現されます（バッチ処理による遅延が生じる可能性があります）。
 [USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Live Activity の push-to-start トークンが変更されたとき
 [USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Live Activity の更新トークンが変更されたとき
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | プッシュ通知トークンの状態が変更されたとき
@@ -61,23 +66,23 @@ table td {
 [USERS_CAMPAIGNS_REVENUE_SHARED](#USERS_CAMPAIGNS_REVENUE_SHARED) | ユーザーが1次コンバージョン期間内に収益を生成したとき
 [USERS_CANVASSTEP_PROGRESSION_SHARED](#USERS_CANVASSTEP_PROGRESSION_SHARED) | ユーザーがキャンバスステップに進んだとき
 [USERS_CANVAS_CONVERSION_SHARED](#USERS_CANVAS_CONVERSION_SHARED) | ユーザーがCanvasのコンバージョンイベントでコンバージョンしたとき
-[USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | ユーザーがCanvasに入ったとき
-[USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED](#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED) | ユーザーがオーディエンス退出条件に一致したためCanvasを退出したとき
-[USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED](#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED) | ユーザーが例外イベントを実行したためCanvasを退出したとき
-[USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | ユーザーがCanvasの実験ステップでコンバージョンしたとき
-[USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | ユーザーが実験ステップのパスに入ったとき
+[USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | ユーザーがCanvasにエントリしたとき
+[USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED](#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED) | ユーザーがオーディエンス離脱条件に一致してCanvasを離脱したとき
+[USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED](#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED) | ユーザーが例外イベントを実行してCanvasを離脱したとき
+[USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | ユーザーがCanvas実験ステップでコンバージョンしたとき
+[USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | ユーザーが実験ステップのパスにエントリしたとき
 [USERS_CANVAS_FREQUENCYCAP_SHARED](#USERS_CANVAS_FREQUENCYCAP_SHARED) | ユーザーがキャンバスステップでフリークエンシーキャップに達したとき
 [USERS_CANVAS_REVENUE_SHARED](#USERS_CANVAS_REVENUE_SHARED) | ユーザーが1次コンバージョンイベント期間内に収益を生成したとき
-[USERS_MESSAGES_BANNER_ABORT_SHARED](#USERS_MESSAGES_BANNER_ABORT_SHARED) | 元々スケジュールされていたバナーメッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_BANNER_ABORT_SHARED](#USERS_MESSAGES_BANNER_ABORT_SHARED) | 元々スケジュールされたバナーメッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_BANNER_CLICK_SHARED](#USERS_MESSAGES_BANNER_CLICK_SHARED) | ユーザーがバナーをクリックしたとき
 [USERS_MESSAGES_BANNER_IMPRESSION_SHARED](#USERS_MESSAGES_BANNER_IMPRESSION_SHARED) | ユーザーがバナーを閲覧したとき
-[USERS_MESSAGES_CONTENTCARD_ABORT_SHARED](#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED) | 元々スケジュールされていたContent Cardメッセージが何らかの理由で中止されたとき
-[USERS_MESSAGES_CONTENTCARD_CLICK_SHARED](#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED) | ユーザーがContent Cardをクリックしたとき
-[USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED](#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED) | ユーザーがContent Cardを閉じたとき
-[USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | ユーザーがContent Cardを閲覧したとき
-[USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | ユーザーにContent Cardを送信したとき
-[USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | 元々スケジュールされていたメールメッセージが何らかの理由で中止されたとき
-[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | メールサービスプロバイダーがハードバウンスを返したとき。ハードバウンスは永続的な配信失敗を示します。
+[USERS_MESSAGES_CONTENTCARD_ABORT_SHARED](#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED) | 元々スケジュールされたコンテンツカードメッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_CONTENTCARD_CLICK_SHARED](#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED) | ユーザーがコンテンツカードをクリックしたとき
+[USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED](#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED) | ユーザーがコンテンツカードを閉じたとき
+[USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | ユーザーがコンテンツカードを閲覧したとき
+[USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | ユーザーにコンテンツカードを送信したとき
+[USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | 元々スケジュールされたメールメッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | メールサービスプロバイダーがハードバウンスを返したとき。ハードバウンスは永続的な配信不能を示します。
 [USERS_MESSAGES_EMAIL_CLICK_SHARED](#USERS_MESSAGES_EMAIL_CLICK_SHARED) | ユーザーがメール内のリンクをクリックしたとき
 [USERS_MESSAGES_EMAIL_DEFERRAL_SHARED](#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED) | メールが遅延されたとき
 [USERS_MESSAGES_EMAIL_DELIVERY_SHARED](#USERS_MESSAGES_EMAIL_DELIVERY_SHARED) | メールが配信されたとき
@@ -86,35 +91,35 @@ table td {
 [USERS_MESSAGES_EMAIL_SEND_SHARED](#USERS_MESSAGES_EMAIL_SEND_SHARED) | ユーザーにメールを送信したとき
 [USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED](#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED) | メールがソフトバウンスしたとき
 [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED](#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED) | ユーザーがメールの配信を停止したとき
-[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | メールメッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後にメールメッセージがリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED](#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED) | ユーザーがフィーチャーフラグを閲覧したとき
-[USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED](#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED) | 元々スケジュールされていたアプリ内メッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED](#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED) | 元々スケジュールされたアプリ内メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED](#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED) | ユーザーがアプリ内メッセージをクリックしたとき
 [USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED](#USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED) | ユーザーがアプリ内メッセージを閲覧したとき
-[USERS_MESSAGES_LINE_ABORT_SHARED](#USERS_MESSAGES_LINE_ABORT_SHARED) | スケジュールされたLINEメッセージがLINEへの送信前に配信できなかったとき
-[USERS_MESSAGES_LINE_CLICK_SHARED](#USERS_MESSAGES_LINE_CLICK_SHARED) | ユーザーがLINEメッセージ内のリンクをクリックしたとき
-[USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | ユーザーからLINEメッセージを受信したとき
-[USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | LINEメッセージがLINEに送信されたとき
-[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | LINEメッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_LINE_ABORT_SHARED](#USERS_MESSAGES_LINE_ABORT_SHARED) | スケジュールされた LINE メッセージが LINE への送信前に配信できなかったとき
+[USERS_MESSAGES_LINE_CLICK_SHARED](#USERS_MESSAGES_LINE_CLICK_SHARED) | ユーザーが LINE メッセージ内のリンクをクリックしたとき
+[USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | ユーザーから LINE メッセージを受信したとき
+[USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | LINE メッセージが LINE に送信されたとき
+[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に LINE メッセージがリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Live Activity にアウトカムイベントが発生したとき
 [USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Live Activity メッセージが送信されたとき
-[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | 元々スケジュールされていたNews Feedカードメッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | 元々スケジュールされたNews Feedカードメッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | ユーザーがNews Feedカードをクリックしたとき
 [USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | ユーザーがNews Feedカードを閲覧したとき
-[USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | 元々スケジュールされていたプッシュ通知メッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | 元々スケジュールされたプッシュ通知メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | プッシュ通知がバウンスしたとき
 [USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | ユーザーが通知を受信した後、通知をクリックせずにアプリを開いたとき
 [USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | アプリが開いている状態でユーザーがプッシュ通知を受信したとき。<br><br>このイベントは [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) ではサポートされておらず、[Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) では非推奨です。
-[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | ユーザーがプッシュ通知を開くか、プッシュ通知ボタン（アプリを開かない CLOSE ボタンを含む）をクリックしたとき。<br><br>プッシュボタンアクションには複数の結果があります。No、Decline、Cancel アクションは「クリック」であり、Accept アクションは「開封」です。両方ともこのテーブルに表示されますが、**BUTTON_ACTION_TYPE** 列で区別できます。たとえば、`BUTTON_ACTION_TYPE` が No、Decline、Cancel でないものでグループ化するクエリを使用できます。
+[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | ユーザーがプッシュ通知を開くか、プッシュ通知ボタン（アプリを開かない CLOSE ボタンを含む）をクリックしたとき。<br><br>プッシュボタンアクションには複数の結果があります。No、Decline、Cancel アクションは「クリック」であり、Accept アクションは「開封」です。両方ともこのテーブルに表示されますが、**BUTTON_ACTION_TYPE** 列で区別できます。例えば、`BUTTON_ACTION_TYPE` が No、Decline、Cancel でないものでグループ化するクエリを使用できます。
 [USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED) | ユーザーにプッシュ通知を送信したとき
-[USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Braze 内でエラーが検出されたため RCS 送信が中断され、メッセージが破棄されたとき
+[USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Braze 内で検出されたエラーにより RCS 送信が中断され、メッセージが破棄されたとき
 [USERS_MESSAGES_RCS_CLICK_SHARED](#USERS_MESSAGES_RCS_CLICK_SHARED) | エンドユーザーが RCS メッセージの UI 要素をタップまたはクリックして操作したとき
 [USERS_MESSAGES_RCS_DELIVERY_SHARED](#USERS_MESSAGES_RCS_DELIVERY_SHARED) | RCS メッセージがエンドユーザーのモバイルデバイスに正常に配信されたとき
-[USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED) | Braze がエンドユーザーから発信された RCS メッセージを受信したとき
+[USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED) | Braze がエンドユーザーからの RCS メッセージを受信したとき
 [USERS_MESSAGES_RCS_READ_SHARED](#USERS_MESSAGES_RCS_READ_SHARED) | エンドユーザーがデバイスで RCS メッセージを開いたとき
 [USERS_MESSAGES_RCS_REJECTION_SHARED](#USERS_MESSAGES_RCS_REJECTION_SHARED) | キャリアの介入により RCS メッセージの配信に失敗したとき
 [USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | RCS メッセージが Braze のシステムからラストマイル配信パートナーに送信されたとき
-[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 元々スケジュールされていた SMS メッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 元々スケジュールされた SMS メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | SMS メッセージがキャリアに送信されたとき
 [USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | SMS メッセージが配信されたとき
 [USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Braze が SMS サービスプロバイダーに SMS メッセージを配信できなかったとき
@@ -122,19 +127,19 @@ table td {
 [USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | SMS メッセージがユーザーに配信されなかったとき
 [USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | SMS メッセージが送信されたとき
 [USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | ユーザーが SMS メッセージに含まれる Braze 短縮 URL をクリックしたとき
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | SMS メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
-[USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | 元々スケジュールされていた Webhook メッセージが何らかの理由で中止されたとき
-[USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | Webhook メッセージが配信されたが、エンドポイントからエラーレスポンスが返されたとき
-[USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | ユーザーに対して Webhook を送信したとき
-[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | Webhook メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
-[USERS_MESSAGES_WHATSAPP_ABORT_SHARED](#USERS_MESSAGES_WHATSAPP_ABORT_SHARED) | 元々スケジュールされていた WhatsApp メッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に SMS メッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | 元々スケジュールされた Webhook メッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | Webhook メッセージが配信されたがエンドポイントからエラーレスポンスが返されたとき
+[USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | ユーザーに対して Webhookを送信したとき
+[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に Webhook メッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_WHATSAPP_ABORT_SHARED](#USERS_MESSAGES_WHATSAPP_ABORT_SHARED) | 元々スケジュールされた WhatsApp メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_WHATSAPP_CLICK_SHARED](#USERS_MESSAGES_WHATSAPP_CLICK_SHARED) | ユーザーが WhatsApp メッセージ内のリンクまたはボタンをクリックしたとき
 [USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED](#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED) | WhatsApp メッセージが配信されたとき
 [USERS_MESSAGES_WHATSAPP_FAILURE_SHARED](#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED) | WhatsApp メッセージがユーザーに配信されなかったとき
 [USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED) | ユーザーから WhatsApp メッセージを受信したとき
 [USERS_MESSAGES_WHATSAPP_READ_SHARED](#USERS_MESSAGES_WHATSAPP_READ_SHARED) | ユーザーが WhatsApp メッセージを開いたとき
 [USERS_MESSAGES_WHATSAPP_SEND_SHARED](#USERS_MESSAGES_WHATSAPP_SEND_SHARED) | ユーザーに対して WhatsApp メッセージを送信したとき
-[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | WhatsApp メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に WhatsApp メッセージがリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_RANDOMBUCKETNUMBERUPDATE_SHARED](#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED) | ユーザーのランダムバケット番号が変更されたとき
 [USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | 顧客のリクエストによりユーザーが削除されたとき
 [USERS_USERORPHAN_SHARED](#USERS_USERORPHAN_SHARED) | ユーザーが別のユーザーのプロファイルとマージされ、元のプロファイルが孤立したとき
@@ -142,7 +147,7 @@ table td {
 [SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaignメッセージバリエーションスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_FLOW_STEP_SHARED](#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED) | キャンバスフローステップスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_STEP_SHARED](#SNAPSHOTS_CANVAS_STEP_SHARED) | キャンバスステップスナップショット（**Snowflake データ共有のみ**）
-[SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | Canvasバリエーションスナップショット（**Snowflake データ共有のみ**）
+[SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | Canvas バリエーションスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_EXPERIMENT_STEP_SHARED](#SNAPSHOTS_EXPERIMENT_STEP_SHARED) | 実験ステップスナップショット（**Snowflake データ共有のみ**）
 
 
@@ -175,14 +180,34 @@ table td {
 `cache_hit` | `boolean` | このリクエストがキャッシュにヒットしてレスポンスを返したかどうか
 `llm_owned_by_customer` | `boolean` | true の場合、顧客の API キーが使用されました。false の場合、Braze のキーが使用されました
 `is_error` | `boolean` | このリクエストがエラーになったかどうか
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvas バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
 `input` | `null,`&nbsp;`string` | [PII] LLM への入力
 `output` | `null,`&nbsp;`string` | [PII] LLM からのレスポンス
 `invocation_source` | `null,`&nbsp;`string` | LLM リクエストを呼び出した Ruby オブジェクト
+`sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### AGENTCONSOLE_RAWLLMREQUEST_SHARED {#AGENTCONSOLE_RAWLLMREQUEST_SHARED}
+
+フィールド | タイプ | 説明
+------|------|------------
+`id` | `string` | このイベントのグローバル一意 ID
+`invocation_id` | `string` | このメッセージのグローバル一意 ID
+`request_id` | `string` | この LLM リクエスト全体と完全な実行の一意 ID
+`time` | `int` | イベントが発生した UNIX タイムスタンプ
+`app_group_id` | `string` | このイベントが属するアプリグループの BSON ID
+`agent_id` | `string` | CustomerDefinedAgent の BSON ID
+`agent_name` | `string` | CustomerDefinedAgent の名前
+`model_provider` | `string` | LLM モデルプロバイダーの名前
+`model_name` | `string` | このリクエストで使用された LLM モデルの名前
+`duration` | `int`,&nbsp;`null` | セッションの持続時間（秒）
+`request` | `string` | [PII] リクエストで使用されたプロンプト
+`http_status_code` | `int`,&nbsp;`null` | レスポンスの HTTP ステータスコード
+`response_body` | `string`,&nbsp;`null` | [PII] LLM からのレスポンス
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -202,6 +227,92 @@ table td {
 `tool_arguments` | `null,`&nbsp;`string` | [PII] ツール引数の JSON
 `invocation_source` | `null,`&nbsp;`string` | LLM リクエストを呼び出した Ruby オブジェクト
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+## ユーザープロファイル属性ビュー {#user-profile-attribute-views}
+
+### USER_CUSTOM_ATTRIBUTES_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED}
+
+フィールド | タイプ | 説明
+------|------|------------
+`app_group_id` | `string` | ワークスペースの BSON ID
+`app_id` | `string` | アプリの BSON ID
+`user_id` | `string` | [PII] Braze ユーザー ID
+`time` | `int` | プロファイル更新の UNIX タイムスタンプ（バックフィルされた行の場合はバックフィルの時刻）
+`update_source` | `string` | プロファイル更新のソース
+`sf_updated_at` | `timestamp` | この行が Snowflake で更新された日時
+`custom_attributes` | `variant` | [PII] JSON オブジェクトとしてのカスタム属性
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED}
+
+フィールド | タイプ | 説明
+------|------|------------
+`app_group_id` | `string` | ワークスペースの BSON ID
+`app_id` | `string` | アプリの BSON ID
+`user_id` | `string` | [PII] Braze ユーザー ID
+`time` | `int` | プロファイル更新の UNIX タイムスタンプ（バックフィルされた行の場合はバックフィルの時刻）
+`update_source` | `string` | プロファイル更新のソース
+`sf_updated_at` | `timestamp` | この行が Snowflake で更新された日時
+`external_id` | `string` | [PII] ユーザーの external ID
+`first_name` | `string` | [PII] 名
+`last_name` | `string` | [PII] 姓
+`email` | `string` | [PII] メールアドレス
+`gender` | `string` | [PII] 性別
+`phone` | `string` | [PII] 電話番号
+`dob` | `string` | [PII] 生年月日
+`time_zone` | `string` | [PII] タイムゾーン
+`home_city` | `string` | [PII] 居住都市
+`country` | `string` | [PII] 国
+`language` | `string` | [PII] 言語
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED}
+
+フィールド | タイプ | 説明
+------|------|------------
+`app_group_id` | `string` | ワークスペースの BSON ID
+`user_id` | `string` | [PII] Braze ユーザー ID
+`app_id` | `string` | アプリの BSON ID
+`time` | `int` | プロファイル更新の UNIX タイムスタンプ（バックフィルされた行の場合はバックフィルの時刻）
+`update_source` | `string` | プロファイル更新のソース
+`sf_updated_at` | `timestamp` | この行が Snowflake で更新された日時
+`external_id` | `string` | [PII] ユーザーの external ID
+`first_name` | `string` | [PII] 名
+`last_name` | `string` | [PII] 姓
+`email` | `string` | [PII] メールアドレス
+`gender` | `string` | [PII] 性別
+`phone` | `string` | [PII] 電話番号
+`dob` | `string` | [PII] 生年月日
+`time_zone` | `string` | [PII] タイムゾーン
+`home_city` | `string` | [PII] 居住都市
+`country` | `string` | [PII] 国
+`language` | `string` | [PII] 言語
+`eff_dt` | `timestamp` | この属性状態が有効だった期間の開始日時
+`end_dt` | `timestamp` | その期間の終了日時
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED}
+
+フィールド | タイプ | 説明
+------|------|------------
+`app_group_id` | `string` | ワークスペースの BSON ID
+`app_id` | `string` | アプリの BSON ID
+`user_id` | `string` | [PII] Braze ユーザー ID
+`time` | `int` | プロファイル更新の UNIX タイムスタンプ（バックフィルされた行の場合はバックフィルの時刻）
+`update_source` | `string` | プロファイル更新のソース
+`sf_updated_at` | `timestamp` | この行が Snowflake で更新された日時
+`external_id` | `string` | [PII] ユーザーの external ID
+`first_name` | `string` | [PII] 名
+`last_name` | `string` | [PII] 姓
+`email` | `string` | [PII] メールアドレス
+`gender` | `string` | [PII] 性別
+`phone` | `string` | [PII] 電話番号
+`dob` | `string` | [PII] 生年月日
+`home_city` | `string` | [PII] 居住都市
+`country` | `string` | [PII] 国
+`language` | `string` | [PII] 言語
+`time_zone` | `string` | [PII] タイムゾーン
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## カタログ {#catalogs}
@@ -268,17 +379,16 @@ table td {
 `variations` | `null,`&nbsp;`string` | Canvasのバリエーション
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-
 ## 動作 {#behaviors}
 
 ### USERS_BEHAVIORS_CUSTOMEVENT_SHARED {#USERS_BEHAVIORS_CUSTOMEVENT_SHARED}
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
-`user_id` | `string` | イベントを実行したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`id` | `string` | このイベントのグローバルな一意の ID
+`user_id` | `string` | このイベントを実行したユーザーの Braze ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このアクションが発生したアプリの API ID
 `time` | `int` | ユーザーがイベントを実行した Unix タイムスタンプ
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -291,11 +401,11 @@ table td {
 `os_version` | `null,`&nbsp;`string` | デバイスのオペレーティングシステムのバージョン
 `device_model` | `null,`&nbsp;`string` | デバイスのモデル
 `name` | `string` | カスタムイベントの名前
-`properties` | `string` | JSON エンコードされた文字列として保存されたイベントのカスタムプロパティ
+`properties` | `string` | JSON エンコード文字列として保存されたイベントのカスタムプロパティ
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -303,14 +413,14 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | インストールしたユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `time` | `int` | ユーザーがインストールした Unix タイムスタンプ
 `source` | `string` | アトリビューションのソース
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -318,10 +428,10 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | ロケーションを記録したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このロケーションが記録されたアプリの API ID
 `time` | `int` | ロケーションが記録された Unix タイムスタンプ
 `latitude` | `float` | [PII] 記録されたロケーションの緯度
@@ -337,7 +447,7 @@ table td {
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -345,10 +455,10 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | 購入を行ったユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | 購入が発生したアプリの API ID
 `time` | `int` | ユーザーが購入を行った Unix タイムスタンプ
 `device_id` | `null,`&nbsp;`string` | 購入が発生したデバイスの ID
@@ -359,11 +469,11 @@ table td {
 `product_id` | `string` | 購入された製品の ID
 `price` | `float` | 購入の価格
 `currency` | `string` | 購入の通貨
-`properties` | `string` | JSON エンコードされた文字列として保存された購入のカスタムプロパティ
+`properties` | `string` | JSON エンコード文字列として保存された購入のカスタムプロパティ
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -371,14 +481,14 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | アンインストールしたユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | アンインストールされたアプリの API ID
 `time` | `int` | ユーザーがアンインストールした Unix タイムスタンプ
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -386,10 +496,10 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | アプリをアップグレードしたユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | ユーザーがアップグレードしたアプリの API ID
 `time` | `int` | ユーザーがアプリをアップグレードした Unix タイムスタンプ
 `device_id` | `null,`&nbsp;`string` | ユーザーがアプリをアップグレードしたデバイスの ID
@@ -399,7 +509,7 @@ table td {
 `device_model` | `null,`&nbsp;`string` | デバイスのモデル
 `old_app_version` | `null,`&nbsp;`string` | アプリの旧バージョン
 `new_app_version` | `null,`&nbsp;`string` | アプリの新バージョン
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -407,10 +517,10 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このアクションを実行したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このセッションが発生したアプリの API ID
 `time` | `int` | セッションが開始された Unix タイムスタンプ
 `session_id` | `string` | セッションの UUID
@@ -423,7 +533,7 @@ table td {
 `platform` | `null,`&nbsp;`string` | デバイスのプラットフォーム
 `os_version` | `null,`&nbsp;`string` | デバイスのオペレーティングシステムのバージョン
 `device_model` | `null,`&nbsp;`string` | デバイスのモデル
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -432,11 +542,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
@@ -451,20 +561,20 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このアクションを実行したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このセッションが発生したアプリの API ID
 `time` | `int` | セッションが終了した Unix タイムスタンプ
-`duration` | `null, float` | セッションの持続時間（秒）
+`duration` | `null, float` | セッションの継続時間（秒）
 `session_id` | `string` | セッションの UUID
 `device_id` | `null,`&nbsp;`string` | セッションが発生したデバイスの ID
 `sdk_version` | `null,`&nbsp;`string` | セッション中に使用されていた Braze SDKのバージョン
 `platform` | `null,`&nbsp;`string` | デバイスのプラットフォーム
 `os_version` | `null,`&nbsp;`string` | デバイスのオペレーティングシステムのバージョン
 `device_model` | `null,`&nbsp;`string` | デバイスのモデル
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -472,11 +582,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このアクションを実行したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `app_api_id` | `null,`&nbsp;`string` | このセッションが発生したアプリの API ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `time` | `int` | セッションが開始された Unix タイムスタンプ
 `session_id` | `string` | セッションの UUID
 `device_id` | `null,`&nbsp;`string` | セッションが発生したデバイスの ID
@@ -484,7 +594,7 @@ table td {
 `platform` | `null,`&nbsp;`string` | デバイスのプラットフォーム
 `os_version` | `null,`&nbsp;`string` | デバイスのオペレーティングシステムのバージョン
 `device_model` | `null,`&nbsp;`string` | デバイスのモデル
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -492,10 +602,10 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
-`user_id` | `string` | イベントを実行したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`id` | `string` | このイベントのグローバルな一意の ID
+`user_id` | `string` | このイベントを実行したユーザーの Braze ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このアクションが発生したアプリの API ID
 `time` | `int` | ユーザーがイベントを実行した Unix タイムスタンプ
 `device_id` | `null,`&nbsp;`string` | カスタムイベントが発生したデバイスの ID
@@ -506,7 +616,7 @@ table td {
 `event_type` | `string` | トリガーされたジオフェンスイベントの種類（例: 'enter' または 'exit'）
 `location_set_id` | `string` | トリガーされたジオフェンスのロケーションセットの ID
 `geofence_id` | `string` | トリガーされたジオフェンスの ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -514,10 +624,10 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
-`user_id` | `string` | イベントを実行したユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`id` | `string` | このイベントのグローバルな一意の ID
+`user_id` | `string` | このイベントを実行したユーザーの Braze ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このアクションが発生したアプリの API ID
 `time` | `int` | ユーザーがイベントを実行した Unix タイムスタンプ
 `device_id` | `null,`&nbsp;`string` | カスタムイベントが発生したデバイスの ID
@@ -528,7 +638,7 @@ table td {
 `event_type` | `string` | トリガーされたジオフェンスイベントの種類（例: 'enter' または 'exit'）
 `location_set_id` | `string` | トリガーされたジオフェンスのロケーションセットの ID
 `geofence_id` | `string` | トリガーされたジオフェンスの ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -537,18 +647,18 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
-`activity_attributes_type` | `null,`&nbsp;`string` | Live Activity の属性タイプ
-`push_to_start_token` | `null,`&nbsp;`string` | Live Activity の push-to-start トークン
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`activity_attributes_type` | `null,`&nbsp;`string` | ライブアクティビティの属性タイプ
+`push_to_start_token` | `null,`&nbsp;`string` | ライブアクティビティの push-to-start トークン
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `sdk_version` | `null,`&nbsp;`string` | イベント時に使用されていた Braze SDKのバージョン
-`ios_push_token_apns_gateway` | `null, int` | プッシュトークンの APNs ゲートウェイ。iOS プッシュトークンにのみ適用されます。1 は開発用、2 は本番用
+`ios_push_token_apns_gateway` | `null, int` | プッシュトークンの APNS ゲートウェイ。iOS プッシュトークンにのみ適用され、1 は開発用、2 は本番用です
 `push_token_state_change_type` | `null,`&nbsp;`string` | プッシュトークンの状態変更タイプの説明
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -558,18 +668,18 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
-`activity_id` | `null,`&nbsp;`string` | Live Activity の識別子
-`update_token` | `null,`&nbsp;`string` | Live Activity の更新トークン
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`activity_id` | `null,`&nbsp;`string` | ライブアクティビティの識別子
+`update_token` | `null,`&nbsp;`string` | ライブアクティビティの更新トークン
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `sdk_version` | `null,`&nbsp;`string` | イベント時に使用されていた Braze SDKのバージョン
-`ios_push_token_apns_gateway` | `null, int` | プッシュトークンの APNs ゲートウェイ。iOS プッシュトークンにのみ適用されます。1 は開発用、2 は本番用
+`ios_push_token_apns_gateway` | `null, int` | プッシュトークンの APNS ゲートウェイ。iOS プッシュトークンにのみ適用され、1 は開発用、2 は本番用です
 `push_token_state_change_type` | `null,`&nbsp;`string` | プッシュトークンの状態変更タイプの説明
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -579,26 +689,26 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `time_ms` | `int` | イベントが発生した時刻（ミリ秒）
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `sdk_version` | `null,`&nbsp;`string` | イベント時に使用されていた Braze SDKのバージョン
 `platform` | `null,`&nbsp;`string` | デバイスのプラットフォーム
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `push_token` | `null,`&nbsp;`string` | イベントのプッシュトークン
 `push_token_created_at` | `null, int` | プッシュトークンが作成された UNIX タイムスタンプ
 `push_token_updated_at` | `null, int` | プッシュトークンが最後に更新された UNIX タイムスタンプ
 `push_token_foreground_push_disabled` | `null, boolean` | プッシュトークンのフォアグラウンドプッシュ無効フラグ
 `push_token_device_id` | `null,`&nbsp;`string` | プッシュトークンのデバイス ID
 `push_token_provisionally_opted_in` | `null, boolean` | プッシュトークンの仮オプトインフラグ
-`ios_push_token_apns_gateway` | `null, int` | プッシュトークンの APNs ゲートウェイ。iOS プッシュトークンにのみ適用されます。1 は開発用、2 は本番用
+`ios_push_token_apns_gateway` | `null, int` | プッシュトークンの APNS ゲートウェイ。iOS プッシュトークンにのみ適用され、1 は開発用、2 は本番用です
 `web_push_token_public_key` | `null,`&nbsp;`string` | プッシュトークンの公開キー。Web プッシュトークンにのみ適用されます
 `web_push_token_user_auth` | `null,`&nbsp;`string` | プッシュトークンのユーザー認証。Web プッシュトークンにのみ適用されます
 `web_push_token_vapid_public_key` | `null,`&nbsp;`string` | プッシュトークンの VAPID 公開キー。Web プッシュトークンにのみ適用されます
 `push_token_state_change_type` | `null,`&nbsp;`string` | プッシュトークンの状態変更タイプの説明
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -607,16 +717,16 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | 影響を受けたユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `email_address` | `null,`&nbsp;`string` | [PII] ユーザーのメールアドレス
 `state_change_source` | `null,`&nbsp;`string` | 状態変更のソース（REST、SDK、ダッシュボードなど）
 `subscription_status` | `string` | サブスクリプションステータス: 'Subscribed'、'Unsubscribed'、または 'Opted In'
 `channel` | `null,`&nbsp;`string` | メールなどのグローバルサブスクリプション状態のチャネル
 `time` | `int` | サブスクリプション状態が変更された Unix タイムスタンプ
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | イベントが属するアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
@@ -625,8 +735,8 @@ table td {
 `canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
 `canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
-`send_id` | `null,`&nbsp;`string` | このサブスクリプション状態変更アクションの発信元であるメッセージ送信 ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`send_id` | `null,`&nbsp;`string` | このサブスクリプション状態変更アクションの発生元であるメッセージ送信 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `channel_identifier` | `null,`&nbsp;`string` | [PII] イベント対象チャネルにおけるユーザーの識別子
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -635,13 +745,13 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバル一意 ID
+`id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | 影響を受けたユーザーの Braze ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `email_address` | `null,`&nbsp;`string` | [PII] ユーザーのメールアドレス
-`phone_number` | `null,`&nbsp;`string` | [PII] e164 形式のユーザーの電話番号
+`phone_number` | `null,`&nbsp;`string` | [PII] E.164 形式のユーザーの電話番号
 `app_api_id` | `null,`&nbsp;`string` | イベントが属するアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
@@ -655,9 +765,9 @@ table td {
 `subscription_status` | `string` | サブスクリプションステータス: 'Subscribed'、'Unsubscribed'、または 'Opted In'
 `time` | `int` | サブスクリプション状態が変更された Unix タイムスタンプ
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`send_id` | `null,`&nbsp;`string` | このサブスクリプション状態変更アクションの発信元であるメッセージ送信 ID
+`send_id` | `null,`&nbsp;`string` | このサブスクリプション状態変更アクションの発生元であるメッセージ送信 ID
 `state_change_source` | `null,`&nbsp;`string` | 状態変更のソース（REST、SDK、ダッシュボードなど）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `channel_identifier` | `null,`&nbsp;`string` | [PII] イベント対象チャネルにおけるユーザーの識別子
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
@@ -678,8 +788,8 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`campaign_id` | `string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `conversion_behavior_index` | `null, int` | コンバージョン行動のインデックス
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -703,8 +813,8 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`campaign_id` | `string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -726,8 +836,8 @@ table td {
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`campaign_id` | `string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `channel` | `null,`&nbsp;`string` | このイベントが属するチャネル
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -751,8 +861,8 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`campaign_id` | `string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -776,16 +886,16 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `progression_type` | `string`,&nbsp;`null` | ステップ進行イベントのタイプ |
 | `is_canvas_entry` | `boolean`,&nbsp;`null` | Canvasの最初のステップへのエントリかどうか |
-| `exit_reason` | `string`,&nbsp;`null` | 離脱の場合、ユーザーがそのステップ中に Canvasを離脱した理由 |
-| `canvas_entry_id` | `string`,&nbsp;`null` | Canvas 内のこのユーザーインスタンスの一意の識別子 |
-| `next_step_id` | `string`,&nbsp;`null` | Canvas 内の次のステップの BSON ID |
-| `next_step_api_id` | `string`,&nbsp;`null` | Canvas 内の次のステップの API ID |
+| `exit_reason` | `string`,&nbsp;`null` | 離脱の場合、ユーザーがそのステップ中にCanvasを離脱した理由 |
+| `canvas_entry_id` | `string`,&nbsp;`null` | Canvas内のこのユーザーインスタンスの一意の識別子 |
+| `next_step_id` | `string`,&nbsp;`null` | Canvas内の次のステップの BSON ID |
+| `next_step_api_id` | `string`,&nbsp;`null` | Canvas内の次のステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -801,9 +911,9 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `app_api_id` | `string`,&nbsp;`null` | このイベントが発生したアプリの API ID |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `canvas_step_message_variation_api_id` | `string`,&nbsp;`null` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID |
 | `conversion_behavior_index` | `int`,&nbsp;`null` | ユーザーが実行したコンバージョンイベントのタイプ。「0」は1次コンバージョン、「1」は2次コンバージョンです |
@@ -825,9 +935,9 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | [非推奨] このイベントが属するキャンバスステップの API ID |
 | `gender` | `string`,&nbsp;`null` | [PII] ユーザーの性別 |
 | `country` | `string`,&nbsp;`null` | [PII] ユーザーの国 |
@@ -847,9 +957,9 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
 
@@ -865,9 +975,9 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -882,9 +992,9 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `app_api_id` | `string`,&nbsp;`null` | このイベントが発生したアプリの API ID |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `experiment_step_api_id` | `string`,&nbsp;`null` | このイベントが属する実験ステップの API ID |
 | `conversion_behavior_index` | `int`,&nbsp;`null` | ユーザーが実行したコンバージョンイベントのタイプ。「0」は1次コンバージョン、「1」は2次コンバージョンです |
@@ -901,9 +1011,9 @@ table td {
 | `external_user_id` | `string`,&nbsp;`null` | [PII] ユーザーの外部ユーザー ID |
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `experiment_step_api_id` | `string`,&nbsp;`null` | このイベントが属する実験ステップの API ID |
 | `in_control_group` | `boolean`,&nbsp;`null` | ユーザーがコントロールグループに登録された場合は true |
@@ -923,9 +1033,9 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `canvas_step_message_variation_api_id` | `string`,&nbsp;`null` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID |
 | `channel` | `string`,&nbsp;`null` | このイベントが属するメッセージングチャネル（メール、プッシュなど） |
@@ -947,9 +1057,9 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
-| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属する Canvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属する Canvas バリエーションの API ID |
+| `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `canvas_step_message_variation_api_id` | `string`,&nbsp;`null` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID |
 | `gender` | `string`,&nbsp;`null` | [PII] ユーザーの性別 |
@@ -1480,7 +1590,7 @@ table td {
 `email_address` | `string` | [PII] ユーザーのメールアドレス
 `user_agent` | `null,`&nbsp;`string` | 開封が発生したユーザーエージェント
 `ip_pool` | `null,`&nbsp;`string` | メール送信に使用された IP プール
-`machine_open` | `null,`&nbsp;`string` | ユーザーの操作なしに開封イベントがトリガーされた場合（例: メールプライバシー保護が有効な Apple デバイスなど）、'true' が設定されます。値はより詳細な情報を提供するために変更される場合があります。
+`machine_open` | `null,`&nbsp;`string` | ユーザーの操作なしに開封イベントがトリガーされた場合（例: Mail Privacy Protection が有効な Apple デバイスによる場合）、'true' が設定されます。値はより詳細な粒度を提供するために変更される場合があります。
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
 `is_amp` | `null, boolean` | これが AMP イベントであることを示します
@@ -1591,7 +1701,7 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
@@ -1780,7 +1890,7 @@ table td {
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
 `app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
-`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）
+`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）。
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1919,7 +2029,7 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
@@ -2298,7 +2408,7 @@ table td {
 `app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `is_sampled` | `null,`&nbsp;`string` | プッシュ送信がサンプリングされ、配信イベントが期待されるかどうかを示します
-`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）
+`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）。
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2409,7 +2519,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`action` | `null,`&nbsp;`string` | このメッセージに対して実行されたアクション（例: Subscribed、Unsubscribed、または None）
+`action` | `null,`&nbsp;`string` | このメッセージに対して実行されたアクション（例: Subscribed、Unsubscribed、または None）。
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
@@ -2656,7 +2766,7 @@ table td {
 `subscription_group_id` | `null,`&nbsp;`string` | この SMS メッセージの対象となるサブスクリプショングループの ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | この SMS メッセージの対象となるサブスクリプショングループの API ID
 `inbound_phone_number` | `string` | メッセージの送信先の受信番号
-`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、または `None`
+`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、または `None`。
 `message_body` | `string` | ユーザーからの応答
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | ユーザーからのメディア URL
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
@@ -2772,7 +2882,7 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
@@ -2856,7 +2966,7 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `webhook_duration` | `null, int` | このリクエストの合計所要時間（ミリ秒）
 `webhook_failure_source` | `null,`&nbsp;`string` | エラーが Braze によって作成されたか、エンドポイント自体によって作成されたかを示します。source フィールドは External Endpoint、Treat no status code to host unreachable のいずれかです
-`is_terminal` | `null, boolean` | このイベントが送信における最終試行であったかどうか
+`is_terminal` | `null, boolean` | このイベントが送信の最終試行であったかどうか
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2900,7 +3010,7 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
@@ -3076,7 +3186,7 @@ table td {
 `message_body` | `string` | ユーザーからの応答
 `quick_reply_text` | `string` | ユーザーが押したボタンのテキスト
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | ユーザーからのメディア URL
-`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、または `None`
+`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、または `None`。
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `catalog_id` | `null,`&nbsp;`string` | 受信メッセージで製品が参照されている場合のカタログ ID。それ以外の場合は空
 `product_id` | `null,`&nbsp;`string` | 購入された製品の ID
@@ -3155,7 +3265,7 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
@@ -3187,7 +3297,7 @@ table td {
 
 ### USERS_RANDOMBUCKETNUMBERUPDATE_SHARED {#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED}
 
-| フィールド                    | タイプ                    | 説明                                                |
+| フィールド                    | タイプ                   | 説明                                               |
 | --------------------------- | ------------------------ | -------------------------------------------------- |
 | `id`                        | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                  |
 | `app_group_id`              | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID        |
@@ -3196,36 +3306,36 @@ table td {
 | `external_user_id`          | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                        |
 | `time`                      | `int`,&nbsp;`null`       | イベントが発生した Unix タイムスタンプ               |
 | `random_bucket_number`      | `int`,&nbsp;`null`       | ユーザーに割り当てられた現在のランダムバケット番号    |
-| `prev_random_bucket_number` | `int`,&nbsp;`null`       | ユーザーに割り当てられていた以前のランダムバケット番号 |
-| `sf_created_at`             | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時              |
+| `prev_random_bucket_number` | `int`,&nbsp;`null`       | ユーザーに割り当てられた以前のランダムバケット番号    |
+| `sf_created_at`             | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_USERDELETEREQUEST_SHARED {#USERS_USERDELETEREQUEST_SHARED}
 
-| フィールド          | タイプ                    | 説明                                                       |
-| ------------------ | ------------------------ | ---------------------------------------------------------- |
-| `id`               | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                          |
-| `user_id`          | `string`,&nbsp;`null`    | 削除されたユーザーの Braze ID                                |
-| `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                |
-| `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                  |
-| `time`             | `int`,&nbsp;`null`       | ユーザー削除リクエストが処理された Unix タイムスタンプ        |
-| `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                      |
+| フィールド         | タイプ                   | 説明                                                          |
+| ------------------ | ------------------------ | ------------------------------------------------------------- |
+| `id`               | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                            |
+| `user_id`          | `string`,&nbsp;`null`    | 削除されたユーザーの Braze ID                                  |
+| `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                  |
+| `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                    |
+| `time`             | `int`,&nbsp;`null`       | ユーザー削除リクエストが処理された Unix タイムスタンプ          |
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_USERORPHAN_SHARED {#USERS_USERORPHAN_SHARED}
 
-| フィールド          | タイプ                    | 説明                                                                              |
-| ------------------ | ------------------------ | -------------------------------------------------------------------------------- |
-| `id`               | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                                                |
-| `user_id`          | `string`,&nbsp;`null`    | 孤立したユーザーの Braze ID                                                       |
-| `external_user_id` | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                                                      |
-| `device_id`        | `string`,&nbsp;`null`    | このユーザーに紐づけられたデバイスの ID（ユーザーが匿名の場合）                      |
-| `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                                      |
-| `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                                        |
-| `app_api_id`       | `string`,&nbsp;`null`    | 孤立したユーザーが属していたアプリの API ID                                        |
-| `time`             | `int`,&nbsp;`null`       | ユーザーが孤立した Unix タイムスタンプ                                              |
-| `orphaned_by_id`   | `string`,&nbsp;`null`    | 孤立したユーザーのプロファイルとマージされたユーザーの Braze ID                      |
-| `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                                            |
+| フィールド         | タイプ                   | 説明                                                                          |
+| ------------------ | ------------------------ | ----------------------------------------------------------------------------- |
+| `id`               | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                                            |
+| `user_id`          | `string`,&nbsp;`null`    | 孤立したユーザーの Braze ID                                                    |
+| `external_user_id` | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                                                  |
+| `device_id`        | `string`,&nbsp;`null`    | このユーザーに紐づくデバイスの ID（匿名ユーザーの場合）                        |
+| `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                                  |
+| `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                                    |
+| `app_api_id`       | `string`,&nbsp;`null`    | 孤立したユーザーが属していたアプリの API ID                                    |
+| `time`             | `int`,&nbsp;`null`       | ユーザーが孤立した Unix タイムスタンプ                                         |
+| `orphaned_by_id`   | `string`,&nbsp;`null`    | 孤立したユーザーのプロファイルとマージされたユーザーの Braze ID                 |
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                                       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## スナップショット {#snapshots}

@@ -2,7 +2,7 @@
 nav_title: SMS, RCS, WhatsApp 가입 양식
 article_title: SMS, RCS, WhatsApp 가입 양식
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 에디터를 사용하여 SMS, RCS, WhatsApp 가입 양식을 만드는 방법을 다룹니다."
 ---
 

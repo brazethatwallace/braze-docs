@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM Treueplattform {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) ist eine Plattform für Customer-Engagement und Kundentreue, die Marketern Features für das Kampagnenmanagement und Lösungen für das Loyalitätsmanagement zur Verfügung stellt, um das Engagement und den Gewinn durch gezielte Ansprache zu steigern.
+> [SessionM](https://sessionm.com/) ist eine Plattform für Customer-Engagement und Kundentreue, Teil von Capillary Technologies, die Marketern Features für das Kampagnenmanagement und Lösungen für das Loyalitätsmanagement zur Verfügung stellt, um das Engagement und den Gewinn durch gezielte Ansprache zu steigern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -254,8 +254,8 @@ Aktualisieren Sie die erweiterten Einstellungen in der SessionM-Kampagne, um die
 
 Erstellen Sie einen Nachrichten-Trigger nach dem gewünschten Zeitplan oder Verhalten. Wählen Sie dann im Menü **External Message** die **Braze Messaging Variant** als **Messaging Variant** aus, um das Template zu verwenden.
 
-![SessionM externe Nachricht.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
+![Externe Nachricht von SessionM.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
 
 Dieses Template ruft die relevanten statischen und dynamischen Attribute ab und stellt eine Anfrage an den Braze-Endpunkt.
 
-![SessionM Braze Template.]({% image_buster /assets/img/sessionm/SessionMBrazeTemplate.png %}){: style="max-width:85%;"}
+![SessionM Braze-Template.]({% image_buster /assets/img/sessionm/SessionMBrazeTemplate.png %}){: style="max-width:85%;"}

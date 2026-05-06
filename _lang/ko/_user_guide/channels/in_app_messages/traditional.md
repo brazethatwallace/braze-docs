@@ -276,7 +276,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 
 | 서식 | 입력 | 설명 |
 |---|---|---|
-| [색상 프로필]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | 인앱 메시지 템플릿 갤러리에서 적용합니다. | **Apply Template**을 선택하고 갤러리에서 선택합니다. 그런 다음 **Save**를 선택합니다. |
+| [색상 프로필]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | 인앱 메시지 템플릿 갤러리에서 적용합니다. | **Apply Template**을 선택하고 갤러리에서 선택합니다. 그런 다음 **Save**를 선택합니다. |
 | 텍스트 정렬 | 왼쪽, 가운데 또는 오른쪽. | 최신 Braze SDK 버전에서만 사용할 수 있습니다. |
 | 헤더 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. |
 | 텍스트 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. |

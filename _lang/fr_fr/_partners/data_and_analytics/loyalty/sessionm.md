@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Plateforme de fidélisation SessionM {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) est une plateforme d'engagement client et de fidélisation qui offre des fonctionnalités de gestion de campagne et des solutions de gestion de la fidélisation pour aider les marketeurs à mener des actions de ciblage afin d'augmenter l'engagement et la rentabilité.
+> [SessionM](https://sessionm.com/) est une plateforme d'engagement client et de fidélisation, faisant partie de Capillary Technologies, qui offre des fonctionnalités de gestion de campagne et des solutions de gestion de la fidélisation pour aider les marketeurs à mener des actions de ciblage afin d'augmenter l'engagement et la rentabilité.
 
 ## Conditions préalables {#prerequisites}
 
@@ -24,7 +24,7 @@ search_tag: Partner
 | SessionM | Un secret API REST SessionM Core | Le secret API SessionM associé à votre instance et à l'intégration Braze. Cette clé peut être utilisée pour tous les appels de base, y compris les tags. Elle peut être créée dans le tableau de bord SessionM depuis **Digital Properties**. |
 | SessionM | Un endpoint REST SessionM Connect | Votre endpoint dépendra de l'URL SessionM de votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
 | SessionM | Une chaîne d'autorisation REST SessionM Connect | La chaîne d'autorisation Basic de SessionM Connect associée à votre instance. Cette chaîne d'authentification peut être utilisée pour tous les appels basés sur Connect, y compris get_user_offers. Veuillez contacter votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
-| SessionM | Un Retailer ID REST SessionM Connect | Un identifiant guid unique du client spécifique associé à votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
+| SessionM | Un Retailer ID REST SessionM Connect | Un identifiant GUID unique du client spécifique associé à votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% alert note %}

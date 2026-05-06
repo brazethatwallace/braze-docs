@@ -1,6 +1,6 @@
 ---
 nav_title: 드래그 앤 드롭 편집기
-article_title: 드래그 앤 드롭으로 이메일 생성
+article_title: 드래그 앤 드롭으로 이메일 만들기
 alias: /dnd/
 page_order: 1
 description: "이 문서에서는 이메일 메시지용 드래그 앤 드롭 편집기를 설정하고 올바르게 사용하는 방법을 다룹니다."
@@ -10,7 +10,7 @@ tool:
 - Canvas
 ---
 
-# 드래그 앤 드롭으로 이메일 생성
+# 드래그 앤 드롭으로 이메일 만들기 {#create-an-email-with-drag-and-drop}
 
 > 드래그 앤 드롭 편집기를 사용하면 HTML을 사용하지 않고도 Campaigns 또는 Canvases를 위한 완전히 커스텀되고 개인화된 이메일 메시지를 만들 수 있습니다.
 
@@ -67,17 +67,17 @@ tool:
 
 **행**은 열을 사용하여 메시지 섹션의 수평 구성을 정의하는 구조적 단위입니다. 빈 행 또는 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)를 사용할 수 있습니다. 두 개 이상의 열을 사용하면 서로 다른 콘텐츠 요소를 나란히 배치할 수 있습니다. 이렇게 하면 시작할 때 선택한 템플릿에 관계없이 메시지에 필요한 모든 구조적 요소를 추가할 수 있습니다.
 
-#### 카드 스타일
+#### 카드 스타일 {#cards-style}
 
 **카드 스타일**은 열 사이에 간격을 추가하고 모서리를 둥글게 만들 수 있는 행 등록정보입니다. 카드 스타일 서식을 사용하면 새로운 제품 기능, 후기, 특별 혜택, 뉴스 업데이트 등 가장 중요한 콘텐츠를 강조하는 데 도움이 되는 시각적으로 매력적인 레이아웃을 만들 수 있습니다.
 
-## 드래그 앤 드롭 편집기 사용하기
+## 드래그 앤 드롭 편집기 사용하기 {#using-the-drag-and-drop-editor}
 
 이메일 메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟 메시징 캠페인에 적합하고, Canvases는 다단계 사용자 여정에 적합합니다.
 
 메시지를 작성할 위치를 선택한 후, 드래그 앤 드롭 이메일을 만드는 단계를 살펴보겠습니다.
 
-### 1단계: 템플릿 선택
+### 1단계: 템플릿 선택 {#step-1-select-your-template}
 
 편집 환경으로 드래그 앤 드롭 편집기를 선택한 후 다음 중 하나를 선택할 수 있습니다:
 
@@ -97,7 +97,7 @@ tool:
 
 ![예시 이메일 본문이 포함된 "이메일 배리언트" 섹션.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
-### 2단계: 이메일 작성
+### 2단계: 이메일 작성 {#step-2-build-your-email}
 
 드래그 앤 드롭 편집 환경은 **발송 설정**, **콘텐츠**, **미리보기 및 테스트**의 세 섹션으로 나뉩니다. 이메일 본문을 작성하는 핵심은 **콘텐츠** 섹션에서 이루어집니다. 이메일을 작성하기 전에 이메일 작성 경험을 안내하는 핵심 구성요소를 이해하는 것이 중요합니다. 복습이 필요하다면 [편집기 소개](#about-the-editor)를 참조하세요.
 
@@ -120,7 +120,7 @@ tool:
 ![드래그 앤 드롭 편집기의 콘텐츠 패널에서 스타일 설정 옆에 있는 카피라이터 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
 
-### 3단계: 발송 정보 추가
+### 3단계: 발송 정보 추가 {#step-3-add-your-sending-information}
 
 이메일 메시지 디자인과 작성을 완료한 후에는 **발송 설정** 섹션에서 발송 정보를 추가할 차례입니다.
 
@@ -133,7 +133,7 @@ tool:
 
 오른쪽 패널의 미리보기에 추가한 발송 정보가 표시됩니다. 이 정보는 **설정** > **이메일 환경설정** > **발송 구성**으로 이동하여 업데이트할 수도 있습니다.
 
-#### 이메일 헤더 개인화(고급)
+#### 이메일 헤더 개인화(고급) {#personalizing-your-email-header-advanced}
 
 **발송 설정**에서 이메일 헤더와 이메일 추가 항목에 대한 개인화를 추가할 수 있으며, 이를 통해 다른 이메일 서비스 공급자에게 추가 데이터를 보낼 수 있습니다. 수신자의 이름을 포함하는 등 이메일 헤더를 개인화하면 이메일이 열릴 가능성을 높이는 데 기여할 수 있습니다.
 
@@ -141,7 +141,7 @@ tool:
 고급 기능은 Campaign 또는 Canvas 작성기에 표시됩니다. 고급 기능에서는 인라인 CSS 설정을 수정하고 헤더 또는 추가 키-값 페어를 입력할 수 있습니다(구성된 경우).
 {% endalert %}
 
-### 4단계: 이메일 테스트
+### 4단계: 이메일 테스트 {#step-4-test-your-email}
 
 발송 정보를 추가한 후에는 마지막으로 이메일을 테스트할 차례입니다.
 
@@ -157,7 +157,7 @@ tool:
 
 실제 편집기, Inbox Vision, 실제 테스트 이메일에서 동일한 이메일의 세 가지 다른 버전을 볼 수 있으므로, 모든 플랫폼에서 세부 사항을 일치시키는 것이 중요합니다.
 
-#### 미리보기 및 테스트 발송
+#### 미리보기 및 테스트 발송 {#preview-and-test-send}
 
 **사용자로 미리보기** 탭에서 다음 사용자 유형을 선택하여 메시지를 미리 볼 수 있습니다.
 
@@ -175,7 +175,7 @@ tool:
 
 !["미리보기 링크 복사" 버튼과 생성된 링크를 복사하는 이메일 미리보기.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
-#### Inbox Vision 사용
+#### Inbox Vision 사용 {#use-inbox-vision}
 
 Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 관점에서 이메일 캠페인을 볼 수 있습니다. Inbox Vision을 사용하여 이메일 메시지를 테스트하려면 **미리보기 및 테스트** 섹션에서 **Inbox Vision**을 선택하고 **Inbox Vision 실행**을 선택합니다.
 
@@ -192,7 +192,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 조건부 주석과 CSS 미디어 쿼리의 수를 최소화하는 다음 업데이트를 기반으로 HTML 렌더링이 개선되었습니다. 결과적으로 HTML 파일이 더 작고 효율적으로 코딩됩니다.
 - `<div>` 요소 기반 디자인에서 표준 `<table>` 형식 코드베이스로 마이그레이션
-- [편집기 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)이 간결하게 재코딩됨
+- [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)이 간결하게 재코딩됨
 - 최종 HTML 코드가 태그 사이의 공백을 제거하도록 압축됨
 - 투명 구분선이 자동으로 콘텐츠 패딩으로 변환됨
 {% enddetails %}
@@ -205,35 +205,35 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 [글로벌 스타일 설정]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)을 사용하여 드래그 앤 드롭 편집기의 커스텀 테마를 만들 수 있습니다.
 {% endalert %}
 
-### 자동 너비 이미지
+### 자동 너비 이미지 {#auto-width-images}
 
 이메일에 추가된 이미지는 자동으로 **자동 너비**로 설정됩니다. 이 설정을 조정하려면 **자동 너비**를 끄고 필요에 따라 너비 비율을 조정합니다.
 
 ![드래그 앤 드롭 편집기의 콘텐츠 탭에 있는 자동 너비 옵션.]({% image_buster /assets/img/dnd/dnd1.png %})
 
-### 색상 레이어링
+### 색상 레이어링 {#color-layering}
 
 색상 레이어링을 사용하면 이메일 배경, 콘텐츠 영역, 다양한 콘텐츠 구성요소의 색상을 변경할 수 있습니다. 앞에서 뒤로의 색상 순서는 콘텐츠 구성요소 색상, 콘텐츠 영역 배경색, 배경색입니다.
 
 ![드래그 앤 드롭 편집기의 색상 레이어링 예시.]({% image_buster /assets/img/dnd/dnd2.png %})
 
-### 콘텐츠 패딩
+### 콘텐츠 패딩 {#content-padding}
 
 ![드래그 앤 드롭 편집기의 블록 옵션.]({% image_buster /assets/img/dnd/dnd3.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
 패딩을 조정하려면 **블록 옵션**으로 스크롤하여 **더 많은 옵션**을 선택합니다. 패딩을 세밀하게 조정하여 이메일이 딱 맞게 보이도록 할 수 있습니다.
 
-### 콘텐츠 배경
+### 콘텐츠 배경 {#content-background}
 
 행 구성에 배경 이미지를 추가하여 이메일 캠페인에 더 많은 디자인과 시각적 콘텐츠를 포함할 수 있습니다.
 
-### 언어 속성
+### 언어 속성 {#language-attribute}
 
 **설정** 탭으로 이동하여 원하는 언어를 선택하면 언어 속성을 설정할 수 있습니다. 메시지가 동적 언어 값을 가진 사용자를 대상으로 하는 경우 사용자 속성 {%raw%} `{{${language}}}` {%endraw%}를 타겟팅할 수도 있습니다.
 
 ![이메일의 "언어" 값 설정.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
-### 개인화
+### 개인화 {#personalization}
 
 ![드래그 앤 드롭 편집기의 개인화 추가 옵션.]({% image_buster /assets/img/dnd/dnd4.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
@@ -246,7 +246,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 이미지 블록 및 버튼 링크 유형 필드에는 Liquid 개인화가 지원되지 않습니다.
 
-#### 동적 이미지
+#### 동적 이미지 {#dynamic-images}
 
 이미지 소스 속성에 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content) 또는 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 포함하여 이메일 메시징에 동적 이미지를 포함할 수 있습니다. 예를 들어, 정적 이미지 대신 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 이미지 URL로 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다. 이를 통해 각 사용자에게 이메일을 개인화할 수 있습니다.
 
@@ -254,7 +254,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 이미지 URL은 `https://`로 시작해야 합니다. `http://`를 사용하면 앱이 충돌합니다.
 {% endalert %}
 
-### 텍스트 방향
+### 텍스트 방향 {#text-direction}
 
 메시지를 작성할 때 해당 **텍스트 방향** 버튼을 선택하여 왼쪽에서 오른쪽 또는 오른쪽에서 왼쪽으로 텍스트 방향을 전환할 수 있습니다. 아랍어나 히브리어와 같은 언어로 메시지를 작성할 때 이 옵션을 사용할 수 있습니다.
 
@@ -264,7 +264,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 ### HTML
 
-#### 링크에 대한 HTML 속성
+#### 링크에 대한 HTML 속성 {#html-attributes-to-links}
 
 ![링크에 대해 "clicktracking" 속성이 꺼진 "속성" 섹션.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
@@ -286,13 +286,13 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 마지막으로, 메시지의 접근성을 높이는 데 도움이 되는 사전 정의된 속성을 사용할 수 있습니다. 자세한 내용은 [Braze에서 접근 가능한 메시지 작성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) 문서를 참조하세요.
 
-#### 커스텀 head 태그
+#### 커스텀 head 태그 {#custom-head-tags}
 
 `<head>` 태그를 사용하여 이메일 메시지에 CSS와 메타데이터를 추가할 수 있습니다. 예를 들어, 이 태그를 사용하여 스타일시트나 파비콘을 추가할 수 있습니다. `<head>` 태그에서 Liquid가 지원됩니다.
 
 `<head>` 태그 외부에 추가된 내용은 이메일의 `<body>` 태그 뒤에 추가됩니다. 이는 추가된 콘텐츠가 이메일에 표시된다는 것을 의미합니다.
 
-##### 허용되는 태그 및 태그별 속성
+##### 허용되는 태그 및 태그별 속성 {#allowed-tags-and-attributes-by-tag}
 
 | 태그 이름 | 설명 | 예시 |
 | --- | --- | --- |

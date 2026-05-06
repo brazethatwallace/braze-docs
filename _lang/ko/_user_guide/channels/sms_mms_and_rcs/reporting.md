@@ -52,6 +52,16 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 이 쿼리는 지정된 워크스페이스 및 구독 그룹에서 SMS 커뮤니케이션을 옵트아웃한 사용자를 반환하며, Campaign 또는 Canvases와 연결된 사용자로 필터링됩니다.
 
+### 옵트아웃 타이밍 {#opt-out-timing}
+
+Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시지 이벤트(예: [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events)의 타임스탬프 또는 구독 그룹 상태 변경 이벤트)는 Braze가 옵트아웃을 기록한 시점에 대한 신뢰할 수 있는 소스입니다.
+
+{% alert note %}
+이벤트 타임스탬프는 Braze가 인바운드 메시지를 수신하거나 처리한 시점을 반영하며, 사용자가 SMS를 발송한 시점이나 통신사 또는 SMS 제공업체가 수신한 시점과 반드시 일치하지는 않습니다. 분석에서 옵트아웃을 Braze가 인바운드 옵트아웃 경로를 처리한 시점으로 간주하는 경우, 이 타임스탬프가 해당 정의와 일치합니다.
+{% endalert %}
+
+고객 프로필에는 현재 구독 상태가 표시되지만, 옵트아웃 처리 시 [커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) 또는 유사한 항목을 설정하지 않는 한 단일 "SMS 구독 취소 시점" 필드가 표시되지 않을 수 있습니다.
+
 ## SMS 발송 결과에 적용되는 요금 {#charges-applied-to-sms-sending-outcomes}
 
 이 표는 Braze 청구를 반영하며, 제공업체의 청구와는 다릅니다. Braze에서 요금이 부과되지 않는 결과도 제공업체에서는 요금이 부과될 수 있습니다.

@@ -1,6 +1,6 @@
 ---
 nav_title: Visão geral do Shopify
-article_title: "Visão geral do Shopify"
+article_title: Visão geral do Shopify
 description: "Este artigo de referência descreve a parceria entre a Braze e a Shopify, uma empresa de comércio global, que permite conectar sua loja da Shopify com a Braze para passar webhooks selecionados da Shopify para a Braze. Aproveite as estratégias de mensagens integradas entre canais da Braze e o Canvas para incentivar os clientes a completarem suas compras ou redirecionar os usuários com base nas compras anteriores."
 page_type: partner
 search_tag: Partner
@@ -30,9 +30,9 @@ A Braze oferece duas opções de integração para comerciantes da Shopify, proj
 
 ## Como a integração funciona {#how-the-integration-works}
 
-Se você já configurou e ativou o preenchimento histórico nas suas configurações, a sincronização inicial de dados começará imediatamente. A Braze importará todos os clientes e eventos de pedidos realizados nos últimos 90 dias antes da sua conexão de integração com a Shopify. Quando a Braze importar seus clientes da Shopify, atribuiremos o tipo de `external_id` que você escolheu nas suas configurações.
+Se você já configurou e ativou o [preenchimento histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) nas suas configurações, a sincronização inicial de dados começará imediatamente.
 
-Se você planeja integrar com um ID externo personalizado (para a [integração padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) ou a [integração personalizada]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), será necessário adicionar seu ID externo personalizado como um metafield de cliente Shopify a todos os perfis de clientes Shopify existentes e, em seguida, realizar o [preenchimento histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 Após a sincronização inicial de dados, a Braze continuará rastreando novos dados e atualizações, diretamente da Shopify e dos SDKs da Braze.
 
@@ -85,19 +85,19 @@ O status de opt-in de marketing da Shopify para e-mail e marketing por SMS pode 
 - **Processo de checkout:** Se um usuário atualizar seu status de opt-in durante o checkout.
 
 {% alert note %}
-O status de opt-in de marketing por e-mail da Shopify não mudará o [estado global de inscrição por e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/) de um usuário na Braze. O estado de inscrição padrão quando um perfil de usuário é criado é "inscrito". Lembre-se de usar o grupo de inscrições como parte dos critérios de entrada da sua Campaign ou Canvas.
+O status de opt-in de marketing por e-mail da Shopify não mudará o [estado global de inscrição por e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/) de um usuário na Braze. O estado de inscrição padrão quando um perfil de usuário é criado é "Subscribed". Lembre-se de usar o grupo de inscrições como parte dos critérios de entrada da sua Campaign ou Canvas.
 {% endalert %}
 
 Esta tabela mostra quais estados de opt-in de marketing da Shopify correspondem aos status dentro do seu grupo de inscrições da Braze.
 
 | Estado de opt-in de marketing da Shopify | Estado do grupo de inscrições da Braze |
 | --- | --- |
-| E-mail inscrito | Inscrito |
-| E-mail não inscrito | Não inscrito |
-| E-mail pendente de confirmação | Não inscrito |
-| E-mail inválido | Não inscrito |
-| SMS inscrito | Inscrito |
-| SMS não inscrito | Não inscrito |
+| E-mail inscrito | Subscribed |
+| E-mail não inscrito | Unsubscribed |
+| E-mail pendente de confirmação | Unsubscribed |
+| E-mail inválido | Unsubscribed |
+| SMS inscrito | Subscribed |
+| SMS não inscrito | Unsubscribed |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### Formulários de inscrição {#sign-up-forms}

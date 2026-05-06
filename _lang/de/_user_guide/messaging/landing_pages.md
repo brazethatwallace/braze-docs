@@ -11,10 +11,10 @@ alias: /landing_pages/
 
 > Braze Landing-Pages sind eigenständige Webseiten, die Ihre Strategie zur Nutzer:innen-Gewinnung und zum Engagement unterstützen können.
 
-Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen.
+Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen. Eine Referenz der Drag-and-Drop-Blöcke für Landing-Pages finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 {% alert note %}
-Die Verfügbarkeit von Landing-Pages und benutzerdefinierten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
@@ -31,12 +31,12 @@ Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen kön
 
 ## Tarifoptionen {#plan-tiers}
 
-Die Anzahl der veröffentlichten Landing-Pages und benutzerdefinierten Domains, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
+Die Anzahl der veröffentlichten Landing-Pages und angepassten Domains, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
 
 | Feature                                                                                                   | Kostenloser Tarif     | Kostenpflichtiger Tarif (inkrementell)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Veröffentlichte Landing-Pages                                                                 | Fünf pro Unternehmen | 20 zusätzlich |
-| Benutzerdefinierte Domains          | Eine pro Unternehmen | Fünf zusätzlich |
+| Angepasste Domains          | Eine pro Unternehmen | Fünf zusätzlich |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
@@ -74,4 +74,11 @@ Ja. Verwenden Sie den **Custom Code**-Block im Drag-and-Drop-Editor, um HTML hin
 
 ### Kann ich einen Webhook innerhalb einer Landing-Page erstellen? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Nein, das wird derzeit nicht unterstützt.
+Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für Canvases oder Webhook-Kampagnen dienen:
+
+- **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Eingangs-Trigger und fügen Sie einen Webhook-Schritt hinzu.
+- **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu triggern.
+
+Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – selbst wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie einen Canvas ein, der durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-zu-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
+
+Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Nutzerprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.

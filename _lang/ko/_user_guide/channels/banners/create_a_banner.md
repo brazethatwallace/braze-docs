@@ -65,7 +65,7 @@ channel:
 
 #### 3.1단계: 배너 스타일 지정 {#step-31-style-the-banner}
 
-블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다.
+블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다. 배너 편집기 블록 및 공유 속성 세부 정보에 대한 참조는 [편집기 블록(배너)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)을 확인하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

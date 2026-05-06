@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify 개요
-article_title: "Shopify 개요"
+article_title: Shopify 개요
 description: "이 참조 문서에서는 Braze와 글로벌 커머스 기업인 Shopify 간의 파트너십에 대해 설명합니다. Shopify 스토어를 Braze에 원활하게 연결하여 선택한 Shopify 웹훅을 Braze로 전달할 수 있습니다. Braze의 크로스채널 전략과 Canvas를 활용하여 고객이 구매를 완료하도록 유도하거나 이전 구매를 기반으로 사용자를 리타겟할 수 있습니다."
 page_type: partner
 search_tag: Partner
@@ -30,9 +30,9 @@ Braze는 이커머스 비즈니스의 다양한 요구를 충족하도록 설계
 
 ## 통합 작동 방식 {#how-the-integration-works}
 
-구성 설정에서 이미 과거 데이터 백필을 설정하고 활성화한 경우, 초기 데이터 동기화가 즉시 시작됩니다. Braze는 Shopify 통합 연결 이전 최근 90일간의 모든 고객 및 주문 완료 이벤트를 가져옵니다. Braze가 Shopify 고객을 가져올 때, 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
+구성 설정에서 이미 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 설정하고 활성화한 경우, 초기 데이터 동기화가 즉시 시작됩니다.
 
-커스텀 외부 ID로 통합할 계획이라면([표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) 또는 [커스텀 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional) 모두 해당), 기존의 모든 Shopify 고객 프로필에 커스텀 외부 ID를 Shopify 고객 메타필드로 추가한 다음 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 수행해야 합니다.
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 초기 데이터 동기화 이후, Braze는 Shopify 및 Braze SDK에서 직접 새로운 데이터와 업데이트를 지속적으로 추적합니다.
 

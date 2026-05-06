@@ -276,7 +276,7 @@ Der Inhalt des Tabs **Stil** variiert je nach den im vorherigen Schritt gewählt
 
 | Formatierung | Eingabe | Beschreibung |
 |---|---|---|
-| [Farbprofil]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aus der In-App-Nachrichten-Vorlagengalerie anwenden. | Wählen Sie **Vorlage anwenden** und wählen Sie aus der Galerie. Wählen Sie dann **Speichern**. |
+| [Farbprofil]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aus der In-App-Nachrichten-Vorlagengalerie anwenden. | Wählen Sie **Vorlage anwenden** und wählen Sie aus der Galerie. Wählen Sie dann **Speichern**. |
 | Textausrichtung | Links, Zentriert oder Rechts. | Nur für neuere Braze-SDK-Versionen verfügbar. |
 | Überschrift | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
 | Text | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |

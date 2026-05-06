@@ -52,6 +52,16 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 Esto devuelve los usuarios que cancelaron su suscripción a las comunicaciones por SMS para el espacio de trabajo y grupo de suscripción indicados, filtrados a aquellos asociados con campañas o Canvas.
 
+### Momento de la cancelación de suscripción {#opt-out-timing}
+
+Los eventos de palabras clave y mensajes de entrada en Currents o en tu almacén de datos, como las marcas de tiempo en [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) o los eventos de cambio de estado del grupo de suscripción, son la fuente autorizada de cuándo Braze registró la cancelación de suscripción.
+
+{% alert note %}
+Las marcas de tiempo de los eventos reflejan cuándo Braze recibió o procesó el mensaje de entrada, no necesariamente cuándo el usuario envió el SMS o cuándo un operador o proveedor de SMS lo recibió. Si tu análisis trata las cancelaciones de suscripción como el momento en que Braze procesó la ruta de cancelación de suscripción entrante, estas marcas de tiempo coinciden con esa definición.
+{% endalert %}
+
+El perfil de usuario muestra el estado de suscripción actual, pero puede que no muestre un campo único de "cancelación de suscripción de SMS en" a menos que establezcas un [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) o similar al procesar las cancelaciones de suscripción.
+
 ## Cargos aplicados a los resultados de envío de SMS {#charges-applied-to-sms-sending-outcomes}
 
 Esta tabla refleja la facturación de Braze, no la de tu proveedor. Los resultados que Braze no cobra pueden ser cobrados por tu proveedor.

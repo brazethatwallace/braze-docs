@@ -2,7 +2,7 @@
 nav_title: Formulario de registro de SMS, RCS y WhatsApp
 article_title: Formulario de registro de SMS, RCS y WhatsApp
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "Esta página explica cómo crear un formulario de registro de SMS, RCS y WhatsApp con el editor de arrastrar y soltar de mensajes dentro de la aplicación."
 ---
 

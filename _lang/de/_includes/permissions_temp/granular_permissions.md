@@ -1,5 +1,7 @@
 {% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
+{% multi_lang_include video.html id="nv699nw706" source="wistia" %}
+
 ## Erstellen eines Berechtigungssatzes {#creating-a-permission-set}
 
 Mit Berechtigungssätzen können Sie Berechtigungen für bestimmte Themenbereiche oder Aktionen bündeln. Sie können Berechtigungssätze auf Dashboard-Nutzer:innen anwenden, die in verschiedenen Workspaces denselben Zugriff benötigen. Um einen Berechtigungssatz zu erstellen, gehen Sie zu **Einstellungen** > **Berechtigungseinstellungen** und wählen Sie dann **Berechtigungssatz erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
@@ -198,7 +200,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Nutzer:innen importieren | Nutzer:innen in das Dashboard hochladen |
 | Nutzerdaten | Nutzerdaten bearbeiten | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Nutzerdaten exportieren | Nutzer:innen vom Dashboard herunterladen |
-| Löschprotokolle für Nutzer:innen | Zusammengeführte Nutzer:innen anzeigen | Eine Liste der Zusammenführungsdatensätze für Nutzer:innen anzeigen |
+| Zusammenführungsprotokolle für Nutzer:innen | Zusammengeführte Nutzer:innen anzeigen | Eine Liste der Zusammenführungsdatensätze für Nutzer:innen anzeigen |
 | Nutzer:innen | Nutzerprofile PII-konform anzeigen | Nutzerprofile in PII-konformer Weise anzeigen |
 | Doppelte Nutzer:innen | Doppelte Nutzer:innen zusammenführen | Doppelte Nutzer:innen zu einer Nutzer:in zusammenführen. Duplikate werden nach dem Zusammenführen entfernt. |
 | Nutzer:innen | Nutzer:innen löschen | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |

@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Brazeランディングページは、ユーザー獲得とエンゲージメント戦略を推進できるスタンドアロンのWebページです。
 
-ランディングページを使用して、オーディエンスの拡大、ユーザーデータの取得、特別オファーの宣伝、マルチチャネルキャンペーンのサポートを行いましょう。
+ランディングページを使用して、オーディエンスの拡大、ユーザーデータの取得、特別オファーの宣伝、マルチチャネルCampaignsのサポートを行いましょう。ランディングページのドラッグ＆ドロップブロックのリファレンスについては、[エディターブロック（ランディングページ）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)を参照してください。
 
 {% alert note %}
 ランディングページとカスタムドメインの利用可否は、Brazeパッケージによって異なります。開始するには、アカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。
@@ -33,10 +33,10 @@ alias: /landing_pages/
 
 公開できるランディングページとカスタムドメインの数は、プランタイプ（無料または有料（増分））によって異なります。
 
-| 機能                                                                                                   | 無料ティア     | 有料ティア（増分）     |
+| 機能 | 無料ティア | 有料ティア（増分） |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| 公開ランディングページ                                                                 | 会社あたり5件 | 追加20件 |
-| カスタムドメイン          | 会社あたり1件 | 追加5件 |
+| 公開ランディングページ | 会社あたり5件 | 追加20件 |
+| カスタムドメイン | 会社あたり1件 | 追加5件 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ## ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
@@ -74,4 +74,11 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 ### ランディングページ内にWebhookを作成できますか？ {#can-i-create-a-webhook-inside-a-landing-page}
 
-いいえ、現在この機能はサポートされていません。
+いいえ。ただし、**Submitted a Landing Page form**イベントをCanvasesやWebhook Campaignsのトリガーとして使用できます。
+
+- **Canvas：** **Submitted a Landing Page form**イベントをCanvasのエントリトリガーとして使用し、Webhookステップを追加します。
+- **Campaign：** **Submitted a Landing Page form**イベントを使用して、フォーム送信に基づいてトリガーします。
+
+ページがBrazeチャネル（Webサイトや広告など）を通じて送信されていない場合、送信時に新しいユーザープロファイルが作成される可能性があります。そのユーザーがすでにBrazeに存在していてもです。これに対処するには、**Submitted a Landing Page form**でトリガーされるCanvasを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
+
+`landing_page_url` Liquidタグを使用してページを共有すると、フォーム送信は自動的に既存のユーザープロファイルに紐づけられます。その後、ランディングページで送信されたユーザー属性をLiquidで参照して、後続のテンプレートに活用できます。
