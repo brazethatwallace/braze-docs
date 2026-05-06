@@ -15,7 +15,7 @@ div.alert {
     width: 70px;
     height: 70px;
     flex-shrink: 0;
-    border: none;
+    border: none !important;
   }
   b {
     font-family: $braze-bold;
