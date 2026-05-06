@@ -858,7 +858,7 @@ blockquote {
 		}
 		/* Error */
 		.k {
-			color: $blue-ocean;
+			color: #0A6B78; // $blue-ocean → darkened for 5.7:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Keyword */
@@ -940,17 +940,17 @@ blockquote {
 		}
 		/* Generic.Traceback */
 		.kc {
-			color: $blue-ocean;
+			color: #0A6B78; // $blue-ocean → darkened for 5.7:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Keyword.Constant */
 		.kd {
-			color: $blue-ocean;
+			color: #0A6B78; // $blue-ocean → darkened for 5.7:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Keyword.Declaration */
 		.kn {
-			color: $blue-ocean;
+			color: #0A6B78; // $blue-ocean → darkened for 5.7:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Keyword.Namespace */
@@ -960,12 +960,12 @@ blockquote {
 		}
 		/* Keyword.Pseudo */
 		.kr {
-			color: $blue-ocean;
+			color: #0A6B78; // $blue-ocean → darkened for 5.7:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Keyword.Reserved */
 		.kt {
-			color: $navy-cove;
+			color: #475896; // $navy-cove → darkened for 6.2:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Keyword.Type */
@@ -979,7 +979,7 @@ blockquote {
 		}
 		/* Literal.String */
 		.n {
-			color: $navy-cove;
+			color: #475896; // $navy-cove → darkened for 6.2:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Literal.Name */
@@ -992,12 +992,12 @@ blockquote {
 		}
 		/* Name.Builtin */
 		.nc {
-			color: $navy-cove;
+			color: #475896; // $navy-cove → darkened for 6.2:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Name.Class */
 		.no {
-			color: $blue-scooter;
+			color: #0A6E85; // $blue-scooter → darkened for 5.3:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Name.Constant */
@@ -1016,7 +1016,7 @@ blockquote {
 		}
 		/* Name.Exception */
 		.nf {
-			color: $blue-scooter;
+			color: #0A6E85; // $blue-scooter → darkened for 5.3:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Name.Function */
@@ -1026,12 +1026,12 @@ blockquote {
 		}
 		/* Name.Label */
 		.nn {
-			color: #0e84b5;
+			color: #0A6590; // #0e84b5 → darkened for 5.8:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Name.Namespace */
 		.nx {
-			color: $navy-cove;
+			color: #475896; // $navy-cove → darkened for 6.2:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Name.Class.Other */
@@ -1068,7 +1068,7 @@ blockquote {
 		}
 		/* Literal.Number.Hex */
 		.mi {
-			color: $navy-cove;
+			color: #475896; // $navy-cove → darkened for 6.2:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Literal.Number.Integer */
