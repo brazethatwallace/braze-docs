@@ -313,7 +313,7 @@ jobs:
         run: python scripts/auto_translate.py check-path-case-collisions
 
       # Matrix locales can diverge on explicit `{#id}` tails when English omits
-      # them but one translation adds a stable fragment (Copilot / PR #13394).
+      # them but one translation adds a stable fragment (PR #13394).
       # Uses translation_results.json so only this run's paths are touched.
       - name: Align heading anchor parity across locales
         if: steps.merge-artifacts.outcome == 'success'
@@ -355,28 +355,6 @@ jobs:
           delete-branch: true
           add-paths: |
             _lang/
-
-      - name: Request Copilot review
-        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
-          REPO: ${{ github.repository }}
-        run: |
-          set +e
-          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
-            echo "Requested Copilot review via gh CLI shortcut."
-            exit 0
-          fi
-          echo "gh CLI shortcut failed; falling back to REST API bot login..."
-          if gh api --method POST \
-            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
-            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
-            echo "Requested Copilot review via REST API fallback."
-            exit 0
-          fi
-          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
 
   # --------------------------------------------------------------------------
   # Orphan cleanup only (no translation; after batched catch-up)
@@ -441,28 +419,6 @@ jobs:
           delete-branch: true
           add-paths: |
             _lang/
-
-      - name: Request Copilot review
-        if: steps.create-pr.outputs.pull-request-number
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
-          REPO: ${{ github.repository }}
-        run: |
-          set +e
-          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
-            echo "Requested Copilot review via gh CLI shortcut."
-            exit 0
-          fi
-          echo "gh CLI shortcut failed; falling back to REST API bot login..."
-          if gh api --method POST \
-            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
-            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
-            echo "Requested Copilot review via REST API fallback."
-            exit 0
-          fi
-          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
 
   report-failures:
     needs: [prepare, translate-locale, merge-and-publish]
