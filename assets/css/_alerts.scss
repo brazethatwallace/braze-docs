@@ -44,7 +44,7 @@ div.alert {
   }
   &.alert-update{
     b {
-      color: $yellow-gold;
+      color: #7A5520; // #C48D3C darkened to meet 4.5:1 against $yellow-cream (#FEFBE8)
     }
     border-color: $yellow-beige;
     background-image: url(#{$base_url}/assets/img/message-update.png) ;
@@ -64,7 +64,7 @@ div.alert {
   }
   &.alert-important{
     b {
-      color: $purple-orchard;
+      color: #6E3568; // #B766AD darkened to meet 4.5:1 against $purple-ghost (#F8EEF7)
     }
     border-color: $purple-lavender;
     background-image: url(#{$base_url}/assets/img/message-important.png) ;
