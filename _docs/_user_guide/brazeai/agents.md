@@ -65,7 +65,7 @@ Agents are configured with instructions (system prompts) that define how they be
 The following limitations apply:
 
 - Each agent has a default daily execution limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
-- By default, each run must complete within 15 seconds. After 15 seconds, the agent returns a `null` response where it is used.
+- By default, each run must complete within 20 seconds. After 20 seconds, the agent returns a `null` response where it is used.
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
 
