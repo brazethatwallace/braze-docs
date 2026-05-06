@@ -988,7 +988,7 @@ blockquote {
 		}
 		/* Name.Attribute */
 		.nb {
-			color: $green-grass;
+			color: #326BAD; // a11y-light: blue, 5.19:1 against #F9F9FA
 		}
 		/* Name.Builtin */
 		.nc {
@@ -1135,7 +1135,7 @@ blockquote {
 		}
 		/* Literal.String.Symbol */
 		.bp {
-			color: $green-grass;
+			color: #1F7C93; // a11y-light: cyan, 4.57:1 against #F9F9FA
 		}
 		/* Name.Builtin.Pseudo */
 		.fm {
