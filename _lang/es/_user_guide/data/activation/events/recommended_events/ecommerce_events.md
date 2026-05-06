@@ -132,10 +132,9 @@ Usa esta plantilla cuando quieras optimizar la comunicación posterior a la comp
 Estas plantillas están diseñadas como punto de partida. Las personalizaciones comunes incluyen:
   - **Personalizar el correo electrónico:** Cada plantilla incluye un correo electrónico preconfigurado creado con el editor de arrastrar y soltar, totalmente editable para que coincida con tu marca y contenido.
   - **Agregar canales:** Combina el correo electrónico con push, SMS o mensajes dentro de la aplicación para un refuerzo multicanal.
-  Dentro de cada plantilla, hay un correo electrónico preconfigurado que es totalmente personalizable.
   - **Agregar retrasos y divisiones de decisiones:** Segmenta a los usuarios por comportamiento (por ejemplo, carrito de alto valor frente a carrito de bajo valor) o períodos de espera entre mensajes.
   - **Cambiar la creatividad:** Reemplaza la plantilla de correo electrónico incluida con el estilo visual de tu marca.
-  Usa bloques de producto de arrastrar y soltar (en el programa de acceso anticipado) para renderizar dinámicamente el contenido del carrito abandonado o los productos navegados sin escribir Liquid personalizado.
+  - **Usar bloques de producto:** Usa bloques de producto de arrastrar y soltar (en el programa de acceso anticipado) para renderizar dinámicamente el contenido del carrito abandonado o los productos navegados sin escribir Liquid personalizado.
 
 Para estrategias de ciclo de vida más avanzadas, incluyendo ejemplos de personalización con Liquid, consulta [Casos de uso de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases/).
 
@@ -146,15 +145,15 @@ Los eventos recomendados de comercio electrónico alimentan las mismas superfici
 | Informe | Qué muestra |
 |---------------------------------------------|-------------------------------------------|
 | Informe de ingresos | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y aplicaciones seleccionados. |
-| Dashboard de ingresos de atribución de último toque | Ingresos atribuidos a la última Campaign o Canvas con la que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
-| Análisis de Campaign y Canvas | Ingresos totales atribuidos a una Campaign o Canvas específico dentro de la ventana de conversión primaria. |
-| Informe de conversiones | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la Campaign o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
+| Dashboard de ingresos de atribución de último toque | Ingresos atribuidos a la última campaña o Canvas con los que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
+| Análisis de Campaign y Canvas | Ingresos totales atribuidos a una campaña o Canvas específicos dentro de la ventana de conversión primaria. |
+| Informe de conversiones | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la campaña o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
 | Información del segmento | Comparaciones de ingresos entre segmentos en el dashboard de información del segmento. |
 | Generador de informes | Métricas de ingresos en informes personalizados creados en el Generador de informes. |
 | Generador de dashboards | Métricas de ingresos en dashboards personalizados creados en el Generador de dashboards. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para campos calculados que no son de usuario (por ejemplo, ingresos de Campaign o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
+Para campos calculados que no son de usuario (por ejemplo, ingresos de una campaña o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
 
 {% alert note %}
 Para evitar el doble conteo de ingresos, no envíes tanto compras heredadas como eventos recomendados de comercio electrónico para los mismos pedidos. Si planeas hacer la transición de compras heredadas a eventos recomendados, coordina el cambio con tu equipo de cuenta de Braze antes de realizar cualquier cambio en la integración.<br><br>

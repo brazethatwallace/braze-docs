@@ -2,7 +2,7 @@
 nav_title: E-Mail-Registrierung mit Rabatt
 article_title: E-Mail-Registrierung mit Rabatt
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "Diese Referenzseite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um ein E-Mail-Registrierungsformular zu erstellen, das neuen Abonnent:innen einen Rabatt bietet."
 ---
 
@@ -48,6 +48,6 @@ Passen Sie das Erscheinungsbild Ihres Registrierungsformulars und Rabatts mithil
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 {% multi_lang_include drag_and_drop/templates.md section='email double opt-in' %}

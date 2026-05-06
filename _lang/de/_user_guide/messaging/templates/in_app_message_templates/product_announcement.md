@@ -2,7 +2,7 @@
 nav_title: Produktankündigung
 article_title: Produktankündigung
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten nutzen können, um die Bekanntheit neuer Produkteinführungen zu steigern."
 ---
 

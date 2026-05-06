@@ -132,10 +132,9 @@ Utilisez ce modèle lorsque vous souhaitez rationaliser la communication post-ac
 Ces modèles sont conçus comme point de départ. Les personnalisations courantes incluent :
   - **Personnaliser l'e-mail :** chaque modèle inclut un e-mail préconfiguré créé avec l'éditeur glisser-déposer, entièrement modifiable pour correspondre à votre marque et votre contenu.
   - **Ajouter des canaux :** associez l'e-mail avec le push, le SMS ou les messages in-app pour un renforcement cross-canal.
-  Dans chaque modèle, un e-mail préconfiguré est entièrement personnalisable.
   - **Ajouter des délais et des arbres décisionnels :** segmentez les utilisateurs par comportement (par exemple, panier de forte valeur par rapport à un panier de faible valeur) ou définissez des périodes d'attente entre les messages.
   - **Changer le contenu créatif :** remplacez le modèle d'e-mail inclus par le style visuel de votre marque.
-  Utilisez les blocs produit en glisser-déposer (dans le programme d'accès anticipé) pour afficher dynamiquement le contenu du panier abandonné ou les produits consultés sans écrire de Liquid personnalisé.
+  - **Utiliser les blocs produit :** utilisez les blocs produit en glisser-déposer (dans le programme d'accès anticipé) pour afficher dynamiquement le contenu du panier abandonné ou les produits consultés sans écrire de Liquid personnalisé.
 
 Pour des stratégies de cycle de vie plus avancées, y compris des exemples de personnalisation Liquid, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
 

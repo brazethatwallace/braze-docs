@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Plataforma de fidelización SessionM {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) es una plataforma de interacción con los clientes y fidelización que proporciona características de gestión de campañas y soluciones de gestión de la fidelización para ayudar a los especialistas en marketing a impulsar el alcance específico y aumentar la interacción y la ganancia.
+> [SessionM](https://sessionm.com/) es una plataforma de interacción con los clientes y fidelización, parte de Capillary Technologies, que proporciona características de gestión de campañas y soluciones de gestión de la fidelización para ayudar a los especialistas en marketing a impulsar el alcance específico y aumentar la interacción y la ganancia.
 
 ## Requisitos previos {#prerequisites}
 
@@ -74,7 +74,7 @@ En la pestaña **Configuración**, añade los pares clave-valor para cada campo 
 
 ![Configuración del webhook.]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-Programa tu entrega, configura tu **Público objetivo** para que se dirija al segmento [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu campaña.
+Programa tu entrega, configura tu **Target Audiences** para que se dirija al segmento [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu campaña.
 
 {% alert important %}
 Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [punto de conexión de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un tiempo de vida para cada usuario en la llamada (un único usuario por llamada).
@@ -103,9 +103,9 @@ Exporta tu segmento de Braze utilizando el segmentador de Braze y proporciona un
 
 ## Recuperar la cartera de ofertas en tiempo real con Braze {#retrieving-real-time-offer-wallet-with-braze}
 
-La integración de SessionM con Braze permite extraer en tiempo real los datos de usuario de SessionM en el momento del envío del mensaje, mediante Contenido conectado, para eliminar el riesgo de comunicar a los clientes ofertas de fidelización caducadas, vencidas o ya canjeadas.
+La integración de SessionM con Braze permite extraer en tiempo real los datos de usuario de SessionM en el momento del envío del mensaje, mediante contenido conectado, para eliminar el riesgo de comunicar a los clientes ofertas de fidelización caducadas, vencidas o ya canjeadas.
 
-El siguiente ejemplo muestra cómo se utiliza el Contenido conectado para crear una plantilla de datos de cartera de ofertas en un mensaje. Sin embargo, el Contenido conectado puede utilizarse con cualquiera de los puntos de conexión de SessionM Connect.
+El siguiente ejemplo muestra cómo se utiliza el contenido conectado para crear una plantilla de datos de cartera de ofertas en un mensaje. Sin embargo, el contenido conectado puede utilizarse con cualquiera de los puntos de conexión de SessionM Connect.
 
 ### Paso 1: Emitir oferta en SessionM {#step-1-issue-offer-in-sessionm}
 
@@ -117,9 +117,9 @@ A continuación, SessionM añade la oferta a la cartera del cliente en el estado
 
 ### Paso 2: Llamar a la API de cartera de ofertas de SessionM {#step-2-call-sessionm-offer-wallet-api}
 
-En el paso en Canvas o Campaign con las ofertas de SessionM, utiliza [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para hacer una llamada a la API al [punto de conexión de SessionM `get_user_offers`](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
+En el paso en Canvas o Campaign con las ofertas de SessionM, utiliza [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para hacer una llamada a la API al [punto de conexión de SessionM `get_user_offers`](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
 
-En la solicitud de Contenido conectado, especifica el `user_id` de SessionM del usuario y tu `retailer_id` para recuperar la lista completa de ofertas activas que el cliente tiene en su cartera. Cada solicitud a este punto de conexión puede incluir un único usuario. Ponte en contacto con el equipo de SessionM para obtener la clave de cadena codificada para el encabezado de autorización básica en tu llamada de Contenido conectado.
+En la solicitud de contenido conectado, especifica el `user_id` de SessionM del usuario y tu `retailer_id` para recuperar la lista completa de ofertas activas que el cliente tiene en su cartera. Cada solicitud a este punto de conexión puede incluir un único usuario. Ponte en contacto con el equipo de SessionM para obtener la clave de cadena codificada para el encabezado de autorización básica en tu llamada de contenido conectado.
 
 En el cuerpo de la solicitud, `culture` está predeterminado a `en-US`, pero puedes utilizar Liquid para crear una plantilla con el idioma del usuario para las ofertas multilingües de SessionM (por ejemplo, utilizando {% raw %}`"culture":"{{${language}}}"`{% endraw %}).
 

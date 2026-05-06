@@ -52,6 +52,16 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 Isso retorna os usuários que cancelaram a inscrição de comunicações por SMS para o espaço de trabalho e grupo de inscrições especificados, filtrados para aqueles associados a Campaigns ou Canvas.
 
+### Momento do descadastramento {#opt-out-timing}
+
+Eventos de palavras-chave e mensagens de entrada no Currents ou no seu data warehouse, como timestamps em [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) ou eventos de mudança de estado do grupo de inscrições, são a fonte oficial de quando a Braze registrou o descadastramento.
+
+{% alert note %}
+Os timestamps dos eventos refletem quando a Braze recebeu ou processou a mensagem de entrada, não necessariamente quando o usuário enviou o SMS ou quando a operadora ou o provedor de SMS o recebeu. Se a sua análise trata os descadastramentos como o momento em que a Braze processou a jornada de descadastramento de entrada, esses timestamps correspondem a essa definição.
+{% endalert %}
+
+O perfil de usuário mostra o estado atual da inscrição, mas pode não exibir um campo único de "SMS cancelado em", a menos que você defina um [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) ou similar ao processar descadastramentos.
+
 ## Cobranças aplicadas aos resultados de envio de SMS {#charges-applied-to-sms-sending-outcomes}
 
 Esta tabela reflete a cobrança da Braze, não a cobrança do seu provedor. Resultados que não são cobrados pela Braze podem ser cobrados pelo seu provedor.

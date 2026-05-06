@@ -2,7 +2,7 @@
 nav_title: 이메일 가입 양식
 article_title: 이메일 가입 양식
 alias: "/email_capture/"
-page_order: 2
+page_order: 3
 description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편집기를 사용하여 이메일 가입 양식을 만드는 방법을 다룹니다."
 ---
 
@@ -26,7 +26,7 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편�
 
 ### 3단계: 이메일 가입 구성요소 커스터마이즈 {#step-3-customize-your-email-sign-up-component}
 
-이메일 가입 양식을 만들려면 편집기에서 이메일 캡처 요소를 선택합니다. 기본적으로 수집된 이메일 주소는 글로벌 구독 그룹 **Subscribed** 상태가 됩니다. 특정 구독 그룹에 사용자를 옵트인하려면 [이메일 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)를 참조하세요.
+이메일 가입 양식을 만들려면 편집기에서 이메일 캡처 요소를 선택합니다. 기본적으로 수집된 이메일 주소는 글로벌 구독 그룹 **가입됨** 상태가 됩니다. 특정 구독 그룹에 사용자를 옵트인하려면 [이메일 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)를 참조하세요.
 
 이메일 캡처 요소의 입력 안내 텍스트와 레이블 텍스트를 커스터마이즈할 수 있습니다.
 

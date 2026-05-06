@@ -2,7 +2,7 @@
 nav_title: Promoção sazonal com imagem
 article_title: Promoção sazonal com imagem de fundo
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "Esta página aborda como usar o editor de arrastar e soltar de mensagens no app para promover uma oferta ou promoção sazonal e impulsionar o engajamento dos usuários."
 ---
 

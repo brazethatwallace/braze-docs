@@ -65,7 +65,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.1: バナーのスタイルを設定する {#step-31-style-the-banner}
 
-ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。
+ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

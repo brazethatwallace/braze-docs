@@ -49,7 +49,7 @@ Si ce n'est pas déjà fait, sélectionnez **Enregistrer en tant que brouillon**
 
 ![Un exemple de page d'accueil en cours de création dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/landing_pages/template.png %})
 
-L'éditeur utilise deux types de composants pour la composition des pages d'accueil : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne.
+L'éditeur utilise deux types de composants pour la composition des pages d'accueil : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne. Pour une référence dédiée de chaque bloc et de ses propriétés, consultez [Blocs de l'éditeur (pages d'accueil)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 ![La section « Build » contenant « Rows » et « Form Blocks ».]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -85,8 +85,8 @@ Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données 
 |---------------|-------------|
 | Capture d'e-mail | Un champ de formulaire pour les adresses e-mail. Lors de la soumission, l'adresse e-mail est ajoutée au profil de cet utilisateur dans Braze. |
 | Capture de téléphone | Un champ de formulaire pour les numéros de téléphone. Lors de la soumission, l'utilisateur est abonné à votre groupe d'abonnement SMS ou WhatsApp. |
-| Champ de saisie | Un champ de formulaire qui prend en charge les attributs standard (tels que le prénom et le nom) ou une chaîne d'attribut personnalisé de votre choix. |
-| Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne d'attribut personnalisé à la liste. |
+| Champ de saisie | Un champ de formulaire qui prend en charge les attributs standard (tels que le prénom et le nom) ou une chaîne de caractères d'attribut personnalisé de votre choix. |
+| Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne de caractères d'attribut personnalisé à la liste. |
 | Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle n'est pas cochée, son attribut est défini sur `false`. |
 | Groupe de cases à cocher | Les utilisateurs peuvent sélectionner parmi plusieurs choix présentés. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau défini. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

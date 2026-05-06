@@ -70,7 +70,7 @@ Esses modelos cobrem os fluxos de ciclo de vida de eCommerce mais comuns. Use-os
 
 Reengaja usuários que visualizaram um produto, mas não o adicionaram ao carrinho.
 
-Use este modelo quando quiser trazer navegadores de volta para considerar produtos que visualizaram recentemente, mas não agiram.
+Use este modelo quando quiser trazer navegadores de volta para considerar produtos que visualizaram recentemente, mas sobre os quais não agiram.
 
 | Configuração | Valor |
 | --- | --- |
@@ -132,10 +132,9 @@ Use este modelo quando quiser simplificar a comunicação pós-compra e coletar 
 Esses modelos foram projetados como ponto de partida. Personalizações comuns incluem:
   - **Personalizar o e-mail:** Cada modelo inclui um e-mail pré-configurado criado com o editor de arrastar e soltar, totalmente editável para combinar com sua marca e conteúdo.
   - **Adicionar canais:** Combine e-mail com push, SMS ou mensagens no app para reforço multicanal.
-  Dentro de cada modelo, há um e-mail pré-configurado totalmente personalizável.
   - **Adicionar postergações e divisões de decisão:** Ramifique usuários por comportamento (por exemplo, carrinho de alto valor comparado a carrinho de baixo valor) ou períodos de espera entre mensagens.
   - **Trocar o criativo:** Substitua o modelo de e-mail incluído pelo estilo visual da sua marca.
-  Use blocos de produto de arrastar e soltar (no programa de acesso antecipado) para renderizar dinamicamente o conteúdo do carrinho abandonado ou produtos navegados sem escrever Liquid personalizado.
+  - **Usar blocos de produto:** Use blocos de produto de arrastar e soltar (no programa de acesso antecipado) para renderizar dinamicamente o conteúdo do carrinho abandonado ou produtos navegados sem escrever Liquid personalizado.
 
 Para estratégias de ciclo de vida mais avançadas, incluindo exemplos de personalização com Liquid, consulte [Casos de uso de eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
 

@@ -2,7 +2,7 @@
 nav_title: 이미지가 포함된 이메일 가입
 article_title: 배경 이미지가 포함된 이메일 가입
 alias: "/email_image/"
-page_order: 4
+page_order: 5
 description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편집기를 사용하여 간단한 메시지 하나로 브랜드 스타일을 보여주고 이메일 목록을 구축하는 방법을 다룹니다."
 ---
 

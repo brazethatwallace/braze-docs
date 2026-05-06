@@ -1,5 +1,7 @@
 {% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
+{% multi_lang_include video.html id="nv699nw706" source="wistia" %}
+
 ## 権限セットの作成 {#creating-a-permission-set}
 
 権限セットを使用して、特定のテーマ領域またはアクションに関連する権限をバンドルします。異なるワークスペース間で同じアクセス権限を必要とするダッシュボードユーザーには、権限セットを適用できます。権限セットを作成するには、**設定** > **権限設定**に移動し、**権限セットを作成**を選択します。各権限については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)を参照してください。

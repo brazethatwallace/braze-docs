@@ -49,7 +49,7 @@ page_order: 0
 
 ![드래그 앤 드롭 에디터에서 생성 중인 랜딩 페이지 예시.]({% image_buster /assets/img/landing_pages/template.png %})
 
-에디터는 랜딩 페이지 구성을 위해 기본 블록과 양식 블록이라는 두 가지 유형의 구성요소를 사용합니다. 모든 블록은 행 안에 배치해야 합니다.
+에디터는 랜딩 페이지 구성을 위해 기본 블록과 양식 블록이라는 두 가지 유형의 구성요소를 사용합니다. 모든 블록은 행 안에 배치해야 합니다. 각 블록과 속성에 대한 전용 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)을 확인하세요.
 
 !['행'과 '양식 블록'이 포함된 'Build' 섹션.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 

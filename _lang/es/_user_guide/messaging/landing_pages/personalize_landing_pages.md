@@ -50,6 +50,68 @@ Liquid puede personalizar la experiencia de la página de inicio tanto para visi
 - **Usuarios identificados:** Enlaza a la página de inicio desde un mensaje de Braze e incluye la [etiqueta de Liquid de la página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Esto asocia al usuario con su perfil de Braze y personaliza la experiencia de la página.
 - **Visitantes anónimos:** Usa Liquid para contenido contextual no basado en el perfil, como un número aleatorio o un saludo según la hora del día.
 
+## Obtener datos externos con código personalizado {#fetching-external-data-with-custom-code}
+
+Puedes usar un bloque de **código personalizado** para obtener datos de puntos de conexión externos y mostrarlos en tu página de inicio. Este enfoque realiza la solicitud en el lado del cliente (en el navegador del usuario), por lo que la página se carga rápidamente sin retrasos de renderizado del lado del servidor.
+
+{% alert warning %}
+Al obtener datos externos, eres responsable de la seguridad de tu implementación. Los identificadores externos utilizados en las llamadas a la API deben ser UUID o usar un esquema de nomenclatura equivalentemente seguro; consulta las [mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+{% endalert %}
+
+### Caso de uso {#use-case}
+
+Este patrón es útil cuando necesitas mostrar datos específicos del usuario que no están almacenados en Braze. Algunos ejemplos incluyen inventario en tiempo real, recomendaciones personalizadas u otros datos que tu organización gestiona en sistemas independientes.
+
+### Ejemplo de implementación {#example-implementation}
+
+Este ejemplo muestra cómo obtener datos de usuario desde una API externa. Reemplaza el punto de conexión de la API con tu propio punto de conexión seguro y usa un identificador seguro.
+
+{% raw %}
+```html
+<script>
+window.onload = () => {
+  // Use Liquid to template the user's external ID
+  const userId = "{{${user_id}}}";
+
+  const loadUserData = async () => {
+    try {
+      // Replace with your own secure API endpoint
+      const response = await fetch(`https://your-api.example.com/user/${userId}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to load data');
+      }
+
+      const data = await response.json();
+
+      // Update the page with the fetched data
+      document.querySelector("#user-data").textContent = JSON.stringify(data, null, 2);
+      document.querySelector("#user-name").textContent = data.name || "User";
+    } catch (error) {
+      // Handle errors gracefully
+      document.querySelector("#user-data").textContent = "Unable to load data at this time.";
+    }
+  };
+
+  loadUserData();
+};
+</script>
+
+<!-- Display area for fetched data -->
+<p>Welcome, <span id="user-name">Loading...</span></p>
+<pre id="user-data">Loading your information...</pre>
+```
+{% endraw %}
+
+### Consideraciones {#considerations}
+
+Al obtener datos externos en páginas de inicio:
+
+- **Estados de carga:** Los usuarios verán texto de marcador de posición hasta que el punto de conexión responda. Considera añadir un indicador de carga o una pantalla esqueleto.
+- **Gestión de errores:** Si el punto de conexión falla o tarda en responder, la página puede parecer rota. Implementa mensajes de error y alternativas apropiados.
+- **Rendimiento:** La página se carga de inmediato, pero los datos aparecen después de que se complete la solicitud externa. Mantén las respuestas de tu API rápidas para la mejor experiencia de usuario.
+- **Seguridad:** Asegúrate de que tu punto de conexión de la API valide el identificador y solo devuelva datos que el usuario esté autorizado a ver. Implementa límites de velocidad para prevenir abusos. Para orientación sobre cómo elegir identificadores seguros, consulta las [mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+
 ## Páginas alternativas {#fallback-pages}
 
 Si tus usuarios intentan acceder a una página que ha sido despublicada, verán un mensaje indicando que la página no puede cargarse actualmente. Las razones por las que una página ha sido despublicada incluyen:

@@ -2,7 +2,7 @@
 nav_title: E-Mail-Registrierungsformular
 article_title: E-Mail-Registrierungsformular
 alias: "/email_capture/"
-page_order: 2
+page_order: 3
 description: "Diese Seite beschreibt, wie Sie ein E-Mail-Registrierungsformular mit dem Drag-and-Drop-Editor für In-App-Nachrichten erstellen."
 ---
 
@@ -48,6 +48,6 @@ Passen Sie das Erscheinungsbild Ihres Registrierungsformulars mithilfe der Drag-
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 {% multi_lang_include drag_and_drop/templates.md section='email double opt-in' %}

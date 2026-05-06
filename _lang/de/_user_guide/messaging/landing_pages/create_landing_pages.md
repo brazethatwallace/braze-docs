@@ -49,7 +49,7 @@ Falls noch nicht geschehen, wählen Sie **Als Entwurf speichern**. Um mit der An
 
 ![Eine Beispiel-Landing-Page, die im Drag-and-Drop-Editor erstellt wird.]({% image_buster /assets/img/landing_pages/template.png %})
 
-Der Editor verwendet zwei Arten von Komponenten für die Gestaltung von Landing-Pages: Basisblöcke und Formularblöcke. Alle Blöcke müssen in einer Zeile platziert werden.
+Der Editor verwendet zwei Arten von Komponenten für die Gestaltung von Landing-Pages: Basisblöcke und Formularblöcke. Alle Blöcke müssen in einer Zeile platziert werden. Eine vollständige Referenz aller Blöcke und Eigenschaften finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 ![Der Abschnitt „Build“ mit „Rows“ und „Form Blocks“.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 

@@ -2,7 +2,7 @@
 nav_title: Inscription par e-mail avec image
 article_title: Inscription par e-mail avec image d'arrière-plan
 alias: "/email_image/"
-page_order: 4
+page_order: 5
 description: "Cette page explique comment utiliser l'éditeur par glisser-déposer de messages in-app pour mettre en valeur le style de votre marque avec un simple message et développer votre liste d'e-mails."
 ---
 

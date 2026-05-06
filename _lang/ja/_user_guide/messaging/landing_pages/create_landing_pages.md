@@ -49,7 +49,7 @@ page_order: 0
 
 ![ドラッグ＆ドロップエディターで作成中のランディングページの例。]({% image_buster /assets/img/landing_pages/template.png %})
 
-エディターでは、ランディングページの構成に2種類のコンポーネントを使用します。基本ブロックとフォームブロックです。すべてのブロックは行内に配置する必要があります。
+エディターでは、ランディングページの構成に2種類のコンポーネントを使用します。基本ブロックとフォームブロックです。すべてのブロックは行内に配置する必要があります。各ブロックとプロパティの詳細なリファレンスについては、[エディターブロック（ランディングページ）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)を参照してください。
 
 ![「行」と「フォームブロック」を含む「ビルド」セクション。]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 

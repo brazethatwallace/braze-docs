@@ -2,7 +2,7 @@
 nav_title: "Flujo de incorporación"
 article_title: "Flujo de incorporación"
 alias: "/onboarding_flow/"
-page_order: 0
+page_order: 1
 description: "Esta página explica cómo dar la bienvenida a nuevos usuarios, guiarlos a través de los beneficios e impulsar la acción mediante una llamada a la acción convincente."
 ---
 

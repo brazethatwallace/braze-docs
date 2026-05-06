@@ -88,7 +88,7 @@ Les blocs représentent différents types de contenu que vous pouvez utiliser da
 
 ![Option pour sélectionner des blocs, y compris titre, paragraphe, bouton, image et espacement.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du remplissage. Le panneau de droite bascule automatiquement vers un panneau de style pour l'élément de contenu sélectionné. Pour plus d'informations, consultez [Propriétés des blocs éditeur]({{site.baseurl}}/dnd/editor_blocks/).
+Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du remplissage. Le panneau de droite bascule automatiquement vers un panneau de style pour l'élément de contenu sélectionné. Pour plus d'informations, consultez [Blocs éditeur (centre de préférences)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
 
 Si vous utilisez le bloc de code personnalisé dans votre centre de préférences, les cadres intégrés (iframes) peuvent ne pas être générés dans le code personnalisé lors de la livraison à vos utilisateurs.
 

@@ -65,7 +65,7 @@ Pour rédiger votre bannière, vous pouvez choisir de :
 
 #### Étape 3.1 : Styliser la bannière {#step-31-style-the-banner}
 
-Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pour commencer à créer votre message.
+Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pour commencer à créer votre message. Pour une référence des blocs de l'éditeur de bannières et des liens vers les détails des propriétés partagées, consultez [Blocs de l'éditeur (bannières)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

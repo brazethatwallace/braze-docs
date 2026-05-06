@@ -2,7 +2,7 @@
 nav_title: Promotion saisonnière avec image
 article_title: Promotion saisonnière avec image d'arrière-plan
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "Cette page explique comment utiliser l'éditeur par glisser-déposer de messages in-app pour promouvoir une offre ou un deal saisonnier afin de stimuler l'engagement des utilisateurs."
 ---
 

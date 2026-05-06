@@ -2,7 +2,7 @@
 nav_title: Inscrição de e-mail com imagem
 article_title: Inscrição de e-mail com imagem de fundo
 alias: "/email_image/"
-page_order: 4
+page_order: 5
 description: "Esta página explica como usar o editor de arrastar e soltar de mensagens no app para destacar o estilo da sua marca com uma mensagem simples e construir sua lista de e-mails."
 ---
 

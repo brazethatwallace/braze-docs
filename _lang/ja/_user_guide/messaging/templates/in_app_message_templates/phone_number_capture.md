@@ -2,7 +2,7 @@
 nav_title: SMS、RCS、WhatsApp登録フォーム
 article_title: SMS、RCS、WhatsApp登録フォーム
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "このページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用してSMS、RCS、WhatsApp登録フォームを作成する方法について説明します。"
 ---
 
@@ -38,7 +38,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ![サブスクリプショングループが選択されたサブスクリプショングループのドロップダウン。]({% image_buster /assets/img_archive/dnd_iam_phone_capture_subscription.png %}){: style="max-width:40%"}
 
-デフォルトでは、グローバルに番号を収集しますが、番号を収集する国を制限することもできます。これは、特定の国の電話番号を持つユーザーにのみメッセージを送信する場合に便利で、リストのクリーンさを維持するのに役立ちます。これを行うには、**Collect numbers from all countries**をオフにし、ドロップダウンを使用して特定の国を選択します。ユーザーは、明示的に追加した国のみ選択できます。
+デフォルトではグローバルに番号を収集しますが、番号を収集する国を制限することもできます。これは、特定の国の電話番号を持つユーザーにのみメッセージを送信する場合に便利で、リストのクリーンさを維持するのに役立ちます。これを行うには、**Collect numbers from all countries**をオフにし、ドロップダウンを使用して特定の国を選択します。ユーザーは、明示的に追加した国のみ選択できます。
 
 ![番号を収集する国を選択するための国のドロップダウン。]({% image_buster /assets/img_archive/dnd_iam_phone_capture_countries.png %}){: style="max-width:40%"}
 

@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify のデータ機能
-article_title: "Shopify のデータ機能"
+article_title: Shopify のデータ機能
 description: "このリファレンス記事では、Shopify のデータ機能について説明します。"
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ page_order: 4
 
 # Shopify のデータ機能 {#shopify-data-features}
 
-> この記事では、Shopify の機能の概要を示します。これには、追跡対象のShopifyデータ、ペイロード例、履歴バックフィル、および製品の同期などが含まれます。
+> この記事では、Shopifyの機能の概要を示します。これには、追跡対象のShopifyデータ、ペイロード例、履歴バックフィル、および製品の同期などが含まれます。
 
 ## 追跡対象のShopifyイベント {#tracked-shopify-events}
 
@@ -19,7 +19,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
 {% tabs %}
-{% tab Example Payload %}
+{% tab ペイロード例 %}
 {% subtabs global %}
 {% subtab Product viewed %}
 ```json
@@ -409,7 +409,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify events %}
+{% tab Shopifyイベント %}
 {% subtabs global %}
 {% subtab Product viewed %}
 **イベント**: `ecommerce.product_viewed`<br>
@@ -779,7 +779,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
 {% tabs local %}
-{% tab Example Payload %}
+{% tab ペイロード例 %}
 {% subtabs %}
 {% subtab Shopify Tags %}
 ```json
@@ -800,7 +800,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify Custom Attributes %}
+{% tab Shopifyカスタム属性 %}
 | 属性名 | 説明 |
 | --- | --- |
 | `shopify_total_spent` | 注文履歴全体で顧客が支払った総額。 |
@@ -844,7 +844,7 @@ Shopifyカスタム属性にLiquidパーソナライゼーションを追加す�
 - 国
 
 {% alert note %}
-BrazeがサポートされているShopifyカスタム属性とBraze標準属性を更新するのは、既存のユーザープロファイルとデータに違いがある場合のみです。たとえば、インバウンドShopifyデータにBobという名前が含まれており、BobがBrazeのユーザープロファイルに名前としてすでに存在している場合、Brazeでは更新はトリガーされず、データポイントは課金されません。
+BrazeがサポートされているShopifyカスタム属性とBraze標準属性を更新するのは、既存のユーザープロファイルとデータに違いがある場合のみです。たとえば、インバウンドShopifyデータにBobという名前が含まれており、BobがBrazeのユーザープロファイルに名前としてすでに存在している場合、Brazeは更新をトリガーせず、データポイントは課金されません。
 {% endalert %}
 
 ## SDKによるデータ収集 {#sdk-data-collection}
@@ -853,13 +853,17 @@ Braze SDKが収集するデータの詳細については、[SDKデータ収集]
 
 ## 履歴バックフィル {#historical-backfill}
 
-Shopifyストアのオンボーディング中に、履歴バックフィルを通じて初期データ同期を開始し、顧客とすぐにエンゲージメントを開始できます。このバックフィルの一環として、BrazeはShopifyインテグレーション接続前の過去90日間のすべての顧客と注文確定イベントの初期データ同期を実行します。BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
+> 履歴Shopifyデータは、Brazeを接続する前にインポートされます。過去90日間の注文イベントと過去1年間の顧客データが対象です。どちらの期間も、インテグレーションを完了した日から遡って計算されます。
+
+[Shopify標準インテグレーション設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/)または[Shopifyカスタムインテグレーション設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)を通じて、履歴バックフィルをオンにし、過去の顧客をターゲットにできます。これにより、過去90日間のShopify注文（注文関連イベント）と過去1年間のユーザープロファイルがインポートされます。どちらの期間も、インテグレーションを完了した日から遡って計算されます。
+
+BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
 
 {% alert note %}
-カスタムexternal ID（[標準インテグレーション]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users)または[カスタムインテグレーション]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)のいずれか）との統合を計画している場合、既存のすべてのShopify顧客プロファイルにShopify顧客メタフィールドとしてカスタムexternal IDを追加し、その後に履歴バックフィルを実行する必要があります。
+アクティブなCampaignsやCanvasesを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがSegmentsやジャーニーにどのように影響するかを確認してください。
 {% endalert %}
 
-同期された注文イベントデータはセグメンテーションに使用できますが、収益データ自体はユーザープロファイルや[収益 – ラストタッチアトリビューションダッシュボード]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution)には反映されません。
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 ### Shopify履歴バックフィルの設定 {#setting-up-shopify-historical-backfill}
 
@@ -875,4 +879,11 @@ Shopifyストアのオンボーディング中に、履歴バックフィルを�
 
 ### 同期データ {#synced-data}
 
-初期データ同期では、BrazeはShopifyインテグレーション接続前の過去90日間の顧客と注文確定をインポートします。BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
+初期データ同期では、Brazeは過去90日間の注文イベントと過去1年間のユーザープロファイルをインポートします。それぞれ、インテグレーションを完了した日から遡って計算されます。BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
+
+以下の表は、初期ロードに含まれるデータをまとめたものです。
+
+| Braze推奨イベント | Shopifyカスタムイベント | Braze標準属性 | Brazeサブスクリプションステータス |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>注文確定</li><li>注文キャンセル</li><li>注文返金</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>メール</li><li>名</li><li>姓</li><li>電話</li><li>市区町村</li><li>国</li><li>合計収益</li><li>合計返金</li><li>合計注文数</li></ul>{:/} | {::nomarkdown}<ul><li>このShopifyストアに関連するメールマーケティングサブスクリプション</li><li>このShopifyストアに関連するSMSマーケティングサブスクリプション</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}

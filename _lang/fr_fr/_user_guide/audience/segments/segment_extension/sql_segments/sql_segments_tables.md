@@ -33,7 +33,12 @@ Ces tables SQL correspondent aux événements documentés dans le [glossaire des
 Table | Description
 ------|------------
 [AGENTCONSOLE_AGENTEXECUTED_SHARED](#AGENTCONSOLE_AGENTEXECUTED_SHARED) | Lorsqu'un agent de la Console des agents est exécuté (**Partage de données Snowflake uniquement**)
+[AGENTCONSOLE_RAWLLMREQUEST_SHARED](#AGENTCONSOLE_RAWLLMREQUEST_SHARED) | Informations brutes de chaque appel LLM (**Partage de données Snowflake uniquement**)
 [AGENTCONSOLE_TOOLINVOCATION_SHARED](#AGENTCONSOLE_TOOLINVOCATION_SHARED) | Lorsqu'un outil est exécuté (**Partage de données Snowflake uniquement**)
+[USER_CUSTOM_ATTRIBUTES_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED) | Instantané périodique des attributs personnalisés de profil par utilisateur
+[USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | Historique des attributs de profil par défaut avec plages de dates d'effet
+[USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Instantané périodique des attributs de profil par défaut par utilisateur
+[USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Attributs de profil par défaut par utilisateur en quasi temps réel
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | Éléments de catalogue non supprimés
 [CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | Lorsqu'une Campaign est modifiée (**Partage de données Snowflake uniquement**)
 [CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | Lorsqu'un Canvas est modifié (**Partage de données Snowflake uniquement**)
@@ -59,14 +64,14 @@ Table | Description
 [USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED](#USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED) | Lorsqu'un utilisateur est inscrit dans le groupe de contrôle d'une Campaign
 [USERS_CAMPAIGNS_FREQUENCYCAP_SHARED](#USERS_CAMPAIGNS_FREQUENCYCAP_SHARED) | Lorsqu'un utilisateur atteint la limite de fréquence pour une Campaign
 [USERS_CAMPAIGNS_REVENUE_SHARED](#USERS_CAMPAIGNS_REVENUE_SHARED) | Lorsqu'un utilisateur génère du chiffre d'affaires pendant la période de conversion principale
-[USERS_CANVASSTEP_PROGRESSION_SHARED](#USERS_CANVASSTEP_PROGRESSION_SHARED) | Lorsqu'un utilisateur progresse vers une étape du Canvas
+[USERS_CANVASSTEP_PROGRESSION_SHARED](#USERS_CANVASSTEP_PROGRESSION_SHARED) | Lorsqu'un utilisateur progresse vers une étape Canvas
 [USERS_CANVAS_CONVERSION_SHARED](#USERS_CANVAS_CONVERSION_SHARED) | Lorsqu'un utilisateur convertit pour un événement de conversion Canvas
 [USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | Lorsqu'un utilisateur entre dans un Canvas
 [USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED](#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED) | Lorsqu'un utilisateur quitte un Canvas parce qu'il correspond aux critères de sortie d'audience
 [USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED](#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED) | Lorsqu'un utilisateur quitte un Canvas parce qu'il a effectué un événement d'exception
 [USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | Lorsqu'un utilisateur convertit pour une étape d'expérience Canvas
 [USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | Lorsqu'un utilisateur entre dans un chemin d'étape d'expérience
-[USERS_CANVAS_FREQUENCYCAP_SHARED](#USERS_CANVAS_FREQUENCYCAP_SHARED) | Lorsqu'un utilisateur atteint la limite de fréquence pour une étape du Canvas
+[USERS_CANVAS_FREQUENCYCAP_SHARED](#USERS_CANVAS_FREQUENCYCAP_SHARED) | Lorsqu'un utilisateur atteint la limite de fréquence pour une étape Canvas
 [USERS_CANVAS_REVENUE_SHARED](#USERS_CANVAS_REVENUE_SHARED) | Lorsqu'un utilisateur génère du chiffre d'affaires pendant la période de l'événement de conversion principal
 [USERS_MESSAGES_BANNER_ABORT_SHARED](#USERS_MESSAGES_BANNER_ABORT_SHARED) | Un message de bannière initialement planifié a été abandonné pour une raison quelconque
 [USERS_MESSAGES_BANNER_CLICK_SHARED](#USERS_MESSAGES_BANNER_CLICK_SHARED) | Lorsqu'un utilisateur clique sur une bannière
@@ -93,14 +98,14 @@ Table | Description
 [USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED](#USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise un message in-app
 [USERS_MESSAGES_LINE_ABORT_SHARED](#USERS_MESSAGES_LINE_ABORT_SHARED) | Lorsqu'un message LINE planifié ne peut pas être distribué, avant l'envoi à LINE
 [USERS_MESSAGES_LINE_CLICK_SHARED](#USERS_MESSAGES_LINE_CLICK_SHARED) | Lorsqu'un utilisateur clique sur un lien dans un message LINE
-[USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | Lorsqu'un message LINE est reçu de la part d'un utilisateur
+[USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | Lorsqu'un message LINE est reçu d'un utilisateur
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | Lorsqu'un message LINE est envoyé à LINE
 [USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | Lorsqu'un message LINE est réessayé après avoir été dépriorisé ou limité en fréquence (**Partage de données Snowflake uniquement**)
 [USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Lorsqu'une Live Activity a un événement de résultat
 [USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Lorsqu'un message Live Activity est envoyé
-[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | Un message de carte News Feed initialement planifié a été abandonné pour une raison quelconque
-[USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | Lorsqu'un utilisateur clique sur une carte News Feed
-[USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise une carte News Feed
+[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | Un message de carte de fil d'actualité initialement planifié a été abandonné pour une raison quelconque
+[USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | Lorsqu'un utilisateur clique sur une carte de fil d'actualité
+[USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise une carte de fil d'actualité
 [USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | Un message de notification push initialement planifié a été abandonné pour une raison quelconque.
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | Lorsqu'une notification push rebondit
 [USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | Lorsqu'un utilisateur ouvre l'application après avoir reçu une notification sans cliquer sur la notification
@@ -114,15 +119,15 @@ Table | Description
 [USERS_MESSAGES_RCS_READ_SHARED](#USERS_MESSAGES_RCS_READ_SHARED) | Lorsque l'utilisateur final ouvre un message RCS sur son appareil
 [USERS_MESSAGES_RCS_REJECTION_SHARED](#USERS_MESSAGES_RCS_REJECTION_SHARED) | Lorsqu'un message RCS n'est pas distribué en raison d'une intervention de l'opérateur
 [USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | Lorsqu'un message RCS est envoyé depuis les systèmes de Braze vers les partenaires de distribution finale
-[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | Un SMS initialement planifié a été abandonné pour une raison quelconque.
-[USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | Lorsqu'un SMS est envoyé à l'opérateur
-[USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | Lorsqu'un SMS est distribué
-[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Lorsque Braze ne parvient pas à distribuer le SMS au fournisseur de services SMS
-[USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | Lorsqu'un SMS est reçu de la part d'un utilisateur
-[USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | Lorsqu'un SMS n'est pas distribué à un utilisateur
-[USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | Lorsqu'un SMS est envoyé
-[USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | Lorsqu'un utilisateur clique sur une URL raccourcie Braze incluse dans un SMS
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | Lorsqu'un SMS est réessayé après avoir été dépriorisé ou limité en fréquence (**Partage de données Snowflake uniquement**)
+[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | Un message SMS initialement planifié a été abandonné pour une raison quelconque.
+[USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | Lorsqu'un message SMS est envoyé à l'opérateur
+[USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | Lorsqu'un message SMS est distribué
+[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Lorsque Braze ne parvient pas à distribuer le message SMS au fournisseur de services SMS
+[USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | Lorsqu'un message SMS est reçu d'un utilisateur
+[USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | Lorsqu'un message SMS n'est pas distribué à un utilisateur
+[USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | Lorsqu'un message SMS est envoyé
+[USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | Lorsqu'un utilisateur clique sur une URL raccourcie Braze incluse dans un message SMS
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | Lorsqu'un message SMS est réessayé après avoir été dépriorisé ou limité en fréquence (**Partage de données Snowflake uniquement**)
 [USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | Un message webhook initialement planifié a été abandonné pour une raison quelconque
 [USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | Lorsqu'un message webhook est distribué mais échoue avec une réponse d'erreur de l'endpoint
 [USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | Lorsque nous envoyons un webhook pour un utilisateur
@@ -131,7 +136,7 @@ Table | Description
 [USERS_MESSAGES_WHATSAPP_CLICK_SHARED](#USERS_MESSAGES_WHATSAPP_CLICK_SHARED) | Lorsqu'un utilisateur clique sur un lien ou un bouton dans un message WhatsApp
 [USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED](#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED) | Lorsqu'un message WhatsApp est distribué
 [USERS_MESSAGES_WHATSAPP_FAILURE_SHARED](#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED) | Lorsqu'un message WhatsApp n'est pas distribué à un utilisateur
-[USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED) | Lorsqu'un message WhatsApp est reçu de la part d'un utilisateur
+[USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED) | Lorsqu'un message WhatsApp est reçu d'un utilisateur
 [USERS_MESSAGES_WHATSAPP_READ_SHARED](#USERS_MESSAGES_WHATSAPP_READ_SHARED) | Lorsqu'un utilisateur ouvre un message WhatsApp
 [USERS_MESSAGES_WHATSAPP_SEND_SHARED](#USERS_MESSAGES_WHATSAPP_SEND_SHARED) | Lorsque nous envoyons un message WhatsApp pour un utilisateur
 [USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | Lorsqu'un message WhatsApp est réessayé après avoir été dépriorisé ou limité en fréquence (**Partage de données Snowflake uniquement**)
@@ -186,6 +191,26 @@ Champ | Type | Description
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
+### AGENTCONSOLE_RAWLLMREQUEST_SHARED {#AGENTCONSOLE_RAWLLMREQUEST_SHARED}
+
+Champ | Type | Description
+------|------|------------
+`id` | `string` | ID unique global pour cet événement
+`invocation_id` | `string` | ID unique global pour ce message
+`request_id` | `string` | ID unique pour cette requête LLM globale et l'exécution complète
+`time` | `int` | Horodatage UNIX auquel l'événement s'est produit
+`app_group_id` | `string` | ID BSON du groupe d'applications auquel cet événement appartient
+`agent_id` | `string` | ID BSON du CustomerDefinedAgent
+`agent_name` | `string` | Nom du CustomerDefinedAgent
+`model_provider` | `string` | Nom du fournisseur du modèle LLM
+`model_name` | `string` | Nom du modèle LLM utilisé dans cette requête
+`duration` | `int`,&nbsp;`null` | Durée de la session en secondes
+`request` | `string` | [PII] Prompt utilisé dans la requête
+`http_status_code` | `int`,&nbsp;`null` | Code de statut HTTP de la réponse
+`response_body` | `string`,&nbsp;`null` | [PII] Réponse du LLM
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
 ### AGENTCONSOLE_TOOLINVOCATION_SHARED {#AGENTCONSOLE_TOOLINVOCATION_SHARED}
 
 Champ | Type | Description
@@ -204,6 +229,92 @@ Champ | Type | Description
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
+## Vues des attributs de profil utilisateur {#user-profile-attribute-views}
+
+### USER_CUSTOM_ATTRIBUTES_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED}
+
+Champ | Type | Description
+------|------|------------
+`app_group_id` | `string` | ID BSON de l'espace de travail
+`app_id` | `string` | ID BSON de l'application
+`user_id` | `string` | [PII] ID utilisateur Braze
+`time` | `int` | Horodatage UNIX de la mise à jour du profil (pour les lignes rétro-remplies, l'heure du rétro-remplissage)
+`update_source` | `string` | Source de la mise à jour du profil
+`sf_updated_at` | `timestamp` | Date à laquelle cette ligne a été mise à jour dans Snowflake
+`custom_attributes` | `variant` | [PII] Attributs personnalisés sous forme d'objet JSON
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED}
+
+Champ | Type | Description
+------|------|------------
+`app_group_id` | `string` | ID BSON de l'espace de travail
+`app_id` | `string` | ID BSON de l'application
+`user_id` | `string` | [PII] ID utilisateur Braze
+`time` | `int` | Horodatage UNIX de la mise à jour du profil (pour les lignes rétro-remplies, l'heure du rétro-remplissage)
+`update_source` | `string` | Source de la mise à jour du profil
+`sf_updated_at` | `timestamp` | Date à laquelle cette ligne a été mise à jour dans Snowflake
+`external_id` | `string` | [PII] ID externe de l'utilisateur
+`first_name` | `string` | [PII] Prénom
+`last_name` | `string` | [PII] Nom de famille
+`email` | `string` | [PII] Adresse e-mail
+`gender` | `string` | [PII] Genre
+`phone` | `string` | [PII] Numéro de téléphone
+`dob` | `string` | [PII] Date de naissance
+`time_zone` | `string` | [PII] Fuseau horaire
+`home_city` | `string` | [PII] Ville de résidence
+`country` | `string` | [PII] Pays
+`language` | `string` | [PII] Langue
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED}
+
+Champ | Type | Description
+------|------|------------
+`app_group_id` | `string` | ID BSON de l'espace de travail
+`user_id` | `string` | [PII] ID utilisateur Braze
+`app_id` | `string` | ID BSON de l'application
+`time` | `int` | Horodatage UNIX de la mise à jour du profil (pour les lignes rétro-remplies, l'heure du rétro-remplissage)
+`update_source` | `string` | Source de la mise à jour du profil
+`sf_updated_at` | `timestamp` | Date à laquelle cette ligne a été mise à jour dans Snowflake
+`external_id` | `string` | [PII] ID externe de l'utilisateur
+`first_name` | `string` | [PII] Prénom
+`last_name` | `string` | [PII] Nom de famille
+`email` | `string` | [PII] Adresse e-mail
+`gender` | `string` | [PII] Genre
+`phone` | `string` | [PII] Numéro de téléphone
+`dob` | `string` | [PII] Date de naissance
+`time_zone` | `string` | [PII] Fuseau horaire
+`home_city` | `string` | [PII] Ville de résidence
+`country` | `string` | [PII] Pays
+`language` | `string` | [PII] Langue
+`eff_dt` | `timestamp` | Début de l'intervalle pendant lequel cet état d'attribut était en vigueur
+`end_dt` | `timestamp` | Fin de cet intervalle
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+### USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED}
+
+Champ | Type | Description
+------|------|------------
+`app_group_id` | `string` | ID BSON de l'espace de travail
+`app_id` | `string` | ID BSON de l'application
+`user_id` | `string` | [PII] ID utilisateur Braze
+`time` | `int` | Horodatage UNIX de la mise à jour du profil (pour les lignes rétro-remplies, l'heure du rétro-remplissage)
+`update_source` | `string` | Source de la mise à jour du profil
+`sf_updated_at` | `timestamp` | Date à laquelle cette ligne a été mise à jour dans Snowflake
+`external_id` | `string` | [PII] ID externe de l'utilisateur
+`first_name` | `string` | [PII] Prénom
+`last_name` | `string` | [PII] Nom de famille
+`email` | `string` | [PII] Adresse e-mail
+`gender` | `string` | [PII] Genre
+`phone` | `string` | [PII] Numéro de téléphone
+`dob` | `string` | [PII] Date de naissance
+`home_city` | `string` | [PII] Ville de résidence
+`country` | `string` | [PII] Pays
+`language` | `string` | [PII] Langue
+`time_zone` | `string` | [PII] Fuseau horaire
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
 ## Catalogues {#catalogs}
 
 ### CATALOGS_ITEMS_SHARED {#CATALOGS_ITEMS_SHARED}
@@ -211,7 +322,7 @@ Champ | Type | Description
 Champ | Type | Description
 ------|------|------------
 `catalog_id` | `string` | ID BSON du catalogue
-`item_id` | `string` | ID BSON de l'élément du catalogue
+`item_id` | `string` | ID BSON de l'élément de catalogue
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications
 `field_name` | `null,`&nbsp;`string` | Nom du champ
@@ -268,16 +379,15 @@ Champ | Type | Description
 `variations` | `null,`&nbsp;`string` | Variations pour le Canvas
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-
 ## Comportements {#behaviors}
 
 ### USERS_BEHAVIORS_CUSTOMEVENT_SHARED {#USERS_BEHAVIORS_CUSTOMEVENT_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
-`user_id` | `string` | ID Braze de l'utilisateur qui a effectué l'événement
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`id` | `string` | ID unique au niveau mondial pour cet événement
+`user_id` | `string` | ID Braze de l'utilisateur qui a effectué cet événement
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette action s'est produite
 `time` | `int` | Horodatage Unix auquel l'utilisateur a effectué l'événement
@@ -291,36 +401,36 @@ Champ | Type | Description
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
 `name` | `string` | Nom de l'événement personnalisé
-`properties` | `string` | Propriétés personnalisées de l'événement stockées sous forme de chaîne JSON encodée
+`properties` | `string` | Propriétés personnalisées de l'événement stockées sous forme de chaîne de caractères encodée en JSON
 `ad_id` | `null,`&nbsp;`string` | [PII] Identifiant publicitaire
 `ad_id_type` | `null,`&nbsp;`string` | Un parmi `ios_idfa`, `google_ad_id`, `windows_ad_id` OU `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Indique si le suivi publicitaire est activé pour l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED {#USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
-`user_id` | `string` | ID Braze de l'utilisateur qui a installé
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`id` | `string` | ID unique au niveau mondial pour cet événement
+`user_id` | `string` | ID Braze de l'utilisateur qui a effectué l'installation
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `device_id` | `null,`&nbsp;`string` | `device_id` lié à cet utilisateur si l'utilisateur est anonyme
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
-`time` | `int` | Horodatage Unix auquel l'utilisateur a installé
+`time` | `int` | Horodatage Unix auquel l'utilisateur a effectué l'installation
 `source` | `string` | Source de l'attribution
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_LOCATION_SHARED {#USERS_BEHAVIORS_LOCATION_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui enregistre la localisation
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette localisation a été enregistrée
 `time` | `int` | Horodatage Unix auquel la localisation a été enregistrée
@@ -338,20 +448,20 @@ Champ | Type | Description
 `ad_id_type` | `null,`&nbsp;`string` | Un parmi `ios_idfa`, `google_ad_id`, `windows_ad_id` OU `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Indique si le suivi publicitaire est activé pour l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_PURCHASE_SHARED {#USERS_BEHAVIORS_PURCHASE_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui a effectué un achat
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
-`app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle l'achat a eu lieu
+`app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle l'achat a été effectué
 `time` | `int` | Horodatage Unix auquel l'utilisateur a effectué l'achat
-`device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'achat a eu lieu
+`device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'achat a été effectué
 `sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'achat
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
@@ -359,36 +469,36 @@ Champ | Type | Description
 `product_id` | `string` | ID du produit acheté
 `price` | `float` | Prix de l'achat
 `currency` | `string` | Devise de l'achat
-`properties` | `string` | Propriétés personnalisées de l'achat stockées sous forme de chaîne JSON encodée
+`properties` | `string` | Propriétés personnalisées de l'achat stockées sous forme de chaîne de caractères encodée en JSON
 `ad_id` | `null,`&nbsp;`string` | [PII] Identifiant publicitaire
 `ad_id_type` | `null,`&nbsp;`string` | Un parmi `ios_idfa`, `google_ad_id`, `windows_ad_id` OU `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Indique si le suivi publicitaire est activé pour l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_UNINSTALL_SHARED {#USERS_BEHAVIORS_UNINSTALL_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui a désinstallé
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `device_id` | `null,`&nbsp;`string` | `device_id` lié à cet utilisateur si l'utilisateur est anonyme
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application qui a été désinstallée
 `time` | `int` | Horodatage Unix auquel l'utilisateur a désinstallé
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_UPGRADEDAPP_SHARED {#USERS_BEHAVIORS_UPGRADEDAPP_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui a mis à jour l'application
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application que l'utilisateur a mise à jour
 `time` | `int` | Horodatage Unix auquel l'utilisateur a mis à jour l'application
@@ -400,31 +510,31 @@ Champ | Type | Description
 `old_app_version` | `null,`&nbsp;`string` | Ancienne version de l'application
 `new_app_version` | `null,`&nbsp;`string` | Nouvelle version de l'application
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED {#USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui effectue cette action
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette session s'est produite
-`time` | `int` | Horodatage Unix auquel la session a commencé
+`time` | `int` | Horodatage Unix auquel la session a démarré
 `session_id` | `string` | UUID de la session
 `gender` | `null,`&nbsp;`string` | [PII] Genre de l'utilisateur
 `country` | `null,`&nbsp;`string` | [PII] Pays de l'utilisateur
 `timezone` | `null,`&nbsp;`string` | Fuseau horaire de l'utilisateur
 `language` | `null,`&nbsp;`string` | [PII] Langue de l'utilisateur
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel la session s'est produite
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant la session
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de la session
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 
@@ -432,74 +542,74 @@ Champ | Type | Description
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
-`user_id` | `string` | ID utilisateur Braze de l'utilisateur qui a effectué cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
+`user_id` | `string` | ID Braze de l'utilisateur qui a effectué cet événement
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
 `time` | `int` | Horodatage UNIX auquel l'événement s'est produit
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'événement s'est produit
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant l'événement
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_APP_SESSIONEND_SHARED {#USERS_BEHAVIORS_APP_SESSIONEND_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui effectue cette action
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette session s'est produite
 `time` | `int` | Horodatage Unix auquel la session s'est terminée
 `duration` | `null, float` | Durée de la session en secondes
 `session_id` | `string` | UUID de la session
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel la session s'est produite
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant la session
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de la session
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_APP_SESSIONSTART_SHARED {#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui effectue cette action
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette session s'est produite
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
-`time` | `int` | Horodatage Unix auquel la session a commencé
+`time` | `int` | Horodatage Unix auquel la session a démarré
 `session_id` | `string` | UUID de la session
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel la session s'est produite
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant la session
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de la session
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED {#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui a effectué l'événement
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette action s'est produite
 `time` | `int` | Horodatage Unix auquel l'utilisateur a effectué l'événement
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'événement personnalisé s'est produit
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant l'événement
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
@@ -507,21 +617,21 @@ Champ | Type | Description
 `location_set_id` | `string` | ID de l'ensemble de localisations du géorepérage déclenché
 `geofence_id` | `string` | ID du géorepérage déclenché
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED {#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur qui a effectué l'événement
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cette action s'est produite
 `time` | `int` | Horodatage Unix auquel l'utilisateur a effectué l'événement
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'événement personnalisé s'est produit
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant l'événement
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `os_version` | `null,`&nbsp;`string` | Version du système d'exploitation de l'appareil
 `device_model` | `null,`&nbsp;`string` | Modèle de l'appareil
@@ -529,7 +639,7 @@ Champ | Type | Description
 `location_set_id` | `string` | ID de l'ensemble de localisations du géorepérage déclenché
 `geofence_id` | `string` | ID du géorepérage déclenché
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 
@@ -537,20 +647,20 @@ Champ | Type | Description
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
-`user_id` | `string` | ID utilisateur Braze de l'utilisateur qui a effectué cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
+`user_id` | `string` | ID Braze de l'utilisateur qui a effectué cet événement
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `time` | `int` | Horodatage UNIX auquel l'événement s'est produit
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
 `activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de Live Activity
 `push_to_start_token` | `null,`&nbsp;`string` | Jeton push-to-start de Live Activity
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'événement s'est produit
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant l'événement
-`ios_push_token_apns_gateway` | `null, int` | Passerelle APNs du jeton push, s'applique uniquement aux jetons push iOS, 1 pour le développement, 2 pour la production
-`push_token_state_change_type` | `null,`&nbsp;`string` | Description du type de changement d'état du jeton push
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
+`ios_push_token_apns_gateway` | `null, int` | Passerelle APNs du jeton de notification push, s'applique uniquement aux jetons push iOS, 1 pour le développement, 2 pour la production
+`push_token_state_change_type` | `null,`&nbsp;`string` | Description du type de changement d'état du jeton de notification push
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 
@@ -558,20 +668,20 @@ Champ | Type | Description
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
-`user_id` | `string` | ID utilisateur Braze de l'utilisateur qui a effectué cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
+`user_id` | `string` | ID Braze de l'utilisateur qui a effectué cet événement
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `time` | `int` | Horodatage UNIX auquel l'événement s'est produit
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
 `activity_id` | `null,`&nbsp;`string` | Identifiant de Live Activity
 `update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de Live Activity
 `device_id` | `null,`&nbsp;`string` | ID de l'appareil sur lequel l'événement s'est produit
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant l'événement
-`ios_push_token_apns_gateway` | `null, int` | Passerelle APNs du jeton push, s'applique uniquement aux jetons push iOS, 1 pour le développement, 2 pour la production
-`push_token_state_change_type` | `null,`&nbsp;`string` | Description du type de changement d'état du jeton push
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
+`ios_push_token_apns_gateway` | `null, int` | Passerelle APNs du jeton de notification push, s'applique uniquement aux jetons push iOS, 1 pour le développement, 2 pour la production
+`push_token_state_change_type` | `null,`&nbsp;`string` | Description du type de changement d'état du jeton de notification push
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 
@@ -579,88 +689,88 @@ Champ | Type | Description
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `time` | `int` | Horodatage UNIX auquel l'événement s'est produit
 `time_ms` | `int` | Heure en millisecondes à laquelle l'événement s'est produit
-`user_id` | `string` | ID utilisateur Braze de l'utilisateur qui a effectué cet événement
+`user_id` | `string` | ID Braze de l'utilisateur qui a effectué cet événement
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
-`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée pendant l'événement
+`sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
 `platform` | `null,`&nbsp;`string` | Plateforme de l'appareil
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`push_token` | `null,`&nbsp;`string` | Jeton push de l'événement
-`push_token_created_at` | `null, int` | Horodatage UNIX auquel le jeton push a été créé
-`push_token_updated_at` | `null, int` | Horodatage UNIX auquel le jeton push a été mis à jour pour la dernière fois
-`push_token_foreground_push_disabled` | `null, boolean` | Indicateur de désactivation du push au premier plan du jeton push
-`push_token_device_id` | `null,`&nbsp;`string` | ID d'appareil du jeton push
-`push_token_provisionally_opted_in` | `null, boolean` | Indicateur d'abonnement provisoire du jeton push
-`ios_push_token_apns_gateway` | `null, int` | Passerelle APNs du jeton push, s'applique uniquement aux jetons push iOS, 1 pour le développement, 2 pour la production
-`web_push_token_public_key` | `null,`&nbsp;`string` | Clé publique du jeton push, s'applique uniquement aux jetons push Web
-`web_push_token_user_auth` | `null,`&nbsp;`string` | Authentification utilisateur du jeton push, s'applique uniquement aux jetons push Web
-`web_push_token_vapid_public_key` | `null,`&nbsp;`string` | Clé publique VAPID du jeton push, s'applique uniquement aux jetons push Web
-`push_token_state_change_type` | `null,`&nbsp;`string` | Description du type de changement d'état du jeton push
+`push_token` | `null,`&nbsp;`string` | Jeton de notification push de l'événement
+`push_token_created_at` | `null, int` | Horodatage UNIX auquel le jeton de notification push a été créé
+`push_token_updated_at` | `null, int` | Horodatage UNIX auquel le jeton de notification push a été mis à jour pour la dernière fois
+`push_token_foreground_push_disabled` | `null, boolean` | Indicateur de désactivation des notifications push au premier plan pour le jeton de notification push
+`push_token_device_id` | `null,`&nbsp;`string` | ID de l'appareil du jeton de notification push
+`push_token_provisionally_opted_in` | `null, boolean` | Indicateur d'abonnement provisoire du jeton de notification push
+`ios_push_token_apns_gateway` | `null, int` | Passerelle APNs du jeton de notification push, s'applique uniquement aux jetons push iOS, 1 pour le développement, 2 pour la production
+`web_push_token_public_key` | `null,`&nbsp;`string` | Clé publique du jeton de notification push, s'applique uniquement aux jetons push Web
+`web_push_token_user_auth` | `null,`&nbsp;`string` | Authentification utilisateur du jeton de notification push, s'applique uniquement aux jetons push Web
+`web_push_token_vapid_public_key` | `null,`&nbsp;`string` | Clé publique VAPID du jeton de notification push, s'applique uniquement aux jetons push Web
+`push_token_state_change_type` | `null,`&nbsp;`string` | Description du type de changement d'état du jeton de notification push
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED {#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur concerné
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `email_address` | `null,`&nbsp;`string` | [PII] Adresse e-mail de l'utilisateur
 `state_change_source` | `null,`&nbsp;`string` | Source du changement d'état (REST, SDK, tableau de bord, etc.)
-`subscription_status` | `string` | Statut d'abonnement : « Subscribed », « Unsubscribed » ou « Opted In »
-`channel` | `null,`&nbsp;`string` | Canal de l'état d'abonnement global tel que l'e-mail
+`subscription_status` | `string` | État de l'abonnement : « Subscribed », « Unsubscribed » ou « Opted In »
+`channel` | `null,`&nbsp;`string` | Canal de l'état d'abonnement global, par exemple e-mail
 `time` | `int` | Horodatage Unix auquel l'état d'abonnement a changé
 `timezone` | `null,`&nbsp;`string` | Fuseau horaire de l'utilisateur
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application à laquelle l'événement appartient
-`campaign_id` | `null,`&nbsp;`string` | ID Braze interne de la Campaign à laquelle cet événement appartient
+`campaign_id` | `null,`&nbsp;`string` | ID Braze à usage interne de la Campaign à laquelle cet événement appartient
 `campaign_api_id` | `null,`&nbsp;`string` | ID API de la Campaign à laquelle cet événement appartient
 `message_variation_api_id` | `null,`&nbsp;`string` | ID API de la variation de message à laquelle cet événement appartient
-`canvas_id` | `null,`&nbsp;`string` | ID Braze interne du Canvas auquel cet événement appartient
+`canvas_id` | `null,`&nbsp;`string` | ID Braze à usage interne du Canvas auquel cet événement appartient
 `canvas_api_id` | `null,`&nbsp;`string` | ID API du Canvas auquel cet événement appartient
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID API de la variation Canvas à laquelle cet événement appartient
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID API de l'étape Canvas à laquelle cet événement appartient
-`send_id` | `null,`&nbsp;`string` | ID d'envoi du message à l'origine de cette action de changement d'état d'abonnement
+`send_id` | `null,`&nbsp;`string` | ID d'envoi du message à l'origine de ce changement d'état d'abonnement
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`channel_identifier` | `null,`&nbsp;`string` | [PII] Identifiant de l'utilisateur sur le canal concerné par l'événement.
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`channel_identifier` | `null,`&nbsp;`string` | [PII] Identifiant de l'utilisateur sur le canal concerné par l'événement
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED {#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED}
 
 Champ | Type | Description
 ------|------|------------
-`id` | `string` | ID unique global pour cet événement
+`id` | `string` | ID unique au niveau mondial pour cet événement
 `user_id` | `string` | ID Braze de l'utilisateur concerné
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID utilisateur externe de l'utilisateur
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `device_id` | `null,`&nbsp;`string` | `device_id` lié à cet utilisateur si l'utilisateur est anonyme
 `app_group_api_id` | `null,`&nbsp;`string` | ID API de l'espace de travail auquel cet utilisateur appartient
 `email_address` | `null,`&nbsp;`string` | [PII] Adresse e-mail de l'utilisateur
 `phone_number` | `null,`&nbsp;`string` | [PII] Numéro de téléphone de l'utilisateur au format e164
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application à laquelle l'événement appartient
-`campaign_id` | `null,`&nbsp;`string` | ID Braze interne de la Campaign à laquelle cet événement appartient
+`campaign_id` | `null,`&nbsp;`string` | ID Braze à usage interne de la Campaign à laquelle cet événement appartient
 `campaign_api_id` | `null,`&nbsp;`string` | ID API de la Campaign à laquelle cet événement appartient
 `message_variation_api_id` | `null,`&nbsp;`string` | ID API de la variation de message à laquelle cet événement appartient
-`canvas_id` | `null,`&nbsp;`string` | ID Braze interne du Canvas auquel cet événement appartient
+`canvas_id` | `null,`&nbsp;`string` | ID Braze à usage interne du Canvas auquel cet événement appartient
 `canvas_api_id` | `null,`&nbsp;`string` | ID API du Canvas auquel cet événement appartient
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID API de la variation Canvas à laquelle cet événement appartient
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID API de l'étape Canvas à laquelle cet événement appartient
 `subscription_group_api_id` | `string` | ID API du groupe d'abonnement
 `channel` | `null,`&nbsp;`string` | Canal : « email » ou « sms », selon le type de canal du groupe d'abonnement
-`subscription_status` | `string` | Statut d'abonnement : « Subscribed », « Unsubscribed » ou « Opted In »
+`subscription_status` | `string` | État de l'abonnement : « Subscribed », « Unsubscribed » ou « Opted In »
 `time` | `int` | Horodatage Unix auquel l'état d'abonnement a changé
 `timezone` | `null,`&nbsp;`string` | Fuseau horaire de l'utilisateur
-`send_id` | `null,`&nbsp;`string` | ID d'envoi du message à l'origine de cette action de changement d'état d'abonnement
+`send_id` | `null,`&nbsp;`string` | ID d'envoi du message à l'origine de ce changement d'état d'abonnement
 `state_change_source` | `null,`&nbsp;`string` | Source du changement d'état (REST, SDK, tableau de bord, etc.)
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`dispatch_id` | `null,`&nbsp;`string` | ID de la distribution à laquelle ce message appartient
-`channel_identifier` | `null,`&nbsp;`string` | [PII] Identifiant de l'utilisateur sur le canal concerné par l'événement.
-`sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
+`dispatch_id` | `null,`&nbsp;`string` | ID de l'envoi auquel ce message appartient
+`channel_identifier` | `null,`&nbsp;`string` | [PII] Identifiant de l'utilisateur sur le canal concerné par l'événement
+`sf_created_at` | `timestamp`,&nbsp;`null` | Date et heure de récupération de cet événement par le Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Campaigns
@@ -781,7 +891,7 @@ Champ | Type | Description
 | `canvas_variation_api_id`              | `string`,&nbsp;`null`    | ID API de la variation Canvas à laquelle cet événement appartient                                               |
 | `canvas_step_api_id`                   | `string`,&nbsp;`null`    | ID API de l'étape Canvas à laquelle cet événement appartient                                                    |
 | `progression_type`                     | `string`,&nbsp;`null`    | Type d'événement de progression d'étape                                                                         |
-| `is_canvas_entry`                      | `boolean`,&nbsp;`null`   | Indique s'il s'agit d'une entrée dans la première étape d'un Canvas                                             |
+| `is_canvas_entry`                      | `boolean`,&nbsp;`null`   | Indique s'il s'agit d'une entrée dans la première étape d'un Canvas                                            |
 | `exit_reason`                          | `string`,&nbsp;`null`    | S'il s'agit d'une sortie, la raison pour laquelle l'utilisateur a quitté le Canvas au cours de l'étape          |
 | `canvas_entry_id`                      | `string`,&nbsp;`null`    | Identifiant unique de cette instance d'un utilisateur dans un Canvas                                            |
 | `next_step_id`                         | `string`,&nbsp;`null`    | ID BSON de l'étape suivante dans le Canvas                                                                      |
@@ -961,7 +1071,7 @@ Champ | Type | Description
 | `app_api_id` | `string`,&nbsp;`null` | ID API de l'application sur laquelle cet événement s'est produit |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## Messages
+## Messages {#messages}
 
 
 ### USERS_MESSAGES_BANNER_ABORT_SHARED {#USERS_MESSAGES_BANNER_ABORT_SHARED}
@@ -3187,17 +3297,17 @@ Champ | Type | Description
 
 ### USERS_RANDOMBUCKETNUMBERUPDATE_SHARED {#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED}
 
-| Champ                       | Type                     | Description                                                              |
-| --------------------------- | ------------------------ | ------------------------------------------------------------------------ |
-| `id`                        | `string`,&nbsp;`null`    | ID unique au niveau global pour cet événement                            |
-| `app_group_id`              | `string`,&nbsp;`null`    | ID Braze de l'espace de travail auquel cet utilisateur appartient        |
-| `app_group_api_id`          | `string`,&nbsp;`null`    | ID de l'API de l'espace de travail auquel cet utilisateur appartient     |
-| `user_id`                   | `string`,&nbsp;`null`    | ID Braze de l'utilisateur qui a effectué cet événement                   |
-| `external_user_id`          | `string`,&nbsp;`null`    | [PII] ID externe de l'utilisateur                                        |
-| `time`                      | `int`,&nbsp;`null`       | Horodatage Unix auquel l'événement s'est produit                         |
-| `random_bucket_number`      | `int`,&nbsp;`null`       | Numéro de compartiment aléatoire actuellement attribué à l'utilisateur   |
-| `prev_random_bucket_number` | `int`,&nbsp;`null`       | Numéro de compartiment aléatoire précédemment attribué à l'utilisateur   |
-| `sf_created_at`             | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe             |
+| Champ                       | Type                     | Description                                                                  |
+| --------------------------- | ------------------------ | ---------------------------------------------------------------------------- |
+| `id`                        | `string`,&nbsp;`null`    | ID unique au niveau global pour cet événement                                |
+| `app_group_id`              | `string`,&nbsp;`null`    | ID Braze de l'espace de travail auquel cet utilisateur appartient            |
+| `app_group_api_id`          | `string`,&nbsp;`null`    | ID de l'API de l'espace de travail auquel cet utilisateur appartient         |
+| `user_id`                   | `string`,&nbsp;`null`    | ID Braze de l'utilisateur qui a effectué cet événement                       |
+| `external_user_id`          | `string`,&nbsp;`null`    | [PII] ID externe de l'utilisateur                                            |
+| `time`                      | `int`,&nbsp;`null`       | Horodatage Unix auquel l'événement s'est produit                             |
+| `random_bucket_number`      | `int`,&nbsp;`null`       | Numéro de compartiment aléatoire actuellement attribué à l'utilisateur       |
+| `prev_random_bucket_number` | `int`,&nbsp;`null`       | Numéro de compartiment aléatoire précédemment attribué à l'utilisateur       |
+| `sf_created_at`             | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe                 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_USERDELETEREQUEST_SHARED {#USERS_USERDELETEREQUEST_SHARED}

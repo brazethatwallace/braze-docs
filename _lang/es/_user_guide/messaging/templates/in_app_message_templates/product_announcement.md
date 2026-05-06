@@ -2,7 +2,7 @@
 nav_title: Anuncio de producto
 article_title: Anuncio de producto
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "Esta página explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para aumentar el conocimiento de los lanzamientos de nuevos productos."
 ---
 
