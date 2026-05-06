@@ -107,7 +107,7 @@ The Contact Book feature is on by default, but we recommend confirming this in y
 
 BSUIDs are scoped to a single business portfolio. If your organization manages WABAs from multiple business portfolios within the same Braze workspace, the same user will have a different BSUID for each portfolio. This can result in duplicate Braze user profiles.
 
-To prevent this, contact your Meta point-of-contact to check if your business is eligible to link portfolios. See [Linking business portfolios and parent BSUIDs](https://claude.ai/local_sessions/local_2ac0c3a1-c0a8-4006-bce2-097fafb52860#linking-business-portfolios-and-parent-bsuids) for details.
+To prevent this, contact your Meta point-of-contact to check if your business is eligible to link portfolios. See [Link business portfolios and parent BSUIDs](#link-business-portfolios-and-parent-bsuids) for details.
 
 If your WABAs are all within the same business portfolio, no action is needed.
 
