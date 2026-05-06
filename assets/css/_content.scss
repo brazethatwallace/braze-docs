@@ -848,7 +848,7 @@ blockquote {
 		color: $grey-dust;
 
 		.c {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment */
@@ -858,7 +858,7 @@ blockquote {
 		}
 		/* Error */
 		.k {
-			color: #0C6E7A; // $blue-ocean → darkened for 5.7:1 on #F9F9FA
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword */
@@ -867,31 +867,31 @@ blockquote {
 		}
 		/* Operator */
 		.ch {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.Hashbang */
 		.cm {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.Multiline */
 		.cp {
-			color: #557799;
+			color: #802200; // a11y-light: brown
 		}
 		/* Comment.Preproc */
 		.cpf {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.PreprocFile */
 		.c1 {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.Single */
 		.cs {
-			color: #cc0000;
+			color: #802200; // a11y-light: brown
 			font-weight: bold;
 			font-style: italic;
 		}
@@ -940,17 +940,17 @@ blockquote {
 		}
 		/* Generic.Traceback */
 		.kc {
-			color: #0C6E7A; // $blue-ocean → darkened for 5.7:1 on #F9F9FA
+			color: #9200D1; // a11y-light: purple
 			font-weight: bold;
 		}
 		/* Keyword.Constant */
 		.kd {
-			color: #0C6E7A; // $blue-ocean → darkened for 5.7:1 on #F9F9FA
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword.Declaration */
 		.kn {
-			color: #0C6E7A; // $blue-ocean → darkened for 5.7:1 on #F9F9FA
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword.Namespace */
@@ -960,12 +960,12 @@ blockquote {
 		}
 		/* Keyword.Pseudo */
 		.kr {
-			color: #0C6E7A; // $blue-ocean → darkened for 5.7:1 on #F9F9FA
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword.Reserved */
 		.kt {
-			color: #4757A8; // $navy-cove → darkened for 6.2:1 on #F9F9FA
+			color: #9200D1; // a11y-light: purple
 			font-weight: bold;
 		}
 		/* Keyword.Type */
@@ -975,11 +975,11 @@ blockquote {
 		}
 		/* Literal.Number */
 		.s {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String */
 		.n {
-			color: #4757A8; // $navy-cove → darkened for 6.2:1 on #F9F9FA
+			color: #545454; // a11y-light: near-black
 			font-weight: bold;
 		}
 		/* Literal.Name */
@@ -992,12 +992,12 @@ blockquote {
 		}
 		/* Name.Builtin */
 		.nc {
-			color: #4757A8; // $navy-cove → darkened for 6.2:1 on #F9F9FA
+			color: #326BAD; // a11y-light: blue
 			font-weight: bold;
 		}
 		/* Name.Class */
 		.no {
-			color: #7040AA; // $blue-scooter → dark purple for 6.6:1 on #F9F9FA
+			color: #D81E18; // a11y-light: red
 			font-weight: bold;
 		}
 		/* Name.Constant */
@@ -1016,7 +1016,7 @@ blockquote {
 		}
 		/* Name.Exception */
 		.nf {
-			color: #1562A8; // $blue-scooter → dark cobalt for 6.0:1 on #F9F9FA
+			color: #856514; // a11y-light: yellow
 			font-weight: bold;
 		}
 		/* Name.Function */
@@ -1026,12 +1026,12 @@ blockquote {
 		}
 		/* Name.Label */
 		.nn {
-			color: #0E5C94; // #0e84b5 → darkened for 6.7:1 on #F9F9FA
+			color: #326BAD; // a11y-light: blue
 			font-weight: bold;
 		}
 		/* Name.Namespace */
 		.nx {
-			color: #4757A8; // $navy-cove → darkened for 6.2:1 on #F9F9FA
+			color: #545454; // a11y-light: near-black
 			font-weight: bold;
 		}
 		/* Name.Class.Other */
@@ -1068,7 +1068,7 @@ blockquote {
 		}
 		/* Literal.Number.Hex */
 		.mi {
-			color: #4757A8; // $navy-cove → darkened for 6.2:1 on #F9F9FA
+			color: #9200D1; // a11y-light: purple
 			font-weight: bold;
 		}
 		/* Literal.Number.Integer */
@@ -1078,15 +1078,15 @@ blockquote {
 		}
 		/* Literal.Number.Oct */
 		.sa {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Affix */
 		.sb {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Backtick */
 		.sc {
-			color: #4040BB; // #8888ff → darkened for 6.9:1 on $grey-athens
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Char */
 		.dl {
@@ -1094,11 +1094,11 @@ blockquote {
 		}
 		/* Literal.String.Delimiter */
 		.sd {
-			color: #dd4422;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Doc */
 		.s2 {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Double */
 		.se {
@@ -1127,11 +1127,11 @@ blockquote {
 		}
 		/* Literal.String.Regex */
 		.s1 {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Single */
 		.ss {
-			color: #8B5E00; // #ffcc88 → darkened for 4.7:1 on $grey-athens
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Symbol */
 		.bp {
