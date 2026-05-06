@@ -56,6 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const clearButton = form.querySelector(".su__input-close");
       if (clearButton) {
         clearButton.setAttribute("aria-label", labels.clear);
+        clearButton.setAttribute("role", "button");
+        clearButton.setAttribute("tabindex", "0");
+        clearButton.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            clearButton.click();
+          }
+        });
         clearButton.addEventListener("click", function (e) {
           e.preventDefault();
           e.stopImmediatePropagation();

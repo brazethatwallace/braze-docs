@@ -44,6 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Clear button
     if (clearButton) {
       clearButton.setAttribute("aria-label", labels.clear);
+      clearButton.setAttribute("role", "button");
+      clearButton.setAttribute("tabindex", "0");
+      clearButton.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          clearButton.click();
+        }
+      });
     }
 
     // Enter key
