@@ -52,11 +52,3 @@ No, you must recreate the email in **Email Templates** to save it.
 ### Can I add email attachments to the drag-and-drop editor?
 
 No, the drag-and-drop editor does not support adding attachments to your emails.
-
-### Why are there more or less unsubscribes than clicks on the unsubscribe link in the email body as seen on Email Campaign Analytics Page?
-
-If there are a greater number of *Unsubscribes* than users who clicked on the unsubscribe link in the email body, this is likely due to the list-unsubscribe headers. A click on the list-unsubscribe header counts as an *Unsubscribe*  but does not log a *Click*.
-
-If there are a greater number of users who clicked on the unsubscribe link in the email body than actual number of *Unsubscribes*, it is possible that end users clicked the unsubscribe link more than once, leading to a higher number of *Unsubscribe* clicks than total unsubscribed users.
-
-If a user clicks the unsubscribe button twice (for example, if they unsubscribed, subscribed again, then unsubscribed again), this counts twice in email analytics.
