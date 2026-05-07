@@ -176,6 +176,7 @@ En la sección **Población objetivo**, puedes ver un resumen de tu audiencia, c
 Ten en cuenta que:
 
 - Calcular estadísticas exactas puede tardar unos minutos en ejecutarse. Esta función solo calcula las estadísticas exactas a nivel de segmento, no a nivel de filtro o grupo de filtros.
+- Mientras se cargan las estadísticas exactas, puede aparecer una estimación redondeada. La cifra exacta aparece en la sección **Usuarios alcanzables** cuando se carga. Puedes seleccionar **Mostrar estadísticas adicionales** para ver un desglose detallado.
 - Para segmentos grandes, es normal ver ligeras variaciones incluso al calcular estadísticas exactas. Se espera que la precisión de esta función sea del 99,999 % o superior.
 
 Para ver estadísticas adicionales, como los ingresos promedio de por vida de los usuarios objetivo, selecciona **Mostrar estadísticas adicionales**.

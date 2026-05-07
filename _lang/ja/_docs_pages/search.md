@@ -1,5 +1,5 @@
 ---
-nav_title: ドキュメントの検索
+nav_title: ドキュメント検索
 hidden: true
 hide_nav: true
 permalink: /search/

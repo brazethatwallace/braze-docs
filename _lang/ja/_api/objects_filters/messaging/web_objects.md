@@ -5,12 +5,12 @@ page_order: 12
 page_type: reference
 channel: push
 platform: Web
-description: "このリファレンス記事では、Braze で使用されるさまざまな Web オブジェクトについて説明します。"
+description: "このリファレンス記事では、Brazeで使用されるさまざまなWebオブジェクトについて説明します。"
 
 ---
-# Webプッシュオブジェクト
+# Webプッシュオブジェクト {#web-push-object}
 
-> `web_push` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を使用して、Web プッシュおよび Web プッシュの警告内容に関する情報を定義またはリクエストできます。
+> `web_push` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を介して、WebプッシュおよびWebプッシュアラートコンテンツに関する情報を定義またはリクエストできます。
 
 ## Webプッシュオブジェクト
 
@@ -30,9 +30,9 @@ description: "このリファレンス記事では、Braze で使用されるさ
 }
 ```
 
-`image_url` の値は、画像がホストされている場所にリンクする URL である必要があります。画像を1:1のアスペクト比にトリミングする必要があります。
+`image_url` の値は、画像がホストされている場所にリンクする URL である必要があります。画像は1:1のアスペクト比にトリミングする必要があります。
 
-## Web プッシュアクションボタン対象
+## Webプッシュアクションボタンオブジェクト {#web-push-action-button-object}
 
 ```json
 {

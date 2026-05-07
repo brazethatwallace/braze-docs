@@ -22,7 +22,7 @@ Gehen Sie zunächst zu **Messaging** > **Canvas** und wählen Sie **Create Canva
 Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres Canvas – von der Benennung über das Festlegen von Konversions-Events bis hin zur Auswahl der richtigen Nutzer:innen für Ihre Customer Journey. Wählen Sie die folgenden Tabs aus, um zu sehen, welche Einstellungen Sie in jedem Builder-Schritt anpassen können.
 
 {% tabs local %}
-  {% tab Basics %}
+  {% tab Grundlagen %}
     Hier richten Sie die Grundlagen Ihres Canvas ein:
     - Benennen Sie Ihr Canvas
     - Fügen Sie Teams hinzu
@@ -31,7 +31,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
 
     Mehr erfahren über den [Schritt „Grundlagen“](#step-11-start-with-your-canvas-basics).
   {% endtab %}
-  {% tab Entry Schedule %}
+  {% tab Entry-Zeitplan %}
     Hier legen Sie fest, wie und wann Ihre Nutzer:innen in Ihr Canvas eintreten:
     - Geplant: Dies ist ein zeitbasierter Canvas-Eintritt
     - Aktionsbasiert: Ihre Nutzer:innen treten in Ihr Canvas ein, nachdem sie eine definierte Aktion ausgeführt haben
@@ -39,7 +39,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
 
     Mehr erfahren über den [Schritt „Entry-Zeitplan“](#step-12-determine-your-canvas-entry-schedule).
   {% endtab %}
-  {% tab Target Audience %}
+  {% tab Zielgruppe %}
     Hier wählen Sie Ihre Zielgruppe aus:
     - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segmenten und Filtern
     - Verfeinern Sie den Canvas-Wiedereintritt und die Eintrittslimits
@@ -47,7 +47,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
 
     Mehr erfahren über den [Schritt „Zielgruppe“](#step-13-set-your-target-entry-audience).
   {% endtab %}
-  {% tab Send Settings %}
+  {% tab Sendeeinstellungen %}
     Hier wählen Sie Ihre Canvas-Sendeeinstellungen:
     - Wählen Sie Ihre Abo-Einstellungen
     - Legen Sie ein Rate-Limit für Ihre Canvas-Nachrichten fest
@@ -55,12 +55,12 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
 
     Mehr erfahren über den [Schritt „Sendeeinstellungen“](#step-14-select-your-send-settings).
   {% endtab %}
-  {% tab Build Canvas %}
+  {% tab Canvas aufbauen %}
     Hier bauen Sie Ihr Canvas auf.
 
     Erfahren Sie, wie Sie [Ihr Canvas aufbauen](#step-2-build-your-canvas), indem Sie den Canvas-Builder verwenden.
   {% endtab %}
-  {% tab Summary %}
+  {% tab Zusammenfassung %}
     Hier finden Sie die Zusammenfassung Ihrer Canvas-Details. Wenn Sie den [Genehmigungs-Workflow für Canvas]({{site.baseurl}}/user_guide/messaging/governance/approvals/) aktiviert haben, können Sie die aufgelisteten Canvas-Details vor dem Start genehmigen.
 
   {% endtab %}
@@ -176,6 +176,7 @@ Im Abschnitt **Target Population** können Sie eine Zusammenfassung Ihrer Zielgr
 Beachten Sie Folgendes:
 
 - Die Berechnung genauer Statistiken kann einige Minuten dauern. Diese Funktion berechnet die genauen Statistiken nur auf Segment-Ebene, nicht auf Filter- oder Filtergruppen-Ebene.
+- Während die genauen Statistiken geladen werden, kann eine gerundete Schätzung angezeigt werden. Die genaue Zahl erscheint im Abschnitt **Erreichbare Nutzer:innen**, sobald sie geladen ist. Sie können **Show Additional Stats** auswählen, um eine detaillierte Aufschlüsselung zu erhalten.
 - Bei großen Segmenten ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
 
 Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetime-Umsatz für angesprochene Nutzer:innen, wählen Sie **Show Additional Statistics**.

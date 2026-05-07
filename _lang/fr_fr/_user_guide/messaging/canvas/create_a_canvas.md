@@ -176,6 +176,7 @@ Dans la section **Target Population**, vous pouvez consulter un résumé de votr
 Notez que :
 
 - Le calcul des statistiques exactes peut prendre quelques minutes. Cette fonction ne calcule les statistiques exactes qu'au niveau du segment, pas au niveau du filtre ou du groupe de filtres.
+- Pendant le chargement des statistiques exactes, une estimation arrondie peut apparaître. Le chiffre exact apparaît dans la section **Reachable Users** une fois chargé. Vous pouvez sélectionner **Show Additional Stats** pour une répartition détaillée.
 - Pour les segments volumineux, il est normal d'observer de légères variations même lors du calcul des statistiques exactes. La précision de cette fonctionnalité est estimée à 99,999 % ou plus.
 
 Pour afficher des statistiques supplémentaires, comme le chiffre d'affaires moyen sur la durée de vie des utilisateurs ciblés, sélectionnez **Show Additional Statistics**.
