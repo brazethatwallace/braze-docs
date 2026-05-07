@@ -398,7 +398,7 @@ To check whether targeting availability is enabled for an existing import:
 3. If **Go to Segment** appears, your CSV is available in the `Updated/Imported from CSV` segment filter.
 4. If **Go to Segment** doesn’t appear, targeting availability wasn’t enabled for that import.
 
-You can’t enable targeting availability after a CSV upload is complete. To use that CSV as a segment filter, re-upload the file and, in [Step 6: Choose targeting preferences](#step-6-choose-targeting-preferences), select **Create targeting filter** or **Create targeting filter and add to new segment**.
+You can’t enable targeting availability after a CSV upload is complete. To use that CSV as a segment filter, re-upload the file, and in [Step 6: Choose targeting preferences](#step-6-choose-targeting-preferences), select **Create targeting filter** or **Create targeting filter and add to new segment**.
 
 If your goal is to create a segment without updating profile data, upload a CSV that includes only identifier columns (for example, `external_id` or alias identifier columns), then select **Create targeting filter and add to new segment**.
 
