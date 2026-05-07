@@ -9,7 +9,7 @@ description: "이 도움말에서는 익명 사용자와 사용자 별칭에 대
 
 # 익명 사용자 {#anonymous-users}
 
-> 게스트 방문자처럼 로그인하지 않고 웹사이트나 애플리케이션을 방문하는 사용자는 익명 사용자로 인식됩니다. 이러한 사용자에게는 Braze API로 고객 프로필을 업데이트하는 데 사용되는 `external_ids`가 없지만 여전히 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)가 할당되어 있으며 세그먼트에서 타겟팅할 수 있습니다.
+> 게스트 방문자처럼 로그인하지 않고 웹사이트나 애플리케이션을 방문하는 사용자는 익명 사용자로 인식됩니다. 이러한 사용자에게는 Braze API로 고객 프로필을 업데이트하는 데 사용되는 `external_ids`가 없지만 여전히 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)가 할당되어 있으며 **Segments**에서 타겟팅할 수 있습니다.
 
 익명 사용자가 웹사이트나 애플리케이션을 방문하면 Braze SDK가 '익명' 고객 프로필을 생성하여 할당합니다. 사용자가 브라우징하는 동안 커스텀 속성 및 커스텀 이벤트를 설정한 경우 SDK는 사용 정보, 기기 정보 등 익명 고객 프로필에 대한 데이터를 자동으로 캡처합니다.
 
@@ -49,16 +49,16 @@ console.log(braze.getDeviceId());
 
 ## 활용 사례 {#use-cases}
 
-### 세그먼트에서 익명 사용자 타겟팅 {#target-anonymous-users-in-your-segment}
+### **Segment**에서 익명 사용자 타겟팅 {#target-anonymous-users-in-your-segment}
 
-익명 사용자에게는 `external_id`가 없으므로 세분화 필터 **외부 사용자 ID가 비어 있음**을 사용하여 일괄적으로 타겟팅할 수 있습니다. 정확도를 높이려면 타겟팅하려는 익명 사용자에 커스텀 속성을 추가하고 해당 속성으로 필터링할 수 있습니다.
+익명 사용자에게는 `external_id`가 없으므로 **Segment** 분류 필터 **외부 사용자 ID가 비어 있음**을 사용하여 일괄적으로 타겟팅할 수 있습니다. 정확도를 높이려면 타겟팅하려는 익명 사용자에 커스텀 속성을 추가하고 해당 속성으로 필터링할 수 있습니다.
 
 각 익명 사용자 프로필에 커스텀 속성 "is_lead_profile"을 할당한다고 가정해 보겠습니다. 다음 필터 중 하나 또는 둘 모두를 사용하여 이러한 프로필을 타겟팅할 수 있습니다:
 
 - **외부 사용자 ID가 비어 있음**
 - "is_lead_profile" **이 참임**
 
-![빈 외부 사용자 ID와 참인 "is_lead_profile" 커스텀 속성에 대한 세그먼트 필터.]({% image_buster /assets/img/getting_started/anonymous_users.png %})
+![빈 외부 사용자 ID와 참인 "is_lead_profile" 커스텀 속성에 대한 **Segment** 필터.]({% image_buster /assets/img/getting_started/anonymous_users.png %})
 
 ### 익명 사용자의 결제 데이터 캡처 {#capture-checkout-data-from-an-anonymous-user}
 

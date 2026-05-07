@@ -9,14 +9,14 @@ page_type: reference
 
 # Fontes conectadas {#connected-sources}
 
-> As fontes conectadas são uma alternativa de cópia zero à sincronização direta de dados com o recurso de Ingestão de Dados na Nuvem (CDI) da Braze. Uma fonte conectada consulta diretamente seu data warehouse para criar novos segmentos sem copiar nenhum dos dados subjacentes para a Braze.
+> As fontes conectadas são uma alternativa de cópia zero à sincronização direta de dados com o recurso de Ingestão de Dados na Nuvem (CDI) da Braze. Uma fonte conectada consulta diretamente seu data warehouse para criar novos **Segments** sem copiar nenhum dos dados subjacentes para a Braze.
 
-Depois de adicionar uma fonte conectada ao seu espaço de trabalho da Braze, você pode criar um segmento CDI dentro das Extensões de segmento. As Extensões de segmento CDI permitem que você escreva SQL que consulta diretamente seu data warehouse (usando os dados disponibilizados por meio da sua Fonte Conectada CDI) e cria e mantém um grupo de usuários que podem ser segmentados dentro da Braze.
+Depois de adicionar uma fonte conectada ao seu espaço de trabalho da Braze, você pode criar um **Segment** CDI dentro das **Segment Extensions**. As CDI **Segment Extensions** permitem que você escreva SQL que consulta diretamente seu data warehouse (usando os dados disponibilizados por meio da sua Fonte Conectada CDI) e cria e mantém um grupo de usuários que podem ser direcionados dentro da Braze.
 
-Para saber mais sobre como criar um segmento com essa fonte, consulte [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Para saber mais sobre como criar um **Segment** com essa fonte, consulte [CDI **Segment Extensions**]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
 
 {% alert warning %}
-Como as fontes conectadas são executadas diretamente no seu data warehouse, você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As fontes conectadas não registram pontos de dados, e as Extensões de segmento CDI não consomem créditos de segmento SQL.
+Como as fontes conectadas são executadas diretamente no seu data warehouse, você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As fontes conectadas não registram pontos de dados, e as CDI **Segment Extensions** não consomem SQL **Segment** credits.
 {% endalert %}
 
 ## Integração de fontes conectadas {#integrating-connected-sources}
@@ -92,7 +92,7 @@ Configure os dados de origem e os recursos necessários no seu ambiente de data 
 {% tab Snowflake %}
 #### Etapa 2.1: Criar uma função e conceder permissões {#step-21-create-a-role-and-grant-permissions}
 
-Crie uma função para sua fonte conectada usar. Essa função será usada para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Crie uma função para sua fonte conectada usar. Essa função será usada para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
 Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI.
 
@@ -156,7 +156,7 @@ GRANT CREATE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 ```
 
-Crie um usuário para sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem. Se estiver criando várias integrações CDI, talvez você queira conceder permissões a um esquema ou gerenciar as permissões usando um grupo.
+Crie um usuário para sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem. Se estiver criando várias integrações CDI, talvez você queira conceder permissões a um esquema ou gerenciar as permissões usando um grupo.
 
 Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI. Certifique-se de conceder acesso a todas as novas tabelas ao usuário quando elas forem criadas, ou defina permissões padrão para o usuário.
 
@@ -186,7 +186,7 @@ Crie uma conta de serviço no GCP para a Braze usar para se conectar e ler dados
 - **BigQuery Job User:** Fornece à Braze acesso para executar jobs.
 - **bigquery.tables.create** Fornece à Braze acesso para criar tabelas temporárias durante a atualização do segmento.
 
-Crie uma conta de serviço para ser usada pela sua fonte conectada. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Crie uma conta de serviço para ser usada pela sua fonte conectada. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
 Você pode optar por conceder acesso a todas as tabelas em um conjunto de dados ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI.
 
@@ -214,7 +214,7 @@ Para que a Braze acesse o Databricks, é necessário criar um token de acesso pe
 5. Selecione **Generate**.
 6. Copie o token exibido e, em seguida, selecione **Done**.
 
-Esse token será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Esse token será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
 Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI.
 

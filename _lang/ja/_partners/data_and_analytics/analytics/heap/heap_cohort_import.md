@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Heap](https://heap.io/) はデジタルインサイトプラットフォームであり、デジタルエクスペリエンスにおいてビジネスに最も大きく影響する機会に集中して取り組むことができるようにし、フリクションを解消し、顧客を楽しませ、収益創出を加速させます。
 
-Braze と Heap の統合により、[Heap データをBrazeにインポート](#data-import-integration)し、ユーザーコホートを作成し、[Braze データを Heap にエクスポート]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/)してセグメントを作成することができます。
+Braze と Heap の統合により、[Heap データをBrazeにインポート](#data-import-integration)し、ユーザーコホートを作成し、[Braze データを Heap にエクスポート]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/)して **Segments** を作成することができます。
 
 ## 前提条件 {#prerequisites}
 
@@ -43,13 +43,13 @@ Braze で**パートナー連携** > **テクノロジーパートナー**に移
 
 ### ステップ2: Braze でインポートされたユーザーをセグメント化する {#step-2-segment-imported-users-in-braze}
 
-Braze で**Segments**に移動し、Heap コホートセグメントに名前を付け、フィルターとして **Heap Cohorts** を選択します。ここから、含めたい Heap コホートを選択できます。Heap コホートセグメントを作成したら、Campaignまたは Canvasを作成するときにオーディエンスフィルターとして選択できます。
+Braze で**Segments**に移動し、Heap コホート **Segment** に名前を付け、フィルターとして **Heap Cohorts** を選択します。ここから、含めたい Heap コホートを選択できます。Heap コホート **Segment** を作成したら、**Campaign** または **Canvas** を作成するときにオーディエンスフィルターとして選択できます。
 
 ![Braze セグメントビルダーで、ユーザー属性フィルター「Heap cohort」が「次を含む」と「Heap Test Cohort」に設定されている。]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### この統合を使う {#using-this-integration}
 
-Heap セグメントを使用するには、Braze CampaignまたはCanvasを作成し、ターゲットオーディエンスとしてセグメントを選択します。
+Heap **Segment** を使用するには、Braze **Campaign** または **Canvas** を作成し、ターゲットオーディエンスとしてその **Segment** を選択します。
 
 ![Braze Campaignビルダーのターゲティングステップで、「セグメントを基準にユーザーをターゲットに設定」フィルターが「Heap cohort」に設定されている。]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

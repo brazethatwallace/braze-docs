@@ -23,7 +23,7 @@ Decisioning Studio Go는 데이터 접근을 위해 다음 CEP를 지원합니�
 
 | CEP | 오디언스 소스 | 참여 데이터 |
 |-----|-----------------|-----------------|
-| **Braze** | Segments | Braze 커런츠 내보내기 |
+| **Braze** | Segments | Braze **Currents** 내보내기 |
 | **Salesforce Marketing Cloud** | 데이터 확장 | SQL 쿼리 자동화 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
@@ -36,14 +36,14 @@ Decisioning Studio Go는 데이터 접근을 위해 다음 CEP를 지원합니�
 
 Braze 통합을 위해 Decisioning Studio Go에는 다음이 필요합니다:
 
-1. **Braze 커런츠:** Braze 커런츠를 활성화하고 구성하여 참여 데이터를 Decisioning Studio Go로 내보내야 합니다. 이를 통해 에이전트가 고객 응답으로부터 학습할 수 있습니다.
+1. **Braze Currents:** Braze **Currents**를 활성화하고 구성하여 참여 데이터를 Decisioning Studio Go로 내보내야 합니다. 이를 통해 에이전트가 고객 응답으로부터 학습할 수 있습니다.
 
 2. **Segment 접근:** 생성하는 API 키는 타겟 오디언스를 정의하는 Segments에 접근할 수 있는 권한을 가져야 합니다.
 
 3. **고객 프로필 데이터:** 에이전트가 고려해야 하는 모든 고객 프로필 속성 또는 커스텀 속성은 Braze API를 통해 접근 가능해야 합니다.
 
 {% alert important %}
-Braze 커런츠 내보내기에 비교 대상 Campaigns(BAU Campaigns 포함)의 데이터가 반드시 포함되어 있는지 확인하세요.
+Braze **Currents** 내보내기에 비교 대상 **Campaigns**(BAU **Campaigns** 포함)의 데이터가 반드시 포함되어 있는지 확인하세요.
 {% endalert %}
 
 {% endtab %}

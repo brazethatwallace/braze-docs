@@ -15,7 +15,7 @@ search_rank: 1
 
 예측이 생성된 후, 사용자에게는 선택한 이벤트를 수행할 가능성을 나타내는 0에서 100 사이의 [가능성 점수]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score)가 할당됩니다. 점수가 높을수록 사용자가 해당 이벤트를 수행할 가능성이 높습니다. 사용자는 낮음, 중간, 높음 가능성 카테고리로도 분류됩니다.
 
-예측 이벤트의 진정한 가치는 예측 결과를 사용하여 세그먼트 또는 Campaign을 만드는 데 있습니다. 마케터는 **예측** 페이지에서 직접 타겟팅된 Campaign을 구축하여 즉각적인 매출 증대 결과를 얻거나, 향후 Campaign 또는 Canvas를 위해 세그먼트를 저장할 수 있습니다. 누구를 먼저 타겟팅해야 할지 모르겠나요? 가능성 점수에 기반한 사용자 메시징에 대한 [전략적 고려 사항]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/messaging_users/#strategy)을 읽어보세요.
+예측 이벤트의 진정한 가치는 예측 결과를 사용하여 **Segment** 또는 **Campaign**을 만드는 데 있습니다. 마케터는 **예측** 페이지에서 직접 타겟팅된 **Campaign**을 구축하여 즉각적인 매출 증대 결과를 얻거나, 향후 **Campaign** 또는 **Canvas**를 위해 **Segment**를 저장할 수 있습니다. 누구를 먼저 타겟팅해야 할지 모르겠나요? 가능성 점수에 기반한 사용자 메시징에 대한 [전략적 고려 사항]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/messaging_users/#strategy)을 읽어보세요.
 
 ![예측 이벤트의 작동 방식을 보여주는 그래픽으로, 사용자 데이터가 머신 러닝 모델에 유입되는 과정을 표시합니다. 라벨에는 "과거 데이터를 사용하여 특정 기간 동안 이벤트를 수행한 사용자와 수행하지 않은 사용자의 동작을 비교하여 학습합니다."라고 적혀 있습니다. 또한 머신 러닝 결과로 사용자가 이벤트를 수행할 가능성이 가장 낮은 순서부터 가장 높은 순서까지 순위가 매겨진 모습도 보여줍니다. 라벨에는 "미래 이벤트의 가능성을 예측하고, 정확하고 편리한 타겟팅을 위해 사용자에게 가능성 점수를 할당합니다."라고 적혀 있습니다.]({% image_buster /assets/img/how_predictive_events_works.png %})
 
