@@ -32,10 +32,6 @@ A single-channel campaign reaches users through one messaging channel per launch
 
 ### What's different
 
-#### Control groups {#single-channel-control-groups}
-
-Campaign control groups compare variants within your channel (for example, Email A versus Email B). Configure variants and holdouts with [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/). To orchestrate multiple channels or steps in one journey, use [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) instead.
-
 #### Conversions and reporting {#single-channel-conversions}
 
 For single-channel campaigns, Braze tracks [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) you assign to the campaign against sends from that channel. For attribution windows and counting rules, see [Conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules).
@@ -126,35 +122,49 @@ For scheduling concepts across Braze, see [Schedule your campaign]({{site.baseur
 
 ### Delivery controls
 
-Depending on delivery type, you can adjust **re-eligibility** (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. See [Re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) for campaign-level settings.
-
-You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) so messages don't send during restricted windows.
+Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) so messages don't send during restricted windows.
 
 ## Step 3: Target audiences {#step-3-target-audiences}
 
 On **Target Audiences**, define who is eligible to receive the campaign. For full targeting options, UI walkthroughs, and screenshots, see [Target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/).
 
-### Segments and filters
+### Targeting options
 
-Select saved segments, add **Additional filters** for a one-off audience, or combine both. Workspace [suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/) automatically exclude listed users unless you allow an exception for this campaign.
+In this section, you can target users by choosing segments or filters to narrow down your audience. Eligible users still need to meet the trigger or criteria you define in the **Schedule Delivery** step. The target audience is like a waiting room—only people already inside can move forward when the next action happens.
+
+Workspace [suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/) automatically exclude listed users unless you allow an exception for this campaign.
 
 ### Audience summary
 
-Review **Reachable users** and channel-level stats so you know who can actually receive this send. Reachable counts reflect your workspace data, channel setup, and filters. For very large audiences, Braze may show estimates until you calculate exact statistics.
+After adding segments or filters, the **Audience Summary** gives preview of what that segment population looks like, including how many users within that segment are reachable through your selected channels. Reachable counts reflect your workspace data, channel setup, and filters. Keep in mind that exact segment membership is always calculated before the message is sent. For very large audiences, Braze may show estimates until you calculate exact statistics.
 
 ### User Lookup
 
-In **User Lookup**, search by **External User ID** or **Braze ID** to check whether someone matches your audience. You can't search by email address here.
+After adding segments or filters, you can test if your audience is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user's `external_id` or `braze_id` in the **User Lookup** section. You can't search by email address here.
 
-### Channel-specific options
+When a user matches the segment, filter, and app criteria, an alert will state so. When a user doesn't match part or all of the segment, filter, or app criteria, the missing criteria is listed for troubleshooting purposes.
 
-Channels that use subscriptions (email, SMS, and similar) include controls such as **Send to these users** so you only send to users with the subscription or opt-in states you want.
+### Send to these users
 
-You can also set a **maximum send volume**, **delivery speed limits**, and [multivariate or A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/) from this step.
+For subscription-based channels (email, SMS, and similar), use **Send to these users** to only send your campaign to users who have a specific subscription status, such as those who are subscribed and opted in to email.
+
+### Limit send volume
+
+You can limit the total number of users that will receive your message. This serves as a check that is independent of your campaign filters. For details, refer to [Setting a maximum user cap]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#setting-a-maximum-user-cap).
+
+### Limit the rate at which this campaign will send
+
+If you anticipate large campaigns driving a spike in user activity and overloading your servers, you can specify a per-minute rate limit for sending messages, which means Braze sends no more than your rate-limited setting within a minute. For details, refer to [Delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)
+
+### A/B testing
+
+You can create a [multivariate or A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/) for any campaign that targets a single channel and single device. For example, if you want to use multivariate or A/B testing for a push campaign, you can target only iOS devices or only Android devices—not both device types in the same campaign.
+
+For push, email, and webhook campaigns scheduled to send once, you can also use an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). An optimization reserves a portion of your target audience from the A/B test and holds them for a second optimized send based on the results from the first test.
 
 ## Step 4: Assign conversion events {#step-4-assign-conversion-events}
 
-[Conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) measure outcomes after a user receives your campaign (or enters the control group). Braze defaults to **Starts Session** within a short window (often three days). You can define conversion events that match your KPIs, up to four events per campaign.
+[Conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) measure outcomes after a user receives your campaign (or enters the control group). Braze defaults to **Starts Session** within a short window (three days). You can define conversion events that match your KPIs, up to four events per campaign.
 
 {% alert important %}
 You can't add or remove conversion events after the campaign launches. Confirm events before you launch.
@@ -162,9 +172,7 @@ You can't add or remove conversion events after the campaign launches. Confirm e
 
 ## Step 5: Review summary and launch {#step-5-review-summary-and-launch}
 
-The **Review Summary** step shows scheduling, audience, variants, and messaging choices.
-
-Before you launch your campaign:
+The **Review Summary** step shows scheduling, audience, variants, and messaging choices. Before you launch your campaign:
 
 1. Confirm segments, variants, and delivery settings match your intent.
 2. [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) to validate rendering and behavior on your test devices or internal recipients.
