@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### How do I create a multichannel campaign?
 
-To create a multichannel campaign, select **Messaging** > **Campaigns**. Then, select **Create Campaign** > **Multichannel**. From here, you can select from the following messaging channels: Content Cards, email, LINE, push notifications, SMS/MMS/RCS, webhook, or WhatsApp.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 
-No, control groups in campaigns are intended for single-channel messaging, such as Email A versus Email B. As an alternative, try using [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) for testing different channels, messaging content, and delivery timing. 
+See [Control groups]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) in **Create a campaign**. For cross-channel testing, use [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### What are some ways I can start testing and optimizing campaigns?
 
@@ -48,9 +48,7 @@ The same pattern applies to recurring campaigns and to re-eligibility: if two us
 
 ### Why can the number of conversions exceed the number of unique users for multichannel campaigns?
 
-For multichannel campaigns, Braze counts conversions per channel, not per user. When a user performs a single conversion action within the conversion window, Braze attributes that conversion to each channel from which the user received a message. This means that if a user receives messages on multiple channels (for example, both email and push) and converts, Braze counts multiple conversions, one for each channel. As a result, the total conversion count can exceed the number of unique users who converted.
-
-For example, if a multichannel campaign sends both an email and a push notification to a user, and that user performs one conversion action after receiving both messages and within the conversion window, Braze counts this as two conversions, one attributed to email and one attributed to push, even though it is a single action by the same user.
+See [Conversions and reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) in **Create a campaign** and [Conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) in **Conversion events**.
 
 ### Why does my campaign have a smaller reachable user base than the segment that I'm using for the campaign?
 
