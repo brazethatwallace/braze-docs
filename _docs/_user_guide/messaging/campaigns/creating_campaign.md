@@ -140,7 +140,7 @@ After adding segments or filters, the **Audience Summary** gives preview of what
 
 ### User Lookup
 
-After adding segments or filters, you can test if your audience is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user's `external_id` or `braze_id` in the **User Lookup** section. You can't search by email address here.
+After adding segments or filters, you can test if your audience is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user's `external_id` or `braze_id` in the **User Lookup** section. You can't search by email address here. See [Testing segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments) for more.
 
 When a user matches the segment, filter, and app criteria, an alert will state so. When a user doesn't match part or all of the segment, filter, or app criteria, the missing criteria is listed for troubleshooting purposes.
 
@@ -166,6 +166,8 @@ For push, email, and webhook campaigns scheduled to send once, you can also use 
 
 [Conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) measure outcomes after a user receives your campaign (or enters the control group). Braze defaults to **Starts Session** within a short window (three days). You can define conversion events that match your KPIs, up to four events per campaign.
 
+After you launch, use the [Conversions dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/) to analyze conversion trends across multiple campaigns or Canvases, compare channels, and adjust date ranges, attribution methods, and breakdowns in one place.
+
 {% alert important %}
 You can't add or remove conversion events after the campaign launches. Confirm events before you launch.
 {% endalert %}
@@ -187,4 +189,5 @@ If your workspace uses approvals, a teammate with permission to approve campaign
 
 - [Design and edit]({{site.baseurl}}/user_guide/messaging/design_and_edit/)
 - [A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/)
+- [Know before you send]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send) 
 - [Campaign analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)
