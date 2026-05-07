@@ -8,7 +8,6 @@ page_type: reference
 tool:
   - Templates
   - Media
-
 ---
 
 # Content Blocks
@@ -38,23 +37,26 @@ Each drag-and-drop Content Block is limited to one row. However, you can use dra
 
 ### Content Block specifications
 
-| Content Block attribute | Specifications |
-|---|---|
-| Name | Required field with a maximum of 100 characters. It cannot be renamed after the Content Block has been saved. Additionally, you cannot name a new Content Block the same name as a previous Content Block, even if the previous one has been archived. |
-| Description | (optional) Maximum of 250 characters. Describe the Content Block so that other Braze users know what it's for and where it's used. |
-| Content Size | Maximum of 50 KB. |
-| Placement | Content Blocks cannot be used within an email footer, but you can [create a Content Block that includes a footer](#email-footers) for use in your emails. |
-| Creation | HTML editor or drag-and-drop editor. |
+| Content Block attribute | Specifications                                                                                                                                                                                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name                    | Required field with a maximum of 100 characters. It cannot be renamed after the Content Block has been saved. Additionally, you cannot name a new Content Block the same name as a previous Content Block, even if the previous one has been archived. |
+| Description             | (optional) Maximum of 250 characters. Describe the Content Block so that other Braze users know what it's for and where it's used.                                                                                                                     |
+| Content Size            | Maximum of 50 KB.                                                                                                                                                                                                                                      |
+| Placement               | Content Blocks cannot be used within an email footer, but you can [create a Content Block that includes a footer](#email-footers) for use in your emails.                                                                                              |
+| Creation                | HTML editor or drag-and-drop editor.                                                                                                                                                                                                                   |
+
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-When creating Content Blocks, it can be beneficial to visualize HTML and Liquid by adding line breaks. If these line breaks are left in during sending, you risk having extraneous spaces that can affect how the block will render. To avoid this, use the **Capture** tag on your block along with the **&#124; strip** filter. 
+When creating Content Blocks, it can be beneficial to visualize HTML and Liquid by adding line breaks. If these line breaks are left in during sending, you risk having extraneous spaces that can affect how the block will render. To avoid this, use the **Capture** tag on your block along with the **&#124; strip** filter.
 {% raw %}
+
 ```
 {% capture your_variable %}
 {{content_blocks.${your_content_block}}}
 {% endcapture %}{{your_variable | strip}}
 ```
+
 {% endraw %}
 {% endalert %}
 
@@ -66,8 +68,8 @@ After creating your Content Block, you can insert it in your messages using the 
 
 To add a Content Block in the drag-and-drop editor:
 
-1. Go to the **Rows** tab in the editor and select **Content Blocks**. 
-2. Drag and drop your Content Block into the email editor. 
+1. Go to the **Rows** tab in the editor and select **Content Blocks**.
+2. Drag and drop your Content Block into the email editor.
 3. (Optional) Adjust the width of your Content Block by selecting the button in the navigation menu. The default width is 100% when not specified in your email global style settings; otherwise, the global settings will be honored. <br><br>![A double-sided arrow with an option to edit the width.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }<br><br>
 
 {% alert note %}
@@ -85,7 +87,7 @@ To insert a Content Block using Liquid:
 
 In the drag-and-drop editor, you can also add a Content Block via the **Personalization** panel:
 
-1. Go to your email campaign and select **Edit Email Body**. 
+1. Go to your email campaign and select **Edit Email Body**.
 2. Click <i class="fas fa-plus"></i> **Personalization**.
 3. Select **Content Blocks** in the **Personalization Type** dropdown.
 4. Select the name of your Content Block in the **Attribute** field.
@@ -98,15 +100,16 @@ Content Blocks inserted via Liquid **are linked** to the original Content Block 
 ### Things to know
 
 - Using HTML Content Blocks in drag-and-drop emails **or** drag-and-drop Content Blocks in HTML emails may result in unexpected rendering issues. This is because the drag-and-drop editor generates HTML and CSS that dynamically renders the content, whereas the HTML editor is more static.
+- If you insert a drag-and-drop Content Block using Liquid, Braze doesn't include styles from the block's HTML `<head>`. Responsive styles, such as mobile-specific CSS, may not render as expected. If the block relies on responsive CSS, add that CSS to the message or template that includes the Content Block.
 - Canvas event properties are only supported in a Canvas. If you reference a Content Block with Canvas entry properties in a campaign, it won't populate.
 
 ## Preview Content Blocks
 
-After adding a Content Block in an active campaign or Canvas, you can preview it from the Content Blocks Library by hovering over the Content Block and selecting the <i class="fa fa-eye preview-icon"></i> **Preview** icon. 
+After adding a Content Block in an active campaign or Canvas, you can preview it from the Content Blocks Library by hovering over the Content Block and selecting the <i class="fa fa-eye preview-icon"></i> **Preview** icon.
 
 This preview includes information about the Content Block such as who created it, tags, creation date, last edited date, description, editor type, inclusion count with details (a clickable list of messages or Content Blocks that use the Content Block), and an actual preview of the Content Block.
 
-![A preview of a Content Block "Workout_Promo" for cycling and dancing that has one inclusion.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"} 
+![A preview of a Content Block "Workout_Promo" for cycling and dancing that has one inclusion.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
 
 ## Nest Content Blocks
 
