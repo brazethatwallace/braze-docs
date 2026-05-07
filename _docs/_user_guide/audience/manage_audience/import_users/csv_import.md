@@ -26,13 +26,13 @@ You can use CSV import to record and update the following user attributes and cu
 
 To open CSV import, go to **Audiences** > **Import Users**. Here, you'll find a table that lists details about the most recent imports, such as the upload date, uploader's name, file name, targeting availability, number of imported rows, and status of the import.
 
-To get you started with your CSV, download a template for attributes or events.
+To get started, select **Attributes** or **Events**, then download the appropriate template to help you build your CSV file for upload.
 
 ![The 'Import Users' page in the Braze dashboard.]({% image_buster /assets/img/csv_import/import_users_page.png %})
 
 ### Step 2: Choose an identifier {#choose-an-identifier}
 
-The CSV you import will need a dedicated identifier. You can choose from the following:
+The CSV file you import needs a dedicated identifier. Choose one of the following identifier types for your import:
 
 {% tabs local %}
 <!-- TAB -->
@@ -117,7 +117,7 @@ When you're ready to start building your CSV file, refer to the following inform
 {% tab user attributes %}
 #### Required identifiers {#required-identifiers-attributes}
 
-While `external_id` is not required, you **must** include **one** of the following identifiers as a header in your CSV file. For details about each one, review [Choose an identifier](#choose-an-identifier).
+While `external_id` is not required, your CSV file must include a user identifier that can be mapped to **one** of the following identifiers. For details about each one, review [Choose an identifier](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -127,7 +127,7 @@ While `external_id` is not required, you **must** include **one** of the followi
 
 #### Custom attributes
 
-The following data types can be used as custom attributes for CSV import. Column headers that don't exactly match a [default attribute](#default-attributes) are imported as custom attributes in Braze.
+The following data types can be used as custom attributes for CSV import. Column headers that don't exactly match a [default attribute](#default-attributes) are imported as custom attributes in Braze unless changed during the mapping step.
 
 | Data Type | Description |
 |---|---|
@@ -285,6 +285,8 @@ In this example:
 
 To upload your file, select **Attributes** or **Events**, click **Browse Files**, and upload your CSV. Braze displays a preview of the first few rows and a summary of the detected fields.
 
+![The file preview page showing a preview of the file after upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
+
 For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
 
 ![The upload completed modal showing a file preview, import name field, targeting preferences, and file validation checkbox.]({% image_buster /assets/img/csv_import/upload_completed.png %})
@@ -295,9 +297,52 @@ In the **Import name** field, you can rename your import. By default, the file n
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
 {% endalert %}
 
-### Step 5: Validate your file (optional) {#file-validation}
+### Step 5: Map your fields (for attributes) {#csv-data-mapping}
 
-Before starting your import, you can run file validation to check every row for errors and warnings. To validate your file, select **Validate file before importing**, then click **Start import**.
+After the preview, you can map your CSV headers to Braze attributes. Braze automatically maps fields in your CSV file to attributes with identical names and creates new attributes where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes for any column.
+
+![The column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
+
+#### Mapping statuses
+
+The mapping status column indicates the action that occurs when your CSV file is imported and can be any of the following.
+
+| Mapping status | What it means |
+|:---|:---|
+| **Mapped** | Field mapped to an existing attribute or identifier. |
+| **New attribute** | Braze creates a new attribute on import. You can edit this attribute by selecting the **Edit new attribute** button. | 
+| **Data type mismatch** | The detected data type of the CSV column does not match the data type of the existing attribute or identifier. Braze attempts to convert the data type on import to match the existing attribute. The value is dropped if this is not possible. |
+| **Blocklist attribute** | The CSV field matches the name of a blocklisted attribute. Select a different attribute to map to or the column is not imported. |
+| **Duplicate attribute** | There are one or more fields with the same name in your CSV file. Map the same-name columns to different attributes or only the first column is imported. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+
+#### Editing new attributes
+
+When a matching attribute does not exist in your workspace, Braze attempts to create a new attribute on import using the name of the CSV field and the detected data type. You can edit this new attribute before import by selecting the **Edit new attribute** button next to the mapping status.
+
+![The edit new attribute button on the column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
+
+
+{% alert note %}
+You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. Refer to the **Required fields** section to see if an identifier is mapped.
+{% endalert %}
+
+### Step 6: Choose targeting preferences {#targeting-preferences}
+
+After mapping, you can choose from the following targeting preferences on the Import Settings page. If you don't need to create a new targeting filter or segment from your import, select **Do not make this list available as a targeting filter**.
+
+| Option | Description |
+|---|---|
+| Targeting filter | To convert your CSV file into a retargeting option when building user segments, choose your file from the **Updated/Imported from CSV** dropdown, then select **Create targeting filter**. |
+| New segments | To also create a new segment from your new targeting filter, select **Create targeting filter and add to new segment**. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+![A filter group with the "Updated/Imported from CSV" filter including a CSV file titled "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+
+### Step 7: Validate your file (optional) {#file-validation}
+
+Before starting your import, you can run file validation to check every row for errors and warnings. To validate your file, select **Validate file before importing** on the Import Settings page, then select **Next**.
 
 Validation can take up to 2 minutes for files at the maximum allowed size. While validation runs, you can select **Skip validation** to bypass it and proceed immediately.
 
@@ -313,7 +358,7 @@ When validation completes, one of the following results appears.
 | **Validation timed out with issues** | Validation ran out of time and found errors in some of the rows it checked. | Download the partial report to review what was found, then select **Import anyway** or **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-![The issues found dialog showing a count of rows with errors and warnings, with options to cancel, download the error report, or import anyway.]({% image_buster /assets/img/csv_import/validation_issues.png %})
+![The summary page showing issues found section, showing a count of rows with errors and warnings, with options to go back, download the error report, or start import.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### Understanding the error report
 
@@ -327,21 +372,12 @@ The error report is a CSV file that contains every flagged row along with its or
 
 After reviewing the report, you can correct the issues in your original file and re-upload, or proceed with the import and accept the partial results.
 
-### Step 6: Choose targeting preferences
 
-You can also choose from the following targeting preferences. If you don't need to create a new targeting filter or segment from your import, select **Do not make this list available as a targeting filter**.
 
-| Option | Description |
-|---|---|
-| Targeting filter | To convert your CSV file into a retargeting option when building user segments, choose your file from the **Updated/Imported from CSV** dropdown, then select **Create targeting filter**. |
-| New segments | To also create a new segment from your new targeting filter, select **Create targeting filter and add to new segment** . |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+### Step 8: Start your CSV import
 
-![A filter group with the "Updated/Imported from CSV" filter including a CSV file titled "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
-
-### Step 7: Start your CSV import
-
-When you're ready, select **Start import**. You can track the current progress on the **Import Users** page, which automatically refreshes every 5 seconds. Processing can take from a few minutes to a few hours depending on how large your CSV is. During this time, the dashboard may appear unresponsive or respond slowly, but the import is still running.
+When you're ready, select **Start Import**. You can track the current progress on the **Import Users** page, which automatically refreshes every 5 seconds.
+Processing can take from a few minutes to a few hours depending on how large your CSV is. During this time, the dashboard may appear unresponsive or respond slowly, but the import is still running.
 
 {% alert note %}
 You can import more than one CSV at the same time. CSV imports run concurrently, so the order of updates is not guaranteed to be serial. If you require CSV imports to run one after another, wait until a CSV import has finished before uploading a second one.
