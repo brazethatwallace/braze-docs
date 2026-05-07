@@ -74,10 +74,7 @@ Select **Add resources** to choose what your agent can reference. This includes:
 - [Segment membership]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Let the agent personalize responses based on which segments a user belongs to. You can select up to five segments.
 - [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Reference the brand voice and style guidelines for the agent to follow. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 - [All Canvas Context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analyze all Canvas context data for a user when this agent is invoked, including any variables that are not referenced in the **Instructions** section.
-
-#### Step 3.2: Add optional settings
-
-In the **Optional settings**, you can adjust the [temperature]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) of the agent-generated copy. A higher temperature allows the agent to use the information provided to be more creative.
+- [User interaction data]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Provide the agent with each user's recent campaign and Canvas opens, clicks, and conversion data.
 
 ### Step 4: Select the output {#select-output}
 

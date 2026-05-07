@@ -515,13 +515,9 @@ You can select up to five segments for the agent to cross-reference each user's 
 
 You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 
-## Temperature
+## User-specific interaction history {#user-history}
 
-If your goal is to use an agent to generate copy to encourage users to log into your mobile app, you can set a higher temperature for your agent to be more creative and use the nuances of the context variables. If you're using an agent to generate sentiment scores, it may be ideal to set a lower temperature to avoid any agent speculation on negative survey responses. We recommend testing this setting and reviewing the agent's generated output to fit your scenario.
-
-{% alert note %}
-Temperatures aren't currently supported for use with OpenAI.
-{% endalert %}
+A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. You can select to include this for an agent to reference when it's evaluated in Canvas.
 
 ## Duplicate agents
 
