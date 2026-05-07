@@ -16,9 +16,6 @@ guide_featured_list:
   - name: Field-level encryption
     link: /docs/user_guide/data/infrastructure/field_level_encryption
     image: /assets/img/braze_icons/book-closed.svg
-  - name: Messaging interaction data
-    link: /docs/user_guide/data/infrastructure/messaging_interaction_data
-    image: /assets/img/braze_icons/list.svg
   - name: Data points
     link: /docs/user_guide/data/infrastructure/data_points
     image: /assets/img/braze_icons/check-square-broken.svg

@@ -2,7 +2,7 @@
 nav_title: "Messaging Interaction Data"
 article_title: "Messaging Interaction Data"
 alias: "/messaging_interaction_data/"
-page_order: 2.5
+page_order: 1
 description: "This reference article covers campaign and Canvas interaction data and its availability."
 page_type: reference
 ---
