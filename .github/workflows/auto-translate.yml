@@ -23,6 +23,12 @@
 #      runs and fails, merge-and-publish fails so the run is red (no silent
 #      “success” without a PR).
 #   4. Open one PR targeting develop with all locales
+#
+# Optional Slack (bot token): use the same secrets as Nightly Release Deploy —
+# SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL (channel ID, e.g. C0123…).
+# Invite the bot to the channel. Notifies on success and failure for runs that
+# execute prepare (skipped runs from unrelated PR merges to main post nothing).
+# If secrets are unset, notifications are skipped.
 name: Auto-translate
 
 on:
@@ -272,6 +278,9 @@ jobs:
     if: ${{ needs.prepare.result == 'success' && needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pull-request-number }}
+      pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -364,6 +373,9 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pull-request-number }}
+      pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -441,3 +453,86 @@ jobs:
           echo "  translate-locale:   ${{ needs.translate-locale.result }}"
           echo "  merge-and-publish:  ${{ needs.merge-and-publish.result }}"
           exit 1
+
+  notify:
+    name: Slack notification
+    needs: [prepare, translate-locale, merge-and-publish, orphan-cleanup-only, report-failures]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Auto-translate result to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PREPARE_RESULT: ${{ needs.prepare.result }}
+          PREPARE_COUNT: ${{ needs.prepare.outputs.count }}
+          TRANSLATE_RESULT: ${{ needs.translate-locale.result }}
+          MERGE_RESULT: ${{ needs.merge-and-publish.result }}
+          ORPHAN_JOB_RESULT: ${{ needs['orphan-cleanup-only'].result }}
+          REPORT_RESULT: ${{ needs.report-failures.result }}
+          MERGE_PR_URL: ${{ needs.merge-and-publish.outputs.pr_url }}
+          MERGE_PR_NUMBER: ${{ needs.merge-and-publish.outputs.pr_number }}
+          ORPHAN_PR_URL: ${{ needs['orphan-cleanup-only'].outputs.pr_url }}
+          ORPHAN_PR_NUMBER: ${{ needs['orphan-cleanup-only'].outputs.pr_number }}
+          EVENT_NAME: ${{ github.event_name }}
+          DEPLOY_PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_DEPLOY_NOTIFY_CHANNEL:-}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL); skipping."
+            exit 0
+          fi
+
+          if [ "${PREPARE_RESULT}" = "skipped" ]; then
+            echo "Prepare skipped (not a deploy merge or not workflow_dispatch) — not posting to Slack."
+            exit 0
+          fi
+
+          FAILED=
+          if [ "${PREPARE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${ORPHAN_JOB_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${TRANSLATE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${MERGE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${REPORT_RESULT}" = "failure" ]; then FAILED=1; fi
+
+          if [ -n "${FAILED}" ]; then
+            TEXT=":x: *Auto-translate* failed\n${RUN_URL}"
+          elif [ "${ORPHAN_JOB_RESULT}" = "success" ]; then
+            if [ -n "${ORPHAN_PR_URL:-}" ]; then
+              TEXT=":white_check_mark: *Auto-translate* — orphan cleanup PR opened <${ORPHAN_PR_URL}|#${ORPHAN_PR_NUMBER}>"
+            else
+              TEXT=":white_check_mark: *Auto-translate* — orphan cleanup finished (no PR opened; likely nothing to commit)\n${RUN_URL}"
+            fi
+          elif [ "${PREPARE_COUNT:-0}" = "0" ]; then
+            CONTEXT=
+            if [ "${EVENT_NAME}" = "pull_request" ] && [ -n "${DEPLOY_PR_NUMBER:-}" ]; then
+              CONTEXT=" (after nightly deploy PR #${DEPLOY_PR_NUMBER})"
+            elif [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+              CONTEXT=" (manual run)"
+            fi
+            TEXT=":white_check_mark: *Auto-translate* — no English markdown changes to translate${CONTEXT}\n${RUN_URL}"
+          elif [ "${MERGE_RESULT}" = "success" ] && [ -n "${MERGE_PR_URL:-}" ]; then
+            TEXT=":white_check_mark: *Auto-translate* — opened translation PR <${MERGE_PR_URL}|#${MERGE_PR_NUMBER}>"
+          elif [ "${MERGE_RESULT}" = "success" ]; then
+            TEXT=":white_check_mark: *Auto-translate* finished (merge job succeeded)\n${RUN_URL}"
+          else
+            TEXT="*Auto-translate* finished (${RUN_URL}) — prepare=${PREPARE_RESULT}, translate=${TRANSLATE_RESULT}, merge=${MERGE_RESULT}"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$SLACK_DEPLOY_NOTIFY_CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null
