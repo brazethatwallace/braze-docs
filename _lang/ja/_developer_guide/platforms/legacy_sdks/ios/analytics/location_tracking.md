@@ -4,7 +4,7 @@ article_title: iOS の位置情報の追跡
 platform: iOS
 page_order: 6
 description: "この記事では、iOS アプリケーションの位置情報の追跡の設定方法を説明します。"
-Tool:
+tool:
   - Location
 
 noindex: true

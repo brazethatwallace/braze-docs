@@ -1,97 +1,97 @@
 ---
-nav_title: VeranstaltungsAnalytics
-article_title: Prognose-Analytics für Ereignisse
-description: "Dieser Artikel befasst sich mit den verschiedenen Komponenten der Seite Predictive Events Analytics und ihrer Verwendung für fundierte Entscheidungen."
+nav_title: Event-Analytics
+article_title: Prognose-Analytics für Events
+description: "Dieser Referenzartikel behandelt die verschiedenen Komponenten der Seite Predictive Events Analytics und zeigt, wie Sie diese nutzen können, um aufschlussreiche, zielgerichtete Entscheidungen zu treffen."
 page_order: 1.3
 
 ---
 
-# Prognostische Ereignis-Analytik
+# Prognostische Event-Analytics {#predictive-event-analytics}
 
-> Nachdem Ihre Vorhersage erstellt und trainiert wurde, haben Sie Zugriff auf die Seite **Vorhersageanalyse**. Diese Seite hilft Ihnen bei der Entscheidung, welche Benutzer Sie auf der Grundlage ihres Wahrscheinlichkeitswertes oder ihrer Kategorie ansprechen sollten.
+> Nachdem Ihre Vorhersage erstellt und trainiert wurde, haben Sie Zugriff auf die Seite **Vorhersageanalyse**. Diese Seite hilft Ihnen bei der Entscheidung, welche Nutzer:innen Sie auf der Grundlage ihres Wahrscheinlichkeitswertes oder ihrer Kategorie ansprechen sollten.
 
-## Über prognostische Event-Analytik
+## Über prognostische Event-Analytics {#about-predictive-event-analytics}
 
-Sobald das Training der Vorhersage abgeschlossen und diese Seite gefüllt ist, können Sie mit der Verwendung von [Filtern]({{site.baseurl}}/user_guide/brazeai/predictive_churn/messaging_users/#filters) in Segmenten oder Kampagnen beginnen, um die Ergebnisse des Modells zu nutzen. Wenn Sie Hilfe bei der Entscheidung brauchen, wen Sie ansprechen und warum, kann Ihnen diese Seite auf der Grundlage der historischen Genauigkeit des Modells und Ihrer eigenen Geschäftsziele helfen.
+Sobald das Training der Vorhersage abgeschlossen und diese Seite gefüllt ist, können Sie mit der Verwendung von [Filtern]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) in Segmenten oder Campaigns beginnen, um die Ergebnisse des Modells zu nutzen. Wenn Sie Hilfe bei der Entscheidung brauchen, wen Sie ansprechen und warum, kann Ihnen diese Seite auf der Grundlage der historischen Genauigkeit des Modells und Ihrer eigenen Geschäftsziele helfen.
 
-Dies sind die Komponenten, aus denen die prognostische Ereignisanalyse besteht:
+Dies sind die Komponenten, aus denen die prognostische Event-Analytics besteht:
 
 - [Wahrscheinlichkeitswert](#purchase_score)
 - [Prognosequalität](#prediction_quality)
 - [Geschätzte Genauigkeit](#estimated_results)
-- [Ereigniskorrelationstabelle](#correlation_table)
+- [Event-Korrelationstabelle](#correlation_table)
 
-Die Verteilung der Likelihood-Scores für die gesamte Prognosegruppe wird oben auf der Seite angezeigt. Benutzer in den Bereichen weiter rechts haben eine höhere Punktzahl und werden das Ereignis mit größerer Wahrscheinlichkeit durchführen. Benutzer in den weiter links liegenden Bereichen führen das Ereignis mit geringerer Wahrscheinlichkeit durch. Mit dem Schieberegler unterhalb des Diagramms können Sie einen Bereich von Nutzern auswählen und die Ergebnisse der Ansprache dieser Nutzer abschätzen.
+Die Verteilung der Wahrscheinlichkeitswerte für die gesamte Prognosegruppe wird oben auf der Seite angezeigt. Nutzer:innen in den Buckets weiter rechts haben höhere Werte und werden das Event mit größerer Wahrscheinlichkeit durchführen. Nutzer:innen in den Buckets weiter links führen das Event mit geringerer Wahrscheinlichkeit durch. Mit dem Schieberegler unterhalb des Charts können Sie einen Bereich von Nutzer:innen auswählen und die Ergebnisse der Ansprache dieser Nutzer:innen abschätzen.
 
-Wenn Sie die Griffe des Schiebereglers in verschiedene Positionen bewegen, informiert Sie der Balken in der linken Hälfte des Fensters darüber, wie viele Nutzer aus der gesamten Vorhersagezielgruppe mit dem von Ihnen ausgewählten Teil der Bevölkerung angesprochen werden würden.
+Wenn Sie die Griffe des Schiebereglers in verschiedene Positionen bewegen, informiert Sie der Balken in der linken Hälfte des Panels darüber, wie viele Nutzer:innen aus der gesamten Prognosegruppe mit dem von Ihnen ausgewählten Teil der Population angesprochen werden würden.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"} 
+![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Wahrscheinlichkeitswert {#purchase_score}
 
-Den Nutzern in der Vorhersagegruppe wird ein Wahrscheinlichkeitswert zwischen 0 und 100 zugewiesen. Je höher die Punktzahl ist, desto größer ist auch die Wahrscheinlichkeit, dass das Ereignis stattfindet. 
+Den Nutzer:innen in der Prognosegruppe wird ein Wahrscheinlichkeitswert zwischen 0 und 100 zugewiesen. Je höher der Wert, desto größer ist die Wahrscheinlichkeit, dass das Event durchgeführt wird.
 
-Im Folgenden sehen Sie, wie ein Benutzer je nach Wahrscheinlichkeitswert eingestuft wird:
+Im Folgenden sehen Sie, wie Nutzer:innen je nach Wahrscheinlichkeitswert eingestuft werden:
 
 - **Niedrig:** zwischen 0 und 50
 - **Mittel:** zwischen 50 und 75
 - **Hoch:** zwischen 75 und 100
 
-Die Punktzahlen und die entsprechenden Kategorien werden entsprechend dem Zeitplan aktualisiert, den Sie auf der Seite **Erstellung der Vorhersage** ausgewählt haben. Die Anzahl der Benutzer mit Wahrscheinlichkeitswerten in jedem der 20 gleichgroßen Bereiche oder in jeder der Wahrscheinlichkeitskategorien wird in der Tabelle oben auf der Seite angezeigt.
+Die Werte und die entsprechenden Kategorien werden entsprechend dem Zeitplan aktualisiert, den Sie auf der Seite **Prediction Creation** ausgewählt haben. Die Anzahl der Nutzer:innen mit Wahrscheinlichkeitswerten in jedem der 20 gleichgroßen Buckets oder in jeder der Wahrscheinlichkeitskategorien wird im Chart oben auf der Seite angezeigt.
 
-### Zugriff auf Wahrscheinlichkeitswerte auf Ebene der Nutzer:innen
+### Zugriff auf Wahrscheinlichkeitswerte auf Nutzer:innen-Ebene {#accessing-user-level-likelihood-scores}
 
-Um die Wahrscheinlichkeitsbewertung für einen einzelnen Nutzer:in anzuzeigen, suchen Sie diesen Nutzer:in im Dashboard und gehen Sie zu **„Engagement“** > **„Prognosen“,** um seine Bewertung anzuzeigen. Um auf die Bewertungen und Kategorien für mehrere Nutzer:innen gleichzeitig zuzugreifen, erstellen Sie bitte ein [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/) mithilfe der Filter [„Event Likelihood Score“ (Ereigniswahrscheinlichkeitsbewertung)]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#event-likelihood-score) oder [„Event Likelihood Category“]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#event-likelihood-category) ([Ereigniswahrscheinlichkeitskategorie]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#event-likelihood-category)) und exportieren Sie anschließend die Nutzer:innen aus diesem Segment. Beim Exportieren können Sie die Wahrscheinlichkeitswerte in die Daten aufnehmen.
+Um den Wahrscheinlichkeitswert für eine:n einzelne:n Nutzer:in anzuzeigen, suchen Sie diese:n Nutzer:in im Dashboard und gehen Sie zu **Engagement** > **Predictions**, um den Wert anzuzeigen. Um auf die Werte und Kategorien für mehrere Nutzer:innen gleichzeitig zuzugreifen, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) mithilfe der Filter [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) oder [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-category) und exportieren Sie anschließend die Nutzer:innen aus diesem Segment. Beim Exportieren können Sie die Wahrscheinlichkeitswerte in die Exportdaten aufnehmen.
 
 {% alert note %}
-Obwohl sowohl bei der Prognose von Ereignissen als auch [bei der Prognose der voraussichtlichen Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_churn/) den Nutzer:innen Punktzahlen zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
+Obwohl sowohl bei Predictive Events als auch bei [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
 
-- **Vorhersagbare Ereignisse** (Prognosen für den Kauf): Berücksichtigen Sie alle Nutzer:innen in der Prognosegruppe, unabhängig davon, ob sie das Zielereignis zuvor durchgeführt haben. Beispielsweise kann eine Prognose die Nutzer:innen identifizieren, die wahrscheinlich ihren ersten Kauf tätigen werden.
-- **Voraussichtliche Abwanderung**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Churn-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Ein Nutzer:in, der sich noch nie angemeldet hat, kann nicht als „abgewanderte:r Nutzer:in“ betrachtet werden, wenn er sich nicht anmeldet.
+- **Predictive Events** (Kaufprognosen): Berücksichtigen alle Nutzer:innen in der Prognosegruppe, unabhängig davon, ob sie das Ziel-Event zuvor durchgeführt haben. Beispielsweise kann eine Kaufprognose Nutzer:innen identifizieren, die wahrscheinlich ihren ersten Kauf tätigen werden.
+- **Predictive Churn**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Churn-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Eine Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
 
-Beim Exportieren von Abwanderungsrisikowerten aus einem Segment spiegeln diese Werte das Abwanderungsprognosemodell wider, das sich von Kauf- oder anderen Ereignisprognosemodellen unterscheidet.
+Beim Exportieren von Churn-Risiko-Werten aus einem Segment spiegeln diese Werte das Churn-Prognosemodell wider, das sich von Kauf- oder anderen Event-Prognosemodellen unterscheidet.
 {% endalert %}
 
 ## Geschätzte Genauigkeit {#estimated_results}
 
-In der rechten Hälfte der Leiste unterhalb des Diagramms wird die voraussichtliche Ansprachegenauigkeit des ausgewählten Teils der Prognosezielgruppe auf zwei Weisen angezeigt: wie viele ausgewählte Nutzer das Ereignis voraussichtlich ausführen und wie viele nicht.
+In der rechten Hälfte des Panels unterhalb des Charts werden Schätzungen der erwarteten Genauigkeit bei der Ansprache des ausgewählten Teils der Prognosegruppe auf zwei Weisen angezeigt: wie viele ausgewählte Nutzer:innen das Event voraussichtlich durchführen und wie viele nicht.
 
-![Die ausgewählte Zielgruppe und die geschätzte Genauigkeit werden im Braze-Dashboard angezeigt.]({% image_buster /assets/img/purchasePrediction/purchaseEstimatedResults.png %})
+![Die ausgewählte Zielgruppe und die geschätzte Genauigkeit im Braze-Dashboard.]({% image_buster /assets/img/purchasePrediction/purchaseEstimatedResults.png %})
 
-### Erwartete Performance
+### Voraussichtliche Durchführung {#expected-to-perform}
 
-Anhand der geschätzten Genauigkeit können Sie überprüfen, wie viele ausgewählte Nutzer:innen das Ereignis voraussichtlich durchführen werden.
+Anhand der geschätzten Genauigkeit können Sie überprüfen, wie viele ausgewählte Nutzer:innen das Event voraussichtlich durchführen werden.
 
-Die Vorhersage ist nicht perfekt genau, und das ist keine Vorhersage jemals. Das bedeutet, dass Braze nicht in der Lage sein wird, jeden einzelnen zukünftigen Benutzer zu identifizieren, der das Ereignis ausführt. Die Wahrscheinlichkeitswerte sind wie eine Reihe von fundierten und zuverlässigen Vorhersagen. Der Fortschrittsbalken zeigt an, wie viele der in der Prognosezielgruppe erwarteten wahr Positiven mit der ausgewählten Zielgruppe erreicht werden. Dabei wird davon ausgegangen, dass diese Benutzeranzahl das Ereignis auch dann ausführt, wenn Sie keine Nachricht versenden.
+Die Vorhersage ist nicht perfekt genau, und keine Vorhersage ist das jemals. Das bedeutet, dass Braze nicht in der Lage sein wird, jede einzelne zukünftige Nutzer:in zu identifizieren, die das Event durchführt. Die Wahrscheinlichkeitswerte sind wie eine Reihe von fundierten und zuverlässigen Vorhersagen. Der Fortschrittsbalken zeigt an, wie viele der in der Prognosegruppe erwarteten „True Positives“ mit der ausgewählten Zielgruppe erreicht werden. Dabei wird davon ausgegangen, dass diese Nutzer:innen das Event auch dann durchführen, wenn Sie ihnen keine Nachricht senden.
 
-### Keine Performance zu erwarten
+### Voraussichtlich keine Durchführung {#not-expected-to-perform}
 
-Anhand der geschätzten Genauigkeit können Sie überprüfen, wie viele ausgewählte Nutzer:innen das Ereignis voraussichtlich nicht durchführen werden.
+Anhand der geschätzten Genauigkeit können Sie überprüfen, wie viele ausgewählte Nutzer:innen das Event voraussichtlich nicht durchführen werden.
 
-Alle Modelle für maschinelles Lernen machen Fehler. Es kann Benutzer in Ihrer Auswahl geben, die zwar eine hohe Wahrscheinlichkeitsbewertung haben, aber das Ereignis nicht tatsächlich durchführen. Sie würden das Ereignis auch dann nicht durchführen, wenn Sie gar nichts unternehmen. Sie werden ohnehin ins Visier genommen, also ist dies ein Fehler oder "falsches Positiv". Die gesamte Breite dieses zweiten Fortschrittsbalkens steht für die erwartete Anzahl von Nutzern, die das Ereignis nicht durchführen werden, und der gefüllte Teil für diejenigen, die anhand der aktuellen Schiebereglerposition falsch angesprochen werden.
+Alle Modelle für maschinelles Lernen machen Fehler. Es kann Nutzer:innen in Ihrer Auswahl geben, die zwar einen hohen Wahrscheinlichkeitswert haben, aber das Event nicht tatsächlich durchführen. Sie würden das Event auch dann nicht durchführen, wenn Sie gar nichts unternehmen. Sie werden trotzdem angesprochen, also ist dies ein Fehler oder „False Positive“. Die gesamte Breite dieses zweiten Fortschrittsbalkens steht für die erwartete Anzahl von Nutzer:innen, die das Event nicht durchführen werden, und der gefüllte Teil für diejenigen, die anhand der aktuellen Schiebereglerposition fälschlicherweise angesprochen werden.
 
-Anhand dieser Informationen sollten Sie entscheiden, wie viele der wahr Positiven Sie erfassen möchten, wie viele falsch Positive hinnehmbar sind und wie hoch die Fehlerkosten für Ihr Unternehmen sind. Wenn Sie eine hochwertige Aktion starten, sollten Sie nur Nichtkäufer (also falsch Positive) ansprechen und dazu die linke Seite des Diagramms bevorzugen. Oder Sie möchten Käufer, die häufig kaufen (echte Positive), dazu ermutigen, dies wieder zu tun, indem Sie eine Gruppe von Nutzern auswählen, die die rechte Seite des Diagramms bevorzugt.
+Anhand dieser Informationen sollten Sie entscheiden, wie viele der True Positives Sie erfassen möchten, wie viele False Positives hinnehmbar sind und wie hoch die Fehlerkosten für Ihr Unternehmen sind. Wenn Sie eine hochwertige Aktion starten, sollten Sie nur Nichtkäufer:innen (also False Positives) ansprechen und dazu die linke Seite des Charts bevorzugen. Oder Sie möchten Käufer:innen, die häufig kaufen (True Positives), dazu ermutigen, dies wieder zu tun, indem Sie einen Bereich von Nutzer:innen auswählen, der die rechte Seite des Charts bevorzugt.
 
 ## Prognosequalität {#prediction_quality}
 
 {% multi_lang_include brazeai/predictive_suite/prediction_quality.md %}
 
-## Ereigniskorrelationstabelle{#correlation_table}
+## Event-Korrelationstabelle {#correlation_table}
 
-Diese Analyse zeigt Benutzerattribute oder Verhaltensweisen an, die mit Ereignissen in der Zielgruppe der Vorhersage korreliert sind. Die bewerteten Attribute sind Alter, Land, Geschlecht und Sprache. Zu den analysierten Verhaltensweisen gehören Sitzungen, Käufe, Gesamtausgaben, benutzerdefinierte Ereignisse sowie Kampagnen und Canvas-Schritte, die in den letzten 30 Tagen empfangen worden sind.
+Diese Analyse zeigt Nutzer:innen-Attribute oder -Verhaltensweisen an, die mit Events in der Prognosegruppe korreliert sind. Die bewerteten Attribute sind Alter, Land, Geschlecht und Sprache. Zu den analysierten Verhaltensweisen gehören Sitzungen, Käufe, Gesamtausgaben, angepasste Events sowie Campaigns und Canvas-Schritte, die in den letzten 30 Tagen empfangen wurden.
 
-Die Tabellen sind unterteilt in links und rechts (höhere/geringere Ereigniswahrscheinlichkeit. Für jede Zeile wird in der rechten Spalte das Verhältnis angezeigt, in dem die Benutzer mit dem Verhalten oder Attribut in der linken Spalte eher oder weniger wahrscheinlich das Ereignis ausführen. Diese Zahl ist das Verhältnis der Wahrscheinlichkeitswerte von Nutzern mit diesem Verhalten oder Attribut geteilt durch die Wahrscheinlichkeit, das Ereignis bei der gesamten Vorhersagegruppe durchzuführen.
+Die Tabellen sind in links und rechts unterteilt – für höhere bzw. geringere Wahrscheinlichkeit, das Event durchzuführen. Für jede Zeile wird in der rechten Spalte das Verhältnis angezeigt, in dem die Nutzer:innen mit dem Verhalten oder Attribut in der linken Spalte eher oder weniger wahrscheinlich das Event durchführen. Diese Zahl ist das Verhältnis der Wahrscheinlichkeitswerte von Nutzer:innen mit diesem Verhalten oder Attribut geteilt durch die Wahrscheinlichkeit, das Event bei der gesamten Prognosegruppe durchzuführen.
 
-Diese Tabelle wird nur aktualisiert, wenn die Vorhersage neu trainiert wird und nicht, wenn die Likelihood-Werte des Benutzers aktualisiert werden.
+Diese Tabelle wird nur aktualisiert, wenn die Vorhersage neu trainiert wird, und nicht, wenn die Wahrscheinlichkeitswerte der Nutzer:innen aktualisiert werden.
 
 {% alert note %}
-Die Korrelationsdaten für Vorhersagen werden teilweise ausgeblendet. Um diese Informationen zu erhalten, ist ein Kauf erforderlich. Kontaktieren Sie Ihren Kundenbetreuer für weitere Informationen.
+Die Korrelationsdaten für Vorschau-Prognosen werden teilweise ausgeblendet. Um diese Informationen zu erhalten, ist ein Kauf erforderlich. Kontaktieren Sie Ihren Account Manager für weitere Informationen.
 {% endalert %}
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-### Es ist nicht möglich, eine Prognose zu erstellen.
+### Prognose kann nicht erstellt werden {#unable-to-create-a-prediction}
 
-Sollten Sie keine Prognose für ein angepasstes Event erstellen können, könnte dies an einer unzureichenden Stichprobengröße liegen. Braze schätzt die Anzahl der Nutzer:innen, die das Ereignis durchgeführt haben. Wenn nicht genügend Nutzer:innen das Ereignis durchgeführt haben, liefert die Stichprobe möglicherweise nicht genügend Daten, um das Modell zu trainieren. In diesem Fall kann das System auf keine Nutzer:innen extrapolieren, wodurch die Erstellung von Prognosen verhindert wird.
+Sollten Sie keine Prognose für ein angepasstes Event erstellen können, könnte dies an einer unzureichenden Stichprobengröße liegen. Braze schätzt die Anzahl der Nutzer:innen, die das Event durchgeführt haben. Wenn nicht genügend Nutzer:innen das Event durchgeführt haben, liefert die Stichprobe möglicherweise nicht genügend Daten, um das Modell zu trainieren. In diesem Fall kann das System auf keine Nutzer:innen extrapolieren, wodurch die Erstellung von Prognosen verhindert wird.
 
-Um eine erfolgreiche Prognose zu erstellen, stellen Sie bitte sicher, dass eine ausreichende Anzahl von Nutzer:innen in Ihrer Prognosezielgruppe Ihr angepasstes Event durchgeführt hat. Der genaue Schwellenwert variiert, jedoch liefern Ereignisse mit sehr geringer Nutzung in Ihrer Nutzerbasis möglicherweise nicht genügend Daten für ein zuverlässiges Modelltraining.
+Um eine erfolgreiche Prognose zu erstellen, stellen Sie sicher, dass eine ausreichende Anzahl von Nutzer:innen in Ihrer Prognosegruppe Ihr angepasstes Ziel-Event durchgeführt hat. Der genaue Schwellenwert variiert, jedoch liefern Events mit sehr geringer Nutzung in Ihrer Nutzerbasis möglicherweise nicht genügend Daten für ein zuverlässiges Modelltraining.

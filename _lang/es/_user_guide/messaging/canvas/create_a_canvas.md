@@ -41,7 +41,7 @@ El constructor de Canvas te guiará paso a paso en la configuración de tu Canva
   {% endtab %}
   {% tab Target Audience %}
     Aquí seleccionarás tu audiencia objetivo:
-    - Crea tu audiencia añadiendo segmentos y filtros
+    - Crea tu audiencia añadiendo Segments y filtros
     - Ajusta la reentrada al Canvas y los límites de entrada
     - Consulta un resumen de tu audiencia objetivo
 
@@ -137,7 +137,7 @@ Si un usuario vuelve a entrar en el Canvas, alcanza el mismo componente que su e
 
 ### Paso 1.3: Configura tu audiencia de entrada objetivo {#step-13-set-your-target-entry-audience}
 
-Solo los usuarios que coincidan con tus criterios definidos pueden entrar en el recorrido en el paso **Audiencia objetivo**, lo que significa que Braze evalúa la audiencia objetivo para elegibilidad primero **antes** de que los usuarios entren en el recorrido del Canvas. Por ejemplo, si quieres dirigirte a usuarios nuevos, puedes seleccionar un segmento de usuarios que usaron tu aplicación por primera vez hace menos de una semana.
+Solo los usuarios que coincidan con tus criterios definidos pueden entrar en el recorrido en el paso **Audiencia objetivo**, lo que significa que Braze evalúa la audiencia objetivo para elegibilidad primero **antes** de que los usuarios entren en el recorrido del Canvas. Por ejemplo, si quieres dirigirte a usuarios nuevos, puedes seleccionar un Segment de usuarios que usaron tu aplicación por primera vez hace menos de una semana.
 
 En **Controles de entrada**, puedes limitar el número de usuarios cada vez que el Canvas está programado para ejecutarse. Para Canvas basados en desencadenantes de API y basados en acciones, este límite se aplica cada hora UTC.
 
@@ -145,7 +145,7 @@ En **Controles de entrada**, puedes limitar el número de usuarios cada vez que 
 
 #### Probar tu audiencia {#testing-your-audience}
 
-Después de añadir segmentos y filtros a tu audiencia objetivo, puedes probar si tu audiencia está configurada como se espera [buscando un usuario]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para confirmar si coincide con los criterios de la audiencia.
+Después de añadir Segments y filtros a tu audiencia objetivo, puedes probar si tu audiencia está configurada como se espera [buscando un usuario]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para confirmar si coincide con los criterios de la audiencia.
 
 ![El campo "Búsqueda de usuario", que te permite buscar por ID de usuario externo o ID de Braze.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -167,16 +167,17 @@ Braze no recomienda seleccionar **Cada vez que el Canvas está programado** para
 
 #### Configurar criterios de salida {#setting-exit-criteria}
 
-Configurar los [criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) determina qué usuarios quieres que salgan de un Canvas. Si un usuario realiza el evento de excepción o coincide con los segmentos y filtros, no recibirá más mensajes.
+Configurar los [criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) determina qué usuarios quieres que salgan de un Canvas. Si un usuario realiza el evento de excepción o coincide con los Segments y filtros, no recibirá más mensajes.
 
 #### Calcular la población objetivo {#calculating-target-population}
 
-En la sección **Población objetivo**, puedes ver un resumen de tu audiencia, como tus segmentos seleccionados y filtros adicionales, y un desglose de cuántos usuarios son alcanzables por canal de mensajería. Para calcular el número exacto de usuarios alcanzables en tu audiencia objetivo en lugar de la estimación predeterminada, selecciona [Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
+En la sección **Población objetivo**, puedes ver un resumen de tu audiencia, como tus Segments seleccionados y filtros adicionales, y un desglose de cuántos usuarios son alcanzables por canal de mensajería. Para calcular el número exacto de usuarios alcanzables en tu audiencia objetivo en lugar de la estimación predeterminada, selecciona [Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
 
 Ten en cuenta que:
 
-- Calcular estadísticas exactas puede tardar unos minutos en ejecutarse. Esta función solo calcula las estadísticas exactas a nivel de segmento, no a nivel de filtro o grupo de filtros.
-- Para segmentos grandes, es normal ver ligeras variaciones incluso al calcular estadísticas exactas. Se espera que la precisión de esta función sea del 99,999 % o superior.
+- Calcular estadísticas exactas puede tardar unos minutos en ejecutarse. Esta función solo calcula las estadísticas exactas a nivel de Segment, no a nivel de filtro o grupo de filtros.
+- Mientras se cargan las estadísticas exactas, puede aparecer una estimación redondeada. La cifra exacta aparece en la sección **Usuarios alcanzables** cuando se carga. Puedes seleccionar **Mostrar estadísticas adicionales** para ver un desglose detallado.
+- Para Segments grandes, es normal ver ligeras variaciones incluso al calcular estadísticas exactas. Se espera que la precisión de esta función sea del 99,999 % o superior.
 
 Para ver estadísticas adicionales, como los ingresos promedio de por vida de los usuarios objetivo, selecciona **Mostrar estadísticas adicionales**.
 
