@@ -1527,6 +1527,7 @@ validurls['/docs/user_guide/data_and_analytics/custom_data'] = '/docs/user_guide
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_attributes'] = '/docs/user_guide/data/activation/attributes/custom_attributes';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_attributes/array_of_objects'] = '/docs/user_guide/data/activation/attributes/array_of_objects';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support'] = '/docs/user_guide/data/activation/attributes/nested_custom_attribute_support';
+validurls['/docs/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support#multi-criteria-segmentation'] = '/docs/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events'] = '/docs/user_guide/data/activation/events/custom_events';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events/nested_objects'] = '/docs/user_guide/data/activation/events/custom_events/nested_objects';
 validurls['/docs/user_guide/data_and_analytics/custom_data/event_naming_conventions'] = '/docs/user_guide/data/activation/events/event_naming_conventions';
