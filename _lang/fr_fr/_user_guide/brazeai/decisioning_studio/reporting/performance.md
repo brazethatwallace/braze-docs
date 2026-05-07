@@ -130,7 +130,7 @@ Les KPI se répartissent généralement en deux catégories :
 - **Indicateurs de volume** (comme le total des conversions, le chiffre d'affaires total ou le total des clics) répondent à la question : « Combien cela représente-t-il ? »
 - **Indicateurs de taux** (comme le taux de conversion, le chiffre d'affaires par utilisateur ou le taux de clics) répondent à la question : « Avec quelle efficacité cela s'est-il produit ? »
 
-Volume et taux racontent des histoires différentes. Une campagne peut générer un volume plus élevé mais une efficacité moindre, ou inversement. Lorsque vous interprétez les résultats, vérifiez toujours quel type de KPI vous consultez.
+Volume et taux racontent des histoires différentes. Une Campaign peut générer un volume plus élevé mais une efficacité moindre, ou inversement. Lorsque vous interprétez les résultats, vérifiez toujours quel type de KPI vous consultez.
 
 ### Que signifie « unique » (ou « distinct ») ? {#what-does-unique-or-distinct-mean}
 
@@ -146,7 +146,7 @@ Si votre rapport de performance ne correspond pas à un autre tableau de bord (c
 
 - **Règles d'attribution :** certains indicateurs appliquent une logique d'attribution, ce qui signifie que seule l'activité répondant à des critères définis est comptabilisée. Si un autre système comptabilise toute l'activité sans logique d'attribution, les totaux peuvent différer.
 - **Filtrage des engagements de machines et de bots :** les engagements connus provenant de machines ou de bots (comme les scans de sécurité automatisés ou les clics non humains) sont filtrés pour garantir que la performance reflète le comportement humain réel. Certaines plateformes incluent ces interactions dans leurs totaux.
-- **Définitions différentes de « unique » :** dans ce rapport, l'unicité est généralement appliquée par jour. Un autre système peut calculer l'unicité sur l'ensemble d'une fenêtre de campagne. Ce sont des questions métier différentes qui produisent des chiffres différents.
+- **Définitions différentes de « unique » :** dans ce rapport, l'unicité est généralement appliquée par jour. Un autre système peut calculer l'unicité sur l'ensemble d'une fenêtre de Campaign. Ce sont des questions métier différentes qui produisent des chiffres différents.
 - **Plage de dates et règles de disponibilité des données :** les rapports peuvent appliquer des délais d'activation, des délais de disponibilité des données ou des dates exclues. Un autre système peut inclure des données très récentes ou incomplètes, créant des écarts temporaires.
 - **Différences entre volume et taux :** un système peut afficher le volume total (comme le total des conversions), tandis qu'un autre affiche un taux (comme les conversions par client). Vérifiez toujours que vous comparez le même type d'indicateur.
 
@@ -177,4 +177,4 @@ Le graphique affiche 3 au Jour 1 et 3 au Jour 2. Sur les deux jours, vous obtene
 
 Cette configuration répond à la question : « Combien d'engagements clients uniques se sont produits sur l'ensemble des jours ? » Elle ne répond pas à : « Combien de clients individuels se sont engagés au moins une fois sur l'ensemble de la période ? »
 
-Si votre objectif est l'unicité au niveau de la fenêtre (individus uniques sur l'ensemble d'une campagne ou d'un trimestre), il s'agit d'une approche de modélisation différente. Contactez votre AI Success Manager pour obtenir des conseils sur sa conception.
+Si votre objectif est l'unicité au niveau de la fenêtre (individus uniques sur l'ensemble d'une Campaign ou d'un trimestre), il s'agit d'une approche de modélisation différente. Contactez votre AI Success Manager pour obtenir des conseils sur sa conception.

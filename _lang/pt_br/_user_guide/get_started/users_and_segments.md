@@ -9,7 +9,7 @@ description: "Este artigo fornece uma visão geral dos usuários e segmentos, de
 
 # Primeiros passos: Usuários e segmentos {#get-started-users-and-segments}
 
-> Compreender seus usuários e direcioná-los de forma eficaz é crucial para enviar campanhas de marketing personalizadas e direcionadas. Este artigo fornece uma visão geral dos usuários e segmentos, destacando sua importância e como você pode aproveitá-los para engajar seu público.
+> Compreender seus usuários e direcioná-los de forma eficaz é crucial para enviar Campaigns de marketing personalizadas e direcionadas. Este artigo fornece uma visão geral dos usuários e segmentos, destacando sua importância e como você pode aproveitá-los para engajar seu público.
 
 ## Usuários {#users}
 
@@ -103,7 +103,7 @@ Eventos personalizados oferecem a flexibilidade para rastrear as ações que sã
 
 ### Pontos de dados {#data-points}
 
-A Braze usa pontos de dados para ajudar você a definir as informações mais impactantes para o seu negócio. Os pontos de dados são uma parte crucial de como a Braze opera e são usados para faturamento, precificação e, mais importante, personalização e otimização de suas campanhas de marketing.
+A Braze usa pontos de dados para ajudar você a definir as informações mais impactantes para o seu negócio. Os pontos de dados são uma parte crucial de como a Braze opera e são usados para faturamento, precificação e, mais importante, personalização e otimização de suas Campaigns de marketing.
 
 Os pontos de dados são consumidos quando os dados do perfil de um usuário são atualizados ou quando ele realiza ações específicas. Essas ações podem incluir iniciar uma sessão, encerrar uma sessão, registrar um evento personalizado ou fazer uma compra. É importante notar que nem todos os dados coletados pela Braze contam como pontos de dados. Por exemplo, dados e eventos coletados por padrão pelos serviços da Braze, como tokens de push, informações do dispositivo e todos os eventos de rastreamento de engajamento de Campaign, como aberturas de e-mail e cliques em notificação por push, não são contados como pontos de dados.
 

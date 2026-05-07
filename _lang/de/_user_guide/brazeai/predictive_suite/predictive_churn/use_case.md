@@ -19,7 +19,7 @@ Dieses Tutorial führt Sie durch die Vorgehensweise von Camila:
 
 - Erstellen eines Modells zur Churn-Prognose auf Grundlage des Nutzerverhaltens
 - Segmentieren von Nutzer:innen nach Risikostufe
-- Entwickeln einer Kampagne zur erneuten Interaktion, die auf die am stärksten gefährdeten Personen zugeschnitten ist
+- Entwickeln einer Campaign zur erneuten Interaktion, die auf die am stärksten gefährdeten Personen zugeschnitten ist
 - Bewerten der Auswirkungen mithilfe von Campaign-Analytics
 
 ## 1. Schritt: Erstellen Sie ein Modell zur Churn-Prognose {#step-1-create-a-churn-prediction-model}
@@ -54,11 +54,11 @@ Um einen Startschwellenwert für das Targeting zu ermitteln, nutzt Camila den Sc
 
 ## 3. Schritt: Erreichen Sie gefährdete Nutzer:innen mit wiederkehrenden Inhalten zur erneuten Interaktion {#step-3-target-at-risk-users-with-recurring-re-engagement-content}
 
-Nachdem ihre Prognose und ihr Segment fertig sind, richtet Camila eine wiederkehrende Kampagne ein, die jede Woche automatisch Nutzer:innen erreicht, die einem Risiko ausgesetzt sind.
+Nachdem ihre Prognose und ihr Segment fertig sind, richtet Camila eine wiederkehrende Campaign ein, die jede Woche automatisch Nutzer:innen erreicht, die einem Risiko ausgesetzt sind.
 
-1. Camila erstellt eine wiederkehrende Kampagne und aktiviert [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), sodass jede Nachricht zu dem Zeitpunkt zugestellt wird, zu dem die Wahrscheinlichkeit des Engagements durch die jeweilige Nutzer:in am höchsten ist, anstatt sich auf einen festen Tag und eine feste Uhrzeit zu verlassen.
+1. Camila erstellt eine wiederkehrende Campaign und aktiviert [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), sodass jede Nachricht zu dem Zeitpunkt zugestellt wird, zu dem die Wahrscheinlichkeit des Engagements durch die jeweilige Nutzer:in am höchsten ist, anstatt sich auf einen festen Tag und eine feste Uhrzeit zu verlassen.
 2. Sie richtet sich an das Segment „Wahrscheinliche Abwanderung“, das sie gerade erstellt hat.
-3. Sie legt das Konversions-Event der Kampagne als angepasstes Event `stream_started` fest, um zu verfolgen, wie viele Nutzer:innen tatsächlich zurückkehren, um Inhalte anzusehen.
+3. Sie legt das Konversions-Event der Campaign als angepasstes Event `stream_started` fest, um zu verfolgen, wie viele Nutzer:innen tatsächlich zurückkehren, um Inhalte anzusehen.
 4. Camila wählt E-Mail als ihren primären Kanal – dieser bietet ihr die Möglichkeit, mehrere personalisierte Inhalte in einem visuell ansprechenden Format ohne allzu großen Druck hervorzuheben. Die E-Mail enthält:
    - Eine personalisierte Watchlist, die auf [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) basiert und dynamisch aus dem Katalog von MovieCanon ausgewählt wird
    - Einen Aufruf zum Handeln, der die Nutzer:innen direkt in die App führt.
@@ -82,10 +82,10 @@ Sie sieht:
 - *Klickrate:* 15 %
 - *Konversionsrate* (Stream innerhalb von 48 Stunden gestartet): 11 %
 
-Im Vergleich zur früheren „Wir vermissen Sie“-Kampagne (bei der die Konversionsraten bei etwa 3 % lagen) verringert dieser neue Ablauf den Churn in der Zielgruppe um 28 %. Sie analysiert den [Funnel-Bericht]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/), um festzustellen, an welcher Stelle die Nutzer:innen abspringen. Obwohl die Öffnungs- und Klickraten gut sind, stellt sie eine leichte Diskrepanz zwischen Klick und Conversion fest – was sie dazu veranlasst, den CTA-Text zu testen oder mit dem Layout zu experimentieren.
+Im Vergleich zur früheren „Wir vermissen Sie“-Campaign (bei der die Konversionsraten bei etwa 3 % lagen) verringert dieser neue Ablauf den Churn in der Zielgruppe um 28 %. Sie analysiert den [Funnel-Bericht]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/), um festzustellen, an welcher Stelle die Nutzer:innen abspringen. Obwohl die Öffnungs- und Klickraten gut sind, stellt sie eine leichte Diskrepanz zwischen Klick und Conversion fest – was sie dazu veranlasst, den CTA-Text zu testen oder mit dem Layout zu experimentieren.
 
 Um die langfristigen Auswirkungen zu verstehen, verfolgt Camila auch die Anzahl der Nutzer:innen, die Woche für Woche in das Segment „Wahrscheinliche Abwanderung“ gelangen. Dies unterstützt sie dabei, den allgemeinen Zustand des Lebenszyklus zu beurteilen und die Strategie zur Bindung auf einer breiteren Ebene zu gestalten. Abschließend kehrt sie zur Seite [Prognose-Analytics]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) zurück, um ihre Churn-Prognose zu überprüfen und die prognostizierten Abgewanderten mit den tatsächlichen Abgewanderten zu vergleichen – eine nützliche Überprüfung, um sicherzustellen, dass das Modell wie erwartet funktioniert.
 
 Auf Grundlage dieser Insights plant Camila, Betreffzeilen einem A/B-Test zu unterziehen, verschiedene Zeitfenster zu testen und mit Inhaltsformaten wie Empfehlungen im Karussellstil in einer In-App-Nachricht zu experimentieren.
 
-Dank Predictive Churn, intelligentem Timing und KI-gestützter Personalisierung reagiert Camilas Team nicht nur auf Churn – sie sind ihm einen Schritt voraus. Und ihre Kampagne läuft diskret im Hintergrund und erreicht die richtigen Personen zur richtigen Zeit mit Inhalten, die für sie tatsächlich von Interesse sind.
+Dank Predictive Churn, intelligentem Timing und KI-gestützter Personalisierung reagiert Camilas Team nicht nur auf Churn – sie sind ihm einen Schritt voraus. Und ihre Campaign läuft diskret im Hintergrund und erreicht die richtigen Personen zur richtigen Zeit mit Inhalten, die für sie tatsächlich von Interesse sind.

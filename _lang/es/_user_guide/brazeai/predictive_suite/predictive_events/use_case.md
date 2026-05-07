@@ -31,18 +31,18 @@ Jordan comienza definiendo el resultado más importante para su estrategia de ac
 
 ## Paso 2: Segmentar a los usuarios en función de la probabilidad de actualización {#step-2-segment-users-based-on-upgrade-probability}
 
-Una vez completado el entrenamiento, Braze asigna una [puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score) (0-100) a cada usuario elegible. Jordan utiliza esta puntuación para crear segmentos procesables: uno para usuarios con alta intención que quizá no necesiten un descuento, y otro para usuarios que probablemente no se conviertan sin ayuda.
+Una vez completado el entrenamiento, Braze asigna una [puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score) (0-100) a cada usuario elegible. Jordan utiliza esta puntuación para crear Segments procesables: uno para usuarios con alta intención que quizá no necesiten un descuento, y otro para usuarios que probablemente no se conviertan sin ayuda.
 
 1. Jordan navega hasta Segments en Braze.
-2. Crea dos [segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) utilizando el [filtro de puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) y selecciona la predicción que ha creado. Los dos segmentos son:
+2. Crea dos [Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) utilizando el [filtro de puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) y selecciona la predicción que ha creado. Los dos Segments son:
   - **Probabilidad de actualización:** Puntuación superior a 70
   - **Necesita un empujón para actualizarse:** Puntuación superior a 40 e inferior a 70
 
 {% alert tip %}
-Los filtros predictivos se pueden combinar con cualquier otro atributo o comportamiento de los usuarios. Jordan tiene previsto perfeccionar aún más estos segmentos en función de los intereses de los usuarios, por ejemplo, dando prioridad a los usuarios que utilizan con frecuencia las características de seguimiento de la actividad física. Esto le permite segmentar con mayor precisión cuatro subgrupos, adaptando el contenido y la mensajería a las necesidades de cada usuario.
+Los filtros predictivos se pueden combinar con cualquier otro atributo o comportamiento de los usuarios. Jordan tiene previsto perfeccionar aún más estos Segments en función de los intereses de los usuarios, por ejemplo, dando prioridad a los usuarios que utilizan con frecuencia las características de seguimiento de la actividad física. Esto le permite segmentar con mayor precisión cuatro subgrupos, adaptando el contenido y la mensajería a las necesidades de cada usuario.
 {% endalert %}
 
-![Generador de segmentos con dos filtros para la puntuación de probabilidad de evento.]({% image_buster /assets/img/ai_use_cases/event_likelihood_score.png %})
+![Generador de Segments con dos filtros para la puntuación de probabilidad de evento.]({% image_buster /assets/img/ai_use_cases/event_likelihood_score.png %})
 
 ## Paso 3: Personalizar la mensajería según el nivel de intención {#step-3-personalize-messaging-by-intent-level}
 
@@ -50,7 +50,7 @@ Ahora que Jordan tiene señales claras de intención de actualización, y subgru
 
 Elige el correo electrónico como canal principal para esta Campaign. ¿Por qué? Porque Jordan quiere explicar el valor de Pro a los usuarios con alta intención y presentar argumentos convincentes a los usuarios más indecisos, lo que requiere espacio, elementos visuales y una llamada a la acción contundente. El correo electrónico le ofrece la flexibilidad necesaria para hacerlo bien sin presionar a los usuarios y le permite realizar el seguimiento del rendimiento a través del comportamiento de los clics.
 
-Jordan [crea un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) que divide la experiencia en función de los segmentos que acaba de crear. Añade un paso de rutas de audiencia para dirigirse a:
+Jordan [crea un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) que divide la experiencia en función de los Segments que acaba de crear. Añade un paso de rutas de audiencia para dirigirse a:
 
 - Usuarios con alta intención, centrados en el fitness
 - Alta intención, otros usuarios
@@ -139,6 +139,6 @@ Jordan utiliza esta información para:
 
 - Explorar pruebas A/B en las líneas del asunto y la redacción de las llamadas a la acción (CTA)
 - Reevaluar el umbral de descuento para los usuarios con intención media
-- Continuar perfeccionando los segmentos basándose en comportamientos adicionales, como las visualizaciones de contenido o el uso de las características de la aplicación
+- Continuar perfeccionando los Segments basándose en comportamientos adicionales, como las visualizaciones de contenido o el uso de las características de la aplicación
 
 Gracias a Predictive Events y a la segmentación por capas, su equipo cuenta ahora con una estrategia escalable que adapta la mensajería en función de la intención y el comportamiento de los usuarios, lo que impulsa más actualizaciones y preserva la confianza en la marca.

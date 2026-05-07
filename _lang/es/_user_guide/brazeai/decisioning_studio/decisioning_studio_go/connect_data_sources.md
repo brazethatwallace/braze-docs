@@ -43,7 +43,7 @@ Para las integraciones de Braze, Decisioning Studio Go requiere:
 3. **Datos del perfil de usuario:** cualquier atributo del perfil de usuario o atributo personalizado que desees que el agente tenga en cuenta debe ser accesible a través de la API de Braze.
 
 {% alert important %}
-Asegúrate de que tu exportación de Braze Currents incluya datos de todas las campañas con las que quieras comparar (incluidas las campañas BAU).
+Asegúrate de que tu exportación de Braze Currents incluya datos de todas las Campaigns con las que quieras comparar (incluidas las Campaigns BAU).
 {% endalert %}
 
 {% endtab %}

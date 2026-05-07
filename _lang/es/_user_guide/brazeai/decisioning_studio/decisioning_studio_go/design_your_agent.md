@@ -62,7 +62,7 @@ Considera la posibilidad de crear un segmento específico para tu experimentador
 Las dimensiones son las «palancas» que el agente puede accionar para personalizar la experiencia del cliente. Entre ellas se incluyen dimensiones creativas, como la línea del asunto y la imagen principal, así como dimensiones relacionadas con el tipo de envío, como la frecuencia de los correos electrónicos o la hora del día.
 
 {% alert note %}
-Las dimensiones específicas disponibles dependen de tu CEP y de cómo estén configuradas tus campañas. Trabaja con las plantillas y el contenido que has configurado en tu CEP.
+Las dimensiones específicas disponibles dependen de tu CEP y de cómo estén configuradas tus Campaigns. Trabaja con las plantillas y el contenido que has configurado en tu CEP.
 {% endalert %}
 
 ### Paso 3: Configura tu banco de acciones {#step-3-configure-your-action-bank}
@@ -81,7 +81,7 @@ Decisioning Studio Go crea automáticamente grupos experimentales para medir el 
 |-------|-------------|
 | **Decisioning Studio Go** | Clientes que reciben recomendaciones optimizadas por IA |
 | **Control aleatorio** | Clientes que reciben opciones seleccionadas al azar (comparación con la línea de base) |
-| **Business as Usual (opcional)** | Clientes que reciben tu campaña actual (si se compara con el rendimiento actual) |
+| **Business as Usual (opcional)** | Clientes que reciben tu Campaign actual (si se compara con el rendimiento actual) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}

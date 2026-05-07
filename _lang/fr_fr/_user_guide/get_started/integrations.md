@@ -43,7 +43,7 @@ Assurez-vous d'indiquer à vos développeurs quels canaux vous souhaitez utilise
 
 | Canal | Détails |
 |---|---|
-| Messages in-app | Nécessite la mise en œuvre du SDK ainsi que des étapes spécifiques à ce canal. |
+| In-App Messages | Nécessite la mise en œuvre du SDK ainsi que des étapes spécifiques à ce canal. |
 | Notification push | Nécessite la mise en œuvre du SDK pour assurer une gestion adéquate des identifiants de messagerie et des jetons de notification push. |
 | E-mail | Il s'agit d'un processus entièrement différent. Consultez la section [Configuration de l'e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/) pour plus de détails sur l'intégration. |
 | Content Cards | Pour commencer à utiliser les [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), veuillez contacter votre gestionnaire de la satisfaction client Braze. |
@@ -52,7 +52,7 @@ Assurez-vous d'indiquer à vos développeurs quels canaux vous souhaitez utilise
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Vous pouvez utiliser Braze pour créer des campagnes de communication accessibles sur chaque canal. Vérifiez avec vos développeurs que vous respectez les normes d'accessibilité lors de la mise en œuvre.
+Vous pouvez utiliser Braze pour créer des Campaigns de communication accessibles sur chaque canal. Vérifiez avec vos développeurs que vous respectez les normes d'accessibilité lors de la mise en œuvre.
 {% endalert %}
 
 ### Étape 3 : Ils configurent vos données {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ Braze a plus d'un tour dans son sac. Il ne s'agit pas seulement d'envoyer des e-
 
 Que devez-vous faire pour leur fournir ces informations ?
 
-1. Travaillez avec votre équipe marketing pour définir les campagnes, les objectifs, les attributs et les événements dont vous devez assurer le suivi. Définissez ces cas d'utilisation et partagez-les avec vos équipes.
+1. Travaillez avec votre équipe marketing pour définir les Campaigns, les objectifs, les attributs et les événements dont vous devez assurer le suivi. Définissez ces cas d'utilisation et partagez-les avec vos équipes.
 2. Définissez vos besoins en données personnalisées ([attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), etc.).
 3. À partir de là, discutez de la manière dont ces données doivent être suivies (déclenchées par le SDK, etc.).
 4. Définissez le nombre d'[espaces de travail]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/) dont vous avez besoin. Vos ingénieurs devront savoir comment [tester et configurer]({{site.baseurl}}/user_guide/get_started/workspaces/) ces espaces de travail.

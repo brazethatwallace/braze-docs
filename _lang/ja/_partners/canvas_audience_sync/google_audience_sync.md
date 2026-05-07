@@ -3,7 +3,7 @@ nav_title: Google
 article_title: キャンバス オーディエンス Googleに同期
 alias: /google_audience_sync/
 description: "このリファレンス記事では、Brazeオーディエンス同期をGoogleに使用して、行動トリガー、セグメンテーションなどに基づいて広告を配信する方法について説明します。"
-Tool:
+tool:
   - Canvas
 page_order: 3
 

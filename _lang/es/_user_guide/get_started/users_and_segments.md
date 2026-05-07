@@ -7,9 +7,9 @@ description: "Este artículo ofrece una visión general de los usuarios y los se
 
 ---
 
-# Cómo empezar: Usuarios y segmentos {#get-started-users-and-segments}
+# Cómo empezar: Usuarios y Segments {#get-started-users-and-segments}
 
-> Comprender a tus usuarios y dirigirte a ellos con eficacia es crucial para enviar campañas de marketing personalizadas y específicas. Este artículo ofrece una visión general de los usuarios y los segmentos, destacando su importancia y cómo puedes aprovecharlos para captar a tu audiencia.
+> Comprender a tus usuarios y dirigirte a ellos con eficacia es crucial para enviar Campaigns de marketing personalizadas y específicas. Este artículo ofrece una visión general de los usuarios y los Segments, destacando su importancia y cómo puedes aprovecharlos para captar a tu audiencia.
 
 ## Usuarios {#users}
 
@@ -24,11 +24,11 @@ Al comprender los perfiles de usuario, puedes obtener información sobre tu audi
 - [Eventos](#events)**:** Son acciones que realiza el usuario, como hacer una compra, hacer clic en un enlace o abrir una aplicación. Braze realiza un seguimiento de estos eventos para ayudarte a comprender el comportamiento y la interacción del usuario. De forma similar a los atributos, también puedes utilizar los eventos para segmentar y personalizar.
 - **Compras:** Esta sección registra el historial de compras del usuario. Es crucial para comprender los hábitos de compra y las preferencias del usuario.
 - **Dispositivos:** Esta sección enumera los dispositivos que el usuario ha utilizado para interactuar con tu marca. Puede incluir dispositivos móviles, navegadores web y dispositivos conectados (como wearables y Smart TV).
-- **Interacción:** Esta sección contiene información sobre las interacciones del usuario con los mensajes que le envías, a qué segmentos pertenece, estado de suscripción y más.
+- **Interacción:** Esta sección contiene información sobre las interacciones del usuario con los mensajes que le envías, a qué Segments pertenece, estado de suscripción y más.
 - **Historial de mensajes:** Es un registro de todos los mensajes que se han enviado al usuario desde el canal de mensajería correspondiente (como correo electrónico o push).
 
 {% alert tip %}
-Los SDK de la plataforma Braze recopilan automáticamente 27 atributos y eventos diferentes. Utilizando estos eventos y atributos estándar, puedes crear segmentos tan pronto como integres el SDK.
+Los SDK de la plataforma Braze recopilan automáticamente 27 atributos y eventos diferentes. Utilizando estos eventos y atributos estándar, puedes crear Segments tan pronto como integres el SDK.
 {% endalert %}
 
 ### Atributos {#attributes}
@@ -103,9 +103,9 @@ Los eventos personalizados te ofrecen la flexibilidad necesaria para realizar un
 
 ### Puntos de datos {#data-points}
 
-Braze utiliza puntos de datos para ayudarte a definir la información más impactante para tu negocio. Los puntos de datos son una parte crucial del funcionamiento de Braze y se utilizan para la facturación, la fijación de precios y, lo que es más importante, la personalización y optimización de tus campañas de marketing.
+Braze utiliza puntos de datos para ayudarte a definir la información más impactante para tu negocio. Los puntos de datos son una parte crucial del funcionamiento de Braze y se utilizan para la facturación, la fijación de precios y, lo que es más importante, la personalización y optimización de tus Campaigns de marketing.
 
-Los puntos de datos se consumen cuando se actualizan los datos del perfil de un usuario o cuando este realiza acciones específicas. Estas acciones pueden incluir el inicio de una sesión, la finalización de una sesión, el registro de un evento personalizado o la realización de una compra. Es importante tener en cuenta que no todos los datos recopilados por Braze cuentan como puntos de datos. Por ejemplo, los datos y eventos recopilados de forma predeterminada por los servicios de Braze, como los tokens de notificaciones push, la información del dispositivo y todos los eventos de seguimiento de interacción en campañas, como las aperturas de correos electrónicos y los clics en notificaciones push, no se contabilizan como puntos de datos.
+Los puntos de datos se consumen cuando se actualizan los datos del perfil de un usuario o cuando este realiza acciones específicas. Estas acciones pueden incluir el inicio de una sesión, la finalización de una sesión, el registro de un evento personalizado o la realización de una compra. Es importante tener en cuenta que no todos los datos recopilados por Braze cuentan como puntos de datos. Por ejemplo, los datos y eventos recopilados de forma predeterminada por los servicios de Braze, como los tokens de notificaciones push, la información del dispositivo y todos los eventos de seguimiento de interacción en Campaigns, como las aperturas de correos electrónicos y los clics en notificaciones push, no se contabilizan como puntos de datos.
 
 Al considerar cuidadosamente qué información rastrear como puntos de datos, estás apuntando a los datos de mayor impacto para la experiencia de tus usuarios. Tu director de cuentas de Braze te ayudará a recomendar las mejores prácticas de datos que se adapten a tus necesidades.
 
@@ -115,12 +115,12 @@ Visita nuestro artículo dedicado para saber más sobre [los puntos de datos]({{
 
 [La segmentación]({{site.baseurl}}/user_guide/audience/segments/) te permite dirigirte a los usuarios en función de sus características y acciones demográficas, de comportamiento, sociales o técnicas (es decir, atributos y eventos). El uso creativo e inteligente de la segmentación y la automatización de la mensajería te permite mover fácilmente a tus usuarios a través de su recorrido en el ciclo de vida del cliente.
 
-Consejos para trabajar con segmentos:
+Consejos para trabajar con Segments:
 
-- Los segmentos en Braze son dinámicos: los usuarios siempre entran y salen de los segmentos, ya que no siempre se ajustan a los criterios. Los usuarios que se ajusten a los criterios de un segmento en el momento del envío serán los destinatarios de esa campaña o Canvas.
-    - Si deseas que tu segmento sea estático, puedes utilizar extensiones de segmento. Las extensiones de segmento (con [la regeneración desactivada]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#extension-regeneration) representan a tu audiencia como una única instantánea en el tiempo.
-- No estás limitado a utilizar un filtro a la vez. Crea segmentos granulares finamente ajustados superponiendo varios filtros.
-- Puedes utilizar las acciones o inacciones de tus usuarios para saber cómo llegar a ellos allí donde quieren interactuar contigo. Estas acciones pueden ser eventos personalizados, interacción con una campaña o Canvas existente, o incluso un mensaje específico dentro de un Canvas.
+- Los Segments en Braze son dinámicos: los usuarios siempre entran y salen de los Segments, ya que no siempre se ajustan a los criterios. Los usuarios que se ajusten a los criterios de un Segment en el momento del envío serán los destinatarios de esa Campaign o Canvas.
+    - Si deseas que tu Segment sea estático, puedes utilizar extensiones de Segment. Las extensiones de Segment (con [la regeneración desactivada]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#extension-regeneration) representan a tu audiencia como una única instantánea en el tiempo.
+- No estás limitado a utilizar un filtro a la vez. Crea Segments granulares finamente ajustados superponiendo varios filtros.
+- Puedes utilizar las acciones o inacciones de tus usuarios para saber cómo llegar a ellos allí donde quieren interactuar contigo. Estas acciones pueden ser eventos personalizados, interacción con una Campaign o Canvas existente, o incluso un mensaje específico dentro de un Canvas.
 
 ### Caso de uso {#use-case}
 
@@ -128,10 +128,10 @@ Supongamos que tienes una tienda de ropa en línea y has configurado un flujo de
 
 ![]({% image_buster /assets/img/getting_started/segment_example.png %}){: style="max-width:70%" }
 
-Podrías crear un segmento de usuarios que han desencadenado el evento personalizado "Artículo añadido al carrito" pero no han desencadenado el evento personalizado "Compra completada". A continuación, dentro de este segmento, podrías identificar a los usuarios que han abierto el correo electrónico de recordatorio inicial (interacción con un mensaje específico) pero que no han realizado una compra.
+Podrías crear un Segment de usuarios que han desencadenado el evento personalizado "Artículo añadido al carrito" pero no han desencadenado el evento personalizado "Compra completada". A continuación, dentro de este Segment, podrías identificar a los usuarios que han abierto el correo electrónico de recordatorio inicial (interacción con un mensaje específico) pero que no han realizado una compra.
 
 ![]({% image_buster /assets/img/getting_started/segment_example_breakdown.png %})
 
-Este segmento podría ser objeto de una campaña más agresiva para intentar convertir a estos usuarios en compradores. Por ejemplo, podrías enviarles una oferta especial o una recomendación personalizada basada en los artículos de su carrito.
+Este Segment podría ser objeto de una Campaign más agresiva para intentar convertir a estos usuarios en compradores. Por ejemplo, podrías enviarles una oferta especial o una recomendación personalizada basada en los artículos de su carrito.
 
-Este es solo un ejemplo de cómo puedes utilizar las acciones e inacciones de los usuarios, los eventos personalizados y los datos de interacción para crear segmentos y adaptar tus estrategias de marketing en Braze.
+Este es solo un ejemplo de cómo puedes utilizar las acciones e inacciones de los usuarios, los eventos personalizados y los datos de interacción para crear Segments y adaptar tus estrategias de marketing en Braze.

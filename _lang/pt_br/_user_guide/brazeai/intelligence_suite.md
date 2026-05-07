@@ -14,12 +14,12 @@ tool:
 
 ## Casos de uso {#use-cases}
 
-O Intelligence Suite oferece recursos avançados para analisar o histórico do usuário e o desempenho de campanhas e Canvas e, em seguida, fazer ajustes automáticos para aumentar o engajamento, a visualização e as conversões. Para ver alguns exemplos de como esses recursos podem beneficiar diferentes setores, confira os casos de uso abaixo.
+O Intelligence Suite oferece recursos avançados para analisar o histórico do usuário e o desempenho de Campaigns e Canvas e, em seguida, fazer ajustes automáticos para aumentar o engajamento, a visualização e as conversões. Para ver alguns exemplos de como esses recursos podem beneficiar diferentes setores, confira os casos de uso abaixo.
 
 ### e-commerce {#ecommerce}
 
 - **Promoções relâmpago:** Use o [filtro Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) para estudar o histórico do usuário e identificar os usuários que respondem mais às notificações por push do que aos e-mails e, em seguida, envie notificações por push e e-mails para os respectivos usuários. Opcionalmente, selecione um canal específico para usuários que não têm dados suficientes para determinar seu canal preferido.
-- **Banners promocionais:** Use a [Seleção Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) para analisar o desempenho de diferentes banners promocionais em uma campanha recorrente e, em seguida, selecione e envie automaticamente o banner que gera as maiores taxas de cliques.
+- **Banners promocionais:** Use a [Seleção Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) para analisar o desempenho de diferentes banners promocionais em uma Campaign recorrente e, em seguida, selecione e envie automaticamente o banner que gera as maiores taxas de cliques.
 
 ### Viagens {#travel}
 

@@ -171,7 +171,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
         <td>A maneira mais segura de manter as comunicações separadas. As Campaigns têm a garantia de direcionar apenas perfis de usuários específicos.</td>
         <td>Não é possível enviar mensagens promocionais cruzadas, mesmo sabendo que um usuário tem outro perfil de usuário em um espaço de trabalho diferente.</td>
         <td>Pode enviar mensagens promocionais cruzadas se souber que um usuário tem vários apps em seu espaço de trabalho.<br><br>Pode fazer referência a dados de usuários de vários apps. Por exemplo, João tem um atributo X relevante para o App 1 e um atributo Y relevante para o App 2, que podem ser referenciados em uma Campaign.</td>
-        <td>Mais espaço para erro humano — você pode direcionar acidentalmente os usuários em várias instâncias do app.<br><br>Para enviar mensagens no app, é necessário ter eventos personalizados específicos do app para que uma Campaign não seja exibida em outro app por acidente. Por exemplo, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
+        <td>Mais espaço para erro humano — você pode direcionar acidentalmente os usuários em várias instâncias do app.<br><br>Para enviar **In-App Messages**, é necessário ter eventos personalizados específicos do app para que uma Campaign não seja exibida em outro app por acidente. Por exemplo, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
     </tr>
     <tr>
         <td>Eventos e atributos personalizados</td>
@@ -204,8 +204,8 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     <tr>
         <td>Duplicação de conteúdo</td>
         <td>N/D</td>
-        <td>Não é possível duplicar Segments, Campaigns de push ou de cartão de conteúdo, ou Canvas entre espaços de trabalho.</td>
-        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espaços de trabalho</a> para os seguintes canais suportados: SMS, mensagens no app, e-mail, modelos de e-mail e Content Blocks. <br><br>Pode duplicar Segments, Campaigns e Canvas para reutilizar conteúdo de uma instância do app para outra.</td>
+        <td>Não é possível duplicar Segments, Campaigns de push ou de cartão de conteúdo, nem **Canvases** entre espaços de trabalho.</td>
+        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espaços de trabalho</a> para os seguintes canais suportados: SMS, **In-App Messages**, e-mail, modelos de e-mail e Content Blocks. <br><br>Pode duplicar Segments, Campaigns e **Canvases** para reutilizar conteúdo de uma instância do app para outra.</td>
         <td>N/D</td>
     </tr>
     <tr>

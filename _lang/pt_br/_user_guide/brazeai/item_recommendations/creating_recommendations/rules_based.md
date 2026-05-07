@@ -90,7 +90,7 @@ Para criar seu mecanismo de recomendação usando um catálogo:
 
 ### Exemplo {#example}
 
-Digamos que você tenha um app de alimentos saudáveis e queira criar uma campanha de cartão de conteúdo que envie receitas diferentes com base no tempo em que o usuário se inscreveu no seu app. Primeiro, crie e faça upload de um catálogo por meio de um arquivo CSV que inclua as seguintes informações:
+Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campaign de cartão de conteúdo que envie receitas diferentes com base no tempo em que o usuário se inscreveu no seu app. Primeiro, crie e faça upload de um catálogo por meio de um arquivo CSV que inclua as seguintes informações:
 
 | Campo | Descrição |
 |-------|-----------|
@@ -105,7 +105,7 @@ Depois que o catálogo for enviado para a Braze, verifique a pré-visualização
 
 ![Exemplo de catálogo na Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-Crie uma campanha de cartão de conteúdo. No criador, insira a lógica Liquid para determinar quais usuários devem receber a campanha e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
+Crie uma Campaign de cartão de conteúdo. No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,7 +154,7 @@ Crie uma campanha de cartão de conteúdo. No criador, insira a lógica Liquid p
 
 Por exemplo:
 
-![Um exemplo de criador de mensagem de uma campanha de cartão de conteúdo.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Um exemplo de criador de mensagem de uma Campaign de cartão de conteúdo.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 Na seção **Comportamento ao clicar**, insira a lógica Liquid para onde os usuários devem ser redirecionados quando clicarem no cartão de conteúdo em dispositivos iOS, Android e Web.
 

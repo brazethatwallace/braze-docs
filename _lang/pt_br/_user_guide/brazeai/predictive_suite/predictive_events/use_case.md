@@ -48,7 +48,7 @@ Filtros preditivos podem ser combinados com quaisquer outros atributos ou compor
 
 Agora que Jordan tem sinais claros de intenção de upgrade—e subgrupos refinados com base no comportamento do usuário—ele constrói uma estratégia de envio de mensagens que se adapta ao que cada usuário precisa. Chega de envios em massa que servem para todos.
 
-Ele escolhe e-mail como o canal principal para esta campanha. Por quê? Porque Jordan quer explicar o valor do Pro para usuários com alta intenção e fazer um caso convincente para usuários mais hesitantes—ambos os quais requerem espaço, visuais e um CTA forte. O e-mail dá a ele a flexibilidade de fazer isso bem, sem pressionar os usuários, e permite que ele rastreie a performance através do comportamento de cliques.
+Ele escolhe e-mail como o canal principal para esta Campaign. Por quê? Porque Jordan quer explicar o valor do Pro para usuários com alta intenção e fazer um caso convincente para usuários mais hesitantes—ambos os quais requerem espaço, visuais e um CTA forte. O e-mail dá a ele a flexibilidade de fazer isso bem, sem pressionar os usuários, e permite que ele rastreie a performance através do comportamento de cliques.
 
 Jordan [cria um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) que divide a experiência com base nos segmentos que ele acabou de construir. Ele adiciona uma etapa de Jornadas do público para direcionar:
 
@@ -106,7 +106,7 @@ Esses usuários mostram engajamento mínimo no geral. É improvável que façam 
 
 ## Etapa 4: Meça os resultados e otimize sua estratégia {#step-4-measure-results-and-optimize-your-strategy}
 
-Após a campanha, Jordan revisa a performance no [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) para entender como os caminhos personalizados se saíram—e se a combinação de intenção preditiva com sinais comportamentais melhorou as taxas de upgrade.
+Após a Campaign, Jordan revisa a performance no [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) para entender como os caminhos personalizados se saíram—e se a combinação de intenção preditiva com sinais comportamentais melhorou as taxas de upgrade.
 
 Performance de e-mail por caminho:
 
@@ -131,7 +131,7 @@ Performance de e-mail por caminho:
    - *Taxa de conversão:* 6%
    - Oferta de 50% de desconto incluída
 
-Comparado à campanha anterior da equipe, que era uma abordagem única para todos (onde um desconto geral após 7 dias levou a apenas 5% de conversões e excesso de mensagens), a abordagem direcionada mostra um aumento significativo em todos os grupos, com eficiência melhorada e menos descontos desnecessários.
+Comparado à Campaign anterior da equipe, que era uma abordagem única para todos (onde um desconto geral após 7 dias levou a apenas 5% de conversões e excesso de mensagens), a abordagem direcionada mostra um aumento significativo em todos os grupos, com eficiência melhorada e menos descontos desnecessários.
 
 O [relatório de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) também mostra uma clara redução na desistência em etapas-chave, particularmente para usuários de baixa intenção que receberam mensagens personalizadas. Mais usuários estão abrindo, clicando e fazendo upgrade—provando o valor do direcionamento baseado em intenção.
 

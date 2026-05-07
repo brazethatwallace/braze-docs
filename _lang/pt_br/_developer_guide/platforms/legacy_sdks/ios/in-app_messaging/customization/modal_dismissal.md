@@ -13,7 +13,7 @@ noindex: true
 
 # Dispensa com toque fora do modal {#dismiss-modal-on-outside-tap}
 
-O valor padrão é `NO`. Isso determina se o modal de mensagem no app será descartado quando o usuário tocar fora da mensagem no app.
+O valor padrão é `NO`. Isso determina se o formato modal das **In-App Messages** será descartado quando o usuário tocar fora do **In-App Messages**.
 
 Para ativar as dispensas com toque fora do modal, adicione um dicionário chamado `Braze` ao seu arquivo `Info.plist`. No dicionário `Braze`, adicione a subentrada booleana `DismissModalOnOutsideTap` e defina o valor como `YES`, conforme mostrado no seguinte trecho de código. Note que, antes do SDK da Braze para iOS v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
 
@@ -29,6 +29,6 @@ Você também pode ativar o recurso em tempo de execução, definindo `ABKEnable
 
 | `DismissModalOnOutsideTap` | Descrição |
 |----------|-------------|
-| `YES`       | Os modais de mensagens no app serão descartados com um toque externo.     |
-| `NO`        | Por padrão, os modais de mensagens no app não serão descartados com um toque externo. |
+| `YES`       | **In-App Messages** com formato modal são descartados com um toque externo.     |
+| `NO`        | Por padrão, **In-App Messages** com formato modal não são descartados com um toque externo. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

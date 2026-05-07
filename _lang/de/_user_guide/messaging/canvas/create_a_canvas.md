@@ -41,7 +41,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
   {% endtab %}
   {% tab Zielgruppe %}
     Hier wählen Sie Ihre Zielgruppe aus:
-    - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segmenten und Filtern
+    - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segments und Filtern
     - Verfeinern Sie den Canvas-Wiedereintritt und die Eintrittslimits
     - Sehen Sie eine Zusammenfassung Ihrer Zielgruppe
 
@@ -105,7 +105,7 @@ Sie können eine von drei Möglichkeiten wählen, wie Nutzer:innen in Ihr Canvas
   {% tab Aktionsbasierte Zustellung %}
     Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, wie z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
 
-    Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App-Nachrichten nicht verfügbar ist.
+    Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App Messages nicht verfügbar ist.
 
     ![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
@@ -132,7 +132,7 @@ Nachdem Sie Ihre Zustellungsmethode ausgewählt haben, passen Sie die Einstellun
 {% details Deduplizierungsverhalten für Canvases mit dem ursprünglichen Editor %}
 Wenn das Fenster für die Wiederberechtigung kürzer ist als die maximale Dauer des Canvas, kann es vorkommen, dass Nutzer:innen erneut eintreten und Nachrichten von mehr als einer Komponente erhalten. Im Grenzfall, dass der Wiedereintritt von Nutzer:innen dieselbe Komponente wie der vorherige Eintritt erreicht, dedupliziert Braze die Nachrichten dieser Komponente.
 
-Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim vorherigen Eintritt erreichen und für jeden Eintritt für eine In-App-Nachricht berechtigt sind, erhalten sie die Nachricht zweimal (abhängig von der In-App-Nachrichten-Priorität), solange sie eine Sitzung zweimal erneut öffnen.
+Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim vorherigen Eintritt erreichen und für jeden Eintritt für eine In-App-Nachricht berechtigt sind, erhalten sie die Nachricht zweimal (abhängig von der In-App Messages-Priorität), solange sie eine Sitzung zweimal erneut öffnen.
 {% enddetails %}
 
 ### Schritt 1.3: Legen Sie Ihre Entry-Zielgruppe fest {#step-13-set-your-target-entry-audience}
@@ -145,7 +145,7 @@ Unter **Entry Controls** können Sie die Anzahl der Nutzer:innen begrenzen, die 
 
 #### Ihre Zielgruppe testen {#testing-your-audience}
 
-Nachdem Sie Segmente und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [nach Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
+Nachdem Sie Segments und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [nach Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
 
 ![Das Feld „User Lookup“, mit dem Sie nach externer Nutzer-ID oder Braze-ID suchen können.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -167,17 +167,17 @@ Braze empfiehlt nicht, **Every time the Canvas is scheduled** für IP-Warming au
 
 #### Ausstiegskriterien festlegen {#setting-exit-criteria}
 
-Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) bestimmt, welche Nutzer:innen ein Canvas verlassen sollen. Wenn Nutzer:innen das Ausnahme-Event ausführen oder den Segmenten und Filtern entsprechen, erhalten sie keine weiteren Nachrichten.
+Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) bestimmt, welche Nutzer:innen ein Canvas verlassen sollen. Wenn Nutzer:innen das Ausnahme-Event ausführen oder den Segments und Filtern entsprechen, erhalten sie keine weiteren Nachrichten.
 
 #### Zielpopulation berechnen {#calculating-target-population}
 
-Im Abschnitt **Target Population** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segmente und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
+Im Abschnitt **Target Population** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segments und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
 
 Beachten Sie Folgendes:
 
 - Die Berechnung genauer Statistiken kann einige Minuten dauern. Diese Funktion berechnet die genauen Statistiken nur auf Segment-Ebene, nicht auf Filter- oder Filtergruppen-Ebene.
 - Während die genauen Statistiken geladen werden, kann eine gerundete Schätzung angezeigt werden. Die genaue Zahl erscheint im Abschnitt **Erreichbare Nutzer:innen**, sobald sie geladen ist. Sie können **Show Additional Stats** auswählen, um eine detaillierte Aufschlüsselung zu erhalten.
-- Bei großen Segmenten ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
+- Bei großen Segments ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
 
 Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetime-Umsatz für angesprochene Nutzer:innen, wählen Sie **Show Additional Statistics**.
 

@@ -21,7 +21,7 @@ Die Integration von Braze und Grouparoo synchronisiert Warehouse-Daten mit Braze
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Grouparoo-Konto und -Projekt | Sie benötigen ein Grouparoo-Konto und ein Projekt, um die Vorteile dieser Partnerschaft zu nutzen.<br><br>Diese Integration kann sowohl mit der kostenlosen Community Edition als auch mit den Enterprise-Lösungen von Grouparoo genutzt werden. Die Einrichtung erfolgt über die Benutzeroberfläche der Grouparoo-Konfiguration. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für Nutzer:innen und Tracking. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit Berechtigungen für Nutzer:innen und Tracking. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL](https://www.grouparoo.com/). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

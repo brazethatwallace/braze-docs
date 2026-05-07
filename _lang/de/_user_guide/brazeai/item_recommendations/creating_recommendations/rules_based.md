@@ -90,7 +90,7 @@ So erstellen Sie Ihr Empfehlungssystem mithilfe eines Katalogs:
 
 ### Beispiel {#example}
 
-Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Content-Card-Kampagne erstellen, die verschiedene Rezepte versendet, je nachdem, wie lange Nutzer:innen bereits bei Ihrer App angemeldet sind. Erstellen Sie zunächst einen Katalog und laden Sie ihn über eine CSV-Datei hoch, die die folgenden Informationen enthält:
+Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Content-Card-Campaign erstellen, die verschiedene Rezepte versendet, je nachdem, wie lange Nutzer:innen bereits bei Ihrer App angemeldet sind. Erstellen Sie zunächst einen Katalog und laden Sie ihn über eine CSV-Datei hoch, die die folgenden Informationen enthält:
 
 | Feld | Beschreibung |
 |-----|-----------|
@@ -105,7 +105,7 @@ Nachdem der Katalog in Braze hochgeladen wurde, überprüfen Sie die Vorschau ei
 
 ![Beispielkatalog in Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-Erstellen Sie eine Content-Card-Kampagne. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Kampagne erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
+Erstellen Sie eine Content-Card-Campaign. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,7 +154,7 @@ Erstellen Sie eine Content-Card-Kampagne. Geben Sie im Nachrichten-Editor die Li
 
 Zum Beispiel:
 
-![Ein Beispiel für einen Nachrichten-Editor aus einer Content-Card-Kampagne.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Ein Beispiel für einen Nachrichten-Editor aus einer Content-Card-Campaign.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 Geben Sie im Abschnitt **On click behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Web-Geräten auf die Content-Card klicken.
 

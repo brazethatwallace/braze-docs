@@ -168,10 +168,10 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
     </tr>
     <tr>
         <td>Segmentación</td>
-        <td>La forma más segura de mantener las comunicaciones separadas. Se garantiza que las campañas se dirijan únicamente a perfiles de usuario específicos.</td>
+        <td>La forma más segura de mantener las comunicaciones separadas. Se garantiza que las Campaigns se dirijan únicamente a perfiles de usuario específicos.</td>
         <td>Imposibilidad de enviar mensajes de promoción cruzada aunque sepas que un usuario tiene otro perfil de usuario en un espacio de trabajo diferente.</td>
-        <td>Puedes enviar mensajes de promoción cruzada si sabes que un usuario tiene varias aplicaciones en tu espacio de trabajo.<br><br>Puedes hacer referencia a datos de usuario de distintas aplicaciones. Por ejemplo, Juan tiene un atributo X relevante para la aplicación 1 y un atributo Y relevante para la aplicación 2, y ambos pueden referenciarse en una campaña.</td>
-        <td>Más margen para el error humano: podrías dirigirte accidentalmente a usuarios de varias instancias de la aplicación.<br><br>Para enviar mensajes dentro de la aplicación, debes tener eventos personalizados específicos de la aplicación para que una campaña no se muestre en otra aplicación por accidente. Por ejemplo, <code>app_1_action</code> frente a <code>app_2_action</code>.</td>
+        <td>Puedes enviar mensajes de promoción cruzada si sabes que un usuario tiene varias aplicaciones en tu espacio de trabajo.<br><br>Puedes hacer referencia a datos de usuario de distintas aplicaciones. Por ejemplo, Juan tiene un atributo X relevante para la aplicación 1 y un atributo Y relevante para la aplicación 2, y ambos pueden referenciarse en una Campaign.</td>
+        <td>Más margen para el error humano: podrías dirigirte accidentalmente a usuarios de varias instancias de la aplicación.<br><br>Para enviar **In-App Messages**, debes tener eventos personalizados específicos de la aplicación para que una Campaign no se muestre en otra aplicación por accidente. Por ejemplo, <code>app_1_action</code> frente a <code>app_2_action</code>.</td>
     </tr>
     <tr>
         <td>Eventos y atributos personalizados</td>
@@ -185,7 +185,7 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
         <td>La limitación de frecuencia puede definirse por separado para cada instancia de aplicación (en función del espacio de trabajo).</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>La limitación de frecuencia se aplica a todas las campañas, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
+        <td>La limitación de frecuencia se aplica a todas las Campaigns, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
     </tr>
     <tr>
         <td>Estado de suscripción de los perfiles de usuario</td>
@@ -204,8 +204,8 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
     <tr>
         <td>Duplicación de contenidos</td>
         <td>N/A</td>
-        <td>No se pueden duplicar Segments, campañas de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
-        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar campañas entre espacios de trabajo</a> para los siguientes canales compatibles: SMS, mensajes dentro de la aplicación, correo electrónico, plantillas de correo electrónico y Content Blocks. <br><br>Puedes duplicar Segments, campañas y Canvas para reutilizar el contenido de una instancia de aplicación a otra.</td>
+        <td>No se pueden duplicar Segments, Campaigns de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
+        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espacios de trabajo</a> para los siguientes canales compatibles: SMS, **In-App Messages**, correo electrónico, plantillas de correo electrónico y Content Blocks. <br><br>Puedes duplicar Segments, Campaigns y Canvas para reutilizar el contenido de una instancia de aplicación a otra.</td>
         <td>N/A</td>
     </tr>
     <tr>

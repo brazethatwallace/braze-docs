@@ -8,17 +8,17 @@ description: "이 참조 문서는 Braze SDK의 기본 사항을 다룹니다."
 
 # SDK 개요 {#sdk-overview}
 
-> Braze SDK는 세션 데이터를 수집하고, 사용자를 식별하며, 웹사이트나 앱을 통해 구매 및 커스텀 이벤트를 기록합니다. SDK를 사용하여 Braze 대시보드에서 직접 인앱 메시지와 푸시 알림을 보내 사용자와 소통할 수도 있습니다.
+> Braze SDK는 세션 데이터를 수집하고, 사용자를 식별하며, 웹사이트나 앱을 통해 구매 및 커스텀 이벤트를 기록합니다. SDK를 사용하여 Braze 대시보드에서 직접 In-App Messages와 푸시 알림을 보내 사용자와 소통할 수도 있습니다.
 
 간단히 말해서, Braze SDK는:
 * 사용자 데이터를 수집하고 통합된 고객 프로필로 동기화합니다
 * 마케팅 참여 데이터 및 비즈니스에 특화된 커스텀 데이터를 캡처합니다
-* 푸시 알림, 인앱 메시지 및 콘텐츠 카드 메시징 채널을 지원합니다
+* 푸시 알림, In-App Messages 및 콘텐츠 카드 메시징 채널을 지원합니다
 
 ## SDK란 무엇입니까? {#what-is-an-sdk}
 소프트웨어 개발 키트(SDK)는 새로운 기능을 지원하기 위해 디지털 애플리케이션에 추가할 수 있는 사전 제작된 도구 세트&mdash;작은 코드 블록들&mdash;입니다. Braze SDK는 앱 또는 사이트로 정보를 보내고 받는 데 사용됩니다. 고객 프로필 생성, 커스텀 이벤트 로깅, 푸시 알림 트리거링 등 시작부터 필수 기능을 제공하도록 설계되었습니다.
 
-이 기능은 Braze에서 기본으로 제공되므로 개발자는 핵심 비즈니스에 집중할 수 있습니다. SDK가 없으면 모든 Braze 클라이언트는 데이터 처리, 세분화 논리, 전달 옵션, 익명 사용자 처리, 캠페인 분석 등을 위한 모든 인프라와 도구를 완전히 처음부터 만들어야 합니다. 이는 SDK를 통합하는 데 걸리는 한 시간 정도보다 훨씬 더 오래 걸리고 훨씬 더 고통스러울 것입니다.
+이 기능은 Braze에서 기본으로 제공되므로 개발자는 핵심 비즈니스에 집중할 수 있습니다. SDK가 없으면 모든 Braze 클라이언트는 데이터 처리, 세분화 논리, 전달 옵션, 익명 사용자 처리, Campaign 분석 등을 위한 모든 인프라와 도구를 완전히 처음부터 만들어야 합니다. 이는 SDK를 통합하는 데 걸리는 한 시간 정도보다 훨씬 더 오래 걸리고 훨씬 더 고통스러울 것입니다.
 
 ## 구현 {#implementation}
 
@@ -32,7 +32,7 @@ Braze SDK는 사용자 수준의 데이터를 자동으로 캡처하여 앱과 �
 
 ## 인앱 메시징 {#in-app-messaging}
 
-SDK를 사용하여 인앱 메시지를 직접 작성하고 보낼 수 있습니다. 캠페인 전략에 따라 슬라이드업, 모달 또는 전체화면 메시지를 선택할 수 있습니다. 작성 세부 정보는 [인앱 메시지 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)를 참조하세요.
+SDK를 사용하여 In-App Messages를 직접 작성하고 보낼 수 있습니다. Campaign 전략에 따라 슬라이드업, 모달 또는 전체화면 메시지를 선택할 수 있습니다. 작성 세부 정보는 [In-App Messages 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)를 참조하세요.
 
 ![웹 브라우저에 표시된 푸시]({% image_buster /assets/img_archive/web_push_macbook.png %}){: style="float:right;max-width:45%;margin-left:20px;border:0;"}
 
@@ -44,13 +44,13 @@ SDK를 사용하여 인앱 메시지를 직접 작성하고 보낼 수 있습니
 
 ## 세분화 및 전달 규칙 {#segmentation-and-delivery-rules}
 
-기본적으로 인앱 메시지를 포함하는 Campaign은 해당 워크스페이스의 모든 버전의 앱으로 전송됩니다. 예를 들어, 메시지는 웹 및 모바일 사용자 모두에게 전송됩니다. 웹 또는 모바일에만 인앱 메시지를 보내려면 Campaign을 적절하게 세분화해야 하며, 이는 기본적으로 Braze SDK를 통해 지원됩니다.
+기본적으로 In-App Messages를 포함하는 Campaign은 해당 워크스페이스의 모든 버전의 앱으로 전송됩니다. 예를 들어, 메시지는 웹 및 모바일 사용자 모두에게 전송됩니다. 웹 또는 모바일에만 In-App Messages를 보내려면 Campaign을 적절하게 세분화해야 하며, 이는 기본적으로 Braze SDK를 통해 지원됩니다.
 
 **Apps and websites targeted**를 **Users from specific apps**로 설정한 다음 **Specific Apps**에서 웹사이트만 선택하여 웹 사용자 Segment를 생성할 수 있습니다.
 
 ![웹 앱에 초점을 맞춘 Segment 세부 정보 페이지]({% image_buster /assets/img_archive/web-users-segment.png %}){:style="max-width:60%"}
 
-이를 통해 사용자의 행동을 기반으로 지능적으로 타겟팅할 수 있습니다. 웹 사용자가 모바일 앱을 다운로드하도록 유도하려면 이 Segment를 타겟 오디언스로 설정하면 됩니다. 모바일 인앱 메시지는 포함하지만 웹 메시지는 포함하지 않는 메시징 캠페인을 보내려면 Segment에서 웹사이트 아이콘의 선택을 해제하면 됩니다.
+이를 통해 사용자의 행동을 기반으로 지능적으로 타겟팅할 수 있습니다. 웹 사용자가 모바일 앱을 다운로드하도록 유도하려면 이 Segment를 타겟 오디언스로 설정하면 됩니다. 모바일 In-App Messages는 포함하지만 웹 메시지는 포함하지 않는 메시징 캠페인을 보내려면 Segment에서 웹사이트 아이콘의 선택을 해제하면 됩니다.
 
 ## 지원되는 플랫폼 {#supported-platforms}
 

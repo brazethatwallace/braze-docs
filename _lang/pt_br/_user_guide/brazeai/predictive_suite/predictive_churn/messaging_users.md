@@ -11,14 +11,14 @@ page_order: 1.2
 > Este artigo de referência aborda as próximas etapas após a criação de uma previsão de churn, incluindo como direcionar usuários com filtros e considerações estratégicas para o envio de mensagens.
 
 {% alert note %}
-As previsões prévias e de demonstração não permitirão que os usuários sejam direcionados para envio de mensagens, e os botões **Criar segmento** e **Criar campanha** serão desativados. Para adquirir essa funcionalidade, entre em contato com o gerente da sua conta.
+As previsões prévias e de demonstração não permitirão que os usuários sejam direcionados para envio de mensagens, e os botões **Criar segmento** e **Criar Campaign** serão desativados. Para adquirir essa funcionalidade, entre em contato com o gerente da sua conta.
 {% endalert %}
 
 ## Implementação de filtros {#filters}
 
-Depois de decidir qual intervalo de _Pontuação de risco de churn_ ou categoria deseja segmentar, você pode usar os botões **Criar segmento** ou **Criar campanha** para criar um novo segmento ou campanha que filtre os usuários com a _Pontuação de risco de churn_ ou a categoria selecionada com o controle deslizante.
+Depois de decidir qual intervalo de _Pontuação de risco de churn_ ou categoria deseja segmentar, você pode usar os botões **Criar segmento** ou **Criar Campaign** para criar um novo segmento ou Campaign que filtre os usuários com a _Pontuação de risco de churn_ ou a categoria selecionada com o controle deslizante.
 
-Também é possível usar filtros em campanhas ou segmentos para direcionar os usuários de acordo com esse limite. Você pode filtrar os usuários por "Pontuação de churn" ou "Categoria de churn" em Campaigns, Canvas e Segments, da mesma forma que usa qualquer outro filtro na Braze.
+Também é possível usar filtros em Campaigns ou segmentos para direcionar os usuários de acordo com esse limite. Você pode filtrar os usuários por "Pontuação de churn" ou "Categoria de churn" em Campaigns, Canvas e Segments, da mesma forma que usa qualquer outro filtro na Braze.
 
 ![Os filtros de churn disponíveis ao definir um público incluem Categoria de probabilidade de compra e Pontuação de probabilidade de compra.]({% image_buster /assets/img_archive/predictive_churn_filters.png %})
 

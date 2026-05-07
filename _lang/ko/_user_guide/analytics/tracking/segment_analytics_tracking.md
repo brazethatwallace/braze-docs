@@ -13,7 +13,7 @@ tool:
 
 > 세그먼트에 대해 분석 추적이 켜져 있으면 해당 세그먼트의 세션, 커스텀 이벤트, 시간 경과에 따른 매출을 확인할 수 있습니다.
 
-세그먼트에 대해 분석 추적을 켜지 않더라도 해당 세그먼트의 [실시간 통계]({{site.baseurl}}/user_guide/audience/segments/segment_data/#segment-statistics)에 액세스하고 Campaign(캠페인)으로 해당 사용자를 타겟팅할 수 있습니다. 유일한 차이점은 이 페이지에서 언급된 특정 분석 도구에 액세스할 수 있는지 여부입니다.
+세그먼트에 대해 분석 추적을 켜지 않더라도 해당 세그먼트의 [실시간 통계]({{site.baseurl}}/user_guide/audience/segments/segment_data/#segment-statistics)에 액세스하고 Campaign(Campaign)으로 해당 사용자를 타겟팅할 수 있습니다. 유일한 차이점은 이 페이지에서 언급된 특정 분석 도구에 액세스할 수 있는지 여부입니다.
 
 ## 세그먼트 분석 켜기 {#turning-on-segment-analytics}
 

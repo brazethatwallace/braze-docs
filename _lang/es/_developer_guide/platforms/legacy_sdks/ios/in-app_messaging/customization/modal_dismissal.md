@@ -13,7 +13,7 @@ noindex: true
 
 # Descartar modal por toque externo {#dismiss-modal-on-outside-tap}
 
-El valor predeterminado es `NO`. Determina si el mensaje modal dentro de la aplicación se descartará cuando el usuario pulse fuera del mensaje dentro de la aplicación.
+El valor predeterminado es `NO`. Determina si el mensaje modal de **In-App Messages** se descartará cuando el usuario pulse fuera del mensaje modal de **In-App Messages**.
 
 Para habilitar los descartes por toque externo, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `DismissModalOnOutsideTap` y establece el valor en `YES`, como se muestra en el siguiente fragmento de código. Ten en cuenta que, antes de la versión 4.0.2 del SDK de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
 
@@ -29,6 +29,6 @@ También puedes habilitar la característica en tiempo de ejecución configurand
 
 | `DismissModalOnOutsideTap` | Descripción |
 |----------|-------------|
-| `YES`       | Los mensajes modales dentro de la aplicación se descartarán al tocar fuera.     |
-| `NO`        | Predeterminado: los mensajes modales dentro de la aplicación no se descartarán al tocar fuera. |
+| `YES`       | Las **In-App Messages** tipo modal se descartan al tocar fuera.     |
+| `NO`        | Predeterminado: las **In-App Messages** tipo modal no se descartan al tocar fuera. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

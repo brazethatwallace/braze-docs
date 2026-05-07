@@ -19,8 +19,8 @@ Este tutorial mostra como Camila:
 
 - Cria um modelo de previsão de churn com base no comportamento do usuário
 - Segmenta os usuários por nível de risco
-- Cria uma campanha de reengajamento personalizada para aqueles que estão em maior risco
-- Avalia o impacto usando a análise de dados da campanha
+- Cria uma Campaign de reengajamento personalizada para aqueles que estão em maior risco
+- Avalia o impacto usando a análise de dados da Campaign
 
 ## Etapa 1: Crie um modelo de previsão de churn {#step-1-create-a-churn-prediction-model}
 
@@ -54,11 +54,11 @@ Para determinar um limite inicial para o direcionamento, Camila usa o controle d
 
 ## Etapa 3: Direcione usuários em risco com conteúdo recorrente de reengajamento {#step-3-target-at-risk-users-with-recurring-re-engagement-content}
 
-Com sua previsão e segment prontos, Camila configura uma campanha recorrente que alcança automaticamente os usuários que se tornam vulneráveis a cada semana.
+Com sua previsão e segment prontos, Camila configura uma Campaign recorrente que alcança automaticamente os usuários que se tornam vulneráveis a cada semana.
 
-1. Camila cria uma campanha recorrente e ativa o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), para que cada mensagem seja entregue quando cada usuário individual estiver mais propenso a se engajar, em vez de depender de um dia e horário fixos.
+1. Camila cria uma Campaign recorrente e ativa o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), para que cada mensagem seja entregue quando cada usuário individual estiver mais propenso a se engajar, em vez de depender de um dia e horário fixos.
 2. Ela direciona para o segment "Provável churn" que acabou de criar.
-3. Ela define o evento de conversão da campanha como o evento personalizado `stream_started`, para rastrear quantos usuários realmente retornam para visualizar o conteúdo.
+3. Ela define o evento de conversão da Campaign como o evento personalizado `stream_started`, para rastrear quantos usuários realmente retornam para visualizar o conteúdo.
 4. Camila escolhe o e-mail como seu canal principal — ele lhe dá espaço para destacar várias opções de conteúdo personalizado em um formato visualmente rico, sem muita pressão. O e-mail inclui:
    - Uma lista de observação personalizada alimentada por [Recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), selecionada dinamicamente a partir do catálogo da MovieCanon
    - Uma chamada à ação que leva o usuário diretamente para o app.
@@ -74,7 +74,7 @@ Isso garante que, a cada semana, a MovieCanon alcance apenas os usuários que pr
 
 ## Etapa 4: Meça o desempenho {#step-4-measure-performance}
 
-Após algumas semanas, Camila verifica a [análise de dados da campanha]({{site.baseurl}}/user_guide/channels/email/reporting/) para avaliar o desempenho da estratégia.
+Após algumas semanas, Camila verifica a [análise de dados da Campaign]({{site.baseurl}}/user_guide/channels/email/reporting/) para avaliar o desempenho da estratégia.
 
 Ela vê:
 
@@ -82,10 +82,10 @@ Ela vê:
 - *Taxa de cliques:* 15%
 - *Taxa de conversão* (transmissão iniciada em 48 horas): 11%
 
-Em comparação com a antiga campanha "Sentimos sua falta" (onde as taxas de conversão oscilavam em torno de 3%), esse novo fluxo reduz o churn no grupo-alvo em 28%. Ela analisa o [relatório de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) para identificar onde os usuários abandonam o processo. Embora as taxas de abertura e cliques sejam altas, ela percebe um leve atrito entre o clique e a conversão — o que a leva a considerar testar o texto da CTA ou experimentar um novo layout.
+Em comparação com a antiga Campaign "Sentimos sua falta" (onde as taxas de conversão oscilavam em torno de 3%), esse novo fluxo reduz o churn no grupo-alvo em 28%. Ela analisa o [relatório de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) para identificar onde os usuários abandonam o processo. Embora as taxas de abertura e cliques sejam altas, ela percebe um leve atrito entre o clique e a conversão — o que a leva a considerar testar o texto da CTA ou experimentar um novo layout.
 
 Para entender o impacto a longo prazo, Camila também rastreia o volume de usuários que entram no segment "Provável churn" semana após semana. Isso a ajuda a avaliar a integridade geral do ciclo de vida e a informar a estratégia de retenção em um nível mais amplo. Por fim, ela revisita a página de [análises de previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) para sua previsão de churn, a fim de comparar os usuários previstos como churners com os reais — uma verificação útil para garantir que o modelo esteja funcionando conforme o esperado.
 
 Com base nesses insights, Camila planeja fazer testes A/B com linhas de assunto, testar diferentes janelas de tempo e experimentar formatos de conteúdo, como recomendações em estilo carrossel em uma mensagem no app.
 
-Com o Predictive Churn, Intelligent Timing e a personalização baseada em IA, a equipe de Camila não está apenas reagindo ao churn — está se antecipando a ele. E a campanha dela roda discretamente em segundo plano, alcançando as pessoas certas, no momento certo, com conteúdo que realmente lhes interessa.
+Com o Predictive Churn, Intelligent Timing e a personalização baseada em IA, a equipe de Camila não está apenas reagindo ao churn — está se antecipando a ele. E a Campaign dela roda discretamente em segundo plano, alcançando as pessoas certas, no momento certo, com conteúdo que realmente lhes interessa.

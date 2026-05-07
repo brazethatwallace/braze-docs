@@ -38,7 +38,7 @@ Camila commence par créer une recommandation qui affichera des titres pertinent
 
 Une fois l'entraînement de la recommandation terminé, Camila crée un flux d'envoi de messages qui atteint l'utilisateur au moment opportun : immédiatement après qu'il a terminé un titre. Le message comprend une liste de trois suggestions personnalisées extraites directement du catalogue.
 
-1. Camila crée une campagne de messages in-app à l'aide de l'éditeur par glisser-déposer.
+1. Camila crée une Campaign de In-App Messages à l'aide de l'éditeur par glisser-déposer.
 2. Elle définit le déclencheur sur son événement personnalisé : `Watched Content`.
 3. Elle conçoit un message in-app de plusieurs pages avec des images de titre, des noms et un CTA « Regarder maintenant ».
 
@@ -48,7 +48,7 @@ Une fois l'entraînement de la recommandation terminé, Camila crée un flux d'e
 
 4. Dans le corps du message, Camila utilise la [fenêtre modale Ajouter une personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#inserting-pre-formatted-variables) pour ajouter des variables telles que le nom, la description et la vignette du titre recommandé à l'aide de Liquid, qui remplit dynamiquement le contenu à partir du catalogue. Elle crée un modèle avec un attribut personnalisé pour `Last Watched Movie` afin d'informer les utilisateurs que cette recommandation est basée sur leur historique de visionnage.
 
-![Éditeur de messages in-app avec du Liquid brut pour intégrer des champs spécifiques à partir des articles du catalogue issus de la recommandation.]({% image_buster /assets/img/ai_use_cases/recommendation_liquid.png %})
+![Éditeur de In-App Messages avec du Liquid brut pour intégrer des champs spécifiques à partir des articles du catalogue issus de la recommandation.]({% image_buster /assets/img/ai_use_cases/recommendation_liquid.png %})
 
 {% details Afficher le Liquid utilisé dans l'image %}
 
@@ -76,7 +76,7 @@ Une fois l'entraînement de la recommandation terminé, Camila crée un flux d'e
 
 ## Étape 3 : Mesurer et optimiser {#step-3-measure-and-optimize}
 
-Une fois la campagne en ligne, Camila surveille les taux d'ouverture, les CTR et le comportement de visionnage ultérieur. Elle compare les performances par rapport aux précédentes campagnes de recommandations statiques et constate un engagement plus élevé, ainsi qu'un plus grand nombre de sessions de contenu par utilisateur.
+Une fois la Campaign en ligne, Camila surveille les taux d'ouverture, les CTR et le comportement de visionnage ultérieur. Elle compare les performances par rapport aux précédentes Campaigns de recommandations statiques et constate un engagement plus élevé, ainsi qu'un plus grand nombre de sessions de contenu par utilisateur.
 
 Elle prévoit également de réaliser un test A/B sur :
 

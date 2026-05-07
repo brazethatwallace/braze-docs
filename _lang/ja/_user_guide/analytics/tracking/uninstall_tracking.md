@@ -23,7 +23,7 @@ Brazeダッシュボードでアンインストール追跡をオプトインす
 
 ## 仕組み {#how-it-works}
 
-Brazeでは、通常のプッシュキャンペーンから基本レベルのアンインストール情報を自動的に収集します。しかし、ユーザーによってプッシュキャンペーンを受け取る頻度が異なる可能性があるため、アンインストール追跡を提供し、ユーザーのアンインストール活動をより正確に把握できるようにしています。
+Brazeでは、通常のpush Campaignsから基本レベルのアンインストール情報を自動的に収集します。しかし、ユーザーによってpush Campaignsを受け取る頻度が異なる可能性があるため、アンインストール追跡を提供し、ユーザーのアンインストール活動をより正確に把握できるようにしています。
 
 Brazeがアンインストールを検出すると、そのユーザーにはアンインストール済みのタグが付けられます。Campaignで **Has Not Uninstalled** フィルターを使用すると、これらのタグ付きユーザーは除外されます。ユーザーがアプリを再インストールしても開かなかった場合、アンインストールタグはプロファイルに残ります。タグが削除されるのは、再インストールしたアプリでユーザーが新しいセッションを開始したときのみです。つまり、再インストールしてもアプリを一度も開かないユーザーは、引き続きアンインストール済みとして表示されます。
 
@@ -37,7 +37,7 @@ Brazeがアンインストールを検出すると、そのユーザーにはア
 
 ### 設定 {#configuration}
 
-iOSアプリケーションのアンインストール追跡を設定するには、[ユーティリティメソッド]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)を使用します。Androidアプリケーションの場合は、[`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)を使用します。Brazeがアンインストールを検出した場合、アンインストール追跡または通常のプッシュキャンペーン配信のいずれであっても、ユーザーにおけるアンインストールの最良推定時間を記録します。この時刻はユーザープロファイルに標準属性項目として保存され、ウィンバックキャンペーンのユーザーSegmentを定義するために使用できます。
+iOSアプリケーションのアンインストール追跡を設定するには、[ユーティリティメソッド]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)を使用します。Androidアプリケーションの場合は、[`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)を使用します。Brazeがアンインストールを検出した場合、アンインストール追跡または通常のpush Campaigns配信のいずれであっても、ユーザーにおけるアンインストールの最良推定時間を記録します。この時刻はユーザープロファイルに標準属性項目として保存され、win-back CampaignsのユーザーSegmentを定義するために使用できます。
 
 ## アンインストールによるSegmentのフィルタリング {#filtering-segments-by-uninstalls}
 

@@ -43,15 +43,15 @@ Sur cette page, vous trouverez votre clé d'importation des données et un endpo
 
 ### Étape 2 : Segmenter les utilisateurs importés dans Braze {#step-2-segment-imported-users-in-braze}
 
-Dans Braze, naviguez vers **Segments**, nommez votre segment de cohorte Heap et sélectionnez **Heap Cohorts** comme filtre. À partir de là, vous pouvez choisir la cohorte Heap que vous souhaitez inclure. Une fois votre segment de cohorte Heap créé, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une campagne ou d'un Canvas.
+Dans Braze, naviguez vers **Segments**, nommez votre segment de cohorte Heap et sélectionnez **Heap Cohorts** comme filtre. À partir de là, vous pouvez choisir la cohorte Heap que vous souhaitez inclure. Une fois votre segment de cohorte Heap créé, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une Campaign ou d'un Canvas.
 
 ![Dans le générateur de segments de Braze, le filtre d'attributs utilisateur « Heap cohort » est défini sur « includes » et « Heap Test Cohort ».]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Utilisation de cette intégration {#using-this-integration}
 
-Pour utiliser votre segment Heap, créez une campagne ou un Canvas Braze et sélectionnez le segment comme audience cible.
+Pour utiliser votre segment Heap, créez une Campaign ou un Canvas Braze et sélectionnez le segment comme audience cible.
 
-![Dans le générateur de campagnes de Braze, à l'étape de ciblage, le filtre « Target users by segment » est défini sur « Heap cohort ».]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
+![Dans le générateur de Campaigns de Braze, à l'étape de ciblage, le filtre « Target users by segment » est défini sur « Heap cohort ».]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 
 {% alert important %}
 Seuls les utilisateurs qui existent déjà dans Braze pourront être ajoutés ou supprimés d'une cohorte. L'importation de cohortes ne créera pas de nouveaux utilisateurs dans Braze.

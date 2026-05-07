@@ -22,7 +22,7 @@ A partir de iOS 14.5, la recopilación de **IDFA** y el [intercambio de ciertos 
 - [iOS ya no admite](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geovallas para los usuarios que elijan el nuevo permiso de _ubicación aproximada_.
 - El uso de las características de segmentación "Última ubicación conocida" requerirá una actualización a Braze iOS SDK v3.26.1+ para la compatibilidad con el permiso de _ubicación aproximada_. Ten en cuenta que si utilizas Xcode 12, tendrás que actualizarte al menos a la versión 3.27.0.
 - A partir de iOS 14.5, la recopilación de IDFA y el [intercambio de ciertos datos](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) requieren la nueva solicitud de permiso del framework [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency).
-- Si utilizas el campo "Seguimiento de anuncios habilitado" para la segmentación de campañas o el análisis, tendrás que actualizar a Xcode 12 y utilizar el nuevo framework AppTrackingTransparency para informar del estado de adhesión voluntaria de los usuarios.
+- Si utilizas el campo "Seguimiento de anuncios habilitado" para la segmentación de Campaigns o el análisis, tendrás que actualizar a Xcode 12 y utilizar el nuevo framework AppTrackingTransparency para informar del estado de adhesión voluntaria de los usuarios.
 
 ## Resumen de la actualización {#upgrade-summary}
 
@@ -57,7 +57,7 @@ Al solicitar permiso de ubicación, los usuarios tendrán ahora la opción de pr
 
 #### Geovallas {#geofences}
 
-[iOS ya no admite](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geovallas para los usuarios que elijan el nuevo permiso de _ubicación aproximada_. Aunque no se requieren actualizaciones para tu integración del SDK de Braze, es posible que tengas que ajustar tu [estrategia de marketing basada en la ubicación](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) para las campañas que dependen de geovallas.
+[iOS ya no admite](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geovallas para los usuarios que elijan el nuevo permiso de _ubicación aproximada_. Aunque no se requieren actualizaciones para tu integración del SDK de Braze, es posible que tengas que ajustar tu [estrategia de marketing basada en la ubicación](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) para las Campaigns que dependen de geovallas.
 
 #### Segmentación por ubicación {#location-tracking}
 
@@ -92,7 +92,7 @@ Estas actualizaciones de IDFA entrarán en vigor después de que los usuarios fi
 
 2. La macro de compilación `ABK_ENABLE_IDFA_COLLECTION`, que compilaría condicionalmente en la recopilación automática opcional de IDFA, ya no funcionará en iOS 14 y se eliminó en 3.27.0.
 
-3. Si utilizas el campo "Seguimiento de anuncios habilitado" para la segmentación de campañas o el análisis, tendrás que actualizar a Xcode 12 y utilizar el nuevo framework AppTrackingTransparency para informar del estado de adhesión voluntaria de tus usuarios. El motivo de este cambio es que en iOS 14, el antiguo campo [`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled) siempre devolverá No.
+3. Si utilizas el campo "Seguimiento de anuncios habilitado" para la segmentación de Campaigns o el análisis, tendrás que actualizar a Xcode 12 y utilizar el nuevo framework AppTrackingTransparency para informar del estado de adhesión voluntaria de tus usuarios. El motivo de este cambio es que en iOS 14, el antiguo campo [`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled) siempre devolverá No.
 
 4. Si tu aplicación ha utilizado IDFA o IDFV como ID externo de Braze, te recomendamos encarecidamente que dejes de utilizar estos identificadores y uses un UUID. Para más información sobre la migración de ID externos, consulta nuestros [puntos finales de la API de migración de ID externos]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
 

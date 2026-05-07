@@ -21,15 +21,15 @@ L'intégration de Braze et Grouparoo synchronise les données de l'entrepôt ave
 | Condition | Description |
 | ----------- | ----------- |
 | Compte et projet Grouparoo | Un compte et un projet Grouparoo sont requis pour profiter de ce partenariat.<br><br>Cette intégration peut être utilisée avec l'édition gratuite pour la communauté et les solutions d'entreprise fournies par Grouparoo. La configuration se fait dans l'interface utilisateur de configuration de Grouparoo. |
-| Clé API REST Braze | Une clé API REST Braze avec des autorisations sur les utilisateurs et le suivi. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
-| Endpoint REST de Braze | [L'URL de votre endpoint REST](https://www.grouparoo.com/). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+| Braze REST API key | Une clé **Braze REST API** avec des autorisations sur les utilisateurs et le suivi. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
+| Braze REST endpoint | [L’URL de votre endpoint **Braze REST API**](https://www.grouparoo.com/). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Intégration {#integration}
 
 ### Étape 1 : Créer une application Braze dans Grouparoo {#step-1-create-a-braze-app-in-grouparoo}
 
-Dans Grouparoo, accédez à **Apps** et sélectionnez **Braze** pour créer une nouvelle application Braze. Dans la boîte de dialogue modale qui apparaît, saisissez votre clé API Braze et votre endpoint REST.
+Dans Grouparoo, accédez à **Apps** et sélectionnez **Braze** pour créer une nouvelle application Braze. Dans la boîte de dialogue modale qui apparaît, saisissez votre clé **REST API** Braze et votre endpoint **REST API**.
 
 ![]({% image_buster /assets/img/grouparoo/add-app.png %})
 

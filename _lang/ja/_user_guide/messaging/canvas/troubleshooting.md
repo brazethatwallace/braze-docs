@@ -9,7 +9,7 @@ tool: Canvas
 
 # Canvasのトラブルシューティング {#troubleshoot-canvases}
 
-> このページでは、Canvasに関する問題のトラブルシューティングを支援します。
+> このページでは、**Canvases** に関する問題のトラブルシューティングを支援します。
 
 ## トリガーされたキャンバスステップをユーザーが受信しなかったのはなぜですか？ {#why-did-a-user-not-receive-a-triggered-canvas-step}
 
@@ -23,12 +23,12 @@ tool: Canvas
 - スケジュールされた遅延がある場合は、ユーザーのカスタムイベントが遅延の前にトリガーされたかどうかを確認します。遅延の前にイベントがトリガーされた場合、そのユーザーはキャンバスステップを受信しません。
 
 {% alert note %}
-アプリ内メッセージは、SDKを通じて送信されたイベントによってのみトリガーでき、REST APIではトリガーできません。
+**In-App Messages**は、SDKを通じて送信されたイベントによってのみトリガーでき、Braze REST APIではトリガーできません。
 {% endalert %}
 
 ## Canvasが期待どおりに送信されないのはなぜですか？ {#why-isnt-my-canvas-sending-as-expected}
 
-Canvasは堅牢で複雑であり、作成に時間と注意を費やしていることを理解しています。Canvasが期待どおりに送信されない場合は、Canvasのスケジュール、エントリオーディエンス、エントリ設定を確認し、[Canvasの作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)手順を見直すことをお勧めします。
+**Canvases** は堅牢で複雑であり、作成に時間と注意を費やしていることを理解しています。その **Canvas** が期待どおりに送信されない場合は、その **Canvas** のスケジュール、エントリオーディエンス、エントリ設定を確認し、[Canvasの作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)手順を見直すことをお勧めします。
 
 ### スケジュール {#schedule}
 
@@ -38,7 +38,7 @@ Canvasは堅牢で複雑であり、作成に時間と注意を費やしてい�
 
 ### エントリ設定 {#entry-settings}
 
-[エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls)は、Canvasがどのように送信されるかを理解するために重要です。Canvasに入る可能性のある人数を制限していないか確認してください。
+[エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls)は、**Canvases** がどのように送信されているかを理解するために重要です。**Canvas** に入る可能性のある人数を制限していないか確認してください。
 
 また、メッセージを受信する資格がなくなった場合、ユーザーはCanvasから退出することがあります。たとえば、Canvasにプッシュ通知のみが含まれていて、ユーザーが最初のステップを受信した後にプッシュをオプトアウトした場合、そのユーザーはCanvasから脱落します。[さまざまなキャンバスステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/)を使用して、代替のユーザージャーニーを追加することを検討してください。
 
@@ -60,7 +60,7 @@ Canvasは堅牢で複雑であり、作成に時間と注意を費やしてい�
 - **チャネルの適格性:** メールアドレス、プッシュトークン、またはそのステップのチャネルに必要なサブスクリプションステータスが不足している場合があります。
 - **コントロールグループ:** グローバルまたはCanvasのコントロールグループにより、ユーザーがメッセージングから除外されることがあります。
 - **サイレント時間帯、インテリジェントタイミング、レート制限:** これらの設定により、送信が延期または抑制されることがあります。
-- **アプリ内メッセージステップ:** アプリ内メッセージでは、インプレッションが存在するにもかかわらず*送信数*がゼロと表示されることがあります。これはアプリ内配信がプッシュ通知やメールとは異なる仕組みで動作するため、想定どおりの動作です。詳しくは、Canvas FAQの[インプレッションが記録されているのにCanvasの送信数がゼロと表示されるのはなぜですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)を参照してください。
+- **In-App Messagesステップ:** **In-App Messages**では、インプレッションが存在するにもかかわらず*送信数*がゼロと表示されることがあります。これは **In-App Messages** の配信がプッシュ通知やメールとは異なる仕組みで動作するため、想定どおりの動作です。詳しくは、Canvas FAQの[インプレッションが記録されているのにCanvasの送信数がゼロと表示されるのはなぜですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)を参照してください。
 
 メールやその他のチャネルについても、Campaignsと同様の要因が多く当てはまります。詳細なリストについては、[推定オーディエンスサイズより送信数が少ないのはなぜですか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)を参照してください。
 

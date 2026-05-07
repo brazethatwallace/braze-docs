@@ -171,7 +171,7 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
         <td>コミュニケーションを分離する最も安全な方法です。Campaignは特定のユーザープロファイルのみをターゲットにすることが保証されます。</td>
         <td>ユーザーが別のワークスペースに別のユーザープロファイルを持っていることがわかっていても、クロスプロモーションメッセージを送信できません。</td>
         <td>ユーザーがワークスペースに複数のアプリを持っていることがわかっている場合に、クロスプロモーションメッセージを送信できます。<br><br>複数のアプリからユーザーデータを参照できます。たとえば、John にはアプリ 1 に関連する X 属性とアプリ 2 に関連する Y 属性があり、どちらも 1 つのCampaignで参照できます。</td>
-        <td>人為的なミスが発生する可能性が高くなります。誤って複数のアプリインスタンスにまたがるユーザーをターゲットにしてしまう可能性があります。<br><br>アプリ内メッセージを送信するには、あるCampaignが誤って別のアプリに表示されないように、アプリ固有のカスタムイベントが必要です。たとえば、<code>app_1_action</code> と <code>app_2_action</code> のように分けます。</td>
+        <td>人為的なミスが発生する可能性が高くなります。誤って複数のアプリインスタンスにまたがるユーザーをターゲットにしてしまう可能性があります。<br><br>**In-App Messages**を送信するには、あるCampaignが誤って別のアプリに表示されないように、アプリ固有のカスタムイベントが必要です。たとえば、<code>app_1_action</code> と <code>app_2_action</code> のように分けます。</td>
     </tr>
     <tr>
         <td>カスタムイベントと属性</td>
@@ -205,7 +205,7 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
         <td>コンテンツの複製</td>
         <td>該当なし</td>
         <td>Segments、プッシュやコンテンツカードのCampaigns、Canvasesをワークスペース間で複製することはできません。</td>
-        <td>以下のサポート対象チャネルについて、<a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>ワークスペース間でCampaignを複製</a> できます: SMS、アプリ内メッセージ、メール、メールテンプレート、Content Blocks。<br><br>Segments、Campaigns、Canvasesを複製して、アプリインスタンス間でコンテンツを再利用できます。</td>
+        <td>以下のサポート対象チャネルについて、<a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>ワークスペース間でCampaignを複製</a> できます: SMS、**In-App Messages**、メール、メールテンプレート、Content Blocks。<br><br>Segments、Campaigns、Canvasesを複製して、アプリインスタンス間でコンテンツを再利用できます。</td>
         <td>該当なし</td>
     </tr>
     <tr>

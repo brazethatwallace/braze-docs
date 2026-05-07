@@ -29,6 +29,6 @@ Vous pouvez également activer la fonctionnalité lors de l'exécution en défin
 
 | `DismissModalOnOutsideTap` | Description |
 |----------|-------------|
-| `YES`       | Les messages in-app modaux seront rejetés par touché extérieur.     |
-| `NO`        | Par défaut, les messages in-app modaux ne seront pas rejetés par touché extérieur. |
+| `YES`       | Les In-App Messages modaux seront rejetés par touché extérieur.     |
+| `NO`        | Par défaut, les In-App Messages modaux ne seront pas rejetés par touché extérieur. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

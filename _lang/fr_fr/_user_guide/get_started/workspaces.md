@@ -171,7 +171,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
         <td>C'est le moyen le plus sûr de séparer les communications. Les Campaigns sont assurées de ne cibler que des profils utilisateur spécifiques.</td>
         <td>Impossible d'envoyer des messages promotionnels croisés même si vous savez qu'un utilisateur possède un autre profil utilisateur dans un espace de travail différent.</td>
         <td>Possibilité d'envoyer des messages de promotion croisée si vous savez qu'un utilisateur utilise plusieurs applications dans votre espace de travail.<br><br>Possibilité de référencer les données utilisateur provenant de plusieurs applications. Par exemple, Jean possède un attribut X pertinent pour l'application 1 et un attribut Y pertinent pour l'application 2, qui peuvent tous deux être référencés dans une Campaign.</td>
-        <td>Plus de place pour l'erreur humaine : vous pourriez accidentellement cibler des utilisateurs à travers plusieurs instances d'applications.<br><br>Pour envoyer des messages in-app, vous devez disposer d'événements personnalisés spécifiques à l'application afin qu'une Campaign ne s'affiche pas par accident sur une autre application. Par exemple, <code>app_1_action</code> par rapport à <code>app_2_action</code>.</td>
+        <td>Plus de place pour l'erreur humaine : vous pourriez accidentellement cibler des utilisateurs à travers plusieurs instances d'applications.<br><br>Pour envoyer des In-App Messages, vous devez disposer d'événements personnalisés spécifiques à l'application afin qu'une Campaign ne s'affiche pas par accident sur une autre application. Par exemple, <code>app_1_action</code> par rapport à <code>app_2_action</code>.</td>
     </tr>
     <tr>
         <td>Événements et attributs personnalisés</td>
@@ -204,8 +204,8 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     <tr>
         <td>Duplication de contenu</td>
         <td>S.O.</td>
-        <td>Impossible de dupliquer des segments, des Campaigns push ou de cartes de contenu, ou des Canvas entre les espaces de travail.</td>
-        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>dupliquer des Campaigns entre différents espaces de travail</a> pour les canaux pris en charge suivants : SMS, messages in-app, e-mails, modèles d'e-mails et Content Blocks. <br><br>Possibilité de dupliquer les segments, les Campaigns et les Canvas pour réutiliser le contenu d'une instance d'application à l'autre.</td>
+        <td>Impossible de dupliquer des segments, des Campaigns push ou de cartes de contenu, ni des **Canvases** entre les espaces de travail.</td>
+        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>dupliquer des Campaigns entre différents espaces de travail</a> pour les canaux pris en charge suivants : SMS, In-App Messages, e-mails, modèles d'e-mails et Content Blocks. <br><br>Possibilité de dupliquer les segments, les Campaigns et les **Canvases** pour réutiliser le contenu d'une instance d'application à l'autre.</td>
         <td>S.O.</td>
     </tr>
     <tr>

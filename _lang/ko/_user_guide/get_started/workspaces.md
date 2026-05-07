@@ -171,7 +171,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <td>커뮤니케이션을 분리하는 가장 안전한 방법입니다. Campaign은 특정 고객 프로필만 타겟팅하도록 보장됩니다.</td>
         <td>사용자가 다른 워크스페이스에 다른 고객 프로필을 가지고 있는 것을 알고 있어도 교차 프로모션 메시징을 보낼 수 없습니다.</td>
         <td>사용자가 워크스페이스에 여러 개의 앱을 가지고 있는 것을 알고 있는 경우 교차 프로모션 메시징을 보낼 수 있습니다.<br><br>여러 앱에서 사용자 데이터를 참조할 수 있습니다. 예를 들어, John은 앱 1과 관련된 X 속성과 앱 2와 관련된 Y 속성을 가지고 있으며, 두 속성 모두 하나의 Campaign에서 참조할 수 있습니다.</td>
-        <td>실수로 여러 앱 인스턴스에 걸쳐 사용자를 타겟팅할 수 있는 인적 오류의 여지가 더 커집니다.<br><br>인앱 메시지를 보내려면 하나의 Campaign이 실수로 다른 앱에 표시되지 않도록 앱별 커스텀 이벤트가 있어야 합니다. 예를 들어 <code>app_1_action</code> 대 <code>app_2_action</code>.</td>
+        <td>실수로 여러 앱 인스턴스에 걸쳐 사용자를 타겟팅할 수 있는 인적 오류의 여지가 더 커집니다.<br><br>In-App Messages를 보내려면 하나의 Campaign이 실수로 다른 앱에 표시되지 않도록 앱별 커스텀 이벤트가 있어야 합니다. 예를 들어 <code>app_1_action</code> 대 <code>app_2_action</code>.</td>
     </tr>
     <tr>
         <td>커스텀 이벤트 및 속성</td>
@@ -205,7 +205,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <td>콘텐츠 복제</td>
         <td>N/A</td>
         <td>워크스페이스 간에 Segments, 푸시 또는 콘텐츠 카드 Campaign, Canvases를 복제할 수 없습니다.</td>
-        <td>다음 지원되는 채널에 대해 <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간 Campaign 복제</a> 를 할 수 있습니다: SMS, 인앱 메시지, 이메일, 이메일 템플릿, Content Blocks. <br><br>Segments, Campaign, Canvases를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
+        <td>다음 지원되는 채널에 대해 <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간 Campaign 복제</a> 를 할 수 있습니다: SMS, In-App Messages, 이메일, 이메일 템플릿, Content Blocks. <br><br>Segments, Campaign, Canvases를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
         <td>N/A</td>
     </tr>
     <tr>

@@ -37,7 +37,7 @@ Amplitude und Braze bieten zwei verschiedene Integrationsmethoden. Lesen Sie die
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit allen Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL][1]. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-App-Bezeichner | Der Bezeichner für die App, die Amplitude-Ereignisse empfangen soll. Diesen finden Sie im **Braze-Dashboard > Entwicklungskonsole > Einstellungen**. |
 
@@ -45,7 +45,7 @@ Amplitude und Braze bieten zwei verschiedene Integrationsmethoden. Lesen Sie die
 
 1. Navigieren Sie in Amplitude zu **Data Destinations** und suchen Sie nach „Braze - Event Stream“.
 2. Geben Sie einen Sync-Namen ein und klicken Sie dann auf **Create Sync**.
-3. Klicken Sie auf **Edit** und geben Sie Ihren Braze-REST-API-Endpunkt, den REST-API-Schlüssel und den Braze-App-Bezeichner an.
+3. Klicken Sie auf **Edit** und geben Sie Ihren Braze REST API-Endpunkt, den REST API-Schlüssel und den Braze-App-Bezeichner an.
 4. Verwenden Sie den Filter zum Senden von Ereignissen, um die zu sendenden Ereignisse auszuwählen. Sie können alle Ereignisse senden, aber Amplitude empfiehlt, die wichtigsten auszuwählen.
 5. Wenn Sie fertig sind, aktivieren Sie das Ziel und speichern Sie.
 

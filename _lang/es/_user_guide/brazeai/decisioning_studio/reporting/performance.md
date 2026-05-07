@@ -28,10 +28,10 @@ En la parte superior del dashboard, eliges:
 - **Date range:** El período de tiempo para el informe.
 - **Comparison groups:** Los grupos que se comparan (como Decisioning Studio versus Business as Usual).
 - **Aggregation:** La configuración de agregación del gráfico (diaria, promedio móvil de 7 días o promedio móvil de 30 días).
-- **Segments:** Cualquier segmento aplicado. Estos se configuran de forma personalizada con tu equipo de AI Expert Services.
+- **Segments:** Cualquier Segment aplicado. Estos se configuran de forma personalizada con tu equipo de AI Expert Services.
 - **Timeline events:** Si se superponen eventos de línea de tiempo configurados en el gráfico para ayudarte a entender cambios o eventos que podrían impactar el rendimiento.
 
-![Informe de rendimiento que muestra los grupos de comparación, agregación, segmentos y filtros de eventos de línea de tiempo en la parte superior, junto con el selector de rango de fechas en la esquina superior derecha.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
+![Informe de rendimiento que muestra los grupos de comparación, agregación, Segments y filtros de eventos de línea de tiempo en la parte superior, junto con el selector de rango de fechas en la esquina superior derecha.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
 
 Estas selecciones determinan qué días se incluyen, qué grupos se comparan, cómo se suaviza la línea de tendencia y qué población estás viendo.
 
@@ -107,11 +107,11 @@ Los árboles de factores usan las mismas definiciones de KPI que el resto del da
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Cómo funcionan los segmentos? {#how-do-segments-work}
+### ¿Cómo funcionan los Segments? {#how-do-segments-work}
 
-Los segmentos te permiten desglosar el rendimiento por grupos definidos, como niveles de interacción, características de clientes, tipo de dispositivo u otras características configuradas.
+Los Segments te permiten desglosar el rendimiento por grupos definidos, como niveles de interacción, características de clientes, tipo de dispositivo u otras características configuradas.
 
-La pertenencia a un segmento se configura de forma personalizada para tu caso de uso y se calcula diariamente. Esto significa que el segmento pasado de un cliente refleja quién era ese día. Si su comportamiento cambia después, los días históricos permanecen sin cambios. Esto preserva la precisión histórica y evita que los informes cambien retroactivamente.
+La pertenencia a un Segment se configura de forma personalizada para tu caso de uso y se calcula diariamente. Esto significa que el Segment pasado de un cliente refleja quién era ese día. Si su comportamiento cambia después, los días históricos permanecen sin cambios. Esto preserva la precisión histórica y evita que los informes cambien retroactivamente.
 
 ### ¿El informe de rendimiento difiere entre agentes Go y Pro? {#does-the-performance-report-for-go-versus-pro-agents-differ}
 
@@ -130,7 +130,7 @@ Los KPIs generalmente se dividen en dos categorías:
 - **Métricas de volumen** (como conversiones totales, ingresos totales o clics totales) responden: "¿Cuánto ocurrió?"
 - **Métricas de tasa** (como tasa de conversión, ingresos por usuario o tasa de click-through) responden: "¿Qué tan eficientemente ocurrió?"
 
-El volumen y la tasa cuentan historias diferentes. Una campaña puede generar mayor volumen pero menor eficiencia, o viceversa. Al interpretar los resultados, siempre confirma qué tipo de KPI estás viendo.
+El volumen y la tasa cuentan historias diferentes. Una Campaign puede generar mayor volumen pero menor eficiencia, o viceversa. Al interpretar los resultados, siempre confirma qué tipo de KPI estás viendo.
 
 ### ¿Qué significa "único" (o "distinto")? {#what-does-unique-or-distinct-mean}
 
@@ -146,7 +146,7 @@ Si tu informe de rendimiento no coincide con otro dashboard (como un ESP, herram
 
 - **Reglas de atribución:** Algunas métricas aplican lógica de atribución, lo que significa que solo se cuenta la actividad que cumple con criterios definidos. Si otro sistema cuenta toda la actividad sin lógica de atribución, los totales pueden diferir.
 - **Filtrado de interacción de máquinas y bots:** La interacción conocida generada por máquinas o bots (como escaneos de seguridad automatizados o clics no humanos) se filtra para asegurar que el rendimiento refleje el comportamiento humano real. Algunas plataformas incluyen estas interacciones en sus totales.
-- **Diferentes definiciones de "único":** En este informe, la unicidad se aplica típicamente por día. Otro sistema puede calcular la unicidad a lo largo de toda la ventana de una campaña. Esas son preguntas de negocio diferentes y producen números diferentes.
+- **Diferentes definiciones de "único":** En este informe, la unicidad se aplica típicamente por día. Otro sistema puede calcular la unicidad a lo largo de toda la ventana de una Campaign. Esas son preguntas de negocio diferentes y producen números diferentes.
 - **Rango de fechas y reglas de disponibilidad de datos:** Los informes pueden aplicar retrasos de activación, retrasos en la disponibilidad de datos o fechas excluidas. Otro sistema puede incluir datos muy recientes o incompletos, creando discrepancias temporales.
 - **Diferencias de volumen versus tasa:** Un sistema puede mostrar volumen total (como conversiones totales), mientras que otro muestra una tasa (como conversiones por cliente). Siempre confirma que estás comparando el mismo tipo de métrica.
 
@@ -177,4 +177,4 @@ El gráfico muestra 3 en el Día 1 y 3 en el Día 2. A lo largo de ambos días, 
 
 Esta configuración responde: "¿Cuántas interacciones únicas de clientes ocurrieron a lo largo de los días?" No responde: "¿Cuántos clientes individuales interactuaron al menos una vez a lo largo de todo el período?"
 
-Si tu objetivo es la unicidad a nivel de ventana (individuos únicos a lo largo de toda la campaña o trimestre), ese es un enfoque de modelado diferente. Ponte en contacto con tu AI Success Manager para obtener orientación sobre cómo diseñarlo.
+Si tu objetivo es la unicidad a nivel de ventana (individuos únicos a lo largo de toda la Campaign o trimestre), ese es un enfoque de modelado diferente. Ponte en contacto con tu AI Success Manager para obtener orientación sobre cómo diseñarlo.

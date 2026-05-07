@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie BrazeAI Decisioning Studio Go über Ihre Custome
 
 Im Gegensatz zu Decisioning Studio Pro, das die direkte Datenintegration mit verschiedenen Quellen unterstützt, greift Decisioning Studio Go über Ihr CEP auf Kundendaten zu. Dies bedeutet:
 
-- **Zielgruppendaten** werden direkt aus den in Ihrem CEP (Braze oder Salesforce Marketing Cloud) definierten Segmenten oder Listen abgerufen und können nur bestimmte vordefinierte Attribute enthalten (keine 1P-Daten).
+- **Zielgruppendaten** werden direkt aus den in Ihrem CEP (Braze oder Salesforce Marketing Cloud) definierten Segments oder Listen abgerufen und können nur bestimmte vordefinierte Attribute enthalten (keine 1P-Daten).
 - **Engagement-Daten** (Öffnungen, Klicks, Sendungen) werden durch automatisierte Abfragen oder native Integrationen mit Ihrem CEP erfasst.
 - Es ist **keine zusätzliche Einrichtung der Datenpipeline** erforderlich, die über die Konfiguration in Ihrem CEP hinausgeht.
 
@@ -23,7 +23,7 @@ Decisioning Studio Go unterstützt die folgenden CEPs für den Zugriff auf Daten
 
 | CEP | Zielgruppenquelle | Engagement-Daten |
 |-----|-----------------|-----------------|
-| **Braze** | Segmente | Braze-Currents-Export |
+| **Braze** | Segments | Braze-Currents-Export |
 | **Salesforce Marketing Cloud** | Datenerweiterungen | Automatisierung von SQL-Anfragen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
@@ -38,7 +38,7 @@ Für Braze-Integrationen erfordert Decisioning Studio Go Folgendes:
 
 1. **Braze-Currents:** Braze-Currents muss aktiviert und konfiguriert sein, um Engagement-Daten in Decisioning Studio Go exportieren zu können. Dadurch kann der Agent aus den Reaktionen der Kund:innen lernen.
 
-2. **Segmentzugang:** Der von Ihnen erstellte API-Schlüssel muss über Berechtigungen für den Zugriff auf Segmente verfügen, die Ihre Zielgruppe definieren.
+2. **Segmentzugang:** Der von Ihnen erstellte API-Schlüssel muss über Berechtigungen für den Zugriff auf Segments verfügen, die Ihre Zielgruppe definieren.
 
 3. **Nutzerprofil-Daten:** Alle Nutzerprofil-Attribute oder angepassten Attribute, die der Agent berücksichtigen soll, müssen über die Braze-API zugänglich sein.
 

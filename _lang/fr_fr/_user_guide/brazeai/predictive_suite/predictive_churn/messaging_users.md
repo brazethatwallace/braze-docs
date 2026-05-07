@@ -11,20 +11,20 @@ page_order: 1.2
 > Cet article de référence aborde les étapes qui suivent la création d'une prédiction d'attrition, notamment comment cibler les utilisateurs à l'aide de filtres et les considérations stratégiques pour l'envoi de messages.
 
 {% alert note %}
-Les prédictions d'aperçu et de démonstration ne permettront pas de cibler les utilisateurs pour l'envoi de messages, et les boutons **Créer un segment** et **Créer une campagne** seront désactivés. Pour acheter cette fonctionnalité, contactez votre gestionnaire de compte.
+Les prédictions d'aperçu et de démonstration ne permettront pas de cibler les utilisateurs pour l'envoi de messages, et les boutons **Créer un segment** et **Créer une Campaign** seront désactivés. Pour acheter cette fonctionnalité, contactez votre gestionnaire de compte.
 {% endalert %}
 
 ## Implémenter des filtres {#filters}
 
-Une fois que vous avez déterminé la fourchette du _score de risque d'attrition_ ou la catégorie que vous souhaitez cibler, vous pouvez utiliser les boutons **Créer un segment** ou **Créer une campagne** pour créer un nouveau segment ou une nouvelle campagne qui filtre les utilisateurs présentant le _score de risque d'attrition_ ou la catégorie sélectionnés à l'aide du curseur.
+Une fois que vous avez déterminé la fourchette du _score de risque d'attrition_ ou la catégorie que vous souhaitez cibler, vous pouvez utiliser les boutons **Créer un segment** ou **Créer une Campaign** pour créer un nouveau segment ou une nouvelle Campaign qui filtre les utilisateurs présentant le _score de risque d'attrition_ ou la catégorie sélectionnés à l'aide du curseur.
 
-Vous pouvez également utiliser des filtres dans des campagnes ou des segments pour cibler les utilisateurs en fonction de ce seuil. Vous pouvez filtrer les utilisateurs par « Score d'attrition » ou « Catégorie d'attrition » dans les campagnes, les Canvas et les segments, tout comme vous utilisez n'importe quel autre filtre dans Braze.
+Vous pouvez également utiliser des filtres dans des Campaigns ou des segments pour cibler les utilisateurs en fonction de ce seuil. Vous pouvez filtrer les utilisateurs par « Score d'attrition » ou « Catégorie d'attrition » dans les Campaigns, les Canvas et les segments, tout comme vous utilisez n'importe quel autre filtre dans Braze.
 
 ![Les filtres d'attrition disponibles lors de la définition d'une audience comprennent la catégorie de probabilité d'achat et le score de probabilité d'achat.]({% image_buster /assets/img_archive/predictive_churn_filters.png %})
 
 ## Considérations stratégiques {#strategic-considerations}
 
-Maintenant que vous avez identifié et sélectionné le groupe d'utilisateurs à risque d'attrition qui, selon vous, ont besoin d'incitations ou d'une nouvelle série de messages pour rester actifs et engagés, que faire ? Devez-vous simplement les ajouter de manière proactive à votre série actuelle d'utilisateurs passifs ? Ou devez-vous créer une toute nouvelle série de Canvas et de campagnes ?
+Maintenant que vous avez identifié et sélectionné le groupe d'utilisateurs à risque d'attrition qui, selon vous, ont besoin d'incitations ou d'une nouvelle série de messages pour rester actifs et engagés, que faire ? Devez-vous simplement les ajouter de manière proactive à votre série actuelle d'utilisateurs passifs ? Ou devez-vous créer une toute nouvelle série de Canvas et de Campaigns ?
 
 **Voici quelques idées à prendre en considération :**
 

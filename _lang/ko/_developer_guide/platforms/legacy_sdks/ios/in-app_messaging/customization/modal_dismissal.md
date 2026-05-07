@@ -13,7 +13,7 @@ noindex: true
 
 # 바깥쪽 탭으로 모달 닫기 {#dismiss-modal-on-outside-tap}
 
-기본값은 `NO`입니다. 사용자가 인앱 메시지 외부를 탭할 때 모달 인앱 메시지를 해제할지 여부를 결정합니다.
+기본값은 `NO`입니다. 사용자가 In-App Messages 외부를 탭할 때 모달 In-App Messages를 해제할지 여부를 결정합니다.
 
 외부 탭 해제를 활성화하려면 `Info.plist` 파일에 `Braze`라는 사전을 추가합니다. 다음 코드 스니펫과 같이 `Braze` 사전 내에 `DismissModalOnOutsideTap` 부울 하위 항목을 추가하고 값을 `YES`로 설정합니다. Braze iOS SDK v4.0.2 이전 버전에서는 `Braze` 대신 `Appboy` 사전 키를 사용해야 합니다.
 
@@ -29,6 +29,6 @@ noindex: true
 
 | `DismissModalOnOutsideTap` | 설명 |
 |----------|-------------|
-| `YES`       | 외부를 탭하면 모달 인앱 메시지가 해제됩니다.     |
-| `NO`        | 기본값으로, 외부를 탭해도 모달 인앱 메시지는 해제되지 않습니다. |
+| `YES`       | 외부를 탭하면 모달 In-App Messages가 해제됩니다.     |
+| `NO`        | 기본값으로, 외부를 탭해도 모달 In-App Messages는 해제되지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

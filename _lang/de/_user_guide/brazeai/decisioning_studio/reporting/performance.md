@@ -28,10 +28,10 @@ Oben im Dashboard wählen Sie:
 - **Datumsbereich:** Der Zeitraum für den Bericht.
 - **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Business as Usual).
 - **Aggregation:** Die Chart-Aggregationseinstellung (Täglich, 7-Tage-Durchschnitt oder 30-Tage-Durchschnitt).
-- **Segmente:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
+- **Segments:** Alle angewendeten Segments. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
 - **Timeline-Events:** Ob konfigurierte Timeline-Events im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
 
-![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segmente und Timeline-Events oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
+![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segments und Timeline-Events oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
 
 Diese Auswahl bestimmt, welche Tage einbezogen werden, welche Gruppen verglichen werden, wie die Trendlinie geglättet wird und welche Population Sie betrachten.
 
@@ -107,9 +107,9 @@ Treiberbäume verwenden dieselben KPI-Definitionen wie der Rest des Dashboards u
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie funktionieren Segmente? {#how-do-segments-work}
+### Wie funktionieren Segments? {#how-do-segments-work}
 
-Segmente ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
+Segments ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
 
 Die Segmentzugehörigkeit wird individuell für Ihren Anwendungsfall konfiguriert und täglich berechnet. Das bedeutet, dass das vergangene Segment einer Kund:in widerspiegelt, wer sie an diesem Tag war. Wenn sich ihr Verhalten später ändert, bleiben historische Tage unverändert. Dies bewahrt die historische Genauigkeit und verhindert, dass sich Berichte rückwirkend verschieben.
 
@@ -130,7 +130,7 @@ KPIs fallen typischerweise in zwei Kategorien:
 - **Volumenmetriken** (wie Gesamt-Conversions, Gesamtumsatz oder Gesamtklicks) beantworten: „Wie viel ist passiert?“
 - **Ratenmetriken** (wie Konversionsrate, Umsatz pro Nutzer:in oder Click-through-Rate) beantworten: „Wie effizient ist es passiert?“
 
-Volumen und Rate erzählen unterschiedliche Geschichten. Eine Kampagne kann ein höheres Volumen, aber eine geringere Effizienz erzielen – oder umgekehrt. Wenn Sie Ergebnisse interpretieren, prüfen Sie immer, welche Art von KPI Sie betrachten.
+Volumen und Rate erzählen unterschiedliche Geschichten. Eine Campaign kann ein höheres Volumen, aber eine geringere Effizienz erzielen – oder umgekehrt. Wenn Sie Ergebnisse interpretieren, prüfen Sie immer, welche Art von KPI Sie betrachten.
 
 ### Was bedeutet „eindeutig“ (oder „distinct“)? {#what-does-unique-or-distinct-mean}
 

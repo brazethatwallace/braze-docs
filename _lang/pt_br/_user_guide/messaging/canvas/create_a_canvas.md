@@ -92,7 +92,7 @@ Você pode escolher uma das três formas pelas quais os usuários podem entrar n
 
 {% tabs local %}
   {% tab Scheduled Delivery %}
-    Com a entrega agendada, os usuários entrarão em um cronograma de tempo, de forma semelhante a como você agendaria uma campanha. Você pode inscrever usuários em um Canvas assim que ele for lançado, inseri-los na jornada em algum momento no futuro ou de forma recorrente (diária, semanal ou mensal).
+    Com a entrega agendada, os usuários entrarão em um cronograma de tempo, de forma semelhante a como você agendaria uma Campaign. Você pode inscrever usuários em um Canvas assim que ele for lançado, inseri-los na jornada em algum momento no futuro ou de forma recorrente (diária, semanal ou mensal).
 
    Se você selecionar um cronograma recorrente mensal, observe que alguns meses podem não ter o dia selecionado. Por exemplo, digamos que você configure um Canvas para enviar mensalmente no dia 31. Nesse cenário, a Braze envia no último dia daquele mês, como 30 de abril, porque 31 de abril não existe.
 
@@ -231,9 +231,9 @@ Por padrão, a atribuição de variante do Canvas é fixada quando os usuários 
 {% details Expandir para ver as etapas %}
 
 1. Crie um atributo personalizado para armazenar seu número aleatório. Dê um nome fácil de localizar, como "lottery_number" ou "random_assignment". Você pode criar o atributo [no dashboard]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) ou por meio de chamadas de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).<br><br>
-2. Crie uma campanha de webhook no início do seu Canvas. Essa campanha será o meio pelo qual você criará seu número aleatório e o armazenará como um atributo personalizado. Consulte [Criar um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) para mais informações. Defina a URL para o endpoint `/users/track`.<br><br>
-3. Crie o gerador de números aleatórios. Você pode fazer isso com o código [descrito aqui](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), que aproveita o horário único de entrada de cada usuário para criar um número aleatório. Defina o número resultante como uma variável Liquid dentro da sua campanha de webhook.<br><br>
-4. Formate a chamada `/users/track` na sua campanha de webhook para que ela defina o atributo personalizado criado na etapa 1 com o número aleatório gerado no perfil do usuário atual. Quando essa etapa for executada, você terá criado com sucesso um número aleatório que muda a cada vez que um usuário entra na sua campanha.<br><br>
+2. Crie uma Campaign de webhook no início do seu Canvas. Essa Campaign será o meio pelo qual você criará seu número aleatório e o armazenará como um atributo personalizado. Consulte [Criar um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) para mais informações. Defina a URL para o endpoint `/users/track`.<br><br>
+3. Crie o gerador de números aleatórios. Você pode fazer isso com o código [descrito aqui](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), que aproveita o horário único de entrada de cada usuário para criar um número aleatório. Defina o número resultante como uma variável Liquid dentro da sua Campaign de webhook.<br><br>
+4. Formate a chamada `/users/track` na sua Campaign de webhook para que ela defina o atributo personalizado criado na etapa 1 com o número aleatório gerado no perfil do usuário atual. Quando essa etapa for executada, você terá criado com sucesso um número aleatório que muda a cada vez que um usuário entra na sua Campaign.<br><br>
 5. Ajuste as ramificações do seu Canvas para que, em vez de serem divididas por variantes escolhidas aleatoriamente, sejam divididas com base em regras de público. Nas regras de público de cada ramificação, defina o filtro de público de acordo com seu atributo personalizado. <br><br>Por exemplo, uma ramificação pode ter "lottery_number é menor que 3" como filtro de público, enquanto outra ramificação pode ter "lottery_number é maior que 3 e menor que 6" como filtro de público.
 
 {% enddetails %}

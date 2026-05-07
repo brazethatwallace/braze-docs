@@ -52,7 +52,7 @@ Não se esqueça de informar aos desenvolvedores quais canais você quer usar pa
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-Você pode usar a Braze para criar campanhas de envio de mensagens acessíveis em cada canal. Trabalhe com seus desenvolvedores para garantir que você atenda aos padrões de acessibilidade em sua implementação.
+Você pode usar a Braze para criar Campaigns de envio de mensagens acessíveis em cada canal. Trabalhe com seus desenvolvedores para garantir que você atenda aos padrões de acessibilidade em sua implementação.
 {% endalert %}
 
 ### Etapa 3: Eles configuram seus dados {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ A Braze é versátil. Não se trata apenas de enviar e-mails ou push. Trata-se d
 
 Então, o que você precisa fazer para obter essas informações?
 
-1. Trabalhe com sua equipe de marketing para definir campanhas, metas, atributos e eventos que precisam ser rastreados. Defina esses casos de uso e compartilhe-os com suas equipes.
+1. Trabalhe com sua equipe de marketing para definir Campaigns, metas, atributos e eventos que precisam ser rastreados. Defina esses casos de uso e compartilhe-os com suas equipes.
 2. Defina seus requisitos de dados personalizados ([atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), etc.).
 3. A partir daí, discuta como esses dados devem ser rastreados (disparados por meio do SDK, etc.).
 4. Defina quantos [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/) você precisa. Seus engenheiros precisarão saber como [testar e configurar]({{site.baseurl}}/user_guide/get_started/workspaces/) esses espaços de trabalho.

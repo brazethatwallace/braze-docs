@@ -69,7 +69,7 @@ Im Folgenden finden Sie alle wichtigen Elemente, die innerhalb eines Workspace k
 - [Unternehmensnutzer:innen-Berechtigungen](#company-user-permissions) (jedoch nicht die Unternehmensnutzer:innen selbst)
 - [Currents-Konnektoren](#currents-connectors)
 - [Nutzerprofile](#user-profiles) und die zugehörigen Nutzerdaten
-- [Segmente, Campaigns und Canvases](#segments-campaigns-and-canvases)
+- [Segments, Campaigns und Canvases](#segments-campaigns-and-canvases)
 
 #### App-Instanzen {#app-instances}
 
@@ -95,7 +95,7 @@ Wenn Sie beispielsweise getrennte Workspaces für die Entwicklungs- und die Prod
 
 Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für die Fehlerbehebung und das Testen, da Sie einfach auf Informationen zur Engagement-Historie, Segmentzugehörigkeit, zum Gerät und zum Betriebssystem zugreifen können.
 
-#### Segmente, Campaigns und Canvases {#segments-campaigns-and-canvases}
+#### Segments, Campaigns und Canvases {#segments-campaigns-and-canvases}
 
 Ein Segment, eine Campaign oder ein Canvas kann nicht auf Daten zugreifen oder diese referenzieren, die sich in einem anderen Workspace befinden. Befinden sich dagegen mehrere Apps im selben Workspace, werden die Daten aller Apps zusammengefasst. Dies hat [Auswirkungen auf die Filter in Braze](#impact-on-segmentation-filters).
 
@@ -171,7 +171,7 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
         <td>Der sicherste Weg, um die Kommunikation zu trennen. Campaigns sind garantiert nur auf bestimmte Nutzerprofile ausgerichtet.</td>
         <td>Sie können keine Cross-Promotion-Nachrichten senden, auch wenn Sie wissen, dass eine Nutzerin oder ein Nutzer ein anderes Nutzerprofil in einem anderen Workspace hat.</td>
         <td>Sie können Cross-Promotion-Nachrichten senden, wenn Sie wissen, dass eine Person mehrere Apps in Ihrem Workspace nutzt.<br><br>Sie können Nutzerdaten aus verschiedenen Apps referenzieren. Zum Beispiel hat John ein Attribut X, das für App 1 relevant ist, und ein Attribut Y, das für App 2 relevant ist – beide können in einer Campaign referenziert werden.</td>
-        <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App-Nachrichten zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> gegenüber <code>app_2_action</code>.</td>
+        <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App Messages zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> gegenüber <code>app_2_action</code>.</td>
     </tr>
     <tr>
         <td>Angepasste Events und Attribute</td>
@@ -204,8 +204,8 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
     <tr>
         <td>Duplizieren von Inhalten</td>
         <td>N/A</td>
-        <td>Segmente, Push- oder Content-Card-Campaigns oder Canvases können nicht über Workspaces hinweg dupliziert werden.</td>
-        <td>Campaigns können für die folgenden unterstützten Kanäle <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>über Workspaces hinweg dupliziert werden</a>: SMS, In-App-Nachrichten, E-Mail, E-Mail-Templates und Content Blocks. <br><br>Sie können Segmente, Campaigns und Canvases duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
+        <td>Segments, Push- oder Content-Card-Campaigns oder Canvases können nicht über Workspaces hinweg dupliziert werden.</td>
+        <td>Campaigns können für die folgenden unterstützten Kanäle <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>über Workspaces hinweg dupliziert werden</a>: SMS, In-App Messages, E-Mail, E-Mail-Templates und Content Blocks. <br><br>Sie können Segments, Campaigns und Canvases duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
         <td>N/A</td>
     </tr>
     <tr>

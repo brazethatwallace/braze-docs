@@ -48,7 +48,7 @@ Les filtres prédictifs peuvent être combinés avec n'importe quel autre attrib
 
 Maintenant que Jordan dispose de signaux clairs indiquant une intention de mise à niveau et de sous-groupes affinés en fonction du comportement des utilisateurs, il élabore une stratégie d'envoi de messages qui s'adapte aux besoins de chaque utilisateur. Fini les envois standardisés.
 
-Il choisit l'e-mail comme canal principal pour cette campagne. Pourquoi ? Parce que Jordan souhaite expliquer la valeur ajoutée de Pro aux utilisateurs ayant une forte intention et convaincre les utilisateurs plus hésitants, ce qui nécessite de l'espace, des visuels et un appel à l'action percutant. L'e-mail lui offre la flexibilité nécessaire pour y parvenir sans exercer de pression sur les utilisateurs, et lui permet de suivre les performances grâce au comportement des clics.
+Il choisit l'e-mail comme canal principal pour cette Campaign. Pourquoi ? Parce que Jordan souhaite expliquer la valeur ajoutée de Pro aux utilisateurs ayant une forte intention et convaincre les utilisateurs plus hésitants, ce qui nécessite de l'espace, des visuels et un appel à l'action percutant. L'e-mail lui offre la flexibilité nécessaire pour y parvenir sans exercer de pression sur les utilisateurs, et lui permet de suivre les performances grâce au comportement des clics.
 
 Jordan [crée un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) qui divise l'expérience en fonction des segments qu'il vient de créer. Il ajoute une étape Parcours d'audience pour cibler :
 
@@ -106,7 +106,7 @@ Ces utilisateurs présentent un engagement global minimal. Il est peu probable q
 
 ## Étape 4 : mesurer les résultats et optimiser votre stratégie {#step-4-measure-results-and-optimize-your-strategy}
 
-Une fois la campagne terminée, Jordan examine les performances dans [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) afin de comprendre l'efficacité des parcours personnalisés et de déterminer si la combinaison de l'intention prédictive et des signaux comportementaux a amélioré les taux de mise à niveau.
+Une fois la Campaign terminée, Jordan examine les performances dans [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) afin de comprendre l'efficacité des parcours personnalisés et de déterminer si la combinaison de l'intention prédictive et des signaux comportementaux a amélioré les taux de mise à niveau.
 
 Performances des e-mails par parcours :
 
@@ -131,7 +131,7 @@ Performances des e-mails par parcours :
    - *Taux de conversion :* 6 %
    - Offre de réduction de 50 % incluse
 
-Par rapport à la campagne précédente de l'équipe, qui était uniforme (une remise générale après 7 jours n'avait généré que 5 % de conversions et un excès d'envoi de messages), l'approche ciblée montre une amélioration significative dans tous les groupes, avec une efficacité accrue et moins de remises inutiles.
+Par rapport à la Campaign précédente de l'équipe, qui était uniforme (une remise générale après 7 jours n'avait généré que 5 % de conversions et un excès d'envoi de messages), l'approche ciblée montre une amélioration significative dans tous les groupes, avec une efficacité accrue et moins de remises inutiles.
 
 Le [rapport d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) montre également une nette réduction du taux d'abandon à chaque étape clé, en particulier chez les utilisateurs ayant une faible intention qui ont reçu des messages personnalisés. De plus en plus d'utilisateurs ouvrent, cliquent et effectuent des mises à niveau, ce qui démontre la valeur du ciblage basé sur l'intention.
 

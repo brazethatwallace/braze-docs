@@ -37,15 +37,15 @@ Amplitude et Braze proposent deux méthodes d'intégration différentes. Consult
 
 | Condition | Description |
 | ----------- | ----------- |
-| Clé API REST de Braze | Une clé API REST de Braze avec toutes les autorisations.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Endpoint REST de Braze | [L'URL de votre endpoint REST][1]. Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+| Braze REST API key | Une clé **Braze REST API** avec toutes les autorisations.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Braze REST endpoint | [L’URL de votre endpoint **Braze REST API**][1]. Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Identifiant de l'application Braze | L'identifiant de l'application qui recevra les événements Amplitude. Vous trouverez cette information dans le **tableau de bord de Braze > Developer Console > Settings**. |
 
 ### Configuration d'Amplitude {#amplitude-setup}
 
 1. Dans Amplitude, accédez à **Data Destinations**, puis recherchez « Braze - Event Stream ».
 2. Saisissez un nom de synchronisation, puis cliquez sur **Create Sync**.
-3. Cliquez sur **Edit** et indiquez votre endpoint de l'API REST de Braze, votre clé API REST et l'identifiant de l'application Braze.
+3. Cliquez sur **Edit** et indiquez votre endpoint **Braze REST API**, votre clé **REST API** et l'identifiant de l'application Braze.
 4. Utilisez le filtre d'envoi d'événements pour sélectionner les événements à envoyer. Vous pouvez envoyer tous les événements, mais Amplitude recommande de choisir les plus importants.
 5. Lorsque vous avez terminé, activez la destination et enregistrez.
 

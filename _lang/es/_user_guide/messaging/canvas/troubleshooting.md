@@ -23,7 +23,7 @@ Si el evento personalizado aparece, continúa con la solución de problemas haci
 - Si hay un retraso planificado, comprueba si el evento personalizado del usuario se desencadenó antes del retraso. Si el evento se desencadenó antes del retraso, no habría recibido el paso en Canvas.
 
 {% alert note %}
-Los mensajes dentro de la aplicación solo pueden ser desencadenados por eventos enviados a través del SDK, no de la REST API.
+Las **In-App Messages** solo pueden desencadenarse con eventos enviados a través del SDK, no de la Braze REST API.
 {% endalert %}
 
 ## ¿Por qué mi Canvas no se envía como se esperaba? {#why-isnt-my-canvas-sending-as-expected}
@@ -60,7 +60,7 @@ El número de mensajes enviados o entregados a menudo difiere de la audiencia es
 - **Elegibilidad del canal:** Es posible que a los usuarios les falten direcciones de correo electrónico, tokens de notificaciones push o el estado de suscripción requerido para ese canal en ese paso.
 - **Grupos de control:** Un grupo de control global o de Canvas puede excluir a usuarios de la mensajería.
 - **Horas tranquilas, Intelligent Timing y límites de velocidad:** Estas configuraciones pueden diferir o suprimir envíos.
-- **Pasos de mensajes dentro de la aplicación:** Los mensajes dentro de la aplicación pueden mostrar cero _Envíos_ mientras existen impresiones. Esto es esperado porque la entrega dentro de la aplicación funciona de manera diferente a las notificaciones push o el correo electrónico. Consulta [¿Por qué un Canvas puede mostrar cero envíos aunque se registren impresiones?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) en las preguntas frecuentes de Canvas.
+- **Pasos de In-App Messages:** Las **In-App Messages** pueden mostrar cero _Envíos_ mientras existen impresiones. Esto es esperado porque la entrega de **In-App Messages** funciona de manera diferente a las notificaciones push o el correo electrónico. Consulta [¿Por qué un Canvas puede mostrar cero envíos aunque se registren impresiones?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) en las preguntas frecuentes de Canvas.
 
 Para correo electrónico y otros canales, aplican muchos de los mismos factores que para las Campaigns. Para una lista detallada, consulta [¿Por qué los envíos son menores que el tamaño estimado de la audiencia?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 

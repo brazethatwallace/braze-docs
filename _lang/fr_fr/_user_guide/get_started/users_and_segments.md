@@ -9,7 +9,7 @@ description: "Cet article donne un aperçu des utilisateurs et des segments, en 
 
 # Pour commencer : Utilisateurs et segments {#get-started-users-and-segments}
 
-> Comprendre vos utilisateurs et les cibler efficacement est crucial pour envoyer des campagnes marketing personnalisées et ciblées. Cet article donne un aperçu des utilisateurs et des segments, en soulignant leur importance et la façon dont vous pouvez les exploiter pour engager votre audience.
+> Comprendre vos utilisateurs et les cibler efficacement est crucial pour envoyer des Campaigns marketing personnalisées et ciblées. Cet article donne un aperçu des utilisateurs et des segments, en soulignant leur importance et la façon dont vous pouvez les exploiter pour engager votre audience.
 
 ## Utilisateurs {#users}
 
@@ -103,9 +103,9 @@ Les événements personnalisés vous donnent la possibilité de suivre les actio
 
 ### Points de données {#data-points}
 
-Braze utilise des points de données pour vous aider à définir les informations les plus impactantes pour votre entreprise. Les points de données constituent un élément crucial du fonctionnement de Braze et sont utilisés pour la facturation, la tarification et, surtout, la personnalisation et l'optimisation de vos campagnes marketing.
+Braze utilise des points de données pour vous aider à définir les informations les plus impactantes pour votre entreprise. Les points de données constituent un élément crucial du fonctionnement de Braze et sont utilisés pour la facturation, la tarification et, surtout, la personnalisation et l'optimisation de vos Campaigns marketing.
 
-Les points de données sont consommés lorsque les données de profil d'un utilisateur sont mises à jour ou lorsqu'il effectue des actions spécifiques. Ces actions peuvent inclure le démarrage d'une session, la fin d'une session, l'enregistrement d'un événement personnalisé ou la réalisation d'un achat. Il est important de noter que toutes les données collectées par Braze ne comptent pas comme des points de données. Par exemple, les données et les événements collectés par défaut par les services Braze, tels que les jetons de notification push, les informations sur les appareils et tous les événements de suivi de l'engagement des campagnes, comme les ouvertures d'e-mail et les clics sur les notifications push, ne sont pas comptabilisés en tant que points de données.
+Les points de données sont consommés lorsque les données de profil d'un utilisateur sont mises à jour ou lorsqu'il effectue des actions spécifiques. Ces actions peuvent inclure le démarrage d'une session, la fin d'une session, l'enregistrement d'un événement personnalisé ou la réalisation d'un achat. Il est important de noter que toutes les données collectées par Braze ne comptent pas comme des points de données. Par exemple, les données et les événements collectés par défaut par les services Braze, tels que les jetons de notification push, les informations sur les appareils et tous les événements de suivi de l'engagement des Campaigns, comme les ouvertures d'e-mail et les clics sur les notifications push, ne sont pas comptabilisés en tant que points de données.
 
 En réfléchissant bien aux informations à suivre en tant que points de données, vous ciblez les données ayant le plus d'impact sur l'expérience de vos utilisateurs. Votre gestionnaire de compte Braze vous aidera à recommander les meilleures pratiques en matière de données en fonction de vos besoins.
 
@@ -132,6 +132,6 @@ Vous pouvez créer un segment d'utilisateurs qui ont déclenché l'événement p
 
 ![]({% image_buster /assets/img/getting_started/segment_example_breakdown.png %})
 
-Ce segment pourrait être ciblé par une campagne plus agressive pour tenter de convertir ces utilisateurs en acheteurs. Par exemple, vous pouvez leur envoyer une offre spéciale ou une recommandation personnalisée en fonction des articles de leur panier.
+Ce segment pourrait être ciblé par une Campaign plus agressive pour tenter de convertir ces utilisateurs en acheteurs. Par exemple, vous pouvez leur envoyer une offre spéciale ou une recommandation personnalisée en fonction des articles de leur panier.
 
 Ce n'est qu'un exemple de la façon dont vous pouvez utiliser les actions et inactions des utilisateurs, les événements personnalisés et les données d'engagement pour créer des segments et adapter vos stratégies marketing dans Braze.

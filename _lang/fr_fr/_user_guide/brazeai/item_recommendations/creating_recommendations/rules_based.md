@@ -90,7 +90,7 @@ Pour créer votre moteur de recommandation à l'aide d'un catalogue :
 
 ### Exemple {#example}
 
-Imaginons que vous ayez une application de produits diététiques et que vous souhaitiez créer une campagne de cartes de contenu qui envoie différentes recettes en fonction de la durée d'inscription d'un utilisateur à votre application. Tout d'abord, créez et téléchargez un catalogue à l'aide d'un fichier CSV comprenant les informations suivantes :
+Imaginons que vous ayez une application de produits diététiques et que vous souhaitiez créer une Campaign de cartes de contenu qui envoie différentes recettes en fonction de la durée d'inscription d'un utilisateur à votre application. Tout d'abord, créez et téléchargez un catalogue à l'aide d'un fichier CSV comprenant les informations suivantes :
 
 | Champ | Description |
 |-----|-----------|
@@ -105,7 +105,7 @@ Une fois le catalogue chargé dans Braze, vérifiez l'aperçu d'une série de pr
 
 ![Exemple de catalogue dans Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-Créez une campagne de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
+Créez une Campaign de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la Campaign, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,7 +154,7 @@ Créez une campagne de cartes de contenu. Dans le compositeur, saisissez la logi
 
 Par exemple :
 
-![Exemple de compositeur de message issu d'une campagne de cartes de contenu.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Exemple de compositeur de message issu d'une Campaign de cartes de contenu.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 Dans la section **On click behavior**, saisissez la logique Liquid pour déterminer où les utilisateurs doivent être redirigés lorsqu'ils cliquent sur la carte de contenu sur les appareils iOS, Android et Web.
 
