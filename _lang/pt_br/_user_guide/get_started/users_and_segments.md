@@ -7,9 +7,9 @@ description: "Este artigo fornece uma visão geral dos usuários e segmentos, de
 
 ---
 
-# Primeiros passos: Usuários e segmentos {#get-started-users-and-segments}
+# Primeiros passos: Usuários e **Segments** {#get-started-users-and-segments}
 
-> Compreender seus usuários e direcioná-los de forma eficaz é crucial para enviar Campaigns de marketing personalizadas e direcionadas. Este artigo fornece uma visão geral dos usuários e segmentos, destacando sua importância e como você pode aproveitá-los para engajar seu público.
+> Compreender seus usuários e direcioná-los de forma eficaz é crucial para enviar **Campaigns** de marketing personalizadas e direcionadas. Este artigo fornece uma visão geral dos usuários e **Segments**, destacando sua importância e como você pode aproveitá-los para engajar seu público.
 
 ## Usuários {#users}
 
@@ -24,11 +24,11 @@ Ao entender os perfis de usuário, você pode obter insights sobre seu público 
 - [Eventos](#events)**:** São ações que o usuário realiza, como fazer uma compra, clicar em um link ou abrir um app. A Braze rastreia esses eventos para ajudar você a entender o comportamento e o engajamento do usuário. Assim como os atributos, você também pode usar eventos para segmentar e personalizar.
 - **Compras:** Esta seção registra o histórico de compras do usuário. É crucial para entender os hábitos e preferências de compra do usuário.
 - **Dispositivos:** Esta seção lista os dispositivos que o usuário usou para interagir com sua marca. Pode incluir dispositivos móveis, navegadores web e dispositivos conectados (como wearables e smart TVs).
-- **Engajamento:** Esta seção contém informações sobre as interações do usuário com as mensagens que você envia, a quais segmentos ele pertence, status de inscrição e mais.
+- **Engajamento:** Esta seção contém informações sobre as interações do usuário com as mensagens que você envia, a quais **Segments** ele pertence, status de inscrição e mais.
 - **Histórico de mensagens:** Este é um registro de todas as mensagens que foram enviadas ao usuário pelo respectivo canal de envio de mensagens (como e-mail ou push).
 
 {% alert tip %}
-Os SDKs da plataforma Braze coletam automaticamente 27 atributos e eventos diferentes. Usando esses eventos e atributos padrão, você pode criar segmentos assim que integrar o SDK.
+Os SDKs da plataforma Braze coletam automaticamente 27 atributos e eventos diferentes. Usando esses eventos e atributos padrão, você pode criar **Segments** assim que integrar o SDK.
 {% endalert %}
 
 ### Atributos {#attributes}
@@ -111,16 +111,16 @@ Ao considerar cuidadosamente quais informações rastrear como pontos de dados, 
 
 Acesse nosso artigo dedicado para saber mais sobre [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 
-## Segmentos {#segments}
+## **Segments** {#segments}
 
 A [segmentação]({{site.baseurl}}/user_guide/audience/segments/) permite que você direcione os usuários com base em suas características e ações demográficas, comportamentais, sociais ou técnicas (ou seja, atributos e eventos). O uso criativo e inteligente da segmentação e automação de envio de mensagens permite que você mova seus usuários de forma contínua ao longo de sua jornada de ciclo de vida do cliente.
 
-Dicas para trabalhar com segmentos:
+Dicas para trabalhar com **Segments**:
 
-- Os segmentos na Braze são dinâmicos: os usuários estão sempre entrando e saindo dos segmentos, pois nem sempre se encaixam nos critérios. Os usuários que se enquadram nos critérios de um segmento no momento do envio serão os destinatários dessa Campaign ou Canvas.
-    - Se você quiser que seu segmento seja estático, você pode usar extensões de segmento. Extensões de segmento (com [regeneração desativada]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#extension-regeneration) representam seu público como uma única captura no tempo.
-- Você não está limitado a usar apenas um filtro por vez. Crie segmentos granulares e bem ajustados, sobrepondo vários filtros uns sobre os outros.
-- Você pode usar as ações ou inações de seus usuários para entender como alcançá-los onde eles desejam interagir com você. Essas ações podem ser eventos personalizados, engajamento com uma Campaign ou Canvas existente, ou até mesmo uma mensagem específica dentro de um Canvas.
+- Os **Segments** na Braze são dinâmicos: os usuários estão sempre entrando e saindo dos **Segments**, pois nem sempre se encaixam nos critérios. Os usuários que se enquadram nos critérios de um **Segment** no momento do envio serão os destinatários dessa **Campaign** ou **Canvas**.
+    - Se você quiser que seu **Segment** seja estático, você pode usar **Segment Extensions**. **Segment Extensions** (com [regeneração desativada]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#extension-regeneration)) representam seu público como uma única captura no tempo.
+- Você não está limitado a usar apenas um filtro por vez. Crie **Segments** granulares e bem ajustados, sobrepondo vários filtros uns sobre os outros.
+- Você pode usar as ações ou inações de seus usuários para entender como alcançá-los onde eles desejam interagir com você. Essas ações podem ser eventos personalizados, engajamento com uma **Campaign** ou **Canvas** existente, ou até mesmo uma mensagem específica dentro de um **Canvas**.
 
 ### Caso de uso {#use-case}
 
@@ -128,10 +128,10 @@ Suponha que você administre uma loja de roupas online e tenha configurado um fl
 
 ![]({% image_buster /assets/img/getting_started/segment_example.png %}){: style="max-width:70%" }
 
-Você pode criar um segmento de usuários que acionaram o evento personalizado "Adicionou item ao carrinho", mas não acionaram o evento personalizado "Compra concluída". Em seguida, dentro desse segmento, você pode identificar ainda mais os usuários que abriram o e-mail de lembrete inicial (engajamento com uma mensagem específica), mas não fizeram uma compra.
+Você pode criar um **Segment** de usuários que acionaram o evento personalizado "Adicionou item ao carrinho", mas não acionaram o evento personalizado "Compra concluída". Em seguida, dentro desse **Segment**, você pode identificar ainda mais os usuários que abriram o e-mail de lembrete inicial (engajamento com uma mensagem específica), mas não fizeram uma compra.
 
 ![]({% image_buster /assets/img/getting_started/segment_example_breakdown.png %})
 
-Esse segmento poderia ser alvo de uma Campaign mais agressiva para tentar converter esses usuários em compradores. Por exemplo, você pode enviar a eles uma oferta especial ou uma recomendação personalizada com base nos itens em seu carrinho.
+Esse **Segment** poderia ser alvo de uma **Campaign** mais agressiva para tentar converter esses usuários em compradores. Por exemplo, você pode enviar a eles uma oferta especial ou uma recomendação personalizada com base nos itens em seu carrinho.
 
-Este é apenas um exemplo de como você pode usar ações e inações de usuários, eventos personalizados e dados de engajamento para criar segmentos e adaptar suas estratégias de marketing na Braze.
+Este é apenas um exemplo de como você pode usar ações e inações de usuários, eventos personalizados e dados de engajamento para criar **Segments** e adaptar suas estratégias de marketing na Braze.
