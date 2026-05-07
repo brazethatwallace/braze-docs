@@ -34,7 +34,7 @@ Esse recurso permite que as marcas controlem quais dados primários específicos
 
 ## Pré-requisitos
 
-Certifique-se de que os itens a seguir tenham sido criados e concluídos antes de configurar a etapa do Google Audience no Canva.
+Certifique-se de que os itens a seguir tenham sido criados e concluídos antes de configurar a etapa do Google Audience no Canvas.
 
 | Requisito | Origin | Descrição |
 | ----------- | ------ | ----------- |
@@ -91,7 +91,7 @@ Após a sincronização com o Braze, as seguintes atribuições de consentimento
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-Em qualquer Canva em que esteja direcionando usuários finais do EEE, do Reino Unido e da Suíça usando o Google Audience Sync para adicionar usuários a um público, é necessário excluir esses usuários sempre que ambas as atribuições de consentimento tiverem qualquer valor que não seja `true`. Você pode fazer isso segmentando esses usuários quando os valores de consentimento estiverem definidos como `true`. Isso também garante que as análises de dados mais precisas dos usuários sejam sincronizadas, pois sabemos que o Google rejeitará esses usuários do público. Note que, se estiver usando o Google Audience Sync para remover usuários de um público, as atribuições de consentimento não serão necessárias.
+Em qualquer Canvas em que esteja direcionando usuários finais do EEE, do Reino Unido e da Suíça usando o Google Audience Sync para adicionar usuários a um público, é necessário excluir esses usuários sempre que ambas as atribuições de consentimento tiverem qualquer valor que não seja `true`. Você pode fazer isso segmentando esses usuários quando os valores de consentimento estiverem definidos como `true`. Isso também garante que as análises de dados mais precisas dos usuários sejam sincronizadas, pois sabemos que o Google rejeitará esses usuários do público. Note que, se estiver usando o Google Audience Sync para remover usuários de um público, as atribuições de consentimento não serão necessárias.
 
 ## Integração
 
@@ -117,11 +117,11 @@ Se você planeja exportar IDs do IDFA do iOS ou do Google Advertising em sua sin
 
 Se você tiver vários aplicativos em um único espaço de trabalho, poderá inserir qualquer ID de aplicativo na configuração, pois os IDs de anúncios para celular dos seus usuários serão os mesmos em vários aplicativos. Isso ocorre porque tanto o GAID do Android quanto o IDFA do iOS são identificadores de anúncios universais no dispositivo e não são específicos do app. Para sincronizar IDs de anúncios móveis para usuários de um aplicativo específico, é possível usar filtros de segmento ("Last Used Specific App" ou Most Recent App Version") para direcionamento a esses usuários.
 
-### Etapa 2: Adicionar uma etapa do Google Audience no Canva
+### Etapa 2: Adicionar uma etapa do Google Audience no Canvas
 
-Adicione um componente em seu Canva e selecione **Audience Sync**.
+Adicione um componente em seu Canvas e selecione **Audience Sync**.
 
-![O menu para selecionar um componente Canva no editor.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![A etapa Audience Sync adicionada à jornada do usuário.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![O menu para selecionar um componente Canvas no editor.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![A etapa Audience Sync adicionada à jornada do usuário.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Etapa 3: Configuração de sincronização
 
@@ -151,11 +151,11 @@ Adicione um componente em seu Canva e selecione **Audience Sync**.
 {: start="4"}
 4\. Em seguida, salve seu público selecionando o botão **Create Audience (Criar público** ) na parte inferior do editor de etapas.
 
-![Vista expandida do componente de Canva de Público Personalizado. Aqui, a conta de anúncios desejada é selecionada, um novo público é criado e a caixa de seleção "informações de contato do cliente" é marcada.]({% image_buster /assets/img/audience_sync/g_sync.png %})
+![Vista expandida do componente de Canvas de Público Personalizado. Aqui, a conta de anúncios desejada é selecionada, um novo público é criado e a caixa de seleção "informações de contato do cliente" é marcada.]({% image_buster /assets/img/audience_sync/g_sync.png %})
 
-Os usuários serão notificados no topo do editor de etapas se o público for criado com sucesso ou se ocorrerem erros durante este processo. Os usuários podem referenciar este público para remoção de usuários mais tarde na jornada do Canva porque o público foi criado no modo de rascunho. 
+Os usuários serão notificados no topo do editor de etapas se o público for criado com sucesso ou se ocorrerem erros durante este processo. Os usuários podem referenciar este público para remoção de usuários mais tarde na jornada do Canvas porque o público foi criado no modo de rascunho. 
 
-![Um alerta que aparece depois que um novo público é criado no componente Canva.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
+![Um alerta que aparece depois que um novo público é criado no componente Canvas.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
 
 Ao lançar um Canvas com um novo público, o Braze criará um novo público personalizado ao lançar o Canvas e, posteriormente, sincronizará os usuários quase em tempo real quando eles entrarem na etapa do Google Audience. 
 
@@ -172,7 +172,7 @@ A Braze também oferece a capacidade de adicionar ou remover usuários de listas
 3. O Braze adicionará ou removerá usuários quase em tempo real à medida que eles entrarem na etapa do público do Google. 
 4. Após configurar a etapa do público do Google, selecione **Concluído**. Sua etapa do Google Audience incluirá detalhes sobre o novo público.
 
-![Vista expandida do componente de Canva de Público Personalizado. Aqui, a conta de anúncios desejada e o público existente são selecionados, bem como o botão de rádio "Add user to Audience" (Adicionar usuário ao público).]({% image_buster /assets/img/audience_sync/g_sync2.png %})
+![Vista expandida do componente de Canvas de Público Personalizado. Aqui, a conta de anúncios desejada e o público existente são selecionados, bem como o botão de rádio "Add user to Audience" (Adicionar usuário ao público).]({% image_buster /assets/img/audience_sync/g_sync2.png %})
 
 {% endtab %}
 {% endtabs %}
