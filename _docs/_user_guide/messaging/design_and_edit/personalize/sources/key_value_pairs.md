@@ -162,7 +162,14 @@ Marketers should test that silent push notifications trigger expected behavior b
 Upon campaign launch, you should check that you have not received any visible push notification on your test device.
 
 {% alert note %}
-The iOS operating system may [gate notifications]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/silent_push_notifications/#ios-silent-notifications-limitations) for some features (uninstall tracking, geofences, and Push Stories). Note that if you are experiencing difficulties with these features, the iOS's silent notifications gate might be the cause.
+iOS silent-notification gating may cause the following symptoms:
+
+- Lower-than-expected uninstall tracking metrics for iOS users
+- Inconsistent or delayed delivery of silent push notifications
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) that don't display
+- Push Stories that arrive without their expected images, video, or pages
+
+This is an Apple platform limitation rather than a Braze issue. iOS may delay or drop background notifications for some Braze features, including uninstall tracking and Push Stories. For details on what iOS gates and when, see [iOS limitations]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#ios-limitations).
 {% endalert %}
 
 ## In-app messages
