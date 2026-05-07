@@ -56,7 +56,9 @@ window.braze.getUser().setGender("f")
 
 ### Unsetting default attributes
 
-To unset a default user attribute, pass `null` to the related method. For example:
+You can remove or unset a user attribute through your app code, a REST API request, or a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) Canvas step. For array and boolean attributes, use `null`. For other data types, use an empty string (`""`).
+
+To unset a default user attribute with the Web SDK, pass `null` to the related method. For example:
 
 {% tabs local %}
 {% tab First name %}
