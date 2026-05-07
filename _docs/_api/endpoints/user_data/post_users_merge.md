@@ -114,6 +114,10 @@ Only one of the following options may exist in the prioritization array at a tim
 - `identified` refers to prioritizing a user with an `external_id`
 - `unidentified` refers to prioritizing a user without an `external_id`
 
+{% alert important %}
+If both profiles have invalid phone numbers, Braze does not merge them. Invalid numbers are not stored in E.164 format, and the merge job does not combine those profiles. The endpoint still returns `202 Accepted` with a success message, so the HTTP response does not indicate that the merge was skipped. Correct the phone numbers on one or both profiles before merging.
+{% endalert %}
+
 ## Example requests
 
 ### Basic request
