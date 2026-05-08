@@ -6,13 +6,13 @@ description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 
 
 ---
 
-# Operator {#operators}
+# 연산자 {#operators}
 
-> Liquid는 조건문에서 사용할 수 있는 다양한 [연산자](https://docs.shopify.com/themes/liquid/basics/operators)를 지원합니다. 이 페이지에서는 Liquid가 지원하는 연산자를 다루고, 메시지에서 활용할 수 있는 활용 사례를 제공합니다.
+> Liquid는 조건문에서 사용할 수 있는 다양한 [연산자](https://docs.shopify.com/themes/liquid/basics/operators)를 지원합니다. 이 페이지에서는 Liquid가 지원하는 연산자를 다루고, 메시지에서 활용할 수 있는 사용 사례를 제공합니다.
 
 아래 표는 지원되는 연산자를 나열합니다. 괄호는 Liquid에서 유효하지 않은 문자이며 태그가 작동하지 않게 만들 수 있으므로 주의하세요.
 
-|   구문| 연산자 설명|
+| 구문 | 연산자 설명 |
 |---------|-----------|
 | ==  | 같음        |
 | !=  | 같지 않음|
@@ -26,7 +26,7 @@ description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-연산자는 조건문(`if`, `elsif`, `unless`)에서 사용할 수 있지만, `assign` 문, `for` 루프, `case`/`when` 문 또는 배열 접근 대괄호에서는 사용할 수 없습니다. 자세한 내용은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)를 참조하세요.
+연산자는 조건문(`if`, `elsif`, `unless`)에서 사용할 수 있지만, `assign` 문, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. `case`와 `when` 태그에서는 각 분기가 임의의 연산자 표현식 대신 동등 비교를 사용하여 `case` 표현식을 `when` 값과 비교합니다. 예제는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)을 참조하세요. 전체 분석은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)를 참조하세요.
 {% endalert %}
 
 ### 괄호 없이 조건 그룹화하기 {#grouping-conditions-without-parentheses}

@@ -18,7 +18,7 @@ channel:
 
 Braze는 여러 입력을 사용하여 비인간 상호작용(NHI)이라고도 하는 의심되는 봇 클릭을 식별하는 독자적인 감지 시스템을 보유하고 있습니다. 봇 클릭은 클릭률을 부풀려 참여 측정기준을 왜곡할 수 있습니다. 이를 필터링함으로써 Braze는 의사 결정을 위한 신뢰할 수 있는 데이터 수집을 지원합니다.
 
-Braze 시스템은 웹 크롤러, Android 및 iOS 링크 미리보기, CPaaS 보안 소프트웨어와 관련된 사용자 에이전트를 분석합니다. 필터링되는 사용자 에이전트의 몇 가지 예로는 `GoogleBot`, `python-requests/2.32.3`, `Barracuda Sentinel (EE)` 등이 있습니다.
+Braze 시스템은 웹 크롤러, Android 및 iOS 링크 미리보기, CPaaS 보안 소프트웨어와 관련된 사용자 에이전트를 분석합니다. 필터링되는 사용자 에이전트의 몇 가지 예로는 `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3`, `Barracuda Sentinel (EE)` 등이 있습니다.
 
 ## 영향을 받는 측정기준 및 워크플로 {#affected-metrics-and-workflows}
 

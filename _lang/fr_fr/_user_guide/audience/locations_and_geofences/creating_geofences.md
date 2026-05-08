@@ -46,7 +46,6 @@ Le tableau suivant décrit les termes courants liés aux géorepérages :
 
 Les campagnes déclenchées par géorepérage sont disponibles sur iOS et Android. Pour prendre en charge les géorepérages, les éléments suivants sont requis :
 
-* Votre intégration doit prendre en charge les notifications push en arrière-plan.
 * Les géorepérages Braze ou la collecte de localisation doivent être activés.
 * L'utilisateur doit accorder l'accès à la localisation « Toujours autoriser ».
 
@@ -150,7 +149,7 @@ Dans les deux cas, rappelez aux utilisateurs de garder la **Localisation précis
 
 Si un utilisateur a précédemment refusé l'accès à la localisation ou sélectionné une autorisation limitée, vous ne pouvez pas déclencher à nouveau l'invite native depuis l'application sur la plupart des versions du système d'exploitation. Au lieu de cela, dirigez-les vers la mise à jour de leurs autorisations dans les paramètres de l'appareil.
 
-Utilisez un lien profond dans un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) personnalisé pour diriger l'utilisateur vers la page des paramètres de localisation de l'application dans le système d'exploitation. Votre équipe de développement peut configurer un lien profond à cet effet dans le cadre de la gestion des autorisations de localisation de votre application (consultez l'[Étape 1](#step-1-work-with-your-development-team)).
+Utilisez un lien profond dans un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) personnalisé pour diriger l'utilisateur vers la page des paramètres de localisation de l'application dans le système d'exploitation. Votre équipe de développement peut configurer un lien profond à cet effet dans le cadre de la gestion des autorisations de localisation de votre application (consultez l'[étape 1](#step-1-work-with-your-development-team)).
 
 Lors de la création de ce message in-app, tenez compte des éléments suivants :
 
@@ -211,7 +210,7 @@ Ensuite, ajoutez des géorepérages à votre ensemble de géorepérages.
 4. Sélectionnez **Save Geofence Set** pour enregistrer.
 
 {% alert tip %}
-Créez des géorepérages avec un rayon d'au moins 200 mètres pour un fonctionnement optimal. Pour plus d'informations, consultez les [Bonnes pratiques pour les géorepérages](#geofence-best-practices).
+Créez des géorepérages avec un rayon d'au moins 200 mètres pour un fonctionnement optimal. Pour plus d'informations, consultez les [bonnes pratiques pour les géorepérages](#geofence-best-practices).
 {% endalert %}
 
 ![Un ensemble de géorepérages avec deux géorepérages « EastCoastGreaterNY » et « WesternRegion » avec deux cercles sur la carte.]({% image_buster /assets/img/geofence_example.png %})
@@ -284,8 +283,6 @@ Pour utiliser les données de géorepérage afin de personnaliser un message, vo
 
 Le SDK Braze ne demande les géorepérages qu'une seule fois par jour au démarrage de la session. Si vous apportez des modifications aux ensembles de géorepérages après le démarrage de la session, vous devez attendre 24 heures à partir du moment où les ensembles sont initialement téléchargés pour recevoir l'ensemble mis à jour.
 
-Si l'utilisateur a activé les notifications push en arrière-plan, Braze envoie une notification push silencieuse toutes les 24 heures lorsque les ensembles de géorepérages sont mis à jour pour télécharger les derniers emplacements sur l'appareil.
-
 {% alert note %}
 Si les géorepérages ne sont pas chargés localement sur l'appareil, l'utilisateur ne peut pas déclencher le géorepérage même s'il entre dans la zone.
 {% endalert %}
@@ -297,13 +294,12 @@ Si les géorepérages ne sont pas chargés localement sur l'appareil, l'utilisat
 - Utilisez un rayon de 200 mètres ou plus pour un déclenchement fiable.
 - Évitez de configurer des géorepérages qui se chevauchent ou sont imbriqués les uns dans les autres, car cela peut causer des problèmes de déclenchement.
 - Un géorepérage ne peut déclencher un événement d'entrée qu'une seule fois toutes les six heures. Cette période de refroidissement est appliquée localement. Si un utilisateur désinstalle l'application ou efface les données de l'application, toutes les périodes de refroidissement sont réinitialisées.
-- Un maximum de 20 géorepérages peut être stocké sur un appareil. Si l'utilisateur est éligible pour plus de 20, Braze télécharge les emplacements les plus proches en fonction de la proximité au démarrage de la session ou lors de l'actualisation par notification push silencieuse.
+- Un maximum de 20 géorepérages peut être stocké sur un appareil. Si l'utilisateur est éligible pour plus de 20, Braze télécharge les emplacements les plus proches en fonction de la proximité au démarrage de la session.
 - Braze n'envoie que les géorepérages situés dans un rayon de 2 000 kilomètres de l'utilisateur vers l'appareil.
 
 ### Exigences de l'appareil {#device-requirements}
 
-- Les autorisations de notification push et de localisation doivent toutes deux être activées pour l'application.
-- Un jeton de notification push de premier plan valide est requis.
+- Les utilisateurs de votre application doivent accorder les autorisations de localisation. Consultez la section [Autorisations de localisation](#location-permissions) pour plus d'informations.
 
 {% alert note %}
 L'intégration SDK de base active uniquement le suivi de localisation. Le géorepérage nécessite des étapes de configuration supplémentaires pour iOS et Android. Pour plus de détails, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences/) dans le guide du développeur.

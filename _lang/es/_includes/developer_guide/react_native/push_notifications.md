@@ -127,7 +127,7 @@ Para obtener una lista completa de los campos de notificación push, consulta la
 | `badge_count`      | Número   | Representa el recuento de señales de la notificación. |
 | `timestamp`        | Número | Representa la hora a la que la aplicación recibió la carga útil. |
 | `is_silent`        | Booleano   | Si es `true`, la carga útil se recibe en silencio. Para más detalles sobre el envío de notificaciones push silenciosas en Android, consulta [Notificaciones push silenciosas en Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para más detalles sobre el envío de notificaciones push silenciosas en iOS, consulta [Notificaciones push silenciosas en iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Booleano   | Será `true` si se envió una carga útil de notificación para una característica interna del SDK, como la sincronización de geovallas, la sincronización de conmutadores de características o Uninstall Tracking. La carga útil se recibe de forma silenciosa para el usuario. |
+| `is_braze_internal`| Booleano   | Será `true` si se envió una carga útil de notificación para una característica interna del SDK, como la sincronización de conmutadores de características o Uninstall Tracking. La carga útil se recibe de forma silenciosa para el usuario. |
 | `image_url`        | Cadena    | Especifica la URL asociada a la imagen de notificación. |
 | `braze_properties` | Objeto    | Representa las propiedades de Braze asociadas a la Campaign (pares clave-valor). |
 | `ios`              | Objeto    | Representa campos específicos de iOS. |
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Paso 3.2: Gestionar vínculos profundos desde un estado cerrado {#step-32-handle-deep-links-from-a-closed-state}
+#### Paso 3.2: Gestionar vínculos profundos desde un estado cerrado
 
 Además de los escenarios básicos que maneja [React Native Linking](https://reactnative.dev/docs/linking), implementa el método `Braze.getInitialPushPayload` y recupera el valor `url` para tener en cuenta los vínculos profundos de las notificaciones push que abren tu aplicación cuando no está en ejecución. Por ejemplo:
 

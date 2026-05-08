@@ -138,10 +138,6 @@ Si no incluyes una página de confirmación, es posible que los usuarios no sepa
 Si tu página de confirmación se abre en una nueva pestaña, un usuario que regrese a la página de inicio original y vuelva a enviar con información actualizada puede sobrescribir el envío anterior, lo que resulta en datos inconsistentes.
 {% endalert %}
 
-{% alert important %}
-Si configuras un botón con **Submit form when button is clicked** habilitado y usas **On-click Behavior** para abrir una URL web en una nueva pestaña, el bloqueador de ventanas emergentes integrado de Safari en iOS puede impedir que la navegación funcione. Esto ocurre porque el envío de formulario seguido de la apertura de una nueva pestaña se trata como una ventana emergente.<br><br>Para evitar este problema, configura los botones con envío de formulario para que abran la URL resultante en la misma pestaña (no en una nueva). Los botones sin envío de formulario pueden abrir URLs en nuevas pestañas sin problemas.
-{% endalert %}
-
 ### Paso 5: Previsualizar la página {#step-5-preview-the-page}
 
 Puedes previsualizar tu página de inicio en la pestaña **Preview** del editor. Después de guardar tu página de inicio como borrador, puedes visitar la URL yendo a **Landing Pages** y seleccionando **Copy URL** junto a tu página de inicio. También puedes compartir la URL con colaboradores.
@@ -155,6 +151,10 @@ Antes de publicar, asegúrate de que:
 - Todos los campos obligatorios de la página (como la ruta URL y el título) están completos
 
 Cuando estés listo, selecciona **Publish Landing Page**.
+
+{% alert note %}
+Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Submit** del formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva.
+{% endalert %}
 
 ## Usar plantillas {#using-templates}
 

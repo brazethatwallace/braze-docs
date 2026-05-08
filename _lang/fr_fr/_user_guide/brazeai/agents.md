@@ -55,7 +55,7 @@ Les agents sont configurés avec des instructions (invites système) qui défini
 | Contexte | Données transmises à l'agent lors de l'exécution, quel que soit son lieu de déploiement, telles que les champs du profil utilisateur ou les lignes du catalogue. Ces entrées fournissent les informations que l'agent utilise pour générer ses sorties. |
 | [Variables de contexte Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Données temporaires que vous pouvez créer et utiliser dans le parcours d'un utilisateur au sein d'un Canvas spécifique. |
 | [Variable de sortie]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Le résultat généré par l'agent lorsqu'il est utilisé dans les étapes du Canvas. Les variables de sortie enregistrent le résultat de l'agent afin de personnaliser le contenu ou de guider les parcours du workflow. Les variables de sortie peuvent être de type chaîne de caractères, nombre ou valeur booléenne. |
-| [Exécution](#limitations) | Une seule exécution de l'agent. Celle-ci est décomptée de vos limites quotidiennes. |
+| [Invocation](#limitations) | Une seule exécution de l'agent. Celle-ci est décomptée de vos limites quotidiennes. |
 | [Format de sortie]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | La structure de données prédéfinie de la réponse de l'agent. |
 | [Température]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Le niveau de déviation de la sortie de l'agent. Ce paramètre détermine le degré de précision ou de créativité de votre agent. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -64,8 +64,8 @@ Les agents sont configurés avec des instructions (invites système) qui défini
 
 Les restrictions suivantes s'appliquent :
 
-- Chaque agent dispose d'une limite d'exécution quotidienne par défaut de 250 000 exécutions, qui peut être augmentée jusqu'à un maximum de 1 000 000 exécutions par jour. Contactez votre gestionnaire de la satisfaction client si vous souhaitez augmenter cette limite.
-- Par défaut, chaque exécution doit se terminer dans un délai de 15 secondes. Passé ce délai, l'agent renvoie une réponse `null` là où il est utilisé.
+- Chaque agent dispose d'une limite d'invocation quotidienne par défaut de 250 000 exécutions, qui peut être augmentée jusqu'à un maximum de 1 000 000 exécutions par jour. Contactez votre gestionnaire de la satisfaction client si vous souhaitez augmenter cette limite.
+- Par défaut, chaque exécution doit se terminer dans un délai de 20 secondes. Passé ce délai, l'agent renvoie une réponse `null` là où il est utilisé.
     - Si vos agents dépassent régulièrement le délai imparti, contactez votre gestionnaire de compte Braze pour augmenter cette limite.
 - Les données d'entrée sont limitées à 25 Ko par requête. Les entrées plus longues sont tronquées.
 

@@ -2,7 +2,7 @@
 nav_title: Événements d'engagement par message
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
-page_order: 2
+page_order: 5
 excerpt_separator: ""
 page_type: glossary
 description: "Ce glossaire répertorie les différents événements d'engagement par message que Braze peut suivre et envoyer vers des entrepôts de données de votre choix à l'aide de Currents."
@@ -739,7 +739,7 @@ Les groupes d'abonnement ne sont actuellement disponibles que pour les canaux e-
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 {% multi_lang_include currents/property_details_dispatch_state_source.md %}
 
 
@@ -2442,7 +2442,7 @@ Cet événement se produit lorsqu'un message de bannière initialement planifié
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prendra la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limitation de fréquence globale.
@@ -2689,6 +2689,272 @@ Cet événement se produit lorsqu'un utilisateur clique sur une bannière.
 
 {% api %}
 
+## Événements de fermeture de bannière {#banner-dismissal-events}
+
+Cet événement se produit lorsqu'un utilisateur ferme une bannière.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.messages.banner.Dismiss
+
+{
+  "ad_id" : "(optional, string) [PII] Advertising identifier",
+  "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+  "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "app_id" : "(optional, string) API ID of the app on which this event occurred",
+  "banner_placement_id" : "(optional, string) Customer specified banner placement ID",
+  "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+  "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "carrier" : "(optional, string) Carrier of the device",
+  "country" : "(optional, string) [PII] Country of the user",
+  "device_id" : "(optional, string) ID of the device on which the event occurred",
+  "device_model" : "(optional, string) Model of the device",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+  "id" : "(required, string) Globally unique ID for this event",
+  "language" : "(optional, string) [PII] Language of the user",
+  "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+  "message_variation_name" : "(optional, string) Name of the message variation",
+  "os_version" : "(optional, string) Version of the operating system of the device",
+  "platform" : "(optional, string) Platform of the device",
+  "resolution" : "(optional, string) Resolution of the device",
+  "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "timezone" : "(optional, string) Time zone of the user",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Banner Dismissal (users.messages.banner.Dismiss)
+
+{
+  "adid" : "(optional, string) [PII] Advertising identifier",
+  "device_id" : "(optional, string) ID of the device on which the event occurred",
+  "event_properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "banner_placement_id" : "(optional, string) Customer specified banner placement ID",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "device_model" : "(optional, string) Model of the device",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "language" : "(optional, string) [PII] Language of the user",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "resolution" : "(optional, string) Resolution of the device",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "timezone" : "(optional, string) Time zone of the user"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "idfa" : "(optional, string) [PII] Advertising identifier",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Banner Dismissal (users.messages.banner.Dismiss)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "banner_placement_id" : "(optional, string) Customer specified banner placement ID",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "$device" : "(optional, string) Model of the device",
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "language" : "(optional, string) [PII] Language of the user",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "$os" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "resolution" : "(optional, string) Resolution of the device",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "timezone" : "(optional, string) Time zone of the user",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Banner Dismissals (users.messages.banner.Dismiss)
+
+{
+  "device_info" : {
+    "android_advertising_id" : "(optional, string) [PII] Advertising identifier",
+    "device_model" : "(optional, string) Model of the device",
+    "ios_advertising_id" : "(optional, string) [PII] Advertising identifier",
+    "ios_idfv" : "(optional, string) ID of the device on which the event occurred",
+    "limit_ad_tracking" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "microsoft_advertising_id" : "(optional, string) [PII] Advertising identifier",
+    "platform" : "(optional, string) Platform of the device",
+    "roku_advertising_id" : "(optional, string) [PII] Advertising identifier"
+  },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "app_id" : "(optional, string) API ID of the app on which this event occurred",
+          "banner_placement_id" : "(optional, string) Customer specified banner placement ID",
+          "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+          "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
+          "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+          "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+          "canvas_name" : "(optional, string) Name of the Canvas",
+          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the Canvas step",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "carrier" : "(optional, string) Carrier of the device",
+          "country" : "(optional, string) [PII] Country of the user",
+          "device_id" : "(optional, string) ID of the device on which the event occurred",
+          "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+          "language" : "(optional, string) [PII] Language of the user",
+          "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+          "message_variation_name" : "(optional, string) Name of the message variation",
+          "os_version" : "(optional, string) Version of the operating system of the device",
+          "resolution" : "(optional, string) Resolution of the device",
+          "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "timezone" : "(optional, string) Time zone of the user",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Banner Dismissed (users.messages.banner.Dismiss)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : {
+      "model" : "(optional, string) Model of the device"
+    },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "banner_placement_id" : "(optional, string) Customer specified banner placement ID",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "button_id" : "(optional, string) ID of the button clicked, if this click represents a click on a button",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "language" : "(optional, string) [PII] Language of the user",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "resolution" : "(optional, string) Resolution of the device",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "timezone" : "(optional, string) Time zone of the user"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
 ## Événements d'impression de bannière {#banner-impression-events}
 
 {% apitags %}
@@ -3112,7 +3378,7 @@ Cet événement se produit si un message Content Card a été interrompu en rais
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des notifications push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
@@ -3122,6 +3388,7 @@ Cet événement se produit si un message Content Card a été interrompu en rais
 {% endapi %}
 
 {% api %}
+
 ## Événements de clic sur Content Card {#content-card-click-events}
 
 {% apitags %}
@@ -3344,14 +3611,14 @@ Cet événement se produit lorsqu'un utilisateur clique sur une Content Card.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
-
 ## Événements de fermeture de Content Card {#content-card-dismiss-events}
 
 {% apitags %}
@@ -3574,10 +3841,11 @@ Cet événement se produit lorsqu'un utilisateur rejette une Content Card.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -3803,10 +4071,11 @@ Cet événement se produit lorsqu'un utilisateur visualise une Content Card.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -3999,13 +4268,14 @@ Cet événement se produit lorsqu'une Content Card est envoyée à un utilisateu
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques issues du contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements d'interruption d'e-mail {#email-abort-events}
 
 {% apitags %}
@@ -4208,7 +4478,7 @@ Cet événement se produit si un e-mail a été interrompu en raison d'abandons 
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID associé à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
@@ -4218,7 +4488,6 @@ Cet événement se produit si un e-mail a été interrompu en raison d'abandons 
 {% endapi %}
 
 {% api %}
-
 ## Événements de rebond d'e-mail {#email-bounce-events}
 
 {% apitags %}
@@ -4430,9 +4699,9 @@ Cet événement survient lorsqu'un fournisseur de services Internet renvoie un �
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID associé à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID associé à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
 
 {% endapi %}
@@ -4696,16 +4965,37 @@ Cet événement se produit lorsqu'un utilisateur clique sur un e-mail. Plusieurs
 }
 ```
 {% endtab %}
+
+{% tab Shopify %}
+```json
+// Email Click (users.messages.email.Click)
+
+{
+  "asset_id" : "(required, string) The Shopify asset identifier; mapped from dispatch_id (email), send_id (sms.Send), or short_url (sms.ShortLinkClick)",
+  "asset_type" : "(required, string) The Shopify asset type (email or sms)",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "click_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
+  "email" : "(optional, string) [PII] Email address of the user",
+  "email_sha256" : "(optional, string) SHA-256 hash of the normalized email address; only present for email events",
+  "event_id" : "(required, string) Globally unique ID for this event",
+  "event_time" : "(required, int) UNIX timestamp at which the event happened",
+  "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
+  "external_user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID associé à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements de report d'e-mail {#email-deferral-events}
 
 {% apitags %}
@@ -4918,7 +5208,7 @@ Cet événement se produit lorsqu'un fournisseur de services Internet ne délivr
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées.
@@ -4926,8 +5216,7 @@ Cet événement se produit lorsqu'un fournisseur de services Internet ne délivr
 {% endapi %}
 
 {% api %}
-
-## Événements liés à la réception/distribution des e-mails {#email-delivery-events}
+## Événements de réception d'e-mail {#email-delivery-events}
 
 {% apitags %}
 Email, Delivery
@@ -5128,7 +5417,7 @@ Cet événement se produit lorsqu'un e-mail envoyé est arrivé avec succès dan
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées.
@@ -5341,7 +5630,7 @@ Cet événement se produit lorsque l'utilisateur final clique sur le bouton « s
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées.
@@ -5349,6 +5638,7 @@ Cet événement se produit lorsque l'utilisateur final clique sur le bouton « s
 {% endapi %}
 
 {% api %}
+
 ## Événements d'ouverture d'e-mail {#email-open-events}
 
 {% apitags %}
@@ -5592,9 +5882,28 @@ Le fait que les champs `device_model` et `mailbox_provider` de l'événement d'o
 }
 ```
 {% endtab %}
+
+{% tab Shopify %}
+```json
+// Email Open (users.messages.email.Open)
+
+{
+  "asset_id" : "(required, string) The Shopify asset identifier; mapped from dispatch_id (email), send_id (sms.Send), or short_url (sms.ShortLinkClick)",
+  "asset_type" : "(required, string) The Shopify asset type (email or sms)",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "email" : "(optional, string) [PII] Email address of the user",
+  "email_sha256" : "(optional, string) SHA-256 hash of the normalized email address; only present for email events",
+  "event_id" : "(required, string) Globally unique ID for this event",
+  "event_time" : "(required, int) UNIX timestamp at which the event happened",
+  "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
+  "external_user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées.
@@ -5811,7 +6120,6 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 {% endapi %}
 
 {% api %}
-
 ## Événements d'envoi d'e-mails {#email-send-events}
 
 {% apitags %}
@@ -6009,17 +6317,37 @@ Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise
 }
 ```
 {% endtab %}
+
+{% tab Shopify %}
+```json
+// Email Send (users.messages.email.Send)
+
+{
+  "asset_id" : "(required, string) The Shopify asset identifier; mapped from dispatch_id (email), send_id (sms.Send), or short_url (sms.ShortLinkClick)",
+  "asset_type" : "(required, string) The Shopify asset type (email or sms)",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "email" : "(optional, string) [PII] Email address of the user",
+  "email_sha256" : "(optional, string) SHA-256 hash of the normalized email address; only present for email events",
+  "event_id" : "(required, string) Globally unique ID for this event",
+  "event_time" : "(required, int) UNIX timestamp at which the event happened",
+  "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
+  "external_user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID pour l'envoi d'un message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue, le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements d'échec provisoire d'envoi d'e-mails {#email-soft-bounce-events}
 
 {% apitags %}
@@ -6226,7 +6554,7 @@ Cet événement se produit lorsqu'un fournisseur de services Internet renvoie un
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID pour l'envoi d'un message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
@@ -6243,7 +6571,7 @@ Email, Subscription
 Cet événement se produit lorsque l'utilisateur final a cliqué sur « Se désabonner » dans l'e-mail.
 
 {% alert important %}
-L'événement `Unsubscribe` est considéré comme un événement de clic spécialisé qui se déclenche lorsque l'utilisateur clique sur le lien de désabonnement dans l'e-mail (qu'il s'agisse d'un lien de désabonnement normal dans le corps ou le pied de page de l'e-mail, ou d'un lien utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), et non lorsque l'utilisateur change d'état pour se désabonner. Si le changement d'état de l'abonnement est envoyé via l'API ou avec un lien de désabonnement personnalisé (non Braze), cela ne déclenche pas d'événement de désabonnement par e-mail sur Currents.
+L'événement `Unsubscribe` est considéré comme un événement de clic spécialisé qui se déclenche lorsque l'utilisateur clique sur le lien de désabonnement dans l'e-mail (qu'il s'agisse d'un lien de désabonnement normal dans le corps ou le pied de page de l'e-mail, ou d'un lien utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header), et non lorsque l'utilisateur change d'état pour se désabonner. Si le changement d'état de l'abonnement est envoyé via l'API ou avec un lien de désabonnement personnalisé (non Braze), cela ne déclenche pas d'événement de désabonnement par e-mail sur Currents.
 {% endalert %}
 
 {% tabs %}
@@ -6428,7 +6756,7 @@ L'événement `Unsubscribe` est considéré comme un événement de clic spécia
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID pour l'envoi d'un message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
   - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
@@ -6649,7 +6977,6 @@ Les impressions des indicateurs de fonctionnalité ne sont enregistrées qu'une 
 {% endapi %}
 
 {% api %}
-
 ## Événements d'interruption de message in-app {#in-app-message-abort-events}
 
 {% apitags %}
@@ -6886,7 +7213,7 @@ Cet événement se produit lorsqu'un message in-app initialement planifié a ét
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
@@ -6895,6 +7222,7 @@ Cet événement se produit lorsqu'un message in-app initialement planifié a ét
 {% endapi %}
 
 {% api %}
+
 ## Événements de clic sur les messages in-app {#in-app-message-click-events}
 
 {% apitags %}
@@ -7126,10 +7454,11 @@ Pour les messages in-app, `dispatch_id` renvoie `null`.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -7369,14 +7698,14 @@ Pour les messages in-app, `dispatch_id` renvoie `null`.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
-
 ## Événements d'abandon LINE {#line-abort-events}
 
 {% apitags %}
@@ -7574,7 +7903,7 @@ Cet événement se produit lorsqu'un message LINE planifié ne peut pas être di
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été abandonné. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'abandon]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
@@ -7584,6 +7913,7 @@ Cet événement se produit lorsqu'un message LINE planifié ne peut pas être di
 {% endapi %}
 
 {% api %}
+
 ## Événements de clic LINE {#line-click-events}
 
 {% apitags %}
@@ -7790,7 +8120,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur un lien dans un mess
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details-1}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 
@@ -7994,7 +8324,7 @@ Cet événement se produit lorsqu'un message LINE est reçu de la part d'un util
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details-2}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 
@@ -8201,7 +8531,6 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 {% endapi %}
 
 {% api %}
-
 ## Événements d'envoi LINE {#line-send-events}
 
 {% apitags %}
@@ -8394,13 +8723,14 @@ Cet événement se produit lorsqu'un message LINE est envoyé à LINE.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements de résultat Live Activity {#live-activity-outcome-events}
 
 {% apitags %}
@@ -8897,7 +9227,7 @@ Cet événement se produit si un message de notification push a été interrompu
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
@@ -9121,7 +9451,7 @@ Cet événement survient lorsqu'une erreur est reçue du service de notification
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte pour activer la fonctionnalité permettant l'envoi de `ad_id`.
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
@@ -9129,7 +9459,6 @@ Cet événement survient lorsqu'une erreur est reçue du service de notification
 {% endapi %}
 
 {% api %}
-
 ## Événements d'ouverture en premier plan des notifications push iOS {#push-notification-ios-foreground-open-events}
 
 {% apitags %}
@@ -9292,10 +9621,10 @@ Cet événement n'est pas pris en charge par notre [SDK Swift](https://github.co
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si vous utilisez Kafka pour ingérer les données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
+- Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
 {% endapi %}
@@ -9529,7 +9858,7 @@ Dans de rares cas, une ouverture push peut apparaître avant l'événement d'env
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
@@ -9969,7 +10298,7 @@ Cet événement survient lorsque Braze traite un message de notification push po
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
@@ -9979,7 +10308,6 @@ Cet événement survient lorsque Braze traite un message de notification push po
 {% endapi %}
 
 {% api %}
-
 ## Événements d'interruption RCS {#rcs-abort-events}
 
 {% apitags %}
@@ -10153,7 +10481,7 @@ Cet événement est généré lorsqu'un envoi RCS est interrompu en raison d'une
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` aura la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
@@ -10162,6 +10490,7 @@ Cet événement est généré lorsqu'un envoi RCS est interrompu en raison d'une
 {% endapi %}
 
 {% api %}
+
 ## Événements de clic RCS {#rcs-click-events}
 
 {% apitags %}
@@ -10577,7 +10906,7 @@ Cet événement est généré lorsqu'un message RCS est livré avec succès sur 
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
@@ -10781,7 +11110,6 @@ Cet événement est généré lorsque Braze reçoit un message RCS provenant de 
 {% endapi %}
 
 {% api %}
-
 ## Événements de lecture RCS {#rcs-read-events}
 
 {% apitags %}
@@ -10950,6 +11278,7 @@ Cet événement est généré lorsqu'un utilisateur ouvre un message RCS sur son
 {% endapi %}
 
 {% api %}
+
 ## Événements de rejet RCS {#rcs-rejection-events}
 
 {% apitags %}
@@ -11362,9 +11691,9 @@ Cet événement est généré lorsqu'un message RCS est envoyé depuis Braze à 
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID pour l'envoi d'un message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
@@ -11547,7 +11876,7 @@ Cet événement se produit si un message SMS a été interrompu en raison d'aban
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour obtenir la liste complète des valeurs, consultez [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` aura la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
@@ -11556,7 +11885,6 @@ Cet événement se produit si un message SMS a été interrompu en raison d'aban
 {% endapi %}
 
 {% api %}
-
 ## Événements d'envoi par opérateur SMS {#sms-carrier-send-events}
 
 {% apitags %}
@@ -11757,13 +12085,14 @@ Cet événement survient lorsqu'un SMS est envoyé à l'opérateur.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements de distribution des SMS {#sms-delivery-events}
 
 {% apitags %}
@@ -11965,7 +12294,7 @@ Cet événement se produit lorsqu'un SMS a été distribué avec succès au tél
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details-1}
+#### Détails de la propriété
 
 - `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
@@ -12178,7 +12507,7 @@ Cet événement survient lorsqu'un SMS rencontre un échec de distribution. Util
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details-2}
+#### Détails de la propriété
 
 - `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
@@ -12193,15 +12522,9 @@ SMS, Inbound Received
 
 Cet événement se produit lorsque l'un de vos utilisateurs envoie un SMS à un numéro de téléphone appartenant à l'un de vos groupes d'abonnement SMS Braze.
 
-Braze attribue chaque SMS entrant à tout utilisateur partageant ce numéro de téléphone. Par conséquent, vous pouvez recevoir plusieurs événements par message entrant si plusieurs utilisateurs de votre instance Braze partagent le même numéro de téléphone. Si vous devez attribuer des ID utilisateur spécifiques sur la base des messages précédents envoyés à cet utilisateur, vous pouvez utiliser l'événement de distribution SMS pour attribuer les événements entrants reçus à l'ID utilisateur qui a reçu le plus récemment un message depuis votre numéro Braze.
+Lorsque Braze reçoit un SMS entrant, ce message est attribué à tout utilisateur partageant ce numéro de téléphone. Par conséquent, vous pouvez recevoir plusieurs événements par message entrant si plusieurs utilisateurs de votre instance Braze partagent le même numéro de téléphone. Si vous devez attribuer des ID utilisateur spécifiques sur la base des messages précédents envoyés à cet utilisateur, vous pouvez utiliser l'événement de distribution SMS pour attribuer les événements entrants reçus à l'ID utilisateur qui a reçu le plus récemment un message depuis votre numéro Braze.
 
-Si Braze détecte que ce message entrant est une réponse à une Campaign sortante ou à un composant Canvas, Braze inclut également les métadonnées de la Campaign ou du Canvas avec l'événement. Braze utilise un modèle d'attribution au dernier contact : lorsqu'un SMS entrant est reçu, Braze recherche le message sortant le plus récent envoyé à ce numéro de téléphone dans une fenêtre de 4 heures et attribue le message entrant à cette Campaign ou à ce Canvas. La liste des Campaigns ayant envoyé des messages sortants pendant la fenêtre d'attribution est mise en cache pendant une minute par service de messagerie ; une Campaign nouvellement lancée peut donc mettre jusqu'à une minute avant d'apparaître dans les résultats d'attribution.
-
-Les propriétés `campaign_id`, `canvas_id` et les propriétés associées sont vides lorsqu'aucun message sortant ne peut être attribué. Les scénarios courants incluent :
-
-- L'utilisateur a initié la conversation de manière organique (par exemple, en envoyant un mot-clé promu sur un site web ou un panneau publicitaire).
-- L'utilisateur a répondu ou envoyé un mot-clé en dehors de la fenêtre d'attribution de 4 heures.
-- Aucun message sortant antérieur n'existe pour ce numéro de téléphone.
+Si Braze détecte que ce message entrant est une réponse à une Campaign sortante ou à un composant Canvas envoyé depuis Braze, les métadonnées de la Campaign ou du Canvas sont également incluses dans l'événement. Braze définit une réponse comme un message entrant reçu dans les quatre heures suivant un message sortant. Toutefois, il existe un cache d'une minute pour les informations de Campaign attribuées au dernier SMS sortant envoyé depuis votre numéro Braze.
 
 
 {% tabs %}
@@ -12392,14 +12715,13 @@ Les propriétés `campaign_id`, `canvas_id` et les propriétés associées sont 
 {% endapi %}
 
 {% api %}
-
 ## Événements de rejet de SMS {#sms-rejection-events}
 
 {% apitags %}
 SMS, Rejection
 {% endapitags %}
 
-Cet événement se produit lorsqu'un envoi de SMS est refusé par l'opérateur. Cela peut se produire pour plusieurs raisons. Utilisez cet événement et les codes d'erreur fournis pour résoudre les problèmes liés à la distribution de SMS.
+Cet événement se produit lorsqu'un envoi de SMS est rejeté par l'opérateur. Cela peut se produire pour plusieurs raisons. Utilisez cet événement et les codes d'erreur fournis pour résoudre les problèmes liés à la distribution des SMS.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12604,13 +12926,14 @@ Cet événement se produit lorsqu'un envoi de SMS est refusé par l'opérateur. 
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements de nouvelle tentative d'envoi de SMS {#sms-retry-events}
 
 {% apitags %}
@@ -12991,9 +13314,28 @@ Cet événement se produit lorsqu'un utilisateur envoie un SMS.
 }
 ```
 {% endtab %}
+
+{% tab Shopify %}
+```json
+// SMS Send (users.messages.sms.Send)
+
+{
+  "asset_id" : "(required, string) The Shopify asset identifier; mapped from dispatch_id (email), send_id (sms.Send), or short_url (sms.ShortLinkClick)",
+  "asset_type" : "(required, string) The Shopify asset type (email or sms)",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "event_id" : "(required, string) Globally unique ID for this event",
+  "event_time" : "(required, int) UNIX timestamp at which the event happened",
+  "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "phone" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
+  "phone_sha256" : "(optional, string) SHA-256 hash of the E.164 normalized phone number; only present for SMS events"
+}
+```
+{% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques issues du Contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
 - `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
@@ -13199,12 +13541,30 @@ Cet événement se produit lorsqu'un utilisateur clique sur un lien court SMS.
 }
 ```
 {% endtab %}
+
+{% tab Shopify %}
+```json
+// SMS Short Link Click (users.messages.sms.ShortLinkClick)
+
+{
+  "asset_id" : "(required, string) The Shopify asset identifier; mapped from dispatch_id (email), send_id (sms.Send), or short_url (sms.ShortLinkClick)",
+  "asset_type" : "(required, string) The Shopify asset type (email or sms)",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "event_id" : "(required, string) Globally unique ID for this event",
+  "event_time" : "(required, int) UNIX timestamp at which the event happened",
+  "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "phone" : "(optional, string) [PII] The user's phone number from which the message was received",
+  "phone_sha256" : "(optional, string) SHA-256 hash of the E.164 normalized phone number; only present for SMS events"
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
 
 {% api %}
-
 ## Événements d'interruption de webhook {#webhook-abort-events}
 
 {% apitags %}
@@ -13396,9 +13756,9 @@ Cet événement se produit si un message webhook a été interrompu en raison d'
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour obtenir la liste complète des valeurs, consultez [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Par exemple : `Frequency cap rule: 5 webhook messages every 1 week`
@@ -13406,6 +13766,7 @@ Cet événement se produit si un message webhook a été interrompu en raison d'
 {% endapi %}
 
 {% api %}
+
 ## Événements d'échec de webhook {#webhook-failure-events}
 
 {% apitags %}
@@ -13629,7 +13990,7 @@ Cet événement se produit si un message webhook a été distribué mais a écho
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details-1}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
 
@@ -14018,7 +14379,7 @@ Cet événement se produit lorsqu'un webhook a été traité et envoyé au tiers
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details-2}
+#### Détails de la propriété
 
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
 - `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
@@ -14026,7 +14387,6 @@ Cet événement se produit lorsqu'un webhook a été traité et envoyé au tiers
 {% endapi %}
 
 {% api %}
-
 ## Événements d'interruption WhatsApp {#whatsapp-abort-events}
 
 {% apitags %}
@@ -14044,6 +14404,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
   "abort_log" : "(optional, string) [PII] Log message describing abort details (up to 128 chars)",
   "abort_type" : "(optional, string) Type of abort",
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14078,6 +14439,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
     "abort_log" : "(optional, string) [PII] Log message describing abort details (up to 128 chars)",
     "abort_type" : "(optional, string) Type of abort",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14112,6 +14474,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
     "abort_log" : "(optional, string) [PII] Log message describing abort details (up to 128 chars)",
     "abort_type" : "(optional, string) Type of abort",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14151,6 +14514,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
           "abort_log" : "(optional, string) [PII] Log message describing abort details (up to 128 chars)",
           "abort_type" : "(optional, string) Type of abort",
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14203,6 +14567,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
     "abort_log" : "(optional, string) [PII] Log message describing abort details (up to 128 chars)",
     "abort_type" : "(optional, string) Type of abort",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14225,9 +14590,9 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prendra la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Exemple : `Frequency cap rule: 5 WhatsApp messages every 1 week`
@@ -14235,6 +14600,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
 {% endapi %}
 
 {% api %}
+
 ## Événements de clic sur les liens suivis WhatsApp {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -14446,6 +14812,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14483,6 +14850,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14520,6 +14888,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
   "properties" : {
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14562,6 +14931,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
       "data" : {
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14617,6 +14987,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
   "messageId" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14644,7 +15015,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
@@ -14666,6 +15037,7 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14705,6 +15077,7 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14744,6 +15117,7 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
   "properties" : {
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14788,6 +15162,7 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
       "data" : {
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14845,6 +15220,7 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
   "messageId" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14874,7 +15250,7 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
@@ -14898,6 +15274,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
 {
   "action" : "(required, string) Action taken in response to this message. (for example Subscribed, Unsubscribed or None).",
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the user from which the message was received.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14926,7 +15303,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
-  "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
+  "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
 ```
 {% endtab %}
@@ -14940,6 +15317,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
   "event_properties" : {
     "action" : "(required, string) Action taken in response to this message. (for example Subscribed, Unsubscribed or None).",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the user from which the message was received.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -14960,7 +15338,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
     "message_variation_name" : "(optional, string) Name of the message variation",
     "quick_reply_text" : "(optional, string) Text of button pressed by the user",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
-    "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
+    "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -14982,6 +15360,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
     "$partner_id" : "braze",
     "action" : "(required, string) Action taken in response to this message. (for example Subscribed, Unsubscribed or None).",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the user from which the message was received.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15008,7 +15387,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
     "subscription_group_id" : "(optional, string) Subscription group API ID",
     "time" : "(required, long) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
-    "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
+    "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
   }
 }
 ```
@@ -15029,6 +15408,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
         "custom_attributes" : {
           "action" : "(required, string) Action taken in response to this message. (for example Subscribed, Unsubscribed or None).",
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the user from which the message was received.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15080,7 +15460,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
   "context" : {
     "device" : { },
     "traits" : {
-      "phone" : "(required, string) [PII] The user's phone number from which the message was received"
+      "phone" : "(optional, string) [PII] The user's phone number from which the message was received"
     }
   },
   "event" : "(required, string) The event type name, as it is exported to Segment",
@@ -15088,6 +15468,7 @@ Cet événement se produit lorsqu'un de vos utilisateurs envoie un message Whats
   "properties" : {
     "action" : "(required, string) Action taken in response to this message. (for example Subscribed, Unsubscribed or None).",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the user from which the message was received.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15137,6 +15518,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15174,6 +15556,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15211,6 +15594,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
   "properties" : {
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15253,6 +15637,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
       "data" : {
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15308,6 +15693,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
   "messageId" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15335,7 +15721,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
@@ -15357,6 +15743,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15391,6 +15778,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15426,6 +15814,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
   "properties" : {
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15465,6 +15854,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
       "data" : {
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15517,6 +15907,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
   "messageId" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15560,6 +15951,7 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15597,6 +15989,7 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15635,6 +16028,7 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
   "properties" : {
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15678,6 +16072,7 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
       "data" : {
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15734,6 +16129,7 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
   "messageId" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "bsuid" : "(optional, string) The WhatsApp Business-Scoped User ID of the recipient associated with this event.",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
@@ -15762,7 +16158,7 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété {#property-details}
+#### Détails de la propriété
 
 - `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
 

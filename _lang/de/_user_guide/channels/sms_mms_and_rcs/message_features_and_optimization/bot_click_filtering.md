@@ -18,7 +18,7 @@ channel:
 
 Braze verfügt über ein proprietäres Erkennungssystem, das mehrere Eingaben nutzt, um vermutete Bot-Klicks zu identifizieren, auch bekannt als nicht-menschliche Interaktionen (NHI). Bot-Klicks können Klickraten aufblähen und Engagement-Metriken verzerren. Durch deren Filterung ermöglicht Braze die Erfassung zuverlässiger Daten für die Entscheidungsfindung.
 
-Unser System analysiert User Agents, die mit Web-Crawlern, Android- und iOS-Linkvorschauen oder CPaaS-Sicherheitssoftware verknüpft sind. Einige Beispiele für gefilterte User Agents sind `GoogleBot`, `python-requests/2.32.3` und `Barracuda Sentinel (EE)`.
+Unser System analysiert User Agents, die mit Web-Crawlern, Android- und iOS-Linkvorschauen oder CPaaS-Sicherheitssoftware verknüpft sind. Einige Beispiele für gefilterte User Agents sind `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3` und `Barracuda Sentinel (EE)`.
 
 ## Betroffene Metriken und Workflows {#affected-metrics-and-workflows}
 
@@ -67,7 +67,7 @@ Ja. Linkvorschauen (z. B. Android- und iOS-Linkvorschauen) werden als Bot-Klicks
 
 Sie müssen Ihr Braze-Konto-Team kontaktieren, um die Bot-Klick-Filterung während des Early Access zu aktivieren. Wenn die Bot-Klick-Filterung allgemein verfügbar ist, wird das Feature standardmäßig für alle SMS- und RCS-Nutzer:innen aktiviert sein.
 
-Stellen Sie außerdem sicher, dass Sie das erweiterte Klick-Tracking für [Link-Kürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) aktiviert haben. Dadurch erhalten Sie die Bot-Klick-Analytics, da wir diese Daten auf individueller Nutzer:innen-Ebene erfassen.
+Stellen Sie außerdem sicher, dass Sie das erweiterte Klick-Tracking für die [Link-Kürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) aktiviert haben. Dadurch erhalten Sie die Bot-Klick-Analytics, da wir diese Daten auf individueller Nutzer:innen-Ebene erfassen.
 
 {% alert note %}
 Für weitere Unterstützung [kontaktieren Sie den Support]({{site.baseurl}}/braze_support/).

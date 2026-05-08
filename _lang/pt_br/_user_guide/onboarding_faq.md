@@ -82,8 +82,8 @@ Por padrão, para que seu usuário receba suas mensagens por push, o estado de i
 | Estado de aceitação | Descrição |
 |---|---|
 | Subscribed | Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
-| Aceitou | Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior. |
-| Cancelou inscrição | Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push. |
+| Opted-In | Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior. |
+| Unsubscribed | Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}
@@ -201,11 +201,11 @@ O uso de propriedades de eventos dentro de Extensões de Segmento não impacta o
 Segments
 {% endapitags %}
 
-Você pode especificar se deseja que esta extensão represente um momento específico no tempo ou se deseja que ela seja regenerada diariamente. Sua extensão sempre começará a ser processada após o salvamento inicial. Se você quiser que a extensão seja regenerada diariamente, selecione **Regenerar Extensão Diariamente** e a regeneração começará a ser processada por volta da meia-noite de cada dia no fuso horário da sua empresa.
+Você pode especificar se deseja que esta extensão represente um momento específico no tempo ou se deseja que ela seja regenerada diariamente. Sua extensão sempre começará a ser processada após o salvamento inicial. Se você quiser que a extensão seja regenerada diariamente, selecione **Regenerate Extension Daily** e a regeneração começará a ser processada por volta da meia-noite de cada dia no fuso horário da sua empresa.
 
-Quando terminar, clique em **Salvar**. Sua extensão começará a ser processada. O tempo necessário para gerar sua extensão depende de quantos usuários você tem, quantos eventos personalizados ou eventos de compra você está capturando e quantos dias está consultando no histórico.
+Quando terminar, clique em **Save**. Sua extensão começará a ser processada. O tempo necessário para gerar sua extensão depende de quantos usuários você tem, quantos eventos personalizados ou eventos de compra você está capturando e quantos dias está consultando no histórico.
 
-Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **Atributos do Usuário**. Na lista de filtros de Extensão de Segmento da Braze, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **Ver Detalhes da Extensão**. Agora você pode continuar normalmente criando seu segmento.
+Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **User Attributes**. Na lista de filtros de Braze Segment Extension, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **View Extension Details**. Agora você pode continuar normalmente criando seu segmento.
 
 {% endapi %}
 {% api %}
@@ -218,7 +218,7 @@ Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao cri
 Campaigns
 {% endapitags %}
 
-Para criar uma Campaign multicanal, acesse a página **Campaigns**, selecione **Create Campaign** e então selecione **Multichannel Campaign**. Dentro de uma Campaign multicanal, selecione **Add Messaging Channel** na aba de composição para adicionar os canais desejados. Clique nos ícones de canal que aparecem para alternar entre diferentes criadores de mensagens enquanto você elabora o conteúdo da sua Campaign para os diferentes canais.
+Consulte [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) em **Criar uma Campaign** para ver as etapas de configuração, canais suportados e como alternar entre criadores.
 
 {% endapi %}
 {% api %}
@@ -279,7 +279,7 @@ Você pode verificar o fuso horário da sua empresa nas [configurações da empr
 Campaigns
 {% endapitags %}
 
-Ao agendar uma Campaign, você precisa escolher enviá-la em um horário designado e então selecionar **Enviar Campaign para usuários no fuso local deles**.
+Ao agendar uma Campaign, você precisa escolher enviá-la em um horário designado e então selecionar **Send campaign to users in their local time zone**.
 
 A Braze recomenda fortemente que todas as Campaigns no fuso local sejam agendadas com 24 horas de antecedência. Como essa Campaign precisa ser enviada ao longo de um dia inteiro, agendá-la com 24 horas de antecedência permite que sua mensagem alcance todo o seu segmento. No entanto, você pode agendar essas Campaigns com menos de 24 horas de antecedência, se necessário. Lembre-se de que a Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de 1 hora.
 
@@ -466,13 +466,13 @@ Canvases
 
 Um usuário só pode converter uma vez por entrada no Canvas.
 
-As conversões são atribuídas à mensagem mais recente recebida pelo usuário para essa entrada. O bloco de resumo no início de um Canvas reflete todas as conversões realizadas pelos usuários dentro daquele caminho, independentemente de terem recebido uma mensagem ou não. Cada etapa subsequente mostrará apenas as conversões que ocorreram enquanto essa era a etapa mais recente que o usuário recebeu.
+As conversões são atribuídas à mensagem mais recente recebida pelo usuário para essa entrada. O bloco de resumo no início de um Canvas reflete todas as conversões realizadas pelos usuários dentro daquela jornada, independentemente de terem recebido uma mensagem ou não. Cada etapa subsequente mostrará apenas as conversões que ocorreram enquanto essa era a etapa mais recente que o usuário recebeu.
 
 {% details Casos de uso %}
 
 #### Caso de uso 1 {#use-case-1}
 
-Há um caminho de Canvas com 10 notificações por push e o evento de conversão é "início de sessão" ("Abre o App"):
+Há uma jornada de Canvas com 10 notificações por push e o evento de conversão é "início de sessão" ("Abre o App"):
 
 - O Usuário A abre o app após entrar, mas antes de receber a primeira mensagem.
 - O Usuário B abre o app após cada notificação por push.
@@ -569,8 +569,8 @@ Analytics
 
 Para agendar um relatório de engajamento recorrente, faça o seguinte:
 
-1. No seu dashboard, navegue até **Relatórios de Engajamento**, em **Dados**.
-2. Clique em **+ Criar Novo Relatório**.
+1. No seu dashboard, navegue até **Engagement Reports**, em **Data**.
+2. Clique em **+ Create New Report**.
 3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que você gostaria de compilar no seu relatório.
 4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) ao seu relatório.
 5. Selecione a compressão e o delimitador para o seu relatório.

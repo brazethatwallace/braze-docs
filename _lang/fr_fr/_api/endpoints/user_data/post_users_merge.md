@@ -60,7 +60,7 @@ Cet endpoint fusionne les champs suivants s'ils ne sont pas trouvés chez l'util
 
 - Prénom
 - Nom
-- Adresses e-mail (à moins qu'elles ne soient [chiffrées]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Adresses e-mail (à moins qu'elles ne soient [chiffrées]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)
 - Genre
 - Date de naissance
 - Numéro de téléphone
@@ -113,6 +113,10 @@ Une seule des options suivantes peut exister à la fois dans le tableau de prior
 
 - `identified` donne la priorité à un utilisateur ayant un `external_id`
 - `unidentified` donne la priorité à un utilisateur n'ayant pas d'`external_id`
+
+{% alert important %}
+Si les deux profils ont des numéros de téléphone invalides, Braze ne les fusionne pas. Les numéros invalides ne sont pas stockés au format E.164, et la tâche de fusion ne combine pas ces profils. L'endpoint renvoie tout de même `202 Accepted` avec un message de succès, de sorte que la réponse HTTP n'indique pas que la fusion a été ignorée. Corrigez les numéros de téléphone sur l'un ou les deux profils avant de procéder à la fusion.
+{% endalert %}
 
 ## Exemples de requêtes {#example-requests}
 

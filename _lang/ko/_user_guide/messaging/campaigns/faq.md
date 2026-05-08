@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
 
-멀티채널 캠페인을 만들려면 **메시징** > **Campaigns**를 선택합니다. 그런 다음 **캠페인 생성** > **멀티채널**을 선택합니다. 여기에서 Content Cards, 이메일, LINE, 푸시 알림, SMS/MMS/RCS, 웹훅 또는 WhatsApp 등의 메시징 채널을 선택할 수 있습니다.
+설정 단계와 지원되는 채널에 대해서는 **캠페인 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)을 참조하세요.
 
 ### 멀티채널 캠페인에 대조군을 추가할 수 있나요? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-아니요, 캠페인의 대조군은 이메일 A 대 이메일 B와 같은 단일 채널 메시징을 위한 것입니다. 대안으로 다양한 채널, 메시징 콘텐츠 및 전달 타이밍을 테스트하려면 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)를 사용해 보세요.
+**캠페인 생성**의 [대조군]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups)을 참조하세요. 크로스채널 테스트의 경우 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)를 사용하세요.
 
 ### 캠페인 테스트 및 최적화를 시작하는 방법에는 어떤 것이 있나요? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -48,9 +48,7 @@ tool: Campaigns
 
 ### 멀티채널 캠페인에서 전환 수가 고유 사용자 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-멀티채널 캠페인의 경우, Braze는 사용자별이 아닌 채널별로 전환을 집계합니다. 사용자가 전환 기간 내에 단일 전환 동작을 수행하면, Braze는 해당 사용자가 메시지를 받은 각 채널에 전환을 귀속시킵니다. 즉, 사용자가 여러 채널(예: 이메일과 푸시 모두)에서 메시지를 받고 전환하면, Braze는 각 채널에 대해 하나씩 여러 전환을 집계합니다. 결과적으로 총 전환 수가 전환한 고유 사용자 수를 초과할 수 있습니다.
-
-예를 들어, 멀티채널 캠페인이 사용자에게 이메일과 푸시 알림을 모두 보내고, 해당 사용자가 두 메시지를 모두 받은 후 전환 기간 내에 하나의 전환 동작을 수행하면, Braze는 이를 이메일에 귀속된 하나와 푸시에 귀속된 하나, 총 두 건의 전환으로 집계합니다. 동일한 사용자의 단일 동작임에도 불구하고 말입니다.
+**캠페인 생성**의 [전환 및 보고]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions)와 **전환 이벤트**의 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)을 참조하세요.
 
 ### 캠페인에 사용하는 Segment보다 도달 가능 사용자 기반이 더 작은 이유는 무엇인가요? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 

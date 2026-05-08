@@ -52,9 +52,9 @@ Em seguida, configure as informações do seu agente:
 2. (opcional) Adicione tags para filtrar seu agente.
 3. Escolha o [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) que seu agente deve usar.
 4. Se você não estiver usando o modelo **Braze Auto**, selecione o [nível de pensamento]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels) do modelo. Você pode escolher entre mínimo, baixo, médio ou alto. Recomendamos começar com **Mínimo** e testar as respostas do seu agente, ajustando conforme necessário.
-5. Defina um limite diário de execução. Por padrão, esse valor é definido como 250.000, mas pode ser aumentado para 1.000.000. Se você tiver interesse em aumentar o limite acima de 1.000.000, entre em contato com seu gerente de sucesso do cliente para saber mais.
+5. Defina um limite diário de invocação. Por padrão, esse valor é definido como 250.000, mas pode ser aumentado para 1.000.000. Se você tiver interesse em aumentar o limite acima de 1.000.000, entre em contato com seu gerente de sucesso do cliente para saber mais.
 
-![Interface do Console do agente para criar um agente personalizado na Braze. A tela exibe campos para inserir o nome e a descrição do agente, selecionar um modelo e definir um limite diário de execução.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Interface do Console do agente para criar um agente personalizado na Braze. A tela exibe campos para inserir o nome e a descrição do agente, selecionar um modelo e definir um limite diário de invocação.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Etapa 3: Escreva as instruções {#agent-instructions}
 
@@ -71,7 +71,7 @@ Para agentes Canvas, você pode usar Liquid nas suas instruções para referenci
 Selecione **Adicionar recursos** para escolher o que seu agente pode referenciar. Isso inclui:
 
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Dê ao agente acesso aos dados do seu catálogo para respostas mais precisas.
-- [Associação a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos segmentos aos quais um usuário pertence. Você pode selecionar até cinco segmentos.
+- [Associação a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos Segments aos quais um usuário pertence. Você pode selecionar até cinco Segments.
 - [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Referencie a voz da marca e as diretrizes de estilo para o agente seguir. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz da marca motivacional e em negrito predefinida.
 - [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
 
@@ -98,7 +98,7 @@ O painel de **Pré-visualização** é uma instância do agente que aparece como
 3. Selecione **Simular resposta**. O agente executará com base na sua configuração e exibirá sua resposta.
 
 {% alert note %}
-Os testes contam para o seu limite diário de execução.
+Os testes contam para o seu limite diário de invocação.
 {% endalert %}
 
 ![Console do agente mostrando o painel de Pré-visualização para testar um agente personalizado. A interface exibe um campo de entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

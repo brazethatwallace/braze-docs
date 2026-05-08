@@ -2568,9 +2568,14 @@ def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
     """Repair malformed ``{{site.baseurl}}`` Markdown links (extra parentheses).
 
     Models occasionally emit ``[label](({{site.baseurl}}/path`` instead of correct
-    ``[label]({{site.baseurl}}/path``, or they close links with duplicate ``)``
-    endings. Either pattern breaks Markdown (Copilot PR #13396). Run before
+    ``[label]({{site.baseurl}}/path`` (Copilot PR #13396). Run before
     ``repair_markdown_internal_link_fragments``.
+
+    We intentionally do **not** collapse ``]({{site.baseurl}}/path))`` to a
+    single ``)``: prose often wraps the link in parentheses, so the first ``)``
+    closes the markdown link and the second closes the outer ``(…`` (for example
+    ``unless they are [encrypted](url))``). A prior ``dup_pat`` rule stripped that
+    outer close and broke list rendering (Cursor Bugbot / PR #13605).
     """
     repairs = []
     new = translated_content
@@ -2582,13 +2587,6 @@ def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
         repairs.append(
             "md-link — removed extra '(' before {{site.baseurl}} "
             f"({n}x; PR #13396)"
-        )
-    dup_pat = re.compile(r"(\]\(\{\{site\.baseurl\}\}[^)]+\))\)")
-    new, dn = dup_pat.subn(r"\1", new)
-    if dn:
-        repairs.append(
-            "md-link — collapsed duplicate closing ')' after site.baseurl URL "
-            f"({dn}x; PR #13396)"
         )
     if repairs:
         return new, repairs
