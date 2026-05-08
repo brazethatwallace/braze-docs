@@ -20,7 +20,7 @@ search_tag: Partner
 | A Zendesk account | A Zendesk account is required to take advantage of this partnership.|
 | A Zendesk Basic Authorization Token | A Zendesk Basic Authorization Token is used to make an outbound webhook request from Braze to Zendesk.|
 | A Braze REST API Key  | A Braze REST API key with `campaigns.trigger.send` permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.|
-{: aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

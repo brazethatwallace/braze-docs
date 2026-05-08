@@ -320,7 +320,7 @@ When you see "No preview available", one of the following underlying error types
 | "Unable to connect to the source" | Check the configured username, account locator, and RSA key-pair authentication setup.<br>Verify the warehouse is running.<br>Confirm network access. |
 | "SQL syntax error" | Check your SQL syntax. |
 | "Object does not exist or not authorized" | Make sure the role has `SELECT` access to the table.<br>Confirm database and schema permissions.<br>Check table name typos. |
-{: aria-label="&quot;No preview available&quot;" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="&quot;No preview available&quot;" }
 
 ### "Identity column required"
 

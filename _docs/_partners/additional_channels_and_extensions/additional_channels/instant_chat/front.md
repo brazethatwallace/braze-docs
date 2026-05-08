@@ -25,7 +25,7 @@ Before you start, you'll need the following:
 | A Front account            | A Front account is required to take advantage of this partnership.|
 | Braze Data Transformation Webhook URL | [Braze Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) will be used to reformat the incoming webhook from Front so it can be accepted by the Braze /users/track endpoint.|
 | A Front REST API Key         | A Front REST API key will be used to make an outbound webhook request from Braze to Front. |
-{: aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

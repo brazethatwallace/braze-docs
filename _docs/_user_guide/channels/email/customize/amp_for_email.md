@@ -35,7 +35,7 @@ Before you can send AMP emails to users, you must register with our email client
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
-{: aria-label="Supported email clients" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 For a full list of supported email clients, refer to [AMP documentation](https://amp.dev/support/faq/email-support).
 
