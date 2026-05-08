@@ -46,7 +46,7 @@ After WhatsApp usernames launch, there will be two types of WhatsApp users:
 | Users with a username | Username (displayed), BSUID (backend) | BSUID, phone number for users who have an existing conversation with your business |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-The key difference is that a user who adopts a username only shares their phone number with your business if you had a prior conversation with them, or if they appear in your WhatsApp Contact Book.
+The key difference is that a user who adopts a username shares only their phone number with your business if you had a prior conversation with them or if they appear in your WhatsApp Contact Book.
 
 ## How Braze will handle BSUIDs
 
