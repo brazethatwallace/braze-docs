@@ -54,7 +54,7 @@ Braze will store BSUIDs as a [user alias]({{site.baseurl}}/user_guide/data/user_
 
 ### Send messages
 
-When Braze sends a WhatsApp message, it will use the phone number if one is available. If the user only has a BSUID (such as a user who first messages you after adopting a username), Braze will send using the BSUID instead. No changes to your message templates, campaigns, or Canvas steps are needed.
+When Braze sends a WhatsApp message, it will use the phone number if one is available. If the user has only a BSUID (such as a user who first messages you after adopting a username), Braze will send using the BSUID instead. No changes to your message templates, campaigns, or Canvas steps are needed.
 
 ### Inbound messages and Canvas triggers
 
