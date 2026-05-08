@@ -64,6 +64,12 @@ For details on implementing Google Tag Manager, see [Google's documentation](htt
 
 The landing page body size can be up to 500 KB.
 
+### Can landing pages handle high-traffic scenarios?
+
+Yes, non-personalized landing pages can handle high-traffic scenarios effectively. When a non-personalized landing page is first requested, Braze caches it through Cloudflare. This means all subsequent requests for the same link are served from cache, so performance is not degraded on high-volume requests. This cache lasts 24 hours, and cached page views don't count toward rate limits.
+
+For personalized landing pages (using Liquid personalization), rate limits apply to uncached requests. To maintain optimal performance, see [Personalization considerations]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+
 ### Are there any technical requirements to publish a landing page?
 
 No, there aren't any technical requirements.
