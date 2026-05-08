@@ -2634,6 +2634,12 @@ Field | Type | Description
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
+## SMS message events and deleted user profiles
+
+{% alert note %}
+For `USERS_MESSAGES_SMS_*` shared tables (including [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), and [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)), Braze writes a row only when the Braze user profile still exists in the workspace when the event is processed for Snowflake Data Sharing and Currents. If that user was deleted before processing completes, the event doesn't appear in Snowflake or your Currents export, even when SMS workspace metrics in the dashboard still reflect aggregate counts from Braze's reporting path. For the corresponding Currents behavior, see [SMS Rejection events]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) and related SMS event types in the same glossary.
+{% endalert %}
+
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
 
 Field | Type | Description

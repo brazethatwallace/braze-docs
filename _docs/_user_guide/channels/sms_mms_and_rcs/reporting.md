@@ -74,3 +74,7 @@ This table reflects Braze billing, not your provider's billing. Outcomes that ar
 | Rejected | The SMS provider received a rejected receipt indicating that the message wasn't delivered. This can happen for several reasons, including carrier content filtering or availability of the destination device. | Charge |
 | Sent to Carrier | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | Charges may apply based on individual message sending outcomes |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+## Reconcile *Rejections* with Snowflake or Currents
+
+The *Rejections* metric in the dashboard is an aggregate workspace count. It isn't a row-level export, so you can't always match each rejection to a single row in Snowflake or a single `users.messages.sms.Rejection` event in Currents. For example, if the user profile was deleted before Braze finished processing the rejection for warehouse export, that rejection doesn't appear in your `USERS_MESSAGES_SMS_REJECTION_SHARED` table or Currents payload, while aggregate SMS reporting can still reflect the outcome. For more information, see the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#sms-message-events-and-deleted-user-profiles) and [SMS Rejection events]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) in the Currents event glossary.
