@@ -221,6 +221,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
 </style>
 
 <table>
+    <caption>Content Card performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -295,6 +296,7 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
 </style>
 
 <table>
+    <caption>Banner performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -364,6 +366,7 @@ Here are some key email-specific metrics that you won't see in other channels. T
 </style>
 
 <table>
+    <caption>Email performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -514,6 +517,7 @@ Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specif
 </style>
 
 <table>
+    <caption>In-app message performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -596,6 +600,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
 </style>
 
 <table>
+    <caption>Push performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -714,6 +719,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
 </style>
 
 <table>
+    <caption>SMS, MMS, and RCS performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -765,6 +771,7 @@ Here are some key webhook metrics you may see in your analytics. To see th full 
 </style>
 
 <table>
+    <caption>Webhook performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -800,6 +807,7 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
 </style>
 
 <table>
+    <caption>WhatsApp performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
