@@ -354,7 +354,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: auto-translate/${{ github.run_id }}
           base: develop
-          title: ${{ github.event_name == 'pull_request' && format('Auto-translations — nightly deploy PR #{0}', github.event.pull_request.number) || 'Auto-translations — manual run' }}
+          # Quote the YAML value — unquoted '#' after a space starts a YAML comment,
+          # which truncates this line and breaks the '${{ }}' expression (#13594).
+          title: "${{ github.event_name == 'pull_request' && format('Auto-translations — nightly deploy PR #{0}', github.event.pull_request.number) || 'Auto-translations — manual run' }}"
           body-path: translation_pr_body.md
           labels: |
             auto-translation
