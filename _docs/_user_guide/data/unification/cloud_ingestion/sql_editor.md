@@ -165,6 +165,10 @@ After validation:
 
 When validation succeeds, continue to **Next: Notifications** and create your sync.
 
+{% alert important %}
+Inaccurate SQL configuration can lead to unintended results, including the overconsumption of data points and broader operational risks. You are responsible for ensuring your query logic is correct and should carefully preview all results before activating a sync.
+{% endalert %}
+
 ## SQL constraints {#sql-constraints}
 
 Your query must meet the following requirements.
