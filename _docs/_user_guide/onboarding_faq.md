@@ -218,7 +218,7 @@ Finally, after you've created an extension, you can use it as a filter when crea
 Campaigns
 {% endapitags %}
 
-To create a multichannel campaign, go to the **Campaigns** page, select **Create Campaign**, then select **Multichannel Campaign**. When inside a multichannel campaign, select **Add Messaging Channel** from the compose tab to add your desired channels. Click the channel icons that appear to toggle through different messaging composers as you build your campaign copy for the different channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Create a campaign** for setup steps, supported channels, and how to switch composers.
 
 {% endapi %}
 {% api %}
