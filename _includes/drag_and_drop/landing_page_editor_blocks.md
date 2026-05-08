@@ -65,7 +65,7 @@ Inserts custom HTML, CSS, or JavaScript for advanced customization, such as [Goo
 | Property | Description |
 | --- | --- |
 | Custom code | Allows you to add, edit, or delete HTML, CSS, and JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer

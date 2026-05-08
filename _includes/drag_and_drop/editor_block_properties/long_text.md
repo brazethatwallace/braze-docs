@@ -12,4 +12,4 @@
 | Line height | Vertical spacing between lines of text. |
 | Text color | Color of the text. |
 | Letter spacing | Horizontal spacing between characters. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

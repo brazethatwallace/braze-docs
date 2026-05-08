@@ -50,4 +50,4 @@ The following data types are supported:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported data types" }
