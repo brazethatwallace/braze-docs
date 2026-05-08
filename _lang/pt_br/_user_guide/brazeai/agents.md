@@ -65,7 +65,7 @@ Os agentes são configurados com instruções (prompts de sistema) que definem c
 As seguintes limitações se aplicam:
 
 - Cada agente tem um limite diário padrão de 250.000 execuções, que pode ser aumentado até um máximo de 1.000.000 de execuções por dia. Entre em contato com seu gerente de sucesso do cliente se estiver interessado em aumentar esse limite.
-- Por padrão, cada execução deve ser concluída em 15 segundos. Após 15 segundos, o agente retorna uma resposta `null` onde é usado.
+- Por padrão, cada execução deve ser concluída em 20 segundos. Após 20 segundos, o agente retorna uma resposta `null` onde é usado.
     - Se seus agentes estiverem constantemente excedendo o tempo limite, entre em contato com o gerente da sua conta na Braze para aumentar esse limite.
 - Os dados de entrada estão limitados a 25 KB por solicitação. Entradas mais longas são truncadas.
 

@@ -28,7 +28,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 ## API 예제 {#api-example}
 
 {% tabs local %}
-{% tab Create %}
+{% tab 생성 %}
 다음은 "가장 많이 재생한 노래" 오브젝트가 있는 `/users/track` 예제입니다. 노래의 등록정보를 캡처하기 위해 오브젝트 등록정보 집합과 함께 `most_played_song`을 오브젝트로 나열하는 API 요청을 보냅니다.
 
 ```json
@@ -52,7 +52,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 ```
 
 {% endtab %}
-{% tab Update %}
+{% tab 업데이트 %}
 기존 오브젝트를 업데이트하려면 요청에 `_merge_objects` 매개변수를 포함하여 `users/track`으로 POST를 보내세요. 이렇게 하면 업데이트가 기존 오브젝트 데이터와 심층 병합됩니다. 심층 병합은 첫 번째 수준만이 아닌 오브젝트의 모든 수준이 다른 오브젝트에 병합되도록 합니다. 이 예시에서는 Braze에 이미 `most_played_song` 오브젝트가 있으며, 이제 `most_played_song` 오브젝트에 새 필드 `year_released`를 추가합니다.
 
 ```json
@@ -90,7 +90,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 {% endalert %}
 
 {% endtab %}
-{% tab Delete %}
+{% tab 삭제 %}
 커스텀 속성 오브젝트를 삭제하려면 커스텀 속성 오브젝트를 `null`로 설정하여 `users/track`으로 POST를 보내세요.
 
 ```json
@@ -285,8 +285,8 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 1. **데이터 설정** > **커스텀 속성**으로 이동합니다.
 2. 중첩 커스텀 속성을 검색합니다.
-3. 속성의 **속성 이름** 열에서 <i class="fas fa-plus"></i>를 선택하여 스키마를 관리합니다.
-4. 모달이 나타납니다. **스키마 재생성**을 선택합니다.
+3. 속성의 **Attribute Name** 열에서 <i class="fas fa-plus"></i>를 선택하여 스키마를 관리합니다.
+4. 모달이 나타납니다. **Regenerate Schema**를 선택합니다.
 
 마지막으로 스키마를 재생성한 후 24시간이 지나지 않은 경우 스키마 재생성 옵션이 비활성화됩니다. 스키마 재생성은 새 오브젝트만 감지하며 현재 스키마에 존재하는 오브젝트를 삭제하지 않습니다.
 
@@ -300,7 +300,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 중첩 커스텀 속성 오브젝트가 변경될 때 트리거할 수 있습니다. 이 옵션은 오브젝트 배열의 변경에는 사용할 수 없습니다. 경로 탐색기를 볼 수 있는 옵션이 표시되지 않으면 스키마가 생성되었는지 확인하세요.
 
-예를 들어, 액션 기반 Campaign에서 **커스텀 속성 값 변경**에 대한 새 트리거 동작을 추가하여 지역 사무소 선호도를 변경한 사용자를 타겟팅할 수 있습니다.
+예를 들어, 액션 기반 Campaign에서 **Change Custom Attribute Value**에 대한 새 트리거 동작을 추가하여 지역 사무소 선호도를 변경한 사용자를 타겟팅할 수 있습니다.
 
 ![중첩 선호도에 대한 커스텀 속성 값 변경 트리거가 있는 액션 기반 Campaign 전달 설정]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
@@ -326,7 +326,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 이 사용자는 첫 번째 필터가 "Shoes" 항목(80 > 50)과 일치하고 두 번째 필터가 "Hat" 항목(25 < 30)과 일치하므로 해당됩니다. 단일 항목이 두 조건을 모두 충족하지 않더라도 사용자는 여전히 Segment에 포함됩니다.
 
-배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화](#multi-criteria-segmentation)를 사용하거나 교차 항목 매칭을 방지하도록 데이터를 재구성하세요.
+배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation)를 사용하거나 교차 항목 매칭을 방지하도록 데이터를 재구성하세요.
 
 ## 데이터 포인트 {#data-points}
 

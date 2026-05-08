@@ -7,22 +7,22 @@ description: "Cet article donne un aperçu des différentes façons d'envoyer de
 
 ---
 
-# Pour commencer : Campagnes et Canvas
+# Pour commencer : Campagnes et Canvas {#get-started-campaigns-and-canvases}
 
-Dans Braze, vous pouvez envoyer des messages par le biais d'une [campagne](#campaigns) ou d'un [Canvas](#canvas).
+> Cet article donne un aperçu des différentes façons d'envoyer des messages avec Braze. Dans Braze, vous pouvez envoyer des messages par le biais d'une [campagne](#campaigns) ou d'un [Canvas](#canvas).
 
 - Pour envoyer un message unique et ciblé à un groupe d'utilisateurs, choisissez une campagne. Une campagne est une étape de message unique pour entrer en contact avec vos utilisateurs sur différents canaux de communication.
 - Pour envoyer une série de messages continus dans le cadre d'un parcours client global, choisissez Canvas, notre outil d'orchestration de parcours. Alors que les campagnes sont idéales pour envoyer des messages simples et ciblés, les Canvas vous permettent de faire passer vos relations avec les clients au niveau supérieur.
 
-## Campagnes
+## Campagnes {#campaigns}
 
 Bien que les campagnes puissent être conçues différemment selon le canal, il existe quatre types principaux de campagnes dans Braze que vous devez connaître :
 
-| Type de campagne        | Description                                                                                                                                                                                                                                                                                              |
+| Type de campagne | Description |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Régulière              | Il s'agit du type de campagne le plus courant. Vous pouvez cibler un ou plusieurs canaux en fonction de vos objectifs d'envoi de messages, et concevoir, personnaliser et tester votre contenu directement dans Braze grâce à nos éditeurs visuels. Découvrez comment [créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/). |
-| Test A/B          | Pour les campagnes ciblant un seul canal, vous pouvez envoyer plusieurs versions de la même campagne et voir laquelle obtient les meilleurs résultats. Vous pouvez tester le texte, la personnalisation et bien d'autres éléments pour un maximum de huit versions différentes dans le cadre d'une [campagne multivariée]({{site.baseurl}}/user_guide/messaging/ab_testing/). |
-| API                  | Les [campagnes API]({{site.baseurl}}/api/api_campaigns/) vous permettent d'envoyer des messages opportuns le plus rapidement possible. Contrairement aux autres types de campagnes, vous ne spécifiez pas le message, les destinataires ou la planification dans le tableau de bord de Braze. Vous transmettez plutôt ces identifiants dans vos appels API. Elles sont généralement utilisées pour les messages transactionnels en temps réel ou les nouvelles de dernière minute.  |
+| Régulière | Il s'agit du type de campagne le plus courant. Vous pouvez cibler un ou plusieurs canaux en fonction de vos objectifs d'envoi de messages, et concevoir, personnaliser et tester votre contenu directement dans Braze grâce à nos éditeurs visuels. Découvrez comment [créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/). |
+| Test A/B | Pour les campagnes ciblant un seul canal, vous pouvez envoyer plusieurs versions de la même campagne et voir laquelle obtient les meilleurs résultats. Vous pouvez tester le texte, la personnalisation et bien d'autres éléments pour un maximum de huit versions différentes dans le cadre d'une [campagne multivariée]({{site.baseurl}}/user_guide/messaging/ab_testing/). |
+| API | Les [campagnes API]({{site.baseurl}}/api/api_campaigns/) vous permettent d'envoyer des messages opportuns le plus rapidement possible. Contrairement aux autres types de campagnes, vous ne spécifiez pas le message, les destinataires ou la planification dans le tableau de bord de Braze. Vous transmettez plutôt ces identifiants dans vos appels API. Elles sont généralement utilisées pour les messages transactionnels en temps réel ou les nouvelles de dernière minute. |
 | E-mails transactionnels | Les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/email/) de Braze sont conçus pour envoyer des e-mails automatisés et non promotionnels afin de faciliter une transaction convenue entre vous et vos clients. Ils envoient à un seul utilisateur des notifications critiques où la rapidité est primordiale. *Disponible pour certains forfaits.* |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -38,7 +38,7 @@ Consultez ces ressources supplémentaires pour en savoir plus sur les campagnes 
 - [Créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
 - [Idées et stratégies]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)
 
-## Canvas
+## Canvas {#canvas}
 
 Plutôt que d'envoyer des messages sporadiques au travers de plusieurs campagnes, les Canvas créent une conversation fluide et continue avec les utilisateurs. En effet, le parcours d'un utilisateur dans un Canvas peut se scinder en différents chemins en fonction de ses actions (ou inactions) avec votre marque, ce qui vous permet de faire avancer automatiquement les utilisateurs dans un flux spécifique en temps réel.
 
@@ -56,30 +56,30 @@ Consultez ces ressources supplémentaires pour en savoir plus sur Canvas :
 - [Créer un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
 - [Grandes lignes du Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/canvas_outlines/)
 
-## Canaux de communication
+## Canaux de communication {#messaging-channels}
 
-Les canaux de communication sont les différents moyens par lesquels vous pouvez interagir avec vos clients et leur transmettre des messages ciblés. 
+Les canaux de communication sont les différents moyens par lesquels vous pouvez interagir avec vos clients et leur transmettre des messages ciblés.
 
 ![]({% image_buster /assets/img/getting_started/channels.png %})
 
 Le tableau suivant présente les canaux pris en charge.
 
-| Canal                                                                                              | Description                                                                                                                                            |
+| Canal | Description |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [E-mail]({{site.baseurl}}/user_guide/channels/email/)                        | Envoyez des e-mails personnalisés dans la boîte de réception de vos utilisateurs.                                                                                                       |
-| [Notification push mobile]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)                   | Envoyez des messages directement sur les appareils mobiles des utilisateurs sous forme de notifications.                                                                                   |
-| [Notification push Web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/)                         | Envoyez des notifications aux navigateurs web des utilisateurs, même lorsqu'ils ne sont pas activement sur votre site web.                                                         |
-| [Messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/)    | Affichez des messages au sein de votre application mobile pendant que les utilisateurs l'utilisent activement.                                                                             |
-| [SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)*                   | Envoyez des messages textuels sur les téléphones mobiles des utilisateurs.                                                                                                            |
-| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)*              | Envoyez des messages via la plateforme populaire WhatsApp pour atteindre et engager vos utilisateurs.                                                   |
-| [Bannières]({{site.baseurl}}/user_guide/channels/banners/)*       | Intégrez des messages directement dans votre application ou votre site web. |
-| [Cartes de contenu]({{site.baseurl}}/user_guide/channels/content_cards/)*       | Proposez une boîte de réception au sein de votre application ou site web où les utilisateurs peuvent recevoir des messages et interagir avec eux, ou affichez des messages dans un carrousel, sous forme de bannière, et plus encore. |
-| [Télévision connectée]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/)                           | Interagissez avec les utilisateurs sur les plateformes de télévision connectées.                                                                                                   |
-| [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) | Permettez la communication et l'intégration en temps réel avec des systèmes externes grâce à des rappels HTTP personnalisés.                                                    |
-| [LINE]({{site.baseurl}}/user_guide/channels/line/) | Interagissez avec les utilisateurs sur LINE, l'application de messagerie la plus populaire au Japon.                                                    |
+| [E-mail]({{site.baseurl}}/user_guide/channels/email/) | Envoyez des e-mails personnalisés dans la boîte de réception de vos utilisateurs. |
+| [Notification push mobile]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/) | Envoyez des messages directement sur les appareils mobiles des utilisateurs sous forme de notifications. |
+| [Notification push Web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Envoyez des notifications aux navigateurs web des utilisateurs, même lorsqu'ils ne sont pas activement sur votre site web. |
+| [Messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/) | Affichez des messages au sein de votre application mobile pendant que les utilisateurs l'utilisent activement. |
+| [SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)* | Envoyez des messages textuels sur les téléphones mobiles des utilisateurs. |
+| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Envoyez des messages via la plateforme populaire WhatsApp pour atteindre et engager vos utilisateurs. |
+| [Bannières]({{site.baseurl}}/user_guide/channels/banners/)* | Intégrez des messages directement dans votre application ou votre site web. |
+| [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)* | Proposez une boîte de réception au sein de votre application ou site web où les utilisateurs peuvent recevoir des messages et interagir avec eux, ou affichez des messages dans un carrousel, sous forme de bannière, et plus encore. |
+| [Télévision connectée]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/) | Interagissez avec les utilisateurs sur les plateformes de télévision connectées. |
+| [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) | Permettez la communication et l'intégration en temps réel avec des systèmes externes grâce à des rappels HTTP personnalisés. |
+| [LINE]({{site.baseurl}}/user_guide/channels/line/) | Interagissez avec les utilisateurs sur LINE, l'application de messagerie la plus populaire au Japon. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-<sup>Disponible en tant que fonctionnalité supplémentaire.</sup>
+<sup>*Disponible en tant que fonctionnalité supplémentaire.*</sup>
 
 {% alert tip %}
 Pour les messages courts et urgents qui peuvent être communiqués par la plupart des canaux (e-mail, SMS, push), profitez du filtre de [canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) pour envoyer automatiquement le message par le meilleur canal pour chaque utilisateur.

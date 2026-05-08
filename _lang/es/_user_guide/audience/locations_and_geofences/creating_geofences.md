@@ -46,7 +46,6 @@ La siguiente tabla describe los términos comunes de geovallas:
 
 Las campañas desencadenadas por geovallas están disponibles en iOS y Android. Para admitir geovallas, se requiere lo siguiente:
 
-* Tu integración debe admitir notificaciones push en segundo plano.
 * Las geovallas de Braze o la recopilación de ubicación deben estar habilitadas.
 * El usuario debe conceder acceso de ubicación "Permitir siempre".
 
@@ -129,7 +128,7 @@ Crea una campaña de mensaje dentro de la aplicación que explique el valor del 
 4. Añade un botón de llamada a la acción principal (como **Activar ubicación**) y configura su comportamiento al hacer clic como **Deep Link into App**, usando el vínculo profundo que tu equipo de desarrollo creó para desencadenar el aviso nativo de ubicación.
 5. Añade un botón secundario (como **Ahora no**) que cierre el mensaje.
 
-### Paso 3: Dirige al público adecuado {#step-3-target-the-right-audience}
+### Paso 3: Dirige a la audiencia adecuada {#step-3-target-the-right-audience}
 
 Para obtener los mejores resultados, muestra el mensaje previo de ubicación cuando los usuarios estén comprometidos y sea probable que vean valor en compartir su ubicación.
 
@@ -284,8 +283,6 @@ Para usar datos de geovallas para personalizar un mensaje, puedes usar la siguie
 
 El SDK de Braze solicita geovallas solo una vez al día al inicio de la sesión. Si realizas cambios en los conjuntos de geovallas después del inicio de la sesión, necesitas esperar 24 horas desde el momento en que los conjuntos se descargaron por primera vez para recibir el conjunto actualizado.
 
-Si el usuario tiene push en segundo plano habilitado, Braze envía un push silencioso cada 24 horas cuando se actualizan los conjuntos de geovallas para descargar las ubicaciones más recientes al dispositivo.
-
 {% alert note %}
 Si las geovallas no se cargan en el dispositivo localmente, el usuario no puede desencadenar la geovalla incluso si entra en el área.
 {% endalert %}
@@ -297,13 +294,12 @@ Si las geovallas no se cargan en el dispositivo localmente, el usuario no puede 
 - Usa un radio de 200 metros o más para un desencadenamiento fiable.
 - Evita configurar geovallas que se superpongan o estén anidadas unas dentro de otras, ya que esto puede causar problemas con el desencadenamiento.
 - Una geovalla puede desencadenar un evento de entrada solo una vez cada seis horas. Este periodo de enfriamiento se aplica localmente. Si un usuario desinstala la aplicación o borra los datos de la aplicación, todos los periodos de enfriamiento se restablecen.
-- No se pueden almacenar más de 20 geovallas en total en un dispositivo. Si el usuario es elegible para más de 20, Braze descarga las ubicaciones más cercanas basándose en la proximidad al inicio de la sesión o en la actualización por push silencioso.
+- No se pueden almacenar más de 20 geovallas en total en un dispositivo. Si el usuario es elegible para más de 20, Braze descarga las ubicaciones más cercanas basándose en la proximidad al inicio de la sesión.
 - Braze solo envía geovallas dentro de un radio de 2.000 kilómetros del usuario al dispositivo.
 
 ### Requisitos del dispositivo {#device-requirements}
 
-- Los permisos de push y los permisos de ubicación deben estar habilitados para la aplicación.
-- Se requiere un token de push en primer plano válido.
+- Los usuarios de tu aplicación deben conceder permisos de ubicación; consulta la sección [Permisos de ubicación](#location-permissions) para más información.
 
 {% alert note %}
 La integración básica del SDK habilita solo el seguimiento de ubicación. El geovallado requiere pasos de configuración adicionales tanto para iOS como para Android. Para más detalles, consulta [Geovallas]({{site.baseurl}}/developer_guide/geofences/) en la guía del desarrollador.

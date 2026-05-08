@@ -101,7 +101,7 @@ Der **Vorschaubereich** ist eine Instanz des Agenten, die als nebeneinander ange
 Testläufe werden auf Ihr tägliches Ausführungslimit angerechnet.
 {% endalert %}
 
-![Agentenkonsole mit dem Vorschaubereich zum Testen eines angepassten Agenten. Die Oberfläche zeigt ein Feld für Beispieleingaben mit Beispielkundendaten, einen Button „Test ausführen“ und einen Antwortbereich, in dem die Ausgabe des Agenten angezeigt wird.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Agentenkonsole mit dem Vorschaubereich zum Testen eines angepassten Agenten. Die Oberfläche zeigt ein Feld für Beispieleingaben mit Beispielkundendaten, einen Button zum Ausführen des Tests und einen Antwortbereich, in dem die Ausgabe des Agenten angezeigt wird.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Überprüfen Sie die Ausgabe mit kritischem Blick. Berücksichtigen Sie die folgenden Fragen:
 

@@ -15,7 +15,7 @@ description: "Cet article de référence explique comment utiliser les attributs
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Restrictions {#considerations}
+## Considérations {#considerations}
 
 - Les attributs personnalisés imbriqués sont destinés aux attributs personnalisés envoyés via le SDK ou l'API de Braze.
 - Les objets ont une taille maximale de 100&nbsp;Ko. Si une mise à jour fait dépasser 100&nbsp;Ko à l'objet, Braze rejette la mise à jour et l'attribut reste inchangé.
@@ -271,7 +271,7 @@ En utilisant la fenêtre modale **Ajouter une personnalisation**, vous pouvez é
 
 Par exemple, dans la fenêtre modale de personnalisation ci-dessous, cela insère l'attribut personnalisé imbriqué d'un bureau de quartier local en fonction des préférences d'un utilisateur.
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![Fenêtre modale de personnalisation montrant l'insertion d'un attribut personnalisé imbriqué pour un bureau de quartier]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insertion d'attributs personnalisés imbriqués.
@@ -285,8 +285,8 @@ Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
 1. Accédez à **Paramètres des données** > **Attributs personnalisés**.
 2. Recherchez votre attribut personnalisé imbriqué.
-3. Dans la colonne **Nom de l'attribut** correspondant à votre attribut, sélectionnez <i class="fas fa-plus"></i> pour gérer le schéma.
-4. Une fenêtre modale apparaîtra. Sélectionnez **Régénérer le schéma**.
+3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> pour gérer le schéma.
+4. Une fenêtre modale apparaîtra. Sélectionnez **Regenerate Schema**.
 
 L'option de régénération du schéma sera désactivée si moins de 24 heures se sont écoulées depuis la dernière régénération. La régénération du schéma ne détectera que les nouveaux objets et ne supprimera pas les objets qui existent déjà dans le schéma.
 
@@ -300,9 +300,9 @@ Si les données n'apparaissent pas comme prévu après la régénération du sch
 
 Vous pouvez déclencher une action lorsqu'un objet d'attribut personnalisé imbriqué change. Cette option n'est pas disponible pour les modifications de tableaux d'objets. Si vous ne voyez pas l'option d'affichage de l'explorateur de chemins, vérifiez que vous avez généré un schéma.
 
-Par exemple, dans une campagne basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Modification de la valeur d'un attribut personnalisé** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
+Par exemple, dans une Campaign basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Change Custom Attribute Value** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
 
-![Paramètres de réception d'une campagne basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Paramètres de réception d'une Campaign basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Comportement de segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 
@@ -326,7 +326,7 @@ Un segment avec les filtres ET suivants :
 
 Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément unique ne satisfait les deux conditions, l'utilisateur entre quand même dans le segment.
 
-Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères](#multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
+Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
 
 ## Points de donnée {#data-points}
 

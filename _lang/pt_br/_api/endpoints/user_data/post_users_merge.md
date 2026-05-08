@@ -60,7 +60,7 @@ Este endpoint mescla os seguintes campos se eles não forem encontrados no usuá
 
 - Nome
 - Sobrenome
-- Endereços de e-mail (a menos que estejam [criptografados]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Endereços de e-mail (a menos que estejam [criptografados]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)
 - Gênero
 - Data de nascimento
 - Número de telefone
@@ -113,6 +113,10 @@ Somente uma das opções a seguir pode existir no vetor de priorização por vez
 
 - `identified` refere-se à priorização de um usuário com um `external_id`
 - `unidentified` refere-se à priorização de um usuário sem um `external_id`
+
+{% alert important %}
+Se ambos os perfis tiverem números de telefone inválidos, a Braze não os mescla. Números inválidos não são armazenados no formato E.164, e o processo de mesclagem não combina esses perfis. O endpoint ainda retorna `202 Accepted` com uma mensagem de sucesso, então a resposta HTTP não indica que a mesclagem foi ignorada. Corrija os números de telefone em um ou ambos os perfis antes de mesclar.
+{% endalert %}
 
 ## Exemplos de solicitações {#example-requests}
 

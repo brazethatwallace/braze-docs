@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Nutzer:innen zusammenführen"
 article_title: "POST: Nutzer:innen zusammenführen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
@@ -60,7 +60,7 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 
 - Vorname
 - Nachname
-- E-Mail-Adressen (es sei denn, sie sind [verschlüsselt]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- E-Mail-Adressen (es sei denn, sie sind [verschlüsselt]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)
 - Geschlecht
 - Geburtsdatum
 - Telefonnummer
@@ -113,6 +113,10 @@ Es kann jeweils nur eine der folgenden Optionen im Priorisierungs-Array vorhande
 
 - `identified` bezieht sich auf die Priorisierung einer Nutzer:in mit einer `external_id`
 - `unidentified` bezieht sich auf die Priorisierung einer Nutzer:in ohne eine `external_id`
+
+{% alert important %}
+Wenn beide Profile ungültige Telefonnummern haben, führt Braze sie nicht zusammen. Ungültige Nummern werden nicht im E.164-Format gespeichert, und der Zusammenführungsjob kombiniert diese Profile nicht. Der Endpunkt gibt dennoch `202 Accepted` mit einer Erfolgsmeldung zurück, sodass die HTTP-Antwort nicht darauf hinweist, dass die Zusammenführung übersprungen wurde. Korrigieren Sie die Telefonnummern in einem oder beiden Profilen, bevor Sie die Zusammenführung durchführen.
+{% endalert %}
 
 ## Beispielanfragen {#example-requests}
 
