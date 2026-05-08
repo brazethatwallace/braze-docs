@@ -22,6 +22,7 @@ Rules-based recommendations are based on fixed logic that you must manually set.
 When deciding which recommendation engine suits your available resources and use cases, refer to this table of considerations:
 
 <table style="text-align: center;">
+  <caption>Recommendation engine options</caption>
   <thead>
     <tr>
       <th>Recommendation Engine</th>

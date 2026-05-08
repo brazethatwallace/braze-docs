@@ -131,6 +131,7 @@ The following example mappings both refer to this sample catalog:
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Example mappings</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

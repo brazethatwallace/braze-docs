@@ -25,7 +25,7 @@ The following terms are referenced throughout the Decisioning Studio guide.
 | **Dimensions** | Dimensions can be thought of as the *types of levers* which the decisioning agent can pull to maximize the success metric. Typical dimensions include offer, subject line, creative, channel, or send time. |
 | **Action bank** | The action bank defines the *specific options* which the decisioning agent has access to for each dimension "lever". For instance, for a channel dimension, you define the specific channels the decisioning agent has access to. For an offer dimension, you define the specific offers the decisioning agent can test. |
 | **Constraints** | In general, the decisioning agent could take any combination of actions that you put in the action bank. However, you can also define constraints to limit the decisioning agent's actions to respect critical business rules. For example, this could be preventing a specific offer from being selected for customers in an ineligible geography, or setting a maximum budget for the decisioning agent to spend. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ![A high level overview of a decisioning agent]({% image_buster /assets/img/decisioning_studio/decisioning_studio_high_level_agent.png %})
 

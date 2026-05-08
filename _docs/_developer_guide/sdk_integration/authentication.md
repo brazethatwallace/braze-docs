@@ -53,6 +53,7 @@ When generating the JWT, the following fields are expected:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Yes  | The supported algorithm is `RS256`. |
 | `typ` | Yes  | The type should equal `JWT`.        |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -62,6 +63,7 @@ When generating the JWT, the following fields are expected:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Yes  | The "subject" should equal the User ID you supply Braze SDK when calling `changeUser`  |
 | `exp` | Yes | The "expiration" of when you want this token to expire.                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 

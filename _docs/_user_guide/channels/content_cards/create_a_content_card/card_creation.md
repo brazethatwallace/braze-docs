@@ -86,6 +86,7 @@ This section describes the main differences between card creation at campaign la
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table class="tg">
+  <caption>Differences between creating cards at launch or entry versus at first impression</caption>
 <thead>
   <tr>
     <th class="tg-0pky"></th>

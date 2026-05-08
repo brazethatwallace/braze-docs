@@ -97,6 +97,7 @@ To define your "who", you can use pre-defined segments available in Canvas. You 
 | Marketing Activity  | Segment customers based on universal behaviors such as the last engagement.                         |
 | User Attributes     | Segment customers by their constant attributes and characteristics.                                 |
 | Install Attribution | Segment customers by their first source, ad group, campaign, or ad.                                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="The &quot;who&quot;: Select an audience" }
 
 ### The "where": Find my audience
 

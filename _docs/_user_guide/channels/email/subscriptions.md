@@ -72,12 +72,14 @@ Include [Preference center](#email-preference-center) Liquid at the bottom of yo
 
 ![User profile for John Doe with their email subscription state set to Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-You can check a user's email subscription state in the following ways:
+Use any of the following methods to check a user's email subscription state:
 
 1. **REST API export:** Use the [Export users by segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) or [Export users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) endpoints to export individual user profiles in JSON format.
 2. **User profile:** Find the user's profile on the [Search Users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) page, then select the **Engagement** tab to view and manually update a user's subscription state.
 
-When a user updates their email address, their subscription state will be set to subscribed, unless the updated email address already exists elsewhere in a Braze workspace.
+When a user updates their email address, their subscription state is set to subscribed. If the updated email address already exists elsewhere in a Braze workspace, the user inherits the subscription state from that existing user unless **Resubscribe users when they update their email setting** is turned on in **Sending Configuration**.
+
+To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source (API or SDK).
 
 ## Subscription groups
 
