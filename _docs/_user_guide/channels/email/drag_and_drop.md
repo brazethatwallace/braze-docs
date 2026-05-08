@@ -19,7 +19,7 @@ tool:
 The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two key components to simplify your workflow, without additional use of HTML.
 
 <table style="width: 100%; table-layout: fixed;">
-  <caption>About the editor</caption>
+    <caption>Content and Rows editor components</caption>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>

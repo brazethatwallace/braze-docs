@@ -39,25 +39,25 @@ When setting up a decisioning agent, you'll need to think through four main desi
 
 ### The "goal": Define your success metric
 
-> What outcome do you want the agent to maximize?
+*What outcome do you want the agent to maximize?*
 
 Your success metric is the business outcome the agent will optimize for. This should align directly with your business objectives, not proxy metrics like clicks or opens, but real business results like revenue, conversions, ARPU, or customer lifetime value.
 
 ### The "who": Select your audience
 
-> Who will the decisioning agent engage?
+*Who will the decisioning agent engage?*
 
 Define the audience that your agent will serve. This could be all customers, a specific segment (like loyalty program members), or customers at a particular stage of their lifecycle (like recent purchasers or at-risk subscribers).
 
 ### The "what": Configure your action bank
 
-> What options can the agent choose from to drive the outcome?
+*What options can the agent choose from to drive the outcome?*
 
 The action bank defines all the levers the agent can pull: the dimensions (like channel, offer, timing, and frequency) and the specific options within each dimension. The agent experiments with different combinations of these options to find what works best for each customer.
 
 ### The "how": Configure your constraints
 
-> What rules should the agent follow?
+*What rules should the agent follow?*
 
 Constraints are the rules that the agent must follow. This could be preventing a specific offer from being selected for customers in an ineligible geography, or setting a maximum budget for the decisioning agent to spend.
 
