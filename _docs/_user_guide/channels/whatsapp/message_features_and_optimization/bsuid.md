@@ -193,7 +193,7 @@ Currents events for WhatsApp includes a `bsuid` field alongside the existing pho
 
 Without linked portfolios, yes. The same WhatsApp user will have a different BSUID per business portfolio, and Braze will create separate profiles for each. 
 
-To resolve this, contact your Meta point-of-contact to check eligibility for portfolio linking. Once linked, Meta provides a parent BSUID shared across all portfolios, and Braze will use this to consistently identify the user across your WABAs. See [Link business portfolios and parent BSUIDs](#link-business-portfolios-and-parent-bsuids) for more detail.
+To resolve this, contact your Meta point-of-contact to check eligibility for portfolio linking. When linked, Meta provides a parent BSUID shared across all portfolios, and Braze will use this to consistently identify the user across your WABAs. See [Link business portfolios and parent BSUIDs](#link-business-portfolios-and-parent-bsuids) for more detail.
 
 ### Can I disable the Contact Book?
 
