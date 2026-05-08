@@ -11,9 +11,9 @@ description: "Este artículo de referencia explica los diferentes componentes de
 
 ---
 
-# Objeto push para Kindle y FireOS
+# Objeto push para Kindle y FireOS {#kindle-and-fireos-push-object}
 
-> El objeto `kindle_push` te permite modificar o crear notificaciones push para Kindle y FireOS a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
+> El objeto `kindle_push` te permite modificar o crear notificaciones push para Kindle y FireOS a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging/).
 
 ```json
 {
@@ -29,4 +29,4 @@ description: "Este artículo de referencia explica los diferentes componentes de
 }
 ```
 
-El parámetro `priority` aceptará valores de `-2` a `2`, donde `-2` representa la prioridad más baja y `2` representa la prioridad más alta. `0` es el valor predeterminado. Cualquier valor enviado que esté fuera de ese rango de enteros será predeterminado a `0`.
+El parámetro `priority` acepta valores de `-2` a `2`, donde `-2` representa la prioridad más baja y `2` representa la prioridad más alta. `0` es el valor predeterminado. Cualquier valor enviado fuera de ese rango de enteros tomará de forma predeterminada el valor `0`.

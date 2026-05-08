@@ -99,6 +99,12 @@ GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 STYLEGUIDE_DIR = REPO_ROOT / "scripts" / "styleguides"
 QC_RESULTS_FILE = REPO_ROOT / "qc_results.json"
 
+# Paths under `_lang/` use folder names (`fr_fr`, `pt_br`) while glossary files
+# and ``PROTECTED_PRODUCT_TERMS`` overrides use CLI keys (`fr`, `pt-br`). Map
+# so ``load_glossary`` and glossary compliance checks apply the intended
+# Canvases → Canvas Romance overrides (Copilot / locale-key drift vs PR #13303).
+_LANG_DIR_TO_GLOSSARY_LANG = {"fr_fr": "fr", "pt_br": "pt-br"}
+
 NON_TRANSLATABLE_FM_KEYS = frozenset({
     "page_order", "layout", "page_type", "channel", "platform", "tool",
     "link", "image", "permalink", "hidden", "noindex", "config_only",
@@ -158,12 +164,17 @@ def load_prompt():
 
 def load_styleguide(lang_key):
     """Load the style guide for a language. Returns '' if not found."""
-    sg_path = STYLEGUIDE_DIR / f"{lang_key}.md"
+    sg_path = STYLEGUIDE_DIR / f"{_glossary_language_key(lang_key)}.md"
     if sg_path.exists():
         content = sg_path.read_text().strip()
         if content:
             return f"\n\n## Style guide for this language\n\n{content}"
     return ""
+
+
+def _glossary_language_key(lang_key):
+    """Map ``_lang/`` folder suffix (for example ``fr_fr``) to glossary file key."""
+    return _LANG_DIR_TO_GLOSSARY_LANG.get(lang_key, lang_key)
 
 
 def load_glossary(lang_key):
@@ -184,7 +195,8 @@ def load_glossary(lang_key):
     canonical ``"Campaign"`` / ``"Segment"`` entries we then inject are
     the only protected-term rows the LLM sees.
     """
-    glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
+    file_key = _glossary_language_key(lang_key)
+    glossary_path = GLOSSARY_DIR / f"{file_key}.json"
     raw = (
         json.loads(glossary_path.read_text())
         if glossary_path.exists()
@@ -194,7 +206,7 @@ def load_glossary(lang_key):
         if _canonical_protected_term(key) is not None:
             del raw[key]
     for term in PROTECTED_PRODUCT_TERMS:
-        raw[term] = protected_term_for_locale(term, lang_key)
+        raw[term] = protected_term_for_locale(term, file_key)
     return raw
 
 

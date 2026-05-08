@@ -46,7 +46,6 @@ The following table describes common geofence terms:
 
 Geofence-triggered campaigns are available on iOS and Android. To support geofences, the following is required:
 
-* Your integration must support background push notifications.
 * Braze geofences or location collection must be enabled.
 * The user must grant "Always Allow" location access.
 
@@ -284,8 +283,6 @@ To use geofence data to personalize a message, you can use the following Liquid 
 
 The Braze SDK requests geofences only once per day on session start. If you make changes to the geofence sets after session start, you need to wait 24 hours from the time the sets are first pulled down to receive the updated set.
 
-If the user has background push enabled, Braze sends a silent push once every 24 hours when geofence sets are updated to pull down the latest locations to the device.
-
 {% alert note %}
 If the geofences aren't loaded onto the device locally, the user can't trigger the geofence even if they enter the area.
 {% endalert %}
@@ -297,13 +294,12 @@ If the geofences aren't loaded onto the device locally, the user can't trigger t
 - Use a radius of 200 meters or more for reliable triggering.
 - Avoid setting up geofences that overlap or are nested inside each other, as this can cause problems with triggering.
 - A geofence can trigger an enter event only once every six hours. This cooldown period is enforced locally. If a user uninstalls the app or clears app data, all cooldowns reset.
-- No more than 20 geofences in total can be stored on a device. If the user is eligible for more than 20, Braze downloads the closest locations based on proximity at session start or silent push refresh.
+- No more than 20 geofences in total can be stored on a device. If the user is eligible for more than 20, Braze downloads the closest locations based on proximity at session start.
 - Braze sends only geofences within a 2,000 kilometer radius of the user to the device.
 
 ### Device requirements
 
-- Push permissions and location permissions must both be enabled for the app.
-- A valid foreground push token is required.
+- Your application's users must grant location permissions, see the [Location permissions](#location-permissions) section for more information.
 
 {% alert note %}
 Basic SDK integration enables location tracking only. Geofencing requires additional setup steps for both iOS and Android. For details, see [Geofences]({{site.baseurl}}/developer_guide/geofences/) in the developer guide.

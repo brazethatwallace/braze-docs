@@ -55,7 +55,7 @@ Agents are configured with instructions (system prompts) that define how they be
 | Context | Data passed into the agent at runtime, wherever it is deployed, such as user profile fields or catalog rows. This input provides the information the agent uses to generate outputs. |
 | [Canvas context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Temporary pieces of data you can create and use within a user’s journey through a specific Canvas. |
 | [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
-| [Execution](#limitations) | A single run of the agent. This counts against your daily limits. |
+| [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
 | [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | The predefined data structure of the agent's response. |
 | [Temperature]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | The level of deviation for the agent's output. This defines how precise or creative your agent can be. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -64,7 +64,7 @@ Agents are configured with instructions (system prompts) that define how they be
 
 The following limitations apply:
 
-- Each agent has a default daily execution limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
+- Each agent has a default daily invocation limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
 - By default, each run must complete within 20 seconds. After 20 seconds, the agent returns a `null` response where it is used.
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.

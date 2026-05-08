@@ -3,7 +3,7 @@ nav_title: Google
 article_title: Canvas Audience Sync para o Google
 alias: /google_audience_sync/
 description: "Este artigo de referência abordará como usar a sincronização de público do Braze para o Google, para veicular anúncios com base em gatilhos comportamentais, segmentação e mais."
-Tool:
+tool:
   - Canvas
 page_order: 3
 
@@ -15,7 +15,7 @@ page_order: 3
 O Google está atualizando sua [Política de consentimento do usuário da UE](https://www.google.com/about/company/user-consent-policy/) em resposta às alterações na [Lei de Mercados Digitais (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), que entrará em vigor a partir de 6 de março de 2024. Essa nova alteração exige que os anunciantes divulguem determinadas informações aos seus usuários finais do EEE, Reino Unido e Suíça, bem como obtenham o consentimento necessário deles. Consulte a documentação a seguir para saber mais.
 {% endalert %}
 
-A integração de sincronização de público do Braze com o Google permite que as marcas ampliem o alcance de suas jornadas de clientes em vários canais para o Google Search, Google Shopping, Gmail, YouTube e Google Display. Usando seus dados de cliente de primeira parte, você pode entregar anúncios com segurança com base em gatilhos comportamentais dinâmicos, segmentação e mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (por exemplo, push, e-mail ou SMS) como parte de um Braze Canvas pode ser usado para disparar um anúncio para esse usuário com o [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) do Google.
+A integração de sincronização de público do Braze com o Google permite que as marcas ampliem o alcance de suas jornadas de clientes em vários canais para o Google Search, Google Shopping, Gmail, YouTube e Google Display. Usando seus dados de cliente de primeira parte, você pode entregar anúncios com segurança com base em gatilhos comportamentais dinâmicos, segmentação e mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (por exemplo, push, e-mail ou SMS) como parte de um **Canvas** da Braze pode ser usado para disparar um anúncio para esse usuário com o [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) do Google.
 
 {% alert note %}
 A integração Braze Audience Sync to Google é compatível com o Google Ads, não com o Google Ads Manager.
@@ -34,7 +34,7 @@ Esse recurso permite que as marcas controlem quais dados primários específicos
 
 ## Pré-requisitos
 
-Certifique-se de que os itens a seguir tenham sido criados e concluídos antes de configurar a etapa do Google Audience no Canva.
+Certifique-se de que os itens a seguir tenham sido criados e concluídos antes de configurar a etapa do Google Audience no **Canvas**.
 
 | Requisito | Origin | Descrição |
 | ----------- | ------ | ----------- |
@@ -68,7 +68,7 @@ Braze sincronizará os dados desses atributos personalizados com os [campos de c
 
 #### Como gerenciar consentimento revogado
 
-Para manter suas listas de público atualizadas no caso de um usuário final do EEE ter sido adicionado à lista de público e, em seguida, ter retirado qualquer um dos dois consentimentos (`$google_ad_user_data` ou `$google_ad_personalization`), você deve configurar um canva para remover usuários das listas de público existentes usando uma etapa do Audience Sync.
+Para manter suas listas de público atualizadas no caso de um usuário final do EEE ter sido adicionado à lista de público e, em seguida, ter retirado qualquer um dos dois consentimentos (`$google_ad_user_data` ou `$google_ad_personalization`), você deve configurar um **Canvas** para remover usuários das listas de público existentes usando uma etapa do Audience Sync.
 
 {% alert note %}
 Se um EEA já tiver fornecido consentimento para ambos os sinais, esses dados continuarão a ser usados para a Correspondência de Clientes do Google até que essa lista expire, ou que o status de consentimento seja explicitamente atualizado via público do Google Sync, ou ambos.
@@ -91,7 +91,7 @@ Após a sincronização com o Braze, as seguintes atribuições de consentimento
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-Em qualquer Canva em que esteja direcionando usuários finais do EEE, do Reino Unido e da Suíça usando o Google Audience Sync para adicionar usuários a um público, é necessário excluir esses usuários sempre que ambas as atribuições de consentimento tiverem qualquer valor que não seja `true`. Você pode fazer isso segmentando esses usuários quando os valores de consentimento estiverem definidos como `true`. Isso também garante que as análises de dados mais precisas dos usuários sejam sincronizadas, pois sabemos que o Google rejeitará esses usuários do público. Note que, se estiver usando o Google Audience Sync para remover usuários de um público, as atribuições de consentimento não serão necessárias.
+Em qualquer Canvas em que esteja direcionando usuários finais do EEE, do Reino Unido e da Suíça usando o Google Audience Sync para adicionar usuários a um público, é necessário excluir esses usuários sempre que ambas as atribuições de consentimento tiverem qualquer valor que não seja `true`. Você pode fazer isso segmentando esses usuários quando os valores de consentimento estiverem definidos como `true`. Isso também garante que as análises de dados mais precisas dos usuários sejam sincronizadas, pois sabemos que o Google rejeitará esses usuários do público. Note que, se estiver usando o Google Audience Sync para remover usuários de um público, as atribuições de consentimento não serão necessárias.
 
 ## Integração
 
@@ -117,11 +117,11 @@ Se você planeja exportar IDs do IDFA do iOS ou do Google Advertising em sua sin
 
 Se você tiver vários aplicativos em um único espaço de trabalho, poderá inserir qualquer ID de aplicativo na configuração, pois os IDs de anúncios para celular dos seus usuários serão os mesmos em vários aplicativos. Isso ocorre porque tanto o GAID do Android quanto o IDFA do iOS são identificadores de anúncios universais no dispositivo e não são específicos do app. Para sincronizar IDs de anúncios móveis para usuários de um aplicativo específico, é possível usar filtros de segmento ("Last Used Specific App" ou Most Recent App Version") para direcionamento a esses usuários.
 
-### Etapa 2: Adicionar uma etapa do Google Audience no Canva
+### Etapa 2: Adicionar uma etapa do Google Audience no Canvas
 
-Adicione um componente em seu Canva e selecione **Audience Sync**.
+Adicione um componente em seu Canvas e selecione **Audience Sync**.
 
-![O menu para selecionar um componente Canva no editor.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![A etapa Audience Sync adicionada à jornada do usuário.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![O menu para selecionar um componente Canvas no editor.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![A etapa Audience Sync adicionada à jornada do usuário.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Etapa 3: Configuração de sincronização
 
@@ -151,11 +151,11 @@ Adicione um componente em seu Canva e selecione **Audience Sync**.
 {: start="4"}
 4\. Em seguida, salve seu público selecionando o botão **Create Audience (Criar público** ) na parte inferior do editor de etapas.
 
-![Vista expandida do componente de Canva de Público Personalizado. Aqui, a conta de anúncios desejada é selecionada, um novo público é criado e a caixa de seleção "informações de contato do cliente" é marcada.]({% image_buster /assets/img/audience_sync/g_sync.png %})
+![Vista expandida do componente de Canvas de Público Personalizado. Aqui, a conta de anúncios desejada é selecionada, um novo público é criado e a caixa de seleção "informações de contato do cliente" é marcada.]({% image_buster /assets/img/audience_sync/g_sync.png %})
 
-Os usuários serão notificados no topo do editor de etapas se o público for criado com sucesso ou se ocorrerem erros durante este processo. Os usuários podem referenciar este público para remoção de usuários mais tarde na jornada do Canva porque o público foi criado no modo de rascunho. 
+Os usuários serão notificados no topo do editor de etapas se o público for criado com sucesso ou se ocorrerem erros durante este processo. Os usuários podem referenciar este público para remoção de usuários mais tarde na jornada do Canvas porque o público foi criado no modo de rascunho. 
 
-![Um alerta que aparece depois que um novo público é criado no componente Canva.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
+![Um alerta que aparece depois que um novo público é criado no componente Canvas.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
 
 Ao lançar um Canvas com um novo público, o Braze criará um novo público personalizado ao lançar o Canvas e, posteriormente, sincronizará os usuários quase em tempo real quando eles entrarem na etapa do Google Audience. 
 
@@ -172,22 +172,22 @@ A Braze também oferece a capacidade de adicionar ou remover usuários de listas
 3. O Braze adicionará ou removerá usuários quase em tempo real à medida que eles entrarem na etapa do público do Google. 
 4. Após configurar a etapa do público do Google, selecione **Concluído**. Sua etapa do Google Audience incluirá detalhes sobre o novo público.
 
-![Vista expandida do componente de Canva de Público Personalizado. Aqui, a conta de anúncios desejada e o público existente são selecionados, bem como o botão de rádio "Add user to Audience" (Adicionar usuário ao público).]({% image_buster /assets/img/audience_sync/g_sync2.png %})
+![Vista expandida do componente de Canvas de Público Personalizado. Aqui, a conta de anúncios desejada e o público existente são selecionados, bem como o botão de rádio "Add user to Audience" (Adicionar usuário ao público).]({% image_buster /assets/img/audience_sync/g_sync2.png %})
 
 {% endtab %}
 {% endtabs %}
 
-### Etapa 4: Lançar canva
+### Etapa 4: Lançar **Canvas**
 
-Complete o restante da sua jornada de usuário dentro do canva e depois é só abri-lo! Se você optou por criar um novo público, a Braze criará o público no Google e, em seguida, adicionará usuários à medida que eles alcançarem esta etapa no seu canva. Se você selecionou adicionar ou remover usuários de um público existente, a Braze adicionará ou removerá usuários quando eles alcançarem esta etapa em sua jornada de usuário.
+Complete o restante da sua jornada de usuário dentro do **Canvas** e depois é só abri-lo! Se você optou por criar um novo público, a Braze criará o público no Google e, em seguida, adicionará usuários à medida que eles alcançarem esta etapa no seu **Canvas**. Se você selecionou adicionar ou remover usuários de um público existente, a Braze adicionará ou removerá usuários quando eles alcançarem esta etapa em sua jornada de usuário.
 
-Os usuários então avançarão para o próximo componente da canva, se houver um, ou sairão da canva se for a última etapa da jornada do usuário. 
+Os usuários então avançarão para o próximo componente do **Canvas**, se houver um, ou sairão do **Canvas** se for a última etapa da jornada do usuário. 
 
 ## Considerações sobre sincronização de usuário e limite de frequência
 
 À medida que os usuários alcançam o componente Audience Sync, a Braze os sincronizará em tempo quase real, respeitando os limites de frequência da API do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviar esses usuários para o Google. 
 
-Quando um cliente estiver perto de atingir o limite de frequência da API do Google Ads, o Google fornecerá feedback ao Braze sobre as recomendações de novas tentativas. Se um cliente da Braze atingir seu limite de frequência, Braze o canva tentará sincronizar novamente por até ~13 horas. Se a sincronização não for possível, esses usuários são listados na métrica de Usuários com Erro.
+Quando um cliente estiver perto de atingir o limite de frequência da API do Google Ads, o Google fornecerá feedback ao Braze sobre as recomendações de novas tentativas. Se um cliente da Braze atingir seu limite de frequência, o **Canvas** tentará sincronizar novamente por até ~13 horas. Se a sincronização não for possível, esses usuários são listados na métrica de Usuários com Erro.
 
 ## Detalhes da análise de dados 
 
@@ -196,12 +196,12 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Métrica | Descrição |
 | ------ | ----------- |
 | *Entraram* | Número de usuários que entraram nesta etapa para serem sincronizados com o Google. |
-| *Avançaram para a etapa seguinte* | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente. Se esta for a última etapa no ramo do canva, esta métrica será 0. |
+| *Avançaram para a etapa seguinte* | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente. Se esta for a última etapa no ramo do **Canvas**, esta métrica será 0. |
 | *Usuários sincronizados* | Número de usuários que foram sincronizados com sucesso com o Google. |
 | *Usuário não sincronizado* | Número de usuários que não foram sincronizados devido à falta de campos para correspondência ou porque a atribuição de consentimento foi definida como `false`. |
-| *Usuários com erro* | Número de usuários que não foram sincronizados com o Google devido a um erro, após ~13 horas de tentativas. Para erros específicos, como interrupções no serviço da API do Google Ads, o canva tentará sincronizar novamente por até ~13 horas. Se a sincronização ainda não for possível nesse ponto, o *Usuário Não Sincronizado* será preenchido. |
+| *Usuários com erro* | Número de usuários que não foram sincronizados com o Google devido a um erro, após ~13 horas de tentativas. Para erros específicos, como interrupções no serviço da API do Google Ads, o **Canvas** tentará sincronizar novamente por até ~13 horas. Se a sincronização ainda não for possível nesse ponto, o *Usuário Não Sincronizado* será preenchido. |
 | *Usuários pendentes* | Número de usuários atualmente sendo processados pela Braze para sincronizar com o Google. |
-| *Saíram do canva* | Número de usuários que saíram da canva. Isso ocorre quando a última etapa em um canva é uma etapa do Google. |
+| *Saíram do **Canvas*** | Número de usuários que saíram do **Canvas**. Isso ocorre quando a última etapa em um **Canvas** é uma etapa do Google. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Perguntas frequentes

@@ -44,6 +44,15 @@ Para las exportaciones de **correo electrónico**, Canva puede pedirte que inici
 
 Usa este flujo para diseños estándar de Canva cuando quieras un archivo en la biblioteca de medios de Braze.
 
+Los siguientes videos muestran cómo enviar diseños desde Canva a tu biblioteca de medios de Braze.
+
+Video: Abre la aplicación de Braze en Canva e inicia una exportación a la biblioteca de medios.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Video: Elige un espacio de trabajo de Braze y completa la exportación a la biblioteca de medios.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
 1. Desde el menú **Apps** en tu diseño, abre la aplicación de Braze. Si aún no estás conectado, selecciona **Connect** y completa los pasos en [Autorizar tu cuenta de Braze](#step-2-authorize-your-braze-account).
 2. Elige tu espacio de trabajo de destino, opcionalmente ingresa un nombre de archivo y selecciona **Start Export**.
 
@@ -69,7 +78,7 @@ Usa este flujo cuando tu archivo de Canva sea un tipo de diseño de **correo ele
 ![Barra lateral de Braze en Canva solicitando Connect para la exportación de correo electrónico.]({% image_buster /assets/img/canva_integration/canva-email-connect-sidebar.png %})
 
 {: start="4"}
-4. En el panel de Braze, selecciona qué página de **correo electrónico** publicar (si el diseño tiene varias páginas), elige tu **espacio de trabajo de Braze**, ingresa un **nombre de plantilla** y una **línea del asunto**, y luego selecciona **Publish now**. Canva muestra el progreso mientras tu diseño se publica.
+4. En el panel de Braze, selecciona qué página de **correo electrónico** publicar (si el diseño tiene varias páginas), elige tu **espacio de trabajo de Braze**, ingresa un **Template name** y una **Subject line**, y luego selecciona **Publish now**. Canva muestra el progreso mientras tu diseño se publica.
 
 ![Panel de Braze en Canva con espacio de trabajo, nombre de plantilla, línea del asunto y Publish now.]({% image_buster /assets/img/canva_integration/canva-email-publish-fields.png %})
 

@@ -3,7 +3,7 @@ nav_title: Google
 article_title: Sincronización del público de Canvas con Google
 alias: /google_audience_sync/
 description: "En este artículo de referencia se explica cómo utilizar Braze Audience Sync con Google para ofrecer anuncios basados en desencadenantes de comportamiento, segmentación, etc."
-Tool:
+tool:
   - Canvas
 page_order: 3
 

@@ -92,7 +92,7 @@ Vous pouvez choisir l'une des trois façons dont les utilisateurs peuvent entrer
 
 {% tabs local %}
   {% tab Scheduled Delivery %}
-    Avec la livraison planifiée, les utilisateurs entreront selon un calendrier défini, de manière similaire à la planification d'une campagne. Vous pouvez inscrire des utilisateurs dans un Canvas dès son lancement, les faire entrer dans votre parcours à un moment futur, ou de manière récurrente (quotidienne, hebdomadaire ou mensuelle).
+    Avec la livraison planifiée, les utilisateurs entreront selon un calendrier défini, de manière similaire à la planification d'une Campaign. Vous pouvez inscrire des utilisateurs dans un Canvas dès son lancement, les faire entrer dans votre parcours à un moment futur, ou de manière récurrente (quotidienne, hebdomadaire ou mensuelle).
 
     Si vous sélectionnez une planification mensuelle récurrente, notez que certains mois peuvent ne pas contenir le jour sélectionné. Par exemple, supposons que vous configurez un Canvas pour un envoi mensuel le 31. Dans ce scénario, Braze envoie le dernier jour du mois, comme le 30 avril, car le 31 avril n'existe pas.
 
@@ -105,7 +105,7 @@ Vous pouvez choisir l'une des trois façons dont les utilisateurs peuvent entrer
   {% tab Action-Based Delivery %}
     Avec la livraison par événement, les utilisateurs entreront dans le Canvas et commenceront à recevoir des messages lorsqu'ils effectueront des actions particulières, comme ouvrir votre application, effectuer un achat ou déclencher un événement personnalisé.
 
-    Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fenêtre **Entry Audience**, y compris les règles de rééligibilité et les paramètres de limite de fréquence. Notez que la livraison par événement n'est pas disponible pour les composants Canvas contenant des messages in-app.
+    Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fenêtre **Entry Audience**, y compris les règles de rééligibilité et les paramètres de limite de fréquence. Notez que la livraison par événement n'est pas disponible pour les composants Canvas contenant des In-App Messages.
 
     ![Un exemple de livraison par événement. Les utilisateurs entreront dans le Canvas s'ils effectuent un achat, avec une fenêtre d'entrée commençant à 13 h 30 le 10 juin 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
@@ -132,7 +132,7 @@ Après avoir sélectionné votre méthode de livraison, ajustez les paramètres 
 {% details Comportement de déduplication pour les Canvas utilisant l'éditeur d'origine %}
 Si la fenêtre de rééligibilité est inférieure à la durée maximale du Canvas, un utilisateur pourra ré-entrer et recevoir les messages de plusieurs composants. Dans le cas limite où la ré-entrée d'un utilisateur atteint le même composant que son entrée précédente, Braze dédupliquera les messages de ce composant.
 
-Si un utilisateur ré-entre dans le Canvas, atteint le même composant que son entrée précédente et est éligible à un message in-app pour chaque entrée, l'utilisateur recevra le message deux fois (en fonction de la priorité des messages in-app) tant qu'il rouvre une session deux fois.
+Si un utilisateur ré-entre dans le Canvas, atteint le même composant que son entrée précédente et est éligible à un message in-app pour chaque entrée, l'utilisateur recevra le message deux fois (en fonction de la priorité des In-App Messages) tant qu'il rouvre une session deux fois.
 {% enddetails %}
 
 ### Étape 1.3 : Définir votre audience cible d'entrée {#step-13-set-your-target-entry-audience}
@@ -176,6 +176,7 @@ Dans la section **Target Population**, vous pouvez consulter un résumé de votr
 Notez que :
 
 - Le calcul des statistiques exactes peut prendre quelques minutes. Cette fonction ne calcule les statistiques exactes qu'au niveau du segment, pas au niveau du filtre ou du groupe de filtres.
+- Pendant le chargement des statistiques exactes, une estimation arrondie peut apparaître. Le chiffre exact apparaît dans la section **Reachable Users** une fois chargé. Vous pouvez sélectionner **Show Additional Stats** pour une répartition détaillée.
 - Pour les segments volumineux, il est normal d'observer de légères variations même lors du calcul des statistiques exactes. La précision de cette fonctionnalité est estimée à 99,999 % ou plus.
 
 Pour afficher des statistiques supplémentaires, comme le chiffre d'affaires moyen sur la durée de vie des utilisateurs ciblés, sélectionnez **Show Additional Statistics**.
@@ -230,9 +231,9 @@ Par défaut, l'affectation de la variante du Canvas est verrouillée lorsque les
 {% details Développer pour les étapes %}
 
 1. Créez un attribut personnalisé pour stocker votre nombre aléatoire. Nommez-le de manière facile à retrouver, comme « lottery_number » ou « random_assignment ». Vous pouvez créer l'attribut soit [dans votre tableau de bord]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/), soit via des appels API à notre [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).<br><br>
-2. Créez une campagne webhook au début de votre Canvas. Cette campagne sera le moyen par lequel vous créerez votre nombre aléatoire et le stockerez en tant qu'attribut personnalisé. Consultez [Créer un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) pour en savoir plus. Définissez l'URL vers notre endpoint `/users/track`.<br><br>
-3. Créez le générateur de nombres aléatoires. Vous pouvez le faire avec le code [décrit ici](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), qui tire parti de l'heure d'entrée unique de chaque utilisateur pour créer un nombre aléatoire. Définissez le nombre résultant comme variable Liquid dans votre campagne webhook.<br><br>
-4. Formatez l'appel `/users/track` dans votre campagne webhook de sorte qu'il définisse l'attribut personnalisé créé à l'étape 1 sur le nombre aléatoire que vous avez généré dans le profil de l'utilisateur actuel. Lorsque cette étape s'exécute, vous aurez réussi à créer un nombre aléatoire qui change à chaque entrée d'un utilisateur dans votre campagne.<br><br>
+2. Créez une Campaign webhook au début de votre Canvas. Cette Campaign sera le moyen par lequel vous créerez votre nombre aléatoire et le stockerez en tant qu'attribut personnalisé. Consultez [Créer un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) pour en savoir plus. Définissez l'URL vers notre endpoint `/users/track`.<br><br>
+3. Créez le générateur de nombres aléatoires. Vous pouvez le faire avec le code [décrit ici](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), qui tire parti de l'heure d'entrée unique de chaque utilisateur pour créer un nombre aléatoire. Définissez le nombre résultant comme variable Liquid dans votre Campaign webhook.<br><br>
+4. Formatez l'appel `/users/track` dans votre Campaign webhook de sorte qu'il définisse l'attribut personnalisé créé à l'étape 1 sur le nombre aléatoire que vous avez généré dans le profil de l'utilisateur actuel. Lorsque cette étape s'exécute, vous aurez réussi à créer un nombre aléatoire qui change à chaque entrée d'un utilisateur dans votre Campaign.<br><br>
 5. Ajustez les branches de votre Canvas de sorte qu'au lieu d'être réparties par variantes choisies aléatoirement, elles soient réparties en fonction de règles d'audience. Dans les règles d'audience de chaque branche, définissez le filtre d'audience en fonction de votre attribut personnalisé. <br><br>Par exemple, une branche peut avoir « lottery_number est inférieur à 3 » comme filtre d'audience, tandis qu'une autre branche peut avoir « lottery_number est supérieur à 3 et inférieur à 6 » comme filtre d'audience.
 
 {% enddetails %}

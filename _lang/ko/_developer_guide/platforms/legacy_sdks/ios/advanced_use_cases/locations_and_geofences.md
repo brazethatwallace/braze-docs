@@ -4,7 +4,7 @@ article_title: iOS용 위치 및 지오펜스
 platform: iOS
 page_order: 6
 description: "이 참조 문서에서는 iOS 애플리케이션에서 위치 및 지오펜스를 구현하는 방법에 대해 설명합니다."
-Tool:
+tool:
   - Location
 
 noindex: true
