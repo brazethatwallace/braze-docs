@@ -19,6 +19,7 @@ tool:
 The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two key components to simplify your workflow, without additional use of HTML.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>Content and Rows editor components</caption>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
@@ -192,6 +193,7 @@ Our average exported HTML data footprint size has been reduced, leading to faste
 
 HTML rendering has improved based on the following updates that minimize the number of conditional comments and CSS media queries. As a result, HTML files are smaller and more efficiently coded.
 - Migration from a `<div>` element-based design to a standard `<table>` formatted codebase
+  <caption>Use Inbox Vision</caption>
 - [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) have been re-coded for conciseness
 - The final HTML code is compressed to remove whitespace between tags
 - Transparent dividers are automatically converted into content padding

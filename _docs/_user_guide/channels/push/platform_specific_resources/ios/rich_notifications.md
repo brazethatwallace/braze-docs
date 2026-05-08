@@ -42,6 +42,7 @@ As a best practice, Braze recommends keeping each line of text for both the opti
 Your users may view push notifications in a variety of different situations, and could see different lengths of text as follows.
 
 <table>
+  <caption>Notification states</caption>
 <thead>
   <tr>
     <th>Lock screen or Notification Center</th>

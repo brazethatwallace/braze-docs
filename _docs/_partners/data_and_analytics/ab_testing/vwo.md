@@ -70,6 +70,7 @@ These custom event properties can also be used for segmentation and targeting.
 Before you can use event property segmentation, you'll need it enabled in Braze. Use the following template to contact your Braze CSM or the support team for access.
 
    <table>
+     <caption>Request event property segmentation</caption>
    <thead>
       <tr>
          <th>Field</th>

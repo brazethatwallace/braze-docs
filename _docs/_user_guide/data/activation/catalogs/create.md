@@ -95,6 +95,7 @@ For this tutorial, we're using a catalog that lists two games, their cost, and a
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

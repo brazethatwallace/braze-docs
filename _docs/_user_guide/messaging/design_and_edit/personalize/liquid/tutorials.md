@@ -24,7 +24,7 @@ When you’re finished with these tutorials, you’ll be able to:
 | [Event countdown](#countdown) | variables, date filters |
 | [Monthly birthday message](#birthday) | variables, date filters, operators |
 | [Promote a favorite product](#favorite-product) | variables, date filters, equations, operators |
-{: .reset-br-td-1 .reset-br-td-2}
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutorials: Writing Liquid code" }
 
 ## Personalized messages for user segments {#segments}
 

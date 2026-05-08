@@ -63,6 +63,7 @@ Promotions, coupons, and sales often have hard expiration dates. The following C
 </style>
 
 <table class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>Canvas Step</th>
@@ -113,6 +114,7 @@ The in-app messages expire when the promotion expires to prevent any discrepanci
 Your first impression with a user is, perhaps, your most critical one. It can make or break future visits to your app. Your initial communications with your user should be sensibly timed and encourage frequent visits to your app to promote usage.
 
 <table class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>Canvas Step</th>

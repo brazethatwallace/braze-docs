@@ -29,6 +29,7 @@ The following lists features and messaging channels supported today.
 
 </style>
 <table id="tv-feature-table">
+  <caption>Platforms and features</caption>
     <thead>
         <tr>
             <th>Device type</th>
