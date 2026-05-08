@@ -26,7 +26,7 @@ More advanced integration methods, including using [Connected Content]({{site.ba
 | Requirements     | Description |                        
 |-----------------------|-----------------|
 | Cloudinary Account  | A [Cloudinary Account](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) is required to take advantage of this partnership  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration methods
 

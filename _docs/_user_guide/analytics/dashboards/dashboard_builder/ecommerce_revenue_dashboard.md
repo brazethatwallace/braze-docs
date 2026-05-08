@@ -26,7 +26,7 @@ To view your eCommerce revenue dashboard, go to **Analytics** > **Dashboard Buil
 | eCommerce Revenue Over Time | A time series of attributed revenue in the selected date range. |
 | eCommerce Revenue by Campaign | Attributed revenue broken down by campaign. | 
 | eCommerce Revenue by Canvas | Attributed revenue broken down by Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” aria-label="Available metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
 
 ## Attribution model
 
@@ -66,7 +66,7 @@ Revenue and order counts use Braze standardized calculations.
 | --- | --- |
 | Total Revenue | Sum of order placed values − Sum of refunded values |
 | Total Orders | Distinct orders placed − Distinct orders cancelled |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” aria-label="Included data" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Included data" }
 
 ### Excluded data
 
