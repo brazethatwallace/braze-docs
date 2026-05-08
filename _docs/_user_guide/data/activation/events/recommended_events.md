@@ -265,7 +265,7 @@ Braze.getInstance(context).logCustomEvent(
   ),
 )
 
-Java
+JavaScript
 
 // add — delta quantity
 Braze.getInstance(context).logCustomEvent(
@@ -314,7 +314,7 @@ Braze.getInstance(context).logCustomEvent(
   ),
 )
 
-Java
+JavaScript
 
 // remove — delta quantity
 Braze.getInstance(context).logCustomEvent(
@@ -373,7 +373,7 @@ Braze.getInstance(context).logCustomEvent(
   ),
 )
 
-Java
+JavaScript
 
 // replace — full cart; total_value required
 Braze.getInstance(context).logCustomEvent(
