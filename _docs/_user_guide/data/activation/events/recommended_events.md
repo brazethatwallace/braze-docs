@@ -111,7 +111,7 @@ You can send this event in one of two ways:
 - **Incremental (delta) updates:** Set `action` to `add` or `remove`. Include only the line items that changed. Each `quantity` is the delta (units to add or remove), not the total quantity in the cart. For `add`, Braze increases the line quantity or adds a new line. For `remove`, Braze decreases the line quantity and removes the line when the quantity reaches `0`. `total_value` is optional for `add` and `remove`.
 
 {% alert warning %}
-Use either delta updates (`add` / `remove`) or full replacement (no `action` or `replace`) for a given cart. Mixing both approaches for the same `cart_id` is not recommended and may lead to an inconsistent cart state in Braze.
+Use either delta updates (`add` or `remove`) or full replacement (no `action` or `replace`) for a given cart. Mixing both approaches for the same `cart_id` is not recommended and may lead to an inconsistent cart state in Braze.
 {% endalert %}
 
 To trigger messaging from this event, use the **Perform Cart Updated Event** trigger in Canvas and campaigns. This trigger includes special handling to stop the cart from progressing through the shopping funnel.
