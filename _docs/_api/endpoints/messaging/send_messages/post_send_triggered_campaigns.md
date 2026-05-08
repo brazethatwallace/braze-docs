@@ -94,6 +94,9 @@ Learn more about how recipient limits and profile creation work for this endpoin
 - The `recipients` array may contain up to 50 objects, with each object containing a single `external_user_id` string and a `trigger_properties` object.
 - When `send_to_existing_only` is `true` (the default), Braze sends the message only to existing users.
 - When `send_to_existing_only` is `false` and an `attributes` object is provided, Braze creates a new user if one doesn't exist.
+- **Net-new profiles need `attributes` with `send_to_existing_only: false`.** Braze runs the pre-send create or update from the `attributes` object in the same recipient. If you set `send_to_existing_only` to `false` but omit `attributes` (or send an empty object), Braze does not hydrate profile data the same way, so you do not get the combined "create or update user, then send" behavior this pattern is meant for.
+- **Email and SMS addressing.** For most Email or SMS API-triggered sends to someone who is not already in Braze, include the delivery fields you need inside `attributes` (for example `email`, or the phone attributes your workspace uses for SMS). You can also set subscription group membership or subscription status there when opt-in state must change in the same call.
+- **Campaign eligibility.** After the profile exists or updates, that user must still match the campaign's dashboard target audience and channel send rules (for example opted in for email) or Braze does not send the message.
 - Setting `send_to_existing_only` to `false` is not supported for user aliases. New alias-only users can't be created through this endpoint. To send to an alias-only user, that user must already exist in Braze.
 
 #### Email identifier and prioritization ties
