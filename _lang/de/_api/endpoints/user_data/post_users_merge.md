@@ -60,7 +60,7 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 
 - Vorname
 - Nachname
-- E-Mail-Adressen (es sei denn, sie sind [verschlüsselt]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)
+- E-Mail-Adressen (es sei denn, sie sind [verschlüsselt]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
 - Geschlecht
 - Geburtsdatum
 - Telefonnummer

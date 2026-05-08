@@ -12,7 +12,7 @@ Geofences werden **sowohl auf iOS als auch auf Android** im React Native SDK unt
 
 ### Schritt 2: Vollständige native Android-Einrichtung {#step-2-complete-native-android-setup}
 
-Da das React Native SDK das native Braze Android SDK verwendet, führen Sie die native Android-Geofence-Einrichtung für Ihr Projekt durch. Die entsprechenden Schritte für iOS werden im nativen Swift-SDK-Leitfaden zu Geofences ([Schritte 2.2 bis 3.1]({{site.baseurl}}/developer_guide/geofences/?sdktab=swift#swift_step-21-add-the-brazelocation-module) behandelt. Schritt 2.1 (Hinzufügen des BrazeLocation-Moduls) ist für React Native nicht erforderlich, da BrazeLocation bereits implizit im Braze React Native SDK enthalten ist.
+Da das React Native SDK das native Braze Android SDK verwendet, führen Sie die native Android-Geofence-Einrichtung für Ihr Projekt durch. Die entsprechenden Schritte für iOS werden im nativen Swift-SDK-Leitfaden zu Geofences ([Schritte 2.2 bis 3.1]({{site.baseurl}}/developer_guide/geofences/?sdktab=swift#swift_step-21-add-the-brazelocation-module)) behandelt. Schritt 2.1 (Hinzufügen des BrazeLocation-Moduls) ist für React Native nicht erforderlich, da BrazeLocation bereits implizit im Braze React Native SDK enthalten ist.
 
 1. **`build.gradle` aktualisieren:** Fügen Sie `android-sdk-location` und die Standortdienste der Google-Play-Dienste hinzu. Siehe [Android-Geofences]({{site.baseurl}}/developer_guide/geofences/?sdktab=android).
 2. **Manifest aktualisieren:** Fügen Sie Standortberechtigungen und den Braze-Boot-Empfänger hinzu. Siehe [Android-Geofences]({{site.baseurl}}/developer_guide/geofences/?sdktab=android).
