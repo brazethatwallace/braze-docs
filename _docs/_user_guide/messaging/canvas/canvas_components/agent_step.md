@@ -112,7 +112,7 @@ The following pattern uses three agents for a travel example: someone searched i
 
 To test your agent's performance and credit consumption against your existing journeys, add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. 
 
-For example, send a few thousand users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch.
+For example, set aside 25,000 invocations, then send 2,000 users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch.
 
 ## Frequently asked questions
 
