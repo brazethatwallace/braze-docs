@@ -152,7 +152,7 @@ For subscription-based channels (email, SMS, and similar), use **Send to these u
 
 You can limit the total number of users that receive your message. This serves as a check that is independent of your campaign filters. For details, refer to [Setting a maximum user cap]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#setting-a-maximum-user-cap).
 
-### Limit the rate at which this campaign will send
+### Limit the rate at which this campaign sends
 
 If you anticipate large campaigns driving a spike in user activity and overloading your servers, you can specify a per-minute rate limit for sending messages, which means Braze sends no more than your rate-limited setting within a minute. For details, refer to [Delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)
 
