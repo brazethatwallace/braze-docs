@@ -85,6 +85,7 @@ These in-app messages are accepted by both mobile apps and web applications.
 </style>
 
 <table class="tg">
+  <caption>Message types</caption>
 <thead>
   <tr>
     <th>Message Type</th>
@@ -134,6 +135,7 @@ These in-app messages are accepted by both mobile apps and web applications.
 These in-app messages are customizable to your needs.
 
 <table class="tg">
+  <caption>Advanced message types</caption>
 <thead>
   <tr>
     <th>Message Type</th>

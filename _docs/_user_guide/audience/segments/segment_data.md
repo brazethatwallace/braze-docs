@@ -37,6 +37,7 @@ You can view the following segment statistics, which update in real-time as you 
 </style>
 
 <table>
+  <caption>Segment statistics</caption>
     <thead>
         <tr>
             <th>Statistic</th>

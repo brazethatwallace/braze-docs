@@ -86,6 +86,7 @@ With the Braze SDKs, you can track custom events or custom attributes that go be
 </style>
 
 <table style="width: 100%;">
+  <caption>(Advanced) Custom data tracking setup</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Custom events</th>

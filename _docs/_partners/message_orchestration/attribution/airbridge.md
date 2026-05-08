@@ -228,6 +228,7 @@ Assuming you configure your integration as suggested, Braze will map install dat
 | `Campaign` | Install Attribution Campaign | The campaign the installs or deeplink opens are attributed to |
 | `Ad Group` | Install Attribution Adgroup | The ad group the installs or deeplink opens are attributed to |
 | `Ad Creative` | Install Attribution Ad | The ad creative the installs or deeplink opens are attributed to |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
 
 Your user base can be segmented by attribution data in the Braze dashboard using the Install Attribution filters.
 
