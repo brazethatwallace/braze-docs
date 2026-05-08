@@ -30,20 +30,12 @@ The Braze integration with Shopify provides a powerful solution for eCommerce bu
 
 If you have not already, follow [the instructions on this page]({{site.baseurl}}/shopify_standard_integration/) to set up at least one Shopify store with Braze.
 
-### Step 2: Obtain your Shop ID
-
-1. In your store admin page ([https://admin.shopify.com/](https://admin.shopify.com/)), go to **Settings** > **Customer accounts**.
-2. Under the **URL** section of the page, there should be a URL in the following format:
-    ```
-    https://shopify.com/<ID>/account
-    ```
-3. Make note of the `<ID>` portion of the URL. This is your Shop ID.
-
-### Step 3: Create Braze Current
+### Step 2: Create Braze Current
 
 1. In Braze, navigate to **Partner Integrations** > **Currents** > **+ Create New Current** > **Shopify Export**.
-2. Provide an integration name, contact email, and the Shop ID that you previously recorded.
-3. Next, select the events you want to track; a list of available events is provided.
-4. Lastly, click **Launch Current**
+2. Provide an integration name and contact email.
+3. In the **Credentials** section, select the Shopify store that you previously created in **Step 1**.
+4. Next, select the events you want to track; a list of available events is provided.
+5. Lastly, click **Launch Current**
 
-![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shop ID.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shopify Store.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
