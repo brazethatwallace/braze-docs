@@ -47,7 +47,7 @@ Before you upload your CSV file, ensure that your CSV file meets the following r
 | Data types | Supported data types for CSV uploads include string, number, boolean, and time. For the full list of data types, including those available only through the API and CDI, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatting | Format all text in lowercase to maintain consistency. |
 | Encoding | Save and upload the CSV file using UTF-8 encoding. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 Need more space to accommodate for your CSV files? Contact your Braze account manager for more information about upgrading your catalogs.
@@ -241,7 +241,7 @@ The following table summarizes specifications for what you can include in catalo
 | Item value characters | Up to 5,000 characters in a single value. For example, if you have a field labeled `description`, the maximum number of characters within the field is 5,000. |
 | Item column name characters | Up to 250 characters |
 | Selections per catalog | Up to 30 selections per catalog |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
 {% alert important %}
 Catalog Liquid tags cannot be used recursively, meaning you cannot reference a catalog item that then calls a second catalog item from within the same Liquid evaluation.

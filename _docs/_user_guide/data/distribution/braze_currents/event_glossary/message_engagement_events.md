@@ -36,7 +36,7 @@ Note the naming conventions for user IDs.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | The unique identifier that is automatically assigned by Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | The unique identifier of a user's profile that is set by the customer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### Platform values
 
@@ -52,7 +52,7 @@ Certain events return a `platform` value that specifies the platform of the user
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
@@ -511,7 +511,7 @@ This event occurs when Braze receives a request to update the global subscriptio
 | Push Token Registration | When a user is updated by the token registration process |
 | List-Unsubscribe | When a user unsubscribes via Braze mailto or one-click list-unsubscribe header |
 | Other | Includes any other sources, such as demo or provider sync jobs, or SMS and Whatsapp event callbacks |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Property details" }
 
 
 {% endapi %}

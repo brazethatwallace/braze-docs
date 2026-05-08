@@ -23,7 +23,7 @@ Braze has three global subscription states for email users. These states gate yo
 | Opted-in | A user has explicitly confirmed they want to receive email. We recommend an explicit opt-in process to get consent from users to send emails. |
 | Subscribed | A user has neither unsubscribed nor explicitly opted-in to receive emails. This is the default subscription state when a user profile is created. |
 | Unsubscribed | A user has explicitly unsubscribed from your emails. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
 
 {% alert note %}
 Braze does not count subscription state changes against your data points, globally, and around subscription groups.

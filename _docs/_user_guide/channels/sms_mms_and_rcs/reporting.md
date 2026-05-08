@@ -29,7 +29,7 @@ You can track SMS opt-ins and opt-outs with the following methods:
 | Segmenter | The segmenter displays the number of users in a specific [Subscription Group]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group). It does not deduplicate by phone number—if multiple users share the same phone number, each instance is counted separately. |
 | Subscription group timeseries | Provides a daily snapshot of subscriptions for email and phone numbers. The timeseries counts subscriptions, unsubscribes, and resubscribes. For example, if a user subscribes, unsubscribes, and then resubscribes, they are counted as one subscribed user. |
 | Currents | Use Currents to export [subscription and engagement events]({{site.baseurl}}/message_events_glossary/) for your own reporting. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Track SMS opt-ins and opt-outs" }
 
 {% alert note %}
 The _Opt-In_ and _Opt-Out_ statistics in the **SMS/MMS/RCS Performance** panel reflect users opting in or out through inbound keywords (for example, texting "START" for opt-in or "STOP" for opt-out). These numbers are typically lower than what is shown in the segmenter, as they count the number of times these keywords were texted, not the total number of users subscribed to SMS.
@@ -73,7 +73,7 @@ This table reflects Braze billing, not your provider's billing. Outcomes that ar
 | Delivered | The SMS provider received confirmation of message delivery from the upstream carrier (and, where available, from the destination device). | Charge |
 | Rejected | The SMS provider received a rejected receipt indicating that the message wasn't delivered. This can happen for several reasons, including carrier content filtering or availability of the destination device. | Charge |
 | Sent to Carrier | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | Charges may apply based on individual message sending outcomes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Charges applied to SMS sending outcomes" }
 
 ## Reconcile *Rejections* with Snowflake or Currents
 

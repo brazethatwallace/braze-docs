@@ -130,7 +130,7 @@ table td {
 | **529 Host Overloaded**       | The endpoint host is overloaded and could not respond. |
 | **598 Host Unhealthy**        | Braze simulated the response because the endpoint host temporarily is marked as unhealthy. See [Unhealthy host detection](#unhealthy-host-detection) to learn more. |
 | **599 Connection Error**      | Braze experienced a network connect timeout error while trying to establish a connection to the endpoint, meaning the endpoint may be unstable or down. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5XX errors" }
 
 ### Resolving 5XX errors
 

@@ -21,7 +21,7 @@ The product portal can be found at **Community** > **Product Roadmap**.
 | Planned Features | Features that we've committed to building and will begin development within the quarter. <br>There is no confirmed deadline as to when these features will be released. |
 | Under Consideration | Features we're considering building that our product team would like your feedback on. <br>These are ideas and no guarantee that we will build this feature. |
 | Submit Ideas | There are 10 product categories in which you can vote for general improvements or comment with a specific feature request or idea. <br>Our product team will receive and read your requests but an idea submission does not guarantee it will be built. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's in the portal" }
 
 ## How you can join the conversation
 
@@ -31,7 +31,7 @@ The product portal can be found at **Community** > **Product Roadmap**.
 | Comment on a feature | After you've ranked a feature, you can leave a comment with your feedback. |
 | Answer a Product Manager's question | Look for the "How Customers Can Help" on a feature card to answer questions from our product team. |
 | Submit an idea | Go to the portal's **Submit Ideas** page and select from one of ten cards to rank its importance. Include your idea or request in the comments! <br><br>Once submitted, your idea will be reviewed by a member of our product team. We cannot provide updates on the status of a request. Occasionally check back to see if your idea has been added to the "Under Consideration" or "Planned Features" sections. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How you can join the conversation" }
 
 ## Product feedback at Braze
 

@@ -21,7 +21,7 @@ The Braze and Eppo integration allows you to set up A/B tests in Braze and analy
 |------------------------------------|-------------------------------------------------------------------------------------|
 | Eppo account                       | An Eppo account is required to take advantage of this partnership.                   |
 | Currents or Snowflake Data Sharing | Currents or Snowflake Data Sharing is required for Eppo to analyze experiment data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

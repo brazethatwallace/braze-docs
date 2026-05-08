@@ -57,7 +57,7 @@ Additionally, their structure varies slightly from the flat structure found in [
 |----|-----------|
 |`"user"`|Contains user properties such as `user_id`, `external_user_id`, `device_id`, and `timezone`.|
 |`"properties"`|Contains attributes of an event, such as the `app/campaign/canvas/platform` it applies to.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 If a downstream endpoint receives a payload with zero events or an empty request body, the result should be considered a no-op, meaning no downstream effects should occur from this call. However, you should still check the `Authorization` header (like you would a normal API call), and give an appropriate HTTP response for [invalid credentials](#authentication), such as `401` or `403`. This let's Braze know that the connector's credentials are valid.
 
@@ -482,4 +482,4 @@ The following HTTP status codes will be recognized by our connector client:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

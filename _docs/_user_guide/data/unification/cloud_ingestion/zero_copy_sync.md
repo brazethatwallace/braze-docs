@@ -149,7 +149,7 @@ Refer to the following when creating your source table:
 | **`EXTERNAL_ID`** | STRING | NULLABLE | 
 | **`ALIAS_NAME`** | STRING | NULLABLE | 
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Set up your source table in BigQuery" }
 
 {% alert note %}
 Properties are not required for every row or user. However, properties values be a valid JSON string. Input an empty `{}` string if there are no properties for the row.
@@ -178,7 +178,7 @@ Create a user and grant permissions. If you already have credentials from anothe
 | BigQuery User | Allows Braze to run queries, read metadata, and list tables. |
 | BigQuery Data Viewer | Allows Braze to view datasets and contents. |
 | BigQuery Job User | Allows Braze to run jobs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.3: Set up credentials" }
 
 After granting permissions, generate a JSON key. See [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) for instructions. You’ll upload it in the Braze dashboard later.
 
@@ -205,7 +205,7 @@ Refer to the following when creating your source table:
 | `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Set up your source table in Databricks" }
 
 You can name the schema and table as you’d like, but the column names should match the preceding definition.
 
@@ -283,7 +283,7 @@ To sync Canvas triggers from file storage, create a source file with the followi
 | `EXTERNAL_ID` | Yes, one of `external_id` or `alias_name`, and `alias_label` | This identifies the user you want to update. This should match the `external_id` value used in Braze. |
 | `ALIAS_NAME` and `ALIAS_LABEL` | Yes, one of `external_id` or `alias_name` and `alias_label` | These two columns create a user alias object. `alias_name` should be a unique identifier, and `alias_label` specifies the type of alias. Users may have multiple aliases with different labels, but only one `alias_name` per `alias_label`. |
 | `PROPERTIES` | Yes | JSON string of fields to make available as personalization properties in your Canvas. This should contain user-specific information. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
 
 {% alert tip %}
 Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).

@@ -20,7 +20,7 @@ This is a community-submitted integration and isn’t directly supported by Braz
 | --- | --- |
 | Set up a Shopify store | Confirm you've already [set up a Shopify store with Braze]({{site.baseurl}}/shopify_overview/). |
 | Install the Bulk Discount Code Bot app | Download the [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) app in the Shopify app store. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Generating unique discount codes
 
