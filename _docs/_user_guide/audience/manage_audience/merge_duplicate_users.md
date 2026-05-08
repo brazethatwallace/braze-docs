@@ -13,8 +13,8 @@ page_order: 4
 
 The tools on this page merge duplicate profiles in the dashboard. You can also combine or re-point profiles through Braze's [User Data endpoints]({{site.baseurl}}/api/endpoints/user_data/):
 
-- **[POST: Identify users]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)** (`/users/identify`) — Combines an alias-only, email-only, or phone number-only profile with a profile that has an `external_id`.
-- **[POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)** (`/users/merge`) — Merges one user profile into another, including when both profiles already have an `external_id`. Review [Prerequisites]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) and [Merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) before you call this endpoint.
+- [POST: Identify users]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`): Combines an alias-only, email-only, or phone number-only profile with a profile that has an `external_id`.
+- [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): Merges one user profile into another, including when both profiles already have an `external_id`. Review [Prerequisites]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) and [Merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) before you call this endpoint.
 
 When an anonymous profile is matched to an existing identified profile (for example through an SDK `changeUser()` call or `/users/identify`), Braze orphans the anonymous profile and copies only certain fields onto the identified profile. For more information, see [What happens when you identify anonymous users]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
 
