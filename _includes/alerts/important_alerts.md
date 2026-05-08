@@ -61,7 +61,7 @@ There are certain browsers, such as the Naver Android and iOS apps, that don’t
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-The legacy purchase event is entering maintenance mode. Existing purchase events continue to work as expected, but no new functionality is being built on top of them in favor of eCommerce recommended events. You can continue using purchase events for the foreseeable future. Braze provides advance notice well before any end-of-life date is set.
+The legacy purchase event is entering maintenance mode. Existing Braze customers can continue using legacy purchase events. They'll keep working as expected, but new functionality will be built on eCommerce recommended events going forward. Braze will provide advance notice well before any end-of-life date is set. New Braze customers should use [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), as legacy purchase events will not be available.
 {% endalert %}
 
 {% endif %}
