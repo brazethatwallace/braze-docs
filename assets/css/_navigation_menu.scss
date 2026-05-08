@@ -264,7 +264,7 @@ $nav-focus-offset-rail: 0; // main rail toggle — ring hugs 40px target (less �
 				letter-spacing: 0.04em;
 				text-transform: uppercase;
 				font-family: $braze-regular;
-				color: $grey-stardust;
+				color: $grey-boulder; // $grey-stardust → darkened for 5.2:1 on white
 				kbd {
 					display: inline-block;
 					margin: 0 0.2em;
