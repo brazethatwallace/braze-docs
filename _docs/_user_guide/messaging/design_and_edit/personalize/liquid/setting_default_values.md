@@ -8,9 +8,9 @@ description: "This reference article cover how to set default fallback values fo
 
 # Set default values
 
-{% raw %}
-
 > Default fallback values can be set for any personalization attribute that you use in your messages. This article covers how default values work, how to set them up, and how to use them in your messages.
+
+{% raw %}
 
 ## How they work
 

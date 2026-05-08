@@ -11,8 +11,6 @@ description: "This article provides steps on how to use locales in your messages
 
 > After adding locales to your workspace, you can target users in different languages all within a single push, email, banner, in-app message, or Content Block.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Prerequisites
 
 Watch the following video for an optional overview of setting up and using multi-language messages.
@@ -231,27 +229,25 @@ URLs use two special characters to control how this works:
 | Liquid generated | Yes | Use `&` after the closing translation tag if the generated URL already contains a `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-### Language settings and accessibility
+### Language settings and accessibility {#language-settings-and-accessibility}
 
-For HTML-based channels (email, in-app message, Banners, landing pages, and Content Cards), Braze adds an accessibility language (`lang`) attribute to the rendered message. This attribute helps assistive technologies like screen readers correctly interpret and pronounce text.
+Start with [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) in [Accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) for WCAG context, channel and editor behavior (including landing pages), and message-level **Accessibility** settings.
 
-Without this, a screen reader assumes content is in the default language the user set on their device during setup. If the message is in a different language, the screen reader may not pronounce everything correctly.
+When you use **multi-language messages**, align accessibility language with each locale so localized sends declare the appropriate language.
 
-#### Configuring the accessibility language
+#### Configure the accessibility language {#configuring-the-accessibility-language}
 
-You can set the accessibility language at two levels:
+You can set accessibility language at two levels:
 
 ##### Message level
 
-In your message settings, go to the **Accessibility** section and select a language from the dropdown or use Liquid to dynamically set the accessibility language. This applies to all content in the message. 
+At the message level, set accessibility language in the **Accessibility** section of your message settings. For selecting a language, using Liquid, and limitations by channel, refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ##### Locale level
 
-For multi-language messages, set the accessibility language on each locale in **Localization Settings**. When new messages are created, {% raw %}`{{accessibility_language}}`{% endraw %} is selected by default in the **Accessibility** section. This maps the accessibility language to your locale settings.
+For multi-language messages, set accessibility language for each locale in **Localization Settings**. You can use {% raw %}`{{accessibility_language}}`{% endraw %} in the **Accessibility** section so document or card language maps to those locale values.
 
-#### Standards
-
-The accessibility language maps to the HTML `lang` attribute, a [WCAG 2.1 Level A requirement](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Success Criterion 3.1.1). For multi-language content, you can also set the language on individual content blocks using the `lang` attribute directly in your HTML.
+Whether that token appears by default for new messages depends on the channel and editor. For example, in-app messages and Banners behave differently from landing pages and drag-and-drop emails. Refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) for details.
 
 ## Frequently asked questions
 

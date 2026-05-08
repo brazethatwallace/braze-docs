@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-La limitación de frecuencia no se aplica a las Tarjetas de contenido.
+La limitación de frecuencia no se aplica a Content Cards.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,15 @@ Braze no genera perfiles para los usuarios hasta que han utilizado la aplicació
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-Todos los atributos provienen de la API REST de Braze.
+Todos los atributos provienen de la REST API de Braze.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+Puedes añadir hasta 350 grupos de suscripción por espacio de trabajo.
 {% endalert %}
 
 {% endif %}

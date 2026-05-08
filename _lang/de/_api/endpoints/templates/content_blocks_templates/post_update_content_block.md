@@ -1,31 +1,31 @@
 ---
 nav_title: "POST: Content-Block-Update"
 article_title: "POST: Content-Block aktualisieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Update Content-Blöcke Braze Endpunkt."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Content Blocks aktualisieren“."
 
 ---
 {% api %}
-# Content-Block aktualisieren
+# Content-Block aktualisieren {#update-content-block}
 {% apimethod post %}
 /content_blocks/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/) zu aktualisieren.
+> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) zu aktualisieren.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `content_blocks.update`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -43,19 +43,19 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `content_block_id`|	Erforderlich |	String | Der Bezeichner der API Ihres Content-Blocks.|
+| `content_block_id` | Erforderlich | String | Der API-Bezeichner Ihres Content-Blocks. |
 | `name` | Optional | String | Name des Content-Blocks. Muss weniger als 100 Zeichen umfassen. |
 | `description` | Optional | String | Beschreibung des Content-Blocks. Muss weniger als 250 Zeichen umfassen. |
-| `content` | Optional | String | HTML- oder Textinhalte innerhalb von Content-Blöcken.
+| `content` | Optional | String | HTML- oder Textinhalte innerhalb von Content Blocks. |
 | `state` | Optional | String | Wählen Sie `active` oder `draft`. Der Standardwert ist `active`, wenn nichts angegeben wird. |
-| `tags` | Optional | String-Array | [Tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) müssen bereits existieren. |
+| `tags` | Optional | String-Array | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) müssen bereits existieren. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/update' \
 --header 'Content-Type: application/json' \
@@ -70,7 +70,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/upd
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {
@@ -81,11 +81,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/upd
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `Content cannot be blank` |
 | `Content must be a string` | Achten Sie darauf, dass Ihr Inhalt in Anführungszeichen (`""`) eingeschlossen ist. |
@@ -97,7 +97,7 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `Content Block description must be shorter than 250 characters` |
 | `Content Block name cannot be blank` |
 | `Content Block name must be shorter than 100 characters` |
-| `Content Block name can only contain alphanumeric characters` | Content-Block-Namen können jedes der folgenden Zeichen enthalten: die Buchstaben (groß- oder kleingeschrieben) `A` bis `Z`, die Zahlen `0` bis `9`, Bindestriche `-` und Unterstriche `_`. Er kann keine nicht-alphanumerischen Zeichen wie Emojis, `!`, `@`, `~`, `&` und andere "Sonderzeichen" enthalten. |
+| `Content Block name can only contain alphanumeric characters` | Content-Block-Namen können jedes der folgenden Zeichen enthalten: die Buchstaben (groß- oder kleingeschrieben) `A` bis `Z`, die Zahlen `0` bis `9`, Bindestriche `-` und Unterstriche `_`. Er kann keine nicht-alphanumerischen Zeichen wie Emojis, `!`, `@`, `~`, `&` und andere „Sonderzeichen“ enthalten. |
 | `Content Block with this name already exists` | Versuchen Sie einen anderen Namen. |
 | `Content Block name cannot be updated for active Content Blocks` |
 | `Content Block state must be either active or draft` |

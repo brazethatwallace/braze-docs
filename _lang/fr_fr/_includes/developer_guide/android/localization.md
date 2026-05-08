@@ -1,12 +1,12 @@
-# Localisation
+# Localisation {#localization}
 
-> La localisation est prise en charge au sein du SDK Braze pour Android. En plus de l’anglais, Braze prend en charge plusieurs langues pour nos messages SDK intégrés. Il s'agit des messages par défaut affichés dans les applications intégrées à Braze, comme les endroits de l'application où il y a des problèmes de connectivité (par exemple, "Impossible d'établir la connexion réseau". Veuillez réessayer plus tard.") 
+> La localisation est prise en charge au sein du SDK Braze pour Android. En plus de l'anglais, Braze prend en charge plusieurs langues pour les messages intégrés au SDK. Ces messages correspondent aux textes par défaut affichés dans les applications intégrées à Braze, par exemple lorsque des problèmes de connectivité surviennent (comme « Impossible d'établir la connexion réseau. Veuillez réessayer plus tard. »).
 
-Si la langue du téléphone est définie sur l’une des langues prises en charge, toutes les chaînes de caractères Braze par défaut déclenchées dans une application intégrée apparaîtront automatiquement dans cette langue.
+Si la langue du téléphone est définie sur l'une des langues prises en charge, toutes les chaînes de caractères par défaut de Braze déclenchées dans une application intégrée s'afficheront automatiquement dans cette langue.
 
-Si vous recherchez une liste complète des langues prises en charge que vous pouvez attribuer à vos utilisateurs dans leurs profils, consultez notre [liste des langues des utilisateurs]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
+Si vous recherchez la liste complète des langues prises en charge que vous pouvez attribuer à vos utilisateurs dans leurs profils, consultez notre [liste des langues des utilisateurs]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Langues prises en charge
+## Langues prises en charge {#languages-supported}
 
 - Afrikaans
 - Aghem
@@ -15,10 +15,10 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Amharique
 - Arabe
 - Arménien
-- Assamese
+- Assamais
 - Asu
 - Aymara
-- Azerbaîdjanais
+- Azerbaïdjanais
 - Bafia
 - Bambara
 - Basa
@@ -39,7 +39,7 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Chiga
 - Chinois
 - Swahili du Congo
-- Bena
+- Cornique
 - Créole
 - Croate
 - Tchèque
@@ -64,11 +64,11 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Géorgien
 - Allemand
 - Suisse allemand
-- Grecque
+- Grec
 - Groenlandais
 - Guarani
 - Gujarati
-- Hausa
+- Haoussa
 - Hawaïen
 - Hébreu
 - Hindi
@@ -81,12 +81,12 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Italien
 - Japonais
 - Javanais
-- Jola fonyi
+- Jola-fonyi
 - Kabyle
 - Kalenjin
 - Kamba
 - Kannada
-- Kashmiri
+- Cachemiri
 - Kazakh
 - Kiembu
 - Kikuyu
@@ -100,22 +100,22 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Latin
 - Letton
 - Lingala
-- Lithuanien
-- Luba katanga
+- Lituanien
+- Luba-katanga
 - Luo
 - Luxembourgeois
-- Luyai
+- Luyia
 - Macédonien
 - Machame
-- Makhuwa meetto
+- Makhuwa-meetto
 - Makonde
 - Malgache
 - Malais
 - Malayalam
 - Maltais
-- Manx
+- Mannois
 - Marathi
-- Masai
+- Massaï
 - Meru
 - Moldave
 - Mongol
@@ -123,18 +123,18 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Mundang
 - Nama
 - Népalais
-- Ndebele du Nord
+- Ndébélé du Nord
 - Norvégien
 - Nuer
 - Nyankole
 - Nynorsk
 - Oriya
 - Oromo
-- Pachtou
+- Pachto
 - Peul
 - Polonais
 - Portugais
-- Punjabi
+- Pendjabi
 - Quechua
 - Rhéto-roman
 - Roumain
@@ -151,37 +151,37 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Serbe
 - Shambala
 - Shona
-- Sichuan yi
+- Yi du Sichuan
 - Sindhi
 - Cinghalais
 - Slovaque
 - Slovène
 - Soga
-- Somalien
-- Songhay
+- Somali
+- Songhaï
 - Espagnol
-- Soudanais
+- Soundanais
 - Swahili
 - Suédois
 - Tachelhit
 - Tagalog
 - Tadjik
-- Tamil
+- Tamoul
 - Tasawaq
 - Tatar
-- Telugu
+- Télougou
 - Teso
 - Thaïlandais
 - Tibétain
-- Tigrinia
+- Tigrigna
 - Tongien
 - Turc
 - Turkmène
 - Ouïghour
 - Ukrainien
-- Urdu
-- Ouzbèke
-- Vai
+- Ourdou
+- Ouzbek
+- Vaï
 - Vietnamien
 - Vunjo
 - Gallois
@@ -192,5 +192,4 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Zarma
 - Zoulou
 
-Pour plus d'informations, reportez-vous à notre article sur la [localisation d'Android](http://developer.android.com/guide/topics/resources/localization.html).
-
+Pour plus d'informations, consultez notre article sur la [localisation Android](http://developer.android.com/guide/topics/resources/localization.html).

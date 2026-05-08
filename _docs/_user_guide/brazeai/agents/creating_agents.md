@@ -16,10 +16,9 @@ Before you start, you'll need the following:
 
 - [Permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) to access the **Agent Console** in your workspace. Check with your Braze admins if you don’t see this option.  
 - Permission to create and edit custom AI Agents.
-- An [AI model provider]({{site.baseurl}}/partners/ai_model_providers) integrated with Braze.
 - An idea of what you want the agent to accomplish. Braze Agents can support the following actions:  
-   - **Messaging:** Generate subject lines, headlines, in-product copy, or other content.  
-   - **Decisioning:** Route users in Canvas based on behavior, preferences, or custom attributes.  
+   - **Personalized messaging:** Generate subject lines, headlines, in-product copy, or other content.  
+   - **User routing:** Route users in Canvas based on behavior, preferences, or custom attributes.  
    - **Data management:** Calculate values, enrich catalog entries, or refresh profile fields.  
 
 ## How it works
@@ -53,9 +52,9 @@ Next, set up the details for your agent:
 2. (optional) Add tags to filter your agent.
 3. Choose the [model]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) for your agent to use.
 4. If you're not using the **Braze Auto** model, select the model's [thinking level]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels). You can choose from minimal, low, medium, or high. We recommend starting with **Minimal** and testing your agent's responses and adjusting this as needed.
-5. Set a daily execution limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit above 1,000,000, contact your customer success manager to learn more.
+5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit above 1,000,000, contact your customer success manager to learn more.
 
-![Agent Console interface for creating a custom agent in Braze. The screen displays fields for entering the agent name and description, and selecting a model, and setting a daily execution limit.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Agent Console interface for creating a custom agent in Braze. The screen displays fields for entering the agent name and description, and selecting a model, and setting a daily invocation limit.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Step 3: Write the instructions {#agent-instructions}
 
@@ -99,7 +98,7 @@ The **Preview** pane is an instance of the agent that shows up as a side-by-side
 3. Select **Simulate response**. The agent will execute based on your configuration and display its response.
 
 {% alert note %}
-Test runs count toward your daily execution limit.
+Test runs count toward your daily invocation limit.
 {% endalert %}
 
 ![Agent Console showing the Preview pane for testing a custom agent. The interface displays a Sample inputs field with example customer data, a Run test button, and a response area where the agent output appears.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

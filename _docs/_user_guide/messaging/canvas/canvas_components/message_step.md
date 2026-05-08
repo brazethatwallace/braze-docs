@@ -44,13 +44,15 @@ You can enable [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intellig
 
 Select **Using Intelligent Timing** in the **Delivery Settings** tab. Here, you can select either the most popular time or a specific fallback time. If Quiet Hours are enabled, the Message step also allows you to override this setting.
 
+![The Delivery Settings tab for Message component settings. Quiet Hours are enabled, and the checkbox for Using Intelligent Timing is selected to deliver the message at an optimal time.]({% image_buster /assets/img/canvas_components/message_step4.png %}){: style="max-width:90%;"}
+
 #### Delivery validations
 
 Delivery validations provide an additional check to confirm your audience meets the delivery criteria at message send. This setting is recommended if Quiet Hours, Intelligent Timing, or rate limiting are activated. 
 
-Select **Validate audience at message send**, then add a segment or additional filters to validate when the message is sent. If a user doesn't meet the set delivery validations for a Message step, they advance to the next step instead of exiting the Canvas.
+Select **Validate audience at message send**, then add a segment or additional filters to validate when the message is sent. If a user does not meet the set delivery validations for a Message step, choose whether they exit the Canvas or advance to the next step.
 
-![The Delivery Settings tab for Message component settings. Quiet Hours are enabled, and the checkbox for Using Intelligent Timing is selected to deliver the message at an optimal time. Delivery Validations are enabled to validate the audience at message send.]({% image_buster /assets/img/canvas_components/message_step4.png %}){: style="max-width:90%;"}
+![Delivery Validations are enabled to validate the audience at message send. Delivery validations advancement behavior is set to progress the user to the next step in the Canvas if delivery validations are not met.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
 ## How users advance
 

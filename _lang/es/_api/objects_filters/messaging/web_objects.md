@@ -5,12 +5,12 @@ page_order: 12
 page_type: reference
 channel: push
 platform: Web
-description: "Este artículo de referencia enumera y explica los diferentes objetos Web utilizados en Braze."
+description: "Este artículo de referencia enumera y explica los diferentes objetos web utilizados en Braze."
 
 ---
-# Objeto de notificación push web
+# Objeto de notificación push web {#web-push-object}
 
-> El objeto `web_push` te permite definir o solicitar información relacionada con el contenido de las alertas push web y push web a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
+> El objeto `web_push` te permite definir o solicitar información relacionada con el contenido de las notificaciones push web y las alertas push web a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging/).
 
 ## Objeto de notificación push web
 
@@ -30,9 +30,9 @@ description: "Este artículo de referencia enumera y explica los diferentes obje
 }
 ```
 
-El valor de `image_url` debe ser una URL que enlace a donde esté alojada tu imagen. Las imágenes deben recortarse a una relación de aspecto de 1:1.
+El valor de `image_url` debe ser una URL que enlace al lugar donde esté alojada tu imagen. Las imágenes deben recortarse a una relación de aspecto de 1:1.
 
-## Objeto botón de acción para notificación push web
+## Objeto botón de acción para notificación push web {#web-push-action-button-object}
 
 ```json
 {

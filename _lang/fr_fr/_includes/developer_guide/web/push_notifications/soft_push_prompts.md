@@ -1,35 +1,37 @@
-{% multi_lang_include developer_guide/prerequisites/web.md %} Il vous sera également nécessaire de [configurer les notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
+{% multi_lang_include developer_guide/prerequisites/web.md %} Vous devrez également [configurer les notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
 
-## À propos des invites de pression douce
+Si vous intégrez Braze via le kit embarqué de mParticle sur le Web, consultez l'[étape 3 de l'intégration d'événements Web Braze de mParticle](https://docs.mparticle.com/integrations/braze/event/#web) pour obtenir les instructions d'implémentation des invites de poussée douce.
 
-C’est souvent une bonne idée pour les sites d’implémenter une invite de notification push « douce » pour laquelle vous avez « préparé » l’utilisateur et présenté vos arguments pour justifier l’envoi des notifications push avant de demander l’autorisation de le faire. C’est utile parce que le navigateur limite la fréquence à laquelle vous pouvez inviter l’utilisateur directement, et si l’utilisateur refuse l’autorisation, vous ne pouvez plus la demander à nouveau.
+## À propos des invites de poussée douce {#about-soft-push-prompts}
 
-Si vous souhaitez inclure un traitement personnalisé personnalisé, au lieu d'appeler`requestPushPermission()`directement comme décrit dans l'[intégration Web push]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-2-browser-registration) standard, veuillez utiliser nos [messages in-app déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
+C'est souvent une bonne idée pour les sites d'implémenter une invite de notification push « douce » pour laquelle vous « préparez » l'utilisateur et présentez vos arguments pour justifier l'envoi de notifications push avant de demander l'autorisation. C'est utile parce que le navigateur limite la fréquence à laquelle vous pouvez solliciter l'utilisateur directement, et si l'utilisateur refuse l'autorisation, vous ne pouvez plus la demander à nouveau.
+
+Si vous souhaitez inclure un traitement personnalisé spécial, au lieu d'appeler `requestPushPermission()` directement comme décrit dans l'[intégration Web push]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-2-browser-registration) standard, utilisez nos [messages in-app déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
 
 {% alert tip %}
-Ceci peut être fait sans personnalisation du SDK en utilisant notre nouvelle [fonctionnalité d’amorçage de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Ceci peut être fait sans personnalisation du SDK en utilisant notre nouvelle [fonctionnalité d'amorçage de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
 {% endalert %}
 
-## Configuration des invites de pression douce
+## Configuration des invites de poussée douce {#setting-up-soft-push-prompts}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-### Étape 1 : Créer une campagne d’amorce de notification push
+### Étape 1 : Créer une campagne d'amorce de notification push {#step-1-create-a-push-primer-campaign}
 
-Tout d’abord, vous devez créer une campagne de messagerie in-app « Préparer pour la notification push » dans le tableau de bord de Braze :
+Tout d'abord, vous devez créer une campagne de communication in-app « Préparer pour la notification push » dans le tableau de bord de Braze :
 
-1. Créez un message in-app **modal** avec le texte et le style que vous souhaitez. 
-2. Ensuite, définissez le comportement au clic sur **Fermer le message.** Ce comportement sera personnalisé plus tard.
+1. Créez un message in-app de type **fenêtre modale** avec le texte et le style que vous souhaitez.
+2. Ensuite, définissez le comportement au clic sur **Fermer le message**. Ce comportement sera personnalisé plus tard.
 3. Ajoutez une paire clé-valeur au message où la clé est `msg-id` et la valeur est `push-primer`.
-4. Attribuez au message une action de déclenchement d'événement personnalisé (telle que « amorçage de notification push »). Vous pouvez créer l’événement personnalisé manuellement depuis le tableau de bord si nécessaire.
+4. Attribuez au message une action de déclenchement d'événement personnalisé (telle que « prime-for-push »). Vous pouvez créer l'événement personnalisé manuellement depuis le tableau de bord si nécessaire.
 
-### Étape 2 : Supprimer les appels
+### Étape 2 : Supprimer les appels {#step-2-remove-calls}
 
 Dans votre intégration SDK Braze, trouvez et supprimez tout appel à `automaticallyShowInAppMessages()` à partir de votre extrait de code de chargement.
 
-### Étape 3 : Mettre à jour l’intégration
+### Étape 3 : Mettre à jour l'intégration {#step-3-update-integration}
 
-Enfin, veuillez remplacer l'appel supprimé par l'extrait de code suivant. Veuillez appeler`subscribeToInAppMessage()`avant de téléphoner`openSession()`. Cela garantit que votre écouteur de messages in-app est enregistré à temps pour recevoir le message push initial.
+Enfin, remplacez l'appel supprimé par l'extrait de code suivant. Appelez `subscribeToInAppMessage()` avant d'appeler `openSession()`. Cela garantit que votre écouteur de messages in-app est enregistré à temps pour recevoir le message d'amorce de notification push.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -75,4 +77,4 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 });
 ```
 
-Lorsque vous souhaitez afficher l’invite de notification push douce, appelez `braze.logCustomEvent` - tout nom d’événement déclenche ce message in-app.
+Lorsque vous souhaitez afficher l'invite de notification push douce à l'utilisateur, appelez `braze.logCustomEvent` avec le nom d'événement qui déclenche ce message in-app.

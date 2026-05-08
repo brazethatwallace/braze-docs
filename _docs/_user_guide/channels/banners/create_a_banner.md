@@ -65,7 +65,7 @@ To compose your Banner, you can choose to:
 
 #### Step 3.1: Style the Banner
 
-You can drag and drop blocks and rows into the canvas area to start building your message.
+You can drag and drop blocks and rows into the canvas area to start building your message. For a reference of Banner editor blocks and links to shared property details, see [Editor blocks (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -141,8 +141,6 @@ If you have multiple Banner campaigns using the same placement ID, we recommend 
 
 {:start="2"}
 2. In **Assign Conversions**, track how often users perform specific actions after receiving a campaign by defining conversion events with up to a 30-day window to count the action as a conversion.
-
-{% multi_lang_include target_audiences.md %}
 
 #### Choose conversion events
 

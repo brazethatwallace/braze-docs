@@ -7,15 +7,15 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 
 ---
 
-# 수신자 오브젝트
+# 수신자 오브젝트 {#recipients-object}
 
 > 수신자 오브젝트를 사용하면 엔드포인트에서 정보를 요청하거나 쓸 수 있습니다.
 
 이 오브젝트에는 `external_user_id`, `user_alias`, `braze_id` 또는 `email` 중 하나를 반드시 포함해야 합니다. **요청에는 하나만 지정해야 합니다.**
 
-수신자 오브젝트를 사용하면 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/), [트리거 등록정보 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), [Canvas 진입 등록정보 오브젝트]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/) 및 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/)를 결합할 수 있습니다.
+수신자 오브젝트를 사용하면 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/), [트리거 등록정보 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), [Canvas 진입 등록정보 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) 및 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)를 결합할 수 있습니다.
 
-## 오브젝트 본문
+## 오브젝트 본문 {#object-body}
 
 ```json
 [{
@@ -33,13 +33,13 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 
 `send_to_existing_only`가 `true`이면 Braze는 기존 사용자에게만 메시지를 전송합니다. 그러나 사용자 별칭에는 이 플래그를 사용할 수 없습니다. `send_to_existing_only`가 `false`이면 반드시 속성을 포함해야 합니다. Braze는 메시지를 전송하기 전에 `id` 및 속성을 가진 사용자를 생성합니다.
 
-- [Braze ID]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/)
+- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
 - [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 - [외부 사용자 ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [우선순위 지정]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/)
+- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
 
-## 수신자 오브젝트 중복 제거
+## 수신자 오브젝트 중복 제거 {#recipient-object-deduping}
 
 수신자 오브젝트로 API 호출을 수행할 때, **동일한 주소(예: 이메일, 푸시)를 타겟팅하는 중복 수신자가 존재하는 경우 Braze는 사용자를 중복 제거합니다**. 즉, Braze는 동일한 사용자를 제거하고 하나만 남깁니다.
 

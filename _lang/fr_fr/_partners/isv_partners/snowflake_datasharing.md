@@ -1,13 +1,13 @@
 ---
-nav_title: Partage des données avec Snowflake
+nav_title: Partage de données Snowflake
 hidden: true
 ---
 
-# Intégration du partage des données Snowflake
+# Intégration du partage de données Snowflake {#snowflake-data-sharing-integration}
 
-> Lorsque Snowflake Data Share est utilisé comme méthode d'intégration, Braze provisionne un partage à votre instance Snowflake au nom du client. Ce partage inclura automatiquement tous les événements liés à l'engagement aux messages et au comportement de l'utilisateur.
+> Lorsque Snowflake Data Share est utilisé comme méthode d'intégration, Braze provisionne un partage vers votre instance Snowflake au nom du client. Ce partage inclut automatiquement tous les événements liés à l'engagement des messages et au comportement des utilisateurs.
 
-Les parts sont provisionnées sur une base personnalisée après que le client a acheté un droit de partage de données Snowflake. Lorsqu'un client requête un partage de données, Braze ajoute un partage à l'espace de travail du client, et ce dernier peut utiliser l'interface utilisateur en libre-service pour ajouter les données du compte Snowflake du partenaire concerné.
+Les partages sont provisionnés par client après l'achat d'un droit de partage de données Snowflake. Lorsqu'un client demande un partage de données, Braze ajoute un partage à l'espace de travail du client, et ce dernier peut utiliser l'interface en libre-service pour ajouter les données du compte Snowflake du partenaire concerné.
 
 ![]({% image_buster /assets/img/snowflake.png %})
 
@@ -15,102 +15,102 @@ Une fois le partage provisionné, toutes les données sont immédiatement access
 
 ![]({% image_buster /assets/img/snowflake2.png %})
 
-Dans votre instance Snowflake, vous verrez une part par région. Chaque tableau comporte une colonne, `app_group_id`, qui est en fait une clé de locataire pour Braze. Lorsque de nouveaux clients sont ajoutés à un partage au sein d'une même région, ils apparaissent sous la forme de différents `app_group_ids` dans les tableaux existants.
+Dans votre instance Snowflake, vous verrez un partage par région. Chaque table comporte une colonne, `app_group_id`, qui est en fait une clé de locataire pour Braze. Lorsque de nouveaux clients sont ajoutés à un partage au sein d'une même région, ils apparaissent sous la forme de différents `app_group_ids` dans les tables existantes.
 
 {% alert important %}
-Braze héberge actuellement toutes les données au niveau de l'utilisateur dans les régions AWS US East-1 et EU-Central (Francfort) de Snowflake. Bien que Braze puisse partager avec d'autres régions, il est plus rentable pour les clients de partager avec `US-EAST-1` et/ou `EU-CENTRAL-1`.
+Braze héberge actuellement toutes les données au niveau de l'utilisateur dans les régions Snowflake AWS US East-1 et EU-Central (Francfort). Bien que Braze puisse effectuer des partages inter-régions, il est plus rentable pour les clients de partager avec `US-EAST-1` et/ou `EU-CENTRAL-1`.
 {% endalert %}
 
 {% alert tip %}
-Téléchargez les [schémas des tables brutes]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) ici ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponibles sur la place de marché de Snowflake pour vous familiariser avec les événements partagés.
+Téléchargez les [schémas des tables brutes]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) ici ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
 {% endalert %}
 
-## Gestion des événements en double
+## Gestion des événements en double {#handling-duplicate-events}
 
-Les doublons sont possibles, mais tous les événements ont un identifiant unique, la colonne ID. Les doublons peuvent être supprimés à l’aide de `select distinct(id)`.
+Les doublons sont possibles, mais tous les événements possèdent un identifiant unique : la colonne ID. Les doublons peuvent être supprimés à l'aide de `select distinct(id)`.
 
-## Changements disruptifs et non disruptifs
+## Changements disruptifs et non disruptifs {#breaking-versus-non-breaking-changes}
 
-### Changements non disruptifs
+### Changements non disruptifs {#non-breaking-changes}
 
-Les modifications non disruptives peuvent intervenir à tout moment et apportent généralement des fonctionnalités supplémentaires. Exemples de changements non disruptifs :
-- Ajouter une nouvelle table ou vue
-- Ajouter une colonne à une table ou à une vue existante
+Les changements non disruptifs peuvent intervenir à tout moment et apportent généralement des fonctionnalités supplémentaires. Exemples de changements non disruptifs :
+- Ajout d'une nouvelle table ou vue
+- Ajout d'une colonne à une table ou une vue existante
 
 {% alert important %}
-Les nouvelles colonnes étant considérées comme non sécables, Braze recommande vivement de répertorier explicitement les colonnes d'intérêt dans chaque requête plutôt que d'utiliser les requêtes `SELECT *`. Vous pouvez également créer des vues qui nomment explicitement des colonnes, puis interroger ces vues au lieu d'interroger directement les tables.
+Les nouvelles colonnes étant considérées comme non disruptives, Braze recommande vivement de lister explicitement les colonnes d'intérêt dans chaque requête plutôt que d'utiliser des requêtes `SELECT *`. Vous pouvez également créer des vues qui nomment explicitement les colonnes, puis interroger ces vues au lieu des tables directement.
 {% endalert %}
 
-### Changements disruptifs
+### Changements disruptifs {#breaking-changes}
 
-Dans la mesure du possible, les changements disruptifs seront précédés d'une annonce et d'une période de migration. Voici quelques exemples de changements radicaux :
-- Suppression d'un tableau ou d'une vue
+Dans la mesure du possible, les changements disruptifs seront précédés d'une annonce et d'une période de migration. Exemples de changements disruptifs :
+- Suppression d'une table ou d'une vue
 - Suppression d'une colonne d'une table ou d'une vue existante
-- Modifier le type ou la nullité d'une colonne existante
+- Modification du type ou de la possibilité de valeur nulle d'une colonne existante
 
-## Lorsque les tableaux SNAPSHOTS et CHANGELOGS sont mis à jour
+## Mise à jour des tables SNAPSHOTS et CHANGELOGS {#when-snapshots-and-changelogs-tables-are-updated}
 
-Les tableaux SNAPSHOTS et CHANGELOGS permettent de suivre les modifications apportées aux campagnes et aux toiles. Il est important de savoir quand ces tables sont mises à jour pour pouvoir interroger les variations de messages et les configurations Canvas les plus récentes.
+Les tables SNAPSHOTS et CHANGELOGS suivent les modifications apportées aux campagnes et aux Canvas. Comprendre quand ces tables sont mises à jour est important pour interroger les variations de messages et les configurations Canvas les plus récentes.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
-Une ligne est ajoutée à `CHANGELOGS_CAMPAIGN_SHARED` lorsque
+Une ligne est ajoutée à `CHANGELOGS_CAMPAIGN_SHARED` lorsque :
 - La campagne est lancée, OU
-- L'un des champs snapshottables suivants est modifié :
+- L'un des champs suivants pouvant faire l'objet d'un instantané est modifié :
   - Nom
   - Actions (y compris les modifications du contenu des messages)
   - Comportements de conversion
 
 {% alert important %}
-Le fait d'enregistrer ou de mettre à jour le projet après le lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez la campagne ou que vous appliquez les modifications de l'avant-projet après le lancement à la campagne active.
+Enregistrer ou mettre à jour le brouillon post-lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez la campagne ou appliquez les modifications du brouillon post-lancement à la campagne active.
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED
 
-`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` est dérivé de `CHANGELOGS_CAMPAIGN_SHARED`. Ce tableau extrait et aplatit la colonne "actions" du site `CHANGELOGS_CAMPAIGN_SHARED` en enregistrements de variations de messages individuels. Il est mis à jour en conséquence lorsque `CHANGELOGS_CAMPAIGN_SHARED` est mis à jour.
+`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` est dérivé de `CHANGELOGS_CAMPAIGN_SHARED`. Cette table extrait et aplatit la colonne des actions de `CHANGELOGS_CAMPAIGN_SHARED` en enregistrements de variations de messages individuels. Elle est mise à jour en conséquence lorsque `CHANGELOGS_CAMPAIGN_SHARED` est mis à jour.
 
 ### CHANGELOGS_CANVAS_SHARED
 
-Une ligne est ajoutée à `CHANGELOGS_CANVAS_SHARED` lorsque
+Une ligne est ajoutée à `CHANGELOGS_CANVAS_SHARED` lorsque :
 - Le Canvas est lancé, OU
-- L'un des champs snapshottables suivants est modifié :
+- L'un des champs suivants pouvant faire l'objet d'un instantané est modifié :
   - Nom
   - Comportements de conversion
-  - Variations (pourcentage, assignation de la première étape, noms des variations)
+  - Variations (pourcentage, affectations de la première étape, noms des variations)
 
 {% alert important %}
-Le fait d'enregistrer ou de mettre à jour le projet après le lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez le canvas ou que vous appliquez les modifications de l'ébauche post-lancement au canvas actif.
+Enregistrer ou mettre à jour le brouillon post-lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez le Canvas ou appliquez les modifications du brouillon post-lancement au Canvas actif.
 {% endalert %}
 
 ### SNAPSHOTS_CANVAS_VARIATION_SHARED
 
-`SNAPSHOTS_CANVAS_VARIATION_SHARED` est dérivé de `CHANGELOGS_CANVAS_SHARED`. Ce tableau utilise le même modèle d'extraction que `SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` et est mis à jour en conséquence lorsque `CHANGELOGS_CANVAS_SHARED` est mis à jour.
+`SNAPSHOTS_CANVAS_VARIATION_SHARED` est dérivé de `CHANGELOGS_CANVAS_SHARED`. Cette table utilise le même modèle d'extraction que `SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` et est mise à jour en conséquence lorsque `CHANGELOGS_CANVAS_SHARED` est mis à jour.
 
 ### SNAPSHOTS_CANVAS_STEP_SHARED
 
-Une ligne est ajoutée à `SNAPSHOTS_CANVAS_STEP_SHARED` lorsque
+Une ligne est ajoutée à `SNAPSHOTS_CANVAS_STEP_SHARED` lorsque :
 - Le Canvas est lancé, OU
 - Le Canvas actif est mis à jour (le brouillon post-lancement est appliqué), OU
-- L'un des champs snapshottables suivants est modifié :
+- L'un des champs suivants pouvant faire l'objet d'un instantané est modifié :
   - Nom
   - Actions (y compris les modifications du contenu des messages au sein des variations de messages)
 
 {% alert important %}
-Le fait d'enregistrer le projet après le lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez le canvas ou que vous appliquez les modifications de l'ébauche post-lancement au canvas actif.
+Enregistrer le brouillon post-lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez le Canvas ou appliquez les modifications du brouillon post-lancement au Canvas actif.
 {% endalert %}
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED
 
-Une ligne est ajoutée à `SNAPSHOTS_CANVAS_FLOW_STEP_SHARED` lorsque
+Une ligne est ajoutée à `SNAPSHOTS_CANVAS_FLOW_STEP_SHARED` lorsque :
 - Le Canvas est lancé, OU
 - Le Canvas actif est mis à jour (le brouillon post-lancement est appliqué), OU
-- L'un des champs snapshottables suivants est modifié :
+- L'un des champs suivants pouvant faire l'objet d'un instantané est modifié :
   - Nom
 
 {% alert important %}
-Le fait d'enregistrer le projet après le lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez le canvas ou que vous appliquez les modifications de l'ébauche post-lancement au canvas actif.
+Enregistrer le brouillon post-lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez le Canvas ou appliquez les modifications du brouillon post-lancement au Canvas actif.
 {% endalert %}
 
-## Conformité au règlement général sur la protection des données (RGPD).
+## Conformité au règlement général sur la protection des données (RGPD) {#general-data-protection-regulation-gdpr-compliance}
 
-{% include partners/snowflake_pii_gdpr.md %}
+{% multi_lang_include partners/snowflake_pii_gdpr.md %}

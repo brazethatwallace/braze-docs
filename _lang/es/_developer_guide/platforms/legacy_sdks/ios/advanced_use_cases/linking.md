@@ -10,11 +10,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Vinculación en profundidad para iOS
+# Vinculación en profundidad para iOS {#deep-linking-for-ios}
 
-Para obtener información introductoria sobre los vínculos profundos, consulta [el artículo de nuestra Guía del usuario]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking). Si quieres implementar vínculos en profundidad por primera vez en tu aplicación Braze, los pasos siguientes te ayudarán a empezar.
+Para obtener información introductoria sobre los vínculos profundos, consulta [el artículo de nuestra Guía del usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Si quieres implementar vínculos en profundidad por primera vez en tu aplicación Braze, los pasos siguientes te ayudarán a empezar.
 
-## Paso 1: Registrar un esquema
+## Paso 1: Registrar un esquema {#step-1-register-a-scheme}
 
 Debes indicar un esquema personalizado en el archivo `Info.plist`. La estructura de navegación está definida por una matriz de diccionarios. Cada uno de esos diccionarios contiene una matriz de cadenas.
 
@@ -41,7 +41,7 @@ Alternativamente, si deseas editar tu archivo `Info.plist` directamente, puedes 
 </array>
 ```
 
-## Paso 2: Permitir el esquema personalizado (iOS 9+)
+## Paso 2: Permitir el esquema personalizado (iOS 9+) {#step-2-allowlist-the-custom-scheme-ios-9}
 
 A partir de iOS 9, las aplicaciones deben tener una lista de esquemas personalizados que la aplicación puede abrir. Si intentas llamar a esquemas que están fuera de esta lista, el sistema registrará un error en los registros del dispositivo y el vínculo profundo no se abrirá. Un ejemplo de este error es el siguiente:
 
@@ -64,7 +64,7 @@ Debes añadir todos los esquemas a los que la aplicación necesita vincularse en
 
 Para más información, consulta [la documentación de Apple](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14) sobre la clave `LSApplicationQueriesSchemes`.
 
-## Paso 3: Implementa un controlador
+## Paso 3: Implementar un controlador {#step-3-implement-a-handler}
 
 Tras activar tu aplicación, iOS llamará al método [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc). El argumento importante es el objeto [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
 
@@ -97,7 +97,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ![]({% image_buster /assets/img_archive/deep_link.png %})
 
-# Enlaces universales
+# Enlaces universales {#universal-links}
 
 Para utilizar los enlaces universales, asegúrate de haber añadido un dominio registrado a las capacidades de tu aplicación y de haber subido un archivo `apple-app-site-association`. A continuación, implementa el método `application:continueUserActivity:restorationHandler:` en tu `AppDelegate`. Por ejemplo:
 
@@ -135,13 +135,13 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 Consulta [Apple](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) para más información.
 
 {% alert note %}
-La integración predeterminada del enlace universal no es compatible con las notificaciones push ni con los mensajes dentro de la aplicación de Braze. Consulta la [personalización de enlaces](#linking-handling-customization) para manejar enlaces universales dentro de tu aplicación. Como alternativa, recomendamos utilizar [vínculos profundos basados en esquemas](#step-1-registering-a-scheme) con notificaciones push y mensajes dentro de la aplicación.
+La integración predeterminada del enlace universal no es compatible con las notificaciones push ni con los mensajes dentro de la aplicación de Braze. Consulta la [personalización de la gestión de enlaces](#linking-handling-customization) para manejar enlaces universales dentro de tu aplicación. Como alternativa, recomendamos utilizar [vínculos profundos basados en esquemas](#step-1-registering-a-scheme) con notificaciones push y mensajes dentro de la aplicación.
 {% endalert%}
 
-## Seguridad en el transporte de aplicaciones (ATS)
+## Seguridad en el transporte de aplicaciones (ATS) {#app-transport-security-ats}
 iOS 9 introdujo un cambio importante que afecta a las URL web incrustadas en los mensajes dentro de la aplicación y en las notificaciones push.
 
-### Requisitos ATS
+### Requisitos ATS {#ats-requirements}
 De [la documentación de Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14): "App Transport Security es una característica que mejora la seguridad de las conexiones entre una aplicación y los servicios web. La característica consiste en requisitos de conexión predeterminados que se ajustan a las mejores prácticas para conexiones seguras. Las aplicaciones pueden anular este comportamiento predeterminado y desactivar la seguridad del transporte".
 
 ATS se aplica de forma predeterminada en iOS 9+. Requiere que todas las conexiones utilicen HTTPS y estén cifradas mediante TLS 1.2 con confidencialidad directa. Consulta los [Requisitos para conectarse mediante ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para obtener más información. Todas las imágenes servidas por Braze a dispositivos finales son gestionadas por una red de entrega de contenidos ("CDN") que admite TLS 1.2 y es compatible con ATS.
@@ -159,16 +159,16 @@ NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 
 El cumplimiento de ATS se aplica a los enlaces abiertos dentro de la aplicación móvil (nuestro tratamiento predeterminado de los enlaces en los que se hace clic) y no se aplica a los sitios abiertos externamente a través de un navegador web.
 
-### Gestión de los requisitos ATS
+### Gestión de los requisitos ATS {#handling-ats-requirements}
 
 Puedes manejar ATS de una de las tres formas siguientes:
 
-#### Confirma que todos los enlaces cumplen con ATS (recomendado)
+#### Confirma que todos los enlaces cumplen con ATS (recomendado) {#confirm-all-links-are-ats-compliant-recommended}
 Tu integración con Braze puede cumplir los requisitos de ATS garantizando que cualquier enlace existente al que dirijas a los usuarios (a través de mensajes dentro de la aplicación y campañas push) cumpla los requisitos de ATS. Aunque hay formas de eludir las restricciones de ATS, te recomendamos que compruebes que todas las URL enlazadas cumplen con ATS. Dado el creciente énfasis de Apple en la seguridad de las aplicaciones, no está garantizado que Apple admita los siguientes enfoques para permitir excepciones ATS.
 
 Una herramienta SSL puede ayudarte a detectar problemas de seguridad del servidor web. Esta [prueba de servidor SSL](https://www.ssllabs.com/ssltest/index.html) de Qualys, Inc. proporciona una línea específica para el cumplimiento de Apple ATS 9 e iOS 9.
 
-#### Desactiva parcialmente ATS
+#### Desactiva parcialmente ATS {#partially-disable-ats}
 Puedes permitir que un subconjunto de enlaces con determinados dominios o esquemas sean tratados como excepciones a las reglas de ATS. Tu integración con Braze satisfará los requisitos de ATS si cada enlace que utilices en un canal de mensajería de Braze es compatible con ATS o se gestiona mediante una excepción.
 
 Para añadir un dominio como excepción de ATS, añade lo siguiente al archivo `Info.plist` de tu aplicación:
@@ -193,7 +193,7 @@ Para añadir un dominio como excepción de ATS, añade lo siguiente al archivo `
 
 Consulta el artículo de Apple sobre [las claves de seguridad para el transporte de aplicaciones](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) para obtener más información.
 
-#### Desactiva ATS por completo
+#### Desactiva ATS por completo {#disable-ats-entirely}
 
 Puedes desactivar ATS por completo. Ten en cuenta que no es una práctica recomendada, tanto por la pérdida de protecciones de seguridad como por la futura compatibilidad con iOS. Para desactivar ATS, inserta lo siguiente en el archivo `Info.plist` de tu aplicación:
 
@@ -207,7 +207,7 @@ Puedes desactivar ATS por completo. Ten en cuenta que no es una práctica recome
 
 Consulta [Enviar una aplicación con seguridad de transporte de aplicaciones](http://timekl.com/blog/2015/08/21/shipping-an-app-with-app-transport-security/?utm_campaign=iOS+Dev+Weekly&utm_medium=email&utm_source=iOS_Dev_Weekly_Issue_213) para obtener más información sobre cómo depurar fallos de ATS.
 
-## Codificación de URL
+## Codificación de URL {#url-encoding}
 
 A partir del SDK v2.21.0 de Braze para iOS, el SDK codifica porcentualmente los enlaces para crear `NSURL` válidos. Todos los caracteres de enlace que no estén permitidos en una URL correctamente formada, como los caracteres Unicode, se escaparán porcentualmente.
 
@@ -240,17 +240,17 @@ Para decodificar un enlace codificado, utiliza el método `NSString` [`stringByR
 
 ## Personalización {#linking-customization}
 
-### Personalización predeterminada de WebView
+### Personalización predeterminada de WebView {#default-webview-customization}
 
 La clase personalizable `ABKModalWebViewController` muestra las URL web abiertas por el SDK, normalmente cuando se selecciona "Abrir URL web dentro de la aplicación" para un vínculo profundo web.
 
 Puedes declarar una categoría para la clase `ABKModalWebViewController`, o modificarla directamente, para aplicar la personalización a la vista web. Consulta el [archivo .h](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) y el [archivo .m](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) de la clase para obtener más detalles.
 
-### Personalización de la gestión de enlaces
+### Personalización de la gestión de enlaces {#linking-handling-customization}
 
 El protocolo `ABKURLDelegate` puede utilizarse para personalizar la gestión de las URL, como los vínculos profundos, las URL web y los enlaces universales. Para configurar el delegado durante la inicialización de Braze, pasa un objeto delegado a `ABKURLDelegateKey` en `appboyOptions` de [`startWithApiKey:inApplication:withAppboyOptions:`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). A continuación, Braze llamará a la implementación de `handleAppboyURL:fromChannel:withExtras:` de tu delegado antes de gestionar cualquier URI.
 
-#### Ejemplo de integración: ABKURLDelegate
+#### Ejemplo de integración: ABKURLDelegate {#integration-example-abkurldelegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -291,9 +291,9 @@ Devuelve `NO` si quieres que Braze gestione la URL con su comportamiento predete
 
 Para más información, consulta [`ABKURLDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKURLDelegate.h).
 
-## Casos de uso frecuentes
+## Casos de uso frecuentes {#frequent-use-cases}
 
-### Vinculación en profundidad con la configuración de la aplicación
+### Vinculación en profundidad con la configuración de la aplicación {#deep-linking-to-app-settings}
 
 iOS puede llevar a los usuarios de tu aplicación a su página en la aplicación de configuración de iOS. Puedes aprovechar `UIApplicationOpenSettingsURLString` para crear un vínculo profundo a la configuración desde notificaciones push y mensajes dentro de la aplicación.
 

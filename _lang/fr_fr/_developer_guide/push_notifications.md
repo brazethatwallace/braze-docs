@@ -2,12 +2,16 @@
 nav_title: Notifications push
 article_title: "Notifications push pour le SDK de Braze"
 page_order: 2.3
-description: "Cette page d'atterrissage abrite tout ce qui concerne les notifications push."
+description: "Cette page regroupe tout ce qui concerne les notifications push."
 ---
 
-# Notifications push
+# Notifications push {#push-notifications}
 
-> [Les notifications push]({{site.baseurl}}/user_guide/message_building_by_channel/push/about/) vous permettent d'envoyer des notifications depuis votre appli lorsque des événements importants se produisent. Vous pouvez envoyer une notification push lorsque vous avez de nouveaux messages instantanés à envoyer, des alertes d’actualité à envoyer ou le dernier épisode de l’émission télévisée préférée de votre utilisateur prêt à être téléchargé pour un visionnage hors ligne. Ils sont également plus efficaces que la récupération en arrière-plan, car votre application n'est lancée que lorsque c'est nécessaire.
+> Les [notifications push]({{site.baseurl}}/user_guide/channels/push/) vous permettent d'envoyer des notifications depuis votre application lorsque des événements importants se produisent. Vous pouvez envoyer une notification push lorsque vous avez de nouveaux messages instantanés à livrer, des alertes d'actualité à diffuser ou le dernier épisode de l'émission télévisée préférée de votre utilisateur prêt à être téléchargé pour un visionnage hors ligne. Elles sont également plus efficaces que la récupération en arrière-plan, car votre application ne se lance que lorsque c'est nécessaire.
+
+{% alert note %}
+Si l'option **Redirect to web URL** avec **Open web URL inside app** n'est pas sélectionnée, mais que le lien s'ouvre tout de même dans l'application, il est possible que l'application gère l'URL (par exemple, avec les liens universels sur iOS ou les App Links sur Android). Pour ouvrir le lien dans le navigateur, vérifiez que votre application délègue l'URL au navigateur système lorsque l'utilisateur appuie sur la notification, ou ajustez la gestion des URL de votre application afin que l'action au clic corresponde au paramètre du tableau de bord de Braze. Consultez la documentation push de votre plateforme pour savoir comment les actions au clic et la gestion des URL sont configurées.
+{% endalert %}
 
 {% sdktabs %}
 {% sdktab web %}

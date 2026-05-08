@@ -64,6 +64,12 @@ For more information, check out [Multi-criteria segmentation]({{site.baseurl}}/u
 You can access properties of API triggered events with the `api_triggered_property` tag: `{{api_trigger_properties.${attribute_key}}}`.  
 {% endraw %}
 
+### Why is my API-triggered Liquid failing in Braze?
+
+{% raw %}
+An extra pair of curly braces is a common cause. For example, `{{{api_trigger_properties.${attribute_key}}}}` is not valid Braze personalization syntax. Use exactly two opening braces and two closing braces: `{{api_trigger_properties.${attribute_key}}}`.
+{% endraw %}
+
 ### What is abort logic, and how can I use it?
 
 Abort logic allows you to stop a message from being sent if the conditions are met. This is especially helpful in preventing incomplete messages from being sent to your users. For examples of abort logic in your marketing campaigns, read more at [Aborting messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
@@ -96,6 +102,7 @@ If you notice extra spacing in sent messages that use Content Blocks with Liquid
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
+```
 {% endraw %}
 
 ### When should I use `assign` versus `capture`?
@@ -103,18 +110,33 @@ If you notice extra spacing in sent messages that use Content Blocks with Liquid
 Both `assign` and `capture` create Liquid variables, but they serve different purposes:
 
 - `assign` is for simple variables that store a single value, such as a boolean, number, or simple string. You can also apply a single filter in the same line.
-- `capture` is for storing a block of text that may include multiple variables, strings, or complex expressions. Use `capture` when the value is too complex for a single `assign` statement, such as URLs that utilize other Liquid variables or custom attributes as parameters. `capture` is also preferred when implementing Liquid variables in the body of Connected Content calls.
+- `capture` is for storing a block of text that may include multiple variables, strings, or complex expressions. 
+
+Use `capture` when the value is too complex for a single `assign` statement, such as URLs that use other Liquid variables or custom attributes as parameters. `capture` is also preferred when implementing Liquid variables in the body of Connected Content calls.
 
 #### Examples
 
 {% raw %}
 ```liquid
-{% comment %} Valid assign usage {% endcomment %}
+{% comment %}Use assign for custom attributes{% endcomment %}
 {% assign name = {{custom_attribute.${first_name}}} %}
 {% assign price = {{custom_attribute.${price}}} | plus: 0 %}
 
-{% comment %} Use capture for complex strings {% endcomment %}
+{% comment %}Use assign for a simple variable{% endcomment %}
+{% assign discount_label = "20% off" %}
+Hello {{ customer.first_name | default: "there" }}, enjoy {{ discount_label }} on your next order!
+
+{% comment %}Use capture for complex strings{% endcomment %}
 {% capture greeting %}Hello, {{custom_attribute.${first_name}}}! Your order #{{custom_attribute.${order_id}}} is ready.{% endcapture %}
 {{ greeting }}
+
+{% comment %}Use capture to create conditional content{% endcomment %}
+{% capture promo_block %}
+{% if customer.vip == true %}
+As a VIP member, you get free shipping.
+{% else %}
+Join our VIP program to unlock free shipping.
+{% endif %}
+{% endcapture %}
 ```
 {% endraw %}
