@@ -108,6 +108,7 @@ Note that the email address or phone number associated with the end user’s pro
 </style>
 
 <table id="considerations">
+  <caption>Additional Deletion Considerations</caption>
 <tbody>
   <tr>
     <td>

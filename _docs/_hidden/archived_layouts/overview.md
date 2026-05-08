@@ -27,6 +27,7 @@ Classic examples of the Selector Layout are [the SDK Changelogs](https://www.bra
 |`guide_top_text`|Alphanumeric | Describe your page, this will go directly above the buttons and their title. Quotes required around content. |
 |`guide_featured_title`| Alphanumeric | Title your cards. This will go directly above the buttons.
 |`guide_featured_list`| More YAML, Alphanumeric | See [Guide Listing Format](#guide-listing-format) below. |
+{: aria-label="Required Parameters" }
 
 ### Guide Listing Format
 
@@ -35,6 +36,7 @@ Classic examples of the Selector Layout are [the SDK Changelogs](https://www.bra
 |`name`| Alphanumeric | Name the box. |
 | `link`| URL or Path | Link to where the box will go. Must contain full URL or (if an internal link) `/docs...`  |
 |`image`| Path | Link to location of image. |
+{: aria-label="Guide Listing Format" }
 
 Format example:
 

@@ -47,6 +47,7 @@ Hightouch supports syncing to both user objects and events.
 |---|---|---|
 | Object | Syncs records to objects such as users or organizations in your destination.| Upsert or update |
 | Events | Syncs records as events to your destination; this is often in the form of a track call. | Track event or track purchase |
+{: aria-label="Step 2: Object and event syncing" }
 
 {% alert note %}
 Refer to [Hightouch](https://hightouch.com/docs/destinations/braze#syncing-and-data-point-consumption) for more information on how syncs affect how data points are logged.

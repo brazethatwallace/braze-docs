@@ -81,6 +81,7 @@ Replace the following:
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Your dynamic coupon generation token. |
 | `CAMPAIGN_ID`                     | Your campaign ID.                     |
+{: aria-label="Step 2: Generate signature and construct URL" }
 
 ### Step 3: Append coupon code to message body
 

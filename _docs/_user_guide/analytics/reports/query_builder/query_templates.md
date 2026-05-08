@@ -32,21 +32,21 @@ table td {
 | Purchases and revenue by segment | This report shows metrics for the messages sent for a specific segment. <br><br> Purchase metrics are unique throughout the reporting period. One user can generate at most one purchase. Revenue takes into account every purchase from the reporting period. |
 | Purchases and revenue for variants or steps, by segment | This report shows metrics for the variants or Canvas steps of the messages sent to each segment. <br><br> Purchase metrics are unique throughout the reporting period. One user can generate at most one purchase. Revenue takes into account every purchase from the reporting period. |
 | Top/bottom messaging for purchases | This report shows purchase metrics for the top or bottom campaigns, Canvases, or Canvas steps. Each row is a campaign, Canvas, or Canvas step. You must specify whether to display the top or bottom performers, and the specific metric to run this analysis for (such as *Unique purchases upon receipt*, *Revenue upon receipt*, *Unique recipients*). <br><br> The rows in top performer reports will be ordered from best to worst, while the rows in bottom performer reports will be ordered from worst to best. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel templates" }
 
 ## Campaign templates
 
 | Query name | Description | 
 | --- | --- | 
 | Campaign revenue by country | This report shows revenue per country for a specific campaign. To run this report, you must specify the API identifier for a campaign. You can find a campaign's API identifier at the bottom of that campaign's details page. <br><br> This report shows, for each country, the amount of revenue generated, number of orders, number of returns, net revenue, and gross revenue.<br><br> {::nomarkdown} <ul> <li> <i>Orders:</i> Number of purchase events </li> <li><i> Returns:</i> Number of purchase events with negative revenue values </li> <li><i> Net revenue:</i> Revenue of all non-returns </li> <li><i> Gross revenue:</i> Revenue that includes the value of returns </li></ul>{:/} ![]({% image_buster /assets/img_archive/campaign_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign templates" }
 
 ## Canvas templates
 
 | Query name | Description | 
 | --- | --- | 
 | Canvas revenue by country | This report shows revenue per country for a specific Canvas. To run this report, you must specify the API identifier for a Canvas. You can find the Canvas API identifier under **Analyze Variants**. <br><br> This report shows, for each country, the amount of revenue generated, number of orders, number of returns, net revenue, and gross revenue.<br><br> {::nomarkdown} <ul> <li> <i>Orders:</i> Number of purchase events </li> <li><i> Returns:</i> Number of purchase events with negative revenue values </li> <li><i> Net revenue:</i> Revenue of all non-returns </li> <li><i> Gross revenue:</i> Revenue that includes the value of returns </li></ul>{:/} ![]({% image_buster /assets/img_archive/canvas_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas templates" }
 
 ## Email templates
 
@@ -61,7 +61,7 @@ table td {
 | Email subscription group opt-ins and opt-outs | This report shows the number of unique user opt-ins and opt-outs for any email subscription group for each week. You must have at least one [email subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions/) in the workspace to run this query. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
 | Email URLs clicked | This report shows the number of clicks each link in an email had. To run this report, you'll need to specify the API identifier for a campaign or Canvas. You can find a campaign's API identifier at the bottom of that campaign's details page and the Canvas API identifier under **Analyze Variants**. <br><br> This report shows de-personalized links and a count of clicks for each link. Your CSV download will include the user IDs of all users that clicked, the link they clicked on, and a timestamp of when they clicked. <br><br> *De-personalized URLs:* URLs that are stripped of Liquid tags. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
 | Top/bottom messaging for email engagement | This report shows email engagement metrics for the top or bottom campaigns, Canvases, or Canvas steps. You must specify whether to display the top or bottom performers, and the specific metric to run this analysis for (such as *Sent*, *Soft Bounces*, and *Unique Opens*). <br><br> The rows in top performer reports will be ordered from best to worst, while the rows in bottom performer reports will be ordered from worst to best. <br><br> ![]({% image_buster /assets/img_archive/top-bottom-email.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 ## Mobile templates
 
@@ -73,14 +73,14 @@ table td {
 | Device screen resolutions | The number of users per device screen resolution, such as 1179x2556 and 750x1334. <br><br> ![]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
 | SMS Error Codes | This report shows the error type and number of errors for each SMS error code. <br><br>![]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
 | SMS Provide Errors by User | This report shows SMS error codes for a specific user. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mobile templates" }
 
 ## Push templates
 
 | Query name | Description | 
 | --- | --- | 
 | Push performance by country | This report shows the following metrics for each country: deliveries, open rate, and click rate. Country is the country of the user at the time of email send. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q7.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push templates" }
 
 ## Segment breakdown
 
@@ -91,4 +91,4 @@ table td {
 | Top/bottom messaging for email engagement | This report shows the campaigns, Canvases, or Canvas steps that were the highest or lowest performers for a specified email engagement metric.|
 | Top/bottom messaging for purchases | This report shows the campaigns, Canvases, or Canvas steps that were the highest or lowest performers for a specified purchase or revenue metric. |
 | Push performance by segment | This report shows push metrics broken down by segments.|
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }

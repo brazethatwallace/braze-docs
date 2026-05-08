@@ -28,6 +28,7 @@ noindex: true
 |`glossary_filter_text`| String, Alphanumeric | Describe your filters. Usually used to instruct. | 
 |`glossary_tags`| More YAML plus content. | Format as shown below: <br> glossary_tags: <br>  - name: Content Cards <br>  - name: Email | 
 | `glossaries`| More YAML plus content. | See [Glossaries Parameters](#glossaries-parameters) below. |
+{: aria-label="Required Parameters" }
 
 ### Glossaries Parameters
 
@@ -37,6 +38,7 @@ noindex: true
 |`description`| String, Alphanumeric | Describe your glossary item. | 
 |`calculation`| String | (optional) Describe how your glossary item is calculated (usually used when describing data or metrics. | 
 |`tags`| Alphanumeric | Should match what is listed as a `name` under `glossary_tags`. List as many as applicable. Writing `All` will include the item in all filters.|
+{: aria-label="Glossaries Parameters" }
 
 ## Example
 

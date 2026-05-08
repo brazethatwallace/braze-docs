@@ -339,6 +339,7 @@ Each row in the file must identify exactly one user using one of:
 | `EXTERNAL_ID` | Matches the `external_id` used in Braze. |
 | `ALIAS_NAME` and `ALIAS_LABEL` | Both columns together identify the user by alias. |
 | `BRAZE_ID` | Braze-generated user ID (existing users only). |
+{: aria-label="Deleting users" }
 
 {% alert important %}
 Deleting users is permanent and cannot be undone. Include only users you intend to remove. For more details, see [Delete users with Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

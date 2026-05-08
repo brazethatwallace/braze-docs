@@ -93,6 +93,7 @@ function encode(input) {
 |`removeFromSubscriptionGroup`| `subscriptionGroupId`|
 |`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
 |`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+{: aria-label="Supported Actions" }
 
 ## JSON Encoder
 

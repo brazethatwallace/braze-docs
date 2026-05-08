@@ -58,6 +58,7 @@ MyPostcard requires an HTTP method along with the following HTTP headers to be i
 
 {% raw %}
 <table>
+  <caption>Request method and headers</caption>
   <thead>
     <tr>
       <th><strong>Field</strong></th>

@@ -74,5 +74,6 @@ Friendbuy uses the international standard (E.164) to verify real phone numbers. 
 | Phone only        | Only the customer's phone number is sent to Braze.              |
 | Neither           | No customer data is sent to Braze.                              |
 | Both              | The customer's email address and phone number is sent to Braze. |
+{: aria-label="Checkbox behavior" }
 
 

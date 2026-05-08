@@ -154,6 +154,7 @@ The following table describes the benefits and drawbacks of these two approaches
 </style>
 
 <table>
+  <caption>Overview of each approach</caption>
     <tr>
         <th></th>
         <th colspan="2">Separate workspaces</th>

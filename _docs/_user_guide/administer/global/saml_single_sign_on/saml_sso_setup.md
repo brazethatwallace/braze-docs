@@ -38,6 +38,7 @@ If you plan on using Okta as your identity provider, make sure to use the pre-bu
 |`email` | Required | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Optional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Optional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: aria-label="Step 1: Configure your identity provider" }
 
 {% alert note %}
 Braze only requires `email` in the SAML Assertion.

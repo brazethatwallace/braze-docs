@@ -26,6 +26,7 @@ If you see widespread mismatches, contact your customer success manager or Braze
 ## Available views
 
 <table>
+  <caption>Available views</caption>
   <thead>
     <tr>
       <th>Type</th>

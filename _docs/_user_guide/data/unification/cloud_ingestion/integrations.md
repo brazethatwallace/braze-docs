@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: aria-label="Step 1.1: Set up the table" }
 
 You can name the project, dataset, and table as you'd like, but the column names should match the preceding definition.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: aria-label="Step 1.1: Set up the table" }
 
 You can name the schema and table as you'd like, but the column names should match the preceding definition.
 

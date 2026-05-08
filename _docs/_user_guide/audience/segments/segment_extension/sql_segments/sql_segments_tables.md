@@ -963,6 +963,7 @@ Field | Type | Description
 | `canvas_variation_api_id` | `string`,&nbsp;`null`    | API ID of the Canvas variation this event belongs to                 |
 | `canvas_step_api_id`      | `string`,&nbsp;`null`    | API ID of the Canvas step this event belongs to                      |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
+{: aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1019,6 +1020,7 @@ Field | Type | Description
 | `experiment_step_api_id`  | `string`,&nbsp;`null`    | API ID of the Experiment step this event belongs to                  |
 | `in_control_group`        | `boolean`,&nbsp;`null`   | True if the user was enrolled in the control group                   |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
+{: aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 | `experiment_split_api_id` | `string`,&nbsp;`null` | API ID of the experiment split the user enrolled in |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

@@ -45,6 +45,7 @@ th:nth-child(5), td:nth-child(5) {
 </style>
 
 <table>
+  <caption>List of logged events and attributes</caption>
     <thead>
         <tr>
             <th>Name</th>

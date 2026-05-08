@@ -78,6 +78,7 @@ Create a table with the following fields:
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: aria-label="User identifier columns" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -90,6 +91,7 @@ Create a table with the following fields:
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: aria-label="User identifier columns" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql

@@ -15,6 +15,7 @@ description: "This reference article lists advanced filters, examples, and how t
 {% raw %}
 | filter name | filter description | example input | example output |
 |---|---|---|---|
+{: aria-label="Encoding filters" }
 `md5` | Returns md5 encoded string | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
 `sha1` | Returns sha1 encoded string | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
 `sha2` | Returns sha2 (256-bit, also known as SHA-256) encoded string | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |

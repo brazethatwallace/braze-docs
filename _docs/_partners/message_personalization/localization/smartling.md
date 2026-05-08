@@ -25,6 +25,7 @@ The Braze Connector supports translations for messages in campaigns and Canvases
 | Email Template | ✅ | ✅ |
 | Banners | n/a | ✅ |
 | Content Blocks |  ✅* |  ✅* |
+{: aria-label="About the integration" }
 
 *Refer to [Managing translations for Content Blocks](#managing-translations-for-content-blocks) for more information.
 

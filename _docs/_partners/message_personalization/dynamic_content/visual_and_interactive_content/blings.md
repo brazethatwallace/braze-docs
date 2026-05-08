@@ -18,6 +18,7 @@ _This integration is maintained by Blings._
 | Requirement     | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings account  | A Blings account is required to take advantage of this partnership.         |  
+{: aria-label="Prerequisites" }
 
 ## Integration  
 
