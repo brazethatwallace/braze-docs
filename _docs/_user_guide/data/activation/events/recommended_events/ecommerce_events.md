@@ -94,7 +94,7 @@ Use this template when you want to remind users about items in their cart and dr
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert tip %}
-The `ecommerce.cart_updated` event uses a replace model. Every event sent overwrites the user's cart state. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
+The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and delta updates for the same `cart_id`. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
 {% endalert %}
 
 {% endtab %}
