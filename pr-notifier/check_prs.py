@@ -330,7 +330,7 @@ def main():
         # --- Scenario 3: External PR with no docs-team reviewer after 48h ---
         author_is_external = author_lower not in docs_team
 
-        if author_is_external and older_than_24h and no_docs_reviewer:
+        if author_is_external and older_than_48h and no_docs_reviewer:
             current_s3_prs.add(pr_number)
             if pr_number not in scenario3_notified:
                 new_scenario3.append({
