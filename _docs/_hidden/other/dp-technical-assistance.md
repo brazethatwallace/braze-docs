@@ -117,7 +117,7 @@ Note that the email address or phone number associated with the end user’s pro
     <ul>
         <li>PROPERTIES for USERS_BEHAVIORS_CUSTOMEVENT</li>
         <li>PROPERTIES for USERS_BEHAVIORS_PURCHASE</li>
-        <li>MESSAGE_EXTRAS for:</li>
+        <li>MESSAGE_EXTRAS for:
             <ul>
             <li>USERS_MESSAGES_CONTENTCARD</li>
             <li>USERS_MESSAGES_EMAIL_SEND</li>
@@ -127,6 +127,7 @@ Note that the email address or phone number associated with the end user’s pro
             <li>USERS_MESSAGES_SMS_SEND</li>
             <li>Future message send events</li>
             </ul>
+        </li>
     </ul>
     <p>Settings for this may be accessed via <b>Company Settings</b> > <b>Admin Settings</b> > <b>Security Settings</b>. Data deletion preferences are set per event type or category. Only a user with Administrator preferences can make changes to these settings. Alternatively, an Administrator can delegate these permissions to another user.</p>
     <p>If an event type or message extra is set to be included in the deletion process, the data in this field will be deleted going forward for users for whom you’re running a User Delete REST API Endpoint. In addition, when you select this deletion preference, at the next scheduled deletion job, data from these fields will be deleted from any existing anonymised data sets that contain these fields. Restoring the deleted data fields will not be possible.</p>
