@@ -64,7 +64,7 @@ The tables below include a few examples of fields you can map over from your CRM
 
 In this use case, Salesforce is the example CRM system. You can map over any field that is included in your CRM's objects.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
   <caption>Map over your CRM fields</caption>
   <tr>
     <th><b>Braze object</b></th>
@@ -104,7 +104,7 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
 
 In this use case, Salesforce is the example CRM system. You can map over any field that is included in your CRM's objects.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
   <caption>Example table of mapped account fields</caption>
   <tr>
     <th><b>Braze object</b></th>

@@ -1,0 +1,151 @@
+# Checks that every table in changed Markdown files has an accessible name.
+# Tables must have one of:
+#   - A Kramdown IAL with aria-label= (markdown tables)
+#   - A Kramdown IAL with role="presentation" or role="none" (explicit layout-table opt-out)
+#   - aria-label= or aria-labelledby= on the <table> tag (HTML tables)
+#   - <caption> as the first child element (HTML tables)
+#
+# Fix guidance is printed inline. Run locally:
+#   python3 scripts/check_table_accessibility.py            # scan all _docs/ and _includes/
+#   python3 scripts/check_table_accessibility.py path/to/file.md   # scan specific file(s)
+
+name: Check table accessibility
+
+on:
+  pull_request:
+    paths:
+      - "_docs/**/*.md"
+      - "_includes/**/*.md"
+      - "scripts/check_table_accessibility.py"
+      - ".github/workflows/check-table-accessibility.yml"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-table-accessibility:
+    name: Table accessible names (changed Markdown)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Get changed Markdown files
+        id: changed
+        shell: bash
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          mapfile -t FILES < <(
+            git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD \
+              -- '_docs/**' '_includes/**' \
+            | grep -E '\.md$' \
+            | grep -v '^_docs/_hidden/' \
+            || true
+          )
+          if ((${#FILES[@]} == 0)); then
+            echo "ran=false" >> "$GITHUB_OUTPUT"
+            echo "No changed Markdown files to check."
+            exit 0
+          fi
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+          # Write newline-delimited list to a temp file so the next step can read it
+          printf '%s\n' "${FILES[@]}" > /tmp/changed_files.txt
+          echo "Checking ${#FILES[@]} file(s):"
+          printf '  %s\n' "${FILES[@]}"
+
+      - name: Check table accessible names
+        id: lint
+        if: steps.changed.outputs.ran == 'true'
+        shell: bash
+        run: |
+          set +e
+          mapfile -t FILES < /tmp/changed_files.txt
+          python3 scripts/check_table_accessibility.py "${FILES[@]}" 2>&1 | tee lint-output.txt
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit "${PIPESTATUS[0]}"
+
+      - name: Sync PR comment
+        if: always() && steps.changed.outputs.ran == 'true'
+        uses: actions/github-script@v9
+        env:
+          LINT_OUTCOME: ${{ steps.lint.outcome }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-table-a11y-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+
+            if (process.env.LINT_OUTCOME === 'success') {
+              if (existing) {
+                await github.rest.issues.deleteComment({
+                  owner, repo, comment_id: existing.id,
+                });
+                core.info(`Deleted resolved table-accessibility comment ${existing.id}`);
+              }
+              return;
+            }
+
+            const fs = require('fs');
+            let log = '(no output captured)';
+            try {
+              log = fs.readFileSync('lint-output.txt', 'utf8');
+            } catch (e) {
+              core.warning('lint-output.txt missing: ' + e.message);
+            }
+            log = log.trim().replace(/```/g, '`​``');
+            const maxLen = 58000;
+            if (log.length > maxLen) {
+              log = log.slice(0, maxLen) + '\n\n…(truncated)';
+            }
+
+            const body = [
+              marker,
+              '',
+              '### Table accessibility check failed',
+              '',
+              'One or more tables in this PR are missing an accessible name. Screen readers use this name to identify the table\'s purpose.',
+              '',
+              '**For markdown tables**, add a Kramdown IAL with `aria-label` immediately after the last row:',
+              '```markdown',
+              '| Col 1 | Col 2 |',
+              '| --- | --- |',
+              '| Cell | Cell |',
+              '{: .reset-td-br-1 .reset-td-br-2 aria-label="Your descriptive label" }',
+              '```',
+              '',
+              '**For HTML tables**, add `aria-label=` to the `<table>` tag or `<caption>` as the first child.',
+              '',
+              '**Genuine layout tables** (no headers, side-by-side content) can opt out with `role="presentation"` in the IAL.',
+              '',
+              '<details><summary>Full output</summary>',
+              '',
+              '```text',
+              log,
+              '```',
+              '</details>',
+            ].join('\n');
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existing.id, body,
+              });
+              core.info(`Updated table-accessibility comment ${existing.id}`);
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNumber, body,
+              });
+              core.info('Created table-accessibility comment');
+            }

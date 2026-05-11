@@ -57,7 +57,7 @@ If you would like to create a one-off MyPostcard webhook campaign or use an exis
 MyPostcard requires an HTTP method along with the following HTTP headers to be included in the template.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
   <caption>Request method and headers</caption>
   <thead>
     <tr>

@@ -25,7 +25,7 @@ If you see widespread mismatches, contact your customer success manager or Braze
 
 ## Available views
 
-<table>
+<table aria-label="Available views">
   <caption>Available views</caption>
   <thead>
     <tr>

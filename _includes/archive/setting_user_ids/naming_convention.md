@@ -11,4 +11,4 @@ Providing this information to others may allow people outside your organization 
 | 8c0b3728-7fa7-4c68-a32e-12de1d3ed2d5 | Anna@email.com |
 | f0a9b506-3c5b-4d86-b16a-94fc4fc3f7b0 | CompanyName-1-2-19 |
 | 2d9e96a1-8f15-4eaf-bf7b-eb8c34e25962 | jon-doe-1-2-19 |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -42,7 +42,7 @@ Here is an example of how you would add an HTML product block for your Abandoned
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -121,7 +121,7 @@ Here is an example of how you would add an HTML block with your `shopping_cart` 
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -212,7 +212,7 @@ Here is an example of how you would add an HTML block with your `shopping_cart` 
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -296,7 +296,7 @@ Here is an example of how you would add an HTML product block to your order conf
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

@@ -430,7 +430,7 @@ If the Braze retry mechanism fails to deliver an event for more than 24 hours, d
 
 The following HTTP status codes will be recognized by our connector client:
 
-<table>
+<table aria-label="Error handling and retry mechanism">
   <caption>Error handling and retry mechanism</caption>
   <thead>
     <tr>

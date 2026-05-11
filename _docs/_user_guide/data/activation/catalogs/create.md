@@ -94,7 +94,7 @@ For this tutorial, we're using a catalog that lists two games, their cost, and a
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
   <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
