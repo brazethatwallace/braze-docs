@@ -63,7 +63,7 @@ If you see widespread mismatches, contact your customer success manager or Braze
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
 
 ## User profile snapshots
 
@@ -104,7 +104,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
 ### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` schema
@@ -118,7 +118,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}  
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## Real time user profile views
 
@@ -161,7 +161,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` schema
 
@@ -174,7 +174,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
 
 ## Historical change logs
 
@@ -216,7 +216,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` schema
 
@@ -231,7 +231,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ## Best practices
 
@@ -242,7 +242,7 @@ The `TIME` field represents the time of the user profile update. For backfilled 
 | **General queries** that do not require recent updates | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` and `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Fast execution, with data up to 12 hours old.                          |
 | Queries requiring the **latest user attributes**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` and `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Provides near real-time updates but can be slower for large datasets. |
 | **Historical tracking** of attribute changes           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` and `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Stores attribute changes with 12-hour granularity.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
 
 ### Performance considerations
 

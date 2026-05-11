@@ -58,7 +58,7 @@ The request body includes the following parameters:
 | `asset_url` | Optional | String | A publicly accessible URL for the asset to be uploaded into Braze. |
 | `asset_file` | Optional | Binary | Binary file data. |
 | `name` | Optional | String | A name to appear in the media library for this asset. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
 
 {% alert important %}
 `asset_url` and `asset_file` are mutually exclusive, you must only include one of them in your API request.
@@ -74,7 +74,7 @@ This section explains how the endpoint assigns names to uploaded files based on 
 | --- | --- |
 | `name` provided | The `name` value is used as the asset name in the media library. |
 | `name` excluded | The original filename from the URL or uploaded file is used. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
 
 #### ZIP file uploads
 
@@ -82,7 +82,7 @@ This section explains how the endpoint assigns names to uploaded files based on 
 | --- | --- |
 | `name` provided | The `name` value is used as a prefix, with an incrementing number appended as a suffix (for example, "My File 1", "My File 2", "My File 3"). |
 | `name` excluded | Each file retains its original filename from within the ZIP file. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
 
 ## Example request
 
@@ -127,7 +127,7 @@ This table lists possible validation errors.
 | 400 | "Either asset_url or asset_file must be provided." | No asset parameter was provided in the request. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | Both asset parameters were provided; only one is allowed. |
 | 403 | "Media Library Public APIs are not enabled for this company." | Media library feature is not enabled for this workspace. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
 
 #### Processing errors
 
@@ -154,7 +154,7 @@ This table lists possible processing errors.
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | A file entry inside the ZIP has no name. Ensure the ZIP file is not corrupted and add a name for any unnamed file entries. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | The ZIP file contains nested directories, which are not supported. All files must be at the root level of the ZIP. |
 | `GENERIC_ERROR` | 500 | An unexpected error occurred during upload. The `meta` object includes the `original_error` message for debugging. Try again or contact [Support]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 
 ## Response

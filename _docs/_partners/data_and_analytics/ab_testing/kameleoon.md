@@ -19,7 +19,7 @@ Before you start, you'll need the following:
 | --- | --- |  
 | Kameleoon account | A Kameleoon account is required to take advantage of this partnership.|  
 | Braze account| An active Braze account with the [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrated on your webpage. You’ll also need event property segmentation enabled. To request it, refer to [Considerations](#considerations).|  
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -127,7 +127,7 @@ Before you can use event property segmentation, you'll need it enabled in Braze.
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Request event property segmentation" }
 
 ### Braze data points
 

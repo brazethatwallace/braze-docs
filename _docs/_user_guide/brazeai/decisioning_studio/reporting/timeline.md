@@ -22,4 +22,4 @@ To compare performance between two groups, use the dropdowns to select your desi
 | Label | The name or identifier given to the event. |
 | Details | Additional information that describes the event. |
 | Visible in Charts | Indicates whether the event is displayed in related charts. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Timeline report" }

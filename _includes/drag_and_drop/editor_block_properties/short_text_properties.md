@@ -13,4 +13,4 @@
 | Color | Color of the text typed in the field. |
 | Text alignment | Horizontal alignment of the input text within the field. |
 | Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

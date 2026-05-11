@@ -54,7 +54,7 @@ The `selection` object allows you to specify which items from your catalog shoul
 | `results_limit` | Optional | Integer | The maximum number of results to return. Must be a number between 1 and 50. |
 | `sort_field` | Optional | String | The field to sort results by. This must be paired with `sort_order`. If both `sort_field` and `sort_order` are not present, results are returned in random order. |
 | `sort_order` | Optional | String | The order to sort results. Accepted values are `"asc"` (ascending) or `"desc"` (descending). This must be paired with `sort_field`. If both `sort_field` and `sort_order` are not present, results are returned in random order. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
 
 ### Filter object
 
@@ -65,7 +65,7 @@ Each filter object in the `filters` array contains the fields described in the f
 | `field`    | Required | String                                      | The catalog field to filter on. |
 | `operator` | Required | String                                      | The comparison operator to use for filtering. Examples include `"includes value"` and `"does not include value"`. |
 | `value`    | Required | Varies (string, number, boolean, time)     | The value to compare against. This must match the data type of the underlying catalog field (for example, string, number, boolean, time). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
 The API supports a maximum of four filters per selection request. In the Braze dashboard, you can add up to 10 filters per selection. Filters are applied in the order they appear in the array.

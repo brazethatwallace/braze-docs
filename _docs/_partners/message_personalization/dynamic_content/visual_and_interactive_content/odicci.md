@@ -39,7 +39,7 @@ Before you start, you'll need the following:
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | An Odicci account            | An Odicci account with access to the **Integrations** section is required to take advantage of this partnership.|
 | Braze REST API key        | A Braze REST API key with the `users.track` and 'campaigns.list' permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrating Odicci
 

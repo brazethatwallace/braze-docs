@@ -68,7 +68,7 @@ Trigger when a user views a product detail page. This event is compatible with B
 | `source`       | String           | Yes      | Source the event originates from (for example, `web`, `ios`, or `android`).                                                                               |
 | `type`         | Array of strings | No       | Required to use Braze’s catalog trigger features for back-in-stock and price-drop alerts. Accepted values: `"price_drop"`, `"back_in_stock"`     |
 | `metadata`     | Object           | No       | Flexible key-value pairs. Recognized sub-property: `sku` (String)                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### REST API example
 
@@ -126,7 +126,7 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | `products`      | Array     | Yes      | Complete array of items currently in the cart. See product properties sub-table.                                              |
 | `source`        | String    | Yes      | Source the event originates from.                                                                                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs for additional event-level data.                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Product properties (`products[]`)
 
@@ -140,7 +140,7 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | `quantity`      | Integer   | Yes      | Number of units in the cart.                    |
 | `price`         | Float     | Yes      | Variant unit price.                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API example
 
@@ -215,7 +215,7 @@ Trigger when the user initiates the checkout flow (for example, selects "Checkou
 | products       | Array   | Yes      | Items being checked out. See product properties sub-table.                                                       |
 | source         | String  | Yes      | Source the event originates from.                                                                                |
 | metadata       | Object  | No       | Flexible key-value pairs. Recognized sub-property: `checkout_url` (String)                                       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Product properties (`products[]`)
 
@@ -229,7 +229,7 @@ Trigger when the user initiates the checkout flow (for example, selects "Checkou
 | `quantity`     | Integer   | Yes      | Number of units in the cart.                             |
 | `price`        | Float     | Yes      | Variant unit price.                                      |
 | `metadata`     | Object    | No       | Flexible key-value pairs (e.g., color, size).            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API example
 
@@ -312,7 +312,7 @@ This event is the primary revenue driver. It increments `total_revenue` by the v
 | `products`      | Array     | Yes      | Items in the order. See product properties sub-table.                                         |
 | `source`        | String    | Yes      | Source the event originates from.                                                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs. Recognized sub-property: `order_status_url` (String)                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Product properties (`products[]`)
 
@@ -326,7 +326,7 @@ This event is the primary revenue driver. It increments `total_revenue` by the v
 | `quantity`      | Integer   | Yes      | Number of units in the cart.                |
 | `price`         | Float     | Yes      | Variant unit price.                         |
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API example
 
@@ -416,7 +416,7 @@ This event decrements `total_orders` by 1 on the user profile. It does not affec
 | `products`       | Array   | Yes      | Items in the cancelled order. See product properties sub-table.                                  |
 | `source`         | String  | Yes      | Source the event originates from.                                                                |
 | `metadata`       | Object  | No       | Flexible key-value pairs. Recognized sub-property: `order_status_url` (String)                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Product properties (`products[]`)
 
@@ -430,7 +430,7 @@ This event decrements `total_orders` by 1 on the user profile. It does not affec
 | `quantity`     | Integer   | Yes      | Number of units in the cart.                  |
 | `price`        | Float     | Yes      | Variant unit price.                           |
 | `metadata`     | Object    | No       | Flexible key-value pairs (for example, `color` or `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API example
 
@@ -505,7 +505,7 @@ This event decrements `total_revenue` by the value in `total_value` and incremen
 | `products`        | Array     | Yes      | Items being refunded. See product properties sub-table.                                              |
 | `source`          | String    | Yes      | Source the event originates from.                                                                    |
 | `metadata`        | Object    | No       | Flexible key-value pairs. Recognized sub-property: `order_status_url` (String).                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Product properties (`products[]`)
 
@@ -519,7 +519,7 @@ This event decrements `total_revenue` by the value in `total_value` and incremen
 | `quantity`      | Integer   | Yes      | Number of units in the cart.                          |
 | `price`         | Float     | Yes      | Variant unit price.                                   |
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API examples
 
@@ -619,7 +619,7 @@ The following table summarizes what Braze automatically does for each event when
 | `ecommerce.cart_updated`     | Creates or updates the carts mapping object on the user profile. The cart expires after 30 days without an update.|
 | `ecommerce.product_viewed`   | No user profile changes. Available for segmentation, triggering, and BrazeAI<sup>TM</sup> features (like item recommendations).|
 | `ecommerce.checkout_started` | No user profile changes. Available for segmentation and triggering (for example, abandoned checkout flows).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
 
 {% alert important %}
 Non-USD currency values are automatically converted to USD using the exchange rate on the date the event is reported. If you already report in USD, hardcode `USD` as the currency to avoid unintended conversion.
@@ -717,7 +717,7 @@ For each event whose name matches an eCommerce recommended event, Braze checks:
 | No extra top-level properties | Custom fields under properties cause failure. Use the `metadata` object instead.                                         |
 | Value constraints         | Monetary fields must be ≥ `0`. `currency` must be a valid ISO 4217 string.                                                  |
 | Per-product fields        | Each item in `products[]` must include `product_id`, `product_name`, `variant_id`, `quantity`, and `price`.                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### Why we validate
 
@@ -768,7 +768,7 @@ Failures are also classified internally and aggregated for the failure summary e
 | `missing_property`     | A required field is absent.                       | `order_placed` sent without `order_id`.                        |
 | `extra_property`       | A field was added that the schema doesn't define. | A custom `gift_wrapped` field at the top of `properties` instead of inside `metadata`. |
 | `unexpected_data_type` | A field is the wrong type.                        | `total_value: "29.99"` (string) instead of `29.99` (number).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
 
 {% alert note %}
 Event names that don't exactly match a recommended event (for example, `ecommerce.OrderPlaced`) skip validation entirely and are recorded as ordinary custom events. They appear in Currents and segmentation under the name you sent, but receive no recommended-event processing and no `errors` entry in the response.

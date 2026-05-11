@@ -58,7 +58,7 @@ Agents are configured with instructions (system prompts) that define how they be
 | [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
 | [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | The predefined data structure of the agent's response. |
 | [Temperature]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | The level of deviation for the agent's output. This defines how precise or creative your agent can be. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Limitations
 

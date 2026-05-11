@@ -82,7 +82,7 @@ The following table summarizes what each label means.
 | --- | --- |
 | **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
 | **Current Audience** | Braze can compute the default statistic with a full scan of workspace profiles, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -585,7 +585,7 @@ Here are some key KakaoTalk metrics you may see in your analytics. For more deta
 | Errors | _Errors_ is the number of errors returned by the KakaoTalk provider (incremented during the sending process). |
 | Revenue | _Revenue_ is the revenue in dollars from campaign recipients within the set primary conversion window. |
 | Primary Conversions | _Primary Conversions_ is the number of times a defined event occurred after interacting with or viewing a received message from a Braze campaign. This defined event is determined by you when building the campaign. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 

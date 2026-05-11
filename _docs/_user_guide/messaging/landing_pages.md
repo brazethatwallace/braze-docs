@@ -37,7 +37,7 @@ The number of published landing pages and custom domains you can use depends on 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Published landing pages                                                                 | Five per company | 20 additional |
 | Custom domains          | One per company | Five additional |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## Adding Google Tag Manager to a landing page
 

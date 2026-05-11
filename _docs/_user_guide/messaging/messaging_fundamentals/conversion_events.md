@@ -81,7 +81,7 @@ First, select the general type of event you'd like to use:
 | **Upgrade App**         | A user is counted as having converted when they upgrade the app version on any one of the apps that you specify (defaults to all apps in the workspace). Braze performs a best-efforts numerical comparison to determine if the change was an upgrade. Non-numeric versions are counted as conversions if the version changes.|
 | **Opens email**         | A user is counted as having converted when they open the email (only for email campaigns).|
 | **Clicks email**        | A user is counted as having converted when they click a link within the email (only for email campaigns).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Add the conversion events" }
 
 {% alert important %}
 **Nested properties are not supported in conversion events**. You cannot use nested properties in conversion events. For example, if `product_code` or `product_name` are nested properties within a `products` array (such as `products[].product_code`), you cannot use them to check if a specific product purchase has been made in a conversion event.

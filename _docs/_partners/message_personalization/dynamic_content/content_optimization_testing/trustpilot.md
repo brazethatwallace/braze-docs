@@ -24,7 +24,7 @@ Before you start, you'll need the following:
 | --- | --- |
 | A Trustpilot account | You need a Trustpilot account with access to Trustpilot's API. |
 | A Trustpilot authentication key | You will need to set up an API key and request an access token. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
