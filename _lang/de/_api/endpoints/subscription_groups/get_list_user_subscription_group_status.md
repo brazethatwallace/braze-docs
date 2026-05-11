@@ -48,8 +48,6 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `phone` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Die Telefonnummer der Nutzer:in. Wenn keine E-Mail angegeben wird, müssen Sie mindestens eine Telefonnummer angeben (maximal 50).<br><br> Die gleichzeitige Übermittlung einer E-Mail-Adresse und einer Telefonnummer (ohne `external_id`) führt zu einem Fehler. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
-
 *Für jede Nutzer:in ist entweder `external_id`, `email` oder `phone` erforderlich.
 
 - Für SMS- und WhatsApp-Abo-Gruppen ist entweder `external_id` oder `phone` erforderlich. Wenn beide übermittelt werden, wird nur die `external_id` für die Abfrage verwendet und die Telefonnummer wird dieser Nutzer:in zugeordnet.

@@ -108,7 +108,7 @@ Wenn Sie Empfänger:innen per E-Mail identifizieren, verwendet Braze `prioritiza
 - Braze sendet, nachdem der Gleichstand aufgelöst wurde und `prioritization` ein Profil zurückgibt. Wenn beispielsweise Profilaktualisierungen die Sortierfelder einer Nutzer:in ändern, sendet Braze, sobald `prioritization` ein Profil eindeutig identifizieren kann (siehe [Wiederholungsverhalten und `send_to_existing_only`](#retry-behavior-and-send_to_existing_only)).
 - Braze sendet auch nicht, wenn `prioritization` keine Profile zurückgibt.
 
-#### Wiederholungsverhalten und send_to_existing_only {#retry-behavior-and-sendtoexistingonly}
+#### Wiederholungsverhalten und send_to_existing_only {#retry-behavior-and-send_to_existing_only}
 
 Erfahren Sie, was passiert, wenn `prioritization` nicht genau ein Profil zurückgibt.
 
