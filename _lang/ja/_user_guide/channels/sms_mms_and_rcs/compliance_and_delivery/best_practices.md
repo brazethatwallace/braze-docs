@@ -38,6 +38,18 @@ SMSとMMSが複数のインスタンスにわたって設定されている場�
 
 Brazeは、ユーザープロファイル（`user_id`）レベルと電話番号（`channel_id`）レベルの両方でSMS/MMSサブスクリプションを管理しています。電話番号がオプトインまたはオプトアウトされると、その更新はその番号を共有するすべてのプロファイルに適用されます。エンドユーザーが特定の電話番号でオプトインした後に電話番号を変更した場合、新しい電話番号はそのユーザーのサブスクリプショングループステータスを引き継ぎます。したがって、エンドユーザーがオプトアウトした後に新しい電話番号でアプリやWebサイトに再度アクセスした場合、不要なメッセージを受信することはありません。
 
+## 電話番号リストの衛生管理に関する推奨事項 {#phone-number-list-hygiene-recommendations}
+
+電話番号リストの衛生管理を維持することで、有効な同意データと到達可能性データを長期にわたって保持できます。Brazeは、コンプライアンスリスクの軽減、同意ベースのメッセージング慣行のサポート、および元のユーザーに属さなくなった可能性のある番号への送信を回避するために、一部の電話番号を無効としてマークします。
+
+電話番号が無効としてマークされる一般的な理由については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers)を参照してください。
+
+無効な電話番号を削除するために、以下のワークフローを推奨します。
+
+1. [`/sms/invalid_phone_numbers`エンドポイント]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/)を通じて、影響を受ける電話番号を特定します。
+2. 無効化された電話番号とプロバイダーエラーを受信した電話番号を区別します。
+3. 無効化された電話番号については、ユーザーに電話番号を再確認します。ユーザーが電話番号を確認した後、[`/sms/invalid_phone_numbers/remove`エンドポイント]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/)を通じて無効リストから電話番号を削除します。
+
 ## トラフィックパンピングの推奨事項 {#traffic-pumping-recommendations}
 
 ### トラフィックパンピングとは {#what-is-traffic-pumping}

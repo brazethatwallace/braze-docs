@@ -218,7 +218,7 @@ Enfin, après avoir créé une extension, vous pouvez l'utiliser comme filtre lo
 Campaigns
 {% endapitags %}
 
-Pour créer une campagne multicanale, accédez à la page **Campaigns**, sélectionnez **Create Campaign**, puis sélectionnez **Multichannel Campaign**. Dans une campagne multicanale, sélectionnez **Add Messaging Channel** dans l'onglet de composition pour ajouter les canaux souhaités. Cliquez sur les icônes de canal qui apparaissent pour basculer entre les différents composeurs de messages lorsque vous rédigez le contenu de votre campagne pour les différents canaux.
+Consultez [Campaigns multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) dans **Créer une campagne** pour les étapes de configuration, les canaux pris en charge et la façon de basculer entre les composeurs.
 
 {% endapi %}
 {% api %}

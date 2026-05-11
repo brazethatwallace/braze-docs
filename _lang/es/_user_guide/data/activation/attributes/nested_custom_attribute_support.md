@@ -22,13 +22,13 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los nombres de las claves y los valores de cadena tienen un límite de tamaño de 255 caracteres.
 - Los nombres de las claves no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
-- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones del socio admiten esta característica.
+- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones de socios admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
 
 ## Ejemplo de API {#api-example}
 
 {% tabs local %}
-{% tab Create %}
+{% tab Crear %}
 El siguiente es un ejemplo de `/users/track` con un objeto "Most Played Song". Para capturar las propiedades de la canción, enviaremos una solicitud de API que lista `most_played_song` como un objeto, junto con un conjunto de propiedades del objeto.
 
 ```json
@@ -52,7 +52,7 @@ El siguiente es un ejemplo de `/users/track` con un objeto "Most Played Song". P
 ```
 
 {% endtab %}
-{% tab Update %}
+{% tab Actualizar %}
 Para actualizar un objeto existente, envía un POST a `users/track` con el parámetro `_merge_objects` en la solicitud. Esto realizará una fusión profunda de tu actualización con los datos del objeto existente. La fusión profunda asegura que todos los niveles de un objeto se fusionen con otro objeto en lugar de solo el primer nivel. En este ejemplo, ya tenemos un objeto `most_played_song` en Braze, y ahora estamos añadiendo un nuevo campo, `year_released`, al objeto `most_played_song`.
 
 ```json
@@ -90,7 +90,7 @@ Debes establecer `_merge_objects` en `true`, o tus objetos se sobrescribirán. `
 {% endalert %}
 
 {% endtab %}
-{% tab Delete %}
+{% tab Eliminar %}
 Para eliminar un objeto de atributo personalizado, envía un POST a `users/track` con el objeto de atributo personalizado establecido en `null`.
 
 ```json
@@ -285,7 +285,7 @@ Para regenerar el esquema de tu atributo personalizado anidado:
 
 1. Ve a **Data Settings** > **Custom Attributes**.
 2. Busca tu atributo personalizado anidado.
-3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus"></i> para administrar el esquema.
+3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> para administrar el esquema.
 4. Aparecerá un modal. Selecciona **Regenerate Schema**.
 
 La opción de regenerar esquema estará deshabilitada si han pasado menos de 24 horas desde la última regeneración del esquema. Regenerar el esquema solo detectará nuevos objetos y no eliminará objetos que actualmente existen en el esquema.
@@ -326,7 +326,7 @@ Un segmento con los siguientes filtros AND:
 
 Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el segmento.
 
-Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio](#multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
+Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 
 ## Puntos de datos {#data-points}
 

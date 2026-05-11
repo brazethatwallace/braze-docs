@@ -8,7 +8,7 @@ alias: /creating-agents/
 
 # 커스텀 에이전트 생성 {#create-custom-agents}
 
-> 커스텀 에이전트를 생성하는 방법, 시작하기 전에 준비해야 할 사항, 그리고 메시징, 의사결정 및 데이터 관리 전반에 걸쳐 에이전트를 활용하는 방법을 알아봅니다. 더 일반적인 정보는 [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
+> 커스텀 에이전트를 생성하는 방법, 시작하기 전에 준비해야 할 사항, 그리고 메시징, 의사결정 및 데이터 관리 전반에 걸쳐 에이전트를 활용하는 방법을 알아봅니다. 더 일반적인 정보는 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
 
 ## 필수 조건 {#prerequisites}
 
@@ -52,9 +52,9 @@ alias: /creating-agents/
 2. (선택 사항) 에이전트를 필터링하기 위해 태그를 추가합니다.
 3. 에이전트가 사용할 [모델]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models)을 선택합니다.
 4. **Braze Auto** 모델을 사용하지 않는 경우, 모델의 [사고 수준]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels)을 선택합니다. 최소, 낮음, 중간 또는 높음 중에서 선택할 수 있습니다. **최소**로 시작하여 에이전트의 응답을 테스트한 후 필요에 따라 조정하는 것을 권장합니다.
-5. 일일 실행 한도를 설정합니다. 기본값은 250,000으로 설정되어 있지만 1,000,000까지 높일 수 있습니다. 1,000,000 이상으로 한도를 늘리려면 고객 성공 매니저에게 문의하여 자세히 알아보세요.
+5. 일일 호출 한도를 설정합니다. 기본값은 250,000으로 설정되어 있지만 1,000,000까지 높일 수 있습니다. 1,000,000 이상으로 한도를 늘리려면 고객 성공 매니저에게 문의하여 자세히 알아보세요.
 
-![Braze에서 커스텀 에이전트를 생성하기 위한 에이전트 콘솔 인터페이스. 화면에는 에이전트 이름과 설명을 입력하고, 모델을 선택하고, 일일 실행 한도를 설정하는 필드가 표시됩니다.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Braze에서 커스텀 에이전트를 생성하기 위한 에이전트 콘솔 인터페이스. 화면에는 에이전트 이름과 설명을 입력하고, 모델을 선택하고, 일일 호출 한도를 설정하는 필드가 표시됩니다.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### 3단계: 지침 작성 {#agent-instructions}
 
@@ -98,7 +98,7 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 3. **응답 시뮬레이션**을 선택합니다. 에이전트가 구성에 따라 실행되고 응답을 표시합니다.
 
 {% alert note %}
-테스트 실행은 일일 실행 한도에 포함됩니다.
+테스트 실행은 일일 호출 한도에 포함됩니다.
 {% endalert %}
 
 ![커스텀 에이전트를 테스트하기 위한 미리보기 창을 보여주는 에이전트 콘솔. 인터페이스에는 예시 고객 데이터가 포함된 샘플 입력 필드, 테스트 실행 버튼, 에이전트 출력이 나타나는 응답 영역이 표시됩니다.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

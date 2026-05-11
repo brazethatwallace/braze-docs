@@ -13,11 +13,11 @@ page_order: 1.2
 
 Puedes utilizar la importación CSV para registrar y actualizar los siguientes atributos de usuario y eventos personalizados. Braze acepta estos datos como archivos CSV estándar dentro de los tamaños máximos indicados en la siguiente tabla.
 
-|Tipo|Definición|Ejemplo|Tamaño máximo de archivo|
+| Tipo | Definición | Ejemplo | Tamaño máximo de archivo |
 |---|---|---|---|
-|Atributos predeterminados|Atributos de usuario reservados reconocidos por Braze.| `first_name`, `email`|500 MB|
-|Atributos personalizados|Atributos de usuario exclusivos de tu empresa.| `last_destination_searched`|500 MB|
-|Eventos personalizados|Eventos exclusivos de tu empresa que representan acciones de los usuarios.| `trip_booked`|50 MB|
+| Atributos predeterminados | Atributos de usuario reservados reconocidos por Braze. | `first_name`, `email` | 500 MB |
+| Atributos personalizados | Atributos de usuario exclusivos de tu empresa. | `last_destination_searched` | 500 MB |
+| Eventos personalizados | Eventos exclusivos de tu empresa que representan acciones de los usuarios. | `trip_booked` | 50 MB |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Uso de la importación CSV {#using-csv-import}
@@ -26,13 +26,13 @@ Puedes utilizar la importación CSV para registrar y actualizar los siguientes a
 
 Para abrir la importación CSV, ve a **Audiences** > **Import Users**. Aquí encontrarás una tabla con los detalles de las importaciones más recientes, como la fecha de carga, el nombre de quien realizó la carga, el nombre del archivo, la disponibilidad de segmentación, el número de filas importadas y el estado de la importación.
 
-Para empezar con tu CSV, descarga una plantilla para atributos o eventos.
+Para empezar, selecciona **Attributes** o **Events** y luego descarga la plantilla correspondiente para ayudarte a construir tu archivo CSV para la carga.
 
 ![La página "Import Users" en el dashboard de Braze.]({% image_buster /assets/img/csv_import/import_users_page.png %})
 
 ### Paso 2: Elige un identificador {#choose-an-identifier}
 
-El CSV que importes necesitará un identificador dedicado. Puedes elegir entre los siguientes:
+El archivo CSV que importes necesita un identificador dedicado. Elige uno de los siguientes tipos de identificador para tu importación:
 
 {% tabs local %}
 <!-- TAB -->
@@ -117,7 +117,7 @@ Cuando estés listo para empezar a construir tu archivo CSV, consulta la siguien
 {% tab user attributes %}
 #### Identificadores obligatorios {#required-identifiers-attributes}
 
-Aunque `external_id` no es obligatorio, **debes** incluir **uno** de los siguientes identificadores como encabezado en tu archivo CSV. Para más detalles sobre cada uno, consulta [Elige un identificador](#choose-an-identifier).
+Aunque `external_id` no es obligatorio, tu archivo CSV debe incluir un identificador de usuario que pueda mapearse a **uno** de los siguientes identificadores. Para más detalles sobre cada uno, consulta [Elige un identificador](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -127,7 +127,7 @@ Aunque `external_id` no es obligatorio, **debes** incluir **uno** de los siguien
 
 #### Atributos personalizados {#custom-attributes}
 
-Los siguientes tipos de datos pueden utilizarse como atributos personalizados para la importación CSV. Los encabezados de columna que no coincidan exactamente con un [atributo predeterminado](#default-attributes) se importan como atributos personalizados en Braze.
+Los siguientes tipos de datos pueden utilizarse como atributos personalizados para la importación CSV. Los encabezados de columna que no coincidan exactamente con un [atributo predeterminado](#default-attributes) se importan como atributos personalizados en Braze, a menos que se modifiquen durante el paso de mapeado.
 
 | Tipo de datos | Descripción |
 |---|---|
@@ -285,6 +285,8 @@ En este ejemplo:
 
 Para cargar tu archivo, selecciona **Attributes** o **Events**, haz clic en **Browse Files** y carga tu CSV. Braze muestra una vista previa de las primeras filas y un resumen de los campos detectados.
 
+![La página de vista previa del archivo mostrando una vista previa del archivo después de la carga.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
+
 Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
 
 ![El modal de carga completada mostrando una vista previa del archivo, el campo de nombre de importación, las preferencias de segmentación y la casilla de validación del archivo.]({% image_buster /assets/img/csv_import/upload_completed.png %})
@@ -295,9 +297,50 @@ En el campo **Import name**, puedes renombrar tu importación. De forma predeter
 La vista previa del archivo solo muestra las primeras filas de tu archivo. Para verificar cada fila antes de importar, utiliza la [validación de archivo](#file-validation).
 {% endalert %}
 
-### Paso 5: Valida tu archivo (opcional) {#file-validation}
+### Paso 5: Mapea tus campos (para atributos) {#csv-data-mapping}
 
-Antes de iniciar tu importación, puedes ejecutar la validación de archivo para verificar cada fila en busca de errores y advertencias. Para validar tu archivo, selecciona **Validate file before importing** y luego haz clic en **Start import**.
+Después de la vista previa, puedes mapear los encabezados de tu CSV a atributos de Braze. Braze mapea automáticamente los campos de tu archivo CSV a atributos con nombres idénticos y crea nuevos atributos cuando es necesario. También tendrás la flexibilidad de ajustar manualmente las sugerencias o seleccionar diferentes atributos para cualquier columna.
+
+![La página de mapeado de columnas.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
+
+#### Estados de mapeado {#mapping-statuses}
+
+La columna de estado de mapeado indica la acción que ocurre cuando se importa tu archivo CSV y puede ser cualquiera de los siguientes.
+
+| Estado de mapeado | Qué significa |
+|:---|:---|
+| **Mapeado** | Campo mapeado a un atributo o identificador existente. |
+| **Nuevo atributo** | Braze crea un nuevo atributo en la importación. Puedes editar este atributo seleccionando el botón **Edit new attribute**. |
+| **Tipo de datos no coincidente** | El tipo de datos detectado de la columna CSV no coincide con el tipo de datos del atributo o identificador existente. Braze intenta convertir el tipo de datos en la importación para que coincida con el atributo existente. El valor se descarta si esto no es posible. |
+| **Atributo en lista de bloqueo** | El campo CSV coincide con el nombre de un atributo en la lista de bloqueo. Selecciona un atributo diferente para mapear o la columna no se importará. |
+| **Atributo duplicado** | Hay uno o más campos con el mismo nombre en tu archivo CSV. Mapea las columnas con el mismo nombre a diferentes atributos o solo se importará la primera columna. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+#### Edición de nuevos atributos {#editing-new-attributes}
+
+Cuando no existe un atributo coincidente en tu espacio de trabajo, Braze intenta crear un nuevo atributo en la importación utilizando el nombre del campo CSV y el tipo de datos detectado. Puedes editar este nuevo atributo antes de la importación seleccionando el botón **Edit new attribute** junto al estado de mapeado.
+
+![El botón de editar nuevo atributo en la página de mapeado de columnas.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
+
+{% alert note %}
+No puedes avanzar más allá del paso de mapeado hasta que se mapee un identificador. Braze mapea automáticamente un identificador cuando es posible. Consulta la sección **Required fields** para ver si se ha mapeado un identificador.
+{% endalert %}
+
+### Paso 6: Elige las preferencias de segmentación {#targeting-preferences}
+
+Después del mapeado, puedes elegir entre las siguientes preferencias de segmentación en la página de configuración de importación. Si no necesitas crear un nuevo filtro de segmentación ni un segmento a partir de tu importación, selecciona **Do not make this list available as a targeting filter**.
+
+| Opción | Descripción |
+|---|---|
+| Filtro de segmentación | Para convertir tu archivo CSV en una opción de reorientación al construir segmentos de usuarios, elige tu archivo del menú desplegable **Updated/Imported from CSV** y luego selecciona **Create targeting filter**. |
+| Nuevos segmentos | Para crear también un nuevo segmento a partir de tu nuevo filtro de segmentación, selecciona **Create targeting filter and add to new segment**. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+![Un grupo de filtros con el filtro "Updated/Imported from CSV" que incluye un archivo CSV titulado "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+
+### Paso 7: Valida tu archivo (opcional) {#file-validation}
+
+Antes de iniciar tu importación, puedes ejecutar la validación de archivo para verificar cada fila en busca de errores y advertencias. Para validar tu archivo, selecciona **Validate file before importing** en la página de configuración de importación y luego selecciona **Next**.
 
 La validación puede tardar hasta 2 minutos para archivos del tamaño máximo permitido. Mientras se ejecuta la validación, puedes seleccionar **Skip validation** para omitirla y continuar inmediatamente.
 
@@ -313,7 +356,7 @@ Cuando la validación se completa, aparece uno de los siguientes resultados.
 | **Validación agotada con problemas** | La validación se quedó sin tiempo y encontró errores en algunas de las filas que verificó. | Descarga el informe parcial para revisar lo que se encontró, luego selecciona **Import anyway** o **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-![El diálogo de problemas encontrados mostrando un recuento de filas con errores y advertencias, con opciones para cancelar, descargar el informe de errores o importar de todos modos.]({% image_buster /assets/img/csv_import/validation_issues.png %})
+![La página de resumen mostrando la sección de problemas encontrados, con un recuento de filas con errores y advertencias, y opciones para volver, descargar el informe de errores o iniciar la importación.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### Comprensión del informe de errores {#understanding-the-error-report}
 
@@ -327,21 +370,12 @@ El informe de errores es un archivo CSV que contiene cada fila marcada junto con
 
 Después de revisar el informe, puedes corregir los problemas en tu archivo original y volver a cargarlo, o continuar con la importación y aceptar los resultados parciales.
 
-### Paso 6: Elige las preferencias de segmentación {#step-6-choose-targeting-preferences}
 
-También puedes elegir entre las siguientes preferencias de segmentación. Si no necesitas crear un nuevo filtro de segmentación ni un segmento a partir de tu importación, selecciona **Do not make this list available as a targeting filter**.
 
-| Opción | Descripción |
-|---|---|
-| Filtro de segmentación | Para convertir tu archivo CSV en una opción de reorientación al construir segmentos de usuarios, elige tu archivo del menú desplegable **Updated/Imported from CSV** y luego selecciona **Create targeting filter**. |
-| Nuevos segmentos | Para crear también un nuevo segmento a partir de tu nuevo filtro de segmentación, selecciona **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+### Paso 8: Inicia tu importación CSV {#step-8-start-your-csv-import}
 
-![Un grupo de filtros con el filtro "Updated/Imported from CSV" que incluye un archivo CSV titulado "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
-
-### Paso 7: Inicia tu importación CSV {#step-7-start-your-csv-import}
-
-Cuando estés listo, selecciona **Start import**. Puedes seguir el progreso actual en la página **Import Users**, que se actualiza automáticamente cada 5 segundos. El procesamiento puede tardar desde unos minutos hasta varias horas dependiendo del tamaño de tu CSV. Durante este tiempo, el dashboard puede parecer sin respuesta o responder lentamente, pero la importación sigue ejecutándose.
+Cuando estés listo, selecciona **Start Import**. Puedes seguir el progreso actual en la página **Import Users**, que se actualiza automáticamente cada 5 segundos.
+El procesamiento puede tardar desde unos minutos hasta varias horas dependiendo del tamaño de tu CSV. Durante este tiempo, el dashboard puede parecer sin respuesta o responder lentamente, pero la importación sigue ejecutándose.
 
 {% alert note %}
 Puedes importar más de un CSV al mismo tiempo. Las importaciones CSV se ejecutan de forma concurrente, por lo que no se garantiza que el orden de las actualizaciones sea secuencial. Si necesitas que las importaciones CSV se ejecuten una tras otra, espera a que una importación CSV haya finalizado antes de cargar una segunda.
@@ -358,7 +392,7 @@ Después de iniciar tu importación, puedes verificar su estado en la página **
 | **En progreso** | La importación se está ejecutando actualmente. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
-![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Descargar informe de errores y Descargar CSV cargado.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
+![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Download error report y Download uploaded CSV.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
 El informe de errores posterior a la importación incluye filas que fallaron por razones que la validación no cubre, como cuando un usuario no existe en Braze.
 
@@ -386,6 +420,21 @@ Establecer `language` o `country` en un usuario a través de la importación CSV
 Si utilizaste la [validación de archivo](#file-validation), comienza con el informe de errores, ya que incluye el problema específico de cada fila marcada y una descripción de cómo solucionarlo. Para las filas que fallaron durante la importación en lugar de la validación, descarga el informe de errores pasando el cursor sobre la fila y seleccionando el botón <i class="fas fa-download" title="Descargar"></i> en la página **Import Users**.
 
 Para la solución de problemas de importación CSV, revisa estos problemas comunes a continuación.
+
+### La importación CSV no está disponible como filtro de segmento {#csv-import-isnt-available-as-a-segment-filter}
+
+Puedes usar una importación CSV como filtro de segmento solo si habilitaste una preferencia de segmentación durante la carga.
+
+Para verificar si la disponibilidad de segmentación está habilitada para una importación existente:
+
+1. En la página **Import Users**, busca tu importación CSV.
+2. Verifica si aparece **Go to Segment** para esa importación.
+3. Si aparece **Go to Segment**, tu CSV está disponible en el filtro de segmento `Updated/Imported from CSV`.
+4. Si **Go to Segment** no aparece, la disponibilidad de segmentación no se habilitó para esa importación.
+
+No puedes habilitar la disponibilidad de segmentación después de que se complete una carga CSV. Para usar ese CSV como filtro de segmento, vuelve a cargar el archivo y, en el [Paso 6: Elige las preferencias de segmentación](#step-6-choose-targeting-preferences), selecciona **Create targeting filter** o **Create targeting filter and add to new segment**.
+
+Si tu objetivo es crear un segmento sin actualizar datos de perfil, carga un CSV que incluya solo columnas de identificadores (por ejemplo, `external_id` o columnas de identificadores de alias) y luego selecciona **Create targeting filter and add to new segment**.
 
 ### Problemas de formato de archivo {#file-formatting-issues}
 

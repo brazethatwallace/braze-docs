@@ -138,10 +138,6 @@ Se você não incluir uma página de confirmação, os usuários podem não sabe
 Se sua página de confirmação abrir em uma nova aba, um usuário que retornar à landing page original e reenviar com informações atualizadas pode sobrescrever o envio anterior, resultando em dados inconsistentes.
 {% endalert %}
 
-{% alert important %}
-Se você configurar um botão com **Submit form when button is clicked** ativado e usar **On-click Behavior** para abrir uma URL da web em uma nova aba, o bloqueador de pop-ups integrado do Safari no iOS pode impedir que a navegação funcione. Isso ocorre porque o envio do formulário seguido pela abertura de uma nova aba é tratado como um pop-up.<br><br>Para evitar esse problema, configure botões com envio de formulário para abrir a URL resultante na mesma aba (não em uma nova aba). Botões sem envio de formulário podem abrir URLs em novas abas sem problemas.
-{% endalert %}
-
 ### Etapa 5: Pré-visualizar a página {#step-5-preview-the-page}
 
 Você pode pré-visualizar sua landing page na guia **Preview** do editor. Depois de salvar sua landing page como rascunho, você pode visitar a URL acessando **Landing Pages** e selecionando **Copy URL** ao lado da sua landing page. Você também pode compartilhar a URL com colaboradores.
@@ -155,6 +151,10 @@ Antes de publicar, certifique-se de que:
 - Todos os campos obrigatórios da página (como caminho da URL e título) estão completos
 
 Quando estiver pronto, selecione **Publish Landing Page**.
+
+{% alert note %}
+Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando o botão **Submit** de um formulário também abre outra URL, seja na mesma aba ou em uma nova aba.
+{% endalert %}
 
 ## Usando modelos {#using-templates}
 

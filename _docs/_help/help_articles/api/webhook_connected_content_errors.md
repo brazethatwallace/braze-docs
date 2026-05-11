@@ -24,6 +24,7 @@ table td {
 </style>
 
 <table>
+  <caption>4XX errors</caption>
   <thead>
     <tr>
       <th>Error code</th>

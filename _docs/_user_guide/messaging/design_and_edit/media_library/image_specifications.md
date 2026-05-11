@@ -68,7 +68,7 @@ For best results, refer to the following message length guidelines when crafting
 | iOS banner alert | 80 characters | 65 characters |
 | Android lock screen | 49 characters | N/A |
 | Android notification drawer | 597 characters | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended message lengths" }
 
 For more information about iOS character counts, see [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
 

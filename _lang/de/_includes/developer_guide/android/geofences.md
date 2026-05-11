@@ -1,12 +1,12 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} Außerdem müssen Sie [stille Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android).
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
 ## Einrichten von Geofences {#setting-up-geofences}
 
-### Schritt 1: Enablement in Braze
+### Schritt 1: Enablement in Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### Schritt 2: `build.gradle` aktualisieren
+### Schritt 2: `build.gradle` aktualisieren {#step-2-update-buildgradle}
 
 Fügen Sie `android-sdk-location` zu Ihrer App-Ebene `build.gradle` hinzu. Fügen Sie außerdem das [Standortpaket](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) der Google-Play-Dienste mithilfe der [Setup-Anleitung](https://developers.google.com/android/guides/setup) der Google-Play-Dienste hinzu:
 
@@ -17,9 +17,9 @@ dependencies {
 }
 ```
 
-### Schritt 3: Manifest aktualisieren
+### Schritt 3: Manifest aktualisieren {#step-3-update-the-manifest}
 
-Fügen Sie der `AndroidManifest.xml` die folgenden Berechtigungen hinzu:
+Fügen Sie Ihrer `AndroidManifest.xml` die Berechtigungen für Boot, genauen Standort und Standort im Hintergrund hinzu:
 
 ```xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -31,7 +31,7 @@ Fügen Sie der `AndroidManifest.xml` die folgenden Berechtigungen hinzu:
 Die Berechtigung für den Zugriff auf den Standort im Hintergrund wurde in Android 10 hinzugefügt und ist erforderlich, damit Geofences auf allen Geräten ab Android 10 funktionieren, während die App im Hintergrund läuft.
 {% endalert %}
 
-Fügen Sie den Braze Boot Receiver in das `application` Element Ihres `AndroidManifest.xml` ein:
+Fügen Sie den Braze Boot Receiver in das `application`-Element Ihrer `AndroidManifest.xml` ein:
 
 ```xml
 <receiver android:name="com.braze.BrazeBootReceiver">
@@ -41,29 +41,29 @@ Fügen Sie den Braze Boot Receiver in das `application` Element Ihres `AndroidMa
 </receiver>
 ```
 
-### Schritt 4: Aktivieren Sie die Braze-Standorterfassung
+### Schritt 4: Braze-Standorterfassung aktivieren {#step-4-enable-braze-location-collection}
 
-Wenn Sie die Braze-Standortermittlung noch nicht aktiviert haben, aktualisieren Sie die Datei `braze.xml` so, dass sie `com_braze_enable_location_collection` enthält, und stellen Sie sicher, dass der Wert auf `true` festgelegt ist:
+Wenn Sie die Braze-Standorterfassung noch nicht aktiviert haben, aktualisieren Sie Ihre `braze.xml`-Datei so, dass sie `com_braze_enable_location_collection` enthält, und stellen Sie sicher, dass der Wert auf `true` gesetzt ist:
 
 ```xml
 <bool name="com_braze_enable_location_collection">true</bool>
 ```
 
 {% alert important %}
-Ab Version 3.6.0 des Braze Android-SDK ist die Braze-Standortermittlung standardmäßig deaktiviert.
+Ab Version 3.6.0 des Braze Android SDK ist die Braze-Standorterfassung standardmäßig deaktiviert.
 {% endalert %}
 
-Braze-Geofences sind aktiviert, wenn die Braze-Standorterfassung aktiviert ist. Wenn Sie unsere standardmäßige Standortermittlung ablehnen, aber dennoch Geofences verwenden möchten, können Sie diese selektiv aktivieren, indem Sie – unabhängig vom Wert für `com_braze_enable_location_collection` – den Wert des Schlüssels `com_braze_geofences_enabled` in `braze.xml` auf `true` setzen:
+Braze-Geofences sind aktiviert, wenn die Braze-Standorterfassung aktiviert ist. Wenn Sie die standardmäßige Standorterfassung ablehnen, aber dennoch Geofences verwenden möchten, können Sie diese selektiv aktivieren, indem Sie – unabhängig vom Wert für `com_braze_enable_location_collection` – den Wert des Schlüssels `com_braze_geofences_enabled` in `braze.xml` auf `true` setzen:
 
 ```xml
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
-### Schritt 5: Berechtigungen zur Standortermittlung vom Endnutzer einholen
+### Schritt 5: Standortberechtigungen von Nutzer:innen einholen {#step-5-obtain-location-permissions-from-the-end-user}
 
-Bei Android M und höheren Versionen müssen Sie den Endbenutzer um Standortgenehmigungen bitten, bevor Sie Standortinformationen sammeln oder Geofences registrieren können.
+Bei Android M und höheren Versionen müssen Sie Nutzer:innen um Standortberechtigungen bitten, bevor Sie Standortinformationen erfassen oder Geofences registrieren können.
 
-Fügen Sie den folgenden Aufruf hinzu, um Braze zu benachrichtigen, wenn ein Nutzer Ihrer App die Berechtigung zur Standortermittlung erteilt:
+Fügen Sie den folgenden Aufruf hinzu, um Braze zu benachrichtigen, wenn Nutzer:innen Ihrer App die Standortberechtigung erteilen:
 
 {% tabs %}
 {% tab JAVA %}
@@ -215,11 +215,11 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 {% endtab %}
 {% endtabs %}
 
-### Schritt 6: Manuelles Anfordern von Geofence-Updates (optional)
+### Schritt 6: Manuelles Anfordern von Geofence-Updates (optional) {#step-6-manually-request-geofence-updates-optional}
 
-Braze ruft den Standort des Geräts standardmäßig automatisch ab und fordert anhand des erfassten Standorts Geofences an. Sie können jedoch manuell eine GPS-Koordinate angeben, die stattdessen zum Abrufen der nächstgelegenen Braze-Geofences verwendet wird. Um Braze Geofences manuell anzufordern, müssen Sie die automatischen Braze Geofence-Anfragen deaktivieren und eine GPS-Koordinate für Anfragen angeben.
+Braze ruft den Standort des Geräts standardmäßig automatisch ab und fordert anhand des erfassten Standorts Geofences an. Sie können jedoch manuell eine GPS-Koordinate angeben, die stattdessen zum Abrufen der nächstgelegenen Braze-Geofences verwendet wird. Um Braze-Geofences manuell anzufordern, müssen Sie die automatischen Braze-Geofence-Anfragen deaktivieren und eine GPS-Koordinate für Anfragen angeben.
 
-#### Schritt 6.1: Automatische Geofence-Anfragen deaktivieren
+#### Schritt 6.1: Automatische Geofence-Anfragen deaktivieren {#step-61-disable-automatic-geofence-requests}
 
 Automatische Geofence-Anfragen von Braze können in der Datei `braze.xml` deaktiviert werden, indem `com_braze_automatic_geofence_requests_enabled` auf `false` gesetzt wird:
 
@@ -250,7 +250,7 @@ Braze.configure(applicationContext, brazeConfigBuilder.build())
 {% endtab %}
 {% endtabs %}
 
-#### Schritt 6.2: Manuelles Anfordern von Braze Geofence mit GPS-Koordinaten
+#### Schritt 6.2: Braze-Geofence manuell mit GPS-Koordinate anfordern {#step-62-manually-request-braze-geofence-with-gps-coordinate}
 
 Braze-Geofences werden manuell über die Methode [`requestGeofences()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-geofences.html) angefordert:
 
@@ -272,11 +272,5 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% endtabs %}
 
 {% alert important %}
-Geofences können nur einmal pro Sitzung angefordert werden. Dies kann entweder automatisch durch das SDK oder manuell mit dieser Methode geschehen.
+Geofences können nur einmal pro Sitzung angefordert werden – entweder automatisch durch das SDK oder manuell mit dieser Methode.
 {% endalert %}
-
-### Enablement von Push-to-Sync
-
-Beachten Sie, dass Braze einen Push im Hintergrund verwendet, um Geofences mit Geräten zu synchronisieren. In den meisten Fällen sind damit keine Code-Änderungen verbunden, da diese Funktion keine weitere Integration auf Seiten der App erfordert.
-
-Wenn Ihre Anwendung jedoch angehalten wurde und einen Push im Hintergrund empfängt, wird sie im Hintergrund gestartet und die Methode `Application.onCreate()` aufgerufen. Wenn Sie eine benutzerdefinierte `Application.onCreate()` -Implementierung haben, sollten Sie automatische Serveraufrufe und alle anderen Aktionen, die nicht durch Hintergrund-Push ausgelöst werden sollen, zurückstellen.

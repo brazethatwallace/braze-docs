@@ -10,8 +10,6 @@ description: "This page provides an overview of how to trigger Braze Canvases us
 
 > Learn how to sync Canvas triggers using CDI for zero-copy personalization. This feature accesses user-specific information from your data storage solution and passes it to a destination Canvas. Canvas steps can optionally include personalization fields that are not persisted on Braze user profiles.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Syncing Canvas triggers
 
 ### Quick start steps
@@ -326,13 +324,10 @@ Review your entire configuration (from sync behavior to Canvas setup) to avoid u
 
 CDI Canvas triggers utilize your REST API rate limit for `/canvas/trigger/send`. If you're using this endpoint simultaneously with CDI Canvas triggers and your REST API integration, expect the combined usage to count towards your rate limit.
 
-While CDI Canvas triggers are in early access, consider the following details:
+Each sync run enters users into its respective destination Canvas at a maximum rate of approximately 3.75 million users per hour. Be prepared for longer source-to-Canvas entry times when:
 
-* Up to 5 active Canvas trigger syncs per workspace  
-* Each sync run will enter users into its respective destination Canvas at a maximum rate of approximately 3.75 million users per hour.  
-  * Be prepared for longer source-to-Canvas entry times when:  
-    * Syncing more than 3.75M users per sync run.  
-    * Using CDI Canvas triggers when already saturating your REST API's [rate limit for `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Syncing more than 3.75 million users per sync run.
+* Using CDI Canvas triggers when already saturating your REST API's [rate limit for `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
 
 Consider the following about zero-copy CDI when Message Archiving is enabled:
 

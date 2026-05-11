@@ -38,6 +38,18 @@ Wenn SMS und MMS über mehrere Instanzen hinweg eingerichtet wurden und aufgrund
 
 Braze verwaltet SMS-/MMS-Abos sowohl auf der Ebene des Nutzerprofils (`user_id`) als auch auf der Ebene der Telefonnummer (`channel_id`). Wenn eine Telefonnummer ein Opt-in oder Opt-out durchführt, gilt das Update für alle Profile, die diese Nummer teilen. Falls ein:e Endnutzer:in sich mit einer bestimmten Telefonnummer angemeldet hat und dann die Telefonnummer wechselt, übernimmt die neue Telefonnummer den Abo-Gruppenstatus der/des Nutzer:in. Wenn ein:e Endnutzer:in ein Opt-out durchgeführt hat, aber dann die App oder Website mit einer neuen Telefonnummer erneut nutzt, erhält sie/er dementsprechend keine unerwünschten Nachrichten.
 
+## Empfehlungen zur Hygiene der Telefonnummernliste {#phone-number-list-hygiene-recommendations}
+
+Die Pflege der Hygiene Ihrer Telefonnummernliste hilft Ihnen, gültige Einwilligungs- und Erreichbarkeitsdaten im Laufe der Zeit beizubehalten. Braze markiert einige Telefonnummern als ungültig, um das Compliance-Risiko zu reduzieren, einwilligungsbasierte Messaging-Praktiken zu unterstützen und den Versand an Nummern zu vermeiden, die möglicherweise nicht mehr der/dem ursprünglichen Nutzer:in gehören.
+
+Gründe, warum Telefonnummern typischerweise als ungültig markiert werden, finden Sie unter [Umgang mit ungültigen Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+Wir empfehlen den folgenden Workflow zum Entfernen ungültiger Telefonnummern:
+
+1. Identifizieren Sie betroffene Telefonnummern über den [`/sms/invalid_phone_numbers`-Endpunkt]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Unterscheiden Sie zwischen deaktivierten Telefonnummern und Telefonnummern, die Anbieterfehler erhalten haben.
+3. Verifizieren Sie bei deaktivierten Telefonnummern die Telefonnummer erneut mit der/dem Nutzer:in. Nachdem die/der Nutzer:in ihre/seine Telefonnummer bestätigt hat, entfernen Sie die Telefonnummer über den [`/sms/invalid_phone_numbers/remove`-Endpunkt]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/) von der Ungültig-Liste.
+
 ## Empfehlungen zum Traffic-Pumping {#traffic-pumping-recommendations}
 
 ### Was ist Traffic-Pumping? {#what-is-traffic-pumping}

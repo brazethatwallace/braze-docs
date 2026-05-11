@@ -174,7 +174,9 @@ It's possible to have both a Global Control Group and also use a campaign-specif
 
 Users in your Global Control Group are withheld from receiving any messages other than those with tag exceptions, and if you add a control to a campaign or Canvas, Braze withholds a portion of your global treatment group from receiving that particular campaign or Canvas. That means if a member of the Global Control Group is not eligible to receive a particular campaign or Canvas, they are not present in the control group for that particular campaign or Canvas.
 
-> In short, users in the Global Control Group are filtered out of the campaign or Canvas audience prior to entry. Of the users who enter the campaign or Canvas, a percentage of those are then assigned to the control variant.
+{% alert note %}
+In short, users in the Global Control Group are filtered out of the campaign or Canvas audience prior to entry. Of the users who enter the campaign or Canvas, a percentage of those are then assigned to the control variant.
+{% endalert %}
 
 #### Global Control Group segments on the Developer Console
 

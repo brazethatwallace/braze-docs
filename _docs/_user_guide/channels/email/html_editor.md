@@ -113,6 +113,7 @@ Replace `#ffffff` with your intended color.
 
 {% alert note %}
 This approach does not apply reliably to `<table>` elements alone, so set the gradient on the cell instead of only on the table.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 For more information about gradient syntax, see [CSS gradients on W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -152,6 +153,7 @@ Avoid using the following keys:
 </style>
 
 <table id="reserved-fields">
+  <caption>Email headers</caption>
 <thead>
   <tr>
     <th>Reserved Fields</th>

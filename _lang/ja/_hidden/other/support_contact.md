@@ -1047,7 +1047,7 @@ a:hover {
               <div class="gradient-line"></div>
           </div>
    </div>
-        <aside class="operator-callout" aria-label="ヒント：BrazeAI Operator">
+        <aside class="operator-callout" aria-label="ヒント: BrazeAI Operator">
           <div class="operator-callout-content">
             <div class="operator-callout-title">
               <strong>BrazeAI Operator&#8482;でトラブルシューティングを迅速に</strong>

@@ -18,7 +18,7 @@ channel:
 
 Braze dispose d'un système de détection propriétaire qui utilise plusieurs entrées pour identifier les clics suspectés d'être générés par des bots, également appelés interactions non humaines (NHI). Les clics de bots peuvent gonfler les taux de clics, faussant les indicateurs d'engagement. En les filtrant, Braze facilite la capture de données fiables pour la prise de décision.
 
-Notre système analyse les agents utilisateurs associés aux robots d'indexation web, aux aperçus de liens Android et iOS, ou aux logiciels de sécurité CPaaS. Quelques exemples d'agents utilisateurs filtrés incluent `GoogleBot`, `python-requests/2.32.3` et `Barracuda Sentinel (EE)`.
+Notre système analyse les agents utilisateurs associés aux robots d'indexation web, aux aperçus de liens Android et iOS, ou aux logiciels de sécurité CPaaS. Quelques exemples d'agents utilisateurs filtrés incluent `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3` et `Barracuda Sentinel (EE)`.
 
 ## Indicateurs et workflows impactés {#affected-metrics-and-workflows}
 

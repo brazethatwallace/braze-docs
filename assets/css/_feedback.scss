@@ -93,7 +93,7 @@
     }
     button[type=submit]:focus,
     button[type=submit]:hover {
-        color: #fff;
+        color: #202024; // #fff → dark for 5.7:1 on $blue-scooter background
         background-color: $blue-scooter;
     }
 }

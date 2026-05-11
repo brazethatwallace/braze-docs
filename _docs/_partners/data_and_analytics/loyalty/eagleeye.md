@@ -40,6 +40,7 @@ The following tables outline the two types of integrations supported between Bra
 {% tabs local %}
 {% tab outbound %}
 <table>
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>Direction</th>
@@ -75,6 +76,7 @@ The following tables outline the two types of integrations supported between Bra
 
 {% tab inbound %}
 <table>
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>Direction</th>

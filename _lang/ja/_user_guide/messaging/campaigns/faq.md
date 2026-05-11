@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### マルチチャネルキャンペーンを作成するにはどうすればよいですか？ {#how-do-i-create-a-multichannel-campaign}
 
-マルチチャネルキャンペーンを作成するには、**Messaging** > **Campaigns**を選択します。次に、**Create Campaign** > **Multichannel**を選択します。ここから、Content Cards、メール、LINE、プッシュ通知、SMS/MMS/RCS、Webhook、WhatsAppのメッセージングチャネルを選択できます。
+セットアップ手順とサポートされているチャネルについては、**Campaignを作成する**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)を参照してください。
 
 ### マルチチャネルキャンペーンにコントロールグループを追加できますか？ {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-いいえ、Campaignのコントロールグループは、メールAとメールBの比較など、単一チャネルのメッセージングを対象としています。代わりに、異なるチャネル、メッセージングコンテンツ、配信タイミングのテストには[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)の使用をお試しください。
+**Campaignを作成する**の[コントロールグループ]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups)を参照してください。クロスチャネルテストには、[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)を使用してください。
 
 ### キャンペーンのテストと最適化を始めるにはどのような方法がありますか？ {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -48,9 +48,7 @@ tool: Campaigns
 
 ### マルチチャネルキャンペーンで、コンバージョン数がユニークユーザー数を超えることがあるのはなぜですか？ {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-マルチチャネルCampaignでは、Brazeはユーザーごとではなくチャネルごとにコンバージョンをカウントします。ユーザーがコンバージョン期間内に1回のコンバージョンアクションを実行すると、Brazeはそのコンバージョンをユーザーがメッセージを受信した各チャネルに帰属させます。つまり、ユーザーが複数のチャネル（例えば、メールとプッシュの両方）でメッセージを受信してコンバージョンした場合、Brazeは各チャネルに1つずつ、複数のコンバージョンをカウントします。その結果、合計コンバージョン数がコンバージョンしたユニークユーザー数を超えることがあります。
-
-例えば、マルチチャネルCampaignがユーザーにメールとプッシュ通知の両方を送信し、そのユーザーが両方のメッセージを受信した後、コンバージョン期間内に1回のコンバージョンアクションを実行した場合、Brazeはこれを2つのコンバージョンとしてカウントします。1つはメールに帰属し、もう1つはプッシュに帰属しますが、同じユーザーによる1回のアクションです。
+**Campaignを作成する**の[コンバージョンとレポート]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions)および**コンバージョンイベント**の[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)を参照してください。
 
 ### Campaignに使用しているSegmentよりも、Campaignの到達可能なユーザー群が少ないのはなぜですか？ {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 

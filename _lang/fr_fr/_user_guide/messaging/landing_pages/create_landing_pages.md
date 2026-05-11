@@ -138,10 +138,6 @@ Si vous n'incluez pas de page de confirmation, les utilisateurs pourraient ne pa
 Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui revient à la page d'accueil d'origine et soumet à nouveau avec des informations mises à jour peut écraser la soumission précédente, ce qui entraîne des données incohérentes.
 {% endalert %}
 
-{% alert important %}
-Si vous configurez un bouton avec **Submit form when button is clicked** activé et utilisez **On-click Behavior** pour ouvrir une URL web dans un nouvel onglet, le bloqueur de pop-ups intégré de Safari sur iOS peut empêcher la navigation de fonctionner. Cela se produit parce que la soumission du formulaire suivie de l'ouverture d'un nouvel onglet est traitée comme un pop-up.<br><br>Pour éviter ce problème, configurez les boutons avec soumission de formulaire pour ouvrir l'URL résultante dans le même onglet (pas un nouvel onglet). Les boutons sans soumission de formulaire peuvent ouvrir des URL dans de nouveaux onglets sans problème.
-{% endalert %}
-
 ### Étape 5 : Prévisualiser la page {#step-5-preview-the-page}
 
 Vous pouvez prévisualiser votre page d'accueil dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page d'accueil en tant que brouillon, vous pouvez visiter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page d'accueil. Vous pouvez également partager l'URL avec des collaborateurs.
@@ -155,6 +151,10 @@ Avant de publier, assurez-vous que :
 - Tous les champs de page obligatoires (comme le chemin URL et le titre) sont complets
 
 Lorsque vous êtes prêt, sélectionnez **Publish Landing Page**.
+
+{% alert note %}
+Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y compris les contrôles intégrés de Safari et les extensions tierces) peuvent avoir un impact négatif sur le comportement des pages d'accueil lorsqu'un bouton **Submit** de formulaire ouvre également une autre URL, que cette URL s'ouvre dans le même onglet ou dans un nouvel onglet.
+{% endalert %}
 
 ## Utiliser des modèles {#using-templates}
 
