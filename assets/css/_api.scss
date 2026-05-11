@@ -37,9 +37,6 @@
     font-family: $braze-bold;
     margin-top: 10px;
   }
-  #breadcrumb {
-    margin-top: 0px;
-  }
 
   .flex {
     display: -webkit-box;
@@ -301,4 +298,14 @@
     margin-bottom: 15px;
   }
 
+}
+
+// Align the TOC "On this page..." header with the breadcrumb on report_metrics pages.
+// The breadcrumb sits at padding-top(#api-main) 15px + margin-top(#breadcrumb) 40px = 55px
+// from the row top. The TOC content sits at padding-top(#toc) 8px. The 47px here closes
+// that gap so both land at the same offset.
+@media (min-width: $window-medium-px) {
+  #main_content:has(#api-main) + #toc_col {
+    padding-top: 47px;
+  }
 }
