@@ -144,9 +144,12 @@ $(document).ready(function() {
     function search_apis(api_hash) {
       var result_cnt = 0;
       var resultsMsg = $('#results_msg');
+      var resultsCount = $('#results_count');
       resultsMsg.html('');
+      resultsCount.text('');
       clearTimeout(noResultsTimer);
       var api_div = $('#api_list .api_div');
+      var total_cnt = api_div.length;
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
       $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
@@ -192,13 +195,17 @@ $(document).ready(function() {
           }
         }
       })
-      if (!result_cnt && !showall) {
-        // Debounce: cancel any pending announcement, then defer the set so the
-        // clear and set are separate DOM mutations. role="alert" (assertive) is
-        // more reliably announced by VoiceOver than role="status" (polite).
-        noResultsTimer = setTimeout(function() {
-          resultsMsg.html('<p>No metrics matching these filters</p>');
-        }, 250);
+      if (!showall) {
+        if (!result_cnt) {
+          // Debounce: cancel any pending announcement, then defer the set so the
+          // clear and set are separate DOM mutations. role="alert" (assertive) is
+          // more reliably announced by VoiceOver than role="status" (polite).
+          noResultsTimer = setTimeout(function() {
+            resultsMsg.html('<p>No metrics matching these filters</p>');
+          }, 250);
+        } else {
+          resultsCount.text('Showing ' + result_cnt + ' of ' + total_cnt + ' metrics');
+        }
       }
     };
 
@@ -264,6 +271,8 @@ $(document).ready(function() {
           <legend>Filter by channel</legend>
         </fieldset>
     </div>
+
+    <div id="results_count" aria-live="polite" aria-atomic="true"></div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}

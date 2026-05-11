@@ -291,7 +291,12 @@
   #results_msg {
     color: $black-shark;
     font-size: 14px;
-    display: none;
+  }
+
+  #results_count {
+    color: $black-shark;
+    font-size: 14px;
+    margin-bottom: 15px;
   }
 
 }
