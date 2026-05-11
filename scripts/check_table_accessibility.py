@@ -196,34 +196,37 @@ def check_markdown_tables(lines: list, skip: list, path: str) -> list:
         label = nearest_heading(lines, table_start)
         ncols = col_count(lines, table_start, table_end)
 
+        # The last row of the table is always in the PR diff (it was just added).
+        # Anchoring suggestions there avoids GitHub API failures when the line
+        # *after* the table is context-only, outside the diff window, or past EOF.
+        last_row_content = lines[table_end - 1].rstrip('\n')
+        last_row_line = table_end  # 1-indexed (0-indexed last row is table_end - 1)
+
         if IAL_RE.match(ial_line):
             if IAL_ARIA_LABEL_RE.search(ial_line) or LAYOUT_ROLE_RE.search(ial_line):
                 continue
-            # Bare IAL — suggest replacing it with a corrected one
+            # Bare IAL on the line right after the table — replace that line
             suggested = make_ial(ncols, label)
             violations.append(make_violation(
                 file=path,
                 table_start_line=table_start + 1,
-                suggestion_line=table_end + 1,
+                suggestion_line=table_end + 1,  # the IAL line itself (always exists)
                 suggestion_content=suggested,
                 current_content=ial_line,
                 message='Markdown table IAL is missing aria-label= (and no role="presentation/none" opt-out).',
                 fix_hint=f'Replace the IAL with: {suggested}',
             ))
         else:
-            # No IAL — suggest inserting one; if next line has content, keep it after
+            # No IAL — anchor suggestion on the last table row and append the IAL.
+            # Using the last row (not the line after) guarantees the target is in
+            # the diff even when the table ends at EOF or at an unchanged line.
             suggested_ial = make_ial(ncols, label)
-            if ial_line.strip():
-                # Preserve the existing line after the IAL
-                suggestion_content = suggested_ial + '\n' + ial_line
-            else:
-                suggestion_content = suggested_ial
             violations.append(make_violation(
                 file=path,
                 table_start_line=table_start + 1,
-                suggestion_line=table_end + 1,
-                suggestion_content=suggestion_content,
-                current_content=ial_line,
+                suggestion_line=last_row_line,
+                suggestion_content=last_row_content + '\n' + suggested_ial,
+                current_content=last_row_content,
                 message='Markdown table is missing an accessible name.',
                 fix_hint=f'Add after the last row: {suggested_ial}',
             ))
