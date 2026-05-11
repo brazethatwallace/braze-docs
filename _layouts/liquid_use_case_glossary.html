@@ -156,7 +156,8 @@ $(document).ready(function() {
       resultsCount.hide();
       resultsMsg.hide();
       var api_div = $('#api_list .api_div');
-      var total_cnt = api_div.length;
+      var total_cnt = 0;
+      api_div.each(function() { total_cnt += $(this).find('h3').length; });
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
       $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
@@ -198,7 +199,7 @@ $(document).ready(function() {
           }
           else {
             curdiv.show();
-            result_cnt++;
+            result_cnt += curdiv.find('h3').length;
           }
         }
       })
