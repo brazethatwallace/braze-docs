@@ -138,6 +138,8 @@ In general, a confidence of at least 95% is necessary to show that your results 
 
 Confidence does not describe whether one variant is better than the others. It is purely a measure of how sure we are that the two (or more) conversion rates are actually different than each other. This is only a function of the sample size and the differences between the apparent conversion rates. Whether the overall rates are high or low does not affect the strength of the confidence measure. It's possible for one variant to have a very different conversion rate from another and yet not have a 95% or higher confidence. It's also possible for two sets of variants to have similar conversion/uplift rates, and yet different confidence.
 
+As more data arrives, confidence can **fall** if variant and control conversion rates move **closer together**—the difference you are measuring is getting smaller, which can outweigh the effect of a larger sample.
+
 ### Statistically insignificant results
 
 A test that doesn't have a confidence of 95% can still hold important insights. Here are a few things you can learn from a test with statistically insignificant results:
@@ -150,6 +152,8 @@ A test that doesn't have a confidence of 95% can still hold important insights. 
 Whether or not your test has a clear winner, it can be helpful to run a [follow-up test](#recommended-follow-ups) to confirm your results or apply your findings to a slightly different scenario.
 
 ## Discrepancies between the control group and variant
+
+For in-app message campaigns with A/B or multivariate splits, the percentages you configure are **assignment** targets. Reported impressions rarely match those percentages exactly, because only users who perform the **trigger action** log impressions—and control-group users who trigger log an impression even though they never see a message.
 
 In in-app message campaigns, the way users are tracked and how impressions are logged can cause discrepancies in the expected split between the control group and variant. This is because the actual impressions logged may not reflect this split, and Braze ultimately has no control over the individual user behavior of who will perform the trigger.
 
