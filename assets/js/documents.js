@@ -381,8 +381,8 @@ $(document).ready(function() {
       $this.attr('role','tab');
     }
   });
-  // set list
-  var list_tabs = $('ul').not('.ab-nav');
+  // set list — exclude <ul> directly inside <ul> to prevent aria_child_valid violation
+  var list_tabs = $('ul').not('.ab-nav').not('ul > ul');
   list_tabs.each(function(i){
     var $this = $(this);
     if (!$this.attr('role')) {
