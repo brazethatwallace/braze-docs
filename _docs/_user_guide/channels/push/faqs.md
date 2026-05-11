@@ -12,6 +12,10 @@ channel:
 
 > This article provides answers to some frequently asked questions about the push channel.
 
+### Why are push notifications sometimes delayed?
+
+Delivery usually follows three stages: Braze **processing** (segmentation, scheduling, and handoff to the provider), transport from Braze to **APNs or FCM**, and delivery from the provider to the **device**. Delays can occur at any stage. Braze does not have visibility into provider or device queues; use [verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) on the client when you need to narrow down device-side timing.
+
 ### What happens when multiple users log into a single device?
 
 When a user logs out of a device or website, they will remain reachable by push until another user logs in. At that point, the push token is reassigned to the new user. This is because each device can only have one active push subscription per app or website.
