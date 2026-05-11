@@ -162,18 +162,34 @@ $(document).ready(function() {
     return found;
   }
 
+  var noResultsTimer = null;
+  var countTimer = null;
+  var lastAnnouncedCount = -1;
+  var altChar = false;
+
   function generate_glossarys(glossary_hash) {
     var result_cnt = 0;
-    $('#results_msg').hide();
+    var resultsMsg = $('#results_msg');
+    var resultsCountLive = $('#results_count_live');
+    var resultsMsgLive = $('#results_msg_live');
+
+    clearTimeout(noResultsTimer);
+    clearTimeout(countTimer);
+
+    var total_cnt = glossary_hash['sorted'].length;
+    var selected_vals = [];
+    $('.glossary_filter_div input[type="checkbox"]:checked').each(function(k,v){
+      selected_vals.push($(this).val());
+    });
+    var search_str = $('#glossary_search').val().toLowerCase();
+    var showall = !selected_vals.length && !search_str.length;
+
     for (var i = 0; i < glossary_hash['sorted'].length;i++){
       var cur_glossary = glossary_hash['data'][glossary_hash['sorted'][i]];
       var cur_filter_text = glossary_hash['search'][glossary_hash['sorted'][i]];
       var toappend = true;
       var filtered = true;
-      var selected_vals = [];
-      $('.glossary_filter_div input[type="checkbox"]:checked').each(function(k,v){
-       selected_vals.push($(this).val());
-      })
+
       if (selected_vals.length) {
          toappend = false;
          // Don't filter if item is set to all tags
@@ -185,7 +201,6 @@ $(document).ready(function() {
          }
        }
 
-        var search_str = $('#glossary_search').val().toLowerCase();
         if (search_str.length ) {
          toappend = false;
          if (!matchterms(search_str, cur_filter_text)) {
@@ -205,9 +220,38 @@ $(document).ready(function() {
         }
 
     }
-    if (!result_cnt) {
-      $('#results_msg').html('<p>No glossarys matching these filters</p>');
-      $('#results_msg').show();
+    if (!showall) {
+      if (!result_cnt) {
+        resultsMsg.text('No terms matching these filters');
+        noResultsTimer = setTimeout(function() {
+          resultsCountLive.text('');
+          resultsMsgLive.text('');
+          setTimeout(function() {
+            resultsMsgLive.text('No terms matching these filters');
+          }, 150);
+        }, 900);
+      } else {
+        resultsMsg.text('');
+        resultsMsgLive.text('');
+        countTimer = setTimeout(function() {
+          var message = 'Showing ' + result_cnt + ' of ' + total_cnt + ' terms';
+          var liveMessage = message;
+          if (result_cnt === lastAnnouncedCount) {
+            altChar = !altChar;
+            if (altChar) liveMessage += ' ';
+          }
+          lastAnnouncedCount = result_cnt;
+          resultsCountLive.text('');
+          setTimeout(function() {
+            resultsCountLive.text(liveMessage);
+          }, 150);
+        }, 900);
+      }
+    } else {
+      resultsMsg.text('');
+      resultsCountLive.text('');
+      resultsMsgLive.text('');
+      lastAnnouncedCount = -1;
     }
 
   };
@@ -237,7 +281,7 @@ $(document).ready(function() {
     generate_glossarys(glossary_hash);
   }
 
-  $('#glossary_search').on('keyup',function(e){
+  $('#glossary_search').on('input',function(e){
     generate_glossarys(glossary_hash);
   });
   var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
@@ -260,7 +304,10 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="glossary-main">
-
+    <div class="sr-only">
+      <div id="results_count_live" role="status" aria-atomic="true"></div>
+      <div id="results_msg_live" role="alert" aria-atomic="true"></div>
+    </div>
     <div id="content_start"></div>
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
@@ -271,7 +318,8 @@ $(document).ready(function() {
     <p class="glossary_text">  {{ page.glossary_top_text }} </p>
 
     <div id="glossary_filter">
-        <label for="glossary_search" id="glossary_label"><span class="sr-only">Search glossary</span><input id="glossary_search" type="search" placeholder="Search" /></label>
+        <label for="glossary_search" id="glossary_label"><span class="sr-only">Search glossary</span><input id="glossary_search" type="text" role="searchbox" placeholder="Search" aria-describedby="search-hint" /></label>
+        <span id="search-hint" class="sr-only">Results update automatically as you type.</span>
         <div id="glossary_filter_title">{{ page.glossary_filter_text }}</div>
         {%- for tag in page.glossary_tags -%}
         <div class="glossary_filter_div">
