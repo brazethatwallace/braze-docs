@@ -48,6 +48,10 @@ You can choose when the in-app message will expire. During this time, the in-app
 | **On a specific date and time** | Select a specific date and time when the in-app message will be no longer available. | If you have a sale that ends on November 30, 2024, select this option so that users no longer see the associated in-app message when the sale ends. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
+When a user starts a session, Braze checks whether their eligibility or expiration for in-app messages has changed and sends updated expiration information to their device.
+
+If an in-app message is set to expire **on a specific date and time** that is already in the past when the user reaches the Message step—such as after cloning a Canvas that still references an older end date—that user will not receive the in-app message. They will continue through the Canvas according to your [advancement behavior](#advancement-behavior) for that step (for example, the audience may advance immediately after entering the step).
+
 ## Use cases
 
 Braze recommends that you consider using this feature in your promotional and onboarding Canvases.
