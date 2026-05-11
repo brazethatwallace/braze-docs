@@ -5,7 +5,10 @@
 #   - aria-label= or aria-labelledby= on the <table> tag (HTML tables)
 #   - <caption> as the first child element (HTML tables)
 #
-# Fix guidance is printed inline. Run locally:
+# On failure: posts inline review suggestions the writer can commit with one click.
+# On pass: removes any previous failure comment.
+#
+# Fix guidance is also printed inline. Run locally:
 #   python3 scripts/check_table_accessibility.py            # scan all _docs/ and _includes/
 #   python3 scripts/check_table_accessibility.py path/to/file.md   # scan specific file(s)
 
@@ -55,7 +58,6 @@ jobs:
             exit 0
           fi
           echo "ran=true" >> "$GITHUB_OUTPUT"
-          # Write newline-delimited list to a temp file so the next step can read it
           printf '%s\n' "${FILES[@]}" > /tmp/changed_files.txt
           echo "Checking ${#FILES[@]} file(s):"
           printf '  %s\n' "${FILES[@]}"
@@ -67,86 +69,138 @@ jobs:
         run: |
           set +e
           mapfile -t FILES < /tmp/changed_files.txt
-          python3 scripts/check_table_accessibility.py "${FILES[@]}" 2>&1 | tee lint-output.txt
+          python3 scripts/check_table_accessibility.py \
+            --json violations.json \
+            "${FILES[@]}" 2>&1 | tee lint-output.txt
           LINT_EXIT=${PIPESTATUS[0]}
           echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
           exit "${LINT_EXIT}"
 
-      - name: Sync PR comment
+      - name: Post inline suggestions and sync PR comment
         if: always() && steps.changed.outputs.ran == 'true'
         uses: actions/github-script@v9
         env:
           LINT_OUTCOME: ${{ steps.lint.outcome }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const marker = '<!-- braze-docs-table-a11y-bot -->';
             const prNumber = context.payload.pull_request.number;
             const { owner, repo } = context.repo;
+            const headSha = process.env.HEAD_SHA;
 
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner, repo, issue_number: prNumber, per_page: 100,
-            });
-            const existing = comments.find(c => c.body && c.body.includes(marker));
+            // --- Helper: find or update/delete the summary comment ---
+            async function syncSummaryComment(body) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner, repo, issue_number: prNumber, per_page: 100,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(marker));
 
-            if (process.env.LINT_OUTCOME === 'success') {
-              if (existing) {
-                await github.rest.issues.deleteComment({
-                  owner, repo, comment_id: existing.id,
-                });
-                core.info(`Deleted resolved table-accessibility comment ${existing.id}`);
+              if (!body) {
+                if (existing) {
+                  await github.rest.issues.deleteComment({ owner, repo, comment_id: existing.id });
+                  core.info(`Deleted resolved table-accessibility comment ${existing.id}`);
+                }
+                return;
               }
+              if (existing) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+                core.info(`Updated table-accessibility comment ${existing.id}`);
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+                core.info('Created table-accessibility comment');
+              }
+            }
+
+            if (process.env.LINT_OUTCOME === 'success' || process.env.LINT_OUTCOME === 'skipped') {
+              await syncSummaryComment(null);
               return;
             }
 
+            // --- Parse violations ---
             const fs = require('fs');
-            let log = '(no output captured)';
+            let violations = [];
             try {
-              log = fs.readFileSync('lint-output.txt', 'utf8');
+              violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
             } catch (e) {
-              core.warning('lint-output.txt missing: ' + e.message);
-            }
-            log = log.trim().replace(/```/g, '`​``');
-            const maxLen = 58000;
-            if (log.length > maxLen) {
-              log = log.slice(0, maxLen) + '\n\n…(truncated)';
+              core.warning('Could not read violations.json: ' + e.message);
             }
 
-            const body = [
-              marker,
-              '',
-              '### Table accessibility check failed',
-              '',
-              'One or more tables in this PR are missing an accessible name. Screen readers use this name to identify the table\'s purpose.',
-              '',
-              '**For markdown tables**, add a Kramdown IAL with `aria-label` immediately after the last row:',
-              '```markdown',
-              '| Col 1 | Col 2 |',
-              '| --- | --- |',
-              '| Cell | Cell |',
-              '{: .reset-td-br-1 .reset-td-br-2 aria-label="Your descriptive label" }',
-              '```',
-              '',
-              '**For HTML tables**, add `aria-label=` to the `<table>` tag or `<caption>` as the first child.',
-              '',
-              '**Genuine layout tables** (no headers, side-by-side content) can opt out with `role="presentation"` in the IAL.',
-              '',
-              '<details><summary>Full output</summary>',
-              '',
-              '```text',
-              log,
-              '```',
-              '</details>',
-            ].join('\n');
+            // --- Post inline suggestions ---
+            let suggested = 0;
+            const fallback = [];
 
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner, repo, comment_id: existing.id, body,
-              });
-              core.info(`Updated table-accessibility comment ${existing.id}`);
+            for (const v of violations) {
+              // Build the suggestion body. GitHub renders ```suggestion blocks as
+              // one-click "Commit suggestion" buttons in the PR UI.
+              const suggestionBody =
+                '```suggestion\n' + v.suggestion_content + '\n```';
+
+              try {
+                await github.rest.pulls.createReviewComment({
+                  owner,
+                  repo,
+                  pull_number: prNumber,
+                  commit_id: headSha,
+                  path: v.file,
+                  line: v.suggestion_line,
+                  side: 'RIGHT',
+                  body: suggestionBody,
+                });
+                suggested++;
+              } catch (e) {
+                // Line is not in the diff (e.g. context-only change) — fall back to comment
+                core.info(`Could not post inline suggestion for ${v.file}:${v.suggestion_line} — ${e.message}`);
+                fallback.push(v);
+              }
+            }
+
+            // --- Build summary comment ---
+            const lines = [marker, ''];
+
+            if (suggested > 0 && fallback.length === 0) {
+              lines.push('### Table accessibility: suggestions posted');
+              lines.push('');
+              lines.push(
+                `${suggested} table${suggested !== 1 ? 's are' : ' is'} missing an accessible name. ` +
+                `Inline suggestions have been posted — look for the **"Commit suggestion"** button on each flagged line, or apply them all at once with **"Commit all suggestions"** at the top of the Files changed tab.`
+              );
+            } else if (suggested > 0 && fallback.length > 0) {
+              lines.push('### Table accessibility: some suggestions posted');
+              lines.push('');
+              lines.push(
+                `${suggested} inline suggestion${suggested !== 1 ? 's were' : ' was'} posted (look for **"Commit suggestion"** in the Files changed tab). ` +
+                `${fallback.length} additional violation${fallback.length !== 1 ? 's' : ''} could not be posted inline (the affected lines are outside the diff) — fix these manually:`
+              );
+              lines.push('');
+              for (const v of fallback) {
+                lines.push(`- **\`${v.file}:${v.table_start_line}\`**: ${v.message}`);
+                lines.push(`  \`\`\`\n  ${v.fix_hint}\n  \`\`\``);
+              }
             } else {
-              await github.rest.issues.createComment({
-                owner, repo, issue_number: prNumber, body,
-              });
-              core.info('Created table-accessibility comment');
+              // No inline suggestions posted — show all as manual fixes
+              lines.push('### Table accessibility check failed');
+              lines.push('');
+              lines.push(
+                `${violations.length} table${violations.length !== 1 ? 's are' : ' is'} missing an accessible name. ` +
+                'Fix each one before merging:'
+              );
+              lines.push('');
+              for (const v of violations) {
+                lines.push(`- **\`${v.file}:${v.table_start_line}\`**: ${v.message}`);
+                lines.push(`  \`\`\`\n  ${v.fix_hint}\n  \`\`\``);
+              }
+              lines.push('');
+              lines.push('**For markdown tables**, add a Kramdown IAL immediately after the last row:');
+              lines.push('```markdown');
+              lines.push('| Col 1 | Col 2 |');
+              lines.push('| --- | --- |');
+              lines.push('| Cell | Cell |');
+              lines.push('{: .reset-td-br-1 .reset-td-br-2 aria-label="Your descriptive label" }');
+              lines.push('```');
+              lines.push('');
+              lines.push('**Genuine layout tables** can opt out with `role="presentation"` in the IAL.');
             }
+
+            await syncSummaryComment(lines.join('\n'));

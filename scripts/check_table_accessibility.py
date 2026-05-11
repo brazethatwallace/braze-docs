@@ -29,60 +29,83 @@ Usage
   # Check all _docs/ and _includes/ (local full-scan mode):
   python3 scripts/check_table_accessibility.py
 
+  # Also write structured JSON for CI suggestion posting:
+  python3 scripts/check_table_accessibility.py --json violations.json file1.md
+
 Exit codes
   0  No violations
   1  One or more violations found
 """
 
+import json
 import re
 import sys
 import glob
-from pathlib import Path
 
 # ---------------------------------------------------------------------------
 # Patterns
 # ---------------------------------------------------------------------------
 
-# Kramdown IAL: starts with {: and ends with }
 IAL_RE = re.compile(r'^\s*\{:.*\}')
-# IAL has an aria-label attribute
 IAL_ARIA_LABEL_RE = re.compile(r'aria-label\s*=')
-# IAL or tag is an explicit layout-table opt-out
 LAYOUT_ROLE_RE = re.compile(r'role\s*=\s*["\']?(presentation|none)["\']?')
-
-# HTML <table ...> opening tag (may span a single line; we capture tag attrs)
 HTML_TABLE_OPEN_RE = re.compile(r'<table(\s[^>]*)?>', re.IGNORECASE)
-# Caption element
 HTML_CAPTION_RE = re.compile(r'<caption[\s>]', re.IGNORECASE)
-# First structural row element — if we hit this before a caption, it's too late
 HTML_ROW_START_RE = re.compile(r'<(tr|thead|tbody)[\s>]', re.IGNORECASE)
-# aria-label / aria-labelledby on the <table> tag itself
 HTML_ARIA_RE = re.compile(r'aria-label(ledby)?\s*=', re.IGNORECASE)
+
+HEADING_RE = re.compile(r'^#{1,6}\s+(.+)$')
+STRIP_MD_RE = re.compile(
+    r'\[([^\]]+)\]\([^)]+\)|`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*'
+)
+STRIP_EXTRA_RE = re.compile(r'[`*_{}<>]')
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
+def clean_heading(h: str) -> str:
+    h = STRIP_MD_RE.sub(lambda m: next(g for g in m.groups() if g is not None), h)
+    h = STRIP_EXTRA_RE.sub('', h).strip()
+    return h or 'Table'
+
+
+def nearest_heading(lines: list, idx: int) -> str:
+    for j in range(idx - 1, -1, -1):
+        m = HEADING_RE.match(lines[j].rstrip('\n'))
+        if m:
+            return clean_heading(m.group(1))
+    return 'Table'
+
+
+def col_count(lines: list, table_start: int, table_end: int) -> int:
+    """Count columns from the first non-separator table row."""
+    for i in range(table_start, table_end):
+        row = lines[i].strip()
+        if row.startswith('|') and not re.match(r'^\|[\s|:-]+\|?\s*$', row):
+            return max(1, len([c for c in row.strip('|').split('|') if c.strip()]))
+    return 2
+
+
+def make_ial(ncols: int, label: str) -> str:
+    classes = ' '.join(f'.reset-td-br-{n}' for n in range(1, ncols + 1))
+    return f'{{: {classes} aria-label="{label}" }}'
+
+
 def is_gfm_table_row(line: str) -> bool:
     return line.lstrip().startswith('|')
 
 
 def is_table_separator(line: str) -> bool:
-    """Return True for lines like |---|---| that mark the GFM header/body boundary."""
     stripped = line.strip()
     if not stripped.startswith('|'):
         return False
     cells = [c.strip() for c in stripped.strip('|').split('|')]
-    return cells and all(re.match(r'^:?-+:?$', c) for c in cells if c)
+    return bool(cells) and all(re.match(r'^:?-+:?$', c) for c in cells if c)
 
 
-def build_skip_mask(lines: list[str]) -> list[bool]:
-    """
-    Return a boolean list (same length as lines) where True means the line
-    is inside a fenced code block or a Liquid {% raw %} block and should be
-    skipped by all checks.
-    """
+def build_skip_mask(lines: list) -> list:
     skip = [False] * len(lines)
     in_fence = False
     fence_marker = ''
@@ -91,27 +114,24 @@ def build_skip_mask(lines: list[str]) -> list[bool]:
     for i, line in enumerate(lines):
         stripped = line.strip()
 
-        # Liquid raw blocks — only enter block-raw mode when {% raw %} and
-        # {% endraw %} are on different lines (block usage). Inline usage on
-        # one line (e.g., table cells) should not cause the row to be skipped.
+        # Liquid raw blocks — only block-raw mode when tags are on separate lines
         if not in_raw and '{% raw %}' in line:
             if '{% endraw %}' not in line:
                 in_raw = True
                 skip[i] = True
                 continue
-            # else: both tags on the same line — treat as normal content
         elif in_raw:
             skip[i] = True
             if '{% endraw %}' in line:
                 in_raw = False
             continue
 
-        # Fenced code blocks (``` or ~~~, optionally with language tag)
+        # Fenced code blocks
         if not in_fence:
             m = re.match(r'^(`{3,}|~{3,})', stripped)
             if m:
                 in_fence = True
-                fence_marker = m.group(1)[0] * len(m.group(1))  # normalise to same char
+                fence_marker = m.group(1)[0] * len(m.group(1))
                 skip[i] = True
                 continue
         else:
@@ -124,11 +144,35 @@ def build_skip_mask(lines: list[str]) -> list[bool]:
 
 
 # ---------------------------------------------------------------------------
+# Violation dataclass (plain dict for JSON serialisability)
+# ---------------------------------------------------------------------------
+
+def make_violation(
+    file: str,
+    table_start_line: int,   # 1-indexed
+    suggestion_line: int,    # 1-indexed line to replace
+    suggestion_content: str, # replacement text (may be multiline)
+    current_content: str,    # current text at suggestion_line
+    message: str,
+    fix_hint: str,
+) -> dict:
+    return {
+        'file': file,
+        'table_start_line': table_start_line,
+        'suggestion_line': suggestion_line,
+        'suggestion_content': suggestion_content,
+        'current_content': current_content,
+        'message': message,
+        'fix_hint': fix_hint,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Markdown table checker
 # ---------------------------------------------------------------------------
 
-def check_markdown_tables(lines: list[str], skip: list[bool], path: str) -> list[str]:
-    errors = []
+def check_markdown_tables(lines: list, skip: list, path: str) -> list:
+    violations = []
     n = len(lines)
     i = 0
 
@@ -137,49 +181,62 @@ def check_markdown_tables(lines: list[str], skip: list[bool], path: str) -> list
             i += 1
             continue
 
-        # Collect the full table block
         table_start = i
         has_separator = False
         while i < n and not skip[i] and is_gfm_table_row(lines[i]):
             if is_table_separator(lines[i]):
                 has_separator = True
             i += 1
-        table_end = i  # index of first line after the table
+        table_end = i  # 0-indexed first line after table
 
-        # Only check real GFM tables (must have a separator row)
         if not has_separator:
             continue
 
-        # The IAL must be on the very next line (no blank line — Kramdown requirement)
         ial_line = lines[table_end].rstrip('\n') if table_end < n else ''
+        label = nearest_heading(lines, table_start)
+        ncols = col_count(lines, table_start, table_end)
 
         if IAL_RE.match(ial_line):
-            if IAL_ARIA_LABEL_RE.search(ial_line):
-                continue  # PASS: has aria-label
-            if LAYOUT_ROLE_RE.search(ial_line):
-                continue  # PASS: explicit layout-table opt-out
-            # IAL present but no accessible name and no opt-out
-            errors.append(
-                f'{path}:{table_start + 1}: Markdown table has a Kramdown IAL but no '
-                f'aria-label= and no role="presentation/none".\n'
-                f'  Add aria-label to the IAL: {{: .reset-td-br-1 … aria-label="Your label here" }}'
-            )
+            if IAL_ARIA_LABEL_RE.search(ial_line) or LAYOUT_ROLE_RE.search(ial_line):
+                continue
+            # Bare IAL — suggest replacing it with a corrected one
+            suggested = make_ial(ncols, label)
+            violations.append(make_violation(
+                file=path,
+                table_start_line=table_start + 1,
+                suggestion_line=table_end + 1,
+                suggestion_content=suggested,
+                current_content=ial_line,
+                message='Markdown table IAL is missing aria-label= (and no role="presentation/none" opt-out).',
+                fix_hint=f'Replace the IAL with: {suggested}',
+            ))
         else:
-            # No IAL at all on the next line
-            errors.append(
-                f'{path}:{table_start + 1}: Markdown table is missing an accessible name.\n'
-                f'  Add an IAL after the last row: {{: .reset-td-br-1 … aria-label="Your label here" }}'
-            )
+            # No IAL — suggest inserting one; if next line has content, keep it after
+            suggested_ial = make_ial(ncols, label)
+            if ial_line.strip():
+                # Preserve the existing line after the IAL
+                suggestion_content = suggested_ial + '\n' + ial_line
+            else:
+                suggestion_content = suggested_ial
+            violations.append(make_violation(
+                file=path,
+                table_start_line=table_start + 1,
+                suggestion_line=table_end + 1,
+                suggestion_content=suggestion_content,
+                current_content=ial_line,
+                message='Markdown table is missing an accessible name.',
+                fix_hint=f'Add after the last row: {suggested_ial}',
+            ))
 
-    return errors
+    return violations
 
 
 # ---------------------------------------------------------------------------
 # HTML table checker
 # ---------------------------------------------------------------------------
 
-def check_html_tables(lines: list[str], skip: list[bool], path: str) -> list[str]:
-    errors = []
+def check_html_tables(lines: list, skip: list, path: str) -> list:
+    violations = []
     n = len(lines)
 
     for i, line in enumerate(lines):
@@ -189,46 +246,48 @@ def check_html_tables(lines: list[str], skip: list[bool], path: str) -> list[str
         if not m:
             continue
 
-        tag_attrs = m.group(0)  # full <table ...> match
-
-        # Opt-out: explicit layout/presentation role on the tag
-        if LAYOUT_ROLE_RE.search(tag_attrs):
+        tag_attrs = m.group(0)
+        if LAYOUT_ROLE_RE.search(tag_attrs) or HTML_ARIA_RE.search(tag_attrs):
             continue
 
-        # Accessible name directly on the tag
-        if HTML_ARIA_RE.search(tag_attrs):
-            continue
-
-        # Scan forward for <caption> before the first row element
         found_caption = False
-        for j in range(i + 1, min(i + 30, n)):
-            if skip[j]:
-                continue
-            if HTML_CAPTION_RE.search(lines[j]):
-                found_caption = True
-                break
-            if HTML_ROW_START_RE.search(lines[j]):
-                break
-
-        # Also check if <caption> is on the same line as <table>
         after_tag = line[m.end():]
         if HTML_CAPTION_RE.search(after_tag):
             found_caption = True
+        else:
+            for j in range(i + 1, min(i + 30, n)):
+                if skip[j]:
+                    continue
+                if HTML_CAPTION_RE.search(lines[j]):
+                    found_caption = True
+                    break
+                if HTML_ROW_START_RE.search(lines[j]):
+                    break
 
         if not found_caption:
-            errors.append(
-                f'{path}:{i + 1}: HTML <table> is missing an accessible name.\n'
-                f'  Add aria-label= to the <table> tag, or add <caption> as its first child.'
-            )
+            label = nearest_heading(lines, i)
+            # Suggest adding aria-label to the <table> tag
+            original_tag = m.group(0)
+            suggested_tag = original_tag[:-1] + f' aria-label="{label}">'
+            suggested_line = line.rstrip('\n').replace(original_tag, suggested_tag)
+            violations.append(make_violation(
+                file=path,
+                table_start_line=i + 1,
+                suggestion_line=i + 1,
+                suggestion_content=suggested_line,
+                current_content=line.rstrip('\n'),
+                message='HTML <table> is missing an accessible name.',
+                fix_hint=f'Add aria-label="{label}" to the <table> tag, or add <caption> as its first child.',
+            ))
 
-    return errors
+    return violations
 
 
 # ---------------------------------------------------------------------------
 # File runner
 # ---------------------------------------------------------------------------
 
-def check_file(path: str) -> list[str]:
+def check_file(path: str) -> list:
     try:
         with open(path, encoding='utf-8') as fh:
             lines = fh.readlines()
@@ -236,9 +295,9 @@ def check_file(path: str) -> list[str]:
         return []
 
     skip = build_skip_mask(lines)
-    errors = check_markdown_tables(lines, skip, path)
-    errors += check_html_tables(lines, skip, path)
-    return errors
+    violations = check_markdown_tables(lines, skip, path)
+    violations += check_html_tables(lines, skip, path)
+    return violations
 
 
 # ---------------------------------------------------------------------------
@@ -246,25 +305,40 @@ def check_file(path: str) -> list[str]:
 # ---------------------------------------------------------------------------
 
 def main() -> int:
-    if sys.argv[1:]:
-        files = sys.argv[1:]
+    args = sys.argv[1:]
+    json_output_path = None
+
+    if '--json' in args:
+        idx = args.index('--json')
+        if idx + 1 >= len(args):
+            print('error: --json requires a file path argument', file=sys.stderr)
+            return 2
+        json_output_path = args[idx + 1]
+        args = args[:idx] + args[idx + 2:]
+
+    if args:
+        files = args
     else:
         files = (
             glob.glob('_docs/**/*.md', recursive=True)
             + glob.glob('_includes/**/*.md', recursive=True)
         )
 
-    # Exclude _docs/_hidden/ — mirrors cspell.json ignorePaths
     files = [f for f in files if '_docs/_hidden/' not in f]
 
-    all_errors: list[str] = []
+    all_violations: list = []
     for f in sorted(files):
-        all_errors.extend(check_file(f))
+        all_violations.extend(check_file(f))
 
-    if all_errors:
-        for err in all_errors:
-            print(err)
-        count = len(all_errors)
+    if json_output_path:
+        with open(json_output_path, 'w', encoding='utf-8') as fh:
+            json.dump(all_violations, fh, indent=2)
+
+    if all_violations:
+        for v in all_violations:
+            print(f'{v["file"]}:{v["table_start_line"]}: {v["message"]}')
+            print(f'  {v["fix_hint"]}')
+        count = len(all_violations)
         print(f'\nFound {count} table{"s" if count != 1 else ""} missing an accessible name.')
         return 1
 
