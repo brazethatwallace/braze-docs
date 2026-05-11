@@ -21,7 +21,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Prérequis          | Description                                                                                                                              |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Un compte Friendbuy   | Un [compte Friendbuy](https://retailer.friendbuy.io/) est nécessaire pour profiter de ce partenariat.                                                              |
-| Une clé REST API de Braze  | Une clé REST API de Braze avec les autorisations `users.track`. Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**.        |
+| Une clé REST API de Braze  | Une clé REST API de Braze avec les autorisations `users.track`. Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**.        |
 | Un endpoint REST de Braze | L'[URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), qui dépend de l'URL de votre instance Braze. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -74,3 +74,4 @@ Friendbuy utilise la norme internationale (E.164) pour vérifier les numéros de
 | Téléphone uniquement        | Seul le numéro de téléphone du client est envoyé à Braze.              |
 | Aucune des deux           | Aucune donnée client n'est envoyée à Braze.                              |
 | Les deux              | L'adresse e-mail et le numéro de téléphone du client sont envoyés à Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement des cases à cocher" }

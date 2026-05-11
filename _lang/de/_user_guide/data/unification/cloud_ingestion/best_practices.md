@@ -314,6 +314,7 @@ Dieses Beispiel zeigt den allgemeinen Prozess für die erstmalige Synchronisieru
 </style>
 
 <table>
+  <caption>Beispiel: Verwaltung nachfolgender Updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -421,6 +422,7 @@ Nichts davon wurde bisher mit Braze synchronisiert, also fügen Sie alles der Qu
 Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle verfügbaren Daten bis zum „2023-03-16 15:00:00“ synchronisiert haben. Am Morgen des 2. Tages wird dann ein ETL ausgeführt und einige Felder in Ihrer Nutzertabelle werden aktualisiert (hervorgehoben):
 
 <table>
+  <caption>Beispiel: Verwaltung nachfolgender Updates</caption>
     <thead>
         <tr>
             <th>external_id</th>

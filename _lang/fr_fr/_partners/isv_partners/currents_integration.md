@@ -20,7 +20,7 @@ En outre, si vous avez plusieurs groupes d'applications dans Braze, vous devrez 
 
 Pour éviter les pertes de données et les interruptions de service, il est essentiel que vous surveilliez vos endpoints en permanence et que vous vous efforciez de remédier aux erreurs matérielles ou aux temps d'arrêt dans les 24 heures.
 
-Pour la plupart des types d'erreurs (erreurs de serveur, erreurs de connexion réseau, etc.), Braze continue à mettre en file d'attente et à réessayer les transmissions d'événements pendant 24 heures. Passé ce délai, les événements non transmis seront abandonnés. Les connecteurs dont le taux d'erreur ou la disponibilité du serveur sont constamment médiocres seront automatiquement suspendus.
+Pour la plupart des types d'erreurs (erreurs de serveur, erreurs de connexion réseau, etc.), Braze continue à mettre en file d'attente et à réessayer les transmissions d'événements pendant 24 heures. Passé ce délai, les événements non transmis seront abandonnés. Les connecteurs dont le taux d'erreur ou la disponibilité sont constamment médiocres seront automatiquement suspendus.
 
 ### Résilience aux changements {#change-resilience}
 
@@ -177,7 +177,7 @@ Voici quelques exemples de payloads pour différents événements, tels qu'ils a
 
 Voici quelques exemples de payloads pour différents événements, tels qu'ils apparaîtraient s'ils étaient associés à un Canvas :
 
-#### Clic sur un message in-app {#in-app-message-click}
+#### Clic sur un message in-app
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ Voici quelques exemples de payloads pour différents événements, tels qu'ils a
 }
 ```
 
-#### Envoi de notification push {#push-notification-send}
+#### Envoi de notification push
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ Voici quelques exemples de payloads pour différents événements, tels qu'ils a
 }
 ```
 
-#### Ouverture d'e-mail {#email-open}
+#### Ouverture d'e-mail
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ Voici quelques exemples de payloads pour différents événements, tels qu'ils a
 }
 ```
 
-#### Réception SMS {#sms-delivery}
+#### Réception SMS
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -431,6 +431,7 @@ Si le mécanisme de relance de Braze ne parvient pas à livrer un événement pe
 Les codes d'état HTTP suivants seront reconnus par notre client de connecteur :
 
 <table>
+  <caption>Gestion des erreurs et mécanisme de nouvelle tentative</caption>
   <thead>
     <tr>
       <th>Code d'état</th>

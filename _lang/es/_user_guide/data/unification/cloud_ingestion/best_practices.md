@@ -314,6 +314,7 @@ Este ejemplo muestra el proceso general para sincronizar datos por primera vez y
 </style>
 
 <table>
+  <caption>Ejemplo: administración de actualizaciones posteriores</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -421,6 +422,7 @@ Nada de esto se ha sincronizado antes con Braze, así que añádelo todo a la ta
 Se ejecuta una sincronización y Braze registra que has sincronizado todos los datos disponibles hasta "2023-03-16 15:00:00". A continuación, en la mañana del día 2, se ejecuta un ETL y se actualizan algunos campos de la tabla de usuarios (resaltados):
 
 <table>
+  <caption>Ejemplo: administración de actualizaciones posteriores</caption>
     <thead>
         <tr>
             <th>external_id</th>

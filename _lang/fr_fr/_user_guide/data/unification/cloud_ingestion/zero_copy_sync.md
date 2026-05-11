@@ -10,8 +10,6 @@ description: "Cette page fournit un aperçu de la manière de déclencher des Ca
 
 > Découvrez comment synchroniser les déclencheurs Canvas à l'aide de CDI pour une personnalisation sans copie. Cette fonctionnalité accède aux informations spécifiques à l'utilisateur depuis votre solution de stockage de données et les transmet à un Canvas de destination. Les étapes du Canvas peuvent éventuellement inclure des champs de personnalisation qui ne sont pas conservés dans les profils utilisateurs Braze.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Synchronisation des déclencheurs Canvas {#syncing-canvas-triggers}
 
 ### Étapes de démarrage rapide {#quick-start-steps}
@@ -316,7 +314,7 @@ Une fois la configuration de la source terminée et le Canvas de destination lan
 7. Sélectionnez **Test Connection** pour vérifier que tout fonctionne correctement. Si vous vous connectez à Snowflake, ajoutez d'abord la clé publique affichée sur le tableau de bord à l'utilisateur créé pour permettre à Braze de se connecter à Snowflake. Pour cette étape, vous devez disposer d'un accès **SECURITYADMIN** ou supérieur dans Snowflake.
 8. Enregistrez la synchronisation pour commencer à synchroniser les déclencheurs Canvas.
 
-Lorsque la synchronisation s'exécute, les utilisateurs de votre table source commencent à entrer dans le Canvas. Utilisez les analyses Canvas et la page des journaux de synchronisation de l'ingestion de données cloud pour surveiller les performances.
+Lorsque la synchronisation s'exécute, les utilisateurs de votre table source commencent à entrer dans le Canvas. Utilisez les analyses Canvas et la page des journaux de synchronisation de l'Ingestion de données cloud pour surveiller les performances.
 
 {% alert tip %}
 Vérifiez l'ensemble de votre configuration (du comportement de synchronisation à la configuration du Canvas) afin d'éviter tout envoi inattendu. Les paramètres Canvas tels que la limite de débit, la limite de fréquence et les filtres de segmentation permettent d'affiner davantage la distribution des messages.<br><br>Nous vous recommandons d'effectuer un essai avec une audience restreinte ou de test avant de mettre en œuvre des cas d'utilisation en production.
@@ -326,13 +324,10 @@ Vérifiez l'ensemble de votre configuration (du comportement de synchronisation 
 
 Les déclencheurs CDI Canvas utilisent votre limite de débit de la REST API pour `/canvas/trigger/send`. Si vous utilisez cet endpoint simultanément avec les déclencheurs CDI Canvas et votre intégration REST API, l'utilisation combinée sera comptabilisée dans votre limite de débit.
 
-Les déclencheurs CDI Canvas étant en accès anticipé, prenez en compte les détails suivants :
+Chaque exécution de synchronisation fait entrer les utilisateurs dans leur Canvas de destination respectif à un rythme maximal d'environ 3,75 millions d'utilisateurs par heure. Préparez-vous à des délais plus longs entre la source et l'entrée dans le Canvas lorsque :
 
-* Jusqu'à 5 synchronisations de déclencheurs Canvas actives par espace de travail
-* Chaque exécution de synchronisation fait entrer les utilisateurs dans leur Canvas de destination respectif à un rythme maximal d'environ 3,75 millions d'utilisateurs par heure.
-  * Préparez-vous à des délais plus longs entre la source et l'entrée dans le Canvas lorsque :
-    * Vous synchronisez plus de 3,75 millions d'utilisateurs par cycle de synchronisation.
-    * Vous utilisez les déclencheurs CDI Canvas alors que la [limite de débit de votre REST API pour `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) est déjà saturée.
+* Vous synchronisez plus de 3,75 millions d'utilisateurs par cycle de synchronisation.
+* Vous utilisez les déclencheurs CDI Canvas alors que la [limite de débit de votre REST API pour `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) est déjà saturée.
 
 Prenez en compte les éléments suivants concernant le CDI sans copie lorsque l'archivage des messages est activé :
 

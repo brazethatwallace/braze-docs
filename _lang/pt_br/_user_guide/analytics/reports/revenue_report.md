@@ -51,6 +51,7 @@ Quando você registra receita em uma moeda sem taxa de câmbio, a Braze registra
 </style>
 
 <table>
+  <caption>Entendendo os cálculos de receita</caption>
     <thead>
         <tr>
             <th>Métrica</th>

@@ -23,9 +23,9 @@ La disponibilité des pages d'accueil et des domaines personnalisés dépend de 
 
 Avant de pouvoir accéder aux pages d'accueil, les créer et les publier, vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) d'administrateur ou de toutes les autorisations suivantes :
 
-- Afficher les pages d'accueil
-- Modifier les brouillons de pages d'accueil
-- Publier les pages d'accueil
+- View Landing Pages
+- Edit Landing Page Drafts
+- Publish Landing Pages
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -63,6 +63,12 @@ Pour plus de détails sur l'implémentation de Google Tag Manager, consultez la 
 ### Quelle est la taille maximale des pages d'accueil ? {#whats-the-maximum-size-for-landing-pages}
 
 Le corps de la page d'accueil peut atteindre 500 Ko.
+
+### Les pages d'accueil peuvent-elles gérer des scénarios à fort trafic ? {#can-landing-pages-handle-high-traffic-scenarios}
+
+Oui, les pages d'accueil non personnalisées peuvent gérer efficacement des scénarios à fort trafic. Lorsqu'une page d'accueil non personnalisée est demandée pour la première fois, Braze la met en cache via Cloudflare. Cela signifie que toutes les requêtes suivantes pour le même lien sont servies depuis le cache, de sorte que les performances ne sont pas dégradées lors de requêtes à fort volume. Ce cache dure 24 heures, et les pages vues en cache ne sont pas comptabilisées dans les limites de débit.
+
+Pour les pages d'accueil personnalisées (utilisant la personnalisation Liquid), les limites de débit s'appliquent aux requêtes non mises en cache. Pour maintenir des performances optimales, consultez [Considérations relatives à la personnalisation]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
 
 ### Y a-t-il des exigences techniques pour publier une page d'accueil ? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 

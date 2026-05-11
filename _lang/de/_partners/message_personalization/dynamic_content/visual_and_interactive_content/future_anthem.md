@@ -42,6 +42,7 @@ Das Future Anthem Customer-Success-Team hilft Ihnen bei der Einrichtung Ihrer In
 | Beispiel-Attribute in Future Anthem | Beispiel-Attribute in Braze |
 | ----------------------------------- | --------------------------- |
 | ![Future-Anthem-Dashboard mit Profilattributen für einen Spieler.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Braze-Nutzerprofil mit angepassten Objektattributen, die von Future Anthem synchronisiert wurden.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integration" }
 
 ## Angepasste Attribute in Braze {#braze-custom-attributes}
 

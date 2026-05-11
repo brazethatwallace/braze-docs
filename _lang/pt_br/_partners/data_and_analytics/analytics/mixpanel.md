@@ -13,7 +13,9 @@ tool: Currents
 
 > O [Mixpanel](https://mixpanel.com/) é uma plataforma de análise de dados que permite exportar eventos do Mixpanel para outras plataformas para realizar análises mais profundas. Os dados coletados podem então ser usados para criar relatórios personalizados e medir o engajamento e a retenção de usuários.
 
-A integração entre a Braze e o Mixpanel permite a [importação de coortes do Mixpanel para a Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) para criar segmentos da Braze que podem direcionar usuários em futuras Campaigns ou Canvas da Braze. Você também pode usar o Braze Currents para [exportar seus eventos da Braze para o Mixpanel](#data-export-integration) e gerar análises mais detalhadas sobre conversões, retenção e uso do produto.
+A integração entre a Braze e o Mixpanel permite a [importação de coortes do Mixpanel para a Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) para criar segmentos da Braze que podem direcionar usuários em futuras Campaigns ou Canvas da Braze. A sincronização de coortes atualiza a associação de coortes na Braze e não importa eventos ou propriedades de usuários do Mixpanel. Para mais detalhes, consulte [Importação de coorte do Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration).
+
+Você também pode usar o Braze Currents para [exportar seus eventos da Braze para o Mixpanel](#data-export-integration) e gerar análises mais detalhadas sobre conversões, retenção e uso do produto.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -143,7 +145,7 @@ Para reduzir ambiguidades, defina o `braze_external_id` diretamente no Mixpanel.
 
 ### Definição automática de propriedade (SDKs) {#automatic-property-setting-sdks}
 
-O SDK do Mixpanel pode definir o `braze_external_id` automaticamente quando o SDK da Braze está integrado no mesmo aplicativo. Se você implementar o Mixpanel e a Braze juntos, normalmente não será necessário nenhuma configuração adicional além da instalação de ambos os SDKs.
+O SDK do Mixpanel pode definir o `braze_external_id` automaticamente quando o SDK da Braze está integrado no mesmo aplicativo. Se você implementar o Mixpanel e a Braze juntos, normalmente não será necessária nenhuma configuração adicional além da instalação de ambos os SDKs.
 
 {% alert note %}
 O `braze_external_id` não é definido quando `changeUser()` é chamado na Braze; ele é definido quando o Mixpanel inicializa ou inicia uma sessão (durante o "init" ou "start session").

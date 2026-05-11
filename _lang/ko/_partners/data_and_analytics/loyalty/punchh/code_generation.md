@@ -4,7 +4,7 @@ article_title: Punchh 동적 코드 생성
 page_order: 2
 description: "이 참조 문서에서는 Braze에서 Punchh 동적 코드 생성을 사용하는 방법을 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 ---
 
 # Punchh를 활용한 동적 코드 생성 {#dynamic-code-generation-with-punchh}
@@ -81,6 +81,7 @@ Punchh 동적 쿠폰 코드 API를 사용하려면 JWT 토큰을 구성해야 �
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | 동적 쿠폰 생성 토큰입니다. |
 | `CAMPAIGN_ID`                     | Campaign ID입니다.                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 서명 생성 및 URL 구성" }
 
 ### 3단계: 메시지 본문에 쿠폰 코드 추가 {#step-3-append-coupon-code-to-message-body}
 
@@ -96,7 +97,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 
 사용자가 쿠폰 URL을 클릭하면 Punchh에서 호스팅하는 웹 페이지로 리디렉션되며, 생성된 쿠폰이 표시됩니다.
 
-![사용자가 쿠폰 코드를 성공적으로 생성한 후의 예시 확인 메시지입니다.]({% image_buster /assets/img/punchh/punchh7.png %})
+![사용자가 쿠폰 코드를 성공적으로 생성한 후의 확인 메시지 예시입니다.]({% image_buster /assets/img/punchh/punchh7.png %})
 
 #### JSON을 통해 일반 텍스트로 코드 추출 {#extracting-code-via-json-as-plain-text}
 

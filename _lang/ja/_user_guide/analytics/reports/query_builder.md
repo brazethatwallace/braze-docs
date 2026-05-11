@@ -11,7 +11,7 @@ alias: /query_builder/
 
 > クエリビルダーは、SnowflakeのBrazeデータを使用してレポートを生成します。クエリビルダーには、すぐに使い始められるビルド済みのSQL[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)が付属しています。また、独自のカスタムSQLクエリを記述して、さらに多くのインサイトを引き出すこともできます。
 
-クエリビルダーでは一部の顧客データに直接アクセスできるため、「PII を表示」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を持つユーザーのみがクエリビルダーにアクセスできます。
+クエリビルダーでは一部の顧客データに直接アクセスできるため、「PIIを表示」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を持つユーザーのみがクエリビルダーにアクセスできます。
 
 ## 利用可能なデータテーブル {#available-data-tables}
 
@@ -21,13 +21,13 @@ alias: /query_builder/
 
 クエリビルダーレポートを実行するには:
 
-1. **分析** > **クエリビルダー**に移動します。
-2. **SQLクエリを作成**を選択します。クエリの作成にインスピレーションやヘルプが必要な場合は、**クエリテンプレート**を選択し、リストからテンプレートを選択します。それ以外の場合は、**SQLエディター**を選択してエディターに直接移動します。
-3. レポートには現在の日時で自動的に名前が付けられます。名前にカーソルを合わせ、<i class="fas fa-pencil" alt="編集"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
+1. **Analytics** > **クエリビルダー**に移動します。
+2. **Create SQL Query**を選択します。クエリの作成にインスピレーションやヘルプが必要な場合は、**Query Template**を選択し、リストからテンプレートを選択します。それ以外の場合は、**SQL Editor**を選択してエディターに直接移動します。
+3. レポートには現在の日時で自動的に名前が付けられます。名前にカーソルを合わせ、<i class="fas fa-pencil" alt="Edit"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
 4. エディターでSQLクエリを記述するか、**AI Query Builder**タブから[AIのヘルプを利用](#ai-query-builder)します。独自のSQLを記述する場合は、要件とリソースについて[カスタムSQLクエリの記述](#custom-sql)を参照してください。
-5. **クエリを実行**を選択します。
+5. **Run Query**を選択します。
 6. クエリを保存します。
-7. レポートのCSVをダウンロードするには、**エクスポート**を選択します。
+7. レポートのCSVをダウンロードするには、**Export**を選択します。
 
 ![テンプレートクエリ「過去30日間のチャネルエンゲージメントと収益」の結果を表示するクエリビルダー。]({% image_buster /assets/img_archive/query_builder.png %})
 
@@ -35,7 +35,7 @@ alias: /query_builder/
 
 ### クエリテンプレート {#query-templates}
 
-クエリテンプレートにアクセスするには、レポートを最初に作成するときに**SQLクエリを作成** > **クエリテンプレート**を選択します。
+クエリテンプレートにアクセスするには、レポートを最初に作成するときに**Create SQL Query** > **Query Template**を選択します。
 
 利用可能なテンプレートのリストについては、[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)を参照してください。
 
@@ -45,7 +45,7 @@ alias: /query_builder/
 
 ### クエリビルダーのタイムゾーン {#query-builder-time-zone}
 
-SnowflakeデータベースのクエリのデフォルトタイムゾーンはUTCです。そのため、**メールチャネルエンゲージメント**ページ（会社のタイムゾーンに従います）とクエリビルダーの結果の間にデータの不一致が生じる場合があります。
+SnowflakeデータベースのクエリのデフォルトタイムゾーンはUTCです。そのため、**Email Channel Engagement**ページ（会社のタイムゾーンに従います）とクエリビルダーの結果の間にデータの不一致が生じる場合があります。
 
 クエリ結果のタイムゾーンを変換するには、以下のSQLをクエリに追加し、会社のタイムゾーンに合わせてカスタマイズしてください:
 
@@ -76,7 +76,7 @@ send_date_sydney;
 
 より長い期間のクエリ使用状況を監査したり、7日を超えてレコードを維持したりする必要がある場合は、有効期限が切れる前に重要なクエリ結果をエクスポートまたは保存することをお勧めします。
 
-## AI Query Builderを使用してSQLを生成する {#ai-query-builder}
+## AI Query Builderを使用してSQLを生成する {#generating-sql-with-the-ai-query-builder}
 
 AI Query Builderは、OpenAIを搭載した[GPT](https://openai.com/gpt-4)を活用して、クエリ用のSQLを推奨します。
 
@@ -85,8 +85,8 @@ AI Query Builderは、OpenAIを搭載した[GPT](https://openai.com/gpt-4)を活
 AI Query BuilderでSQLを生成するには:
 
 1. クエリビルダーでレポートを作成した後、**AI Query Builder**タブを選択します。
-2. プロンプトを入力するか、サンプルプロンプトを選択し、**生成**を選択してプロンプトをSQLに変換します。
-3. 生成されたSQLが正しいことを確認し、**エディターに挿入**を選択します。
+2. プロンプトを入力するか、サンプルプロンプトを選択し、**Generate**を選択してプロンプトをSQLに変換します。
+3. 生成されたSQLが正しいことを確認し、**Insert into Editor**を選択します。
 
 ### ヒント {#tips}
 
@@ -102,11 +102,11 @@ AI Query BuilderでSQLを生成するには:
 
 クエリビルダー内でテーブルの詳細を表示するには:
 
-1. **クエリビルダー**ページから、**参照**パネルを開き、**利用可能なデータテーブル**を選択して、利用可能なデータテーブルとその名前を表示します。
-3. <i class="fas fa-chevron-down" alt=""></i> **詳細を表示**を選択して、テーブルの説明やデータタイプなどのテーブルカラムに関する情報を表示します。
-4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
+1. **クエリビルダー**ページから、**Reference**パネルを開き、**Available Data Tables**を選択して、利用可能なデータテーブルとその名前を表示します。
+3. <i class="fas fa-chevron-down" alt=""></i> **See Details**を選択して、テーブルの説明やデータタイプなどのテーブルカラムに関する情報を表示します。
+4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="Copy table name to SQL editor"></i>を選択します。
 
-Brazeが提供するビルド済みクエリを使用するには、クエリビルダーでレポートを最初に作成するときに**クエリテンプレート**を選択します。
+Brazeが提供するビルド済みクエリを使用するには、クエリビルダーでレポートを最初に作成するときに**Query Template**を選択します。
 
 クエリを特定の期間に制限すると、結果をより速く生成できます。以下は、過去1時間の購入数と生成された収益を取得するクエリの例です。
 
@@ -131,7 +131,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 | `CANVAS_ID` | Canvas名 |
 | `CANVAS_VARIATION_API_ID` | Canvasバリアント名 |
 | `CAMPAIGN_ID` | Campaign名 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Writing custom SQL queries" }
 
 このクエリは、3つのIDすべてとそれに関連する名前カラムを最大100行で取得します:
 
@@ -162,9 +162,9 @@ LIMIT 100
 
 ## 変数の使用 {#using-variables}
 
-変数を使用すると、SQLで事前定義された変数タイプを使用して、値を手動でコピーすることなく参照できます。たとえば、CampaignのIDをSQLエディターに手動でコピーする代わりに、{% raw %}`{{campaign.${My campaign}}}`{% endraw %}を使用して、**変数**タブのドロップダウンからCampaignを直接選択できます。
+変数を使用すると、SQLで事前定義された変数タイプを使用して、値を手動でコピーすることなく参照できます。たとえば、CampaignのIDをSQLエディターに手動でコピーする代わりに、{% raw %}`{{campaign.${My campaign}}}`{% endraw %}を使用して、**Variables**タブのドロップダウンからCampaignを直接選択できます。
 
-変数を作成すると、クエリビルダーレポートの**変数**タブに表示されます。SQL変数を使用する利点は次のとおりです:
+変数を作成すると、クエリビルダーレポートの**Variables**タブに表示されます。SQL変数を使用する利点は次のとおりです:
 
 - Campaign変数を作成してレポート作成時にリストから選択することで、Campaign IDを貼り付ける代わりに時間を節約できます。
 - 変数を追加して値を入れ替えることで、将来わずかに異なるユースケース（異なるカスタムイベントなど）でレポートを再利用できます。
@@ -228,28 +228,28 @@ LIMIT 100
 
 ##### Canvas
 
-1つのCanvasを選択する場合に使用します。Campaignと同じ名前を共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+1つのCanvasを選択する場合に使用します。Campaignと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
 
 - **置換値:** Canvas BSON ID
 - **使用例:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvases
 
-複数のCanvasesを選択する場合に使用します。Campaignと同じ名前を共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+複数のCanvasesを選択する場合に使用します。Campaignと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
 
 - **置換値:** Canvases BSON ID
 - **使用例:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign
 
-1つのCampaignを選択する場合に使用します。Canvasと同じ名前を共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+1つのCampaignを選択する場合に使用します。Canvasと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
 
 - **置換値:** Campaign BSON ID
 - **使用例:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns
 
-複数のCampaignsを選択する場合に使用します。Canvasと同じ名前を共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+複数のCampaignsを選択する場合に使用します。Canvasと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
 
 - **置換値:** Campaigns BSON ID
 - **使用例:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}

@@ -137,7 +137,7 @@ Los Content Blocks no se pueden usar dentro de un pie de página de correo elect
 
 ## Archivar Content Blocks {#archive-content-blocks}
 
-![Menú desplegable de configuración expandido que muestra tres opciones: Archive, Duplicate y Copy to workspace.]({% image_buster /assets/img/template_archive_cog.png %}){: style="max-width:20%;float:right;margin-left:15px;" }
+![Menú desplegable de configuración expandido que muestra tres opciones: Archivar, Duplicar y Copiar al espacio de trabajo.]({% image_buster /assets/img/template_archive_cog.png %}){: style="max-width:20%;float:right;margin-left:15px;" }
 
 Una vez que hayas terminado de usar un bloque de contenido, puedes archivarlo desde la página de **Templates**. Los Content Blocks archivados son de solo lectura, así que desarchiva el bloque de contenido antes de editarlo. Los Content Blocks no se pueden archivar si se están usando en algún mensaje.
 
@@ -148,4 +148,4 @@ Una vez que hayas terminado de usar un bloque de contenido, puedes archivarlo de
 - Cuando tu bloque se usa en más mensajes de los que puedes administrar razonablemente con la primera sugerencia de esta lista, te recomendamos eliminar todo el contenido del bloque. Esto evita la inclusión de información obsoleta en cualquier mensaje.
 - Si archivas accidentalmente un bloque de contenido, puedes desarchivarlo.
 
-![Panel de Content Blocks guardados donde el menú desplegable de configuración de "Test_32" está expandido para mostrar tres opciones: Unarchive, Duplicate y Copy to workspace]({% image_buster /assets/img/unarchive-content-block.png %})
+![Panel de Content Blocks guardados donde el menú desplegable de configuración de "Test_32" está expandido para mostrar tres opciones: Desarchivar, Duplicar y Copiar al espacio de trabajo]({% image_buster /assets/img/unarchive-content-block.png %})

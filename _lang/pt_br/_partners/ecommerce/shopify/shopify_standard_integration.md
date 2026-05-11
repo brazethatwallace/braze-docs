@@ -86,6 +86,7 @@ Com os SDKs da Braze, você pode rastrear eventos personalizados ou atributos pe
 </style>
 
 <table style="width: 100%;">
+  <caption>(Avançado) Configuração de rastreamento de dados personalizados</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>
@@ -162,7 +163,7 @@ As próximas etapas dependem da seleção do seu ID externo:<br><br>
 Depois que o metacampo for criado, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
 - **Ouça os webhooks de criação de clientes:** Configure um webhook para ouvir os [eventos do `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você escreva o metacampo quando um novo cliente é criado.
-- **Preencher os clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher novamente o metacampo de clientes criados anteriormente.
+- **Preencha os clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
 
 ### Etapa 4.2: Crie um endpoint para recuperar seu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 

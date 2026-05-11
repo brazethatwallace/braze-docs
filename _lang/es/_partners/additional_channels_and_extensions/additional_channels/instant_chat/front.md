@@ -25,6 +25,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Una cuenta de Front | Se necesita una cuenta de Front para beneficiarse de esta asociación. |
 | URL de webhook de Transformación de datos de Braze | La [Transformación de datos de Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation/) se utilizará para reformatear el webhook entrante desde Front, de modo que pueda ser aceptado por el punto de conexión /users/track de Braze. |
 | Una clave de API REST de Front | Se utilizará una clave de API REST de Front para realizar una solicitud de webhook saliente de Braze a Front. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -122,7 +123,7 @@ En el panel de Front, ve a **Settings** > **Channels** > **Add Channels** y, a c
 
 En el campo del punto de conexión de la API de salida, introduce la URL de webhook de Transformación de datos [que creaste anteriormente](#step-1-set-up-a-data-transformation-in-braze). Todos los mensajes salientes de los agentes en vivo de tu nuevo canal de Braze se enviarán aquí. Este canal también proporciona una URL de punto de conexión para que Braze reenvíe los mensajes SMS en el campo **Incoming URL**.
 
-Toma nota de esta URL, la necesitarás más adelante.
+Toma nota de esta URL&#8212;la necesitarás más adelante.
 
 ![La configuración del canal para el canal de Braze recién creado en Front.]({% image_buster /assets/img/front/front_custom_channel2.png %}){: style="max-width:65%;"}
 
@@ -130,22 +131,22 @@ Toma nota de esta URL, la necesitarás más adelante.
 
 A continuación, crearás dos nuevas campañas webhook en Braze para poder reenviar los SMS entrantes de los clientes al buzón de entrada de Front.
 
-|Número|Propósito|
+| Número | Propósito |
 |---|---|
-|Campaña webhook 1|Señala a Front que se está solicitando una conversación de chat en vivo.|
-|Campaña webhook 2|Reenvía todas las respuestas SMS conversacionales enviadas por el cliente al buzón de entrada de Front.|
-{: .reset-td-br-1 .reset-td-br-2 }
+| Campaña webhook 1 | Señala a Front que se está solicitando una conversación de chat en vivo. |
+| Campaña webhook 2 | Reenvía todas las respuestas SMS conversacionales enviadas por el cliente al buzón de entrada de Front. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 5: Configurar el reenvío de SMS entrantes" }
 
 #### Paso 5.1: Crear una categoría de palabras clave SMS {#step-51-create-an-sms-keyword-category}
 
 En el panel de Braze, ve a **Audience**, elige tu **SMS subscription group** y, a continuación, selecciona **Add Custom Keyword**. Para crear una categoría de palabras clave SMS exclusiva para Front, rellena los siguientes campos.
 
-|Campo|Descripción|
+| Campo | Descripción |
 |---|---|
-|Keyword Category|El nombre de tu categoría de palabras clave, como `FrontSMS1`.|
-|Keywords|Tus palabras clave personalizadas, como `TIMETOMOW`. Evita las palabras comunes para evitar desencadenamientos accidentales. Ten en cuenta que las palabras clave no distinguen entre mayúsculas y minúsculas, por lo que `lawn` coincidiría con `LAWN`.|
-|Reply Message|El mensaje que se enviará cuando se detecte una palabra clave, como "Un paisajista se pondrá en contacto contigo en breve".|
-{: .reset-td-br-1 .reset-td-br-2 }
+| Keyword Category | El nombre de tu categoría de palabras clave, como `FrontSMS1`. |
+| Keywords | Tus palabras clave personalizadas, como `TIMETOMOW`. Evita las palabras comunes para evitar desencadenamientos accidentales. Ten en cuenta que las palabras clave no distinguen entre mayúsculas y minúsculas, por lo que `lawn` coincidiría con `LAWN`. |
+| Reply Message | El mensaje que se enviará cuando se detecte una palabra clave, como "Un paisajista se pondrá en contacto contigo en breve". |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 5.1: Crear una categoría de palabras clave SMS" }
 
 ![Un ejemplo de categoría de palabras clave SMS en Braze.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -223,7 +224,7 @@ Después configura tu filtro:
 
 ### Registro de puntos de datos {#logging-data-points}
 
-Actualmente, esta integración requiere que se escriba un evento personalizado en un perfil de usuario cada vez que un agente en vivo envía un SMS desde Front. Esto puede ser adecuado para intercambios rápidos que solo duren un par de mensajes, pero a medida que las conversaciones se alargan también lo hacen las implicaciones de los puntos de datos. Si tienes preguntas sobre los matices de los puntos de datos de Braze, tu director de cuentas de Braze puede responderlas.
+Actualmente, esta integración requiere que se escriba un evento personalizado en un perfil de usuario cada vez que un agente en vivo envía un SMS desde Front. Esto puede ser adecuado para intercambios rápidos que solo duren un par de mensajes, pero a medida que las conversaciones se alargan, también lo hacen las implicaciones de los puntos de datos. Si tienes preguntas sobre los matices de los puntos de datos de Braze, tu director de cuentas de Braze puede responderlas.
 
 ### Incluir enlaces en los mensajes SMS {#including-links-in-sms-messages}
 

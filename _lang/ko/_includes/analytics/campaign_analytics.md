@@ -77,7 +77,7 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 
 워크스페이스의 크기에 따라 **Campaign Details** 패널에서 오디언스 통계가 **Estimated Audience** 또는 **Current Audience**로 표시될 수 있습니다.
 
-다음 표에서는 각 레이블이 사용되는 시점과 의미를 설명합니다.
+다음 표에서는 각 레이블의 의미를 설명합니다.
 
 | 하단 레이블 | 사용 시점 |
 | --- | --- |
@@ -222,6 +222,7 @@ The **Message Performance** panel outlines how well your message has performed a
 </style>
 
 <table>
+    <caption class="sr-only">콘텐츠 카드 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -295,6 +296,7 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 </style>
 
 <table>
+    <caption class="sr-only">배너 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -364,6 +366,7 @@ _Unique Recipients_는 실제로 본 배너를 의미합니다.
 </style>
 
 <table>
+    <caption class="sr-only">이메일 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -514,6 +517,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 </style>
 
 <table>
+    <caption class="sr-only">인앱 메시지 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -596,6 +600,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 </style>
 
 <table>
+    <caption class="sr-only">푸시 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -714,6 +719,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 </style>
 
 <table>
+    <caption class="sr-only">SMS, MMS 및 RCS 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -765,6 +771,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 </style>
 
 <table>
+    <caption class="sr-only">웹훅 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -800,6 +807,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 </style>
 
 <table>
+    <caption class="sr-only">WhatsApp 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>

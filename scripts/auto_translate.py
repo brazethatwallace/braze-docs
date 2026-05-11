@@ -5397,10 +5397,12 @@ def _auto_slug(text: str) -> str:
     text is ASCII (so the English counterpart produces a stable slug). This is
     all we need, because we only look up English headings for references.
     """
-    text = re.sub(r"[*_`]", "", text)
+    # Drop emphasis/backtick markers only — keep ``_`` so identifiers like
+    # ``send_to_existing_only`` survive into the slug (PR #13623).
+    text = re.sub(r"[*`]", "", text)
     text = re.sub(r"<[^>]+>", "", text)
     text = text.lower().strip()
-    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"[^a-z0-9\s\-_]", "", text)
     text = re.sub(r"\s+", "-", text)
     text = re.sub(r"-+", "-", text).strip("-")
     return text

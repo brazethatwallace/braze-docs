@@ -86,6 +86,7 @@ Braze SDK를 사용하면 이 통합의 표준 이벤트를 넘어서는 커스�
 </style>
 
 <table style="width: 100%;">
+  <caption>(고급) 커스텀 데이터 추적 설정</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>

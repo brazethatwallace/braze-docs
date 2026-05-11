@@ -1796,3 +1796,5 @@ Este caso de uso cancela a mensagem quando o Liquid é executado em um determina
 {% endraw %}
 
 {% endapi %}
+
+Muitos exemplos nesta biblioteca usam a tag `abort_message` para pular um envio quando as condições não são atendidas. Para uma referência completa sobre como cancelar envios com Liquid, incluindo padrões baseados em data e hora, consulte [Cancelar mensagens Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).

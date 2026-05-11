@@ -26,6 +26,7 @@ Si observas discrepancias generalizadas, ponte en contacto con tu administrador 
 ## Vistas disponibles {#available-views}
 
 <table>
+  <caption>Vistas disponibles</caption>
   <thead>
     <tr>
       <th>Tipo</th>
@@ -131,8 +132,8 @@ Estas vistas proporcionan actualizaciones casi en tiempo real de los atributos d
 * Proporciona atributos de usuario actualizados con un retraso mínimo (~10 minutos).
 * Útil para análisis en tiempo real y situaciones en las que se necesitan datos recientes.
 * **Consideraciones de rendimiento:**
-    * Las consultas a usuarios individuales son más rápidas (menos de un minuto utilizando un almacén grande).
-    * Las consultas sin filtros de USER_ID requieren que se agreguen todos los usuarios, lo que lleva a tiempos de ejecución significativamente más largos.
+    * Las consultas sobre usuarios individuales son más rápidas (menos de un minuto utilizando un almacén grande).
+    * Las consultas sin filtros de USER_ID requieren la agregación de todos los usuarios, lo que conlleva tiempos de ejecución significativamente más largos.
     * Las consultas en un gran conjunto de datos (como más de 100 millones de usuarios) pueden tardar muchos minutos.
 
 {% alert note %}

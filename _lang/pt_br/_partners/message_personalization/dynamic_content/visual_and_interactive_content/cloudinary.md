@@ -26,7 +26,7 @@ Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectad
 | Requisitos | Descrição |
 |-----------------------|-----------------|
 | Conta do Cloudinary  | É necessário ter uma [conta no Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aproveitar essa parceria  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Métodos de integração {#integration-methods}
 
@@ -117,7 +117,7 @@ Se uma correspondência exata não for encontrada, a função seleciona automati
 Consulte o [repositório `braze-personalization` no GitHub](https://github.com/cloudinary-devs/braze-personalization) do Cloudinary para obter instruções sobre como criar e aplicar funções personalizadas, além de um exemplo de função personalizada para seleção de ativos e opções de fallback para uma determinada campanha. Para mais orientações, entre em contato com a equipe de suporte do Cloudinary.
 {% endalert %}
 
-### Pré-requisitos {#prerequisites}
+### Pré-requisitos
 
 Para ativar a seleção dinâmica de ativos, o Cloudinary deve ser capaz de retornar um conjunto de ativos com base em tags e metadados. Se o tipo de entrega de lista for restrito, o Cloudinary não poderá fornecer a lista dinâmica necessária para a seleção personalizada de ativos nas Campaigns da Braze.
 - Libere o tipo de entrega de lista: abra as Configurações de segurança no Console do Cloudinary e desmarque o item de lista de recursos em Tipos de imagem restritos.

@@ -77,10 +77,11 @@ Punchhの動的クーポンコードAPIを使用するには、JWTトークン�
 
 以下を置き換えてください。
 
-| プレースホルダー        | 説明                                          |
+| プレースホルダー | 説明 |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | 動的クーポン生成トークン。 |
-| `CAMPAIGN_ID`                     | Campaign ID。                     |
+| `CAMPAIGN_ID` | Campaign ID。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2：署名を生成しURLを構築する" }
 
 ### ステップ3：クーポンコードをメッセージ本文に追加する {#step-3-append-coupon-code-to-message-body}
 
@@ -126,7 +127,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 3. リンクをHTML{% raw %}`<img>`{% endraw %}タグに埋め込みます。
 
 {% tabs local %}
-{% tab example input %}
+{% tab 入力例 %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,7 +135,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab 出力例 %}
 ![クーポンコード画像タグのレンダリング出力。]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}

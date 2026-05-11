@@ -35,6 +35,7 @@ Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrart
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Para obtener una lista completa de clientes de correo electrónico compatibles, consulta la [documentación de AMP](https://amp.dev/support/faq/email-support).
 
@@ -42,7 +43,7 @@ Para obtener una lista completa de clientes de correo electrónico compatibles, 
 
 Ve a la configuración de Gmail y selecciona **Enable dynamic email** en la pestaña **General**.
 
-![Un ejemplo de la configuración de Gmail con la casilla «Enable dynamic email» seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
+![Un ejemplo de la configuración de Gmail con la casilla "Enable dynamic email" seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## Uso de la API {#api-usage}
 
@@ -204,6 +205,7 @@ Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Bra
 </style>
 
 <table>
+  <caption>Métricas y análisis</caption>
     <thead>
         <tr>
             <th>Métrica</th>

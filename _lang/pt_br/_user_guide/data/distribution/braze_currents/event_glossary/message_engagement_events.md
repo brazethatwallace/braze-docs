@@ -2961,7 +2961,7 @@ Este evento ocorre quando um usuário dispensa um banner.
 Banner, Impressions
 {% endapitags %}
 
-Este evento ocorre quando um usuário vê um banner.
+Este evento ocorre quando um usuário visualiza um banner.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -6571,7 +6571,7 @@ Email, Subscription
 Esse evento ocorre quando o usuário final clica em "cancelar inscrição" no e-mail.
 
 {% alert important %}
-O evento `Unsubscribe` é considerado um evento de clique especializado que é acionado quando o usuário clica no link de cancelamento de inscrição no e-mail (seja um link de cancelamento de inscrição normal dentro do corpo ou rodapé do e-mail, ou usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header), e não quando o usuário muda o estado para cancelado. Se a mudança de estado de inscrição for enviada pela API, ou com um link de cancelamento de inscrição personalizado (não-Braze), isso não aciona um evento de cancelamento de inscrição de e-mail no Currents.
+O evento `Unsubscribe` é considerado um evento de clique especializado que é acionado quando o usuário clica no link de cancelamento de inscrição no e-mail (seja um link de cancelamento de inscrição normal dentro do corpo ou rodapé do e-mail, ou usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), e não quando o usuário muda o estado para cancelado. Se a mudança de estado de inscrição for enviada pela API, ou com um link de cancelamento de inscrição personalizado (não-Braze), isso não aciona um evento de cancelamento de inscrição de e-mail no Currents.
 {% endalert %}
 
 {% tabs %}
@@ -12715,6 +12715,7 @@ Se a Braze detectar que essa mensagem de entrada é uma resposta a uma Campaign 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de rejeição de SMS {#sms-rejection-events}
 
 {% apitags %}
@@ -12722,6 +12723,10 @@ SMS, Rejection
 {% endapitags %}
 
 Esse evento ocorre quando um envio de SMS é rejeitado pela operadora. Isso pode acontecer por várias razões. Use esse evento e os códigos de erro fornecidos para ajudar a solucionar problemas com a entrega de SMS.
+
+{% alert note %}
+A Braze emite `users.messages.sms.Rejection` para Currents, Compartilhamento de dados do Snowflake e exportações relacionadas somente quando o perfil de usuário da Braze ainda existe no espaço de trabalho no momento em que o evento é processado para registro. Se esse perfil tiver sido excluído anteriormente, você não verá esse evento no seu data warehouse ou na exportação do Currents. A mesma regra de processamento se aplica a outros eventos de saída `users.messages.sms.*` que a Braze registra pelo mesmo pipeline (por exemplo, entrega, falha de entrega e envio à operadora). As métricas de SMS no nível do espaço de trabalho ainda podem incluir contagens agregadas que não correspondem um a um às linhas no Snowflake.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12940,7 +12945,7 @@ Esse evento ocorre quando um envio de SMS é rejeitado pela operadora. Isso pode
 SMS, Retry
 {% endapitags %}
 
-Este evento ocorre quando uma mensagem é despriorizada ou tem a frequência limitada e será tentada novamente mais tarde dentro da janela de retry configurada. Isso está disponível apenas para clientes beta de Priorização de Mensagens.
+Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência limitada e será tentada novamente mais tarde dentro da janela de retry configurada. Isso está disponível apenas para clientes beta de Priorização de Mensagens.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13115,13 +13120,14 @@ Este evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envio de SMS {#sms-send-events}
 
 {% apitags %}
 SMS, Sends
 {% endapitags %}
 
-Este evento ocorre quando um usuário envia um SMS.
+Esse evento ocorre quando um usuário envia um SMS.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13343,13 +13349,14 @@ Este evento ocorre quando um usuário envia um SMS.
 {% endapi %}
 
 {% api %}
+
 ## Eventos de clique em link curto de SMS {#sms-short-link-click-events}
 
 {% apitags %}
 SMS, Clicks
 {% endapitags %}
 
-Este evento ocorre quando um usuário clica em um link curto de SMS.
+Esse evento ocorre quando um usuário clica em um link curto de SMS.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13565,6 +13572,7 @@ Este evento ocorre quando um usuário clica em um link curto de SMS.
 {% endapi %}
 
 {% api %}
+
 ## Eventos de abort de webhook {#webhook-abort-events}
 
 {% apitags %}
@@ -13766,7 +13774,6 @@ Esse evento ocorre quando uma mensagem de webhook é abortada com base em aborts
 {% endapi %}
 
 {% api %}
-
 ## Eventos de falha de webhook {#webhook-failure-events}
 
 {% apitags %}
@@ -14387,6 +14394,7 @@ Esse evento ocorre quando um webhook é processado e enviado para o terceiro esp
 {% endapi %}
 
 {% api %}
+
 ## Eventos de abortamento do WhatsApp {#whatsapp-abort-events}
 
 {% apitags %}
@@ -14600,7 +14608,6 @@ Esse evento ocorre quando uma mensagem do WhatsApp é abortada com base em abort
 {% endapi %}
 
 {% api %}
-
 ## Eventos de clique em link rastreado do WhatsApp {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -15017,11 +15024,12 @@ Esse evento ocorre quando uma mensagem do WhatsApp enviada chega com sucesso ao 
 
 #### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como o envio de uma Campaign. Todos os eventos de push originados do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push desse envio (como Enviar, Bounce e Abrir).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de falha do WhatsApp {#whatsapp-failure-events}
 
 {% apitags %}
@@ -15257,7 +15265,6 @@ Esse evento ocorre quando o WhatsApp não consegue entregar a mensagem ao usuár
 {% endapi %}
 
 {% api %}
-
 ## Eventos de recebimento de entrada do WhatsApp {#whatsapp-inbound-received-events}
 
 {% apitags %}
@@ -15723,11 +15730,12 @@ Esse evento ocorre quando uma mensagem do WhatsApp é lida pelo usuário.
 
 #### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de tentativa do WhatsApp {#whatsapp-retry-events}
 
 {% apitags %}
@@ -15935,7 +15943,6 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 {% endapi %}
 
 {% api %}
-
 ## Eventos de envio do WhatsApp {#whatsapp-send-events}
 
 {% apitags %}

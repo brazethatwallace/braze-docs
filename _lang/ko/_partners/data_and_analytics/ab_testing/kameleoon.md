@@ -23,7 +23,7 @@ search_tag: Partner
 
 ## 활용 사례 {#use-cases}
 
-Kameleoon은 실험 및 개인화 캠페인에 참여하는 사용자를 식별하기 위해 커스텀 이벤트를 Braze에 전송하여 보다 정확한 타겟팅과 개인화된 메시징을 가능하게 합니다.
+Kameleoon은 실험 및 개인화 Campaign(캠페인)에 참여하는 사용자를 식별하기 위해 커스텀 이벤트를 Braze에 전송하여 보다 정확한 타겟팅과 개인화된 메시징을 가능하게 합니다.
 
 ## Kameleoon 통합하기 {#integrating-kameleoon}
 
@@ -102,6 +102,7 @@ Braze는 라이브 시작 전 요약에 언급됩니다. Kameleoon은 자동으�
 이벤트 속성정보 세분화를 사용하려면 먼저 Braze에서 활성화해야 합니다. 다음 템플릿을 사용하여 Braze 고객 성공 매니저 또는 고객지원 팀에 연락하여 액세스를 요청하세요.
 
    <table>
+     <caption>이벤트 속성정보 세분화 요청</caption>
    <thead>
       <tr>
          <th>필드</th>

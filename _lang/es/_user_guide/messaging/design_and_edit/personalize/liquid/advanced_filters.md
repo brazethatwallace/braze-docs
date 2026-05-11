@@ -6,15 +6,16 @@ description: "Este artículo de referencia enumera los filtros avanzados, ejempl
 
 ---
 
-# Filtros avanzados
+# Filtros avanzados {#advanced-filters}
 
 > Este artículo de referencia ofrece un resumen de los filtros avanzados en Liquid y cómo pueden usarse.
 
-## Filtros de codificación
+## Filtros de codificación {#encoding-filters}
 
 {% raw %}
 | nombre del filtro | descripción del filtro | ejemplo de entrada | ejemplo de salida |
 |---|---|---|---|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filtros de codificación" }
 `md5` | Devuelve una cadena codificada en md5 | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
 `sha1` | Devuelve una cadena codificada en sha1 | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
 `sha2` | Devuelve una cadena codificada en sha2 (256 bits, también conocido como SHA-256) | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
@@ -25,7 +26,7 @@ description: "Este artículo de referencia enumera los filtros avanzados, ejempl
 `hmac_sha256_base64` | Devuelve una firma hmac-sha256, codificada como cadena base64 | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## Filtros de URL
+## Filtros de URL {#url-filters}
 
 | nombre del filtro | descripción del filtro | ejemplo de entrada | ejemplo de salida |
 |---|---|---|---|
@@ -46,10 +47,10 @@ La etiqueta `assign` puede combinarse con HTML para ahorrarte tiempo y esfuerzo 
 {% endalert %}
 {% raw %}
 
-## Filtro de acceso a propiedades
+## Filtro de acceso a propiedades {#property-accessor-filter}
 
 | nombre del filtro | descripción del filtro |
-|---|---|---|---|
+| --- | --- |
 | `property_accessor` | Toma un hash y una clave de hash y devuelve el valor en ese hash para esa clave |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -67,14 +68,14 @@ No hay forma de instanciar un hash como variable (como una expresión) en Liquid
 
 {% raw %}
 
-## Filtros de formato numérico
+## Filtros de formato numérico {#number-formatting-filters}
 
 | nombre del filtro | descripción del filtro | ejemplo de entrada | ejemplo de salida |
 |---|---|---|---|
 | `number_with_delimiter` | Da formato a un número con comas | `{{ 123456 | number_with_delimiter }}` | 123,456 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Filtro de escape JSON / escape de cadena
+## Filtro de escape JSON / escape de cadena {#json-escape-string-escape-filter}
 
 | nombre del filtro | descripción del filtro |
 |---|---|
@@ -83,7 +84,7 @@ No hay forma de instanciar un hash como variable (como una expresión) en Liquid
 
 Este filtro siempre debe usarse al personalizar una cadena en un diccionario JSON y es especialmente útil para webhooks.
 
-## Filtros de formato JSON
+## Filtros de formato JSON {#json-formatting-filters}
 
 | nombre del filtro | descripción del filtro |
 |---|---|
@@ -95,7 +96,7 @@ Este filtro siempre debe usarse al personalizar una cadena en un diccionario JSO
 
 {% details Ejemplo de entrada y salida de json_parse %}
 
-### Entrada
+### Entrada {#input}
 
 {% raw %}
 ```liquid
@@ -103,7 +104,7 @@ Este filtro siempre debe usarse al personalizar una cadena en un diccionario JSO
 {% assign my_data = my_data_string | json_parse %}
 ```
 
-### Salida
+### Salida {#output}
 
 ```liquid
 {% for item in my_data %}

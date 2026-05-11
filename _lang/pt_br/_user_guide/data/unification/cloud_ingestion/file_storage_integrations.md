@@ -73,7 +73,7 @@ Anote o ARN e o URL da fila SQS — você precisará deles com frequência duran
 
 ### Etapa 3: Configurar a política de acesso {#step-3-set-up-access-policy}
 
-Para configurar a política de acesso, selecione **Opções avançadas**.
+Para configurar a política de acesso, selecione **Advanced options**.
 
 Anexe a seguinte declaração à política de acesso da fila, tomando cuidado para substituir `YOUR-BUCKET-NAME-HERE` pelo nome do bucket, `YOUR-SQS-ARN` pelo ARN da fila SQS e `YOUR-AWS-ACCOUNT-ID` pelo ID da conta da AWS:
 
@@ -339,6 +339,7 @@ Cada linha no arquivo deve identificar exatamente um usuário usando um dos segu
 | `EXTERNAL_ID` | Corresponde ao `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Ambas as colunas juntas identificam o usuário por alias. |
 | `BRAZE_ID` | ID de usuário gerado pela Braze (apenas usuários existentes). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
 
 {% alert important %}
 A exclusão de usuários é permanente e não pode ser desfeita. Inclua apenas usuários que você realmente pretende remover. Para mais detalhes, consulte [Excluir usuários com Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

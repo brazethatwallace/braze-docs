@@ -35,6 +35,7 @@ Brazeは、ユーザーがGoogleに登録したり、必要なセキュリティ
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 サポートされているメールクライアントの完全なリストについては、[AMPドキュメント](https://amp.dev/support/faq/email-support)を参照してください。
 
@@ -204,6 +205,7 @@ Liquidと同様に、AMPはより高度なユースケース向けのスクリ�
 </style>
 
 <table>
+  <caption>指標と分析</caption>
     <thead>
         <tr>
             <th>指標</th>

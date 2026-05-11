@@ -35,6 +35,7 @@ Avant de pouvoir envoyer des e-mails AMP à vos utilisateurs, vous devez vous in
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Pour une liste complète des clients de messagerie pris en charge, consultez la [documentation AMP](https://amp.dev/support/faq/email-support).
 
@@ -204,6 +205,7 @@ En enveloppant votre contenu dans la balise `raw`, le moteur de traitement de Br
 </style>
 
 <table>
+  <caption>Indicateurs et analyse</caption>
     <thead>
         <tr>
             <th>Indicateur</th>

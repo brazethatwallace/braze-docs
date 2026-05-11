@@ -184,7 +184,7 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>トークンを取得するには、OAuth 2.0クライアント認証情報フローの[接続アプリを設定](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)してから、コネクテッドコンテンツを使用してSalesforceからベアラートークンを取得します。<br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![SalesforceのWebhook URL、PATCH HTTPメソッド、生テキストのリクエストボディ、およびリクエストヘッダーを含む作成中のWebhook。]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

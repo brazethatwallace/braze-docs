@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Braze 랜딩 페이지는 사용자 확보 및 참여 전략을 추진할 수 있는 독립형 웹 페이지입니다.
 
-랜딩 페이지를 사용하여 오디언스를 확대하고, 사용자 데이터를 수집하고, 특별 혜택을 홍보하고, 멀티채널 캠페인을 지원하세요. 랜딩 페이지 드래그 앤 드롭 블록에 대한 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)을 확인하세요.
+랜딩 페이지를 사용하여 오디언스를 확대하고, 사용자 데이터를 수집하고, 특별 혜택을 홍보하고, 멀티채널 Campaign을 지원하세요. 랜딩 페이지 드래그 앤 드롭 블록에 대한 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)을 확인하세요.
 
 {% alert note %}
 랜딩 페이지 및 커스텀 도메인 사용 가능 여부는 Braze 패키지에 따라 다릅니다. 시작하려면 계정 매니저 또는 고객 성공 매니저에게 문의하세요.
@@ -63,6 +63,12 @@ Google Tag Manager 구현에 대한 자세한 내용은 [Google 설명서](https
 ### 랜딩 페이지의 최대 크기는 얼마인가요? {#whats-the-maximum-size-for-landing-pages}
 
 랜딩 페이지 본문 크기는 최대 500KB입니다.
+
+### 랜딩 페이지가 높은 트래픽 시나리오를 처리할 수 있나요? {#can-landing-pages-handle-high-traffic-scenarios}
+
+네, 개인화되지 않은 랜딩 페이지는 높은 트래픽 시나리오를 효과적으로 처리할 수 있습니다. 개인화되지 않은 랜딩 페이지가 처음 요청되면 Braze는 Cloudflare를 통해 이를 캐시합니다. 즉, 동일한 링크에 대한 이후 모든 요청은 캐시에서 제공되므로 대량 요청 시에도 성능이 저하되지 않습니다. 이 캐시는 24시간 동안 유지되며, 캐시된 페이지 조회수는 사용량 제한에 포함되지 않습니다.
+
+개인화된 랜딩 페이지(Liquid 개인화 사용)의 경우 캐시되지 않은 요청에 사용량 제한이 적용됩니다. 최적의 성능을 유지하려면 [개인화 고려 사항]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations)을 참조하세요.
 
 ### 랜딩 페이지를 게시하기 위한 기술적 요구 사항이 있나요? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 

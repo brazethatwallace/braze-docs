@@ -85,6 +85,7 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 </style>
 
 <table class="tg">
+  <caption>Tipos de mensagem</caption>
 <thead>
   <tr>
     <th>Tipo de mensagem</th>
@@ -134,6 +135,7 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 
 <table class="tg">
+  <caption>Tipos de mensagem avançados</caption>
 <thead>
   <tr>
     <th>Tipo de mensagem</th>

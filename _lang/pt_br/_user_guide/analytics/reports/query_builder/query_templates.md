@@ -32,21 +32,21 @@ table td {
 | Compras e receita por segmento | Este relatório mostra métricas das mensagens enviadas para um segmento específico. <br><br> As métricas de compra são únicas ao longo do período do relatório. Um usuário pode gerar no máximo uma compra. A receita leva em conta todas as compras do período do relatório. |
 | Compras e receita por variantes ou etapas, por segmento | Este relatório mostra métricas das variantes ou etapas do Canvas das mensagens enviadas para cada segmento. <br><br> As métricas de compra são únicas ao longo do período do relatório. Um usuário pode gerar no máximo uma compra. A receita leva em conta todas as compras do período do relatório. |
 | Melhores/piores mensagens para compras | Este relatório mostra métricas de compra para as melhores ou piores Campaigns, Canvas ou etapas do Canvas. Cada linha é uma Campaign, um Canvas ou uma etapa do Canvas. Você deve especificar se deseja exibir os melhores ou piores desempenhos e a métrica específica para executar essa análise (como *Compras únicas após recebimento*, *Receita após recebimento*, *Destinatários únicos*). <br><br> As linhas nos relatórios de melhores desempenhos serão ordenadas do melhor para o pior, enquanto as linhas nos relatórios de piores desempenhos serão ordenadas do pior para o melhor. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel templates" }
 
 ## Modelos de Campaign {#campaign-templates}
 
 | Nome da consulta | Descrição |
 | --- | --- |
 | Receita de Campaign por país | Este relatório mostra a receita por país para uma Campaign específica. Para executar este relatório, você deve especificar o identificador de API de uma Campaign. Você pode encontrar o identificador de API de uma Campaign na parte inferior da página de detalhes dessa Campaign. <br><br> Este relatório mostra, para cada país, o valor da receita gerada, número de pedidos, número de devoluções, receita líquida e receita bruta.<br><br> {::nomarkdown} <ul> <li> <i>Pedidos:</i> Número de eventos de compra </li> <li><i> Devoluções:</i> Número de eventos de compra com valores de receita negativos </li> <li><i> Receita líquida:</i> Receita de todas as não devoluções </li> <li><i> Receita bruta:</i> Receita que inclui o valor das devoluções </li></ul>{:/} ![]({% image_buster /assets/img_archive/campaign_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign templates" }
 
 ## Modelos de Canvas {#canvas-templates}
 
 | Nome da consulta | Descrição |
 | --- | --- |
 | Receita de Canvas por país | Este relatório mostra a receita por país para um Canvas específico. Para executar este relatório, você deve especificar o identificador de API de um Canvas. Você pode encontrar o identificador de API do Canvas em **Analyze Variants**. <br><br> Este relatório mostra, para cada país, o valor da receita gerada, número de pedidos, número de devoluções, receita líquida e receita bruta.<br><br> {::nomarkdown} <ul> <li> <i>Pedidos:</i> Número de eventos de compra </li> <li><i> Devoluções:</i> Número de eventos de compra com valores de receita negativos </li> <li><i> Receita líquida:</i> Receita de todas as não devoluções </li> <li><i> Receita bruta:</i> Receita que inclui o valor das devoluções </li></ul>{:/} ![]({% image_buster /assets/img_archive/canvas_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas templates" }
 
 ## Modelos de e-mail {#email-templates}
 
@@ -61,7 +61,7 @@ table td {
 | Opt-ins e opt-outs de grupo de inscrições de e-mail | Este relatório mostra o número de opt-ins e opt-outs de usuários únicos para qualquer grupo de inscrições de e-mail em cada semana. Você deve ter pelo menos um [grupo de inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/) no espaço de trabalho para executar esta consulta. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
 | URLs de e-mail clicadas | Este relatório mostra o número de cliques que cada link em um e-mail recebeu. Para executar este relatório, você precisará especificar o identificador de API de uma Campaign ou Canvas. Você pode encontrar o identificador de API de uma Campaign na parte inferior da página de detalhes dessa Campaign e o identificador de API do Canvas em **Analyze Variants**. <br><br> Este relatório mostra links despersonalizados e uma contagem de cliques para cada link. O download do CSV incluirá os IDs dos usuários que clicaram, o link em que clicaram e o registro de data e hora de quando clicaram. <br><br> *URLs despersonalizadas:* URLs das quais as tags Liquid foram removidas. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
 | Melhores/piores mensagens para engajamento de e-mail | Este relatório mostra métricas de engajamento de e-mail para as melhores ou piores Campaigns, Canvas ou etapas do Canvas. Você deve especificar se deseja exibir os melhores ou piores desempenhos e a métrica específica para executar essa análise (como *Enviados*, *Soft Bounces* e *Aberturas únicas*). <br><br> As linhas nos relatórios de melhores desempenhos serão ordenadas do melhor para o pior, enquanto as linhas nos relatórios de piores desempenhos serão ordenadas do pior para o melhor. <br><br> ![]({% image_buster /assets/img_archive/top-bottom-email.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 ## Modelos para dispositivos móveis {#mobile-templates}
 
@@ -73,14 +73,14 @@ table td {
 | Resoluções de tela de dispositivos | O número de usuários por resolução de tela do dispositivo, como 1179x2556 e 750x1334. <br><br> ![]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
 | Códigos de erro de SMS | Este relatório mostra o tipo de erro e o número de erros para cada código de erro de SMS. <br><br>![]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
 | Erros de provedor de SMS por usuário | Este relatório mostra os códigos de erro de SMS para um usuário específico. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mobile templates" }
 
 ## Modelos de push {#push-templates}
 
 | Nome da consulta | Descrição |
 | --- | --- |
 | Desempenho de push por país | Este relatório mostra as seguintes métricas para cada país: entregas, taxa de abertura e taxa de cliques. O país é o país do usuário no momento do envio do e-mail. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q7.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push templates" }
 
 ## Detalhamento por segmento {#segment-breakdown}
 
@@ -91,4 +91,4 @@ table td {
 | Melhores/piores mensagens para engajamento de e-mail | Este relatório mostra as Campaigns, Canvas ou etapas do Canvas que tiveram os melhores ou piores desempenhos para uma métrica de engajamento de e-mail especificada. |
 | Melhores/piores mensagens para compras | Este relatório mostra as Campaigns, Canvas ou etapas do Canvas que tiveram os melhores ou piores desempenhos para uma métrica de compra ou receita especificada. |
 | Desempenho de push por segmento | Este relatório mostra métricas de push detalhadas por segmento. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }

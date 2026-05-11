@@ -15,7 +15,7 @@ Löschsynchronisierungen von Nutzer:innen werden für alle verfügbaren Datenque
 
 ## Konfigurieren der Integration {#configuring-the-integration}
 
-Folgen Sie dem Standardverfahren zur [Erstellung einer neuen Integration im Braze-Dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) für das Data Warehouse, mit dem Sie sich verbinden möchten. Stellen Sie sicher, dass Sie eine Rolle angeben, die Zugriff auf die Löschtabelle hat. Stellen Sie auf der Seite **Create import sync** den **Datentyp** auf **Delete Users** ein, damit während des Integrationslaufs die richtigen Aktionen zum Löschen von Nutzer:innen durchgeführt werden.
+Folgen Sie dem Standardverfahren zur [Erstellung einer neuen Integration im Braze-Dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) für das Data Warehouse, mit dem Sie sich verbinden möchten. Stellen Sie sicher, dass Sie eine Rolle angeben, die Zugriff auf die Löschtabelle hat. Stellen Sie auf der Seite **Create import sync** den **Data Type** auf **Delete Users** ein, damit während des Integrationslaufs die richtigen Aktionen zum Löschen von Nutzer:innen durchgeführt werden.
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
@@ -73,11 +73,12 @@ Erstellen Sie eine Tabelle mit den folgenden Feldern:
 
 | Feldname | Typ | Modus |
 |---|---|---|
-| `UPDATED_AT`| TIMESTAMP | REQUIRED |
-| `EXTERNAL_ID`| STRING | NULLABLE |
-| `ALIAS_NAME`| STRING | NULLABLE |
-| `ALIAS_LABEL`| STRING | NULLABLE |
-| `BRAZE_ID`| STRING | NULLABLE |
+| `UPDATED_AT` | TIMESTAMP | REQUIRED |
+| `EXTERNAL_ID` | STRING | NULLABLE |
+| `ALIAS_NAME` | STRING | NULLABLE |
+| `ALIAS_LABEL` | STRING | NULLABLE |
+| `BRAZE_ID` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -85,11 +86,12 @@ Erstellen Sie eine Tabelle mit den folgenden Feldern:
 
 | Feldname | Typ | Modus |
 |---|---|---|
-| `UPDATED_AT`| TIMESTAMP | REQUIRED |
-| `EXTERNAL_ID`| STRING | NULLABLE |
-| `ALIAS_NAME`| STRING | NULLABLE |
-| `ALIAS_LABEL`| STRING | NULLABLE |
-| `BRAZE_ID`| STRING | NULLABLE |
+| `UPDATED_AT` | TIMESTAMP | REQUIRED |
+| `EXTERNAL_ID` | STRING | NULLABLE |
+| `ALIAS_NAME` | STRING | NULLABLE |
+| `ALIAS_LABEL` | STRING | NULLABLE |
+| `BRAZE_ID` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql

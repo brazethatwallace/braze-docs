@@ -10,8 +10,6 @@ description: "Esta página fornece uma visão geral de como disparar Canvas da B
 
 > Aprenda a sincronizar gatilhos do Canvas usando CDI para personalização sem cópia. Esse recurso acessa informações específicas do usuário a partir da sua solução de armazenamento de dados e as transmite para um Canvas de destino. As etapas do Canvas podem incluir, opcionalmente, campos de personalização que não são mantidos nos perfis de usuário da Braze.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Sincronização de gatilhos do Canvas {#syncing-canvas-triggers}
 
 ### Etapas para início rápido {#quick-start-steps}
@@ -326,13 +324,10 @@ Revise toda a sua configuração (desde o comportamento de sincronização até 
 
 Os gatilhos do CDI Canvas utilizam o limite de taxa da sua REST API para `/canvas/trigger/send`. Se você estiver usando esse endpoint simultaneamente com os gatilhos CDI Canvas e sua integração de REST API, espere que o uso combinado seja contabilizado no seu limite de taxa.
 
-Enquanto os gatilhos do CDI Canvas estiverem em acesso antecipado, considere os seguintes detalhes:
+Cada execução de sincronização insere os usuários em seu respectivo Canvas de destino a uma taxa máxima de aproximadamente 3,75 milhões de usuários por hora. Esteja preparado para tempos de entrada mais longos da fonte para o Canvas quando:
 
-* Até 5 sincronizações ativas de gatilhos do Canvas por espaço de trabalho
-* Cada execução de sincronização inserirá os usuários em seu respectivo Canvas de destino a uma taxa máxima de aproximadamente 3,75 milhões de usuários por hora.
-  * Esteja preparado para tempos de entrada mais longos da fonte para o Canvas quando:
-    * Sincronizar mais de 3,75 milhões de usuários por execução de sincronização.
-    * Usar gatilhos do CDI Canvas quando já estiver saturando o [limite de taxa da sua REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Sincronizar mais de 3,75 milhões de usuários por execução de sincronização.
+* Usar gatilhos do CDI Canvas quando já estiver saturando o [limite de taxa da sua REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
 
 Considere o seguinte sobre o CDI sem cópia quando o Arquivamento de mensagem está ativado:
 

@@ -126,7 +126,7 @@ Vous pouvez intégrer Braze à vos modèles de données internes, y compris les 
 #### Entrepôt de données cloud intégré {#integrated-cloud-data-warehouse}
 
 {% tabs %}
-{% tab Braze as a data source %}
+{% tab Braze comme source de données %}
 
 En tant qu'outil marketing, Braze contient des données extrêmement pertinentes qui peuvent enrichir le modèle interne d'évaluation des prospects de votre équipe.
 
@@ -136,7 +136,7 @@ Par exemple, les données d'engagement des messages (ouvertures et clics d'e-mai
 - [Partage sécurisé des données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
 
 {% endtab %}
-{% tab Braze as a destination %}
+{% tab Braze comme destination %}
 
 Une fois que vos équipes internes ont créé et exécuté votre modèle d'évaluation des prospects, vous pouvez réintégrer ces données dans Braze afin de mieux segmenter et cibler les prospects avec des messages pertinents. Pour cela, utilisez l'[Ingestion de données cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
 
@@ -184,7 +184,7 @@ Pour mettre à jour l'enregistrement du prospect dans Salesforce avec le statut 
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Pour récupérer un jeton, [configurez une application connectée](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) pour le flux d'identifiants client OAuth 2.0, puis utilisez le contenu connecté pour récupérer le bearer depuis Salesforce : <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![Webhook composé avec une URL de webhook Salesforce, une méthode HTTP PATCH, un corps de requête en texte brut et des en-têtes de requête.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

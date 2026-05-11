@@ -40,6 +40,7 @@ Amplitude와 Braze는 두 가지 통합 방법을 제공합니다. 다음 설명
 | Braze REST API 키 | 모든 권한이 있는 Braze REST API 키.<br><br> 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL][1]. 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 | Braze 앱 식별자 | Amplitude 이벤트를 수신할 앱의 식별자입니다. **Braze 대시보드 > 개발자 콘솔 > 설정**에서 확인할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitude 설정 {#amplitude-setup}
 

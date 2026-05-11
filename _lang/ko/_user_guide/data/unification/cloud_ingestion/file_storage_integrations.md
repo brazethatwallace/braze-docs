@@ -339,6 +339,7 @@ S3의 파일을 사용하여 Braze에서 고객 프로필을 삭제하려면:
 | `EXTERNAL_ID` | Braze에서 사용되는 `external_id`와 일치합니다. |
 | `ALIAS_NAME` 및 `ALIAS_LABEL` | 두 열이 함께 별칭으로 사용자를 식별합니다. |
 | `BRAZE_ID` | Braze에서 생성된 사용자 ID(기존 사용자만 해당). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
 
 {% alert important %}
 사용자 삭제는 영구적이며 되돌릴 수 없습니다. 제거하려는 사용자만 포함하세요. 자세한 내용은 [클라우드 데이터 수집으로 사용자 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)를 참조하세요.

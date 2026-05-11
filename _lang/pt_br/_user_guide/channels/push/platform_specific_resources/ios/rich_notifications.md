@@ -7,7 +7,7 @@ description: "Este tutorial aborda os requisitos e as etapas para criar notifica
 
 platform: iOS
 channel:
-  - push
+  - Push
 tool:
   - Campaigns
 
@@ -42,6 +42,7 @@ Como prática recomendada, a Braze sugere manter cada linha de texto, tanto para
 Seus usuários podem visualizar notificações por push em diversas situações diferentes e podem ver diferentes comprimentos de texto, conforme a seguir.
 
 <table>
+  <caption>Estados da notificação</caption>
 <thead>
   <tr>
     <th>Tela de bloqueio ou Central de notificações</th>

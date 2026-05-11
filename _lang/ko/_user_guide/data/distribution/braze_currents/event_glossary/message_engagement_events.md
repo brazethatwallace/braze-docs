@@ -3187,7 +3187,6 @@ Banner, Impressions
 {% endapi %}
 
 {% api %}
-
 ## Content Cards 중단 이벤트 {#content-card-abort-events}
 
 {% apitags %}
@@ -4481,7 +4480,7 @@ Abort, Email
 
 #### 속성 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)을 참조하세요.
 - 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 email messages every 1 week`
@@ -7463,6 +7462,7 @@ In-App Messages, Clicks
 {% endapi %}
 
 {% api %}
+
 ## 인앱 메시지 노출 이벤트 {#in-app-message-impression-events}
 
 {% apitags %}
@@ -7707,6 +7707,7 @@ In-App Messages, Impressions
 {% endapi %}
 
 {% api %}
+
 ## LINE 중단 이벤트 {#line-abort-events}
 
 {% apitags %}
@@ -12716,6 +12717,7 @@ Braze가 이 인바운드 메시지가 Braze에서 전송된 아웃바운드 Cam
 {% endapi %}
 
 {% api %}
+
 ## SMS 거부 이벤트 {#sms-rejection-events}
 
 {% apitags %}
@@ -12723,6 +12725,10 @@ SMS, Rejection
 {% endapitags %}
 
 이 이벤트는 SMS 전송이 통신사에 의해 거부될 때 발생합니다. 이는 여러 가지 이유로 발생할 수 있습니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전달 관련 문제를 해결하세요.
+
+{% alert note %}
+Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze 고객 프로필이 여전히 존재하는 경우에만 `users.messages.sms.Rejection`을 Currents, Snowflake 데이터 공유 및 관련 내보내기로 전송합니다. 해당 프로필이 사전에 삭제된 경우, 데이터 웨어하우스 또는 Currents 내보내기에서 이 이벤트를 확인할 수 없습니다. 동일한 처리 규칙은 Braze가 동일한 파이프라인을 통해 로깅하는 다른 `users.messages.sms.*` 아웃바운드 이벤트(예: 전달, 전달 실패, 통신사 전송)에도 적용됩니다. 워크스페이스 수준의 SMS 측정기준에는 Snowflake의 행과 일대일로 매핑되지 않는 집계 수가 여전히 포함될 수 있습니다.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12934,7 +12940,6 @@ SMS, Rejection
 {% endapi %}
 
 {% api %}
-
 ## SMS 재시도 이벤트 {#sms-retry-events}
 
 {% apitags %}
@@ -13566,6 +13571,7 @@ SMS, Clicks
 {% endapi %}
 
 {% api %}
+
 ## 웹훅 중단 이벤트 {#webhook-abort-events}
 
 {% apitags %}
@@ -13767,7 +13773,6 @@ Abort, Webhooks
 {% endapi %}
 
 {% api %}
-
 ## 웹훅 실패 이벤트 {#webhook-failure-events}
 
 {% apitags %}
@@ -14388,6 +14393,7 @@ Webhooks, Sends
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp 중단 이벤트 {#whatsapp-abort-events}
 
 {% apitags %}
@@ -14601,7 +14607,6 @@ WhatsApp, Abort
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp 추적 링크 클릭 이벤트 {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -14798,6 +14803,7 @@ WhatsApp, Clicks
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp 전달 이벤트 {#whatsapp-delivery-events}
 
 {% apitags %}
@@ -15018,11 +15024,12 @@ WhatsApp, Delivery
 
 #### 등록정보 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 설정할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp 실패 이벤트 {#whatsapp-failure-events}
 
 {% apitags %}
@@ -15253,12 +15260,11 @@ WhatsApp, Failure
 
 #### 등록정보 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 설정할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp 인바운드 수신 이벤트 {#whatsapp-inbound-received-events}
 
 {% apitags %}
@@ -15729,6 +15735,7 @@ WhatsApp, Read
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp 재시도 이벤트 {#whatsapp-retry-events}
 
 {% apitags %}
@@ -15936,7 +15943,6 @@ WhatsApp, Retry
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp 전송 이벤트 {#whatsapp-send-events}
 
 {% apitags %}

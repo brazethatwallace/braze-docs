@@ -58,6 +58,7 @@ MyPostcard erfordert eine HTTP-Methode zusammen mit den folgenden HTTP-Headern, 
 
 {% raw %}
 <table>
+  <caption>Anfragemethode und Header</caption>
   <thead>
     <tr>
       <th><strong>Feld</strong></th>
