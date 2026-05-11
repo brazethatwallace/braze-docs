@@ -52,3 +52,20 @@ No, you must recreate the email in **Email Templates** to save it.
 ### Can I add email attachments to the drag-and-drop editor?
 
 No, the drag-and-drop editor does not support adding attachments to your emails.
+
+### How do I download the raw HTML for a drag-and-drop email?
+
+1. Open your campaign or Canvas and edit the email message.
+2. Select **Edit email body** to open the drag-and-drop editor.
+3. Select **Download .zip file** (bottom of the editor). Extract the archive to access the generated HTML.
+
+You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### Why is my drag-and-drop layout breaking?
+
+Layout issues are often caused by **custom HTML or CSS** that conflicts with the markup the editor generates. Try these steps:
+
+1. Remove or isolate custom HTML blocks to see if the problem disappears.
+2. Check **Drag-and-Drop Email Editor** settings for custom fonts that may not load in all clients.
+3. In **Row Properties**, review column padding and widths.
+4. When you add custom HTML, prefer table-based layouts, fluid images, and total table widths that fit your email width—fixed pixel images or non-table structures often break in Outlook and other clients.

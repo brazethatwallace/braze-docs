@@ -68,6 +68,10 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 
 **Rows** are structural units that define the horizontal composition of a section of the message by using columns. You can either empty rows or [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Using more than one column allows you to put different content elements side by side. This way, you can add all the structural elements you need to your message, regardless of the template you selected when you started.
 
+#### Nesting images inside text blocks
+
+You cannot nest an image inside a paragraph or other text block in the drag-and-drop editor. To place an image beside or within a text layout, use columns in a **Row**: for example, a multi-column row on desktop with **Hide on mobile** for that row, and a separate mobile-only row (with **Hide on desktop** and **Do not stack on mobile** as needed) so the image and text align cleanly on small screens.
+
 #### Cards Style
 
 **Cards Style** is a row property that lets you add spacing between columns and round their corners. With card-style formatting, you can create more visually engaging layouts to help highlight your most important content, such as new product features, testimonials, special offers, news updates, and more.

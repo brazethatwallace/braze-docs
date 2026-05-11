@@ -81,6 +81,8 @@ When a user updates their email address, their subscription state is set to subs
 
 To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source (API or SDK).
 
+When a user's global email subscription state changes, Braze propagates that state to other profiles that share the same email address. Braze does not guarantee that propagation for addresses tied to more than 200 profiles. If users who share an email show different subscription states, contact Braze Support.
+
 ## Subscription groups
 
 Subscription groups are segment filters that can further narrow your audience from the [global subscription states](#subscription-states). These groups allow you to present more granular subscription options to end-users.
