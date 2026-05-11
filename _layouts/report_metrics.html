@@ -145,13 +145,18 @@ $(document).ready(function() {
 
     var noResultsTimer = null;
     var countTimer = null;
+    var lastAnnouncedCount = -1;
+    var altChar = false;
 
     function search_apis(api_hash) {
       var result_cnt = 0;
-      var resultsMsg = $('#results_msg');
+      // Visual display elements (no aria roles — purely for sighted users)
       var resultsCount = $('#results_count');
-      // Cancel any pending announcements — don't touch the DOM yet, so the
-      // screen reader doesn't observe a rapid clear→set mutation sequence.
+      var resultsMsg = $('#results_msg');
+      // Live region elements (sr-only, globally placed for AT reliability)
+      var resultsCountLive = $('#results_count_live');
+      var resultsMsgLive = $('#results_msg_live');
+
       clearTimeout(noResultsTimer);
       clearTimeout(countTimer);
       var api_div = $('#api_list .api_div');
@@ -203,27 +208,48 @@ $(document).ready(function() {
       })
       if (!showall) {
         if (!result_cnt) {
-          // Clear the count immediately so it doesn't show stale text, then
-          // defer the no-results alert so the clear and set are separate mutations.
-          // role="alert" (assertive) is more reliably announced by VoiceOver
-          // than role="status" (polite).
+          // Clear visual count immediately so stale text doesn't linger.
+          // 500ms before the alert fires — long enough for VoiceOver to finish
+          // its post-keystroke echo cycle before the assertive region fires.
           resultsCount.text('');
+          resultsCountLive.text('');
           noResultsTimer = setTimeout(function() {
-            resultsMsg.html('<p>No metrics matching these filters</p>');
-          }, 250);
+            var noResultsText = 'No metrics matching these filters';
+            resultsMsg.text(noResultsText);
+            resultsMsgLive.text(noResultsText);
+          }, 500);
         } else {
           // Clear the no-results alert immediately, then defer the count update.
-          // The 600ms delay gives VoiceOver time to finish its search-field echo
-          // cycle (typed character + field instructions) before the polite live
-          // region mutation fires — preventing VoiceOver from interrupting itself.
-          resultsMsg.html('');
+          // 900ms gives VoiceOver time to finish its full post-keystroke cycle
+          // (character echo + field label) before the polite live region fires.
+          resultsMsg.text('');
+          resultsMsgLive.text('');
           countTimer = setTimeout(function() {
-            resultsCount.text('Showing ' + result_cnt + ' of ' + total_cnt + ' metrics');
-          }, 600);
+            var message = 'Showing ' + result_cnt + ' of ' + total_cnt + ' metrics';
+            // VoiceOver suppresses re-announcement when the string is identical.
+            // Toggle a non-breaking space to force a unique mutation each time.
+            var liveMessage = message;
+            if (result_cnt === lastAnnouncedCount) {
+              altChar = !altChar;
+              if (altChar) liveMessage += ' ';
+            }
+            lastAnnouncedCount = result_cnt;
+            // Visual update immediately.
+            resultsCount.text(message);
+            // Live region: clear then repopulate after 150ms so Safari registers
+            // removal and addition as distinct mutations rather than batching them.
+            resultsCountLive.text('');
+            setTimeout(function() {
+              resultsCountLive.text(liveMessage);
+            }, 150);
+          }, 900);
         }
       } else {
         resultsCount.text('');
-        resultsMsg.html('');
+        resultsMsg.text('');
+        resultsCountLive.text('');
+        resultsMsgLive.text('');
+        lastAnnouncedCount = -1;
       }
     };
 
@@ -245,7 +271,7 @@ $(document).ready(function() {
       search_apis();
     }
 
-    $('#api_search').on('keyup',function(e){
+    $('#api_search').on('input',function(e){
       search_apis();
     });
 
@@ -272,6 +298,12 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="api-main">
+    <!-- Live regions registered early so VoiceOver discovers them during initial tree scan.
+         Placed before the search input to avoid the Safari sibling-suppression bug. -->
+    <div class="api-sr-only">
+      <div id="results_count_live" role="status" aria-atomic="true"></div>
+      <div id="results_msg_live" role="alert" aria-atomic="true"></div>
+    </div>
     <div id="content_start"></div>
 
     {%- unless hide_breadcrumb -%}
@@ -284,18 +316,19 @@ $(document).ready(function() {
     {% multi_lang_include layouts/report_metrics_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="Search" aria-label="Search glossary" />
+        <input id="api_search" type="text" role="searchbox" placeholder="Search" aria-label="Search glossary" aria-describedby="search-hint" />
+        <span id="search-hint" class="api-sr-only">Results update automatically as you type.</span>
         <fieldset id="api_filter_list">
           <legend>Filter by channel</legend>
         </fieldset>
     </div>
 
-    <div id="results_count" aria-live="polite" aria-atomic="true"></div>
+    <div id="results_count"></div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
     </div>
-    <div id="results_msg" role="alert" aria-atomic="true"></div>
+    <div id="results_msg"></div>
 
 
   </div>
