@@ -15,7 +15,7 @@ Message Credits are required to access and use Braze Agents. If you don't curren
 
 Watch this video for an overview of Braze Agents in Agent Console.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Why use Braze Agents?
 
