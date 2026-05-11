@@ -32,7 +32,7 @@ To be eligible for sending RCS with Braze, your business must meet three criteri
 - France
 - Italy
 - Colombia
-3. You must procure a $0 RCS SKU(s) in your contract.
+3. You must procure an RCS SKU(s) in your contract.
 
 ## Step 2: Register an RCS-verified sender
 
