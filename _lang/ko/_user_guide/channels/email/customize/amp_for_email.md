@@ -35,6 +35,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
@@ -204,6 +205,7 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
 </style>
 
 <table>
+  <caption>측정기준 및 분석</caption>
     <thead>
         <tr>
             <th>측정기준</th>

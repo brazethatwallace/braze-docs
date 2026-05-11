@@ -131,6 +131,7 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>マッピングの例</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

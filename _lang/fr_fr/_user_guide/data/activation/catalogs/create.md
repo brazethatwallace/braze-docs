@@ -95,6 +95,7 @@ Pour ce tutoriel, nous utilisons un catalogue qui répertorie deux jeux, leur pr
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Tutoriel : Création d'un catalogue à partir d'un fichier CSV</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -136,7 +137,7 @@ Notez que vous ne pourrez pas modifier ce nom après la création du catalogue. 
 Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Créer dans le navigateur %}
 ### Conditions préalables {#prerequisites}
 
 Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes pour votre espace de travail :

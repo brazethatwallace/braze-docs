@@ -47,7 +47,7 @@ Você também pode optar por criar uma recomendação diretamente de um catálog
 
 Dê um nome e uma descrição opcional à sua recomendação.
 
-![Etapa "Recommendation details" com os campos de nome e descrição.]({% image_buster /assets/img/item_recs_1.png %})
+![Etapa "Detalhes da recomendação" com os campos de nome e descrição.]({% image_buster /assets/img/item_recs_1.png %})
 
 ### Etapa 3: Defina sua recomendação {#recommendation-type}
 
@@ -61,7 +61,7 @@ Ao usar **Mais Recente** ou **IA Personalizado**, os usuários com dados insufic
 
 Para evitar sugerir itens que um usuário já tenha comprado ou com os quais já tenha interagido, selecione **Do not recommend items users have previously interacted with**. Essa opção só está disponível quando o **Type** de recomendação está definido como **AI Personalized**.
 
-![Etapa "Define your recommendation" com "AI Personalized" como o tipo e a opção "Do not recommend items users have previously interacted with" selecionada.]({% image_buster /assets/img/item_recs_2-3.png %})
+![Etapa "Defina sua recomendação" com "AI Personalized" como o tipo e a opção "Do not recommend items users have previously interacted with" selecionada.]({% image_buster /assets/img/item_recs_2-3.png %})
 
 Essa configuração impede que as mensagens reutilizem os itens que um usuário já comprou ou com os quais interagiu, desde que a recomendação tenha sido atualizada recentemente. Os itens comprados ou com os quais houve interação entre as atualizações de recomendação ainda podem aparecer. Na versão gratuita das recomendações de itens, as atualizações ocorrem semanalmente. Na versão pro das recomendações de itens de IA, as atualizações ocorrem a cada 24 horas.
 
@@ -131,6 +131,7 @@ Os exemplos de mapeamentos a seguir referem-se a este catálogo de amostra:
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Exemplos de mapeamentos</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

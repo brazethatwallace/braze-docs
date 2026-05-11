@@ -12,6 +12,10 @@ search_tag: Partner
 
 ## データインポート統合 {#data-import-integration}
 
+MixpanelからBrazeにコホートを同期すると、Brazeは既存のBrazeプロファイルにMixpanelがマッチできるユーザーのコホートメンバーシップ更新を受信します。同期後、**Mixpanel cohorts** Segmentフィルターを使用してそれらのユーザーをターゲットにできます。
+
+コホート同期では、Mixpanelイベント、Mixpanelユーザープロパティ、またはカスタム属性はBrazeにインポートされません。同期頻度を含むコネクターの動作はMixpanelで制御されます。セットアップの詳細については、[MixpanelのBrazeコホート同期ドキュメント](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze)を参照してください。ユーザーマッチングの要件については、[ユーザーマッチング](#user-matching)を参照してください。
+
 設定した統合はデータポイントを記録します。Brazeデータポイントの詳細について質問がある場合は、Brazeアカウントマネージャーにお問い合わせください。
 
 {% alert important %}
@@ -28,7 +32,7 @@ Brazeで**パートナー連携** > **テクノロジーパートナー**に移�
 
 1. Mixpanelで**Data Management > Integrations**に移動します。
 2. Braze統合のタブを選択し、**Connect**を選択します。
-3. 表示されるプロンプトで、Brazeデータインポートキーと RESTエンドポイントを入力します。
+3. 表示されるプロンプトで、BrazeデータインポートキーとRESTエンドポイントを入力します。
 4. **Continue**を選択します。
 
 ![]({% image_buster /assets/img_archive/mixpanel2.png %}){: style="max-width:50%;"}
@@ -49,7 +53,7 @@ Brazeでこれらのユーザーのセグメントを作成するには、**Audi
 
 ![BrazeのSegmentビルダーで、ユーザー属性フィルター「Mixpanel cohorts」が「includes」と「Braze cohort」に設定されています。]({% image_buster /assets/img_archive/mixpanel1.png %})
 
-保存後、CanvasやCampaign作成時のユーザーターゲティングステップでこのセグメントを参照できます。
+保存後、CanvasやCampaign作成時のユーザーターゲティングステップでこのSegmentを参照できます。
 
 ## ユーザーマッチング {#user-matching}
 

@@ -177,7 +177,7 @@ Aqui estão alguns exemplos de cargas úteis de eventos para vários eventos, co
 
 Aqui estão alguns exemplos de cargas úteis de eventos para vários eventos, como apareceriam se estivessem associados a um Canvas:
 
-#### Clique em mensagem no app {#in-app-message-click}
+#### Clique em mensagem no app
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ Aqui estão alguns exemplos de cargas úteis de eventos para vários eventos, co
 }
 ```
 
-#### Envio de notificação por push {#push-notification-send}
+#### Envio de notificação por push
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ Aqui estão alguns exemplos de cargas úteis de eventos para vários eventos, co
 }
 ```
 
-#### Abertura de e-mail {#email-open}
+#### Abertura de e-mail
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ Aqui estão alguns exemplos de cargas úteis de eventos para vários eventos, co
 }
 ```
 
-#### Entrega de SMS {#sms-delivery}
+#### Entrega de SMS
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -431,6 +431,7 @@ Se o mecanismo de novas tentativas da Braze falhar em entregar um evento por mai
 Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente conector:
 
 <table>
+  <caption>Mecanismo de tratamento de erros e novas tentativas</caption>
   <thead>
     <tr>
       <th>Código de status</th>

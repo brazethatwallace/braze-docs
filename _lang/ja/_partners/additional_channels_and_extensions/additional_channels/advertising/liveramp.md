@@ -28,7 +28,7 @@ Snowflakeの[セキュアデータシェアリング](https://docs.snowflake.com
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Snowflakeアカウント | 管理者レベルの権限を持つSnowflakeアカウントが必要です。 |
 | LiveRampアカウント | Snowflake内で必要なLiveRampアプリケーションについては、LiveRampアカウントチームまたは[snowflake@liveramp.com](mailto:snowflake@liveramp.com)までお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合をセットアップする {#setting-up-the-integration}
 

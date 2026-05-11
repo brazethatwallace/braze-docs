@@ -133,7 +133,7 @@ As the Canvas runs, the agent mixes and matches variants across components to ge
 | Email | Primary CTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} | 
 | Push | Title | {% raw %}`{% message_component "Title" %}`{% endraw %} | 
 | Push | Message | {% raw %}`{% message_component "Message" %}`{% endraw %} | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid references" }
 
 ### Step 5: Select optimization event
 
@@ -150,7 +150,7 @@ For email, you can optimize for one of the following events. The agent uses open
 | --- | --- | --- |
 | Opens | Optimizes for combinations that get recipients to open the email. | Testing subject lines or aiming to increase visibility |
 | Clicks | Optimizes for combinations that drive engagement with links. Does not include bot clicks or Braze-recognized unsubscribe clicks. | Driving traffic, engagement, or conversion from links |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Select optimization event" }
 
 {% endtab %}
 {% tab Push notifications %}
@@ -186,4 +186,4 @@ Reasons that analytics in the Content Optimizer step differ from the **Analytics
 | --- | --- | --- |
 | Missing Liquid tags | If you add a content component (such as Subject or CTA) but don’t insert the corresponding Liquid tag into your base message, you’ll see: <br>- A warning on the **Content Optimizer Settings** tab <br>- An error on the **Messaging Channels** tab | Copy the Liquid snippet shown under each component in the **Content Optimizer Settings** tab and paste it into the appropriate part of your message. |
 | Orphaned Liquid tags | If you delete a content component but leave its Liquid tag in the base message, the message may not render as expected when sent. | Remove any unused `message_component` tags from your base message before launching. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }

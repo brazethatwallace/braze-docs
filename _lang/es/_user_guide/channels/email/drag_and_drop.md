@@ -19,6 +19,7 @@ tool:
 El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como los dos componentes clave para simplificar tu flujo de trabajo, sin necesidad de usar HTML adicional.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>Componentes del editor: contenido y filas</caption>
     <tr>
         <th style="width: 50%;">Contenido</th>
         <th style="width: 50%;">Filas</th>
@@ -104,15 +105,15 @@ La experiencia de edición de arrastrar y soltar se divide en tres secciones: **
 Cuando estés listo, usa los bloques de contenido de arrastrar y soltar para construir tu correo electrónico.
 
 1. Selecciona el panel **Rows**. Arrastra y suelta las configuraciones de filas en el editor principal. Esto definirá el diseño del contenido de tu correo electrónico.
-- Ten en cuenta que las nuevas configuraciones deben arrastrarse a la parte superior o inferior de una sección existente.
-- Cuando selecciones una configuración de fila, aparecerán los ajustes de **Row Properties** para una mayor personalización de los colores de fondo de la fila, imágenes y tamaños de columna personalizados.
+   - Ten en cuenta que las nuevas configuraciones deben arrastrarse a la parte superior o inferior de una sección existente.
+   - Cuando selecciones una configuración de fila, aparecerán los ajustes de **Row Properties** para una mayor personalización de los colores de fondo de la fila, imágenes y tamaños de columna personalizados.
 2. Selecciona el panel **Content**. Arrastra y suelta los mosaicos de contenido deseados en los componentes de fila.
-- También puedes arrastrar cualquiera de los mosaicos de **Content** al editor principal. Esto crea una fila para el mosaico.
-- Puedes refinar aún más el mosaico seleccionándolo y ajustando los campos en **Content Properties** y **Block Options**. Esto incluye editar el espaciado entre letras, el relleno, la altura de línea y más.
+   - También puedes arrastrar cualquiera de los mosaicos de **Content** al editor principal. Esto crea una fila para el mosaico.
+   - Puedes refinar aún más el mosaico seleccionándolo y ajustando los campos en **Content Properties** y **Block Options**. Esto incluye editar el espaciado entre letras, el relleno, la altura de línea y más.
 
 Consulta [Otras personalizaciones](#other-customizations) para conocer otras formas de personalizar aún más tu correo electrónico de arrastrar y soltar.
 
-A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea responsivo, y puedes hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea receptivo, y puedes hacer los ajustes necesarios sobre la marcha.
 
 {% alert tip %}
 ¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
@@ -192,6 +193,7 @@ El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a 
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
 - Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table>`
+  <caption>Usar Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido

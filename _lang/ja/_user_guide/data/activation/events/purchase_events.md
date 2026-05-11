@@ -13,7 +13,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-購入イベントは、ユーザーが実行した購入アクションであり、アプリ内購入を記録し、ユーザープロファイルごとに生涯価値 (LTV) を確立するために使用されます。これらのイベントは、チームが設定する必要があります。購入イベントをログに記録すると、数量やタイプなどのプロパティを追加できるため、それらのプロパティに基づいてユーザーのターゲットをさらに絞り込むことができます。
+購入イベントは、ユーザーが実行した購入アクションであり、アプリ内購入を記録し、ユーザープロファイルごとに生涯価値（LTV）を確立するために使用されます。これらのイベントは、チームが設定する必要があります。購入イベントをログに記録すると、数量やタイプなどのプロパティを追加できるため、それらのプロパティに基づいてユーザーのターゲットをさらに絞り込むことができます。
 
 ## 購入イベントのログ記録 {#log-purchase-events}
 
@@ -124,6 +124,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 </style>
 
 <table>
+  <caption>収益の計算</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -132,23 +133,23 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">生涯収益</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">Lifetime Revenue</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">ユーザーあたりの生涯価値</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime Value Per User</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">1日あたりの平均収益</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Average Daily Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-purchases">1日あたりの購入数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-purchases">Daily Purchases</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Purchases' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">ユーザーあたりの1日の収益</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">Daily Revenue Per User</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Revenue Per User' %}</td>
         </tr>
     </tbody>
@@ -164,9 +165,9 @@ Brazeは購入イベントを使用して、ユーザーの生涯収益（生涯
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
-Brazeでユーザーの LTV を把握するための主な場所は2つあります。
+BrazeでユーザーのLTVを把握するための主な場所は2つあります。
 
-- 各アプリおよびサイトの*生涯収益*や*ユーザーあたりの生涯価値*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data)を参照してください。
+- 各アプリおよびサイトの*Lifetime Revenue*や*Lifetime Value Per User*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data)を参照してください。
 - 特定のユーザーの生涯収益を把握するには、そのユーザーの[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab)を参照してください。
 
 ##### 返金が生涯収益に与える影響 {#impact-of-refunds-on-lifetime-revenue}

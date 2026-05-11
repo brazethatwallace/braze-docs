@@ -42,6 +42,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | Future Anthemの属性例 | Brazeの属性例 |
 | ----------------------------------- | --------------------------- |
 | ![プレイヤーのプロファイル属性を表示するFuture Anthemダッシュボード。]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Future Anthemから同期されたカスタムオブジェクト属性を表示するBrazeユーザープロファイル。]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integration" }
 
 ## Brazeカスタム属性 {#braze-custom-attributes}
 

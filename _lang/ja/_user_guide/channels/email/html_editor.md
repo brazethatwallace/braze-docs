@@ -10,14 +10,14 @@ channel:
 search_rank: 1
 ---
 
-# カスタムHTMLでメールを作成する
+# カスタムHTMLでメールを作成する {#create-an-email-with-custom-html}
 
 > メールメッセージは、ユーザーが望むタイミングでコンテンツを届けるのに最適です。また、アプリをアンインストールしたユーザーを再エンゲージするための優れたツールでもあります。カスタマイズされたメールメッセージを送信することで、ユーザー体験が向上し、アプリから最大限の価値を引き出す手助けになります。
 
-メールCampaignの例については、[ケーススタディ](https://www.braze.com/customers)をご覧ください。
+メールキャンペーンの例については、[ケーススタディ](https://www.braze.com/customers)をご覧ください。
 
 {% alert tip %}
-メールCampaignを初めて作成する場合は、以下のBrazeラーニングコースを確認することを強くお勧めします。<br><br>
+メールキャンペーンを初めて作成する場合は、以下のBrazeラーニングコースを確認することを強くお勧めします。<br><br>
 - [メールのオプトインと権限](https://learning.braze.com/messaging-channels-email)
 - [プロジェクト：基本的なメールマーケティングプログラムを構築する](https://learning.braze.com/project-build-a-basic-email-marketing-program)
 {% endalert %}
@@ -29,7 +29,7 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **メッセージング** > **Campaigns** に移動し、**キャンペーンを作成**を選択します。
+1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
 2. **メール**を選択するか、複数チャネルを対象とするCampaignの場合は**マルチチャネル**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
@@ -59,7 +59,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 ## ステップ 2: 編集エクスペリエンスを選択する {#step-2-choose-your-template-and-compose-your-email}
 
-Brazeでは、メールCampaignを作成する際に2つの編集エクスペリエンスを提供しています。[ドラッグ＆ドロップエディター]({{site.baseurl}}/dnd/)と標準HTMLエディターです。お好みの編集エクスペリエンスに対応するタイルを選択してください。
+Brazeでは、メールキャンペーンを作成する際に2つの編集エクスペリエンスを提供しています。[ドラッグ＆ドロップエディター]({{site.baseurl}}/dnd/)と標準HTMLエディターです。お好みの編集エクスペリエンスに対応するタイルを選択してください。
 
 ![メール編集エクスペリエンスとして、ドラッグ＆ドロップエディター、HTMLエディター、またはテンプレートから選択する画面。]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
@@ -68,7 +68,7 @@ Brazeでは、メールCampaignを作成する際に2つの編集エクスペリ
 HTMLエディターを使用していて、デバイスがダークモードの場合にGmailモバイルアプリで背景色の一貫性を保つ必要がある場合は、[Gmailモバイルアプリとダークモードの背景色](#gmail-dark-mode)を参照してください。
 
 {% alert tip %}
-メールCampaignごとに1つの編集エクスペリエンスを選択することをお勧めします。たとえば、1つのメールCampaign内で**HTML Classic**または**Block editor**のいずれかを選択し、エディター間を切り替えないようにしてください。
+メールキャンペーンごとに1つの編集エクスペリエンスを選択することをお勧めします。たとえば、1つのメールキャンペーン内で**HTML Classic**または**Block editor**のいずれかを選択し、エディター間を切り替えないようにしてください。
 {% endalert %}
 
 ## ステップ 3: メールを作成する {#step-3-compose-your-email}
@@ -113,6 +113,7 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 
 {% alert note %}
 このアプローチは`<table>`要素単体には確実に適用されないため、テーブルだけでなくセルにグラデーションを設定してください。
+  <caption>Gmailモバイルアプリとダークモード</caption>
 {% endalert %}
 
 グラデーション構文の詳細については、[W3SchoolsのCSSグラデーション](https://www.w3schools.com/css/css3_gradients.asp)を参照してください。
@@ -152,6 +153,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 </style>
 
 <table id="reserved-fields">
+  <caption>メールヘッダー</caption>
 <thead>
   <tr>
     <th>予約フィールド</th>
@@ -250,9 +252,9 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 
 {% tabs %}
 {% tab Campaign %}
-次に、Campaignの残りの部分を構築します。Brazeのツールを使用してメールCampaignを構築する方法の詳細については、以下のセクションを参照してください。
+次に、Campaignの残りの部分を構築します。Brazeのツールを使用してメールキャンペーンを構築する方法の詳細については、以下のセクションを参照してください。
 
-#### 配信スケジュールまたはトリガーを選択する
+#### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
 スケジュールされた時間、アクション、またはAPIトリガーに基づいてメールを配信します。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
@@ -262,7 +264,7 @@ APIトリガーCampaignの場合、トリガーアクションが**Interact With
 
 Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを設定したりすることもできます。
 
-#### ターゲットユーザーを選択する
+#### ターゲットユーザーを選択する {#choose-users-to-target}
 
 次に、Segmentまたはフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むSegment人口のライブプレビューを表示します。正確なSegmentメンバーシップは送信直前に計算されます。
 
@@ -273,10 +275,10 @@ Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/u
 オプションで、Segment内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにしたりすることもできます。
 
 {% alert note %}
-新しいメールCampaignを作成する場合、コントロールグループはデフォルトで20%に設定されており、Campaignの必要に応じて調整または削除できます。
+新しいメールキャンペーンを作成する場合、コントロールグループはデフォルトで20%に設定されており、Campaignの必要に応じて調整または削除できます。
 {% endalert %}
 
-##### メールとプッシュのマルチチャネルCampaign
+##### メールとプッシュのマルチチャネルCampaign {#multichannel-campaigns-with-email-and-push}
 
 メールとプッシュの両方のチャネルをターゲットとするマルチチャネルCampaignでは、明示的にオプトインしたユーザーのみがメッセージを受信するようにCampaignを制限したい場合があります（購読中または購読解除のユーザーを除外）。たとえば、異なるオプトインステータスを持つ3人のユーザーがいるとします。
 
@@ -290,7 +292,7 @@ Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/u
 この設定では、**ターゲットオーディエンス**ステップにオーディエンスを単一チャネルに制限するフィルター（たとえば、`Foreground Push Enabled = True`や`Email Subscription = Opted-In`）を含めないでください。
 {% endalert %}
 
-#### コンバージョンイベントを選択する
+#### コンバージョンイベントを選択する {#choose-conversion-events}
 
 Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。以下のアクションのいずれかをコンバージョンイベントとして指定できます。
 
@@ -311,4 +313,4 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 最後のセクションでは、設計したCampaignの概要が表示されます。関連するすべての詳細を確認し、**Launch Campaign**を選択します。
 
-メールCampaignの結果にアクセスする方法については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)をご覧ください。
+メールキャンペーンの結果にアクセスする方法については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)をご覧ください。

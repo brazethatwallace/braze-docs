@@ -51,6 +51,7 @@ Alguns provedores de LLM podem permitir que você ajuste o nível de raciocínio
 | **Baixo** | Tarefas que se beneficiam de um pouco mais de raciocínio, mas não precisam de análise profunda. |
 | **Médio** | Tarefas com múltiplas etapas ou nuances (como analisar várias entradas para recomendar uma ação). |
 | **Alto** | Raciocínio complexo, casos extremos ou quando você precisa que o modelo trabalhe as etapas antes de responder. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de raciocínio" }
 
 Recomendamos começar com **Mínimo** e testar as respostas do seu agente. Depois, você pode ajustar o nível de raciocínio para **Baixo** ou **Médio** se perceber que o agente está tendo dificuldade em fornecer respostas precisas. Em casos raros, um nível de raciocínio **Alto** pode ser necessário, embora usar esse nível possa resultar em altos custos de token e tempos de resposta mais longos ou maior risco de erros de timeout. Se seu agente está tendo dificuldade em equilibrar raciocínio com múltiplas etapas e tempos de resposta razoáveis, considere dividir seu caso de uso em mais de um agente que possam trabalhar juntos em um Canvas ou catálogo.
 

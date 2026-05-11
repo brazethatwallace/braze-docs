@@ -32,7 +32,7 @@ As a convenience, a summary of supported personalization tags are provided. For 
 | Custom Attributes <br> (These are custom to your workspace.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Canvas Entry Properties | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
 
 {% endraw %}
 
@@ -68,7 +68,7 @@ You can template the following attributes for the user's most recent device acro
 | `{{most_recently_used_device.${model}}}` | The device's model name, if available. Examples include "iPhone 6S" and "Nexus 6P" and "Firefox". |
 | `{{most_recently_used_device.${os}}}` | The device's operating system, if available. Examples include "iOS 9.2.1" and "Android (Lollipop)" and "Windows". |
 | `{{most_recently_used_device.${platform}}}` | The device's platform, if available. If set, the value is one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
 
 Because there is such a wide range of device carriers, model names, and operating systems, we advise that you thoroughly test any Liquid that conditionally depends on any of those values. These values are `null` if they are not available on a particular device.
 
@@ -80,7 +80,7 @@ For in-app messages, you can use the following app attributes within Liquid. The
 |------------------|---|
 | `{{app.${api_id}}}` | The API key of the app requesting the message. For example, you use this key in conjunction with `abort_message()` Liquid to avoid sending in-app messages to certain apps, such as TV platforms or development builds that use a separate SDK API key.|
 | `{{app.${name}}}` | The name of the app (as defined in the Braze dashboard) requesting the message. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
 
 For example, this Liquid code aborts a message if the requesting apps are not one of the two API keys in the list:
 
@@ -108,7 +108,7 @@ For push notifications, in-app messages, and Banners, you can template in the fo
 | `{{targeted_device.${os}}}` | The device's operating system, if available. Examples include "iOS 9.2.1" and "Android (Lollipop)" and "Windows". |
 | `{{targeted_device.${platform}}}` | The device's platform, if available. If set, the value is one of `ios`, `android`, `kindle`, `android_china`, `web`, or `tvos`. You can also use the `most_recently_used_device` personalization tag. |
 | `{{targeted_device.${foreground_push_enabled}}}` | This value is `true` when the targeted device is enabled for foreground push, `false` otherwise. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
 
 {% endraw %}
 
@@ -302,7 +302,7 @@ The `{% random %}` tag returns a random number. You can use it for A/B-style log
 |-------|--------------|
 | `{% random %}` | A float between 0 and 1 (inclusive of 0, exclusive of 1). |
 | `{% random 10 %}` (integer argument) | An integer ranging from 0 up to, but not including, the specified integer. For example, `{% random 10 %}` returns an integer from 0 to 9. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
 
 {% endraw %}
 

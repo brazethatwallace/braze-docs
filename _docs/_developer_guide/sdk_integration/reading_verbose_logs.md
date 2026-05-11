@@ -525,4 +525,4 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 | `ccc` | Content Card click |
 | `ccd` | Content Card dismissed |
 | `lr` | Location recorded |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Common event abbreviations" }

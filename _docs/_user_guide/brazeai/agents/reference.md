@@ -51,6 +51,7 @@ Some LLM providers may allow you to adjust a selected model's thinking level. Th
 | **Low** | Tasks that benefit from a bit more reasoning but don't need deep analysis. |
 | **Medium** | Multi-step or nuanced tasks (such as analyzing several inputs to recommend an action). |
 | **High** | Complex reasoning, edge cases, or when you need the model to work through steps before answering. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
 We recommend starting with **Minimal** and testing your agent’s responses. Then, you can adjust the thinking level to **Low** or **Medium** if you find the agent is struggling to provide accurate answers. In rare cases, a **High** thinking level may be needed, although using this level can result in high token costs and longer response times or higher risk of timeout errors. If your agent is struggling to balance multi-step reasoning with reasonable response times, consider breaking your use case apart into more than one agent that can work together in a Canvas or catalog.
 
@@ -469,7 +470,7 @@ If you want to format responses to a simple feedback survey to determine how lik
 | **likelihood_score** | Number |
 | **explanation** | String |
 | **confidence_score** | Number |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
 
 ![Agent Console showing three output fields for likelihood score, explanation, and confidence score.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 

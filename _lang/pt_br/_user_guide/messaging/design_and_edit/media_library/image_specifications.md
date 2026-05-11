@@ -11,35 +11,35 @@ tool:
 
 ---
 
-# Especificações de imagem
+# Especificações de imagem {#image-specifications}
 
 > De modo geral, imagens menores e de alta qualidade carregam mais rápido, por isso recomendamos usar o menor ativo possível para alcançar o resultado desejado. Para maximizar o uso de imagens em canais específicos, consulte os detalhes neste artigo.
 
 Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) em diversos dispositivos para confirmar que as áreas mais importantes da sua imagem e mensagem apareçam conforme esperado.
 
-## Comportamento da imagem
+## Comportamento da imagem {#image-behavior}
 
 {% multi_lang_include image_specs.md variable_name='image behavior' %}
 
-## Vídeo
+## Vídeo {#video}
 
 Vídeos enviados para a Biblioteca de mídia só podem ser usados em mensagens do WhatsApp. Para saber mais, consulte [Criando uma mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
 
-## GIFs
+## GIFs {#gifs}
 
-GIFs são compatíveis com push para iOS, mensagens no app, e-mail, Cartões de conteúdo e mensagens MMS ou RCS. GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou mais quadros podem falhar no upload, mesmo que o tamanho total do arquivo seja pequeno.
+GIFs são compatíveis com push para iOS, mensagens no app, e-mail, Content Cards e mensagens MMS ou RCS. GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou mais quadros podem falhar no upload, mesmo que o tamanho total do arquivo seja pequeno.
 
-## Orientações por canal
+## Orientações por canal {#channel-guidance}
 
-### Cartões de conteúdo
+### Content Cards {#content-cards}
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
-### E-mail
+### E-mail {#email}
 
 {% multi_lang_include image_specs.md variable_name='email' %}
 
-### Mensagens no app
+### Mensagens no app {#in-app-messages}
 
 {% multi_lang_include image_specs.md variable_name='in-app messages' %}
 
@@ -51,13 +51,13 @@ Para saber mais, consulte [Detalhes criativos de mensagens no app]({{site.baseur
 
 A Braze oferece suporte ao uso do [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/cheatsheet/) para ícones de mensagens no app do tipo modal.
 
-### Notificações por push
+### Notificações por push {#push-notifications}
 
 {% multi_lang_include image_specs.md variable_name='payload size' %}
 
 {% multi_lang_include image_specs.md variable_name='push notifications' %}
 
-#### Comprimentos de mensagem recomendados
+#### Comprimentos de mensagem recomendados {#recommended-message-lengths}
 
 Para melhores resultados, consulte as diretrizes de comprimento de mensagem a seguir ao criar mensagens push. Pode haver alguma variação dependendo da presença de uma imagem, do estado da notificação (iOS) e da configuração de exibição do dispositivo do usuário, bem como do tamanho do dispositivo.
 
@@ -68,11 +68,11 @@ Para melhores resultados, consulte as diretrizes de comprimento de mensagem a se
 | Banner de alerta do iOS | 80 caracteres | 65 caracteres |
 | Tela de bloqueio do Android | 49 caracteres | N/A |
 | Gaveta de notificações do Android | 597 caracteres | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprimentos de mensagem recomendados" }
 
 Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de contagem de caracteres do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
 
-#### Push para a web
+#### Push para a web {#web-push}
 
 {% tabs %}
 {% tab Imagens %}
@@ -119,12 +119,12 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 {% endtab %}
 {% endtabs %}
 
-#### Exemplos de notificações por push
+#### Exemplos de notificações por push {#push-notification-examples}
 
 {% tabs %}
 {% tab iOS %}
 
-![Notificação por push do iOS com o texto: "Hi! This is an iOS Push with an image" com um emoji. Há uma pequena imagem ao lado do texto.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
+![Notificação por push do iOS com o texto "Hi! This is an iOS Push with an image" e um emoji. Há uma pequena imagem ao lado do texto.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
 ![Notificação por push do iOS em push expandido com o mesmo texto da mensagem anterior e uma imagem expandida antes do texto.]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
 
 {% endtab %}

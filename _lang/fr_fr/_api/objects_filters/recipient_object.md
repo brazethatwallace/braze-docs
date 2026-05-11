@@ -26,12 +26,16 @@ L'objet destinataire vous permet de combiner l'[objet alias d'utilisateur]({{sit
   "prioritization": (optional, array) see Prioritization; required when using email,
   "trigger_properties": (optional, object) personalization key-value pairs for this user when sending a campaign or message; see Trigger Properties,
   "context": (optional, object) personalization key-value pairs for this user when triggering a Canvas; see Canvas context object,
-  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases,
+  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases; if set to `false`, an `attributes` object must also be included,
   "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
 }]
 ```
 
-Lorsque `send_to_existing_only` est défini sur `true`, Braze envoie le message uniquement aux utilisateurs existants. Cependant, il n'est pas possible d'utiliser ce paramètre avec les alias d'utilisateurs. Lorsque `send_to_existing_only` est défini sur `false`, vous devez inclure un attribut. Braze crée alors un utilisateur avec l'`id` et les attributs avant d'envoyer le message.
+Lorsque `send_to_existing_only` est défini sur `true`, Braze envoie le message uniquement aux utilisateurs existants. Cependant, il n'est pas possible d'utiliser ce paramètre avec les alias d'utilisateurs.
+
+Lorsque `send_to_existing_only` est défini sur `false`, vous devez inclure un objet `attributes` sur le même destinataire. Ce paramètre ne remplace pas `attributes`. Braze utilise `attributes` pour la création ou la mise à jour du profil avant l'envoi (par exemple, l'ajout de champs `email` ou téléphone pour la distribution par e-mail ou SMS, ou la mise à jour des groupes d'abonnement). Sans cet objet, vous n'obtenez pas le comportement combiné attendu pour les nouveaux utilisateurs sur [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/).
+
+Ce profil doit tout de même respecter les règles d'audience et d'éligibilité au canal du message avant que Braze ne procède à l'envoi.
 
 - [ID Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
 - [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)

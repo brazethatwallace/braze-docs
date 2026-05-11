@@ -33,10 +33,10 @@ Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen kön
 
 Die Anzahl der veröffentlichten Landing-Pages und angepassten Domains, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
 
-| Feature                                                                                                   | Kostenloser Tarif     | Kostenpflichtiger Tarif (inkrementell)     |
+| Feature | Kostenloser Tarif | Kostenpflichtiger Tarif (inkrementell) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| Veröffentlichte Landing-Pages                                                                 | Fünf pro Unternehmen | 20 zusätzlich |
-| Angepasste Domains          | Eine pro Unternehmen | Fünf zusätzlich |
+| Veröffentlichte Landing-Pages | Fünf pro Unternehmen | 20 zusätzlich |
+| Angepasste Domains | Eine pro Unternehmen | Fünf zusätzlich |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
@@ -63,6 +63,12 @@ Weitere Informationen zur Implementierung von Google Tag Manager finden Sie in d
 ### Wie groß darf eine Landing-Page maximal sein? {#whats-the-maximum-size-for-landing-pages}
 
 Die Größe des Landing-Page-Bodys kann bis zu 500 KB betragen.
+
+### Können Landing-Pages hohe Traffic-Szenarien bewältigen? {#can-landing-pages-handle-high-traffic-scenarios}
+
+Ja, nicht personalisierte Landing-Pages können hohe Traffic-Szenarien effektiv bewältigen. Wenn eine nicht personalisierte Landing-Page zum ersten Mal angefordert wird, wird sie von Braze über Cloudflare gecacht. Das bedeutet, dass alle nachfolgenden Anfragen für denselben Link aus dem Cache bedient werden, sodass die Performance bei hohem Anfragevolumen nicht beeinträchtigt wird. Dieser Cache ist 24 Stunden gültig, und gecachte Seitenaufrufe zählen nicht für Rate-Limits.
+
+Für personalisierte Landing-Pages (mit Liquid-Personalisierung) gelten Rate-Limits für nicht gecachte Anfragen. Um eine optimale Performance aufrechtzuerhalten, lesen Sie [Hinweise zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
 
 ### Gibt es technische Anforderungen, um eine Landing-Page zu veröffentlichen? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 

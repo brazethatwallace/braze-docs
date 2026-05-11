@@ -218,7 +218,7 @@ Nachdem Sie eine Erweiterung erstellt haben, können Sie sie als Filter verwende
 Campaigns
 {% endapitags %}
 
-Um eine Multichannel-Campaign zu erstellen, gehen Sie auf die Seite **Campaigns**, wählen Sie **Kampagne erstellen** und dann **Multichannel-Campaign**. Innerhalb einer Multichannel-Campaign wählen Sie auf der Registerkarte „Verfassen“ die Option **Messaging-Kanal hinzufügen**, um die gewünschten Kanäle hinzuzufügen. Klicken Sie auf die eingeblendeten Kanalsymbole, um zwischen den verschiedenen Messaging-Editoren umzuschalten, während Sie Ihre Campaign-Texte für die verschiedenen Kanäle erstellen.
+Informationen zu den Einrichtungsschritten, unterstützten Kanälen und dem Wechsel zwischen Editoren finden Sie unter [Multichannel-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Campaign erstellen**.
 
 {% endapi %}
 {% api %}
@@ -285,7 +285,7 @@ Braze empfiehlt ausdrücklich, alle Campaigns mit lokaler Zeitzone 24 Stunden im
 
 Wenn es beispielsweise 13 Uhr ist und Sie eine Campaign für die lokale Zeitzone um 15 Uhr planen, wird die Campaign sofort an alle Nutzer:innen gesendet, deren Ortszeit zwischen 15 und 16 Uhr liegt, aber nicht an Nutzer:innen, deren Ortszeit 17 Uhr ist. Außerdem muss die Sendezeit, die Sie für Ihre Campaign wählen, in der Zeitzone Ihres Unternehmens noch nicht verstrichen sein.
 
-Das Bearbeiten einer Campaign mit lokaler Zeitzone, die weniger als 24 Stunden im Voraus geplant wurde, ändert den Zeitplan der Nachricht nicht. Wenn Sie eine Campaign mit lokaler Zeitzone so bearbeiten, dass sie zu einem späteren Zeitpunkt gesendet wird (z. B. 19 Uhr statt 18 Uhr), erhalten die Nutzer:innen, die sich zum Zeitpunkt der ursprünglichen Sendezeit im Zielsegment befanden, die Nachricht weiterhin zur ursprünglichen Zeit (18 Uhr). Wenn Sie eine lokale Zeitzone bearbeiten, um zu einer früheren Zeit zu senden (z. B. 16 Uhr statt 17 Uhr), wird die Campaign trotzdem an alle Segmentmitglieder zur ursprünglichen Zeit (17 Uhr) gesendet.
+Das Bearbeiten einer Campaign mit lokaler Zeitzone, die weniger als 24 Stunden im Voraus geplant wurde, ändert den Zeitplan der Nachricht nicht. Wenn Sie eine Campaign mit lokaler Zeitzone so bearbeiten, dass sie zu einem späteren Zeitpunkt gesendet wird (z. B. 19 Uhr statt 18 Uhr), erhalten die Nutzer:innen, die sich zum Zeitpunkt der ursprünglichen Sendezeit im Zielsegment befanden, die Nachricht weiterhin zur ursprünglichen Zeit (18 Uhr). Wenn Sie eine Campaign mit lokaler Zeitzone bearbeiten, um zu einer früheren Zeit zu senden (z. B. 16 Uhr statt 17 Uhr), wird die Campaign trotzdem an alle Segmentmitglieder zur ursprünglichen Zeit (17 Uhr) gesendet.
 
 {% alert note %}
 Bei Canvas-Schritten müssen Nutzer:innen nicht 24 Stunden im Schritt sein, um den nächsten Schritt bei der Zustellung zur Ortszeit zu erhalten.

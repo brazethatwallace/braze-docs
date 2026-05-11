@@ -11,7 +11,7 @@ page_order: 1
 
 ## Über KI-Artikelempfehlungen {#about-ai-item-recommendations}
 
-Nutzen Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) zu erstellen. Anschließend können Sie die Personalisierung nutzen, um diese Produkte in Ihre Nachrichten einzufügen.
+Nutzen Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) zu erstellen. Nachdem Sie Ihre Empfehlung erstellt haben, können Sie die Personalisierung nutzen, um diese Produkte in Ihre Nachrichten einzufügen.
 
 {% alert tip %}
 [KI-Personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
@@ -47,7 +47,7 @@ Sie können eine Empfehlung auch direkt aus einem einzelnen Katalog erstellen. W
 
 Geben Sie Ihrer Empfehlung einen Namen und eine optionale Beschreibung.
 
-![Schritt „Empfehlungsdetails“ mit den Feldern Name und Beschreibung.]({% image_buster /assets/img/item_recs_1.png %})
+![Schritt „Empfehlungsdetails“ mit den Feldern für Name und Beschreibung.]({% image_buster /assets/img/item_recs_1.png %})
 
 ### 3. Schritt: Ihre Empfehlung definieren {#recommendation-type}
 
@@ -131,6 +131,7 @@ Die folgenden Beispielzuordnungen beziehen sich beide auf diesen Beispielkatalog
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Beispielzuordnungen</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

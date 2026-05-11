@@ -42,6 +42,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | Future Anthem의 속성 예시 | Braze의 속성 예시 |
 | ----------------------------------- | --------------------------- |
 | ![플레이어의 프로필 속성을 보여주는 Future Anthem 대시보드.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Future Anthem에서 동기화된 커스텀 오브젝트 속성을 보여주는 Braze 고객 프로필.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integration" }
 
 ## Braze 커스텀 속성 {#braze-custom-attributes}
 

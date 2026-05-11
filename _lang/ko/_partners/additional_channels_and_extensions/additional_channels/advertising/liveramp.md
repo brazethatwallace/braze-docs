@@ -19,7 +19,7 @@ Snowflake의 [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-
 
 - **데이터 최소화:** LiveRamp의 Activation 앱은 Snowflake의 Secure Data Share 기능을 사용하여 인스턴스에서 직접 테이블을 효과적으로 읽습니다. 다운스트림 파트너에게 전달하는 시점까지 Snowflake에서 데이터가 이동하지 않습니다.
 - **안전한 1st Party 활성화:** 위의 Identity Resolution 애플리케이션을 사용하면 LiveRamp의 Activation 애플리케이션은 Snowflake 인스턴스의 RampID 기반 테이블만 활용하므로 PII가 외부로 유출될 필요가 없습니다.
-- **라이브 전환 시간 단축:** 환경 내에서 직접 데이터를 RampID로 확인하면 최종 대상으로의 전달이 몇 시간 내에 이루어질 수 있으며, 이는 LiveRamp의 기존 파일 기반 방식을 사용할 때 며칠이 걸리는 것과 비교됩니다. 이를 통해 적시에 캠페인 성과를 최적화하는 능력이 크게 향상됩니다.
+- **라이브 시간 단축:** 환경 내에서 직접 데이터를 RampID로 확인하면 최종 대상으로의 전달이 몇 시간 내에 이루어질 수 있으며, 이는 LiveRamp의 기존 파일 기반 방식을 사용할 때 며칠이 걸리는 것과 비교됩니다. 이를 통해 적시에 캠페인 성과를 최적화하는 능력이 크게 향상됩니다.
 - **운영 비용 절감:** 위와 마찬가지로 Snowflake의 Secure Data Share 기능을 사용하면 LiveRamp 또는 최종 대상으로 파일을 전송하는 것과 비교하여 시간과 비용을 절약할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
@@ -28,7 +28,7 @@ Snowflake의 [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Snowflake 계정 | 관리자 수준의 권한이 있는 Snowflake 계정이 필요합니다.                                                                                                                                      |
 | LiveRamp 계정  | Snowflake 내에서 필요한 LiveRamp 애플리케이션에 대해 논의하려면 LiveRamp 계정 팀 또는 [snowflake@liveramp.com](mailto:snowflake@liveramp.com)으로 문의하세요.                              |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 설정 {#setting-up-the-integration}
 

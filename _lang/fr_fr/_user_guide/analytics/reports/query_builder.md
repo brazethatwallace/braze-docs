@@ -2,14 +2,14 @@
 nav_title: Générateur de requêtes
 article_title: Générateur de requêtes
 page_order: 4
-description: "Cet article de référence décrit comment créer des rapports à partir des données Braze dans Snowflake avec le Générateur de requêtes."
+description: "Cet article de référence décrit comment créer des rapports à partir des données de Braze dans Snowflake à l'aide du Générateur de requêtes."
 tool: Reports
 alias: /query_builder/
 ---
 
 # Générateur de requêtes {#query-builder}
 
-> Le Générateur de requêtes génère des rapports à partir des données Braze dans Snowflake. Il est fourni avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) SQL prédéfinis pour vous aider à démarrer, ou vous pouvez écrire vos propres requêtes SQL personnalisées pour obtenir encore plus d'informations.
+> Le Générateur de requêtes génère des rapports à partir des données de Braze dans Snowflake. Il est fourni avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) SQL prédéfinis pour vous aider à démarrer, ou vous pouvez écrire vos propres requêtes SQL personnalisées pour obtenir encore plus d'informations.
 
 Étant donné que le Générateur de requêtes permet un accès direct à certaines données client, vous ne pouvez y accéder que si vous disposez de l'[autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) « View PII ».
 
@@ -131,7 +131,7 @@ Si vous interrogez `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CAMPAIGN_ID`, les 
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Écrire des requêtes SQL personnalisées" }
 
 Cette requête récupère les trois ID et leurs colonnes de noms associées avec un maximum de 100 lignes :
 
@@ -162,11 +162,11 @@ Votre requête peut échouer pour l'une des raisons suivantes :
 
 ## Utiliser des variables {#using-variables}
 
-Utilisez des variables pour employer des types de variables prédéfinis en SQL afin de référencer des valeurs sans avoir à copier manuellement la valeur. Par exemple, au lieu de copier manuellement l'ID d'une campagne dans l'éditeur SQL, vous pouvez utiliser {% raw %}`{{campaign.${My campaign}}}`{% endraw %} pour sélectionner directement une campagne depuis un menu déroulant dans l'onglet **Variables**.
+Utilisez des variables pour employer des types de variables prédéfinis en SQL afin de référencer des valeurs sans avoir à copier manuellement la valeur. Par exemple, au lieu de copier manuellement l'ID d'une Campaign dans l'éditeur SQL, vous pouvez utiliser {% raw %}`{{campaign.${My campaign}}}`{% endraw %} pour sélectionner directement une Campaign depuis un menu déroulant dans l'onglet **Variables**.
 
 Une fois une variable créée, elle apparaîtra dans l'onglet **Variables** de votre rapport du Générateur de requêtes. Les avantages de l'utilisation de variables SQL incluent :
 
-- Gagner du temps en créant une variable de campagne à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des ID de campagne.
+- Gagner du temps en créant une variable Campaign à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des identifiants Campaign.
 - Permuter les valeurs en ajoutant des variables qui vous permettent de réutiliser le rapport pour des cas d'utilisation légèrement différents à l'avenir (comme un événement personnalisé différent).
 - Réduire les erreurs utilisateur lors de la modification de votre SQL en diminuant la quantité de modifications nécessaires pour chaque rapport. Les collègues plus à l'aise avec SQL peuvent créer des rapports que des collègues moins techniques peuvent ensuite utiliser.
 
@@ -228,56 +228,56 @@ Toutes les variables d'envoi de messages doivent partager le même identifiant l
 
 ##### Canvas
 
-Pour sélectionner un Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la campagne.
+Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (multiples) {#canvases}
 
-Pour sélectionner plusieurs Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la campagne.
+Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON des Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign
 
-Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la Campaign.
+Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON de la Campaign
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns
 
-Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la Campaign.
+Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON des Campaigns
 - **Exemple d'utilisation :** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
 ##### Variantes de campagne {#campaign-variants}
 
-Pour sélectionner les variantes de campagne appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable de Campaign ou de Campaigns.
+Pour sélectionner les variantes de campagne appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
 
 - **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}
 
-Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable de Canvas ou de Canvas (multiples).
+Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable Canvas ou Canvas (multiples).
 
 - **Valeur de remplacement :** ID API des variantes de Canvas, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Étape du Canvas {#canvas-step}
 
-Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable de Canvas.
+Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable Canvas.
 
 - **Valeur de remplacement :** ID API de l'étape du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Étapes du Canvas {#canvas-steps}
 
-Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Doit être utilisé avec une variable de Canvas ou de Canvas (multiples).
+Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Doit être utilisé avec une variable Canvas ou Canvas (multiples).
 
 - **Valeur de remplacement :** ID API des étapes du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

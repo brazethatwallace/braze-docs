@@ -15,7 +15,7 @@ By default, for your user to receive your messages through push, their push subs
 |`Subscribed`| Default push subscription state when a user profile is created in Braze. |
 |`Opted-In`| A user has explicitly expressed a preference to receive push notifications. Braze automatically moves a user's opt-in state to `Opted-In` if the user accepts an OS-level push prompt.<br><br>This does not apply to Android 12 or below users.|
 |`Unsubscribed`| A user explicitly unsubscribed from push through your application or other methods your brand provides. By default, Braze push campaigns target only users that are `Subscribed` or `Opted-in` for push.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
 
 {% alert important %}
 Braze does not automatically change a user's push subscription state to `Unsubscribed`. Remember that if a user's push subscription state is `Unsubscribed`, then the user's `Foreground Push Enabled` filter in segmentation is `false`.

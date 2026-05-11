@@ -35,6 +35,7 @@ Bevor Sie AMP-E-Mails an Nutzer:innen senden können, müssen Sie sich bei unser
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Eine vollständige Liste der unterstützten E-Mail-Clients finden Sie in der [AMP-Dokumentation](https://amp.dev/support/faq/email-support).
 
@@ -204,6 +205,7 @@ Indem Sie Ihren Inhalt mit dem `raw`-Tag umschließen, ignoriert die Braze-Verar
 </style>
 
 <table>
+  <caption>Metriken und Analytics</caption>
     <thead>
         <tr>
             <th>Metrik</th>

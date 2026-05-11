@@ -26,6 +26,7 @@ toc_headers: h2
 ## 利用可能なビュー {#available-views}
 
 <table>
+  <caption>利用可能なビュー</caption>
   <thead>
     <tr>
       <th>タイプ</th>

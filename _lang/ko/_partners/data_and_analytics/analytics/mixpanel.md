@@ -2,7 +2,7 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "이 참조 문서에서는 비즈니스 분석 플랫폼인 Mixpanel과 Braze 간의 파트너십을 설명합니다. Mixpanel 코호트를 Braze로 가져와 향후 Braze Campaigns 또는 Canvases에서 사용자를 타겟팅하는 데 사용할 수 있는 Braze Segments를 생성할 수 있습니다."
+description: "이 참조 문서에서는 비즈니스 분석 플랫폼인 Mixpanel과 Braze 간의 파트너십을 설명합니다. Mixpanel 코호트를 Braze로 가져와 향후 Braze Campaign 또는 Canvases에서 사용자를 타겟팅하는 데 사용할 수 있는 Braze Segments를 생성할 수 있습니다."
 page_type: partner
 search_tag: Partner
 tool: Currents
@@ -13,7 +13,9 @@ tool: Currents
 
 > [Mixpanel](https://mixpanel.com/)은 Mixpanel에서 다른 플랫폼으로 이벤트를 내보내 더 심층적인 분석을 수행할 수 있는 비즈니스 분석 플랫폼입니다. 수집된 데이터는 커스텀 보고서를 작성하고 사용자 참여 및 리텐션을 측정하는 데 사용할 수 있습니다.
 
-Braze와 Mixpanel 통합을 통해 [Mixpanel 코호트를 Braze로 가져와]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) 향후 Braze Campaigns 또는 Canvases에서 사용자를 타겟팅할 수 있는 Braze Segments를 생성할 수 있습니다. 또한 Braze 커런츠를 사용하여 [Braze 이벤트를 Mixpanel로 내보내](#data-export-integration) 전환, 리텐션 및 제품 사용에 대한 더 심층적인 분석을 수행할 수 있습니다.
+Braze와 Mixpanel 통합을 통해 [Mixpanel 코호트를 Braze로 가져와]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) 향후 Braze Campaign 또는 Canvases에서 사용자를 타겟팅할 수 있는 Braze Segments를 생성할 수 있습니다. 코호트 동기화는 Braze에서 코호트 멤버십을 업데이트하며, Mixpanel 이벤트나 사용자 속성정보를 가져오지는 않습니다. 자세한 내용은 [Mixpanel 코호트 가져오기]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration)를 참조하세요.
+
+또한 Braze 커런츠를 사용하여 [Braze 이벤트를 Mixpanel로 내보내](#data-export-integration) 전환, 리텐션 및 제품 사용에 대한 더 심층적인 분석을 수행할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -42,7 +44,7 @@ Mixpanel 대시보드에서 새 프로젝트 또는 기존 프로젝트의 **Pro
 3. 추적하려는 이벤트를 선택합니다. 사용 가능한 이벤트 목록이 제공됩니다.
 4. **Launch Current**을 선택합니다.
 
-![Braze Mixpanel Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일, API 시크릿 및 Mixpanel 내보내기 토큰 필드가 포함되어 있습니다. 커런츠 페이지 하단에는 보낼 수 있는 커런츠 이벤트가 나열되어 있습니다.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
+![Braze Mixpanel Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일, API 시크릿 및 Mixpanel 내보내기 토큰 필드가 포함되어 있습니다. Currents 페이지 하단에는 보낼 수 있는 Currents 이벤트가 나열되어 있습니다.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
 {% tab note %}
 자세한 내용은 Mixpanel의 [통합 문서](https://help.mixpanel.com/hc/en-us/articles/360001243663)를 확인하세요.

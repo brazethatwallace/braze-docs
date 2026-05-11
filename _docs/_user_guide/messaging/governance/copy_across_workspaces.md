@@ -71,7 +71,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Recipient subscription state |  | 
 | Recurring schedule |  | 
 | Is Transactional |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,7 +87,7 @@ Note that the following is not a comprehensive list of what is copied across wor
 | Recipient subscription state |  | 
 | Recurring schedule | Exit criteria | 
 | Is Transactional |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps) aren't copied to the destination workspace. Reconfigure those filters after you copy.
 
@@ -105,7 +105,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Campaign interaction |  Campaign ID | 
 | Custom event name |  | 
 | Product name |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -116,7 +116,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Canvas interaction |  Canvas ID | 
 | Custom event name |  | 
 | Product name |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,7 +132,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Campaign interaction |  Campaign ID | 
 | Custom event name |  | 
 | Product name |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -143,7 +143,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Canvas interaction |  Canvas ID | 
 | Custom event name |  | 
 | Product name |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -159,7 +159,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Type |  Seed group IDs | 
 |  |  Link template IDs | 
 |  |  Internal user group IDs | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -170,7 +170,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Type |  Seed group IDs | 
 |  |  Link template IDs | 
 |  |  Internal user group IDs | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -189,7 +189,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Subject |  Link template | 
 |  |  Link aliasing |
 |  | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -202,7 +202,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Subject |  Link template | 
 |  |  Link aliasing |
 |  | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Preheader |  | 
 | Inline CSS |  | 
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +231,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Preheader |  | 
 | Inline CSS |  | 
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +248,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Subject | Territories | 
 | Headers | Tags | 
 | | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +260,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Subject | Territories | 
 | Headers | Tags | 
 | | Translations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Description | API keys | 
 | Content | Territories | 
 | HTML and drag-and-drop content | Tags | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -287,7 +287,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Description | API keys | 
 | Content | Territories | 
 | HTML and drag-and-drop content | Tags | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +303,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Link shortening | VCF media items | 
 | Click tracking |  | 
 | Media items |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +314,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 | Link shortening | VCF media items | 
 | Click tracking |  | 
 | Media items |  | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}

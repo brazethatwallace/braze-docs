@@ -221,6 +221,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des Content Cards</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -295,6 +296,7 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des bannières</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -364,6 +366,7 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des e-mails</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -514,6 +517,7 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des messages in-app</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -596,6 +600,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des notifications push</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -714,6 +719,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance SMS, MMS et RCS</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -765,6 +771,7 @@ Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos a
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des webhooks</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -800,6 +807,7 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance WhatsApp</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -836,7 +844,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page.
 
-Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars" aria-label="Ouvrir le menu de navigation"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
+Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
 ![Graphique du panneau Performances historiques avec des exemples de statistiques pour un e-mail envoyé entre février 2021 et mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

@@ -52,9 +52,9 @@ Configurez ensuite les détails de votre agent :
 2. (Facultatif) Ajoutez des étiquettes pour filtrer votre agent.
 3. Choisissez le [modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) que votre agent devra utiliser.
 4. Si vous n'utilisez pas le modèle **Braze Auto**, sélectionnez le [niveau de réflexion]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels) du modèle. Vous avez le choix entre minimal, faible, moyen ou élevé. Nous vous recommandons de commencer par **Minimal**, de tester les réponses de votre agent, puis d'ajuster ce paramètre si nécessaire.
-5. Définissez une limite d'exécution quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire de la satisfaction client pour en savoir plus.
+5. Définissez une limite d'invocations quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire de la satisfaction client pour en savoir plus.
 
-![Interface de la Console des agents pour la création d'un agent personnalisé dans Braze. L'écran affiche des champs permettant de saisir le nom et la description de l'agent, de sélectionner un modèle et de définir une limite d'exécution quotidienne.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Interface de la Console des agents pour la création d'un agent personnalisé dans Braze. L'écran affiche des champs permettant de saisir le nom et la description de l'agent, de sélectionner un modèle et de définir une limite d'invocations quotidienne.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Étape 3 : Rédiger les instructions {#agent-instructions}
 
@@ -98,7 +98,7 @@ Le volet **Prévisualisation** est une instance de l'agent qui s'affiche sous la
 3. Sélectionnez **Simuler la réponse**. L'agent s'exécutera en fonction de votre configuration et affichera sa réponse.
 
 {% alert note %}
-Les essais comptent dans votre limite d'exécution quotidienne.
+Les essais comptent dans votre limite d'invocations quotidienne.
 {% endalert %}
 
 ![Console des agents affichant le volet Prévisualisation pour tester un agent personnalisé. L'interface affiche un champ d'exemples d'entrées contenant des données clients, un bouton Lancer le test et une zone de réponse où s'affiche la sortie de l'agent.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

@@ -42,6 +42,7 @@ A equipe de sucesso do cliente da Future Anthem ajuda você a configurar sua int
 | Atributos de exemplo na Future Anthem | Atributos de exemplo na Braze |
 | ----------------------------------- | --------------------------- |
 | ![Dashboard da Future Anthem mostrando atributos de perfil de um jogador.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Perfil de usuário da Braze mostrando atributos de objeto personalizado sincronizados da Future Anthem.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integração" }
 
 ## Atributos personalizados da Braze {#braze-custom-attributes}
 

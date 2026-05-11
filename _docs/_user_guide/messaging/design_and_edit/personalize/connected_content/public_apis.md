@@ -22,7 +22,7 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 | [OpenWeatherMap](http://openweathermap.org/api) | Provides current weather data, 5 and 16 day forecast, and historical data. |
 | [NYT Article Search](https://developer.nytimes.com/docs/articlesearch-product/1/overview) | Provides NYT article data which includes headline, topic, URL, date, abstract, etc. |
 | [The Guardian API](http://open-platform.theguardian.com/documentation/) | Provides Guardian article data which includes headline, topic, URL, date, abstract, etc.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="News and information" }
 
 ## Events and ticketing
 
@@ -33,14 +33,14 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 | [Eventbrite](http://developer.eventbrite.com/) | Provides data on a variety of public events. |
 | [Eventful](http://api.eventful.com/) | Provides data on a variety of public events |
 | [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Provides data on public events, venues, and prices |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events and ticketing" }
 
 ## Food and drink
 
 |  API  | Description |
 | --------- | --- |
 | [BreweryDB](http://www.brewerydb.com/) | Provides information on breweries, beers, and beer events. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Food and drink" }
 
 ## Finance
 
@@ -48,7 +48,7 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 | --------- | --- |
 | [Barchart OnDemand](https://www.barchartondemand.com/free) | Provides a variety of stock, futures, and foreign exchange data. |
 | [CoinDesk](https://www.coindesk.com/api/) | Provides a variety of cryptocurrency data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Finance" }
 
 ## Health
 
@@ -57,7 +57,7 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 | [AirVisual](https://airvisual.com/api) | Provides Air quality and weather data. |
 | [Nutritionix Worlds](https://developer.nutritionix.com/) | Provides verified nutrition data. |
 | [USDA Nutrients](https://fdc.nal.usda.gov/api-guide.html) | Provides access to the National Nutrient Database. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Health" }
 
 ## Music
 
@@ -68,14 +68,14 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 | [Bandsintown](http://www.bandsintown.com/api/overview) | Provides local concert information and recommends live music events. |
 | [Songkick](http://www.songkick.com/developer) | Provides live music information with artists, venues, locations, etc. |
 | [Discogs](http://www.discogs.com/developers/) | Provides information on artists, labels, and recordings. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Music" }
 
 ## Product information
 
 |	 API 	| Description |
 | --------- | --- |
 | [eBay](http://developer.ebay.com/devzone/shopping/docs/concepts/shoppingapiguide.html) | Provides live eBay data including item data, popular searches, and more. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product information" }
 
 ## Miscellaneous
 
@@ -85,6 +85,6 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 | [Clearbit](http://blog.clearbit.com/logo) | Provides company logo images. |
 | [London Unified](http://api.tfl.gov.uk/#Line) and [NYC MTA](https://new.mta.info/developers) | Provide real-time public transit data including line statuses, arrival times, etc. |
 | [Sunrise and Sunset](https://sunrise-sunset.org/api) | Provides Sunset and sunrise times for a given latitude and longitude. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Miscellaneous" }
 
 [16]: [success@braze.com](mailto:success@braze.com)

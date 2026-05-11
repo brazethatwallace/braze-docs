@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
 
 {% endif %}
 
@@ -189,7 +189,7 @@ These specifications apply to template headers, response media messages, and ima
 | Caption (image messages only) | Optional; 1,024 characters maximum | |
 | Recommended dimensions | 1,125 × 600 px | We recommend using JPEG or PNG images sized at 1,125×600 px (1.91:1) for consistent rendering across devices and compliance with Meta's requirements. |
 | Recommended aspect ratio | 1.91:1 (wide) | Square (1:1) and wide (16:9) formats are accepted, but images may be cropped or enlarged depending on the user's device.<br><br> For carousel cards, header images are automatically cropped to a wide ratio by WhatsApp, unless there is no body text, in which case it renders as a square.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 {% endif %}
 
@@ -206,7 +206,7 @@ The following specifications apply to template headers, response media messages,
 | Audio streams | Single audio stream or no audio stream |
 | Caption (video messages only) | Optional; 1,024 characters maximum |
 | Recommended aspect ratio | 1.91:1 (wide) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 

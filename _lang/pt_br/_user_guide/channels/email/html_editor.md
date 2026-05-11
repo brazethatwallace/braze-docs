@@ -10,7 +10,7 @@ channel:
 search_rank: 1
 ---
 
-# Criar um e-mail com HTML personalizado
+# Criar um e-mail com HTML personalizado {#create-an-email-with-custom-html}
 
 > As mensagens de e-mail são ótimas para entregar conteúdo aos seus usuários nos termos deles. Também são excelentes ferramentas para reengajar usuários que podem até ter desinstalado seu app. Enviar mensagens de e-mail personalizadas e sob medida vai melhorar a experiência dos seus usuários e ajudá-los a extrair o máximo valor do seu app.
 
@@ -45,7 +45,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
 3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique uma postergação conforme necessário.
-4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
+4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
 {% endtab %}
@@ -113,6 +113,7 @@ Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
 Essa abordagem não se aplica de forma confiável apenas a elementos `<table>`, então defina o gradiente na célula em vez de apenas na tabela.
+  <caption>App móvel do Gmail e modo escuro</caption>
 {% endalert %}
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -152,6 +153,7 @@ Evite usar as seguintes chaves:
 </style>
 
 <table id="reserved-fields">
+  <caption>Cabeçalhos de e-mail</caption>
 <thead>
   <tr>
     <th>Campos reservados</th>
@@ -264,13 +266,13 @@ Você também pode definir a duração da campanha, especificar o [horário de s
 
 #### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros. A Braze mostra uma pré-visualização ao vivo da população do Segment, incluindo quantos usuários são alcançáveis por e-mail. A associação exata ao Segment é calculada logo antes do envio.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros. A Braze mostra uma pré-visualização ao vivo da população do segmento, incluindo quantos usuários são alcançáveis por e-mail. A associação exata ao segmento é calculada logo antes do envio.
 
 {% multi_lang_include target_audiences.md %}
 
 Você também pode optar por enviar sua campanha apenas para usuários que tenham um [status de inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions/) específico, como aqueles que estão inscritos e optaram por receber e-mail.
 
-Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment, ou permitir que os usuários recebam a mesma mensagem duas vezes em caso de recorrência da campanha.
+Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do segmento, ou permitir que os usuários recebam a mesma mensagem duas vezes em caso de recorrência da campanha.
 
 {% alert note %}
 Ao criar uma nova campanha de e-mail, o grupo de controle é definido como 20% por padrão e pode ser ajustado ou removido conforme necessário para sua campanha.

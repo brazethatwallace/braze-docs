@@ -44,7 +44,7 @@ Before you start, you need the following:
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
 <!-- Create step-by-step instructions for integrating your tool with Braze. It's important to be concise and outline the minimum necessary steps. -->
@@ -77,7 +77,8 @@ Replace the following:
 |---------------------|---------------------|
 | `BRAZE_API_ENDPOINT`    | The Braze REST endpoint URL of your current Braze instance. For more information, see [Rest API keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
 | `BRAZE_API_KEY`         | Your Braze REST API key with the `users.track` permission. |                                                                                                                                    | `HOSTNAME`                  | The hostname of your current PARTNER_NAME instance.  |                                                                                                                         
-| `PARTNER_NAME_API_TOKEN`       | Your PARTNER_NAME API token.  |                                                                                                                                        {: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+| `PARTNER_NAME_API_TOKEN`       | Your PARTNER_NAME API token.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label=”Step 2: Make a POST request” }
 
 #### Default behavior
 

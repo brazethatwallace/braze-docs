@@ -1,7 +1,7 @@
 ---
 nav_title: "POST:ユーザーをマージする"
 article_title: "POST:ユーザーをマージする"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
@@ -114,6 +114,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 - `identified` は `external_id` を持つユーザーを優先することを意味します
 - `unidentified` は `external_id` を持たないユーザーを優先することを意味します
 
+{% alert important %}
+両方のプロファイルに無効な電話番号がある場合、Brazeはそれらをマージしません。無効な番号はE.164形式で保存されておらず、マージジョブはそれらのプロファイルを結合しません。エンドポイントは成功メッセージとともに `202 Accepted` を返すため、HTTP応答ではマージがスキップされたことは示されません。マージする前に、一方または両方のプロファイルの電話番号を修正してください。
+{% endalert %}
+
 ## リクエスト例 {#example-requests}
 
 ### 基本リクエスト {#basic-request}
@@ -214,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### most_recently_updated の優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### most_recently_updatedの優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
 
 メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが2人いる場合、このリクエスト例ではユーザーはマージされません。そのメールアドレスを持つ未識別ユーザーが2人存在するためです。このリクエストは、メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが1人だけの場合にのみ機能します。
 

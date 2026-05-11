@@ -37,7 +37,7 @@ The number of published landing pages and custom domains you can use depends on 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Published landing pages                                                                 | Five per company | 20 additional |
 | Custom domains          | One per company | Five additional |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## Adding Google Tag Manager to a landing page
 
@@ -63,6 +63,12 @@ For details on implementing Google Tag Manager, see [Google's documentation](htt
 ### What's the maximum size for landing pages?
 
 The landing page body size can be up to 500 KB.
+
+### Can landing pages handle high-traffic scenarios?
+
+Yes, non-personalized landing pages can handle high-traffic scenarios effectively. When a non-personalized landing page is first requested, Braze caches it through Cloudflare. This means all subsequent requests for the same link are served from cache, so performance is not degraded on high-volume requests. This cache lasts 24 hours, and cached page views don't count toward rate limits.
+
+For personalized landing pages (using Liquid personalization), rate limits apply to uncached requests. To maintain optimal performance, see [Personalization considerations]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
 
 ### Are there any technical requirements to publish a landing page?
 

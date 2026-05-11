@@ -39,13 +39,28 @@ function unEncodeURIComponent(str) {
 }
 
 function setAdaTableRole(role='presentation') {
-  // assign a role of presentation, and remove the role if it has a th or thead
   $('table').each(function(){
-    if (!$(this).attr('role')) {
-      $(this).attr('role',role);
+    var $table = $(this);
+
+    // Tables with an accessible name are data tables.
+    // Ensure they always use native table semantics by clearing any presentation role.
+    var hasAccessibleName = !!$table.attr('aria-label') ||
+                            !!$table.attr('aria-labelledby') ||
+                            $table.children('caption').length > 0;
+    if (hasAccessibleName) {
+      $table.removeAttr('role');
+      return;
     }
-    if (($(this).attr('role') == role) && (($(this).has('th').length > 0) || ($(this).has('thead').length > 0))){
-      $(this).attr('role',null);
+
+    // For tables without an accessible name, apply the original heuristic:
+    // mark as presentation, then remove that role if the table has header cells
+    // (a signal that it is a data table, not a layout table).
+    if (!$table.attr('role')) {
+      $table.attr('role', role);
+    }
+    if ($table.attr('role') === role &&
+        ($table.find('th').length > 0 || $table.find('thead').length > 0)) {
+      $table.removeAttr('role');
     }
   });
 }

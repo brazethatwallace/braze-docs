@@ -11,4 +11,4 @@
 | Align | Horizontal alignment of the choices within the block. |
 | Accent color | Color used for the radio button controls (such as the selected state indicator). |
 | Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

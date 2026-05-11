@@ -9,7 +9,7 @@ alias: /query_builder/
 
 # Abfrage-Builder {#query-builder}
 
-> Der Abfrage-Builder erstellt Berichte aus Braze-Daten in Snowflake. Der Abfrage-Builder enthält vorgefertigte SQL-[Abfragevorlagen]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/), die Ihnen den Einstieg erleichtern, oder Sie schreiben eigene SQL-Anfragen, um noch mehr Insights zu gewinnen.
+> Der Abfrage-Builder erstellt Berichte aus Braze-Daten in Snowflake. Der Abfrage-Builder enthält vorgefertigte SQL-[Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/), die Ihnen den Einstieg erleichtern, oder Sie schreiben eigene SQL-Anfragen, um noch mehr Insights zu gewinnen.
 
 Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, können Sie ihn nur nutzen, wenn Sie die [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) „PII anzeigen“ besitzen.
 
@@ -23,7 +23,7 @@ So führen Sie einen Bericht im Abfrage-Builder aus:
 
 1. Gehen Sie zu **Analytics** > **Query Builder**.
 2. Wählen Sie **Create SQL Query**. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und wählen Sie eine Vorlage aus der Liste. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
-3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Edit"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
+3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Bearbeiten"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
 4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI helfen](#ai-query-builder) über den Tab **AI Query Builder**. Wenn Sie eigenes SQL schreiben, lesen Sie [Eigene SQL-Anfragen schreiben](#custom-sql) für Anforderungen und Ressourcen.
 5. Wählen Sie **Run Query**.
 6. Speichern Sie Ihre Abfrage.
@@ -33,11 +33,11 @@ So führen Sie einen Bericht im Abfrage-Builder aus:
 
 Ergebnisse jedes Berichts können einmal pro Tag generiert werden. Wenn Sie denselben Bericht mehr als einmal an einem Kalendertag ausführen, sehen Sie in beiden Berichten dieselben Ergebnisse.
 
-### Abfragevorlagen {#query-templates}
+### Abfrage-Templates {#query-templates}
 
-Greifen Sie auf Abfragevorlagen zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** wählen.
+Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** wählen.
 
-Eine Liste der verfügbaren Vorlagen finden Sie unter [Abfragevorlagen]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/).
+Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/).
 
 ### Datenzeitraum {#data-timeframe}
 
@@ -104,7 +104,7 @@ So zeigen Sie Tabellendetails im Abfrage-Builder an:
 
 1. Öffnen Sie auf der Seite **Query Builder** das Panel **Reference** und wählen Sie **Available Data Tables**, um die verfügbaren Datentabellen und ihre Namen anzuzeigen.
 3. Wählen Sie <i class="fas fa-chevron-down" alt=""></i> **See Details**, um die Tabellenbeschreibung und Informationen zu den Tabellenspalten wie Datentypen anzuzeigen.
-4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Tabellennamen in den SQL-Editor kopieren"></i>.
 
 Um von Braze bereitgestellte vorgefertigte Abfragen zu verwenden, wählen Sie **Query Template** beim Erstellen eines Berichts im Abfrage-Builder.
 
@@ -131,7 +131,7 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eigene SQL-Anfragen schreiben" }
 
 Diese Abfrage ruft alle drei IDs und ihre zugehörigen Namensspalten mit maximal 100 Zeilen ab:
 
@@ -168,7 +168,7 @@ Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variables** Ihres A
 
 - Sparen Sie Zeit, indem Sie eine Campaign-Variable erstellen, aus der Sie beim Erstellen Ihres Berichts auswählen können, anstatt Campaign-IDs einzufügen.
 - Tauschen Sie Werte aus, indem Sie Variablen hinzufügen, mit denen Sie den Bericht für leicht unterschiedliche Anwendungsfälle in der Zukunft wiederverwenden können (z. B. ein anderes angepasstes Event).
-- Reduzieren Sie Nutzerfehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.
+- Reduzieren Sie Nutzer:innenfehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.
 
 ### Richtlinien {#guidelines}
 

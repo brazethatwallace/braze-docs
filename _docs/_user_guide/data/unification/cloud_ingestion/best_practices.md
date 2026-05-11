@@ -314,6 +314,7 @@ This example shows the general process for syncing data for the first time, then
 </style>
 
 <table>
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -421,6 +422,7 @@ None of this has synced to Braze before, so add all of it to the source table fo
 A sync runs, and Braze records that you synced all available data up until “2023-03-16 15:00:00”. Then, on the morning of day 2, you have an ETL that runs and some fields in your users table are updated (highlighted):
 
 <table>
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -715,6 +717,6 @@ We recommend that queries be completed within one hour for optimal performance a
 | Data type              | You can sync user attributes, events, and purchases through Cloud Data Ingestion.                                                                                                  |
 | Braze region           | This product is available in all Braze regions. Any Braze region can connect to any source data region.                                                                              |
 | Source region       | Braze will connect to your data warehouse or cloud environment in any region or cloud provider.                                                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }
 
 <br><br>

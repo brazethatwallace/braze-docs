@@ -8,11 +8,11 @@ description: "Dieser Artikel führt Sie durch die Aktivierung von SAML Single Si
 
 ---
 
-# Vom Service Provider (SP) initiierte Anmeldung
+# Vom Service Provider (SP) initiierte Anmeldung {#service-provider-sp-initiated-login}
 
 > Dieser Artikel führt Sie durch die Aktivierung von SAML Single Sign-on für Ihr Braze-Konto und erklärt, wie Sie einen SAML-Trace erhalten.
 
-## Anforderungen
+## Anforderungen {#requirements}
 
 Bei der Einrichtung werden Sie aufgefordert, eine Anmelde-URL und eine Assertion Consumer Service (ACS)-URL anzugeben.
 
@@ -25,7 +25,7 @@ Bei der Einrichtung werden Sie aufgefordert, eine Anmelde-URL und eine Assertion
 
 ## SAML SSO einrichten {#setting-up-saml-sso}
 
-### 1. Schritt: Ihren Identity Provider konfigurieren
+### 1. Schritt: Ihren Identity Provider konfigurieren {#step-1-configure-your-identity-provider}
 
 Richten Sie Braze als Service Provider (SP) in Ihrem Identity Provider (IdP) mit den folgenden Informationen ein. Richten Sie außerdem das SAML-Attribut-Mapping ein.
 
@@ -38,12 +38,13 @@ Wenn Sie Okta als Identity Provider verwenden möchten, stellen Sie sicher, dass
 |`email` | Erforderlich | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Optional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Optional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1. Schritt: Ihren Identity Provider konfigurieren" }
 
 {% alert note %}
 Braze benötigt in der SAML-Assertion nur `email`.
 {% endalert %}
 
-### 2. Schritt: Braze konfigurieren
+### 2. Schritt: Braze konfigurieren {#step-2-configure-braze}
 
 Wenn Sie die Einrichtung von Braze in Ihrem Identity Provider abgeschlossen haben, stellt Ihnen Ihr Identity Provider eine Ziel-URL und ein `x.509`-Zertifikat zur Eingabe in Ihr Braze-Konto bereit.
 
@@ -68,7 +69,7 @@ Stellen Sie sicher, dass Ihr `x.509`-Zertifikat beim Hinzufügen zum Dashboard f
 
 ![SAML SSO-Einstellungen mit aktiviertem Umschalter.]({% image_buster /assets/img/samlsso.png %})
 
-### 3. Schritt: Bei Braze anmelden
+### 3. Schritt: Bei Braze anmelden {#step-3-sign-into-braze}
 
 Speichern Sie Ihre Sicherheitseinstellungen und melden Sie sich ab. Melden Sie sich dann mit Ihrem Identity Provider wieder an.
 
@@ -84,11 +85,11 @@ Speichern Sie Ihre Sicherheitseinstellungen und melden Sie sich ab. Melden Sie s
 6. Kopieren Sie im Tab **API-Schlüssel** den Bezeichner neben dem von Ihnen erstellten API-Schlüssel.
 7. Fügen Sie den RelayState-API-Schlüssel in den RelayState Ihres IdP ein (er kann je nach IdP auch als „Relay State“ oder „Default Relay State“ angezeigt werden).
 
-## SSO-Verhalten
+## SSO-Verhalten {#sso-behavior}
 
 Mitglieder, die sich für die Nutzung von SSO entscheiden, können ihr Passwort nicht mehr wie zuvor verwenden. Nutzer:innen, die weiterhin ihr Passwort verwenden, können dies tun, sofern sie nicht durch die folgenden Einstellungen eingeschränkt werden.
 
-## Einschränkung
+## Einschränkung {#restriction}
 
 Sie können die Mitglieder Ihrer Organisation darauf beschränken, sich nur mit Google SSO oder SAML SSO anzumelden. Um Einschränkungen zu aktivieren, gehen Sie zu **Sicherheitseinstellungen** und wählen Sie entweder **Nur Google SSO-Anmeldung erzwingen** oder **Nur benutzerdefinierte SAML SSO-Anmeldung erzwingen**.
 
@@ -96,36 +97,36 @@ Sie können die Mitglieder Ihrer Organisation darauf beschränken, sich nur mit 
 
 Durch die Aktivierung von Einschränkungen können sich die Braze-Nutzer:innen Ihres Unternehmens nicht mehr mit einem Passwort anmelden, selbst wenn sie sich zuvor mit einem Passwort angemeldet haben.
 
-## Einen SAML-Trace erhalten
+## Einen SAML-Trace erhalten {#obtaining-a-saml-trace}
 
 Wenn Sie Anmeldeprobleme im Zusammenhang mit SSO haben, kann Ihnen ein SAML-Trace bei der Fehlerbehebung Ihrer SSO-Verbindung helfen, indem er zeigt, was in den SAML-Anfragen gesendet wird.
 
-### Voraussetzungen
+### Voraussetzungen {#prerequisites}
 
 Um einen SAML-Trace auszuführen, benötigen Sie einen SAML-Tracer. Hier sind zwei mögliche Optionen je nach Browser:
 
 - [Google Chrome](https://chromewebstore.google.com/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch)
 - [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
 
-### 1. Schritt: Den SAML-Tracer öffnen
+### 1. Schritt: Den SAML-Tracer öffnen {#step-1-open-the-saml-tracer}
 
 Wählen Sie den SAML-Tracer in der Navigationsleiste Ihres Browsers aus. Stellen Sie sicher, dass **Pause** nicht ausgewählt ist, da dies den SAML-Tracer daran hindert, die in den SAML-Anfragen gesendeten Daten zu erfassen. Wenn der SAML-Tracer geöffnet ist, sehen Sie, wie er den Trace befüllt.
 
 ![SAML-Tracer für Google Chrome.]({% image_buster /assets/img/saml_tracer_example.png %})
 
-### 2. Schritt: Bei Braze mit SSO anmelden
+### 2. Schritt: Bei Braze mit SSO anmelden {#step-2-sign-into-braze-using-sso}
 
 Gehen Sie zu Ihrem Braze-Dashboard und versuchen Sie, sich mit SSO anzumelden. Wenn ein Fehler auftritt, öffnen Sie den SAML-Tracer und versuchen Sie es erneut. Ein SAML-Trace wurde erfolgreich erfasst, wenn eine Zeile mit einer URL wie `https://dashboard-XX.braze.com/auth/saml/callback` und einem orangefarbenen SAML-Tag vorhanden ist.
 
-### 3. Schritt: Exportieren und an Braze senden
+### 3. Schritt: Exportieren und an Braze senden {#step-3-export-and-send-to-braze}
 
 Wählen Sie **Export**. Wählen Sie unter **Select cookie-filter profile** die Option **None**. Wählen Sie dann **Export**. Dies generiert eine JSON-Datei, die Sie zur weiteren Fehlerbehebung an den Braze-Support senden können.
 
 ![Menü „Export SAML-trace preferences“ mit ausgewählter Option „None“.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
 
-## Fehlerbehebung
+## Fehlerbehebung {#troubleshooting}
 
-### Ist die E-Mail-Adresse der Nutzerin oder des Nutzers korrekt eingerichtet?
+### Ist die E-Mail-Adresse der Nutzerin oder des Nutzers korrekt eingerichtet? {#is-the-users-email-address-correctly-set-up}
 
 Wenn Sie den Fehler `ERROR_CODE_SSO_INVALID_EMAIL` erhalten, ist die E-Mail-Adresse der Nutzerin oder des Nutzers ungültig. Überprüfen Sie im SAML-Trace, ob das Feld `saml2:Attribute Name="email"` mit der E-Mail-Adresse übereinstimmt, die die Nutzerin oder der Nutzer zur Anmeldung verwendet. Wenn Sie Microsoft Entra ID (ehemals Azure Active Directory) verwenden, lautet das Attribut-Mapping `email = user.userprincipalname`.
 
@@ -136,15 +137,15 @@ Weitere Fehler, die auf Probleme mit der E-Mail-Adresse der Nutzerin oder des Nu
 - `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISSING`: Die E-Mail-Adresse der Nutzerin oder des Nutzers ist leer oder anderweitig falsch konfiguriert.
 - `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISMATCH` oder `ERROR_CODE_SSO_SIGN_IN_EMAIL_MISMATCH`: Die E-Mail-Adresse der Nutzerin oder des Nutzers stimmt nicht mit der für SSO eingerichteten überein.
 
-### Haben Sie ein gültiges SAML-Zertifikat (x.509-Zertifikat)?
+### Haben Sie ein gültiges SAML-Zertifikat (x.509-Zertifikat)? {#do-you-have-a-valid-saml-certificate-x509-certificate}
 
 Sie können Ihr SAML-Zertifikat mit [diesem SAML-Validierungstool](https://www.samltool.com/validate_response.php) überprüfen. Beachten Sie, dass ein abgelaufenes SAML-Zertifikat ebenfalls ein ungültiges SAML-Zertifikat ist.
 
-### Haben Sie ein korrektes SAML-Zertifikat (x.509-Zertifikat) hochgeladen?
+### Haben Sie ein korrektes SAML-Zertifikat (x.509-Zertifikat) hochgeladen? {#did-you-upload-a-correct-saml-certificate-x509-certificate}
 
 Überprüfen Sie, ob das Zertifikat im Abschnitt `ds:X509Certificate` des SAML-Trace mit dem übereinstimmt, das Sie in Braze hochgeladen haben. Dies schließt den Header `-----BEGIN CERTIFICATE-----` und den Footer `-----END CERTIFICATE-----` nicht ein.
 
-### Haben Sie Ihr SAML-Zertifikat (x.509-Zertifikat) falsch eingegeben oder formatiert?
+### Haben Sie Ihr SAML-Zertifikat (x.509-Zertifikat) falsch eingegeben oder formatiert? {#did-you-mistype-or-misformat-your-saml-certificate-x509-certificate}
 
 Stellen Sie sicher, dass im Zertifikat, das Sie im Braze-Dashboard eingereicht haben, keine Leerzeichen oder zusätzlichen Zeichen enthalten sind.
 
@@ -158,25 +159,25 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 -----END CERTIFICATE-----
 ```
 
-### Ist das Sitzungs-Token der Nutzerin oder des Nutzers gültig?
+### Ist das Sitzungs-Token der Nutzerin oder des Nutzers gültig? {#is-the-users-session-token-valid}
 
 Lassen Sie die betroffene Nutzerin oder den betroffenen Nutzer [den Cache und die Cookies des Browsers löschen](https://its.uiowa.edu/services/how-clear-cache-and-cookies-your-web-browser) und versuchen Sie dann erneut, sich mit SAML SSO anzumelden.
 
-### Haben Sie Ihren RelayState eingerichtet?
+### Haben Sie Ihren RelayState eingerichtet? {#did-you-set-your-relaystate}
 
 Wenn Sie den Fehler `ERROR_CODE_SSO_INVALID_RELAY_STATE` erhalten, könnte Ihr RelayState falsch konfiguriert oder nicht vorhanden sein. Falls noch nicht geschehen, müssen Sie Ihren RelayState in Ihrem IdP-Verwaltungssystem einrichten. Die Schritte finden Sie unter [Ihren RelayState einrichten](#setting-up-your-relaystate).
 
-### Steckt die Nutzerin oder der Nutzer in einer Anmeldeschleife zwischen Okta und Braze fest?
+### Steckt die Nutzerin oder der Nutzer in einer Anmeldeschleife zwischen Okta und Braze fest? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
 Wenn sich eine Nutzerin oder ein Nutzer nicht anmelden kann, weil sie oder er in einer Schleife zwischen Okta SSO und dem Braze-Dashboard feststeckt, müssen Sie in Okta die SSO-URL-Zieladresse auf Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) setzen (z. B. `https://dashboard-07.braze.com`).
 
 Wenn Sie einen anderen IdP verwenden, überprüfen Sie, ob Ihr Unternehmen das korrekte SAML- oder x.509-Zertifikat in Braze hochgeladen hat.
 
-### Verwenden Sie eine manuelle Integration?
+### Verwenden Sie eine manuelle Integration? {#are-you-using-a-manual-integration}
 
 Wenn Ihr Unternehmen die Braze-App nicht aus dem App Store Ihres IdP heruntergeladen hat, müssen Sie die vorgefertigte Integration herunterladen. Wenn beispielsweise Okta Ihr IdP ist, laden Sie die Braze-App von deren [Integrationsseite](https://www.okta.com/integrations/braze/) herunter.
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
 Nach der Einrichtung von SAML SSO können Sie:
 

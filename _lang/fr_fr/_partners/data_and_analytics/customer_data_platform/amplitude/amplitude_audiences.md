@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) est une plateforme d'analyse de produits et d'aide à la décision.
 
@@ -28,24 +28,25 @@ L'intégration bidirectionnelle entre Braze et Amplitude vous permet d'[importer
 
 Amplitude et Braze proposent deux méthodes d'intégration différentes. Consultez la documentation suivante pour déterminer quelles méthodes répondent à vos besoins :
 
-- Flux d'événements Braze : une intégration qui vous permet de transmettre les données brutes des événements d'Amplitude directement à Braze.
+- Braze Event Streaming : une intégration qui vous permet de transmettre les données brutes des événements d'Amplitude directement à Braze.
 - [Importation de cohorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) : une intégration qui vous permet de transmettre les cohortes d'Amplitude à Braze.
 
-## Flux d'événements Braze {#braze-event-streaming}
+## Braze Event Streaming
 
 ### Conditions préalables
 
 | Condition | Description |
 | ----------- | ----------- |
-| Braze REST API key | Une clé **Braze REST API** avec toutes les autorisations.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Braze REST endpoint | [L’URL de votre endpoint **Braze REST API**][1]. Votre endpoint dépendra de l'URL de Braze pour votre instance. |
-| Identifiant de l'application Braze | L'identifiant de l'application qui recevra les événements Amplitude. Vous trouverez cette information dans le **tableau de bord de Braze > Developer Console > Settings**. |
+| Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST][1]. Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+| Identifiant de l'application Braze | L'identifiant de l'application qui recevra les événements Amplitude. Vous trouverez cette information dans le **tableau de bord de Braze > Console de développement > Paramètres**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ### Configuration d'Amplitude {#amplitude-setup}
 
 1. Dans Amplitude, accédez à **Data Destinations**, puis recherchez « Braze - Event Stream ».
 2. Saisissez un nom de synchronisation, puis cliquez sur **Create Sync**.
-3. Cliquez sur **Edit** et indiquez votre endpoint **Braze REST API**, votre clé **REST API** et l'identifiant de l'application Braze.
+3. Cliquez sur **Edit** et indiquez votre endpoint REST API Braze, votre clé REST API et l'identifiant de l'application Braze.
 4. Utilisez le filtre d'envoi d'événements pour sélectionner les événements à envoyer. Vous pouvez envoyer tous les événements, mais Amplitude recommande de choisir les plus importants.
 5. Lorsque vous avez terminé, activez la destination et enregistrez.
 
@@ -74,7 +75,7 @@ Dans Amplitude Audiences, sélectionnez **Syncs > Create Sync**.
 Ensuite, choisissez de synchroniser une propriété d'utilisateur, un calcul, une cohorte ou une recommandation.
 
 {% tabs %}
-{% tab Syncing user property %}
+{% tab Synchronisation d'une propriété d'utilisateur %}
 
 Sélectionnez **User Property**, puis la propriété d'utilisateur souhaitée à synchroniser.
 
@@ -89,7 +90,7 @@ Enfin, définissez la fréquence de votre synchronisation.
 ![Définissez votre cadence comme une synchronisation unique ou une synchronisation planifiée.]({% image_buster /assets/img/amplitude9.png %})
 
 {% endtab %}
-{% tab Syncing computation %}
+{% tab Synchronisation d'un calcul %}
 
 Sélectionnez **Computation**, puis le calcul souhaité à synchroniser.
 
@@ -113,7 +114,7 @@ Enfin, définissez la fréquence de votre synchronisation.
 Si vous obtenez cette erreur lors de l'[importation d'une cohorte Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) dans Braze, essayez les étapes suivantes :
 
 1. **Vérifiez l'alignement des ID utilisateur.** L'ID utilisateur dans Amplitude (et non l'ID Amplitude) doit correspondre exactement à l'ID utilisateur externe dans Braze (et non l'ID Braze ou BSON). Par exemple, l'ID utilisateur `12345` dans Amplitude doit correspondre à l'ID utilisateur externe `12345` dans Braze.
-2. **Régénérez votre clé API Braze.** Dans le tableau de bord de Braze, accédez à **Partner Integrations** > **Technology Partners** > **Amplitude** et sélectionnez **Generate New Key**. Réessayez ensuite la synchronisation de la cohorte Amplitude avec la nouvelle clé API.
+2. **Régénérez votre clé API Braze.** Dans le tableau de bord de Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** > **Amplitude** et sélectionnez **Generate New Key**. Réessayez ensuite la synchronisation de la cohorte Amplitude avec la nouvelle clé API.
 3. **Confirmez que la cohorte a bien été synchronisée dans Amplitude.** Contactez le [support Amplitude](https://help.amplitude.com/) pour vérifier que la cohorte a été synchronisée avec succès du côté d'Amplitude avant de poursuivre la résolution des problèmes dans Braze.
 
 ## Endpoints de l'API du profil utilisateur Amplitude {#amplitude-user-profile-api-endpoints}

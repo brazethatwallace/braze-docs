@@ -17,7 +17,7 @@ Para obter os melhores resultados, consulte as diretrizes de tamanho de imagem e
 ## Push para iOS e Android {#ios-and-android-push}
 
 {% tabs local %}
-{% tab Images %}
+{% tab Imagens %}
 
 **Tipo de imagem** | **Tamanho de imagem recomendado** | **Tamanho máximo de imagem** | **Tipos de arquivo**
 --- | --- | --- | ---
@@ -35,7 +35,7 @@ No iOS, as notificações por push são compatíveis com GIFs. Mensagens no app 
 {% endalert %}
 
 {% endtab %}
-{% tab Text %}
+{% tab Texto %}
 
 | Tipo de mensagem | Comprimento recomendado da mensagem (somente texto) | Comprimento recomendado da mensagem (rich)
 --- | ---
@@ -49,7 +49,7 @@ No iOS, as notificações por push são compatíveis com GIFs. Mensagens no app 
 Quer saber quantos caracteres você pode usar em uma notificação por push no iOS sem que ela seja truncada? Confira nossas [diretrizes de contagem de caracteres para iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
 
 {% endtab %}
-{% tab Payload Size %}
+{% tab Tamanho da carga útil %}
 
 **Plataforma** | **Tamanho**
 --- | ---
@@ -59,7 +59,7 @@ Android (FCM) | 4 KB
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
-{% tab Image Example %}
+{% tab Exemplo de imagem %}
 {% subtabs %}
 {% subtab iOS %}
 
@@ -78,7 +78,7 @@ Notificações com imagens grandes ficam melhores ao usar uma imagem de pelo men
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Text Example %}
+{% tab Exemplo de texto %}
 {% subtabs %}
 {% subtab iOS %}
 
@@ -95,10 +95,11 @@ Notificações com imagens grandes ficam melhores ao usar uma imagem de pelo men
 ## Push para a web {#web-push}
 
 {% tabs local %}
-{% tab Images %}
+{% tab Imagens %}
 
 | **Navegador** | **Tamanho de ícone recomendado**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (Os ícones são configuráveis por campanha no Safari 16+ no macOS 13+)
@@ -107,6 +108,7 @@ Opera | 192x192 ≥
 
 | **Navegador** | **Plataforma** | **Tamanho de imagem grande**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | Proporção 2:1
 Firefox | Android | N/A
 Chrome | Windows | Proporção 2:1
@@ -120,10 +122,11 @@ Opera | macOS | N/A
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% endtab %}
-{% tab Text %}
+{% tab Texto %}
 
 | **Navegador** | **Plataforma** | **Comprimento máximo do título**  | **Comprimento máximo do corpo da mensagem**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120

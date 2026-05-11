@@ -19,6 +19,7 @@ tool:
 드래그 앤 드롭 편집기는 [콘텐츠](#content)와 [행](#rows)을 두 가지 핵심 구성요소로 사용하여 HTML을 추가로 사용하지 않고도 워크플로를 간소화합니다.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>콘텐츠 및 행 편집기 구성요소</caption>
     <tr>
         <th style="width: 50%;">콘텐츠</th>
         <th style="width: 50%;">행</th>
@@ -192,6 +193,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 조건부 주석과 CSS 미디어 쿼리의 수를 최소화하는 다음 업데이트를 기반으로 HTML 렌더링이 개선되었습니다. 결과적으로 HTML 파일이 더 작고 효율적으로 코딩됩니다.
 - `<div>` 요소 기반 디자인에서 표준 `<table>` 형식 코드베이스로 마이그레이션
+  <caption>Inbox Vision 사용</caption>
 - [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)이 간결하게 재코딩됨
 - 최종 HTML 코드가 태그 사이의 공백을 제거하도록 압축됨
 - 투명 구분선이 자동으로 콘텐츠 패딩으로 변환됨

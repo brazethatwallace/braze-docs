@@ -31,7 +31,7 @@ GIFはAndroidプッシュ通知ではサポートされていません。これ�
 
 Androidのアプリ内メッセージとContent Cardsでは、[Glide](https://bumptech.github.io/glide/)や[Fresco](https://frescolib.org/)などのサードパーティ画像ライブラリーを統合することでGIFをサポートできます。
 
-iOSでは、プッシュ通知はGIFをサポートしています。アプリ内メッセージとContent Cardsにはカスタムの GIF画像プロバイダーが必要です。
+iOSでは、プッシュ通知はGIFをサポートしています。アプリ内メッセージとContent CardsにはカスタムのGIF画像プロバイダーが必要です。
 {% endalert %}
 
 {% endtab %}
@@ -99,6 +99,7 @@ Android (FCM) | 4 KB
 
 | **ブラウザー** | **推奨アイコンサイズ**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192以上
 Firefox | 192 x 192以上
 Safari | 192 x 192以上（アイコンはmacOS 13以降のSafari 16以降でCampaignごとに設定可能）
@@ -107,6 +108,7 @@ Opera | 192x192以上
 
 | **ブラウザー** | **プラットフォーム** | **大きな画像サイズ**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | 2:1のアスペクト比
 Firefox | Android | N/A
 Chrome | Windows | 2:1のアスペクト比
@@ -124,6 +126,7 @@ Opera | macOS | N/A
 
 | **ブラウザー** | **プラットフォーム** | **最大タイトル長** | **最大メッセージ本文長**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120

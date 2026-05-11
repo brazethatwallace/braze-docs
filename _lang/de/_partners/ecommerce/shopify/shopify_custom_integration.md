@@ -614,6 +614,7 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 </style>
 
 <table style="width: 100%;">
+  <caption>5. Schritt: Angepasstes Daten-Tracking einrichten (erweitert)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Angepasste Events</th>

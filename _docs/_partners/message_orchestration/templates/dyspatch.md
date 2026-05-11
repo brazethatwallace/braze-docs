@@ -24,7 +24,7 @@ The Dyspatch and Braze integration allow you to simplify your email creation lif
 | ----------- | ----------- |
 | Dyspatch account | A [Dyspatch account](https://www.dyspatch.io/login/) with an [owner or admin role](https://docs.dyspatch.io/administration/dyspatch_roles/) is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with full **Templates** permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration
 

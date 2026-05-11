@@ -19,7 +19,7 @@ Durch die Integration von VWO mit Braze können Sie VWO-Experimentdaten nutzen, 
 |-----------------|-------------|
 | VWO-Konto     | Ein VWO-Konto mit Zugang zu Experimentierdaten. |
 | Braze-Konto   | Ein aktives Braze-Konto mit Integration des [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) auf Ihrer Webseite. Sie müssen außerdem die Segmentierung von Event-Eigenschaften aktivieren lassen. Informationen zur Anfrage finden Sie unter [Überlegungen](#request-event-property-segmentation). |
-{: .reset-td-br_1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ## Integration von VWO mit Braze {#integrating-vwo-with-braze}
 
@@ -70,6 +70,7 @@ Diese angepassten Event-Eigenschaften können auch zur Segmentierung und zum Tar
 Bevor Sie die Segmentierung von Event-Eigenschaften verwenden können, müssen Sie diese in Braze aktivieren lassen. Verwenden Sie das folgende Template, um Ihren Braze-CSM oder das Support-Team zu kontaktieren.
 
    <table>
+     <caption>Segmentierung von Event-Eigenschaften anfragen</caption>
    <thead>
       <tr>
          <th>Feld</th>
@@ -100,7 +101,7 @@ Bevor Sie die Segmentierung von Event-Eigenschaften verwenden können, müssen S
 
 Das angepasste Event, das von VWO an Braze gesendet wird&#8212;einschließlich aller für die Segmentierung aktivierten Event-Eigenschaften&#8212;protokolliert Datenpunkte in Ihrer Braze-Instanz.
 
-### Einschränkungen {#considerations}
+### Einschränkungen
 
 Derzeit unterstützt diese Integration keine Realtime-Synchronisation von Testdaten. Es kann eine Verzögerung von bis zu 15 Minuten geben, bis die Testdaten in Braze erscheinen.
 

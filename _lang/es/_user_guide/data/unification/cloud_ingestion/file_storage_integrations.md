@@ -339,7 +339,7 @@ Cada fila del archivo debe identificar exactamente a un usuario utilizando uno d
 | `EXTERNAL_ID` | Coincide con el `external_id` utilizado en Braze. |
 | `ALIAS_NAME` y `ALIAS_LABEL` | Ambas columnas juntas identifican al usuario por su alias. |
 | `BRAZE_ID` | ID de usuario generado por Braze (solo usuarios existentes). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eliminación de usuarios" }
 
 {% alert important %}
 La eliminación de usuarios es permanente y no se puede deshacer. Incluye solo los usuarios que deseas eliminar. Para obtener más información, consulta [Eliminar usuarios con Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

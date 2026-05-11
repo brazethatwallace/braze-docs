@@ -116,6 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | payload | JSON | REQUIS |
 | ID | STRING | REQUIS |
 | DELETED | BOOLEAN | FACULTATIF |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | payload | STRING, STRUCT ou MAP | REQUIS |
 | ID | STRING | REQUIS |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 

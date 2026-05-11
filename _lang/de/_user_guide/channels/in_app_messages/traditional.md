@@ -85,6 +85,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 </style>
 
 <table class="tg">
+  <caption>Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -134,6 +135,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 
 <table class="tg">
+  <caption>Erweiterte Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>

@@ -54,7 +54,7 @@ Voici quelques indicateurs LINE clés que vous pouvez retrouver dans vos analyse
 | Ouvertures totales | Le nombre total de fois où les messages LINE envoyés ont été ouverts par les utilisateurs après qu'un seuil minimum de 20 messages par jour a été atteint. |
 | Clics uniques | Le nombre total de messages LINE envoyés qui ont été cliqués par les utilisateurs après qu'un seuil minimum de 20 messages par jour a été atteint. |
 | Clics totaux | Le nombre total de fois où les messages LINE envoyés ont été cliqués par les utilisateurs après qu'un seuil minimum de 20 messages par jour a été atteint. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs LINE" }
 
 ### Performances historiques {#historical-performance}
 

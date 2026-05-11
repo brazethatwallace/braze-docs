@@ -20,7 +20,7 @@ Cloud-Datenaufnahme-Integrationen erfordern einige Einstellungen auf der Seite v
 {% tab Snowflake %}
 1. Richten Sie in Ihrer Snowflake-Instanz die Tabellen oder Ansichten ein, die Sie mit Braze synchronisieren möchten.
 2. Erstellen Sie eine neue Snowflake-Quelle im Braze-Dashboard.
-3. Rufen Sie den im Braze-Dashboard bereitgestellten Public Key ab und [fügen Sie ihn zur Authentifizierung an die Snowflake-Nutzer:innen](https://docs.snowflake.com/en/user-guide/key-pair-auth.html) an.
+3. Rufen Sie den im Braze-Dashboard bereitgestellten Public Key ab und [fügen Sie ihn zur Authentifizierung an die Snowflake-Nutzer:innen an](https://docs.snowflake.com/en/user-guide/key-pair-auth.html).
 4. Erstellen Sie eine Synchronisierung im Braze-Dashboard, testen Sie die Integration und starten Sie die Synchronisierung.
 
 {% alert tip %}
@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Sie können das Projekt, den Datensatz und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Sie können das Schema und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 

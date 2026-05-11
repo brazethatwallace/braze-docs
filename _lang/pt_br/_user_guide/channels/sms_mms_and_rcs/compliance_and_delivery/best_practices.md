@@ -38,6 +38,18 @@ Quando SMS e MMS foram configurados em várias instâncias e, devido a uma confi
 
 A Braze gerencia as inscrições de SMS/MMS tanto no nível do perfil de usuário (`user_id`) quanto no nível do número de telefone (`channel_id`). Quando um número de telefone é inscrito ou descadastrado, a atualização se aplica a todos os perfis que compartilham esse número. No caso em que um usuário final fez opt-in com um determinado número de telefone, mas depois muda de número, o novo número herdará o status do grupo de inscrições do usuário. Dessa forma, se um usuário final fez descadastramento, mas depois retorna ao app ou site com um novo número de telefone, ele não receberá mensagens indesejadas.
 
+## Recomendações de higiene da lista de números de telefone {#phone-number-list-hygiene-recommendations}
+
+Manter a higiene da lista de números de telefone ajuda a preservar dados válidos de consentimento e alcançabilidade ao longo do tempo. A Braze marca alguns números de telefone como inválidos para ajudar a reduzir riscos de conformidade, apoiar práticas de envio de mensagens baseadas em consentimento e evitar o envio para números que podem não pertencer mais ao usuário original.
+
+Para saber por que números de telefone são normalmente marcados como inválidos, consulte [Tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+Recomendamos o seguinte fluxo de trabalho para remover números de telefone inválidos:
+
+1. Identifique os números de telefone afetados por meio do [endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Diferencie entre números de telefone desativados e números de telefone que receberam erros de provedor.
+3. Para números de telefone desativados, verifique novamente o número com o usuário. Após o usuário confirmar seu número de telefone, remova o número da lista de inválidos por meio do [endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+
 ## Recomendações sobre bombeamento de tráfego {#traffic-pumping-recommendations}
 
 ### O que é bombeamento de tráfego? {#what-is-traffic-pumping}

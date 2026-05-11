@@ -36,7 +36,7 @@ Before you start, make sure you have the following:
 | Two-factor authentication | Deliver one-time verification codes for account login and transaction confirmation. |
 | Promotional offers | Reach customers with time-sensitive promotions, flash sales, and personalized discounts directly on their phone. |
 | Customer support | Enable two-way conversations to resolve customer inquiries, collect feedback, or confirm service requests. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## SMS, MMS, and RCS compared
 

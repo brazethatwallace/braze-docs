@@ -38,13 +38,15 @@ For more on conversions, check out our [Braze Learning course](https://learning.
 
 ### Conversion tracking rules
 
-Conversion events attribute user actions back to a point of engagement. Note the following about how Braze handles multiple conversions:
+Conversion events attribute user actions back to a point of engagement. In general, while a conversion window is open, a user converts at most once per conversion event for that campaign or Canvas. If they perform the same conversion action more than once before the deadline (for example, two purchases), Braze still counts only one conversion for that event. Multichannel campaigns can record a separate conversion opportunity for each messaging channel, which can produce conversion rates above 100% when you compare conversion counts with unique recipients (see below).
+
+Note the following about how Braze handles multiple conversions:
 
 - **Single-channel campaigns**: Conversions occur on a per-user basis, not a per-device basis. Within a single channel, a user converts only once per conversion event, even if a message is sent to multiple devices. For example, if a campaign has only one conversion event set to "Makes any purchase" and a user makes two separate purchases within the conversion deadline, Braze counts only one conversion.
 - **Multichannel campaigns**: For multichannel campaigns, each channel has its own conversion opportunity. A user can convert once per channel after receiving a message on that channel. This means if a user receives messages on multiple channels (for example, both email and push) and performs the conversion action, Braze counts one conversion for each channel, which can result in conversion rates exceeding 100%.
+- **Canvas message steps**: Braze attributes conversions that occur within the conversion deadline to the last Canvas message step the user received. After they receive the next message step, attribution moves to that step. Braze measures that window from when the user enters the Canvas, not from each message individually. Braze still counts conversions during delay periods between steps.
 - If a user performs one conversion event within the conversion deadlines of two separate campaigns or Canvases that they received, the conversion registers on both.
 - A user counts as converted if they performed the specific conversion event in the window, even if they did not open or click the message.
-- For Canvases, conversion tracking works based on the final conversion deadline that begins when a user enters the Canvas, not individual message timing. Braze counts conversions even during delay periods between messages in Canvas.
 
 ### Primary conversion event
 
@@ -81,7 +83,7 @@ First, select the general type of event you'd like to use:
 | **Upgrade App**         | A user is counted as having converted when they upgrade the app version on any one of the apps that you specify (defaults to all apps in the workspace). Braze performs a best-efforts numerical comparison to determine if the change was an upgrade. Non-numeric versions are counted as conversions if the version changes.|
 | **Opens email**         | A user is counted as having converted when they open the email (only for email campaigns).|
 | **Clicks email**        | A user is counted as having converted when they click a link within the email (only for email campaigns).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Add the conversion events" }
 
 {% alert important %}
 **Nested properties are not supported in conversion events**. You cannot use nested properties in conversion events. For example, if `product_code` or `product_name` are nested properties within a `products` array (such as `products[].product_code`), you cannot use them to check if a specific product purchase has been made in a conversion event.

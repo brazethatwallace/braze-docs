@@ -51,6 +51,7 @@ Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze die
 </style>
 
 <table>
+  <caption>Umsatzberechnungen verstehen</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -89,7 +90,7 @@ In der Tabelle **Product Breakdown** finden Sie eine Liste der Produkte, die im 
 
 ## Umsatzdaten exportieren {#exporting-revenue-data}
 
-Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption aus.
+Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart context menu"></i> im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption aus.
 
 {% alert tip %}
 Suchen Sie nach weiteren Möglichkeiten, Umsatzdaten zu erhalten? Versuchen Sie, Kaufverhalten (sowie den Kauf eines Produkts) zu Campaigns oder Canvases als [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) hinzuzufügen.

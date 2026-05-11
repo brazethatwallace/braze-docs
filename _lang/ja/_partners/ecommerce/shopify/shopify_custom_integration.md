@@ -614,6 +614,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 </style>
 
 <table style="width: 100%;">
+  <caption>ステップ5: カスタムデータトラッキングの設定（上級）</caption>
   <thead>
     <tr>
       <th style="width: 50%;">カスタムイベント</th>

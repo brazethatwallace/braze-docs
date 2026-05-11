@@ -25,7 +25,7 @@ The Braze and Dynamic Yield partnership allows you to use Dynamic Yield's recomm
 | Requirement | Description |
 | ----------- | ----------- |
 | Dynamic Yield account | A [Dynamic Yield](https://adm.dynamicyield.com/users/sign_in#/r/dashboard) account is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

@@ -51,7 +51,7 @@ Note that the output variable's data type is set from the [Agent Console]({{site
 | Number | Scoring, thresholds, routing in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Boolean | Yes/No branching in [Decision Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Object | Leverage one or more of the above data types with a single LLM call in a predictable data structure |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
 You can use an output variable throughout the Canvas by using the same template syntax as you would with a context variable. Either use the **Context Variable** segment filter, or template agent responses directly using Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
@@ -94,7 +94,7 @@ Refer to the following metrics to track how your Agent steps perform:
 | _Entered_ | The number of times users entered the Agent step. |
 | _Proceeded to Next Step_ | The number of users that proceeded to the next step in the flow after passing through the Agent step. |
 | _Exited Canvas_ | The number of users that exited the Canvas after passing through the Agent step. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 
 ## Best practices
 

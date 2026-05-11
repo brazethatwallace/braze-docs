@@ -314,6 +314,7 @@ Cet exemple illustre le processus général de synchronisation des données pour
 </style>
 
 <table>
+  <caption>Exemple : gestion des mises à jour ultérieures</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -421,6 +422,7 @@ Rien de tout cela n'ayant été synchronisé avec Braze auparavant, ajoutez l'en
 Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé toutes les données disponibles jusqu'à « 2023-03-16 15:00:00 ». Ensuite, le matin du jour 2, un processus ETL s'exécute et certains champs de votre table d'utilisateurs sont mis à jour (en surbrillance) :
 
 <table>
+  <caption>Exemple : gestion des mises à jour ultérieures</caption>
     <thead>
         <tr>
             <th>external_id</th>

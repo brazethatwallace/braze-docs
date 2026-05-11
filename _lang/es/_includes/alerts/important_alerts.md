@@ -61,7 +61,7 @@ Hay ciertos navegadores, como las aplicaciones Naver para Android e iOS, que no 
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-El evento de compra heredado está entrando en modo de mantenimiento. Los eventos de compra existentes seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades sobre ellos, en favor de los eventos recomendados de comercio electrónico. Puedes seguir utilizando los eventos de compra en el futuro previsible. Braze proporcionará un aviso previo con suficiente antelación antes de que se establezca cualquier fecha de fin de vida.
+El evento de compra heredado está entrando en modo de mantenimiento. Los clientes existentes de Braze pueden seguir utilizando los eventos de compra heredados. Seguirán funcionando como se espera, pero las nuevas funcionalidades se desarrollarán sobre los eventos recomendados de comercio electrónico en adelante. Braze proporcionará un aviso previo con suficiente antelación antes de que se establezca cualquier fecha de fin de vida. Los nuevos clientes de Braze deben utilizar los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), ya que los eventos de compra heredados no estarán disponibles.
 {% endalert %}
 
 {% endif %}

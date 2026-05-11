@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids`       | Optional | Array of strings           | Braze user identifiers to be deleted.                                                  |
 | `email_addresses` | Optional | Array of strings           | User emails to be deleted. Refer to [Deleting users by email](#deleting-users-by-email) for more information.                                                             |
 | `phone_numbers` | Optional | Array of strings | User phone numbers to be deleted. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Deleting users by email addresses and phone numbers
 

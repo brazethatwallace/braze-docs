@@ -6,15 +6,16 @@ description: "Este artigo de referência lista filtros avançados, exemplos e co
 
 ---
 
-# Filtros avançados
+# Filtros avançados {#advanced-filters}
 
 > Este artigo de referência fornece uma visão geral dos filtros avançados em Liquid e como eles podem ser usados.
 
-## Filtros de codificação
+## Filtros de codificação {#encoding-filters}
 
 {% raw %}
 | nome do filtro | descrição do filtro | exemplo de entrada | exemplo de saída |
 |---|---|---|---|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filtros de codificação" }
 `md5` | Retorna uma string codificada em md5 | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
 `sha1` | Retorna uma string codificada em sha1 | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
 `sha2` | Retorna uma string codificada em sha2 (256 bits, também conhecido como SHA-256) | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
@@ -25,7 +26,7 @@ description: "Este artigo de referência lista filtros avançados, exemplos e co
 `hmac_sha256_base64` | Retorna a assinatura hmac-sha256, codificada como uma string base64 | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## Filtros de URL
+## Filtros de URL {#url-filters}
 
 | nome do filtro | descrição do filtro | exemplo de entrada | exemplo de saída |
 |---|---|---|---|
@@ -46,10 +47,10 @@ A tag `assign` pode ser combinada com HTML para economizar tempo e esforço ao c
 {% endalert %}
 {% raw %}
 
-## Filtro de acesso a propriedades
+## Filtro de acesso a propriedades {#property-accessor-filter}
 
 | nome do filtro | descrição do filtro |
-|---|---|---|---|
+| --- | --- |
 | `property_accessor` | Recebe um hash e uma chave de hash e retorna o valor correspondente àquela chave no hash |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -67,14 +68,14 @@ Não é possível instanciar um hash como uma variável (como uma expressão) em
 
 {% raw %}
 
-## Filtros de formatação de números
+## Filtros de formatação de números {#number-formatting-filters}
 
 | nome do filtro | descrição do filtro | exemplo de entrada | exemplo de saída |
 |---|---|---|---|
 | `number_with_delimiter` | Formata um número com vírgulas | `{{ 123456 | number_with_delimiter }}` | 123,456 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## Filtro de escape JSON / escape de string
+## Filtro de escape JSON / escape de string {#json-escape-string-escape-filter}
 
 | nome do filtro | descrição do filtro |
 |---|---|
@@ -83,7 +84,7 @@ Não é possível instanciar um hash como uma variável (como uma expressão) em
 
 Esse filtro deve ser sempre usado ao personalizar uma string em um dicionário JSON e é especialmente útil para webhooks.
 
-## Filtros de formatação JSON
+## Filtros de formatação JSON {#json-formatting-filters}
 
 | nome do filtro | descrição do filtro |
 |---|---|
@@ -95,7 +96,7 @@ Esse filtro deve ser sempre usado ao personalizar uma string em um dicionário J
 
 {% details Exemplo de entrada e saída de json_parse %}
 
-### Entrada
+### Entrada {#input}
 
 {% raw %}
 ```liquid
@@ -103,7 +104,7 @@ Esse filtro deve ser sempre usado ao personalizar uma string em um dicionário J
 {% assign my_data = my_data_string | json_parse %}
 ```
 
-### Saída
+### Saída {#output}
 
 ```liquid
 {% for item in my_data %}

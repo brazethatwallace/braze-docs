@@ -112,10 +112,11 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 | NOME DO CAMPO | TIPO | MODO |
 | --- | --- | --- |
-| UPDATED_AT | TIMESTAMP | OBRIGATÓRIO |
-| PAYLOAD | JSON | OBRIGATÓRIO |
-| ID | STRING | OBRIGATÓRIO |
-| DELETED | BOOLEAN | OPCIONAL |
+| UPDATED_AT | TIMESTAMP | REQUIRED |
+| PAYLOAD | JSON | REQUIRED |
+| ID | STRING | REQUIRED |
+| DELETED | BOOLEAN | OPTIONAL |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -150,10 +151,11 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 | NOME DO CAMPO | TIPO | MODO |
 | --- | --- | --- |
-| UPDATED_AT | TIMESTAMP | OBRIGATÓRIO |
-| PAYLOAD | STRING, STRUCT ou MAP | OBRIGATÓRIO |
-| ID | STRING | OBRIGATÓRIO |
+| UPDATED_AT | TIMESTAMP | REQUIRED |
+| PAYLOAD | STRING, STRUCT, or MAP | REQUIRED |
+| ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 

@@ -19,6 +19,7 @@ tool:
 The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two key components to simplify your workflow, without additional use of HTML.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>Content and Rows editor components</caption>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
@@ -32,7 +33,7 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="About the editor" }
 
 ### Content
 
@@ -192,6 +193,7 @@ Our average exported HTML data footprint size has been reduced, leading to faste
 
 HTML rendering has improved based on the following updates that minimize the number of conditional comments and CSS media queries. As a result, HTML files are smaller and more efficiently coded.
 - Migration from a `<div>` element-based design to a standard `<table>` formatted codebase
+  <caption>Use Inbox Vision</caption>
 - [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) have been re-coded for conciseness
 - The final HTML code is compressed to remove whitespace between tags
 - Transparent dividers are automatically converted into content padding
@@ -301,7 +303,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `meta` | Provides metadata such as page description or keywords. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Embeds internal CSS styles. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Sets the title of the document shown in browser tabs. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Tag | Attribute | Description | Example |
 | --- | --- | --- | --- |
@@ -319,7 +321,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `style` | `type` | MIME type of the style content. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Specifies the media or device for which styles apply. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | No attributes | The `title` tag doesn't accept any attributes. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Link names can be up to 63 bytes and are automatically truncated if they exceed the limit.

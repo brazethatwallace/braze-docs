@@ -19,7 +19,7 @@ description: "This article will walk you through how to configure Braze to use O
 | Okta admin privileges | Make sure you have admin privileges before setting up Okta. |
 | Braze admin privileges | Make sure you have admin privileges before setting up Okta. |
 | RelayState API key | To enable IdP login, go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Step 1: Configure Braze
 
@@ -40,7 +40,7 @@ From your Okta Admin dashboard, Okta provides you with a target URL (login URL) 
 | `SAML Name` | This will appear as the button text on the login screen. This is typically your identity provider's name, For example, "Okta". |
 | `Target URL` | This is the login URL provided by Okta Admin dashboard. Find it by going to **Applications** > your application > **General** tab > **App Embed Link** > **Embed Link**. |
 | `Certificate` | The `x.509` PEM encoded certificate is provided by your identity provider. You must copy and paste it into this field. Retrieve it in Okta by going to **SAML Signing Certificates** and selecting **Actions** > **Download certificate**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1b: Edit SAML SSO settings" }
 
 Select **Save Changes** at the bottom of the page when completed.
 

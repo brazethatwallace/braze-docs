@@ -35,7 +35,7 @@ Il existe plusieurs scénarios dans lesquels `native_line_id` est défini sur le
 | L'entreprise utilise l'endpoint `/users/track` et spécifie l'attribut `native_line_id` | Oui | Si un profil utilisateur existe pour l'utilisateur spécifié ([spécifié par `external_id`, `user_alias`, `braze_id` ou `email`]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)) :<br>- `native_line_id` est défini sur la valeur spécifiée<br>- Tous les autres attributs spécifiés dans la requête sont définis sur le profil utilisateur<br>- Plusieurs profils ont le même `native_line_id` |
 | L'entreprise demande à Braze d'exécuter le synchroniseur de statut d'abonnement | Non | Si un ID utilisateur LINE est renvoyé par LINE sans profil utilisateur correspondant dans Braze, un profil utilisateur anonyme est créé :<br>- `native_line_id` est défini sur l'ID LINE de l'utilisateur<br>- L'alias d'utilisateur `line_id` est défini sur l'ID LINE de l'utilisateur<br>- L'utilisateur est abonné au groupe d'abonnement Braze du canal<br><br>Notez que si un utilisateur avec le même ID LINE est créé ultérieurement, il y aura des utilisateurs en double, mais les deux auront le bon statut d'abonnement LINE. La fusion d'utilisateurs peut nettoyer votre base d'utilisateurs dans ces cas. |
 | L'entreprise demande à Braze d'exécuter le synchroniseur de statut d'abonnement | Oui | Si un ID utilisateur LINE est renvoyé par LINE avec un profil utilisateur correspondant dans Braze :<br>- L'utilisateur est abonné au groupe d'abonnement Braze du canal |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Setting the nativelineid attribute" }
 
 ## Trouver le `native_line_id` {#finding-the-nativelineid}
 

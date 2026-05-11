@@ -42,6 +42,7 @@ iOS용 리치 푸시 알림을 생성하기 전에 다음 세부 사항을 확�
 사용자는 다양한 상황에서 푸시 알림을 볼 수 있으며, 다음과 같이 서로 다른 길이의 텍스트를 볼 수 있습니다.
 
 <table>
+  <caption>알림 상태</caption>
 <thead>
   <tr>
     <th>잠금 화면 또는 알림 센터</th>
@@ -117,11 +118,11 @@ iOS 15에서는 시간 민감 및 긴급 표시가 제목을 타임스탬프 없
 {% endtab %}
 {% endtabs %}
 
-## iOS 리치 알림 설정 {#setting-up-your-ios-rich-notification}
+## iOS 리치 알림 설정하기 {#setting-up-your-ios-rich-notification}
 
 ### 1단계: 푸시 Campaign 생성 {#step-1-create-a-push-campaign}
 
-[Campaign 단계]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message)를 따라 iOS용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때 사용하는 것과 동일한 작성기를 사용합니다.
+[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) 단계를 따라 iOS용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때 사용하는 것과 동일한 작성기를 사용합니다.
 
 ### 2단계: 미디어 추가 {#step-2-add-media}
 

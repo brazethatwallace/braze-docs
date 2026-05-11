@@ -102,6 +102,7 @@ Darüber hinaus sind diese Events über [angepasste Event-Objekte von Currents](
 Bevor Sie die Segmentierung nach Event-Eigenschaften verwenden können, muss diese in Braze aktiviert werden. Verwenden Sie das folgende Template, um Ihren Braze-CSM oder das Support-Team zu kontaktieren und den Zugang anzufragen.
 
    <table>
+     <caption>Segmentierung nach Event-Eigenschaften anfragen</caption>
    <thead>
       <tr>
          <th>Feld</th>

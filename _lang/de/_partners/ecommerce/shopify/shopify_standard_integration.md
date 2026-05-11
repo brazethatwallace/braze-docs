@@ -86,6 +86,7 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 </style>
 
 <table style="width: 100%;">
+  <caption>(Fortgeschritten) Angepasstes Daten-Tracking einrichten</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Angepasste Events</th>
@@ -174,11 +175,11 @@ Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der ex
 
 Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
-| Parameter            | Erforderlich | Datentyp | Beschreibung                                                      |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Ja      | String    | Die Shopify-Kund:innen-ID.                                         |
-| shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
-| email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
+| shopify_customer_id | Ja | String | Die Shopify-Kund:innen-ID. |
+| shopify_storefront | Ja | String | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
+| email_address | Nein | String | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 #### Beispiel-Endpunkt {#example-endpoint}

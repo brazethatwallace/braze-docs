@@ -30,7 +30,7 @@ The maximum payload size depend on the platform.
 | Android | 3,930 bytes |
 | iOS | 3,960 bytes |
 | Kindle | 5,985 bytes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 If your push exceeds the maximum payload size, the message may not be sent. As a best practice, keep your payload to a few hundred bytes.
 
@@ -135,12 +135,12 @@ Because push messages are an intrusive type of messaging that goes directly to y
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Unacceptable: (i) Creating an interface for displaying third-party apps, extensions, or plug-ins similar to the App Store or as a general-interest collection. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) Push Notifications must not be required for the app to function, and should not be used to send sensitive personal or confidential information. Push Notifications should not be used for promotions or direct marketing purposes unless customers have explicitly opted in to receive them via consent language displayed in your app's UI, and you provide a method in your app for a user to opt out from receiving such messages. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) You may not monetize built-in capabilities provided by the hardware or operating system, such as Push Notifications, the camera, or the gyroscope; or Apple services and technologies, such as Apple Music access, iCloud storage, or Screen Time APIs. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Google Play Store Policy |
 | --- |
 | [Unauthorized Use or Imitation of System Functionality](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) We don't allow apps or ads that mimic or interfere with system functionality, such as notifications or warnings. System-level notifications may only be used for an app's integral features, such as an airline app that notifies users of special deals, or a game that notifies users of in-game promotions. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## Related articles
 

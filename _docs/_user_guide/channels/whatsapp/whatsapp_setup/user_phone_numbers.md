@@ -40,7 +40,7 @@ You can see the differences between local number formatting as well as universal
 | USA | `4155552671` | 1 | `+14155552671` |
 | UK | `02071838750` | 44 | `+442071838750` |
 | Brazil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4 aria-label="Formatting" }
 
 ### Adding users to WhatsApp a subscription group
 

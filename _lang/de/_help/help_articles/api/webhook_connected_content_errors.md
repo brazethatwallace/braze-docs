@@ -24,6 +24,7 @@ table td {
 </style>
 
 <table>
+  <caption>4XX-Fehler</caption>
   <thead>
     <tr>
       <th>Fehlercode</th>
@@ -120,15 +121,15 @@ table td {
 
 `5XX`-Fehler zeigen an, dass es ein Problem mit dem Endpunkt gibt. Diese Fehler werden in der Regel durch serverseitige Probleme verursacht.
 
-| Fehlercode                    | Was es bedeutet                                                                                                                                         |
+| Fehlercode | Was es bedeutet |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | Der Endpunkt ist auf eine unerwartete Bedingung gestoßen, die ihn daran gehindert hat, die Anfrage abzuschließen.                                                       |
-| **502 Bad Gateway**           | Der Endpunkt hat eine ungültige Antwort vom Upstream-Server erhalten.                                                                                   |
-| **503 Service Unavailable**   | Der Endpunkt kann die Anfrage wegen einer vorübergehenden Überlastung oder wegen Wartungsarbeiten derzeit nicht bearbeiten.                                                    |
-| **504 Gateway Timeout**       | Der Endpunkt hat keine rechtzeitige Antwort vom Upstream-Server erhalten.                                                                               |
-| **529 Host Overloaded**       | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
-| **598 Host Unhealthy**        | Braze hat die Antwort simuliert, weil der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
-| **599 Connection Error**      | Braze hat beim Versuch, eine Verbindung zum Endpunkt herzustellen, einen Timeout-Fehler bei der Netzwerkverbindung festgestellt. Das bedeutet, dass der Endpunkt möglicherweise instabil oder ausgefallen ist. |
+| **500 Internal Server Error** | Der Endpunkt ist auf eine unerwartete Bedingung gestoßen, die ihn daran gehindert hat, die Anfrage abzuschließen. |
+| **502 Bad Gateway** | Der Endpunkt hat eine ungültige Antwort vom Upstream-Server erhalten. |
+| **503 Service Unavailable** | Der Endpunkt kann die Anfrage wegen einer vorübergehenden Überlastung oder wegen Wartungsarbeiten derzeit nicht bearbeiten. |
+| **504 Gateway Timeout** | Der Endpunkt hat keine rechtzeitige Antwort vom Upstream-Server erhalten. |
+| **529 Host Overloaded** | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
+| **598 Host Unhealthy** | Braze hat die Antwort simuliert, weil der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
+| **599 Connection Error** | Braze hat beim Versuch, eine Verbindung zum Endpunkt herzustellen, einen Timeout-Fehler bei der Netzwerkverbindung festgestellt. Das bedeutet, dass der Endpunkt möglicherweise instabil oder ausgefallen ist. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Behebung von 5XX-Fehlern {#resolving-5xx-errors}
@@ -154,7 +155,7 @@ Bei Webhooks wird Braze HTTP-Anfragen, die durch den Detektor für fehlerhafte H
 
 Wenn bei Connected-Content Anfragen an den Zielhost durch den Detektor für fehlerhafte Hosts angehalten werden, rendert Braze weiterhin Nachrichten und folgt Ihrer Liquid-Logik, als ob ein Fehlerantwortcode empfangen worden wäre. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen erneut versucht werden, wenn sie vom Detektor für fehlerhafte Hosts angehalten werden, verwenden Sie die Option `:retry`. Weitere Informationen über die Option `:retry` finden Sie unter [Wiederholungsversuche für Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
 
-Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze Support]({{site.baseurl}}/support_contact/).
+Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
 
 ## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll {#automated-emails-and-message-activity-log-entries}
 
@@ -170,7 +171,7 @@ Wenn in einem Workspace innerhalb von 24 Stunden mehr als 100.000 Webhook- oder 
 - Links zum Nachrichten-Aktivitätsprotokoll und zur zugehörigen Dokumentation
 
 {% alert note %}
-Sie können den Fehlerschwellenwert pro Workspace konfigurieren. Um diesen Schwellenwert anzupassen, kontaktieren Sie den [Braze Support]({{site.baseurl}}/support_contact/).
+Sie können den Fehlerschwellenwert pro Workspace konfigurieren. Um diesen Schwellenwert anzupassen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
 {% endalert %}
 
 Die Endpunkt-Fehler sind:
