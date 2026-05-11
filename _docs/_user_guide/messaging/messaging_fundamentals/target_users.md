@@ -63,6 +63,8 @@ Let's say you want to send an in-app message only to Android apps.
 This won't work if you add your segment in the **Additional Filters** section through a segment membership filter. You must directly reference your segment in **Target Users By Segment** to deliver your message only to that app.
 {% endalert %}
 
+For **Canvas** steps, confirm **Delivery validations** and channel settings still match the app you intend—especially for in-app messages, where eligibility depends on the user opening the targeted app.
+
 {% endtab %}
 {% endtabs %}
 
