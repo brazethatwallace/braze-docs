@@ -208,16 +208,23 @@ $(document).ready(function() {
       })
       if (!showall) {
         if (!result_cnt) {
-          // Clear visual count immediately so stale text doesn't linger.
-          // 500ms before the alert fires — long enough for VoiceOver to finish
-          // its post-keystroke echo cycle before the assertive region fires.
+          // Clear visual elements immediately — no aria roles so no AT impact.
           resultsCount.text('');
-          resultsCountLive.text('');
+          resultsMsg.text('No metrics matching these filters');
+          // Don't touch the sr-only live regions yet: an immediate clear of
+          // resultsCountLive (which may hold stale count text) would fire a
+          // mutation that VoiceOver starts processing, then the assertive alert
+          // 500ms later would land mid-cycle and get cut off.
+          // Instead, wait the same 900ms as the count path, then apply the
+          // 150ms clear-then-set gap so Safari sees removal and addition as
+          // distinct mutations.
           noResultsTimer = setTimeout(function() {
-            var noResultsText = 'No metrics matching these filters';
-            resultsMsg.text(noResultsText);
-            resultsMsgLive.text(noResultsText);
-          }, 500);
+            resultsCountLive.text('');
+            resultsMsgLive.text('');
+            setTimeout(function() {
+              resultsMsgLive.text('No metrics matching these filters');
+            }, 150);
+          }, 900);
         } else {
           // Clear the no-results alert immediately, then defer the count update.
           // 900ms gives VoiceOver time to finish its full post-keystroke cycle
