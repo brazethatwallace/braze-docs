@@ -170,11 +170,14 @@ $(document).ready(function() {
   function generate_glossarys(glossary_hash) {
     var result_cnt = 0;
     var resultsMsg = $('#results_msg');
+    var resultsCount = $('#results_count');
     var resultsCountLive = $('#results_count_live');
     var resultsMsgLive = $('#results_msg_live');
 
     clearTimeout(noResultsTimer);
     clearTimeout(countTimer);
+    resultsCount.hide();
+    resultsMsg.hide();
 
     var total_cnt = glossary_hash['sorted'].length;
     var selected_vals = [];
@@ -222,7 +225,7 @@ $(document).ready(function() {
     }
     if (!showall) {
       if (!result_cnt) {
-        resultsMsg.text('No terms matching these filters');
+        resultsMsg.show().text('No terms matching these filters');
         noResultsTimer = setTimeout(function() {
           resultsCountLive.text('');
           resultsMsgLive.text('');
@@ -231,7 +234,8 @@ $(document).ready(function() {
           }, 150);
         }, 900);
       } else {
-        resultsMsg.text('');
+        var message = 'Showing ' + result_cnt + ' of ' + total_cnt + ' terms';
+        resultsCount.show().text(message);
         resultsMsgLive.text('');
         countTimer = setTimeout(function() {
           var message = 'Showing ' + result_cnt + ' of ' + total_cnt + ' terms';
@@ -330,6 +334,8 @@ $(document).ready(function() {
         {%- endfor -%}
 
     </div>
+
+    <div id="results_count"></div>
 
     <div id="glossary_list" class="flex mx-auto">
 
