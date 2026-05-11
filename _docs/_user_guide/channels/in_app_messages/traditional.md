@@ -84,7 +84,7 @@ These in-app messages are accepted by both mobile apps and web applications.
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
   <caption>Message types</caption>
 <thead>
   <tr>
@@ -134,7 +134,7 @@ These in-app messages are accepted by both mobile apps and web applications.
 
 These in-app messages are customizable to your needs.
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
   <caption>Advanced message types</caption>
 <thead>
   <tr>

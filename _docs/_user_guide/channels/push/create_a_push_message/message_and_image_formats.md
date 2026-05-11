@@ -44,7 +44,7 @@ On iOS, push notifications support GIFs. In-app messages and Content Cards requi
 (iOS) Banner Alert | 80 characters | 65 characters
 (Android) Lock Screen | 49 characters | N/A
 (Android) Notification Drawer | 597 characters | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
 
 Wondering how many characters you can use in an iOS push notification without it being truncated? Check out our [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
 

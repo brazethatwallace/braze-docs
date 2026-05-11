@@ -313,7 +313,7 @@ This example shows the general process for syncing data for the first time, then
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Example: Managing subsequent updates">
   <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
@@ -421,7 +421,7 @@ None of this has synced to Braze before, so add all of it to the source table fo
 
 A sync runs, and Braze records that you synced all available data up until “2023-03-16 15:00:00”. Then, on the morning of day 2, you have an ETL that runs and some fields in your users table are updated (highlighted):
 
-<table>
+<table aria-label="Example: Managing subsequent updates">
   <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>

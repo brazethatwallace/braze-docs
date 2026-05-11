@@ -33,7 +33,7 @@ To create an API usage alert:
 
 When you define your alert criteria you can adjust the following thresholds:
 
-<table>
+<table aria-label="Alert thresholds #api-usage-alert-thresholds">
   <caption>Alert thresholds</caption>
   <thead>
     <tr>
