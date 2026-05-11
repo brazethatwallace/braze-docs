@@ -17,7 +17,7 @@ Für optimale Ergebnisse beachten Sie die folgenden Richtlinien zu Bildgrößen 
 ## iOS- und Android-Push {#ios-and-android-push}
 
 {% tabs local %}
-{% tab Images %}
+{% tab Bilder %}
 
 **Bildtyp** | **Empfohlene Bildgröße** | **Maximale Bildgröße** | **Dateitypen**
 --- | --- | --- | ---
@@ -49,7 +49,7 @@ Auf iOS unterstützen Push-Benachrichtigungen GIFs. In-App-Nachrichten und Conte
 Sie fragen sich, wie viele Zeichen Sie in einer iOS-Push-Benachrichtigung verwenden können, ohne dass sie abgeschnitten wird? Sehen Sie sich unsere [iOS-Zeichenanzahl-Richtlinien]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count) an.
 
 {% endtab %}
-{% tab Payload Size %}
+{% tab Payload-Größe %}
 
 **Plattform** | **Größe**
 --- | ---
@@ -59,7 +59,7 @@ Android (FCM) | 4 KB
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
-{% tab Image Example %}
+{% tab Bildbeispiel %}
 {% subtabs %}
 {% subtab iOS %}
 
@@ -78,7 +78,7 @@ Benachrichtigungen mit großen Bildern werden am besten mit einem Bild von minde
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Text Example %}
+{% tab Textbeispiel %}
 {% subtabs %}
 {% subtab iOS %}
 
@@ -92,13 +92,14 @@ Benachrichtigungen mit großen Bildern werden am besten mit einem Bild von minde
 {% endtab %}
 {% endtabs %}
 
-## Web-Push
+## Web-Push {#web-push}
 
 {% tabs local %}
-{% tab Images %}
+{% tab Bilder %}
 
 | **Browser** | **Empfohlene Symbolgröße**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (Symbole sind pro Campaign konfigurierbar mit Safari 16+ auf macOS 13+)
@@ -107,6 +108,7 @@ Opera | 192 x 192 ≥
 
 | **Browser** | **Plattform** | **Große Bildgröße**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | 2:1 Seitenverhältnis
 Firefox | Android | N/A
 Chrome | Windows | 2:1 Seitenverhältnis
@@ -124,6 +126,7 @@ Opera | macOS | N/A
 
 | **Browser** | **Plattform** | **Maximale Titellänge**  | **Maximale Nachrichtentextlänge**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120

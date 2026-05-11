@@ -22,6 +22,7 @@ As recomendações baseadas em regras são baseadas em uma lógica fixa que voc�
 Ao decidir qual mecanismo de recomendação se adequa aos seus recursos disponíveis e casos de uso, consulte esta tabela de considerações:
 
 <table style="text-align: center;">
+  <caption>Opções de mecanismo de recomendação</caption>
   <thead>
     <tr>
       <th>Mecanismo de recomendação</th>
@@ -96,7 +97,7 @@ Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campai
 |-------|-----------|
 | **id** | Um número exclusivo que se correlaciona com o número de dias desde que o usuário se inscreveu no seu app. Por exemplo, `3` corresponde a três dias. |
 | **type** | A categoria da receita, como `comfort`, `fresh` e outras. |
-| **title** | O título do cartão de conteúdo que será enviado para cada ID, como "Prepare com antecedência para o almoço desta semana" ou "Vamos falar de tacos". |
+| **title** | O título do cartão de conteúdo que será enviado para cada ID, como "Make ahead for lunch this week" ou "Let's taco about it". |
 | **link** | O link para o artigo da receita. |
 | **image_url** | A imagem que corresponde à receita. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

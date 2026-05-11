@@ -23,6 +23,7 @@ Se requiere lo siguiente para usar Limbik con Braze:
 | Token de acceso de Limbik (`access_token`) | Realiza una solicitud POST al punto de conexión `login` de Limbik y usa el valor `access_token` devuelto como token Bearer en el encabezado `Authorization`. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos de "Messages". Crea una en el dashboard de Braze en **Settings** > **API Keys**. |
 | `campaign_id` de Braze | Ve a **Messaging** > **Campaigns** y selecciona una Campaign. Si la Campaign que deseas aún no existe, crea una y guárdala. En la parte inferior de la página de la Campaign, encuentra el identificador de API de Campaign. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Antes de usar cualquiera de los puntos de conexión de pronóstico, primero debes identificar a qué organización (`account_id`) tienes acceso. Aunque la mayoría de los clientes tienen solo una organización, algunas cuentas pueden tener múltiples organizaciones disponibles.
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) ist eine Plattform für Produkt-Analytics und Business-Intelligence.
 
@@ -37,15 +37,16 @@ Amplitude und Braze bieten zwei verschiedene Integrationsmethoden. Lesen Sie die
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit allen Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL][1]. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-| Braze-App-Bezeichner | Der Bezeichner für die App, die Amplitude-Ereignisse empfangen soll. Diesen finden Sie im **Braze-Dashboard > Entwicklungskonsole > Einstellungen**. |
+| Braze-App-Bezeichner | Der Bezeichner für die App, die Amplitude-Ereignisse empfangen soll. Diesen finden Sie im **Braze-Dashboard > Developer Console > Settings**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitude einrichten {#amplitude-setup}
 
 1. Navigieren Sie in Amplitude zu **Data Destinations** und suchen Sie nach „Braze - Event Stream“.
 2. Geben Sie einen Sync-Namen ein und klicken Sie dann auf **Create Sync**.
-3. Klicken Sie auf **Edit** und geben Sie Ihren Braze REST API-Endpunkt, den REST API-Schlüssel und den Braze-App-Bezeichner an.
+3. Klicken Sie auf **Edit** und geben Sie Ihren Braze-REST-API-Endpunkt, den REST-API-Schlüssel und den Braze-App-Bezeichner an.
 4. Verwenden Sie den Filter zum Senden von Ereignissen, um die zu sendenden Ereignisse auszuwählen. Sie können alle Ereignisse senden, aber Amplitude empfiehlt, die wichtigsten auszuwählen.
 5. Wenn Sie fertig sind, aktivieren Sie das Ziel und speichern Sie.
 
@@ -113,7 +114,7 @@ Legen Sie schließlich die Häufigkeit Ihrer Synchronisierung fest.
 Wenn Sie diesen Fehler beim [Importieren einer Amplitude-Kohorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) in Braze erhalten, versuchen Sie Folgendes:
 
 1. **Überprüfen Sie die Übereinstimmung der Nutzer-IDs.** Die User ID in Amplitude (nicht die Amplitude ID) muss exakt mit der externen Nutzer-ID in Braze (nicht der Braze- oder BSON-ID) übereinstimmen. Zum Beispiel muss die User ID `12345` in Amplitude mit der externen Nutzer-ID `12345` in Braze übereinstimmen.
-2. **Generieren Sie Ihren Braze-API-Schlüssel neu.** Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** > **Amplitude** und wählen Sie **Generate New Key**. Versuchen Sie dann die Amplitude-Kohortensynchronisierung mit dem neuen API-Schlüssel erneut.
+2. **Generieren Sie Ihren Braze-API-Schlüssel neu.** Gehen Sie im Braze-Dashboard zu **Partner Integrations** > **Technology Partners** > **Amplitude** und wählen Sie **Generate New Key**. Versuchen Sie dann die Amplitude-Kohortensynchronisierung mit dem neuen API-Schlüssel erneut.
 3. **Bestätigen Sie, dass die Kohorte in Amplitude synchronisiert wurde.** Kontaktieren Sie den [Amplitude-Support](https://help.amplitude.com/), um zu bestätigen, dass die Kohorte auf Amplitude-Seite erfolgreich synchronisiert wurde, bevor Sie die Fehlerbehebung in Braze fortsetzen.
 
 ## Amplitude-Nutzerprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}

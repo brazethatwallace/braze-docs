@@ -37,6 +37,7 @@ Vous pouvez consulter les statistiques de segment suivantes, qui se mettent à j
 </style>
 
 <table>
+  <caption>Statistiques de segment</caption>
     <thead>
         <tr>
             <th>Statistique</th>

@@ -6571,7 +6571,7 @@ Email, Subscription
 Cet événement se produit lorsque l'utilisateur final a cliqué sur « Se désabonner » dans l'e-mail.
 
 {% alert important %}
-L'événement `Unsubscribe` est considéré comme un événement de clic spécialisé qui se déclenche lorsque l'utilisateur clique sur le lien de désabonnement dans l'e-mail (qu'il s'agisse d'un lien de désabonnement normal dans le corps ou le pied de page de l'e-mail, ou d'un lien utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header), et non lorsque l'utilisateur change d'état pour se désabonner. Si le changement d'état de l'abonnement est envoyé via l'API ou avec un lien de désabonnement personnalisé (non Braze), cela ne déclenche pas d'événement de désabonnement par e-mail sur Currents.
+L'événement `Unsubscribe` est considéré comme un événement de clic spécialisé qui se déclenche lorsque l'utilisateur clique sur le lien de désabonnement dans l'e-mail (qu'il s'agisse d'un lien de désabonnement normal dans le corps ou le pied de page de l'e-mail, ou d'un lien utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), et non lorsque l'utilisateur change d'état pour se désabonner. Si le changement d'état de l'abonnement est envoyé via l'API ou avec un lien de désabonnement personnalisé (non Braze), cela ne déclenche pas d'événement de désabonnement par e-mail sur Currents.
 {% endalert %}
 
 {% tabs %}
@@ -10714,13 +10714,13 @@ RCS, Clicks
 {% endapi %}
 
 {% api %}
-## Événements de livraison RCS {#rcs-delivery-events}
+## Événements de distribution RCS {#rcs-delivery-events}
 
 {% apitags %}
 RCS, Delivery
 {% endapitags %}
 
-Cet événement est généré lorsqu'un message RCS est livré avec succès sur l'appareil mobile d'un utilisateur.
+Cet événement est généré lorsqu'un message RCS est distribué avec succès sur l'appareil mobile d'un utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12715,6 +12715,7 @@ Si Braze détecte que ce message entrant est une réponse à une Campaign sortan
 {% endapi %}
 
 {% api %}
+
 ## Événements de rejet de SMS {#sms-rejection-events}
 
 {% apitags %}
@@ -12722,6 +12723,10 @@ SMS, Rejection
 {% endapitags %}
 
 Cet événement se produit lorsqu'un envoi de SMS est rejeté par l'opérateur. Cela peut se produire pour plusieurs raisons. Utilisez cet événement et les codes d'erreur fournis pour résoudre les problèmes liés à la distribution des SMS.
+
+{% alert note %}
+Braze émet `users.messages.sms.Rejection` vers Currents, le Partage de données Snowflake et les exports associés uniquement lorsque le profil utilisateur Braze existe encore dans l'espace de travail au moment où l'événement est traité pour la journalisation. Si ce profil a été supprimé au préalable, vous ne verrez pas cet événement dans votre entrepôt de données ni dans votre export Currents. La même règle de traitement s'applique aux autres événements sortants `users.messages.sms.*` que Braze journalise via le même pipeline (par exemple distribution, échec de distribution et envoi à l'opérateur). Les indicateurs SMS au niveau de l'espace de travail peuvent tout de même inclure des comptages agrégés qui ne correspondent pas un à un aux lignes dans Snowflake.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13115,6 +13120,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 {% endapi %}
 
 {% api %}
+
 ## Événements d'envoi de SMS {#sms-send-events}
 
 {% apitags %}
@@ -13338,11 +13344,12 @@ Cet événement se produit lorsqu'un utilisateur envoie un SMS.
 #### Détails de la propriété
 
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques issues du Contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
-- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements de clic sur les liens courts SMS {#sms-short-link-click-events}
 
 {% apitags %}
@@ -13565,6 +13572,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur un lien court SMS.
 {% endapi %}
 
 {% api %}
+
 ## Événements d'interruption de webhook {#webhook-abort-events}
 
 {% apitags %}
@@ -13766,7 +13774,6 @@ Cet événement se produit si un message webhook a été interrompu en raison d'
 {% endapi %}
 
 {% api %}
-
 ## Événements d'échec de webhook {#webhook-failure-events}
 
 {% apitags %}
@@ -13992,7 +13999,7 @@ Cet événement se produit si un message webhook a été distribué mais a écho
 
 #### Détails de la propriété
 
-- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
@@ -14382,11 +14389,12 @@ Cet événement se produit lorsqu'un webhook a été traité et envoyé au tiers
 #### Détails de la propriété
 
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
-- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements d'interruption WhatsApp {#whatsapp-abort-events}
 
 {% apitags %}
@@ -14600,7 +14608,6 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
 {% endapi %}
 
 {% api %}
-
 ## Événements de clic sur les liens suivis WhatsApp {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -14797,6 +14804,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur un lien ou un bouton
 {% endapi %}
 
 {% api %}
+
 ## Événements de distribution WhatsApp {#whatsapp-delivery-events}
 
 {% apitags %}
@@ -15017,11 +15025,12 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
 
 #### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 
 {% endapi %}
 
 {% api %}
+
 ## Événements d'échec WhatsApp {#whatsapp-failure-events}
 
 {% apitags %}
@@ -15257,7 +15266,6 @@ Cet événement se produit lorsque WhatsApp ne parvient pas à distribuer le mes
 {% endapi %}
 
 {% api %}
-
 ## Événements WhatsApp entrants reçus {#whatsapp-inbound-received-events}
 
 {% apitags %}
@@ -15728,6 +15736,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
 {% endapi %}
 
 {% api %}
+
 ## Événements de nouvelle tentative WhatsApp {#whatsapp-retry-events}
 
 {% apitags %}
@@ -15935,7 +15944,6 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 {% endapi %}
 
 {% api %}
-
 ## Événements d'envoi WhatsApp {#whatsapp-send-events}
 
 {% apitags %}

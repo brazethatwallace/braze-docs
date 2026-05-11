@@ -24,6 +24,7 @@ table td {
 </style>
 
 <table>
+  <caption>Erreurs 4XX</caption>
   <thead>
     <tr>
       <th>Code d'erreur</th>
@@ -135,7 +136,7 @@ Les erreurs `5XX` indiquent un problème au niveau de l'endpoint. Elles sont gé
 
 Voici quelques conseils pour résoudre les erreurs `5XX` les plus courantes :
 
-- Consultez le message d'erreur pour obtenir des détails spécifiques dans le **Journal d'activité des messages**. Pour les webhooks, rendez-vous dans la section **Performance au fil du temps** sur la page d'accueil de Braze et sélectionnez les statistiques des webhooks. Vous pourrez y trouver l'horodatage indiquant quand les erreurs se sont produites.
+- Consultez le message d'erreur pour obtenir des détails spécifiques dans le **Journal d'activité des messages**. Pour les webhooks, rendez-vous dans la section **Performance Over Time** sur la page d'accueil de Braze et sélectionnez les statistiques des webhooks. Vous pourrez y trouver l'horodatage indiquant quand les erreurs se sont produites.
 - Assurez-vous de ne pas envoyer trop de requêtes qui surchargent l'endpoint. Vous pouvez envoyer par lots ou ajuster la limite de débit pour vérifier si cela réduit les erreurs.
 
 ## Détection d'un hôte défaillant {#unhealthy-host-detection}
@@ -182,7 +183,7 @@ Ces e-mails ne sont envoyés qu'une fois par jour au niveau de l'espace de trava
 
 Pour vous inscrire à la réception de ces e-mails, procédez comme suit :
 
-1. Allez dans **Paramètres** > **Paramètres d'administration** > **Préférences de notification**.
+1. Allez dans **Settings** > **Admin Settings** > **Notification Preferences**.
 2. Sélectionnez **Connected Content Errors** et **Webhook Errors** dans la section **Canvas & Campaigns**.
 
 ### Entrées du journal d'activité des messages {#message-activity-log-entries}

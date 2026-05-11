@@ -14,13 +14,13 @@ toc_headers: h2
 
 # 글로벌 컨트롤 그룹 {#global-control-group}
 
-> 글로벌 컨트롤 그룹을 사용하여 Campaign이나 Canvases를 수신하지 않을 전체 사용자의 비율을 지정하면, 시간 경과에 따른 메시징 활동의 전반적인 영향을 분석할 수 있습니다.
+> 글로벌 컨트롤 그룹을 사용하여 Campaigns이나 Canvases를 수신하지 않을 전체 사용자의 비율을 지정하면, 시간 경과에 따른 메시징 활동의 전반적인 영향을 분석할 수 있습니다.
 
 메시징을 수신하는 사용자와 수신하지 않는 사용자의 행동을 비교하면, 마케팅 Campaigns과 Canvases가 세션 및 커스텀 이벤트의 상승에 어떻게 기여하는지 더 잘 이해할 수 있습니다.
 
 ## 글로벌 컨트롤 그룹의 작동 방식 {#how-the-global-control-group-works}
 
-글로벌 컨트롤 그룹을 사용하면 전체 사용자의 일정 비율을 대조군으로 설정할 수 있습니다. 저장하면 해당 그룹의 사용자는 어떤 Campaign이나 Canvases도 수신하지 않습니다.
+글로벌 컨트롤 그룹을 사용하면 전체 사용자의 일정 비율을 대조군으로 설정할 수 있습니다. 저장하면 해당 그룹의 사용자는 어떤 Campaigns이나 Canvases도 수신하지 않습니다.
 
 {% alert important %}
 글로벌 컨트롤 그룹은 [API 캠페인]({{site.baseurl}}/api/api_campaigns/)을 제외한 모든 채널, Campaigns, Canvases에 적용됩니다. 즉, 대조군의 사용자는 여전히 API 캠페인을 수신합니다. 그러나 이 예외는 Content Cards에는 적용되지 않습니다. API 트리거 콘텐츠 카드 캠페인을 사용하는 경우, 대조군의 사용자는 해당 캠페인을 수신하지 않습니다.
@@ -110,7 +110,7 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 
 ### 보고서 보기 {#viewing-a-report}
 
-대시보드에서 글로벌 컨트롤 그룹 보고서를 보려면 **분석** > **글로벌 컨트롤 그룹 보고서**로 이동합니다.
+대시보드에서 글로벌 컨트롤 그룹 보고서를 보려면 **Analytics** > **글로벌 컨트롤 그룹 보고서**로 이동합니다.
 
 다음으로, 보고서를 실행할 매개변수(세션 또는 특정 커스텀 이벤트)를 선택하고 **Run Report**를 선택합니다.
 
@@ -174,13 +174,15 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 
 글로벌 컨트롤 그룹의 사용자는 태그 예외가 있는 메시지를 제외한 모든 메시지 수신이 보류되며, Campaign이나 Canvas에 대조군을 추가하면 Braze는 글로벌 처리군의 일부가 해당 특정 Campaign이나 Canvas를 수신하지 못하도록 보류합니다. 즉, 글로벌 컨트롤 그룹의 멤버가 특정 Campaign이나 Canvas를 수신할 자격이 없는 경우, 해당 특정 Campaign이나 Canvas의 대조군에 포함되지 않습니다.
 
-> 요약하면, 글로벌 컨트롤 그룹의 사용자는 Campaign이나 Canvas 오디언스에 진입하기 전에 필터링됩니다. Campaign이나 Canvas에 진입한 사용자 중 일정 비율이 대조 배리언트에 할당됩니다.
+{% alert note %}
+요약하면, 글로벌 컨트롤 그룹의 사용자는 Campaign이나 Canvas 오디언스에 진입하기 전에 필터링됩니다. Campaign이나 Canvas에 진입한 사용자 중 일정 비율이 대조 배리언트에 할당됩니다.
+{% endalert %}
 
-#### 개발자 콘솔의 글로벌 컨트롤 그룹 Segment {#global-control-group-segments-on-the-developer-console}
+#### 개발자 콘솔의 글로벌 컨트롤 그룹 Segments {#global-control-group-segments-on-the-developer-console}
 
-[API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지의 **Additional API Identifiers** 섹션에서 여러 **Global Control** Segment를 볼 수 있습니다. 이는 글로벌 컨트롤 그룹이 활성화되거나 비활성화될 때마다 새로운 글로벌 컨트롤 그룹이 형성되기 때문입니다. 이로 인해 "Global Control Group"이라는 레이블이 붙은 여러 Segment가 생깁니다.
+[API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지의 **Additional API Identifiers** 섹션에서 여러 **Global Control** Segments를 볼 수 있습니다. 이는 글로벌 컨트롤 그룹이 활성화되거나 비활성화될 때마다 새로운 글로벌 컨트롤 그룹이 형성되기 때문입니다. 이로 인해 "Global Control Group"이라는 레이블이 붙은 여러 Segments가 생깁니다.
 
-이 중 하나만 활성 상태이며 [`/users/export/global_control_group` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)를 사용하여 쿼리하거나 대시보드에서 내보낼 수 있습니다. 대시보드에서의 내보내기는 이 글로벌 컨트롤 그룹을 구성하는 하위 Segment를 구체적으로 명시합니다.
+이 중 하나만 활성 상태이며 [`/users/export/global_control_group` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)를 사용하여 쿼리하거나 대시보드에서 내보낼 수 있습니다. 대시보드에서의 내보내기는 이 글로벌 컨트롤 그룹을 구성하는 하위 Segments를 구체적으로 명시합니다.
 
 ## 테스트 모범 사례 {#testing-best-practices}
 

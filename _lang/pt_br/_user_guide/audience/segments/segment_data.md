@@ -37,6 +37,7 @@ Você pode visualizar as seguintes estatísticas de Segment, que são atualizada
 </style>
 
 <table>
+  <caption>Estatísticas de Segment</caption>
     <thead>
         <tr>
             <th>Estatística</th>
@@ -111,14 +112,14 @@ Antes de gerar seu relatório, acesse a guia **Variables** para fornecer informa
 
 As variáveis incluem:
 
-- **Campaign ou Canvas:** Você pode incluir uma ou várias Campaigns ou Canvas (não há limite máximo para quantas Campaigns ou Canvas você pode especificar). Se você não especificar nenhuma Campaign ou Canvas, o relatório incluirá todas as Campaigns ou Canvas do período escolhido.
-- **Variant:** Se estiver usando um modelo que oferece detalhamentos por variante, após selecionar uma Campaign ou Canvas, você pode selecionar variantes dentro dessa Campaign ou Canvas. Se você selecionar múltiplas variantes, seus resultados serão agrupados por variante.
-- **Step:** Se você selecionar uma variante de Canvas, poderá selecionar uma etapa do Canvas. Não é possível selecionar uma etapa sem antes selecionar uma variante de Canvas.
-- **Time range:** Identifique o período do qual deseja extrair dados. Se nenhum intervalo de tempo for especificado, o padrão será os últimos 30 dias.
-- **Product name:** Se estiver executando um relatório para dados de compra, você pode identificar um produto específico para extrair dados.
-- **Conversion window:** Sempre obrigatória para relatórios com dados de receita e compra. O número de dias após o recebimento ou clique do e-mail em que a Braze deve atribuir compras ou receita.
-- **Segments:** Identifique os Segments para detalhar os dados. Se não for especificado, o relatório será executado para todos os Segments que possuem rastreamento de análise de dados ativado.
-- **Tags:** Especifique tags em **Variables** para executar seu relatório para todas as Campaigns ou Canvas com determinadas tags. Você pode incluir múltiplas tags. Se você adicionar tanto tags quanto Campaigns ou Canvas específicas a um relatório, seu relatório incluirá dados das suas tags e das Campaigns ou Canvas especificadas.
+- **Campaign ou Canvas:** você pode incluir uma ou várias Campaigns ou Canvas (não há limite máximo para quantas Campaigns ou Canvas você pode especificar). Se você não especificar nenhuma Campaign ou Canvas, o relatório incluirá todas as Campaigns ou Canvas do período escolhido.
+- **Variante:** se estiver usando um modelo que oferece detalhamentos por variante, após selecionar uma Campaign ou Canvas, você pode selecionar variantes dentro dessa Campaign ou Canvas. Se você selecionar múltiplas variantes, seus resultados serão agrupados por variante.
+- **Etapa:** se você selecionar uma variante de Canvas, poderá selecionar uma etapa do Canvas. Não é possível selecionar uma etapa sem antes selecionar uma variante de Canvas.
+- **Intervalo de tempo:** identifique o período do qual deseja extrair dados. Se nenhum intervalo de tempo for especificado, o padrão será os últimos 30 dias.
+- **Nome do produto:** se estiver executando um relatório para dados de compra, você pode identificar um produto específico para extrair dados.
+- **Janela de conversão:** sempre obrigatória para relatórios com dados de receita e compra. O número de dias após o recebimento ou clique do e-mail em que a Braze deve atribuir compras ou receita.
+- **Segments:** identifique os Segments para detalhar os dados. Se não for especificado, o relatório será executado para todos os Segments que possuem rastreamento de análise de dados ativado.
+- **Tags:** especifique tags em **Variables** para executar seu relatório para todas as Campaigns ou Canvas com determinadas tags. Você pode incluir múltiplas tags. Se você adicionar tanto tags quanto Campaigns ou Canvas específicas a um relatório, seu relatório incluirá dados das suas tags e das Campaigns ou Canvas especificadas.
 
 ## Disponibilidade de dados {#data-availability}
 

@@ -26,12 +26,16 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
   "prioritization": (optional, array) see Prioritization; required when using email,
   "trigger_properties": (optional, object) personalization key-value pairs for this user when sending a campaign or message; see Trigger Properties,
   "context": (optional, object) personalization key-value pairs for this user when triggering a Canvas; see Canvas context object,
-  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases,
+  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases; if set to `false`, an `attributes` object must also be included,
   "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
 }]
 ```
 
-`send_to_existing_only`가 `true`이면 Braze는 기존 사용자에게만 메시지를 전송합니다. 그러나 사용자 별칭에는 이 플래그를 사용할 수 없습니다. `send_to_existing_only`가 `false`이면 반드시 속성을 포함해야 합니다. Braze는 메시지를 전송하기 전에 `id` 및 속성을 가진 사용자를 생성합니다.
+`send_to_existing_only`가 `true`이면 Braze는 기존 사용자에게만 메시지를 전송합니다. 그러나 사용자 별칭에는 이 플래그를 사용할 수 없습니다.
+
+`send_to_existing_only`가 `false`이면 동일한 수신자에 `attributes` 오브젝트를 반드시 포함해야 합니다. 이 플래그는 `attributes`를 대체하지 않습니다. Braze는 `attributes`를 사용하여 메시지 전송 전에 프로필을 생성하거나 업데이트합니다(예: 이메일 또는 SMS 전달을 위한 `email` 또는 전화번호 필드 추가, 구독 그룹 업데이트 등). 이 오브젝트가 없으면 [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 또는 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)에서 신규 사용자에 대해 의도한 결합 동작을 수행할 수 없습니다.
+
+해당 프로필은 Braze가 전송하기 전에 메시지의 오디언스 및 채널 자격 규칙을 충족해야 합니다.
 
 - [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
 - [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)

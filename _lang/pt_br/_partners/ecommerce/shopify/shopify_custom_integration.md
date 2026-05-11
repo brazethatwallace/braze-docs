@@ -484,7 +484,7 @@ export async function action({request, context}) {
 Para saber mais sobre os fetchers do Remix, consulte [useFetcher](https://remix.run/docs/ja/main/hooks/use-fetcher).
 
 {: start="3"}
-3. As lojas Hydrogen geralmente definem um componente `CartForm` que gerencia o estado do objeto do carrinho, que é usado ao adicionar, remover e alterar a quantidade de itens em um carrinho. Adicione outro hook `useEffect` no componente `AddToCartButton` que chamará a função `trackCartUpdated` sempre que o estado do fetcher do formulário for alterado (sempre que o carrinho do usuário for atualizado):
+3. As lojas Hydrogen geralmente definem um componente `CartForm` que gerencia o estado do objeto do carrinho, usado ao adicionar, remover e alterar a quantidade de itens em um carrinho. Adicione outro hook `useEffect` no componente `AddToCartButton` que chamará a função `trackCartUpdated` sempre que o estado do fetcher do formulário for alterado (sempre que o carrinho do usuário for atualizado):
 
 ```java
 // Add imports
@@ -614,6 +614,7 @@ Com os SDKs da Braze, você pode rastrear eventos personalizados ou atributos pe
 </style>
 
 <table style="width: 100%;">
+  <caption>Etapa 5: Configuração de rastreamento de dados personalizado (avançado)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>

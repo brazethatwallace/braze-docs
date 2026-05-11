@@ -10,8 +10,6 @@ description: "이 페이지는 CDI를 사용하여 Braze Canvases를 트리거�
 
 > CDI를 사용하여 제로 복사 개인화를 위한 Canvas 트리거를 동기화하는 방법을 알아보세요. 이 기능은 데이터 저장 솔루션에서 사용자별 정보에 액세스하여 대상 Canvas로 전달합니다. 캔버스 단계에는 Braze 고객 프로필에 유지되지 않는 개인화 필드를 선택적으로 포함할 수 있습니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Canvas 트리거 동기화 {#syncing-canvas-triggers}
 
 ### 빠른 시작 단계 {#quick-start-steps}
@@ -111,7 +109,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 * `UPDATED_AT`: 이 행이 테이블에 업데이트되거나 추가된 시간입니다. Braze는 `UPDATED_AT`이 마지막 동기화 값보다 이후인 행을 동기화합니다. 동일한 타임스탬프를 공유하는 새 행이 있는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
 * 사용자 식별자 열로 `external_id` 또는 `alias_name` 및 `alias_label` 중 하나가 필요합니다. 이들은 Canvas 메시징을 트리거할 사용자를 식별합니다.
   * `EXTERNAL_ID`: Canvas에 진입할 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다.
-  * `ALIAS_NAME` 및 `ALIAS_LABEL`: 이 열들은 사용자 별칭 오브젝트를 생성합니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
+  * `ALIAS_NAME` 및 `ALIAS_LABEL`: 이 열들은 사용자 별칭 오브젝트를 생성합니다. `alias_name`은 고유 식별자여야 하며, alias_label은 별칭 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
 * `PROPERTIES`: Canvas에서 개인화 등록정보로 사용할 수 있는 필드의 JSON 문자열입니다. 사용자별 정보를 포함해야 합니다.
 
 {% alert note %}
@@ -204,7 +202,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | :---- | :---- | :---- |
 | `UPDATED_AT` | Timestamp | 예 |
 | `PROPERTIES` | JSON | 예 |
-| `EXTERNAL_ID` | STRING | NULLABLE |
+| `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -326,13 +324,10 @@ GO
 
 CDI Canvas 트리거는 `/canvas/trigger/send`에 대한 REST API 사용량 제한을 활용합니다. 이 엔드포인트를 CDI Canvas 트리거와 REST API 통합에서 동시에 사용하는 경우, 결합된 사용량이 사용량 제한에 포함될 것으로 예상하세요.
 
-CDI Canvas 트리거가 얼리 액세스 중인 동안 다음 세부 사항을 고려하세요:
+각 동기화 실행은 최대 약 375만 사용자/시간의 속도로 해당 대상 Canvas에 사용자를 진입시킵니다. 다음과 같은 경우 소스에서 Canvas 진입까지의 시간이 길어질 수 있습니다:
 
-* 워크스페이스당 최대 5개의 활성 Canvas 트리거 동기화
-* 각 동기화 실행은 최대 약 375만 사용자/시간의 속도로 해당 대상 Canvas에 사용자를 진입시킵니다.
-  * 다음과 같은 경우 소스에서 Canvas 진입까지의 시간이 길어질 수 있습니다:
-    * 동기화 실행당 375만 명 이상의 사용자를 동기화하는 경우.
-    * REST API의 [`/canvas/trigger/send`에 대한 사용량 제한]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)을 이미 포화 상태로 사용하면서 CDI Canvas 트리거를 사용하는 경우.
+* 동기화 실행당 375만 명 이상의 사용자를 동기화하는 경우.
+* REST API의 [`/canvas/trigger/send`에 대한 사용량 제한]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)을 이미 포화 상태로 사용하면서 CDI Canvas 트리거를 사용하는 경우.
 
 메시지 아카이브가 활성화된 상태에서 제로 복사 CDI를 사용할 때 다음 사항을 고려하세요:
 

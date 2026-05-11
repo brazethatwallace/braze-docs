@@ -11,16 +11,15 @@ description: "Este artículo de referencia cubre brevemente los pasos de integra
 > Braze Pilot admite vinculación en profundidad desde la mensajería de Braze a partes concretas de la aplicación Pilot. Esto te permite crear casos de uso de interacción, dirigiendo a los usuarios a diversas partes de la aplicación Pilot. También puedes utilizar parámetros opcionales de vínculos profundos para personalizar el contenido de páginas concretas de la aplicación para el usuario. Para obtener más información sobre la vinculación en profundidad, consulta [Vínculo profundo a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
 ## General {#general}
-
 Estos son los vínculos profundos para las páginas de navegación principales de la aplicación Pilot.
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Proyectos | `braze-pilot://navigation/projects` |
-| Datos de registro | `braze-pilot://navigation/logdata` |
-| Configuración | `braze-pilot://navigation/setup` |
-| Cambiar idioma | `braze-pilot://navigation/selectlanguage` |
-| Cámara | `braze-pilot://navigation/camera` |
+| Projects | `braze-pilot://navigation/projects` |
+| Log Data | `braze-pilot://navigation/logdata` |
+| Setup | `braze-pilot://navigation/setup` |
+| Change Language | `braze-pilot://navigation/selectlanguage` |
+| Camera | `braze-pilot://navigation/camera` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Steppington
@@ -35,7 +34,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Stepp
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Pantalla de inicio | `braze-pilot://navigation/steppington/splash` |
-| Inicio | `braze-pilot://navigation/steppington/home` |
+| Home | `braze-pilot://navigation/steppington/home` |
 | Página de Steppington+ | `braze-pilot://navigation/steppington/plus` |
 | Pantalla de objetivos | `braze-pilot://navigation/steppington/goals` |
 | Pantalla de cambiar objetivos | `braze-pilot://navigation/steppington/changegoals` |
@@ -76,6 +75,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Parámetros aceptados</caption>
     <thead>
         <tr>
             <th>Parámetro</th>
@@ -217,7 +217,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Pants
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de carga inicial | `braze-pilot://navigation/pantslabyrinth/splash` |
+| Pantalla de presentación | `braze-pilot://navigation/pantslabyrinth/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/welcome` |
 | Pantalla de listado | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Página del carrito | `braze-pilot://navigation/pantslabyrinth/cart` |
@@ -258,6 +258,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Parámetros aceptados</caption>
     <thead>
         <tr>
             <th>Parámetro</th>

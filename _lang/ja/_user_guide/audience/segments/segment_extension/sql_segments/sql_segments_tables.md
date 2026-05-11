@@ -50,11 +50,11 @@ table td {
 [USERS_BEHAVIORS_UNINSTALL_SHARED](#USERS_BEHAVIORS_UNINSTALL_SHARED) | ユーザーがアプリをアンインストールしたとき
 [USERS_BEHAVIORS_UPGRADEDAPP_SHARED](#USERS_BEHAVIORS_UPGRADEDAPP_SHARED) | ユーザーがアプリをアップグレードしたとき
 [USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED](#USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED) | ユーザーが初回セッションを行ったとき
-[USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | ユーザーがNews Feedを閲覧したとき
+[USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | ユーザーが News Feed を閲覧したとき
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | ユーザーがアプリでセッションを終了したとき
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | ユーザーがアプリでセッションを開始したとき
-[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（例: ジオフェンスへの入場または退出）。このイベントは他のイベントとバッチ処理され、標準イベントエンドポイントを通じて受信されるため、リアルタイムで表示されない場合があります。<br><br>このテーブルにジオフェンスアクティビティを記録するには、各ジオフェンスの詳細設定で **Enable Analytics for Enter** と **Enable Analytics for Exit** を選択してください。詳細は[ジオフェンスを手動で作成する]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences)のステップ 3 を参照してください。
-[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（例: ジオフェンスへの入場または退出）。このイベントは専用のジオフェンスエンドポイントを通じて受信されるため、ユーザーのデバイスがジオフェンスのトリガーを検出するとリアルタイムで受信されます。<br><br>また、ジオフェンスエンドポイントのレート制限により、一部のジオフェンスイベントが RecordEvent として反映されない場合があります。ただし、すべてのジオフェンスイベントは DataEvent として表現されます（バッチ処理による遅延が生じる可能性があります）。
+[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（例: ジオフェンスへの入場または退出）。このイベントは他のイベントとバッチ処理され、標準イベントエンドポイント経由で受信されるため、リアルタイムで表示されない場合があります。<br><br>このテーブルにジオフェンスアクティビティを記録するには、各ジオフェンスの詳細設定で **Enable Analytics for Enter** と **Enable Analytics for Exit** を選択してください。詳細は[ジオフェンスを手動で作成する]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences)のステップ 3 を参照してください。
+[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | ユーザーがジオフェンスエリアをトリガーしたとき（例: ジオフェンスへの入場または退出）。このイベントは専用のジオフェンスエンドポイント経由で受信されるため、ユーザーのデバイスがジオフェンスのトリガーを検出するとリアルタイムで受信されます。<br><br>また、ジオフェンスエンドポイントのレート制限により、一部のジオフェンスイベントが RecordEvent として反映されない場合があります。ただし、すべてのジオフェンスイベントは DataEvent として表現されます（バッチ処理による遅延が発生する可能性があります）。
 [USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Live Activity の push-to-start トークンが変更されたとき
 [USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Live Activity の更新トークンが変更されたとき
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | プッシュ通知トークンの状態が変更されたとき
@@ -66,11 +66,11 @@ table td {
 [USERS_CAMPAIGNS_REVENUE_SHARED](#USERS_CAMPAIGNS_REVENUE_SHARED) | ユーザーが1次コンバージョン期間内に収益を生成したとき
 [USERS_CANVASSTEP_PROGRESSION_SHARED](#USERS_CANVASSTEP_PROGRESSION_SHARED) | ユーザーがキャンバスステップに進んだとき
 [USERS_CANVAS_CONVERSION_SHARED](#USERS_CANVAS_CONVERSION_SHARED) | ユーザーがCanvasのコンバージョンイベントでコンバージョンしたとき
-[USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | ユーザーがCanvasにエントリしたとき
+[USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | ユーザーがCanvasに入ったとき
 [USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED](#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED) | ユーザーがオーディエンス離脱条件に一致してCanvasを離脱したとき
 [USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED](#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED) | ユーザーが例外イベントを実行してCanvasを離脱したとき
-[USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | ユーザーがCanvas実験ステップでコンバージョンしたとき
-[USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | ユーザーが実験ステップのパスにエントリしたとき
+[USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | ユーザーがCanvasの実験ステップでコンバージョンしたとき
+[USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | ユーザーが実験ステップのパスに入ったとき
 [USERS_CANVAS_FREQUENCYCAP_SHARED](#USERS_CANVAS_FREQUENCYCAP_SHARED) | ユーザーがキャンバスステップでフリークエンシーキャップに達したとき
 [USERS_CANVAS_REVENUE_SHARED](#USERS_CANVAS_REVENUE_SHARED) | ユーザーが1次コンバージョンイベント期間内に収益を生成したとき
 [USERS_MESSAGES_BANNER_ABORT_SHARED](#USERS_MESSAGES_BANNER_ABORT_SHARED) | 元々スケジュールされたバナーメッセージが何らかの理由で中止されたとき
@@ -82,7 +82,7 @@ table td {
 [USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | ユーザーがコンテンツカードを閲覧したとき
 [USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | ユーザーにコンテンツカードを送信したとき
 [USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | 元々スケジュールされたメールメッセージが何らかの理由で中止されたとき
-[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | メールサービスプロバイダーがハードバウンスを返したとき。ハードバウンスは永続的な配信不能を示します。
+[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | メールサービスプロバイダーがハードバウンスを返したとき。ハードバウンスは恒久的な配信失敗を示します。
 [USERS_MESSAGES_EMAIL_CLICK_SHARED](#USERS_MESSAGES_EMAIL_CLICK_SHARED) | ユーザーがメール内のリンクをクリックしたとき
 [USERS_MESSAGES_EMAIL_DEFERRAL_SHARED](#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED) | メールが遅延されたとき
 [USERS_MESSAGES_EMAIL_DELIVERY_SHARED](#USERS_MESSAGES_EMAIL_DELIVERY_SHARED) | メールが配信されたとき
@@ -90,8 +90,8 @@ table td {
 [USERS_MESSAGES_EMAIL_OPEN_SHARED](#USERS_MESSAGES_EMAIL_OPEN_SHARED) | ユーザーがメールを開封したとき
 [USERS_MESSAGES_EMAIL_SEND_SHARED](#USERS_MESSAGES_EMAIL_SEND_SHARED) | ユーザーにメールを送信したとき
 [USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED](#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED) | メールがソフトバウンスしたとき
-[USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED](#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED) | ユーザーがメールの配信を停止したとき
-[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後にメールメッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED](#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED) | ユーザーがメールの配信停止を行ったとき
+[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | メールメッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED](#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED) | ユーザーがフィーチャーフラグを閲覧したとき
 [USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED](#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED) | 元々スケジュールされたアプリ内メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED](#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED) | ユーザーがアプリ内メッセージをクリックしたとき
@@ -100,19 +100,19 @@ table td {
 [USERS_MESSAGES_LINE_CLICK_SHARED](#USERS_MESSAGES_LINE_CLICK_SHARED) | ユーザーが LINE メッセージ内のリンクをクリックしたとき
 [USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | ユーザーから LINE メッセージを受信したとき
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | LINE メッセージが LINE に送信されたとき
-[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に LINE メッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | LINE メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Live Activity にアウトカムイベントが発生したとき
 [USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Live Activity メッセージが送信されたとき
-[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | 元々スケジュールされたNews Feedカードメッセージが何らかの理由で中止されたとき
-[USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | ユーザーがNews Feedカードをクリックしたとき
-[USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | ユーザーがNews Feedカードを閲覧したとき
+[USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | 元々スケジュールされた News Feed カードメッセージが何らかの理由で中止されたとき
+[USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | ユーザーが News Feed カードをクリックしたとき
+[USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | ユーザーが News Feed カードを閲覧したとき
 [USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | 元々スケジュールされたプッシュ通知メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | プッシュ通知がバウンスしたとき
-[USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | ユーザーが通知を受信した後、通知をクリックせずにアプリを開いたとき
+[USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | ユーザーが通知を受信後、通知をクリックせずにアプリを開いたとき
 [USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | アプリが開いている状態でユーザーがプッシュ通知を受信したとき。<br><br>このイベントは [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) ではサポートされておらず、[Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) では非推奨です。
 [USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | ユーザーがプッシュ通知を開くか、プッシュ通知ボタン（アプリを開かない CLOSE ボタンを含む）をクリックしたとき。<br><br>プッシュボタンアクションには複数の結果があります。No、Decline、Cancel アクションは「クリック」であり、Accept アクションは「開封」です。両方ともこのテーブルに表示されますが、**BUTTON_ACTION_TYPE** 列で区別できます。例えば、`BUTTON_ACTION_TYPE` が No、Decline、Cancel でないものでグループ化するクエリを使用できます。
 [USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED) | ユーザーにプッシュ通知を送信したとき
-[USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Braze 内で検出されたエラーにより RCS 送信が中断され、メッセージが破棄されたとき
+[USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Braze 内で検出されたエラーにより RCS 送信が中断され、メッセージがドロップされたとき
 [USERS_MESSAGES_RCS_CLICK_SHARED](#USERS_MESSAGES_RCS_CLICK_SHARED) | エンドユーザーが RCS メッセージの UI 要素をタップまたはクリックして操作したとき
 [USERS_MESSAGES_RCS_DELIVERY_SHARED](#USERS_MESSAGES_RCS_DELIVERY_SHARED) | RCS メッセージがエンドユーザーのモバイルデバイスに正常に配信されたとき
 [USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED) | Braze がエンドユーザーからの RCS メッセージを受信したとき
@@ -122,16 +122,16 @@ table td {
 [USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 元々スケジュールされた SMS メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | SMS メッセージがキャリアに送信されたとき
 [USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | SMS メッセージが配信されたとき
-[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Braze が SMS サービスプロバイダーに SMS メッセージを配信できなかったとき
+[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Braze が SMS メッセージを SMS サービスプロバイダーに配信できなかったとき
 [USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | ユーザーから SMS メッセージを受信したとき
 [USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | SMS メッセージがユーザーに配信されなかったとき
 [USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | SMS メッセージが送信されたとき
 [USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | ユーザーが SMS メッセージに含まれる Braze 短縮 URL をクリックしたとき
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に SMS メッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | SMS メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | 元々スケジュールされた Webhook メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | Webhook メッセージが配信されたがエンドポイントからエラーレスポンスが返されたとき
-[USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | ユーザーに対して Webhookを送信したとき
-[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に Webhook メッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | ユーザーに対して Webhook を送信したとき
+[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | Webhook メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_MESSAGES_WHATSAPP_ABORT_SHARED](#USERS_MESSAGES_WHATSAPP_ABORT_SHARED) | 元々スケジュールされた WhatsApp メッセージが何らかの理由で中止されたとき
 [USERS_MESSAGES_WHATSAPP_CLICK_SHARED](#USERS_MESSAGES_WHATSAPP_CLICK_SHARED) | ユーザーが WhatsApp メッセージ内のリンクまたはボタンをクリックしたとき
 [USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED](#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED) | WhatsApp メッセージが配信されたとき
@@ -139,12 +139,12 @@ table td {
 [USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED) | ユーザーから WhatsApp メッセージを受信したとき
 [USERS_MESSAGES_WHATSAPP_READ_SHARED](#USERS_MESSAGES_WHATSAPP_READ_SHARED) | ユーザーが WhatsApp メッセージを開いたとき
 [USERS_MESSAGES_WHATSAPP_SEND_SHARED](#USERS_MESSAGES_WHATSAPP_SEND_SHARED) | ユーザーに対して WhatsApp メッセージを送信したとき
-[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | 優先度が下げられたかフリークエンシーキャップに達した後に WhatsApp メッセージがリトライされたとき（**Snowflake データ共有のみ**）
+[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | WhatsApp メッセージが優先度低下またはフリークエンシーキャップ後にリトライされたとき（**Snowflake データ共有のみ**）
 [USERS_RANDOMBUCKETNUMBERUPDATE_SHARED](#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED) | ユーザーのランダムバケット番号が変更されたとき
 [USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | 顧客のリクエストによりユーザーが削除されたとき
 [USERS_USERORPHAN_SHARED](#USERS_USERORPHAN_SHARED) | ユーザーが別のユーザーのプロファイルとマージされ、元のプロファイルが孤立したとき
 [SNAPSHOTS_APP_SHARED](#SNAPSHOTS_APP_SHARED) | アプリスナップショット（**Snowflake データ共有のみ**）
-[SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaignメッセージバリエーションスナップショット（**Snowflake データ共有のみ**）
+[SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaign メッセージバリエーションスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_FLOW_STEP_SHARED](#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED) | キャンバスフローステップスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_STEP_SHARED](#SNAPSHOTS_CANVAS_STEP_SHARED) | キャンバスステップスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | Canvas バリエーションスナップショット（**Snowflake データ共有のみ**）
@@ -181,7 +181,7 @@ table td {
 `llm_owned_by_customer` | `boolean` | true の場合、顧客の API キーが使用されました。false の場合、Braze のキーが使用されました
 `is_error` | `boolean` | このリクエストがエラーになったかどうか
 `canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
@@ -340,8 +340,8 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `random_bucket_number` | `null, int` | 新しいランダムバケット番号
-`global_control_group` | `null, boolean` | この変更により、バケット番号がグローバルコントロールグループに含まれるようになったかどうか
-`previous_global_control_group` | `null, boolean` | この変更前にバケット番号がグローバルコントロールグループに含まれていたが、現在は含まれていないかどうか
+`global_control_group` | `null, boolean` | この変更により、バケット番号がグローバルコントロールグループに含まれます
+`previous_global_control_group` | `null, boolean` | この変更前はバケット番号がグローバルコントロールグループに含まれていましたが、現在は含まれていません
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -567,7 +567,7 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このセッションが発生したアプリの API ID
 `time` | `int` | セッションが終了した Unix タイムスタンプ
-`duration` | `null, float` | セッションの継続時間（秒）
+`duration` | `null, float` | セッションの長さ（秒単位）
 `session_id` | `string` | セッションの UUID
 `device_id` | `null,`&nbsp;`string` | セッションが発生したデバイスの ID
 `sdk_version` | `null,`&nbsp;`string` | セッション中に使用されていた Braze SDKのバージョン
@@ -691,7 +691,7 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
-`time_ms` | `int` | イベントが発生した時刻（ミリ秒）
+`time_ms` | `int` | イベントが発生した時刻（ミリ秒単位）
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `sdk_version` | `null,`&nbsp;`string` | イベント時に使用されていた Braze SDKのバージョン
@@ -727,7 +727,7 @@ table td {
 `time` | `int` | サブスクリプション状態が変更された Unix タイムスタンプ
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`app_api_id` | `null,`&nbsp;`string` | イベントが属するアプリの API ID
+`app_api_id` | `null,`&nbsp;`string` | このイベントが属するアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するメッセージバリエーションの API ID
@@ -751,8 +751,8 @@ table td {
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `email_address` | `null,`&nbsp;`string` | [PII] ユーザーのメールアドレス
-`phone_number` | `null,`&nbsp;`string` | [PII] E.164 形式のユーザーの電話番号
-`app_api_id` | `null,`&nbsp;`string` | イベントが属するアプリの API ID
+`phone_number` | `null,`&nbsp;`string` | [PII] e164 形式のユーザーの電話番号
+`app_api_id` | `null,`&nbsp;`string` | このイベントが属するアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するメッセージバリエーションの API ID
@@ -962,6 +962,7 @@ table td {
 | `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1018,6 +1019,7 @@ table td {
 | `experiment_step_api_id` | `string`,&nbsp;`null` | このイベントが属する実験ステップの API ID |
 | `in_control_group` | `boolean`,&nbsp;`null` | ユーザーがコントロールグループに登録された場合は true |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 | `experiment_split_api_id` | `string`,&nbsp;`null` | ユーザーが登録された実験スプリットの API ID |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -1080,9 +1082,9 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
@@ -1116,9 +1118,9 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
@@ -1151,9 +1153,9 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
@@ -1186,16 +1188,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1204,7 +1206,7 @@ table td {
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1216,7 +1218,7 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `content_card_id` | `string` | このイベントを生成したカードの ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -1224,9 +1226,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1244,7 +1246,7 @@ table td {
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1256,7 +1258,7 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `content_card_id` | `string` | このイベントを生成したカードの ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -1264,9 +1266,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1284,7 +1286,7 @@ table td {
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1296,7 +1298,7 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `content_card_id` | `string` | このイベントを生成したカードの ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -1304,9 +1306,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1324,7 +1326,7 @@ table td {
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1336,16 +1338,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1353,7 +1355,7 @@ table td {
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
 `content_card_id` | `string` | このイベントを生成したカードの ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -1366,16 +1368,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1386,7 +1388,7 @@ table td {
 `ip_pool` | `null,`&nbsp;`string` | メール送信に使用された IP プール
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1398,16 +1400,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1421,7 +1423,7 @@ table td {
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
 `is_drop` | `null, boolean` | このイベントがドロップイベントとしてカウントされることを示します
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1433,16 +1435,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1458,7 +1460,7 @@ table td {
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
 `is_amp` | `null, boolean` | これが AMP イベントであることを示します
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `is_suspected_bot_click` | `null, boolean` | このイベントがボットイベントとして処理されたかどうか
 `suspected_bot_click_reason` | `null, object` | このイベントがボットとして分類された理由
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
@@ -1472,16 +1474,16 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -1505,16 +1507,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1526,7 +1528,7 @@ table td {
 `ip_pool` | `null,`&nbsp;`string` | メール送信に使用された IP プール
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1538,16 +1540,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1559,7 +1561,7 @@ table td {
 `ip_pool` | `null,`&nbsp;`string` | メール送信に使用された IP プール
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1571,16 +1573,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1590,11 +1592,11 @@ table td {
 `email_address` | `string` | [PII] ユーザーのメールアドレス
 `user_agent` | `null,`&nbsp;`string` | 開封が発生したユーザーエージェント
 `ip_pool` | `null,`&nbsp;`string` | メール送信に使用された IP プール
-`machine_open` | `null,`&nbsp;`string` | ユーザーの操作なしに開封イベントがトリガーされた場合（例: Mail Privacy Protection が有効な Apple デバイスによる場合）、'true' が設定されます。値はより詳細な粒度を提供するために変更される場合があります。
+`machine_open` | `null,`&nbsp;`string` | ユーザーの操作なしに開封イベントがトリガーされた場合に 'true' が設定されます（例: メールプライバシー保護が有効な Apple デバイスなど）。値はより詳細な情報を提供するために変更される場合があります。
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
 `is_amp` | `null, boolean` | これが AMP イベントであることを示します
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1606,16 +1608,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1628,7 +1630,7 @@ table td {
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED {#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED}
@@ -1639,16 +1641,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1661,7 +1663,7 @@ table td {
 `bounce_reason` | `null,`&nbsp;`string` | [PII] このバウンスイベントで受信した SMTP 理由コードとユーザーフレンドリーなメッセージ
 `esp` | `null,`&nbsp;`string` | イベントに関連する ESP（SparkPost、SendGrid、または Amazon SES）
 `from_domain` | `null,`&nbsp;`string` | メールの送信ドメイン
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1673,16 +1675,16 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1691,7 +1693,7 @@ table td {
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
 `email_address` | `string` | [PII] ユーザーのメールアドレス
 `ip_pool` | `null,`&nbsp;`string` | メール送信に使用された IP プール
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1701,15 +1703,15 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ期間内に後で再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `retry_type` | `null,`&nbsp;`string` | リトライのタイプ
 `retry_log` | `null,`&nbsp;`string` | リトライの詳細を記述するログメッセージ
@@ -1718,9 +1720,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1739,18 +1741,18 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `feature_flag_id_name` | `null,`&nbsp;`string` | フィーチャーフラグのロールアウト識別子
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1775,7 +1777,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
@@ -1784,9 +1786,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1807,7 +1809,7 @@ table td {
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1818,7 +1820,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
@@ -1826,9 +1828,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1848,7 +1850,7 @@ table td {
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1859,7 +1861,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
@@ -1867,9 +1869,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1888,9 +1890,9 @@ table td {
 `ad_id` | `null,`&nbsp;`string` | [PII] 広告識別子
 `ad_id_type` | `null,`&nbsp;`string` | `ios_idfa`、`google_ad_id`、`windows_ad_id`、または `roku_ad_id` のいずれか
 `ad_tracking_enabled` | `null, boolean` | デバイスで広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
-`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）。
+`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1899,9 +1901,9 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
@@ -1912,17 +1914,17 @@ table td {
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
-`line_channel_id` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル ID
-`line_channel_name` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル名
+`line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
+`line_channel_name` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル名
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送受信元のユーザーの LINE ID
+`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送信先または受信元のユーザーの LINE ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1931,22 +1933,22 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送受信元のユーザーの LINE ID
-`line_channel_id` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル ID
-`line_channel_name` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル名
+`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送信先または受信元のユーザーの LINE ID
+`line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
+`line_channel_name` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル名
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
@@ -1965,27 +1967,27 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
-`line_channel_id` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル ID
-`line_channel_name` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル名
+`line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
+`line_channel_name` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル名
 `media_id` | `null,`&nbsp;`string` | LINE から受信メディアを取得するために使用できる LINE 生成 ID
 `message_body` | `null,`&nbsp;`string` | ユーザーからの入力応答
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送受信元のユーザーの LINE ID
+`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送信先または受信元のユーザーの LINE ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
@@ -1997,26 +1999,26 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
-`line_channel_id` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル ID
-`line_channel_name` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル名
+`line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
+`line_channel_name` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル名
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送受信元のユーザーの LINE ID
+`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送信先または受信元のユーザーの LINE ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
@@ -2029,15 +2031,15 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ期間内に後で再試行された場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `retry_type` | `null,`&nbsp;`string` | リトライのタイプ
 `retry_log` | `null,`&nbsp;`string` | リトライの詳細を記述するログメッセージ
@@ -2046,15 +2048,15 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
-`line_channel_id` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル ID
-`line_channel_name` | `null,`&nbsp;`string` | メッセージの送受信先の LINE チャネル名
-`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送受信元のユーザーの LINE ID
+`line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
+`line_channel_name` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル名
+`native_line_id` | `null,`&nbsp;`string` | [PII] メッセージの送信先または受信元のユーザーの LINE ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの API ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
@@ -2067,16 +2069,16 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`activity_id` | `null,`&nbsp;`string` | Live Activity の識別子
-`activity_attributes_type` | `null,`&nbsp;`string` | Live Activity の属性タイプ
-`push_to_start_token` | `null,`&nbsp;`string` | Live Activity の push to start トークン
-`update_token` | `null,`&nbsp;`string` | Live Activity の更新トークン
-`live_activity_event_type` | `null,`&nbsp;`string` | Live Activity のイベントタイプ。['start', 'update', 'end'] のいずれか
-`live_activity_event_outcome` | `null,`&nbsp;`string` | Live Activity イベントの結果
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`activity_id` | `null,`&nbsp;`string` | ライブアクティビティ識別子
+`activity_attributes_type` | `null,`&nbsp;`string` | ライブアクティビティの属性タイプ
+`push_to_start_token` | `null,`&nbsp;`string` | ライブアクティビティの push to start トークン
+`update_token` | `null,`&nbsp;`string` | ライブアクティビティの更新トークン
+`live_activity_event_type` | `null,`&nbsp;`string` | ライブアクティビティのイベントタイプ。['start', 'update', 'end'] のいずれか
+`live_activity_event_outcome` | `null,`&nbsp;`string` | ライブアクティビティイベントの結果
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -2088,15 +2090,15 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`activity_id` | `null,`&nbsp;`string` | Live Activity の識別子
-`activity_attributes_type` | `null,`&nbsp;`string` | Live Activity の属性タイプ
-`push_to_start_token` | `null,`&nbsp;`string` | Live Activity の push to start トークン
-`update_token` | `null,`&nbsp;`string` | Live Activity の更新トークン
-`live_activity_event_type` | `null,`&nbsp;`string` | Live Activity のイベントタイプ。['start', 'update', 'end'] のいずれか
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`activity_id` | `null,`&nbsp;`string` | ライブアクティビティ識別子
+`activity_attributes_type` | `null,`&nbsp;`string` | ライブアクティビティの属性タイプ
+`push_to_start_token` | `null,`&nbsp;`string` | ライブアクティビティの push to start トークン
+`update_token` | `null,`&nbsp;`string` | ライブアクティビティの更新トークン
+`live_activity_event_type` | `null,`&nbsp;`string` | ライブアクティビティのイベントタイプ。['start', 'update', 'end'] のいずれか
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -2108,9 +2110,9 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
@@ -2138,9 +2140,9 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
@@ -2166,9 +2168,9 @@ table td {
 ------|------|------------
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
@@ -2195,7 +2197,7 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `device_id` | `null,`&nbsp;`string` | 配信を試みた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2203,9 +2205,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2215,7 +2217,7 @@ table td {
 `platform` | `string` | デバイスのプラットフォーム
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2228,7 +2230,7 @@ table td {
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `push_token` | `null,`&nbsp;`string` | バウンスしたプッシュトークン
 `device_id` | `null,`&nbsp;`string` | 配信を試みてバウンスした `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2236,9 +2238,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2248,8 +2250,8 @@ table td {
 `platform` | `null,`&nbsp;`string` | デバイスのプラットフォーム
 `ad_id` | `null,`&nbsp;`string` | [PII] 配信を試みたデバイスの広告 ID
 `ad_id_type` | `null,`&nbsp;`string` | 広告 ID のタイプ
-`ad_tracking_enabled` | `null, boolean` | 広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`ad_tracking_enabled` | `null, boolean` | 広告のトラッキングが有効かどうか
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2260,7 +2262,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2268,9 +2270,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2285,7 +2287,7 @@ table td {
 `resolution` | `null,`&nbsp;`string` | デバイスの解像度
 `carrier` | `null,`&nbsp;`string` | デバイスの通信キャリア
 `browser` | `null,`&nbsp;`string` | デバイスのブラウザー
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2300,7 +2302,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2308,9 +2310,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2327,8 +2329,8 @@ table td {
 `browser` | `null,`&nbsp;`string` | デバイスのブラウザー
 `ad_id` | `null,`&nbsp;`string` | [PII] 配信を試みたデバイスの広告 ID
 `ad_id_type` | `null,`&nbsp;`string` | 広告 ID のタイプ
-`ad_tracking_enabled` | `null, boolean` | 広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`ad_tracking_enabled` | `null, boolean` | 広告のトラッキングが有効かどうか
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2339,7 +2341,7 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2347,9 +2349,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2370,8 +2372,8 @@ table td {
 `slide_action_type` | `null,`&nbsp;`string` | プッシュカルーセルスライドのアクションタイプ
 `ad_id` | `null,`&nbsp;`string` | [PII] 配信を試みたデバイスの広告 ID
 `ad_id_type` | `null,`&nbsp;`string` | 広告 ID のタイプ
-`ad_tracking_enabled` | `null, boolean` | 広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`ad_tracking_enabled` | `null, boolean` | 広告のトラッキングが有効かどうか
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2384,7 +2386,7 @@ table td {
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `push_token` | `null,`&nbsp;`string` | 配信を試みたプッシュトークン
 `device_id` | `null,`&nbsp;`string` | 配信を試みた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2392,9 +2394,9 @@ table td {
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2404,11 +2406,11 @@ table td {
 `platform` | `string` | デバイスのプラットフォーム
 `ad_id` | `null,`&nbsp;`string` | [PII] 配信を試みたデバイスの広告 ID
 `ad_id_type` | `null,`&nbsp;`string` | 広告 ID のタイプ
-`ad_tracking_enabled` | `null, boolean` | 広告トラッキングが有効かどうか
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`ad_tracking_enabled` | `null, boolean` | 広告のトラッキングが有効かどうか
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
-`is_sampled` | `null,`&nbsp;`string` | プッシュ送信がサンプリングされ、配信イベントが期待されるかどうかを示します
-`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）。
+`is_sampled` | `null,`&nbsp;`string` | プッシュ送信がサンプリングされ、配信イベントが期待されたかどうかを示します
+`locale_key` | `null,`&nbsp;`string` | [PII] このメッセージの作成に使用された翻訳に対応するキー（例: 'en-us'）（デフォルトの場合は null）
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2417,23 +2419,23 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大128文字）
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信したCanvasバリエーションの名前
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
@@ -2445,14 +2447,14 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
@@ -2464,16 +2466,16 @@ table td {
 `user_agent` | `null,`&nbsp;`string` | スパム報告が発生したユーザーエージェント
 `user_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信したユーザーの電話番号
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `interaction_type` | `null,`&nbsp;`string` | クリックを生成したインタラクションのタイプ。文字列値の例: Text URL、Reply、OpenURL
-`element_label` | `null,`&nbsp;`string` | クリックされた要素に関するオプションの詳細（候補返信やボタンのテキストなど）
+`element_label` | `null,`&nbsp;`string` | クリックされた要素に関するオプションの詳細（候補の返信やボタンのテキストなど）
 `element_type` | `null,`&nbsp;`string` | 候補とボタンに共通する interaction_type が候補由来かボタン由来かを指定します。例: Suggestion、Button
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `url` | `null,`&nbsp;`string` | ユーザーがクリックした URL
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信したCanvasバリエーションの名前
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2482,17 +2484,17 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信したCanvasバリエーションの名前
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
@@ -2500,7 +2502,7 @@ table td {
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
@@ -2513,15 +2515,15 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`action` | `null,`&nbsp;`string` | このメッセージに対して実行されたアクション（例: Subscribed、Unsubscribed、または None）。
+`action` | `null,`&nbsp;`string` | このメッセージに対して実行されたアクション（例: Subscribed、Unsubscribed、または None）
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
 `media_urls` | `null,`&nbsp;`string` | ユーザーからのメディア URL
@@ -2533,7 +2535,7 @@ table td {
 `to_rcs_sender` | `null,`&nbsp;`string` | メッセージの送信先の受信 RCS 送信者
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
@@ -2545,21 +2547,21 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信したCanvasバリエーションの名前
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
@@ -2571,17 +2573,17 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信したCanvasバリエーションの名前
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `error` | `null,`&nbsp;`string` | エラー名
@@ -2592,7 +2594,7 @@ table td {
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
@@ -2605,18 +2607,18 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
+`canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの BSON ID
 `canvas_name` | `null,`&nbsp;`string` | Canvasの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
-`category` | `null,`&nbsp;`string` | キーワードカテゴリ名。自動返信メッセージの場合のみ設定: 'opt-in'、'opt-out'、'help'、またはカスタム値
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信したCanvasバリエーションの名前
+`category` | `null,`&nbsp;`string` | キーワードカテゴリ名。自動返信メッセージの場合のみ設定されます: 'opt-in'、'opt-out'、'help'、またはカスタム値
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `from_rcs_sender` | `null,`&nbsp;`string` | メッセージの送信に使用された RCS 送信者 ID またはエージェント名
@@ -2626,21 +2628,27 @@ table td {
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
+## SMS メッセージイベントと削除されたユーザープロファイル {#sms-message-events-and-deleted-user-profiles}
+
+{% alert note %}
+`USERS_MESSAGES_SMS_*` 共有テーブル（[`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED)、[`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED)、[`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) を含む）について、Braze はイベントが Snowflake データ共有および Currents 向けに処理される時点でワークスペース内に Braze ユーザープロファイルがまだ存在する場合にのみ行を書き込みます。処理が完了する前にそのユーザーが削除された場合、ダッシュボードの SMS ワークスペース指標が Braze のレポートパスからの集計カウントを引き続き反映していても、そのイベントは Snowflake や Currents エクスポートには表示されません。対応する Currents の動作については、同じ用語集の [SMS Rejection イベント]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events)および関連する SMS イベントタイプを参照してください。
+{% endalert %}
+
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
@@ -2652,8 +2660,8 @@ table td {
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
-`abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を説明するログメッセージ（最大 2,000 文字）
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2661,11 +2669,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2684,7 +2692,7 @@ table td {
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 受信者の電話番号
 `from_phone_number` | `null,`&nbsp;`string` | SMS メッセージの送信元電話番号
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2692,11 +2700,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2715,8 +2723,8 @@ table td {
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 受信者の電話番号
 `from_phone_number` | `null,`&nbsp;`string` | SMS メッセージの送信元電話番号
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`is_sms_fallback` | `null, boolean` | この拒否された RCS メッセージに対して SMS フォールバックが試行されたかどうかを示します。SMS 配信イベントとリンク/ペアになっています
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`is_sms_fallback` | `null, boolean` | この拒否された RCS メッセージに対して SMS フォールバックが試行されたかどうかを示します。SMS 配信イベントにリンク/ペアリングされています
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2724,11 +2732,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2748,8 +2756,8 @@ table td {
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
 `error` | `null,`&nbsp;`string` | エラー名
 `provider_error_code` | `null,`&nbsp;`string` | SMS サービスプロバイダーからのエラーコード
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`is_sms_fallback` | `null, boolean` | この拒否された RCS メッセージに対して SMS フォールバックが試行されたかどうかを示します。SMS 配信イベントとリンク/ペアになっています
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`is_sms_fallback` | `null, boolean` | この拒否された RCS メッセージに対して SMS フォールバックが試行されたかどうかを示します。SMS 配信イベントにリンク/ペアリングされています
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2757,16 +2765,16 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `null,`&nbsp;`string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
 `app_group_api_id` | `null,`&nbsp;`string` | 受信電話番号に関連付けられたワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
-`user_phone_number` | `string` | [PII] メッセージを受信したユーザーの電話番号
+`user_phone_number` | `string` | [PII] メッセージの受信元であるユーザーの電話番号
 `subscription_group_id` | `null,`&nbsp;`string` | この SMS メッセージの対象となるサブスクリプショングループの ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | この SMS メッセージの対象となるサブスクリプショングループの API ID
-`inbound_phone_number` | `string` | メッセージの送信先の受信番号
-`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、または `None`。
+`inbound_phone_number` | `string` | メッセージの送信先である受信番号
+`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、`None`。
 `message_body` | `string` | ユーザーからの応答
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | ユーザーからのメディア URL
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
@@ -2777,7 +2785,7 @@ table td {
 `canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップメッセージバリエーションの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2785,11 +2793,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2810,8 +2818,8 @@ table td {
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
 `error` | `null,`&nbsp;`string` | エラー名
 `provider_error_code` | `null,`&nbsp;`string` | SMS サービスプロバイダーからのエラーコード
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`is_sms_fallback` | `null, boolean` | この拒否された RCS メッセージに対して SMS フォールバックが試行されたかどうかを示します。SMS 配信イベントとリンク/ペアになっています
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`is_sms_fallback` | `null, boolean` | この拒否された RCS メッセージに対して SMS フォールバックが試行されたかどうかを示します。SMS 配信イベントにリンク/ペアリングされています
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2819,11 +2827,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2841,8 +2849,8 @@ table td {
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 受信者の電話番号
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
-`category` | `null,`&nbsp;`string` | キーワードカテゴリ名。自動返信メッセージの場合のみ設定: 'Opt-in'、'Opt-out'、'Help'、またはカスタム値
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`category` | `null,`&nbsp;`string` | キーワードカテゴリ名。自動返信メッセージの場合のみ設定されます: 'Opt-in'、'Opt-out'、'Help'、またはカスタム値
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -2851,7 +2859,7 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `null,`&nbsp;`string` | short_url の対象ユーザーの Braze ID。short_url がユーザークリックトラッキングを使用していない場合は null
 `external_user_id` | `null,`&nbsp;`string` | [PII] short_url の対象ユーザーの外部 ID（存在する場合）。short_url がユーザークリックトラッキングを使用していない場合は null
 `app_group_api_id` | `null,`&nbsp;`string` | short_url の生成に使用されたワークスペースの API ID
@@ -2865,12 +2873,12 @@ table td {
 `canvas_variation_api_id` | `null,`&nbsp;`string` | short_url が生成された Canvas バリエーションの API ID。Canvas からでない場合は null
 `canvas_step_api_id` | `null,`&nbsp;`string` | short_url が生成されたキャンバスステップの API ID。Canvas からでない場合は null
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | short_url が生成されたキャンバスステップメッセージバリエーションの API ID。Canvas からでない場合は null
-`url` | `string` | short_url がリダイレクトする、メッセージに含まれる元の URL
+`url` | `string` | short_url によってリダイレクトされるメッセージ内の元の URL
 `short_url` | `string` | クリックされた短縮 URL
 `user_agent` | `null,`&nbsp;`string` | short_url をリクエストしたユーザーエージェント
 `user_phone_number` | `string` | [PII] ユーザーの電話番号
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `is_suspected_bot_click` | `null, boolean` | このイベントがボットイベントとして処理されたかどうか
 `suspected_bot_click_reason` | `null, object` | このイベントがボットとして分類された理由
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
@@ -2882,15 +2890,15 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後からリトライされた場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
@@ -2900,9 +2908,9 @@ table td {
 `canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの API ID
+`subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループ API ID
 `retry_type` | `null,`&nbsp;`string` | リトライのタイプ
-`retry_log` | `null,`&nbsp;`string` | リトライの詳細を記述するログメッセージ
+`retry_log` | `null,`&nbsp;`string` | リトライの詳細を説明するログメッセージ
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2910,11 +2918,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2931,8 +2939,8 @@ table td {
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
-`abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を説明するログメッセージ（最大 2,000 文字）
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2943,8 +2951,8 @@ table td {
 ------|------|------------
 `http_status_code` | `null, int` | レスポンスの HTTP ステータスコード
 `endpoint_url` | `null,`&nbsp;`string` | リクエスト先のエンドポイント URL
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
@@ -2954,9 +2962,9 @@ table td {
 `canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
 `content_length` | `null, int` | レスポンスのコンテンツ長
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `host` | `null,`&nbsp;`string` | リクエストのホスト
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `raw_response` | `null,`&nbsp;`string` | エンドポイントからの切り詰められた生レスポンス
 `retry_count` | `null, int` | 試行されたリトライ回数
@@ -2965,8 +2973,8 @@ table td {
 `url_path` | `null,`&nbsp;`string` | リクエスト先 URL のパス
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `webhook_duration` | `null, int` | このリクエストの合計所要時間（ミリ秒）
-`webhook_failure_source` | `null,`&nbsp;`string` | エラーが Braze によって作成されたか、エンドポイント自体によって作成されたかを示します。source フィールドは External Endpoint、Treat no status code to host unreachable のいずれかです
-`is_terminal` | `null, boolean` | このイベントが送信の最終試行であったかどうか
+`webhook_failure_source` | `null,`&nbsp;`string` | エラーが Braze によって生成されたか、エンドポイント自体によって生成されたかを示します。source フィールドは External Endpoint、Treat no status code to host unreachable のいずれかです
+`is_terminal` | `null, boolean` | このイベントが送信における最終試行であったかどうか
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2974,11 +2982,11 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
@@ -2999,7 +3007,7 @@ table td {
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -3010,15 +3018,15 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後からリトライされた場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3036,7 +3044,7 @@ table td {
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `language` | `null,`&nbsp;`string` | [PII] ユーザーの言語
 `retry_type` | `null,`&nbsp;`string` | リトライのタイプ
-`retry_log` | `null,`&nbsp;`string` | リトライの詳細を記述するログメッセージ
+`retry_log` | `null,`&nbsp;`string` | リトライの詳細を説明するログメッセージ
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -3044,16 +3052,16 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `to_phone_number` | 	`null,`&nbsp;`string` | [PII] 受信者の電話番号
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`subscription_group_api_id` | `string` | サブスクリプショングループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3064,7 +3072,7 @@ table td {
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
-`abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大2,000文字）
+`abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を説明するログメッセージ（最大 2,000 文字）
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -3073,12 +3081,12 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
@@ -3091,8 +3099,8 @@ table td {
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `url` | `null,`&nbsp;`string` | ユーザーがクリックした URL
 `short_url` | `null,`&nbsp;`string` | クリックされた短縮 URL
-`user_agent` | `null,`&nbsp;`string` | スパム報告が発生したユーザーエージェント
-`user_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信したユーザーの電話番号
+`user_agent` | `null,`&nbsp;`string` | スパムレポートが発生したユーザーエージェント
+`user_phone_number` | `null,`&nbsp;`string` | [PII] メッセージの受信元であるユーザーの電話番号
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -3100,17 +3108,17 @@ table td {
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 受信者の電話番号
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `from_phone_number` | `null,`&nbsp;`string` | WhatsApp メッセージの送信元電話番号
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`subscription_group_api_id` | `string` | サブスクリプショングループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3122,26 +3130,26 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内の Flow の一意 ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
 `template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレート名。テンプレートメッセージを送信する場合に存在します
-`message_id` | `null,`&nbsp;`string` | Meta が生成したこのメッセージの一意の ID
+`message_id` | `null,`&nbsp;`string` | Meta がこのメッセージに対して生成した一意 ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_FAILURE_SHARED {#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED}
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 受信者の電話番号
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `from_phone_number` | `null,`&nbsp;`string` | WhatsApp メッセージの送信元電話番号
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`subscription_group_api_id` | `string` | サブスクリプショングループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3155,26 +3163,26 @@ table td {
 `provider_error_title` | `null, `&nbsp;`string` | WhatsApp からのエラータイトル
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`message_id` | `null,`&nbsp;`string` | Meta が生成したこのメッセージの一意の ID
+`message_id` | `null,`&nbsp;`string` | Meta がこのメッセージに対して生成した一意 ID
 `template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレート名。テンプレートメッセージを送信する場合に存在します
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内の Flow の一意 ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
-`user_phone_number` | `string` | [PII] メッセージを受信したユーザーの電話番号
+`user_phone_number` | `string` | [PII] メッセージの受信元であるユーザーの電話番号
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`inbound_phone_number` | `string` | メッセージの送信先の受信番号
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`inbound_phone_number` | `string` | メッセージの送信先である受信番号
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`subscription_group_api_id` | `string` | サブスクリプショングループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3186,31 +3194,31 @@ table td {
 `message_body` | `string` | ユーザーからの応答
 `quick_reply_text` | `string` | ユーザーが押したボタンのテキスト
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | ユーザーからのメディア URL
-`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、または `None`。
+`action` | `string` | このメッセージに対して実行されたアクション。例: `Subscribed`、`Unsubscribed`、`None`。
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
-`catalog_id` | `null,`&nbsp;`string` | 受信メッセージで製品が参照されている場合のカタログ ID。それ以外の場合は空
+`catalog_id` | `null,`&nbsp;`string` | 受信メッセージで製品が参照されている場合の製品のカタログ ID。それ以外の場合は空
 `product_id` | `null,`&nbsp;`string` | 購入された製品の ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
-`flow_response_json` | `null,`&nbsp;`string` | [PII] ユーザーが応答したフォームの値。ユーザーが WhatsApp フローに応答している場合に存在します。
-`message_id` | `null,`&nbsp;`string` | Meta が生成したこのメッセージの一意の ID
-`in_reply_to` | `null,`&nbsp;`string` | このメッセージが返信した元メッセージの message_id
+`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内の Flow の一意 ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
+`flow_response_json` | `null,`&nbsp;`string` | [PII] ユーザーが応答したフォームの値。ユーザーが WhatsApp Flow に応答している場合に存在します。
+`message_id` | `null,`&nbsp;`string` | Meta がこのメッセージに対して生成した一意 ID
+`in_reply_to` | `null,`&nbsp;`string` | このメッセージが返信したメッセージの message_id
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_READ_SHARED {#USERS_MESSAGES_WHATSAPP_READ_SHARED}
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 受信者の電話番号
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `from_phone_number` | `null,`&nbsp;`string` | WhatsApp メッセージの送信元電話番号
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`subscription_group_api_id` | `string` | サブスクリプショングループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3223,25 +3231,25 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレート名。テンプレートメッセージを送信する場合に存在します
-`message_id` | `null,`&nbsp;`string` | Meta が生成したこのメッセージの一意の ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`message_id` | `null,`&nbsp;`string` | Meta がこのメッセージに対して生成した一意 ID
+`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内の Flow の一意 ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `to_phone_number` | `null,`&nbsp;`string`	| [PII] 受信者の電話番号
 `user_id` | `string` | このイベントを実行したユーザーの Braze ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づけられた `device_id`
+`device_id` | `null,`&nbsp;`string` | ユーザーが匿名の場合、このユーザーに紐づく `device_id`
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `from_phone_number` | `null,`&nbsp;`string` | WhatsApp メッセージの送信元電話番号
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
-`subscription_group_api_id` | `string` | サブスクリプショングループの API ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
+`subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3254,9 +3262,9 @@ table td {
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内の Flow の一意 ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
 `template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレート名。テンプレートメッセージを送信する場合に存在します
-`message_id` | `null,`&nbsp;`string` | Meta が生成したこのメッセージの一意の ID
+`message_id` | `null,`&nbsp;`string` | Meta がこのメッセージに対して生成した一意 ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_RETRY_SHARED {#USERS_MESSAGES_WHATSAPP_RETRY_SHARED}
@@ -3265,20 +3273,20 @@ table td {
 このテーブルは Snowflake データ共有でのみ利用可能です。
 {% endalert %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行された場合に発生します。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライ時間枠内で後からリトライされた場合に発生します。
 
 フィールド | タイプ | 説明
 ------|------|------------
-`id` | `string` | このイベントのグローバルな一意の ID
+`id` | `string` | このイベントのグローバル一意 ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
-`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部ユーザー ID
-`app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
-`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの API ID
+`external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
+`app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
+`app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
-`to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式）
+`to_phone_number` | `null,`&nbsp;`string` | [PII] e.164 形式でメッセージを受信するユーザーの電話番号
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの API ID
+`subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
@@ -3289,7 +3297,7 @@ table td {
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `retry_type` | `null,`&nbsp;`string` | リトライのタイプ
-`retry_log` | `null,`&nbsp;`string` | リトライの詳細を記述するログメッセージ
+`retry_log` | `null,`&nbsp;`string` | リトライの詳細を説明するログメッセージ
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -3297,17 +3305,17 @@ table td {
 
 ### USERS_RANDOMBUCKETNUMBERUPDATE_SHARED {#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED}
 
-| フィールド                    | タイプ                   | 説明                                               |
+| フィールド                  | タイプ                   | 説明                                               |
 | --------------------------- | ------------------------ | -------------------------------------------------- |
-| `id`                        | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                  |
-| `app_group_id`              | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID        |
-| `app_group_api_id`          | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID          |
-| `user_id`                   | `string`,&nbsp;`null`    | このイベントを実行したユーザーの Braze ID            |
-| `external_user_id`          | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                        |
-| `time`                      | `int`,&nbsp;`null`       | イベントが発生した Unix タイムスタンプ               |
-| `random_bucket_number`      | `int`,&nbsp;`null`       | ユーザーに割り当てられた現在のランダムバケット番号    |
-| `prev_random_bucket_number` | `int`,&nbsp;`null`       | ユーザーに割り当てられた以前のランダムバケット番号    |
-| `sf_created_at`             | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時             |
+| `id`                        | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                |
+| `app_group_id`              | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID      |
+| `app_group_api_id`          | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID        |
+| `user_id`                   | `string`,&nbsp;`null`    | このイベントを実行したユーザーの Braze ID          |
+| `external_user_id`          | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                       |
+| `time`                      | `int`,&nbsp;`null`       | イベントが発生した Unix タイムスタンプ             |
+| `random_bucket_number`      | `int`,&nbsp;`null`       | ユーザーに割り当てられた現在のランダムバケット番号 |
+| `prev_random_bucket_number` | `int`,&nbsp;`null`       | ユーザーに割り当てられた以前のランダムバケット番号 |
+| `sf_created_at`             | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時           |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_USERDELETEREQUEST_SHARED {#USERS_USERDELETEREQUEST_SHARED}
@@ -3318,24 +3326,24 @@ table td {
 | `user_id`          | `string`,&nbsp;`null`    | 削除されたユーザーの Braze ID                                  |
 | `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                  |
 | `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                    |
-| `time`             | `int`,&nbsp;`null`       | ユーザー削除リクエストが処理された Unix タイムスタンプ          |
+| `time`             | `int`,&nbsp;`null`       | ユーザー削除リクエストが処理された Unix タイムスタンプ         |
 | `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_USERORPHAN_SHARED {#USERS_USERORPHAN_SHARED}
 
-| フィールド         | タイプ                   | 説明                                                                          |
-| ------------------ | ------------------------ | ----------------------------------------------------------------------------- |
-| `id`               | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                                            |
-| `user_id`          | `string`,&nbsp;`null`    | 孤立したユーザーの Braze ID                                                    |
-| `external_user_id` | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                                                  |
-| `device_id`        | `string`,&nbsp;`null`    | このユーザーに紐づくデバイスの ID（匿名ユーザーの場合）                        |
-| `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                                  |
-| `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                                    |
-| `app_api_id`       | `string`,&nbsp;`null`    | 孤立したユーザーが属していたアプリの API ID                                    |
-| `time`             | `int`,&nbsp;`null`       | ユーザーが孤立した Unix タイムスタンプ                                         |
-| `orphaned_by_id`   | `string`,&nbsp;`null`    | 孤立したユーザーのプロファイルとマージされたユーザーの Braze ID                 |
-| `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                                       |
+| フィールド         | タイプ                   | 説明                                                                                   |
+| ------------------ | ------------------------ | -------------------------------------------------------------------------------------- |
+| `id`               | `string`,&nbsp;`null`    | このイベントのグローバルに一意な ID                                                     |
+| `user_id`          | `string`,&nbsp;`null`    | 孤立したユーザーの Braze ID                                                             |
+| `external_user_id` | `string`,&nbsp;`null`    | [PII] ユーザーの external ID                                                            |
+| `device_id`        | `string`,&nbsp;`null`    | ユーザーが匿名の場合、このユーザーに紐づけられたデバイスの ID                           |
+| `app_group_id`     | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの Braze ID                                           |
+| `app_group_api_id` | `string`,&nbsp;`null`    | このユーザーが属するワークスペースの API ID                                             |
+| `app_api_id`       | `string`,&nbsp;`null`    | 孤立したユーザーが属していたアプリの API ID                                             |
+| `time`             | `int`,&nbsp;`null`       | ユーザーが孤立した Unix タイムスタンプ                                                  |
+| `orphaned_by_id`   | `string`,&nbsp;`null`    | 孤立したユーザーのプロファイルとマージされたユーザーの Braze ID                          |
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時                                                |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## スナップショット {#snapshots}
@@ -3362,8 +3370,8 @@ table td {
 `id` | `string` | このイベントのグローバルに一意な ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_group_id` | `string` | このユーザーが属するアプリグループの BSON ID
-`api_id` | `string` | Campaign メッセージバリエーションの API ID
-`name` | `null,`&nbsp;`string` | Campaign メッセージバリエーションの名前
+`api_id` | `string` | Campaignメッセージバリエーションの API ID
+`name` | `null,`&nbsp;`string` | Campaignメッセージバリエーションの名前
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED {#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED}

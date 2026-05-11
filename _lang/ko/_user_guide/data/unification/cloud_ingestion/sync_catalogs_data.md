@@ -55,7 +55,7 @@ description: "이 페이지에서는 카탈로그 데이터를 동기화하는 �
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
 3. Snowflake 계정에 네트워크 정책이 있는 경우, CDI 서비스가 연결할 수 있도록 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
-4. Braze 대시보드에서 **기술 파트너** > **Snowflake**로 이동하여 새 동기화를 생성합니다.
+4. Braze 대시보드에서 **Technology Partners** > **Snowflake**로 이동하여 새 동기화를 생성합니다.
 5. 연결 세부 정보(또는 기존 자격 증명 재사용)와 소스 테이블을 입력합니다.
 6. 설정 흐름의 2단계로 진행하여 "Catalogs" 동기화 유형을 선택하고 통합 이름과 스케줄을 입력합니다. 통합 이름은 이전에 생성한 카탈로그 이름과 **정확히 일치**해야 합니다.
 7. 동기화 빈도를 선택하고 다음 단계로 진행합니다.
@@ -116,6 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | 필수 |
 | ID | STRING | 필수 |
 | DELETED | BOOLEAN | 선택 사항 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT, or MAP | 필수 |
 | ID | STRING | 필수 |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 

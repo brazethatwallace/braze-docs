@@ -2,30 +2,31 @@
 nav_title: 고급 필터
 article_title: 고급 Liquid 필터
 page_order: 4
-description: "이 참조 문서에서는 고급 필터, 예시, 그리고 캠페인에서 활용하는 방법을 설명합니다."
+description: "이 참조 문서에서는 고급 필터, 예시, 그리고 Campaign에서 활용하는 방법을 설명합니다."
 
 ---
 
-# 고급 필터
+# 고급 필터 {#advanced-filters}
 
 > 이 참조 문서에서는 Liquid의 고급 필터와 사용 방법에 대한 개요를 제공합니다.
 
-## 인코딩 필터
+## 인코딩 필터 {#encoding-filters}
 
 {% raw %}
 | 필터 이름 | 필터 설명 | 입력 예시 | 출력 예시 |
 |---|---|---|---|
-`md5` | md5로 인코딩된 문자열을 반환합니다 | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
-`sha1` | sha1으로 인코딩된 문자열을 반환합니다 | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
-`sha2` | sha2(256비트, SHA-256이라고도 함)로 인코딩된 문자열을 반환합니다 | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
-`base64` | base64로 인코딩된 문자열을 반환합니다 | `{{'blah' | base64_encode}}` | YmxhaA== |
-`hmac_sha1_hex` (이전 `hmac_sha1`) | hmac-sha1 서명을 16진수 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha1_hex: 'secret_key'}}` | 2a3969bed25bfeefb00aca4063eb9590b4df8f0e |
-`hmac_sha1_base64` | hmac-sha1 서명을 base64 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha1_base64: 'secret_key'}}` | KjlpvtJb/u+wCspAY+uVkLTfjw4= |
-`hmac_sha256_hex` | hmac-sha256 서명을 16진수 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha256_hex: 'secret_key'}}` | 8df897f8da3d7992fe57c8dbc6f27578cfbf2dcc4d0fbb4000b8c924841d508e |
-`hmac_sha256_base64` | hmac-sha256 서명을 base64 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="인코딩 필터" }
+| `md5` | md5로 인코딩된 문자열을 반환합니다 | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
+| `sha1` | sha1으로 인코딩된 문자열을 반환합니다 | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
+| `sha2` | sha2(256비트, SHA-256이라고도 함)로 인코딩된 문자열을 반환합니다 | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
+| `base64` | base64로 인코딩된 문자열을 반환합니다 | `{{'blah' | base64_encode}}` | YmxhaA== |
+| `hmac_sha1_hex` (이전 `hmac_sha1`) | hmac-sha1 서명을 16진수 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha1_hex: 'secret_key'}}` | 2a3969bed25bfeefb00aca4063eb9590b4df8f0e |
+| `hmac_sha1_base64` | hmac-sha1 서명을 base64 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha1_base64: 'secret_key'}}` | KjlpvtJb/u+wCspAY+uVkLTfjw4= |
+| `hmac_sha256_hex` | hmac-sha256 서명을 16진수 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha256_hex: 'secret_key'}}` | 8df897f8da3d7992fe57c8dbc6f27578cfbf2dcc4d0fbb4000b8c924841d508e |
+| `hmac_sha256_base64` | hmac-sha256 서명을 base64 문자열로 인코딩하여 반환합니다 | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## URL 필터
+## URL 필터 {#url-filters}
 
 | 필터 이름 | 필터 설명 | 입력 예시 | 출력 예시 |
 |---|---|---|---|
@@ -46,10 +47,10 @@ description: "이 참조 문서에서는 고급 필터, 예시, 그리고 캠페
 {% endalert %}
 {% raw %}
 
-## 등록정보 접근자 필터
+## 등록정보 접근자 필터 {#property-accessor-filter}
 
 | 필터 이름 | 필터 설명 |
-|---|---|---|---|
+| --- | --- |
 | `property_accessor` | 해시와 해시 키를 받아 해당 키에 있는 값을 반환합니다 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -67,14 +68,14 @@ Braze의 Liquid에서는 해시를 변수(예: 표현식)로 인스턴스화할 
 
 {% raw %}
 
-## 숫자 서식 필터
+## 숫자 서식 필터 {#number-formatting-filters}
 
 | 필터 이름 | 필터 설명 | 입력 예시 | 출력 예시 |
 |---|---|---|---|
 | `number_with_delimiter` | 숫자에 쉼표를 추가하여 서식을 지정합니다 | `{{ 123456 | number_with_delimiter }}` | 123,456 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
-## JSON 이스케이프 / 문자열 이스케이프 필터
+## JSON 이스케이프 / 문자열 이스케이프 필터 {#json-escape-string-escape-filter}
 
 | 필터 이름 | 필터 설명 |
 |---|---|
@@ -83,7 +84,7 @@ Braze의 Liquid에서는 해시를 변수(예: 표현식)로 인스턴스화할 
 
 이 필터는 JSON 사전에서 문자열을 개인화할 때 항상 사용해야 하며, 특히 웹훅에 유용합니다.
 
-## JSON 서식 필터
+## JSON 서식 필터 {#json-formatting-filters}
 
 | 필터 이름 | 필터 설명 |
 |---|---|
@@ -95,7 +96,7 @@ Braze의 Liquid에서는 해시를 변수(예: 표현식)로 인스턴스화할 
 
 {% details json_parse 입력 및 출력 예시 %}
 
-### 입력
+### 입력 {#input}
 
 {% raw %}
 ```liquid
@@ -103,7 +104,7 @@ Braze의 Liquid에서는 해시를 변수(예: 표현식)로 인스턴스화할 
 {% assign my_data = my_data_string | json_parse %}
 ```
 
-### 출력
+### 출력 {#output}
 
 ```liquid
 {% for item in my_data %}

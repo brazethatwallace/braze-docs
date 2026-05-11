@@ -85,6 +85,7 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 </style>
 
 <table class="tg">
+  <caption>Tipos de mensaje</caption>
 <thead>
   <tr>
     <th>Tipo de mensaje</th>
@@ -134,6 +135,7 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 Estos mensajes dentro de la aplicación son personalizables según tus necesidades.
 
 <table class="tg">
+  <caption>Tipos de mensaje avanzados</caption>
 <thead>
   <tr>
     <th>Tipo de mensaje</th>
@@ -277,8 +279,8 @@ El contenido de la pestaña **Style** varía según las opciones de mensaje eleg
 | Formato | Entrada | Descripción |
 |---|---|---|
 | [Perfil de color]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aplicar desde la galería de plantillas de mensajes dentro de la aplicación. | Selecciona **Apply Template** y elige de la galería. Luego, selecciona **Save**. |
-| Alineación de texto | Izquierda, centro o derecha.  | Solo disponible para versiones más recientes del SDK de Braze. |
-| Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color.  |
+| Alineación de texto | Izquierda, centro o derecha. | Solo disponible para versiones más recientes del SDK de Braze. |
+| Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Texto | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Botones | Código de color HEX. | Se mostrarán los colores HEX deseados. También podrás elegir la opacidad de los colores. Puedes elegir colores para: el fondo del botón de cierre del mensaje, así como el fondo, texto y borde de cada botón. |
 | Borde del botón | Código de color HEX. | ¡Nuevo! Esto te permitirá diferenciar tus botones principal y secundario. Sugerimos delinear los botones con colores contrastantes. |

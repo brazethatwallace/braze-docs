@@ -99,6 +99,7 @@ Las notificaciones con imágenes grandes se muestran mejor cuando se utiliza una
 
 | **Navegador** | **Tamaño de icono recomendado**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (Los iconos se pueden configurar por campaña con Safari 16+ en macOS 13+)
@@ -107,6 +108,7 @@ Opera | 192x192 ≥
 
 | **Navegador** | **Plataforma** | **Tamaño de imagen grande**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | Relación de aspecto 2:1
 Firefox | Android | N/A
 Chrome | Windows | Relación de aspecto 2:1
@@ -124,6 +126,7 @@ Opera | macOS | N/A
 
 | **Navegador** | **Plataforma** | **Longitud máxima del título**  | **Longitud máxima del cuerpo del mensaje**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120

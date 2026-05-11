@@ -1,7 +1,7 @@
 ---
 nav_title: Kameleoon
 article_title: Kameleoon
-description: "KameleoonとBrazeを統合する方法を学ぶ"
+description: "KameleoonとBrazeを統合する方法について説明します"
 alias: /partners/kameleoon/
 page_type: partner
 search_tag: Partner
@@ -102,6 +102,7 @@ Brazeを実験のレポートツールとして設定した後、**Experiment co
 イベントプロパティセグメンテーションを使用するには、事前にBrazeで有効にしておく必要があります。以下のテンプレートを使用して、Brazeカスタマーサクセスマネージャーまたはサポートチームにアクセスをリクエストしてください。
 
    <table>
+     <caption>イベントプロパティセグメンテーションのリクエスト</caption>
    <thead>
       <tr>
          <th>フィールド</th>

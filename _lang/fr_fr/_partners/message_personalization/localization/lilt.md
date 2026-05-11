@@ -41,10 +41,10 @@ Utilisez l'intelligence artificielle de LILT pour des traductions immédiates et
 
 | Prérequis | Description |
 |-----------------------|-----------------|
-| Un compte LILT | Un compte LILT est nécessaire pour bénéficier de ce partenariat. |
-| Une clé REST API de Braze | Une clé REST API de Braze avec les autorisations suivantes :<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Créez cette clé dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Un compte LILT   | Un compte LILT est nécessaire pour bénéficier de ce partenariat.  |
+| Une clé REST API de Braze  | Une clé REST API de Braze avec les autorisations suivantes :<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Créez cette clé dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 
 ## Intégration {#integration}
@@ -91,7 +91,7 @@ Utilisez l'intelligence artificielle de LILT pour des traductions immédiates et
 ### Étape 3 : Envoyer le contenu à LILT pour traduction {#step-3-send-content-to-lilt-for-translation}
 
 1. Après avoir configuré le connecteur LILT Braze, utilisez les balises de traduction Liquid dans vos modèles d'e-mail Braze pour identifier le contenu à traduire.
-- Exemple : {% raw %}`{% translation id_0 %}`Hello, `{{first_name}}`!`{% endtranslation %}`{% endraw %}
+- Exemple :  {% raw %}`{% translation id_0 %}`Hello, `{{first_name}}!{% endtranslation %}`{% endraw %}
 2. Lancez la traduction en mettant à jour l'étiquette du modèle pour indiquer le flux de travail souhaité :
 - Choisissez `LILT: Ready` pour une traduction vérifiée
 - Choisissez `LILT: Instant` pour une traduction instantanée conforme à votre marque

@@ -154,62 +154,63 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
 </style>
 
 <table>
+  <caption>Resumen de cada enfoque</caption>
     <tr>
         <th></th>
-        <th colspan="2">Espacios de trabajo separados</th>
-        <th colspan="2">Espacios de trabajo compartidos</th>
+        <th colspan="2" scope="colgroup">Espacios de trabajo separados</th>
+        <th colspan="2" scope="colgroup">Espacios de trabajo compartidos</th>
     </tr>
     <tr>
         <th></th>
-        <th>Ventajas</th>
-        <th>Inconvenientes</th>
-        <th>Ventajas</th>
-        <th>Inconvenientes</th>
+        <th scope="col">Ventajas</th>
+        <th scope="col">Inconvenientes</th>
+        <th scope="col">Ventajas</th>
+        <th scope="col">Inconvenientes</th>
     </tr>
     <tr>
-        <td>Segmentación</td>
-        <td>La forma más segura de mantener las comunicaciones separadas. Se garantiza que las Campaigns se dirijan únicamente a perfiles de usuario específicos.</td>
+        <th scope="row">Segmentación</th>
+        <td>La forma más segura de mantener las comunicaciones separadas. Se garantiza que las campañas se dirijan únicamente a perfiles de usuario específicos.</td>
         <td>Imposibilidad de enviar mensajes de promoción cruzada aunque sepas que un usuario tiene otro perfil de usuario en un espacio de trabajo diferente.</td>
-        <td>Puedes enviar mensajes de promoción cruzada si sabes que un usuario tiene varias aplicaciones en tu espacio de trabajo.<br><br>Puedes hacer referencia a datos de usuario de distintas aplicaciones. Por ejemplo, Juan tiene un atributo X relevante para la aplicación 1 y un atributo Y relevante para la aplicación 2, y ambos pueden referenciarse en una Campaign.</td>
-        <td>Más margen para el error humano: podrías dirigirte accidentalmente a usuarios de varias instancias de la aplicación.<br><br>Para enviar **In-App Messages**, debes tener eventos personalizados específicos de la aplicación para que una Campaign no se muestre en otra aplicación por accidente. Por ejemplo, <code>app_1_action</code> frente a <code>app_2_action</code>.</td>
+        <td>Puedes enviar mensajes de promoción cruzada si sabes que un usuario tiene varias aplicaciones en tu espacio de trabajo.<br><br>Puedes hacer referencia a datos de usuario de distintas aplicaciones. Por ejemplo, Juan tiene un atributo X relevante para la aplicación 1 y un atributo Y relevante para la aplicación 2, y ambos pueden referenciarse en una campaña.</td>
+        <td>Más margen para el error humano: podrías dirigirte accidentalmente a usuarios de varias instancias de la aplicación.<br><br>Para enviar mensajes dentro de la aplicación, debes tener eventos personalizados específicos de la aplicación para que una campaña no se muestre en otra aplicación por accidente. Por ejemplo, <code>app_1_action</code> frente a <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>Eventos y atributos personalizados</td>
+        <th scope="row">Eventos y atributos personalizados</th>
         <td>Se garantiza que los atributos y eventos personalizados son específicos de una instancia de aplicación.</td>
         <td>No se puede realizar un seguimiento del comportamiento de los usuarios en los distintos espacios de trabajo.<br><br><b>Consejo:</b> Para ello, puedes aprovechar varios conectores de Currents.</td>
         <td>Puedes realizar un seguimiento del comportamiento del usuario en todas las instancias de la aplicación en el espacio de trabajo.</td>
         <td>Los atributos y eventos personalizados se aplicarían a todas las instancias de la aplicación, lo que podría dificultar saber qué datos de un perfil de usuario son relevantes para qué instancia de la aplicación. Por ejemplo, ¿es "date_of_parking" relevante para la aplicación 1 o la aplicación 2? Para evitarlo, asegúrate de utilizar convenciones de nomenclatura bien estructuradas.</td>
     </tr>
     <tr>
-        <td>Limitación de frecuencia</td>
+        <th scope="row">Limitación de frecuencia</th>
         <td>La limitación de frecuencia puede definirse por separado para cada instancia de aplicación (en función del espacio de trabajo).</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>La limitación de frecuencia se aplica a todas las Campaigns, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
+        <td>La limitación de frecuencia se aplica a todas las campañas, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
     </tr>
     <tr>
-        <td>Estado de suscripción de los perfiles de usuario</td>
+        <th scope="row">Estado de suscripción de los perfiles de usuario</th>
         <td>El estado de suscripción de cada perfil de usuario es único para cada instancia de la aplicación.</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>Los estados de suscripción de un perfil de usuario se combinan en todas las instancias de la aplicación.<br><br><b>Consejo:</b> En su lugar, podrías utilizar <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>atributos personalizados</a> para gestionar las suscripciones de tus usuarios.</td>
     </tr>
     <tr>
-        <td>Permisos de usuario de la empresa</td>
+        <th scope="row">Permisos de usuario de la empresa</th>
         <td>N/A</td>
         <td>La actualización de los <a href='/docs/user_guide/administer/global/user_management/permissions'>permisos de usuario</a> de un usuario del dashboard debe hacerse por separado para cada espacio de trabajo al que el usuario necesite acceder.</td>
         <td>Los <a href='/docs/user_guide/administer/global/user_management/permissions'>permisos de usuario</a> pueden configurarse una vez para un usuario del dashboard, y tendrá los mismos permisos para todas las instancias de la aplicación en el espacio de trabajo.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>Duplicación de contenidos</td>
+        <th scope="row">Duplicación de contenidos</th>
         <td>N/A</td>
-        <td>No se pueden duplicar Segments, Campaigns de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
-        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espacios de trabajo</a> para los siguientes canales compatibles: SMS, **In-App Messages**, correo electrónico, plantillas de correo electrónico y Content Blocks. <br><br>Puedes duplicar Segments, Campaigns y Canvas para reutilizar el contenido de una instancia de aplicación a otra.</td>
+        <td>No se pueden duplicar Segments, campañas de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
+        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar campañas entre espacios de trabajo</a> para los siguientes canales compatibles: SMS, mensajes dentro de la aplicación, correo electrónico, plantillas de correo electrónico y Content Blocks. <br><br>Puedes duplicar Segments, campañas y Canvas para reutilizar el contenido de una instancia de aplicación a otra.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>Análisis</td>
+        <th scope="row">Análisis</th>
         <td>Las estadísticas globales serán precisas en la página de inicio.</td>
         <td>N/A</td>
         <td>N/A</td>

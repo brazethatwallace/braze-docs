@@ -221,6 +221,7 @@ The **Message Performance** panel outlines how well your message has performed a
 </style>
 
 <table>
+    <caption class="sr-only">コンテンツカードのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -295,6 +296,7 @@ The **Message Performance** panel outlines how well your message has performed a
 </style>
 
 <table>
+    <caption class="sr-only">バナーのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -364,6 +366,7 @@ The **Message Performance** panel outlines how well your message has performed a
 </style>
 
 <table>
+    <caption class="sr-only">メールのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -514,6 +517,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 </style>
 
 <table>
+    <caption class="sr-only">アプリ内メッセージのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -596,6 +600,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 </style>
 
 <table>
+    <caption class="sr-only">プッシュのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -714,6 +719,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 </style>
 
 <table>
+    <caption class="sr-only">SMS、MMS、RCSのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -765,6 +771,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 </style>
 
 <table>
+    <caption class="sr-only">Webhookのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -800,6 +807,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 </style>
 
 <table>
+    <caption class="sr-only">WhatsAppのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>

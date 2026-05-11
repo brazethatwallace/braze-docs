@@ -28,7 +28,7 @@ A maioria das tabelas está disponível nas três ferramentas. As tabelas marcad
 Essas tabelas SQL correspondem aos eventos documentados no [glossário de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). Por exemplo, a tabela SQL `USERS_MESSAGES_EMAIL_SEND_SHARED` corresponde ao evento do Currents `users.messages.email.Send`. Se você precisar de esquemas de eventos em JSON ou formatos específicos de parceiros (Amplitude, Mixpanel, Segment), consulte o glossário do Currents.
 {% endalert %}
 
-## Sumário {#table-of-contents}
+## Índice {#table-of-contents}
 
 Tabela | Descrição
 ------|------------
@@ -36,7 +36,7 @@ Tabela | Descrição
 [AGENTCONSOLE_RAWLLMREQUEST_SHARED](#AGENTCONSOLE_RAWLLMREQUEST_SHARED) | Informações brutas de cada chamada de LLM (**somente Compartilhamento de dados do Snowflake**)
 [AGENTCONSOLE_TOOLINVOCATION_SHARED](#AGENTCONSOLE_TOOLINVOCATION_SHARED) | Quando uma ferramenta é executada (**somente Compartilhamento de dados do Snowflake**)
 [USER_CUSTOM_ATTRIBUTES_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED) | Snapshot periódico de atributos personalizados do perfil por usuário
-[USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | Atributos padrão do perfil com histórico de intervalos de vigência
+[USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | Atributos padrão históricos do perfil com intervalos de datas de vigência
 [USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Snapshot periódico de atributos padrão do perfil por usuário
 [USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Atributos padrão do perfil por usuário em tempo quase real
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | Itens de catálogo não excluídos
@@ -78,7 +78,7 @@ Tabela | Descrição
 [USERS_MESSAGES_BANNER_IMPRESSION_SHARED](#USERS_MESSAGES_BANNER_IMPRESSION_SHARED) | Quando um usuário visualiza um banner
 [USERS_MESSAGES_CONTENTCARD_ABORT_SHARED](#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED) | Uma mensagem de Content Card originalmente agendada foi abortada por algum motivo.
 [USERS_MESSAGES_CONTENTCARD_CLICK_SHARED](#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED) | Quando um usuário clica em um Content Card
-[USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED](#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED) | Quando um usuário dispensa um Content Card
+[USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED](#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED) | Quando um usuário descarta um Content Card
 [USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | Quando um usuário visualiza um Content Card
 [USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | Quando enviamos um Content Card para um usuário
 [USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | Uma mensagem de e-mail originalmente agendada foi abortada por algum motivo.
@@ -91,7 +91,7 @@ Tabela | Descrição
 [USERS_MESSAGES_EMAIL_SEND_SHARED](#USERS_MESSAGES_EMAIL_SEND_SHARED) | Quando enviamos um e-mail para um usuário
 [USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED](#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED) | Quando um e-mail sofre soft bounce
 [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED](#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED) | Quando um usuário cancela a inscrição de e-mail
-[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | Quando uma mensagem de e-mail é reenviada após ser despriorizada ou atingir o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
+[USERS_MESSAGES_EMAIL_RETRY_SHARED](#USERS_MESSAGES_EMAIL_RETRY_SHARED) | Quando uma mensagem de e-mail é reenviada após ser despriorizada ou ter atingido o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
 [USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED](#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED) | Quando um usuário visualiza uma Feature Flag
 [USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED](#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED) | Uma mensagem no app originalmente agendada foi abortada por algum motivo.
 [USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED](#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED) | Quando um usuário clica em uma mensagem no app
@@ -100,7 +100,7 @@ Tabela | Descrição
 [USERS_MESSAGES_LINE_CLICK_SHARED](#USERS_MESSAGES_LINE_CLICK_SHARED) | Quando um usuário clica em um link em uma mensagem LINE
 [USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | Quando uma mensagem LINE é recebida de um usuário
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | Quando uma mensagem LINE é enviada ao LINE
-[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | Quando uma mensagem LINE é reenviada após ser despriorizada ou atingir o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
+[USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | Quando uma mensagem LINE é reenviada após ser despriorizada ou ter atingido o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
 [USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Quando uma Live Activity tem um evento de resultado
 [USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Quando uma mensagem de Live Activity é enviada
 [USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | Uma mensagem de cartão do News Feed originalmente agendada foi abortada por algum motivo
@@ -110,7 +110,7 @@ Tabela | Descrição
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | Quando uma notificação por push sofre bounce
 [USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | Quando um usuário abre o app após receber uma notificação sem clicar nela
 [USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | Quando um usuário recebe uma notificação por push enquanto o app está aberto. <br><br>Este evento não é compatível com o [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) e está descontinuado no [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk).
-[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | Quando um usuário abre uma notificação por push ou clica em um botão da notificação por push (incluindo um botão FECHAR que NÃO abre o app). <br><br> Ações de botão de push têm múltiplos resultados. As ações Não, Recusar e Cancelar são "cliques", e as ações Aceitar são "aberturas". Ambas estão representadas nesta tabela, mas podem ser diferenciadas na coluna **BUTTON_ACTION_TYPE**. Por exemplo, uma consulta pode ser usada para agrupar por um `BUTTON_ACTION_TYPE` que não seja Não, Recusar ou Cancelar.
+[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | Quando um usuário abre uma notificação por push ou clica em um botão da notificação por push (incluindo um botão FECHAR que NÃO abre o app). <br><br> As ações de botão de push têm múltiplos resultados. As ações Não, Recusar e Cancelar são "cliques", e as ações Aceitar são "aberturas". Ambas estão representadas nesta tabela, mas podem ser diferenciadas na coluna **BUTTON_ACTION_TYPE**. Por exemplo, uma consulta pode ser usada para agrupar por um `BUTTON_ACTION_TYPE` que não seja Não, Recusar ou Cancelar.
 [USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED) | Quando enviamos uma notificação por push para um usuário
 [USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Quando um envio de RCS é interrompido devido a um erro detectado na Braze e a mensagem é descartada
 [USERS_MESSAGES_RCS_CLICK_SHARED](#USERS_MESSAGES_RCS_CLICK_SHARED) | Quando o usuário final interage com uma mensagem RCS tocando ou clicando em um elemento da interface
@@ -118,7 +118,7 @@ Tabela | Descrição
 [USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED) | Quando a Braze recebe uma mensagem RCS originada do usuário final
 [USERS_MESSAGES_RCS_READ_SHARED](#USERS_MESSAGES_RCS_READ_SHARED) | Quando o usuário final abre uma mensagem RCS em seu dispositivo
 [USERS_MESSAGES_RCS_REJECTION_SHARED](#USERS_MESSAGES_RCS_REJECTION_SHARED) | Quando uma mensagem RCS não é entregue devido a intervenção da operadora
-[USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | Quando uma mensagem RCS é enviada dos sistemas da Braze para os parceiros de entrega final
+[USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | Quando uma mensagem RCS é enviada dos sistemas da Braze para os parceiros de entrega de última milha
 [USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | Uma mensagem SMS originalmente agendada foi abortada por algum motivo.
 [USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | Quando uma mensagem SMS é enviada para a operadora
 [USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | Quando uma mensagem SMS é entregue
@@ -127,11 +127,11 @@ Tabela | Descrição
 [USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | Quando uma mensagem SMS não é entregue a um usuário
 [USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | Quando uma mensagem SMS é enviada
 [USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | Quando um usuário clica em uma URL encurtada da Braze incluída em uma mensagem SMS
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | Quando uma mensagem SMS é reenviada após ser despriorizada ou atingir o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | Quando uma mensagem SMS é reenviada após ser despriorizada ou ter atingido o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
 [USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | Uma mensagem de webhook originalmente agendada foi abortada por algum motivo
 [USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | Quando uma mensagem de webhook é entregue, mas falha com uma resposta de erro do endpoint
 [USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | Quando enviamos um webhook para um usuário
-[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | Quando uma mensagem de webhook é reenviada após ser despriorizada ou atingir o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
+[USERS_MESSAGES_WEBHOOK_RETRY_SHARED](#USERS_MESSAGES_WEBHOOK_RETRY_SHARED) | Quando uma mensagem de webhook é reenviada após ser despriorizada ou ter atingido o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
 [USERS_MESSAGES_WHATSAPP_ABORT_SHARED](#USERS_MESSAGES_WHATSAPP_ABORT_SHARED) | Uma mensagem WhatsApp originalmente agendada foi abortada por algum motivo
 [USERS_MESSAGES_WHATSAPP_CLICK_SHARED](#USERS_MESSAGES_WHATSAPP_CLICK_SHARED) | Quando um usuário clica em um link ou botão em uma mensagem WhatsApp
 [USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED](#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED) | Quando uma mensagem WhatsApp é entregue
@@ -139,7 +139,7 @@ Tabela | Descrição
 [USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED) | Quando uma mensagem WhatsApp é recebida de um usuário
 [USERS_MESSAGES_WHATSAPP_READ_SHARED](#USERS_MESSAGES_WHATSAPP_READ_SHARED) | Quando um usuário abre uma mensagem WhatsApp
 [USERS_MESSAGES_WHATSAPP_SEND_SHARED](#USERS_MESSAGES_WHATSAPP_SEND_SHARED) | Quando enviamos uma mensagem WhatsApp para um usuário
-[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | Quando uma mensagem WhatsApp é reenviada após ser despriorizada ou atingir o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
+[USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | Quando uma mensagem WhatsApp é reenviada após ser despriorizada ou ter atingido o limite de frequência (**somente Compartilhamento de dados do Snowflake**)
 [USERS_RANDOMBUCKETNUMBERUPDATE_SHARED](#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED) | Quando o número de bucket aleatório de um usuário é alterado
 [USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | Quando um usuário é excluído por solicitação do cliente
 [USERS_USERORPHAN_SHARED](#USERS_USERORPHAN_SHARED) | Quando um usuário é mesclado com o perfil de outro usuário e o perfil original se torna órfão
@@ -507,7 +507,7 @@ Campo | Tipo | Descrição
 `platform` | `null,`&nbsp;`string` | Plataforma do dispositivo
 `os_version` | `null,`&nbsp;`string` | Versão do sistema operacional do dispositivo
 `device_model` | `null,`&nbsp;`string` | Modelo do dispositivo
-`old_app_version` | `null,`&nbsp;`string` | Versão antiga do app
+`old_app_version` | `null,`&nbsp;`string` | Versão anterior do app
 `new_app_version` | `null,`&nbsp;`string` | Nova versão do app
 `app_group_id` | `null,`&nbsp;`string` | ID BSON do grupo de app ao qual este usuário pertence
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
@@ -735,7 +735,7 @@ Campo | Tipo | Descrição
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
-`send_id` | `null,`&nbsp;`string` | ID de envio da mensagem de onde esta alteração de estado de inscrição se originou
+`send_id` | `null,`&nbsp;`string` | ID de envio da mensagem que originou esta alteração de estado de inscrição
 `app_group_id` | `null,`&nbsp;`string` | ID BSON do grupo de app ao qual este usuário pertence
 `channel_identifier` | `null,`&nbsp;`string` | [PII] Identificador do usuário no canal ao qual o evento se refere
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
@@ -765,7 +765,7 @@ Campo | Tipo | Descrição
 `subscription_status` | `string` | Status da inscrição: 'Subscribed', 'Unsubscribed' ou 'Opted In'
 `time` | `int` | Registro de data e hora Unix em que o estado da inscrição foi alterado
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
-`send_id` | `null,`&nbsp;`string` | ID de envio da mensagem de onde esta alteração de estado de inscrição se originou
+`send_id` | `null,`&nbsp;`string` | ID de envio da mensagem que originou esta alteração de estado de inscrição
 `state_change_source` | `null,`&nbsp;`string` | Origem da alteração de estado (REST, SDK, Dashboard, etc.)
 `app_group_id` | `null,`&nbsp;`string` | ID BSON do grupo de app ao qual este usuário pertence
 `dispatch_id` | `null,`&nbsp;`string` | ID do envio ao qual esta mensagem pertence
@@ -962,6 +962,7 @@ Campo | Tipo | Descrição
 | `canvas_variation_api_id` | `string`,&nbsp;`null`    | ID da API da variação do Canvas à qual este evento pertence              |
 | `canvas_step_api_id`      | `string`,&nbsp;`null`    | ID da API da etapa do Canvas à qual este evento pertence                 |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe                             |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -1018,6 +1019,7 @@ Campo | Tipo | Descrição
 | `experiment_step_api_id`  | `string`,&nbsp;`null`    | ID da API da etapa de experimento à qual este evento pertence            |
 | `in_control_group`        | `boolean`,&nbsp;`null`   | Verdadeiro se o usuário foi inscrito no grupo de controle                |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe                             |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 | `experiment_split_api_id` | `string`,&nbsp;`null` | ID da API da divisão do experimento na qual o usuário foi inscrito |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -1077,9 +1079,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_BANNER_ABORT_SHARED {#USERS_MESSAGES_BANNER_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -1113,9 +1115,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_BANNER_CLICK_SHARED {#USERS_MESSAGES_BANNER_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -1148,9 +1150,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_BANNER_IMPRESSION_SHARED {#USERS_MESSAGES_BANNER_IMPRESSION_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -1181,7 +1183,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_CONTENTCARD_ABORT_SHARED {#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1190,10 +1192,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1211,7 +1213,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_CONTENTCARD_CLICK_SHARED {#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `content_card_id` | `string` | ID do cartão que gerou este evento
@@ -1221,10 +1223,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1251,7 +1253,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED {#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `content_card_id` | `string` | ID do cartão que gerou este evento
@@ -1261,10 +1263,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1291,7 +1293,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED {#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `content_card_id` | `string` | ID do cartão que gerou este evento
@@ -1301,10 +1303,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1331,7 +1333,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_CONTENTCARD_SEND_SHARED {#USERS_MESSAGES_CONTENTCARD_SEND_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1340,10 +1342,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1361,7 +1363,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_ABORT_SHARED {#USERS_MESSAGES_EMAIL_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1370,10 +1372,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1393,7 +1395,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_BOUNCE_SHARED {#USERS_MESSAGES_EMAIL_BOUNCE_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1402,10 +1404,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1428,7 +1430,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_CLICK_SHARED {#USERS_MESSAGES_EMAIL_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1437,10 +1439,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1468,10 +1470,10 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_DEFERRAL_SHARED {#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -1500,7 +1502,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_DELIVERY_SHARED {#USERS_MESSAGES_EMAIL_DELIVERY_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1509,10 +1511,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1533,7 +1535,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED {#USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1542,10 +1544,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1566,7 +1568,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_OPEN_SHARED {#USERS_MESSAGES_EMAIL_OPEN_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1575,10 +1577,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1601,7 +1603,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_SEND_SHARED {#USERS_MESSAGES_EMAIL_SEND_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1610,10 +1612,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1634,7 +1636,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED {#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1643,10 +1645,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1668,7 +1670,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1677,10 +1679,10 @@ Campo | Tipo | Descrição
 `time` | `int` | Timestamp Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1704,9 +1706,9 @@ Esta tabela está disponível apenas no Snowflake Data Sharing.
 Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequência e é reenviada posteriormente dentro da janela de reenvio configurada.
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | [PII] ID do usuário da Braze que realizou este evento
+`user_id` | `string` | [PII] ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -1736,7 +1738,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED {#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
@@ -1764,14 +1766,14 @@ Campo | Tipo | Descrição
 `resolution` | `null,`&nbsp;`string` | Resolução do dispositivo
 `sdk_version` | `null,`&nbsp;`string` | Versão do SDK da Braze em uso durante o evento
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED {#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1781,10 +1783,10 @@ Campo | Tipo | Descrição
 `card_api_id` | `null,`&nbsp;`string` | ID da API do cartão
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1801,7 +1803,7 @@ Campo | Tipo | Descrição
 `resolution` | `null,`&nbsp;`string` | Resolução do dispositivo
 `carrier` | `null,`&nbsp;`string` | Operadora do dispositivo
 `browser` | `null,`&nbsp;`string` | Navegador do dispositivo
-`version` | `string` | Versão da mensagem no app: legada ou disparada
+`version` | `string` | Qual versão da mensagem no app, legada ou disparada
 `ad_id` | `null,`&nbsp;`string` | [PII] Identificador de publicidade
 `ad_id_type` | `null,`&nbsp;`string` | Um entre `ios_idfa`, `google_ad_id`, `windows_ad_id` OU `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Se o rastreamento de publicidade está ativado para o dispositivo
@@ -1814,7 +1816,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED {#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1823,10 +1825,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `card_api_id` | `null,`&nbsp;`string` | ID da API do cartão
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1843,7 +1845,7 @@ Campo | Tipo | Descrição
 `resolution` | `null,`&nbsp;`string` | Resolução do dispositivo
 `carrier` | `null,`&nbsp;`string` | Operadora do dispositivo
 `browser` | `null,`&nbsp;`string` | Navegador do dispositivo
-`version` | `string` | Versão da mensagem no app: legada ou disparada
+`version` | `string` | Qual versão da mensagem no app, legada ou disparada
 `button_id` | `null,`&nbsp;`string` | ID do botão clicado, se este clique representa um clique em um botão
 `ad_id` | `null,`&nbsp;`string` | [PII] Identificador de publicidade
 `ad_id_type` | `null,`&nbsp;`string` | Um entre `ios_idfa`, `google_ad_id`, `windows_ad_id` OU `roku_ad_id`
@@ -1855,7 +1857,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED {#USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -1864,10 +1866,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `card_api_id` | `null,`&nbsp;`string` | ID da API do cartão
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -1884,7 +1886,7 @@ Campo | Tipo | Descrição
 `resolution` | `null,`&nbsp;`string` | Resolução do dispositivo
 `carrier` | `null,`&nbsp;`string` | Operadora do dispositivo
 `browser` | `null,`&nbsp;`string` | Navegador do dispositivo
-`version` | `string` | Versão da mensagem no app: legada ou disparada
+`version` | `string` | Qual versão da mensagem no app, legada ou disparada
 `ad_id` | `null,`&nbsp;`string` | [PII] Identificador de publicidade
 `ad_id_type` | `null,`&nbsp;`string` | Um entre `ios_idfa`, `google_ad_id`, `windows_ad_id` OU `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Se o rastreamento de publicidade está ativado para o dispositivo
@@ -1898,13 +1900,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_LINE_ABORT_SHARED {#USERS_MESSAGES_LINE_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `abort_log` | `null,`&nbsp;`string` | [PII] Mensagem de log descrevendo os detalhes do cancelamento (até 128 caracteres)
 `abort_type` | `null,`&nbsp;`string` | Tipo de cancelamento. Para ver a lista de valores, consulte [Tipos de cancelamento](#abort-types).
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
@@ -1930,13 +1932,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_LINE_CLICK_SHARED {#USERS_MESSAGES_LINE_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `native_line_id` | `null,`&nbsp;`string` | [PII] ID do LINE do usuário a partir do qual a mensagem foi enviada ou recebida
 `line_channel_id` | `null,`&nbsp;`string` | ID do canal LINE para o qual a mensagem foi enviada ou do qual foi recebida
@@ -1964,13 +1966,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
@@ -1996,13 +1998,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_LINE_SEND_SHARED {#USERS_MESSAGES_LINE_SEND_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
@@ -2032,9 +2034,9 @@ Esta tabela está disponível apenas no Snowflake Data Sharing.
 Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequência e é reenviada posteriormente dentro da janela de reenvio configurada.
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | [PII] ID do usuário da Braze que realizou este evento
+`user_id` | `string` | [PII] ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -2064,9 +2066,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED {#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
@@ -2085,9 +2087,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED {#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
@@ -2105,9 +2107,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -2135,9 +2137,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -2163,9 +2165,9 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
@@ -2190,7 +2192,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -2200,10 +2202,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2222,7 +2224,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -2233,10 +2235,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2256,7 +2258,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -2265,10 +2267,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2296,7 +2298,7 @@ Este evento não é compatível com o [Swift SDK](https://github.com/braze-inc/b
 {% endalert %}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -2305,10 +2307,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2335,7 +2337,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -2344,10 +2346,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2378,7 +2380,7 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `id` | `string` | ID globalmente exclusivo para este evento
 `user_id` | `string` | ID da Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
@@ -2389,10 +2391,10 @@ Campo | Tipo | Descrição
 `app_api_id` | `null,`&nbsp;`string` | ID da API do app no qual este evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID interno da Braze da Campaign à qual este evento pertence
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID interno da Braze do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2416,13 +2418,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_ABORT_SHARED {#USERS_MESSAGES_RCS_ABORT_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `abort_log` | `null,`&nbsp;`string` | [PII] Mensagem de log descrevendo os detalhes do cancelamento (até 128 caracteres)
 `abort_type` | `null,`&nbsp;`string` | Tipo de cancelamento. Para ver a lista de valores, consulte [Tipos de cancelamento](#abort-types).
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
@@ -2444,13 +2446,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_CLICK_SHARED {#USERS_MESSAGES_RCS_CLICK_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
@@ -2481,13 +2483,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_DELIVERY_SHARED {#USERS_MESSAGES_RCS_DELIVERY_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
@@ -2498,7 +2500,7 @@ Campo | Tipo | Descrição
 `message_variation_name` | `null,`&nbsp;`string` | Nome da variação de mensagem
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebeu a mensagem no formato e.164 (por exemplo, +14155552671)
+`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebe a mensagem no formato e.164 (por exemplo, +14155552671)
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2512,14 +2514,14 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
-`action` | `null,`&nbsp;`string` | Ação tomada em resposta a esta mensagem (por exemplo, Subscribed, Unsubscribed ou None).
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
+`action` | `null,`&nbsp;`string` | Ação tomada em resposta a esta mensagem. (por exemplo, Subscribed, Unsubscribed ou None).
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
@@ -2544,20 +2546,20 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_READ_SHARED {#USERS_MESSAGES_RCS_READ_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
 `canvas_step_name` | `null,`&nbsp;`string` | Nome da etapa do Canvas
 `canvas_variation_name` | `null,`&nbsp;`string` | Nome da variação do Canvas que este usuário recebeu
 `message_variation_name` | `null,`&nbsp;`string` | Nome da variação de mensagem
-`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebeu a mensagem no formato e.164 (por exemplo, +14155552671)
+`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebe a mensagem no formato e.164 (por exemplo, +14155552671)
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2570,13 +2572,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_REJECTION_SHARED {#USERS_MESSAGES_RCS_REJECTION_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
@@ -2594,7 +2596,7 @@ Campo | Tipo | Descrição
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
-`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebeu a mensagem no formato e.164 (por exemplo, +14155552671)
+`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebe a mensagem no formato e.164 (por exemplo, +14155552671)
 `campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas que este usuário recebeu
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
@@ -2604,13 +2606,13 @@ Campo | Tipo | Descrição
 ### USERS_MESSAGES_RCS_SEND_SHARED {#USERS_MESSAGES_RCS_SEND_SHARED}
 
 Campo | Tipo | Descrição
-------|------|------------
+------|------|----------
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `id` | `string` | ID globalmente exclusivo para este evento
 `time` | `int` | Timestamp UNIX em que o evento ocorreu
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID do usuário na Braze que realizou este evento
 `campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
@@ -2624,7 +2626,7 @@ Campo | Tipo | Descrição
 `message_variation_name` | `null,`&nbsp;`string` | Nome da variação de mensagem
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebeu a mensagem no formato e.164 (por exemplo, +14155552671)
+`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebe a mensagem no formato e.164 (por exemplo, +14155552671)
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas que este usuário recebeu
@@ -2633,19 +2635,25 @@ Campo | Tipo | Descrição
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
+## Eventos de mensagens SMS e perfis de usuários excluídos {#sms-message-events-and-deleted-user-profiles}
+
+{% alert note %}
+Para as tabelas compartilhadas `USERS_MESSAGES_SMS_*` (incluindo [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) e [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)), a Braze grava uma linha somente quando o perfil de usuário da Braze ainda existe no espaço de trabalho no momento em que o evento é processado para o Snowflake Data Sharing e o Currents. Se o usuário foi excluído antes da conclusão do processamento, o evento não aparece no Snowflake nem na sua exportação do Currents, mesmo quando as métricas de SMS do espaço de trabalho no dashboard ainda refletem contagens agregadas do caminho de relatórios da Braze. Para o comportamento correspondente no Currents, consulte [Eventos de rejeição de SMS]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) e os tipos de eventos de SMS relacionados no mesmo glossário.
+{% endalert %}
+
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
 
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2662,17 +2670,17 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2693,17 +2701,17 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2716,7 +2724,7 @@ Campo | Tipo | Descrição
 `from_phone_number` | `null,`&nbsp;`string` | Número de telefone a partir do qual a mensagem SMS foi enviada
 `subscription_group_api_id` | `null,`&nbsp;`string` | ID externo do grupo de inscrições
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
-`is_sms_fallback` | `null, boolean` | Indica se o fallback por SMS foi tentado para esta mensagem RCS rejeitada. Está vinculado/pareado ao evento de entrega de SMS
+`is_sms_fallback` | `null, boolean` | Indica se o fallback de SMS foi tentado para esta mensagem RCS rejeitada. Está vinculado/pareado ao evento de entrega de SMS
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2725,17 +2733,17 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2747,9 +2755,9 @@ Campo | Tipo | Descrição
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do destinatário
 `subscription_group_api_id` | `null,`&nbsp;`string` | ID externo do grupo de inscrições
 `error` | `null,`&nbsp;`string` | Nome do erro
-`provider_error_code` | `null,`&nbsp;`string` | Código de erro do provedor de serviço SMS
+`provider_error_code` | `null,`&nbsp;`string` | Código de erro do provedor de serviço de SMS
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
-`is_sms_fallback` | `null, boolean` | Indica se o fallback por SMS foi tentado para esta mensagem RCS rejeitada. Está vinculado/pareado ao evento de entrega de SMS
+`is_sms_fallback` | `null, boolean` | Indica se o fallback de SMS foi tentado para esta mensagem RCS rejeitada. Está vinculado/pareado ao evento de entrega de SMS
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2758,21 +2766,21 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `null,`&nbsp;`string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
+`user_id` | `null,`&nbsp;`string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho associado ao número de telefone de entrada
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `user_phone_number` | `string` | [PII] Número de telefone do usuário a partir do qual a mensagem foi recebida
 `subscription_group_id` | `null,`&nbsp;`string` | ID do grupo de inscrições direcionado para esta mensagem SMS
 `subscription_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de inscrições direcionado para esta mensagem SMS
-`inbound_phone_number` | `string` | Número de entrada para o qual a mensagem foi enviada
+`inbound_phone_number` | `string` | O número de entrada para o qual a mensagem foi enviada
 `action` | `string` | Ação tomada em resposta a esta mensagem. Por exemplo, `Subscribed`, `Unsubscribed` ou `None`.
 `message_body` | `string` | Resposta do usuário
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | URLs de mídia do usuário
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem à qual este evento pertence
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2786,17 +2794,17 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2809,9 +2817,9 @@ Campo | Tipo | Descrição
 `from_phone_number` | `null,`&nbsp;`string` | Número de telefone a partir do qual a mensagem SMS foi enviada
 `subscription_group_api_id` | `null,`&nbsp;`string` | ID externo do grupo de inscrições
 `error` | `null,`&nbsp;`string` | Nome do erro
-`provider_error_code` | `null,`&nbsp;`string` | Código de erro do provedor de serviço SMS
+`provider_error_code` | `null,`&nbsp;`string` | Código de erro do provedor de serviço de SMS
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
-`is_sms_fallback` | `null, boolean` | Indica se o fallback por SMS foi tentado para esta mensagem RCS rejeitada. Está vinculado/pareado ao evento de entrega de SMS
+`is_sms_fallback` | `null, boolean` | Indica se o fallback de SMS foi tentado para esta mensagem RCS rejeitada. Está vinculado/pareado ao evento de entrega de SMS
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2820,17 +2828,17 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2852,22 +2860,22 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `null,`&nbsp;`string` | ID da Braze do usuário direcionado pela short_url, null se a short_url não usou rastreamento de clique do usuário
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário direcionado pela short_url, se existir, null se a short_url não usou rastreamento de clique do usuário
-`app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho usado para gerar a short_url
-`time` | `int` | Timestamp Unix em que a short_url foi clicada
+`user_id` | `null,`&nbsp;`string` | ID Braze do usuário direcionado pelo short_url, nulo se o short_url não usou rastreamento de cliques do usuário
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário direcionado pelo short_url, se existir; nulo se o short_url não usou rastreamento de cliques do usuário
+`app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho usado para gerar o short_url
+`time` | `int` | Registro de data e hora Unix em que o short_url foi clicado
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze da Campaign para a qual a short_url foi gerada, null se não for de uma Campaign
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign para a qual a short_url foi gerada, null se não for de uma Campaign
-`message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem para a qual a short_url foi gerada, null se não for de uma Campaign
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze do Canvas para o qual a short_url foi gerada, null se não for de um Canvas
-`canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas para o qual a short_url foi gerada, null se não for de um Canvas
-`canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas para a qual a short_url foi gerada, null se não for de um Canvas
-`canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas para a qual a short_url foi gerada, null se não for de um Canvas
-`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas para a qual a short_url foi gerada, null se não for de um Canvas
-`url` | `string` | URL original contida na mensagem para a qual a short_url redireciona
+`campaign_id` | `null,`&nbsp;`string` | ID Braze da campanha para a qual o short_url foi gerado, nulo se não for de uma campanha
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha para a qual o short_url foi gerado, nulo se não for de uma campanha
+`message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem para a qual o short_url foi gerado, nulo se não for de uma campanha
+`canvas_id` | `null,`&nbsp;`string` | ID Braze do Canvas para o qual o short_url foi gerado, nulo se não for de um Canvas
+`canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas para o qual o short_url foi gerado, nulo se não for de um Canvas
+`canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas para a qual o short_url foi gerado, nulo se não for de um Canvas
+`canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas para a qual o short_url foi gerado, nulo se não for de um Canvas
+`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas para a qual o short_url foi gerado, nulo se não for de um Canvas
+`url` | `string` | URL original contida na mensagem para a qual o short_url redireciona
 `short_url` | `string` | URL encurtada que foi clicada
-`user_agent` | `null,`&nbsp;`string` | User agent que solicitou a short_url
+`user_agent` | `null,`&nbsp;`string` | User agent que solicitou o short_url
 `user_phone_number` | `string` | [PII] Número de telefone do usuário
 `device_id` | `null,`&nbsp;`string` | ID do dispositivo no qual o evento ocorreu
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
@@ -2882,18 +2890,18 @@ Campo | Tipo | Descrição
 Esta tabela está disponível apenas no Snowflake Data Sharing.
 {% endalert %}
 
-Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequência e é reenviada posteriormente dentro da janela de reenvio configurada.
+Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequency capping e é reenviada posteriormente dentro da janela de nova tentativa configurada.
 
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | [PII] ID do usuário da Braze que realizou este evento
+`user_id` | `string` | [PII] ID de usuário Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
-`time` | `int` | Timestamp UNIX em que o evento ocorreu
-`campaign_id` | `null,`&nbsp;`string` | BSON ID da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`time` | `int` | Registro de data e hora UNIX em que o evento ocorreu
+`campaign_id` | `null,`&nbsp;`string` | BSON ID da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
@@ -2901,8 +2909,8 @@ Campo | Tipo | Descrição
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas que este usuário recebeu
 `subscription_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de inscrições
-`retry_type` | `null,`&nbsp;`string` | Tipo de reenvio
-`retry_log` | `null,`&nbsp;`string` | Mensagem de log descrevendo os detalhes do reenvio
+`retry_type` | `null,`&nbsp;`string` | Tipo de nova tentativa
+`retry_log` | `null,`&nbsp;`string` | Mensagem de log descrevendo os detalhes da nova tentativa
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -2911,17 +2919,17 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2942,11 +2950,11 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `http_status_code` | `null, int` | Código de status HTTP da resposta
-`endpoint_url` | `null,`&nbsp;`string` | URL do endpoint sendo solicitado
+`endpoint_url` | `null,`&nbsp;`string` | A URL do endpoint sendo solicitado
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
-`campaign_id` | `null,`&nbsp;`string` | BSON ID da Campaign à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | BSON ID da campanha à qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -2955,16 +2963,16 @@ Campo | Tipo | Descrição
 `content_length` | `null, int` | Tamanho do conteúdo da resposta
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`host` | `null,`&nbsp;`string` | Host da requisição
+`host` | `null,`&nbsp;`string` | O host da solicitação
 `id` | `string` | ID globalmente exclusivo para este evento
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `raw_response` | `null,`&nbsp;`string` | Resposta bruta truncada do endpoint
-`retry_count` | `null, int` | Número de tentativas de reenvio realizadas
+`retry_count` | `null, int` | O número de novas tentativas realizadas
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`time` | `int` | Timestamp UNIX em que o evento ocorreu
-`url_path` | `null,`&nbsp;`string` | Caminho da URL sendo solicitada
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
-`webhook_duration` | `null, int` | Duração total desta requisição em milissegundos
+`time` | `int` | Registro de data e hora UNIX em que o evento ocorreu
+`url_path` | `null,`&nbsp;`string` | O caminho da URL sendo solicitada
+`user_id` | `string` | ID de usuário Braze do usuário que realizou este evento
+`webhook_duration` | `null, int` | Duração total desta solicitação em milissegundos
 `webhook_failure_source` | `null,`&nbsp;`string` | Indica se o erro foi criado pela Braze ou pelo próprio endpoint. O campo de origem pode ser External Endpoint, Treat no status code to host unreachable
 `is_terminal` | `null, boolean` | Se este evento foi a tentativa final em um envio
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
@@ -2975,22 +2983,22 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas que este usuário recebeu
-`campaign_name` | `null,`&nbsp;`string` | Nome da Campaign
+`campaign_name` | `null,`&nbsp;`string` | Nome da campanha
 `message_variation_name` | `null,`&nbsp;`string` | Nome da variação de mensagem
 `canvas_name` | `null,`&nbsp;`string` | Nome do Canvas
 `canvas_variation_name` | `null,`&nbsp;`string` | Nome da variação do Canvas que este usuário recebeu
@@ -3010,21 +3018,21 @@ Campo | Tipo | Descrição
 Esta tabela está disponível apenas no Snowflake Data Sharing.
 {% endalert %}
 
-Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequência e é reenviada posteriormente dentro da janela de reenvio configurada.
+Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequency capping e é reenviada posteriormente dentro da janela de nova tentativa configurada.
 
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | [PII] ID do usuário da Braze que realizou este evento
+`user_id` | `string` | [PII] ID de usuário Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
-`time` | `int` | Timestamp UNIX em que o evento ocorreu
+`time` | `int` | Registro de data e hora UNIX em que o evento ocorreu
 `device_id` | `null,`&nbsp;`string` | ID do dispositivo no qual o evento ocorreu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`campaign_id` | `null,`&nbsp;`string` | BSON ID da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | BSON ID da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
@@ -3035,8 +3043,8 @@ Campo | Tipo | Descrição
 `country` | `null,`&nbsp;`string` | [PII] País do usuário
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `language` | `null,`&nbsp;`string` | [PII] Idioma do usuário
-`retry_type` | `null,`&nbsp;`string` | Tipo de reenvio
-`retry_log` | `null,`&nbsp;`string` | Mensagem de log descrevendo os detalhes do reenvio
+`retry_type` | `null,`&nbsp;`string` | Tipo de nova tentativa
+`retry_log` | `null,`&nbsp;`string` | Mensagem de log descrevendo os detalhes da nova tentativa
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -3045,19 +3053,19 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `to_phone_number` | 	`null,`&nbsp;`string` | [PII] Número de telefone do destinatário
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `app_group_id` | `null,`&nbsp;`string` | ID do espaço de trabalho ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -3074,15 +3082,15 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | ID do usuário da Braze que realizou este evento
+`user_id` | `string` | ID de usuário Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `device_id` | `null,`&nbsp;`string` | ID do dispositivo no qual o evento ocorreu
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
-`time` | `int` | Timestamp UNIX em que o evento ocorreu
+`time` | `int` | Registro de data e hora UNIX em que o evento ocorreu
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
-`campaign_id` | `null,`&nbsp;`string` | BSON ID da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | BSON ID da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
@@ -3101,20 +3109,20 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do destinatário
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `from_phone_number` | `null,`&nbsp;`string` | Número de telefone a partir do qual a mensagem do WhatsApp foi enviada
 `app_group_id` | `null,`&nbsp;`string` | ID do espaço de trabalho ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -3122,9 +3130,9 @@ Campo | Tipo | Descrição
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`flow_id` | `null,`&nbsp;`string` | ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | O ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
 `template_name` | `null,`&nbsp;`string` | [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
-`message_id` | `null,`&nbsp;`string` | ID exclusivo gerado pela Meta para esta mensagem
+`message_id` | `null,`&nbsp;`string` | O ID exclusivo gerado pela Meta para esta mensagem
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_FAILURE_SHARED {#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED}
@@ -3132,20 +3140,20 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do destinatário
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `from_phone_number` | `null,`&nbsp;`string` | Número de telefone a partir do qual a mensagem do WhatsApp foi enviada
 `app_group_id` | `null,`&nbsp;`string` | ID do espaço de trabalho ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -3155,9 +3163,9 @@ Campo | Tipo | Descrição
 `provider_error_title` | `null, `&nbsp;`string` | Título do erro do WhatsApp
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`message_id` | `null,`&nbsp;`string` | ID exclusivo gerado pela Meta para esta mensagem
+`message_id` | `null,`&nbsp;`string` | O ID exclusivo gerado pela Meta para esta mensagem
 `template_name` | `null,`&nbsp;`string` | [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
-`flow_id` | `null,`&nbsp;`string` | ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | O ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
@@ -3165,20 +3173,20 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `user_phone_number` | `string` | [PII] Número de telefone do usuário a partir do qual a mensagem foi recebida
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`inbound_phone_number` | `string` | Número de entrada para o qual a mensagem foi enviada
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`inbound_phone_number` | `string` | O número de entrada para o qual a mensagem foi enviada
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `app_group_id` | `null,`&nbsp;`string` | ID do espaço de trabalho ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -3188,11 +3196,11 @@ Campo | Tipo | Descrição
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | URLs de mídia do usuário
 `action` | `string` | Ação tomada em resposta a esta mensagem. Por exemplo, `Subscribed`, `Unsubscribed` ou `None`.
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
-`catalog_id` | `null,`&nbsp;`string` | ID do catálogo de um produto, se um produto for referenciado na mensagem de entrada. Caso contrário, vazio.
+`catalog_id` | `null,`&nbsp;`string` | ID do catálogo de um produto se um produto for referenciado na mensagem de entrada. Caso contrário, vazio.
 `product_id` | `null,`&nbsp;`string` | ID do produto comprado
-`flow_id` | `null,`&nbsp;`string` | ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | O ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
 `flow_response_json` | `null,`&nbsp;`string` | [PII] Os valores do formulário com os quais o usuário respondeu. Presente se o usuário estiver respondendo a um WhatsApp Flow.
-`message_id` | `null,`&nbsp;`string` | ID exclusivo gerado pela Meta para esta mensagem
+`message_id` | `null,`&nbsp;`string` | O ID exclusivo gerado pela Meta para esta mensagem
 `in_reply_to` | `null,`&nbsp;`string` | O message_id da mensagem à qual esta mensagem estava respondendo
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -3201,20 +3209,20 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do destinatário
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `from_phone_number` | `null,`&nbsp;`string` | Número de telefone a partir do qual a mensagem do WhatsApp foi enviada
 `app_group_id` | `null,`&nbsp;`string` | ID do espaço de trabalho ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -3223,8 +3231,8 @@ Campo | Tipo | Descrição
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
 `template_name` | `null,`&nbsp;`string` | [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
-`message_id` | `null,`&nbsp;`string` | ID exclusivo gerado pela Meta para esta mensagem
-`flow_id` | `null,`&nbsp;`string` | ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
+`message_id` | `null,`&nbsp;`string` | O ID exclusivo gerado pela Meta para esta mensagem
+`flow_id` | `null,`&nbsp;`string` | O ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
@@ -3232,20 +3240,20 @@ Campo | Tipo | Descrição
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`time` | `int` | Timestamp Unix em que o evento ocorreu
+`time` | `int` | Registro de data e hora Unix em que o evento ocorreu
 `to_phone_number` | `null,`&nbsp;`string`	| [PII] Número de telefone do destinatário
-`user_id` | `string` | ID da Braze do usuário que realizou este evento
-`external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
-`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário, se o usuário for anônimo
+`user_id` | `string` | ID Braze do usuário que realizou este evento
+`external_user_id` | `null,`&nbsp;`string` | [PII] ID de usuário externo do usuário
+`device_id` | `null,`&nbsp;`string` | `device_id` vinculado a este usuário se o usuário for anônimo
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `from_phone_number` | `null,`&nbsp;`string` | Número de telefone a partir do qual a mensagem do WhatsApp foi enviada
 `app_group_id` | `null,`&nbsp;`string` | ID do espaço de trabalho ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do espaço de trabalho ao qual este usuário pertence
 `subscription_group_api_id` | `string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | ID da Braze para uso interno da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | ID Braze de uso interno da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
-`canvas_id` | `null,`&nbsp;`string` | ID da Braze para uso interno do Canvas ao qual este evento pertence
+`canvas_id` | `null,`&nbsp;`string` | ID Braze de uso interno do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
 `canvas_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação do Canvas à qual este evento pertence
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
@@ -3254,9 +3262,9 @@ Campo | Tipo | Descrição
 `message_extras` | `null,`&nbsp;`string` | [PII] Uma string JSON dos pares chave-valor marcados durante a renderização Liquid
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID de envio da mensagem à qual esta mensagem pertence
-`flow_id` | `null,`&nbsp;`string` | ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | O ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
 `template_name` | `null,`&nbsp;`string` | [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
-`message_id` | `null,`&nbsp;`string` | ID exclusivo gerado pela Meta para esta mensagem
+`message_id` | `null,`&nbsp;`string` | O ID exclusivo gerado pela Meta para esta mensagem
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### USERS_MESSAGES_WHATSAPP_RETRY_SHARED {#USERS_MESSAGES_WHATSAPP_RETRY_SHARED}
@@ -3265,22 +3273,22 @@ Campo | Tipo | Descrição
 Esta tabela está disponível apenas no Snowflake Data Sharing.
 {% endalert %}
 
-Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequência e é reenviada posteriormente dentro da janela de reenvio configurada.
+Este evento ocorre quando uma mensagem é despriorizada ou limitada por frequency capping e é reenviada posteriormente dentro da janela de nova tentativa configurada.
 
 Campo | Tipo | Descrição
 ------|------|------------
 `id` | `string` | ID globalmente exclusivo para este evento
-`user_id` | `string` | [PII] ID do usuário da Braze que realizou este evento
+`user_id` | `string` | [PII] ID de usuário Braze do usuário que realizou este evento
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externo do usuário
 `app_group_id` | `null,`&nbsp;`string` | BSON ID do grupo de app ao qual este usuário pertence
 `app_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de app ao qual este usuário pertence
-`time` | `int` | Timestamp UNIX em que o evento ocorreu
-`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebeu a mensagem no formato e.164
+`time` | `int` | Registro de data e hora UNIX em que o evento ocorreu
+`to_phone_number` | `null,`&nbsp;`string` | [PII] Número de telefone do usuário que recebe a mensagem no formato e.164
 `device_id` | `null,`&nbsp;`string` | ID do dispositivo no qual o evento ocorreu
 `timezone` | `null,`&nbsp;`string` | Fuso horário do usuário
 `subscription_group_api_id` | `null,`&nbsp;`string` | ID da API do grupo de inscrições
-`campaign_id` | `null,`&nbsp;`string` | BSON ID da Campaign à qual este evento pertence
-`campaign_api_id` | `null,`&nbsp;`string` | ID da API da Campaign à qual este evento pertence
+`campaign_id` | `null,`&nbsp;`string` | BSON ID da campanha à qual este evento pertence
+`campaign_api_id` | `null,`&nbsp;`string` | ID da API da campanha à qual este evento pertence
 `message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem que este usuário recebeu
 `canvas_id` | `null,`&nbsp;`string` | BSON ID do Canvas ao qual este evento pertence
 `canvas_api_id` | `null,`&nbsp;`string` | ID da API do Canvas ao qual este evento pertence
@@ -3288,8 +3296,8 @@ Campo | Tipo | Descrição
 `canvas_step_api_id` | `null,`&nbsp;`string` | ID da API da etapa do Canvas à qual este evento pertence
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | ID da API da variação de mensagem da etapa do Canvas que este usuário recebeu
 `dispatch_id` | `null,`&nbsp;`string` | ID do despacho ao qual esta mensagem pertence
-`retry_type` | `null,`&nbsp;`string` | Tipo de reenvio
-`retry_log` | `null,`&nbsp;`string` | Mensagem de log descrevendo os detalhes do reenvio
+`retry_type` | `null,`&nbsp;`string` | Tipo de nova tentativa
+`retry_log` | `null,`&nbsp;`string` | Mensagem de log descrevendo os detalhes da nova tentativa
 `sf_created_at` | `timestamp`,&nbsp;`null` | Quando este evento foi captado pelo Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 

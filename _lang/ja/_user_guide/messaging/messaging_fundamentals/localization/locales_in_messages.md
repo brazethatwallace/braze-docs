@@ -177,7 +177,7 @@ Canvasesで翻訳エンドポイントを使用するには、以下のパラメ
   - `message_variation_id`
 
 {% alert note %}
-Canvas起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
+Canvasの起動後に作成されたCanvasステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
 {% endalert %}
 
 {% endtab %}
@@ -231,9 +231,9 @@ URLは2つの特殊文字を使用してこの動作を制御します。
 
 ### 言語設定とアクセシビリティ {#language-settings-and-accessibility}
 
-HTMLベースのチャネル（メール、アプリ内メッセージ、バナー、ランディングページ、Content Cards）では、Brazeはレンダリングされたメッセージにアクセシビリティ言語（`lang`）属性を追加します。この属性は、スクリーンリーダーなどの支援技術がテキストを正しく解釈し、発音するのに役立ちます。
+まず[アクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/)の[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)を参照して、WCAGのコンテキスト、チャネルとエディターの動作（ランディングページを含む）、およびメッセージレベルの**アクセシビリティ**設定をご確認ください。
 
-この属性がない場合、スクリーンリーダーはコンテンツがユーザーがセットアップ時にデバイスに設定したデフォルト言語であると想定します。メッセージが異なる言語の場合、スクリーンリーダーがすべてを正しく発音できない可能性があります。
+**多言語メッセージ**を使用する場合、ローカライズされた送信が適切な言語を宣言するように、アクセシビリティ言語を各ロケールに合わせてください。
 
 #### アクセシビリティ言語の設定 {#configuring-the-accessibility-language}
 
@@ -241,15 +241,13 @@ HTMLベースのチャネル（メール、アプリ内メッセージ、バナ�
 
 ##### メッセージレベル {#message-level}
 
-メッセージ設定で、**アクセシビリティ**セクションに移動し、ドロップダウンから言語を選択するか、Liquidを使用してアクセシビリティ言語を動的に設定します。これはメッセージ内のすべてのコンテンツに適用されます。
+メッセージレベルでは、メッセージ設定の**アクセシビリティ**セクションでアクセシビリティ言語を設定します。言語の選択、Liquidの使用、チャネルごとの制限については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)を参照してください。
 
 ##### ロケールレベル {#locale-level}
 
-多言語メッセージの場合、**ローカライゼーション設定**で各ロケールにアクセシビリティ言語を設定します。新しいメッセージが作成されると、**アクセシビリティ**セクションでデフォルトで {% raw %}`{{accessibility_language}}`{% endraw %} が選択されます。これにより、アクセシビリティ言語がロケール設定にマッピングされます。
+多言語メッセージの場合、**ローカライゼーション設定**で各ロケールにアクセシビリティ言語を設定します。**アクセシビリティ**セクションで {% raw %}`{{accessibility_language}}`{% endraw %} を使用すると、ドキュメントまたはカードの言語がそれらのロケール値にマッピングされます。
 
-#### 標準 {#standards}
-
-アクセシビリティ言語はHTML `lang`属性にマッピングされます。これは[WCAG 2.1 レベルA要件](https://dequeuniversity.com/rules/axe/4.2/html-has-lang)（達成基準3.1.1）です。多言語コンテンツの場合、HTML内で`lang`属性を直接使用して、個々のコンテンツブロックに言語を設定することもできます。
+新しいメッセージでそのトークンがデフォルトで表示されるかどうかは、チャネルとエディターによって異なります。たとえば、アプリ内メッセージやバナーは、ランディングページやドラッグ＆ドロップメールとは動作が異なります。詳細については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

@@ -231,9 +231,9 @@ URL은 두 가지 특수 문자를 사용하여 이를 제어합니다:
 
 ### 언어 설정 및 접근성 {#language-settings-and-accessibility}
 
-HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Content Cards)의 경우, Braze는 렌더링된 메시지에 접근성 언어(`lang`) 속성을 추가합니다. 이 속성은 스크린 리더와 같은 보조 기술이 텍스트를 올바르게 해석하고 발음하는 데 도움을 줍니다.
+WCAG 컨텍스트, 채널 및 에디터 동작(랜딩 페이지 포함), 메시지 수준 **Accessibility** 설정에 대해서는 [접근성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/)의 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)부터 시작하세요.
 
-이 속성이 없으면 스크린 리더는 콘텐츠가 사용자가 설정 시 기기에서 설정한 기본 언어로 되어 있다고 가정합니다. 메시지가 다른 언어로 되어 있는 경우 스크린 리더가 모든 내용을 올바르게 발음하지 못할 수 있습니다.
+**다국어 메시지**를 사용할 때, 현지화된 발송이 적절한 언어를 선언하도록 접근성 언어를 각 로캘에 맞추세요.
 
 #### 접근성 언어 구성 {#configuring-the-accessibility-language}
 
@@ -241,15 +241,13 @@ HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Con
 
 ##### 메시지 수준 {#message-level}
 
-메시지 설정에서 **Accessibility** 섹션으로 이동하여 드롭다운에서 언어를 선택하거나 Liquid를 사용하여 접근성 언어를 동적으로 설정합니다. 이는 메시지의 모든 콘텐츠에 적용됩니다.
+메시지 수준에서는 메시지 설정의 **Accessibility** 섹션에서 접근성 언어를 설정합니다. 언어 선택, Liquid 사용 및 채널별 제한 사항에 대해서는 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)를 참조하세요.
 
 ##### 로캘 수준 {#locale-level}
 
-다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. 새 메시지가 생성되면 **Accessibility** 섹션에서 기본적으로 {% raw %}`{{accessibility_language}}`{% endraw %}가 선택됩니다. 이는 접근성 언어를 로캘 설정에 매핑합니다.
+다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. **Accessibility** 섹션에서 {% raw %}`{{accessibility_language}}`{% endraw %}를 사용하면 문서 또는 카드 언어가 해당 로캘 값에 매핑됩니다.
 
-#### 표준 {#standards}
-
-접근성 언어는 HTML `lang` 속성에 매핑되며, 이는 [WCAG 2.1 레벨 A 요구 사항](https://dequeuniversity.com/rules/axe/4.2/html-has-lang)(성공 기준 3.1.1)입니다. 다국어 콘텐츠의 경우, HTML에서 `lang` 속성을 직접 사용하여 개별 콘텐츠 블록에 언어를 설정할 수도 있습니다.
+새 메시지에서 해당 토큰이 기본적으로 표시되는지 여부는 채널과 에디터에 따라 다릅니다. 예를 들어, 인앱 메시지와 배너는 랜딩 페이지 및 드래그 앤 드롭 이메일과 다르게 동작합니다. 자세한 내용은 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)를 참조하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

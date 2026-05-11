@@ -1,18 +1,18 @@
 ---
-nav_title: 커스텀 커런츠 커넥터
+nav_title: 커스텀 Currents 커넥터
 alias: /currents_connector/
 hidden: true
 ---
 
-# 커스텀 커런츠 커넥터 {#custom-currents-connector}
+# 커스텀 Currents 커넥터 {#custom-currents-connector}
 
-> 커스텀 커런츠 커넥터를 통합하는 방법을 알아보세요. Braze에서 실시간으로 이벤트 데이터를 가져와 보다 맞춤화된 분석, 보고서 및 자동화를 구현할 수 있습니다.
+> 커스텀 Currents 커넥터를 통합하는 방법을 알아보세요. Braze에서 실시간으로 이벤트 데이터를 가져와 보다 맞춤화된 분석, 보고서 및 자동화를 구현할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
-Braze에서 커스텀 커런츠 커넥터를 통합하려면 엔드포인트 URL과 [선택적 인증 토큰](#authentication)을 제공해야 합니다.
+Braze에서 커스텀 Currents 커넥터를 통합하려면 엔드포인트 URL과 [선택적 인증 토큰](#authentication)을 제공해야 합니다.
 
-또한 Braze에 앱 그룹이 여러 개 있는 경우 각 그룹에 대해 커스텀 커런츠 커넥터를 구성해야 합니다. 그러나 모든 앱 그룹을 동일한 엔드포인트 또는 `your_app_group_key="Brand A"`와 같은 추가 `GET` 매개변수가 있는 엔드포인트로 지정할 수 있습니다.
+또한 Braze에 앱 그룹이 여러 개 있는 경우 각 그룹에 대해 커스텀 Currents 커넥터를 구성해야 합니다. 그러나 모든 앱 그룹을 동일한 엔드포인트 또는 `your_app_group_key="Brand A"`와 같은 추가 `GET` 매개변수가 있는 엔드포인트로 지정할 수 있습니다.
 
 ## 데이터 손실 방지 {#preventing-data-loss}
 
@@ -177,7 +177,7 @@ Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{
 
 다음은 Canvas와 연결된 경우 표시되는 다양한 이벤트의 페이로드 예시입니다:
 
-#### 인앱 메시지 클릭 {#in-app-message-click}
+#### 인앱 메시지 클릭
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{
 }
 ```
 
-#### 푸시 알림 전송 {#push-notification-send}
+#### 푸시 알림 전송
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{
 }
 ```
 
-#### 이메일 열람 {#email-open}
+#### 이메일 열람
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{
 }
 ```
 
-#### SMS 전달 {#sms-delivery}
+#### SMS 전달
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -431,6 +431,7 @@ Braze 재시도 메커니즘이 24시간 이상 이벤트를 전달하지 못하
 커넥터 클라이언트에서 인식하는 HTTP 상태 코드는 다음과 같습니다:
 
 <table>
+  <caption>오류 처리 및 재시도 메커니즘</caption>
   <thead>
     <tr>
       <th>상태 코드</th>

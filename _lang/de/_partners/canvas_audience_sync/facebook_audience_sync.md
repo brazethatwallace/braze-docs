@@ -50,9 +50,9 @@ Bevor Sie den Facebook-Audience-Schritt in Canvas einrichten, müssen Sie sicher
 Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) haben, um Facebook mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
-Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Facebook** aus. Wählen Sie unter Facebook Audience Export die Option **Facebook verbinden**.
+Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Facebook** aus. Wählen Sie unter Facebook Audience Export die Option **Connect Facebook**.
 
-![Facebook-Technologieseite in Braze mit einem Übersichtsabschnitt und einem Abschnitt für den Facebook Audience Export mit dem Button „Facebook verbinden“.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
+![Facebook-Technologieseite in Braze mit einem Übersichtsabschnitt und einem Abschnitt für den Facebook Audience Export mit dem Button „Connect Facebook“.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
 
 Ein Facebook-oAuth-Dialogfenster erscheint, um Braze zu autorisieren, angepasste Zielgruppen in Ihren Facebook-Anzeigenkonten zu erstellen.
 
@@ -97,7 +97,7 @@ Wählen Sie den Button **Custom Audience** aus, um den Komponenteneditor zu öff
 Wählen Sie das gewünschte Facebook-Anzeigenkonto aus. Geben Sie in der Dropdown-Liste **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Neue Zielgruppe erstellen %}
 
 1. Geben Sie einen Namen für die neue angepasste Zielgruppe ein.
 2. Wählen Sie **Add Users to Audience** und wählen Sie die Felder aus, die Sie mit Facebook synchronisieren möchten.
@@ -110,7 +110,7 @@ Sie werden oben im Schritt-Editor benachrichtigt, wenn die Zielgruppe erfolgreic
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, erstellt Braze die neue angepasste Zielgruppe beim Start des Canvas und synchronisiert die Nutzer:innen anschließend nahezu in Realtime, wenn sie den Audience-Sync-Schritt betreten.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit bestehender Zielgruppe synchronisieren %}
 
 Braze bietet die Möglichkeit, Nutzer:innen aus bestehenden angepassten Facebook-Zielgruppen hinzuzufügen oder zu entfernen, um sicherzustellen, dass diese Zielgruppen aktuell sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, gehen Sie wie folgt vor:
 
@@ -234,6 +234,7 @@ table td {
 </style>
 
 <table>
+  <caption>Fehlerbehebung</caption>
   <thead>
     <tr>
       <th>Fehler</th>
@@ -264,7 +265,7 @@ table td {
     </tr>
     <tr>
       <td><b>Nutzungsbedingungen nicht akzeptiert</b></td>
-      <td>Bei einigen Audience-Sync-Zielen wie Facebook ist es vom Werbenetzwerk erforderlich, bestimmte Nutzungsbedingungen zu akzeptieren, um das Audience-Sync-Feature nutzen zu können. Dieser Fehler wird ausgelöst, wenn Sie die entsprechenden Bedingungen nicht akzeptiert haben. Daher haben Sie möglicherweise auch eine E-Mail mit diesem Betreff von Braze erhalten: „Ihre Zugangsdaten für Facebook sind ungültig.“</td>
+      <td>Bei einigen Audience-Sync-Zielen wie Facebook ist es vom Werbenetzwerk erforderlich, bestimmte Nutzungsbedingungen zu akzeptieren, um das Audience-Sync-Feature nutzen zu können. Dieser Fehler wird ausgelöst, wenn Sie die entsprechenden Bedingungen nicht akzeptiert haben. Daher haben Sie möglicherweise auch eine E-Mail mit diesem Betreff von Braze erhalten: „Your authorization credentials for Facebook are invalid.“</td>
       <td>Prüfen Sie, ob Sie die erforderlichen Nutzungsbedingungen von Facebook akzeptiert haben.</td>
     </tr>
     <tr>

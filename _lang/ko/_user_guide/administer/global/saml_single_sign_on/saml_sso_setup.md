@@ -35,9 +35,10 @@ Okta를 ID 공급자로 사용할 계획이라면 [Okta 사이트](https://www.o
 
 | SAML 속성 | 필수 여부 | 허용되는 SAML 속성 |
 |---|---|---|
-|`email` | 필수 | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
+| `email` | 필수 | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | 선택 사항 | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | 선택 사항 | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
 
 {% alert note %}
 Braze는 SAML Assertion에서 `email`만 필수로 요구합니다.
@@ -90,7 +91,7 @@ SSO를 사용하기로 선택한 멤버는 더 이상 이전처럼 비밀번호�
 
 ## 제한 {#restriction}
 
-조직의 멤버가 Google SSO 또는 SAML SSO로만 로그인하도록 제한할 수 있습니다. 제한을 활성화하려면 **보안 설정**으로 이동하여 **Google SSO 전용 로그인 적용** 또는 **커스텀 SAML SSO 전용 로그인 적용**을 선택합니다.
+조직의 멤버가 Google SSO 또는 SAML SSO로만 로그인하도록 제한할 수 있습니다. 제한을 활성화하려면 **보안 설정**으로 이동하여 **Enforce Google SSO only login** 또는 **Enforce custom SAML SSO only login**을 선택합니다.
 
 ![최소 비밀번호 길이 8자, 비밀번호 재사용 3회로 설정된 "인증 규칙" 섹션의 예시. 비밀번호는 180일 후 만료되며, 사용자는 1,440분 비활성 후 로그아웃됩니다.]({% image_buster /assets/img/sso3.png %})
 

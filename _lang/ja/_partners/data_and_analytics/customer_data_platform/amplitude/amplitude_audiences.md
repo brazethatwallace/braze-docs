@@ -37,9 +37,10 @@ AmplitudeとBrazeは2つの異なる統合方法を提供しています。以�
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**「設定」**>**「APIキー」**から作成できます。 |
+| Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL][1]。エンドポイントはインスタンスのBraze URLに応じて異なります。 |
 | Brazeアプリ識別子 | Amplitudeイベントを受け取るアプリの識別子です。これは、**Brazeダッシュボード > 開発者コンソール > 設定**で確認できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ### Amplitudeの設定 {#amplitude-setup}
 

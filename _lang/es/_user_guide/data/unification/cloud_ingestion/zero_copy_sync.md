@@ -10,8 +10,6 @@ description: "Esta página ofrece un resumen sobre cómo desencadenar Canvas de 
 
 > Aprende a sincronizar los desencadenantes de Canvas utilizando CDI para una personalización sin copia. Esta característica accede a información específica del usuario desde tu solución de almacenamiento de datos y la transfiere a un Canvas de destino. Los pasos en Canvas pueden incluir opcionalmente campos de personalización que no se conservan en los perfiles de usuario de Braze.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Sincronización de los desencadenantes de Canvas {#syncing-canvas-triggers}
 
 ### Pasos para una puesta en marcha rápida {#quick-start-steps}
@@ -326,13 +324,10 @@ Revisa toda la configuración (desde el comportamiento de sincronización hasta 
 
 Los desencadenantes de CDI Canvas utilizan tu límite de velocidad de la REST API para `/canvas/trigger/send`. Si utilizas este punto de conexión simultáneamente con los desencadenantes de CDI Canvas y tu integración de REST API, ten en cuenta que el uso combinado se contabilizará en tu límite de velocidad.
 
-Mientras los desencadenantes de CDI Canvas se encuentran en fase de acceso anticipado, ten en cuenta los siguientes detalles:
+Cada ejecución de sincronización introduce a los usuarios en su Canvas de destino respectivo a una tasa máxima de aproximadamente 3,75 millones de usuarios por hora. Prepárate para tiempos de entrada más largos desde el origen hasta el Canvas cuando:
 
-* Hasta 5 sincronizaciones activas de desencadenantes de Canvas por espacio de trabajo
-* Cada ejecución de sincronización introducirá a los usuarios en su Canvas de destino respectivo a una tasa máxima de aproximadamente 3,75 millones de usuarios por hora.
-  * Prepárate para tiempos de entrada más largos desde el origen hasta el Canvas cuando:
-    * Sincronices más de 3,75 millones de usuarios por cada ejecución de sincronización.
-    * Uses los desencadenantes de CDI Canvas cuando ya hayas saturado el [límite de velocidad de tu REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Sincronices más de 3,75 millones de usuarios por cada ejecución de sincronización.
+* Uses los desencadenantes de CDI Canvas cuando ya hayas saturado el [límite de velocidad de tu REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
 
 Ten en cuenta lo siguiente sobre la CDI sin copia cuando el Archivado de mensajes está habilitado:
 

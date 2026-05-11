@@ -54,7 +54,7 @@ Umschließen Sie Text, den Sie übersetzen möchten, mit den Liquid-Übersetzung
 Hier ist ein Beispiel für eine zur Übersetzung markierte Nachricht: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
+Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Add personalization** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
 {% endalert %}
 
 #### URLs lokalisieren {#localize-urls}
@@ -231,9 +231,9 @@ URLs verwenden zwei Sonderzeichen, um dies zu steuern:
 
 ### Spracheinstellungen und Barrierefreiheit {#language-settings-and-accessibility}
 
-Für HTML-basierte Kanäle (E-Mail, In-App-Nachricht, Banner, Landing-Pages und Content Cards) fügt Braze ein Barrierefreiheits-Sprachattribut (`lang`) zur gerenderten Nachricht hinzu. Dieses Attribut hilft assistiven Technologien wie Screenreadern, Text korrekt zu interpretieren und auszusprechen.
+Beginnen Sie mit [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) unter [Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) für den WCAG-Kontext, das Verhalten von Kanälen und Editoren (einschließlich Landing-Pages) sowie die **Accessibility**-Einstellungen auf Nachrichtenebene.
 
-Ohne dieses Attribut geht ein Screenreader davon aus, dass der Inhalt in der Standardsprache verfasst ist, die die Nutzer:innen bei der Einrichtung auf ihrem Gerät festgelegt haben. Wenn die Nachricht in einer anderen Sprache verfasst ist, spricht der Screenreader möglicherweise nicht alles korrekt aus.
+Wenn Sie **mehrsprachige Nachrichten** verwenden, stimmen Sie die Barrierefreiheitssprache mit jedem Locale ab, damit lokalisierte Sendungen die entsprechende Sprache deklarieren.
 
 #### Barrierefreiheitssprache konfigurieren {#configuring-the-accessibility-language}
 
@@ -241,15 +241,13 @@ Sie können die Barrierefreiheitssprache auf zwei Ebenen festlegen:
 
 ##### Nachrichtenebene {#message-level}
 
-Gehen Sie in Ihren Nachrichteneinstellungen zum Abschnitt **Accessibility** und wählen Sie eine Sprache aus dem Dropdown aus oder verwenden Sie Liquid, um die Barrierefreiheitssprache dynamisch festzulegen. Dies gilt für alle Inhalte in der Nachricht.
+Auf Nachrichtenebene legen Sie die Barrierefreiheitssprache im Abschnitt **Accessibility** Ihrer Nachrichteneinstellungen fest. Informationen zur Sprachauswahl, zur Verwendung von Liquid und zu Einschränkungen nach Kanal finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ##### Locale-Ebene {#locale-level}
 
-Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Wenn neue Nachrichten erstellt werden, ist {% raw %}`{{accessibility_language}}`{% endraw %} standardmäßig im Abschnitt **Accessibility** ausgewählt. Dies ordnet die Barrierefreiheitssprache Ihren Locale-Einstellungen zu.
+Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Accessibility** verwenden, damit die Dokument- oder Card-Sprache diesen Locale-Werten zugeordnet wird.
 
-#### Standards {#standards}
-
-Die Barrierefreiheitssprache wird dem HTML-Attribut `lang` zugeordnet, einer [WCAG 2.1 Level A-Anforderung](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Erfolgskriterium 3.1.1). Für mehrsprachige Inhalte können Sie die Sprache auch für einzelne Content-Blöcke festlegen, indem Sie das `lang`-Attribut direkt in Ihrem HTML verwenden.
+Ob dieses Token bei neuen Nachrichten standardmäßig angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App Messages und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Weitere Informationen finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

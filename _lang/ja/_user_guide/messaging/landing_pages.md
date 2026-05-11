@@ -64,6 +64,12 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 ランディングページの本文サイズは最大500 KBです。
 
+### ランディングページは高トラフィックのシナリオに対応できますか？ {#can-landing-pages-handle-high-traffic-scenarios}
+
+はい、パーソナライズされていないランディングページは高トラフィックのシナリオに効果的に対応できます。パーソナライズされていないランディングページが最初にリクエストされると、BrazeはCloudflareを通じてキャッシュします。つまり、同じリンクへの後続のリクエストはすべてキャッシュから配信されるため、大量リクエスト時でもパフォーマンスが低下しません。このキャッシュは24時間持続し、キャッシュされたページビューはレート制限にカウントされません。
+
+パーソナライズされたランディングページ（Liquidパーソナライゼーションを使用）の場合、キャッシュされていないリクエストにレート制限が適用されます。最適なパフォーマンスを維持するには、[パーソナライゼーションに関する考慮事項]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations)を参照してください。
+
 ### ランディングページを公開するための技術的な要件はありますか？ {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
 いいえ、技術的な要件はありません。
@@ -79,6 +85,6 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 - **Canvas：** **Submitted a Landing Page form**イベントをCanvasのエントリトリガーとして使用し、Webhookステップを追加します。
 - **Campaign：** **Submitted a Landing Page form**イベントを使用して、フォーム送信に基づいてトリガーします。
 
-ページがBrazeチャネル（Webサイトや広告など）を通じて送信されていない場合、送信時に新しいユーザープロファイルが作成される可能性があります。そのユーザーがすでにBrazeに存在していてもです。これに対処するには、**Submitted a Landing Page form**でトリガーされるCanvasを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
+ページがBrazeチャネル（Webサイトや広告など）を通じて送信されていない場合、そのユーザーがすでにBrazeに存在していても、送信時に新しいユーザープロファイルが作成される可能性があります。これに対処するには、**Submitted a Landing Page form**でトリガーされるCanvasを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
 
 `landing_page_url` Liquidタグを使用してページを共有すると、フォーム送信は自動的に既存のユーザープロファイルに紐づけられます。その後、ランディングページで送信されたユーザー属性をLiquidで参照して、後続のテンプレートに活用できます。

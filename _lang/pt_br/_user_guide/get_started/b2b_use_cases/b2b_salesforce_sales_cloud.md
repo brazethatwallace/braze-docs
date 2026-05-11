@@ -63,7 +63,7 @@ Use modelos para reutilizar rapidamente este webhook na plataforma Braze.
 | URL do webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | Método HTTP | `POST` |
 | Corpo da solicitação | Pares de chave-valor JSON |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redigir webhook" }
 
 #### Valores-chave da propriedade do corpo {#body-property-key-values}
 
@@ -75,7 +75,7 @@ Selecione **+ Add New Body Property** para cada um dos pares de chave/valor que 
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores-chave da propriedade do corpo" }
 
 #### Cabeçalhos da solicitação {#request-headers}
 
@@ -85,7 +85,7 @@ Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicit
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalhos da solicitação" }
 
 {: start="4" }
 4. Selecione **Salvar modelo**.
@@ -119,7 +119,7 @@ Este exemplo demonstra especificamente como atualizar o estágio de um lead para
 | URL do webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | Método HTTP | `PATCH` |
 | Corpo da solicitação | Pares de chave-valor JSON |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redigir webhook" }
 
 #### Valores-chave da propriedade do corpo
 
@@ -128,7 +128,7 @@ Selecione **+ Add New Body Property** para o seguinte par de chave/valor. Note q
 | Chave | Valor |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores-chave da propriedade do corpo" }
 
 #### Cabeçalhos da solicitação
 
@@ -138,7 +138,7 @@ Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicit
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalhos da solicitação" }
 
 {: start="4"}
 4. Selecione **Salvar modelo**.
@@ -149,24 +149,24 @@ Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicit
 
 Você pode adicionar rapidamente seus modelos aos seus fluxos de trabalho operacionais na Braze, como:
 
-1. Parte de uma [Campaign de novo lead](#new-lead) que cria um lead no Salesforce
+1. Parte de uma [campanha de novo lead](#new-lead) que cria um lead no Salesforce
 2. Parte de um [Canvas de pontuação de leads](#lead-scoring) que atualiza os usuários que ultrapassaram seu limite de MQL para "MQL" e que atualiza o Salesforce Sales Cloud com as mesmas informações
 
-### Campaign de novo lead {#new-lead}
+### Campanha de novo lead {#new-lead}
 
-Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma Campaign que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
+Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
 
-![Etapa 2 da criação de uma Campaign baseada em ação e com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Etapa 2 da criação de uma campanha baseada em ação e com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Canvas de pontuação de leads para ultrapassar o limite de Marketing Qualified Lead (MQL) {#lead-scoring}
 
-Esse webhook é abordado no caso de uso de [pontuação de leads]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mas você também pode verificar MQLs e atualizar diretamente o Salesforce dentro do Canvas de pontuação de leads (em vez de criar uma Campaign de webhook separada):
+Esse webhook é abordado no caso de uso de [pontuação de leads]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mas você também pode verificar MQLs e atualizar diretamente o Salesforce dentro do Canvas de pontuação de leads (em vez de criar uma campanha de webhook separada):
 
 Adicione uma etapa subsequente à sua atualização de usuário para verificar se um usuário ultrapassou o limite de MQL definido. Se tiver ultrapassado, atualize o status do usuário para "MQL" e, em seguida, atualize o Salesforce com o mesmo status "MQL" usando esse modelo de webhook. O Salesforce cuida do resto, encaminhando esse lead para as equipes de vendas apropriadas usando suas regras de roteamento de leads definidas.
 
 #### Adição da etapa do Canvas para verificar os usuários que ultrapassaram o limite de MQL {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
-1. Adicione uma etapa de **Jornada do público** com dois grupos: "MQL Threshold" e "Restante do público".
+1. Adicione uma etapa de **jornada do público** com dois grupos: "MQL Threshold" e "Restante do público".
 2. No grupo "MQL Threshold", procure todos os usuários que atualmente não tenham um status de "MQL" (por exemplo, `lead_stage` é igual a "Lead"), mas que tenham uma pontuação de lead acima do limite definido (por exemplo, `lead_score` maior que 50). Em caso afirmativo, eles avançam para a próxima etapa; em caso negativo, saem.
 
 ![O grupo de jornada do público "MQL Threshold" com filtros para `lead_stage` igual a "Lead" e `lead_score` maior que "50".]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}

@@ -1796,3 +1796,5 @@ Este caso de uso cancela el mensaje cuando Liquid se ejecuta en un día de la se
 {% endraw %}
 
 {% endapi %}
+
+Muchos ejemplos en esta biblioteca usan la etiqueta `abort_message` para omitir un envío cuando no se cumplen las condiciones. Para una referencia completa sobre cómo cancelar envíos con Liquid, incluidos patrones basados en fecha y hora, consulta [Cancelar mensajes Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).

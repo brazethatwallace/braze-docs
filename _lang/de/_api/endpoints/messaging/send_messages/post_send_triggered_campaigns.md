@@ -77,7 +77,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `trigger_properties` | Optional | Objekt | Siehe [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Personalisierte Schlüssel-Wert-Paare gelten für alle Nutzer:innen in dieser Anfrage. |
 | `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an das gesamte Segment senden, das im Braze-Dashboard als Zielgruppe der Campaign konfiguriert ist. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann keine `recipients`-Liste einbezogen werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Sie Ihre Nachricht an eine größere Zielgruppe als erwartet senden. |
 | `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [Verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). Wenn Sie `audience` einbeziehen, wird die Nachricht nur an Nutzer:innen gesendet, die den definierten Filtern entsprechen, wie z. B. angepasste Attribute und Abo-Status. |
-| `recipients` | Optional | Array | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Wenn `send_to_existing_only` `false` ist, muss ein `attributes`-Objekt enthalten sein.<br><br>Sie können den Abo-Gruppenstatus einer Nutzer:in aktualisieren, indem Sie `subscription_groups` in das verschachtelte `attributes`-Objekt aufnehmen. Weitere Einzelheiten finden Sie unter [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Wenn `recipients` nicht angegeben und `broadcast` auf true gesetzt ist, wird die Nachricht an das gesamte Segment gesendet, das im Braze-Dashboard als Zielgruppe der Campaign konfiguriert ist.<br><br>Wenn `email` der Bezeichner ist, müssen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) in das Empfänger:innen-Objekt aufnehmen. |
+| `recipients` | Optional | Array | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Wenn `send_to_existing_only` `false` ist, muss ein `attributes`-Objekt enthalten sein.<br><br>Sie können den Abo-Gruppenstatus einer Nutzer:in aktualisieren, indem Sie `subscription_groups` in das verschachtelte `attributes`-Objekt aufnehmen. Weitere Einzelheiten finden Sie unter [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Wenn `recipients` nicht angegeben und `broadcast` auf true gesetzt ist, wird die Nachricht an das gesamte Segment gesendet, das im Braze-Dashboard als Zielgruppe der Campaign konfiguriert ist.<br><br>Wenn `email` der Bezeichner ist, müssen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) in das Empfänger:innen-Objekt aufnehmen. |
 | `attachments` | Optional | Array | Wenn `broadcast` auf true gesetzt ist, kann die Liste `attachments` nicht einbezogen werden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 In diesem Abschnitt wird erläutert, wie Braze ein Nutzerprofil für den Versand auswählt und was passiert, wenn kein Profil ausgewählt wird.
 
-Der Abo-Gruppenstatus einer Nutzer:in kann über den Parameter `subscription_groups` innerhalb des `attributes`-Objekts aktualisiert werden. Weitere Einzelheiten finden Sie unter [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Der Abo-Gruppenstatus einer Nutzer:in kann über den Parameter `subscription_groups` innerhalb des `attributes`-Objekts aktualisiert werden. Weitere Einzelheiten finden Sie unter [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
 
 #### Empfänger:innen-Limits und Profilerstellung {#recipient-limits-and-profile-creation}
 
@@ -94,6 +94,9 @@ Erfahren Sie mehr darüber, wie Empfänger:innen-Limits und die Profilerstellung
 - Das `recipients`-Array kann bis zu 50 Objekte enthalten, wobei jedes Objekt einen einzelnen `external_user_id`-String und ein `trigger_properties`-Objekt enthält.
 - Wenn `send_to_existing_only` `true` ist (Standard), sendet Braze die Nachricht nur an bestehende Nutzer:innen.
 - Wenn `send_to_existing_only` `false` ist und ein `attributes`-Objekt bereitgestellt wird, erstellt Braze eine neue Nutzer:in, falls noch keine vorhanden ist.
+- **Neue Profile benötigen `attributes` mit `send_to_existing_only: false`.** Braze führt die Erstellung oder Aktualisierung vor dem Versand aus dem `attributes`-Objekt im selben Empfänger:innen-Objekt durch. Wenn Sie `send_to_existing_only` auf `false` setzen, aber `attributes` weglassen (oder ein leeres Objekt senden), hydratisiert Braze die Profildaten nicht auf die gleiche Weise, sodass Sie nicht das kombinierte Verhalten „Nutzer:in erstellen oder aktualisieren, dann senden“ erhalten, für das dieses Muster vorgesehen ist.
+- **E-Mail- und SMS-Adressierung.** Für die meisten E-Mail- oder SMS-API-getriggerten Sendungen an Personen, die noch nicht in Braze vorhanden sind, fügen Sie die benötigten Zustellungsfelder in `attributes` ein (z. B. `email` oder die Telefon-Attribute, die Ihr Workspace für SMS verwendet). Sie können dort auch die Abo-Gruppenmitgliedschaft oder den Abo-Status festlegen, wenn sich der Opt-in-Status im selben Aufruf ändern muss.
+- **Campaign-Berechtigung.** Nachdem das Profil erstellt oder aktualisiert wurde, muss die Nutzer:in weiterhin der Zielgruppe der Campaign im Dashboard und den Kanal-Senderegeln entsprechen (z. B. Opt-in für E-Mail), damit Braze die Nachricht versendet.
 - Die Einstellung `send_to_existing_only` auf `false` wird für Nutzer-Aliase nicht unterstützt. Neue Nutzer:innen, die nur über einen Alias verfügen, können über diesen Endpunkt nicht erstellt werden. Um an eine Nutzer:in zu senden, die nur über einen Alias verfügt, muss diese bereits in Braze vorhanden sein.
 
 #### E-Mail-Bezeichner und Priorisierungs-Gleichstände {#email-identifier-and-prioritization-ties}
@@ -105,7 +108,7 @@ Wenn Sie Empfänger:innen per E-Mail identifizieren, verwendet Braze `prioritiza
 - Braze sendet, nachdem der Gleichstand aufgelöst wurde und `prioritization` ein Profil zurückgibt. Wenn beispielsweise Profilaktualisierungen die Sortierfelder einer Nutzer:in ändern, sendet Braze, sobald `prioritization` ein Profil eindeutig identifizieren kann (siehe [Wiederholungsverhalten und `send_to_existing_only`](#retry-behavior-and-send_to_existing_only)).
 - Braze sendet auch nicht, wenn `prioritization` keine Profile zurückgibt.
 
-#### Wiederholungsverhalten und send_to_existing_only {#retry-behavior-and-send_to_existing_only}
+#### Wiederholungsverhalten und send_to_existing_only {#retry-behavior-and-sendtoexistingonly}
 
 Erfahren Sie, was passiert, wenn `prioritization` nicht genau ein Profil zurückgibt.
 
@@ -204,7 +207,7 @@ Wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Fe
 
 ## Attribute-Objekt für Campaigns {#attributes-object-for-campaigns}
 
-Braze verfügt über ein Messaging-Objekt namens `attributes`, mit dem Sie Attribute und Werte für eine Nutzer:in hinzufügen, erstellen oder aktualisieren können, bevor Sie ihr eine API-getriggerte Campaign senden. Verwenden Sie den `campaign/trigger/send`-Endpunkt, da dieser API-Aufruf das Nutzer:innen-Attribute-Objekt verarbeitet, bevor er die Campaign verarbeitet und versendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) verursacht werden, minimiert.
+Braze verfügt über ein Messaging-Objekt namens `attributes`, mit dem Sie Attribute und Werte für eine Nutzer:in hinzufügen, erstellen oder aktualisieren können, bevor Sie ihr eine API-getriggerte Campaign senden. Verwenden Sie den `campaign/trigger/send`-Endpunkt, da dieser API-Aufruf das Nutzerattribute-Objekt verarbeitet, bevor er die Campaign verarbeitet und versendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) verursacht werden, minimiert.
 
 {% alert tip %}
 Sie suchen die Canvas-Version dieses Endpunkts? Informieren Sie sich über das [Versenden von Canvas-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#create-send-endpoint).

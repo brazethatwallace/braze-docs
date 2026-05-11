@@ -99,6 +99,7 @@ Les notifications avec de grandes images s'affichent au mieux avec une image d'a
 
 | **Navigateur** | **Taille d'icône recommandée**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (les icônes sont configurables par campagne avec Safari 16+ sur macOS 13+)
@@ -107,6 +108,7 @@ Opera | 192x192 ≥
 
 | **Navigateur** | **Plateforme** | **Taille de la grande image**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | Rapport hauteur/largeur 2:1
 Firefox | Android | N/A
 Chrome | Windows | Rapport hauteur/largeur 2:1
@@ -124,6 +126,7 @@ Opera | macOS | N/A
 
 | **Navigateur** | **Plateforme** | **Longueur maximale du titre**  | **Longueur maximale du corps du message**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120

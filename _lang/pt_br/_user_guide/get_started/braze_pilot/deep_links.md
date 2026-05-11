@@ -8,7 +8,7 @@ description: "Este artigo de referência aborda brevemente as etapas de integra�
 
 # Deep links de navegação no Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> O Braze Pilot oferece suporte a deep linking a partir do envio de mensagens da Braze para partes específicas do app Pilot. Isso permite criar casos de uso de engajamento, direcionando os usuários para diversas partes do aplicativo Pilot. Você também pode usar parâmetros opcionais de deep link para personalizar o conteúdo em páginas específicas do app para o usuário. Para saber mais sobre deep linking, consulte [Deep link para conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> A Braze Pilot oferece suporte a deep linking a partir do envio de mensagens da Braze para partes específicas do app Pilot. Isso permite criar casos de uso de engajamento, direcionando os usuários para diversas partes do aplicativo Pilot. Você também pode usar parâmetros opcionais de deep link para personalizar o conteúdo em páginas específicas do app para o usuário. Para saber mais sobre deep linking, consulte [Deep link para conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
 ## Geral {#general}
 
@@ -76,6 +76,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Parâmetros aceitos</caption>
     <thead>
         <tr>
             <th>Parâmetro</th>
@@ -258,6 +259,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Parâmetros aceitos</caption>
     <thead>
         <tr>
             <th>Parâmetro</th>

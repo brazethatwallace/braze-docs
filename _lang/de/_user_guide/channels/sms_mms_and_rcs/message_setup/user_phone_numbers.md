@@ -31,7 +31,7 @@ Hier sind einige Beispiele, die die Unterschiede zwischen lokaler und `E.164`-Fo
 | USA | `4155552671` | 1 | `+14155552671` |
 | Großbritannien | `2071838750` | 44 | `+442071838750` |
 | Brasilien | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Empfohlenes Format" }
 
 ## Telefonnummern importieren {#importing-phone-numbers}
 

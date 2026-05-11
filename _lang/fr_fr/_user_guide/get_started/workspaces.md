@@ -154,62 +154,63 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
 </style>
 
 <table>
+  <caption>Aperçu de chaque approche</caption>
     <tr>
         <th></th>
-        <th colspan="2">Espaces de travail séparés</th>
-        <th colspan="2">Espaces de travail partagés</th>
+        <th colspan="2" scope="colgroup">Espaces de travail séparés</th>
+        <th colspan="2" scope="colgroup">Espaces de travail partagés</th>
     </tr>
     <tr>
         <th></th>
-        <th>Avantages</th>
-        <th>Inconvénients</th>
-        <th>Avantages</th>
-        <th>Inconvénients</th>
+        <th scope="col">Avantages</th>
+        <th scope="col">Inconvénients</th>
+        <th scope="col">Avantages</th>
+        <th scope="col">Inconvénients</th>
     </tr>
     <tr>
-        <td>Ciblage</td>
+        <th scope="row">Ciblage</th>
         <td>C'est le moyen le plus sûr de séparer les communications. Les Campaigns sont assurées de ne cibler que des profils utilisateur spécifiques.</td>
         <td>Impossible d'envoyer des messages promotionnels croisés même si vous savez qu'un utilisateur possède un autre profil utilisateur dans un espace de travail différent.</td>
         <td>Possibilité d'envoyer des messages de promotion croisée si vous savez qu'un utilisateur utilise plusieurs applications dans votre espace de travail.<br><br>Possibilité de référencer les données utilisateur provenant de plusieurs applications. Par exemple, Jean possède un attribut X pertinent pour l'application 1 et un attribut Y pertinent pour l'application 2, qui peuvent tous deux être référencés dans une Campaign.</td>
-        <td>Plus de place pour l'erreur humaine : vous pourriez accidentellement cibler des utilisateurs à travers plusieurs instances d'applications.<br><br>Pour envoyer des In-App Messages, vous devez disposer d'événements personnalisés spécifiques à l'application afin qu'une Campaign ne s'affiche pas par accident sur une autre application. Par exemple, <code>app_1_action</code> par rapport à <code>app_2_action</code>.</td>
+        <td>Plus de place pour l'erreur humaine : vous pourriez accidentellement cibler des utilisateurs à travers plusieurs instances d'applications.<br><br>Pour envoyer des messages in-app, vous devez disposer d'événements personnalisés spécifiques à l'application afin qu'une Campaign ne s'affiche pas par accident sur une autre application. Par exemple, <code>app_1_action</code> par rapport à <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>Événements et attributs personnalisés</td>
+        <th scope="row">Événements et attributs personnalisés</th>
         <td>Les attributs et les événements personnalisés sont garantis comme étant spécifiques à une instance d'application.</td>
         <td>Impossible de suivre le comportement des utilisateurs entre les espaces de travail.<br><br><b>Conseil :</b> Pour ce faire, vous pouvez utiliser plusieurs connecteurs Currents.</td>
         <td>Possibilité de suivre le comportement de l'utilisateur dans toutes les instances d'applications de l'espace de travail.</td>
         <td>Les attributs et événements personnalisés s'appliqueraient à toutes les instances de l'application, ce qui pourrait rendre difficile de déterminer quelles données d'un profil utilisateur sont pertinentes pour telle ou telle instance de l'application. Par exemple, « date_of_parking » concerne-t-il l'application 1 ou l'application 2 ? Pour y remédier, veillez à utiliser des conventions de nommage bien structurées.</td>
     </tr>
     <tr>
-        <td>Limite de fréquence</td>
+        <th scope="row">Limite de fréquence</th>
         <td>La limite de fréquence peut être définie séparément pour chaque instance d'application (en fonction de l'espace de travail).</td>
         <td>S.O.</td>
         <td>S.O.</td>
         <td>La limite de fréquence s'applique à toutes les Campaigns, et non à chaque application, ce qui rend plus difficile la prévention de l'envoi excessif de messages aux clients.</td>
     </tr>
     <tr>
-        <td>Statut d'abonnement pour les profils utilisateur</td>
+        <th scope="row">Statut d'abonnement pour les profils utilisateur</th>
         <td>Le statut d'abonnement de chaque profil utilisateur est unique pour chaque instance d'application.</td>
         <td>S.O.</td>
         <td>S.O.</td>
         <td>Les statuts d'abonnement d'un profil utilisateur sont combinés entre les instances d'application.<br><br><b>Conseil :</b> Vous pouvez utiliser des <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>attributs personnalisés</a> pour gérer les abonnements de vos utilisateurs.</td>
     </tr>
     <tr>
-        <td>Autorisations des utilisateurs de l'entreprise</td>
+        <th scope="row">Autorisations des utilisateurs de l'entreprise</th>
         <td>S.O.</td>
         <td>La mise à jour des <a href='/docs/user_guide/administer/global/user_management/permissions'>autorisations utilisateur</a> d'un utilisateur du tableau de bord doit être effectuée séparément pour chaque espace de travail auquel l'utilisateur doit avoir accès.</td>
         <td>Les <a href='/docs/user_guide/administer/global/user_management/permissions'>autorisations utilisateur</a> peuvent être définies une seule fois pour un utilisateur du tableau de bord, et il disposera des mêmes autorisations pour toutes les instances d'applications dans l'espace de travail.</td>
         <td>S.O.</td>
     </tr>
     <tr>
-        <td>Duplication de contenu</td>
+        <th scope="row">Duplication de contenu</th>
         <td>S.O.</td>
-        <td>Impossible de dupliquer des segments, des Campaigns push ou de cartes de contenu, ni des **Canvases** entre les espaces de travail.</td>
-        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>dupliquer des Campaigns entre différents espaces de travail</a> pour les canaux pris en charge suivants : SMS, In-App Messages, e-mails, modèles d'e-mails et Content Blocks. <br><br>Possibilité de dupliquer les segments, les Campaigns et les **Canvases** pour réutiliser le contenu d'une instance d'application à l'autre.</td>
+        <td>Impossible de dupliquer des segments, des Campaigns push ou de cartes de contenu, ni des Canvas entre les espaces de travail.</td>
+        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>dupliquer des Campaigns entre différents espaces de travail</a> pour les canaux pris en charge suivants : SMS, messages in-app, e-mails, modèles d'e-mails et Content Blocks. <br><br>Possibilité de dupliquer les segments, les Campaigns et les Canvas pour réutiliser le contenu d'une instance d'application à l'autre.</td>
         <td>S.O.</td>
     </tr>
     <tr>
-        <td>Analyse</td>
+        <th scope="row">Analyse</th>
         <td>Les statistiques globales seront précises sur la page d'accueil.</td>
         <td>S.O.</td>
         <td>S.O.</td>

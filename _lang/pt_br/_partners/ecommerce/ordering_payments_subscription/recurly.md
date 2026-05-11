@@ -18,7 +18,7 @@ _Essa integração é mantida pela Recurly._
 A integração entre a Recurly e a Braze simplifica o processo de compartilhamento de dados de assinatura com a Braze, permitindo a comunicação direcionada com os clientes.
 
 - Use os eventos do ciclo de vida da assinatura da Recurly (por exemplo, renovações, pausas ou cancelamentos de assinatura) na Braze para disparar campanhas e comunicações personalizadas.
-- Aproveite os dados de assinatura da Recurly (por exemplo, planos de assinatura, complementos ou status) para criar e gerenciar usuários da empresa, Segments e Canvas para executar campanhas e comunicações específicas de coorte.
+- Aproveite os dados de assinatura da Recurly (por exemplo, planos de assinatura, complementos ou status) para criar e gerenciar usuários da empresa, segmentos e Canvas para executar campanhas e comunicações específicas de coorte.
 - Envie dados da Recurly diretamente para a Braze, possibilitando casos de uso adicionais de envio de mensagens e reduzindo os custos indiretos de desenvolvimento.
 
 Consulte a [documentação da Recurly](https://docs.recurly.com/docs/braze-integration) para saber mais sobre como usar a Recurly com a Braze.
@@ -30,6 +30,7 @@ Consulte a [documentação da Recurly](https://docs.recurly.com/docs/braze-integ
 | Conta da Recurly | Para aproveitar essa parceria, é necessário ter um plano de assinatura Elite da [Recurly](https://recurly.com/) com a Feature Flag da Braze ativada. A ativação de faturas de crédito na sua plataforma da Recurly também é necessária.|
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. Como a Recurly usa apenas o endpoint `users.track`, recomendamos o provisionamento de uma chave específica da Recurly somente com essa permissão. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -77,6 +78,7 @@ Para um engajamento eficaz do cliente, você deve [configurar eventos personaliz
 | Recurly Successful Payment            | Disparado quando uma fatura é cobrada com sucesso                 |
 | Recurly Refund Issued                 | Disparado quando um reembolso é emitido                                   |
 | Recurly Failed Recurring Payment      | Disparado quando uma fatura falha para uma renovação de assinatura          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom events" }
 
 ### Loteamento e limite de taxa {#batching-and-rate-limiting}
 

@@ -26,6 +26,7 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
 ## Visualizações disponíveis {#available-views}
 
 <table>
+  <caption>Visualizações disponíveis</caption>
   <thead>
     <tr>
       <th>Tipo</th>

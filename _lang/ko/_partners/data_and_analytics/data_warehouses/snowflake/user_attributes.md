@@ -26,6 +26,7 @@ toc_headers: h2
 ## 사용 가능한 뷰 {#available-views}
 
 <table>
+  <caption>사용 가능한 뷰</caption>
   <thead>
     <tr>
       <th>유형</th>

@@ -19,6 +19,7 @@ tool:
 Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als die beiden Schlüsselkomponenten, um Ihren Workflow zu vereinfachen – ohne zusätzliche Verwendung von HTML.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>Inhalt und Zeilen als Editor-Komponenten</caption>
     <tr>
         <th style="width: 50%;">Inhalt</th>
         <th style="width: 50%;">Zeilen</th>
@@ -192,6 +193,7 @@ Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was 
 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
 - Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table>`-formatierten Codebasis
+  <caption>Inbox Vision verwenden</caption>
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
 - Transparente Trennlinien werden automatisch in Inhalts-Padding umgewandelt
