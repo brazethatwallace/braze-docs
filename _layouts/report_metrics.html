@@ -1,6 +1,6 @@
 ---
 layout: default
-hide_toc: true
+hide_toc: false
 hide_bottom_nav: false
 hide_breadcrumb: false
 hide_feedback: true
@@ -40,6 +40,10 @@ hide_binary_feedback: false
 </button -->
 
 <script type="text/javascript">
+
+// Scope documents.js TOC to metric headings only (checked before document.ready)
+var toc_headers = '#api-main h2';
+var toc_minheaders = 1;
 
 $(document).ready(function() {
   function string_to_slug(str) {
@@ -140,14 +144,16 @@ $(document).ready(function() {
 
 
     var noResultsTimer = null;
+    var countTimer = null;
 
     function search_apis(api_hash) {
       var result_cnt = 0;
       var resultsMsg = $('#results_msg');
       var resultsCount = $('#results_count');
-      resultsMsg.html('');
-      resultsCount.text('');
+      // Cancel any pending announcements — don't touch the DOM yet, so the
+      // screen reader doesn't observe a rapid clear→set mutation sequence.
       clearTimeout(noResultsTimer);
+      clearTimeout(countTimer);
       var api_div = $('#api_list .api_div');
       var total_cnt = api_div.length;
       var search_str = $('#api_search').val().toLowerCase();
@@ -197,15 +203,27 @@ $(document).ready(function() {
       })
       if (!showall) {
         if (!result_cnt) {
-          // Debounce: cancel any pending announcement, then defer the set so the
-          // clear and set are separate DOM mutations. role="alert" (assertive) is
-          // more reliably announced by VoiceOver than role="status" (polite).
+          // Clear the count immediately so it doesn't show stale text, then
+          // defer the no-results alert so the clear and set are separate mutations.
+          // role="alert" (assertive) is more reliably announced by VoiceOver
+          // than role="status" (polite).
+          resultsCount.text('');
           noResultsTimer = setTimeout(function() {
             resultsMsg.html('<p>No metrics matching these filters</p>');
           }, 250);
         } else {
-          resultsCount.text('Showing ' + result_cnt + ' of ' + total_cnt + ' metrics');
+          // Clear the no-results alert immediately, then defer the count update.
+          // The 600ms delay gives VoiceOver time to finish its search-field echo
+          // cycle (typed character + field instructions) before the polite live
+          // region mutation fires — preventing VoiceOver from interrupting itself.
+          resultsMsg.html('');
+          countTimer = setTimeout(function() {
+            resultsCount.text('Showing ' + result_cnt + ' of ' + total_cnt + ' metrics');
+          }, 600);
         }
+      } else {
+        resultsCount.text('');
+        resultsMsg.html('');
       }
     };
 
