@@ -24,8 +24,6 @@ glossaries:
     description: App instances refer to the different sites and apps that are collected in a workspace.
   - name: Braze (the product)
     description: Sometimes referred to as the dashboard, this product controls all of the data and interactions at the heart of the Braze platform. Braze customers use it to manage notifications, set up targeted messaging campaigns, and view analytics. Developers use it to manage settings for integrating apps, such as API keys and push notification credentials.
-  - name: Braze engagement tools
-    description: Braze offers many <a href="https://www.braze.com/docs/user_guide/messaging">engagement tools</a> to reach your customers and users with our campaigns, Canvas tools, and you can optimize for consistency (and upload images and other content) using our Templates & Media tools. From there, you can create segments and geofences to target your audience by location or other attributes.
   - name: Braze teams
     description: Braze admins can divide a subset of dashboard users into <a href="https://www.braze.com/docs/user_guide/administer/global/user_management/teams">Teams</a> with varying user roles and permissions. This allows Braze admins to limit access to certain features by group membership.
   - name: Campaigns
@@ -41,7 +39,7 @@ glossaries:
   - name: Currents
     description: <a href="https://www.braze.com/docs/user_guide/data/distribution/braze_currents">Currents</a>, our data streaming export, is included in certain Braze packages. Braze Currents allows you to integrate through Data Storage using flat files or to our Behavioral Analytics and Customer Data partners using batched JSON payloads to a designated endpoint.
   - name: Custom attributes
-    description: <a href="https://www.braze.com/docs/user_guide/data/activation/attributes/custom_attributes">Custom attributes</a> are a collection of your users' unique traits. They are best for storing attributes about your users, or information about low-value actions within your application. You can assign custom attributes to users within the dashboard. You can filter and segment your users according to these attributes for both <a href="https://www.braze.com/docs/developer_guide/platforms/swift/analytics/setting_custom_attributes/">iOS</a> and <a href="https://www.braze.com/docs/developer_guide/platforms/android/analytics/setting_custom_attributes/">Android</a> campaigns.
+    description: <a href="https://www.braze.com/docs/user_guide/data/activation/attributes/custom_attributes">Custom attributes</a> are a collection of your users' unique traits. They are best for storing attributes about your users, or information about low-value actions within your application. You can assign custom attributes to users within the dashboard. You can filter and segment your users according to these attributes for both <a href="https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift">Swift</a> and <a href="https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android">Android</a> campaigns.
   - name: Custom events
     description: <a href="https://www.braze.com/docs/user_guide/data/activation/events/custom_events">Custom events</a> are actions taken by your users; they're best suited for tracking high-value user interactions with your application.
   - name: Data point
@@ -77,7 +75,7 @@ glossaries:
   - name: Multichannel messaging
     description: Messaging a user across various mediums, such as a combination of email, web push, and mobile push notifications. <a href="https://www.braze.com/docs/developer_guide/getting_started/platform_overview/#multichannel-messaging">Messaging channels</a> are best used in concert and with regularity to re-engage lost users, retain active users, and energize your brand ambassadors.
   - name: Multivariate testing
-    description: <a href="https://www.braze.com/docs/user_guide/messaging/ab_testing">A/B testing</a> compares a smaller set of message versions; <a href="https://www.braze.com/docs/user_guide/messaging/ab_testing#multivariate-test">multivariate testing</a> compares multiple variables at once to see which combination performs best. You can configure both from the dashboard for supported campaign types.
+    description: <a href="https://www.braze.com/docs/user_guide/messaging/ab_testing">A/B testing</a> compares a smaller set of message versions; <a href="https://www.braze.com/docs/user_guide/messaging/ab_testing/create_tests/">multivariate testing</a> compares multiple variables at once to see which combination performs best. You can configure both from the dashboard for supported campaign types.
   - name: New user
     description: Braze considers a new user as anyone who has newly installed your app. Alternatively, a new user can also be defined as a user with a user ID that has not been previously identified within Braze.
   - name: Personalization
@@ -95,7 +93,7 @@ glossaries:
   - name: Segmentation
     description: Dashboard <a href="https://www.braze.com/docs/user_guide/audience/segments">segmentation</a> allows you to create groups or extensions of users based on powerful filters of their in-app behavior, demographic data, and more.
   - name: Software development kit (SDK)
-    description: <a href="https://www.braze.com/docs/developer_guide/getting_started/sdk_overview/">SDKs</a> are integrated into your mobile apps, websites, and connected experiences and provide marketing, messaging, and analytics tools. Braze publishes SDK integration guides for platforms such as <a href="https://www.braze.com/docs/developer_guide/platforms/swift/sdk_integration/#integrating-the-sdk/">iOS</a> and <a href="https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/#step-1-configure-brazexml">Android</a>; for Web and other platforms, follow the integration paths linked from the SDK overview.
+    description: <a href="https://www.braze.com/docs/developer_guide/getting_started/sdk_overview/">SDKs</a> are integrated into your mobile apps, websites, and connected experiences and provide marketing, messaging, and analytics tools. Braze publishes SDK integration guides for platforms such as <a href="https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift">Swift</a> and <a href="https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android">Android</a>; for Web and other platforms, follow the integration paths linked from the SDK overview.
   - name: Subscription groups
     description: <a href="https://www.braze.com/docs/user_guide/channels/email/subscriptions/#subscription-groups">Subscription groups</a> layer on top of global subscription states so you can offer granular opt-in choices (for example, newsletters versus promotions). Similar patterns exist for channels such as SMS and WhatsApp; always target a subscription group where your channel requires it.
   - name: Sunsetting
