@@ -76,7 +76,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
   <caption>Accepted parameters</caption>
     <thead>
         <tr>
@@ -260,7 +260,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
   <caption>Accepted parameters</caption>
     <thead>
         <tr>

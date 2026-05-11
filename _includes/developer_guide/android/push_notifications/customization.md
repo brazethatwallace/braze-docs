@@ -237,7 +237,7 @@ Braze.configure(this, brazeConfig)
 
 Currently, Google doesn't list their supported HTML tags for Android directly in their documentation&#8212;this information can only be found in their [Git repository's `Html.java` file](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java). Keep this in mind when referencing the following table, as this information was pulled from this file, and their supported HTML tags could be subject to change.
 
-<table>
+<table aria-label="Supported HTML tags">
   <thead>
     <tr>
       <th>Category</th>

@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <caption>Troubleshooting</caption>
   <thead>
     <tr>

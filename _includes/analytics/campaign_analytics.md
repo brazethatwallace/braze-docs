@@ -220,7 +220,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
     <caption class="sr-only">Content Card performance metrics</caption>
     <thead>
         <tr>
@@ -295,7 +295,7 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
     <caption class="sr-only">Banner performance metrics</caption>
     <thead>
         <tr>
@@ -365,7 +365,7 @@ Here are some key email-specific metrics that you won't see in other channels. T
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
     <caption class="sr-only">Email performance metrics</caption>
     <thead>
         <tr>
@@ -516,7 +516,7 @@ Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specif
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
     <caption class="sr-only">In-app message performance metrics</caption>
     <thead>
         <tr>
@@ -599,7 +599,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
     <caption class="sr-only">Push performance metrics</caption>
     <thead>
         <tr>
@@ -700,7 +700,7 @@ Firebase Cloud Messaging (FCM) bounces could occur in three cases:
 | Uninstalled applications | When a message attempts delivery to a device and the intended app is uninstalled on that device, the message will be discarded and the device's registration ID will be invalidated. Any future attempts at messaging the device will return a NotRegistered error. |
 | Backed up application | When an application is backed up, its registration ID could become invalid before the application is restored. In this case, FCM will no longer store the application's registration ID and the application will no longer receive messages. As such, registration IDs should **not** be saved when an application is backed up. |
 | Updated application | When an application is updated, the previous version's registration ID may no longer work. As such, an updated application should replace its existing registration ID. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -718,7 +718,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
     <caption class="sr-only">SMS, MMS, and RCS performance metrics</caption>
     <thead>
         <tr>
@@ -770,7 +770,7 @@ Here are some key webhook metrics you may see in your analytics. To see th full 
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
     <caption class="sr-only">Webhook performance metrics</caption>
     <thead>
         <tr>
@@ -806,7 +806,7 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
     <caption class="sr-only">WhatsApp performance metrics</caption>
     <thead>
         <tr>

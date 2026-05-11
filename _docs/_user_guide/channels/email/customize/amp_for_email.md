@@ -204,7 +204,7 @@ By wrapping your content around the `raw` tag, the Braze processing engine will 
     }
 </style>
 
-<table>
+<table aria-label="Metrics and analytics">
   <caption>Metrics and analytics</caption>
     <thead>
         <tr>

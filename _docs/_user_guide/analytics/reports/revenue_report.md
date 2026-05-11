@@ -50,7 +50,7 @@ When you record revenue for a currency without an exchange rate, Braze records i
     }
 </style>
 
-<table>
+<table aria-label="Understanding revenue calculations">
   <caption>Understanding revenue calculations</caption>
     <thead>
         <tr>

@@ -614,7 +614,7 @@ With the Braze SDKs, you can track custom events or custom attributes that go be
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
   <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>

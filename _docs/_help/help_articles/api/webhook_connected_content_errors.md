@@ -23,7 +23,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="4XX errors">
   <caption>4XX errors</caption>
   <thead>
     <tr>

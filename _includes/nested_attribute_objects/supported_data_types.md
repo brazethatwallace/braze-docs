@@ -2,7 +2,7 @@
 
 The following data types are supported:
 
-<table>
+<table aria-label="Supported data types">
   <thead>
     <tr>
       <th>Data Type</th>

@@ -35,6 +35,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | `BrazeKit`      | Main SDK library providing support for analytics and push notifications.                                                                                        |
 | `BrazeLocation` | Location library providing support for location analytics and geofence monitoring.                                                                              |
 | `BrazeUI`       | Braze-provided user interface library for in-app messages, Content Cards, and Banners. Import this library if you intend to use the default UI components. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -48,6 +49,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | Notification service extension library providing support for rich push notifications. |
 | `BrazePushStory`           | Notification content extension library providing support for Push Stories.            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -95,6 +97,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | Location library providing support for location analytics and geofence monitoring.                                                                              |
 | `pod 'BrazeUI'`       | Braze-provided user interface library for in-app messages, Content Cards, and Banners. Import this library if you intend to use the default UI components. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | Notification service extension library providing support for rich push notifications. |
 | `pod 'BrazePushStory'`           | Notification content extension library providing support for Push Stories.            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -150,6 +154,7 @@ The Braze Swift SDK contains a variety of standalone XCFrameworks, which gives y
 | `BrazeKitCompat`           | No        | Compatibility library containing all the `Appboy` and `ABK*` classes and methods that were available in the `Appboy-iOS-SDK` version 4.X.X. For usage details, refer to the minimal migration scenario in the [migration guide](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/).            |
 | `BrazeUICompat`            | No        | Compatibility library containing all the `ABK*` classes and methods that were available in the `AppboyUI` library from `Appboy-iOS-SDK` version 4.X.X. For usage details, refer to the minimal migration scenario in the [migration guide](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
 | `SDWebImage`               | No        | Dependency used only by `BrazeUICompat` in the minimal migration scenario.                                                                                                                                                                                                                                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
 {: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
@@ -482,6 +487,7 @@ The default log level for the Braze Swift SDK is `.error`&#8212;it's also the mi
 | `.info`     | `BRZLoggerLevelInfo`     | Log general SDK information (user changes, etc.) + `.error`. |
 | `.error`    | `BRZLoggerLevelError`    | Log errors.                                                  |
 | `.disabled` | `BRZLoggerLevelDisabled` | No logging occurs.                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
