@@ -137,8 +137,8 @@ jobs:
 
             for (const v of violations) {
               const inlineBody =
-                `⚠️ **${v.message}**\n\n` +
-                `Accept the suggestion to add an accessible name, or edit the label to something more descriptive:\n\n` +
+                `⚠️ **Table accessibility automation check failed** because ${v.message.charAt(0).toLowerCase() + v.message.slice(1)} ` +
+                `This must be resolved before the PR can be merged. Accept the suggested label or update the label to something more descriptive.\n\n` +
                 '```suggestion\n' + v.suggestion_content + '\n```';
 
               try {
