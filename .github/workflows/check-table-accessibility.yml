@@ -68,8 +68,9 @@ jobs:
           set +e
           mapfile -t FILES < /tmp/changed_files.txt
           python3 scripts/check_table_accessibility.py "${FILES[@]}" 2>&1 | tee lint-output.txt
-          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
-          exit "${PIPESTATUS[0]}"
+          LINT_EXIT=${PIPESTATUS[0]}
+          echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
+          exit "${LINT_EXIT}"
 
       - name: Sync PR comment
         if: always() && steps.changed.outputs.ran == 'true'
