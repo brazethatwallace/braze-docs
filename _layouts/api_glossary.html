@@ -161,6 +161,7 @@ $(document).ready(function() {
 
   var noResultsTimer = null;
   var countTimer = null;
+  var innerTimer = null;
   var lastAnnouncedCount = -1;
   var altChar = false;
 
@@ -173,6 +174,7 @@ $(document).ready(function() {
 
     clearTimeout(noResultsTimer);
     clearTimeout(countTimer);
+    clearTimeout(innerTimer);
     resultsCount.hide();
     resultsMsg.hide();
 
@@ -226,7 +228,7 @@ $(document).ready(function() {
         noResultsTimer = setTimeout(function() {
           resultsCountLive.text('');
           resultsMsgLive.text('');
-          setTimeout(function() {
+          innerTimer = setTimeout(function() {
             resultsMsgLive.text('No endpoints matching these filters');
           }, 150);
         }, 900);
@@ -243,7 +245,7 @@ $(document).ready(function() {
           }
           lastAnnouncedCount = result_cnt;
           resultsCountLive.text('');
-          setTimeout(function() {
+          innerTimer = setTimeout(function() {
             resultsCountLive.text(liveMessage);
           }, 150);
         }, 900);
