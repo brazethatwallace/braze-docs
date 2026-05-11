@@ -125,7 +125,7 @@ The following table lists possible returned errors and their associated troubles
 | Error | Troubleshooting |
 | --- | --- |
 | `catalog-not-found` | Check that the catalog name is valid. |
-| `company-size-limit-already-reached` | Your company's catalog storage limit has been reached. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
+| `company-size-limit-already-reached` | The catalog storage size limit is reached. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `company-size-limit-surge` | The request exceeds your company's remaining catalog storage. Try again with a smaller update. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `ids-not-string` | Confirm that each item ID is a string. |
 | `ids-not-unique` | Check that each item ID is unique. |
