@@ -49,6 +49,7 @@ jobs:
           DESCRIPTION: ${{ github.event.client_payload.description }}
           REPORTER: ${{ github.event.client_payload.reporter }}
           JIRA_URL: ${{ github.event.client_payload.url }}
+        shell: bash
         run: |
           set -euo pipefail
 
@@ -89,14 +90,6 @@ jobs:
               branchName: ("jira-" + $ticket_id),
               autoCreatePR: false
             }')
-
-          echo "${BODY}" | jq -e --argjson expected '["autoCreatePR","branchName","prompt","repos"]' '
-            ((keys | sort) == ($expected | sort))
-            and (has("envVars") | not)
-          ' >/dev/null || {
-            echo "::error::Create-agent body must contain only prompt, repos, branchName, and autoCreatePR (no envVars)"
-            exit 1
-          }
 
           HTTP_CODE=$(curl -sS -o /tmp/cursor-agent-response.json -w '%{http_code}' \
             --request POST \
