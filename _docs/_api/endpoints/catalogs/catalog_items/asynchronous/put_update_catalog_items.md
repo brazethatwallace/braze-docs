@@ -83,7 +83,7 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 There are three status code responses for this endpoint: `202`, `400`, and `404`.
 
 {% alert note %}
-A `400` response can also be returned if your company has reached its catalog storage limit. The free version of catalogs is capped at 100&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+The system can also return a `400` response if your company has reached its catalog storage limit. The free version of catalogs is capped at 100&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Example success response
