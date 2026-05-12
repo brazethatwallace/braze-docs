@@ -1289,14 +1289,16 @@ This event occurs when a push token is inserted, updated, or removed. Use this t
 #### Property details
 
 - The `push_token_foreground_push_disabled` field indicates whether the push token can receive foreground or background push.
-  - If the user explicitly allowed push notification permission on their device, this will be `false`, and the token is able to receive foreground push notifications.
-  - If the user explicitly denied push notification permission on their device, this will be `true`, and the token is only allowed with background push notifications.
-  - If the push permission is unknown, this will be empty. By default, Braze will attempt to send foreground push notifications to the token.
+  - If the user explicitly allowed push notification permission on their device, this is `false`, and the token can receive foreground push notifications.
+  - If the user explicitly denied push notification permission on their device, this is `true`, and the token is only allowed with background push notifications.
+  - If the push permission is unknown, this is `null` (or empty, depending on your destination format). Treat this the same as `false` (foreground-pushable), because Braze still attempts to send foreground push notifications to that token.
+  - A push send attempt does not update this field. If a send succeeds, no `TokenStateChange` event is emitted. If a send bounces because the token is invalid, Braze emits a `remove` event and deletes the token.
+  - This field only changes when Braze ingests a token state update from the SDK (for example, a later session sync that reports push permission status).
 - The `push_token_provisionally_opted_in` field only applies to iOS push tokens.
-  - If you have [Provisional Authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) set up, provisional tokens will have this field set to `true`. All other push tokens will be `false`.
-- The `sdk_version` field will only populate if the token state change is initiated by SDK.
-  - If there is a `changeUser` SDK event that triggers the token to be moved from one user to another, the `sdk_version` field will populate.
-  - If there is a push bounce (for example, due to uninstall), the `sdk_version` field will be blank.
+  - If you have [Provisional Authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) set up, provisional tokens have this field set to `true`. All other push tokens are `false`.
+- The `sdk_version` field only populates if the token state change is initiated by SDK.
+  - If there is a `changeUser` SDK event that triggers the token to move from one user to another, the `sdk_version` field populates.
+  - If there is a push bounce (for example, due to uninstall), the `sdk_version` field is blank.
 - Whenever a push token enters Braze, its lifecycle events are recorded. There are three types of token change events ("add", "update", and "remove") recorded in the `push_token_state_change_type` field.
 
 #### Event types
@@ -1305,9 +1307,15 @@ This event occurs when a push token is inserted, updated, or removed. Use this t
 
 An "add" event is ingested when a new token is registered. This happens when a user opens the app on a new device for the first time, or when a token is set through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint with `push_tokens` for a user that didn't previously have one.
 
+{% alert note %}
+For iOS Swift SDK 13.3.0 and later, and Android SDK 40.0.0 and later, push permission status and push token are sent together. For new registrations from these SDKs, `push_token_foreground_push_disabled` is populated on the "add" event (typically `false` when notifications are enabled).<br><br>
+
+Older token registrations can still have this field as `null` until the SDK later reports push permission status. Web push tokens can also have this field as `null` by design.
+{% endalert %}
+
 ##### Update
 
-An "update" event is ingested when a property changes on an existing token without the token string itself changing. The token has the same string, same user, and same app, but one or more of the following fields changed: `foreground_push_disabled`, APNs gateway, web push keys, `provisionally_opted_in`, or `device_id`.
+An "update" event is ingested when a property changes on an existing token without the token string itself changing. The token has the same string, same user, and same app, but one or more of the following fields changed: `foreground_push_disabled`, APNs gateway, web push keys, `provisionally_opted_in`, or `device_id`. These updates come from token state sync events (for example, when the SDK reports a new permission state), not from push send outcomes.
 
 {% alert note %}
 In most cases, app reinstall or backup restore results in a new "add" event with a new `push_token` and new `device_id` (because the SDK generates a new `device_id` and the OS provides a new push token string). This creates two separate token and device entries on the user profile, and the older entry is cleaned up later through uninstall tracking or campaign send.<br><br>
@@ -1323,6 +1331,8 @@ A standalone "remove" event is ingested when Braze removes a token. This can hap
 - Uninstall detection through silent push
 - Token removed through the REST API or APNs feedback service
 
+When a push bounce triggers token removal, Braze emits `push_token_state_change_type = "remove"` for that token. It does not emit an "update" event that changes `push_token_foreground_push_disabled`.
+
 ##### Add and remove pairs
 
 Add and remove pairs fall into two categories:
@@ -1331,8 +1341,8 @@ Add and remove pairs fall into two categories:
 
 **Token moves between users:** A token moves from one user to another. The "add" event (new user) and "remove" event (old user) have different `user_id`, same `device_id`, same `push_token`, and different `time_ms` (typically less than 100 milliseconds apart). This is triggered by any of the following:
 
-- The SDK calls `changeUser` from an anonymous profile to an identified profile. The "remove" event will have an empty `external_user_id`.
-- The SDK calls `changeUser` from one identified profile to another. Both events will have a non-empty `external_user_id`.
+- The SDK calls `changeUser` from an anonymous profile to an identified profile. The "remove" event has an empty `external_user_id`.
+- The SDK calls `changeUser` from one identified profile to another. Both events have a non-empty `external_user_id`.
 - The [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) endpoint or duplicate user cleanup moves the orphaned user's tokens to the surviving user.
 
 {% alert note %}
