@@ -108,10 +108,10 @@ Trigger every time the contents of a user's cart change.
 You can send this event in one of two ways:
 
 - **Full cart replacement:** Omit `action` or set `action` to `replace`. Include the full set of line items in `products` with absolute quantities (total units per variant in the cart). You must include `total_value`.
-- **Incremental (delta) updates:** Set `action` to `add` or `remove`. Include only the line items that changed. Each `quantity` is the delta (units to add or remove), not the total quantity in the cart. For `add`, Braze increases the line quantity or adds a new line. For `remove`, Braze decreases the line quantity and removes the line when the quantity reaches `0`. `total_value` is optional for `add` and `remove`.
+- **Incremental cart updates:** Set `action` to `add` or `remove`. Include only the line items that changed. Each `quantity` is the number of units to add or remove, not the total quantity in the cart. For `add`, Braze increases the line quantity or adds a new line. For `remove`, Braze decreases the line quantity and removes the line when the quantity reaches `0`. `total_value` is optional for `add` and `remove`.
 
 {% alert warning %}
-Use either delta updates (`add` or `remove`) or full replacement (no `action` or `replace`) for a given cart. Mixing both approaches for the same `cart_id` is not recommended and may lead to an inconsistent cart state in Braze.
+Use either incremental cart updates (`add` or `remove`) or full replacement (no `action` or `replace`) for a given cart. Mixing both approaches for the same `cart_id` is not recommended and may lead to an inconsistent cart state in Braze.
 {% endalert %}
 
 To trigger messaging from this event, use the **Perform Cart Updated Event** trigger in Canvas and campaigns. This trigger includes special handling to stop the cart from progressing through the shopping funnel.
@@ -145,7 +145,7 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 | `variant_id`    | String    | Yes      | Variant identifier.                             |
 | `image_url`     | String    | No       | Product image URL.                              |
 | `product_url`   | String    | No       | URL to the product page.                        |
-| `quantity`      | Integer   | Yes      | For full replacement (no `action` or `replace`), units in the cart for this line. For `add` or `remove`, the delta: units to add or remove. |
+| `quantity`      | Integer   | Yes      | For full replacement (no `action` or `replace`), units in the cart for this line. For `add` or `remove`, how many units to add or remove. |
 | `price`         | Float     | Yes      | Variant unit price.                             |
 | `metadata`      | Object    | No       | Flexible key-value pairs (for example, `color` or `size`).   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
@@ -159,7 +159,7 @@ Each platform tab below uses the snippet layout that matches that integration pa
 
 ##### `add`
 
-`add` increases quantity or adds a new line (delta in `quantity`).
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -180,7 +180,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 ```
 ##### `remove`
 
-`remove` decreases quantity by the delta. The line is removed when quantity reaches `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -239,12 +239,12 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 ##### Add
 
-`add` increases quantity or adds a new line (delta in `quantity`).
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```text
 Kotlin
 
-// add — delta quantity
+// add — units to add
 Braze.getInstance(context).logCustomEvent(
   "ecommerce.cart_updated",
   BrazeProperties(
@@ -269,7 +269,7 @@ Braze.getInstance(context).logCustomEvent(
 
 JavaScript
 
-// add — delta quantity
+// add — units to add
 Braze.getInstance(context).logCustomEvent(
     "ecommerce.cart_updated",
     new BrazeProperties(new JSONObject()
@@ -288,12 +288,12 @@ Braze.getInstance(context).logCustomEvent(
 
 ##### Remove
 
-`remove` decreases quantity by the delta. The line is removed when quantity reaches `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```text
 Kotlin
 
-// remove — delta quantity
+// remove — units to remove
 Braze.getInstance(context).logCustomEvent(
   "ecommerce.cart_updated",
   BrazeProperties(
@@ -318,7 +318,7 @@ Braze.getInstance(context).logCustomEvent(
 
 JavaScript
 
-// remove — delta quantity
+// remove — units to remove
 Braze.getInstance(context).logCustomEvent(
     "ecommerce.cart_updated",
     new BrazeProperties(new JSONObject()
@@ -406,12 +406,12 @@ Braze.getInstance(context).logCustomEvent(
 
 ##### Add
 
-`add` increases quantity or adds a new line (delta in `quantity`).
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```text
 Swift
 
-// add — delta quantity
+// add — units to add
 AppDelegate.braze?.logCustomEvent(
   name: "ecommerce.cart_updated",
   properties: [
@@ -433,7 +433,7 @@ AppDelegate.braze?.logCustomEvent(
 
 Objective-C
 
-// add — delta quantity
+// add — units to add
 [AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
                        properties:@{
   @"cart_id": @"cart_abc123",
@@ -452,12 +452,12 @@ Objective-C
 
 ##### Remove
 
-`remove` decreases quantity by the delta. The line is removed when quantity reaches `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```text
 Swift
 
-// remove — delta quantity
+// remove — units to remove
 AppDelegate.braze?.logCustomEvent(
   name: "ecommerce.cart_updated",
   properties: [
@@ -479,7 +479,7 @@ AppDelegate.braze?.logCustomEvent(
 
 Objective-C
 
-// remove — delta quantity
+// remove — units to remove
 [AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
                        properties:@{
   @"cart_id": @"cart_abc123",
@@ -565,7 +565,7 @@ Objective-C
 
 ##### `add`
 
-`add` increases quantity or adds a new line (delta in `quantity`).
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```json
 {
@@ -596,7 +596,7 @@ Objective-C
 
 ##### `remove`
 
-`remove` decreases quantity by the delta. The line is removed when quantity reaches `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```json
 {
@@ -1105,7 +1105,7 @@ The following table summarizes what Braze automatically does for each event when
 | `ecommerce.order_placed`     | Increments **Total Revenue** by `total_value` and **Total Orders** by 1 on the user profile.                     |
 | `ecommerce.order_cancelled`  | Decrements **Total Orders** by 1.                                                                                 |
 | `ecommerce.order_refunded`   | Decrements **Total Revenue** by `total_value` and increments **Total Refund Value**.                              |
-| `ecommerce.cart_updated`     | Creates or updates the carts mapping object on the user profile (full cart payloads, or delta updates with optional `action`: `add`, `remove`, or `replace`). The cart expires after 30 days without an update.|
+| `ecommerce.cart_updated`     | Creates or updates the carts mapping object on the user profile (full cart payloads, or incremental cart updates with optional `action`: `add`, `remove`, or `replace`). The cart expires after 30 days without an update.|
 | `ecommerce.product_viewed`   | No user profile changes. Available for segmentation, triggering, and BrazeAI<sup>TM</sup> features (like item recommendations).|
 | `ecommerce.checkout_started` | No user profile changes. Available for segmentation and triggering (for example, abandoned checkout flows).        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
