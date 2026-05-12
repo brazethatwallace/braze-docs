@@ -218,6 +218,8 @@ For example, if you want to edit an individual catalog item, you can use the [`/
 
 ## Catalog storage {#tiers}
 
+For a quick overview of storage limits by plan, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+
 The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
 
 {% alert important %}
