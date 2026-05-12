@@ -76,6 +76,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>使用可能なパラメーター</caption>
     <thead>
         <tr>
             <th>パラメーター</th>
@@ -258,6 +259,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>使用可能なパラメーター</caption>
     <thead>
         <tr>
             <th>パラメーター</th>

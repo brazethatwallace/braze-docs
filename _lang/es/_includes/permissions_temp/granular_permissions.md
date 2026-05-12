@@ -1,16 +1,18 @@
 {% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
+{% multi_lang_include video.html id="nv699nw706" source="wistia" %}
+
 ## Creación de un conjunto de permisos {#creating-a-permission-set}
 
 Usa conjuntos de permisos para agrupar permisos relacionados con áreas temáticas o acciones específicas. Puedes aplicar conjuntos de permisos a los usuarios del dashboard que necesiten el mismo acceso en diferentes espacios de trabajo. Para crear un conjunto de permisos, ve a **Configuración** > **Configuración de permisos** y selecciona **Crear conjunto de permisos**. Para ver una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
-|Nombre|Permisos|
+| Nombre | Permisos |
 |-----------|----------------|
-|Desarrolladores|«Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de eventos de usuario», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK».|
-|Especialistas en marketing|«Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver reglas de limitación de frecuencia», «Editar reglas de limitación de frecuencia», «Ver priorización de mensajes», «Editar priorización de mensajes», «Ver Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Editar grupo de control global», «Ver plantillas de IAM», «Editar plantillas de IAM», «Archivar plantillas de IAM», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Archivar plantillas de correo electrónico», «Ver plantillas de webhook», «Editar plantillas de webhook», «Archivar plantillas de webhook», «Ver plantillas de enlaces de correo electrónico», «Editar plantillas de enlaces de correo electrónico», «Ver activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias», «Editar informes del dashboard», «Ver plantillas de banners», «Ver configuración de localización», «Usar Operator», «Ver agentes de Decisioning Studio».|
-|Gestión de usuarios|«Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos».|
+| Desarrolladores | «Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de eventos de usuario», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK». |
+| Especialistas en marketing | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver reglas de limitación de frecuencia», «Editar reglas de limitación de frecuencia», «Ver priorización de mensajes», «Editar priorización de mensajes», «Ver Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Editar grupo de control global», «Ver plantillas de IAM», «Editar plantillas de IAM», «Archivar plantillas de IAM», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Archivar plantillas de correo electrónico», «Ver plantillas de webhook», «Editar plantillas de webhook», «Archivar plantillas de webhook», «Ver plantillas de enlaces de correo electrónico», «Editar plantillas de enlaces de correo electrónico», «Ver activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias», «Editar informes del dashboard», «Ver plantillas de banners», «Ver configuración de localización», «Usar Operator», «Ver agentes de Decisioning Studio». |
+| Gestión de usuarios | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos». |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -24,8 +26,8 @@ Los roles permiten una mayor estructura al agrupar los permisos personalizados i
 | Nombre del rol    | Espacio de trabajo | Permisos
 ----------- | ----------- | ---------
 | Especialista en marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias». |
-| Especialista en marketing - Marcas de cuidado de la piel | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |«Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias».|
-| Gestión de usuarios - Todas las marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos»|
+| Especialista en marketing - Marcas de cuidado de la piel | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias». |
+| Gestión de usuarios - Todas las marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos» |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -100,10 +102,10 @@ Si eliminas los privilegios de administrador de un usuario, este no podrá acced
 
 Para gestionar los siguientes permisos a nivel de empresa para un usuario, marca o desmarca la casilla junto a ese permiso. Cuando hayas terminado, selecciona **Actualizar usuario**.
 
-|Nombre del permiso|Descripción|
+| Nombre del permiso | Descripción |
 |----------|-----------|
-|Administrar configuración de empresa|Permite a los usuarios modificar la configuración de permisos y la verificación del remitente.|
-|Crear y eliminar espacios de trabajo|Permite a los usuarios crear y eliminar espacios de trabajo.|
+| Administrar configuración de empresa | Permite a los usuarios modificar la configuración de permisos y la verificación del remitente. |
+| Crear y eliminar espacios de trabajo | Permite a los usuarios crear y eliminar espacios de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
@@ -157,201 +159,201 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Campaigns | Ver Campaigns | Ver Campaigns |
-| Campaigns | Lanzar Campaigns | Iniciar, detener, pausar o reanudar Campaigns existentes |
-| Campaigns | Archivar Campaigns | Mover Campaigns al archivo |
-| Campaigns | Editar Campaigns | Crear y actualizar Campaigns |
-| Campaigns | Aprobar y rechazar Campaigns | Aprobar o rechazar Campaigns. El [flujo de trabajo de aprobación de Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
-| Canvas | Ver Canvas | Ver Canvas |
-| Canvas | Archivar Canvas | Mover Canvas al archivo |
-| Canvas | Editar Canvas | Crear y actualizar Canvas |
-| Canvas | Lanzar Canvas | Iniciar, detener, pausar o reanudar Canvas existentes |
-| Canvas | Aprobar y rechazar Canvas | Aprobar o rechazar Canvas. El [flujo de trabajo de aprobación de Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
-| Conmutadores de características | Ver conmutadores de características | Ver conmutadores de características |
-| Conmutadores de características | Archivar conmutadores de características | Mover conmutadores de características al archivo |
-| Conmutadores de características | Editar conmutadores de características | Crear y actualizar conmutadores de características |
-| Limitación de frecuencia | Ver reglas de limitación de frecuencia | Ver reglas de limitación de frecuencia |
-| Limitación de frecuencia | Editar reglas de limitación de frecuencia | Crear y actualizar reglas de limitación de frecuencia |
-| Páginas de inicio | Ver páginas de inicio | Ver páginas de inicio |
-| Páginas de inicio | Publicar páginas de inicio | Activar un borrador de página de inicio |
-| Páginas de inicio | Editar borradores de páginas de inicio | Crear y guardar borradores de páginas de inicio |
-| Configuración de archivado de mensajes | Ver configuración de archivado de mensajes | Ver la configuración de archivado de mensajes sin realizar cambios |
-| Configuración de archivado de mensajes | Editar configuración de archivado de mensajes | Crear y actualizar la configuración de archivado de mensajes |
-| Priorización de mensajes | Ver priorización de mensajes | Ver la configuración de priorización de mensajes sin realizar cambios |
-| Priorización de mensajes | Editar priorización de mensajes | Crear y actualizar la configuración de priorización de mensajes |
-| WhatsApp Flows | Ver WhatsApp Flows | Ver todos los WhatsApp Flows |
+| Campaigns | View Campaigns | Ver Campaigns |
+| Campaigns | Launch Campaigns | Iniciar, detener, pausar o reanudar Campaigns existentes |
+| Campaigns | Archive Campaigns | Mover Campaigns al archivo |
+| Campaigns | Edit Campaigns | Crear y actualizar Campaigns |
+| Campaigns | Approve and Deny Campaigns | Aprobar o rechazar Campaigns. El [flujo de trabajo de aprobación de Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
+| Canvas | View Canvases | Ver Canvas |
+| Canvas | Archive Canvases | Mover Canvas al archivo |
+| Canvas | Edit Canvases | Crear y actualizar Canvas |
+| Canvas | Launch Canvases | Iniciar, detener, pausar o reanudar Canvas existentes |
+| Canvas | Approve and Deny Canvases | Aprobar o rechazar Canvas. El [flujo de trabajo de aprobación de Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) debe estar activado para que se aplique este permiso. Esta configuración está actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
+| Feature flags | View Feature Flags | Ver conmutadores de características |
+| Feature flags | Archive Feature Flags | Mover conmutadores de características al archivo |
+| Feature flags | Edit Feature Flags | Crear y actualizar conmutadores de características |
+| Frequency Caps | View Frequency Capping Rules | Ver reglas de limitación de frecuencia |
+| Frequency Caps | Edit Frequency Capping Rules | Crear y actualizar reglas de limitación de frecuencia |
+| Landing pages | View Landing Pages | Ver páginas de inicio |
+| Landing pages | Publish Landing Pages | Activar un borrador de página de inicio |
+| Landing pages | Edit Landing Page Drafts | Crear y guardar borradores de páginas de inicio |
+| Message Archiving Settings | View Message Archiving Settings | Ver la configuración de archivado de mensajes sin realizar cambios |
+| Message Archiving Settings | Edit Message Archiving Settings | Crear y actualizar la configuración de archivado de mensajes |
+| Message Prioritization | View Message Prioritization | Ver la configuración de priorización de mensajes sin realizar cambios |
+| Message Prioritization | Edit Message Prioritization | Crear y actualizar la configuración de priorización de mensajes |
+| WhatsApp Flows | View WhatsApp Flows | Ver todos los WhatsApp Flows |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Audiencia {#audience}
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Grupo de control global | Ver grupo de control global | Ver la página de configuración del grupo de control global |
-| Grupo de control global | Editar grupo de control global | Crear y guardar cambios en el grupo de control global. Los usuarios con el permiso «Editar grupo de control global» también deben tener permisos para «Editar Campaigns» y «Editar Canvas». Los usuarios con el permiso «Editar grupo de control global» también obtienen el permiso «Ver grupo de control global». |
-| Ubicaciones | Archivar ubicaciones | Mover ubicaciones al archivo |
-| Ubicaciones | Ver ubicaciones | Ver ubicaciones |
-| Ubicaciones | Editar ubicaciones | Crear y editar ubicaciones |
-| Segments | Ver Segments | Ver Segments. Los usuarios deben tener el permiso «Ver Segments» para tener el permiso «Editar Segments» o «Archivar Segments». |
-| Segments | Archivar Segments | Archivar y desarchivar Segments. Los usuarios con el permiso «Archivar Segments» también deben tener el permiso «Ver Segments». |
-| Segments | Editar Segments | Crear y actualizar Segments. Los usuarios con el permiso «Editar Segments» también deben tener el permiso «Ver Segments». |
-| Datos de usuario | Ver importación de usuarios | Ver importaciones de usuarios en CSV sin realizar cambios |
-| Datos de usuario | Importar usuarios | Cargar usuarios al dashboard |
-| Datos de usuario | Editar datos de usuario | Crear y actualizar datos de usuario |
-| Datos de usuario | Exportar datos de usuario | Descargar usuarios desde el dashboard |
-| Registros de eliminación de usuarios | Ver registros de fusión de usuarios | Ver una lista de registros de fusión de usuarios |
-| Usuarios | Ver perfiles de usuario (PII censurada) | Ver perfiles de usuario de manera compatible con PII |
-| Usuarios duplicados | Fusionar usuarios duplicados | Combinar usuarios duplicados en un solo usuario. Los duplicados se eliminan después de la fusión. |
-| Usuarios | Eliminar usuarios | Eliminar permanentemente usuarios del dashboard de forma individual o masiva |
+| Global Control Group | View Global Control Group | Ver la página de configuración del grupo de control global |
+| Global Control Group | Edit Global Control Group | Crear y guardar cambios en el grupo de control global. Los usuarios con el permiso «Edit Global Control Group» también deben tener permisos para «Edit Campaigns» y «Edit Canvases». Los usuarios con el permiso «Edit Global Control Group» también obtienen el permiso «View Global Control Group». |
+| Locations | Archive Locations | Mover ubicaciones al archivo |
+| Locations | View Locations | Ver ubicaciones |
+| Locations | Edit Locations | Crear y editar ubicaciones |
+| Segments | View Segments | Ver Segments. Los usuarios deben tener el permiso «View Segments» para tener el permiso «Edit Segments» o «Archive Segments». |
+| Segments | Archive Segments | Archivar y desarchivar Segments. Los usuarios con el permiso «Archive Segments» también deben tener el permiso «View Segments». |
+| Segments | Edit Segments | Crear y actualizar Segments. Los usuarios con el permiso «Edit Segments» también deben tener el permiso «View Segments». |
+| User Data | View Import Users | Ver importaciones de usuarios en CSV sin realizar cambios |
+| User Data | Import Users | Cargar usuarios al dashboard |
+| User Data | Edit User Data | Crear y actualizar datos de usuario |
+| User Data | Export User Data | Descargar usuarios desde el dashboard |
+| User Deletion Records | View User Merge Records | Ver una lista de registros de fusión de usuarios |
+| Users | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII |
+| Duplicate Users | Merge Duplicate Users | Combinar usuarios duplicados en un solo usuario. Los duplicados se eliminan después de la fusión. |
+| Users | Delete Users | Eliminar permanentemente usuarios del dashboard de forma individual o masiva |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Plantilla {#template}
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Plantillas de banners | Ver plantillas de banners | Ver plantillas de banners |
-| Plantillas de banners | Archivar plantillas de banners | Mover plantillas de banners al archivo |
-| Plantillas de banners | Editar plantillas de banners | Crear y actualizar plantillas de banners |
-| Plantillas de Canvas | Ver plantillas de Canvas | Ver plantillas de Canvas |
-| Plantillas de Canvas | Archivar plantillas de Canvas | Mover plantillas de Canvas al archivo |
-| Plantillas de Canvas | Crear y editar plantillas de Canvas | Crear y actualizar plantillas de Canvas |
-| Content Blocks | Ver Content Blocks | Ver Content Blocks |
-| Content Blocks | Lanzar Content Blocks | Lanzar Content Blocks |
-| Content Blocks | Archivar Content Blocks | Mover Content Blocks al archivo |
-| Content Blocks | Editar Content Blocks | Crear y actualizar Content Blocks |
-| Plantillas de enlaces de correo electrónico | Ver plantillas de enlaces de correo electrónico | Ver plantillas de enlaces sin realizar cambios |
-| Plantillas de enlaces de correo electrónico | Editar plantillas de enlaces de correo electrónico | Crear y actualizar plantillas de enlaces |
-| Plantillas de correo electrónico | Ver plantillas de correo electrónico | Ver plantillas de correo electrónico |
-| Plantillas de correo electrónico | Archivar plantillas de correo electrónico | Mover plantillas de correo electrónico al archivo |
-| Plantillas de correo electrónico | Editar plantillas de correo electrónico | Crear y actualizar plantillas de correo electrónico |
-| Plantillas de IAM | Ver plantillas de IAM | Ver plantillas de mensajes dentro de la aplicación sin realizar cambios |
-| Plantillas de IAM | Archivar plantillas de IAM | Mover plantillas de IAM al archivo |
-| Plantillas de IAM | Editar plantillas de IAM | Crear y actualizar plantillas de mensajes dentro de la aplicación |
-| Plantillas de páginas de inicio | Ver plantillas de páginas de inicio | Ver plantillas de páginas de inicio |
-| Plantillas de páginas de inicio | Archivar plantillas de páginas de inicio | Mover plantillas de páginas de inicio al archivo |
-| Plantillas de páginas de inicio | Editar plantillas de páginas de inicio | Crear y actualizar plantillas de páginas de inicio |
-| Plantillas de webhook | Ver plantillas de webhook | Ver plantillas de webhook sin realizar cambios |
-| Plantillas de webhook | Archivar plantillas de webhook | Mover plantillas de webhook al archivo |
-| Plantillas de webhook | Editar plantillas de webhook | Crear y actualizar plantillas de webhook |
-| Plantillas de mensajes de WhatsApp | Ver plantillas de mensajes de WhatsApp | Permite a los usuarios ver [plantillas de mensajes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
-| Plantillas de mensajes de WhatsApp | Editar plantillas de mensajes de WhatsApp | Permite a los usuarios crear plantillas de mensajes de WhatsApp en el generador de plantillas. Esta característica está actualmente en acceso anticipado. |
-| Plantillas de mensajes de WhatsApp de Meta | Ver plantillas de mensajes de WhatsApp de Meta | Ver todas las plantillas de WhatsApp |
+| Banner Templates | View Banner Templates | Ver plantillas de banners |
+| Banner Templates | Archive Banner Templates | Mover plantillas de banners al archivo |
+| Banner Templates | Edit Banner Templates | Crear y actualizar plantillas de banners |
+| Canvas Templates | View Canvas Templates | Ver plantillas de Canvas |
+| Canvas Templates | Archive Canvas Templates | Mover plantillas de Canvas al archivo |
+| Canvas Templates | Create and Edit Canvas Templates | Crear y actualizar plantillas de Canvas |
+| Content Blocks | View Content Blocks | Ver Content Blocks |
+| Content Blocks | Launch Content Blocks | Publicar borradores de Content Blocks, y editar, archivar y desarchivar Content Blocks lanzados |
+| Content Blocks | Archive Content Blocks | Mover Content Blocks al archivo |
+| Content Blocks | Edit Content Blocks | Crear Content Blocks y editar borradores de Content Blocks |
+| Email Link Templates | View Email Link Templates | Ver plantillas de enlaces sin realizar cambios |
+| Email Link Templates | Edit Email Link Templates | Crear y actualizar plantillas de enlaces |
+| Email Templates | View Email Templates | Ver plantillas de correo electrónico |
+| Email Templates | Archive Email Templates | Mover plantillas de correo electrónico al archivo |
+| Email Templates | Edit Email Templates | Crear y actualizar plantillas de correo electrónico |
+| IAM Templates | View IAM Templates | Ver plantillas de mensajes dentro de la aplicación sin realizar cambios |
+| IAM Templates | Archive IAM Templates | Mover plantillas de IAM al archivo |
+| IAM Templates | Edit IAM Templates | Crear y actualizar plantillas de mensajes dentro de la aplicación |
+| Landing Page Templates | View Landing Page Templates | Ver plantillas de páginas de inicio |
+| Landing Page Templates | Archive Landing Page Template | Mover plantillas de páginas de inicio al archivo |
+| Landing Page Templates | Edit Landing Page Templates | Crear y actualizar plantillas de páginas de inicio |
+| Webhook Templates | View Webhook Templates | Ver plantillas de webhook sin realizar cambios |
+| Webhook Templates | Archive Webhook Templates | Mover plantillas de webhook al archivo |
+| Webhook Templates | Edit Webhook Templates | Crear y actualizar plantillas de webhook |
+| Whatsapp Message Templates | View WhatsApp Message Templates | Permite a los usuarios ver [plantillas de mensajes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
+| Whatsapp Message Templates | Edit WhatsApp Message Templates | Permite a los usuarios crear plantillas de mensajes de WhatsApp en el generador de plantillas. Esta característica está actualmente en acceso anticipado. |
+| WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | Ver todas las plantillas de WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Integraciones de socios {#partner-integrations}
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Integraciones de Currents | Ver integración de Currents | Ver integraciones de Currents |
-| Integraciones de Currents | Editar integraciones de Currents | Crear, actualizar y eliminar integraciones de Currents |
-| Socios tecnológicos | Editar socios tecnológicos | Crear y actualizar socios tecnológicos |
+| Currents Integrations | View Currents Integration | Ver integraciones de Currents |
+| Currents Integrations | Edit Currents Integrations | Crear, actualizar y eliminar integraciones de Currents |
+| Technology Partners | Edit Technology Partners | Crear y actualizar socios tecnológicos |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Configuración de datos {#data-settings}
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Catálogos | Ver catálogos | Ver catálogos y selecciones |
-| Catálogos | Eliminar catálogos | Eliminar catálogos de forma permanente |
-| Catálogos | Exportar catálogos | Descargar catálogos desde el dashboard |
-| Catálogos | Editar catálogos | Crear y actualizar catálogos y selecciones |
-| Ingesta de datos de Cloud | Editar ingesta de datos de Cloud | Crear, actualizar y eliminar fuentes y sincronizaciones |
-| Atributos personalizados | Ver atributos personalizados | Ver atributos personalizados e informe de uso |
-| Atributos personalizados | Exportar atributos personalizados | Descargar atributos personalizados desde el dashboard |
-| Atributos personalizados | Eliminar atributos personalizados | Eliminar permanentemente atributos personalizados |
-| Atributos personalizados | Bloquear atributos personalizados | Añadir atributos personalizados a una lista de bloqueo que restringe su uso en el dashboard |
-| Atributos personalizados | Editar atributos personalizados | Crear y actualizar atributos personalizados |
-| Segmentación de propiedades de eventos personalizados | Editar segmentación de propiedades de eventos personalizados | Habilitar y deshabilitar la segmentación para propiedades de eventos personalizados |
-| Eventos personalizados | Ver eventos personalizados | Ver eventos personalizados e informe de uso, y añadir eventos personalizados al correo electrónico del informe de análisis diario |
-| Eventos personalizados | Exportar eventos personalizados | Descargar eventos personalizados desde el dashboard |
-| PII | Ver PII | Ver PII |
-| Eventos personalizados | Eliminar eventos personalizados | Eliminar permanentemente eventos personalizados |
-| Eventos personalizados | Bloquear eventos personalizados | Añadir eventos personalizados a una lista de bloqueo que restringe su uso en el dashboard |
-| Eventos personalizados | Editar eventos personalizados | Crear y actualizar eventos personalizados |
-| Productos | Ver productos | Ver productos |
-| Productos | Bloquear productos | Añadir productos a una lista de bloqueo que restringe su uso en el dashboard |
-| Productos | Editar productos | Crear y actualizar productos |
-| Segmentación de propiedades de compra | Editar segmentación de propiedades de compra | Habilitar y deshabilitar la segmentación para propiedades de eventos de compra |
+| Catalogs | View Catalogs | Ver catálogos y selecciones |
+| Catalogs | Delete Catalogs | Eliminar catálogos de forma permanente |
+| Catalogs | Export Catalogs | Descargar catálogos desde el dashboard |
+| Catalogs | Edit Catalogs | Crear y actualizar catálogos y selecciones |
+| Cloud Data Ingestion | Edit Cloud Data Ingestion | Crear, actualizar y eliminar fuentes y sincronizaciones |
+| Custom Attributes | View Custom Attributes | Ver atributos personalizados e informe de uso |
+| Custom Attributes | Export Custom Attributes | Descargar atributos personalizados desde el dashboard |
+| Custom Attributes | Delete Custom Attributes | Eliminar permanentemente atributos personalizados |
+| Custom Attributes | Blocklist Custom Attributes | Añadir atributos personalizados a una lista de bloqueo que restringe su uso en el dashboard |
+| Custom Attributes | Edit Custom Attributes | Crear y actualizar atributos personalizados |
+| Custom Event Property Segmentation | Edit Custom Event Property Segmentation | Habilitar y deshabilitar la segmentación para propiedades de eventos personalizados |
+| Custom Events | View Custom Events | Ver eventos personalizados e informe de uso, y añadir eventos personalizados al correo electrónico del informe de análisis diario |
+| Custom Events | Export Custom Events | Descargar eventos personalizados desde el dashboard |
+| PII | View PII | Ver PII |
+| Custom Events | Delete Custom Events | Eliminar permanentemente eventos personalizados |
+| Custom Events | Blocklist Custom Events | Añadir eventos personalizados a una lista de bloqueo que restringe su uso en el dashboard |
+| Custom Events | Edit Custom Events | Crear y actualizar eventos personalizados |
+| Products | View Products | Ver productos |
+| Products | Blocklist Products | Añadir productos a una lista de bloqueo que restringe su uso en el dashboard |
+| Products | Edit Products | Crear y actualizar productos |
+| Purchase Property Segmentation | Edit Purchase Property Segmentation | Habilitar y deshabilitar la segmentación para propiedades de eventos de compra |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Configuración {#settings}
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Identificadores de API | Ver identificadores de API | Ver identificadores de API y otros identificadores |
-| Claves de API | Ver claves de API | Ver claves de API |
-| Claves de API | Editar claves de API | Crear y actualizar claves de API |
-| Límites de API | Ver límites de API | Ver límites de velocidad de API |
-| Alertas de uso de API | Ver alertas de uso de API | Ver alertas de uso de API |
-| Alertas de uso de API | Editar alertas de uso de API | Crear y actualizar alertas de uso de API |
-| Datos de uso de API | Ver panel de uso de API | Ver el panel de uso de API |
-| Configuración de la aplicación | Editar configuración de la aplicación | Crear, editar y actualizar aplicaciones dentro de la configuración de la aplicación |
-| Configuración de la aplicación | Ver configuración de la aplicación | Ver la página de configuración de la aplicación |
-| Configuración de Audience Sync | Ver configuración de Audience Sync | Ver toda la configuración de los socios de Audience Sync conectados |
-| Usuarios del dashboard | Editar usuarios del dashboard | Ver, crear y editar usuarios de la empresa |
-| Configuración del correo electrónico | Ver configuración del correo electrónico | Ver preferencias de correo electrónico |
-| Configuración del correo electrónico | Editar configuración del correo electrónico | Habilitar y actualizar preferencias de correo electrónico |
-| Registro de eventos de usuario | Ver registro de eventos de usuario | Ver registros de eventos de usuario |
-| Grupos internos | Ver grupos internos | Ver grupos internos |
-| Grupos internos | Eliminar grupos internos | Eliminar grupos internos |
-| Grupos internos | Editar grupos internos | Crear y actualizar grupos internos |
-| Registro de actividad de mensajes | Ver registro de actividad de mensajes | Ver registros de actividad de mensajes |
-| Configuración de idiomas múltiples | Ver configuración de localización | Ver la página de configuración de idiomas múltiples |
-| Configuración de idiomas múltiples | Eliminar configuración de localización | Eliminar configuraciones regionales de idiomas múltiples |
-| Configuración de idiomas múltiples | Editar configuración de localización | Crear configuraciones regionales de idiomas múltiples |
-| Centros de preferencias | Ver centros de preferencias | Ver centros de preferencias |
-| Centros de preferencias | Editar centros de preferencias | Crear y actualizar centros de preferencias |
-| Centros de preferencias | Lanzar centros de preferencias | Activar un borrador de centro de preferencias o actualizar uno existente |
-| Configuración de push | Ver configuración de push | Ver configuración de push |
-| Configuración de push | Editar configuración de push | Crear y actualizar configuración de push |
-| Depurador de SDK | Ver depurador de SDK | Ver el depurador de SDK o sesiones de depuración |
-| Depurador de SDK | Editar depurador de SDK | Crear y descargar sesiones del depurador de SDK |
-| Etiquetas | Ver etiquetas | Ver etiquetas |
-| Etiquetas | Eliminar etiquetas | Eliminar etiquetas de forma permanente |
-| Etiquetas | Editar etiquetas | Crear y actualizar etiquetas |
-| Equipos | Ver equipos | Ver equipos |
-| Equipos | Archivar equipos | Mover equipos al archivo |
-| Equipos | Editar equipos | Crear y actualizar equipos |
-| Configuración de WhatsApp | Ver configuración de WhatsApp | Ver toda la configuración del canal de WhatsApp |
+| API Identifiers | View API identifiers | Ver identificadores de API y otros identificadores |
+| API Keys | View API Keys | Ver claves de API |
+| API Keys | Edit API Keys | Crear y actualizar claves de API |
+| API Limits | View API Limits | Ver límites de velocidad de API |
+| API Usage Alerts | View API Usage Alerts | Ver alertas de uso de API |
+| API Usage Alerts | Edit API Usage Alerts | Crear y actualizar alertas de uso de API |
+| API Usage Data | View API Usage Dashboard | Ver el panel de uso de API |
+| App Settings | Edit App Settings | Crear, editar y actualizar aplicaciones dentro de la configuración de la aplicación |
+| App Settings | View App Settings | Ver la página de configuración de la aplicación |
+| Audience Sync Settings | View Audience Sync Settings | Ver toda la configuración de los socios de Audience Sync conectados |
+| Dashboard Users | Edit Dashboard Users | Ver, crear y editar usuarios de la empresa |
+| Email Settings | View Email Settings | Ver preferencias de correo electrónico |
+| Email Settings | Edit Email Settings | Habilitar y actualizar preferencias de correo electrónico |
+| Event User Log | View Event User Log | Ver registros de eventos de usuario |
+| Internal Groups | View Internal User Groups | Ver grupos internos |
+| Internal Groups | Delete Internal User Groups | Eliminar grupos internos |
+| Internal Groups | Edit Internal User Groups | Crear y actualizar grupos internos |
+| Message Activity Log | View Message Activity Log | Ver registros de actividad de mensajes |
+| Multi Language Settings | View Localization Settings | Ver la página de configuración de idiomas múltiples |
+| Multi Language Settings | Delete Localization Settings | Eliminar configuraciones regionales de idiomas múltiples |
+| Multi Language Settings | Edit Localization Settings | Crear configuraciones regionales de idiomas múltiples |
+| Preference Centers | View Preference Centers | Ver centros de preferencias |
+| Preference Centers | Edit Preference Centers | Crear y actualizar centros de preferencias |
+| Preference Centers | Launch Preference Centers | Activar un borrador de centro de preferencias o actualizar uno existente |
+| Push Settings | View Push Settings | Ver configuración de push |
+| Push Settings | Edit Push Settings | Crear y actualizar configuración de push |
+| SDK Debugger | View SDK Debugger | Ver el depurador de SDK o sesiones de depuración |
+| SDK Debugger | Edit SDK Debugger | Crear y descargar sesiones del depurador de SDK |
+| Tags | View Tags | Ver etiquetas |
+| Tags | Delete Tags | Eliminar etiquetas de forma permanente |
+| Tags | Edit Tags | Crear y actualizar etiquetas |
+| Teams | View Teams | Ver equipos |
+| Teams | Archive Teams | Mover equipos al archivo |
+| Teams | Edit Teams | Crear y actualizar equipos |
+| WhatsApp Settings | View WhatsApp Settings | Ver toda la configuración del canal de WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Decisioning Studio {#decisioning-studio}
+### Decisioning Studio
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Agentes de Decisioning Studio | Ver agentes de Decisioning Studio | Ver la configuración de los agentes de Decisioning Studio sin realizar cambios |
-| Audiencia de Decisioning Studio | Ver audiencia de Decisioning Studio | Ver los detalles de audiencia en los resúmenes de configuración de los agentes de Decisioning Studio |
+| Decisioning Studio Agents | View Decisioning Studio Agent | Ver la configuración de los agentes de Decisioning Studio sin realizar cambios |
+| Decisioning Studio Audience | View Decisioning Studio Audience | Ver los detalles de audiencia en los resúmenes de configuración de los agentes de Decisioning Studio |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ### Otros {#other}
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Uso de la aplicación | Ver datos de uso | Ver datos de uso |
-| Facturación | Ver detalles de facturación | Ver detalles de facturación |
-| Agentes personalizados | Ver agentes de IA de la Consola de Agente | Permite a los usuarios ver agentes de IA personalizados |
-| Agentes personalizados | Archivar agentes de IA de la Consola de Agente | Permite a los usuarios archivar agentes de IA personalizados |
-| Agentes personalizados | Editar agentes de IA de la Consola de Agente | Permite a los usuarios crear y actualizar agentes de IA personalizados |
-| Atributos personalizados marcados como PII | Ver atributos personalizados marcados como PII | Ver atributos personalizados marcados como PII |
-| Informes del dashboard | Ver informes del dashboard | Ver informes sin realizar cambios |
-| Informes del dashboard | Eliminar informes del dashboard | Eliminar informes de forma permanente |
-| Informes del dashboard | Editar informes del dashboard | Crear y actualizar informes |
-| Configuración de dominio | Editar configuración de dominio | Añadir dominios delegados y dominios personalizados en dominios verificados |
-| Cifrado a nivel de campo | Editar cifrado a nivel de campo del identificador | Habilitar y actualizar la configuración de cifrado a nivel de campo |
-| Activos de la biblioteca multimedia | Ver activos de la biblioteca multimedia | Ver activos de la biblioteca multimedia |
-| Activos de la biblioteca multimedia | Eliminar activos de la biblioteca multimedia | Eliminar permanentemente activos de la biblioteca multimedia |
-| Activos de la biblioteca multimedia | Editar activos de la biblioteca multimedia | Crear y actualizar activos de la biblioteca multimedia |
-| Límites de velocidad de mensajería | Ver límites de velocidad de mensajería | Ver los límites de velocidad de mensajería a nivel del espacio de trabajo |
-| Límites de velocidad de mensajería | Editar límites de velocidad de mensajería | Configurar y editar los límites de velocidad de mensajería a nivel del espacio de trabajo |
-| Operator | Usar BrazeAI Operator<sup>TM</sup> | Acceder y usar Braze Operator para responder preguntas, navegar por la configuración, solucionar problemas y generar ideas |
-| Ubicaciones de banners | Ver ubicaciones de banners | Ver ubicaciones de banners |
-| Ubicaciones de banners | Archivar ubicaciones de banners | Mover ubicaciones de banners al archivo |
-| Ubicaciones de banners | Editar ubicaciones de banners | Ver ubicaciones de banners sin realizar cambios |
-| Códigos promocionales | Ver códigos promocionales | Ver códigos promocionales |
-| Códigos promocionales | Exportar códigos promocionales | Descargar una lista de códigos promocionales desde el dashboard |
-| Códigos promocionales | Editar códigos promocionales | Crear y actualizar códigos promocionales |
-| Grupos de suscripción | Editar suscripciones | Crear y actualizar grupos de suscripción |
-| Transformaciones | Editar transformación de datos | Crear y actualizar transformaciones de datos |
-| Transformaciones | Ver transformación de datos | Ver transformaciones de datos |
-| Registros de eliminación de usuarios | Ver registros de eliminación de usuarios | Ver registros de eliminación de usuarios |
-| Tickets de soporte | Crear ticket de soporte | Crear y actualizar tickets de soporte |
+| App Usage | View Usage Data | Ver datos de uso |
+| Billing | View Billing Details | Ver detalles de facturación |
+| Custom Agents | View Agent Console AI Agents | Permite a los usuarios ver agentes de IA personalizados |
+| Custom Agents | Archive Agent Console AI Agents | Permite a los usuarios archivar agentes de IA personalizados |
+| Custom Agents | Edit Agent Console AI Agents | Permite a los usuarios crear y actualizar agentes de IA personalizados |
+| Custom Attributes Marked As PII | View Custom Attributes Marked as PII | Ver atributos personalizados marcados como PII |
+| Dashboard Reports | View Dashboard Reports | Ver informes sin realizar cambios |
+| Dashboard Reports | Delete Dashboard Reports | Eliminar informes de forma permanente |
+| Dashboard Reports | Edit Dashboard Reports | Crear y actualizar informes |
+| Domain Settings | Edit Domain Settings | Añadir dominios delegados y dominios personalizados en dominios verificados |
+| Field Level Encryption | Edit Identifier Field-Level Encryption | Habilitar y actualizar la configuración de cifrado a nivel de campo |
+| Media Library Assets | View Media Library Assets | Ver activos de la biblioteca multimedia |
+| Media Library Assets | Delete Media Library Assets | Eliminar permanentemente activos de la biblioteca multimedia |
+| Media Library Assets | Edit Media Library Assets | Crear y actualizar activos de la biblioteca multimedia |
+| Messaging Rate Limits | View Messaging Rate Limits | Ver los límites de velocidad de mensajería a nivel del espacio de trabajo |
+| Messaging Rate Limits | Edit Messaging Rate Limits | Configurar y editar los límites de velocidad de mensajería a nivel del espacio de trabajo |
+| Operator | Use BrazeAI Operator<sup>TM</sup> | Acceder y usar Braze Operator para responder preguntas, navegar por la configuración, solucionar problemas y generar ideas |
+| Placements | View Placements | Ver ubicaciones de banners |
+| Placements | Archive Placements | Mover ubicaciones de banners al archivo |
+| Placements | Edit Placements | Ver ubicaciones de banners sin realizar cambios |
+| Promotion Codes | View Promotion Codes | Ver códigos promocionales |
+| Promotion Codes | Export Promotion Codes | Descargar una lista de códigos promocionales desde el dashboard |
+| Promotion Codes | Edit Promotion Codes | Crear y actualizar códigos promocionales |
+| Subscription Groups | Edit Subscriptions | Crear y actualizar grupos de suscripción |
+| Transformations | Edit Data Transformation | Crear y actualizar transformaciones de datos |
+| Transformations | View Data Transformation | Ver transformaciones de datos |
+| User Deletion Records | View User Deletion Records | Ver registros de eliminación de usuarios |
+| Support Tickets | Create Support Ticket | Crear y actualizar tickets de soporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

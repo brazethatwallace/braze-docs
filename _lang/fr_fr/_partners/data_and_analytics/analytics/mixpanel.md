@@ -2,7 +2,7 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "Cet article de référence présente le partenariat entre Braze et Mixpanel, une plateforme d'analyse commerciale, vous permettant d'importer des cohortes Mixpanel dans Braze afin de créer des segments Braze qui peuvent être utilisés pour cibler les utilisateurs dans de futures campagnes ou Canvas Braze."
+description: "Cet article de référence présente le partenariat entre Braze et Mixpanel, une plateforme d'analyse commerciale, vous permettant d'importer des cohortes Mixpanel dans Braze afin de créer des segments Braze qui peuvent être utilisés pour cibler les utilisateurs dans de futures Campaigns ou Canvas Braze."
 page_type: partner
 search_tag: Partner
 tool: Currents
@@ -13,7 +13,9 @@ tool: Currents
 
 > [Mixpanel](https://mixpanel.com/) est une plateforme d'analyse commerciale qui vous permet d'exporter des événements de Mixpanel vers d'autres plateformes afin d'effectuer des analyses plus approfondies. Les données collectées peuvent ensuite être utilisées pour créer des rapports personnalisés et mesurer l'engagement et la rétention des utilisateurs.
 
-L'intégration de Braze et Mixpanel vous permet d'[importer des cohortes Mixpanel dans Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) afin de créer des segments Braze qui peuvent cibler les utilisateurs dans de futures campagnes ou Canvas Braze. Vous pouvez également tirer parti de Braze Currents pour [exporter vos événements Braze vers Mixpanel](#data-export-integration) afin d'obtenir des analyses plus approfondies sur les conversions, la rétention et l'utilisation des produits.
+L'intégration de Braze et Mixpanel vous permet d'[importer des cohortes Mixpanel dans Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) afin de créer des segments Braze qui peuvent cibler les utilisateurs dans de futures Campaigns ou Canvas Braze. La synchronisation des cohortes met à jour l'appartenance aux cohortes dans Braze et n'importe pas les événements ni les propriétés utilisateur de Mixpanel. Pour plus de détails, consultez [Importation de la cohorte Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration).
+
+Vous pouvez également tirer parti de Braze Currents pour [exporter vos événements Braze vers Mixpanel](#data-export-integration) afin d'obtenir des analyses plus approfondies sur les conversions, la rétention et l'utilisation des produits.
 
 ## Conditions préalables {#prerequisites}
 

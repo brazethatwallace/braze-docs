@@ -6,7 +6,7 @@ description: "Diese Referenzseite enthält einsteigerfreundliche Tutorials, die 
 page_type: tutorial
 ---
 
-# Tutorials: Liquid-Code schreiben
+# Tutorials: Liquid-Code schreiben {#tutorials-writing-liquid-code}
 
 > Neu bei Liquid? Diese Tutorials helfen Ihnen beim Einstieg in das Schreiben von Liquid-Code für einsteigerfreundliche Anwendungsfälle. Jedes Tutorial behandelt eine andere Kombination von Lernzielen, wie bedingte Logik und Operatoren.
 
@@ -24,13 +24,13 @@ Wenn Sie diese Tutorials abgeschlossen haben, können Sie:
 | [Event-Countdown](#countdown) | Variablen, Datumsfilter |
 | [Monatliche Geburtstagsnachricht](#birthday) | Variablen, Datumsfilter, Operatoren |
 | [Lieblingsprodukt bewerben](#favorite-product) | Variablen, Datumsfilter, Gleichungen, Operatoren |
-{: .reset-br-td-1 .reset-br-td-2}
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutorials: Liquid-Code schreiben" }
 
 ## Personalisierte Nachrichten für Nutzersegmente {#segments}
 
 Lassen Sie uns Nachrichten für verschiedene Nutzersegmente anpassen, z. B. für VIP-Kund:innen und neue Abonnent:innen.
 
-1. Öffnen Sie die Nachricht mit personalisierten Begrüßungen, die gesendet werden soll, wenn Sie den Vornamen einer Nutzer:in haben und wenn nicht. Erstellen Sie dazu einen Liquid-Tag, der das Attribut `first_name` und einen Standardwert enthält, der verwendet wird, wenn `first_name` leer ist. In diesem Szenario verwenden wir „traveler" als Standardwert.
+1. Öffnen Sie die Nachricht mit personalisierten Begrüßungen, die gesendet werden soll, wenn Sie den Vornamen einer Nutzer:in haben und wenn nicht. Erstellen Sie dazu einen Liquid-Tag, der das Attribut `first_name` und einen Standardwert enthält, der verwendet wird, wenn `first_name` leer ist. In diesem Szenario verwenden wir „traveler“ als Standardwert.
 
 {% raw %}
 ```liquid
@@ -88,7 +88,7 @@ Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 
 Senden wir personalisierte Nachrichten, um Nutzer:innen an Artikel in ihrem Warenkorb zu erinnern. Wir passen sie weiter an, sodass sie basierend auf der Anzahl der Artikel im Warenkorb gesendet werden – wenn drei oder weniger Artikel vorhanden sind, listen wir alle Artikel auf. Bei mehr als drei Artikeln senden wir eine kompaktere Nachricht.
 
-1. Prüfen wir zunächst, ob der Warenkorb der Nutzer:in leer ist, indem wir eine bedingte Liquid-Logik mit dem Operator `!=` öffnen, der „ist nicht gleich" bedeutet. In diesem Fall setzen wir die Bedingung so, dass das angepasste Attribut `cart_items` nicht einem leeren Wert entspricht.
+1. Prüfen wir zunächst, ob der Warenkorb der Nutzer:in leer ist, indem wir eine bedingte Liquid-Logik mit dem Operator `!=` öffnen, der „ist nicht gleich“ bedeutet. In diesem Fall setzen wir die Bedingung so, dass das angepasste Attribut `cart_items` nicht einem leeren Wert entspricht.
 
 {% raw %}
 ```liquid
@@ -97,7 +97,7 @@ Senden wir personalisierte Nachrichten, um Nutzer:innen an Artikel in ihrem Ware
 {% endraw %}
 
 {: start="2"}
-2. Dann müssen wir den Fokus eingrenzen und prüfen, ob der Warenkorb mehr als drei Artikel enthält, indem wir den Operator `>` verwenden, der „größer als" bedeutet.
+2. Dann müssen wir den Fokus eingrenzen und prüfen, ob der Warenkorb mehr als drei Artikel enthält, indem wir den Operator `>` verwenden, der „größer als“ bedeutet.
 
 {% raw %}
 ```liquid
@@ -106,7 +106,7 @@ Senden wir personalisierte Nachrichten, um Nutzer:innen an Artikel in ihrem Ware
 {% endraw %}
 
 {: start="3"}
-3. Schreiben Sie eine Nachricht, die die Nutzer:in mit ihrem Vornamen begrüßt, oder verwenden Sie „there" als Standardwert, falls dieser nicht verfügbar ist. Geben Sie an, was angezeigt werden soll, wenn mehr als drei Artikel im Warenkorb sind. Da wir die Nutzer:in nicht mit einer vollständigen Liste überfordern möchten, listen wir die ersten drei `cart_items` auf.
+3. Schreiben Sie eine Nachricht, die die Nutzer:in mit ihrem Vornamen begrüßt, oder verwenden Sie „there“ als Standardwert, falls dieser nicht verfügbar ist. Geben Sie an, was angezeigt werden soll, wenn mehr als drei Artikel im Warenkorb sind. Da wir die Nutzer:in nicht mit einer vollständigen Liste überfordern möchten, listen wir die ersten drei `cart_items` auf.
 
 {% raw %}
 ```liquid
@@ -183,7 +183,7 @@ Senden wir Nutzer:innen eine Nachricht, die angibt, wie viele Tage bis zu einem 
 {% endraw %}
 
 {: start="4"}
-4. Jetzt müssen wir `difference` in einen Wert umwandeln, den wir in einer Nachricht referenzieren können, da es nicht ideal ist, der Nutzer:in mitzuteilen, wie viele Sekunden es bis zu einem Verkauf sind. Weisen wir `difference_days` dem `event_date` zu und teilen es durch `86400`, um die Anzahl der Tage zu erhalten.
+4. Jetzt müssen wir `difference` in einen Wert umwandeln, den wir in einer Nachricht referenzieren können, da es nicht ideal ist, der Nutzer:in mitzuteilen, wie viele Sekunden es bis zu einem Verkauf sind. Weisen wir `difference_days` dem `difference`-Wert zu und teilen ihn durch `86400`, um die Anzahl der Tage zu erhalten.
 
 {% raw %}
 ```liquid
@@ -315,7 +315,7 @@ Bewerben wir das Lieblingsprodukt einer Nutzer:in, wenn ihr letzter Kauf mehr al
 {% endraw %}
 
 {: start="4"}
-4. Wenn wir das Kaufdatum haben, müssen wir es einer Variablen zuweisen, damit wir es mit dem heutigen Datum vergleichen können. Erstellen wir zunächst einen Wert für das heutige Datum, indem wir die Variable `today` dem Wert `now` (aktuelles Datum und Uhrzeit) zuweisen und den Filter `date: "%s"` verwenden, um den Wert in ein Zeitstempel-Format in Sekunden umzuwandeln. Wir fügen den Filter `plus: 0` hinzu, um eine „0" zum Zeitstempel hinzuzufügen. Dies ändert den Wert des Zeitstempels nicht, ist aber nützlich für die Verwendung des Zeitstempels in zukünftigen Gleichungen.
+4. Wenn wir das Kaufdatum haben, müssen wir es einer Variablen zuweisen, damit wir es mit dem heutigen Datum vergleichen können. Erstellen wir zunächst einen Wert für das heutige Datum, indem wir die Variable `today` dem Wert `now` (aktuelles Datum und Uhrzeit) zuweisen und den Filter `date: "%s"` verwenden, um den Wert in ein Zeitstempel-Format in Sekunden umzuwandeln. Wir fügen den Filter `plus: 0` hinzu, um eine „0“ zum Zeitstempel hinzuzufügen. Dies ändert den Wert des Zeitstempels nicht, ist aber nützlich für die Verwendung des Zeitstempels in zukünftigen Gleichungen.
 
 
 {% raw %}

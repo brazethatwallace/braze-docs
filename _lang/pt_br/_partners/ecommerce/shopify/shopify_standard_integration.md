@@ -1,6 +1,6 @@
 ---
 nav_title: Configuração de integração padrão da Shopify
-article_title: "Configuração de integração padrão da Shopify"
+article_title: Configuração de integração padrão da Shopify
 description: "Este artigo de referência descreve como configurar a integração padrão da Shopify."
 page_type: partner
 search_tag: Partner
@@ -70,24 +70,9 @@ Para saber mais sobre os dados rastreados por meio da integração, consulte [Re
 
 ### Configuração de backfill histórico {#historical-backfill-setup}
 
-Por meio da configuração padrão, você pode ativar o backfill histórico para segmentar clientes anteriores. Isso importa seus pedidos da Shopify dos últimos 90 dias e perfis de clientes do último ano. Ambos os períodos são contados a partir da data em que você concluir a integração. Para isso, marque a caixa de seleção para incluir o carregamento inicial de dados como parte da sua integração.
+Na etapa **Track Shopify data**, marque a caixa de seleção para incluir o carregamento inicial de dados históricos como parte da sua integração.
 
-{% alert note %}
-Os dados de backfill histórico não são incluídos nos relatórios de receita. Os eventos de pedido feito preenchidos por backfill estão disponíveis apenas para segmentação.
-{% endalert %}
-
-![Alternância de backfill de dados históricos.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-Essa tabela contém os dados que serão carregados inicialmente por meio do backfill.
-
-| Eventos recomendados pela Braze | Eventos personalizados da Shopify | Atributos padrão da Braze | Status das inscrições na Braze |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Pedido feito</li><li>Pedido cancelado</li><li>Pedido reembolsado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Nome</li><li>Sobrenome</li><li>Telefone</li><li>Cidade</li><li>País</li><li>Receita total</li><li>Total de reembolsos</li><li>Total de pedidos</li></ul>{:/} | {::nomarkdown}<ul><li>Inscrições de e-mail marketing associadas a esta loja da Shopify</li><li>Inscrições de marketing por SMS associadas a esta loja da Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-Se você já é cliente da Braze com Campaigns ou Canvas ativos, consulte [os recursos de dados da Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) para obter mais detalhes.
-{% endalert %}
+Para saber o que é importado, o comportamento dos relatórios de receita, capturas de tela da configuração e orientações caso você já use a Braze com Campaigns ou Canvas ativos, consulte [Backfill histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### (Avançado) Configuração de rastreamento de dados personalizados {#advanced-custom-data-tracking-setup}
 
@@ -101,6 +86,7 @@ Com os SDKs da Braze, você pode rastrear eventos personalizados ou atributos pe
 </style>
 
 <table style="width: 100%;">
+  <caption>(Avançado) Configuração de rastreamento de dados personalizados</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>
@@ -177,7 +163,7 @@ As próximas etapas dependem da seleção do seu ID externo:<br><br>
 Depois que o metacampo for criado, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
 - **Ouça os webhooks de criação de clientes:** Configure um webhook para ouvir os [eventos do `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você escreva o metacampo quando um novo cliente é criado.
-- **Preencher os clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher novamente o metacampo de clientes criados anteriormente.
+- **Preencha os clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
 
 ### Etapa 4.2: Crie um endpoint para recuperar seu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 

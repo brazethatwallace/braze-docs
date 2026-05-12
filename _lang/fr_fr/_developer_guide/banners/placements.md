@@ -500,7 +500,7 @@ This feature is not currently supported on Roku.
 
 ### Étape 5 : Envoyer une bannière de test (facultatif) {#handling-test-cards}
 
-Avant de lancer une campagne de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) pour vérifier votre intégration. Les bannières de test seront stockées dans un cache en mémoire distinct et ne persisteront pas lors des redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
+Avant de lancer une Campaign de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) pour vérifier votre intégration. Les bannières de test seront stockées dans un cache en mémoire distinct et ne persisteront pas lors des redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
 
 {% alert note %}
 Les bannières de test fonctionnent comme toutes les autres bannières, sauf qu'elles sont supprimées lors de la session d'application suivante.
@@ -595,7 +595,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### Enregistrer les clics {#logging-clicks}
+#### Enregistrer les clics
 
 Appelez la méthode de clic de bannière de la plateforme lorsque l'utilisateur appuie sur votre bannière personnalisée (ou sur un bouton spécifique). Passez le paramètre facultatif `buttonId` lorsque le clic concerne un bouton spécifique afin que les analyses puissent attribuer le clic correctement.
 
@@ -659,7 +659,7 @@ Les fermetures de bannières suppriment programmatiquement une bannière d'un pl
 Les fermetures de bannières sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-### Conditions préalables {#prerequisites}
+### Conditions préalables
 
 Voici les versions minimales du SDK requises pour enregistrer les fermetures de bannières :
 
@@ -670,7 +670,7 @@ Voici les versions minimales du SDK requises pour enregistrer les fermetures de 
 
 Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message sera masqué, déclenchera une fermeture puis enregistrera un événement de fermeture pour les analyses.
 
-#### Blocs de code personnalisés {#custom-code-blocks}
+#### Blocs de code personnalisés
 
 Si votre bannière utilise le bloc éditeur **Code personnalisé**, vous pouvez déclencher une fermeture directement depuis le HTML de la bannière en utilisant `brazeBridge.closeMessage()`.
 
@@ -807,15 +807,15 @@ Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 
 ## Propriétés personnalisées {#custom-properties}
 
-Vous pouvez utiliser les propriétés personnalisées de votre campagne de bannières pour récupérer des données clé-valeur via le SDK et modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
+Vous pouvez utiliser les propriétés personnalisées de votre Campaign de bannières pour récupérer des données clé-valeur via le SDK et modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
 
 - Envoyer des métadonnées pour vos analyses ou intégrations tierces.
 - Utiliser des métadonnées telles qu'un `timestamp` ou un objet JSON pour déclencher une logique conditionnelle.
 - Contrôler le comportement d'une bannière en fonction des métadonnées incluses comme `ratio` ou `format`.
 
-### Conditions préalables {#prerequisites}
+### Conditions préalables
 
-Vous devrez [ajouter des propriétés personnalisées]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) à votre campagne de bannières. De plus, voici les versions minimales du SDK requises pour accéder aux propriétés personnalisées :
+Vous devrez [ajouter des propriétés personnalisées]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) à votre Campaign de bannières. De plus, voici les versions minimales du SDK requises pour accéder aux propriétés personnalisées :
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

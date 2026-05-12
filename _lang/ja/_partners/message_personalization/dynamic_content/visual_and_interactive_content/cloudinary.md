@@ -26,7 +26,7 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 | 要件     | 説明 |
 |-----------------------|-----------------|
 | Cloudinaryアカウント  | この連携を利用するには、[Cloudinaryアカウント](https://cloudinary.com/users/register_free?utm_source=braze+docs+page)が必要です  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 連携方法 {#integration-methods}
 
@@ -75,7 +75,7 @@ BrazeのCampaignやCanvasesでCloudinaryのDAMから画像や動画を直接使�
 AndroidおよびiOS固有の考慮事項については、[動画]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/)を参照してください。
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab 動画をGIFに変換 %}
 
 ## メール用に動画をGIFに変換する {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab ターゲット属性 %}
 
 ## ターゲティング属性に基づいてCampaignアセットを動的に選択する {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 カスタムファンクションの作成と適用の手順、および特定のCampaignのアセット選択とフォールバックオプションのカスタムファンクション例については、Cloudinaryの[`braze-personalization` GitHubリポジトリ](https://github.com/cloudinary-devs/braze-personalization)を参照してください。詳しいガイダンスについては、Cloudinaryサポートチームにお問い合わせください。
 {% endalert %}
 
-### 前提条件 {#prerequisites}
+### 前提条件
 
 ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、CloudinaryはBrazeのCampaignでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
 - リスト配信タイプの制限を解除します：Cloudinaryコンソールでセキュリティ設定を開き、制限画像タイプのリソースリスト項目をクリアします。
@@ -161,7 +161,7 @@ https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab パーソナライズ画像の生成 %}
 
 ## パーソナライズ画像の生成 {#personalized-image-generation}
 

@@ -26,6 +26,7 @@ toc_headers: h2
 ## 사용 가능한 뷰 {#available-views}
 
 <table>
+  <caption>사용 가능한 뷰</caption>
   <thead>
     <tr>
       <th>유형</th>
@@ -126,7 +127,7 @@ toc_headers: h2
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### 사용법 {#usage}
+### 사용법
 
 * 최소 지연(~10분)으로 최신 사용자 속성을 제공합니다.
 * 실시간 분석 및 최근 데이터가 필요한 시나리오에 유용합니다.
@@ -182,9 +183,9 @@ toc_headers: h2
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### 사용법 {#usage}
+### 사용법
 
-* 사용자 속성의 이력 변경 기록을 제공합니다.
+* 롤링 6개월 기간 동안 사용자 속성의 이력 변경 기록을 제공합니다.
 * 데이터는 12시간마다 스냅샷이 생성되므로, 이 기간 내의 여러 업데이트는 단일 레코드로 결합됩니다. 이 기간 내의 개별 변경 사항은 별도로 보존되지 않습니다.
 * `EFF_DT`와 `END_DT`는 사용자 속성 상태의 시작과 끝을 나타냅니다.
 

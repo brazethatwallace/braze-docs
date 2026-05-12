@@ -6,29 +6,6 @@
   }
 }
 
-div.alert {
-  &.alert-warning {
-    background-image: url(#{$base_url}/assets/img/message-warning.png) !important;
-  }
-  &.alert-update{
-    background-image: url(#{$base_url}/assets/img/message-update.png) !important;
-  }
-  &.alert-checkpoint{
-    background-image: url(#{$base_url}/assets/img/message-stop.png) !important;
-  }
-  &.alert-important{
-    background-image: url(#{$base_url}/assets/img/message-important.png) !important;
-  }
-  &.alert-note{
-    background-image: url(#{$base_url}/assets/img/message-note.png) !important;
-  }
-  &.alert-service-notice{
-    background-image: url(#{$base_url}/assets/img/message-note.png) !important;
-  }
-  &.alert-tip{
-    background-image: url(#{$base_url}/assets/img/message-tip.png) !important;
-  }
-}
 
 #glossary-main {
   #glossary_filter {

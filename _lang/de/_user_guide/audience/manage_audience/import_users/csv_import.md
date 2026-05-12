@@ -5,7 +5,7 @@ description: "Erfahren Sie, wie Sie Nutzerattribute und angepasste Events mithil
 page_order: 1.2
 ---
 
-# CSV-Import
+# CSV-Import {#csv-import}
 
 > Erfahren Sie, wie Sie Nutzerattribute und angepasste Events mithilfe des CSV-Imports erfassen und aktualisieren können.
 
@@ -26,13 +26,13 @@ Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angep
 
 Um den CSV-Import zu öffnen, gehen Sie zu **Audiences** > **Import Users**. Dort finden Sie eine Tabelle mit Details zu den letzten Importen, wie z. B. das Upload-Datum, den Namen der hochladenden Person, den Dateinamen, die Targeting-Verfügbarkeit, die Anzahl der importierten Zeilen und den Status des Imports.
 
-Um Ihnen den Einstieg zu erleichtern, laden Sie ein Template für Attribute oder Events herunter.
+Um zu beginnen, wählen Sie **Attributes** oder **Events** und laden Sie dann das entsprechende Template herunter, das Ihnen beim Erstellen Ihrer CSV-Datei für den Upload hilft.
 
 ![Die Seite „Import Users“ im Braze-Dashboard.]({% image_buster /assets/img/csv_import/import_users_page.png %})
 
 ### 2. Schritt: Bezeichner auswählen {#choose-an-identifier}
 
-Die CSV-Datei, die Sie importieren, benötigt einen dedizierten Bezeichner. Sie können aus den folgenden Optionen wählen:
+Die CSV-Datei, die Sie importieren, benötigt einen dedizierten Bezeichner. Wählen Sie einen der folgenden Bezeichnertypen für Ihren Import:
 
 {% tabs local %}
 <!-- TAB -->
@@ -117,7 +117,7 @@ Wenn Sie bereit sind, Ihre CSV-Datei zu erstellen, beachten Sie die folgenden In
 {% tab Nutzerattribute %}
 #### Erforderliche Bezeichner {#required-identifiers-attributes}
 
-Obwohl `external_id` nicht erforderlich ist, **müssen** Sie **einen** der folgenden Bezeichner als Überschrift in Ihrer CSV-Datei angeben. Details zu jedem einzelnen finden Sie unter [Bezeichner auswählen](#choose-an-identifier).
+Obwohl `external_id` nicht erforderlich ist, muss Ihre CSV-Datei einen Nutzerbezeichner enthalten, der **einem** der folgenden Bezeichner zugeordnet werden kann. Details zu jedem einzelnen finden Sie unter [Bezeichner auswählen](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -127,7 +127,7 @@ Obwohl `external_id` nicht erforderlich ist, **müssen** Sie **einen** der folge
 
 #### Angepasste Attribute {#custom-attributes}
 
-Die folgenden Datentypen können als angepasste Attribute für den CSV-Import verwendet werden. Spaltenüberschriften, die nicht exakt einem [Standardattribut](#default-attributes) entsprechen, werden als angepasste Attribute in Braze importiert.
+Die folgenden Datentypen können als angepasste Attribute für den CSV-Import verwendet werden. Spaltenüberschriften, die nicht exakt einem [Standardattribut](#default-attributes) entsprechen, werden als angepasste Attribute in Braze importiert, sofern sie nicht während des Zuordnungsschritts geändert werden.
 
 | Datentyp | Beschreibung |
 |---|---|
@@ -285,6 +285,8 @@ In diesem Beispiel:
 
 Um Ihre Datei hochzuladen, wählen Sie **Attributes** oder **Events**, klicken Sie auf **Browse Files** und laden Sie Ihre CSV-Datei hoch. Braze zeigt eine Vorschau der ersten Zeilen und eine Zusammenfassung der erkannten Felder an.
 
+![Die Dateivorschau-Seite mit einer Vorschau der Datei nach dem Upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
+
 Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
 
 ![Das Modal „Upload abgeschlossen“ mit einer Dateivorschau, einem Feld für den Importnamen, Targeting-Einstellungen und einem Kontrollkästchen für die Dateivalidierung.]({% image_buster /assets/img/csv_import/upload_completed.png %})
@@ -295,9 +297,50 @@ Im Feld **Import name** können Sie Ihren Import umbenennen. Standardmäßig wir
 Die Dateivorschau zeigt nur die ersten Zeilen Ihrer Datei. Um jede Zeile vor dem Import zu prüfen, verwenden Sie die [Dateivalidierung](#file-validation).
 {% endalert %}
 
-### 5. Schritt: Datei validieren (optional) {#file-validation}
+### 5. Schritt: Felder zuordnen (für Attribute) {#csv-data-mapping}
 
-Bevor Sie Ihren Import starten, können Sie eine Dateivalidierung durchführen, um jede Zeile auf Fehler und Warnungen zu prüfen. Um Ihre Datei zu validieren, wählen Sie **Validate file before importing** und klicken Sie dann auf **Start import**.
+Nach der Vorschau können Sie Ihre CSV-Überschriften Braze-Attributen zuordnen. Braze ordnet Felder in Ihrer CSV-Datei automatisch Attributen mit identischen Namen zu und erstellt bei Bedarf neue Attribute. Sie haben außerdem die Möglichkeit, Vorschläge manuell anzupassen oder andere Attribute für beliebige Spalten auszuwählen.
+
+![Die Spaltenzuordnungsseite.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
+
+#### Zuordnungsstatus {#mapping-statuses}
+
+Die Spalte „Zuordnungsstatus“ zeigt die Aktion an, die beim Import Ihrer CSV-Datei ausgeführt wird, und kann einen der folgenden Werte haben.
+
+| Zuordnungsstatus | Bedeutung |
+|:---|:---|
+| **Zugeordnet** | Feld wurde einem bestehenden Attribut oder Bezeichner zugeordnet. |
+| **Neues Attribut** | Braze erstellt beim Import ein neues Attribut. Sie können dieses Attribut bearbeiten, indem Sie den Button **Edit new attribute** auswählen. |
+| **Datentyp-Konflikt** | Der erkannte Datentyp der CSV-Spalte stimmt nicht mit dem Datentyp des bestehenden Attributs oder Bezeichners überein. Braze versucht, den Datentyp beim Import zu konvertieren, um ihn an das bestehende Attribut anzupassen. Der Wert wird verworfen, wenn dies nicht möglich ist. |
+| **Blocklist-Attribut** | Das CSV-Feld stimmt mit dem Namen eines blockierten Attributs überein. Wählen Sie ein anderes Attribut für die Zuordnung aus, oder die Spalte wird nicht importiert. |
+| **Doppeltes Attribut** | Es gibt ein oder mehrere Felder mit demselben Namen in Ihrer CSV-Datei. Ordnen Sie die gleichnamigen Spalten verschiedenen Attributen zu, oder es wird nur die erste Spalte importiert. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+#### Neue Attribute bearbeiten {#editing-new-attributes}
+
+Wenn ein passendes Attribut in Ihrem Workspace nicht existiert, versucht Braze, beim Import ein neues Attribut mit dem Namen des CSV-Felds und dem erkannten Datentyp zu erstellen. Sie können dieses neue Attribut vor dem Import bearbeiten, indem Sie den Button **Edit new attribute** neben dem Zuordnungsstatus auswählen.
+
+![Der Button „Edit new attribute“ auf der Spaltenzuordnungsseite.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
+
+{% alert note %}
+Sie können den Zuordnungsschritt erst fortsetzen, wenn ein Bezeichner zugeordnet ist. Braze ordnet nach Möglichkeit automatisch einen Bezeichner zu. Im Abschnitt **Required fields** können Sie prüfen, ob ein Bezeichner zugeordnet ist.
+{% endalert %}
+
+### 6. Schritt: Targeting-Einstellungen wählen {#targeting-preferences}
+
+Nach der Zuordnung können Sie auf der Seite „Import-Einstellungen“ aus den folgenden Targeting-Einstellungen wählen. Wenn Sie keinen neuen Targeting-Filter oder kein neues Segment aus Ihrem Import erstellen müssen, wählen Sie **Do not make this list available as a targeting filter**.
+
+| Option | Beschreibung |
+|---|---|
+| Targeting-Filter | Um Ihre CSV-Datei in eine Retargeting-Option beim Erstellen von Nutzersegmenten umzuwandeln, wählen Sie Ihre Datei aus dem Dropdown **Updated/Imported from CSV** und dann **Create targeting filter**. |
+| Neue Segmente | Um zusätzlich ein neues Segment aus Ihrem neuen Targeting-Filter zu erstellen, wählen Sie **Create targeting filter and add to new segment**. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV“, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+
+### 7. Schritt: Datei validieren (optional) {#file-validation}
+
+Bevor Sie Ihren Import starten, können Sie eine Dateivalidierung durchführen, um jede Zeile auf Fehler und Warnungen zu prüfen. Um Ihre Datei zu validieren, wählen Sie **Validate file before importing** auf der Seite „Import-Einstellungen“ und klicken Sie dann auf **Next**.
 
 Die Validierung kann bei Dateien mit der maximal zulässigen Größe bis zu 2 Minuten dauern. Während die Validierung läuft, können Sie **Skip validation** auswählen, um sie zu überspringen und sofort fortzufahren.
 
@@ -313,7 +356,7 @@ Wenn die Validierung abgeschlossen ist, wird eines der folgenden Ergebnisse ange
 | **Validierung abgelaufen mit Problemen** | Die Validierung hat das Zeitlimit überschritten und Fehler in einigen der geprüften Zeilen gefunden. | Laden Sie den Teilbericht herunter, um die gefundenen Probleme zu prüfen, und wählen Sie dann **Import anyway** oder **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-![Das Dialogfeld „Probleme gefunden“ mit einer Anzahl der Zeilen mit Fehlern und Warnungen sowie Optionen zum Abbrechen, Herunterladen des Fehlerberichts oder trotzdem Importieren.]({% image_buster /assets/img/csv_import/validation_issues.png %})
+![Die Zusammenfassungsseite mit dem Abschnitt „Probleme gefunden“, der die Anzahl der Zeilen mit Fehlern und Warnungen anzeigt, sowie Optionen zum Zurückgehen, Herunterladen des Fehlerberichts oder Starten des Imports.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### Den Fehlerbericht verstehen {#understanding-the-error-report}
 
@@ -327,21 +370,12 @@ Der Fehlerbericht ist eine CSV-Datei, die jede markierte Zeile zusammen mit ihre
 
 Nach der Überprüfung des Berichts können Sie die Probleme in Ihrer Originaldatei korrigieren und erneut hochladen oder mit dem Import fortfahren und die Teilergebnisse akzeptieren.
 
-### 6. Schritt: Targeting-Einstellungen wählen {#step-6-choose-targeting-preferences}
 
-Sie können auch aus den folgenden Targeting-Einstellungen wählen. Wenn Sie keinen neuen Targeting-Filter oder kein neues Segment aus Ihrem Import erstellen müssen, wählen Sie **Do not make this list available as a targeting filter**.
 
-| Option | Beschreibung |
-|---|---|
-| Targeting-Filter | Um Ihre CSV-Datei in eine Retargeting-Option beim Erstellen von Nutzersegmenten umzuwandeln, wählen Sie Ihre Datei aus dem Dropdown **Updated/Imported from CSV** und dann **Create targeting filter**. |
-| Neue Segmente | Um zusätzlich ein neues Segment aus Ihrem neuen Targeting-Filter zu erstellen, wählen Sie **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+### 8. Schritt: CSV-Import starten {#step-8-start-your-csv-import}
 
-![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV“, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
-
-### 7. Schritt: CSV-Import starten {#step-7-start-your-csv-import}
-
-Wenn Sie bereit sind, wählen Sie **Start import**. Sie können den aktuellen Fortschritt auf der Seite **Import Users** verfolgen, die sich automatisch alle 5 Sekunden aktualisiert. Die Verarbeitung kann je nach Größe Ihrer CSV-Datei von wenigen Minuten bis zu mehreren Stunden dauern. Während dieser Zeit kann das Dashboard nicht reagieren oder langsam antworten, aber der Import läuft weiter.
+Wenn Sie bereit sind, wählen Sie **Start Import**. Sie können den aktuellen Fortschritt auf der Seite **Import Users** verfolgen, die sich automatisch alle 5 Sekunden aktualisiert.
+Die Verarbeitung kann je nach Größe Ihrer CSV-Datei von wenigen Minuten bis zu mehreren Stunden dauern. Während dieser Zeit kann das Dashboard nicht reagieren oder langsam antworten, aber der Import läuft weiter.
 
 {% alert note %}
 Sie können mehr als eine CSV-Datei gleichzeitig importieren. CSV-Importe laufen parallel, sodass die Reihenfolge der Aktualisierungen nicht garantiert seriell ist. Wenn Sie CSV-Importe nacheinander ausführen müssen, warten Sie, bis ein CSV-Import abgeschlossen ist, bevor Sie einen zweiten hochladen.
@@ -386,6 +420,21 @@ Das Setzen von `language` oder `country` für eine:n Nutzer:in über CSV-Import 
 Wenn Sie die [Dateivalidierung](#file-validation) verwendet haben, beginnen Sie mit dem Fehlerbericht, da dieser das spezifische Problem für jede markierte Zeile und eine Beschreibung zur Behebung enthält. Für Zeilen, die während des Imports und nicht während der Validierung fehlgeschlagen sind, laden Sie den Fehlerbericht herunter, indem Sie auf der Seite **Import Users** mit der Maus über die Zeile fahren und den <i class="fas fa-download" title="Herunterladen"></i>-Button auswählen.
 
 Zur Fehlerbehebung beim CSV-Import lesen Sie die folgenden häufigen Probleme.
+
+### CSV-Import ist nicht als Segment-Filter verfügbar {#csv-import-isnt-available-as-a-segment-filter}
+
+Sie können einen CSV-Import nur dann als Segment-Filter verwenden, wenn Sie während des Uploads eine Targeting-Einstellung aktiviert haben.
+
+Um zu prüfen, ob die Targeting-Verfügbarkeit für einen bestehenden Import aktiviert ist:
+
+1. Suchen Sie auf der Seite **Import Users** Ihren CSV-Import.
+2. Prüfen Sie, ob **Go to Segment** für diesen Import angezeigt wird.
+3. Wenn **Go to Segment** angezeigt wird, ist Ihre CSV-Datei im Segment-Filter `Updated/Imported from CSV` verfügbar.
+4. Wenn **Go to Segment** nicht angezeigt wird, wurde die Targeting-Verfügbarkeit für diesen Import nicht aktiviert.
+
+Sie können die Targeting-Verfügbarkeit nach Abschluss eines CSV-Uploads nicht mehr aktivieren. Um diese CSV-Datei als Segment-Filter zu verwenden, laden Sie die Datei erneut hoch und wählen Sie in [Schritt 6: Targeting-Einstellungen wählen](#step-6-choose-targeting-preferences) die Option **Create targeting filter** oder **Create targeting filter and add to new segment**.
+
+Wenn Ihr Ziel darin besteht, ein Segment zu erstellen, ohne Profildaten zu aktualisieren, laden Sie eine CSV-Datei hoch, die nur Bezeichnerspalten enthält (z. B. `external_id` oder Alias-Bezeichnerspalten), und wählen Sie dann **Create targeting filter and add to new segment**.
 
 ### Probleme mit der Dateiformatierung {#file-formatting-issues}
 

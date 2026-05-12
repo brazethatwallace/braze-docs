@@ -21,7 +21,7 @@ Before you start, you'll need the following:
 |-----------------------|------------------------------------|
 | A Contentful account | You need a Contentful account with access to the Content Delivery API. |
 | A Braze account | You need a Braze account with access to the Connected Content feature. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

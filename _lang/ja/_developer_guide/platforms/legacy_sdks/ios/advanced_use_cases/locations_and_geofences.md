@@ -4,7 +4,7 @@ article_title: iOS の位置情報とジオフェンス
 platform: iOS
 page_order: 6
 description: "このリファレンス記事では、iOS アプリケーションに位置情報とジオフェンスを実装する方法について説明します。"
-Tool:
+tool:
   - Location
 
 noindex: true

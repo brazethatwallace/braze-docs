@@ -1,22 +1,25 @@
 ---
 nav_title: Workspace time zones
-article_title: Workspace Time Zones for Message Sending
+article_title: Workspace time zones
 alias: /workspace_time_zones/
 page_order: 3
 description: "This reference article covers how to configure different time zones for your Braze workspaces, providing more control over campaign and Canvas scheduling for teams operating in various geographical locations."
+toc_headers: h2
 ---
 
-# Workspace time zones for message sending
+# Workspace time zones
 
 > Workspace time zones allow admins to define specific time zones for individual workspaces. This makes scheduled campaigns and Canvases (that don't use local time or Intelligent Timing) send according to the workspace's designated time zone, rather than the overarching company time zone.
 
-{% multi_lang_include early_access_beta_alert.md feature='Workspace time zones' %}
+{% alert important %}
+Workspace time zones for message sending are rolling out gradually. You may not see these settings in your dashboard yet.
+{% endalert %}
 
 By default, a new workspace inherits the time zone set for your company. Admins can override this default for one or more workspaces with workspace time zones. When a workspace time zone is set, scheduled campaigns and Canvases within that workspace reference that new time zone for their send times.
 
 For example, if a workspace time zone is set to PST, and a campaign within that workspace is scheduled to send at 3 pm PST, it will deliver at 3 pm PST. This holds true even if your company's overall time zone is different (such as EST, where 3 pm PST would be 6 pm EST).
 
-## Managing workspace time zones
+## Manage workspace time zones
 
 If you're an admin, you can access and manage workspace time zones by going to **Settings** > **Admin Settings** > **Workspace Time Zones**.
 
@@ -84,6 +87,15 @@ A workspace updates its time zone from Eastern Time (EST) to Pacific Time (PST).
 
 Following this change, a user who performs the custom event at 10 pm PST on March 6, 2026 (which is 1 am EST on March 7, 2026) is now included in the audience, as they fell within the PST calendar boundary for that date.
 
-## Reporting discrepancies
+## Impact on performance data
 
-Workspace time zones provide precise control over campaign sending, but you should be aware of potential reporting discrepancies while this feature is in early access. Cross-reference data points and be mindful of the time zone when analyzing reports for workspaces with specific time zone overrides.
+Updating your workspace time zone affects how performance data is aggregated and displayed in your dashboard. Because analytics for data like *Daily Active Users* (DAU) rely on the workspace time zone to define the start and end of a 24-hour day, a change to this setting shifts those reporting windows.
+
+When you change the time zone, you may notice fluctuations or "shifts" in your historical data. This occurs because the 12 am to 11:59 pm window has moved relative to UTC.
+
+Consider the following example for a workspace that moves its time zone from UTC to PST (UTC-8):
+
+- **Before change:** A "day" for reporting is measured from 12 am UTC to 11:59 pm UTC.
+- **After change:** A "day" for reporting is now measured from 12 am PST to 11:59 pm PST.
+
+As a result, an event that occurred at 1 am UTC on January 1 would have previously been counted toward January 1 stats. After the change to PST, that same event (which occurred at 5 pm PST on December 31) would be attributed to the previous day's metrics in the updated report.

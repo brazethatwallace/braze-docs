@@ -98,7 +98,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 이 예시에서는 리드가 특정 리드 임계값을 넘은 후 리드의 리드 단계를 "MQL"(마케팅 적격 리드)로 업데이트하는 방법을 구체적으로 보여줍니다. 이는 [B2B 리드 스코어링 워크플로]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/) 사용 사례의 핵심 부분입니다.
 
-### 1단계: `client_id` 및 `client_secret` 수집하기 {#step-1-collect-your-clientid-and-clientsecret}
+### 1단계: `client_id` 및 `client_secret` 수집하기
 
 1. Salesforce에서 **Platform Tools** > **Apps** > **App Manager**로 이동합니다.
 2. 새로 생성한 Braze 앱을 찾아 **View**를 선택합니다.
@@ -106,13 +106,13 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 4. 결과 페이지에서 **Consumer Key**와 **Consumer Secret**을 기록합니다.
     - **Consumer Key**는 `client_id`이고, **Consumer Secret**은 `client_secret`입니다.
 
-### 2단계: 웹훅 템플릿 설정하기 {#step-2-set-up-your-webhook-template}
+### 2단계: 웹훅 템플릿 설정하기
 
 1. Braze에서 **Templates**로 이동하여 **Webhook Templates**를 선택한 다음 **+ Create Webhook Template**을 선택합니다.
 2. 템플릿의 이름을 입력합니다(예: "Salesforce Sales Cloud > Update Lead to MQL").
 3. **Compose** 탭에서 다음 세부 정보를 입력합니다:
 
-#### 웹훅 작성 {#compose-webhook}
+#### 웹훅 작성
 
 | 필드 | 세부 정보 |
 | --- | --- |
@@ -121,7 +121,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 | 요청 본문 | JSON 키/값 쌍 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 본문 등록정보 키 값 {#body-property-key-values}
+#### 본문 등록정보 키 값
 
 다음 키/값 쌍에 대해 **+ Add New Body Property**를 선택합니다. `Lead_Stage__c`는 예시 이름입니다. Salesforce에서 MQL을 추적하는 데 사용하는 커스텀 필드의 이름이 다를 수 있으므로 이름이 일치하는지 확인하세요.
 
@@ -130,7 +130,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 | `Lead_Stage__c` | `MQL` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 요청 헤더 {#request-headers}
+#### 요청 헤더
 
 다음 요청 헤더 각각에 대해 **+ Add New Header**를 선택합니다.
 
@@ -166,7 +166,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 #### MQL 임계값을 통과한 사용자를 확인하는 캔버스 단계 추가하기 {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
-1. 두 그룹으로 **오디언스 경로** 단계를 추가합니다: "MQL Threshold"와 "Everyone Else".
+1. 두 그룹으로 **오디언스 경로** 단계를 추가합니다: "MQL Threshold"와 "다른 모든 사용자".
 2. "MQL Threshold" 그룹에서 현재 "MQL" 상태가 아니지만(예: `lead_stage`가 "Lead"와 같음) 리드 점수가 정의한 임계값을 초과하는(예: `lead_score`가 50보다 큰) 사용자를 찾습니다. 해당되면 다음 단계로 이동하고, 그렇지 않으면 종료합니다.
 
 ![`lead_stage`가 "Lead"와 같고 `lead_score`가 "50"보다 큰 필터가 있는 "MQL Threshold" 오디언스 경로 그룹.]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}

@@ -16,10 +16,9 @@ Antes de empezar, necesitarás lo siguiente:
 
 - [Permiso]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) para acceder a la **Consola de Agente** en tu espacio de trabajo. Consulta con tus administradores de Braze si no ves esta opción.
 - Permiso para crear y editar agentes de IA personalizados.
-- Un [proveedor de modelos de IA]({{site.baseurl}}/partners/ai_model_providers/) integrado con Braze.
 - Una idea de lo que quieres que logre el agente. Los agentes de Braze pueden realizar las siguientes acciones:
-   - **Mensajería:** Genera líneas del asunto, titulares, textos para productos u otro tipo de contenido.
-   - **Toma de decisiones:** Dirige a los usuarios en Canvas en función de su comportamiento, preferencias o atributos personalizados.
+   - **Mensajería personalizada:** Genera líneas del asunto, titulares, textos para productos u otro tipo de contenido.
+   - **Enrutamiento de usuarios:** Dirige a los usuarios en Canvas en función de su comportamiento, preferencias o atributos personalizados.
    - **Gestión de datos:** Calcula valores, mejora las entradas del catálogo o actualiza los campos del perfil.
 
 ## Cómo funciona {#how-it-works}
@@ -31,7 +30,7 @@ Los siguientes casos de uso muestran algunas formas de aprovechar los agentes pe
 | Caso de uso | Descripción |
 | --- | --- |
 | Gestión de los comentarios de los clientes | Transmite los comentarios de los usuarios a un agente para que analice el sentimiento y genere mensajes de seguimiento empáticos. Para los usuarios de alto valor, el agente podría escalar la respuesta o incluir ventajas adicionales. |
-| Localización de contenido | Traduce el texto del catálogo a otro idioma para Campaigns globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster" o acorta las descripciones para las Campaigns de SMS. |
+| Localización de contenido | Traduce el texto del catálogo a otro idioma para campañas globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster" o acorta las descripciones para las campañas de SMS. |
 | Resumen de reseñas o comentarios | Resume las opiniones o comentarios en un nuevo campo, por ejemplo, asignando puntuaciones como Positivo, Neutro o Negativo, o creando un breve resumen de texto como "La mayoría de los clientes mencionan que el producto se ajusta muy bien, pero señalan que el envío es lento". |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -53,15 +52,15 @@ A continuación, configura los detalles de tu agente:
 2. (opcional) Añade etiquetas para filtrar tu agente.
 3. Elige el [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) que utilizará tu agente.
 4. Si no estás utilizando el modelo **Braze Auto**, selecciona el [nivel de pensamiento]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels) del modelo. Puedes elegir entre mínimo, bajo, medio o alto. Te recomendamos que comiences con **Mínimo** y pruebes las respuestas de tu agente, ajustándolo según sea necesario.
-5. Establece un límite de ejecución diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
+5. Establece un límite de invocaciones diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
 
-![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de ejecución diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de invocaciones diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Paso 3: Escribe las instrucciones {#agent-instructions}
 
 Dale instrucciones al agente. Recomendamos incluir instrucciones sobre lo que debe hacer el agente en situaciones inesperadas o ambiguas. Esto minimiza el riesgo de que la confusión del agente provoque errores. Por ejemplo, en lugar de pedirle al agente solo valores de sentimiento "positivos" o "negativos", pídele que devuelva "indeciso" si no puede decidir.
 
-Consulta las [instrucciones de redacción]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para conocer las mejores prácticas y los [ejemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) para inspirarte sobre cómo dar instrucciones a tu agente.
+Consulta las [instrucciones de redacción]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para conocer las mejores prácticas y los [ejemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) para inspirarte sobre cómo dar instrucciones a tu agente.
 
 {% alert tip %}
 Para los agentes de Canvas, puedes utilizar Liquid en tus instrucciones para hacer referencia a atributos de los usuarios, como su nombre y apellidos, o atributos personalizados. Cualquier variable Liquid en las instrucciones del agente se pasa automáticamente al paso del agente cuando un usuario entra en el paso.
@@ -99,7 +98,7 @@ El panel de **vista previa** es una instancia del agente que aparece como un pan
 3. Selecciona **Simular respuesta**. El agente se ejecutará según tu configuración y mostrará su respuesta.
 
 {% alert note %}
-Las ejecuciones de prueba cuentan para tu límite de ejecución diario.
+Las ejecuciones de prueba cuentan para tu límite de invocaciones diario.
 {% endalert %}
 
 ![Consola de Agente que muestra el panel de vista previa para probar un agente personalizado. La interfaz muestra un campo de entradas de muestra con datos de clientes de ejemplo, un botón Ejecutar prueba y un área de respuesta donde aparece la salida del agente.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

@@ -32,10 +32,10 @@ Puedes ver los siguientes datos en el gráfico **Performance Over Time**:
 - Compras
     - (Opcional) Compras por producto
 - Ingresos
-    - (Opcional) Ingresos por segmento
+    - (Opcional) Ingresos por Segment
     - (Opcional) Ingresos por producto
 - Ingresos por hora
-    - (Opcional) Ingresos por hora por segmento
+    - (Opcional) Ingresos por hora por Segment
 - Ingresos por usuario
 
 ## Comprender los cálculos de ingresos {#understanding-revenue-calculations}
@@ -51,6 +51,7 @@ Cuando registras ingresos en una moneda sin tipo de cambio, Braze los registra c
 </style>
 
 <table>
+  <caption>Comprender los cálculos de ingresos</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -89,10 +90,10 @@ Consulta la tabla **Product Breakdown** para ver una lista de los productos comp
 
 ## Exportar datos de ingresos {#exporting-revenue-data}
 
-Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Menú contextual del gráfico"></i> en el gráfico **Performance Over Time** y selecciona tu opción de exportación.
+Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Chart context menu"></i> en el gráfico **Performance Over Time** y selecciona tu opción de exportación.
 
 {% alert tip %}
-¿Buscas más formas de obtener datos de ingresos? Intenta añadir comportamiento de compra (así como la compra de un producto) a campañas o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+¿Buscas más formas de obtener datos de ingresos? Intenta añadir comportamiento de compra (así como la compra de un producto) a Campaigns o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
 {% endalert %}
 
 También puedes ver estadísticas de ingresos caso por caso en las páginas de [análisis de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) o [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).

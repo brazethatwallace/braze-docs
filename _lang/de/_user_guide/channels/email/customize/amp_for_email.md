@@ -9,11 +9,11 @@ channel:
 
 ---
 
-# AMP für E-Mail
+# AMP für E-Mail {#amp-for-email}
 
 > Mit [AMP für E-Mail](https://amp.dev/about/email) können Sie interaktive Elemente zu Ihren E-Mails hinzufügen und die Kommunikation mit Ihren Kund:innen verbessern, indem Sie ein vollständiges Erlebnis direkt in den Posteingang Ihrer Nutzer:innen liefern. AMP macht dies durch die Verwendung verschiedener Komponenten möglich, die beim Erstellen ansprechender E-Mail-Angebote wie Umfragen, Feedback-Fragebögen, Abstimmungskampagnen, Bewertungen, Abo-Center und mehr helfen können. Tools wie diese bieten Möglichkeiten, Engagement und Bindung zu steigern.
 
-## Anforderungen
+## Anforderungen {#requirements}
 
 Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google registrieren oder die erforderlichen Sicherheitsanforderungen erfüllen. AMP für E-Mail ist nur für SparkPost und SendGrid verfügbar.
 
@@ -25,7 +25,7 @@ Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google registr
 | AMP-E-Mail-Elemente | Eine überzeugende AMP-E-Mail beinhaltet den strategischen Einsatz verschiedener Komponenten. Weitere Informationen finden Sie im Tab „Grundlagen“ im Abschnitt [Komponenten](#components) weiter unten. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### Unterstützte E-Mail-Clients
+### Unterstützte E-Mail-Clients {#supported-email-clients}
 
 Bevor Sie AMP-E-Mails an Nutzer:innen senden können, müssen Sie sich bei unseren E-Mail-Clients registrieren. Der Registrierungsprozess umfasst das Senden einer Test-AMP-HTML-E-Mail zur Genehmigung. Die Genehmigungszeiten variieren je nach Client. Folgen Sie den Registrierungslinks für weitere Informationen.
 
@@ -35,6 +35,7 @@ Bevor Sie AMP-E-Mails an Nutzer:innen senden können, müssen Sie sich bei unser
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Eine vollständige Liste der unterstützten E-Mail-Clients finden Sie in der [AMP-Dokumentation](https://amp.dev/support/faq/email-support).
 
@@ -48,7 +49,7 @@ Gehen Sie zu Ihren Gmail-Einstellungen und wählen Sie unter **Allgemein** die O
 
 Sie können AMP für E-Mail auch mit unserer API verwenden. Wenn Sie einen der Braze [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) zum Senden einer E-Mail verwenden, fügen Sie `amp_body` als Objektspezifikation hinzu, wie unten gezeigt.
 
-### E-Mail-Objektspezifikation
+### E-Mail-Objektspezifikation {#email-object-specification}
 
 ```json
 {
@@ -69,7 +70,7 @@ Sie können AMP für E-Mail auch mit unserer API verwenden. Wenn Sie einen der B
 }
 ```
 
-## Ihre AMP-E-Mail erstellen
+## Ihre AMP-E-Mail erstellen {#create-your-amp-email}
 
 Erstellen Sie zunächst Ihre AMP-E-Mail mit [Komponenten](#components). Verwenden Sie dann die [Braze-API](#api-usage), um Ihre Nachricht zu senden, und stellen Sie sicher, dass `amp_body` für Ihr AMP-HTML enthalten ist.
 
@@ -90,7 +91,7 @@ Weitere Ressourcen:
 Beim Erstellen der AMP-Elemente empfehlen wir, sich mit Ihrem Entwicklerteam abzustimmen und Design-Ressourcen und -Elemente für eine zusätzliche Verfeinerung einzubeziehen.
 
 {% tabs %}
-  {% tab Essentials %}
+  {% tab Grundlagen %}
 
 Jedes dieser Elemente ist im Body Ihrer AMP-E-Mail erforderlich.
 
@@ -102,7 +103,7 @@ Jedes dieser Elemente ist im Body Ihrer AMP-E-Mail erforderlich.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
   {% endtab %}
-  {% tab Dynamic %}
+  {% tab Dynamisch %}
 
 Verwenden Sie diese Komponenten, um dynamische Layouts und Verhaltensweisen in Ihren E-Mails zu erstellen.
 
@@ -116,7 +117,7 @@ Verwenden Sie diese Komponenten, um dynamische Layouts und Verhaltensweisen in I
 Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
 {% endalert %}
   {% endtab %}
-  {% tab Creative %}
+  {% tab Kreativ %}
 
   Werden Sie kreativ mit AMP-Komponenten, die Ihnen helfen können, Ihre E-Mail auf Ihre Zielgruppe zuzuschneiden.
 
@@ -132,11 +133,11 @@ Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Go
 {% endalert %}
 
   {% endtab %}
-  {% tab Other %}
+  {% tab Sonstiges %}
 
 | Komponente | Beschreibung |
 |---------|--------------|
-| [Datenbindung & Ausdrücke](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Fügt Ihren AMP-Seiten angepasste zustandsabhängige Interaktivität über Datenbindung und JavaScript-ähnliche Ausdrücke hinzu. |
+| [Datenbindung und Ausdrücke](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Fügt Ihren AMP-Seiten angepasste zustandsabhängige Interaktivität über Datenbindung und JavaScript-ähnliche Ausdrücke hinzu. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
@@ -148,10 +149,10 @@ Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Go
 
 Eine vollständige Liste der AMP-Komponenten finden Sie in der [AMP-Dokumentation](https://amp.dev/documentation/components/?format=email).
 
-### Anwendungsfälle
+### Anwendungsfälle {#use-cases}
 
 {% tabs local %}
-{% tab Interactive Surveys %}
+{% tab Interaktive Umfragen %}
 
 Mit der Komponente `<amp-form>` können Sie interaktive Umfragen erstellen, die ausgefüllt werden können, ohne den E-Mail-Posteingang zu verlassen. Dies kann erreicht werden, indem Sie `<amp-form>` verwenden, um die Umfrageantwort zu übermitteln, und dann Ihr Backend diese aggregierten Daten bereitstellen lassen.
 
@@ -163,20 +164,20 @@ Einige Beispiele sind:
 Mit dieser Komponente können Nutzer:innen Feldwerte absenden oder löschen. Abhängig davon, wie Sie Ihre E-Mail einrichten, können Sie den Nutzer:innen auch zusätzliche Hinweise geben, z. B. ob die Umfrageübermittlung erfolgreich war, oder die Antworten Ihrer Nutzer:innen mit Umfrageergebnissen anzeigen (z. B. bei einer Abstimmungskampagne).
 
 {% endtab %}
-{% tab Collapsable Content %}
+{% tab Einklappbare Inhalte %}
 
 Erweitern Sie Ihre Inhaltsabschnitte mit der Komponente `<amp-accordion>`. Diese Komponente ermöglicht es Ihnen, zusammenklappbare und erweiterbare Inhaltsabschnitte anzuzeigen, sodass Betrachter:innen die Inhaltsübersicht überblicken und zu einem beliebigen Abschnitt springen können.
 
 Wenn Sie dazu neigen, lange Bildungsartikel oder personalisierte Empfehlungen zu senden, bietet dies eine Möglichkeit für Betrachter:innen, die Inhaltsübersicht zu überblicken und zu einem beliebigen Abschnitt oder einer bestimmten Produktempfehlung zu springen, um weitere Details zu erhalten. Dies kann besonders für mobile Nutzer:innen hilfreich sein, bei denen bereits wenige Sätze in einem Abschnitt Scrollen erfordern.
 {% endtab %}
-{% tab Image Heavy Emails %}
+{% tab Bildlastige E-Mails %}
 
 Wenn Sie dazu neigen, E-Mails mit vielen professionellen Fotos zu senden, wie es bei Einzelhandelsmarken üblich ist, können Sie die Komponente `<amp-image-lightbox>` verwenden, die es Nutzer:innen ermöglicht, mit einem Bild zu interagieren, das sie anspricht. Wenn Nutzer:innen auf das Bild klicken, zeigt diese Komponente das Bild in der Mitte der Nachricht an und erzeugt einen Lightbox-Effekt.
 
 Darüber hinaus ermöglicht die Komponente `<amp-image-lightbox>` den Nutzer:innen, eine detaillierte Bildbeschreibung anzuzeigen. Sie können dieselbe Komponente für mehr als ein Bild verwenden. Wenn Sie beispielsweise mehrere Bilder in Ihrer E-Mail haben und Nutzer:innen auf eines der Bilder klicken, wird das Bild in der Lightbox angezeigt.
 
 {% endtab %}
-{% tab Font Driven Emails %}
+{% tab Textbasierte E-Mails %}
 
 Für E-Mails, die hauptsächlich auf Textinhalte setzen, ermöglicht Ihnen die Komponente `<amp-fit-text>`, die Größe und Anpassung von Text innerhalb eines bestimmten Bereichs zu verwalten.
 
@@ -189,13 +190,13 @@ Beispiele sind:
 {% endtab %}
 {% endtabs %}
 
-### amp-mustache verwenden
+### amp-mustache verwenden {#use-amp-mustache}
 
 Ähnlich wie Liquid unterstützt AMP eine Skriptsprache für fortgeschrittenere Anwendungsfälle. Diese Komponente heißt [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). Wenn Sie Mustache-Markup-Sprache einbinden, müssen Sie sie mit dem [`raw`](https://shopify.github.io/liquid/tags/raw/)-Tag von Liquid umschließen. Beachten Sie, dass Liquid und Mustache eine ähnliche Syntax verwenden.
 
 Indem Sie Ihren Inhalt mit dem `raw`-Tag umschließen, ignoriert die Braze-Verarbeitungs-Engine alle Inhalte zwischen den `raw`-Tags und sendet die Mustache-Variable, die Ihr Team benötigt.
 
-## Metriken und Analytics
+## Metriken und Analytics {#metrics-and-analytics}
 
 <style>
     .no-split {
@@ -204,6 +205,7 @@ Indem Sie Ihren Inhalt mit dem `raw`-Tag umschließen, ignoriert die Braze-Verar
 </style>
 
 <table>
+  <caption>Metriken und Analytics</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -230,11 +232,14 @@ Indem Sie Ihren Inhalt mit dem `raw`-Tag umschließen, ignoriert die Braze-Verar
     </tbody>
 </table>
 
-## Testen und Fehlerbehebung
+## Testen und Fehlerbehebung {#test-and-troubleshoot}
 
-Beachten Sie, dass Gesamtklicks und eindeutige Klicks keine Klicks berücksichtigen, die aus einer AMP-Nachricht stammen (nur HTML und Klartext). AMP-spezifische Klicks werden der Metrik *amp_click* zugeordnet.
 
-Bevor Sie Ihre AMP-E-Mail senden, empfehlen wir, gemäß diesen [Gmail-Richtlinien](https://developers.google.com/gmail/ampemail/testing-dynamic-email) zu testen.
+Bevor Sie Ihre AMP-E-Mail senden, empfehlen wir:
+
+- Testen Sie gemäß diesen [Gmail-Richtlinien](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+- Verwenden Sie den [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/), um AMP-Markup zu validieren.
+  - Wenn Ihre AMP-E-Mail Liquid-Tags verwendet, ersetzen Sie diese durch statische Platzhalterwerte, bevor Sie sie in den Gmail AMP for Email Playground einfügen. Nicht gerenderte Liquid-Tags verursachen Validierungsfehler.
 
 Damit Ihre AMP-E-Mail an ein beliebiges Gmail-Konto zugestellt werden kann, muss die E-Mail die folgenden Bedingungen erfüllen:
 
@@ -243,10 +248,25 @@ Damit Ihre AMP-E-Mail an ein beliebiges Gmail-Konto zugestellt werden kann, muss
 - Die E-Mail sollte den AMP-MIME-Teil vor dem HTML-MIME-Teil enthalten.
 - Der AMP-MIME-Teil muss kleiner als 100&nbsp;KB sein.
 
+Beachten Sie, dass Gesamtklicks und eindeutige Klicks keine Klicks berücksichtigen, die aus einer AMP-Nachricht stammen (nur HTML und Klartext). AMP-spezifische Klicks werden der Metrik *amp_click* zugeordnet.
+
 Wenn keine dieser Bedingungen den Fehler verursacht, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/).
 
-### Häufig gestellte Fragen
+### Gmail-Posteingang für die Darstellung von AMP-E-Mails konfigurieren {#configure-gmail-inbox-to-render-amp-emails}
 
-#### Sollte ich bei AMP-E-Mails segmentieren?
+Sie können Ihren Gmail-Posteingang zu Testzwecken für die Darstellung von AMP-E-Mails konfigurieren, indem Sie Folgendes tun:
+
+1. Wählen Sie in Gmail **Einstellungen** in der oberen rechten Ecke Ihres Posteingangs aus.
+2. Wählen Sie **Alle Einstellungen anzeigen** aus.
+3. Gehen Sie im Tab **Allgemein** zum Abschnitt **Dynamische E-Mails** und bestätigen Sie, dass das Kontrollkästchen **Dynamische E-Mails aktivieren** aktiviert ist.
+4. Wählen Sie als Nächstes **Entwicklereinstellungen** und aktivieren Sie das Kontrollkästchen **Dynamische E-Mails von diesem Absender immer zulassen:**.
+5. Geben Sie dieselbe Domain ein, die in der Absenderadresse Ihrer Testnachricht verwendet wird.
+6. Speichern Sie Ihre Änderungen.
+
+Jetzt können Sie die Test-E-Mail an Ihr Gmail-Konto senden, und AMP-E-Mails sollten in Gmail dargestellt werden.
+
+### Häufig gestellte Fragen {#frequently-asked-questions}
+
+#### Sollte ich bei AMP-E-Mails segmentieren? {#should-i-segment-with-amp-emails}
 
 Wir empfehlen, nicht zu segmentieren, um an alle verschiedenen Nutzer:innentypen zu senden. Das liegt daran, dass wir AMP-Nachrichten als Multipart senden, wobei verschiedene Versionen in der ursprünglichen E-Mail enthalten sind. Wenn Nutzer:innen die AMP-Version nicht sehen können, wird automatisch auf HTML zurückgefallen.

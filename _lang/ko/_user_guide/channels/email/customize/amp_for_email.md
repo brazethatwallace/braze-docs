@@ -9,11 +9,11 @@ channel:
 
 ---
 
-# 이메일용 AMP
+# 이메일용 AMP {#amp-for-email}
 
 > [이메일용 AMP](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. AMP는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 Campaign, 리뷰, 구독 센터 등 매력적인 이메일 콘텐츠를 구축할 수 있게 해줍니다. 이러한 도구는 참여도와 리텐션을 높일 수 있는 기회를 제공합니다.
 
-## 요구 사항
+## 요구 사항 {#requirements}
 
 Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항을 충족하는 것에 대해 책임지지 않습니다. 이메일용 AMP는 SparkPost 및 SendGrid에서만 사용할 수 있습니다.
 
@@ -25,7 +25,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | AMP 이메일 요소 | 매력적인 AMP 이메일에는 다양한 구성요소의 전략적 사용이 포함됩니다. 아래 [구성요소](#components) 섹션의 필수 요소 탭을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-### 지원되는 이메일 클라이언트
+### 지원되는 이메일 클라이언트 {#supported-email-clients}
 
 사용자에게 AMP 이메일을 보내려면 먼저 이메일 클라이언트에 등록해야 합니다. 등록 과정에서는 승인을 받기 위해 테스트 AMP HTML 이메일을 보내야 합니다. 승인 시간은 클라이언트마다 다릅니다. 자세한 내용은 등록 링크를 참조하세요.
 
@@ -35,20 +35,21 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
 ### Gmail 계정 활성화 {#enabling-gmail-account}
 
-Gmail 설정으로 이동하여 **기본설정** 아래에서 **동적 이메일 사용**을 선택합니다.
+Gmail 설정으로 이동하여 **General** 탭에서 **Enable dynamic email**을 선택합니다.
 
-![Gmail 설정에서 '동적 이메일 사용' 체크박스가 선택된 예시.]({% image_buster /assets/img/dynamic-content.png %})
+![Gmail 설정에서 'Enable dynamic email' 체크박스가 선택된 예시.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## API 사용법 {#api-usage}
 
 API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 사용하여 이메일을 보내는 경우, 아래와 같이 `amp_body`를 오브젝트 사양으로 추가하세요.
 
-### 이메일 오브젝트 사양
+### 이메일 오브젝트 사양 {#email-object-specification}
 
 ```json
 {
@@ -69,7 +70,7 @@ API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메�
 }
 ```
 
-## AMP 이메일 만들기
+## AMP 이메일 만들기 {#create-your-amp-email}
 
 먼저 [구성요소](#components)를 사용하여 AMP 이메일을 작성합니다. 그런 다음 [Braze API](#api-usage)를 사용하여 메시지를 보내되, AMP HTML에 `amp_body`를 포함해야 합니다.
 
@@ -90,7 +91,7 @@ AMP 이메일을 작성할 때는 AMP 에디터에서 작업하고 있는지 확
 AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리소스와 요소를 포함하여 추가적인 완성도를 높이는 것을 권장합니다.
 
 {% tabs %}
-  {% tab Essentials %}
+  {% tab 필수 요소 %}
 
 이러한 각 요소는 AMP 이메일 본문에 필수입니다.
 
@@ -102,7 +103,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
   {% endtab %}
-  {% tab Dynamic %}
+  {% tab 동적 %}
 
 이러한 구성요소를 사용하여 이메일에 동적 레이아웃과 동작을 만들 수 있습니다.
 
@@ -116,7 +117,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
 {% endalert %}
   {% endtab %}
-  {% tab Creative %}
+  {% tab 크리에이티브 %}
 
   AMP의 구성요소를 활용하여 오디언스에 맞게 이메일을 꾸며보세요.
 
@@ -132,7 +133,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 {% endalert %}
 
   {% endtab %}
-  {% tab Other %}
+  {% tab 기타 %}
 
 | 구성요소 | 설명 |
 |---------|--------------|
@@ -148,10 +149,10 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 
 AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentation/components/?format=email)를 확인하세요.
 
-### 활용 사례
+### 활용 사례 {#use-cases}
 
 {% tabs local %}
-{% tab Interactive Surveys %}
+{% tab 인터랙티브 설문조사 %}
 
 `<amp-form>` 구성요소를 사용하면 이메일 받은편지함을 떠나지 않고도 완료할 수 있는 인터랙티브 설문조사를 만들 수 있습니다. `<amp-form>`을 사용하여 설문조사 응답을 제출하고, 백엔드에서 이 집계 데이터를 제공하도록 할 수 있습니다.
 
@@ -163,20 +164,20 @@ AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentati
 이 구성요소를 사용하면 사용자가 필드 값을 제출하거나 지울 수 있습니다. 또한 이메일 설정 방식에 따라 설문조사 제출이 성공했는지 여부와 같은 추가 프롬프트를 사용자에게 제공하거나, 설문조사 결과(예: 투표 Campaign)를 보여주는 사용자 응답을 렌더링할 수 있습니다.
 
 {% endtab %}
-{% tab Collapsable Content %}
+{% tab 접을 수 있는 콘텐츠 %}
 
 `<amp-accordion>` 구성요소를 사용하여 콘텐츠 섹션을 확장할 수 있습니다. 이 구성요소를 사용하면 접을 수 있고 펼칠 수 있는 콘텐츠 섹션을 표시하여 독자가 콘텐츠 개요를 한눈에 보고 원하는 섹션으로 이동할 수 있습니다.
 
 긴 교육 문서나 개인화된 추천을 자주 보내는 경우, 독자가 콘텐츠 개요를 한눈에 보고 원하는 섹션이나 특정 제품 추천으로 이동하여 자세한 내용을 확인할 수 있습니다. 이는 특히 섹션의 몇 문장만으로도 스크롤이 필요한 모바일 사용자에게 유용합니다.
 {% endtab %}
-{% tab Image Heavy Emails %}
+{% tab 이미지가 많은 이메일 %}
 
 리테일 브랜드처럼 전문적인 사진이 많은 이메일을 자주 보내는 경우, `<amp-image-lightbox>` 구성요소를 사용하여 사용자가 관심 있는 이미지와 상호작용할 수 있게 할 수 있습니다. 사용자가 이미지를 클릭하면 이 구성요소가 메시지 중앙에 이미지를 표시하여 라이트박스 효과를 만듭니다.
 
 또한 `<amp-image-lightbox>` 구성요소를 사용하면 사용자가 상세한 이미지 설명을 볼 수 있습니다. 하나 이상의 이미지에 동일한 구성요소를 사용할 수 있습니다. 예를 들어, 이메일에 여러 이미지가 포함된 경우 사용자가 어떤 이미지를 클릭하든 해당 이미지가 라이트박스에 표시됩니다.
 
 {% endtab %}
-{% tab Font Driven Emails %}
+{% tab 텍스트 중심 이메일 %}
 
 주로 텍스트에 의존하는 이메일의 경우, `<amp-fit-text>` 구성요소를 사용하여 지정된 영역 내에서 텍스트의 크기와 맞춤을 관리할 수 있습니다.
 
@@ -189,13 +190,13 @@ AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentati
 {% endtab %}
 {% endtabs %}
 
-### amp-mustache 사용하기
+### amp-mustache 사용하기 {#use-amp-mustache}
 
 Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언어를 지원합니다. 이 구성요소는 [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email)라고 합니다. Mustache 마크업 언어를 포함할 때는 Liquid의 [`raw`](https://shopify.github.io/liquid/tags/raw/) 태그로 감싸야 합니다. Liquid와 Mustache는 구문 스타일을 공유한다는 점에 유의하세요.
 
 콘텐츠를 `raw` 태그로 감싸면 Braze 처리 엔진이 `raw` 태그 사이의 콘텐츠를 무시하고 팀에서 필요한 Mustache 변수를 그대로 발송합니다.
 
-## 측정기준 및 분석
+## 측정기준 및 분석 {#metrics-and-analytics}
 
 <style>
     .no-split {
@@ -204,6 +205,7 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
 </style>
 
 <table>
+  <caption>측정기준 및 분석</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -212,29 +214,32 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
     </thead>
     <tbody>
         <tr>
-            <td class="no-split">총 열람 수</td>
+            <td class="no-split">Total Opens</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Opens' %} AMP 이메일의 경우, HTML 및 일반 텍스트 버전의 총 열람 수입니다.</td>
         </tr>
         <tr>
-            <td class="no-split">총 클릭 수</td>
+            <td class="no-split">Total Clicks</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %} AMP 이메일의 경우, HTML 및 일반 텍스트 버전의 총 클릭 수입니다.</td>
         </tr>
         <tr>
-            <td class="no-split">AMP 열람 수</td>
+            <td class="no-split">AMP Opens</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split">AMP 클릭 수</td>
+            <td class="no-split">AMP Clicks</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}</td>
         </tr>
     </tbody>
 </table>
 
-## 테스트 및 문제 해결
+## 테스트 및 문제 해결 {#test-and-troubleshoot}
 
-총 클릭 수와 고유 클릭 수에는 AMP 메시지에서 발생한 클릭이 포함되지 않습니다(HTML 및 일반 텍스트만 해당). AMP 관련 클릭은 *amp_click* 측정기준에 귀속됩니다.
 
-AMP 이메일을 보내기 전에 이 [Gmail 가이드라인](https://developers.google.com/gmail/ampemail/testing-dynamic-email)에 따라 테스트하는 것을 권장합니다.
+AMP 이메일을 보내기 전에 다음을 권장합니다:
+
+- 이 [Gmail 가이드라인](https://developers.google.com/gmail/ampemail/testing-dynamic-email)에 따라 테스트합니다.
+- [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/)를 사용하여 AMP 마크업을 검증합니다.
+  - AMP 이메일에 Liquid 태그가 사용된 경우, Gmail AMP for Email Playground에 붙여넣기 전에 정적 플레이스홀더 값으로 대체하세요. 렌더링되지 않은 Liquid 태그는 유효성 검사 오류를 발생시킵니다.
 
 AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 합니다:
 
@@ -243,10 +248,25 @@ AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 �
 - 이메일에 HTML MIME 파트보다 AMP MIME 파트가 먼저 포함되어야 합니다.
 - AMP MIME 파트는 100&nbsp;KB 미만이어야 합니다.
 
+총 클릭 수와 고유 클릭 수에는 AMP 메시지에서 발생한 클릭이 포함되지 않습니다(HTML 및 일반 텍스트만 해당). AMP 관련 클릭은 *amp_click* 측정기준에 귀속됩니다.
+
 이러한 조건 중 어느 것도 오류의 원인이 아닌 경우 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
 
-### 자주 묻는 질문
+### Gmail 받은편지함에서 AMP 이메일을 렌더링하도록 설정하기 {#configure-gmail-inbox-to-render-amp-emails}
 
-#### AMP 이메일로 Segment를 나눠야 하나요?
+다음 단계를 수행하여 테스트 목적으로 Gmail 받은편지함에서 AMP 이메일을 렌더링하도록 설정할 수 있습니다:
 
-다양한 유형의 사용자에게 보내기 위해 Segment를 나누지 않는 것을 권장합니다. AMP 메시지는 멀티파트로 발송되어 원본 이메일에 여러 버전이 포함되기 때문입니다. 사용자가 AMP 버전을 볼 수 없는 경우 HTML로 자동 전환됩니다.
+1. Gmail에서 받은편지함 오른쪽 상단의 **Settings**을 선택합니다.
+2. **See all settings**를 선택합니다.
+3. **General** 탭에서 **Dynamic email** 섹션으로 이동하여 **Enable dynamic email** 체크박스가 선택되어 있는지 확인합니다.
+4. 다음으로 **Developer Settings**를 선택하고 **Always allow dynamic emails from this sender:** 체크박스를 선택합니다.
+5. 테스트 메시지의 발신자 주소와 동일한 도메인을 입력합니다.
+6. 변경 사항을 저장합니다.
+
+이제 Gmail 계정으로 테스트 이메일을 보내면 AMP 이메일이 Gmail에서 렌더링됩니다.
+
+### 자주 묻는 질문 {#frequently-asked-questions}
+
+#### AMP 이메일로 세그먼트를 나눠야 하나요? {#should-i-segment-with-amp-emails}
+
+다양한 유형의 사용자에게 보내기 위해 세그먼트를 나누지 않는 것을 권장합니다. AMP 메시지는 멀티파트로 발송되어 원본 이메일에 여러 버전이 포함되기 때문입니다. 사용자가 AMP 버전을 볼 수 없는 경우 HTML로 자동 전환됩니다.

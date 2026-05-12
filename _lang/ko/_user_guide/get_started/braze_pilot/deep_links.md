@@ -76,6 +76,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>허용되는 매개변수</caption>
     <thead>
         <tr>
             <th>매개변수</th>
@@ -258,6 +259,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>허용되는 매개변수</caption>
     <thead>
         <tr>
             <th>매개변수</th>

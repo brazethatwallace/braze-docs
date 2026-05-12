@@ -26,6 +26,7 @@ Si vous constatez des incohérences généralisées, contactez votre gestionnair
 ## Vues disponibles {#available-views}
 
 <table>
+  <caption>Vues disponibles</caption>
   <thead>
     <tr>
       <th>Type</th>
@@ -103,7 +104,7 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 
 ### Schéma `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#usercustomattributesviewshared-schema}
@@ -117,7 +118,7 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ## Vues de profil utilisateur en temps réel {#real-time-user-profile-views}
 
@@ -126,7 +127,7 @@ Ces vues fournissent des mises à jour quasi en temps réel des attributs du pro
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### Utilisation {#usage}
+### Utilisation
 
 * Fournit des attributs utilisateur actualisés avec un délai minimal (~10 minutes).
 * Utile pour les analyses en temps réel et les scénarios nécessitant des données récentes.
@@ -160,7 +161,7 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### Schéma `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#userlateststatecustomattributeviewshared-schema}
 
@@ -173,7 +174,7 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ## Historique des modifications {#historical-change-logs}
 
@@ -182,9 +183,9 @@ Ces vues stockent les journaux de modifications historiques des attributs utilis
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### Utilisation {#usage}
+### Utilisation
 
-* Fournit un enregistrement des modifications historiques des attributs utilisateur.
+* Fournit un enregistrement des modifications historiques des attributs utilisateur sur une période glissante de 6 mois.
 * Les données sont capturées toutes les 12 heures, ce qui signifie que les mises à jour multiples dans cette fenêtre sont combinées en un seul enregistrement. Les modifications individuelles au cours de cette période ne sont pas conservées séparément.
 * `EFF_DT` et `END_DT` marquent le début et la fin de l'état des attributs d'un utilisateur.
 
@@ -215,7 +216,7 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### Schéma `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#usercustomattributeshistoryviewshared-schema}
 
@@ -230,7 +231,7 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ## Bonnes pratiques {#best-practices}
 
@@ -241,10 +242,10 @@ Le champ `TIME` représente l'heure de la mise à jour du profil utilisateur. Po
 | **Requêtes générales** ne nécessitant pas de mises à jour récentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` et `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` | Exécution rapide, avec des données remontant jusqu'à 12 heures. |
 | Requêtes nécessitant les **derniers attributs utilisateur** | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` et `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fournit des mises à jour quasi en temps réel, mais peut être plus lent pour les grands ensembles de données. |
 | **Suivi historique** des changements d'attributs | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` et `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` | Enregistre les changements d'attributs avec une granularité de 12 heures. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 ### Considérations relatives aux performances {#performance-considerations}
 
 * Les requêtes sur `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` devraient aboutir en moins de 10 secondes pour les grands ensembles de données (~1 milliard d'utilisateurs) sur un grand entrepôt.
-* Les requêtes sur `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` pour un seul utilisateur aboutissent en moins d'une minute, mais sont peu performantes sans filtrage par `USER_ID`.
+* Les requêtes sur `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` pour un seul utilisateur aboutissent en moins d'une minute, mais sont peu performantes sans filtrage par `USER_ID`.
 * Les requêtes portant sur plus de 100 millions d'utilisateurs dans `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` peuvent prendre plusieurs minutes en raison de l'agrégation par utilisateur.

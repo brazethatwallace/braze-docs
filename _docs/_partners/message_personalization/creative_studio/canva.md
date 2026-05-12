@@ -20,7 +20,7 @@ The Braze and Canva integration supports two export paths:
 | --- | --- |
 | **Image or design to Media Library** | Sends your design as an asset to the Braze media library. |
 | **Email design to Braze** | Publishes a Canva **Email** document as a Braze email template, including subject line metadata. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About the integration" }
 
 ## Integrate Braze with Canva
 

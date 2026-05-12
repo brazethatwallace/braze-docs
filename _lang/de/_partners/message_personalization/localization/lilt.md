@@ -19,7 +19,7 @@ Der LILT Braze Connector ermöglicht die Übersetzung von HTML-E-Mail-Templates 
 
 ## Anwendungsfälle {#use-cases}
 
-Die LILT-Braze-Integration automatisiert und beschleunigt den Übersetzungsprozess und ermöglicht es globalen Marketingteams, ihre mehrsprachigen Kampagnen schnell und mit Markenkonsistenz zu starten.
+Die LILT-Braze-Integration automatisiert und beschleunigt den Übersetzungsprozess und ermöglicht es globalen Marketingteams, ihre mehrsprachigen Campaigns schnell und mit Markenkonsistenz zu starten.
 
 ### Optimierter globaler Kampagnenstart {#streamlined-global-campaign-launch}
 
@@ -27,7 +27,7 @@ Starten Sie Marketingkampagnen in mehreren Regionen gleichzeitig, ohne Verzöger
 
 - **Szenario:** Ihr Unternehmen bringt ein neues Produkt in 10 Ländern auf den Markt.
 - **Lösung:** Ihr Marketingteam stellt das englische E-Mail-Template in Braze fertig, versieht es mit dem Tag `LILT: Ready`, und der LILT Connector zieht den Inhalt automatisch ab. Domänenspezifische Linguist:innen überprüfen die KI-Übersetzungsvorschläge in der LILT-Plattform zur Qualitätssicherung, und der Konnektor pusht die übersetzten Versionen zurück nach Braze.
-- **Vorteil:** Verkürzt die Markteinführungszeit Ihrer globalen Kampagnen von Tagen auf Stunden, sodass alle Kund:innen die Ankündigung des neuen Produkts zum optimalen Zeitpunkt erhalten können.
+- **Vorteil:** Verkürzt die Markteinführungszeit Ihrer globalen Campaigns von Tagen auf Stunden, sodass alle Kund:innen die Ankündigung des neuen Produkts zum optimalen Zeitpunkt erhalten können.
 
 ### Sofortige markengerechte Lokalisierung {#instant-brand-aligned-localization}
 
@@ -44,7 +44,7 @@ Nutzen Sie die KI von LILT für sofortige, markengerechte Übersetzungen bei zei
 | Ein LILT-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein LILT-Konto erforderlich. |
 | Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
 ## Integration

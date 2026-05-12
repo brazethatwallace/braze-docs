@@ -92,12 +92,12 @@ Ajoutez un composant dans votre Canvas et sélectionnez **Facebook Audience**.
 
 Cliquez sur le bouton **Custom Audience** pour ouvrir l'éditeur de composants. Ensuite, sélectionnez **Facebook** comme partenaire de synchronisation d'audience.
 
-![« Set up Audience Sync » avec des options pour le choix d'un partenaire.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Configuration de la synchronisation d'audience avec des options pour le choix d'un partenaire.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Sélectionnez le compte publicitaire Facebook souhaité. Dans la liste déroulante **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 
 1. Saisissez un nom pour la nouvelle audience personnalisée.
 2. Sélectionnez **Add Users to Audience**, puis choisissez les champs que vous souhaitez synchroniser avec Facebook.
@@ -110,7 +110,7 @@ Vous serez informé en haut de l'éditeur d'étape si l'audience est créée ave
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze crée la nouvelle audience personnalisée dès le lancement du Canvas et synchronise ensuite les utilisateurs quasiment en temps réel lorsqu'ils entrent dans l'étape de synchronisation d'audience.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Synchroniser avec une audience existante %}
 
 Braze offre la possibilité d'ajouter ou de supprimer des utilisateurs des audiences personnalisées Facebook existantes afin de confirmer que ces audiences sont à jour. Pour synchroniser avec une audience existante, procédez comme suit :
 
@@ -234,11 +234,12 @@ table td {
 </style>
 
 <table>
+  <caption>Résolution des problèmes</caption>
   <thead>
     <tr>
       <th>Erreur</th>
       <th>Description</th>
-      <th>Marche à suivre pour résoudre le problème</th>
+      <th>Marche à suivre</th>
     </tr>
   </thead>
   <tbody>
@@ -294,10 +295,10 @@ Si vous rencontrez d'autres problèmes avec votre intégration, reportez-vous au
 
 #### Accepter les conditions de service {#terms}
 
-Acceptez toutes les conditions de service (CGS) en attente de Facebook. Facebook vous demandera périodiquement, à vous (l'utilisateur) et au gestionnaire d'entreprise, de réapprouver ses conditions de service.
+Acceptez toutes les conditions de service en attente de Facebook. Facebook vous demandera périodiquement, à vous (l'utilisateur) et au gestionnaire d'entreprise, de réapprouver ses conditions de service.
 
 1. L'utilisateur connecté doit accepter toutes les conditions de service pour chacun de ses comptes publicitaires :
-- CGS des audiences personnalisées pour votre compte Facebook personnel :
+- Conditions des audiences personnalisées pour votre compte Facebook personnel :
 `https://business.facebook.com/ads/manage/customaudiences/tos/?act=<AD_ACCOUNT_ID>`
 
 ![Un compte disposant de toutes les autorisations de contrôle pour gérer un compte publicitaire.]({% image_buster /assets/img/fb_audience_sync/ad_account_permission.png %}){: style="max-width:70%;"}

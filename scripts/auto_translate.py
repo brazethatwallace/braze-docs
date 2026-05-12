@@ -4,9 +4,11 @@ Auto-translate English Braze docs into all supported languages using Claude.
 
 Usage:
     python auto_translate.py translate --changed-files changed_files.txt
+    python auto_translate.py stale-english-sources
     python auto_translate.py qc
     python auto_translate.py check-aliases
     python auto_translate.py check-path-case-collisions
+    python auto_translate.py align-heading-anchor-parity
     python auto_translate.py verify --max-attempts 3
     python auto_translate.py summary
 """
@@ -21,7 +23,7 @@ import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Set
 
 # Single source of truth for the Braze product-name allowlist; imported by
 # ``scripts/audit_glossaries.py`` too so the runtime glossary override and
@@ -97,10 +99,16 @@ GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 STYLEGUIDE_DIR = REPO_ROOT / "scripts" / "styleguides"
 QC_RESULTS_FILE = REPO_ROOT / "qc_results.json"
 
+# Paths under `_lang/` use folder names (`fr_fr`, `pt_br`) while glossary files
+# and ``PROTECTED_PRODUCT_TERMS`` overrides use CLI keys (`fr`, `pt-br`). Map
+# so ``load_glossary`` and glossary compliance checks apply the intended
+# Canvases → Canvas Romance overrides (Copilot / locale-key drift vs PR #13303).
+_LANG_DIR_TO_GLOSSARY_LANG = {"fr_fr": "fr", "pt_br": "pt-br"}
+
 NON_TRANSLATABLE_FM_KEYS = frozenset({
     "page_order", "layout", "page_type", "channel", "platform", "tool",
     "link", "image", "permalink", "hidden", "noindex", "config_only",
-    "search_rank", "page_layout",
+    "search_rank", "page_layout", "hide_nav", "hide_toc",
 })
 
 BRAZE_PRODUCT_NAMES = [
@@ -156,12 +164,17 @@ def load_prompt():
 
 def load_styleguide(lang_key):
     """Load the style guide for a language. Returns '' if not found."""
-    sg_path = STYLEGUIDE_DIR / f"{lang_key}.md"
+    sg_path = STYLEGUIDE_DIR / f"{_glossary_language_key(lang_key)}.md"
     if sg_path.exists():
         content = sg_path.read_text().strip()
         if content:
             return f"\n\n## Style guide for this language\n\n{content}"
     return ""
+
+
+def _glossary_language_key(lang_key):
+    """Map ``_lang/`` folder suffix (for example ``fr_fr``) to glossary file key."""
+    return _LANG_DIR_TO_GLOSSARY_LANG.get(lang_key, lang_key)
 
 
 def load_glossary(lang_key):
@@ -182,7 +195,8 @@ def load_glossary(lang_key):
     canonical ``"Campaign"`` / ``"Segment"`` entries we then inject are
     the only protected-term rows the LLM sees.
     """
-    glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
+    file_key = _glossary_language_key(lang_key)
+    glossary_path = GLOSSARY_DIR / f"{file_key}.json"
     raw = (
         json.loads(glossary_path.read_text())
         if glossary_path.exists()
@@ -192,7 +206,7 @@ def load_glossary(lang_key):
         if _canonical_protected_term(key) is not None:
             del raw[key]
     for term in PROTECTED_PRODUCT_TERMS:
-        raw[term] = protected_term_for_locale(term, lang_key)
+        raw[term] = protected_term_for_locale(term, file_key)
     return raw
 
 
@@ -613,6 +627,13 @@ in English alone). On **prepare_data** hub YAML, each ``guide_featured_list`` \
 example pt-BR **Ativos de dados críticos** for the **Critical data assets** row, \
 not a divergent synonym). German ``get_started``—localize stray English section \
 titles such as **Best Practices** when the surrounding section is German.
+37. **CDI SQL Editor** (``…/cloud_ingestion/sql_editor.md``): Keep ``PAYLOAD`` \
+and ``UPDATED_AT`` in backticks with **English casing**. Translate \
+troubleshooting ``###`` error-topic headings (do not leave titles such as \
+**No preview available** in English when the page is localized). On those \
+four ``###`` lines, add ``{#no-preview-available}``, ``{#identity-column-required}``, \
+``{#no-attributes-to-sync}``, and ``{#query-execution-timed-out}`` so anchors \
+stay stable across locales (auto-translate PR #13397).
 
 Return ONLY the improved translated file — no explanations, no code fences, \
 no commentary. If the translation is already high quality, return it unchanged.\
@@ -651,6 +672,143 @@ def _relative_for_translation(fpath):
 def translation_path(english_relative, lang_dir):
     """Map an English-relative path to its _lang/ counterpart."""
     return REPO_ROOT / "_lang" / lang_dir / english_relative
+
+
+def _git_path_last_commit_ts(rel_path: str) -> int:
+    """Latest commit unix time touching ``rel_path`` (0 if unknown)."""
+    r = subprocess.run(
+        ["git", "log", "-1", "--format=%ct", "--", rel_path],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+    )
+    if r.returncode != 0:
+        return 0
+    s = (r.stdout or "").strip()
+    return int(s) if s.isdigit() else 0
+
+
+def _parse_git_touch_map(max_commits: int) -> dict[str, int]:
+    """Map repo-relative paths to the latest commit time touching them.
+
+    Built from recent first-parent history so routine ``workflow_dispatch``
+    runs avoid one ``git log`` per file.
+    """
+    lang_roots = [f"_lang/{info['dir']}/" for info in LANGUAGES.values()]
+    r = subprocess.run(
+        [
+            "git",
+            "log",
+            "-m",
+            "--first-parent",
+            f"-n{max_commits}",
+            "--format=%ct",
+            "--name-only",
+            "HEAD",
+            "--",
+            "_docs/",
+            "_includes/",
+            *lang_roots,
+        ],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if r.returncode != 0:
+        return {}
+    touch: dict[str, int] = {}
+    current_ts: Optional[int] = None
+    for raw in (r.stdout or "").splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.isdigit():
+            current_ts = int(line)
+            continue
+        if current_ts is None:
+            continue
+        prev = touch.get(line)
+        if prev is None or current_ts > prev:
+            touch[line] = current_ts
+    return touch
+
+
+def _list_git_english_markdown_paths() -> list[str]:
+    """Tracked ``*.md`` under ``_docs/`` and ``_includes/`` (repo-relative)."""
+    r = subprocess.run(
+        ["git", "ls-files"],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    paths: list[str] = []
+    for line in r.stdout.splitlines():
+        p = line.strip()
+        if not p.endswith(".md"):
+            continue
+        if p.startswith("_docs/") or p.startswith("_includes/"):
+            paths.append(p)
+    return paths
+
+
+def cmd_stale_english_sources(args: argparse.Namespace) -> None:
+    """Print English paths that are missing or older than any locale mirror.
+
+    Used when ``workflow_dispatch`` runs with no ``since_commit`` / ``files``:
+    compare last-touch times from git so operators do not paste SHAs.
+    Locale files live under ``_lang/<dir>/`` using ``_relative_for_translation``
+    (``_docs/`` prefix stripped); stdout still lists canonical ``_docs/…`` /
+    ``_includes/…`` paths for the workflow.
+    """
+    lang_dirs = [info["dir"] for info in LANGUAGES.values()]
+    touch_map = _parse_git_touch_map(args.max_history_commits)
+    fallback_cache: dict[str, int] = {}
+
+    def ts_for(rel: str) -> int:
+        if rel in touch_map:
+            return touch_map[rel]
+        if rel in fallback_cache:
+            return fallback_cache[rel]
+        t = _git_path_last_commit_ts(rel)
+        fallback_cache[rel] = t
+        return t
+
+    english_paths = _list_git_english_markdown_paths()
+    stale: list[str] = []
+    for en in english_paths:
+        en_ts = ts_for(en)
+        trans_rel = _relative_for_translation(en)
+        need = False
+        for ld in lang_dirs:
+            loc_rel = f"_lang/{ld}/{trans_rel}"
+            loc_path = REPO_ROOT / loc_rel
+            if not loc_path.is_file():
+                need = True
+                break
+            loc_ts = ts_for(loc_rel)
+            if loc_ts < en_ts:
+                need = True
+                break
+        if need:
+            stale.append(en)
+
+    stale.sort()
+    if len(stale) > 250:
+        print(
+            "stale-english-sources: WARNING: large batch - consider "
+            "`since_commit` or `files` to narrow scope if this was unintentional.",
+            file=sys.stderr,
+        )
+    print(
+        f"stale-english-sources: {len(stale)} file(s) need translation "
+        f"(of {len(english_paths)} English markdown paths tracked in git)",
+        file=sys.stderr,
+    )
+    body = "\n".join(stale) + ("\n" if stale else "")
+    sys.stdout.write(body)
+    sys.stdout.flush()
 
 
 # Keys whose values carry cross-section terminology (nav labels, page
@@ -1194,11 +1352,18 @@ def _extract_front_matter(content):
     glossary substring counts for keys like ``segment`` inside YAML (PR
     #13348). Only horizontal space may follow the closing ``---`` before that
     newline or EOF so blank lines after the delimiter stay in the body.
+
+    Optional leading spaces or tabs before the opening ``---`` are ignored so
+    files such as ``_docs/_hidden/other/support_contact.md`` (indented YAML)
+    still parse; otherwise QC treats English as having no front matter and
+    cannot re-seed dropped locale YAML (auto-translate PR #13475).
     """
     # After the closing ``---``, only horizontal space may appear before the
     # body newline or EOF — ``\s*`` would swallow blank lines that belong to
     # the markdown body.
-    match = re.match(r'^---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL)
+    match = re.match(
+        r'^[ \t]*---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL
+    )
     if match:
         return match.group(1), content[match.end():]
     return None, content
@@ -1268,6 +1433,30 @@ def repair_spurious_front_matter_when_english_has_none(
     return tr_body, [
         "front_matter — removed (English source has no YAML block; "
         "includes must not start with ---)"
+    ]
+
+
+def repair_missing_locale_front_matter_from_english(
+    english_content, translated_content
+):
+    """Re-seed YAML front matter from English when the locale file lost it entirely.
+
+    :func:`repair_front_matter` only syncs keys when *both* sides parse with a
+    leading ``---`` block. Models sometimes return a translation body that starts
+    with HTML or markdown while the English source has Jekyll metadata (routing,
+    ``layout``, ``hide_nav``). Without this repair, localized pages lose their
+    front matter entirely (Copilot / auto-translate PR #13466, e.g.
+    ``_hidden/other/support_contact.md``).
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not en_fm or tr_fm is not None:
+        return translated_content, []
+    merged = f"---\n{en_fm}\n---\n{tr_body}"
+    return merged, [
+        "front_matter — re-seeded from English (locale had no parseable "
+        "--- header; translate nav_title/article_title on a follow-up pass "
+        "if needed)"
     ]
 
 
@@ -1978,6 +2167,144 @@ def repair_guide_featured_list_links(english_content, translated_content):
     ]
 
 
+def repair_pt_br_push_channel_token(translated_path, translated_content, lang_key):
+    """Normalize Push channel YAML list item for Brazilian Portuguese under the Push hub.
+
+    Sibling ``_lang/pt_br/_user_guide/channels/push`` pages use capitalized
+    ``Push`` in ``channel:`` lists; MT sometimes emits lowercase ``push``,
+    which triggers inconsistency reviews (Copilot / auto-translate PR #13393).
+    Only front matter is scanned; lines must match ``- push`` exactly (leading
+    whitespace + list marker + bare token).
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/pt_br/_user_guide/channels/push" not in rel:
+        return translated_content, []
+
+    fm, body = _extract_front_matter(translated_content)
+    if not fm:
+        return translated_content, []
+
+    new_fm, n = re.subn(r"^(\s*)- push\s*$", r"\1- Push", fm, flags=re.MULTILINE)
+    if not n:
+        return translated_content, []
+
+    return f"---\n{new_fm}\n---\n{body}", [
+        f"pt_br channel — capitalized Push in YAML list ({n} line(s))",
+    ]
+
+
+def repair_es_api_obligatorio_typo(translated_path, translated_content, lang_key):
+    """Normalize ``Obligatoria`` → ``Obligatorio`` in Spanish API parameter tables.
+
+    MT sometimes uses the feminine form in the fixed ``| Parámetro | … |``
+    column; sibling ES API pages use **Obligatorio** for that column (Copilot /
+    auto-translate PR #13458).
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/es/_api/" not in rel:
+        return translated_content, []
+    if "Obligatoria" not in translated_content:
+        return translated_content, []
+    new_content, n = re.subn(
+        r"(\|)\s*Obligatoria(\*?)\s*(\|)",
+        r"\1 Obligatorio\2 \3",
+        translated_content,
+    )
+    if not n:
+        return translated_content, []
+    return new_content, [
+        f"es api — Obligatorio column/token repair ({n} occurrence(s))",
+    ]
+
+
+def repair_de_dashboard_capture_english_bleed(
+    translated_path, translated_content, lang_key
+):
+    """Replace known English ``dashboard_match`` captures in DE includes.
+
+    Alerts that interpolate ``{{ dashboard_match }}`` read poorly when the
+    capture still uses English hyphen labels (Copilot / auto-translate PR
+    #13458).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/de/" not in rel or "/_includes/" not in rel:
+        return translated_content, []
+    if "dashboard_match" not in translated_content:
+        return translated_content, []
+    replacements = (
+        (
+            "{% capture dashboard_match %}Dashboard-Canvas-Analytics{% endcapture %}",
+            "{% capture dashboard_match %}Canvas-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}Dashboard-Engagement-Analytics{% endcapture %}",
+            "{% capture dashboard_match %}Engagement-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}dashboard Canvas analytics{% endcapture %}",
+            "{% capture dashboard_match %}Canvas-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}dashboard Engagement analytics{% endcapture %}",
+            "{% capture dashboard_match %}Engagement-Analytics im Dashboard{% endcapture %}",
+        ),
+    )
+    out = translated_content
+    applied = 0
+    for old, new_val in replacements:
+        if old in out:
+            out = out.replace(old, new_val)
+            applied += 1
+    if not applied:
+        return translated_content, []
+    return out, [
+        f"de include — localized dashboard_match capture ({applied} block(s))",
+    ]
+
+
+def check_guide_featured_list_duplicate_links(
+    english_content, translated_content, english_path="", translated_path=""
+):
+    """Emit QC warnings when ``guide_featured_list`` repeats the same ``link:``.
+
+    Duplicate destinations produce two visually distinct cards pointing at one
+    article (English source drift or bad MT). Fix by removing/editing rows in the
+    **English** `_docs/` file — translation QC syncs routes from English
+    (auto-translate / Copilot PR #13393).
+    """
+    warnings = []
+
+    def _dupes(label, fm_fragment, filepath):
+        if not fm_fragment:
+            return
+        block = _extract_fm_block(fm_fragment, "guide_featured_list")
+        if not block:
+            return
+        links = _collect_guide_featured_list_field(block, "link")
+        ctr = Counter(links)
+        for link_val, cnt in ctr.items():
+            if cnt <= 1 or not link_val:
+                continue
+            extras = filepath or "(path unknown)"
+            warnings.append(
+                "guide_featured_list — duplicate destination "
+                f"({cnt}× link: {link_val}) in {label} ({extras})"
+            )
+
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, _ = _extract_front_matter(translated_content)
+    _dupes("English source", en_fm, str(english_path))
+    _dupes("translation", tr_fm, str(translated_path))
+    return warnings
+
+
 # English Braze dashboard strings that often leak into localized Agents docs
 # when the model copies US UI labels verbatim. Keys: lang_key. Order is applied
 # longest-first per file to reduce partial-match issues.
@@ -2237,6 +2564,35 @@ def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content:
     return translated_content, []
 
 
+def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
+    """Repair malformed ``{{site.baseurl}}`` Markdown links (extra parentheses).
+
+    Models occasionally emit ``[label](({{site.baseurl}}/path`` instead of correct
+    ``[label]({{site.baseurl}}/path`` (Copilot PR #13396). Run before
+    ``repair_markdown_internal_link_fragments``.
+
+    We intentionally do **not** collapse ``]({{site.baseurl}}/path))`` to a
+    single ``)``: prose often wraps the link in parentheses, so the first ``)``
+    closes the markdown link and the second closes the outer ``(…`` (for example
+    ``unless they are [encrypted](url))``). A prior ``dup_pat`` rule stripped that
+    outer close and broke list rendering (Cursor Bugbot / PR #13605).
+    """
+    repairs = []
+    new = translated_content
+    bad_open = "](" + "(" + "{{" + "site.baseurl}}"
+    good_open = "](" + "{{" + "site.baseurl}}"
+    if bad_open in new:
+        n = new.count(bad_open)
+        new = new.replace(bad_open, good_open)
+        repairs.append(
+            "md-link — removed extra '(' before {{site.baseurl}} "
+            f"({n}x; PR #13396)"
+        )
+    if repairs:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_markdown_internal_link_fragments(content):
     """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
     repairs = []
@@ -2264,6 +2620,35 @@ _RESET_TD_BR_IAL_MISSING_DOT = re.compile(
 _MD_TABLE_SEP_RE = re.compile(r"^\s*\|(?:\s*:?-+:?\s*\|)+\s*$")
 _IAL_LINE_RE = re.compile(r"^\s*\{:\s*[^}]*\}\s*$")
 _RESET_TD_CLASS_RE = re.compile(r"\.reset-td-br-(\d+)")
+
+
+def _dot_missing_reset_td_br_tokens_in_ial_lines(text: str) -> tuple[str, int]:
+    """Insert ``.`` before ``reset-td-br-N`` tokens that lost their class dot.
+
+    Models (and occasionally English) emit ``{: .reset-td-br-1 .reset-td-br-2
+    .reset-td-br-3 reset-td-br-4}`` — the last token is missing its leading
+    ``.``, so Kramdown does not apply the column class (Copilot / PR #13395).
+    Only touches whole-line ``{:` … ``}`` IAL blocks.
+    """
+    lines = text.split("\n")
+    total = 0
+    out: list[str] = []
+    for line in lines:
+        if "{:" not in line or "reset-td-br-" not in line:
+            out.append(line)
+            continue
+        if not _IAL_LINE_RE.match(line):
+            out.append(line)
+            continue
+        new_line, n = re.subn(r"(\s)(reset-td-br-\d+)", r"\1.\2", line)
+        total += n
+        out.append(new_line)
+    if not total:
+        return text, 0
+    new_text = "\n".join(out)
+    if text.endswith("\n") and not new_text.endswith("\n"):
+        new_text += "\n"
+    return new_text, total
 
 
 def _count_md_table_cells(line):
@@ -2311,6 +2696,124 @@ def _clamp_reset_td_br_ial(ial_line, header_cols):
         new = re.sub(r" +", " ", new)
         new = re.sub(r"\s+\}", " }", new)
     return new, removed
+
+
+def repair_markdown_double_leading_pipe_table_rows(content: str):
+    """Replace ``||`` at the start of markdown table rows with ``|``.
+
+    Models sometimes emit ``|| cell | cell |`` (Copilot on auto-translate
+    PR #13398), which reads as an extra empty leading column. Skips lines
+    inside fenced code blocks (`` ``` `` / ``~~~``) so shell ``||`` and
+    similar aren't touched.
+    """
+    lines = content.splitlines()
+    in_fence = False
+    fence_delim = None
+    fixed = 0
+    out = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") and (fence_delim in (None, "```")):
+            in_fence = not in_fence
+            fence_delim = "```" if in_fence else None
+            out.append(line)
+            continue
+        if stripped.startswith("~~~") and (fence_delim in (None, "~~~")):
+            in_fence = not in_fence
+            fence_delim = "~~~" if in_fence else None
+            out.append(line)
+            continue
+        if in_fence:
+            out.append(line)
+            continue
+        m = re.match(r"^(\s*(?:>\s*)*)\|\|(.+)$", line)
+        if m:
+            rest = m.group(2)
+            if "|" in rest:
+                line = m.group(1) + "|" + rest
+                fixed += 1
+        out.append(line)
+    if not fixed:
+        return content, []
+    result = "\n".join(out)
+    if content.endswith("\n"):
+        result += "\n"
+    return result, [
+        f"md-table — normalized {fixed} double-leading-pipe row(s) (||→|)"
+    ]
+
+
+def repair_html_href_space_before_liquid_open(content: str) -> tuple[str, list]:
+    r"""Remove stray whitespace between ``href``\ 's opening quote and ``{%``.
+
+    Copilot on auto-translate PR #13398 flagged ``href=" {% landing_page_url``
+    in HTML-in-Markdown examples — the space breaks the attribute value.
+    Also covers single-quoted ``href=`` and optional Liquid whitespace
+    control ``{%-``.
+    """
+    new, n = re.subn(
+        r"href=(['\"])\s+(\{\%-?)",
+        r"href=\1\2",
+        content,
+    )
+    if n:
+        return new, [
+            f"html-href — removed {n} stray space(s) before Liquid in href=…"
+        ]
+    return content, []
+
+
+def repair_redirect_to_trailing_stray_quote_unquoted_url(
+    translated_path: str, translated_content: str
+) -> tuple[str, list]:
+    r"""Remove a stray ``"`` after an unquoted ``redirect_to`` URL.
+
+    Invalid pattern: ``redirect_to: https://example.com/path/"`` (opening
+    quote missing — YAML breaks). Copilot flagged this across locales on
+    auto-translate PR #13405. Scoped to ``_docs_pages/redirects/`` paths only.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_docs_pages/redirects/" not in rel:
+        return translated_content, []
+    new, n = re.subn(
+        r"^(redirect_to:\s*https://[^\s\"\n]+)/\"\s*$",
+        r"\1/",
+        translated_content,
+        flags=re.MULTILINE,
+    )
+    if n:
+        return new, [
+            f"yaml-redirect_to — removed {n} stray trailing quote(s) on unquoted URL"
+        ]
+    return translated_content, []
+
+
+_REDIRECT_FM_FUSED_CLOSE_RE = re.compile(
+    r"^(redirect_to:\s*https://[^\n]+)/---\s*$",
+    re.MULTILINE,
+)
+
+
+def repair_redirect_front_matter_fused_close_delimiter(
+    translated_path: str, translated_content: str
+) -> tuple[str, list]:
+    r"""Split ``redirect_to: …/---`` when the closing ``---`` was fused onto the URL line.
+
+    Auto-translate PR #13405 / Copilot follow-up: invalid front matter breaks
+    Jekyll and redirect-list validation. Scoped to ``_docs_pages/redirects/``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_docs_pages/redirects/" not in rel:
+        return translated_content, []
+    new, n = _REDIRECT_FM_FUSED_CLOSE_RE.subn(
+        r"\1/\n---\n",
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"yaml-fm — split {n} fused redirect_to/--- closing fence(s)"
+        ]
+    return translated_content, []
 
 
 def repair_markdown_table_column_count(content):
@@ -2555,6 +3058,32 @@ def repair_pt_br_german_low9_double_quote_in_body(
     return new, [
         f"pt-br-quotes — replaced {n} German „ (U+201E) with ASCII \" "
         f"in pt-BR doc"
+    ]
+
+
+def repair_pt_br_subscribed_default_subscription_group_label(
+    translated_content, lang_key
+):
+    """Normalize the default global email subscription group bold label.
+
+    The pt-BR glossary historically mapped ``Subscribed``→*Inscreveu-se*;
+    dashboards and sibling docs keep English **Subscribed** for that literal
+    product token. Fix the recurring phrase that bolds the wrong token next
+    to *grupo de inscrições global* (Copilot / auto-translate PR #13399).
+    """
+    if lang_key != "pt-br":
+        return translated_content, []
+
+    needle = "grupo de inscrições global **Inscreveu-se**"
+    if needle not in translated_content:
+        return translated_content, []
+
+    replaced = translated_content.replace(
+        needle,
+        "grupo de inscrições global **Subscribed**",
+    )
+    return replaced, [
+        "pt_br subscriptions — restored **Subscribed** for global group label",
     ]
 
 
@@ -3363,6 +3892,7 @@ def repair_markdown_wire_format_tables(content):
 
     - ``Content_Type`` → ``Content-Type`` (HTTP header spelling)
     - ``{: .reset-td-br-1 reset-td-br-2`` → ``{: .reset-td-br-1 .reset-td-br-2``
+    - ``{: … reset-td-br-N`` → ``{: … .reset-td-br-N`` on IAL lines (any column)
     - Restore ``Authorization`` when the header cell was translated (es/pt)
     """
     repairs = []
@@ -3378,6 +3908,13 @@ def repair_markdown_wire_format_tables(content):
     if n_ial:
         repairs.append(
             f"md-ial — added missing '.' before reset-td-br-2 ({n_ial}x)"
+        )
+
+    new, n_dots = _dot_missing_reset_td_br_tokens_in_ial_lines(new)
+    if n_dots:
+        repairs.append(
+            f"md-ial — dotted {n_dots} reset-td-br-* token(s) missing leading "
+            f"'.' (PR #13395)"
         )
 
     for wrong, right in (
@@ -4159,14 +4696,24 @@ def repair_de_braze_pilot_low9_pair_ascii_close_quote(
     return translated_content, []
 
 
-def repair_fr_payload_display_typography(translated_content, lang_key):
+def repair_fr_payload_display_typography(
+    translated_path, translated_content, lang_key
+):
     """Normalize French ``PAYLOAD`` (English all-caps) to readable *payload* wording.
 
     All-caps *PAYLOAD* in prose reads like shouting; technical French often uses
     lowercase *payload* / plural *payloads* (see Copilot review on campaigns /
     Decisioning docs).
+
+    Skips ``…/cloud_ingestion/sql_editor.md``: there ``PAYLOAD`` / ``UPDATED_AT``
+    are case-sensitive CDI column identifiers and must stay as English spells
+    them (auto-translate PR #13397).
     """
     if lang_key != "fr":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "data/unification/cloud_ingestion/sql_editor.md" in rel:
         return translated_content, []
 
     new = translated_content
@@ -4416,6 +4963,48 @@ def check_completeness(english_content, translated_content):
             f"(max threshold: {COMPLETENESS_MAX_RATIO:.0%}); possible hallucination"
         ]
     return []
+
+
+_IMG_BUSTER_ALT_RE = re.compile(
+    r"!\[([^\]]*)\]\(\{%\s*image_buster\b",
+    re.IGNORECASE,
+)
+# Lowercase Latin snake_case with multiple segments (internal slug style).
+_SNAKE_CASE_IMAGE_ALT_RE = re.compile(
+    r"^[a-z][a-z0-9]*(?:_[a-z][a-z0-9]*)+$",
+)
+
+
+def check_image_buster_alt_identifier_style(translated_path, translated_content):
+    """Warn when ``image_buster`` image alts look like English slug identifiers.
+
+    Models often copy ``![engagement_reports_foo]({% image_buster ...`` verbatim
+    into localized docs; screen readers and Copilot expect a short descriptive
+    phrase instead (auto-translate PR #13407). Only runs for paths under
+    ``_lang/``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel:
+        return []
+    warnings = []
+    seen = set()
+    for m in _IMG_BUSTER_ALT_RE.finditer(translated_content):
+        alt = m.group(1).strip()
+        if len(alt) < 18 or "_" not in alt:
+            continue
+        if not _SNAKE_CASE_IMAGE_ALT_RE.match(alt):
+            continue
+        if alt in seen:
+            continue
+        seen.add(alt)
+        preview = alt if len(alt) <= 72 else f"{alt[:69]}..."
+        warnings.append(
+            f"image_alt — `{preview}` looks like an English slug/identifier; "
+            f"use descriptive localized alt (PR #13407)"
+        )
+        if len(warnings) >= 12:
+            break
+    return warnings
 
 
 def check_untranslated(english_content, translated_content):
@@ -4808,10 +5397,12 @@ def _auto_slug(text: str) -> str:
     text is ASCII (so the English counterpart produces a stable slug). This is
     all we need, because we only look up English headings for references.
     """
-    text = re.sub(r"[*_`]", "", text)
+    # Drop emphasis/backtick markers only — keep ``_`` so identifiers like
+    # ``send_to_existing_only`` survive into the slug (PR #13623).
+    text = re.sub(r"[*`]", "", text)
     text = re.sub(r"<[^>]+>", "", text)
     text = text.lower().strip()
-    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"[^a-z0-9\s\-_]", "", text)
     text = re.sub(r"\s+", "-", text)
     text = re.sub(r"-+", "-", text).strip("-")
     return text
@@ -4863,6 +5454,84 @@ def _iter_doc_headings(text):
 _DUPLICATE_ADJACENT_EXPLICIT_ANCHOR_RE = re.compile(
     r"(\{#[A-Za-z][A-Za-z0-9_\-:\.]*\})(?:\s+\1)+"
 )
+
+
+_TRANSACTIONAL_EMAIL_FREQ_CAP_FRAGMENT = (
+    "{{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/"
+)
+_SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR = "{#show-data-by-entire-campaign-or-canvas}"
+
+
+def repair_frequency_capping_transactional_outer_paren(
+    translated_path, translated_content,
+):
+    """Restore a missing outer ``)`` after the transactional-email link bullet.
+
+    English wraps the link in parentheses ending in ``…/))`` (link ``)`` plus
+    parenthetical ``)``). Some locales drop the final ``)``, leaving
+    ``…email/)`` at EOL and breaking the list (Cursor Bugbot / auto-translate
+    PR #13514).
+    """
+    rel = str(translated_path).replace("\\", "/")
+    if "/messaging/messaging_fundamentals/frequency_capping.md" not in rel:
+        return translated_content, []
+    needle = _TRANSACTIONAL_EMAIL_FREQ_CAP_FRAGMENT
+    changed = False
+    out_parts = []
+    for line in translated_content.splitlines(keepends=True):
+        core = line.rstrip("\r\n")
+        sep = line[len(core):]
+        s = core.rstrip()
+        if needle in core and s.endswith("/)"):
+            core = s + ")" + core[len(s):]
+            changed = True
+        out_parts.append(core + sep)
+    if not changed:
+        return translated_content, []
+    return "".join(out_parts), [
+        "md_paren — added missing ) after transactional email link in "
+        "frequency_capping (PR #13514)"
+    ]
+
+
+def repair_duplicate_engagement_show_data_sections(
+    translated_path, translated_content,
+):
+    """Remove a duplicated ``##### … {#show-data-by-entire-campaign-or-canvas}`` block.
+
+    Auto-translation sometimes pasted the same subsection twice with the same
+    explicit Kramdown ID, duplicating HTML anchors (Cursor Bugbot /
+    auto-translate PR #13514).
+    """
+    rel = str(translated_path).replace("\\", "/")
+    if "analytics/reports/engagement_reports.md" not in rel:
+        return translated_content, []
+    if translated_content.count(_SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR) < 2:
+        return translated_content, []
+
+    repairs = []
+    content = translated_content
+    while True:
+        lines = content.splitlines(keepends=True)
+        idxs = [
+            i for i, L in enumerate(lines)
+            if _SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR in L
+            and re.match(r"^#{5}\s", L)
+        ]
+        if len(idxs) < 2:
+            break
+        i0, i1 = idxs[0], idxs[1]
+        if lines[i0].strip() != lines[i1].strip():
+            break
+        content = "".join(lines[:i0] + lines[i1:])
+        repairs.append(
+            "dedupe — removed duplicate «Show data by entire campaign» subsection "
+            "(PR #13514)"
+        )
+
+    if not repairs:
+        return translated_content, []
+    return content, repairs
 
 
 def repair_duplicate_adjacent_explicit_heading_anchors(translated_content):
@@ -4947,6 +5616,190 @@ def repair_same_page_anchor_ids(english_content, translated_content):
         return translated_content, []
     new_content = "\n".join(lines)
     return new_content, repairs
+
+
+class CrossLocaleHeadingAnchorConflict(RuntimeError):
+    """Raised when two locales disagree on explicit ``{#id}`` for the same heading."""
+
+
+def _append_explicit_kramdown_anchor_to_heading_line(line: str, anchor: str) -> str:
+    """Append `` {#anchor}`` to a heading line that does not already end with an explicit ID."""
+    if _EXPLICIT_ID_RE.search(line.rstrip()):
+        return line
+    nl = "\n" if line.endswith("\n") else ""
+    core = line[:-1] if line.endswith("\n") else line
+    return core.rstrip() + f" {{#{anchor}}}" + nl
+
+
+def _canon_paths_from_translation_results(repo_root: Path) -> Optional[Set[str]]:
+    """Return unique locale-relative paths (``_user_guide/...``) from ``translation_results.json``.
+
+    Returns ``None`` when the results file is missing.
+    """
+    tr_path = repo_root / "translation_results.json"
+    if not tr_path.is_file():
+        return None
+    data = json.loads(tr_path.read_text(encoding="utf-8"))
+    valid_root = {info["dir"] for info in LANGUAGES.values()}
+    canon_paths: set[str] = set()
+    for entry in data.get("translated") or []:
+        tgt = entry.get("target")
+        if not tgt or not isinstance(tgt, str):
+            continue
+        parts = Path(tgt).as_posix().split("/")
+        if len(parts) < 3 or parts[0] != "_lang" or parts[1] not in valid_root:
+            continue
+        canon_paths.add("/".join(parts[2:]))
+    return canon_paths
+
+
+def align_cross_locale_heading_anchors(repo_root: Path, *, full_repo_scan: bool = False):
+    """Copy explicit Kramdown ``{#id}`` tails across locale mirrors when any sibling has one.
+
+    Matrix jobs translate independently; one locale may keep or add a stable
+    ``{#fragment}`` while another omits it even when English has no explicit ID
+    and auto-slugs match—breaking cross-locale deep links (Copilot /
+    auto-translate PR #13394).
+
+    By default only paths listed in ``translation_results.json`` (same paths the
+    workflow just merged) are scanned so a run does not touch unrelated
+    localized files. Pass ``full_repo_scan=True`` for a rare whole-tree pass.
+
+    For each markdown path, when two or more locale files exist and heading
+    counts agree, if any locale exposes an explicit ID at heading index ``i``,
+    every sibling file receives that same ID on the corresponding heading line.
+    Conflicting IDs at the same index skip that file with a log line.
+
+    Returns:
+        ``(files_updated: int, log_lines: list[str])``
+    """
+    _lang = repo_root / "_lang"
+    log_lines: list[str] = []
+    if not _lang.is_dir():
+        return 0, ["align-heading-anchor-parity: no `_lang/` directory — skipping."]
+
+    # Skip ``_api/`` (REST reference) — locales sometimes use different Kramdown
+    # slug spellings for the same English heading, so there is no safe automatic
+    # winner. Product docs under the prefixes below benefit most from stable
+    # cross-locale ``#fragment`` parity (auto-translate PR #13394).
+    _ALIGN_REL_PREFIXES = ("_user_guide/", "_developer_guide/", "_contributing/")
+
+    locale_dirs = [info["dir"] for info in LANGUAGES.values()]
+    canon_to_lang_paths: dict[str, dict[str, Path]] = {}
+
+    if full_repo_scan:
+        for lang_dir in locale_dirs:
+            root = _lang / lang_dir
+            if not root.is_dir():
+                continue
+            for md in root.rglob("*.md"):
+                rel = md.relative_to(root).as_posix()
+                if not rel.startswith(_ALIGN_REL_PREFIXES):
+                    continue
+                canon_to_lang_paths.setdefault(rel, {})[lang_dir] = md
+    else:
+        canon_set = _canon_paths_from_translation_results(repo_root)
+        if canon_set is None:
+            return 0, [
+                "align-heading-anchor-parity: translation_results.json not found — "
+                "nothing to do (pass --full-repo to scan all `_lang/` markdown)."
+            ]
+        if not canon_set:
+            return 0, [
+                "align-heading-anchor-parity: translated list empty — nothing to do."
+            ]
+        for canon in sorted(canon_set):
+            if not canon.startswith(_ALIGN_REL_PREFIXES):
+                continue
+            by_lang: dict[str, Path] = {}
+            for lang_dir in locale_dirs:
+                pth = _lang / lang_dir / canon
+                if pth.is_file():
+                    by_lang[lang_dir] = pth
+            if len(by_lang) >= 2:
+                canon_to_lang_paths[canon] = by_lang
+
+    files_updated = 0
+    for canon in sorted(canon_to_lang_paths):
+        paths_by_lang = canon_to_lang_paths[canon]
+        if len(paths_by_lang) < 2:
+            continue
+
+        per_lang_heads: dict[str, list] = {}
+        for lang_dir, p in paths_by_lang.items():
+            text = p.read_text(encoding="utf-8")
+            per_lang_heads[lang_dir] = list(_iter_doc_headings(text))
+
+        counts = {ld: len(per_lang_heads[ld]) for ld in paths_by_lang}
+        if len(set(counts.values())) != 1:
+            log_lines.append(
+                f"align-heading-anchor-parity: skip `{canon}` — "
+                f"heading count mismatch across locales: {counts!r}"
+            )
+            continue
+        n = next(iter(counts.values()))
+        if n == 0:
+            continue
+
+        canonical_by_i: dict[int, Optional[str]] = {}
+        conflict = False
+        for i in range(n):
+            ids_at_i = []
+            for lang_dir in paths_by_lang:
+                _, _lvl, _text, explicit = per_lang_heads[lang_dir][i]
+                ids_at_i.append(explicit)
+            non_null = [x for x in ids_at_i if x]
+            if not non_null:
+                canonical_by_i[i] = None
+                continue
+            unique = set(non_null)
+            if len(unique) > 1:
+                log_lines.append(
+                    f"align-heading-anchor-parity: skip `{canon}` — conflicting "
+                    f"explicit heading IDs at index {i}: {sorted(unique)!r}"
+                )
+                conflict = True
+                break
+            canonical_by_i[i] = non_null[0]
+
+        if conflict:
+            continue
+
+        edits: dict[Path, dict[int, str]] = {}
+        for i, canonical_id in canonical_by_i.items():
+            if not canonical_id:
+                continue
+            for lang_dir, p in paths_by_lang.items():
+                tr_idx, _lvl, _text, tr_expl = per_lang_heads[lang_dir][i]
+                if tr_expl == canonical_id:
+                    continue
+                edits.setdefault(p, {})[tr_idx] = canonical_id
+
+        for path, idx_to_anchor in edits.items():
+            text = path.read_text(encoding="utf-8")
+            ends_nl = text.endswith("\n")
+            lines = text.split("\n")
+            for idx, anchor in sorted(idx_to_anchor.items()):
+                if idx >= len(lines):
+                    raise CrossLocaleHeadingAnchorConflict(
+                        f"align-heading-anchor-parity: line index {idx} out of range "
+                        f"for `{path.relative_to(repo_root)}`"
+                    )
+                lines[idx] = _append_explicit_kramdown_anchor_to_heading_line(
+                    lines[idx], anchor
+                )
+            new_text = "\n".join(lines)
+            if ends_nl and not new_text.endswith("\n"):
+                new_text += "\n"
+            path.write_text(new_text, encoding="utf-8")
+            files_updated += 1
+            n_edits = len(idx_to_anchor)
+            log_lines.append(
+                f"align-heading-anchor-parity: updated "
+                f"`{path.relative_to(repo_root).as_posix()}` ({n_edits} heading(s))"
+            )
+
+    return files_updated, log_lines
 
 
 def repair_unreferenced_explicit_heading_ids_when_english_has_none(
@@ -5285,6 +6138,21 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_strip_repairs)
 
+    translated_content, fm_seed_repairs = (
+        repair_missing_locale_front_matter_from_english(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(fm_seed_repairs)
+
+    if not english_content.strip():
+        if translated_content.strip():
+            translated_content = ""
+            findings["repairs"].append(
+                "empty-source — cleared locale file (English source empty or "
+                "whitespace-only; auto-translate PR #13405)"
+            )
+
     translated_content, fm_repairs = repair_front_matter(
         english_content, translated_content
     )
@@ -5339,10 +6207,39 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(gfl_repairs)
 
+    translated_content, pt_push_ch_repairs = repair_pt_br_push_channel_token(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(pt_push_ch_repairs)
+
+    translated_content, es_oblig_repairs = repair_es_api_obligatorio_typo(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(es_oblig_repairs)
+
+    translated_content, de_dash_cap_repairs = repair_de_dashboard_capture_english_bleed(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_dash_cap_repairs)
+
     translated_content, dup_anchor_repairs = (
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
     )
     findings["repairs"].extend(dup_anchor_repairs)
+
+    translated_content, fc_paren_repairs = (
+        repair_frequency_capping_transactional_outer_paren(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(fc_paren_repairs)
+
+    translated_content, eng_show_repairs = (
+        repair_duplicate_engagement_show_data_sections(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(eng_show_repairs)
 
     translated_content, unused_tr_id_repairs = (
         repair_unreferenced_explicit_heading_ids_when_english_has_none(
@@ -5501,7 +6398,7 @@ def qc_check_file(english_path, translated_path, lang_key):
     findings["repairs"].extend(ds_insights_repairs)
 
     translated_content, fr_payload_repairs = repair_fr_payload_display_typography(
-        translated_content, lang_key
+        translated_path, translated_content, lang_key
     )
     findings["repairs"].extend(fr_payload_repairs)
 
@@ -5586,6 +6483,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(pt_analytics_menu_repairs)
 
+    translated_content, pt_subscribed_label_repairs = (
+        repair_pt_br_subscribed_default_subscription_group_label(
+            translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(pt_subscribed_label_repairs)
+
     translated_content, ja_mail_camp_repairs = repair_japanese_mixed_mail_campaign(
         translated_path, translated_content, lang_key
     )
@@ -5646,6 +6550,11 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(url_repairs)
 
+    translated_content, sb_url_paren_repairs = (
+        repair_markdown_site_baseurl_link_paren_typos(translated_content)
+    )
+    findings["repairs"].extend(sb_url_paren_repairs)
+
     translated_content, css_nth_repairs = repair_css_nth_child_trailing_comma_in_style_blocks(
         translated_content
     )
@@ -5675,6 +6584,30 @@ def qc_check_file(english_path, translated_path, lang_key):
         repair_markdown_internal_link_trailing_slash(translated_content)
     )
     findings["repairs"].extend(link_slash_repairs)
+
+    translated_content, href_liquid_repairs = (
+        repair_html_href_space_before_liquid_open(translated_content)
+    )
+    findings["repairs"].extend(href_liquid_repairs)
+
+    translated_content, redirect_quote_repairs = (
+        repair_redirect_to_trailing_stray_quote_unquoted_url(
+            str(translated_path), translated_content
+        )
+    )
+    findings["repairs"].extend(redirect_quote_repairs)
+
+    translated_content, redirect_fuse_repairs = (
+        repair_redirect_front_matter_fused_close_delimiter(
+            str(translated_path), translated_content
+        )
+    )
+    findings["repairs"].extend(redirect_fuse_repairs)
+
+    translated_content, dbl_pipe_repairs = (
+        repair_markdown_double_leading_pipe_table_rows(translated_content)
+    )
+    findings["repairs"].extend(dbl_pipe_repairs)
 
     translated_content, table_col_repairs = repair_markdown_table_column_count(
         translated_content
@@ -5795,6 +6728,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         check_completeness(english_content, translated_content)
     )
     findings["warnings"].extend(
+        check_image_buster_alt_identifier_style(
+            str(translated_path), translated_content
+        )
+    )
+    findings["warnings"].extend(
         check_untranslated(english_content, translated_content)
     )
     findings["warnings"].extend(
@@ -5815,6 +6753,14 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["warnings"].extend(
         check_sibling_terminology_drift(translated_path, translated_content)
+    )
+    findings["warnings"].extend(
+        check_guide_featured_list_duplicate_links(
+            english_content,
+            translated_content,
+            english_path=english_path,
+            translated_path=translated_path,
+        )
     )
 
     return findings
@@ -6015,6 +6961,20 @@ def _collect_alias_duplicates(root, *, skip_includes):
             continue
         alias_map.setdefault(key, []).append(rel)
     return {k: v for k, v in alias_map.items() if len(v) > 1}
+
+
+def cmd_align_heading_anchor_parity(args):
+    """Merge-time: align explicit ``{#…}`` heading IDs across sibling locale files."""
+    try:
+        n, msgs = align_cross_locale_heading_anchors(
+            REPO_ROOT, full_repo_scan=args.full_repo
+        )
+    except CrossLocaleHeadingAnchorConflict as err:
+        print(str(err), file=sys.stderr)
+        sys.exit(1)
+    for line in msgs:
+        print(line)
+    print(f"align-heading-anchor-parity: {n} file(s) updated.")
 
 
 def cmd_check_aliases(args):
@@ -6268,8 +7228,44 @@ def main():
     )
     cp.set_defaults(func=cmd_check_path_case_collisions)
 
+    apar = sub.add_parser(
+        "align-heading-anchor-parity",
+        help=(
+            "After matrix merge: copy explicit Kramdown {#id} across locale mirrors "
+            "when any sibling locale has one (PR #13394 class drift)"
+        ),
+    )
+    apar.add_argument(
+        "--full-repo",
+        action="store_true",
+        help=(
+            "Scan all `_lang/` markdown under user/developer/contributing guides "
+            "(default: only paths from translation_results.json)"
+        ),
+    )
+    apar.set_defaults(func=cmd_align_heading_anchor_parity)
+
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)
+
+    st = sub.add_parser(
+        "stale-english-sources",
+        help=(
+            "Print English doc paths that need translation (missing or older "
+            "locale mirror vs English in git)"
+        ),
+    )
+    st.add_argument(
+        "--max-history-commits",
+        type=int,
+        default=12000,
+        metavar="N",
+        help=(
+            "First-parent commits to scan for path→time map (default: 12000); "
+            "paths not touched there use per-path git log"
+        ),
+    )
+    st.set_defaults(func=cmd_stale_english_sources)
 
     args = parser.parse_args()
     args.func(args)

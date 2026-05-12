@@ -9,7 +9,7 @@ page_type: reference
 
 # Export endpoints
 
-With the export endpoints, you can access and export various details on your KPIs, app sessions, users, segments, campaigns, and Canvases. Make sure you know your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [API key]({{site.baseurl}}/api/api_key/), and [API identifier]({{site.baseurl}}/api/identifier_types/) when building your parameters and request bodies.
+With this collection of endpoints, you can access and export various levels of details on your KPIs, app sessions, users, segments, campaigns, and Canvases. Make sure you know your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [API key]({{site.baseurl}}/api/api_key/), and [API identifier]({{site.baseurl}}/api/identifier_types/) when building your parameters and request bodies.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Before you begin, make sure you have the following:
 | Braze REST API key | A REST API key with the appropriate export permissions for the endpoints you plan to call. API keys are scoped to specific endpoints, and permissions can't be changed after creation. For details, refer to [REST API key]({{site.baseurl}}/api/basics/#about-rest-api-keys). |
 | Relevant identifiers | The identifiers for the data you want to export, such as a campaign ID, segment ID, or Canvas ID. You can find these on the Braze dashboard. For a full list, refer to [API identifier types]({{site.baseurl}}/api/identifier_types/). |
 | Cloud storage credentials (optional) | If you're exporting large datasets, connect an [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/), or [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/) bucket to have export files written directly to your storage. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert note %}
 If you're a marketer or team member without API access, coordinate with a developer or admin in your organization to set up API keys and integrations.
@@ -41,7 +41,7 @@ The following table summarizes the categories of data available through the expo
 | Custom events | Event names, event lists, and event analytics over time | [Custom events endpoints]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
 | Custom attributes | Attribute names | [Custom attributes endpoint]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
 | Purchases | Revenue data by time, product ID lists, and purchase counts | [Purchase endpoints]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What you can export" }
 
 ## How export data is delivered
 
@@ -88,7 +88,7 @@ The following table lists all export APIs available.
 | User data | POST | [User Data by Identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
 | User data | POST | [User Data by Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
 | User data | POST | [User Data by Global Control Group]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Export endpoints" }
 
 ## Related articles
 

@@ -1,16 +1,18 @@
 {% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
+{% multi_lang_include video.html id="nv699nw706" source="wistia" %}
+
 ## Erstellen eines Berechtigungssatzes {#creating-a-permission-set}
 
 Mit Berechtigungssätzen können Sie Berechtigungen für bestimmte Themenbereiche oder Aktionen bündeln. Sie können Berechtigungssätze auf Dashboard-Nutzer:innen anwenden, die in verschiedenen Workspaces denselben Zugriff benötigen. Um einen Berechtigungssatz zu erstellen, gehen Sie zu **Einstellungen** > **Berechtigungseinstellungen** und wählen Sie dann **Berechtigungssatz erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
-{% tab example permission sets %}
-|Name|Berechtigungen|
+{% tab Beispiel-Berechtigungssätze %}
+| Name | Berechtigungen |
 |-----------|----------------|
-|Entwickler:innen|„API-Schlüssel anzeigen“, „API-Schlüssel bearbeiten“, „Interne Gruppen anzeigen“, „Interne Gruppen bearbeiten“, „Nachrichtenaktivitätsprotokoll anzeigen“, „Event-Nutzerprotokoll anzeigen“, „API-Bezeichner anzeigen“, „API-Nutzungs-Dashboard anzeigen“, „API-Limits anzeigen“, „API-Nutzungswarnungen anzeigen“, „API-Nutzungswarnungen bearbeiten“, „SDK-Debugger anzeigen“, „SDK-Debugger bearbeiten“.|
-|Marketer|„Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Frequency-Capping-Regeln anzeigen“, „Frequency-Capping-Regeln bearbeiten“, „Nachrichtenpriorisierung anzeigen“, „Nachrichtenpriorisierung bearbeiten“, „Content Blocks anzeigen“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Globale Kontrollgruppe bearbeiten“, „IAM-Templates anzeigen“, „IAM-Templates bearbeiten“, „IAM-Templates archivieren“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „E-Mail-Templates archivieren“, „Webhook-Templates anzeigen“, „Webhook-Templates bearbeiten“, „Webhook-Templates archivieren“, „E-Mail-Link-Templates anzeigen“, „E-Mail-Link-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“, „Dashboard-Berichte bearbeiten“, „Banner-Templates anzeigen“, „Lokalisierungseinstellungen anzeigen“, „Operator verwenden“, „Decisioning Studio-Agenten anzeigen“.|
-|Nutzerverwaltung|„Dashboard-Nutzer:innen bearbeiten“, „Teams anzeigen“, „Teams bearbeiten“, „Teams archivieren“.|
+| Entwickler:innen | „API-Schlüssel anzeigen“, „API-Schlüssel bearbeiten“, „Interne Gruppen anzeigen“, „Interne Gruppen bearbeiten“, „Nachrichtenaktivitätsprotokoll anzeigen“, „Event-Nutzerprotokoll anzeigen“, „API-Bezeichner anzeigen“, „API-Nutzungs-Dashboard anzeigen“, „API-Limits anzeigen“, „API-Nutzungswarnungen anzeigen“, „API-Nutzungswarnungen bearbeiten“, „SDK-Debugger anzeigen“, „SDK-Debugger bearbeiten“. |
+| Marketer | „Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Frequency-Capping-Regeln anzeigen“, „Frequency-Capping-Regeln bearbeiten“, „Nachrichtenpriorisierung anzeigen“, „Nachrichtenpriorisierung bearbeiten“, „Content Blocks anzeigen“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Globale Kontrollgruppe bearbeiten“, „IAM-Templates anzeigen“, „IAM-Templates bearbeiten“, „IAM-Templates archivieren“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „E-Mail-Templates archivieren“, „Webhook-Templates anzeigen“, „Webhook-Templates bearbeiten“, „Webhook-Templates archivieren“, „E-Mail-Link-Templates anzeigen“, „E-Mail-Link-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“, „Dashboard-Berichte bearbeiten“, „Banner-Templates anzeigen“, „Lokalisierungseinstellungen anzeigen“, „Operator verwenden“, „Decisioning Studio-Agenten anzeigen“. |
+| Nutzerverwaltung | „Dashboard-Nutzer:innen bearbeiten“, „Teams anzeigen“, „Teams bearbeiten“, „Teams archivieren“. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -20,12 +22,12 @@ Mit Berechtigungssätzen können Sie Berechtigungen für bestimmte Themenbereich
 Rollen ermöglichen eine bessere Strukturierung durch die Bündelung Ihrer individuell angepassten Berechtigungen mit den Zugriffskontrollen für den Workspace. Das ist besonders nützlich, wenn Sie viele Marken oder regionale Workspaces in einem Dashboard haben. Mit Rollen können Sie Dashboard-Nutzer:innen zu den richtigen Workspaces hinzufügen und ihnen direkt die entsprechenden Berechtigungen erteilen. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
-{% tab example roles %}
-| Rollenname    | Workspace | Berechtigungen
+{% tab Beispielrollen %}
+| Rollenname | Workspace | Berechtigungen
 ----------- | ----------- | ---------
 | Marketer – Modemarken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | „Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“. |
-| Marketer – Hautpflegemarken | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |„Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“.|
-| Nutzerverwaltung – Alle Marken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | „Dashboard-Nutzer:innen bearbeiten“, „Teams anzeigen“, „Teams bearbeiten“, „Teams archivieren“|
+| Marketer – Hautpflegemarken | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | „Campaigns anzeigen“, „Campaigns bearbeiten“, „Campaigns archivieren“, „Canvases anzeigen“, „Canvases bearbeiten“, „Canvases archivieren“, „Content Blocks anzeigen“, „Content Blocks bearbeiten“, „Content Blocks archivieren“, „Content Blocks starten“, „Feature-Flags anzeigen“, „Feature-Flags bearbeiten“, „Feature-Flags archivieren“, „Segmente anzeigen“, „Segmente bearbeiten“, „Banner-Templates anzeigen“, „Banner-Templates bearbeiten“, „E-Mail-Templates anzeigen“, „E-Mail-Templates bearbeiten“, „Medienbibliothek-Assets anzeigen“, „Medienbibliothek-Assets bearbeiten“, „Medienbibliothek-Assets löschen“, „Standorte anzeigen“, „Standorte bearbeiten“, „Standorte archivieren“, „Aktionscodes anzeigen“, „Aktionscodes bearbeiten“, „Aktionscodes exportieren“, „Präferenzzentren anzeigen“, „Präferenzzentren bearbeiten“. |
+| Nutzerverwaltung – Alle Marken | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | „Dashboard-Nutzer:innen bearbeiten“, „Teams anzeigen“, „Teams bearbeiten“, „Teams archivieren“ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 {% endtab %}
 {% endtabs %}
@@ -57,7 +59,7 @@ Eingeschränkte Nutzer:innen verfügen über spezifische Berechtigungen, die es 
 | --- | --- |
 | Workspace-Administrator | Workspace-Administratoren verfügen über spezifische Berechtigungen für die Verwaltung von Workspaces, jedoch nicht über dieselben Befugnisse wie Unternehmensadministratoren. Eingeschränkte Nutzer:innen können ähnliche Berechtigungen wie Workspace-Administratoren erhalten, wenn die erforderlichen Berechtigungen aktiviert sind. |
 | Administrator (Unternehmensadministrator) | Unternehmensadministratoren verfügen über umfassendere Berechtigungen, einschließlich der Möglichkeit, Dashboard-Nutzer:innen zu löschen. Sie können jedoch ihre eigenen Konten nicht löschen und müssen sich für diese Aktion an einen anderen Unternehmensadministrator wenden. |
-| Nur-Lese-Zugriff | Um auf bestimmte Bereiche des Dashboards zugreifen zu können, wie beispielsweise die Campaigns-Seite, müssen Nutzer:innen über die entsprechenden Anzeigeberechtigungen verfügen.
+| Nur-Lese-Zugriff | Um auf bestimmte Bereiche des Dashboards zugreifen zu können, wie beispielsweise die Campaigns-Seite, müssen Nutzer:innen über die entsprechenden Anzeigeberechtigungen verfügen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Fehler bei eingeschränktem Zugriff {#limited-access-error}
@@ -94,16 +96,16 @@ Wenn Sie Nutzer:innen die Administratorrechte entziehen, können diese nicht meh
 {% endalert %}
 
 {% endtab %}
-{% tab Company %}
+{% tab Unternehmen %}
 
 ### Unternehmen {#company}
 
 Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwalten, aktivieren oder deaktivieren Sie das Kästchen neben der jeweiligen Berechtigung. Wenn Sie fertig sind, wählen Sie **Update user**.
 
-|Berechtigungsname|Beschreibung|
+| Berechtigungsname | Beschreibung |
 |----------|-----------|
-|Unternehmenseinstellungen verwalten|Ermöglicht es Nutzer:innen, Berechtigungseinstellungen und die Senderüberprüfung anzupassen.|
-|Workspaces erstellen und löschen|Ermöglicht es Nutzer:innen, Workspaces zu erstellen und zu löschen.|
+| Unternehmenseinstellungen verwalten | Ermöglicht es Nutzer:innen, Berechtigungseinstellungen und die Senderüberprüfung anzupassen. |
+| Workspaces erstellen und löschen | Ermöglicht es Nutzer:innen, Workspaces zu erstellen und zu löschen. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endtab %}
@@ -114,7 +116,7 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 Sie können Nutzer:innen unterschiedliche Berechtigungen für jeden Workspace erteilen, dem sie in Braze angehören. Um die Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Select workspaces and permissions** und legen Sie dann die Berechtigungen manuell fest oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Um Nutzer:innen unterschiedliche Berechtigungen für verschiedene Workspaces zu vergeben, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
-{% subtab Select manually %}
+{% subtab Manuell auswählen %}
 
 Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie anschließend unter **Permissions** eine oder mehrere Berechtigungen aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces. Optional können Sie **Assign workspace admin access** auswählen, wenn Sie den Nutzer:innen stattdessen vollständige Berechtigungen für diesen Workspace gewähren möchten.
 
@@ -123,7 +125,7 @@ Wenn Sie fertig sind, wählen Sie **Update user**.
 ![Berechtigungen auf Workspace-Ebene, die manuell in Braze ausgewählt werden.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
-{% subtab Assign permission set %}
+{% subtab Berechtigungssatz zuweisen %}
 
 Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie dann unter **Permission Sets** einen Berechtigungssatz aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces.
 
@@ -132,7 +134,7 @@ Wenn Sie fertig sind, wählen Sie **Update user**.
 ![Berechtigungen auf Workspace-Ebene, die über einen Berechtigungssatz in Braze zugewiesen werden.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
-{% subtab Assign role %}
+{% subtab Rolle zuweisen %}
 
 Wählen Sie unter **Workspaces** einen oder mehrere Workspaces aus der Dropdown-Liste. Wählen Sie anschließend unter **Role** eine Rolle aus. Diese Berechtigungen gelten nur für die von Ihnen ausgewählten Workspaces.
 
@@ -198,13 +200,13 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Nutzer:innen importieren | Nutzer:innen in das Dashboard hochladen |
 | Nutzerdaten | Nutzerdaten bearbeiten | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Nutzerdaten exportieren | Nutzer:innen vom Dashboard herunterladen |
-| Löschprotokolle für Nutzer:innen | Zusammengeführte Nutzer:innen anzeigen | Eine Liste der Zusammenführungsdatensätze für Nutzer:innen anzeigen |
+| Zusammenführungsprotokolle für Nutzer:innen | Zusammengeführte Nutzer:innen anzeigen | Eine Liste der Zusammenführungsdatensätze für Nutzer:innen anzeigen |
 | Nutzer:innen | Nutzerprofile PII-konform anzeigen | Nutzerprofile in PII-konformer Weise anzeigen |
 | Doppelte Nutzer:innen | Doppelte Nutzer:innen zusammenführen | Doppelte Nutzer:innen zu einer Nutzer:in zusammenführen. Duplikate werden nach dem Zusammenführen entfernt. |
 | Nutzer:innen | Nutzer:innen löschen | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Template {#template}
+### Template
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
@@ -215,9 +217,9 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Canvas-Templates | Canvas-Templates archivieren | Canvas-Templates in das Archiv verschieben |
 | Canvas-Templates | Canvas-Templates erstellen und bearbeiten | Canvas-Templates erstellen und aktualisieren |
 | Content Blocks | Content Blocks anzeigen | Content Blocks anzeigen |
-| Content Blocks | Content Blocks starten | Content Blocks starten |
+| Content Blocks | Content Blocks starten | Entwürfe von Content Blocks veröffentlichen sowie gestartete Content Blocks bearbeiten, archivieren und aus dem Archiv entfernen |
 | Content Blocks | Content Blocks archivieren | Content Blocks in das Archiv verschieben |
-| Content Blocks | Content Blocks bearbeiten | Content Blocks erstellen und aktualisieren |
+| Content Blocks | Content Blocks bearbeiten | Content Blocks erstellen und Entwürfe von Content Blocks bearbeiten |
 | E-Mail-Link-Templates | E-Mail-Link-Templates anzeigen | Link-Templates anzeigen, ohne Änderungen vorzunehmen |
 | E-Mail-Link-Templates | E-Mail-Link-Templates bearbeiten | Link-Templates erstellen und aktualisieren |
 | E-Mail-Templates | E-Mail-Templates anzeigen | E-Mail-Templates anzeigen |

@@ -76,6 +76,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Paramètres acceptés</caption>
     <thead>
         <tr>
             <th>Paramètre</th>
@@ -258,6 +259,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Paramètres acceptés</caption>
     <thead>
         <tr>
             <th>Paramètre</th>

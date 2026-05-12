@@ -9,7 +9,7 @@ channel: content cards
 
 ---
 
-# Cartes de contenu dans Canvas
+# Cartes de contenu dans Canvas {#content-cards-in-canvas}
 
 > Les cartes de contenu peuvent être envoyées à vos clients dans le cadre de leur parcours Canvas. Cet article décrit les fonctionnalités et les particularités liées à l'utilisation des cartes de contenu comme canal de communication dans Canvas.
 
@@ -25,15 +25,15 @@ Lors de la création d'une nouvelle carte de contenu, vous pouvez choisir quand 
 
 ![Paramètres d'expiration d'une carte de contenu pour une étape Message qui sera supprimée après trois heures dans le flux de l'utilisateur.]({% image_buster /assets/img_archive/content-cards-in-canvas-expiration.png %})
 
-### Types d'expiration
+### Types d'expiration {#types-of-expiration}
 
 Vous disposez de deux méthodes pour définir quand une carte doit disparaître du flux d'un utilisateur : une date relative ou une date absolue.
 
-#### Dates relatives
+#### Dates relatives {#relative-dates}
 
 Lorsque vous choisissez une date relative, comme « Supprimer les cartes envoyées après 5 jours dans le flux de l'utilisateur », vous pouvez définir une date d'expiration allant jusqu'à 30 jours.
 
-#### Dates absolues
+#### Dates absolues {#absolute-dates}
 
 Lorsque vous choisissez une date absolue, comme « Supprimer les cartes envoyées le 1er décembre 2023 à 16 h », certaines subtilités sont à prendre en compte.
 
@@ -41,38 +41,38 @@ Bien que vous puissiez spécifier une durée d'expiration supérieure à 30 jour
 
 Soyez prudent lorsque vous définissez une date d'expiration plus de 30 jours après le lancement du Canvas. Si un utilisateur atteint l'étape Message plus de 30 jours avant la date d'expiration spécifiée, la carte ne sera pas envoyée.
 
-### Comportement à l'expiration
+### Comportement à l'expiration {#expiration-behavior}
 
-La carte de contenu reste disponible dans le flux de l'utilisateur jusqu'à sa date d'expiration, même si l'utilisateur progresse vers les étapes suivantes du parcours Canvas. Si vous ne souhaitez pas que la carte de contenu soit en ligne lorsque les étapes suivantes du Canvas sont délivrées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
+La carte de contenu reste disponible dans le flux de l'utilisateur jusqu'à sa date d'expiration, même si l'utilisateur progresse vers les étapes suivantes du parcours Canvas. Si vous ne souhaitez pas que la carte de contenu soit active lorsque les étapes suivantes du Canvas sont délivrées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
 
 Après l'expiration d'une carte de contenu, elle sera automatiquement supprimée du flux de l'utilisateur lors de la prochaine actualisation, même si l'utilisateur ne l'a pas encore consultée.
 
 ## Suppression des cartes de contenu {#removal}
 
-Les cartes de contenu peuvent être supprimées lorsque les utilisateurs effectuent un achat ou réalisent un événement personnalisé. Vous pouvez sélectionner l'un des événements de suppression suivants : **Réaliser un événement personnalisé** et **Effectuer un achat**. Sélectionnez ensuite **Ajouter un événement**.
+Les cartes de contenu peuvent être supprimées lorsque les utilisateurs effectuent un achat ou réalisent un événement personnalisé. Vous pouvez sélectionner l'un des événements de suppression suivants : **Perform Custom Event** et **Place Order**. Sélectionnez ensuite **Add Trigger**.
 
-![« Supprimer les cartes lorsque les utilisateurs effectuent un achat ou réalisent un événement personnalisé » sélectionné avec le déclencheur de suppression des cartes pour les utilisateurs qui effectuent un achat spécifique de « Bracelet ».]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
+![« Supprimer les cartes lorsque les utilisateurs effectuent un achat ou réalisent un événement personnalisé » sélectionné avec le déclencheur de suppression des cartes pour les utilisateurs qui effectuent un achat spécifique.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
 
-## Rapports et analyses
+## Rapports et analyses {#reporting-and-analytics}
 
-Après le lancement d'une étape Cartes de contenu dans Canvas, vous pouvez commencer à analyser plusieurs indicateurs pour cette étape. Ces indicateurs incluent le nombre de messages envoyés, les destinataires uniques, les taux de conversion, le chiffre d'affaires total, et bien plus encore.
+Après le lancement d'une étape Content Cards dans Canvas, vous pouvez commencer à analyser plusieurs indicateurs pour cette étape. Ces indicateurs incluent le nombre de messages envoyés, les destinataires uniques, les taux de conversion, le chiffre d'affaires total, et bien plus encore.
 
 ![Analyses d'une étape Message avec les performances des messages de type carte de contenu.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
 Pour plus d'informations sur les indicateurs disponibles et leurs définitions, consultez notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
-#### Offres promotionnelles
+#### Offres promotionnelles {#promotional-offers}
 
 Ajoutez des cartes au flux d'un utilisateur lorsqu'il devient éligible à des promotions et publicités spécifiques. Par exemple, si un utilisateur devient éligible à une nouvelle offre après avoir effectué une action ou un achat, Canvas vous permet de lui envoyer une carte de contenu, en complément d'autres canaux de communication, afin que l'offre soit disponible lors de sa prochaine ouverture de l'application.
 
-#### Boîte de réception des notifications push
+#### Boîte de réception des notifications push {#push-notification-inbox}
 
 Il arrive qu'un utilisateur ignore une notification push ou supprime un e-mail, mais vous souhaitez lui rappeler l'offre ou la promouvoir au cas où il changerait d'avis.
 
 Avec Canvas, vous pouvez ajouter un composant qui envoie à la fois une carte de contenu et une notification push, offrant ainsi aux utilisateurs une « boîte de réception » persistante de cartes correspondant aux messages promotionnels envoyés par notification push.
 
-#### Flux multiples basés sur des catégories
+#### Flux multiples basés sur des catégories {#multiple-feeds-based-on-categories}
 
-Vous pouvez séparer vos cartes de contenu en plusieurs flux basés sur des catégories, comme différents sujets que les utilisateurs peuvent parcourir, ou des flux transactionnels et marketing. Pour plus d'informations sur la création de flux multiples à l'aide de paires clé-valeur, consultez notre guide sur la [Personnalisation des flux de cartes de contenu]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Vous pouvez séparer vos cartes de contenu en plusieurs flux basés sur des catégories, comme différents sujets que les utilisateurs peuvent parcourir, ou des flux transactionnels et marketing. Pour plus d'informations sur la création de flux multiples à l'aide de paires clé-valeur, consultez notre guide sur la [personnalisation des flux de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).

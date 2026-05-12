@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionMロイヤルティプラットフォーム {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm)は、キャンペーン管理機能とロイヤルティ管理ソリューションを提供するカスタマーエンゲージメントとロイヤルティのプラットフォームで、マーケターがターゲットを絞ったアウトリーチを推進してエンゲージメントと収益性を向上させるのを支援します。
+> [SessionM](https://sessionm.com/)は、Capillary Technologiesの一部であるカスタマーエンゲージメントとロイヤルティのプラットフォームで、キャンペーン管理機能とロイヤルティ管理ソリューションを提供し、マーケターがターゲットを絞ったアウトリーチを推進してエンゲージメントと収益性を向上させるのを支援します。
 
 ## 前提条件 {#prerequisites}
 
@@ -22,9 +22,9 @@ search_tag: Partner
 | SessionM | SessionM Core RESTエンドポイント | エンドポイントは、インスタンスのSessionM URLに依存します。これはSessionMダッシュボードの**Digital Properties**から作成できます。 |
 | SessionM | SessionM Core REST APIキー | インスタンスとBraze統合に関連付けられたSessionM APIキー。このキーは、タグを含むすべてのコアベースのコールに使用できます。これはSessionMダッシュボードの**Digital Properties**から作成できます。 |
 | SessionM | SessionM Core REST APIシークレット | インスタンスとBraze統合に関連付けられたSessionM APIシークレット。このキーは、タグを含むすべてのコアベースのコールに使用できます。これはSessionMダッシュボードの**Digital Properties**から作成できます。 |
-| SessionM | SessionM Connect RESTエンドポイント | エンドポイントは、インスタンスのSessionM URLに依存します。SessionMテクニカルアカウントマネージャーまたはデリバリーチームに連絡してください。 |
+| SessionM | SessionM Connect RESTエンドポイント | エンドポイントは、インスタンスのSessionM URLに依存します。SessionMテクニカルアカウントマネージャーまたはデリバリーチームに連絡して提供を受けてください。 |
 | SessionM | SessionM Connect REST認可文字列 | インスタンスに関連付けられたSessionM Connect Basic Authorization文字列。この認証文字列は、get_user_offersを含むすべての接続ベースのコールに使用できます。SessionMテクニカルアカウントマネージャーまたはデリバリーチームに連絡して提供を受けてください。 |
-| SessionM | SessionM Connect RESTリテーラーID | インスタンスに関連付けられている特定の顧客に対する一意のGUID識別子。SessionMテクニカルアカウントマネージャーまたはデリバリーチームに連絡してください。 |
+| SessionM | SessionM Connect RESTリテーラーID | インスタンスに関連付けられている特定の顧客に対する一意のGUID識別子。SessionMテクニカルアカウントマネージャーまたはデリバリーチームに連絡して提供を受けてください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 {% alert note %}
@@ -216,7 +216,7 @@ SessionMのすべてのテンプレートにある標準フィールドには、
 
 - **オファーデータ：** `offer_id`、`offer title`、`user offer id`、`description`、`terms and conditions`、`logo`、`pos discount id`、`expiration date`
 - **ポイント付与データ：** `point award amount`、`point account name`
-- **イベントトリガーデータ：** トリガー/送信webhookの結果を利用するトリガーイベント内のすべてのデータ
+- **イベントトリガーデータ：** トリガー/送信Webhookの結果を利用するトリガーイベント内のすべてのデータ
 - **Campaign固有データ：** `campaign runtime`、`campaign_id`、`campaign name`、`campaign custom data`
 
 追加フィールドは、メッセージをパーソナライズするための`trigger_properties`としてBrazeに送信されます。
@@ -237,7 +237,7 @@ CampaignまたはCanvasの詳細を確定し、**Launch**を選択します。
 
 次に、SessionMでCampaignを作成します。
 
-![SessionM Campaign作成。]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
+![SessionM Campaign作成画面。]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
 
 SessionM Campaignの詳細設定を更新して、`braze_campaign_id`または`braze_canvas_id`を含む以下のJSONペイロードを含めます。
 

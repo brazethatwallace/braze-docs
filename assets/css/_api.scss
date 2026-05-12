@@ -171,15 +171,15 @@
         padding: 4px 15px;
         display: inline-block;
         float: right;
-        background-color: #f7918e;
+        background-color: #b04040; // #f7918e → darkened for 5.7:1 with white text
         a {
           text-decoration: none;
           border-bottom-width: 0;
           color: #ffffff;
           &:hover {
-            text-decoration: none;
+            text-decoration: underline;
             background-color: transparent;
-            color: #000000;
+            color: #ffffff; // keep white for 5.7:1 on #b04040 background
           }
         }
         margin-left: 15px;
@@ -213,6 +213,7 @@
       -moz-transition:  all ease 0.2s;
       &:hover {
         background-color: $braze-link-color;
+        color: #fff;
         img {
           background-color: transparent;
         }

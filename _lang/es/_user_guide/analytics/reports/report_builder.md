@@ -20,7 +20,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
 ## Usar una plantilla de informe {#using-a-report-template}
 
 1. Ve a **Analytics** > **Report Builder (New)**.
-2. Selecciona la flecha de **Más opciones** junto al botón **Crear informe nuevo** y luego selecciona **Use a report template**.<br><br>![Desplegable del botón "Crear informe nuevo" con opciones para crear un informe personalizado o usar una plantilla.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+2. Selecciona la flecha de **More options** junto al botón **Create New Report** y luego selecciona **Use a report template**.<br><br>![Desplegable del botón "Create New Report" con opciones para crear un informe personalizado o usar una plantilla.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Selecciona una de las plantillas de informe de la biblioteca de plantillas de Braze.
     - Usa los desplegables **Row items** y **Tags** para encontrar informes relevantes para tus casos de uso.<br><br>![Ventana "Plantillas de informe de Braze" con una lista de plantillas de Braze para seleccionar.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
 4. Sigue desde el paso 3 en adelante en [Crear un informe](#creating-a-report) para personalizar aún más el informe según tu caso de uso.
@@ -28,7 +28,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
 ## Crear un informe {#creating-a-report}
 
 1. Ve a **Analytics** > **Report Builder (New)**.
-2. Selecciona **Crear informe nuevo**.
+2. Selecciona **Create New Report**.
 3. En el desplegable **Rows**, selecciona sobre qué quieres generar el informe:
     - Campaigns
     - Canvas
@@ -58,7 +58,7 @@ Prueba diferentes configuraciones de opciones de desglose para explorar las [muc
 {: start="5"}
 5. En la sección **Columns**, selecciona **Customize Metrics**.
 
-![La sección "Personalizar métricas" con opciones para seleccionar múltiples métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
+![La sección "Customize Metrics" con opciones para seleccionar múltiples métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
 
 {: start="6"}
 6. Examina las métricas por categoría y selecciona la casilla correspondiente para añadir una métrica a tu informe.
@@ -91,7 +91,7 @@ Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Can
 | Fecha del último envío | Disponible para Campaigns, Canvas, Campaigns y Canvas. Solo se muestra para campañas planificadas; no se completa para campañas basadas en acciones o desencadenadas por API. |
 | Envíos | Disponibles para cada canal relevante. |
 | Mensajes enviados | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
-| Línea del asunto | Disponible para campañas de correo electrónico con desglose por **Variant**, Canvas y Canvas con desglose por **Variant**. |
+| Línea del asunto | Disponible para Campaigns de correo electrónico con desglose por **Variant**, Canvas y Canvas con desglose por **Variant**. |
 | Ingresos totales | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
 | Impresiones únicas | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
 | Destinatarios únicos | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |

@@ -128,7 +128,7 @@ Nein. Sie können jedoch Liquid nutzen, wenn Sie das HTML für benutzerdefiniert
 
 Wenn Sie beispielsweise die Abmeldungsrate für spanischsprachige Nutzer:innen verfolgen, müssten Sie entweder separate Campaigns verwenden oder Analytics rund um Currents nutzen (z. B. prüfen, wann sich ein:e Nutzer:in abmeldet, und die bevorzugte Sprache dieser/dieses Nutzer:in überprüfen).
 
-Als weiteres Beispiel könnten Sie für das Tracking der Abmeldungsraten für spanischsprachige Nutzer:innen einen Abfrageparameter-String wie `?Spanish=true` zur Abmelde-URL hinzufügen, wenn die Sprache der Nutzer:innen Spanisch ist, und einen regulären Abmelde-Link verwenden, wenn dies nicht der Fall ist:
+Als weiteres Beispiel könnten Sie für das Tracking der Abmeldungsraten für spanischsprachige Nutzer:innen einen Abfrageparameter-String wie `?Spanish=true` zur Abmelde-URL hinzufügen, wenn die Sprache der Nutzer:innen Spanisch ist, und andernfalls einen regulären Abmelde-Link verwenden:
 
 {% raw %}
 ```liquid
@@ -139,7 +139,7 @@ ${unsubscribe_url}
 ```
 {% endraw %}
 
-Dann könnten Sie über Currents identifizieren, welche Nutzer:innen Spanisch sprechen und wie viele Klick-Events es für diesen Abmelde-Link gab.
+Dann könnten Sie über Currents identifizieren, welche Nutzer:innen Spanisch sprechen und wie viele Klick-Ereignisse es für diesen Abmelde-Link gab.
 
 ### Sind sowohl Abmelde-Links als auch E-Mail-Präferenzzentren für den Versand erforderlich? {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
 

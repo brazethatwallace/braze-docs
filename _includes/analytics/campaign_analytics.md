@@ -82,7 +82,7 @@ The following table summarizes what each label means.
 | --- | --- |
 | **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
 | **Current Audience** | Braze can compute the default statistic with a full scan of workspace profiles, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -143,7 +143,7 @@ The **In-App Message Performance** panel outlines how well your message has perf
 ![In-app message performance analytics]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
-### Push Performance
+### Push Performance {#push-performance}
 
 The **Push Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 
@@ -220,7 +220,8 @@ Here is a breakdown of some key metrics you may see while reviewing your message
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
+    <caption class="sr-only">Content Card performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -294,7 +295,8 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
+    <caption class="sr-only">Banner performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -363,7 +365,8 @@ Here are some key email-specific metrics that you won't see in other channels. T
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
+    <caption class="sr-only">Email performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -513,7 +516,8 @@ Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specif
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
+    <caption class="sr-only">In-app message performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -581,7 +585,7 @@ Here are some key KakaoTalk metrics you may see in your analytics. For more deta
 | Errors | _Errors_ is the number of errors returned by the KakaoTalk provider (incremented during the sending process). |
 | Revenue | _Revenue_ is the revenue in dollars from campaign recipients within the set primary conversion window. |
 | Primary Conversions | _Primary Conversions_ is the number of times a defined event occurred after interacting with or viewing a received message from a Braze campaign. This defined event is determined by you when building the campaign. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -595,7 +599,8 @@ Here is a breakdown of some key metrics you may see while reviewing your message
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
+    <caption class="sr-only">Push performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -654,6 +659,18 @@ For a different workaround, we also recommend creating a custom event for push u
 
 Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification, as stated in the table above. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
 
+##### Push action buttons and reporting {#push-action-buttons-and-reporting}
+
+When you add [push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), the **Push Performance** panel can include **Body Clicks**, **Button 1 Clicks**, and **Button 2 Clicks** alongside metrics such as **Direct Opens**. These columns measure different interactions, so compare them when you interpret engagement.
+
+_Direct Opens_ reflects dashboard metrics for interactions that count as a direct open of your message. **Push Notification Open** events in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) or Snowflake describe push interactions more broadly and can include optional fields such as `button_action_type` (for example, `close`) and `button_string`. For field definitions, see [Push Notification Open events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+For **iOS**, Braze default notification categories (such as **Yes** / **No**, **Accept** / **Decline**, or **Confirm** / **Cancel**) use a fixed pairing: the first action supports `OPEN_APP`, a URI, or a deep link (aligned with **On-Click Behavior** in the composer). The companion action uses `CLOSE` by default—it dismisses the notification and does not open the app. See the default mapping in [Apple push action button object]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Because of that, taps on the dismissive preset button (for example, **No** or **Decline**) typically do **not** count toward _Direct Opens_. Those taps may still appear in **Push Notification Open** exports when logged, with `button_action_type` set to `close` and `button_string` identifying the tapped action. When you compare campaign analytics to warehouse data, use those payload fields so you don't treat dismissive taps the same as taps on the notification body or the primary action.
+
+For **Android**, you set **On-Click Behavior** per button (**Open App**, **Redirect to Web URL**, or **Deep Link**), so reporting follows the actions you configure rather than the iOS default `OPEN_APP` / `CLOSE` split.
+
 ##### Why push sends can exceed unique recipients
 
 The number of _Sends_ may exceed the number of _Unique Recipients_ due to the following reasons:
@@ -683,7 +700,7 @@ Firebase Cloud Messaging (FCM) bounces could occur in three cases:
 | Uninstalled applications | When a message attempts delivery to a device and the intended app is uninstalled on that device, the message will be discarded and the device's registration ID will be invalidated. Any future attempts at messaging the device will return a NotRegistered error. |
 | Backed up application | When an application is backed up, its registration ID could become invalid before the application is restored. In this case, FCM will no longer store the application's registration ID and the application will no longer receive messages. As such, registration IDs should **not** be saved when an application is backed up. |
 | Updated application | When an application is updated, the previous version's registration ID may no longer work. As such, an updated application should replace its existing registration ID. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -701,7 +718,8 @@ Here is a breakdown of some key metrics you may see while reviewing your message
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
+    <caption class="sr-only">SMS, MMS, and RCS performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -752,7 +770,8 @@ Here are some key webhook metrics you may see in your analytics. To see th full 
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
+    <caption class="sr-only">Webhook performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -787,7 +806,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
+    <caption class="sr-only">WhatsApp performance metrics</caption>
     <thead>
         <tr>
             <th>Metric</th>

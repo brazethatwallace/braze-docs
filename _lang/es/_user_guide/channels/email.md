@@ -9,24 +9,24 @@ channel:
 search_rank: 2
 ---
 
-# Correo electrónico
+# Correo electrónico {#email}
 
-> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de Campaigns, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
+> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de Campaigns de correo electrónico, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Antes de poder enviar correo electrónico con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para un recorrido completo, consulta [Configuración de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Antes de poder enviar correo electrónico con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para un recorrido completo, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/).
 
-## Personaliza tus correos electrónicos
+## Personaliza tus correos electrónicos {#customize-your-emails}
 
 Puedes personalizar tus mensajes de correo electrónico de varias maneras, entre ellas:
 
 - [Plantillas de correo electrónico de Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
 - [Plantillas HTML personalizadas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Bloques para el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)
+- [Bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
 - [Suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
 | Caso de uso | Explicación |
 | --- | --- |
@@ -58,8 +58,8 @@ Estos servicios pueden incluir:
   - Recomendaciones para mejorar el rendimiento y los resultados del programa de correo electrónico utilizando datos y mejores prácticas establecidas
 - Mitigar y remediar el triaje de crisis para eventos que generen problemas, como una lista de bloqueo de capacidad de entrega
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
-- [Configuración de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/)
+- [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/)
 - [Crear un correo electrónico con el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
 - [Crear un correo electrónico con el editor HTML]({{site.baseurl}}/user_guide/channels/email/html_editor/)

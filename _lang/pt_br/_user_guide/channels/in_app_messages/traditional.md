@@ -85,6 +85,7 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 </style>
 
 <table class="tg">
+  <caption>Tipos de mensagem</caption>
 <thead>
   <tr>
     <th>Tipo de mensagem</th>
@@ -134,6 +135,7 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 
 <table class="tg">
+  <caption>Tipos de mensagem avançados</caption>
 <thead>
   <tr>
     <th>Tipo de mensagem</th>
@@ -276,7 +278,7 @@ O conteúdo da guia **Style** varia com base nas opções de mensagem escolhidas
 
 | Formatação | Entrada | Descrição |
 |---|---|---|
-| [Perfil de cor]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
+| [Perfil de cor]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
 | Alinhamento do texto | Esquerda, centro ou direita. | Disponível apenas para versões mais recentes do SDK da Braze. |
 | Cabeçalho | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
 | Texto | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
@@ -319,7 +321,7 @@ Observe que, se você pretende disparar sua mensagem no app com base em um event
 A entrega de mensagens no app é inteiramente baseada nos seguintes gatilhos de ação:
 
 - Realizar uma compra
-- Abrir o app/página web
+- Abrir o app ou página web
 - Realizar um evento personalizado (funciona apenas com eventos enviados usando o SDK)
 - Abrir uma mensagem push específica
 - Agendar automaticamente campanhas para envio em um determinado horário com relação ao horário local de cada um dos seus usuários.
@@ -412,7 +414,7 @@ Em seguida, confira [Relatórios de mensagens no app]({{site.baseurl}}/user_guid
 
 A Braze valoriza confiabilidade e velocidade. Sugerimos que você envie apenas os dados necessários para a Braze e desative quaisquer campanhas que não agreguem mais valor à sua marca.
 
-O processamento de campanhas de mensagens no app baseadas em ação que ainda estão em estado ativo, mas não estão mais enviando mensagens ou não são mais necessárias, desacelera o desempenho geral dos serviços da Braze para você e outros clientes. Esse tempo extra necessário para processar esses grandes números de campanhas inativas significa que quaisquer mensagens no app levarão mais tempo para aparecer nos dispositivos dos usuários finais, o que impacta a experiência do usuário final.
+O processamento de campanhas de mensagens no app baseadas em ação que ainda estão em estado ativo, mas não estão mais enviando mensagens ou não são mais necessárias, desacelera o desempenho geral dos serviços da Braze para você e outros clientes. Esse tempo extra necessário para processar esses grandes números de campanhas sem atividades significa que quaisquer mensagens no app levarão mais tempo para aparecer nos dispositivos dos usuários finais, o que impacta a experiência do usuário final.
 
 {% alert important %}
 Você pode ter até 200 campanhas ativas de mensagens no app baseadas em ação por espaço de trabalho para otimizar a velocidade de entrega de mensagens e evitar timeouts. Isso não se aplica a Canvas.

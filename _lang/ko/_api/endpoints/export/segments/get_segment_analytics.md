@@ -14,7 +14,7 @@ description: "이 문서에서는 세그먼트 분석 내보내기 Braze 엔드�
 /segments/data_series
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 시간 경과에 따른 세그먼트의 예상 크기에 대한 일별 시계열을 조회합니다.
+> 이 엔드포인트를 사용하여 시간 경과에 따른 세그먼트의 예상 크기에 대한 일별 시계열을 조회합니다. <br><br>세그먼트의 정확한 크기가 필요한 경우 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 사용자를 내보내고 내보낸 프로필 수를 집계하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e {% endapiref %}
 

@@ -2,6 +2,7 @@
 nav_title: Auswahlen
 article_title: Auswahlen
 page_order: 5
+alias: /catalog_selections/
 description: "In diesem Referenzartikel erfahren Sie, wie Sie Auswahlen mit Ihren Katalogen erstellen und verwenden, um Daten in Ihren Braze Campaigns zu referenzieren."
 ---
 
@@ -54,7 +55,7 @@ Connected-Content-Liquid wird in diesen Filtereinstellungen nicht unterstützt.
 
 Nachdem Sie Ihre Auswahl erstellt haben, personalisieren Sie Ihre Nachrichten mit Liquid, um die gefilterten Artikel aus diesem Katalog einzufügen. Sie können Braze das Liquid über das Personalisierungsfenster in den Nachrichten-Editoren für Sie generieren lassen:
 
-1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i>, um das Personalisierungsfenster zu öffnen.
+1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Personalisierung hinzufügen"></i>, um das Personalisierungsfenster zu öffnen.
 2. Wählen Sie für **Personalization Type** die Option **Catalog Items**.
 3. Wählen Sie Ihren Katalognamen aus.
 4. Wählen Sie für **Item selection method** die Option **Use a selection**.

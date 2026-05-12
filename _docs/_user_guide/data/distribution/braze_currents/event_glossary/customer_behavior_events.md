@@ -1,7 +1,7 @@
 ---
 nav_title: Customer behavior and user events
 layout: customer_behavior_events_glossary
-page_order: 1
+page_order: 4
 excerpt_separator: ""
 page_type: glossary
 description: "This glossary lists the various Customer Behavior and User Events that Braze can track and send to chosen Data Warehouses using Currents."
@@ -39,13 +39,18 @@ Certain events return a `platform` value that specifies the platform of the user
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
 {% alert important %}
 Storage schemas apply to the flat file event data we send to data warehouse storage partners (such as Google Cloud Storage, Amazon S3, and Microsoft Azure Blob Storage). Some event and destination combinations listed here are not yet generally available. For information on which events are supported by various partners, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) and check their respective pages.<br><br>Additionally, note that Currents will drop events with excessively large payloads of greater than 900&nbsp;KB.
 {% endalert %}
+
+{% alert note %}
+Many of the events in this glossary are SDK-initiated. Some events, such as `token_state_change`, can be initiated by either the SDK or the backend (for example, in response to a push bounce). The `sdk_version`, `gender`, `language`, and `country` fields are only set for SDK-initiated events; for backend-initiated events, or when that information is not available or not set for the user, these fields may be `null`.
+{% endalert %}
+
 
 {% api %}
 ## Random Bucket Number Update events {#random-bucket-number-update-events}
@@ -206,6 +211,7 @@ This event occurs when a specific custom event is triggered. Use this to track w
 - For Custom Events, the payload will also be populated with any [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) that are associated with the event.
 - For `ad_id`, `ad_id_type`, and `ad_tracking_enabled`, you need to explicitly collect the iOS IDFA and Android Google ad ID through the native SDKs. Learn more about them here: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - If you're using Kafka to ingest [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) data, contact your customer success manager or account manager to enable the feature flipper for sending `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -439,6 +445,7 @@ This event is triggered when a user visits a specified location. Use this to tra
 
 - For `ad_id`, `ad_id_type`, and `ad_tracking_enabled`, you need to explicitly collect the iOS IDFA and Android Google ad ID through the native SDKs. Learn more about them here: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - If you're using Kafka to ingest [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) data, contact your customer success manager or account manager to enable the feature flipper for sending `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -579,6 +586,7 @@ Purchases are special custom events and come with a JSON encoded string of custo
 - For Purchase events, the payload will also be populated with any [purchase event properties]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) that are associated with the event.
 - For `ad_id`, `ad_id_type`, and `ad_tracking_enabled`, you need to explicitly collect the iOS IDFA and Android Google ad ID through the native SDKs. Learn more about them here: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - If you're using Kafka to ingest [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) data, contact your customer success manager or account manager to enable the feature flipper for sending `ad_id`.
+
 {% endapi %}
 
 {% api %}

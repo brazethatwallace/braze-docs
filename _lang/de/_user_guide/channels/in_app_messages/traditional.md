@@ -56,10 +56,10 @@ Weitere Canvas-spezifische Informationen finden Sie unter [In-App-Nachrichten in
 
 Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Verwenden Sie diese Auswahl, um die Zustellung einer Campaign auf eine bestimmte Gruppe von Apps zu beschränken. Sie könnten beispielsweise **Webbrowser** für eine In-Browser-Nachricht wählen, die Nutzer:innen dazu ermutigt, Ihre mobile App herunterzuladen, um sicherzustellen, dass sie die Nachricht nicht erhalten, nachdem sie Ihre App bereits installiert haben. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen.
 
-| Plattform                        | Nachrichtenzustellung             |
+| Plattform | Nachrichtenzustellung |
 |---------------------------------|------------------------------|
-| Mobile Apps                     | iOS-, Android- und Vega-SDKs |
-| Webbrowser                    | Web-SDK                      |
+| Mobile Apps | iOS-, Android- und Vega-SDKs |
+| Webbrowser | Web-SDK |
 | Sowohl Mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -85,6 +85,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 </style>
 
 <table class="tg">
+  <caption>Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -134,6 +135,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 
 <table class="tg">
+  <caption>Erweiterte Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -276,7 +278,7 @@ Der Inhalt des Tabs **Stil** variiert je nach den im vorherigen Schritt gewählt
 
 | Formatierung | Eingabe | Beschreibung |
 |---|---|---|
-| [Farbprofil]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aus der In-App-Nachrichten-Vorlagengalerie anwenden. | Wählen Sie **Vorlage anwenden** und wählen Sie aus der Galerie. Wählen Sie dann **Speichern**. |
+| [Farbprofil]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aus der In-App-Nachrichten-Vorlagengalerie anwenden. | Wählen Sie **Vorlage anwenden** und wählen Sie aus der Galerie. Wählen Sie dann **Speichern**. |
 | Textausrichtung | Links, Zentriert oder Rechts. | Nur für neuere Braze-SDK-Versionen verfügbar. |
 | Überschrift | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
 | Text | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
@@ -329,7 +331,7 @@ Ein Startdatum und eine Startzeit müssen ausgewählt werden; ein Enddatum ist j
 
 Weitere Informationen finden Sie in unserer Entwicklerdokumentation zu [serverseitigem Event-Triggering]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) und [lokaler In-App-Nachrichtenzustellung]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Online- versus Offline-Triggering
+##### Online- versus Offline-Triggering {#online-versus-offline-triggering}
 
 In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Gerät der Nutzerin oder des Nutzers gesendet werden. Sobald die In-App-Nachrichten auf einem Gerät sind, wartet es mit der Anzeige, bis die Trigger-Bedingung erfüllt ist. Wenn die In-App-Nachrichten bereits auf dem Gerät der Nutzerin oder des Nutzers zwischengespeichert sind, können Sie In-App-Nachrichten sogar offline ohne Verbindung zu Braze auslösen (z. B. im Flugmodus).
 

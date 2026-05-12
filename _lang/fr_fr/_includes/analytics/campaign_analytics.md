@@ -76,7 +76,7 @@ Dans Canvas, les performances des messages in-app sont cartographiées sur le Ca
 
 Selon la taille de votre espace de travail, le panneau **Campaign Details** peut afficher les statistiques d'audience sous le libellé **Estimated Audience** ou **Current Audience**.
 
-Le tableau suivant explique quand chaque libellé est utilisé et ce qu'il signifie.
+Le tableau suivant résume la signification de chaque libellé.
 
 | Libellé | Quand il est utilisé |
 | --- | --- |
@@ -84,7 +84,7 @@ Le tableau suivant explique quand chaque libellé est utilisé et ce qu'il signi
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -194,6 +194,10 @@ Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents 
 
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
 
+{% alert note %}
+Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Utilisez les données de clics dans le panneau **Link Table by Total Clicks** pour obtenir une vue complète.
+{% endalert %}
+
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 #### Images
@@ -217,6 +221,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des Content Cards</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -291,6 +296,7 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des bannières</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -360,6 +366,7 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des e-mails</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -438,6 +445,22 @@ Un clic peut être enregistré sans ouverture lorsque le pixel d'ouverture ne se
 
 Un clic et une ouverture peuvent également se produire à des jours différents : un utilisateur peut cliquer le 16 mai avec les images désactivées (pas d'ouverture), puis ouvrir dans le webmail le 17 mai (ouverture enregistrée à ce moment-là).
 
+##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-unique-clicks-than-unique-opens}
+
+Les _clics uniques_ peuvent être supérieurs aux _ouvertures uniques_ lorsque les ouvertures sont sous-comptabilisées ou que les clics sont gonflés :
+
+**La boîte de réception n'a jamais chargé le pixel de suivi d'ouverture**
+
+Cela peut se produire lorsque :
+
+- Le message est long et le pixel d'ouverture se trouve à la fin. Lorsque le client tronque le message, le pixel est coupé.
+- Le message a atterri dans le dossier spam, où les images distantes (y compris le pixel d'ouverture) ne se chargent souvent pas.
+- La boîte de réception utilise une sécurité plus stricte (fréquent sur les comptes d'entreprise) et l'utilisateur n'a pas encore choisi de charger les images.
+
+**Activité de sécurité ou de bots sur les liens**
+
+Certains produits de sécurité des e-mails suivent les liens pour détecter les menaces. Ces requêtes peuvent enregistrer un clic sans charger les images, de sorte que vous pouvez voir une activité de clics sans ouverture correspondante.
+
 ##### Reports {#deferrals}
 
 On parle de report ou d'ajournement lorsqu'un e-mail n'a pas été livré immédiatement, mais que Braze relance l'e-mail jusqu'à 72 heures après cet échec temporaire de distribution afin de maximiser les chances de réussite avant l'arrêt des tentatives pour cette campagne spécifique. Les raisons habituelles de ces reports sont la limitation du débit du volume d'e-mails basée sur la réputation par le fournisseur de la boîte de réception, des problèmes temporaires de connectivité ou des erreurs DNS.
@@ -494,6 +517,7 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des messages in-app</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -576,6 +600,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des notifications push</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -607,7 +632,7 @@ Les désabonnements push ne sont pas inclus dans les indicateurs analytiques des
 Cependant, le suivi manuel des désabonnements push peut fournir des informations précieuses sur les réponses des utilisateurs à votre fréquence de notification et à la pertinence du contenu. Voici deux options pour suivre les désabonnements push : les filtres de segment ou les filtres personnalisés.
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Filtres de segment %}
 
 Vous pouvez créer un segment pour identifier les utilisateurs qui ne sont pas activés pour les notifications push, c'est-à-dire qui ne sont pas abonnés ou en situation d'abonnement et qui ne disposent pas d'un [jeton push au premier plan]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens). Par exemple, pour visualiser le nombre de désabonnements dans votre application, vous pouvez utiliser une combinaison « OU » des segments suivants :
 
@@ -619,7 +644,7 @@ Vous pouvez créer un segment pour identifier les utilisateurs qui ne sont pas a
 Notez que les filtres de segmentation sont approximatifs et ne peuvent pas être spécifiquement liés à une date et à une campagne.
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab Filtres personnalisés %}
 
 {% alert important %}
 L'enregistrement d'un événement personnalisé pour un changement d'abonnement consommera des [points de donnée]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Vous pouvez également utiliser des filtres de segmentation pour identifier et cibler les utilisateurs qui ne sont pas activés pour les notifications push.
@@ -633,6 +658,18 @@ Autre solution possible : nous vous recommandons de créer un événement person
 ##### Comprendre les ouvertures {#understanding-opens}
 
 Bien que les termes _ouvertures directes_ et _ouvertures influencées_ contiennent le mot « ouvertures », il s'agit en fait d'indicateurs différents. Les _ouvertures directes_ font référence à l'ouverture directe d'une notification push, comme indiqué dans le tableau ci-dessus. Les _ouvertures influencées_ font référence à l'ouverture d'une application sans ouverture d'une notification push dans un délai spécifique après sa réception. Les _ouvertures influencées_ concernent donc les ouvertures de l'application, et non les ouvertures des notifications push.
+
+##### Boutons d'action push et rapports {#push-action-buttons-and-reporting}
+
+Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), le panneau **Push Performance** peut inclure les **clics sur le corps du message**, les **clics bouton 1** et les **clics bouton 2** aux côtés d'indicateurs tels que les **ouvertures directes**. Ces colonnes mesurent des interactions différentes, comparez-les donc lorsque vous interprétez l'engagement.
+
+Les _ouvertures directes_ reflètent les indicateurs du tableau de bord pour les interactions comptabilisées comme une ouverture directe de votre message. Les événements **Push Notification Open** dans [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake décrivent les interactions push de manière plus large et peuvent inclure des champs facultatifs tels que `button_action_type` (par exemple, `close`) et `button_string`. Pour les définitions des champs, consultez les [événements Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Pour **iOS**, les catégories de notification par défaut de Braze (telles que **Yes** / **No**, **Accept** / **Decline**, ou **Confirm** / **Cancel**) utilisent un appariement fixe : la première action prend en charge `OPEN_APP`, un URI ou un lien profond (aligné avec le **comportement au clic** dans le compositeur). L'action complémentaire utilise `CLOSE` par défaut — elle ferme la notification et n'ouvre pas l'application. Consultez le mappage par défaut dans l'[objet bouton d'action push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+De ce fait, les appuis sur le bouton prédéfini de rejet (par exemple, **No** ou **Decline**) ne comptent généralement **pas** dans les _ouvertures directes_. Ces appuis peuvent toutefois apparaître dans les exports **Push Notification Open** lorsqu'ils sont enregistrés, avec `button_action_type` défini sur `close` et `button_string` identifiant l'action appuyée. Lorsque vous comparez l'analytique de campagne aux données de l'entrepôt, utilisez ces champs de payload pour ne pas traiter les appuis de rejet de la même manière que les appuis sur le corps de la notification ou l'action principale.
+
+Pour **Android**, vous définissez le **comportement au clic** par bouton (**Ouvrir l'application**, **Rediriger vers une URL web** ou **Lien profond**), de sorte que les rapports suivent les actions que vous configurez plutôt que la répartition par défaut `OPEN_APP` / `CLOSE` d'iOS.
 
 ##### Pourquoi les envois push peuvent dépasser le nombre de destinataires uniques {#why-push-sends-can-exceed-unique-recipients}
 
@@ -682,6 +719,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance SMS, MMS et RCS</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -733,6 +771,7 @@ Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos a
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance des webhooks</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -768,6 +807,7 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
 </style>
 
 <table>
+    <caption class="sr-only">Indicateurs de performance WhatsApp</caption>
     <thead>
         <tr>
             <th>Indicateur</th>

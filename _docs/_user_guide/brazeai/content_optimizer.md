@@ -38,7 +38,7 @@ Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messa
 | Body content format | Improve readability and engagement | Test storytelling versus feature lists, bullets versus paragraphs, and content length. |
 | CTA copy & tone | Increase click-throughs | Compare action-led, benefit-focused, and first-person CTA phrasing. |
 | Themed content combinations | Discover high-performing combinations | Mix and match themed subject, body, and CTA components to find the best overall combination. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email" }
 
 ### Push notifications
 
@@ -46,7 +46,7 @@ Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messa
 | --- | --- | --- |
 | Title variations | Increase open rate | Test clarity, urgency, personalization, and tone in the push title. |
 | Body copy styles | Improve engagement | Compare concise, benefit-led, and action-oriented messaging in the push body. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push notifications" }
 
 ## How it works
 
@@ -75,7 +75,7 @@ The best fit for Content Optimizer is in daily recurring entry Canvases, as well
 | Content variants    | The different values a content component can take. |
 | Content combinations| Unique messages created by mixing and matching content variants. |
 | Optimization event       | Determines how Content Optimizer evaluates performance and allocates traffic to content combinations over time, such as clicks or opens for email. Applies to all content components in a step. Content Optimizer continuously learns from this event and automatically shifts delivery toward higher-performing content combinations. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Considerations
 

@@ -14,7 +14,7 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 /users/track/sync
 {% endapimethod %}
 
-> このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同様に機能します。
+> このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同様に機能します。
 
 {% alert important %}
 このエンドポイントは現在、**限定ベータ版**です。現在ベータ版への新規顧客の追加は行っていませんが、この機能がBrazeとの連携に有用だと思われる場合は、担当のアカウントマネージャーにお知らせください。
@@ -37,6 +37,8 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com`を許可リストに登録する必要が生じることがあります。
 
 ## レート制限 {#rate-limit}
+
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
 
 すべての顧客に対して、このエンドポイントには1分あたり500リクエストの基本スピード制限を適用します。各`/users/track/sync`リクエストには、最大1つのイベントオブジェクト、1つの属性オブジェクト、または1つの購入オブジェクトを含めることができます。それぞれのオブジェクト（イベント、属性、および購入配列）は、それぞれ1人のユーザーを更新できます。
 
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### メールでカスタムイベントを更新する {#update-a-custom-event-by-email}
 
-#### リクエスト {#request}
+#### リクエスト
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -183,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### 応答 {#response}
+#### 応答
 
 ```
 {
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### ユーザーエイリアスで購入イベントを更新する {#update-a-purchase-event-by-user-alias}
 
-#### リクエスト {#request}
+#### リクエスト
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### 応答 {#response}
+#### 応答
 
 ```
 {

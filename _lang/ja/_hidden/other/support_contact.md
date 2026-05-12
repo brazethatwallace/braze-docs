@@ -1,6 +1,6 @@
 ---
 permalink: /support_contact/
-nav_title: ヘルプ | Braze
+nav_title: Help | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
@@ -1053,7 +1053,7 @@ a:hover {
               <strong>BrazeAI Operator&#8482;でトラブルシューティングを迅速に</strong>
               <span class="operator-callout-badge">New</span>
             </div>
-            <p class="operator-callout-body">Operatorは多くの問題をリアルタイムでトラブルシューティングできます。解決できない場合は、チケットの作成をサポートします。<a href="https://dashboard.braze.com/?openOperator=true" target="_blank" rel="noopener noreferrer">Operatorでサポートを受ける<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only">（新しいタブで開きます）</span></a></p>
+            <p class="operator-callout-body">Operatorは多くの問題をリアルタイムでトラブルシューティングできます。解決できない場合は、チケットの作成をサポートします。<a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Operatorでサポートを受ける<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only">（新しいタブで開きます）</span></a></p>
           </div>
         </aside>
         <div class="main-border">
@@ -2656,9 +2656,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>お役に立てそうな記事をご紹介します:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>提案が見つかりませんでした。</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2692,6 +2692,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2715,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,
@@ -2765,7 +2773,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 // Optional: Add a back button to return to the 3-step form
 function addBackButton() {
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Suggestions';
+    backButton.textContent = '推奨コンテンツに戻る';
     backButton.className = 'submit-btn';
     backButton.style.backgroundColor = 'grey';
     backButton.style.marginTop = '20px';

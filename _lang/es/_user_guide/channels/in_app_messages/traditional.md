@@ -22,15 +22,15 @@ toc_headers: h2
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
-2. Selecciona **Mensaje dentro de la aplicación**. Ten en cuenta que los mensajes dentro de la aplicación no están disponibles en Campaigns multicanal.
+1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
+2. Selecciona **In-App Message**. Ten en cuenta que los mensajes dentro de la aplicación no están disponibles en Campaigns multicanal.
 3. Ponle a tu Campaign un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
+Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -85,6 +85,7 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 </style>
 
 <table class="tg">
+  <caption>Tipos de mensaje</caption>
 <thead>
   <tr>
     <th>Tipo de mensaje</th>
@@ -134,6 +135,7 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 Estos mensajes dentro de la aplicación son personalizables según tus necesidades.
 
 <table class="tg">
+  <caption>Tipos de mensaje avanzados</caption>
 <thead>
   <tr>
     <th>Tipo de mensaje</th>
@@ -149,7 +151,7 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
     <td>Mensajes personalizados que funcionan según lo definido en tu código personalizado (HTML, CSS y/o JavaScript).</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
-    <td>Esta es una buena opción si quieres todas las ventajas de los mensajes dentro de la aplicación pero necesitas funcionalidad adicional o que la apariencia se mantenga "acorde a tu marca". Puedes modificar cada pequeño detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de casos de uso incluyen pedir a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
+    <td>Esta es una buena opción si quieres todas las ventajas de los mensajes dentro de la aplicación pero necesitas funcionalidad adicional o que la apariencia se mantenga acorde a tu marca. Puedes modificar cada pequeño detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de casos de uso incluyen pedir a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulario de captura de correo electrónico</a></td>
@@ -191,7 +193,7 @@ Selecciona **Add Languages** y elige los idiomas deseados de la lista proporcion
 
 ### Imagen {#image}
 
-Dependiendo de tu tipo de mensaje, puedes **Upload Image**, **Pick a Badge** o usar **Font Awesome**. Para cargar una imagen, selecciona **Add Image** o proporciona una URL de imagen. Al seleccionar **Add Image** se abre la **Biblioteca de medios**, donde puedes seleccionar una imagen cargada previamente o añadir una nueva. Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisitos sugeridos; asegúrate de verificar cuáles son antes de encargar o crear una imagen desde cero.
+Dependiendo de tu tipo de mensaje, puedes **Upload Image**, **Pick a Badge** o usar **Font Awesome**. Para cargar una imagen, selecciona **Añadir imagen** o proporciona una URL de imagen. Al seleccionar **Añadir imagen** se abre la **Biblioteca de medios**, donde puedes seleccionar una imagen cargada previamente o añadir una nueva. Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisitos sugeridos; asegúrate de verificar cuáles son antes de encargar o crear una imagen desde cero.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -276,9 +278,9 @@ El contenido de la pestaña **Style** varía según las opciones de mensaje eleg
 
 | Formato | Entrada | Descripción |
 |---|---|---|
-| [Perfil de color]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aplicar desde la galería de plantillas de mensajes dentro de la aplicación. | Selecciona **Apply Template** y elige de la galería. Luego, selecciona **Save**. |
-| Alineación de texto | Izquierda, centro o derecha.  | Solo disponible para versiones más recientes del SDK de Braze. |
-| Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color.  |
+| [Perfil de color]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aplicar desde la galería de plantillas de mensajes dentro de la aplicación. | Selecciona **Apply Template** y elige de la galería. Luego, selecciona **Save**. |
+| Alineación de texto | Izquierda, centro o derecha. | Solo disponible para versiones más recientes del SDK de Braze. |
+| Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Texto | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Botones | Código de color HEX. | Se mostrarán los colores HEX deseados. También podrás elegir la opacidad de los colores. Puedes elegir colores para: el fondo del botón de cierre del mensaje, así como el fondo, texto y borde de cada botón. |
 | Borde del botón | Código de color HEX. | ¡Nuevo! Esto te permitirá diferenciar tus botones principal y secundario. Sugerimos delinear los botones con colores contrastantes. |
@@ -319,7 +321,7 @@ Ten en cuenta que si pretendes desencadenar tu mensaje dentro de la aplicación 
 La entrega de mensajes dentro de la aplicación se basa completamente en los siguientes desencadenantes de acción:
 
 - Realizar una compra
-- Abrir la aplicación/página web
+- Abrir la aplicación o página web
 - Realizar un evento personalizado (solo funciona con eventos enviados usando el SDK)
 - Abrir un mensaje push específico
 - Planificar automáticamente Campaigns para enviar a una hora determinada respecto a la hora local de cada uno de tus usuarios.
@@ -352,7 +354,7 @@ Las opciones de alta, media y baja prioridad para mensajes desencadenados son co
 - **Contenedor de prioridad predeterminada:** Cuando dos Campaigns comparten el mismo desencadenante y usan la prioridad predeterminada (media), la Campaign creada más recientemente recibe el desencadenante.
 - **Contenedor de prioridad específica:** Cuando múltiples Campaigns comparten el mismo desencadenante y se asignan a un contenedor de prioridad específico, la Campaign asignada más recientemente a ese contenedor recibe el desencadenante.
 
-Para establecer prioridades dentro de estos contenedores, haz clic en **Set Exact Priority**, y puedes arrastrar y soltar Campaigns para ordenarlas con la prioridad correcta.
+Para establecer prioridades dentro de estos contenedores, haz clic en **Establece la prioridad exacta**, y puedes arrastrar y soltar Campaigns para ordenarlas con la prioridad correcta.
 
 ![Un ejemplo de cómo se establece la prioridad para una Campaign y un Canvas de mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
@@ -368,7 +370,7 @@ Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenenci
 
 En algunos escenarios, es posible que desees reevaluar la elegibilidad de un usuario cuando desencadena un mensaje dentro de la aplicación para mostrarse. Los ejemplos incluyen Campaigns que se dirigen a un atributo personalizado que cambia con frecuencia o mensajes que deben reflejar cualquier cambio de perfil de último momento.
 
-![Casilla de verificación "Re-evaluate campaign eligibility before displaying" seleccionada.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
+![Casilla de verificación para reevaluar la elegibilidad de la Campaign antes de mostrar, seleccionada.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
 Cuando seleccionas **Re-evaluate campaign eligibility before displaying**, se realizará una solicitud adicional a Braze para confirmar que el usuario sigue siendo elegible para este mensaje antes de enviarlo. Además, cualquier variable de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) o [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) se procesará en ese momento antes de que se muestre el mensaje.
 
@@ -393,7 +395,7 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 {% endtab %}
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante e Intelligent Selection, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes e Intelligent Selection, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
 
 Para información sobre opciones de mensajes dentro de la aplicación específicas de Canvas, consulta [Mensajes dentro de la aplicación en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas).
 

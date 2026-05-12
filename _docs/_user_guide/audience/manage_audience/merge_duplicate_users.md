@@ -43,7 +43,7 @@ Duplicate user profiles cannot be recovered after merging.
 
 ## Bulk merging
 
-When you bulk merge duplicate users, Braze finds profiles with matching identifiers (such as an email address) and merges all their data into the most recently updated profile with an `external_id`. If there are no profiles with an `external_id`, the most recently updated profile without an `external_id` will be used instead.
+When you bulk merge duplicate users, Braze finds profiles with matching identifiers (such as an email address) and keeps one profile. Braze first prioritizes profiles with an `external_id`, then applies your **Resolving ties** settings: **Resolve ties using** and **Prioritization**. If there are no profiles with an `external_id`, Braze uses **Resolve ties using** and **Prioritization** across profiles without an `external_id`. Braze only merges users when these settings identify one profile to keep. For example, if **Resolve ties using** is **Updated date** and both profiles have the same last updated timestamp, Braze can't resolve the tie, so those users aren't merged.
 
 ### Step 1: Go to Manage Audience
 
@@ -70,7 +70,7 @@ In the following example, Braze uses the user's external ID to flag duplicate pr
 | alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
 | alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
 | alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Preview the results (optional)" }
 {% endtab %}
 {% endtabs %}
 

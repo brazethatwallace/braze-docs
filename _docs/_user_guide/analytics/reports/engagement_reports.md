@@ -63,6 +63,12 @@ The **Add Stats** step shows you statistics for the types of campaigns or Canvas
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Engagement reports aggregate data per campaign or Canvas, not at the workspace level. To monitor total send or impression volume across all active campaigns and Canvases, such as per-channel sends and impressions across an entire workspace, use [Report Builder]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Sends to Carrier* is deprecated, but will continue to be supported for users who already have it.
+{% endalert %}
+
 | Channel | Available statistics |
 | ------| --------------|
 | Email | Sends, Opens, Unique Opens, Clicks, Unique Clicks, Click to Open, Unsubscribes, Bounces, Delivered, Reported Spam |
@@ -71,11 +77,7 @@ The **Add Stats** step shows you statistics for the types of campaigns or Canvas
 | In-app message | Impressions, Clicks, First Button Clicks, Second Button Clicks |
 | Webhook  |  Sends, Errors |
 | SMS | Sends, Sends to Carrier, Confirmed Deliveries, Delivery Failures, Rejections |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Sends to Carrier* is deprecated, but will continue to be supported for users that already have it.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### Step 4: Complete report setup
 
@@ -99,6 +101,14 @@ By default, the data range shown is based on your company's time zone and will g
 By default, the data displayed in the engagement reports is daily (one day). To view this data across different intervals, choose an explicit number of days or weeks to aggregate the data for the report. So instead of seeing daily metrics, you can view your engagement by week, month, quarter, or similar. Should a time-centric aggregation not suffice, you can also elect to export data at the campaign or Canvas level.
 
 ![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### Show Data by Entire Campaign or Canvas
+
+When you select **Show Data by Entire Campaign or Canvas**, Braze aggregates metrics in 1,825-day (five year) chunks across the report's time range. 
+
+If the time range spans more than one chunk, you may see multiple rows for the same campaign or Canvas with different dates in the date column. Some rows may include only metrics recorded later in the range (for example, unsubscribes). Dates may also fall years before you started sending in the workspace, because they reflect chunk boundaries in the export, not only your first send. 
+
+To align the date column with when your selected campaigns and Canvases actually sent, set the report [start date in **Select time frame**](#select-time-frame) to the earliest date you want in the file—typically when those messages started sending—rather than leaving the default range that reaches back to the oldest selected message.
 
 #### Schedule your report
 
@@ -130,7 +140,7 @@ Make sure the dates in the engagement report match the dates in the Canvas or ca
 If totals look wrong in a spreadsheet, clear extra filters on the export. You can sum the daily rows to reconcile them with Canvas or campaign totals for the same time range.
 
 {% alert note %}
-If you want one aggregate row for the full range instead of daily, weekly, or other recurring buckets, set **Data Display** to **Show Data by Entire Campaign or Canvas**.
+If you want rows aggregated by entire campaign or Canvas instead of daily, weekly, or other recurring buckets, set **Data Display** to **Show Data by Entire Campaign or Canvas**. If row counts or dates look wrong in the CSV, see [Show Data by Entire Campaign or Canvas](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Duplicate button clicks in HTML in-app messages

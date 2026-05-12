@@ -9,7 +9,7 @@ page_type: reference
 
 # エクスポートエンドポイント {#export-endpoints}
 
-エクスポートエンドポイントを使用すると、KPI、アプリセッション、ユーザー、Segments、Campaigns、Canvasesに関するさまざまな詳細にアクセスしてエクスポートできます。パラメーターとリクエストボディを作成する際には、[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)、[APIキー]({{site.baseurl}}/api/api_key/)、および[API識別子]({{site.baseurl}}/api/identifier_types/)を確認してください。
+このエンドポイントコレクションを使用すると、KPI、アプリセッション、ユーザー、Segments、Campaigns、Canvasesに関するさまざまなレベルの詳細にアクセスしてエクスポートできます。パラメーターとリクエストボディを作成する際には、[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)、[APIキー]({{site.baseurl}}/api/api_key/)、および[API識別子]({{site.baseurl}}/api/identifier_types/)を確認してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -56,7 +56,7 @@ APIエクスポートは、ダッシュボードからダウンロードするCS
 
 エクスポートの配信とトラブルシューティングの詳細については、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
 
-## エクスポートエンドポイント {#export-endpoints}
+## エクスポートエンドポイント一覧
 
 以下の表は、利用可能なすべてのエクスポートAPIを一覧にしたものです。
 

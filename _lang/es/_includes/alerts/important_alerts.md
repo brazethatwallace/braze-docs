@@ -61,7 +61,7 @@ Hay ciertos navegadores, como las aplicaciones Naver para Android e iOS, que no 
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+El evento de compra heredado está entrando en modo de mantenimiento. Los clientes existentes de Braze pueden seguir utilizando los eventos de compra heredados. Seguirán funcionando como se espera, pero las nuevas funcionalidades se desarrollarán sobre los eventos recomendados de comercio electrónico en adelante. Braze proporcionará un aviso previo con suficiente antelación antes de que se establezca cualquier fecha de fin de vida. Los nuevos clientes de Braze deben utilizar los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), ya que los eventos de compra heredados no estarán disponibles.
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ La integración con Shopify admite webhooks de creación y actualización de cli
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Las propiedades de entrada de Canvas forman parte de las variables de contexto de Canvas. Esto significa que `canvas_entry_properties` se referencia como `context`. Cada variable `context` incluye un nombre, un tipo de datos y un valor que puede incluir Liquid. Actualmente, `canvas_entry_properties` es compatible con versiones anteriores. Para más información, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) y [Objeto de contexto de Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
+Las propiedades de entrada de Canvas forman parte de las variables de contexto de Canvas. Esto significa que `canvas_entry_properties` se referencia como `context`. Cada variable `context` incluye un nombre, un tipo de datos y un valor que puede incluir Liquid. Actualmente, `canvas_entry_properties` es compatible con versiones anteriores. Para más detalles, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) y [Objeto de contexto de Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
 {% endalert %}
 
 {% endif %}
@@ -151,14 +151,6 @@ Meta tiene un problema conocido que puede impedir que algunos videos MP4 se repr
 Para esta integración, el alias de usuario debe utilizar el siguiente formato para que Braze pueda asociar los webhooks con el perfil de usuario correcto:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Los mensajes multilingües y las traducciones de configuración regional se encuentran actualmente en fase de acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en este acceso anticipado.
 {% endalert %}
 
 {% endif %}

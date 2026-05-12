@@ -53,7 +53,15 @@ If you're on MacOS, you can copy the output of `bdocs` directly to your clipboar
 
 ### `deploy`
 
-This command creates the pull request description for weekly deployments by comparing which pull requests have been merged into `develop` but not `main` and then listing them in the proper Markdown format.
+This command creates the pull request description for routine deployments by comparing which pull requests are merged into `develop` but not yet on `main`, then listing them in Markdown.
+
+For local runs, `./bdocs deploy` always compares `origin/main` to `origin/develop`. The **Nightly Release Deploy** GitHub Action cuts a snapshot branch from `develop` at run time (`auto-deploy-YYYY-MM-DD-<run id>`), opens a pull request from that branch into `main`, and sets the environment variable `DEPLOY_SOURCE_BRANCH` so [`scripts/create_deploy_text.sh`](https://github.com/braze-inc/braze-docs/blob/develop/scripts/create_deploy_text.sh) lists merged PRs between `main` and that snapshot only. New commits on `develop` after the cut do not change an open deploy PR until the next nightly run opens a new snapshot.
+
+When a new nightly run opens while an older `auto-deploy-*` deploy PR is still open, the workflow creates the new PR first, posts a superseded comment on the old PR, closes it, and removes the old snapshot branch on `origin`. After you merge the current deploy PR into `main`, the **Delete auto-deploy branch after merge** workflow removes the merged snapshot branch on `origin` so stale heads do not accumulate.
+
+Sitemap last-modified updates are a **separate** scheduled workflow ([**Nightly sitemap last-modified update**](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-sitemap-update.yml)) that opens PRs into `develop`; merge those before approving the deploy PR when you want the latest `_data/sitemap_*.json` dates in that release.
+
+Optional Slack alerts for **Nightly Release Deploy** and **Nightly sitemap last-modified update** (success paths and failures) use the same repository secrets `SLACK_BOT_TOKEN` and `SLACK_DEPLOY_NOTIFY_CHANNEL`; see the comments at the top of [`.github/workflows/nightly-deploy.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-deploy.yml) and [`.github/workflows/nightly-sitemap-update.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-sitemap-update.yml).
 
 ### Usage example
 

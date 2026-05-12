@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### How do I create a multichannel campaign?
 
-To create a multichannel campaign, select **Messaging** > **Campaigns**. Then, select **Create Campaign** > **Multichannel**. From here, you can select from the following messaging channels: Content Cards, email, LINE, push notifications, SMS/MMS/RCS, webhook, or WhatsApp.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 
-No, control groups in campaigns are intended for single-channel messaging, such as Email A versus Email B. As an alternative, try using [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) for testing different channels, messaging content, and delivery timing. 
+See [Control groups]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) in **Create a campaign**. For cross-channel testing, use [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### What are some ways I can start testing and optimizing campaigns?
 
@@ -48,9 +48,7 @@ The same pattern applies to recurring campaigns and to re-eligibility: if two us
 
 ### Why can the number of conversions exceed the number of unique users for multichannel campaigns?
 
-For multichannel campaigns, Braze counts conversions per channel, not per user. When a user performs a single conversion action within the conversion window, Braze attributes that conversion to each channel from which the user received a message. This means that if a user receives messages on multiple channels (for example, both email and push) and converts, Braze counts multiple conversions, one for each channel. As a result, the total conversion count can exceed the number of unique users who converted.
-
-For example, if a multichannel campaign sends both an email and a push notification to a user, and that user performs one conversion action after receiving both messages and within the conversion window, Braze counts this as two conversions, one attributed to email and one attributed to push, even though it is a single action by the same user.
+See [Conversions and reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) in **Create a campaign** and [Conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) in **Conversion events**.
 
 ### Why does my campaign have a smaller reachable user base than the segment that I'm using for the campaign?
 
@@ -72,7 +70,7 @@ You can check your company's time zone in your [company settings]({{site.baseurl
 
 Braze evaluates users for their entry eligibility at:
 
-- Samoa time (UTC+13) or UTC+14 during Daylight Saving Time
+- Samoa time (UTC+13) on the scheduled day
 - The local time of the scheduled day
 
 For a user to be eligible for entry, they must be eligible for both checks. For example, if a Canvas is scheduled to launch on August 7, 2021 at 2 pm local time zone, then targeting a user located in New York would require the following checks for eligibility:
@@ -80,7 +78,9 @@ For a user to be eligible for entry, they must be eligible for both checks. For 
 - New York on August 6, 2021 at 9 pm
 - New York on August 7, 2021 at 2 pm
 
-The user must be in the segment for 24 hours before the launch. If the user is not eligible in the first check, then Braze does not attempt the second check.
+To enter, a user must match your audience and filters at both evaluation times. If the user is not eligible at the first check, Braze does not run the second check. There is no minimum length of time that a user must have been in the segment before launch. Only eligibility at each check matters.
+
+This evaluation behavior is separate from [how far in advance you schedule the campaign in the dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Scheduling at least 24 hours ahead is a recommendation because it helps messages deliver throughout the full 24-hour local time zone window, not a requirement that each user has been in the audience for 24 hours.
 
 #### Examples
 
@@ -88,7 +88,7 @@ For example, if a campaign is scheduled to be delivered at 7 pm UTC, we start qu
 
 As another example, say you want to create two campaigns scheduled to send on the same day—one in the morning and one in the evening—and add a filter that users can only receive the second campaign if they've already received the first. With local time zone delivery, some users may not receive the second campaign. This is because we check eligibility when the user's time zone is identified, so if the scheduled time hasn't occurred in their time zone yet, they haven't received the first campaign, meaning they won't be eligible for the second campaign.
 
-For a visual of how a user might be in a segment during the first check but not the second, see this timeline:
+The following timeline assumes a segment definition that includes a time-limited membership window. In this example, users exit the segment 24 hours after they join. That filter behavior is one reason a user can pass the first check and fail the second.
 
 ![Timeline of a user entering the segment before the first check, then leaving before the second.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -102,6 +102,8 @@ For a visual of how a user might be in a segment during the first check but not 
 {% enddetails %}
 
 ### How do I schedule a local time zone campaign?
+
+The previous section describes when Braze evaluates eligibility for local time zone delivery (the two checks). This section describes when you set the campaign schedule in the dashboard (scheduling lead time) and which users still receive the message if you schedule with less than 24 hours' notice.
 
 When scheduling a campaign, choose to send it at a designated time and then select **Send campaign to users in their local time zone**.
 
@@ -206,7 +208,7 @@ Action-based delivery campaigns or event-triggered campaigns are very effective 
 | Pros | Cons | 
 | ---- | ---- |
 | • Visibility of incoming JSON payloads into the platform (if event triggered by test user) via the **Message Activity Log**<br><br>• Personalization elements are included in the custom event properties<br><br>• Custom event can be used to create Segments of users eligible for the message | • Consumes data points |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action-based" }
 
 #### API-triggered
 
@@ -215,7 +217,7 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 | Benefits | Considerations | 
 | ---- | ---- |
 | • Does not log data points<br><br>• Personalization elements are included in the JSON payload properties | • Does not allow you to create a segment of users eligible for the message in the JSON payload properties<br><br>• Not able to see incoming JSON payloads with the **Message Activity Log**|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API-triggered" }
 
 ### What should I include when submitting a support ticket for a "Request Timed Out" error?
 

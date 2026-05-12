@@ -32,21 +32,21 @@ table td {
 | Segment別の購入と収益 | このレポートは、特定のSegmentに送信されたメッセージの指標を表示します。<br><br> 購入指標はレポート期間を通じてユニークです。1人のユーザーが生成できる購入は最大1件です。収益はレポート期間のすべての購入を考慮します。 |
 | Segment別のバリアントまたはステップの購入と収益 | このレポートは、各Segmentに送信されたメッセージのバリアントまたはキャンバスステップの指標を表示します。<br><br> 購入指標はレポート期間を通じてユニークです。1人のユーザーが生成できる購入は最大1件です。収益はレポート期間のすべての購入を考慮します。 |
 | 購入のトップ/ボトムメッセージング | このレポートは、上位または下位のCampaigns、Canvases、またはキャンバスステップの購入指標を表示します。各行はCampaign、Canvas、またはキャンバスステップです。上位または下位のパフォーマーを表示するかどうか、およびこの分析を実行する特定の指標（*受信時のユニーク購入数*、*受信時の収益*、*ユニーク受信者数*など）を指定する必要があります。<br><br> トップパフォーマーレポートの行は最良から最悪の順に並べられ、ボトムパフォーマーレポートの行は最悪から最良の順に並べられます。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel templates" }
 
 ## Campaignテンプレート {#campaign-templates}
 
 | クエリ名 | 説明 |
 | --- | --- |
 | 国別のCampaign収益 | このレポートは、特定のCampaignの国別収益を表示します。このレポートを実行するには、CampaignのAPI識別子を指定する必要があります。CampaignのAPI識別子は、そのCampaignの詳細ページの下部にあります。<br><br> このレポートは、各国について、生成された収益額、注文数、返品数、純収益、総収益を表示します。<br><br> {::nomarkdown} <ul> <li> <i>注文数:</i> 購入イベントの数 </li> <li><i> 返品数:</i> 収益値がマイナスの購入イベントの数 </li> <li><i> 純収益:</i> 返品以外のすべての収益 </li> <li><i> 総収益:</i> 返品の値を含む収益 </li></ul>{:/} ![]({% image_buster /assets/img_archive/campaign_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign templates" }
 
 ## Canvasテンプレート {#canvas-templates}
 
 | クエリ名 | 説明 |
 | --- | --- |
-| 国別のCanvas収益 | このレポートは、特定のCanvasの国別収益を表示します。このレポートを実行するには、CanvasのAPI識別子を指定する必要があります。CanvasのAPI識別子は**バリアントを分析**の下にあります。<br><br> このレポートは、各国について、生成された収益額、注文数、返品数、純収益、総収益を表示します。<br><br> {::nomarkdown} <ul> <li> <i>注文数:</i> 購入イベントの数 </li> <li><i> 返品数:</i> 収益値がマイナスの購入イベントの数 </li> <li><i> 純収益:</i> 返品以外のすべての収益 </li> <li><i> 総収益:</i> 返品の値を含む収益 </li></ul>{:/} ![]({% image_buster /assets/img_archive/canvas_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+| 国別のCanvas収益 | このレポートは、特定のCanvasの国別収益を表示します。このレポートを実行するには、CanvasのAPI識別子を指定する必要があります。CanvasのAPI識別子は**Analyze Variants**の下にあります。<br><br> このレポートは、各国について、生成された収益額、注文数、返品数、純収益、総収益を表示します。<br><br> {::nomarkdown} <ul> <li> <i>注文数:</i> 購入イベントの数 </li> <li><i> 返品数:</i> 収益値がマイナスの購入イベントの数 </li> <li><i> 純収益:</i> 返品以外のすべての収益 </li> <li><i> 総収益:</i> 返品の値を含む収益 </li></ul>{:/} ![]({% image_buster /assets/img_archive/canvas_revenue_country.png %}){: style="max-width:70%;"} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas templates" }
 
 ## メールテンプレート {#email-templates}
 
@@ -59,9 +59,9 @@ table td {
 | 国別のメールパフォーマンス | このレポートは、各国について以下の指標を表示します: 送信数、間接開封率、直接開封率。国はプッシュ送信時のユーザーの国です。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q3.png %}) |
 | メールサブスクリプション変更ログ | このレポートは、各ユーザーのサブスクリプション変更について記録された指標（メールアドレス、サブスクリプションステータス、ステータスが変更された時刻、関連するCanvasまたはCampaignなど）を表示します。 |
 | メールサブスクリプショングループのオプトインとオプトアウト | このレポートは、任意のメールサブスクリプショングループについて、週ごとのユニークユーザーのオプトイン数とオプトアウト数を表示します。このクエリを実行するには、ワークスペースに少なくとも1つの[メールサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions/)が必要です。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
-| メールのクリックされたURL | このレポートは、メール内の各リンクのクリック数を表示します。このレポートを実行するには、CampaignまたはCanvasのAPI識別子を指定する必要があります。CampaignのAPI識別子はそのCampaignの詳細ページの下部に、CanvasのAPI識別子は**バリアントを分析**の下にあります。<br><br> このレポートは、非パーソナライズリンクと各リンクのクリック数を表示します。CSVダウンロードには、クリックしたすべてのユーザーのユーザーID、クリックしたリンク、クリックした時刻のタイムスタンプが含まれます。<br><br> *非パーソナライズURL:* Liquidタグが除去されたURLです。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
+| メールのクリックされたURL | このレポートは、メール内の各リンクのクリック数を表示します。このレポートを実行するには、CampaignまたはCanvasのAPI識別子を指定する必要があります。CampaignのAPI識別子はそのCampaignの詳細ページの下部に、CanvasのAPI識別子は**Analyze Variants**の下にあります。<br><br> このレポートは、非パーソナライズリンクと各リンクのクリック数を表示します。CSVダウンロードには、クリックしたすべてのユーザーのユーザーID、クリックしたリンク、クリックした時刻のタイムスタンプが含まれます。<br><br> *非パーソナライズURL:* Liquidタグが除去されたURLです。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
 | メールエンゲージメントのトップ/ボトムメッセージング | このレポートは、上位または下位のCampaigns、Canvases、またはキャンバスステップのメールエンゲージメント指標を表示します。上位または下位のパフォーマーを表示するかどうか、およびこの分析を実行する特定の指標（*送信数*、*ソフトバウンス数*、*ユニーク開封数*など）を指定する必要があります。<br><br> トップパフォーマーレポートの行は最良から最悪の順に並べられ、ボトムパフォーマーレポートの行は最悪から最良の順に並べられます。<br><br> ![]({% image_buster /assets/img_archive/top-bottom-email.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 ## モバイルテンプレート {#mobile-templates}
 
@@ -73,14 +73,14 @@ table td {
 | デバイス画面解像度 | デバイス画面解像度ごとのユーザー数（1179x2556や750x1334など）。<br><br> ![]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
 | SMSエラーコード | このレポートは、各SMSエラーコードのエラータイプとエラー数を表示します。<br><br>![]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
 | ユーザー別のSMSプロバイダーエラー | このレポートは、特定のユーザーのSMSエラーコードを表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mobile templates" }
 
 ## プッシュテンプレート {#push-templates}
 
 | クエリ名 | 説明 |
 | --- | --- |
 | 国別のプッシュパフォーマンス | このレポートは、各国について以下の指標を表示します: 配信数、開封率、クリック率。国はメール送信時のユーザーの国です。<br><br> ![]({% image_buster /assets/img_archive/query_builder_q7.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push templates" }
 
 ## Segment内訳 {#segment-breakdown}
 
@@ -88,7 +88,7 @@ table td {
 | -- | -- |
 | Segment別のメールエンゲージメント指標 | このレポートは、CampaignまたはCanvasレベルでSegment別に分類されたメールパフォーマンス指標を表示します。 |
 | Segment別の購入と収益 | このレポートは、特定のCampaignまたはCanvasについてSegment別に分類された購入と収益の指標を表示します。 |
-| メールエンゲージメントのトップ/ボトムメッセージング | このレポートは、指定されたメールエンゲージメント指標で最も高いまたは最も低いパフォーマンスを示したCampaigns、Canvases、またはキャンバスステップを表示します。|
+| メールエンゲージメントのトップ/ボトムメッセージング | このレポートは、指定されたメールエンゲージメント指標で最も高いまたは最も低いパフォーマンスを示したCampaigns、Canvases、またはキャンバスステップを表示します。 |
 | 購入のトップ/ボトムメッセージング | このレポートは、指定された購入または収益の指標で最も高いまたは最も低いパフォーマンスを示したCampaigns、Canvases、またはキャンバスステップを表示します。 |
-| Segment別のプッシュパフォーマンス | このレポートは、Segment別に分類されたプッシュ指標を表示します。|
-{: .reset-td-br-1 .reset-td-br-2 }
+| Segment別のプッシュパフォーマンス | このレポートは、Segment別に分類されたプッシュ指標を表示します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }

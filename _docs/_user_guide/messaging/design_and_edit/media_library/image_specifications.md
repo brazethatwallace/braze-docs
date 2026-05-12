@@ -68,7 +68,7 @@ For best results, refer to the following message length guidelines when crafting
 | iOS banner alert | 80 characters | 65 characters |
 | Android lock screen | 49 characters | N/A |
 | Android notification drawer | 597 characters | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended message lengths" }
 
 For more information about iOS character counts, see [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
 
@@ -83,7 +83,7 @@ For more information about iOS character counts, see [iOS character count guidel
 | Firefox | 192 x 192 px or larger |
 | Safari | 192 x 192 px or larger (configurable per campaign with Safari 16 on macOS 13+) |
 | Opera | 192 x 192 px or larger |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 
 | Browser | Platform | Large image size |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ For more information about iOS character counts, see [iOS character count guidel
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 
 {% endtab %}
 {% tab Text %}
@@ -114,7 +114,7 @@ For more information about iOS character counts, see [iOS character count guidel
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
 
 {% endtab %}
 {% endtabs %}

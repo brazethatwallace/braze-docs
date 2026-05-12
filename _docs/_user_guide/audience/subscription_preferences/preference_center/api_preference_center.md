@@ -33,7 +33,7 @@ Using Liquid enables you to retrieve the names of your subscription groups, and 
 | Valid workspace with an email, SMS, or WhatsApp subscription group | A working workspace with valid users and an email, SMS, or WhatsApp subscription group. |
 | Valid user | A user with an email address and an external ID. |
 | Generated API key with preference center permissions | In the Braze dashboard, go to **Settings** > **API Keys** to confirm that you have access to an API key with preference center permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Step 1: Use the Create preference center endpoint
 

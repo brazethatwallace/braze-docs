@@ -11,7 +11,7 @@ description: "O dashboard da Braze é seu espaço de trabalho central para criar
 
 > O dashboard da Braze é seu espaço de trabalho central para criar, gerenciar e analisar o engajamento com clientes. Acesse em [dashboard.braze.com](https://dashboard.braze.com/) ou [dashboard.braze.eu](https://dashboard.braze.eu/).
 
-Use o dashboard da Braze para planejar Campaigns, lançar e gerenciar mensagens, explorar insights de público, ajustar a segmentação e revisar métricas de desempenho e engajamento em tempo real a partir de uma única interface.
+Use o dashboard da Braze para planejar campanhas, lançar e gerenciar mensagens, explorar insights de público, ajustar a segmentação e revisar métricas de desempenho e engajamento em tempo real a partir de uma única interface.
 
 ## Visão geral do dashboard {#dashboard-overview}
 

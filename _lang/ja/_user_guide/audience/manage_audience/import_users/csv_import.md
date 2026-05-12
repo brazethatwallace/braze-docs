@@ -13,26 +13,26 @@ page_order: 1.2
 
 CSVインポートを使用して、以下のユーザー属性やカスタムイベントを記録・更新できます。Brazeは、以下の表に記載された最大サイズ以内の標準CSVファイルとしてこのデータを受け付けます。
 
-|タイプ|定義|例|最大ファイルサイズ|
+| タイプ | 定義 | 例 | 最大ファイルサイズ |
 |---|---|---|---|
-|デフォルト属性|Brazeが認識する予約済みのユーザー属性。| `first_name`、`email`|500 MB|
-|カスタム属性|ビジネス固有のユーザー属性。| `last_destination_searched`|500 MB|
-|カスタムイベント|ユーザーのアクションを表すビジネス固有のイベント。| `trip_booked`|50 MB|
+| デフォルト属性 | Brazeが認識する予約済みのユーザー属性。 | `first_name`、`email` | 500 MB |
+| カスタム属性 | ビジネス固有のユーザー属性。 | `last_destination_searched` | 500 MB |
+| カスタムイベント | ユーザーのアクションを表すビジネス固有のイベント。 | `trip_booked` | 50 MB |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## CSVインポートの使用 {#using-csv-import}
 
-### ステップ 1:CSVテンプレートをダウンロードする {#step-1-download-a-csv-template}
+### ステップ1:CSVテンプレートをダウンロードする {#step-1-download-a-csv-template}
 
 CSVインポートを開くには、**Audiences** > **Import Users** に移動します。ここには、アップロード日、アップロード者名、ファイル名、ターゲティングの利用可否、インポートされた行数、インポートのステータスなど、最新のインポートに関する詳細を一覧表示するテーブルがあります。
 
-CSVの作成を始めるには、属性またはイベント用のテンプレートをダウンロードしてください。
+開始するには、**Attributes**または**Events**を選択し、適切なテンプレートをダウンロードしてアップロード用のCSVファイルを作成します。
 
 ![Brazeダッシュボードの「Import Users」ページ。]({% image_buster /assets/img/csv_import/import_users_page.png %})
 
-### ステップ 2:識別子を選択する {#choose-an-identifier}
+### ステップ2:識別子を選択する {#choose-an-identifier}
 
-インポートするCSVには、専用の識別子が必要です。以下から選択できます。
+インポートするCSVファイルには、専用の識別子が必要です。インポートに使用する識別子タイプを以下から選択してください。
 
 {% tabs local %}
 <!-- TAB -->
@@ -103,7 +103,7 @@ CSVファイルにメールアドレスと電話番号の両方が含まれて�
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3:CSVファイルを作成する {#step-3-build-your-csv-file}
+### ステップ3:CSVファイルを作成する {#step-3-build-your-csv-file}
 
 以下のいずれかのデータタイプを1つのCSVファイルとしてアップロードできます。複数のデータタイプをアップロードするには、複数のCSVファイルをアップロードしてください。
 
@@ -117,7 +117,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 {% tab user attributes %}
 #### 必須の識別子 {#required-identifiers-attributes}
 
-`external_id`は必須ではありませんが、CSVファイルのヘッダーとして以下の識別子のうち**1つ**を**必ず**含める必要があります。各識別子の詳細については、[識別子を選択する](#choose-an-identifier)を参照してください。
+`external_id`は必須ではありませんが、CSVファイルには以下の識別子のうち**1つ**にマッピングできるユーザー識別子を含める必要があります。各識別子の詳細については、[識別子を選択する](#choose-an-identifier)を参照してください。
 
 - `external_id`
 - `braze_id`
@@ -127,7 +127,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 
 #### カスタム属性 {#custom-attributes}
 
-以下のデータタイプは、CSVインポートのカスタム属性として使用できます。[デフォルト属性](#default-attributes)と完全に一致しない列ヘッダーは、Brazeでカスタム属性としてインポートされます。
+以下のデータタイプは、CSVインポートのカスタム属性として使用できます。[デフォルト属性](#default-attributes)と完全に一致しない列ヘッダーは、マッピングステップで変更しない限り、Brazeでカスタム属性としてインポートされます。
 
 | データタイプ | 説明 |
 |---|---|
@@ -281,9 +281,11 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4:ファイルをアップロードする {#step-4-upload-your-file}
+### ステップ4:ファイルをアップロードする {#step-4-upload-your-file}
 
 ファイルをアップロードするには、**Attributes**または**Events**を選択し、**Browse Files**をクリックしてCSVをアップロードします。Brazeは最初の数行のプレビューと検出されたフィールドの概要を表示します。
+
+![アップロード後のファイルプレビューを表示するファイルプレビューページ。]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
 
 大きなファイル（デフォルト属性とカスタム属性は最大500 MB、カスタムイベントは最大50 MB）の場合、ファイルのアップロードとBrazeによるインポートの計算中にダッシュボードが一時的に応答しなくなることがあります。これらのアップロードと計算は、小さなファイルよりも完了に時間がかかる場合があります。このステップが完了するまでお待ちください。ファイルの制限とタイミングの詳細については、[CSVの構築]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv)を参照してください。
 
@@ -295,9 +297,52 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 ファイルプレビューにはファイルの最初の数行のみが表示されます。インポート前にすべての行を確認するには、[ファイル検証](#file-validation)を使用してください。
 {% endalert %}
 
-### ステップ 5:ファイルを検証する（オプション） {#file-validation}
+### ステップ5:フィールドをマッピングする（属性の場合） {#csv-data-mapping}
 
-インポートを開始する前に、ファイル検証を実行してすべての行のエラーと警告を確認できます。ファイルを検証するには、**Validate file before importing**を選択し、**Start import**をクリックします。
+プレビューの後、CSVヘッダーをBraze属性にマッピングできます。Brazeは、CSVファイル内のフィールドを同じ名前の属性に自動的にマッピングし、必要に応じて新しい属性を作成します。また、任意の列に対して手動で提案を調整したり、別の属性を選択したりする柔軟性もあります。
+
+![列マッピングページ。]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
+
+#### マッピングステータス {#mapping-statuses}
+
+マッピングステータス列は、CSVファイルがインポートされたときに発生するアクションを示し、以下のいずれかになります。
+
+| マッピングステータス | 意味 |
+|:---|:---|
+| **マッピング済み** | フィールドが既存の属性または識別子にマッピングされました。 |
+| **新しい属性** | Brazeがインポート時に新しい属性を作成します。**Edit new attribute**ボタンを選択してこの属性を編集できます。 |
+| **データタイプの不一致** | CSV列の検出されたデータタイプが、既存の属性または識別子のデータタイプと一致しません。Brazeはインポート時に既存の属性に合わせてデータタイプの変換を試みます。変換できない場合、値は破棄されます。 |
+| **ブロックリスト属性** | CSVフィールドがブロックリストに登録された属性の名前と一致しています。マッピングする別の属性を選択するか、その列はインポートされません。 |
+| **重複属性** | CSVファイルに同じ名前のフィールドが1つ以上あります。同名の列を異なる属性にマッピングするか、最初の列のみがインポートされます。 |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+
+#### 新しい属性の編集 {#editing-new-attributes}
+
+ワークスペースに一致する属性が存在しない場合、BrazeはCSVフィールドの名前と検出されたデータタイプを使用して、インポート時に新しい属性の作成を試みます。マッピングステータスの横にある**Edit new attribute**ボタンを選択して、インポート前にこの新しい属性を編集できます。
+
+![列マッピングページの新しい属性編集ボタン。]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
+
+
+{% alert note %}
+識別子がマッピングされるまで、マッピングステップを先に進めることはできません。Brazeは可能な場合、識別子を自動的にマッピングします。識別子がマッピングされているかどうかは、**Required fields**セクションを参照してください。
+{% endalert %}
+
+### ステップ6:ターゲティング設定を選択する {#targeting-preferences}
+
+マッピング後、インポート設定ページで以下のターゲティング設定から選択できます。インポートから新しいターゲティングフィルターやSegmentを作成する必要がない場合は、**Do not make this list available as a targeting filter**を選択してください。
+
+| オプション | 説明 |
+|---|---|
+| ターゲティングフィルター | CSVファイルをユーザーSegment作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
+| 新しいSegment | 新しいターゲティングフィルターから新しいSegmentも作成するには、**Create targeting filter and add to new segment**を選択します。 |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+
+![「Halloween season fun」というCSVファイルを含む「Updated/Imported from CSV」フィルターを使用したフィルターグループ。]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+
+### ステップ7:ファイルを検証する（オプション） {#file-validation}
+
+インポートを開始する前に、ファイル検証を実行してすべての行のエラーと警告を確認できます。ファイルを検証するには、インポート設定ページで**Validate file before importing**を選択し、**Next**を選択します。
 
 検証は最大許容サイズのファイルで最大2分かかる場合があります。検証の実行中に、**Skip validation**を選択して検証をバイパスし、すぐに進めることもできます。
 
@@ -313,7 +358,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 | **問題ありで検証がタイムアウトしました** | 検証の時間が切れ、確認された行の一部にエラーが見つかりました。 | 部分的なレポートをダウンロードして確認し、**Import anyway**または**Cancel**を選択します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
-![エラーと警告のある行数を表示し、キャンセル、エラーレポートのダウンロード、またはインポート続行のオプションがある問題検出ダイアログ。]({% image_buster /assets/img/csv_import/validation_issues.png %})
+![エラーと警告のある行数を表示し、戻る、エラーレポートのダウンロード、またはインポート開始のオプションがあるサマリーページ。]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### エラーレポートについて {#understanding-the-error-report}
 
@@ -322,26 +367,17 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 | 問題タイプ | 説明 |
 |---|---|
 | **エラー** | インポート中にその行は完全にスキップされます。 |
-| **警告** | その行はインポートされますが、一部の値は欠落します。 |
+| **警告** | その行はインポートされますが、一部の値は破棄されます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 レポートを確認した後、元のファイルの問題を修正して再アップロードするか、インポートを続行して部分的な結果を受け入れることができます。
 
-### ステップ 6:ターゲティング設定を選択する {#step-6-choose-targeting-preferences}
 
-以下のターゲティング設定から選択することもできます。インポートから新しいターゲティングフィルターやSegmentを作成する必要がない場合は、**Do not make this list available as a targeting filter**を選択してください。
 
-| オプション | 説明 |
-|---|---|
-| ターゲティングフィルター | CSVファイルをユーザーSegment作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
-| 新しいSegment | 新しいターゲティングフィルターから新しいSegmentも作成するには、**Create targeting filter and add to new segment**を選択します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+### ステップ8:CSVインポートを開始する {#step-8-start-your-csv-import}
 
-![「Halloween season fun」というCSVファイルを含む「Updated/Imported from CSV」フィルターを使用したフィルターグループ。]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
-
-### ステップ 7:CSVインポートを開始する {#step-7-start-your-csv-import}
-
-準備ができたら、**Start import**を選択します。**Import Users**ページで現在の進捗状況を追跡できます。このページは5秒ごとに自動更新されます。処理はCSVのサイズに応じて数分から数時間かかる場合があります。この間、ダッシュボードが応答しなくなったり、応答が遅くなったりすることがありますが、インポートは引き続き実行されています。
+準備ができたら、**Start Import**を選択します。**Import Users**ページで現在の進捗状況を追跡できます。このページは5秒ごとに自動更新されます。
+処理はCSVのサイズに応じて数分から数時間かかる場合があります。この間、ダッシュボードが応答しなくなったり、応答が遅くなったりすることがありますが、インポートは引き続き実行されています。
 
 {% alert note %}
 同時に複数のCSVをインポートできます。CSVインポートは並行して実行されるため、更新の順序がシリアルであることは保証されません。CSVインポートを順番に実行する必要がある場合は、CSVインポートが完了してから2番目のCSVをアップロードしてください。
@@ -386,6 +422,21 @@ CSVインポートまたはAPIを通じてユーザーに`language`または`cou
 [ファイル検証](#file-validation)を使用した場合は、エラーレポートから始めてください。フラグが付けられた各行の具体的な問題と修正方法の説明が含まれています。検証ではなくインポート中に失敗した行については、**Import Users**ページで行にカーソルを合わせ、<i class="fas fa-download" title="ダウンロード"></i>ボタンを選択してエラーレポートをダウンロードしてください。
 
 CSVインポートのトラブルシューティングについては、以下の一般的な問題を確認してください。
+
+### CSVインポートがSegmentフィルターとして利用できない {#csv-import-isnt-available-as-a-segment-filter}
+
+CSVインポートをSegmentフィルターとして使用できるのは、アップロード時にターゲティング設定を有効にした場合のみです。
+
+既存のインポートでターゲティングの利用可否が有効になっているかどうかを確認するには：
+
+1. **Import Users**ページで、CSVインポートを見つけます。
+2. そのインポートに**Go to Segment**が表示されているかどうかを確認します。
+3. **Go to Segment**が表示されている場合、CSVは`Updated/Imported from CSV`のSegmentフィルターで利用可能です。
+4. **Go to Segment**が表示されていない場合、そのインポートではターゲティングの利用可否が有効になっていません。
+
+CSVアップロードの完了後にターゲティングの利用可否を有効にすることはできません。そのCSVをSegmentフィルターとして使用するには、ファイルを再アップロードし、[ステップ6:ターゲティング設定を選択する](#step-6-choose-targeting-preferences)で**Create targeting filter**または**Create targeting filter and add to new segment**を選択してください。
+
+プロファイルデータを更新せずにSegmentを作成することが目的の場合は、識別子列のみ（例：`external_id`またはエイリアス識別子列）を含むCSVをアップロードし、**Create targeting filter and add to new segment**を選択してください。
 
 ### ファイルフォーマットの問題 {#file-formatting-issues}
 

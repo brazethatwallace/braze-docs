@@ -26,12 +26,16 @@ Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.bas
   "prioritization": (optional, array) see Prioritization; required when using email,
   "trigger_properties": (optional, object) personalization key-value pairs for this user when sending a campaign or message; see Trigger Properties,
   "context": (optional, object) personalization key-value pairs for this user when triggering a Canvas; see Canvas context object,
-  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases,
+  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases; if set to `false`, an `attributes` object must also be included,
   "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
 }]
 ```
 
-Wenn `send_to_existing_only` auf `true` gesetzt ist, sendet Braze die Nachricht nur an bestehende Nutzer:innen. Dieses Flag kann jedoch nicht mit Nutzer-Aliasen verwendet werden. Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein Attribut angeben. Braze erstellt dann eine:n Nutzer:in mit der `id` und den Attributen, bevor die Nachricht gesendet wird.
+Wenn `send_to_existing_only` auf `true` gesetzt ist, sendet Braze die Nachricht nur an bestehende Nutzer:innen. Dieses Flag kann jedoch nicht mit Nutzer-Aliasen verwendet werden.
+
+Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie im selben Empfänger:innen-Eintrag ein `attributes`-Objekt angeben. Das Flag ersetzt nicht `attributes`. Braze verwendet `attributes` für die Profilerstellung oder -aktualisierung vor dem Versand (z. B. um `email`- oder Telefonnummernfelder für E-Mail- oder SMS-Zustellung hinzuzufügen oder Abo-Gruppen zu aktualisieren). Ohne dieses Objekt erhalten Sie nicht das beabsichtigte kombinierte Verhalten für völlig neue Nutzer:innen bei [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) oder [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/).
+
+Das Profil muss weiterhin die Zielgruppen- und Kanalberechtigungsregeln der Nachricht erfüllen, bevor Braze den Versand durchführt.
 
 - [Braze-ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
 - [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)

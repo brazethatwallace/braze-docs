@@ -3,13 +3,13 @@ nav_title: Eventos de compra
 article_title: Eventos de compra
 page_order: 3
 page_type: reference
-description: "Este artículo de referencia describe los eventos y propiedades de compra, su uso, segmentación, dónde ver los análisis relevantes, etc."
+description: "Este artículo de referencia describe los eventos y propiedades de compra, su uso, segmentación, dónde ver los análisis relevantes y más."
 search_rank: 3
 ---
 
 # Eventos de compra {#purchase-events}
 
-> Esta página cubre los eventos y propiedades de la compra, su uso, segmentación, dónde ver los análisis relevantes y mucho más.
+> Esta página cubre los eventos y propiedades de compra, su uso, segmentación, dónde ver los análisis relevantes y más.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
@@ -124,6 +124,7 @@ Puedes encontrar estos datos en la página del [Informe de ingresos]({{site.base
 </style>
 
 <table>
+  <caption>Cálculos de ingresos</caption>
     <thead>
         <tr>
             <th>Métrica</th>

@@ -13,9 +13,9 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-Os eventos de compra são ações de compra realizadas por seus usuários e são usados para registrar compras no app e estabelecer o valor do tempo de vida (LTV) para cada perfil de usuário. Esses eventos devem ser configurados pela sua equipe. Registrar eventos de compra permite adicionar propriedades como quantidade e tipo, ajudando a direcionar ainda mais seus usuários com base nessas propriedades.
+Os eventos de compra são ações de compra realizadas por seus usuários e são usados para registrar compras no app e estabelecer o Lifetime Value (LTV) para cada perfil de usuário. Esses eventos devem ser configurados pela sua equipe. Registrar eventos de compra permite adicionar propriedades como quantidade e tipo, ajudando a direcionar ainda mais seus usuários com base nessas propriedades.
 
-## Registrando eventos de compra {#log-purchase-events}
+## Registrar eventos de compra {#log-purchase-events}
 
 Você pode registrar compras passando um [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), ou usando uma de nossas bibliotecas SDK listadas abaixo.
 
@@ -44,11 +44,11 @@ Existem várias maneiras de usar dados de compra na Braze:
 - **[Segmentação](#purchase-event-segmentation):** Use dados de compra para criar segmentos de usuários com base no comportamento de compra.
 - **[Personalização](#personalization):** Use dados de compra para personalizar mensagens para os usuários.
 - **[Disparar mensagens](#trigger-messages):** Configure mensagens para serem disparadas com base em eventos de compra.
-- **[Análise de dados](#analytics):** Analise seus dados de compra para obter insights sobre o comportamento dos usuários e a eficácia das suas Campaigns de marketing.
+- **[Análise de dados](#analytics):** Analise seus dados de compra para obter insights sobre o comportamento dos usuários e a eficácia das suas campanhas de marketing.
 
 ### Segmentação {#purchase-event-segmentation}
 
-Você pode disparar qualquer número ou tipo de Campaigns de acompanhamento com base em eventos de compra registrados. Por exemplo, você pode criar um segmento de usuários que fizeram uma compra nos últimos 30 dias, ou um segmento de usuários que gastaram acima de um determinado valor.
+Você pode disparar qualquer número ou tipo de campanhas de acompanhamento com base em eventos de compra registrados. Por exemplo, você pode criar um segmento de usuários que fizeram uma compra nos últimos 30 dias, ou um segmento de usuários que gastaram acima de um determinado valor.
 
 Os seguintes filtros de segmentação estão disponíveis ao direcionar usuários:
 
@@ -111,7 +111,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 ### Análise de dados {#analytics}
 
-Além de rastrear métricas de compra para segmentação, a Braze também registra o número de compras para cada produto e a receita gerada ao longo do tempo. Isso pode ser útil para identificar os produtos mais populares ou medir o impacto de uma Campaign promocional nas vendas.
+Além de rastrear métricas de compra para segmentação, a Braze também registra o número de compras para cada produto e a receita gerada ao longo do tempo. Isso pode ser útil para identificar os produtos mais populares ou medir o impacto de uma campanha promocional nas vendas.
 
 Você pode encontrar esses dados na página [Relatório de receitas]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data).
 
@@ -124,6 +124,7 @@ Você pode encontrar esses dados na página [Relatório de receitas]({{site.base
 </style>
 
 <table>
+  <caption>Cálculos de receita</caption>
     <thead>
         <tr>
             <th>Métrica</th>

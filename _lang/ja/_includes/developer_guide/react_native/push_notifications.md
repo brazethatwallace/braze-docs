@@ -127,7 +127,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `badge_count`      | 数値   | 通知のバッジカウントを表します。 |
 | `timestamp`        | 数値 | ペイロードがアプリケーションによって受信された時刻を表します。 |
 | `is_silent`        | ブール値   | `true` の場合、ペイロードはサイレントに受信されます。Androidのサイレントプッシュ通知の送信の詳細については、[Androidでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を参照してください。iOSのサイレントプッシュ通知の送信の詳細については、[iOSでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)を参照してください。 |
-| `is_braze_internal`| ブール値   | ジオフェンス同期、フィーチャーフラグ同期、またはアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは `true` になります。ペイロードはユーザーに対してサイレントに受信されます。 |
+| `is_braze_internal`| ブール値   | フィーチャーフラグ同期やアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは `true` になります。ペイロードはユーザーに対してサイレントに受信されます。 |
 | `image_url`        | 文字列    | 通知画像に関連するURLを指定します。 |
 | `braze_properties` | オブジェクト    | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios`              | オブジェクト    | iOS固有のフィールドを表します。 |
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### ステップ3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
+#### ステップ3.2：閉じた状態からのディープリンクを処理する
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 

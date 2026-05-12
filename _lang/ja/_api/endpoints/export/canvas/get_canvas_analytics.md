@@ -16,6 +16,8 @@ description: "この記事では、Canvasデータシリーズ分析のエクス
 
 > このエンドポイントを使用して、Canvasの時系列データをエクスポートします。
 
+{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
 ## 前提条件 {#prerequisites}

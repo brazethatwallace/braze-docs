@@ -340,6 +340,12 @@ Los usuarios que han integrado una solución de almacenamiento en la nube y expo
 - Todas las exportaciones de la API no devuelven una URL de descarga en el cuerpo de la respuesta y deben recuperarse a través del almacenamiento de datos.
 - Todos los informes del dashboard y los informes CSV se envían al correo electrónico del usuario para su descarga (sin necesidad de permisos de almacenamiento) y se guardan en el almacenamiento de datos.
 
+### Error `Unable to connect to S3, please validate that your credentials are correct` {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
+
+Si ves este error al descargar una exportación CSV, abre la integración de [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) en la página de **Technology Partners** y selecciona **Test Credentials**. El resultado explica qué falló en la validación; por ejemplo, la clave podría no tener el permiso `GetObject`, lo que impide que Braze genere enlaces de descarga.
+
+Actualiza tu política IAM para que el usuario o rol de la integración pueda llamar a `s3:GetObject` en el contenedor de S3 y la ruta de objetos configurados en tu integración de Braze. Para más problemas de exportación, consulta [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+
 {% alert important %}
 **Requisito de formato JSON:** Para las exportaciones JSON, Braze utiliza el formato JSONL (JSON delimitado por nuevas líneas), en el que cada línea contiene un objeto JSON independiente. Este formato difiere del JSON estándar, que es una única matriz u objeto JSON. Cada línea del archivo exportado es un objeto JSON válido, pero el archivo en su conjunto no es un único documento JSON válido. Al procesar estos archivos, analiza cada línea individualmente como un objeto JSON distinto, en lugar de intentar analizar todo el archivo como un único documento JSON.
 

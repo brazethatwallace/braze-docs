@@ -16,10 +16,9 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 - [L'autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) d'accéder à la **Console des agents** dans votre espace de travail. Vérifiez auprès de vos administrateurs Braze si cette option n'apparaît pas.
 - L'autorisation de créer et de modifier des agents d'intelligence artificielle personnalisés.
-- Un [fournisseur de modèles d'intelligence artificielle]({{site.baseurl}}/partners/ai_model_providers/) intégré à Braze.
 - Une idée de ce que vous souhaitez que l'agent accomplisse. Les agents Braze peuvent prendre en charge les actions suivantes :
-   - **Envoi de messages :** Générer des lignes d'objet, des titres, des textes intégrés au produit ou tout autre contenu.
-   - **Prise de décision :** Diriger les utilisateurs dans Canvas en fonction de leur comportement, de leurs préférences ou d'attributs personnalisés.
+   - **Envoi de messages personnalisés :** Générer des lignes d'objet, des titres, des textes intégrés au produit ou tout autre contenu.
+   - **Routage des utilisateurs :** Diriger les utilisateurs dans Canvas en fonction de leur comportement, de leurs préférences ou d'attributs personnalisés.
    - **Gestion des données :** Calculer des valeurs, enrichir les entrées du catalogue ou actualiser les champs du profil.
 
 ## Fonctionnement {#how-it-works}
@@ -53,15 +52,15 @@ Configurez ensuite les détails de votre agent :
 2. (Facultatif) Ajoutez des étiquettes pour filtrer votre agent.
 3. Choisissez le [modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) que votre agent devra utiliser.
 4. Si vous n'utilisez pas le modèle **Braze Auto**, sélectionnez le [niveau de réflexion]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels) du modèle. Vous avez le choix entre minimal, faible, moyen ou élevé. Nous vous recommandons de commencer par **Minimal**, de tester les réponses de votre agent, puis d'ajuster ce paramètre si nécessaire.
-5. Définissez une limite d'exécution quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire de la satisfaction client pour en savoir plus.
+5. Définissez une limite d'invocations quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire de la satisfaction client pour en savoir plus.
 
-![Interface de la Console des agents pour la création d'un agent personnalisé dans Braze. L'écran affiche des champs permettant de saisir le nom et la description de l'agent, de sélectionner un modèle et de définir une limite d'exécution quotidienne.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Interface de la Console des agents pour la création d'un agent personnalisé dans Braze. L'écran affiche des champs permettant de saisir le nom et la description de l'agent, de sélectionner un modèle et de définir une limite d'invocations quotidienne.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Étape 3 : Rédiger les instructions {#agent-instructions}
 
 Donnez des instructions à l'agent. Nous recommandons d'inclure des consignes sur la conduite à tenir dans des situations imprévues ou ambiguës, afin de minimiser le risque d'erreurs liées à la confusion de l'agent. Par exemple, plutôt que de demander à l'agent uniquement des valeurs de sentiment « positives » ou « négatives », demandez-lui de renvoyer « incertain » s'il ne parvient pas à se prononcer.
 
-Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) pour les bonnes pratiques et les [Exemples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) pour trouver l'inspiration sur la manière de guider votre agent.
+Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) pour les bonnes pratiques et les [Exemples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) pour trouver l'inspiration sur la manière de guider votre agent.
 
 {% alert tip %}
 Pour les agents Canvas, vous pouvez utiliser Liquid dans vos instructions afin de faire référence aux attributs utilisateur, tels que le prénom et le nom, ou à des attributs personnalisés. Toute variable Liquid présente dans les instructions de l'agent est automatiquement transmise à l'étape Agent lorsqu'un utilisateur y accède.
@@ -72,7 +71,7 @@ Pour les agents Canvas, vous pouvez utiliser Liquid dans vos instructions afin d
 Sélectionnez **Ajouter des ressources** pour choisir les éléments auxquels votre agent peut se référer. Cela inclut :
 
 - [Champs du catalogue]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields) : Donnez à l'agent accès aux données de votre catalogue pour des réponses plus précises.
-- [Appartenance au Segment]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des Segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq Segments.
+- [Appartenance au segment]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq segments.
 - [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) : Référencez les directives relatives au ton et au style de la marque que l'agent doit respecter. Par exemple, si vous souhaitez que votre agent génère un SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre directive prédéfinie, audacieuse et motivante.
 - [Contexte Canvas complet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) : Analysez toutes les données de contexte Canvas pour un utilisateur lorsque cet agent est invoqué, y compris les variables qui ne sont pas référencées dans la section **Instructions**.
 
@@ -99,7 +98,7 @@ Le volet **Prévisualisation** est une instance de l'agent qui s'affiche sous la
 3. Sélectionnez **Simuler la réponse**. L'agent s'exécutera en fonction de votre configuration et affichera sa réponse.
 
 {% alert note %}
-Les essais comptent dans votre limite d'exécution quotidienne.
+Les essais comptent dans votre limite d'invocations quotidienne.
 {% endalert %}
 
 ![Console des agents affichant le volet Prévisualisation pour tester un agent personnalisé. L'interface affiche un champ d'exemples d'entrées contenant des données clients, un bouton Lancer le test et une zone de réponse où s'affiche la sortie de l'agent.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

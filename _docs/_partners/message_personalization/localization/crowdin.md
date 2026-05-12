@@ -28,7 +28,7 @@ Crowdin offers two apps for Braze: [Braze Campaigns & Canvas](https://store.crow
 | **Canvas steps** | ✅ Supported | ❌ Not supported |
 | **Email templates** | ❌ Not supported | ✅ Supported |
 | **Content Blocks** | ❌ Not supported | ✅ Supported |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Choose the right Crowdin app" }
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Crowdin offers two apps for Braze: [Braze Campaigns & Canvas](https://store.crow
 | **Braze REST API key** | A Braze REST API key with permissions for campaigns, Canvas, Content Blocks, custom attributes, email, and templates. |
 | **Braze REST endpoint** | Your specific Braze REST endpoint URL (for example, `https://rest.iad-03.braze.com`). |
 | **Braze multi-language settings** | Locales must be configured in your Braze dashboard under **Settings** > **Localization Settings**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Braze Campaigns & Canvas integration
 
