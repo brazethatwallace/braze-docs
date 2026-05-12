@@ -87,10 +87,6 @@ A workspace updates its time zone from Eastern Time (EST) to Pacific Time (PST).
 
 Following this change, a user who performs the custom event at 10 pm PST on March 6, 2026 (which is 1 am EST on March 7, 2026) is now included in the audience, as they fell within the PST calendar boundary for that date.
 
-## Reporting discrepancies
-
-Workspace time zones provide precise control over campaign sending, but you should be aware of potential reporting discrepancies while this feature is in early access. Cross-reference data points and be mindful of the time zone when analyzing reports for workspaces with specific time zone overrides.
-
 ## Impact on performance data
 
 Updating your workspace time zone affects how performance data is aggregated and displayed in your dashboard. Because analytics for data like *Daily Active Users* (DAU) rely on the workspace time zone to define the start and end of a 24-hour day, a change to this setting shifts those reporting windows.
