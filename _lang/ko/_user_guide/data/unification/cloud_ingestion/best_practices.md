@@ -314,6 +314,7 @@ CDI는 마지막으로 동기화된 `UPDATED_AT` 타임스탬프의 행 수를 �
 </style>
 
 <table>
+  <caption>예시: 후속 업데이트 관리</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -421,6 +422,7 @@ FROM EXAMPLE_DATA;
 동기화가 실행되고 Braze는 사용 가능한 모든 데이터를 "2023-03-16 15:00:00"까지 동기화했다고 기록합니다. 그런 다음, 2일째 아침에 ETL이 실행되고 사용자 테이블의 일부 필드가 업데이트됩니다(강조 표시됨):
 
 <table>
+  <caption>예시: 후속 업데이트 관리</caption>
     <thead>
         <tr>
             <th>external_id</th>

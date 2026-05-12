@@ -21,7 +21,7 @@ description: "この参考記事では、Liquidを通してBrazeのCampaignで�
 - 音楽
 - パッケージ
 
-この情報をインポートすると、Liquidを介したカスタム属性またはカスタムイベントプロパティへのアクセスと同様の方法で、メッセージ内でのアクセスを開始できます。
+この情報をインポートすると、Liquidを介したカスタム属性やカスタムイベントプロパティへのアクセスと同様の方法で、メッセージ内でアクセスできるようになります。
 
 ## サポートされているデータタイプ {#supported-data-types}
 
@@ -29,11 +29,11 @@ description: "この参考記事では、Liquidを通してBrazeのCampaignで�
 
 ## カタログを作成する {#creating-a-catalog}
 
-カタログを作成するには、**データ設定** > **カタログ** に移動し、**新規カタログ作成** を選択して、以下のいずれかのオプションを選びます。
+カタログを作成するには、**データ設定** > **カタログ**に移動し、**新規カタログ作成**を選択して、以下のいずれかのオプションを選びます。
 
 {% tabs local %}
 {% tab Upload CSV %}
-### ステップ 1: CSVファイルを確認する {#step-1-review-your-csv-file}
+### ステップ 1:CSVファイルを確認する {#step-1-review-your-csv-file}
 
 CSVファイルをアップロードする前に、そのファイルが以下の要件を満たしていることを確認してください。
 
@@ -53,9 +53,9 @@ CSVファイルをアップロードする前に、そのファイルが以下�
 CSVファイルを保存するためにより多くのスペースが必要な場合は、カタログのアップグレードの詳細についてBrazeのアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-### ステップ 2: CSVをアップロードする {#step-2-upload-csv}
+### ステップ 2:CSVをアップロードする {#step-2-upload-csv}
 
-ファイルをアップロードゾーンにドラッグ＆ドロップするか、**CSVをアップロード** を選択してファイルを選択します。
+ファイルをアップロードゾーンにドラッグ＆ドロップするか、**CSVをアップロード**を選択してファイルを選択します。
 
 ![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
@@ -79,13 +79,13 @@ CSVファイルを保存するためにより多くのスペースが必要な�
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-**カタログを処理** を選択してカタログを作成します。
+**カタログを処理**を選択してカタログを作成します。
 
 {% alert important %}
 [ティア](#tiers)を超えた場合、CSVファイルが拒否される可能性があります。
 {% endalert %}
 
-### チュートリアル: CSVファイルからカタログを作成する {#tutorial-creating-a-catalog-from-a-csv-file}
+### チュートリアル:CSVファイルからカタログを作成する {#tutorial-creating-a-catalog-from-a-csv-file}
 
 このチュートリアルでは、2つのゲームとその価格、そして画像リンクを掲載したカタログを使用します。
 
@@ -95,6 +95,7 @@ CSVファイルを保存するためにより多くのスペースが必要な�
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>チュートリアル: CSVファイルからカタログを作成する</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -127,7 +128,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ![4つのカタログ列名:「id」、「title」、「price」、「image_link」。]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-次に、このカタログに「games_catalog」と名前を付け、**カタログを処理** ボタンを選択します。その後、Brazeはカタログを作成する前に、カタログにエラーがないかチェックします。
+次に、このカタログに「games_catalog」と名前を付け、**カタログを処理**ボタンを選択します。その後、Brazeはカタログを作成する前に、カタログにエラーがないかチェックします。
 
 ![「games_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
@@ -136,7 +137,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 カタログを作成したら、[Campaignでのカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)の参照を開始できます。
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab ブラウザで作成 %}
 ### 前提条件 {#prerequisites}
 
 ブラウザでカタログを編集または作成するには、ワークスペースに対して以下の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
@@ -148,7 +149,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-### ステップ 1: カタログの詳細を入力する {#step-1-enter-catalog-details}
+### ステップ 1:カタログの詳細を入力する {#step-1-enter-catalog-details}
 
 カタログの名前と任意の説明を入力します。カタログに名前を付ける際には、以下の要件に留意してください。
 
@@ -162,13 +163,13 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-### ステップ 2: カタログを作成する {#step-2-create-your-catalog}
+### ステップ 2:カタログを作成する {#step-2-create-your-catalog}
 
-リストからカタログを選択し、次に **カタログを更新** > **フィールドを追加** を選択します。**フィールド名**を入力し、ドロップダウンからデータタイプを選択します。必要に応じて繰り返します。
+リストからカタログを選択し、次に**カタログを更新** > **フィールドを追加**を選択します。**フィールド名**を入力し、ドロップダウンからデータタイプを選択します。必要に応じて繰り返します。
 
 ![「rating」と「name」という2つのフィールドの例。]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-**カタログを更新** > **項目を追加** を選択し、以前に追加したフィールドに基づいて情報を入力して、カタログに項目を追加します。次に、**項目を保存** または **保存して追加** を選択して、項目の追加を続けます。
+**カタログを更新** > **項目を追加**を選択し、以前に追加したフィールドに基づいて情報を入力して、カタログに項目を追加します。次に、**項目を保存**または**保存して追加**を選択して、項目の追加を続けます。
 
 ![カタログ項目を追加する。]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
@@ -197,7 +198,7 @@ Brazeは、ダッシュボードのタイムスタンプに基づいて時間値
 
 ### ダッシュボードで {#in-the-dashboard}
 
-CSVをアップロードした後やブラウザでカタログを作成した後にカタログを更新するには、**カタログを更新** > **CSVをアップロード** を選択し、カタログ内のアイテムを更新するか、追加するか、削除するかを選択します。
+CSVをアップロードした後やブラウザでカタログを作成した後にカタログを更新するには、**カタログを更新** > **CSVをアップロード**を選択し、カタログ内のアイテムを更新するか、追加するか、削除するかを選択します。
 
 ### REST APIの使用 {#using-the-rest-api}
 
@@ -227,7 +228,7 @@ Brazeダッシュボードに表示されるパッケージのエンタイトル
 
 無料版カタログのストレージサイズは最大100&nbsp;MBです。100&nbsp;MB未満であれば、アイテム数に制限はありません。
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
 会社レベルで、Catalogs Proの最大ストレージはカタログデータのサイズに基づきます。ストレージサイズのオプションは、5&nbsp;GB、10&nbsp;GB、15&nbsp;GBのいずれかです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
 

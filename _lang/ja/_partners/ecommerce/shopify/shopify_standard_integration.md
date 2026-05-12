@@ -14,31 +14,31 @@ page_order: 1
 
 ## ステップ 1:Shopifyストアを接続する {#step-1-connect-your-shopify-store}
 
-1. Brazeで、**Partner Integrations** > **Technology Partners** に移動し、「Shopify」を検索します。
+1. Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、「Shopify」を検索します。
 
 {% alert note %}
-古いナビゲーションを使用している場合は、**Technology Partners** は **Integrations** の下にあります。
+古いナビゲーションを使用している場合は、**テクノロジーパートナー**は**統合**の下にあります。
 {% endalert %}
 
 {: start="2"}
-2. Shopifyパートナーページで、**Begin setup** を選択して統合プロセスを開始します。<br><br>![セットアップを開始するボタンが表示されたShopify統合ページ。]({% image_buster /assets/img/Shopify/begin_setup.png %})<br><br>
+2. Shopifyパートナーページで、**Begin setup**を選択して統合プロセスを開始します。<br><br>![セットアップを開始するボタンが表示されたShopify統合ページ。]({% image_buster /assets/img/Shopify/begin_setup.png %})<br><br>
 3. Shopifyアプリストアで、Brazeアプリケーションをインストールします。<br><br>![アプリケーションをインストールするボタンが表示されたBrazeアプリストアページ。]({% image_buster /assets/img/Shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Shopifyアカウントが複数のストアに関連付けられている場合は、ページの右上にあるストアアイコンを選択し、**Switch stores** を選択することで、ログインしているストアを変更できます。
+Shopifyアカウントが複数のストアに関連付けられている場合は、ページの右上にあるストアアイコンを選択し、**Switch stores**を選択することで、ログインしているストアを変更できます。
 {% endalert %}
 
 {: start="4"}
 4. Brazeアプリをインストールした後、Brazeにリダイレクトされ、Shopifyに接続するワークスペースを確認します。Shopifyストアが接続できるワークスペースは1つのみです。切り替える必要がある場合は、正しいワークスペースを選択してください。<br><br>![適切なワークスペースにいることを確認するウィンドウ。]({% image_buster /assets/img/Shopify/confirm_workspace1.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. **Begin setup** を選択します。<br><br>![ドメインを入力するフィールドとセットアップを開始するボタンが表示された「統合設定」。]({% image_buster /assets/img/Shopify/choose_account.png %})
+5. **Begin setup**を選択します。<br><br>![ドメインを入力するフィールドとセットアップを開始するボタンが表示された「Integration settings」。]({% image_buster /assets/img/Shopify/choose_account.png %})
 
 ## ステップ 2:Braze Web SDKを有効にする {#step-2-enable-braze-web-sdks}
 
 Shopifyオンラインストアでは、標準設定を選択すると、Braze Web SDKとJavaScript SDKを自動的に実装できます。
 
-![標準設定とカスタム設定のどちらで実装するかを選択できるオプションが表示された「Web SDKの有効化」ステップ。]({% image_buster /assets/img/Shopify/sdk_setup.png %})
+![標準設定とカスタム設定のどちらで実装するかを選択できるオプションが表示された「Enable Web SDK」ステップ。]({% image_buster /assets/img/Shopify/sdk_setup.png %})
 
 標準設定のオンボーディングパスを選択すると、次のオプションのいずれかから、BrazeがSDKを初期化して読み込むタイミングを選択する必要があります。
 - セッション開始など、サイト訪問の時点
@@ -55,7 +55,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 次に、追跡するShopifyデータを選択します。
 
-![行動イベントとユーザー属性を追跡するチェックボックスが表示された「Shopifyデータの追跡」セクション。]({% image_buster /assets/img/Shopify/tracking_shopify_data.png %})
+![行動イベントとユーザー属性を追跡するチェックボックスが表示された「Tracking Shopify data」セクション。]({% image_buster /assets/img/Shopify/tracking_shopify_data.png %})
 
 標準統合では、次のイベントがデフォルトで有効になります。
 
@@ -70,7 +70,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 ### 履歴バックフィルの設定 {#historical-backfill-setup}
 
-**Track Shopify data** ステップで、統合の一部として初期履歴データの読み込みを含めるチェックボックスを選択します。
+**Track Shopify data**ステップで、統合の一部として初期履歴データの読み込みを含めるチェックボックスを選択します。
 
 インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなCampaignsやCanvasesで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
 
@@ -86,6 +86,7 @@ Braze SDKを使用すると、この統合の標準イベントを超えるカ�
 </style>
 
 <table style="width: 100%;">
+  <caption>（詳細）カスタムデータトラッキング設定</caption>
   <thead>
     <tr>
       <th style="width: 50%;">カスタムイベント</th>
@@ -134,7 +135,7 @@ braze.logCustomEvent(
 
 ドロップダウンから`external_id`タイプを選択します。
 
-![「サブスクライバーの収集」セクション。]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![「Collect subscribers」セクション。]({% image_buster /assets/img/Shopify/external_id_standard.png %})
 
 {% alert important %}
 メールアドレスまたはハッシュされたメールアドレスをBrazeのexternal IDとして使用すると、データソース間のID管理が簡素化されます。ただし、ユーザーのプライバシーとデータセキュリティに対する潜在的なリスクを考慮することが重要です。<br><br>
@@ -153,11 +154,11 @@ braze.logCustomEvent(
 
 ### ステップ 4.1:`braze.external_id`メタフィールドを作成する {#step-41-create-the-brazeexternalid-metafield}
 
-1. Shopifyの管理パネルで、**Settings** > **Metafields and metaobjects** に移動します。
-2. **Customers** > **Add definition** を選択します。
-3. **Name** に`braze.external_id`と入力します。
+1. Shopifyの管理パネルで、**Settings** > **Metafields and metaobjects**に移動します。
+2. **Customers** > **Add definition**を選択します。
+3. **Name**に`braze.external_id`と入力します。
 4. 自動生成されたネームスペースとキー（`custom.braze_external_id`）を選択して編集し、`braze.external_id`に変更します。
-5. **Type** で **ID Type** を選択します。
+5. **Type**で**ID Type**を選択します。
 
 メタフィールドが作成されたら、顧客に対して入力します。次のアプローチをお勧めします。
 
@@ -221,7 +222,7 @@ ShopifyからメールまたはSMSマーケティングのオプトインを収�
 
 メールやSMSチャネルを使用している場合、メールやSMSマーケティングのオプトイン状態をBrazeに同期できます。Shopifyからメールマーケティングのオプトインを同期すると、Brazeはその特定のストアに関連付けられているすべてのユーザーのメールサブスクリプショングループを自動的に作成します。このサブスクリプショングループに一意の名前を作成する必要があります。
 
-![メールまたはSMSマーケティングのオプトインを収集するオプションが表示された「サブスクライバーの収集」セクション。]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![メールまたはSMSマーケティングのオプトインを収集するオプションが表示された「Collect subscribers」セクション。]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 [Shopify概要]({{site.baseurl}}/shopify_overview/)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメールサブスクリプションステータスをキャプチャできます。具体的には、`theme.liquid`ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
@@ -233,7 +234,7 @@ ShopifyからメールまたはSMSマーケティングのオプトインを収�
 
 Shopifyストアの全商品をBrazeカタログに同期し、より詳細なメッセージングのパーソナライゼーションを実現できます。自動更新はほぼリアルタイムで行われるため、カタログには最新の商品情報が反映されます。詳しくは、[Shopify商品同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/)を参照してください。
 
-![「Shopify Variant ID」を「カタログ製品識別子」としたセットアッププロセスのステップ4。]({% image_buster /assets/img/Shopify/sync_products_step1.png %}){: style="max-width:80%;"}
+![「Shopify Variant ID」を「Catalog product identifier」としたセットアッププロセスのステップ4。]({% image_buster /assets/img/Shopify/sync_products_step1.png %}){: style="max-width:80%;"}
 
 ## ステップ 6:チャネルを有効にする（オプション） {#step-6-activate-channels-optional}
 
@@ -259,8 +260,8 @@ Content Cardsまたはフィーチャーフラグを追加するには、開発�
 
 ## ステップ 7:セットアップを完了する {#step-7-finish-setup}
 
-1. セットアップの設定後、**Finish Setup** を選択します。
-2. Shopifyテーマ設定で、Brazeアプリの埋め込みを有効にします。**Open Shopify** を選択すると、Shopifyアカウントにリダイレクトされ、ストアのテーマ設定でアプリの埋め込みを有効にできます。
+1. セットアップの設定後、**Finish Setup**を選択します。
+2. Shopifyテーマ設定で、Brazeアプリの埋め込みを有効にします。**Open Shopify**を選択すると、Shopifyアカウントにリダイレクトされ、ストアのテーマ設定でアプリの埋め込みを有効にできます。
 
 ![ShopifyでBrazeアプリの埋め込みを有効にする必要があることを示すバナーと、Shopifyを開くためのボタン。]({% image_buster /assets/img/Shopify/open_shopify.png %})
 

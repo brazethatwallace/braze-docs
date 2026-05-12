@@ -23,7 +23,7 @@ Para ejecutar un informe del Generador de consultas:
 
 1. Ve a **Analytics** > **Query Builder**.
 2. Selecciona **Create SQL Query**. Si necesitas inspiración o ayuda para elaborar tu consulta, selecciona **Query Template** y elige una plantilla de la lista. De lo contrario, selecciona **SQL Editor** para ir directamente al editor.
-3. Tu informe recibe automáticamente un nombre con la fecha y hora actuales. Pasa el cursor sobre el nombre y selecciona <i class="fas fa-pencil" alt="Edit"></i> para darle a tu consulta SQL un nombre significativo.
+3. Tu informe recibe automáticamente un nombre con la fecha y hora actuales. Pasa el cursor sobre el nombre y selecciona <i class="fas fa-pencil" alt="Editar"></i> para darle a tu consulta SQL un nombre significativo.
 4. Escribe tu consulta SQL en el editor u [obtén ayuda de la IA](#ai-query-builder) desde la pestaña **AI Query Builder**. Si escribes tu propio SQL, consulta [Escritura de consultas SQL personalizadas](#custom-sql) para conocer los requisitos y recursos.
 5. Selecciona **Run Query**.
 6. Guarda tu consulta.
@@ -104,7 +104,7 @@ Para ver los detalles de las tablas dentro del Generador de consultas:
 
 1. Desde la página del **Query Builder**, abre el panel **Reference** y selecciona **Available Data Tables** para ver las tablas de datos disponibles y sus nombres.
 3. Selecciona <i class="fas fa-chevron-down" alt=""></i> **See Details** para ver la descripción de la tabla e información sobre las columnas de la tabla, como los tipos de datos.
-4. Para insertar el nombre de la tabla en tu SQL, selecciona <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. Para insertar el nombre de la tabla en tu SQL, selecciona <i class="fas fa-copy" title="Copiar nombre de tabla al editor SQL"></i>.
 
 Para utilizar consultas preescritas proporcionadas por Braze, selecciona **Query Template** al crear un informe por primera vez en el Generador de consultas.
 
@@ -131,7 +131,7 @@ Si consultas `CANVAS_ID`, `CANVAS_VARIATION_API_ID` o `CAMPAIGN_ID`, sus columna
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Escritura de consultas SQL personalizadas" }
 
 Esta consulta recupera los tres ID y sus columnas de nombre asociadas con un máximo de 100 filas:
 
@@ -162,11 +162,11 @@ Tu consulta puede fallar por cualquiera de las siguientes razones:
 
 ## Uso de variables {#using-variables}
 
-Utiliza variables para usar tipos de variables predefinidos en SQL para hacer referencia a valores sin necesidad de copiar manualmente el valor. Por ejemplo, en lugar de copiar manualmente el ID de una campaña al editor SQL, puedes usar {% raw %}`{{campaign.${My campaign}}}`{% endraw %} para seleccionar directamente una campaña desde un menú desplegable en la pestaña **Variables**.
+Utiliza variables para usar tipos de variables predefinidos en SQL para hacer referencia a valores sin necesidad de copiar manualmente el valor. Por ejemplo, en lugar de copiar manualmente el ID de una Campaign al editor SQL, puedes usar {% raw %}`{{campaign.${My campaign}}}`{% endraw %} para seleccionar directamente una Campaign desde un menú desplegable en la pestaña **Variables**.
 
 Después de crear una variable, aparecerá en la pestaña **Variables** de tu informe del Generador de consultas. Los beneficios de usar variables SQL incluyen:
 
-- Ahorrar tiempo creando una variable de campaña para seleccionar de una lista al crear tu informe, en lugar de pegar los ID de campaña.
+- Ahorrar tiempo creando una variable de Campaign para seleccionar de una lista al crear tu informe, en lugar de pegar los ID de Campaign.
 - Intercambiar valores añadiendo variables que te permitan reutilizar el informe para casos de uso ligeramente diferentes en el futuro (como un evento personalizado diferente).
 - Reducir errores del usuario al editar tu SQL, disminuyendo la cantidad de edición necesaria para cada informe. Los compañeros de equipo que se sientan más cómodos con SQL pueden crear informes que luego pueden usar compañeros menos técnicos.
 
@@ -228,37 +228,37 @@ Todas las variables de mensajería deben compartir el mismo identificador cuando
 
 ##### Canvas
 
-Para seleccionar un Canvas. Compartir el mismo nombre con una campaña resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o campaña.
+Para seleccionar un Canvas. Compartir el mismo nombre con una Campaign resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
 
 - **Valor de reemplazo:** ID BSON del Canvas
 - **Ejemplo de uso:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (múltiples) {#canvases}
 
-Para seleccionar múltiples Canvas. Compartir el mismo nombre con una campaña resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o campaña.
+Para seleccionar múltiples Canvas. Compartir el mismo nombre con una Campaign resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
 
 - **Valor de reemplazo:** ID BSON de los Canvas
 - **Ejemplo de uso:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign
 
-Para seleccionar una Campaign. Compartir el mismo nombre con un Canvas resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o campaña.
+Para seleccionar una Campaign. Compartir el mismo nombre con un Canvas resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
 
 - **Valor de reemplazo:** ID BSON de la Campaign
 - **Ejemplo de uso:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns (múltiples) {#campaigns}
 
-Para seleccionar múltiples Campaigns. Compartir el mismo nombre con un Canvas resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o campaña.
+Para seleccionar múltiples Campaigns. Compartir el mismo nombre con un Canvas resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
 
 - **Valor de reemplazo:** ID BSON de las Campaigns
 - **Ejemplo de uso:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Variantes de campaña {#campaign-variants}
+##### Variantes de Campaign {#campaign-variants}
 
-Para seleccionar variantes de campaña que pertenecen a la Campaign seleccionada. Debe usarse junto con una variable de Campaign o Campaigns.
+Para seleccionar variantes de Campaign que pertenecen a la Campaign seleccionada. Debe usarse junto con una variable de Campaign o Campaigns.
 
-- **Valor de reemplazo:** ID de API de las variantes de campaña, cadenas delimitadas por comas como `api-id1, api-id2`.
+- **Valor de reemplazo:** ID de API de las variantes de Campaign, cadenas delimitadas por comas como `api-id1, api-id2`.
 - **Ejemplo de uso:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes en Canvas {#canvas-variants}

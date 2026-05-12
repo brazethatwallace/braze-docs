@@ -63,7 +63,7 @@ The Braze SDK can automatically handle push registration with the Firebase Cloud
 | Firebase Cloud Messaging Sender ID     | The Sender ID from your Firebase console.                                                                                                                |
 | Handle Push Deeplinks Automatically    | Whether the SDK should handle opening deep links or opening the app when push notifications are clicked.                                                  |
 | Small Notification Icon Drawable       | The drawable should be displayed as the small icon whenever a push notification is received. The notification will use the application icon as the small icon if no icon is provided. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
 {% endtab %}
 
 {% tab Swift %}

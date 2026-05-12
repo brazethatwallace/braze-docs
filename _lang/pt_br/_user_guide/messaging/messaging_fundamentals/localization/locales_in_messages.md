@@ -231,9 +231,9 @@ URLs usam dois caracteres especiais para controlar como isso funciona:
 
 ### Configurações de idioma e acessibilidade {#language-settings-and-accessibility}
 
-Para canais baseados em HTML (e-mail, mensagem no app, banners, landing pages e Content Cards), a Braze adiciona um atributo de idioma de acessibilidade (`lang`) à mensagem renderizada. Esse atributo ajuda tecnologias assistivas, como leitores de tela, a interpretar e pronunciar o texto corretamente.
+Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) para contexto WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Acessibilidade** no nível da mensagem.
 
-Sem isso, um leitor de tela assume que o conteúdo está no idioma padrão que o usuário definiu no dispositivo durante a configuração. Se a mensagem estiver em um idioma diferente, o leitor de tela pode não pronunciar tudo corretamente.
+Ao usar **mensagens multilíngues**, alinhe o idioma de acessibilidade com cada local para que os envios localizados declarem o idioma apropriado.
 
 #### Configurar o idioma de acessibilidade {#configuring-the-accessibility-language}
 
@@ -241,15 +241,13 @@ Você pode definir o idioma de acessibilidade em dois níveis:
 
 ##### Nível da mensagem {#message-level}
 
-Nas configurações da sua mensagem, vá até a seção **Accessibility** e selecione um idioma no menu suspenso ou use Liquid para definir dinamicamente o idioma de acessibilidade. Isso se aplica a todo o conteúdo da mensagem.
+No nível da mensagem, defina o idioma de acessibilidade na seção **Accessibility** das configurações da sua mensagem. Para selecionar um idioma, usar Liquid e limitações por canal, consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ##### Nível do local {#locale-level}
 
-Para mensagens multilíngues, defina o idioma de acessibilidade em cada local nas **Configurações de localização**. Quando novas mensagens são criadas, {% raw %}`{{accessibility_language}}`{% endraw %} é selecionado por padrão na seção **Accessibility**. Isso mapeia o idioma de acessibilidade para as configurações do seu local.
+Para mensagens multilíngues, defina o idioma de acessibilidade para cada local nas **Configurações de localização**. Você pode usar {% raw %}`{{accessibility_language}}`{% endraw %} na seção **Accessibility** para que o idioma do documento ou cartão seja mapeado para os valores desses locais.
 
-#### Padrões {#standards}
-
-O idioma de acessibilidade mapeia para o atributo HTML `lang`, um [requisito WCAG 2.1 Nível A](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Critério de Sucesso 3.1.1). Para conteúdo multilíngue, você também pode definir o idioma em blocos de conteúdo individuais usando o atributo `lang` diretamente no seu HTML.
+Se esse token aparece por padrão em novas mensagens depende do canal e do editor. Por exemplo, mensagens no app e banners se comportam de forma diferente de landing pages e e-mails de arrastar e soltar. Consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) para mais detalhes.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

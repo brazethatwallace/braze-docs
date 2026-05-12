@@ -30,6 +30,7 @@ Weitere Einzelheiten zur Verwendung von Recurly mit Braze finden Sie in den [Rec
 | Recurly-Konto | Sie benötigen ein Elite-[Recurly](https://recurly.com/)-Abo mit aktiviertem Braze-Feature-Flag, um die Vorteile dieser Partnerschaft zu nutzen. Die Aktivierung von Kreditrechnungen in Ihrer Recurly-Plattform ist ebenfalls erforderlich. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. Da Recurly nur den Endpunkt `users.track` verwendet, empfehlen wir, einen Recurly-spezifischen Schlüssel nur mit dieser Berechtigung bereitzustellen. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -77,6 +78,7 @@ Für ein effektives Customer-Engagement müssen Sie in Braze [angepasste Events 
 | Recurly Successful Payment            | Wird getriggert, wenn eine Rechnung erfolgreich eingezogen wird                 |
 | Recurly Refund Issued                 | Wird getriggert, wenn eine Erstattung ausgestellt wird                                   |
 | Recurly Failed Recurring Payment      | Wird getriggert, wenn eine Rechnung für eine Abo-Verlängerung fehlschlägt          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom events" }
 
 ### Batching und Rate-Limiting {#batching-and-rate-limiting}
 

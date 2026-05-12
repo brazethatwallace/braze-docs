@@ -77,10 +77,11 @@ Para usar a API de código de cupom dinâmico da Punchh, um token JWT deve ser c
 
 Substitua o seguinte:
 
-| Espaço reservado        | Descrição                                          |
+| Espaço reservado | Descrição |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Seu token de geração de cupom dinâmico. |
-| `CAMPAIGN_ID`                     | Seu ID de campanha.                     |
+| `CAMPAIGN_ID` | Seu ID de campanha. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
 ### Etapa 3: Anexar o código do cupom ao corpo da mensagem {#step-3-append-coupon-code-to-message-body}
 
@@ -126,7 +127,7 @@ Para vincular o código do cupom em uma imagem:
 3. Incorpore seu link em uma tag HTML {% raw %}`<img>`{% endraw %}.
 
 {% tabs local %}
-{% tab example input %}
+{% tab exemplo de entrada %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,7 +135,7 @@ Para vincular o código do cupom em uma imagem:
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab exemplo de saída %}
 ![Saída renderizada da tag de imagem do código do cupom.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}

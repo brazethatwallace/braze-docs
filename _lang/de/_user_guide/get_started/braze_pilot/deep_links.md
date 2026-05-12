@@ -76,6 +76,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Akzeptierte Parameter</caption>
     <thead>
         <tr>
             <th>Parameter</th>
@@ -121,7 +122,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>workout</code></td>
-            <td>Der Name des Trainings. Wird im <code>st_completed_class</code>-Event gesendet.</td>
+            <td>Der Name des Trainings. Wird im <code>st_completed_class</code>-Ereignis gesendet.</td>
             <td>Ja</td>
             <td></td>
             <td>Zahl</td>
@@ -129,7 +130,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>calories</code></td>
-            <td>Die Anzahl der Kalorien, die auf dem aktiven Trainingsbildschirm angezeigt werden. Wird im <code>st_completed_class</code>-Event gesendet.</td>
+            <td>Die Anzahl der Kalorien, die auf dem aktiven Trainingsbildschirm angezeigt werden. Wird im <code>st_completed_class</code>-Ereignis gesendet.</td>
             <td>Nein</td>
             <td>Zufallszahl zwischen 500 und 1.250</td>
             <td>Zahl</td>
@@ -137,7 +138,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>length</code></td>
-            <td>Die Dauer des Trainings. Wird im <code>st_completed_class</code>-Event gesendet.</td>
+            <td>Die Dauer des Trainings. Wird im <code>st_completed_class</code>-Ereignis gesendet.</td>
             <td>Nein</td>
             <td></td>
             <td>Zahl</td>
@@ -258,6 +259,7 @@ th:nth-child(6), td:nth-child(6) {
 </style>
 
 <table>
+  <caption>Akzeptierte Parameter</caption>
     <thead>
         <tr>
             <th>Parameter</th>

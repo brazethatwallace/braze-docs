@@ -32,7 +32,7 @@ Informationen zu unterstützten Katalogdatentypen, Beschreibungen, Erstellungs- 
 Um einen Katalog zu erstellen, navigieren Sie zu **Dateneinstellungen** > **Kataloge**, wählen Sie **Neuen Katalog erstellen** und wählen Sie eine der folgenden Optionen:
 
 {% tabs local %}
-{% tab Upload CSV %}
+{% tab CSV hochladen %}
 ### 1. Schritt: Überprüfen Sie Ihre CSV-Datei {#step-1-review-your-csv-file}
 
 Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden Anforderungen erfüllt:
@@ -95,6 +95,7 @@ In dieser Anleitung verwenden wir einen Katalog, der zwei Spiele mit Preisangabe
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Anleitung: Erstellen eines Katalogs aus einer CSV-Datei</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -136,7 +137,7 @@ Beachten Sie, dass Sie diesen Namen nicht mehr ändern können, nachdem der Kata
 Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Campaign zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Im Browser erstellen %}
 ### Voraussetzungen {#prerequisites}
 
 Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für Ihren Workspace:
@@ -227,9 +228,9 @@ Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf 
 
 Die Speichergröße der kostenlosen Version von Catalogs beträgt bis zu 100&nbsp;MB. Sie können eine unbegrenzte Anzahl von Artikeln haben, solange sie unter 100&nbsp;MB bleiben.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
-Bei Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
+Auf Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
 ## Spezifikationen {#specifications}
 

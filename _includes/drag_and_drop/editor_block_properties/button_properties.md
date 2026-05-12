@@ -10,4 +10,4 @@
 | Background color | Modifies the color of the button's background. |
 | Border style | Determines the style of the button's border. |
 | Border radius | Determines how round the corners are. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -17,10 +17,10 @@ MyPostcard와 Braze 통합을 사용하여 고객에게 인쇄 우편물을 손�
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항                          | 설명                                                                                                             |
-|----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| MyPostcard B2B 계정           | 이 통합을 활용하려면 MyPostcard에 등록해야 합니다.                                          |
-| B2B API 키 및 자격 증명        | MyPostcard B2B 관리 도구에서 API 키와 자격 증명을 확인할 수 있습니다.                                         |
+| 요구 사항 | 설명 |
+|---|---|
+| MyPostcard B2B 계정 | 이 통합을 활용하려면 MyPostcard에 등록해야 합니다. |
+| B2B API 키 및 자격 증명 | MyPostcard B2B 관리 도구에서 API 키와 자격 증명을 확인할 수 있습니다. |
 | 승인된 MyPostcard B2B 캠페인 | 이 통합을 활용하려면 MyPostcard B2B 도구에서 인쇄 우편 캠페인을 설정해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -46,10 +46,10 @@ MyPostcard와 통합하려면 [로그인하거나 가입](https://www.mypostcard
 
 일회성 MyPostcard 웹훅 캠페인을 생성하거나 기존 템플릿을 사용하려면, 새 캠페인을 생성할 때 Braze에서 **Webhook**을 선택하세요. 다음 필드를 작성합니다:
 
-| 필드         | 설명                                               |
-|---------------|-----------------------------------------------------------|
-| **웹훅 URL** | B2B 관리 도구에 표시된 웹훅 URL입니다.             |
-| **요청 본문** | 원시 텍스트(B2B 관리 도구에서 확인할 수 있는 JSON 형식)입니다.        |
+| 필드 | 설명 |
+|---|---|
+| **웹훅 URL** | B2B 관리 도구에 표시된 웹훅 URL입니다. |
+| **요청 본문** | 원시 텍스트(B2B 관리 도구에서 확인할 수 있는 JSON 형식)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### 요청 메서드 및 헤더 {#request-method-and-headers}
@@ -58,6 +58,7 @@ MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함
 
 {% raw %}
 <table>
+  <caption>요청 메서드 및 헤더</caption>
   <thead>
     <tr>
       <th><strong>필드</strong></th>

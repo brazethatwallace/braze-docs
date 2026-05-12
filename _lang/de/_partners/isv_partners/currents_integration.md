@@ -177,7 +177,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 
 Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie erscheinen würden, wenn sie mit einem Canvas verbunden wären:
 
-#### In-App-Nachricht-Klick {#in-app-message-click}
+#### In-App-Nachricht-Klick
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 }
 ```
 
-#### Push-Benachrichtigung senden {#push-notification-send}
+#### Push-Benachrichtigung senden
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 }
 ```
 
-#### E-Mail-Öffnung {#email-open}
+#### E-Mail-Öffnung
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 }
 ```
 
-#### SMS-Zustellung {#sms-delivery}
+#### SMS-Zustellung
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -431,6 +431,7 @@ Wenn der Wiederholungsmechanismus von Braze ein Event länger als 24 Stunden nic
 Die folgenden HTTP-Statuscodes werden von unserem Konnektor-Client erkannt:
 
 <table>
+  <caption>Fehlerbehandlung und Wiederholungsmechanismus</caption>
   <thead>
     <tr>
       <th>Statuscode</th>

@@ -34,7 +34,7 @@ BSUIDs have three key characteristics:
 | Unique | No two users share the same BSUID within your business portfolio. |
 | Business-scoped | The same user will have a different BSUID with each business they message. BSUIDs cannot be shared or compared across different business portfolios. |
 | Available in webhooks | BSUIDs are included in all the same webhook payloads that currently carry the user's phone number. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
 
 ## Changes to WhatsApp user types
 
@@ -44,7 +44,7 @@ After WhatsApp usernames launch, there will be two types of WhatsApp users:
 | ----- | ----- | ----- |
 | Users without a username | Phone number (no change) | Phone number (no change) |
 | Users with a username | Username (displayed), BSUID (backend) | BSUID, phone number for users who have an existing conversation with your business |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
 
 The key difference is that a user who adopts a username shares only their phone number with your business if you had a prior conversation with them or if they appear in your WhatsApp Contact Book.
 
@@ -144,7 +144,7 @@ Meta manages the process of linking business portfolios. To get started, contact
 | Single business portfolio | Regular BSUID |
 | Multiple linked portfolios | Parent BSUID (preferred). If no parent BSUID exists, uses the regular BSUID |
 | Multiple unlinked portfolios | Regular BSUID (may result in duplicate user profiles per portfolio) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
 
 ## Frequently asked questions
 

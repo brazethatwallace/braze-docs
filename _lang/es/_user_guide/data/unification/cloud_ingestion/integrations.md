@@ -214,7 +214,7 @@ Permite el acceso desde las siguientes IP correspondientes a la región de tu da
 
 #### Paso 1.1: Preparar la tabla
 
-Si lo deseas, puedes crear un nuevo proyecto o conjunto de datos que contenga la tabla de origen.
+Opcionalmente, configura un nuevo proyecto o conjunto de datos para contener tu tabla de origen.
 
 ```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Puedes nombrar el proyecto, el conjunto de datos y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Puedes nombrar el esquema y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -718,7 +720,7 @@ Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minut
 {% endtabs %}
 
 {% alert note %}
-Debes probar con éxito una integración antes de que pueda pasar del estado Borrador al Activo. Si cierras la página de creación, tu integración se guarda y puedes volver a visitar la página de detalles para realizar cambios y pruebas.
+Debes probar con éxito una integración antes de que pueda pasar del estado borrador al activo. Si cierras la página de creación, tu integración se guarda y puedes volver a visitar la página de detalles para realizar cambios y pruebas.
 {% endalert %}
 
 ## Configurar integraciones o usuarios adicionales (opcional) {#set-up-additional-integrations-or-users-optional}

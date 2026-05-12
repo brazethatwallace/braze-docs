@@ -25,7 +25,7 @@ The Algolia and Braze integration uses [Connected Content]({{site.baseurl}}/user
 | Algolia account | An Algolia account is required to take advantage of this partnership. |
 | Algolia API credentials | Your Algolia API key and Application ID. |
 | Algolia product index | An Algolia index populated with your product data. This is required to use the Search or Recommend APIs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

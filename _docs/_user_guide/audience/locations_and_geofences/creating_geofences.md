@@ -38,7 +38,7 @@ The following table describes common geofence terms:
 | Latitude and longitude | The geographic center of the geofence. |
 | Radius | The radius of the geofence in meters, measured from the geographic center. Set a minimum radius of 100 meters to 150 meters for all geofences. |
 | Cooldown | Users receive geofence-triggered notifications after performing enter or exit transitions on individual geofences. After a transition occurs, there is a pre-defined period during which that user can't perform the same transition on that individual geofence again. This "cooldown" is pre-defined by Braze and its main purpose is to prevent unnecessary network requests. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Both iOS and Android offer multiple levels of location access. The permission le
 | **Allow While Using the App** | Grants location access whenever the app is in the foreground. After this is granted, iOS may present a follow-up prompt asking the user to upgrade to "Always Allow". | Yes. iOS enables background location monitoring, including geofence transitions, for apps with this permission. |
 | **Always Allow** | Grants continuous location access, including in the background and when the app is closed. | Yes. This provides the most reliable geofence monitoring. |
 | **Don't Allow** | Denies all location access. | No. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% tab Android %}
@@ -84,7 +84,7 @@ Both iOS and Android offer multiple levels of location access. The permission le
 | **While Using the App** | Grants location access while the app is in the foreground. | No. On Android, background location access is required for geofence monitoring. |
 | **Always Allow** | Grants continuous location access, including in the background. On Android 10 and later, this requires a separate prompt after the initial "While Using the App" permission is granted. | Yes. This is required for geofencing on Android. |
 | **Don't Allow** | Denies all location access. On Android 13 and later, if a user denies the location prompt twice, the OS blocks further in-app prompts. | No. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% endtabs %}
@@ -97,7 +97,7 @@ On iOS 14+ and Android 12+, users can choose between precise and approximate loc
 |---|---|---|
 | **Precise location (on)** | Accuracy in the 5 meter to 50 meter range, using GPS, Wi-Fi, and cellular triangulation. | Geofences function as expected. Recommended for all geofence-based use cases. |
 | **Approximate location (off)** | Accuracy around 3 square kilometers (approximately 1 square mile). The device returns a general area rather than exact coordinates. | Geofences don't trigger reliably. The device can't accurately determine whether a user is inside or outside a geofence boundary. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
 
 {% alert important %}
 For geofencing to work reliably, users must enable precise location. Include this guidance in your location permission primer messaging so users understand why precise location matters.

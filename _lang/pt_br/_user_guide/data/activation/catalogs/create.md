@@ -1,6 +1,6 @@
 ---
 nav_title: Criar um catálogo
-article_title: Criar um Catálogo
+article_title: Criar um catálogo
 alias: "/catalogs/"
 page_order: 1
 description: "Este artigo de referência aborda como criar catálogos que fazem referência a dados de não usuários em suas campanhas da Braze por meio do Liquid."
@@ -29,7 +29,7 @@ Para ver os tipos de dados de catálogo suportados, descrições, como cada um p
 
 ## Criação de um catálogo {#creating-a-catalog}
 
-Para criar um catálogo, acesse **Configurações de Dados** > **Catálogos** e selecione **Criar Novo Catálogo**. Em seguida, escolha uma das seguintes opções:
+Para criar um catálogo, acesse **Configurações de dados** > **Catálogos** e selecione **Criar novo catálogo**. Em seguida, escolha uma das seguintes opções:
 
 {% tabs local %}
 {% tab Upload CSV %}
@@ -79,7 +79,7 @@ Você também pode [usar modelos em um nome de catálogo](#template-catalog-name
 
 ![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-Selecione **Processar Catálogo** para criar o catálogo.
+Selecione **Processar catálogo** para criar o catálogo.
 
 {% alert important %}
 Seu arquivo CSV pode ser rejeitado se você ultrapassar seu [nível](#tiers).
@@ -95,6 +95,7 @@ Para este tutorial, estamos usando um catálogo que lista dois jogos, seu custo 
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -127,7 +128,7 @@ Esse tipo de dados não pode ser editado após a configuração do catálogo.
 
 ![Quatro nomes de colunas do catálogo: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Processar Catálogo**. A Braze verificará se há erros no catálogo antes da criação.
+Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Processar catálogo**. A Braze verificará se há erros no catálogo antes da criação.
 
 ![Um catálogo chamado "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
@@ -136,7 +137,7 @@ Observe que você não poderá editar esse nome depois que o catálogo for criad
 Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma campanha]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Criar no navegador %}
 ### Pré-requisitos {#prerequisites}
 
 Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para seu espaço de trabalho:
@@ -164,11 +165,11 @@ Você também pode [usar modelos em um nome de catálogo](#template-catalog-name
 
 ### Etapa 2: Crie seu catálogo {#step-2-create-your-catalog}
 
-Selecione seu catálogo na lista e, em seguida, selecione **Atualizar Catálogo** > **Adicionar campos**. Insira o **Nome do campo** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
+Selecione seu catálogo na lista e, em seguida, selecione **Atualizar catálogo** > **Adicionar campos**. Insira o **Nome do campo** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
 
 ![Dois campos de exemplo: "rating" e "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-Selecione **Atualizar Catálogo** > **Adicionar itens** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Salvar item** ou **Salvar e adicionar outro** para continuar adicionando seus itens.
+Selecione **Atualizar catálogo** > **Adicionar itens** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Salvar item** ou **Salvar e adicionar outro** para continuar adicionando seus itens.
 
 ![Adicionar um item de catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
@@ -197,7 +198,7 @@ Ao nomear seu catálogo, você também pode usar modelos em um nome de catálogo
 
 ### No dashboard {#in-the-dashboard}
 
-Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo no navegador, selecione **Atualizar Catálogo** > **Fazer Upload de CSV** e então selecione se deseja atualizar, adicionar ou excluir itens no seu catálogo.
+Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo no navegador, selecione **Atualizar catálogo** > **Fazer upload de CSV** e então selecione se deseja atualizar, adicionar ou excluir itens no seu catálogo.
 
 ### Usando a REST API {#using-the-rest-api}
 
@@ -227,7 +228,7 @@ O direito ao pacote mostrado no dashboard da Braze é arredondado para a unidade
 
 O tamanho do armazenamento da versão gratuita dos catálogos é de até 100&nbsp;MB. Você pode ter itens ilimitados desde que estejam abaixo de 100&nbsp;MB.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
 Em nível de empresa, o armazenamento máximo do Catalogs Pro é baseado no tamanho dos dados do catálogo. As opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB ou 15&nbsp;GB. Observe que o armazenamento da versão gratuita (100&nbsp;MB) está incluído em cada um desses planos.
 

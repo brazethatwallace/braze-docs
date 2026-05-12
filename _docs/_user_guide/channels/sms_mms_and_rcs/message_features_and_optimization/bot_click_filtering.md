@@ -43,7 +43,7 @@ Braze includes the following Currents fields for SMS click events:
 | --- | --- | --- |
 | `is_suspected_bot_click` | Boolean | Indicates if the click is a suspected bot click. Returns `null` for all users until bot click filtering is enabled for your company. When enabled, it will populate with `true` or `false` for all new clicks going forward. |
 | `suspected_bot_click_reason` | String, Array | Indicates the reason for a suspected bot click (such as `user_agent`). Populates even if filtering is disabled, providing insight into potential bot activity. This field is globally available and populates with a reason for all users, even if bot click filtering is not yet enabled. This provides insight into potential bot activity before you enable bot click filtering. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Currents fields in SMS click events" }
 
 ## Query Builder template
 

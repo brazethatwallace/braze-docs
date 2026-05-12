@@ -131,6 +131,7 @@ Les exemples de mappages suivants font tous deux référence à ce catalogue d'e
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Exemples de mappages</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

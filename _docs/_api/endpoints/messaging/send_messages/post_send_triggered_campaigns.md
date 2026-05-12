@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`audience`| Optional | Connected audience object| See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/). When you include `audience`, the message is sent only to users who match the defined filters, such as custom attributes and subscription statuses. |
 |`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) in the recipients object. |
 |`attachments`| Optional | Array | If `broadcast` is set to true, then the `attachments` list cannot be included. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Recipient resolution behavior
 

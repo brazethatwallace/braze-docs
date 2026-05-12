@@ -92,7 +92,7 @@ Nach dem Deaktivieren Ihrer Kontrollgruppe können Sie eine neue speichern. Wenn
 
 Wenn Sie sehen möchten, welche Nutzer:innen in Ihrer globalen Kontrollgruppe sind, können Sie die Mitglieder Ihrer Gruppe per CSV oder API exportieren.
 
-Um einen CSV-Export durchzuführen, navigieren Sie zum Tab **Global Control Group Settings** und klicken Sie auf <i class="fas fa-download"></i>&nbsp;**Export**. Um per API zu exportieren, verwenden Sie den [`/users/export/global_control_group`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
+Um einen CSV-Export durchzuführen, navigieren Sie zum Tab **Global Control Group Settings** und klicken Sie auf <i class="fas fa-download" aria-label="Exportieren"></i>&nbsp;**Export**. Um per API zu exportieren, verwenden Sie den [`/users/export/global_control_group`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
 
 {% alert important %}
 Historische Kontrollgruppen werden nicht aufbewahrt, sodass Sie nur die Mitglieder Ihrer aktuellen Gruppe exportieren können. Stellen Sie sicher, dass Sie alle erforderlichen Informationen exportieren, bevor Sie eine Kontrollgruppe deaktivieren.
@@ -118,7 +118,7 @@ Wählen Sie als Nächstes den Parameter aus, mit dem Sie Ihren Bericht ausführe
 
 ### Ihren Bericht konfigurieren {#configuring-your-report}
 
-Wählen Sie beim Generieren Ihres Berichts ein Event – entweder Sitzungen oder ein beliebiges angepasstes Event – um es über Ihre Treatment- und Kontrollgruppen hinweg zu vergleichen. Wählen Sie dann einen Zeitraum, für den Sie Daten anzeigen möchten. Beachten Sie, dass Sie, wenn Sie mehrere Kontrollgruppen-Experimente zu verschiedenen Zeiträumen gespeichert haben, vermeiden sollten, Daten aus mehr als einem Experiment in Ihren Bericht aufzunehmen.
+Wählen Sie beim Generieren Ihres Berichts ein Event – entweder Sitzungen oder ein beliebiges angepasstes Event –, um es über Ihre Treatment- und Kontrollgruppen hinweg zu vergleichen. Wählen Sie dann einen Zeitraum, für den Sie Daten anzeigen möchten. Beachten Sie, dass Sie, wenn Sie mehrere Kontrollgruppen-Experimente zu verschiedenen Zeiträumen gespeichert haben, vermeiden sollten, Daten aus mehr als einem Experiment in Ihren Bericht aufzunehmen.
 
 Beachten Sie, dass die prozentualen Metriken in Ihrem Bericht gerundet werden. In Fällen, in denen die Anzahl der Conversions ein sehr geringer Prozentsatz Ihrer gesamten Kontroll- oder Treatment-Gruppe ist, kann die Konversionsrate auf 0 % gerundet werden.
 
@@ -152,7 +152,7 @@ Beim Einrichten Ihrer globalen Kontrollgruppen und beim Anzeigen des Reportings 
 | Problem | Fehlerbehebung |
 | --- | --- |
 | Der eingegebene Prozentsatz kann beim Festlegen einer globalen Kontrollgruppe nicht gespeichert werden. | Dieses Problem tritt auf, wenn Sie eine Nicht-Ganzzahl oder eine Ganzzahl eingeben, die nicht zwischen 1 und 15 (einschließlich) liegt. |
-| Fehler „Braze kann Ihre globale Kontrollgruppe nicht aktualisieren“ auf der Seite der globalen Kontrollgruppeneinstellungen. | Dies deutet in der Regel darauf hin, dass sich eine Komponente dieser Seite geändert hat, wahrscheinlich aufgrund von Aktionen einer anderen Nutzer:in in Ihrem Braze-Konto. Aktualisieren Sie in diesem Fall die Seite und versuchen Sie es erneut. |
+| Fehler „Braze is not able to update your Global Control Group“ auf der Seite der globalen Kontrollgruppeneinstellungen. | Dies deutet in der Regel darauf hin, dass sich eine Komponente dieser Seite geändert hat, wahrscheinlich aufgrund von Aktionen einer anderen Nutzer:in in Ihrem Braze-Konto. Aktualisieren Sie in diesem Fall die Seite und versuchen Sie es erneut. |
 | Der Bericht zur globalen Kontrollgruppe enthält keine Daten. | Wenn Sie auf den Bericht zur globalen Kontrollgruppe zugreifen, ohne eine globale Kontrollgruppe gespeichert zu haben, sehen Sie keine Daten im Bericht. Erstellen und speichern Sie eine globale Kontrollgruppe und versuchen Sie es erneut. |
 | Meine Konversionsrate beträgt 0 % oder die Grafik wird nicht angezeigt, obwohl mehr als null Ereignisse auftreten. | Wenn die Anzahl der Conversions sehr gering und Ihre Kontroll- oder Treatment-Gruppe sehr groß ist, kann die Konversionsrate auf 0 % gerundet werden und wird daher nicht in der Grafik angezeigt. Sie können dies überprüfen, indem Sie die Metrik „Gesamtzahl der Ereignisse“ prüfen. Sie könnten die Effektivität Ihrer beiden Gruppen mithilfe der Metrik „Inkrementeller Uplift in Prozent“ vergleichen. |
 | Meine Konversionsrate (oder andere Metriken) ändern sich drastisch je nach dem Zeitraum, für den ich Daten anzeige. | Wenn Sie Daten über kurze Zeiträume anzeigen, können Ihre Metriken von Tag zu Tag oder von Woche zu Woche schwanken. Betrachten Sie Metriken über einen Zeitraum von mindestens einem Monat. |
@@ -174,7 +174,9 @@ Es ist möglich, sowohl eine globale Kontrollgruppe als auch eine Campaign-spezi
 
 Nutzer:innen in Ihrer globalen Kontrollgruppe erhalten keine Nachrichten außer denen mit Tag-Ausnahmen. Wenn Sie einer Campaign oder einem Canvas eine Kontrollgruppe hinzufügen, hält Braze einen Teil Ihrer globalen Treatment-Gruppe davon ab, diese bestimmte Campaign oder diesen Canvas zu erhalten. Das bedeutet: Wenn ein Mitglied der globalen Kontrollgruppe nicht für eine bestimmte Campaign oder einen bestimmten Canvas berechtigt ist, ist es nicht in der Kontrollgruppe für diese bestimmte Campaign oder diesen Canvas vorhanden.
 
-> Kurz gesagt: Nutzer:innen in der globalen Kontrollgruppe werden vor dem Eintritt aus der Campaign- oder Canvas-Zielgruppe herausgefiltert. Von den Nutzer:innen, die in die Campaign oder den Canvas eintreten, wird dann ein Prozentsatz der Kontrollvariante zugewiesen.
+{% alert note %}
+Kurz gesagt: Nutzer:innen in der globalen Kontrollgruppe werden vor dem Eintritt aus der Campaign- oder Canvas-Zielgruppe herausgefiltert. Von den Nutzer:innen, die in die Campaign oder den Canvas eintreten, wird dann ein Prozentsatz der Kontrollvariante zugewiesen.
+{% endalert %}
 
 #### Segmente der globalen Kontrollgruppe in der Entwicklungskonsole {#global-control-group-segments-on-the-developer-console}
 

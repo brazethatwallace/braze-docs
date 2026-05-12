@@ -15,4 +15,4 @@
 | Align | Horizontal alignment of the group (start or center). |
 | Accent color | Color of the checkbox controls. |
 | Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

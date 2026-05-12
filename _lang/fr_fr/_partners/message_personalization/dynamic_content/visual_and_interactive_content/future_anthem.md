@@ -42,6 +42,7 @@ L'équipe Customer Success de Future Anthem vous aide à mettre en place votre i
 | Exemples d'attributs dans Future Anthem | Exemples d'attributs dans Braze |
 | ----------------------------------- | --------------------------- |
 | ![Tableau de bord Future Anthem affichant les attributs de profil d'un joueur.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Profil utilisateur Braze affichant les attributs d'objet personnalisé synchronisés depuis Future Anthem.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Intégration" }
 
 ## Attributs personnalisés Braze {#braze-custom-attributes}
 

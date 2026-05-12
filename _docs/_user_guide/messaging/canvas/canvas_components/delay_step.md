@@ -139,7 +139,7 @@ Delay components have the following metrics available in the analytics view of a
 | _Proceeded to Next Step_ | Reflects the number of entries that proceeded to the next step in the Canvas. |
 | _Exited Canvas_ | Reflects the number of entries that exited the Canvas and did not proceed to the next step. |
 | _Personalization Failed_ | Reflects the number of times a personalized message or content intended for a user couldn't be delivered due to the following:<br> {::nomarkdown}<ul><li>Delay value is in the past</li><li>Delay value is over 2 years into the future</li><li><b>After a duration</b> value isn't a number</li><li><b>Until a specific day</b> value isn't a date or date-formatted string</li></ul>{:/} <br>See [Personalization failed errors](#personaliztion-failed-errors) for more details. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Delay analytics" }
 
 Time series for these analytics are available in the expanded component view.
 

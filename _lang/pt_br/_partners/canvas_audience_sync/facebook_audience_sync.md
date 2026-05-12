@@ -234,6 +234,7 @@ table td {
 </style>
 
 <table>
+  <caption>Solução de problemas</caption>
   <thead>
     <tr>
       <th>Erro</th>

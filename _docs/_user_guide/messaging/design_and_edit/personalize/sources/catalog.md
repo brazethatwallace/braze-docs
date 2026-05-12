@@ -31,7 +31,7 @@ Catalogs support up to 1,000 fields per item and can store millions of rows, mak
 | Content recommendations | Reference articles, videos, or other media items |
 | Event information | Pull event dates, venues, and descriptions into messages |
 | Tier-based offers | Match promotions to a user's membership level or segment |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Common use cases" }
 
 ## Catalog triggers
 

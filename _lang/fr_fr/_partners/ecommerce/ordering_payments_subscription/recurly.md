@@ -30,6 +30,7 @@ Vous trouverez plus de détails sur l'utilisation de Recurly avec Braze dans la 
 | Compte Recurly | Un plan d'abonnement Elite [Recurly](https://recurly.com/) avec l'indicateur de fonctionnalité Braze activé est nécessaire pour tirer parti de ce partenariat. L'activation des factures de crédit dans votre plateforme Recurly est également nécessaire. |
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. Recurly n'utilisant que l'endpoint `users.track`, nous vous recommandons de provisionner une clé spécifique à Recurly avec cette seule autorisation. |
 | Endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -77,6 +78,7 @@ Pour un engagement client efficace, vous devez [configurer des événements pers
 | Recurly Successful Payment            | Déclenché lorsqu'une facture a été recouvrée avec succès                 |
 | Recurly Refund Issued                 | Déclenché lors de l'émission d'un remboursement                                   |
 | Recurly Failed Recurring Payment      | Déclenché en cas d'échec de la facturation d'un renouvellement d'abonnement          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements personnalisés" }
 
 ### Mise en lots et limite de débit {#batching-and-rate-limiting}
 

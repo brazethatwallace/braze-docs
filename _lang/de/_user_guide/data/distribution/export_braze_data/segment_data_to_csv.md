@@ -91,7 +91,7 @@ Abhängig von Ihrer Auswahl ist Folgendes in Ihrem Export enthalten.
 | windows_ad_ids              | Windows-Werbe-IDs                       |
 | Custom events               | Basierend auf der Auswahl beim Export                             |
 | Custom attributes           | Basierend auf der Auswahl beim Export                             |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzerdaten als CSV exportieren" }
 
 {% alert note %}
 Wenn Sie Nutzerdaten aus einem Canvas-Schritt exportieren, enthält die CSV alle Nutzer:innen, die sich im Laufe der Lebensdauer des Canvas-Schritts in diesem Schritt befunden haben. Sie können den Export nicht auf einen Datumsbereich oder ein anderes Zeitfenster beschränken. Informationen zur Durchführung dieser Exporte finden Sie unter [Canvas-Daten exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).

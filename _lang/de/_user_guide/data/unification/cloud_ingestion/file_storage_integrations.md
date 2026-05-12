@@ -339,7 +339,7 @@ Jede Zeile in der Datei muss genau eine Nutzer:in identifizieren, und zwar mit e
 | `EXTERNAL_ID` | Entspricht dem in Braze verwendeten `external_id`. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Beide Spalten zusammen identifizieren die Nutzer:in anhand des Nutzer-Alias. |
 | `BRAZE_ID` | Von Braze generierte Nutzer-ID (nur für bestehende Nutzer:innen). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
 
 {% alert important %}
 Das Löschen von Nutzer:innen ist endgültig und kann nicht rückgängig gemacht werden. Schließen Sie nur Nutzer:innen ein, die Sie tatsächlich entfernen möchten. Weitere Informationen finden Sie unter [Nutzer:innen mit Cloud-Datenaufnahme löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

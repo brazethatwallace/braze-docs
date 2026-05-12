@@ -22,6 +22,7 @@ Las recomendaciones basadas en reglas se basan en una lógica fija que debes est
 Cuando decidas qué herramienta de recomendaciones se adapta a tus recursos disponibles y a tus casos de uso, consulta esta tabla de consideraciones:
 
 <table style="text-align: center;">
+  <caption>Opciones de la herramienta de recomendaciones</caption>
   <thead>
     <tr>
       <th>Herramienta de recomendaciones</th>
@@ -90,7 +91,7 @@ Para crear tu herramienta de recomendaciones utilizando un catálogo:
 
 ### Ejemplo {#example}
 
-Supongamos que tienes una aplicación de comida saludable y quieres crear una Campaign de tarjeta de contenido que envíe recetas diferentes en función del tiempo que un usuario lleva registrado en tu aplicación. En primer lugar, crea y sube un catálogo mediante un archivo CSV que incluya la siguiente información:
+Supongamos que tienes una aplicación de comida saludable y quieres crear una campaña de tarjeta de contenido que envíe recetas diferentes en función del tiempo que un usuario lleva registrado en tu aplicación. En primer lugar, crea y sube un catálogo mediante un archivo CSV que incluya la siguiente información:
 
 | Campo | Descripción |
 |-----|-----------|
@@ -105,7 +106,7 @@ Una vez cargado el catálogo en Braze, comprueba la vista previa de un número s
 
 ![Ejemplo de catálogo en Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-Crea una Campaign de tarjeta de contenido. En el creador de mensajes, introduce la lógica Liquid para determinar qué usuarios deben recibir la Campaign, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtendrá el `start_date` (o fecha de registro) del usuario y lo comparará con la fecha actual. La diferencia en días determinará qué tarjeta de contenido se envía.
+Crea una campaña de tarjeta de contenido. En el creador de mensajes, introduce la lógica Liquid para determinar qué usuarios deben recibir la campaña, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtendrá el `start_date` (o fecha de registro) del usuario y lo comparará con la fecha actual. La diferencia en días determinará qué tarjeta de contenido se envía.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,7 +155,7 @@ Crea una Campaign de tarjeta de contenido. En el creador de mensajes, introduce 
 
 Por ejemplo:
 
-![Ejemplo de creador de mensajes de una Campaign de tarjeta de contenido.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Ejemplo de creador de mensajes de una campaña de tarjeta de contenido.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 En la sección **On click behavior**, introduce la lógica Liquid para saber a dónde deben ser redirigidos los usuarios cuando hacen clic en la tarjeta de contenido en dispositivos iOS, Android y Web.
 
@@ -171,11 +172,11 @@ En la sección **On click behavior**, introduce la lógica Liquid para saber a d
 
 Por ejemplo:
 
-![Un ejemplo de bloque de comportamiento al hacer clic en el creador de mensajes.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
+![Ejemplo de bloque de comportamiento al hacer clic en el creador de mensajes.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
 Ve a la pestaña **Test** y selecciona **Custom user** en **Preview message as user**. Introduce una fecha en el campo **Custom attribute** para obtener una vista previa de la tarjeta de contenido que se enviaría a un usuario que se hubiera registrado en esa fecha. <br><br>
 
-![Un ejemplo de atributo personalizado denominado "start_date".]({% image_buster /assets/img/recs/custom_attributes_test.png %})
+![Ejemplo de atributo personalizado denominado "start_date".]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
 
 {% tab using Connected Content %}

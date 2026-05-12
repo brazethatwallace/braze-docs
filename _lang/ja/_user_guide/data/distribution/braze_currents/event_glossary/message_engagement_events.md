@@ -13,10 +13,10 @@ search_rank: 6
 ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQL セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および [Snowflake データ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)で SQL テーブルとしても利用できます。SQL テーブルスキーマとカラムの詳細については、[SQL テーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または [Currents サンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
 
 {% details メッセージエンゲージメントイベントの構造とプラットフォーム値の説明 %}
 
@@ -28,11 +28,11 @@ search_rank: 6
 
 メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**Campaign / キャンバス追跡**プロパティ、および**イベント固有**のプロパティで構成されます。
 
-### ユーザー ID スキーマ {#user-id-schema}
+### ユーザーIDスキーマ {#user-id-schema}
 
-ユーザー ID の命名規則に注意してください。
+ユーザーIDの命名規則に注意してください。
 
-| Braze スキーマ | Currents スキーマ | 説明 |
+| Brazeスキーマ | Currentsスキーマ | 説明 |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられる一意の識別子。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されたユーザープロファイルの一意の識別子。 |
@@ -57,7 +57,7 @@ search_rank: 6
 {% enddetails %}
 
 {% alert important %}
-Currentsは、900&nbsp;KB を超える過度に大きなペイロードを持つイベントをドロップします。
+Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
 {% endalert %}
 
 {% alert note %}
@@ -3187,7 +3187,6 @@ Banner, Impressions
 {% endapi %}
 
 {% api %}
-
 ## Content Cardsの中止イベント {#content-card-abort-events}
 
 {% apitags %}
@@ -9230,7 +9229,7 @@ Abort, Push
 
 #### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 push messages every 1 week`
@@ -9455,7 +9454,7 @@ Push, Sends, Bounce
 #### プロパティの詳細
 
 - Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データを取り込んでいる場合は、`ad_id`の送信を有効にするフィーチャーフリッパーについて、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -9626,7 +9625,7 @@ Push, iOS, Sends
 
 - `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)を参照してください。
 - Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -12716,6 +12715,7 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
 {% endapi %}
 
 {% api %}
+
 ## SMS拒否イベント {#sms-rejection-events}
 
 {% apitags %}
@@ -12723,6 +12723,10 @@ SMS, Rejection
 {% endapitags %}
 
 このイベントは、SMS送信が通信事業者によって拒否されたときに発生します。これはいくつかの理由で起こる可能性があります。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立てることができます。
+
+{% alert note %}
+Brazeは、イベントがログ記録のために処理される時点でBrazeユーザープロファイルがワークスペースにまだ存在している場合にのみ、`users.messages.sms.Rejection` をCurrents、Snowflakeデータ共有、および関連するエクスポートに送信します。そのプロファイルが事前に削除されていた場合、データウェアハウスやCurrentsエクスポートにこのイベントは表示されません。同じ処理ルールは、Brazeが同じパイプラインを通じてログに記録する他の `users.messages.sms.*` アウトバウンドイベント（配信、配信失敗、キャリアへの送信など）にも適用されます。ワークスペースレベルのSMS指標には、Snowflakeの行と1対1で対応しない集計カウントが含まれる場合があります。
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12934,14 +12938,13 @@ SMS, Rejection
 {% endapi %}
 
 {% api %}
-
 ## SMS再試行イベント {#sms-retry-events}
 
 {% apitags %}
 SMS, Retry
 {% endapitags %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定された再試行期間内に後で再試行される場合に発生します。これはメッセージ優先順位付けのベータ版のお客様のみ利用可能です。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定された再試行ウィンドウ内で後から再試行される場合に発生します。これはメッセージ優先順位付けのベータ版のお客様のみ利用可能です。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13339,7 +13342,7 @@ SMS, Sends
 #### プロパティの詳細
 
 - `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -13566,6 +13569,7 @@ SMS, Clicks
 {% endapi %}
 
 {% api %}
+
 ## Webhookの中止イベント {#webhook-abort-events}
 
 {% apitags %}
@@ -13767,7 +13771,6 @@ Abort, Webhooks
 {% endapi %}
 
 {% api %}
-
 ## Webhook失敗イベント {#webhook-failure-events}
 
 {% apitags %}
@@ -14388,6 +14391,7 @@ Webhooks, Sends
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp中止イベント {#whatsapp-abort-events}
 
 {% apitags %}
@@ -14601,7 +14605,6 @@ WhatsApp, Abort
 {% endapi %}
 
 {% api %}
-
 ## WhatsAppトラッキングリンクのクリックイベント {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -15018,11 +15021,12 @@ WhatsApp, Delivery
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
+
 ## WhatsApp失敗イベント {#whatsapp-failure-events}
 
 {% apitags %}
@@ -15253,12 +15257,11 @@ WhatsApp, Failure
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp受信イベント {#whatsapp-inbound-received-events}
 
 {% apitags %}
@@ -15504,7 +15507,7 @@ WhatsApp, Inbound Received
 {% endapi %}
 
 {% api %}
-## WhatsAppの既読イベント {#whatsapp-read-events}
+## WhatsApp既読イベント {#whatsapp-read-events}
 
 {% apitags %}
 WhatsApp, Read
@@ -15729,6 +15732,7 @@ WhatsApp, Read
 {% endapi %}
 
 {% api %}
+
 ## WhatsAppリトライイベント {#whatsapp-retry-events}
 
 {% apitags %}
@@ -15936,8 +15940,7 @@ WhatsApp, Retry
 {% endapi %}
 
 {% api %}
-
-## WhatsApp 送信イベント {#whatsapp-send-events}
+## WhatsApp送信イベント {#whatsapp-send-events}
 
 {% apitags %}
 WhatsApp, Sends

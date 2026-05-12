@@ -174,7 +174,9 @@ Es posible tener tanto un Grupo de control global como usar un grupo de control 
 
 Los usuarios de tu Grupo de control global no reciben ningún mensaje aparte de aquellos con excepciones de etiquetas, y si añades un control a una campaña o Canvas, Braze retiene una parte de tu grupo de tratamiento global de recibir esa campaña o Canvas en particular. Eso significa que si un miembro del Grupo de control global no es elegible para recibir una campaña o Canvas en particular, no estará presente en el grupo de control de esa campaña o Canvas en particular.
 
-> En resumen, los usuarios del Grupo de control global se filtran de la audiencia de la campaña o Canvas antes de la entrada. De los usuarios que entran en la campaña o Canvas, un porcentaje de ellos se asigna a la variante de control.
+{% alert note %}
+En resumen, los usuarios del Grupo de control global se filtran de la audiencia de la campaña o Canvas antes de la entrada. De los usuarios que entran en la campaña o Canvas, un porcentaje de ellos se asigna a la variante de control.
+{% endalert %}
 
 #### Segmentos del Grupo de control global en la consola para desarrolladores {#global-control-group-segments-on-the-developer-console}
 

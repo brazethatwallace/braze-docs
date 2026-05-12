@@ -85,6 +85,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 </style>
 
 <table class="tg">
+  <caption>メッセージタイプ</caption>
 <thead>
   <tr>
     <th>メッセージタイプ</th>
@@ -134,6 +135,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 これらのアプリ内メッセージは、ニーズに合わせてカスタマイズできます。
 
 <table class="tg">
+  <caption>高度なメッセージタイプ</caption>
 <thead>
   <tr>
     <th>メッセージタイプ</th>
@@ -352,7 +354,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 - **デフォルト優先度バケット：**2つのCampaignsが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたCampaignがトリガーを受け取ります。
 - **特定の優先度バケット：**複数のCampaignsが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたCampaignがトリガーを受け取ります。
 
-これらのバケット内で優先度を設定するには、**Set Exact Priority**をクリックし、Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
+これらのバケット内で優先度を設定するには、**正確な優先度を設定**をクリックし、Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
 
 ![アプリ内メッセージのCampaignとCanvasの優先度設定の例。]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 

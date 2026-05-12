@@ -131,6 +131,7 @@ Los siguientes ejemplos de mapeados hacen referencia a este catálogo de muestra
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Ejemplos de mapeados</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

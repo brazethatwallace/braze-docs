@@ -94,6 +94,9 @@ Saiba mais sobre como os limites de destinatários e a criação de perfis funci
 - O vetor `recipients` pode conter até 50 objetos, sendo que cada objeto contém uma única string `external_user_id` e um objeto `trigger_properties`.
 - Quando `send_to_existing_only` é `true` (o padrão), a Braze envia a mensagem apenas para usuários existentes.
 - Quando `send_to_existing_only` é `false` e um objeto `attributes` é fornecido, a Braze cria um novo usuário se ele não existir.
+- **Perfis novos precisam de `attributes` com `send_to_existing_only: false`.** A Braze executa a criação ou atualização pré-envio a partir do objeto `attributes` no mesmo destinatário. Se você definir `send_to_existing_only` como `false`, mas omitir `attributes` (ou enviar um objeto vazio), a Braze não hidrata os dados do perfil da mesma forma, então você não obtém o comportamento combinado de "criar ou atualizar usuário e depois enviar" para o qual esse padrão foi projetado.
+- **Endereçamento de e-mail e SMS.** Para a maioria dos envios de e-mail ou SMS disparados por API para alguém que ainda não está na Braze, inclua os campos de entrega necessários dentro de `attributes` (por exemplo, `email` ou os atributos de telefone que seu espaço de trabalho usa para SMS). Você também pode definir a associação ao grupo de inscrições ou o status de inscrição quando o estado de opt-in precisa ser alterado na mesma chamada.
+- **Elegibilidade da Campaign.** Depois que o perfil existir ou for atualizado, o usuário ainda precisa corresponder ao público-alvo da Campaign no dashboard e às regras de envio do canal (por exemplo, ter opt-in para e-mail) para que a Braze envie a mensagem.
 - Definir `send_to_existing_only` como `false` não é compatível com aliases de usuário. Novos usuários apenas com alias não podem ser criados por meio deste endpoint. Para enviar para um usuário apenas com alias, o usuário já deve existir na Braze.
 
 #### Identificador de e-mail e empates de priorização {#email-identifier-and-prioritization-ties}
@@ -113,7 +116,7 @@ Saiba o que acontece quando `prioritization` não retorna exatamente um perfil.
 - A configuração `send_to_existing_only` não altera o comportamento de empate de `prioritization`. O mesmo comportamento de empate e nova tentativa se aplica independentemente de essa configuração ser `true` ou `false`.
 
 {% alert note %}
-O parâmetro `segment_id` não é compatível com este endpoint. Para direcionar um Segment, configure o Segment nas configurações de público-alvo da Campaign no dashboard da Braze e use `"broadcast": true`, ou use o parâmetro `audience` com filtros de [Público Conectado]({{site.baseurl}}/api/objects_filters/connected_audience/).
+O parâmetro `segment_id` não é compatível com este endpoint. Para direcionar um Segment, configure o Segment nas configurações de público-alvo da Campaign no dashboard da Braze e use `"broadcast": true`, ou use o parâmetro `audience` com filtros de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/).
 {% endalert %}
 
 ## Exemplo de solicitação {#example-request}

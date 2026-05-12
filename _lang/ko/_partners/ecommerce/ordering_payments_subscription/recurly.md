@@ -30,6 +30,7 @@ Recurly와 Braze를 함께 사용하는 방법에 대한 자세한 내용은 [Re
 | Recurly 계정 | 이 파트너십을 활용하려면 Braze 피처 플래그가 활성화된 Elite [Recurly](https://recurly.com/) 구독 요금제가 필요합니다. Recurly 플랫폼에서 크레딧 인보이스 활성화도 필요합니다.|
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. Recurly는 `users.track` 엔드포인트만 사용하므로 이 권한만 부여된 Recurly 전용 키를 프로비저닝하는 것을 권장합니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -77,6 +78,7 @@ Recurly는 계정의 `account_code`를 Braze의 `external_id`로 사용합니다
 | Recurly Successful Payment            | 인보이스가 성공적으로 수금될 때 트리거됨                 |
 | Recurly Refund Issued                 | 환불이 발행될 때 트리거됨                                   |
 | Recurly Failed Recurring Payment      | 구독 갱신 시 인보이스가 실패할 때 트리거됨          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom events" }
 
 ### 일괄 처리 및 사용량 제한 {#batching-and-rate-limiting}
 

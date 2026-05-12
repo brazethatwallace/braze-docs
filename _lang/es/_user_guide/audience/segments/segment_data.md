@@ -37,6 +37,7 @@ Puedes ver las siguientes estadísticas de Segment, que se actualizan en tiempo 
 </style>
 
 <table>
+  <caption>Estadísticas de Segment</caption>
     <thead>
         <tr>
             <th>Estadística</th>
@@ -72,11 +73,11 @@ Puedes ver las siguientes estadísticas de Segment, que se actualizan en tiempo 
 Puedes ver cómo se desempeña un Segment en comparación con otro a través de un conjunto de KPI preseleccionados visitando la página [Información del segmento]({{site.baseurl}}/user_guide/audience/segments/segment_insights/) de tu dashboard.
 
 ### Uso de mensajería {#messaging-use}
-La sección **Uso de mensajería** muestra qué Segments, Campaigns actualmente habilitadas y Canvas actualmente habilitados están dirigidos a tu Segment.
+La sección **Messaging Use** muestra qué Segments, Campaigns actualmente habilitadas y Canvas actualmente habilitados están dirigidos a tu Segment.
 
 ### Membresía histórica {#historical-membership}
 
-La sección **Membresía histórica** muestra cómo cambió el tamaño de tu Segment a lo largo del tiempo. Usa el menú desplegable para filtrar la membresía del Segment por rango de fechas.
+La sección **Historical Membership** muestra cómo cambió el tamaño de tu Segment a lo largo del tiempo. Usa el menú desplegable para filtrar la membresía del Segment por rango de fechas.
 
 Para obtener más información sobre cómo monitorear la membresía y el tamaño de tu Segment, consulta [Medir el tamaño del Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -86,7 +87,7 @@ Para ver información detallada y específica del usuario sobre tus Segments, ha
 
 En esta página, puedes ver una serie de atributos específicos del usuario, como género, edad, número de sesiones y si han optado por la adhesión voluntaria a push y correo electrónico.
 
-Ten en cuenta que en los casos en que tu Segment sea muy pequeño en relación con el tamaño de tu espacio de trabajo, es posible que la vista previa de usuario devuelva cero usuarios. Esto no significa necesariamente que haya cero usuarios en tu Segment; ejecuta [Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#statistics-for-segment-size) para determinar el tamaño exacto de tu Segment.
+Ten en cuenta que en los casos en que tu Segment sea muy pequeño en relación con el tamaño de tu espacio de trabajo, es posible que la vista previa de usuario devuelva cero usuarios. Esto no significa necesariamente que haya cero usuarios en tu Segment; ejecuta [Calculate Exact Stats]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#statistics-for-segment-size) para determinar el tamaño exacto de tu Segment.
 
 ![Vista previa de usuario]({% image_buster /assets/img_archive/user_preview.png %})
 
@@ -96,7 +97,7 @@ Usa las [plantillas de informes del Generador de consultas]({{site.baseurl}}/use
 
 ## Crear un informe de desglose por Segment usando el Generador de consultas {#creating-a-segment-breakdown-report-using-query-builder}
 
-Para crear un informe a partir de una plantilla del [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), ve a **Generador de consultas** y haz lo siguiente:
+Para crear un informe a partir de una plantilla del [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), ve a **Query Builder** y haz lo siguiente:
 
 1. Selecciona **Create SQL Query** > **Query Template**.
 2. Filtra las plantillas por aquellas que tengan métricas que incluyan "segment breakdowns".

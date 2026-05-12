@@ -14,7 +14,7 @@ page_order: 2
 Un moteur de recommandation basé sur des règles utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) et les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) Braze ou le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
 
 {% alert important %}
-Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'ajusteront pas à l'historique d'achat et aux goûts d'un utilisateur, à moins que vous ne mettiez à jour la logique.<br><br>Pour créer des recommandations personnalisées basées sur l'IA qui s'adaptent automatiquement à l'historique de l'utilisateur, consultez les [recommandations de produits basées sur l'IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'ajusteront pas à l'historique d'achat et aux goûts d'un utilisateur, à moins que vous ne mettiez à jour la logique.<br><br>Pour créer des recommandations personnalisées basées sur l'intelligence artificielle qui s'adaptent automatiquement à l'historique de l'utilisateur, consultez les [recommandations de produits basées sur l'IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
 {% endalert %}
 
 ## Options du moteur de recommandation {#recommendation-engine-options}
@@ -22,6 +22,7 @@ Les recommandations basées sur des règles reposent sur une logique fixe que vo
 Pour choisir le moteur de recommandation adapté à vos ressources disponibles et à vos cas d'utilisation, reportez-vous à ce tableau :
 
 <table style="text-align: center;">
+  <caption>Options du moteur de recommandation</caption>
   <thead>
     <tr>
       <th>Moteur de recommandation</th>
@@ -90,7 +91,7 @@ Pour créer votre moteur de recommandation à l'aide d'un catalogue :
 
 ### Exemple {#example}
 
-Imaginons que vous ayez une application de produits diététiques et que vous souhaitiez créer une Campaign de cartes de contenu qui envoie différentes recettes en fonction de la durée d'inscription d'un utilisateur à votre application. Tout d'abord, créez et téléchargez un catalogue à l'aide d'un fichier CSV comprenant les informations suivantes :
+Imaginons que vous ayez une application de produits diététiques et que vous souhaitiez créer une campagne de cartes de contenu qui envoie différentes recettes en fonction de la durée d'inscription d'un utilisateur à votre application. Tout d'abord, créez et téléchargez un catalogue à l'aide d'un fichier CSV comprenant les informations suivantes :
 
 | Champ | Description |
 |-----|-----------|
@@ -105,7 +106,7 @@ Une fois le catalogue chargé dans Braze, vérifiez l'aperçu d'une série de pr
 
 ![Exemple de catalogue dans Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-Créez une Campaign de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la Campaign, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
+Créez une campagne de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,7 +155,7 @@ Créez une Campaign de cartes de contenu. Dans le compositeur, saisissez la logi
 
 Par exemple :
 
-![Exemple de compositeur de message issu d'une Campaign de cartes de contenu.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Exemple de compositeur de message issu d'une campagne de cartes de contenu.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 Dans la section **On click behavior**, saisissez la logique Liquid pour déterminer où les utilisateurs doivent être redirigés lorsqu'ils cliquent sur la carte de contenu sur les appareils iOS, Android et Web.
 

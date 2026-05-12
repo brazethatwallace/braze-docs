@@ -1796,3 +1796,5 @@ Dieser Anwendungsfall bricht die Nachricht ab, wenn Liquid an einem bestimmten W
 {% endraw %}
 
 {% endapi %}
+
+Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).

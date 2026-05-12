@@ -69,7 +69,7 @@ SQS キューはグローバルに一意でなければなりません（例え�
 
 この設定では ARN と SQS の URL を頻繁に使用するため、それらを必ずメモしてください。
 
-![「詳細設定」を選択し、例として JSON オブジェクトを用いて、キューにアクセスできるユーザーを定義する。]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
+![「詳細設定」を選択し、例として JSON オブジェクトを用いて、キューにアクセスできるユーザーを定義する画面。]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
 
 ### ステップ 3: アクセスポリシーの設定 {#step-3-set-up-access-policy}
 
@@ -321,7 +321,7 @@ ID,PAYLOAD,DELETED
 
 S3 向けクラウドデータ取り込みは、ファイルアップロードを通じてユーザーとカタログアイテムの削除をサポートしています。それぞれに別々の同期とファイル形式を使用します。
 
-- **[ユーザーの削除](#deleting-users)** – データタイプ「**Delete Users**」で同期を作成し、ユーザー識別子のみを含むファイル（ペイロードなし）をアップロードします。
+- **[ユーザーの削除](#deleting-users)** – データタイプ **Delete Users** で同期を作成し、ユーザー識別子のみを含むファイル（ペイロードなし）をアップロードします。
 - **[カタログアイテムの削除](#deleting-catalog-items)** – 既存のカタログ同期を使用し、削除対象のアイテムをマークする `deleted`（または `DELETED`）列を追加します。
 
 ### ユーザーの削除 {#deleting-users}
@@ -339,7 +339,7 @@ S3 のファイルを使って Braze でユーザープロファイルを削除�
 | `EXTERNAL_ID` | Braze で使用される `external_id` と一致します。 |
 | `ALIAS_NAME` と `ALIAS_LABEL` | 両方の列を合わせて、ユーザーをエイリアスで識別します。 |
 | `BRAZE_ID` | Braze が生成したユーザー ID（既存ユーザーのみ）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの削除" }
 
 {% alert important %}
 ユーザーの削除は永続的で元に戻すことはできません。削除する予定のユーザーのみを含めてください。詳細については、[クラウドデータ取り込みを使用したユーザーの削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)を参照してください。

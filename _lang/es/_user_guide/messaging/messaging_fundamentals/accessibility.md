@@ -3,7 +3,7 @@ nav_title: Accesibilidad
 article_title: Crea mensajes accesibles en Braze
 page_order: 0.5
 page_type: reference
-description: "Este artículo de referencia explica por qué es importante tener en cuenta la accesibilidad en tu contenido de marketing y cómo puedes crear mensajes accesibles en Braze."
+description: "Este artículo de referencia explica por qué es importante la accesibilidad en el contenido de marketing, cómo funciona el idioma de accesibilidad (HTML lang) en Braze a través de los canales y cómo puedes crear mensajes accesibles en Braze."
 ---
 
 # Crea mensajes accesibles en Braze {#build-accessible-messages-in-braze}
@@ -132,6 +132,42 @@ Finalmente, hablemos de los detalles más finos: las cosas que ayudan a los usua
 - **Etiqueta claramente los enlaces y botones:** Asegúrate de que el texto de tus [enlaces](#links) y [botones](#buttons) explique claramente qué sucederá a continuación. Esto ayuda a las personas que usan lectores de pantalla o navegan con teclado a saber qué esperar.
 - **Usa símbolos y emojis con moderación:** Los caracteres especiales y los emojis pueden hacer que tu contenido sea divertido, pero pueden resultar confusos cuando los lee un lector de pantalla. Úsalos con moderación y asegúrate de que no reemplacen texto claro y descriptivo.
 - **Prueba el truncamiento:** Siempre prueba tu texto [enviando un mensaje de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) a un dispositivo para asegurarte de que tu texto no se trunca. Si tu mensaje se está cortando, esto te perjudica tanto a ti como a tu audiencia, ya que impide que tu contenido les llegue.
+
+### Idioma de accesibilidad {#accessibility-language}
+
+El **idioma de accesibilidad** indica a los lectores de pantalla y otras herramientas de asistencia en qué idioma está tu contenido. Para los canales que envían una página HTML completa o un correo electrónico, Braze puede añadir una etiqueta de idioma (`lang`) cuando la configuras en el editor o a través de Liquid. Esto cumple con el [Criterio de conformidad 3.1.1 de WCAG 2.1: Idioma de la página (Nivel A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
+
+Si dejas el idioma de accesibilidad en blanco y no hay un valor predeterminado seguro disponible, Braze omite la etiqueta de idioma. Si no se establece ningún idioma, las herramientas de asistencia suelen recurrir al idioma del teléfono o la computadora de la persona. Si ese idioma difiere del idioma del mensaje, la pronunciación puede sonar incorrecta.
+
+Campaigns y Canvas usan los mismos editores para estas opciones, a menos que una característica no esté disponible para tu espacio de trabajo.
+
+#### Configurar el idioma de accesibilidad {#configure-accessibility-language}
+
+Cuando tu editor lo incluya, ve a la sección **Accesibilidad** en la configuración del mensaje. Elige un idioma del menú desplegable o usa Liquid (por ejemplo {% raw %}`{{accessibility_language}}`{% endraw %} cuando los [mensajes multilingües]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) están activados y la **Configuración de localización** está establecida).
+
+#### Mensajes multilingües {#multi-language-messages}
+
+En **Configuración de localización**, establece un idioma de accesibilidad para cada configuración regional para que Liquid pueda completar {% raw %}`{{accessibility_language}}`{% endraw %} en los envíos localizados. Si ese valor ya está seleccionado para los mensajes nuevos depende del canal. Para flujos de trabajo de CSV y traducción, comienza con [Configuración de idioma y accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility).
+
+#### Compatibilidad de canales y editores {#channel-and-editor-support}
+
+Usa esta tabla para comparar canales. Los valores predeterminados pueden diferir, así que verifica lo que tu audiencia realmente recibe.
+
+| Canal | Qué debes saber |
+| --- | --- |
+| Correo electrónico (arrastrar y soltar, plantilla completa) | Establece el idioma en el editor. Con mensajes multilingües, una plantilla de correo electrónico completa puede coincidir con el idioma de cada configuración regional automáticamente. Si solo usas Content Blocks (fila única), esos atajos no funcionan de la misma manera: elige el idioma tú mismo donde el editor lo permita. |
+| Correo electrónico (código HTML) | Braze no añade una etiqueta de idioma por ti. Añádela en tu HTML si la necesitas. |
+| In-App Messages (arrastrar y soltar) | Cuando eliges un idioma en **Accesibilidad**, Braze añade ese idioma al HTML externo del mensaje para que los lectores de pantalla traten todo el mensaje como ese idioma. Con los mensajes multilingües activados, los mensajes nuevos pueden usar de forma predeterminada los idiomas de tu configuración regional. La **vista previa** podría no mostrar ningún idioma hasta que elijas uno en **Configuración**. |
+| Banners | Mismo comportamiento que los mensajes dentro de la aplicación. |
+| Páginas de inicio | Puedes establecer el idioma en la página publicada. Elige un idioma o usa Liquid si tu cuenta permite Liquid en las páginas de inicio. Los valores predeterminados también difieren de los mensajes dentro de la aplicación y los banners: verifica la página publicada. |
+| Content Cards | Las tarjetas usan un campo **Idioma** para las aplicaciones en lugar de un idioma de accesibilidad explícito. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Cuando escribes HTML tú mismo, puedes añadir una etiqueta de idioma en parte del mensaje (por ejemplo, una frase en otro idioma). Para más patrones, consulta [HTML personalizado](#custom-html).
+
+#### Referencia de estándares {#standards-reference}
+
+Cuando Braze añade una etiqueta de idioma a nivel raíz en HTML, sigue la regla HTML [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Las herramientas de prueba suelen buscar [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards usan tu campo de **idioma** en lugar de ese patrón HTML.
 
 ### Botones {#buttons}
 
@@ -449,7 +485,7 @@ Si una imagen funciona como un enlace o una llamada a la acción, describe la ac
 
 Si la imagen no tiene un propósito, hazlo saber también. Las imágenes decorativas, como los logos, deben tener una etiqueta alt vacía (`alt=""`) para que los lectores de pantalla sepan que deben omitirla. Sin ella, generalmente se lee el nombre del archivo de imagen en su lugar.
 
-### Videos
+### Videos {#videos}
 
 Los videos son atractivos, pero si no son accesibles, corres el riesgo de excluir a parte de tu audiencia. Usa los siguientes consejos para hacer tu contenido de video más inclusivo:
 
@@ -504,7 +540,7 @@ Puedes probar tus opciones de color usando la [herramienta de verificación de c
 Si usas HTML personalizado en tus mensajes:
 
 - Usa [HTML semántico](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Esto significa usar los elementos HTML correctos para su propósito previsto en lugar de dar estilo a un elemento para que parezca otro. La mayoría de los elementos HTML tienen su propio soporte de accesibilidad incorporado.
-- Establece el [atributo `lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) dentro de tu HTML para identificar el idioma de tu contenido. Los lectores de pantalla usan diferentes bibliotecas de sonido para cada idioma según la pronunciación y las características de ese idioma. Si no se especifica, un lector de pantalla asume que el contenido está escrito en el idioma predeterminado que el usuario eligió al configurar el lector de pantalla. Si el mensaje no está realmente en el idioma predeterminado, entonces el lector de pantalla podría no pronunciar el mensaje correctamente.
+- Para el idioma a nivel de documento donde Braze puede añadir metadatos HTML en la exportación, consulta [Idioma de accesibilidad](#accessibility-language); el comportamiento varía según el canal. Cuando marcas el contenido tú mismo, establece el [atributo `lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) dentro de tu HTML para identificar el idioma de tu contenido. Los lectores de pantalla usan diferentes bibliotecas de sonido para cada idioma según la pronunciación y las características de ese idioma. Si no se especifica, un lector de pantalla asume que el contenido está escrito en el idioma predeterminado que el usuario eligió al configurar el lector de pantalla. Si el mensaje no está realmente en el idioma predeterminado, entonces el lector de pantalla podría no pronunciar el mensaje correctamente.
 
 {% raw %}
 ```html
@@ -513,7 +549,7 @@ Si usas HTML personalizado en tus mensajes:
 {% endraw %}
 
 {% alert note %}
-Al usar el editor de correo electrónico de arrastrar y soltar, el valor del idioma para el correo electrónico se puede establecer yendo a la pestaña **Configuración** y seleccionando el valor de idioma apropiado.
+Al usar el editor de correo electrónico de arrastrar y soltar, establece el idioma desde la pestaña **Configuración** cuando ese control esté disponible. Los correos electrónicos de plantilla completa y los de solo Content Blocks pueden usar valores predeterminados diferentes para el idioma de accesibilidad; consulta [Idioma de accesibilidad](#accessibility-language). Los demás canales también se cubren en esa sección.
 {% endalert %}
 
 - Usa [atributos ARIA](#aria-attributes) para dar contexto adicional. Estos atributos proporcionan información adicional a las tecnologías de asistencia, ayudando a aclarar el rol, estado o propiedades de los elementos de la interfaz de usuario que de otro modo podrían no ser claros.

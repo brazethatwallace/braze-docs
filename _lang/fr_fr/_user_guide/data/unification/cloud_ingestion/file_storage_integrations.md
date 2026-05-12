@@ -223,7 +223,7 @@ Donnez un nom et une description au rôle, puis sélectionnez **Create Role**.
 
 L'Ingestion de données cloud prend en charge les fichiers JSON, CSV et Parquet. Les colonnes requises dépendent du type de données :
 
-- Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un `payload`
+- Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un payload
 - Les données de catalogue utilisent des identifiants de catalogue
 
 Si vous utilisez S3 pour les données de catalogue, consultez cette page ainsi que [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) pour les exigences et le comportement spécifiques aux catalogues.
@@ -339,6 +339,7 @@ Chaque ligne du fichier doit identifier exactement un utilisateur à l'aide de l
 | `EXTERNAL_ID` | Correspond à l'`external_id` utilisé dans Braze. |
 | `ALIAS_NAME` et `ALIAS_LABEL` | Les deux colonnes ensemble identifient l'utilisateur par son alias. |
 | `BRAZE_ID` | ID utilisateur généré par Braze (utilisateurs existants uniquement). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suppression d'utilisateurs" }
 
 {% alert important %}
 La suppression d'utilisateurs est définitive et irréversible. N'incluez que les utilisateurs que vous avez l'intention de supprimer. Pour plus d'informations, consultez [Supprimer des utilisateurs avec l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

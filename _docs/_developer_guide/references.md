@@ -28,7 +28,7 @@ Currently, some SDKs do not have dedicated reference documentation&#8212;but we'
 | Roku SDK          | N/A                                                                                                                                                         | [GitHub repository](https://github.com/braze-inc/braze-roku-sdk)            | [Sample app](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv)            |
 | Unity SDK         | [Declaration file](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)     | [GitHub repository](https://github.com/braze-inc/braze-unity-sdk)          | [Sample app](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)          |
 | .NET MAUI SDK (formerly Xamarin)      | N/A                                                                                                                                                         | [GitHub repository](https://github.com/braze-inc/braze-xamarin-sdk)      | [Sample app](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples)      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="List of resources" }
 
 ## Building a sample app
 

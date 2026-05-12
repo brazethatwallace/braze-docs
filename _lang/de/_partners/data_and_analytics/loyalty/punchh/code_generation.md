@@ -17,7 +17,7 @@ _Diese Integration wird von Punchh gepflegt._
 
 Mit dem Punchh-Coupon-Framework und Braze können Sie die folgenden Szenarien realisieren:
 
-- Generieren Sie einen Gutscheincode, wenn der Gast in einer E-Mail auf einen Link zur Gutscheingenerierung klickt: Der Gutscheincode wird dynamisch generiert und auf einer Internetseite angezeigt.
+- Generieren Sie einen Gutscheincode, wenn der Gast in einer E-Mail auf einen Link zur Gutscheingenerierung klickt: Der Gutscheincode wird dynamisch generiert und auf einer Webseite angezeigt.
 - Generieren Sie einen Gutscheincode, wenn der Gast eine E-Mail öffnet: Der Gutscheincode wird dynamisch generiert und als Bild in der E-Mail angezeigt.
 
 ## Integration der dynamischen Gutscheincode-Generierung {#integrating-dynamic-coupon-code-generation}
@@ -77,16 +77,17 @@ Um die dynamische Gutscheincode-API von Punchh zu nutzen, muss ein JWT-Token ers
 
 Ersetzen Sie Folgendes:
 
-| Platzhalter        | Beschreibung                                          |
+| Platzhalter | Beschreibung |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Ihr Token zur dynamischen Gutscheingenerierung. |
-| `CAMPAIGN_ID`                     | Ihre Campaign-ID.                     |
+| `CAMPAIGN_ID` | Ihre Campaign-ID. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Signatur generieren und URL konstruieren" }
 
 ### 3. Schritt: Gutscheincode an den Nachrichtentext anhängen {#step-3-append-coupon-code-to-message-body}
 
-#### Verlinkung zur Punchh-Internetseite {#linking-to-punchh-web-page}
+#### Verlinkung zur Punchh-Webseite {#linking-to-punchh-web-page}
 
-Um einen Link zu einer von Punchh gehosteten Internetseite zu erstellen, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh). Ihr Link sollte ähnlich wie der folgende aussehen:
+Um einen Link zu einer von Punchh gehosteten Webseite zu erstellen, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh). Ihr Link sollte ähnlich wie der folgende aussehen:
 
 {% raw %}
 ```
@@ -94,7 +95,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 ```
 {% endraw %}
 
-Wenn Nutzer:innen auf die Gutschein-URL klicken, werden sie auf eine von Punchh gehostete Internetseite weitergeleitet, auf der der generierte Gutschein angezeigt wird.
+Wenn Nutzer:innen auf die Gutschein-URL klicken, werden sie auf eine von Punchh gehostete Webseite weitergeleitet, auf der der generierte Gutschein angezeigt wird.
 
 ![Beispiel für eine Bestätigungsnachricht, nachdem Nutzer:innen erfolgreich einen Gutscheincode generiert haben.]({% image_buster /assets/img/punchh/punchh7.png %})
 
@@ -126,7 +127,7 @@ So verknüpfen Sie den Gutscheincode mit einem Bild:
 3. Betten Sie Ihren Link in einen HTML-{% raw %}`<img>`{% endraw %}-Tag ein.
 
 {% tabs local %}
-{% tab example input %}
+{% tab Beispiel-Eingabe %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,7 +135,7 @@ So verknüpfen Sie den Gutscheincode mit einem Bild:
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab Beispiel-Ausgabe %}
 ![Gerenderte Ausgabe des Gutscheincode-Bild-Tags.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}

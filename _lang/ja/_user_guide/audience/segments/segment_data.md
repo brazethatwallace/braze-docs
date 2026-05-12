@@ -37,6 +37,7 @@ Segment名を選択すると、Segmentの統計とフィルターを表示した
 </style>
 
 <table>
+  <caption>Segment統計</caption>
     <thead>
         <tr>
             <th>統計</th>

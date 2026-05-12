@@ -189,7 +189,7 @@ Field | Type | Description
 `output` | `null,`&nbsp;`string` | [PII] Response from the LLM
 `invocation_source` | `null,`&nbsp;`string` | Which ruby object invoked the LLM request
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLEAGENTEXECUTEDSHARED #AGENTCONSOLEAGENTEXECUTEDSHARED" }
 
 ### AGENTCONSOLE_RAWLLMREQUEST_SHARED {#AGENTCONSOLE_RAWLLMREQUEST_SHARED}
 
@@ -209,7 +209,7 @@ Field | Type | Description
 `http_status_code` | `int`,&nbsp;`null` | HTTP status code of the response
 `response_body` | `string`,&nbsp;`null` | [PII] Response from the LLM
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLERAWLLMREQUESTSHARED #AGENTCONSOLERAWLLMREQUESTSHARED" }
 
 ### AGENTCONSOLE_TOOLINVOCATION_SHARED {#AGENTCONSOLE_TOOLINVOCATION_SHARED}
 
@@ -227,7 +227,7 @@ Field | Type | Description
 `tool_arguments` | `null,`&nbsp;`string` | [PII] JSON of the tool arguments
 `invocation_source` | `null,`&nbsp;`string` | Which ruby object invoked the LLM request
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLETOOLINVOCATIONSHARED #AGENTCONSOLETOOLINVOCATIONSHARED" }
 
 ## User profile attribute views {#user-profile-attribute-views}
 
@@ -242,7 +242,7 @@ Field | Type | Description
 `update_source` | `string` | Source of the update to the profile
 `sf_updated_at` | `timestamp` | When this row was updated in Snowflake
 `custom_attributes` | `variant` | [PII] Custom attributes as a JSON object
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED #USERCUSTOMATTRIBUTESVIEWSHARED" }
 
 ### USER_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED}
 
@@ -265,7 +265,7 @@ Field | Type | Description
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED #USERDEFAULTATTRIBUTESVIEWSHARED" }
 
 ### USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED}
 
@@ -290,7 +290,7 @@ Field | Type | Description
 `language` | `string` | [PII] Language
 `eff_dt` | `timestamp` | Start of the interval when this attribute state was current
 `end_dt` | `timestamp` | End of that interval
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED #USERDEFAULTATTRIBUTESHISTORYVIEWSHARED" }
 
 ### USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED}
 
@@ -313,7 +313,7 @@ Field | Type | Description
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
 `time_zone` | `string` | [PII] Time zone
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ## Catalogs
 
@@ -327,7 +327,7 @@ Field | Type | Description
 `app_group_api_id` | `null,`&nbsp;`string` | API ID of the app group
 `field_name` | `null,`&nbsp;`string` | Name of the field
 `field_value` | `null,`&nbsp;`string` | Value of the field
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CATALOGSITEMSSHARED #CATALOGSITEMSSHARED" }
 
 ## Changelogs
 
@@ -343,7 +343,7 @@ Field | Type | Description
 `global_control_group` | `null, boolean` | With this change, the bucket number is included as global control group
 `previous_global_control_group` | `null, boolean` | Before this change the bucket number was included as global control group but it no longer is
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSGLOBALCONTROLGROUPSHARED #CHANGELOGSGLOBALCONTROLGROUPSHARED" }
 
 ### CHANGELOGS_CAMPAIGN_SHARED {#CHANGELOGS_CAMPAIGN_SHARED}
 
@@ -360,7 +360,7 @@ Field | Type | Description
 `name` | `null,`&nbsp;`string` | Name of the campaign
 `conversion_behaviors` | `null,`&nbsp;`string` | Conversion behaviors for the campaign
 `actions` | `null,`&nbsp;`string` | Actions for the campaign
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSCAMPAIGNSHARED #CHANGELOGSCAMPAIGNSHARED" }
 
 ### CHANGELOGS_CANVAS_SHARED {#CHANGELOGS_CANVAS_SHARED}
 
@@ -377,7 +377,7 @@ Field | Type | Description
 `name` | `null,`&nbsp;`string` | Name of the Canvas
 `conversion_behaviors` | `null,`&nbsp;`string` | Conversion behaviors for the Canvas
 `variations` | `null,`&nbsp;`string` | Variations for the Canvas
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSCANVASSHARED #CHANGELOGSCANVASSHARED" }
 
 
 ## Behaviors
@@ -408,7 +408,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSCUSTOMEVENTSHARED #USERSBEHAVIORSCUSTOMEVENTSHARED" }
 
 ### USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED {#USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED}
 
@@ -423,7 +423,7 @@ Field | Type | Description
 `source` | `string` | the source of the attribution
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSINSTALLATTRIBUTIONSHARED #USERSBEHAVIORSINSTALLATTRIBUTIONSHARED" }
 
 ### USERS_BEHAVIORS_LOCATION_SHARED {#USERS_BEHAVIORS_LOCATION_SHARED}
 
@@ -450,7 +450,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSLOCATIONSHARED #USERSBEHAVIORSLOCATIONSHARED" }
 
 ### USERS_BEHAVIORS_PURCHASE_SHARED {#USERS_BEHAVIORS_PURCHASE_SHARED}
 
@@ -476,7 +476,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSPURCHASESHARED #USERSBEHAVIORSPURCHASESHARED" }
 
 ### USERS_BEHAVIORS_UNINSTALL_SHARED {#USERS_BEHAVIORS_UNINSTALL_SHARED}
 
@@ -491,7 +491,7 @@ Field | Type | Description
 `time` | `int` | Unix timestamp at which the user uninstalled
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSUNINSTALLSHARED #USERSBEHAVIORSUNINSTALLSHARED" }
 
 ### USERS_BEHAVIORS_UPGRADEDAPP_SHARED {#USERS_BEHAVIORS_UPGRADEDAPP_SHARED}
 
@@ -512,7 +512,7 @@ Field | Type | Description
 `new_app_version` | `null,`&nbsp;`string` | New version of the app
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSUPGRADEDAPPSHARED #USERSBEHAVIORSUPGRADEDAPPSHARED" }
 
 ### USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED {#USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED}
 
@@ -536,7 +536,7 @@ Field | Type | Description
 `device_model` | `null,`&nbsp;`string` | Model of the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPFIRSTSESSIONSHARED #USERSBEHAVIORSAPPFIRSTSESSIONSHARED" }
 
 
 ### USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED {#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED}
@@ -556,7 +556,7 @@ Field | Type | Description
 `os_version` | `null,`&nbsp;`string` | Version of the operating system of the device
 `device_model` | `null,`&nbsp;`string` | Model of the device
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPNEWSFEEDIMPRESSIONSHARED #USERSBEHAVIORSAPPNEWSFEEDIMPRESSIONSHARED" }
 
 ### USERS_BEHAVIORS_APP_SESSIONEND_SHARED {#USERS_BEHAVIORS_APP_SESSIONEND_SHARED}
 
@@ -577,7 +577,7 @@ Field | Type | Description
 `device_model` | `null,`&nbsp;`string` | Model of the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPSESSIONENDSHARED #USERSBEHAVIORSAPPSESSIONENDSHARED" }
 
 ### USERS_BEHAVIORS_APP_SESSIONSTART_SHARED {#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED}
 
@@ -597,7 +597,7 @@ Field | Type | Description
 `device_model` | `null,`&nbsp;`string` | Model of the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPSESSIONSTARTSHARED #USERSBEHAVIORSAPPSESSIONSTARTSHARED" }
 
 ### USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED {#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED}
 
@@ -619,7 +619,7 @@ Field | Type | Description
 `geofence_id` | `string` | The ID of the geofence that was triggered
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSGEOFENCEDATAEVENTSHARED #USERSBEHAVIORSGEOFENCEDATAEVENTSHARED" }
 
 ### USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED {#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED}
 
@@ -641,7 +641,7 @@ Field | Type | Description
 `geofence_id` | `string` | The ID of the geofence that was triggered
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSGEOFENCERECORDEVENTSHARED #USERSBEHAVIORSGEOFENCERECORDEVENTSHARED" }
 
 
 ### USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED {#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED}
@@ -662,7 +662,7 @@ Field | Type | Description
 `app_group_api_id` | `null,`&nbsp;`string` | API ID of the app group this user belongs to
 `app_api_id` | `null,`&nbsp;`string` | API ID of the app on which this event occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSLIVEACTIVITYPUSHTOSTARTTOKENCHANGESHARED #USERSBEHAVIORSLIVEACTIVITYPUSHTOSTARTTOKENCHANGESHARED" }
 
 
 ### USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED {#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED}
@@ -683,7 +683,7 @@ Field | Type | Description
 `app_group_api_id` | `null,`&nbsp;`string` | API ID of the app group this user belongs to
 `app_api_id` | `null,`&nbsp;`string` | API ID of the app on which this event occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSLIVEACTIVITYUPDATETOKENCHANGESHARED #USERSBEHAVIORSLIVEACTIVITYUPDATETOKENCHANGESHARED" }
 
 
 ### USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED {#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED}
@@ -712,7 +712,7 @@ Field | Type | Description
 `app_group_api_id` | `null,`&nbsp;`string` | API ID of the app group this user belongs to
 `app_api_id` | `null,`&nbsp;`string` | API ID of the app on which this event occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSPUSHNOTIFICATIONTOKENSTATECHANGESHARED #USERSBEHAVIORSPUSHNOTIFICATIONTOKENSTATECHANGESHARED" }
 
 ### USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED {#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED}
 
@@ -740,7 +740,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `channel_identifier` | `null,`&nbsp;`string` | [PII] The user's identifier on the channel the event is for.
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGLOBALSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGLOBALSTATECHANGESHARED" }
 
 ### USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED {#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED}
 
@@ -772,7 +772,7 @@ Field | Type | Description
 `dispatch_id` | `null,`&nbsp;`string` | ID of the dispatch this message belongs to
 `channel_identifier` | `null,`&nbsp;`string` | [PII] The user's identifier on the channel the event is for.
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED" }
 
 ## Campaigns
 
@@ -799,7 +799,7 @@ Field | Type | Description
 `language` | `null,`&nbsp;`string` | [PII] Language of the user
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSCONVERSIONSHARED #USERSCAMPAIGNSCONVERSIONSHARED" }
 
 ### USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED {#USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED}
 
@@ -823,7 +823,7 @@ Field | Type | Description
 `language` | `null,`&nbsp;`string` | [PII] Language of the user
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSENROLLINCONTROLSHARED #USERSCAMPAIGNSENROLLINCONTROLSHARED" }
 
 ### USERS_CAMPAIGNS_FREQUENCYCAP_SHARED {#USERS_CAMPAIGNS_FREQUENCYCAP_SHARED}
 
@@ -847,7 +847,7 @@ Field | Type | Description
 `language` | `null,`&nbsp;`string` | [PII] Language of the user
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSFREQUENCYCAPSHARED #USERSCAMPAIGNSFREQUENCYCAPSHARED" }
 
 ### USERS_CAMPAIGNS_REVENUE_SHARED {#USERS_CAMPAIGNS_REVENUE_SHARED}
 
@@ -872,7 +872,7 @@ Field | Type | Description
 `revenue` | `long` | The amount of USD revenue in cents generated
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSREVENUESHARED #USERSCAMPAIGNSREVENUESHARED" }
 
 ## Canvas
 
@@ -898,7 +898,7 @@ Field | Type | Description
 | `next_step_id`                         | `string`,&nbsp;`null`    | BSON ID of the next step in the canvas |
 | `next_step_api_id`                     | `string`,&nbsp;`null`    | API ID of the next step in the Canvas |
 | `sf_created_at`                        | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASSTEPPROGRESSIONSHARED #USERSCANVASSTEPPROGRESSIONSHARED" }
 
 ### USERS_CANVAS_CONVERSION_SHARED {#USERS_CANVAS_CONVERSION_SHARED}
 
@@ -923,7 +923,7 @@ Field | Type | Description
 | `timezone`                             | `string`,&nbsp;`null`    | Time zone of the user                                                                                            |
 | `language`                             | `string`,&nbsp;`null`    | [PII] Language of the user                                                                                      |
 | `sf_created_at`                        | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASCONVERSIONSHARED #USERSCANVASCONVERSIONSHARED" }
 
 ### USERS_CANVAS_ENTRY_SHARED {#USERS_CANVAS_ENTRY_SHARED}
 
@@ -946,7 +946,7 @@ Field | Type | Description
 | `language`                | `string`,&nbsp;`null`    | [PII] Language of the user                                           |
 | `in_control_group`        | `boolean`,&nbsp;`null`   | True if the user was enrolled in the control group                   |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASENTRYSHARED #USERSCANVASENTRYSHARED" }
 
 ### USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED {#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED}
 
@@ -965,7 +965,7 @@ Field | Type | Description
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED #USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
 ### USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED {#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED}
 
@@ -982,7 +982,7 @@ Field | Type | Description
 | `canvas_variation_api_id` | `string`,&nbsp;`null`    | API ID of the Canvas variation this event belongs to                 |
 | `canvas_step_api_id`      | `string`,&nbsp;`null`    | API ID of the Canvas step this event belongs to                      |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITPERFORMEDEVENTSHARED #USERSCANVASEXITPERFORMEDEVENTSHARED" }
 
 ### USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED {#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED}
 
@@ -1002,7 +1002,7 @@ Field | Type | Description
 | `conversion_behavior_index` | `int`,&nbsp;`null`       | Type of conversion event the user performed where "0" is a primary conversion and "1" is a secondary conversion |
 | `sf_created_at`             | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                                                                   |
 | `experiment_split_api_id` | `string`,&nbsp;`null` | API ID of the experiment split the user enrolled in |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPCONVERSIONSHARED #USERSCANVASEXPERIMENTSTEPCONVERSIONSHARED" }
 
 ### USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED {#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED}
 
@@ -1023,7 +1023,7 @@ Field | Type | Description
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 | `experiment_split_api_id` | `string`,&nbsp;`null` | API ID of the experiment split the user enrolled in |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED #USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 ### USERS_CANVAS_FREQUENCYCAP_SHARED {#USERS_CANVAS_FREQUENCYCAP_SHARED}
 
@@ -1047,7 +1047,7 @@ Field | Type | Description
 | `timezone`                             | `string`,&nbsp;`null`    | Time zone of the user                                                 |
 | `language`                             | `string`,&nbsp;`null`    | [PII] Language of the user                                           |
 | `sf_created_at`                        | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASFREQUENCYCAPSHARED #USERSCANVASFREQUENCYCAPSHARED" }
 
 ### USERS_CANVAS_REVENUE_SHARED {#USERS_CANVAS_REVENUE_SHARED}
 
@@ -1072,7 +1072,7 @@ Field | Type | Description
 | `revenue`                              | `int`,&nbsp;`null`       | Amount of revenue generated in USD, displayed as cents               |
 | `sf_created_at`                        | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                        |
 | `app_api_id` | `string`,&nbsp;`null` | API ID of the app on which this event occurred |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASREVENUESHARED #USERSCANVASREVENUESHARED" }
 
 ## Messages
 
@@ -1110,7 +1110,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (up to 128 chars)
 `banner_placement_id` | `null,`&nbsp;`string` | Customer specified banner placement ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESBANNERABORTSHARED #USERSMESSAGESBANNERABORTSHARED" }
 
 
 ### USERS_MESSAGES_BANNER_CLICK_SHARED {#USERS_MESSAGES_BANNER_CLICK_SHARED}
@@ -1145,7 +1145,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `banner_placement_id` | `null,`&nbsp;`string` | Customer specified banner placement ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESBANNERCLICKSHARED #USERSMESSAGESBANNERCLICKSHARED" }
 
 
 ### USERS_MESSAGES_BANNER_IMPRESSION_SHARED {#USERS_MESSAGES_BANNER_IMPRESSION_SHARED}
@@ -1179,7 +1179,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `banner_placement_id` | `null,`&nbsp;`string` | Customer specified banner placement ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESBANNERIMPRESSIONSHARED #USERSMESSAGESBANNERIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_ABORT_SHARED {#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED}
 
@@ -1209,7 +1209,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDABORTSHARED #USERSMESSAGESCONTENTCARDABORTSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_CLICK_SHARED {#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED}
 
@@ -1249,7 +1249,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDCLICKSHARED #USERSMESSAGESCONTENTCARDCLICKSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED {#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED}
 
@@ -1289,7 +1289,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDDISMISSSHARED #USERSMESSAGESCONTENTCARDDISMISSSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED {#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED}
 
@@ -1329,7 +1329,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDIMPRESSIONSHARED #USERSMESSAGESCONTENTCARDIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_SEND_SHARED {#USERS_MESSAGES_CONTENTCARD_SEND_SHARED}
 
@@ -1359,7 +1359,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `message_extras` | `null,`&nbsp;`string` | [PII] A JSON string of the tagged key-value pairs during liquid rendering
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDSENDSHARED #USERSMESSAGESCONTENTCARDSENDSHARED" }
 
 ### USERS_MESSAGES_EMAIL_ABORT_SHARED {#USERS_MESSAGES_EMAIL_ABORT_SHARED}
 
@@ -1391,7 +1391,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILABORTSHARED #USERSMESSAGESEMAILABORTSHARED" }
 
 ### USERS_MESSAGES_EMAIL_BOUNCE_SHARED {#USERS_MESSAGES_EMAIL_BOUNCE_SHARED}
 
@@ -1426,7 +1426,7 @@ Field | Type | Description
 `is_drop` | `null, boolean` | Indicates that this event counts as a drop event
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILBOUNCESHARED #USERSMESSAGESEMAILBOUNCESHARED" }
 
 ### USERS_MESSAGES_EMAIL_CLICK_SHARED {#USERS_MESSAGES_EMAIL_CLICK_SHARED}
 
@@ -1465,7 +1465,7 @@ Field | Type | Description
 `is_suspected_bot_click` | `null, boolean` | Whether this event was processed as a bot event
 `suspected_bot_click_reason` | `null, object` | Why this event was classified as a bot
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILCLICKSHARED #USERSMESSAGESEMAILCLICKSHARED" }
 
 
 ### USERS_MESSAGES_EMAIL_DEFERRAL_SHARED {#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED}
@@ -1498,7 +1498,7 @@ Field | Type | Description
 `deferral_reason` | `null,`&nbsp;`string` | [PII] The SMTP reason code and user friendly message received for this deferral event
 `attempt_count` | `null, int` | Number of attempts made to send the message
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILDEFERRALSHARED #USERSMESSAGESEMAILDEFERRALSHARED" }
 
 ### USERS_MESSAGES_EMAIL_DELIVERY_SHARED {#USERS_MESSAGES_EMAIL_DELIVERY_SHARED}
 
@@ -1531,7 +1531,7 @@ Field | Type | Description
 `from_domain` | `null,`&nbsp;`string` | Sending domain for the email
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILDELIVERYSHARED #USERSMESSAGESEMAILDELIVERYSHARED" }
 
 ### USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED {#USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED}
 
@@ -1564,7 +1564,7 @@ Field | Type | Description
 `from_domain` | `null,`&nbsp;`string` | Sending domain for the email
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILMARKASSPAMSHARED #USERSMESSAGESEMAILMARKASSPAMSHARED" }
 
 ### USERS_MESSAGES_EMAIL_OPEN_SHARED {#USERS_MESSAGES_EMAIL_OPEN_SHARED}
 
@@ -1599,7 +1599,7 @@ Field | Type | Description
 `is_amp` | `null, boolean` | Indicates that this is an AMP event
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILOPENSHARED #USERSMESSAGESEMAILOPENSHARED" }
 
 ### USERS_MESSAGES_EMAIL_SEND_SHARED {#USERS_MESSAGES_EMAIL_SEND_SHARED}
 
@@ -1632,7 +1632,7 @@ Field | Type | Description
 `from_domain` | `null,`&nbsp;`string` | Sending domain for the email
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILSENDSHARED #USERSMESSAGESEMAILSENDSHARED" }
 
 ### USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED {#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED}
 
@@ -1666,7 +1666,7 @@ Field | Type | Description
 `from_domain` | `null,`&nbsp;`string` | Sending domain for the email
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILSOFTBOUNCESHARED #USERSMESSAGESEMAILSOFTBOUNCESHARED" }
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
@@ -1696,7 +1696,7 @@ Field | Type | Description
 `ip_pool` | `null,`&nbsp;`string` | IP Pool from which the email send was made
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILUNSUBSCRIBESHARED #USERSMESSAGESEMAILUNSUBSCRIBESHARED" }
 
 ### USERS_MESSAGES_EMAIL_RETRY_SHARED {#USERS_MESSAGES_EMAIL_RETRY_SHARED}
 
@@ -1734,7 +1734,7 @@ Field | Type | Description
 `ip_pool` | `null,`&nbsp;`string` | IP pool from which the email send was made
 `device_id` | `null,`&nbsp;`string` | ID of the device on which the event occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILRETRYSHARED #USERSMESSAGESEMAILRETRYSHARED" }
 
 ### USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED {#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED}
 
@@ -1769,7 +1769,7 @@ Field | Type | Description
 `timezone` | `null,`&nbsp;`string` | Time zone of the user
 `user_id` | `string` | Braze user ID of the user who performed this event
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESFEATUREFLAGIMPRESSIONSHARED #USERSMESSAGESFEATUREFLAGIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED {#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED}
 
@@ -1812,7 +1812,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGEABORTSHARED #USERSMESSAGESINAPPMESSAGEABORTSHARED" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED {#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED}
 
@@ -1853,7 +1853,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether advertising tracking is enabled for the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGECLICKSHARED #USERSMESSAGESINAPPMESSAGECLICKSHARED" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED {#USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED}
 
@@ -1895,7 +1895,7 @@ Field | Type | Description
 `message_extras` | `null,`&nbsp;`string` | [PII] A JSON string of the tagged key-value pairs during liquid rendering
 `locale_key` | `null,`&nbsp;`string` | [PII] The key corresponding to the translations (for example 'en-us') used to compose this message (null for default).
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGEIMPRESSIONSHARED #USERSMESSAGESINAPPMESSAGEIMPRESSIONSHARED" }
 
 
 ### USERS_MESSAGES_LINE_ABORT_SHARED {#USERS_MESSAGES_LINE_ABORT_SHARED}
@@ -1927,7 +1927,7 @@ Field | Type | Description
 `canvas_variation_api_id` | `null,`&nbsp;`string` | API ID of the Canvas variation this event belongs to
 `canvas_api_id` | `null,`&nbsp;`string` | API ID of the Canvas this event belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINEABORTSHARED #USERSMESSAGESLINEABORTSHARED" }
 
 
 ### USERS_MESSAGES_LINE_CLICK_SHARED {#USERS_MESSAGES_LINE_CLICK_SHARED}
@@ -1961,7 +1961,7 @@ Field | Type | Description
 `url` | `null,`&nbsp;`string` | URL that the user clicked on
 `user_agent` | `null,`&nbsp;`string` | User agent on which the spam report occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINECLICKSHARED #USERSMESSAGESLINECLICKSHARED" }
 
 
 ### USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED}
@@ -1993,7 +1993,7 @@ Field | Type | Description
 `subscription_group_api_id` | `string` | Subscription group API ID
 `timezone` | `null,`&nbsp;`string` | Time zone of the user
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINEINBOUNDRECEIVESHARED #USERSMESSAGESLINEINBOUNDRECEIVESHARED" }
 
 
 ### USERS_MESSAGES_LINE_SEND_SHARED {#USERS_MESSAGES_LINE_SEND_SHARED}
@@ -2024,7 +2024,7 @@ Field | Type | Description
 `subscription_group_api_id` | `string` | Subscription group API ID
 `timezone` | `null,`&nbsp;`string` | Time zone of the user
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINESENDSHARED #USERSMESSAGESLINESENDSHARED" }
 
 ### USERS_MESSAGES_LINE_RETRY_SHARED {#USERS_MESSAGES_LINE_RETRY_SHARED}
 
@@ -2061,7 +2061,7 @@ Field | Type | Description
 `subscription_group_api_id` | `null,`&nbsp;`string` | Subscription group API ID
 `timezone` | `null,`&nbsp;`string` | Time zone of the user
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINERETRYSHARED #USERSMESSAGESLINERETRYSHARED" }
 
 
 ### USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED {#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED}
@@ -2082,7 +2082,7 @@ Field | Type | Description
 `app_group_api_id` | `null,`&nbsp;`string` | API ID of the app group this user belongs to
 `app_api_id` | `null,`&nbsp;`string` | API ID of the app on which this event occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLIVEACTIVITYOUTCOMESHARED #USERSMESSAGESLIVEACTIVITYOUTCOMESHARED" }
 
 
 ### USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED {#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED}
@@ -2102,7 +2102,7 @@ Field | Type | Description
 `app_group_api_id` | `null,`&nbsp;`string` | API ID of the app group this user belongs to
 `app_api_id` | `null,`&nbsp;`string` | API ID of the app on which this event occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLIVEACTIVITYSENDSHARED #USERSMESSAGESLIVEACTIVITYSENDSHARED" }
 
 
 ### USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED}
@@ -2132,7 +2132,7 @@ Field | Type | Description
 `abort_type` | `null,`&nbsp;`string` | Type of abort. For a list of values, see [Abort types](#abort-types).
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (up to 128 chars)
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDABORTSHARED #USERSMESSAGESNEWSFEEDCARDABORTSHARED" }
 
 
 ### USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED}
@@ -2160,7 +2160,7 @@ Field | Type | Description
 `carrier` | `null,`&nbsp;`string` | Carrier of the device
 `browser` | `null,`&nbsp;`string` | Device browser - extracted from user_agent - on which the open occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDCLICKSHARED #USERSMESSAGESNEWSFEEDCARDCLICKSHARED" }
 
 
 ### USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED}
@@ -2188,7 +2188,7 @@ Field | Type | Description
 `carrier` | `null,`&nbsp;`string` | Carrier of the device
 `browser` | `null,`&nbsp;`string` | Device browser - extracted from user_agent - on which the open occurred
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDIMPRESSIONSHARED #USERSMESSAGESNEWSFEEDCARDIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED}
 
@@ -2220,7 +2220,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONABORTSHARED #USERSMESSAGESPUSHNOTIFICATIONABORTSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED}
 
@@ -2254,7 +2254,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether or not tracking is enabled for advertising
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONBOUNCESHARED #USERSMESSAGESPUSHNOTIFICATIONBOUNCESHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED}
 
@@ -2290,7 +2290,7 @@ Field | Type | Description
 `browser` | `null,`&nbsp;`string` | Browser of the device
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONINFLUENCEDOPENSHARED #USERSMESSAGESPUSHNOTIFICATIONINFLUENCEDOPENSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED}
 
@@ -2333,7 +2333,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether or not tracking is enabled for advertising
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONIOSFOREGROUNDSHARED #USERSMESSAGESPUSHNOTIFICATIONIOSFOREGROUNDSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED}
 
@@ -2376,7 +2376,7 @@ Field | Type | Description
 `ad_tracking_enabled` | `null, boolean` | Whether or not tracking is enabled for advertising
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONOPENSHARED #USERSMESSAGESPUSHNOTIFICATIONOPENSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED}
 
@@ -2413,7 +2413,7 @@ Field | Type | Description
 `is_sampled` | `null,`&nbsp;`string` | Indicates whether the push send was sampled and expected a delivery event
 `locale_key` | `null,`&nbsp;`string` | [PII] The key corresponding to the translations (for example 'en-us') used to compose this message (null for default).
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONSENDSHARED #USERSMESSAGESPUSHNOTIFICATIONSENDSHARED" }
 
 
 ### USERS_MESSAGES_RCS_ABORT_SHARED {#USERS_MESSAGES_RCS_ABORT_SHARED}
@@ -2441,7 +2441,7 @@ Field | Type | Description
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API ID of the Canvas step message variation this user received
 `campaign_api_id` | `null,`&nbsp;`string` | API ID of the campaign this event belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSABORTSHARED #USERSMESSAGESRCSABORTSHARED" }
 
 
 ### USERS_MESSAGES_RCS_CLICK_SHARED {#USERS_MESSAGES_RCS_CLICK_SHARED}
@@ -2478,7 +2478,7 @@ Field | Type | Description
 `subscription_group_api_id` | `string` | Subscription group API ID
 `canvas_variation_name` | `null,`&nbsp;`string` | Name of the Canvas variation this user received
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSCLICKSHARED #USERSMESSAGESRCSCLICKSHARED" }
 
 
 ### USERS_MESSAGES_RCS_DELIVERY_SHARED {#USERS_MESSAGES_RCS_DELIVERY_SHARED}
@@ -2509,7 +2509,7 @@ Field | Type | Description
 `campaign_api_id` | `null,`&nbsp;`string` | API ID of the campaign this event belongs to
 `from_rcs_sender` | `null,`&nbsp;`string` | The RCS sender ID or agent name used to send the message
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSDELIVERYSHARED #USERSMESSAGESRCSDELIVERYSHARED" }
 
 
 ### USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED}
@@ -2541,7 +2541,7 @@ Field | Type | Description
 `campaign_api_id` | `null,`&nbsp;`string` | API ID of the campaign this event belongs to
 `campaign_id` | `null,`&nbsp;`string` | BSON ID of the campaign this event belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSINBOUNDRECEIVESHARED #USERSMESSAGESRCSINBOUNDRECEIVESHARED" }
 
 
 ### USERS_MESSAGES_RCS_READ_SHARED {#USERS_MESSAGES_RCS_READ_SHARED}
@@ -2567,7 +2567,7 @@ Field | Type | Description
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API ID of the Canvas step message variation this user received
 `campaign_api_id` | `null,`&nbsp;`string` | API ID of the campaign this event belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSREADSHARED #USERSMESSAGESRCSREADSHARED" }
 
 
 ### USERS_MESSAGES_RCS_REJECTION_SHARED {#USERS_MESSAGES_RCS_REJECTION_SHARED}
@@ -2601,7 +2601,7 @@ Field | Type | Description
 `campaign_api_id` | `null,`&nbsp;`string` | API ID of the campaign this event belongs to
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API ID of the Canvas step message variation this user received
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSREJECTIONSHARED #USERSMESSAGESRCSREJECTIONSHARED" }
 
 
 ### USERS_MESSAGES_RCS_SEND_SHARED {#USERS_MESSAGES_RCS_SEND_SHARED}
@@ -2634,7 +2634,7 @@ Field | Type | Description
 `canvas_step_api_id` | `null,`&nbsp;`string` | API ID of the Canvas step this event belongs to
 `campaign_api_id` | `null,`&nbsp;`string` | API ID of the campaign this event belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSSENDSHARED #USERSMESSAGESRCSSENDSHARED" }
 
 ## SMS message events and deleted user profiles
 
@@ -2664,7 +2664,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSABORTSHARED #USERSMESSAGESSMSABORTSHARED" }
 
 ### USERS_MESSAGES_SMS_CARRIERSEND_SHARED {#USERS_MESSAGES_SMS_CARRIERSEND_SHARED}
 
@@ -2695,7 +2695,7 @@ Field | Type | Description
 `subscription_group_api_id` | `null,`&nbsp;`string` | external ID of the subscription group
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSCARRIERSENDSHARED #USERSMESSAGESSMSCARRIERSENDSHARED" }
 
 ### USERS_MESSAGES_SMS_DELIVERY_SHARED {#USERS_MESSAGES_SMS_DELIVERY_SHARED}
 
@@ -2727,7 +2727,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `is_sms_fallback` | `null, boolean` | Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYSHARED #USERSMESSAGESSMSDELIVERYSHARED" }
 
 ### USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED {#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED}
 
@@ -2760,7 +2760,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `is_sms_fallback` | `null, boolean` | Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYFAILURESHARED #USERSMESSAGESSMSDELIVERYFAILURESHARED" }
 
 ### USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED}
 
@@ -2788,7 +2788,7 @@ Field | Type | Description
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API ID of the Canvas step message variation this event belongs to
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSINBOUNDRECEIVESHARED #USERSMESSAGESSMSINBOUNDRECEIVESHARED" }
 
 ### USERS_MESSAGES_SMS_REJECTION_SHARED {#USERS_MESSAGES_SMS_REJECTION_SHARED}
 
@@ -2822,7 +2822,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `is_sms_fallback` | `null, boolean` | Indicates if SMS fallback was attempted for this rejected RCS message. It is linked/paired to the SMS Delivery event
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSREJECTIONSHARED #USERSMESSAGESSMSREJECTIONSHARED" }
 
 ### USERS_MESSAGES_SMS_SEND_SHARED {#USERS_MESSAGES_SMS_SEND_SHARED}
 
@@ -2854,7 +2854,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `message_extras` | `null,`&nbsp;`string` | [PII] A JSON string of the tagged key-value pairs during liquid rendering
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSSENDSHARED #USERSMESSAGESSMSSENDSHARED" }
 
 ### USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED {#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED}
 
@@ -2883,7 +2883,7 @@ Field | Type | Description
 `is_suspected_bot_click` | `null, boolean` | Whether this event was processed as a bot event
 `suspected_bot_click_reason` | `null, object` | Why this event was classified as a bot
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSSHORTLINKCLICKSHARED #USERSMESSAGESSMSSHORTLINKCLICKSHARED" }
 
 ### USERS_MESSAGES_SMS_RETRY_SHARED {#USERS_MESSAGES_SMS_RETRY_SHARED}
 
@@ -2913,7 +2913,7 @@ Field | Type | Description
 `retry_type` | `null,`&nbsp;`string` | Type of retry
 `retry_log` | `null,`&nbsp;`string` | Log message describing retry details
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSRETRYSHARED #USERSMESSAGESSMSRETRYSHARED" }
 
 ### USERS_MESSAGES_WEBHOOK_ABORT_SHARED {#USERS_MESSAGES_WEBHOOK_ABORT_SHARED}
 
@@ -2943,7 +2943,7 @@ Field | Type | Description
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKABORTSHARED #USERSMESSAGESWEBHOOKABORTSHARED" }
 
 
 ### USERS_MESSAGES_WEBHOOK_FAILURE_SHARED {#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED}
@@ -2977,7 +2977,7 @@ Field | Type | Description
 `webhook_failure_source` | `null,`&nbsp;`string` | To tell whether an error was created by Braze or by the endpoint itself. The source field could be External Endpoint, Treat no status code to host unreachable
 `is_terminal` | `null, boolean` | Whether this event was the terminal attempt in a send
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKFAILURESHARED #USERSMESSAGESWEBHOOKFAILURESHARED" }
 
 ### USERS_MESSAGES_WEBHOOK_SEND_SHARED {#USERS_MESSAGES_WEBHOOK_SEND_SHARED}
 
@@ -3011,7 +3011,7 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `message_extras` | `null,`&nbsp;`string` | [PII] A JSON string of the tagged key-value pairs during liquid rendering
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKSENDSHARED #USERSMESSAGESWEBHOOKSENDSHARED" }
 
 ### USERS_MESSAGES_WEBHOOK_RETRY_SHARED {#USERS_MESSAGES_WEBHOOK_RETRY_SHARED}
 
@@ -3047,7 +3047,7 @@ Field | Type | Description
 `retry_type` | `null,`&nbsp;`string` | Type of retry
 `retry_log` | `null,`&nbsp;`string` | Log message describing retry details
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKRETRYSHARED #USERSMESSAGESWEBHOOKRETRYSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_ABORT_SHARED {#USERS_MESSAGES_WHATSAPP_ABORT_SHARED}
 
@@ -3075,7 +3075,7 @@ Field | Type | Description
 `abort_type` | `null,`&nbsp;`string` | Type of abort. For a list of values, see [Abort types](#abort-types).
 `abort_log` | `null,`&nbsp;`string` | [PII] Log message describing abort details (maximum of 2,000 characters)
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe      
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPABORTSHARED #USERSMESSAGESWHATSAPPABORTSHARED" }
 
 
 ### USERS_MESSAGES_WHATSAPP_CLICK_SHARED {#USERS_MESSAGES_WHATSAPP_CLICK_SHARED}
@@ -3103,7 +3103,7 @@ Field | Type | Description
 `user_agent` | `null,`&nbsp;`string` | User agent on which the spam report occurred
 `user_phone_number` | `null,`&nbsp;`string` | [PII] The user's phone number from which the message was received
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPCLICKSHARED #USERSMESSAGESWHATSAPPCLICKSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED {#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED}
 
@@ -3134,7 +3134,7 @@ Field | Type | Description
 `flow_id` | `null,`&nbsp;`string` | The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.
 `template_name` | `null,`&nbsp;`string` | [PII] Name of the template in the WhatsApp manager. Present if sending a Template Message
 `message_id` | `null,`&nbsp;`string` | The unique ID generated by Meta for this message
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_FAILURE_SHARED {#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED}
 
@@ -3167,7 +3167,7 @@ Field | Type | Description
 `message_id` | `null,`&nbsp;`string` | The unique ID generated by Meta for this message
 `template_name` | `null,`&nbsp;`string` | [PII] Name of the template in the WhatsApp manager. Present if sending a Template Message
 `flow_id` | `null,`&nbsp;`string` | The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
 
@@ -3203,7 +3203,7 @@ Field | Type | Description
 `flow_response_json` | `null,`&nbsp;`string` | [PII] The form values the user responded with. Present if the user is responding to a WhatsApp Flow.
 `message_id` | `null,`&nbsp;`string` | The unique ID generated by Meta for this message
 `in_reply_to` | `null,`&nbsp;`string` | The message_id of the message this message was replying to
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPINBOUNDRECEIVESHARED #USERSMESSAGESWHATSAPPINBOUNDRECEIVESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_READ_SHARED {#USERS_MESSAGES_WHATSAPP_READ_SHARED}
 
@@ -3234,7 +3234,7 @@ Field | Type | Description
 `template_name` | `null,`&nbsp;`string` | [PII] Name of the template in the WhatsApp manager. Present if sending a Template Message
 `message_id` | `null,`&nbsp;`string` | The unique ID generated by Meta for this message
 `flow_id` | `null,`&nbsp;`string` | The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
 
@@ -3266,7 +3266,7 @@ Field | Type | Description
 `flow_id` | `null,`&nbsp;`string` | The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.
 `template_name` | `null,`&nbsp;`string` | [PII] Name of the template in the WhatsApp manager. Present if sending a Template Message
 `message_id` | `null,`&nbsp;`string` | The unique ID generated by Meta for this message
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_RETRY_SHARED {#USERS_MESSAGES_WHATSAPP_RETRY_SHARED}
 
@@ -3300,7 +3300,7 @@ Field | Type | Description
 `retry_type` | `null,`&nbsp;`string` | Type of retry
 `retry_log` | `null,`&nbsp;`string` | Log message describing retry details
 `sf_created_at` | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPRETRYSHARED #USERSMESSAGESWHATSAPPRETRYSHARED" }
 
 ## Users
 
@@ -3317,7 +3317,7 @@ Field | Type | Description
 | `random_bucket_number`      | `int`,&nbsp;`null`       | Current random bucket number assigned to the user  |
 | `prev_random_bucket_number` | `int`,&nbsp;`null`       | Previous random bucket number assigned to the user |
 | `sf_created_at`             | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSRANDOMBUCKETNUMBERUPDATESHARED #USERSRANDOMBUCKETNUMBERUPDATESHARED" }
 
 ### USERS_USERDELETEREQUEST_SHARED {#USERS_USERDELETEREQUEST_SHARED}
 
@@ -3329,7 +3329,7 @@ Field | Type | Description
 | `app_group_api_id` | `string`,&nbsp;`null`    | API ID of the workspace this user belongs to                  |
 | `time`             | `int`,&nbsp;`null`       | Unix timestamp at which the user delete request was processed |
 | `sf_created_at`    | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSUSERDELETEREQUESTSHARED #USERSUSERDELETEREQUESTSHARED" }
 
 ### USERS_USERORPHAN_SHARED {#USERS_USERORPHAN_SHARED}
 
@@ -3345,7 +3345,7 @@ Field | Type | Description
 | `time`             | `int`,&nbsp;`null`       | Unix timestamp at which the user was orphaned                                 |
 | `orphaned_by_id`   | `string`,&nbsp;`null`    | Braze ID of the user whose profile was merged with the orphaned user's profile |
 | `sf_created_at`    | `timestamp`,&nbsp;`null` | When this event was picked up by the Snowpipe                                 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSUSERORPHANSHARED #USERSUSERORPHANSHARED" }
 
 ## Snapshots {#snapshots}
 
@@ -3362,7 +3362,7 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the app group this user belongs to
 `api_id` | `string` | API ID of the app
 `name` | `null,`&nbsp;`string` | Name of the app
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSAPPSHARED #SNAPSHOTSAPPSHARED" }
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED {#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED}
 
@@ -3373,7 +3373,7 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the app group this user belongs to
 `api_id` | `string` | API ID of the campaign message variation
 `name` | `null,`&nbsp;`string` | Name of the campaign message variation
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCAMPAIGNMESSAGEVARIATIONSHARED #SNAPSHOTSCAMPAIGNMESSAGEVARIATIONSHARED" }
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED {#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED}
 
@@ -3387,7 +3387,7 @@ Field | Type | Description
 `experiment_splits` | `null,`&nbsp;`string` | Experiment splits for the step
 `conversion_behaviors` | `null,`&nbsp;`string` | Conversion behaviors for the step
 `name` | `null,`&nbsp;`string` | Name of the Canvas Flow step
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASFLOWSTEPSHARED #SNAPSHOTSCANVASFLOWSTEPSHARED" }
 
 ### SNAPSHOTS_CANVAS_STEP_SHARED {#SNAPSHOTS_CANVAS_STEP_SHARED}
 
@@ -3399,7 +3399,7 @@ Field | Type | Description
 `api_id` | `string` | API ID of the Canvas step
 `name` | `null,`&nbsp;`string` | Name of the Canvas step
 `actions` | `null,`&nbsp;`string` | Actions for the Canvas step
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASSTEPSHARED #SNAPSHOTSCANVASSTEPSHARED" }
 
 ### SNAPSHOTS_CANVAS_VARIATION_SHARED {#SNAPSHOTS_CANVAS_VARIATION_SHARED}
 
@@ -3410,7 +3410,7 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the app group this user belongs to
 `api_id` | `string` | API ID of the Canvas variation
 `name` | `null,`&nbsp;`string` | Name of the Canvas variation
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASVARIATIONSHARED #SNAPSHOTSCANVASVARIATIONSHARED" }
 
 ### SNAPSHOTS_EXPERIMENT_STEP_SHARED {#SNAPSHOTS_EXPERIMENT_STEP_SHARED}
 
@@ -3424,7 +3424,7 @@ Field | Type | Description
 `experiment_splits` | `null,`&nbsp;`string` | Experiment splits for the step
 `conversion_behaviors` | `null,`&nbsp;`string` | Conversion behaviors for the step
 `name` | `null,`&nbsp;`string` | Name of the Experiment step
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSEXPERIMENTSTEPSHARED #SNAPSHOTSEXPERIMENTSTEPSHARED" }
 
 ## Abort types
 

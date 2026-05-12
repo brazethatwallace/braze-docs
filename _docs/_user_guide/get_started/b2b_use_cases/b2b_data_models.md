@@ -32,7 +32,7 @@ Within Braze, these four objects are combined and reduced into two objects: user
 | --- | --- | --- |
 | User profiles | These map directly to leads and contacts in your sales CRM system. Because leads are captured by Braze, they are automatically created as leads in your sales CRM system. As they are converted to contacts, the contact IDs and details sync back to Braze. |Leads<br> Contacts |
 | Business objects | These map to any non-user objects in your sales CRM system. This includes your sales specific objects, such as account objects and opportunity objects. | Accounts<br> Opportunities |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## Step 1: Create your business objects in Braze
 
@@ -64,7 +64,7 @@ The tables below include a few examples of fields you can map over from your CRM
 
 In this use case, Salesforce is the example CRM system. You can map over any field that is included in your CRM's objects.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
   <caption>Map over your CRM fields</caption>
   <tr>
     <th><b>Braze object</b></th>
@@ -104,7 +104,7 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
 
 In this use case, Salesforce is the example CRM system. You can map over any field that is included in your CRM's objects.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
   <caption>Example table of mapped account fields</caption>
   <tr>
     <th><b>Braze object</b></th>

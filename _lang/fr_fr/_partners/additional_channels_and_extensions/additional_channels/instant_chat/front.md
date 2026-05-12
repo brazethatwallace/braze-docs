@@ -25,6 +25,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Un compte Front | Un compte Front est nécessaire pour tirer parti de ce partenariat. |
 | URL du webhook de Transformation des données Braze | La [Transformation des données de Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation/) sera utilisée pour reformater le webhook entrant de Front afin qu'il puisse être accepté par l'endpoint Braze /users/track. |
 | Une clé API REST Front | Une clé API REST de Front sera utilisée pour effectuer une requête webhook sortante de Braze vers Front. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -98,7 +99,7 @@ Votre message devrait ressembler à ce qui suit :
 
 ![Un exemple de message utilisant du code Liquid.]({% image_buster /assets/img/front/sms_to_braze.png %}){: style="max-width:80%;"}
 
-#### 2.2 Planifier la distribution {#22-schedule-the-delivery}
+#### 2.2 Planifier la distribution {#22-schedule-the-delivery} {#22-schedule-the-delivery}
 
 Pour le type de distribution, sélectionnez **Livraison par événement** ; puis pour le déclencheur d'événement personnalisé, sélectionnez **Outbound SMS Sent**.
 
@@ -134,7 +135,7 @@ Ensuite, vous allez créer deux nouvelles campagnes webhook dans Braze afin de p
 |---|---|
 | Campagne webhook 1 | Signale à Front qu'une conversation en direct par chat est demandée. |
 | Campagne webhook 2 | Transfère toutes les réponses SMS conversationnelles envoyées par le client vers la boîte de réception de Front. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Set up inbound-SMS forwarding" }
 
 #### Étape 5.1 : Créer une catégorie de mots-clés SMS {#step-51-create-an-sms-keyword-category}
 
@@ -145,7 +146,7 @@ Dans le tableau de bord de Braze, accédez à **Audience**, choisissez votre **g
 | Catégorie de mots-clés | Le nom de votre catégorie de mots-clés, par exemple `FrontSMS1`. |
 | Mots-clés | Vos mots-clés personnalisés, tels que `TIMETOMOW`. Évitez les mots courants pour prévenir les déclenchements accidentels. Gardez à l'esprit que les mots-clés ne sont pas sensibles à la casse, de sorte que `lawn` correspondra à `LAWN`. |
 | Message de réponse | Le message qui sera envoyé lorsqu'un mot-clé est détecté, par exemple « Un paysagiste vous contactera sous peu. » |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5.1: Create an SMS keyword category" }
 
 ![Un exemple de catégorie de mots-clés SMS dans Braze.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -186,9 +187,9 @@ Pour **Schedule Delivery**, sélectionnez **Action-Based Delivery**, puis choisi
 
 ![La page « Planifier la distribution » pour la première campagne webhook.]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
-Sous **Delivery Controls**, activez la rééligibilité.
+Sous **Contrôles de l'envoi**, activez la rééligibilité.
 
-![Rééligibilité sélectionnée sous « Delivery Controls » pour la première campagne webhook.]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![Rééligibilité sélectionnée sous « Contrôles de l'envoi » pour la première campagne webhook.]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
 #### Étape 5.4 : Créer votre deuxième campagne webhook {#step-54-create-your-second-webhook-campaign}
 
@@ -202,7 +203,7 @@ Pour **Schedule Delivery**, définissez le **déclencheur basé sur l'action** e
 
 #### Étape 5.6 : Ajouter un filtre d'audience {#step-56-add-an-audience-filter}
 
-Votre campagne webhook peut désormais transférer les réponses SMS entrantes de vos clients. Pour filtrer les réponses SMS afin que seuls les messages destinés aux chats en direct soient transférés, ajoutez le filtre de segmentation **Last Received Message From Specific Campaign** à l'**étape Target Audiences**.
+Votre campagne webhook peut désormais transférer les réponses SMS entrantes de vos clients. Pour filtrer les réponses SMS afin que seuls les messages destinés aux chats en direct soient transférés, ajoutez le filtre de segmentation **Last Received Message From Specific Campaign** à l'**étape Audiences cibles**.
 
 ![Un filtre d'audience avec « Last Received Message From Specific Campaign » sélectionné.]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 

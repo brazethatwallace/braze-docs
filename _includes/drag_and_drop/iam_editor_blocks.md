@@ -63,7 +63,7 @@ Inserts custom HTML, CSS, or JavaScript for advanced customization.
 | Property | Description |
 | --- | --- |
 | Custom code | Allows you to add, edit, or delete HTML, CSS, and JavaScript for an in-app message. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### Phone capture
 

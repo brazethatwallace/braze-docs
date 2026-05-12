@@ -5,40 +5,42 @@ page_order: 0
 noindex: true
 ---
 
-# Exemple de mise en page : Glossaire
+# Exemple de mise en page : Glossaire {#example-layout-glossary}
 
-> La présentation du glossaire est en YAML. Il nécessite plusieurs composants et paramètres. Les mises en page de glossaire conviennent aux contenus localisés pouvant faire l'objet d'une recherche, tels que les dictionnaires et les catégories de contenu spécifiques.
+> La présentation du glossaire est en YAML. Elle nécessite plusieurs composants et paramètres. Les mises en page de glossaire conviennent aux contenus localisés pouvant faire l'objet d'une recherche, tels que les dictionnaires et les catégories de contenu spécifiques.
 
-## Composants requis
+## Composants requis {#required-components}
 
-1. Notation d'ouverture et de fermeture YAML. En d'autres termes, `---` avant le contenu et `---` après. 
-2. Des guillemets entourent le contenu de certains paramètres. (Paramètres d'en-tête, paramètres de texte, contenu comportant des traits d'union ou d'autres caractères spéciaux).
-3. Notation des tags du glossaire (il s'agit de tags de filtrage)
+1. Notation d'ouverture et de fermeture YAML. En d'autres termes, `---` avant le contenu et `---` après.
+2. Des guillemets entourant le contenu de certains paramètres. (Paramètres d'en-tête, paramètres de texte, contenu comportant des traits d'union ou d'autres caractères spéciaux.)
+3. Notation des étiquettes du glossaire (il s'agit d'étiquettes de filtrage)
 
-## Paramètres requis
+## Paramètres requis {#required-parameters}
 
-|Paramètre | Type de contenu | Détails |
+| Paramètre | Type de contenu | Détails |
 |---|---|---|
-|`page_order`| numérique | Ordonnez la page à l'intérieur de la section. Cet ordre se reflète dans la navigation de gauche. |
-| `nav-title`| Alphanumérique | Titre qui apparaîtra dans la navigation de gauche. |
-|`layout`| Alphanumérique - Sans espace | Sélectionnez une mise en page dans la [section "Mise en page"](https://github.com/Appboy/braze-docs/tree/develop/_layouts) de la documentation. | 
-|`glossary_top_header` | Alphanumérique | Nécessite des guillemets doubles. Le titre apparaît en haut de la page. |
-|`glossary_top_text`| Chaîne de caractères, Alphanumérique | Décrivez votre page de glossaire. Elle apparaît au-dessus de la barre de recherche et des filtres (si vous choisissez d'en avoir). Ceci est essentiellement écrit en HTML, vous pouvez donc utiliser \`\`\`<br> pour créer des ruptures de ligne. | 
-|`glossary_tag_name` | Mot unique, alphanumérique | Donnez un nom à vos filtres. Celles-ci apparaîtront dans les cases à cocher situées sous la barre de recherche ainsi que dans les données ci-dessous. | 
-|`glossary_filter_text`| Chaîne de caractères, Alphanumérique | Décrivez vos filtres. Généralement utilisé pour instruire. | 
-|`glossary_tags`| Davantage de contenu YAML plus. | Format comme indiqué ci-dessous : <br> glossary_tags: <br>  \- nom : Cartes de contenu <br>  \- nom : E-mail | 
-| `glossaries`| Davantage de contenu YAML plus. | Voir les [paramètres des glossaires](#glossaries-parameters) ci-dessous. |
+| `page_order` | numérique | Ordonnez la page à l'intérieur de la section. Cet ordre se reflète dans la navigation de gauche. |
+| `nav-title` | Alphanumérique | Titre qui apparaîtra dans la navigation de gauche. |
+| `layout` | Alphanumérique - Sans espace | Sélectionnez une mise en page dans la [section « Mise en page »](https://github.com/Appboy/braze-docs/tree/develop/_layouts) de la documentation. |
+| `glossary_top_header` | Alphanumérique | Nécessite des guillemets doubles. Le titre apparaît en haut de la page. |
+| `glossary_top_text` | Chaîne de caractères, Alphanumérique | Décrivez votre page de glossaire. Ce texte apparaîtra au-dessus de la barre de recherche et des filtres (si vous choisissez d'en avoir). Il est essentiellement écrit en HTML, vous pouvez donc utiliser ```<br>``` pour créer des sauts de ligne. |
+| `glossary_tag_name` | Mot unique, alphanumérique | Donnez un nom à vos filtres. Ceux-ci apparaîtront dans les cases à cocher situées sous la barre de recherche ainsi que dans les données ci-dessous. |
+| `glossary_filter_text` | Chaîne de caractères, Alphanumérique | Décrivez vos filtres. Généralement utilisé pour donner des instructions. |
+| `glossary_tags` | Davantage de contenu YAML. | Format comme indiqué ci-dessous : <br> glossary_tags: <br>  - name: Content Cards <br>  - name: Email |
+| `glossaries` | Davantage de contenu YAML. | Voir les [paramètres des glossaires](#glossaries-parameters) ci-dessous. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
 
-### Paramètres des glossaires
+### Paramètres des glossaires {#glossaries-parameters}
 
-|Paramètre | Type de contenu | Détails |
+| Paramètre | Type de contenu | Détails |
 |---|---|---|
-|`name`| Alphanumérique | Donnez un nom à votre article de glossaire.| 
-|`description`| Chaîne de caractères, Alphanumérique | Décrivez votre article de glossaire. | 
-|`calculation`| Chaîne de caractères | (facultatif) Décrivez le mode de calcul de votre élément de glossaire (généralement utilisé pour décrire des données ou des indicateurs). | 
-|`tags`| Alphanumérique | Il doit correspondre à ce qui est indiqué comme `name` sous `glossary_tags`. Énumérez-en autant qu'il y a lieu. En écrivant `All`, vous inclurez l'élément dans tous les filtres.|
+| `name` | Alphanumérique | Donnez un nom à votre élément de glossaire. |
+| `description` | Chaîne de caractères, Alphanumérique | Décrivez votre élément de glossaire. |
+| `calculation` | Chaîne de caractères | (facultatif) Décrivez le mode de calcul de votre élément de glossaire (généralement utilisé pour décrire des données ou des indicateurs). |
+| `tags` | Alphanumérique | Doit correspondre à ce qui est indiqué comme `name` sous `glossary_tags`. Énumérez-en autant qu'il y a lieu. En écrivant `All`, vous inclurez l'élément dans tous les filtres. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Glossaries Parameters" }
 
-## Exemple
+## Exemple {#example}
 
 ```
 ---

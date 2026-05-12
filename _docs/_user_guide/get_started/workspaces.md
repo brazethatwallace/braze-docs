@@ -153,7 +153,7 @@ The following table describes the benefits and drawbacks of these two approaches
   }
 </style>
 
-<table>
+<table aria-label="Overview of each approach">
   <caption>Overview of each approach</caption>
     <tr>
         <th></th>

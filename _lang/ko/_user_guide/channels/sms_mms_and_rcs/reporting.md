@@ -74,3 +74,7 @@ Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시�
 | 거부됨 | SMS 제공업체가 메시지가 전달되지 않았음을 나타내는 거부 수신 확인을 받았습니다. 통신사 콘텐츠 필터링 또는 대상 기기의 가용성 등 여러 이유로 발생할 수 있습니다. | 요금 부과 |
 | 통신사로 발송됨 | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | 개별 메시지 발송 결과에 따라 요금이 부과될 수 있음 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+## Snowflake 또는 Currents와 *거부* 데이터 대조 {#reconcile-rejections-with-snowflake-or-currents}
+
+대시보드의 *거부* 측정기준은 워크스페이스 수준의 집계 수치입니다. 행 수준의 내보내기가 아니므로, 각 거부를 Snowflake의 단일 행이나 Currents의 단일 `users.messages.sms.Rejection` 이벤트와 항상 일치시킬 수 있는 것은 아닙니다. 예를 들어, Braze가 웨어하우스 내보내기를 위한 거부 처리를 완료하기 전에 고객 프로필이 삭제된 경우, 해당 거부는 `USERS_MESSAGES_SMS_REJECTION_SHARED` 테이블이나 Currents 페이로드에 나타나지 않지만, 집계 SMS 보고서에는 해당 결과가 여전히 반영될 수 있습니다. 자세한 내용은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#sms-message-events-and-deleted-user-profiles) 및 Currents 이벤트 용어집의 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events)를 참조하세요.

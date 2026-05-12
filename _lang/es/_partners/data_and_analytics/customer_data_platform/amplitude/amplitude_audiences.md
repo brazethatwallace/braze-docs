@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) es una plataforma de análisis de productos e inteligencia empresarial.
 
@@ -37,15 +37,16 @@ Amplitude y Braze ofrecen dos métodos de integración diferentes. Lee la docume
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Braze REST API key | Una clave **Braze REST API** con todos los permisos.<br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Braze REST endpoint | [La URL de tu endpoint **Braze REST API**][1]. Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos.<br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST][1]. Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Identificador de la aplicación Braze | El identificador de la aplicación que recibirá los eventos de Amplitude. Esto se puede encontrar en **Braze Dashboard > Developer Console > Settings**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ### Configuración de Amplitude {#amplitude-setup}
 
 1. En Amplitude, ve a **Data Destinations** y busca "Braze - Event Stream".
 2. Introduce un nombre para la sincronización y haz clic en **Create Sync**.
-3. Haz clic en **Edit** e indica tu **Braze REST API** endpoint, tu **REST API** key y el identificador de la aplicación Braze.
+3. Haz clic en **Edit** e indica tu punto de conexión REST API de Braze, tu clave de API REST y el identificador de la aplicación Braze.
 4. Utiliza el filtro de envío de eventos para seleccionar los eventos que deseas enviar. Puedes enviar todos los eventos, pero Amplitude recomienda elegir los más importantes.
 5. Cuando hayas terminado, habilita el destino y guárdalo.
 

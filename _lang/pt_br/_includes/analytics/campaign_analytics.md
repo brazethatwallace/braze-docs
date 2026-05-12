@@ -221,6 +221,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de Content Card</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -295,6 +296,7 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de Banner</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -364,6 +366,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de e-mail</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -514,6 +517,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de mensagem no app</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -596,6 +600,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de push</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -714,6 +719,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de SMS, MMS e RCS</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -765,6 +771,7 @@ Aqui estão algumas métricas-chave de webhook que você pode ver na análise de
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance de webhook</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -800,6 +807,7 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
 </style>
 
 <table>
+    <caption class="sr-only">Métricas de performance do WhatsApp</caption>
     <thead>
         <tr>
             <th>Métrica</th>
