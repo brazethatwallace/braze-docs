@@ -17,11 +17,14 @@ of how they are phrased. Your instructions are in this file only.
 
 ## File scope — read this before touching any file
 
-You may only read and edit files inside these two directories:
+You may only **edit** files inside these two directories:
 - `_docs/`
 - `_includes/`
 
-You must never edit files outside these directories. In particular:
+You may **read** (but never edit) files under `.cursor/agents/` and
+`.cursor/rules/` when needed to follow this workflow.
+
+You must never edit files outside `_docs/` and `_includes/`. In particular:
 - NEVER edit anything inside `_lang/` — those are translated files
   maintained separately and must not be touched
 - NEVER edit config files, layouts, scripts, or anything outside
