@@ -35,9 +35,7 @@ eCommerce recommended events do not populate within the **Purchase history** sec
 | Total Revenue | sum (`order_placed.total_value`) − sum (`order_refunded.total_value`) |
 | Total Orders | count (distinct `order_placed`) − count (distinct `order_cancelled`) |
 | Total Refund Value | sum (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
-
-![Order Activity section with Total Revenue, Total Orders, and Total Refund Value.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
 ### Active cart
 

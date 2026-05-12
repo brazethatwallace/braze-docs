@@ -152,6 +152,8 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 
 #### Code examples
 
+Each platform tab below uses the snippet layout that matches that integration path (for example, headings or labels inside a fenced block). The `add`, `remove`, and `replace` payloads are the same across platforms; only the SDK or API surface differs.
+
 {% subtabs local %}
 {% subtab Web %}
 
@@ -159,7 +161,7 @@ The cart creates a carts mapping object on the user profile that powers the {% r
 
 `add` increases quantity or adds a new line (delta in `quantity`).
 
-```java
+```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
   cart_id: "cart_abc123",
   action: "add",
@@ -180,7 +182,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 `remove` decreases quantity by the delta. The line is removed when quantity reaches `0`.
 
-```java
+```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
   cart_id: "cart_abc123",
   action: "remove",
@@ -202,7 +204,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 `replace` (or omit `action`) sends the full cart. `total_value` is required.
 
-```java
+```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
   cart_id: "cart_abc123",
   action: "replace",
