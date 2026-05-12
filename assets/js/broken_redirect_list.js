@@ -4776,3 +4776,5 @@ validurls['/docs/user_guide/engagement_tools/landing_pages/drag_and_drop/#step-2
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/modal/'] = '/docs/user_guide/channels/in_app_messages/message_types/modal';
 validurls['/docs/user_guide/engagement_tools/landing_pages/personalizing_pages/#personalization-considerations-on-landing-pages'] = '/docs/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations';
 validurls['/docs/user_guide/engagement_tools/landing_pages/personalizing_pages/#how-to-avoid-unpublishing'] = '/docs/user_guide/messaging/landing_pages/personalize_landing_pages/#avoid-unpublishing-landing-pages';
+validurls['/docs/partners/data_and_analytics/cohort_import/overview'] = '/docs/partners/data_and_analytics/cohort_import';
+validurls['/docs/developer_guide/in_app_messages/tutorials/defer_and_restore_triggered_messages'] = '/docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages';
