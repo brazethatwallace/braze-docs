@@ -19,7 +19,7 @@ search_tag: Partner
 | MMS 발송 기능 | Braze를 통해 MMS가 설정되어 있는지 확인합니다.
 | [링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | 링크 단축이 활성화되어 있는지 확인합니다. |
 | 연락처 카드 | 링크 미리보기가 iOS에서 작동하려면 사용자의 휴대폰에 브랜드(발신자)가 연락처로 저장되어 있어야 합니다. 연락처 카드 또는 다른 방법을 통해 저장할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

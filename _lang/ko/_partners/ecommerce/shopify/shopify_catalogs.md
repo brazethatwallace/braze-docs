@@ -93,7 +93,7 @@ Braze는 다음 메타필드 오브젝트와 해당 유형 일부를 지원합�
 | `number_integer` | 정수 |
 | `single_line_text_field`, `list.single_line_text_field` | 문자열, 문자열 배열 |
 | `url`, `list.url` | 문자열(URL), 문자열 배열(URL) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
 
 {% endsubtab %}
 {% subtab 지원되지 않는 메타필드 %}
@@ -189,7 +189,7 @@ Shopify 파트너 페이지에서 언제든지 제품 태그, 컬렉션, 제품 
 | `product_tags` | 배열 | `["Summer", "Sale", "New"]`<br><br>제품 태그 동기화가 필요합니다. |
 | `collection_ids` | 배열 | `[123456789012, 987654321098]`(Shopify 컬렉션 ID)<br><br>Shopify 컬렉션 동기화가 필요합니다. |
 | 메타필드 열 | 유형에 따라 다름 | 동기화된 각 메타필드는 키 이름으로 된 별도의 열로 표시됩니다. 자세한 내용은 3단계의 "제품 메타필드" 탭에서 [지원되는 메타필드](#step-3)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
 
 {% alert warning %}
 Shopify 카탈로그는 Shopify에서 관리됩니다. 카탈로그를 업데이트하려면 Shopify 스토어에서 직접 변경하면 자동으로 Braze에 동기화됩니다. Shopify 카탈로그를 삭제하려면 Braze의 Shopify 파트너 페이지로 이동하여 [동기화를 비활성화](#deactivate)하세요.
@@ -717,4 +717,4 @@ Shopify 제품 동기화에서 오류가 발생하면 다음 오류 중 하나�
 | 서버 오류 | 제품 동기화를 시도할 때 Shopify 측에서 서버 오류가 발생한 경우입니다. | [동기화를 비활성화](#deactivate)하고 전체 제품 인벤토리를 다시 동기화하세요. |
 | 중복 SKU | SKU를 카탈로그 항목 ID로 사용하고 동일한 SKU를 가진 제품이 있는 경우 발생합니다. 카탈로그 항목 ID는 고유해야 하므로 모든 제품에 고유한 SKU가 있어야 합니다. | Shopify에서 전체 제품 및 배리언트 목록을 감사하여 중복 SKU가 없는지 확인하세요. 중복 SKU가 있는 경우 Shopify 스토어 계정에서만 고유한 SKU로 업데이트하세요. 수정 후 [동기화를 비활성화](#deactivate)하고 전체 제품 인벤토리를 다시 동기화하세요. |
 | 카탈로그 한도 초과 | 카탈로그 한도를 초과한 경우 발생합니다. Braze는 더 이상 저장 공간이 없어 동기화를 완료하거나 동기화를 활성 상태로 유지할 수 없습니다. | 이 문제에 대한 두 가지 해결 방법이 있습니다:<br><br>1. 카탈로그 한도를 늘리려면 계정 매니저에게 문의하여 티어를 업그레이드하세요.<br><br>2. 다음 항목을 삭제하여 저장 공간을 확보하세요:<br>- 다른 카탈로그의 카탈로그 항목<br>- 다른 카탈로그<br>- 생성된 선택 항목<br><br> 두 해결 방법 중 하나를 사용한 후 동기화를 비활성화한 다음 다시 동기화해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }

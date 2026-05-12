@@ -117,7 +117,7 @@ Die folgenden Dateitypen werden für den Upload unterstützt:
 | SVG-Bilder          | `.svg`                            |
 | JavaScript-Dateien  | `.js`                             |
 | CSS-Dateien         | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset-Dateien" }
 
 Braze empfiehlt das Hochladen von Assets in die Medienbibliothek aus zwei Gründen:
 
@@ -136,7 +136,7 @@ Wenn der Dateiname eines Assets mit dem eines lokalen HTML-Assets übereinstimmt
 
 Andernfalls fahren Sie mit der Maus über ein Asset in der Liste und wählen Sie <i class="fas fa-copy"></i> **Copy**, um die URL der Datei in Ihre Zwischenablage zu kopieren. Fügen Sie dann die kopierte Asset-URL in Ihr HTML ein, wie Sie es normalerweise beim Referenzieren eines Remote-Assets tun würden.
 
-### HTML-Editor
+### HTML-Editor {#html-editor}
 
 Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzer:innenprofile, während Sie im Dashboard eine Vorschau anzeigen.
 
@@ -154,7 +154,7 @@ Sie können die Performance innerhalb Ihrer In-App-Nachricht mit angepasstem Cod
 | Button 2   | `brazeBridge.logClick('1')` |
 | Body-Klick | `brazeBridge.logClick()`    |
 | Angepasstes Button-Tracking |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button-Tracking" }
 
 {% alert note %}
 Diese Methode des Button-Trackings ersetzt die früheren automatischen Klick-Tracking-Methoden (wie `?abButtonId=0`), die entfernt wurden.
@@ -172,3 +172,4 @@ Diese Methode des Button-Trackings ersetzt die früheren automatischen Klick-Tra
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nicht abwärtskompatible Änderungen" }

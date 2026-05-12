@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) est une plateforme d'analyse de produits et d'aide à la décision.
 
@@ -22,7 +22,7 @@ L'intégration bidirectionnelle entre Braze et Amplitude vous permet d'[importer
 |---|---|
 | Compte Amplitude | Un [compte Amplitude](https://amplitude.com/) est nécessaire pour bénéficier de ce partenariat. |
 | Currents | Pour pouvoir exporter des données dans Amplitude, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Choisir une intégration {#choose-an-integration}
 
@@ -40,7 +40,7 @@ Amplitude et Braze proposent deux méthodes d'intégration différentes. Consult
 | Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST][1]. Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Identifiant de l'application Braze | L'identifiant de l'application qui recevra les événements Amplitude. Vous trouverez cette information dans le **tableau de bord de Braze > Console de développement > Paramètres**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Configuration d'Amplitude {#amplitude-setup}
 

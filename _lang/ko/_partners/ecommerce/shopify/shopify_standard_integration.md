@@ -62,7 +62,7 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 | Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Shopify 커스텀 속성 |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Product viewed</li><li>Cart updated</li><li>Checkout started</li><li>Order placed</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
 
@@ -85,7 +85,7 @@ Braze SDK를 사용하면 이 통합의 표준 이벤트를 넘어서는 커스�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="(고급) 커스텀 데이터 추적 설정" style="width: 100%;">
   <caption>(고급) 커스텀 데이터 추적 설정</caption>
   <thead>
     <tr>
@@ -152,7 +152,7 @@ braze.logCustomEvent(
 - **Shopify 고객 ID, 이메일 또는 해시된 이메일을 선택한 경우:** 4.1~4.3단계를 건너뛰고 바로 4.4단계로 진행합니다.
 {% endalert %}
 
-### 4.1단계: `braze.external_id` 메타필드 만들기 {#step-41-create-the-brazeexternalid-metafield}
+### 4.1단계: `braze.external_id` 메타필드 만들기 {#step-41-create-the-brazeexternal_id-metafield}
 
 1. Shopify 관리자 패널에서 **Settings** > **Metafields and metaobjects**로 이동합니다.
 2. **Customers** > **Add definition**을 선택합니다.
@@ -180,7 +180,7 @@ Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 | shopify_customer_id  | 예      | 문자열    | Shopify 고객 ID입니다.                                         |
 | shopify_storefront   | 예      | 문자열    | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
 | email_address        | 아니요       | 문자열    | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직에서 null 값을 처리할 수 있어야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### 엔드포인트 예시 {#example-endpoint}
 

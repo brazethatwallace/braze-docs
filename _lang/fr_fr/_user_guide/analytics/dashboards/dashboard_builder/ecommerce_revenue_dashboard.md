@@ -16,6 +16,8 @@ Les événements recommandés eCommerce sont actuellement en accès anticipé. C
 
 Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans **Analytics** > **Générateur de tableaux de bord**, puis sélectionnez **eCommerce Revenue - Last Touch Attribution**. Ce tableau de bord présente le chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande, dans la fenêtre de conversion sélectionnée.
 
+![Tableau de bord eCommerce Revenue - Last Touch Attribution affichant des statistiques pour le chiffre d'affaires eCommerce, les commandes quotidiennes passées et le chiffre d'affaires eCommerce quotidien moyen, ainsi qu'un graphique du chiffre d'affaires eCommerce au fil du temps.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
+
 ## Indicateurs disponibles {#available-metrics}
 
 | Indicateur | Définition |
@@ -27,6 +29,8 @@ Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans *
 | Chiffre d'affaires eCommerce par campagne | Chiffre d'affaires attribué ventilé par campagne. |
 | Chiffre d'affaires eCommerce par Canvas | Chiffre d'affaires attribué ventilé par Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs disponibles" }
+
+![Graphiques du chiffre d'affaires eCommerce par campagne et du chiffre d'affaires eCommerce par Canvas.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
 ## Modèle d'attribution {#attribution-model}
 
@@ -71,7 +75,6 @@ Le chiffre d'affaires et le nombre de commandes utilisent les calculs standardis
 ### Données exclues {#excluded-data}
 
 Les achats enregistrés via l'ancien événement d'achat (legacy purchase event) ne sont pas inclus. Le tableau de bord **eCommerce Revenue - Last Touch Attribution** ne prend actuellement pas en charge les fonctionnalités liées aux anciens événements d'achat, telles que le LTV ou le reporting des revenus au sein des campagnes ou des Canvas.
-
 
 ## Gestion des devises {#currency-handling}
 

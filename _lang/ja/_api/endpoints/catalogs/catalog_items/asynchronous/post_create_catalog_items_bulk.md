@@ -34,14 +34,14 @@ description: "この記事では、複数のカタログアイテムを作成す
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、カタログのすべてのフィールドが含まれている必要があります。リクエストごとに最大50個のアイテムオブジェクトが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
@@ -161,6 +161,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `request-includes-too-many-items` | リクエストに含まれるアイテムが多すぎます。リクエストごとのアイテムの上限は50個です。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトのネストは50レベルを超えることはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

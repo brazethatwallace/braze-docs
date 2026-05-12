@@ -88,7 +88,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### SMS-Abonnements {#sms-subscriptions}
 
-Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
+Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Subscription Group** navigieren.
 
 Quikly führt eine Abo-Suche anhand der Telefonnummer der/des Kund:in durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem Kund:in die Gutschrift erteilt.
 
@@ -104,13 +104,13 @@ Braze empfiehlt, bei der Erstellung neuer Nutzer:innen über den `/users/track`-
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
-#### Anfrage-Header {#request-headers}
+#### Anfrage-Header
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Anfragetext {#request-body}
+#### Anfragetext
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -135,24 +135,24 @@ Verwenden Sie Webhooks, um Anreize für bestimmte Events in der Customer Journey
 
 ### Erstellen eines Quikly-Webhooks in Braze {#create-a-quikly-webhook-in-braze}
 
-Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook-Templates**.
+Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook Templates**.
 
 Wenn Sie eine einmalige Quikly-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
 Wählen Sie **Blank Template** aus und geben Sie Folgendes für die Webhook-URL und den Anfragetext ein:
-- **Webhook-URL**: https://api.quikly.com/webhook/braze
-- **Anfragetext**: JSON-Schlüssel-Wert-Paare
+- **Webhook URL**: https://api.quikly.com/webhook/braze
+- **Request Body**: JSON-Schlüssel-Wert-Paare
 
 #### Anfrage-Header und Methode {#request-headers-and-method}
 
 Quikly benötigt einen `HTTP Header` für die Autorisierung.
 
-- **HTTP-Methode**: POST
-- **Anfrage-Header**:
+- **HTTP Method**: POST
+- **Request Header**:
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### Anfragetext {#request-body}
+#### Anfragetext
 
 Wählen Sie ***JSON key/value pairs*** aus und fügen Sie die folgenden Paare hinzu:
 {% raw %}
@@ -168,7 +168,7 @@ Wählen Sie ***JSON key/value pairs*** aus und fügen Sie die folgenden Paare hi
 Zeigen Sie eine Vorschau Ihrer Anfrage im Panel **Preview** an oder navigieren Sie zum Tab `Test`, wo Sie eine:n zufällige:n Nutzer:in, eine:n bestehende:n Nutzer:in auswählen oder eigene Daten anpassen können, um Ihren Webhook zu testen.
 
 {% alert important %}
-Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Gespeicherte Webhook-Templates**, wenn Sie eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) erstellen.
+Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Saved Webhook Templates**, wenn Sie eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) erstellen.
 {% endalert %}
 
 {% endtab %}

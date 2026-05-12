@@ -18,7 +18,7 @@ tool:
 
 L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#rows) comme deux composants clés pour simplifier votre flux de travail, sans recourir au HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="À propos de l'éditeur" style="width: 100%; table-layout: fixed;">
     <caption>Composants de l'éditeur : Contenu et Lignes</caption>
     <tr>
         <th style="width: 50%;">Contenu</th>
@@ -33,7 +33,7 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="À propos de l'éditeur" }
 
 ### Contenu {#content}
 
@@ -192,8 +192,8 @@ Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-d�
 La taille moyenne de nos données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
-- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table>` standard
-  <caption>Utiliser Inbox Vision</caption>
+- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Use Inbox Vision">` standard
+  <caption>Use Inbox Vision</caption>
 - Les [blocs éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) ont été recodés pour plus de concision
 - Le code HTML final est compressé pour supprimer les espaces entre les balises
 - Les séparateurs transparents sont automatiquement convertis en remplissage de contenu
@@ -303,7 +303,7 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `meta` | Fournit des métadonnées telles que la description de la page ou les mots-clés. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Intègre des styles CSS internes. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Définit le titre du document affiché dans les onglets du navigateur. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Balise | Attribut | Description | Exemple |
 | --- | --- | --- | --- |
@@ -321,7 +321,7 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `style` | `type` | Type MIME du contenu de style. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Aucun attribut | La balise `title` n'accepte aucun attribut. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Les noms de liens peuvent contenir jusqu'à 63 octets et sont automatiquement tronqués s'ils dépassent cette limite.

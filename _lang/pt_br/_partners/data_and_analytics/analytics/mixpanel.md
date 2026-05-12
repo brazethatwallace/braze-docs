@@ -9,7 +9,7 @@ tool: Currents
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
 > O [Mixpanel](https://mixpanel.com/) é uma plataforma de análise de dados que permite exportar eventos do Mixpanel para outras plataformas para realizar análises mais profundas. Os dados coletados podem então ser usados para criar relatórios personalizados e medir o engajamento e a retenção de usuários.
 
@@ -23,7 +23,7 @@ Você também pode usar o Braze Currents para [exportar seus eventos da Braze pa
 |---|---|
 | Conta Mixpanel | É necessário ter uma [conta Mixpanel](https://mixpanel.com/) para aproveitar essa parceria. |
 | Currents | Para exportar dados de volta para o Mixpanel, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado na sua conta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração de exportação de dados {#data-export-integration}
 

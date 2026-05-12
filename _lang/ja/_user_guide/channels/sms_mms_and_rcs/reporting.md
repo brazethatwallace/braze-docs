@@ -29,7 +29,7 @@ SMS のオプトインとオプトアウトは、以下の方法で追跡でき�
 | セグメンター | セグメンターは、特定の[サブスクリプショングループ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group)のユーザー数を表示します。電話番号による重複排除は行われません。複数のユーザーが同じ電話番号を共有している場合、各インスタンスが個別にカウントされます。 |
 | サブスクリプショングループの時系列 | メールと電話番号のサブスクリプションの日次スナップショットを提供します。時系列では、サブスクリプション、配信停止、再サブスクリプションがカウントされます。たとえば、あるユーザーがサブスクリプション登録し、配信停止し、再度サブスクリプション登録した場合、そのユーザーは1人の購読中ユーザーとしてカウントされます。 |
 | Currents | Currentsを使用して、独自のレポート用に[サブスクリプションおよびエンゲージメントイベント]({{site.baseurl}}/message_events_glossary/)をエクスポートします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Track SMS opt-ins and opt-outs" }
 
 {% alert note %}
 **SMS/MMS/RCS パフォーマンス**パネルの「_オプトイン_」と「_オプトアウト_」の統計は、受信キーワードによるオプトインまたはオプトアウト（たとえば、オプトインの場合は「START」、オプトアウトの場合は「STOP」とテキスト送信）を反映しています。これらの数値は通常、セグメンターに表示される数値よりも低くなります。これは、SMSに購読しているユーザーの合計数ではなく、これらのキーワードがテキスト送信された回数をカウントしているためです。
@@ -73,7 +73,7 @@ Currentsまたはデータウェアハウスにおけるキーワードおよび
 | 配信済み | SMSプロバイダーが上流キャリアから（利用可能な場合は送信先デバイスからも）メッセージ配信の確認を受信しました。 | 課金あり |
 | 拒否 | SMSプロバイダーが、メッセージが配信されなかったことを示す拒否レシートを受信しました。これは、キャリアのコンテンツフィルタリングや送信先デバイスの利用可否など、いくつかの理由で発生する可能性があります。 | 課金あり |
 | キャリアに送信済み | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | 個々のメッセージ送信結果に基づいて課金される場合があります |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Charges applied to SMS sending outcomes" }
 
 ## *拒否*をSnowflakeまたはCurrentsと照合する {#reconcile-rejections-with-snowflake-or-currents}
 

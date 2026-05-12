@@ -23,7 +23,7 @@ Sie sind sich nicht sicher, ob Sie eine Campaign oder ein Canvas verwenden solle
 {% tabs %}
 {% tab Campaign %}
 1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
-2. Für Campaigns, die mehrere Kanäle ansprechen, wählen Sie **Multichannel**. Andernfalls wählen Sie **Push Notification**. Wenn Sie sich noch unsicher sind, lesen Sie unten den Abschnitt **Entscheidung zwischen regulärer oder Multichannel-Push-Campaign**.
+2. Für Campaigns, die mehrere Kanäle ansprechen, wählen Sie **Multichannel**. Andernfalls wählen Sie **Push notification**. Wenn Sie sich noch unsicher sind, lesen Sie unten den Abschnitt **Entscheidung zwischen regulärer oder Multichannel-Push-Campaign**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu.
 
@@ -40,7 +40,7 @@ Wenn Sie mehrere Geräte und Plattformen ansprechen möchten, z. B. eine beliebi
 
 Beachten Sie das folgende Entscheidungsdiagramm, bevor Sie eine Multichannel- oder Push-Benachrichtigungs-Campaign erstellen:
 
-![„Flussdiagramm zur Auswahl des Campaign-Typs. Beginnt mit der Frage, ob Sie mehrere Geräte und Plattformen ansprechen. Falls nein, führt es zu „Push Notification auswählen“. Falls ja, wird gefragt „Welche Art von Push-Nachricht?“ mit den Optionen „Standard-Push“, was zu einem Entscheidungspunkt führt: „Benötigen Sie gerätespezifische Einstellungen?“ Falls nein, führt es zu „Push Notification auswählen und Quick Push verwenden“. Falls ja, geht es zu „Multichannel auswählen“. Zurück zu „Welche Art von Push-Nachricht?“ – wenn die Antwort „Push Stories oder Inline-Bild“ lautet, wird zu „Multichannel auswählen“ weitergeleitet."]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
+![Flussdiagramm zur Auswahl des Campaign-Typs. Beginnt mit der Frage, ob Sie mehrere Geräte und Plattformen ansprechen. Falls nein, führt es zu „Push Notification auswählen“. Falls ja, wird gefragt „Welche Art von Push-Nachricht?“ mit den Optionen „Standard-Push“, was zu einem Entscheidungspunkt führt: „Benötigen Sie gerätespezifische Einstellungen?“ Falls nein, führt es zu „Push Notification auswählen und Quick Push verwenden“. Falls ja, geht es zu „Multichannel auswählen“. Zurück zu „Welche Art von Push-Nachricht?“ – wenn die Antwort „Push Stories oder Inline-Bild“ lautet, wird zu „Multichannel auswählen“ weitergeleitet.]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
 
 Wenn Sie **Push Notification** auswählen und mehrere Geräte und Plattformen ansprechen, erstellen Sie automatisch eine Quick-Push-Campaign. Bei Quick Push sind bestimmte gerätespezifische Einstellungen nicht verfügbar:
 
@@ -55,7 +55,7 @@ Bevor Sie fortfahren, lesen Sie [Quick-Push-Campaigns]({{site.baseurl}}/quick_pu
 {% enddetails %}
 
 {% alert tip %}
-Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Sie können dann **Copy from Variant** aus dem Dropdown **Add Variant** wählen.
+Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Sie können dann **Copy from Variant** aus dem Dropdown **Variante hinzufügen** wählen.
 {% endalert %}
 
 {% endtab %}
@@ -81,7 +81,7 @@ Je nach Ihren vorherigen Auswahlen gibt es verschiedene Möglichkeiten:
 | Push-Benachrichtigungs-Campaign | Wählen Sie eine oder mehrere Plattformen und Geräte aus. Wenn Sie mehrere Geräte und Plattformen ansprechen, erstellen Sie automatisch eine Quick-Push-Campaign. Diese bietet eine optimierte Bearbeitungserfahrung zum Verfassen einer Nachricht für alle ausgewählten Plattformen in einem einzigen Editor. Siehe [Quick-Push-Campaigns]({{site.baseurl}}/quick_push/), um zu verstehen, was bei dieser Bearbeitungserfahrung anders ist. |
 | Multichannel-Campaign | Wählen Sie **Add Messaging Channel**, um zusätzliche Push-Plattformen hinzuzufügen. Da die Plattformauswahl variantenspezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen. |
 | Canvas | Wählen Sie in Ihrem Nachrichten-Schritt **+ Add more**, um zusätzliche Push-Plattformen hinzuzufügen. Ähnlich wie bei Multichannel-Campaigns ist die Plattformauswahl variantenspezifisch. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## 3. Schritt: Benachrichtigungstyp auswählen (iOS und Android) {#step-3-select-notification-type-ios-and-android}
 
@@ -99,11 +99,11 @@ Wenn Sie Bilder in Ihre Push-Campaign einbinden möchten, lesen Sie die folgende
 
 ## 4. Schritt: Push-Nachricht verfassen {#step-4-compose-your-push-message}
 
-Jetzt ist es an der Zeit, Ihre Push-Nachricht zu schreiben! Der Tab **Compose** ermöglicht es Ihnen, alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht zu bearbeiten.
+Jetzt ist es an der Zeit, Ihre Push-Nachricht zu schreiben! Der Tab **Verfassen** ermöglicht es Ihnen, alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht zu bearbeiten.
 
-![Tab „Compose“ beim Erstellen einer Push-Benachrichtigung.]({% image_buster /assets/img_archive/push_compose.png %})
+![Tab „Verfassen“ beim Erstellen einer Push-Benachrichtigung.]({% image_buster /assets/img_archive/push_compose.png %})
 
-Der Inhalt des Tabs **Compose** variiert je nach dem im vorherigen Schritt gewählten Benachrichtigungstyp, kann aber folgende Optionen umfassen:
+Der Inhalt des Tabs **Verfassen** variiert je nach dem im vorherigen Schritt gewählten Benachrichtigungstyp, kann aber folgende Optionen umfassen:
 
 #### Benachrichtigungskanal oder -gruppe (iOS und Android) {#notification-channel-or-group-ios-and-android}
 

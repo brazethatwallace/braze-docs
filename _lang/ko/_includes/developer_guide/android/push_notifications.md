@@ -4,18 +4,18 @@
 
 다음 기능들은 Braze Android SDK에 내장되어 있습니다. 다른 푸시 알림 기능을 사용하려면 앱에 [푸시 알림을 설정해야](#android_setting-up-push-notifications) 합니다.
 
-|기능|설명|
+| 기능 | 설명 |
 |-------|-----------|
-|Push Stories|Android Push Stories는 기본적으로 Braze Android SDK에 내장되어 있습니다. 자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)를 참조하세요.|
-|푸시 프라이머|푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 유도합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)를 사용하면 SDK 커스터마이징 없이도 이 작업을 수행할 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Push Stories | Android Push Stories는 기본적으로 Braze Android SDK에 내장되어 있습니다. 자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)를 참조하세요. |
+| 푸시 프라이머 | 푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 유도합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)를 사용하면 SDK 커스터마이징 없이도 이 작업을 수행할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## 푸시 알림 수명 주기에 관하여 {#push-notification-lifecycle}
 
 다음 플로우차트는 Braze가 푸시 알림 수명 주기(예: 권한 프롬프트, 토큰 생성, 메시지 전달)를 처리하는 방식을 보여줍니다.
 
 {% tabs local %}
-{% tab Granting permissions %}
+{% tab 권한 부여 %}
 ```mermaid
 ---
 config:
@@ -84,7 +84,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Generating push tokens %}
+{% tab 푸시 토큰 생성 %}
 ```mermaid
 ---
 config:
@@ -133,7 +133,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Displaying notifications %}
+{% tab 알림 표시 %}
 ```mermaid
 ---
 config:
@@ -236,15 +236,15 @@ Google Cloud에서 Android 앱이 사용 중인 프로젝트를 선택한 다음
 
 ### 5단계: JSON 자격 증명 생성 {#json}
 
-다음으로 FCM 서비스 계정에 대한 JSON 자격 증명을 생성합니다. Google Cloud IAM & Admin에서 **서비스 계정**으로 이동한 후 프로젝트를 선택합니다. [이전에 생성한](#android_service-account) FCM 서비스 계정을 찾은 다음 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**행동** > **키 관리**를 선택합니다.
+다음으로 FCM 서비스 계정에 대한 JSON 자격 증명을 생성합니다. Google Cloud IAM & Admin에서 **서비스 계정**으로 이동한 후 프로젝트를 선택합니다. [이전에 생성한](#android_service-account) FCM 서비스 계정을 찾은 다음 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Manage Keys**를 선택합니다.
 
-!["행동" 메뉴가 열린 프로젝트의 서비스 계정 홈페이지.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
+!["Actions" 메뉴가 열린 프로젝트의 서비스 계정 홈페이지.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
 
-**키 추가** > **새 키 생성**을 선택합니다.
+**Add Key** > **Create new key**를 선택합니다.
 
-!["키 추가" 메뉴가 열린 선택된 서비스 계정.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create-new-key.png %})
+!["Add Key" 메뉴가 열린 선택된 서비스 계정.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create-new-key.png %})
 
-**JSON**을 선택한 다음 **생성**을 선택합니다. FCM 프로젝트 ID와 다른 Google Cloud 프로젝트 ID를 사용하여 서비스 계정을 생성한 경우, JSON 파일에서 `project_id`에 할당된 값을 수동으로 업데이트해야 합니다.
+**JSON**을 선택한 다음 **Create**를 선택합니다. FCM 프로젝트 ID와 다른 Google Cloud 프로젝트 ID를 사용하여 서비스 계정을 생성한 경우, JSON 파일에서 `project_id`에 할당된 값을 수동으로 업데이트해야 합니다.
 
 키를 다운로드한 위치를 기억해 두세요&#8212;다음 단계에서 필요합니다.
 
@@ -260,7 +260,7 @@ Google Cloud에서 Android 앱이 사용 중인 프로젝트를 선택한 다음
 
 ![Braze에서 "설정" 메뉴가 열리며 "앱 설정"이 강조 표시된 상태.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Android 앱의 **푸시 알림 설정**에서 **Firebase**를 선택한 다음 **JSON 파일 업로드**를 선택하고 [앞서 생성한](#android_json) 자격 증명을 업로드합니다. 완료되면 **저장**을 선택합니다.
+Android 앱의 **푸시 알림 설정**에서 **Firebase**를 선택한 다음 **Upload JSON File**을 선택하고 [앞서 생성한](#android_json) 자격 증명을 업로드합니다. 완료되면 **Save**를 선택합니다.
 
 !["푸시 알림 설정" 양식에서 푸시 제공자로 "Firebase"가 선택된 상태.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
@@ -272,15 +272,15 @@ Android 앱의 **푸시 알림 설정**에서 **Firebase**를 선택한 다음 *
 
 사용자가 푸시 알림을 옵트인하면 앱에서 해당 사용자의 기기에 FCM 토큰을 생성해야 푸시 알림을 보낼 수 있습니다. Braze SDK를 사용하면 프로젝트의 Braze 구성 파일에서 각 사용자의 기기에 대한 FCM 토큰 자동 등록을 활성화할 수 있습니다.
 
-먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음 <i class="fa-solid fa-gear"></i>&nbsp;**설정** > **프로젝트 설정**을 선택합니다.
+먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음 <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
 
-!["설정" 메뉴가 열린 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+!["Settings" 메뉴가 열린 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-**클라우드 메시징**을 선택하고 **Firebase 클라우드 메시징 API(V1)**에서 **발신자 ID** 필드의 숫자를 복사합니다.
+**Cloud Messaging**을 선택하고 **Firebase Cloud Messaging API (V1)**에서 **Sender ID** 필드의 숫자를 복사합니다.
 
-![Firebase 프로젝트의 "클라우드 메시징" 페이지에서 "발신자 ID"가 강조 표시된 상태.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Firebase 프로젝트의 "Cloud Messaging" 페이지에서 "Sender ID"가 강조 표시된 상태.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-그런 다음 Android Studio 프로젝트를 열고 Firebase 발신자 ID를 사용하여 `braze.xml` 또는 `BrazeConfig`에서 FCM 토큰 자동 등록을 활성화합니다.
+그런 다음 Android Studio 프로젝트를 열고 Firebase Sender ID를 사용하여 `braze.xml` 또는 `BrazeConfig`에서 FCM 토큰 자동 등록을 활성화합니다.
 
 {% tabs local %}
 {% tab Braze.XML %}
@@ -371,7 +371,7 @@ FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://develop
 새로 생성하거나, 기존의 Firebase 메시징 서비스를 사용하거나, Braze 외 Firebase 메시징 서비스를 사용할 수 있습니다. 특정 요구 사항에 가장 적합한 것을 선택하세요.
 
 {% tabs local %}
-{% tab New %}
+{% tab 신규 %}
 Braze에는 푸시 수신 및 열기 인텐트를 처리하는 서비스가 포함되어 있습니다. `BrazeFirebaseMessagingService` 클래스는 `AndroidManifest.xml`에 등록해야 합니다:
 
 ```xml
@@ -390,7 +390,7 @@ Braze SDK 3.1.1 이전에는 `AppboyFcmReceiver`를 사용하여 FCM 푸시를 �
 {% endalert %}
 {% endtab %}
 
-{% tab Existing %}
+{% tab 기존 %}
 이미 Firebase 메시징 서비스가 등록되어 있는 경우, [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html)를 통해 [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) 오브젝트를 Braze에 전달할 수 있습니다. 이 메서드는 [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) 오브젝트가 Braze에서 발생한 경우에만 알림을 표시하며, 그렇지 않은 경우 안전하게 무시합니다.
 
 {% subtabs %}
@@ -434,7 +434,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Non-Braze %}
+{% tab Braze 외 %}
 사용하려는 다른 Firebase 메시징 서비스가 있는 경우, 애플리케이션이 Braze가 아닌 푸시를 수신할 때 호출할 대체 Firebase 메시징 서비스를 지정할 수도 있습니다.
 
 `braze.xml`에서 다음을 지정합니다:
@@ -696,7 +696,7 @@ Braze Android SDK는 [Android 알림 채널](https://developer.android.com/previ
 
 #### 표시 테스트 {#testing-display}
 
-이 시점에서 Braze에서 보낸 알림을 볼 수 있어야 합니다. 이를 테스트하려면 Braze 대시보드의 **Campaigns** 페이지로 이동하여 **푸시 알림** Campaign을 생성합니다. **Android 푸시**를 선택하고 메시지를 디자인합니다. 그런 다음 작성기에서 눈 아이콘을 클릭하여 테스트 발신자를 가져옵니다. 현재 사용자의 사용자 ID 또는 이메일 주소를 입력하고 **테스트 보내기**를 클릭합니다. 기기에 푸시가 표시됩니다.
+이 시점에서 Braze에서 보낸 알림을 볼 수 있어야 합니다. 이를 테스트하려면 Braze 대시보드의 **Campaigns** 페이지로 이동하여 **푸시 알림** Campaign을 생성합니다. **Android Push**를 선택하고 메시지를 디자인합니다. 그런 다음 작성기에서 눈 아이콘을 클릭하여 테스트 발신자를 가져옵니다. 현재 사용자의 사용자 ID 또는 이메일 주소를 입력하고 **Send Test**를 클릭합니다. 기기에 푸시가 표시됩니다.
 
 ![Braze 대시보드의 푸시 알림 Campaign '테스트' 탭.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -751,7 +751,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 
 Firebase 클라우드 메시징(FCM)의 한도를 초과하면 Google에서 "할당량 초과" 오류를 반환합니다. FCM의 기본 제한은 분당 600,000건의 요청입니다. Braze는 Google이 권장하는 모범 사례에 따라 재전송을 시도합니다. 그러나 이러한 오류가 대량으로 발생하면 전송 시간이 수 분간 지연될 수 있습니다. 잠재적 영향을 완화하기 위해 Braze는 사용량 제한 초과 알림과 오류를 방지하기 위한 조치 방법을 안내해 드립니다.
 
-현재 한도를 확인하려면 **Google Cloud Console** > **API 및 서비스** > **Firebase 클라우드 메시징 API** > **할당량 및 시스템 제한**으로 이동하거나 [FCM API 할당량 페이지](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)를 방문하세요.
+현재 한도를 확인하려면 **Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits**로 이동하거나 [FCM API 할당량 페이지](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)를 방문하세요.
 
 ### 모범 사례 {#best-practices}
 
@@ -762,8 +762,8 @@ Firebase 클라우드 메시징(FCM)의 한도를 초과하면 Google에서 "할
 FCM에 대한 사용량 제한 증가를 요청하려면 [Firebase 지원팀](https://firebase.google.com/support)에 직접 문의하거나 다음 단계를 수행하세요:
 
 1. [FCM API 할당량 페이지](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)로 이동합니다.
-2. **분당 요청 전송** 할당량을 찾습니다.
-3. **할당량 편집**을 선택합니다.
+2. **Send requests per minute** 할당량을 찾습니다.
+3. **Edit Quota**를 선택합니다.
 4. 새 값을 입력하고 요청을 제출합니다.
 
 #### 워크스페이스 사용량 제한 적용 {#apply-a-workspace-rate-limit}

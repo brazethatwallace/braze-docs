@@ -7,4 +7,4 @@
 | Espacement des lettres | Modifie la distance entre chaque caractère. |
 | Alignement du texte | Permet d'aligner le texte à gauche, au centre, à droite ou en justifié. |
 | Couleur du texte | Modifie la couleur du texte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

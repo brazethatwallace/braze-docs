@@ -65,7 +65,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, com
 | Propiedad | Descripción |
 | --- | --- |
 | Código personalizado | Te permite añadir, editar o eliminar HTML, CSS y JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Código personalizado" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Temporizador de cuenta regresiva {#countdown-timer}

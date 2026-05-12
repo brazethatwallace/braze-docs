@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Aliasing de enlaces {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Aliasing de enlaces {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > Usa el aliasing de enlaces para crear nombres reconocibles, generados por el usuario, que identifiquen los enlaces enviados en mensajes de correo electrónico desde Braze. Estos enlaces están disponibles para la reorientación por segmentación, la activación basada en acciones y el análisis de enlaces.
 
@@ -33,10 +33,10 @@ Los identificadores de enlace también se actualizarán si se duplica una campa�
 
 Para crear un alias de enlace, sigue estos pasos:
 
-1. En tu campaña o componente de Canvas, ve al cuerpo de tu correo electrónico.
+1. En tu Campaign o componente de Canvas, ve al cuerpo de tu correo electrónico.
 2. Selecciona la pestaña **Link Management**.
 3. Braze genera automáticamente alias de enlace predeterminados únicos para cada uno de tus enlaces.
-4. Dale un nombre al alias. Los alias deben tener nombres únicos por variante de campaña de correo electrónico o componente de Canvas.
+4. Dale un nombre al alias. Los alias deben tener nombres únicos por variante de Campaign de correo electrónico o componente de Canvas.
 
 También puedes establecer un alias que se usará para hacer referencia a un enlace específico cuando trabajes con informes o segmentación.
 
@@ -50,11 +50,11 @@ El aliasing de enlaces solo es compatible con atributos `href` dentro de etiquet
 
 Para ver todos tus alias de enlace rastreados, haz lo siguiente:
 
-1. Ve a **Configuración** > **Preferencias de correo electrónico** en **Configuración del espacio de trabajo**.
+1. Ve a **Settings** > **Email Preferences** en **Workspace Settings**.
 2. Selecciona la pestaña **Link Aliasing Settings**.
 
 {% alert important %}
-Si estás usando la [navegación anterior]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), esta configuración se encuentra en **Administrar configuración**.
+Si estás usando la [navegación anterior]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), esta configuración se encuentra en **Manage Settings**.
 {% endalert %}
 
 Aquí puedes ordenar, buscar y desactivar el seguimiento de los alias de enlace.
@@ -80,7 +80,7 @@ Las siguientes tablas proporcionan ejemplos de enlaces en el cuerpo de un correo
 | Enlace en el cuerpo del correo electrónico | Enlace con aliasing |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enlace permanente" }
 
 ### Enlace con más parámetros de consulta {#link-with-more-query-parameters}
 
@@ -89,7 +89,7 @@ Las siguientes tablas proporcionan ejemplos de enlaces en el cuerpo de un correo
 | Enlace en el cuerpo del correo electrónico | Enlace con aliasing |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enlace con más parámetros de consulta" }
 
 ### Enlace HTML {#html-link}
 
@@ -98,7 +98,7 @@ Las siguientes tablas proporcionan ejemplos de enlaces en el cuerpo de un correo
 | Enlace en el cuerpo del correo electrónico | Enlace con aliasing |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enlace HTML" }
 
 ### Enlace con ancla {#link-with-anchor}
 
@@ -107,7 +107,7 @@ Las siguientes tablas proporcionan ejemplos de enlaces en el cuerpo de un correo
 | Enlace en el cuerpo del correo electrónico | Enlace con aliasing |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enlace con ancla" }
 
 ### Enlace con ancla y etiqueta de captura {#link-with-anchor-and-capture-tag}
 
@@ -116,7 +116,7 @@ Las siguientes tablas proporcionan ejemplos de enlaces en el cuerpo de un correo
 | Enlace en el cuerpo del correo electrónico | Enlace con aliasing |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enlace con ancla y etiqueta de captura" }
 
 ## Rastrear alias de enlace {#tracking-link-aliases}
 
@@ -136,7 +136,7 @@ Braze solo rastrea hasta los últimos 100 alias de enlace clicados a nivel de pe
 
 ### Filtros basados en acciones {#action-based-filters}
 
-Puedes crear mensajes basados en acciones dirigidos a cualquier enlace (rastreado o no rastreado) o reorientar a usuarios en función de si hicieron clic en un alias en cualquier campaña de correo electrónico o componente de Canvas.
+Puedes crear mensajes basados en acciones dirigidos a cualquier enlace (rastreado o no rastreado) o reorientar a usuarios en función de si hicieron clic en un alias en cualquier Campaign de correo electrónico o componente de Canvas.
 
 ![Opciones basadas en acciones para dirigirse a usuarios que han hecho clic en un alias en un componente de Canvas o han interactuado con una Campaign.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
 
@@ -156,7 +156,7 @@ Dejar de rastrear un enlace no reasignará los segmentos existentes con el filtr
 
 Los enlaces en mensajes archivados dejan de rastrearse automáticamente. Sin embargo, si los mensajes archivados se desarchivan, los enlaces necesitarán ser rastreados nuevamente. Cuando los alias de enlace están rastreados, los informes de enlaces se indexan por el alias en lugar de por dominios de nivel superior o URLs completas.
 
-Para ver todos los enlaces en tu campaña de correo electrónico y sus respectivos clics totales, ve a **Message Analytics** > **Email Performance** > **Preview & Heatmap**, y selecciona el interruptor **Show Heatmap**.
+Para ver todos los enlaces en tu Campaign de correo electrónico y sus respectivos clics totales, ve a **Message Analytics** > **Email Performance** > **Preview & Heatmap**, y selecciona el interruptor **Show Heatmap**.
 
 ![Panel de tabla de enlaces por clics totales con alias de enlace y sus clics totales.]({% image_buster /assets/img/link_alias_total_clicks.png %}){: style="max-width:60%;"}
 

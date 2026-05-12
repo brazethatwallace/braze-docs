@@ -1,10 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
-## デフォルトのユーザー属性
+## デフォルトのユーザー属性 {#default-user-attributes}
 
-### サポートされている属性
+### サポートされている属性 {#supported-attributes}
 
-`Braze.User` オブジェクトでは、以下の属性を設定する必要があります。
+以下の属性は `Braze.User` オブジェクトで設定する必要があります。
 
 - `firstName`
 - `lastName`
@@ -16,7 +16,7 @@
 - `phone`
 - `gender`
 
-### デフォルト属性の設定
+### デフォルト属性の設定 {#setting-default-attributes}
 
 デフォルトのユーザー属性を設定するには、共有 `Braze.User` オブジェクトの適切なフィールドを設定します。以下は名属性の設定例です。
 
@@ -37,7 +37,7 @@ AppDelegate.braze?.user.set(firstName: "Alex")
 {% endtab %}
 {% endtabs %}
 
-### デフォルト属性の解除
+### デフォルト属性の解除 {#unsetting-default-attributes}
 
 デフォルトのユーザー属性を解除するには、関連するメソッドに `nil` を渡します。
 
@@ -58,15 +58,15 @@ AppDelegate.braze?.user.set(firstName: nil)
 {% endtab %}
 {% endtabs %}
 
-## カスタムユーザー属性
+## カスタムユーザー属性 {#custom-user-attributes}
 
-デフォルトのユーザー属性に加えて、Braze では複数の異なるデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
+デフォルトのユーザー属性に加えて、Brazeでは複数の異なるデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
 
 {% alert important %}
-カスタム属性値の最大長は 255 文字です。これより長い値は切り捨てられます。詳細については、[`Braze.User`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class) を参照してください。
+カスタム属性値の最大長は255文字です。これより長い値は切り捨てられます。詳細については、[`Braze.User`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class)を参照してください。
 {% endalert %}
 
-### カスタム属性の設定
+### カスタム属性の設定 {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab string %}
@@ -106,7 +106,7 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: you
 {% endtab %}
 
 {% tab floating-points %}
-Braze では、データベース内での `float` 値と `double` 値の扱いが同じです。倍精度値でカスタム属性を設定するには：
+Brazeでは、データベース内での `float` 値と `double` 値の扱いが同じです。倍精度値でカスタム属性を設定するには：
 
 {% subtabs %}
 {% subtab swift %}
@@ -160,7 +160,7 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", dateValue:yourD
 {% endtab %}
 
 {% tab array %}
-配列内の要素のデフォルトおよび最大数は 500 です。最大数は Braze ダッシュボードの**データ設定** > **カスタム属性**で更新できます。要素の最大数を超える配列は、最大数に切り捨てられます。
+配列内の要素のデフォルトおよび最大数は500です。最大数はBrazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。要素の最大数を超える配列は、最大数の要素を含むように切り捨てられます。
 
 `array` 値でカスタム属性を設定するには：
 
@@ -192,7 +192,7 @@ AppDelegate.braze?.user.removeFromCustomAttributeArray(key: "array_name", value:
 {% endtab %}
 {% endtabs %}
 
-### カスタム属性の増減
+### カスタム属性の増減 {#incrementing-or-decrementing-custom-attributes}
 
 このコードは、カスタム属性のインクリメントの例です。カスタム属性の値は、任意の `integer` または `long` の値で増加させることができます。
 
@@ -213,7 +213,7 @@ AppDelegate.braze?.user.incrementCustomUserAttribute(key: "your_attribute_key", 
 {% endtab %}
 {% endtabs %}
 
-### カスタム属性の設定解除
+### カスタム属性の設定解除 {#unsetting-custom-attributes}
 
 {% tabs %}
 {% tab swift %}
@@ -234,9 +234,9 @@ AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
 {% endtab %}
 {% endtabs %}
 
-### 階層化カスタム属性
+### 階層化カスタム属性 {#nesting-custom-attributes}
 
-カスタム属性内にプロパティをネストすることもできます。次の例では、ネストされたプロパティを持つ `favorite_book` オブジェクトが、ユーザープロファイルのカスタム属性として設定されます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)を参照してください。
+カスタム属性内にプロパティをネストすることもできます。次の例では、ネストされたプロパティを持つ `favorite_book` オブジェクトが、ユーザープロファイルのカスタム属性として設定されます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)を参照してください。
 
 {% tabs %}
 {% tab swift %}
@@ -264,26 +264,26 @@ NSDictionary *favoriteBook = @{
 {% endtab %}
 {% endtabs %}
 
-### REST API の使用
+### REST APIの使用 {#using-the-rest-api}
 
-ユーザー属性を設定または解除するには、REST API も利用できます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+ユーザー属性を設定または解除するには、REST APIも利用できます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
 
-## ユーザーサブスクリプションの設定
+## ユーザーサブスクリプションの設定 {#setting-user-subscriptions}
 
-ユーザーのサブスクリプション（メールまたはプッシュ）を設定するには、それぞれ関数 `set(emailSubscriptionState:)` または `set(pushNotificationSubscriptionState:)` を呼び出します。これらの関数では、いずれも引数として列挙型 `Braze.User.SubscriptionState` が使用されます。この型には、次の 3 つの状態があります。
+ユーザーのサブスクリプション（メールまたはプッシュ）を設定するには、それぞれ関数 `set(emailSubscriptionState:)` または `set(pushNotificationSubscriptionState:)` を呼び出します。これらの関数では、いずれも引数として列挙型 `Braze.User.SubscriptionState` が使用されます。この型には、次の3つの状態があります。
 
 | サブスクリプションのステータス | 定義 |
 | ------------------- | ---------- |
 | `optedIn` | 配信登録済み、かつ明示的にオプトイン済み |
 | `subscribed` | 購読中、ただし明示的にオプトイン済みではない |
 | `unsubscribed` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
 
-アプリにプッシュ通知の送信を許可したユーザーは、iOS で明示的なオプトインが必要であるため、デフォルトでステータスが `optedIn` に設定されます。
+アプリにプッシュ通知の送信を許可したユーザーは、iOSで明示的なオプトインが必要であるため、デフォルトでステータスが `optedIn` に設定されます。
 
 ユーザーは、有効なメールアドレスを受信すると自動的に `subscribed` に設定されます。ただし、明示的なオプトインのプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を `optedIn` に設定することをお勧めします。詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/)」を参照してください。
 
-### メールサブスクリプションの設定
+### メールサブスクリプションの設定 {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab swift %}
@@ -302,7 +302,7 @@ AppDelegate.braze?.user.set(emailSubscriptionState: Braze.User.SubscriptionState
 {% endtab %}
 {% endtabs %}
 
-### プッシュ通知サブスクリプションの設定
+### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscriptions}
 
 {% tabs %}
 {% tab swift %}

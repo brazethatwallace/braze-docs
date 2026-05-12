@@ -28,7 +28,7 @@ Assista ao vídeo a seguir para uma visão geral opcional sobre como configurar 
 | Recurso | Permissões de usuário necessárias |
 | --- | --- |
 | Tipos&nbsp;de&nbsp;mensagem | Você precisa destas permissões para adicionar locais e traduções a Campaigns e Canvas:<br><br> {::nomarkdown}Permissões granulares: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> Permissões legadas: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% endtab %}
 {% tab Modelos %}
@@ -36,7 +36,7 @@ Assista ao vídeo a seguir para uma visão geral opcional sobre como configurar 
 | Recurso | Permissões de usuário necessárias |
 | --- | --- |
 | Modelos | Você precisa destas permissões para o tipo de modelo ao qual deseja adicionar locais e traduções:<br><br> {::nomarkdown}Permissões granulares: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> Permissões legadas: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ URLs estáticas são inseridas manualmente no editor (por exemplo, `https://exam
 | --- | --- |
 | Mantenha o protocolo (`https://`) fora das tags de tradução. Envolva apenas o domínio e o caminho (por exemplo, `example.com/en`). | Tradutores podem alterar ou remover acidentalmente caracteres especiais, causando links quebrados. |
 | Não inclua parâmetros de consulta dentro das tags de tradução (por exemplo, `?utm_source=promo`). | Tradutores podem alterar ou remover acidentalmente caracteres especiais, resultando em links quebrados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URLs padrão (estáticas)" }
 
 Uma URL padrão que segue ambas as recomendações é:
 
@@ -87,7 +87,7 @@ Se sua URL é gerada com Liquid (por exemplo, {% raw %}`{% landing_page_url %}`{
 | --- | --- |
 | Envolva a URL gerada por Liquid em tags de tradução somente se ela precisar ser localizada. | A sintaxe Liquid deve ser cuidadosamente preservada para renderizar corretamente. |
 | Não inclua parâmetros de consulta (por exemplo, `?utm_source=promo`) dentro das tags de tradução. | Tradutores podem alterar ou remover acidentalmente caracteres especiais, resultando em links quebrados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URLs geradas por Liquid" }
 
 Uma URL gerada por Liquid que segue ambas as recomendações é:
 
@@ -227,11 +227,11 @@ URLs usam dois caracteres especiais para controlar como isso funciona:
 | URL padrão | Sim | Use `&` no final da URL (após a tag de tradução de fechamento) se ela já contiver `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Gerada por Liquid | Não | Use `?` após as tags de tradução de fechamento se a URL gerada ainda não contiver um. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Gerada por Liquid | Sim | Use `&` após a tag de tradução de fechamento se a URL gerada já contiver um `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Rastreamento de links de e-mail" }
 
 ### Configurações de idioma e acessibilidade {#language-settings-and-accessibility}
 
-Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) para contexto WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Acessibilidade** no nível da mensagem.
+Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) para contexto WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Accessibility** no nível da mensagem.
 
 Ao usar **mensagens multilíngues**, alinhe o idioma de acessibilidade com cada local para que os envios localizados declarem o idioma apropriado.
 
@@ -296,4 +296,4 @@ Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois fa�
 | Tags de tradução contêm URLs completas ou URLs geradas por Liquid. | Tags de tradução contendo URLs são identificadas caso ocorram problemas com links quebrados ou rastreamento de links. |
 | Tags de tradução incluem parâmetros de consulta. | Tags de tradução contendo parâmetros de consulta são identificadas caso ocorram problemas com links quebrados ou rastreamento de links. |
 | Tags de tradução contêm atributos ou estruturas HTML. | Tags de tradução contendo atributos ou estruturas HTML são identificadas caso ocorram problemas com estilos e formatação. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quais validações ou verificações adicionais a Braze realiza?" }

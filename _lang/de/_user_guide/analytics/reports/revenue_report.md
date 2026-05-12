@@ -50,7 +50,7 @@ Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze die
     }
 </style>
 
-<table>
+<table aria-label="Umsatzberechnungen verstehen">
   <caption>Umsatzberechnungen verstehen</caption>
     <thead>
         <tr>

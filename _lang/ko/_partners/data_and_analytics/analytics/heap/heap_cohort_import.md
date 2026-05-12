@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Heap](https://heap.io/)은 디지털 인사이트 플랫폼으로, 비즈니스에 가장 큰 영향을 미치는 디지털 경험의 기회에 집중하여 마찰을 제거하고, 고객을 만족시키며, 매출을 가속화할 수 있도록 도와줍니다.
 
-Braze와 Heap 통합을 통해 [Heap 데이터를 Braze로 가져오고](#data-import-integration), 사용자 코호트를 생성하며, [Braze 데이터를 Heap으로 내보내]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/) **Segments**를 생성할 수 있습니다.
+Braze와 Heap 통합을 통해 [Heap 데이터를 Braze로 가져오고](#data-import-integration), 사용자 코호트를 생성하며, [Braze 데이터를 Heap으로 내보내]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/) 세그먼트를 생성할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -21,7 +21,7 @@ Braze와 Heap 통합을 통해 [Heap 데이터를 Braze로 가져오고](#data-i
 | Heap 계정 | 이 파트너십을 활용하려면 [Heap](https://heap.io/about) 계정이 필요합니다. |
 | Braze 데이터 가져오기 키 | Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동한 후 **Heap**을 선택하여 확인할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-| Braze **Currents** | Braze에서 Heap으로 데이터를 내보내려면 계정에서 [Braze **Currents**]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 활성화되어 있어야 합니다. |
+| Braze 커런츠 | Braze에서 Heap으로 데이터를 내보내려면 계정에서 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 활성화되어 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 활용 사례 {#use-cases}
@@ -43,13 +43,13 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동한 후 **Heap*
 
 ### 2단계: Braze에서 가져온 사용자를 세그먼트로 분류하기 {#step-2-segment-imported-users-in-braze}
 
-Braze에서 **Segments**로 이동하여 Heap 코호트 **Segment**의 이름을 지정하고, 필터로 **Heap Cohorts**를 선택합니다. 여기에서 포함할 Heap 코호트를 선택할 수 있습니다. Heap 코호트 **Segment**가 생성된 후에는 **Campaign** 또는 **Canvas**를 만들 때 오디언스 필터로 선택할 수 있습니다.
+Braze에서 **Segments**로 이동하여 Heap 코호트 Segment의 이름을 지정하고, 필터로 **Heap Cohorts**를 선택합니다. 여기에서 포함할 Heap 코호트를 선택할 수 있습니다. Heap 코호트 Segment가 생성된 후에는 Campaign 또는 Canvas를 만들 때 오디언스 필터로 선택할 수 있습니다.
 
 ![Braze 세그먼트 빌더에서 사용자 속성 필터 "Heap cohort"가 "includes" 및 "Heap Test Cohort"로 설정되어 있습니다.]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### 이 통합 사용하기 {#using-this-integration}
 
-Heap **Segment**를 사용하려면 Braze **Campaign** 또는 **Canvas**를 생성하고 해당 **Segment**를 타겟 오디언스로 선택합니다。
+Heap Segment를 사용하려면 Braze Campaign 또는 Canvas를 생성하고 해당 Segment를 타겟 오디언스로 선택합니다.
 
 ![타겟팅 단계의 Braze Campaign 빌더에서 "세그먼트별로 사용자 타겟팅" 필터가 "Heap cohort"로 설정되어 있습니다.]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

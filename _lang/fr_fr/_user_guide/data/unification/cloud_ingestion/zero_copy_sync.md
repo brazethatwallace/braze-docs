@@ -149,7 +149,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1.2 : Configurer votre table source dans BigQuery" }
 
 {% alert note %}
 Les propriétés ne sont pas obligatoires pour chaque ligne ou utilisateur. Cependant, les valeurs des propriétés doivent être une chaîne de caractères JSON valide. Saisissez une chaîne `{}` vide s'il n'y a aucune propriété pour la ligne.
@@ -178,7 +178,7 @@ Créez un utilisateur et accordez-lui les autorisations nécessaires. Si vous di
 | BigQuery User | Permet à Braze d'exécuter des requêtes, de lire des métadonnées et de lister des tables. |
 | BigQuery Data Viewer | Permet à Braze de consulter les ensembles de données et leur contenu. |
 | BigQuery Job User | Permet à Braze d'exécuter des tâches. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1.3 : Configurer les informations d'identification" }
 
 Après avoir accordé les autorisations, générez une clé JSON. Consultez [Création et suppression de clés](https://cloud.google.com/iam/docs/keys-create-delete) pour les instructions. Vous la téléchargerez ultérieurement dans le tableau de bord de Braze.
 
@@ -205,7 +205,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 | `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Configurer votre table source dans Databricks" }
 
 Vous pouvez nommer le schéma et la table comme vous le souhaitez, mais les noms de colonnes doivent correspondre à la définition précédente.
 
@@ -283,7 +283,7 @@ Pour synchroniser les déclencheurs Canvas à partir du stockage de fichiers, cr
 | `EXTERNAL_ID` | Oui, `external_id` ou `alias_name` et `alias_label` | Identifie l'utilisateur que vous souhaitez mettre à jour. Cette valeur doit correspondre à la valeur `external_id` utilisée dans Braze. |
 | `ALIAS_NAME` et `ALIAS_LABEL` | Oui, `external_id` ou `alias_name` et `alias_label` | Ces deux colonnes créent un objet d'alias d'utilisateur. `alias_name` doit être un identifiant unique et `alias_label` spécifie le type d'alias. Les utilisateurs peuvent avoir plusieurs alias avec des libellés différents, mais un seul `alias_name` par `alias_label`. |
 | `PROPERTIES` | Oui | Chaîne de caractères JSON des champs à rendre disponibles en tant que propriétés de personnalisation dans votre Canvas. Elle doit contenir des informations spécifiques à l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.3 : Configurer les politiques réseau" }
 
 {% alert tip %}
 Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
@@ -304,7 +304,7 @@ Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez
 
 Une fois la configuration de la source terminée et le Canvas de destination lancé, créez une nouvelle synchronisation de données :
 
-1. Dans Braze, accédez à **Data Settings** > **Cloud Data Ingestion**.
+1. Dans Braze, accédez à **Paramètres des données** > **Ingestion de données cloud**.
 1. Configurez la connexion en saisissant les informations de connexion (ou en réutilisant les identifiants existants) et la table source de [l'étape 1](#step-1-set-up-data-source-for-canvas-triggers).
 2. Attribuez un nom à l'intégration.
 3. Sélectionnez le type de données **Canvas triggers**.

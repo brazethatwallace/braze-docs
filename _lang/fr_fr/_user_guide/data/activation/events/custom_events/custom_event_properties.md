@@ -31,8 +31,8 @@ Vous ne pouvez pas utiliser de clés réservées comme noms de propriétés d'é
 | Propriété | Clé réservée |
 | --- | --- |
 | Événements personnalisés | `time` et `event_name` |
-| Événements d'achat |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Événements d'achat | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reserved keys" }
 
 ## Utilisation des propriétés d'événement personnalisé {#using-custom-event-properties}
 
@@ -77,7 +77,7 @@ Pour une liste complète des étiquettes Liquid qui entraînent la distribution 
 - **Appels API :** Lors d'appels API utilisant le filtre « est vide », une propriété d'événement personnalisé est considérée comme « vide » si elle est exclue de l'appel. Par exemple, si vous incluez `"event_property": ""`, vos utilisateurs seront considérés comme « non vide ».
 - **Nombres entiers :** Lors du filtrage sur une propriété d'événement personnalisé de type nombre dont la valeur est très grande, n'utilisez pas le filtre « exactement ». Si un nombre est trop grand, il peut être arrondi à une certaine longueur, et votre filtre ne fonctionnera pas comme prévu.
 
-### Segmentation
+### Segmentation {#segmentation}
 
 Utilisez la segmentation par propriétés d'événement pour cibler les utilisateurs en fonction des événements personnalisés réalisés et des propriétés associées à ces événements. Cela augmente vos options de filtrage lors de la segmentation par achat et événements personnalisés.
 
@@ -93,8 +93,8 @@ Par défaut, vous pouvez avoir 20 propriétés d'événement segmentables par es
 
 Pour ajouter des propriétés d'événement pour la segmentation, procédez comme suit :
 
-1. Accédez à votre événement personnalisé et sélectionnez **Gérer les propriétés**.
-2. Activez le bouton **Activer la segmentation** pour ajouter la propriété d'événement à la segmentation. Des options de filtrage supplémentaires seront alors disponibles lors de la segmentation.
+1. Accédez à votre événement personnalisé et sélectionnez **Manage properties**.
+2. Activez le bouton **Enable segmentation** pour ajouter la propriété d'événement à la segmentation. Des options de filtrage supplémentaires seront alors disponibles lors de la segmentation.
 
 Les filtres de segmentation par propriétés d'événement incluent :
 

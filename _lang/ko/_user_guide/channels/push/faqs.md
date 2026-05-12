@@ -18,7 +18,7 @@ channel:
 
 푸시 토큰이 재할당되면 고객 프로필의 **푸시 체인지로그**에 변경 사항이 반영됩니다. 고객 프로필의 **참여** 탭에서 확인할 수 있습니다.
 
-![연락처 설정 섹션의 '푸시 체인지로그']({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
+!["연락처 설정" 섹션의 "푸시 체인지로그".]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
 
 ### 테스트 푸시를 보내면 모든 기기로 전송되나요? {#when-i-send-a-test-push-does-it-go-to-all-of-my-devices}
 

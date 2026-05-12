@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sessions | DAU |
 | | Taille du segment |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
 
 ### Tableau de bord des revenus {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Achats (tous) | DAU |
 | Achats sélectionnés (comme une carte-cadeau ou un ID de produit) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
 
 ### Tableau de bord des événements personnalisés {#custom-event-dashboard}
 
@@ -85,4 +85,4 @@ table td {
 | Nombre d'événements personnalisés | MAU |
 |  | DAU |
 |  | Taille du segment (seuls les segments pour lesquels le [suivi analytique]({{site.baseurl}}/viewing_and_understanding_segment_data/) est activé peuvent être utilisés) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }

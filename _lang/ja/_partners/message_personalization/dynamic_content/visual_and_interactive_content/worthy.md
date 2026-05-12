@@ -32,9 +32,9 @@ search_tag: Partner
 
 | 必要条件 | 説明 |
 | --- | --- |
-| [Worthy](https://worthy.ai/) アカウント | このパートナーシップを活用するには、Worthyアカウントが必要です。 |
+| [Worthy](https://worthy.ai/)アカウント | このパートナーシップを活用するには、Worthyアカウントが必要です。 |
 | Braze SDK | リッチなアプリ内メッセージを送信するには、モバイルアプリケーションでBraze SDKを設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 
@@ -42,7 +42,7 @@ search_tag: Partner
 
 Worthyダッシュボードでアプリに移動し、**Message Creator**を選択して、ユーザーのエンゲージメントに使用するパーソナライズされたメッセージを作成します。
 
-### ステップ2：Braze Campaignを作成する {#step-2-create-a-braze-campaign}
+### ステップ2：BrazeでCampaignを作成する {#step-2-create-a-braze-campaign}
 
 Brazeで[アプリ内メッセージCampaign]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を作成し、**メッセージタイプ**を**Custom Code**に設定します。
 

@@ -26,7 +26,7 @@ Los siguientes flujos de trabajo tienen diferentes superficies de informes.
 | --- | --- | --- |
 | Análisis nativos de push | Métricas push como aperturas e Influenced Opens, vinculadas a Campaigns push de Braze | Análisis de Campaigns push, eventos de interacción de mensajes en Currents, Generador de informes |
 | Eventos personalizados y atributos | Análisis que defines y registras a través de métodos del SDK o del punto de conexión `/users/track` | Perfiles de usuario, segmentación, Campaigns y Canvas basados en acciones, análisis de eventos personalizados |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Native push analytics vs. custom event logging" }
 
 {% alert important %}
 Registrar un evento personalizado (como `push_notification_opened`) no es lo mismo que el seguimiento nativo de aperturas push de Braze. Los eventos personalizados no rellenan las métricas nativas de apertura de Campaigns push ni la atribución push.
@@ -176,7 +176,7 @@ Los ejemplos de archivos auxiliares en esta sección son específicos de iOS (Sw
 {% endalert %}
 
 {% tabs local %}
-{% tab Custom events %}
+{% tab Eventos personalizados %}
 
 #### Guardar eventos personalizados {#saving-custom-events}
 
@@ -318,7 +318,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab Atributos personalizados %}
 
 #### Guardar atributos personalizados {#saving-custom-attributes}
 
@@ -436,7 +436,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab User attributes %}
+{% tab Atributos de usuario %}
 
 #### Guardar atributos de usuario {#saving-user-attributes}
 
@@ -563,7 +563,7 @@ func logPendingUserAttributesIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Helper files %}
+{% tab Archivos auxiliares %}
 
 #### Archivo auxiliar RemoteStorage {#remotestorage-helper-file}
 
@@ -801,9 +801,9 @@ Usa la superficie de informes que corresponda a la categoría de análisis:
 
 | Categoría de análisis | Dónde verlo en Braze |
 | --- | --- |
-| Análisis nativos de push | Para ver las métricas de apertura push a nivel de campaña, navega a la página **Campaign Analytics** de tu Campaign push. Para las definiciones de métricas, consulta [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Para crear vistas de análisis personalizadas, navega a **Analytics** > **Report Builder (New)**. Para los pasos de navegación, consulta [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Para los esquemas de eventos a nivel de almacén de datos, consulta [Eventos de interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
+| Análisis nativos de push | Para ver las métricas de apertura push a nivel de Campaign, navega a la página **Campaign Analytics** de tu Campaign push. Para las definiciones de métricas, consulta [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Para crear vistas de análisis personalizadas, navega a **Analytics** > **Report Builder (New)**. Para los pasos de navegación, consulta [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Para los esquemas de eventos a nivel de almacén de datos, consulta [Eventos de interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
 | Eventos personalizados y atributos | Para ver tendencias de eventos personalizados, navega a **Analytics** > **Informe de eventos personalizados**. Para más detalles, consulta [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Para inspeccionar valores a nivel de usuario, navega a la página **Buscar usuarios** y abre un perfil. Para los pasos, consulta [Perfiles de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Para filtrar audiencias por estos valores, navega a **Audience** > **Segments**. Para los pasos de navegación, consulta [Crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) y las opciones de filtro en [Filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyzing results" }
 
 Para la creación de informes personalizados, consulta [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
 

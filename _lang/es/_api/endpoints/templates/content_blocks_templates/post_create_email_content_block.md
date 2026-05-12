@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Crear bloque de contenido"
 article_title: "POST: Crear bloque de contenido"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -44,14 +44,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `name` | Obligatoria | Cadena | Nombre del bloque de contenido. Debe tener menos de 100 caracteres. |
+| `name` | Obligatorio | Cadena | Nombre del bloque de contenido. Debe tener menos de 100 caracteres. |
 | `description` | Opcional | Cadena | Descripción del bloque de contenido. Debe tener menos de 250 caracteres. |
-| `content` | Obligatoria | Cadena | Contenido HTML o de texto dentro del bloque de contenido. |
+| `content` | Obligatorio | Cadena | Contenido HTML o de texto dentro del bloque de contenido. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
 | `tags` | Opcional | Matriz de cadenas | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/) ya deben existir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 ```bash
@@ -100,7 +100,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `Tags must be an array` | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
 | `Some tags could not be found` | Para añadir una etiqueta al crear un bloque de contenido, la etiqueta debe existir ya en Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

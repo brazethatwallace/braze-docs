@@ -28,10 +28,10 @@ Amazon Personalizeは、機械学習とあなたが定義したアルゴリズ�
 | Amazon Web Serviceアカウント | このパートナーシップを利用するには、AWSアカウントが必要です。AWSアカウントを取得したら、Amazon Personalizeコンソール、AWS Command Line Interface (AWS CLI)、またはAWS SDKを使用してAmazon Personalizeにアクセスできます。 |
 | 定義されたユースケース | モデルを作成する前に、この統合のユースケースを決定する必要があります。一般的なユースケースについては、以下のリストを参照してください。 |
 | データセット | Amazon Personalizeのレコメンデーションモデルには、インタラクション、ユーザー、アイテムの3種類のデータセットが必要です。各データセットの要件については、以下の詳細を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab ユースケース %}
 
 **ユースケース**
 
@@ -43,7 +43,7 @@ Amazon Personalizeは、機械学習とあなたが定義したアルゴリズ�
 以下のガイドでは、ユーザー個別のレコメンデーションレシピに焦点を当てます。
 
 {% endtab %}
-{% tab Datasets %}
+{% tab データセット %}
 
 **データセット**
 

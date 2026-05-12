@@ -15,6 +15,10 @@ search_tag: Partner
 
 Die Integration von Braze und Figma ermöglicht es Ihnen, Bilder und visuelle Assets direkt aus Figma in die Braze-Medienbibliothek zu senden.
 
+Sehen Sie sich dieses Video an, um einen Überblick über die Funktionsweise der Integration zu erhalten.
+
+{% multi_lang_include video.html id="ab5ywsi72n" source="wistia" %}
+
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
@@ -22,7 +26,7 @@ Die Integration von Braze und Figma ermöglicht es Ihnen, Bilder und visuelle As
 | Figma-Konto | Ein Figma-Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
 | Zugriff auf die Braze-Medienbibliothek | Sie benötigen die Berechtigung „Medienbibliothek-Assets verwalten“, um Medienbibliothek-Assets in Braze hinzuzufügen, zu bearbeiten und zu löschen. |
 | Zugriff auf den Braze-Workspace | Sie müssen Zugriff auf die Workspaces haben, in die Sie diese Figma-Bilder und visuellen Assets in Braze hochladen möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

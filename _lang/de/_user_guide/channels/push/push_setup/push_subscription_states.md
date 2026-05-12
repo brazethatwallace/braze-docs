@@ -27,7 +27,7 @@ Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-A
 | Nutzer:in aktiviert Push in den Geräteeinstellungen und protokolliert eine Sitzung | `true` | `true` | Vordergrund | `Opted-In`** |
 | Nutzer:in deaktiviert Push in den Geräteeinstellungen und protokolliert eine Sitzung | `false` | `false` | Hintergrund | Nicht aktualisiert |
 | Nutzer:in löscht die App | Nicht aktualisiert | Aktualisiert, wenn Push-Token zurückgezogen wird | Aktualisiert, wenn Push-Token zurückgezogen wird | Nicht aktualisiert |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
 
 <sup>* Wenn die App kein provisorisches Push verwendet, ist `Foreground Push Enabled` `false`, bis Nutzer:innen Push-Benachrichtigungen erlauben. Wenn die App provisorisches Push verwendet, ist `Foreground Push Enabled` zu Beginn der ersten Sitzung `true`. Weitere Informationen finden Sie unter [Provisorische Autorisierung und stilles Push](#provisional-push).</sup>
 
@@ -41,12 +41,12 @@ Da die Entscheidung der Nutzer:innen endgültig ist und Sie nach einer Ablehnung
 
 **Native Push-Berechtigungsaufforderungen des Betriebssystems**
 
-|Plattform|Screenshot|Beschreibung|
+| Plattform | Screenshot | Beschreibung |
 |--|--|--|
-|iOS| ![Eine native iOS-Push-Aufforderung mit der Frage „My App would like to send you notifications“ und zwei Buttons „Don't Allow“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Dies gilt nicht bei der Anforderung einer [provisorischen Push](#provisional-push)-Berechtigung.|
-|Android| ![Eine Android-Push-Nachricht mit der Frage „Allow Kitchenerie to send you notifications?“ und zwei Buttons „Allow“ und „Don't allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Diese Push-Berechtigung wurde in Android 13 eingeführt. Vor Android 13 war keine Berechtigung zum Senden von Push erforderlich.|
-|Web| ![Eine native Push-Aufforderung des Webbrowsers mit der Frage „Braze.com wants to show notification“ und zwei Buttons „Block“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| iOS | ![Eine native iOS-Push-Aufforderung mit der Frage „My App would like to send you notifications“ und zwei Buttons „Don't Allow“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Dies gilt nicht bei der Anforderung einer [provisorischen Push](#provisional-push)-Berechtigung. |
+| Android | ![Eine Android-Push-Nachricht mit der Frage „Allow Kitchenerie to send you notifications?“ und zwei Buttons „Allow“ und „Don't allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Diese Push-Berechtigung wurde in Android 13 eingeführt. Vor Android 13 war keine Berechtigung zum Senden von Push erforderlich. |
+| Web | ![Eine native Push-Aufforderung des Webbrowsers mit der Frage „Braze.com wants to show notification“ und zwei Buttons „Block“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
 
 ### Android
 
@@ -68,7 +68,7 @@ Vor iOS 12 (veröffentlicht 2018) mussten alle Nutzer:innen explizit dem Empfang
 
 In iOS 12 führte Apple die [provisorische Autorisierung](https://www.braze.com/resources/articles/mastering-provisional-push) ein, die es Marken ermöglicht, stille Push-Benachrichtigungen an das Benachrichtigungscenter ihrer Nutzer:innen zu senden, bevor diese explizit zustimmen, und Ihnen so die Möglichkeit gibt, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Weitere Informationen finden Sie unter [Provisorische Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications).
 
-### Web
+### Web {#web}
 
 Für Web müssen Sie ein explizites Opt-in der Nutzer:innen über den nativen Browser-Berechtigungsdialog anfordern.
 
@@ -103,7 +103,7 @@ Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nut
 
 Da es für Push-Anbieter (APNs/FCM) keine Möglichkeit gibt, zwischen mehreren Nutzer:innen auf einem Gerät zu unterscheiden, übergeben wir das Push-Token an die zuletzt eingeloggten Nutzer:innen, um zu bestimmen, welche Nutzer:innen auf dem Gerät für Push angesprochen werden sollen.
 
-### Mehrere Geräte und eine:r Nutzer:in {#multiple-devices-and-one-user}
+### Mehrere Geräte und ein:e Nutzer:in {#multiple-devices-and-one-user}
 
 Der Push-Abo-Status ist nutzer:innenbasiert und nicht spezifisch für eine einzelne App. Der Status des Push-Abos ist der zuletzt gesetzte Wert. Wenn Nutzer:innen also Push-Benachrichtigungen zugestimmt haben, ist ihr Push-Abo-Status auf allen berechtigten Geräten `Opted-In`. Wenn Nutzer:innen sich später explizit über Ihre Anwendung oder andere von Ihrer Marke bereitgestellte Methoden von Push-Benachrichtigungen abmelden, wird ihr Push-Abo-Status auf `Unsubscribed` aktualisiert und keine Push-registrierten Geräte können Push-Benachrichtigungen empfangen.
 
@@ -179,6 +179,6 @@ iOS erlaubt es Apps nicht, eine Push-Benachrichtigung abzufangen, bevor sie ange
 {% endtab %}
 {% endtabs %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Detaillierte Anleitungen zur Optimierung Ihrer Push-Nutzung bei Braze finden Sie in unserem speziellen Artikel zu [Push-Best-Practices]({{site.baseurl}}/user_guide/channels/push/best_practices/).

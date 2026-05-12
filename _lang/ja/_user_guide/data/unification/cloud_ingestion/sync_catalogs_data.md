@@ -204,7 +204,7 @@ JSON または CSV 形式を使用して S3 にソースファイルを作成し
 | `PAYLOAD` | はい | Brazeのカタログアイテムに同期するフィールドの JSON 文字列。 |
 | `DELETED` | オプション | `true` に設定すると、対応するカタログアイテムがカタログから削除されます。 |
 | `UPDATED_AT` | *非対応* | ファイルストレージでは `UPDATED_AT` 列はサポートされていません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 ファイル名は AWS のルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。

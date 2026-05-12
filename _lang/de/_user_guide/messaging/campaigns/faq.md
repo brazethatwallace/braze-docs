@@ -14,7 +14,7 @@ tool: Campaigns
 
 ### Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
 
-Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Campaign erstellen**.
+Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Campaign erstellen**.
 
 ### Kann ich meiner Multichannel-Kampagne eine Kontrollgruppe hinzufügen? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
@@ -38,7 +38,7 @@ Eine mögliche Erklärung könnte sein, dass bei der Campaign oder dem Canvas di
 
 Wenn Sie beispielsweise ein Canvas haben, das sowohl iOS- als auch Web-Push-Benachrichtigungen enthält, kann eine bestimmte Nutzerin oder ein bestimmter Nutzer mit sowohl Mobil- als auch Desktop-Geräten mehr als eine Nachricht erhalten.
 
-### Warum ist die Anzahl der *eindeutigen Empfänger:innen* höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Warum ist die Anzahl der *eindeutigen Empfänger:innen* höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Die Anzahl der *eindeutigen Empfänger:innen* kann höher sein als die erwartete Zielgruppe, da Braze für die Berichterstattung tägliche eindeutige Empfänger:innen erfasst. Dadurch kann Braze Conversions innerhalb des Conversion-Fensters jedes Mal zuordnen, wenn eine Nutzerin oder ein Nutzer die Nachricht erhält, anstatt mehrere Empfänge zu einem einzigen Lifetime-Zähler zusammenzufassen (was die Conversion-Berechnung verzerren würde).
 
@@ -208,7 +208,7 @@ Aktionsbasierte Zustellungs-Campaigns oder Event-getriggerte Campaigns sind sehr
 | Vorteile | Nachteile |
 | ---- | ---- |
 | • Sichtbarkeit eingehender JSON-Payloads in der Plattform (wenn das Event von einer Testnutzerin oder einem Testnutzer getriggert wird) über das **Nachrichten-Aktivitätsprotokoll**<br><br>• Personalisierungselemente sind in den angepassten Event-Eigenschaften enthalten<br><br>• Angepasste Events können verwendet werden, um Segmente von Nutzer:innen zu erstellen, die für die Nachricht berechtigt sind | • Verbraucht Datenpunkte |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aktionsbasiert" }
 
 #### API-getriggert {#api-triggered}
 
@@ -217,7 +217,7 @@ API-getriggerte und servergetriggerte Campaigns sind ideal für die Handhabung k
 | Vorteile | Hinweise |
 | ---- | ---- |
 | • Verbraucht keine Datenpunkte<br><br>• Personalisierungselemente sind in den JSON-Payload-Eigenschaften enthalten | • Ermöglicht es nicht, ein Segment von Nutzer:innen zu erstellen, die für die Nachricht in den JSON-Payload-Eigenschaften berechtigt sind<br><br>• Eingehende JSON-Payloads können nicht über das **Nachrichten-Aktivitätsprotokoll** eingesehen werden |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API-getriggert" }
 
 ### Was sollte ich angeben, wenn ich ein Support-Ticket für einen „Request Timed Out“-Fehler einreiche? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 

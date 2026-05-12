@@ -10,6 +10,6 @@ Los valores de las propiedades pueden ser cualquiera de los siguientes tipos de 
 | Cadena | 255 caracteres o menos |
 | Array | Compatible; los datetimes no son compatibles en arrays. |
 | Objeto | Se ingestan como cadenas (no como objetos anidados). Para datos anidados, usa un valor de cadena (por ejemplo, JSON serializado). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 Las siguientes claves están reservadas y no pueden usarse como nombres de propiedades: `time`, `product_id`, `quantity`, `event_name`, `price` y `currency`. Usar una clave reservada en el objeto `properties` devuelve el error "Invalid 'properties' field".

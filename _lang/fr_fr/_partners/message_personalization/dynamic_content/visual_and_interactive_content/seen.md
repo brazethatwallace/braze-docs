@@ -30,10 +30,10 @@ Avant de commencer, vous devez disposer des éléments suivants :
 
 | Prérequis | Description |
 |--------------|-------------|
-| Accès à la plateforme Seen | Vous avez besoin d'un abonnement à la plateforme Seen ou d'une campagne Seen active. Vous devez accéder aux paramètres de votre espace de travail pour récupérer votre ID d'espace de travail et générer un jeton API. |
+| Accès à la plateforme Seen | Vous avez besoin d'un abonnement à la plateforme Seen ou d'une Campaign Seen active. Vous devez accéder aux paramètres de votre espace de travail pour récupérer votre ID d'espace de travail et générer un jeton API. |
 | URL du webhook de Transformation des données Braze | La Transformation des données de Braze reformate les données entrantes de Seen afin qu'elles puissent être acceptées par l'endpoint /users/track de Braze. |
 | Données utilisateur Braze | La personnalisation des vidéos nécessite des données au niveau de l'utilisateur. Assurez-vous que les attributs pertinents sont disponibles dans Braze et que vous transmettez **braze_id** comme identifiant unique. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 
 
@@ -69,18 +69,18 @@ Dans cet exemple, Braze envoie les données de l'utilisateur à Seen pour géné
 
 Si vous avez plusieurs campagnes vidéo avec Seen, répétez le processus pour connecter Braze à toutes les campagnes vidéo.
 
-### Étape 1 : Créer une campagne webhook pour envoyer des données à Seen {#step-1-create-a-webhook-campaign-to-send-data-to-seen}
+### Étape 1 : Créer une Campaign webhook pour envoyer des données à Seen {#step-1-create-a-webhook-campaign-to-send-data-to-seen}
 
-Créez une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/) dans Braze.
+Créez une nouvelle [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks/) dans Braze.
 
 Configurez le webhook comme suit :
 
-- **Webhook URL** :
+- **URL du webhook** :
   `https://next.seen.io/v1/workspaces/{WORKSPACE_ID}/data`
   Trouvez votre ID d'espace de travail dans les paramètres de la plateforme Seen.
 
-- **HTTP Method** : POST
-- **Request body** : Raw Text
+- **Méthode HTTP** : POST
+- **Corps de la requête** : Raw Text
   Utilisez l'exemple suivant comme point de départ. Pour plus d'informations, consultez la [documentation de Seen sur la création de données](https://docs.seen.io/create-data).
 
 {% raw %}
@@ -93,7 +93,7 @@ Configurez le webhook comme suit :
 }
 ```
 {% endraw %}
-- **Request Headers** :
+- **En-têtes de la requête** :
   - `Authorization` : Bearer `{Seen_API_TOKEN}`
   - `Content-Type` : `application/json`
 
@@ -111,15 +111,15 @@ Chaque Journey est un flux de travail configurable composé de nœuds qui vous p
 Pour configurer votre Journey :
 
 1. Créez un nouveau Journey dans la plateforme Seen.
-2. Ajoutez un **Trigger node** et sélectionnez le déclencheur `On Create`.
+2. Ajoutez un **nœud déclencheur** et sélectionnez le déclencheur `On Create`.
    Cela garantit que le Journey démarre lorsque Braze envoie des données à Seen. Créez et ajoutez toute logique de [segmentation](https://docs.seen.io/segments) dans votre espace de travail si nécessaire.
 3. Construisez votre logique en utilisant les nœuds suivants selon vos besoins :
-   - **Conditional node** : acheminer les utilisateurs en fonction des valeurs des attributs (par exemple, le type de forfait ou la région)
-   - **Project node** : appliquer la personnalisation dynamique des vidéos en utilisant les données entrantes
-   - **Player node** : générer une URL unique pour le lecteur vidéo
-4. Ajoutez un **Webhook node** pour définir la réponse renvoyée à Braze.
+   - **Nœud conditionnel** : acheminer les utilisateurs en fonction des valeurs des attributs (par exemple, le type de forfait ou la région)
+   - **Nœud projet** : appliquer la personnalisation dynamique des vidéos en utilisant les données entrantes
+   - **Nœud lecteur** : générer une URL unique pour le lecteur vidéo
+4. Ajoutez un **nœud webhook** pour définir la réponse renvoyée à Braze.
 
-#### Exigences relatives à la réponse du Webhook node {#webhook-node-response-requirements}
+#### Exigences relatives à la réponse du nœud webhook {#webhook-node-response-requirements}
 
 Le payload de réponse étant configurable, assurez-vous que les champs suivants sont renvoyés pour prendre en charge la Transformation des données Braze décrite à l'étape suivante :
 
@@ -128,7 +128,7 @@ Le payload de réponse étant configurable, assurez-vous que les champs suivants
 | `id` | Doit correspondre au `braze_id` envoyé depuis Braze |
 | `player_url` | URL unique pour le lecteur vidéo personnalisé |
 | `email_thumbnail_url` | URL de la vignette vidéo générée |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences relatives à la réponse du nœud webhook" }
 
 Si votre cas d'utilisation nécessite des attributs supplémentaires, incluez-les dans la réponse et mappez-les dans Braze.
 
@@ -140,11 +140,11 @@ Utilisez les Transformations des données Braze pour ingérer la réponse du Jou
 1. Créez les [attributs personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#managing-custom-attributes) suivants dans Braze :
    - `player_url`
    - `email_thumbnail_url`
-2. Accédez à **Data Settings** → **Data Transformation** et cliquez sur **Create transformation**.
+2. Accédez à **Paramètres des données** → **Transformation des données** et cliquez sur **Créer une transformation**.
 3. Configurez la transformation :
-   - **Start from scratch**
-   - **Destination** → POST: Track users
-4. Partagez l'URL du webhook généré avec Seen, ou ajoutez-la directement au **Webhook node** du Journey.
+   - **Partir de zéro**
+   - **Destination** → POST : Track users
+4. Partagez l'URL du webhook généré avec Seen, ou ajoutez-la directement au **nœud webhook** du Journey.
 5. Utilisez le code de transformation suivant :
 
 ```javascript
@@ -164,4 +164,4 @@ return brazecall;
 {: start="6"}
 6. Envoyez un payload de test à l'endpoint fourni. Envoyez des données à la plateforme Seen pour exécuter votre Journey, ou envoyez le payload directement à Braze avec [Postman](https://www.postman.com/) ou un autre service similaire.
 7. Sélectionnez **Validate** pour vous assurer que tout fonctionne comme prévu.
-8. Sélectionnez **Save** puis **Activate**.
+8. Sélectionnez **Enregistrer** puis **Activer**.

@@ -120,13 +120,13 @@ table td {
 
 <div class="small_table"></div>
 
-| 동작 | 키보드 단축키 |
-| --- | --- |
-| 검색 메뉴 열기 | {::nomarkdown} <ul> <li> Mac: <kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> <li>Windows: <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> </ul> {:/} |
-| 검색 결과 간 이동 | <kbd>⬆</kbd> / <kbd>⬇</kbd> |
-| 검색 결과 선택 | <kbd>Enter</kbd> |
-| 검색 메뉴 닫기 | <kbd>Esc</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 동작                      | 키보드 단축키                                                             |
+| --------------------------- | ----------------------------------------------------------------------------- |
+| 검색 메뉴 열기        | {::nomarkdown} <ul> <li> Mac: <kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> <li>Windows: <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> </ul> {:/}  |
+| 검색 결과 간 이동 | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
+| 검색 결과 선택      | <kbd>Enter</kbd>    |
+| 검색 메뉴 닫기       | <kbd>Esc</kbd>  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="키보드 단축키" }
 
 ## 생산성 기능 {#productivity-features}
 

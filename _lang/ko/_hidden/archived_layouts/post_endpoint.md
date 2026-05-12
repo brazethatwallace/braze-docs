@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 excerpt_separator: ""
 
-description: "이 문서에서는 이 POST [엔드포인트 이름] Braze 엔드포인트에 대한 자세한 내용과 사용법을 설명합니다."
+description: "이 문서에서는 이 POST [엔드포인트 이름] Braze 엔드포인트에 대한 세부 정보와 사용법을 설명합니다."
 
 noindex: true
 #ATTENTION: remove noindex and this alert from template
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ----------|-----------| ---------|------ |
 | `phone_number` | 필수 | e.164 형식의 문자열 배열 | 수정할 최대 50개의 전화번호 배열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 

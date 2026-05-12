@@ -41,9 +41,9 @@ A Braze inclui os seguintes campos do Currents para eventos de clique SMS:
 
 | Campo | Tipo de dado | Descrição |
 | --- | --- | --- |
-| `is_suspected_bot_click` | booleano | Indica se o clique é um clique suspeito de bot. Retorna `null` para todos os usuários até que a filtragem de cliques de bots seja ativada para sua empresa. Quando ativada, será preenchido com `true` ou `false` para todos os novos cliques a partir daquele momento. |
+| `is_suspected_bot_click` | Booleano | Indica se o clique é um clique suspeito de bot. Retorna `null` para todos os usuários até que a filtragem de cliques de bots seja ativada para sua empresa. Quando ativada, será preenchido com `true` ou `false` para todos os novos cliques a partir daquele momento. |
 | `suspected_bot_click_reason` | String, Array | Indica o motivo de um clique suspeito de bot (como `user_agent`). É preenchido mesmo se a filtragem estiver desativada, fornecendo insight sobre possível atividade de bots. Este campo está disponível globalmente e é preenchido com um motivo para todos os usuários, mesmo que a filtragem de cliques de bots ainda não esteja ativada. Isso fornece insight sobre possível atividade de bots antes de você ativar a filtragem de cliques de bots. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos do Currents em eventos de clique SMS" }
 
 ## Modelo do Criador de consultas {#query-builder-template}
 

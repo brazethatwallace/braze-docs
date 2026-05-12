@@ -32,7 +32,7 @@ En Braze, estos cuatro objetos se combinan y reducen a dos objetos: perfiles de 
 | --- | --- | --- |
 | Perfiles de usuario | Se mapean directamente con clientes potenciales y contactos en tu sistema CRM de ventas. Como Braze capta los clientes potenciales, se crean automáticamente como clientes potenciales en tu sistema CRM de ventas. A medida que se convierten en contactos, los ID y detalles de los contactos se sincronizan de nuevo con Braze. | Clientes potenciales<br> Contactos |
 | Objetos empresariales | Se mapean con cualquier objeto que no sea de usuario en tu sistema CRM de ventas. Esto incluye tus objetos específicos de ventas, como objetos de cuenta y objetos de oportunidad. | Cuentas<br> Oportunidades |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## Paso 1: Crea tus objetos empresariales en Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -47,7 +47,7 @@ Existen dos métodos para crear y gestionar tus objetos empresariales en Braze: 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
 
 {% tabs %}
-{% tab Catalogs %}
+{% tab Catálogos %}
 
 ### Opción 1: Usa catálogos para cuentas y oportunidades {#option-1-use-catalogs-for-accounts-and-opportunities}
 
@@ -60,11 +60,11 @@ Para esta opción, recomendamos crear un catálogo para tus cuentas y otro para 
 Las tablas siguientes incluyen algunos ejemplos de campos que puedes mapear desde los objetos de cuenta y oportunidad de tu CRM.
 
 {% subtabs %}
-{% subtab Account catalog %}
+{% subtab Catálogo de cuentas %}
 
 En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
   <caption>Mapea los campos de tu CRM</caption>
   <tr>
     <th><b>Objeto Braze</b></th>
@@ -100,11 +100,11 @@ En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cual
 ![Tabla de cuentas de Salesforce con la información correspondiente, como la dirección de facturación y el titular de la cuenta.]({% image_buster /assets/img/b2b/sf_accounts.png %})
 
 {% endsubtab %}
-{% subtab Opportunity catalog %}
+{% subtab Catálogo de oportunidades %}
 
 En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
   <caption>Ejemplo de tabla de campos de cuenta mapeados</caption>
   <tr>
     <th><b>Objeto Braze</b></th>
@@ -142,7 +142,7 @@ En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cual
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Connected sources %}
+{% tab Fuentes conectadas %}
 
 ### Opción 2: Usa fuentes conectadas para cuentas y oportunidades {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
@@ -161,11 +161,11 @@ Los perfiles de usuario son el objeto principal en Braze, que impulsa la mayor p
 
 En primer lugar, asegúrate de que Braze y el CRM que elijas tengan un identificador común para compartir datos. Te sugerimos que utilices la siguiente tabla para mapear los campos de ID de tu CRM de ventas al objeto de usuario de Braze. La tabla siguiente usa Salesforce como sistema CRM, pero esto se puede hacer con cualquier CRM.
 
-#### Objeto Braze: Usuario {#braze-object-user}
+#### Objeto Braze: usuario {#braze-object-user}
 
 | Campo de Braze | Objeto CRM (Salesforce) | Campo CRM (Salesforce) | Información adicional |
 | --- | --- | --- | --- |
-| `Aliases.salesforce_lead_id` | Lead | `id` |  - Etiqueta de alias de usuario: `salesforce_lead_id` <br>- Nombre del alias de usuario: `lead_id`|
+| `Aliases.salesforce_lead_id` | Lead | `id` | - Etiqueta de alias de usuario: `salesforce_lead_id` <br>- Nombre del alias de usuario: `lead_id` |
 | `Aliases.salesforce_contact_id` | Contact | `id` | - Etiqueta de alias de usuario: `salesforce_contact_id` <br>- Nombre del alias de usuario: `contact_id` |
 | `AccountId` | Contact | `AccountId` |
 | `OpportunityId` (opcional, escalar) <br>o<br> `Opportunities` (opcional, matriz) | Opportunity | `id` |
@@ -180,7 +180,7 @@ Una vez que tengas tus ID sincronizados, necesitas relacionar tus perfiles de us
 ### Paso 2.2: Crea una relación entre los perfiles de usuario y tus objetos empresariales {#step-22-create-a-relationship-between-user-profiles-and-your-business-objects}
 
 {% tabs %}
-{% tab Catalogs %}
+{% tab Catálogos %}
 
 #### Opción 1: Al usar catálogos {#option-1-when-using-catalogs}
 
@@ -215,7 +215,7 @@ Ahora que los detalles de tus oportunidades y cuentas están registrados como ca
 ```
 
 {% endtab %}
-{% tab Connected sources %}
+{% tab Fuentes conectadas %}
 
 #### Opción 2: Al usar fuentes conectadas {#option-2-when-using-connected-sources}
 

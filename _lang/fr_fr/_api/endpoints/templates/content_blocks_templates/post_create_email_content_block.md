@@ -51,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `content` | Requis | Chaîne de caractères | Contenu HTML ou texte dans le bloc de contenu. |
 | `state` | Facultatif | Chaîne de caractères | Choisissez `active` ou `draft`. Défini par défaut sur `active` si non spécifié. |
 | `tags` | Facultatif | Tableau de chaînes de caractères | Les [étiquettes]({{site.baseurl}}/user_guide/messaging/governance/tags/) doivent déjà exister. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 ```bash
@@ -100,7 +100,7 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `Tags must be an array` | Les étiquettes doivent être formatées sous forme de tableau de chaînes de caractères, par exemple `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Assurez-vous que vos étiquettes sont encadrées par des guillemets (`""`). |
 | `Some tags could not be found` | Pour ajouter une étiquette lors de la création d'un bloc de contenu, l'étiquette doit déjà exister dans Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 
 {% endapi %}

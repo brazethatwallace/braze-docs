@@ -95,7 +95,7 @@ Braze SDKとインターフェイスするために、[JavaScript「ブリッジ
 
 特定の単語をメッセージとして送信したユーザーが今後のメッセージングをオプトアウトできるCampaignまたはCanvasを設定できます。Canvasは、オプトアウトの成功を確認するフォローアップメッセージを含めることができるため、特に有益です。
 
-#### ステップ 1：「インバウンドWhatsAppメッセージ」トリガーでCanvasを作成する {#step-1-create-a-canvas-with-a-trigger-of-inbound-whatsapp-message}
+#### ステップ1：「インバウンドWhatsAppメッセージ」トリガーでCanvasを作成する {#step-1-create-a-canvas-with-a-trigger-of-inbound-whatsapp-message}
 
 ![WhatsAppインバウンドメッセージを送信したユーザーがエントリするアクションベースのCanvasエントリステップ。]({% image_buster /assets/img/whatsapp/whatsapp116.png %}){: style="max-width:85%;"}
 
@@ -103,7 +103,7 @@ Braze SDKとインターフェイスするために、[JavaScript「ブリッジ
 
 ![メッセージ本文が「STOP」または「NO MESSAGE」であるWhatsAppインバウンドメッセージを送信するメッセージステップ。]({% image_buster /assets/img/whatsapp/whatsapp117.png %}){: style="max-width:85%;"}
 
-#### ステップ 2：ユーザーのプロファイルを更新する {#step-2-update-the-users-profile}
+#### ステップ2：ユーザーのプロファイルを更新する {#step-2-update-the-users-profile}
 
 [購読グループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status)で説明されている方法のいずれかを使用して、ユーザーのプロファイルを更新します。
 

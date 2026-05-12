@@ -52,7 +52,7 @@ Campaignがまだ**下書き**ステータスの場合、テストプッシュ�
 
 **アプリ内**オプションなしで**Web URLを開く**を選択した場合、リンクはデバイスのデフォルトブラウザで直接開きます。**モバイルアプリ内でWeb URLを開く**を選択した場合、リンクはアプリ内Webビューで開きます。
 
-### iOSプッシュ証明書の「本番環境に送信」と「開発環境に送信」の違いは何ですか？ {#what-is-the-difference-between-send-to-production-and-send-to-development-for-ios-push-certificates}
+### iOSプッシュ証明書の「Send to Production」と「Send to Development」の違いは何ですか？ {#what-is-the-difference-between-send-to-production-and-send-to-development-for-ios-push-certificates}
 
 BrazeでAppleプッシュ証明書を追加する際、**Send to Production**と**Send to Development**のオプションは、Brazeがプッシュ通知を配信するために使用するAPNs（Apple Push Notification service）ゲートウェイを決定します。
 

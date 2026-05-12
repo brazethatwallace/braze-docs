@@ -3,15 +3,15 @@ nav_title: Registro de atividades de envio de mensagem
 article_title: Registro de atividades de envio de mensagem
 page_order: 3
 page_type: reference
-description: "Este artigo de referência descreve o Registro de atividades de envio de mensagem, que mostra as mensagens associadas às suas Campaigns e envios. Aqui, você também encontra informações sobre como entender as mensagens do registro."
+description: "Este artigo de referência descreve o Registro de atividades de envio de mensagem, que mostra as mensagens associadas às suas campanhas e envios. Aqui, você também encontra informações sobre como entender as mensagens do registro."
 
 ---
 
 # Registro de atividades de envio de mensagem {#dev-console-troubleshooting}
 
-> O **Registro de atividades de envio de mensagem** permite que você veja todas as mensagens (especialmente mensagens de erro) associadas às suas Campaigns e envios.
+> O **Registro de atividades de envio de mensagem** permite que você veja todas as mensagens (especialmente mensagens de erro) associadas às suas campanhas e envios.
 
-Você pode ver transações de Campaigns da API, solucionar problemas com detalhes sobre mensagens com falha e obter insights sobre como melhorar a entrega de notificações ou resolver problemas técnicos existentes.
+Você pode ver transações de campanhas da API, solucionar problemas com detalhes sobre mensagens com falha e obter insights sobre como melhorar a entrega de notificações ou resolver problemas técnicos existentes.
 
 Para acessar o registro, acesse **Configurações** > **Registro de atividades de envio de mensagem**.
 
@@ -41,13 +41,13 @@ Você pode filtrar pelo seguinte conteúdo registrado no **Registro de atividade
 
 Essas mensagens podem vir do nosso próprio sistema, dos seus apps ou plataformas, ou dos nossos parceiros terceiros. Isso pode resultar em um número infinito de mensagens que podem aparecer neste registro.
 
-## Entendendo as mensagens do registro
+## Entendendo as mensagens do registro {#understanding-log-messages}
 
 Para determinar o que suas mensagens significam, preste atenção ao texto de cada mensagem e às colunas correspondentes, pois isso pode ajudar na solução de problemas usando pistas de contexto.
 
 Por exemplo, se você tem uma entrada no registro cuja mensagem diz "empty-cart_app" e não tem certeza do que isso significa, olhe para a coluna **Tipo** à esquerda. Se você vir "Erro de mensagem abortada", pode assumir com segurança que a mensagem foi o que foi escrito como [mensagem de aborto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) usando Liquid, e que a mensagem foi abortada porque o destinatário pretendido tinha um carrinho vazio no seu app.
 
-### Mensagens comuns
+### Mensagens comuns {#common-messages}
 
 Existem alguns tipos de mensagens comuns que você pode ver, e alguns podem até fornecer links de solução de problemas para ajudar a diagnosticar e corrigir problemas.
 
@@ -61,7 +61,7 @@ As mensagens listadas a seguir são apenas para fins de exemplo e podem não cor
 | Erro de mensagem abortada | empty-cart_web | Se você tem um app com carrinho ou cria um envio com uma mensagem de aborto no Liquid, pode personalizar qual mensagem é retornada se o envio for abortado. Neste caso, a mensagem retornada é empty-cart_web.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-### Por que minha mensagem não está listada aqui?
+### Por que minha mensagem não está listada aqui? {#why-isnt-my-message-listed-here}
 
 As mensagens no Registro de atividades de envio de mensagem podem vir de diversas fontes: da Braze, dos seus apps ou plataformas, ou dos nossos parceiros terceiros. Isso significa que há um número infinito de mensagens que podem aparecer neste registro — como você pode imaginar, não é possível listar todas!
 
@@ -72,11 +72,11 @@ Por exemplo, algumas possíveis mensagens de "Bloqueio", além da listada na tab
 - A mensagem foi bloqueada pelo destinatário como spam.
 - Serviço indisponível, host do cliente [_IP_ADDRESS_] bloqueado usando Spamhaus.
 
-## Período de retenção de armazenamento
+## Período de retenção de armazenamento {#storage-retention-period}
 
 Erros das últimas 60 horas estão disponíveis no Registro de atividades de envio de mensagem. Registros com mais de 60 horas são limpos e não estão mais acessíveis.
 
-### Número de registros de erro armazenados
+### Número de registros de erro armazenados {#number-of-error-logs-stored}
 
 O número de registros salvos é influenciado por diversas condições. Por exemplo, se uma Campaign agendada é enviada para milhares de usuários, potencialmente veríamos uma amostra dos erros no Registro de atividades de envio de mensagem em vez de todos os erros. A seguir, uma visão geral das condições que afetam quantos registros são salvos:
 - Até 20 registros de erro do mesmo tipo são salvos para a mesma Campaign ou etapa do Canvas dentro de uma hora fixa de relógio para os seguintes tipos de erro:
@@ -107,7 +107,7 @@ O número de registros salvos é influenciado por diversas condições. Por exem
     - Erros de bloqueio de e-mail
 - Até 100 registros de erro de aliasing de usuário são salvos para o mesmo espaço de trabalho dentro de uma hora fixa de relógio.
 
-## Envios de teste
+## Envios de teste {#test-sends}
 
 O **Registro de atividades de envio de mensagem** mostra registros de teste para estes canais de envio de mensagens:
 

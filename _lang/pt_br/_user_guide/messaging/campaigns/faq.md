@@ -38,7 +38,7 @@ Uma possível explicação é que a Campaign ou o Canvas tem a reelegibilidade a
 
 Por exemplo, se você tiver um Canvas que possui notificações por push tanto para iOS quanto para web, um determinado usuário com dispositivos móvel e desktop pode receber mais de uma mensagem.
 
-### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatários únicos* pode ser maior do que o público esperado porque a Braze rastreia destinatários únicos diários para fins de relatório. Isso permite que a Braze atribua conversões dentro da janela de conversão cada vez que um usuário recebe a mensagem, em vez de consolidar múltiplos recebimentos em uma única contagem vitalícia (o que distorceria os cálculos de conversão).
 
@@ -162,7 +162,7 @@ Para evitar isso, garanta que as atualizações de atributos personalizados ou e
 
 ### Por que o número de usuários entrando em uma Campaign não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% alert tip %}
 Para assistência adicional com solução de problemas de Campaigns, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.

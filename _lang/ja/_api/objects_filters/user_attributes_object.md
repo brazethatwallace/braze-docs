@@ -118,7 +118,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | 整数 | 「inc」フィールドと追加する量を持つオブジェクトを割り当てることで、整数カスタム属性をインクリメントできます。<br><br>例: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 階層化カスタム属性 | 階層化カスタム属性は、属性のセットを別の属性のプロパティとして定義します。カスタム属性オブジェクトを定義するときに、そのオブジェクトに一連の属性を追加します。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。 |
 | 文字列 | 文字列カスタム属性は、テキストデータを格納するために使用される一連の文字です。たとえば、文字列を使用して、姓名、メールアドレス、好みを保存できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性のデータタイプ" }
 
 {% alert tip %}
 カスタムイベントとカスタム属性のどちらを使用するかについては、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
@@ -171,7 +171,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | subscription_groups| `subscription_group_id`および`subscription_state`の文字列を持つオブジェクト配列（`[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`など）。`subscription_state`の利用可能な値は「subscribed」と「unsubscribed」です。|
 | time_zone | （文字列）[IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)のタイムゾーン名（例：「America/New_York」または「Eastern Time (US & Canada)」）。有効なタイムゾーン値のみが設定されます。 |
 | twitter | `id`（整数）、`screen_name`（文字列、X（旧Twitter）ハンドル）、`followers_count`（整数）、`friends_count`（整数）、`statuses_count`（整数）のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeユーザープロファイルフィールド" }
 
 このAPIによって明示的に設定された言語値は、Brazeがデバイスから自動的に受信するロケール情報よりも優先されます。
 
@@ -230,7 +230,7 @@ Webプッシュトークンの性質上、Webプッシュを実装する際に�
 |----------------------|------------|
 | **サービスワーカー**  | デフォルトでは、Web SDKは`./service-worker`でサービスワーカーを探します。ただし、`manageServiceWorkerExternally`や`serviceWorkerLocation`などの別のオプションが指定されている場合を除きます。サービスワーカーの設定が適切でないと、ユーザーのプッシュトークンが期限切れになる可能性があります。 |
 | **期限切れトークン**   | ユーザーが60日間Webセッションを開始していない場合、プッシュトークンは期限切れになります。Brazeは期限切れのプッシュトークンを移行できないため、再エンゲージするには[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を送信する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webトークンに関する考慮事項" }
 
 ### APIを使用した手動移行 {#manual-migration-through-api}
 

@@ -44,9 +44,9 @@ Pour en savoir plus sur l'ancien flux de travail, consultez la section [Gérer l
 | Compte Smartling | Un [compte Smartling](https://dashboard.smartling.com/) est requis pour profiter de ce partenariat. |
 | Projet de traduction Smartling | Pour connecter votre compte Braze à Smartling, vous devez d'abord vous connecter et [créer un projet de traduction](https://help.smartling.com/hc/en-us/articles/115003074093). |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations suivantes : <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres > Clés API**. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST.]({{site.baseurl}}/api/basics/#endpoints) Votre endpoint dépend de l'URL Braze de votre instance. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
 | Paramètres multilingues de Braze | [Complétez les paramètres multilingues dans Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -68,17 +68,17 @@ Reportez-vous à la [documentation de Smartling](https://help.smartling.com/hc/e
 2. Dans ce projet, sélectionnez **Settings** > **Braze Settings** > **Connect to Braze**.
 3. Remplissez les champs obligatoires, comme l'URL de l'API et la clé API. Si le test de connexion est réussi, enregistrez la connexion. Si le test échoue, vérifiez que vous avez saisi l'URL et la clé API correctes.
 
-![Connexion Braze dans les paramètres API de Smartling.]({% image_buster /assets/img/smartling/image2_API.png %})
+![Paramètres API de la connexion Braze dans Smartling.]({% image_buster /assets/img/smartling/image2_API.png %})
 
 {: start="4"}
 4. Ajoutez des langues de projet supplémentaires.
 
-![Connexion Braze dans les langues du projet Smartling.]({% image_buster /assets/img/smartling/image3_project_languages.png %})
+![Langues du projet dans la connexion Braze dans Smartling.]({% image_buster /assets/img/smartling/image3_project_languages.png %})
 
 {: start="5"}
 5. Dans les paramètres de Braze, vérifiez que les valeurs de la colonne **Target Language (Braze)** correspondent aux locales configurées dans les paramètres multilingues de Braze. La convention de nommage des locales doit correspondre exactement.
 
-![Connexion Braze dans la confirmation des langues Smartling.]({% image_buster /assets/img/smartling/image4_language_confirmation.png %})
+![Confirmation des langues dans la connexion Braze dans Smartling.]({% image_buster /assets/img/smartling/image4_language_confirmation.png %})
 
 ### Étape 3 : Ajouter des étiquettes de traduction à votre message Braze {#step-3-add-translation-tags-to-your-braze-message}
 

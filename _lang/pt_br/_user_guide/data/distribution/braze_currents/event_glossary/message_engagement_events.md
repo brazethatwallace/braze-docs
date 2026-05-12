@@ -36,7 +36,7 @@ Observe as convenções de nomenclatura para IDs de usuário.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador exclusivo que é atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário que é definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID de usuário" }
 
 ### Valores da plataforma {#platform-values}
 
@@ -52,7 +52,7 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores da plataforma" }
 
 {% enddetails %}
 
@@ -512,7 +512,7 @@ Este evento ocorre quando a Braze recebe uma solicitação para atualizar o esta
 | Registro de token por push | Quando um usuário é atualizado pelo processo de registro de token |
 | Cancelar inscrição de lista | Quando um usuário cancela a inscrição por meio do Braze mailto ou do cabeçalho de cancelamento de inscrição da lista com um clique |
 | Outro | Inclui quaisquer outras fontes, como trabalhos de sincronização de demonstração ou de provedor, ou callbacks de eventos de SMS e WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhes da propriedade" }
 
 
 {% endapi %}
@@ -12938,7 +12938,6 @@ A Braze emite `users.messages.sms.Rejection` para Currents, Compartilhamento de 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de retry de SMS {#sms-retry-events}
 
 {% apitags %}
@@ -13120,7 +13119,6 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 {% endapi %}
 
 {% api %}
-
 ## Eventos de envio de SMS {#sms-send-events}
 
 {% apitags %}
@@ -13349,7 +13347,6 @@ Esse evento ocorre quando um usuário envia um SMS.
 {% endapi %}
 
 {% api %}
-
 ## Eventos de clique em link curto de SMS {#sms-short-link-click-events}
 
 {% apitags %}
@@ -13774,6 +13771,7 @@ Esse evento ocorre quando uma mensagem de webhook é abortada com base em aborts
 {% endapi %}
 
 {% api %}
+
 ## Eventos de falha de webhook {#webhook-failure-events}
 
 {% apitags %}
@@ -14004,6 +14002,7 @@ Esse evento ocorre quando uma mensagem de webhook é entregue, mas falha com uma
 {% endapi %}
 
 {% api %}
+
 ## Eventos de tentativa de webhook {#webhook-retry-events}
 
 {% apitags %}
@@ -14202,6 +14201,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envio de webhook {#webhook-send-events}
 
 {% apitags %}

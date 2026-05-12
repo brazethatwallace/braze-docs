@@ -28,10 +28,10 @@ Aquí tienes las directrices para seleccionar las variables:
 | Campo de variable | Descripción |
 | --- | --- |
 | `Catalog` | El nombre del catálogo que estás utilizando para segmentar usuarios. |
-| `Catalog field`| El campo de tu catálogo que contiene los mismos valores que tu `Custom event property`. Suele ser un tipo de ID. En el caso de uso de comercio electrónico, sería `shopify_id`. |
+| `Catalog field` | El campo de tu catálogo que contiene los mismos valores que tu `Custom event property`. Suele ser un tipo de ID. En el caso de uso de comercio electrónico, sería `shopify_id`. |
 | `Custom event` | El nombre de tu evento personalizado, que es el mismo evento que contiene una propiedad con valores que coinciden con tu `Catalog field`. En el caso de uso de comercio electrónico, sería `Made Order`. |
-| `Custom event property` | El nombre de la propiedad de tu evento personalizado, que coincide en valores con tu `Catalog field`. En el ejemplo de caso de uso de comercio electrónico, sería `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Custom event property` | El nombre de la propiedad de tu evento personalizado, que coincide en valores con tu `Catalog field`. En el ejemplo de caso de uso de comercio electrónico, sería `Shopify_ID.` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Crear un segmento de catálogo" }
 
 {: start="4"}
 4. Si es necesario, completa los campos opcionales adicionales para tu caso de uso a fin de segmentar por un valor de campo particular dentro de tu catálogo:
@@ -91,13 +91,13 @@ Configurarías un segmento de catálogo utilizando las siguientes variables:
 
 | Variable | Propiedad |
 | --- | --- |
-| `Catalog`| Doctors |
+| `Catalog` | Doctors |
 | `Catalog field` | doctor ID |
-| `Custom event`| Booked Visit|
+| `Custom event` | Booked Visit |
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
-| `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `(Under Filter SQL Results) Value` | Dental |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aplicación de salud" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -115,12 +115,12 @@ Configurarías un segmento de catálogo utilizando las siguientes variables:
 | Variable | Propiedad |
 | --- | --- |
 | `Catalog` | Accounts |
-| `Catalog field `| account ID |
+| `Catalog field ` | account ID |
 | `Custom event` | Event Attendance |
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plataforma SaaS" }
 
 {% endtab %}
 {% endtabs %}

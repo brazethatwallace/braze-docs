@@ -23,7 +23,7 @@ Braze와 Grouparoo 통합은 데이터 웨어하우스 데이터를 Braze에 동
 | Grouparoo 계정 및 프로젝트 | 이 파트너십을 활용하려면 Grouparoo 계정과 프로젝트가 필요합니다.<br><br>이 통합은 Grouparoo에서 제공하는 무료 커뮤니티 에디션 및 엔터프라이즈 솔루션과 함께 사용할 수 있습니다. 설정은 Grouparoo 구성 사용자 인터페이스에서 이루어집니다. |
 | Braze REST API 키 | 사용자 및 추적 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL](https://www.grouparoo.com/). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

@@ -8,13 +8,15 @@ description: "이 문서에서는 eCommerce 매출 - 라스트 터치 기여도 
 
 # eCommerce 매출 대시보드 {#ecommerce-revenue-dashboard}
 
-> **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 [eCommerce 권장 이벤트]({{site.baseurl}}/ecommerce_events/)를 사용하여 Campaign 및 Canvases의 라스트 터치 기여 매출을 추적합니다. 이 대시보드를 사용하여 어떤 메시지가 매출을 유도하는지 파악하고, 시간에 따른 전반적인 eCommerce 성과를 모니터링할 수 있습니다.
+> **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 [eCommerce 권장 이벤트]({{site.baseurl}}/ecommerce_events/)를 사용하여 Campaigns 및 Canvases의 라스트 터치 기여 매출을 추적합니다. 이 대시보드를 사용하여 어떤 메시지가 매출을 유도하는지 파악하고, 시간에 따른 전반적인 eCommerce 성과를 모니터링할 수 있습니다.
 
 {% alert note %}
 eCommerce 권장 이벤트는 현재 얼리 액세스 중입니다. 이 얼리 액세스에 참여하고 싶으시면 Braze 고객 성공 매니저에게 문의하세요. <br><br>새로운 [Shopify 커넥터]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector)를 사용하는 경우, 이러한 권장 이벤트는 통합을 통해 자동으로 제공됩니다. 그렇지 않은 경우, 이 대시보드에 데이터가 표시되려면 먼저 이벤트를 구현해야 합니다.
 {% endalert %}
 
 eCommerce 매출 대시보드를 보려면 **Analytics** > **대시보드 빌더**로 이동한 다음 **eCommerce Revenue - Last Touch Attribution**을 선택합니다. 이 대시보드는 선택한 전환 기간 내에서 사용자가 주문하기 전에 마지막으로 상호작용한 Campaign 또는 Canvas에 기여된 매출을 보고합니다.
+
+![eCommerce 매출 - 라스트 터치 기여도 대시보드에 eCommerce 매출, 일일 주문 수, 일일 평균 eCommerce 매출 통계와 시간별 eCommerce 매출 차트가 표시된 모습.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
 
 ## 사용 가능한 측정기준 {#available-metrics}
 
@@ -27,6 +29,8 @@ eCommerce 매출 대시보드를 보려면 **Analytics** > **대시보드 빌더
 | Campaign별 eCommerce 매출 | Campaign별로 분류된 기여 매출입니다. |
 | Canvas별 eCommerce 매출 | Canvas별로 분류된 기여 매출입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+
+![Campaign별 eCommerce 매출 및 Canvas별 eCommerce 매출 차트.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
 ## 기여도 모델 {#attribution-model}
 
@@ -70,8 +74,7 @@ eCommerce 매출 대시보드를 보려면 **Analytics** > **대시보드 빌더
 
 ### 제외된 데이터 {#excluded-data}
 
-레거시 구매 이벤트를 사용하여 기록된 구매는 포함되지 않습니다. **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 현재 LTV 또는 Campaign이나 Canvases 내 매출 보고서와 같은 레거시 구매 이벤트에 연결된 기능을 지원하지 않습니다.
-
+레거시 구매 이벤트를 사용하여 기록된 구매는 포함되지 않습니다. **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 현재 LTV 또는 Campaigns이나 Canvases 내 매출 보고서와 같은 레거시 구매 이벤트에 연결된 기능을 지원하지 않습니다.
 
 ## 통화 처리 {#currency-handling}
 

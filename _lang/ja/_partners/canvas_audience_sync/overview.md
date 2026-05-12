@@ -11,11 +11,11 @@ tool:
 
 # オーディエンス同期について {#about-audience-sync}
 
-> Braze のオーディエンス同期機能は、多くのトップソーシャルテクノロジーおよび広告テクノロジーにCampaignsのリーチを拡大するのに役立ちます。[Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)を通じて、ブランドはファーストパーティのユーザーデータを広告エコシステムにダイナミックかつ安全に同期させ、マーケティングと運用の効率化を推進できます。
+> Braze のオーディエンス同期機能は、多くのトップソーシャルテクノロジーおよび広告テクノロジーにキャンペーンのリーチを拡大するのに役立ちます。[Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)を通じて、ブランドはファーストパーティのユーザーデータを広告エコシステムにダイナミックかつ安全に同期させ、マーケティングと運用の効率化を推進できます。
 
 ## 機能の利用について {#feature-availability}
 
-Braze をご利用のすべてのお客様は、Audience Sync to Google と Audience Sync to Facebook をすぐに利用できますが、メッセージクレジットを使用するお客様はすべての Audience Sync パートナーにアクセスできます。メッセージクレジットを使用していないお客様が追加の Audience Sync 送信先をロック解除するには、Audience Sync Pro を購入してください。詳細については、Braze のアカウントマネージャーにお問い合わせください。
+Brazeをご利用のすべてのお客様は、Audience Sync to Google と Audience Sync to Facebook をすぐに利用できますが、メッセージクレジットを使用するお客様はすべての Audience Sync パートナーにアクセスできます。メッセージクレジットを使用していないお客様が追加の Audience Sync 送信先をロック解除するには、Audience Sync Pro を購入してください。詳細については、Braze のアカウントマネージャーにお問い合わせください。
 
 ## ユースケース {#use-cases}
 
@@ -42,12 +42,12 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat は毎秒 10 件のクエリを処理し、リクエスト 1 件あたり 100,000 ユーザーを処理します。Braze は 5 秒ごとにユーザーをバッチ処理します。 | はい | Snapchat は最大 1,000 の広告オーディエンスに対応します。 |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | 最長 24 時間 | N/A | はい | {::nomarkdown}<ul><li>The Trade Desk の CRM オーディエンスには最小オーディエンスサイズの制限はありません。</li><li>The Trade Desk がサポートするオーディエンス数に制限はありません。</li><li>EU に設定されたリージョンのオーディエンスに同期する場合、電話番号はサポートされません。</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | 24 ～ 48 時間 | TikTok は毎秒 50 件のクエリを処理し、リクエスト 1 件あたり 10,000 ユーザーを処理します。Braze は 5 秒ごとにユーザーをバッチ処理します。 | はい | {::nomarkdown}<ul><li>TikTok は最大 400 の広告オーディエンスに対応します。</li><li>TikTok オーディエンスでの広告配信の開始には、1,000 人以上のユーザーが必要です。</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
 <sup>レート制限に達すると、Braze は 13 時間にわたって同期を再試行します。</sup>
 
 ## 仕組み {#how-it-works}
 
-Audience Sync to Google または Audience Sync to Facebook を使用するには、**テクノロジーパートナー** ページでパートナーを検索して、広告アカウントを接続します。
+Audience Sync to Google または Audience Sync to Facebook を使用するには、**テクノロジーパートナー**ページでパートナーを検索して、広告アカウントを接続します。
 
 ![Facebookのテクノロジーパートナー。]({% image_buster /assets/img/audience_sync/facebook_partner.png %}){: style="max-width:35%;"} ![Google 広告のテクノロジーパートナー。]({% image_buster /assets/img/audience_sync/google_ads_partner.png %}){: style="max-width:35%;"}
 
@@ -72,7 +72,7 @@ Canvas内でユーザーがオーディエンス同期ステップに入ると�
 
 ### Audience Sync Pro
 
-TikTok、Pinterest、Snapchat、Criteo などの Audience Sync Pro パートナーを使用するには、**テクノロジーパートナー** ページの **Audience Sync Pro** セクションで Audience Sync Pro の購入割り当てに基づいてパートナーを選択できます。
+TikTok、Pinterest、Snapchat、Criteo などの Audience Sync Pro パートナーを使用するには、**テクノロジーパートナー**ページの **Audience Sync Pro** セクションで Audience Sync Pro の購入割り当てに基づいてパートナーを選択できます。
 
 ![パートナーが未選択の Audience Sync Pro。]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
@@ -84,7 +84,7 @@ Audience Sync Pro 送信先を選択したら、パートナータイルをク�
 
 ![オーディエンス同期のパートナーに選ばれた Snapchat と TikTok の例。]({% image_buster /assets/img/audience_sync/audience_sync_pro3a.png %}){: style="max-width:70%;"}
 
-![Snapchat オーディエンス同期設定。メッセージ「You successfully connected 1 Snapchat account」を表示。]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
+![Snapchat オーディエンス同期設定。「Snapchat アカウント 1 件の接続に成功しました」というメッセージを表示。]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 最後に、この Audience Sync Pro 送信先を使用して、Canvasでオーディエンス同期ステップを作成します。
 
@@ -94,7 +94,7 @@ Audience Sync Pro 送信先を選択したら、パートナータイルをク�
 
 エラーがCanvasのオーディエンス同期コンポーネントの問題（「オーディエンスが存在しない」など）に関連している場合、Canvasを設定したユーザーにメールが届きます。そのユーザーがもう存在しない場合は、会社の管理者にフォールバックされます。
 
-これらのメールの受信者を設定するには、カスタマーサクセスマネージャーに連絡し、**通知設定** で受信者を追加してください。この機能は現在の動作を変更するため、Brazeのデフォルトでは誰もオプトインされません。エラーメールを見逃さないよう、すぐにこの新しい通知設定に受信者を追加する必要があります。
+これらのメールの受信者を設定するには、カスタマーサクセスマネージャーに連絡し、**通知設定**で受信者を追加してください。この機能は現在の動作を変更するため、Brazeのデフォルトでは誰もオプトインされません。エラーメールを見逃さないよう、すぐにこの新しい通知設定に受信者を追加する必要があります。
 
 ## データプライバシーに関する考慮事項 {#data-privacy-considerations}
 

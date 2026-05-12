@@ -54,7 +54,7 @@ Im Schritt **Target Audiences** Ihres Campaign-Composers können Sie auch die Ge
 Durch Festlegen der maximalen Nutzer:innenobergrenze können Sie das Nachrichtenvolumen auf Kanalbasis oder global über alle Nachrichtentypen hinweg begrenzen. Braze versendet keine Nachrichten an Nutzer:innen, die Kontrollgruppen zugewiesen sind, sodass diese nicht auf das Limit angerechnet werden.
 
 {% alert note %}
-Die maximale Nutzer:innenobergrenze begrenzt die Anzahl der versendeten Nutzer:innen, nicht die Anzahl der erfolgreich zugestellten Nachrichten. Da abgebrochene Nachrichten auf diese Obergrenze angerechnet werden, kann die tatsächliche Anzahl gesendeter Nachrichten niedriger sein als das konfigurierte Limit. Wenn Sie beispielsweise eine Obergrenze von 10.000 festlegen und 2.000 Nachrichten aufgrund von Liquid-Logik oder anderen Bedingungen abgebrochen werden, werden nur 8.000 Nachrichten gesendet.
+Die maximale Nutzer:innenobergrenze begrenzt die Anzahl der Nutzer:innen, an die versendet wird, nicht die Anzahl der erfolgreich zugestellten Nachrichten. Da abgebrochene Nachrichten auf diese Obergrenze angerechnet werden, kann die tatsächliche Anzahl gesendeter Nachrichten niedriger sein als das konfigurierte Limit. Wenn Sie beispielsweise eine Obergrenze von 10.000 festlegen und 2.000 Nachrichten aufgrund von Liquid-Logik oder anderen Bedingungen abgebrochen werden, werden nur 8.000 Nachrichten gesendet.
 {% endalert %}
 
 ##### Maximale Nutzer:innenobergrenze mit Optimierungen {#maximum-user-cap-with-optimizations}
@@ -164,7 +164,7 @@ Anstatt zu versuchen, die Verzögerung auszugleichen und die verbleibenden 6.000
 | 7      | 10.000     | 10.000                    |
 | 8      | 5.000      | 10.000                    |
 | 9      | 0          | 6.000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rate-Limiting und Connected-Content-Wiederholungen" }
 
 Connected-Content-Anfragen werden nicht unabhängig Rate-limitiert und folgen dem Webhook-Rate-Limit. Das bedeutet, wenn es einen Connected-Content-Aufruf an einen eindeutigen Endpunkt pro Webhook gibt, würden Sie 5.000 Webhooks und auch 5.000 Connected-Content-Aufrufe pro Minute erwarten. Beachten Sie, dass Caching dies beeinflussen und die Anzahl der Connected-Content-Aufrufe reduzieren kann. Darüber hinaus können Wiederholungen die Connected-Content-Aufrufe erhöhen, daher empfehlen wir zu überprüfen, ob der Connected-Content-Endpunkt einige Schwankungen hier bewältigen kann.
 
@@ -195,7 +195,7 @@ Jede Zeile der Frequency-Caps ist mit dem `AND`-Operator verbunden, und Sie kön
 
 #### Verhalten, wenn Nutzer:innen bei einem Canvas-Schritt Frequency-gekappt werden {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
 
-Wenn Canvas-Nutzer:innen aufgrund globaler Frequency-Capping-Einstellungen Frequency-gekappt werden, rücken sie sofort zum nächsten Canvas-Schritt vor. Die Nutzer:innen verlassen das Canvas **nicht** aufgrund des Frequency-Caps.
+Wenn Canvas-Nutzer:innen aufgrund globaler Frequency-Capping-Einstellungen Frequency-gekappt werden, rücken sie sofort zum nächsten Canvas-Schritt vor. Die Nutzer:innen verlassen das Canvas nicht aufgrund des Frequency-Caps.
 
 ### Zustellungsregeln {#delivery-rules}
 

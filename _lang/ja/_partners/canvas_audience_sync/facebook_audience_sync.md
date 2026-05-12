@@ -40,7 +40,7 @@ CanvasでFacebookオーディエンスのステップを設定するには、以
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための集中型ツールです。 |
 | Facebook広告アカウント | [Facebook](https://www.facebook.com/business/help/910137316041095) | ブランドのビジネスマネージャーと結びついたアクティブなFacebook広告アカウント。<br><br>Facebook Business Managerの管理者が、Brazeで使用する予定のFacebook広告アカウントに対して「Manage Campaigns」または「Manage ad accounts」のいずれかの権限を付与していることを確認してください。また、広告アカウントの利用規約に同意していることも確認してください。 |
 | Facebookカスタムオーディエンス利用規約 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス規約に同意します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -148,7 +148,7 @@ Facebook Audience Managerのカスタムオーディエンスの**History**タ�
 | 保留中のユーザー | 現在、BrazeがFacebookへの同期処理を行っているユーザー数。 |
 | エラーが発生したユーザー数 | 約13時間の再試行後、APIエラーのためにFacebookに同期されなかったユーザーの数。エラーの原因としては、無効なFacebookトークンや、Facebook上でカスタムオーディエンスが削除された場合などが考えられます。 |
 | Canvasを退出 | Canvasを退出したユーザーの数。これは、Canvasの最後のステップがFacebookステップである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 内部処理のため、同期したユーザーとエラーが発生したユーザーの指標のレポートに遅延が生じます。
@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <caption>トラブルシューティング</caption>
   <thead>
     <tr>
@@ -265,7 +265,7 @@ table td {
     </tr>
     <tr>
       <td><b>利用規約への同意がない</b></td>
-      <td>Facebookなど、Audience Syncの送信先によっては、Audience Sync機能を使用するために特定の利用規約に同意することが広告ネットワークによって義務付けられています。このエラーは、該当する規約に同意していない場合に発生します。この場合、Brazeから「Facebookの認証情報が無効です」という件名のメールが届くこともあります。</td>
+      <td>Facebookなど、Audience Syncの送信先によっては、Audience Sync機能を使用するために特定の利用規約に同意することが広告ネットワークによって義務付けられています。このエラーは、該当する規約に同意していない場合に発生します。この場合、Brazeから「Your authorization credentials for Facebook are invalid.」という件名のメールが届くこともあります。</td>
       <td>Facebookの必要な規約に同意したことを確認してください。</td>
     </tr>
     <tr>

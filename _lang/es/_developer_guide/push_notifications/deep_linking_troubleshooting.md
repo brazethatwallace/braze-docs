@@ -25,7 +25,7 @@ Si un vínculo profundo de esquema personalizado (por ejemplo, `myapp://products
    xcrun simctl openurl booted "myapp://products/123"
    ```
    Si el enlace no funciona aquí, el problema está en el manejo de URL de tu aplicación, no en Braze.
-4. **Comprueba el formato de la URL.** Verifica que la URL en tu campaña coincida con lo que espera tu controlador. Los errores comunes incluyen componentes de ruta faltantes o uso incorrecto de mayúsculas y minúsculas.
+4. **Comprueba el formato de la URL.** Verifica que la URL en tu Campaign coincida con lo que espera tu controlador. Los errores comunes incluyen componentes de ruta faltantes o uso incorrecto de mayúsculas y minúsculas.
 
 ## El enlace universal se abre en Safari en lugar de en la aplicación {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -212,7 +212,7 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 | `Opening '<URL>': - channel: contentCard` | El SDK está procesando un enlace desde una Content Card |
 | `useWebView: true` | El SDK abre la URL en la WebView integrada en la aplicación |
 | `isUniversalLink: true` | El SDK identificó la URL como un enlace universal |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usa el registro detallado" }
 
 Para más detalles sobre cómo leer estos registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
 

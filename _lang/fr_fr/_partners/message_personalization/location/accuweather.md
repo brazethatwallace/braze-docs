@@ -19,7 +19,7 @@ _Cette intégration est maintenue par AccuWeather._
 | Condition | Description |
 |---|---|
 | Clé API AccuWeather | Contactez votre gestionnaire de compte AccuWeather pour obtenir des clés API compatibles à utiliser dans les URL de vos requêtes.<br><br>Vous trouverez des instructions supplémentaires sur la page [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## API AccuWeather disponibles {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ Voici les API AccuWeather que vous pouvez référencer dans vos Campaigns et Can
 | [Imagerie](https://apidev.accuweather.com/developers/imageryAPIguide) | Obtenez des images radar et satellites. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Obtenez la position actuelle, les positions passées et les prévisions des cyclones tropicaux dans le monde entier. |
 | [Traductions](https://apidev.accuweather.com/developers/translationsApiGuide) | Consultez la liste des langues disponibles. Obtenez des traductions pour des groupes de phrases spécifiques. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API AccuWeather disponibles" }
 
 ## Exemple de Contenu connecté {#connected-content-example}
 

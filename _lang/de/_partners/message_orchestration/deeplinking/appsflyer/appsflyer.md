@@ -27,7 +27,7 @@ Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohor
 | AppsFlyer SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started) installieren.
 | Einrichtung der E-Mail-Domain abgeschlossen | Sie müssen beim Onboarding von Braze den [Schritt zur Einrichtung von IP und Domain]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) abgeschlossen haben, um Ihre E-Mail einzurichten. |
 | SSL-Zertifikat | Ihr [SSL-Zertifikat]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) muss konfiguriert sein. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -124,15 +124,15 @@ Wenn Ihre Integration erfolgreich war, bildet Braze alle nicht-organischen Insta
 
 | AppsFlyer-Datenfeld | Braze-Segmentfilter |
 | -------------------- | --------------------- |
-| `media_source` | Attributierte Quelle |
-| `campaign` | Attribution-Campaign |
-| `af_adset` | Attributierte Anzeigengruppe |
-| `af_ad` | Attributierte Anzeige |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `media_source` | Attributed Source |
+| `campaign` | Attributed Campaign |
+| `af_adset` | Attributed Adgroup |
+| `af_ad` | Attributed Ad |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 Im Braze-Dashboard können Sie Ihre Nutzerbasis anhand von Attributionsdaten segmentieren, indem Sie die Filter für Install-Attribution verwenden.
 
-![Vier verfügbare Filter. Der erste ist „Install-Attribution-Quelle ist network_val_0“. Der zweite ist „Install-Attribution-Quelle ist campaign_val_0“. Der dritte ist „Install-Attribution-Quelle ist adgroup_val_0“. Der vierte ist „Install-Attribution-Quelle ist creative_val_0“. Neben den aufgeführten Filtern können Sie sehen, wie diese Attributionsquellen dem Nutzerprofil hinzugefügt werden. Im Feld „Install-Attribution“ auf der Informationsseite einer Nutzer:in wird die Installationsquelle als network_val_0 aufgeführt, die Campaign als campaign_val_0 usw.]({% image_buster /assets/img/braze_attribution.png %})
+![Vier verfügbare Filter. Der erste ist „Install Attribution Source ist network_val_0“. Der zweite ist „Install Attribution Source ist campaign_val_0“. Der dritte ist „Install Attribution Source ist adgroup_val_0“. Der vierte ist „Install Attribution Source ist creative_val_0“. Neben den aufgeführten Filtern können Sie sehen, wie diese Attributionsquellen dem Nutzerprofil hinzugefügt werden. Im Feld „Install Attribution“ auf der Informationsseite einer Nutzer:in wird die Installationsquelle als network_val_0 aufgeführt, die Campaign als campaign_val_0 usw.]({% image_buster /assets/img/braze_attribution.png %})
 
 Außerdem sind die Attributionsdaten für eine bestimmte Nutzer:in auf dem Profil jeder Nutzer:in im Braze-Dashboard verfügbar.
 
@@ -188,7 +188,7 @@ Damit wird bestätigt, dass die Click-Tracking-Domain auf den von Ihnen angegebe
 
 ![AppsFlyer-UI, die hervorhebt, wo Kund:innen ihre Click-Tracking-Domain und die zugehörigen Details hinzufügen sollten.]({% image_buster /assets/img/attribution/appsflyer/5.png %})
 
-Mit „Braze Endpoint“ fragt AppsFlyer nach den von Braze in [Schritt 1](#schritt-1-click-tracking-domain-erstellen) dieser Anleitung angegebenen Details, insbesondere nach der neuen CTD.
+Mit „Braze Endpoint“ fragt AppsFlyer nach den von Braze in [Schritt 1](#step-1-create-a-click-tracking-domain) dieser Anleitung angegebenen Details, insbesondere nach der neuen CTD.
 
 Klicken Sie dann auf **Validate connection**, um zu überprüfen, ob die Click-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt zeigt.
 Wenn Sie fertig sind, klicken Sie auf **Next**.
@@ -220,7 +220,7 @@ In diesem Stadium, nachdem Sie die CTD-Details in AppsFlyer freigegeben und vali
 Sie können eine Qualitätssicherung und Fehlerbehebung durchführen, indem Sie mit OneLink einen Deeplink senden. Einzelheiten zur Verwendung von OneLink finden Sie in der [AppsFlyer-Dokumentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a).
 
 Wenn CTD-Links als HTTP identifiziert werden, wenden Sie sich an das E-Mail-Ops-Team von Braze, um das SSL-Click-Tracking zu aktivieren. Dadurch wird sichergestellt, dass alle HTTP-Links automatisch in HTTPS umgewandelt werden.
-Sie können den folgenden Beispieltext für eine Nachricht verwenden, wenn Sie sich an Ihren Customer-Success-Manager wenden, oder indem Sie wie in Schritt 1 ein Ticket im Braze-Dashboard erstellen:
+Sie können den folgenden Beispieltext für eine Nachricht verwenden, wenn Sie sich an Ihren Customer-Success-Manager wenden, oder indem Sie wie in [Schritt 1](#step-1-create-a-click-tracking-domain) ein Ticket im Braze-Dashboard erstellen:
 
 ```
 Hi Team,

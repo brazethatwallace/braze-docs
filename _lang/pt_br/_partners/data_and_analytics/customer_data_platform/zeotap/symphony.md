@@ -24,7 +24,7 @@ Para criar campanhas de marketing por e-mail, integre os e-mails brutos ao Zeota
 | Nome do cliente | Esse é o nome do cliente da sua conta Braze. Você pode encontrá-lo navegando até o console da Braze. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Instância | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -109,7 +109,7 @@ Você pode encontrar detalhes de todos os campos da Braze nesta seção.
 | Idioma | Seleção suspensa | • O formato aceito é o padrão `ISO-639-1` (por exemplo, en).<br>• Faça a integração do idioma formatado corretamente e mapeie para ele. |
 | Data de nascimento | Seleção suspensa | Mapeie para o campo `Date of Birth` que você está integrando. |
 | Atributo personalizado | Entrada de dados personalizados | Mapeie qualquer atributo de usuário para uma entrada de dados personalizada, que é então enviada à Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atributos suportados" }
 
 ## Visualização de dados no console da Braze {#viewing-data-on-braze-console}
 

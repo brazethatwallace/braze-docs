@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Informationen zu Content Blocks anzeigen"
 article_title: "GET: Informationen zu Content Blocks anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 |---|---|---|---|
 | `content_block_id`  | Erforderlich | String | Der Content-Block-Bezeichner. <br><br>Sie finden diesen, indem Sie entweder die Content-Block-Informationen über einen API-Aufruf auflisten oder die Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) aufrufen, dann nach unten scrollen und nach Ihrem Content-Block-API-Bezeichner suchen.|
 | `include_inclusion_data`  | Optional | Boolescher Wert | Wenn auf `true` gesetzt, gibt die API den API-Bezeichner der Nachrichtenvariante von Campaigns und Canvases zurück, in denen dieser Content-Block enthalten ist, um ihn in nachfolgenden Aufrufen zu verwenden.  Die Ergebnisse schließen archivierte oder gelöschte Campaigns oder Canvases aus. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 {% raw %}
@@ -69,7 +69,7 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 | `Content Block ID is invalid for this workspace` | Dieser Content-Block existiert nicht oder befindet sich in einem anderen Unternehmenskonto oder Workspace. |
 | `Content Block has been deleted—content not available` | Dieser Content-Block wurde gelöscht, auch wenn er zuvor existiert hat. |
 | `Include Inclusion Data—error` | Dieser Parameter akzeptiert nur boolesche Werte (true oder false). Stellen Sie sicher, dass der Wert für `include_inclusion_data` nicht in Anführungszeichen (`""`) eingeschlossen ist, da der Wert sonst als String gesendet wird. Weitere Details finden Sie unter [Anfrageparameter](#request-parameters). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

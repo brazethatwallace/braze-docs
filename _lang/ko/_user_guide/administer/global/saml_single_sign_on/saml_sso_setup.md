@@ -21,7 +21,7 @@ description: "이 문서에서는 Braze 계정에 SAML 싱글 사인온을 활�
 | Assertion Consumer Service(ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> 유럽 연합 도메인의 경우 ACS URL은 `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`입니다. <br><br> 일부 IdP에서는 이를 Reply URL, Sign-On URL, Audience URL 또는 Audience URI라고도 합니다. |
 | Entity ID | `braze_dashboard` |
 | RelayState API 키 | **설정** > **API 키**로 이동하여 `sso.saml.login` 권한이 있는 API 키를 생성한 다음, 생성된 API 키를 IdP 내에서 `RelayState` 매개변수로 입력합니다. 자세한 단계는 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## SAML SSO 설정하기 {#setting-up-saml-sso}
 
@@ -57,7 +57,7 @@ ID 공급자에서 Braze 설정을 완료하면 ID 공급자가 Braze 계정에 
 | SAML 이름 | 로그인 화면에서 버튼 텍스트로 표시됩니다.<br>일반적으로 "Okta"와 같은 ID 공급자의 이름입니다. |
 | 타겟 URL | IdP 내에서 Braze를 설정한 후 제공됩니다.<br> 일부 IdP에서는 이를 SSO URL 또는 SAML 2.0 엔드포인트라고 합니다. |
 | 인증서 | ID 공급자가 제공하는 `x.509` 인증서입니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
 
 대시보드에 `x.509` 인증서를 추가할 때 다음 형식을 따르는지 확인하세요:
 

@@ -40,7 +40,7 @@ L'approche Crawl place le pouvoir de personnalisation directement entre les main
 
 Les marketeurs déterminent le contenu, l'audience et le moment de diffusion des messages via le tableau de bord. Les options de style sont toutefois limitées. Cette approche convient mieux aux équipes dont les ressources en développeurs sont limitées ou qui souhaitent partager rapidement un contenu simple.
 
-<table>
+<table aria-label="Aperçu de la personnalisation">
   <caption>Aperçu de la personnalisation</caption>
 <thead>
   <tr>
@@ -87,7 +87,7 @@ Au cours du processus de mise en œuvre, les développeurs écrivent du code per
 
 Les marketeurs conservent le contrôle de l'audience, du contenu, du comportement lors du clic et de l'expiration directement dans le tableau de bord de Braze.
 
-<table>
+<table aria-label="Aperçu de la personnalisation">
   <caption>Aperçu de la personnalisation</caption>
 <thead>
   <tr>
@@ -132,7 +132,7 @@ Avec l'approche Run, les développeurs prennent les commandes avec un contrôle 
 
 Lorsque vous créez un contenu personnalisé entièrement nouveau, comme de nouveaux types de Content Cards ou des messages in-app avec une interface utilisateur sur mesure, le SDK de Braze ne [suivra pas automatiquement les données analytiques]({{site.baseurl}}/developer_guide/analytics/). Vous devez gérer le suivi analytique de manière programmatique afin que les marketeurs continuent d'avoir accès à des indicateurs tels que les impressions, les clics et les rejets dans le tableau de bord de Braze. Appelez les méthodes d'analyse du SDK de Braze pour que le SDK retransmette ces données à Braze. Chaque canal de communication dispose d'un article dédié à l'analyse pour faciliter cette démarche.
 
-<table>
+<table aria-label="Aperçu de la personnalisation">
   <caption>Aperçu de la personnalisation</caption>
 <thead>
   <tr>

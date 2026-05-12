@@ -23,7 +23,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Erreurs 4XX">
   <caption>Erreurs 4XX</caption>
   <thead>
     <tr>
@@ -130,7 +130,7 @@ Les erreurs `5XX` indiquent un problème au niveau de l'endpoint. Elles sont gé
 | **529 Host Overloaded** | L'hôte de l'endpoint est surchargé et n'a pas pu répondre. |
 | **598 Host Unhealthy** | Braze a simulé la réponse parce que l'hôte de l'endpoint est temporairement marqué comme défaillant. Pour en savoir plus, consultez la section [Détection d'un hôte défaillant](#unhealthy-host-detection). |
 | **599 Connection Error** | Braze a rencontré une erreur de délai de connexion réseau en essayant d'établir une connexion à l'endpoint, ce qui signifie que l'endpoint peut être instable ou hors service. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs 5XX" }
 
 ### Résolution des erreurs 5XX {#resolving-5xx-errors}
 

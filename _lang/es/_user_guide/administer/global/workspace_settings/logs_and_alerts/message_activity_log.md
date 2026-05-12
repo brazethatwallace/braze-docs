@@ -41,13 +41,13 @@ Puedes filtrar por el siguiente contenido registrado en el **Registro de activid
 
 Estos mensajes pueden provenir de nuestro propio sistema, de tus aplicaciones o plataformas, o de nuestros socios externos. Esto puede dar lugar a un número infinito de mensajes que pueden aparecer en este registro.
 
-## Comprender los mensajes del registro
+## Comprender los mensajes del registro {#understanding-log-messages}
 
 Para determinar qué significan tus mensajes, presta atención a la redacción de cada mensaje y a las columnas que le corresponden, ya que esto puede ayudarte a solucionar problemas usando pistas contextuales.
 
 Por ejemplo, si tienes una entrada de registro cuyo mensaje dice "empty-cart_app" y no estás seguro de lo que significa, mira a la izquierda en la columna **Tipo**. Si ves "Error de mensaje cancelado", puedes asumir con seguridad que el mensaje fue lo que se escribió como [mensaje de cancelación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) usando Liquid, y que el mensaje fue cancelado porque el destinatario previsto del mensaje tenía un carrito vacío en tu aplicación.
 
-### Mensajes comunes
+### Mensajes comunes {#common-messages}
 
 Hay algunos tipos de mensajes comunes que podrías ver, y algunos incluso pueden proporcionar enlaces de solución de problemas para ayudarte a diagnosticar y corregir incidencias.
 
@@ -59,9 +59,9 @@ Los siguientes mensajes listados son a modo de ejemplo y pueden no coincidir exa
 | Rebote duro | La cuenta de correo electrónico que intentaste alcanzar no existe. Intenta verificar la dirección de correo electrónico del destinatario en busca de errores tipográficos o espacios innecesarios. | Tu mensaje nunca llegó al buzón de entrada de esta persona porque no había un buzón al que llegar. Si quieres profundizar más, mensajes como este a veces pueden tener enlaces en la columna **Visualizar detalles** que te permiten ver el perfil del destinatario previsto.|
 | Bloqueo | El mensaje de correo no deseado fue rechazado debido a la política antispam. | Tu mensaje fue categorizado como correo no deseado. Este error de correo se registra para un usuario si hemos recibido un evento del ESP indicando que el correo electrónico fue descartado. Podría ser solo para ese destinatario previsto, pero si ves este mensaje con frecuencia, es posible que quieras reevaluar tus hábitos de envío o el contenido de tu mensaje. Además, piensa: ¿[calentaste tu IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? Si no, ponte en contacto con Braze para obtener asesoramiento sobre cómo hacerlo.|
 | Error de mensaje cancelado | empty-cart_web | Si tienes una aplicación con un carrito o creas un envío con un mensaje de cancelación en Liquid, puedes personalizar qué mensaje se te devuelve si el envío se cancela. En este caso, el mensaje devuelto es empty-cart_web.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes comunes" }
 
-### ¿Por qué mi mensaje no aparece aquí?
+### ¿Por qué mi mensaje no aparece aquí? {#why-isnt-my-message-listed-here}
 
 Los mensajes en el Registro de actividad de mensajes pueden provenir de diversas fuentes: Braze, tus aplicaciones o plataformas, o nuestros socios externos. Esto significa que hay un número infinito de mensajes que podrían aparecer en este registro; como puedes imaginar, ¡no podemos listarlos todos!
 
@@ -72,11 +72,11 @@ Por ejemplo, algunos posibles mensajes de "Bloqueo", además del listado en la t
 - El mensaje fue bloqueado por el receptor como correo no deseado.
 - Servicio no disponible, host del cliente [_IP_ADDRESS_] bloqueado usando Spamhaus.
 
-## Período de retención de almacenamiento
+## Período de retención de almacenamiento {#storage-retention-period}
 
 Los errores de las últimas 60 horas están disponibles en los registros de actividad de mensajes. Los registros con más de 60 horas de antigüedad se eliminan y ya no son accesibles.
 
-### Número de registros de errores almacenados
+### Número de registros de errores almacenados {#number-of-error-logs-stored}
 
 El número de registros guardados está influenciado por varias condiciones. Por ejemplo, si una campaña planificada se envía a miles de usuarios, potencialmente veríamos una muestra de los errores en el Registro de actividad de mensajes en lugar de todos los errores. A continuación se presenta un resumen de las condiciones que afectan cuántos registros se guardan:
 - Se guardan hasta 20 registros de errores del mismo tipo de error para la misma campaña o paso en Canvas dentro de una hora fija de reloj para los siguientes tipos de error:
@@ -107,7 +107,7 @@ El número de registros guardados está influenciado por varias condiciones. Por
     - Errores de bloqueo de correo electrónico
 - Se guardan hasta 100 registros de errores de asignación de alias de usuario para el mismo espacio de trabajo dentro de una hora fija de reloj.
 
-## Envíos de prueba
+## Envíos de prueba {#test-sends}
 
 El **Registro de actividad de mensajes** muestra registros de prueba para estos canales de mensajería:
 

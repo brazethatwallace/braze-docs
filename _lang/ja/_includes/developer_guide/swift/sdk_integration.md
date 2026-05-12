@@ -35,6 +35,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | `BrazeKit` | 分析とプッシュ通知をサポートするメインSDKライブラリー。 |
 | `BrazeLocation` | 位置情報分析とジオフェンス監視をサポートする位置情報ライブラリー。 |
 | `BrazeUI` | アプリ内メッセージ、Content Cards、バナー用のBraze提供ユーザーインターフェイスライブラリー。デフォルトのUIコンポーネントを使用する場合は、このライブラリーをインポートしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -48,6 +49,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | リッチプッシュ通知をサポートする通知サービス拡張ライブラリー。 |
 | `BrazePushStory` | Push Storiesをサポートする通知コンテンツ拡張ライブラリー。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -95,6 +97,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | 位置情報分析とジオフェンス監視をサポートする位置情報ライブラリー。 |
 | `pod 'BrazeUI'` | アプリ内メッセージ、Content Cards、バナー用のBraze提供ユーザーインターフェイスライブラリー。デフォルトのUIコンポーネントを使用する場合は、このライブラリーをインポートしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | リッチプッシュ通知をサポートする通知サービス拡張ライブラリー。 |
 | `pod 'BrazePushStory'` | Push Storiesをサポートする通知コンテンツ拡張ライブラリー。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -134,7 +138,7 @@ pod update
 
 [GitHubのBraze SDKリリースページ](https://github.com/braze-inc/braze-swift-sdk/releases)に移動し、`braze-swift-sdk-prebuilt.zip`をダウンロードします。
 
-![GitHub上のBraze SDKリリースページ。]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
+!["GitHub上のBraze SDKリリースページ。"]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
 
 #### ステップ1.2：フレームワークを選択する {#step-12-choose-your-frameworks}
 
@@ -150,8 +154,9 @@ Braze Swift SDKにはさまざまなスタンドアロンのXCFrameworkが含ま
 | `BrazeKitCompat` | いいえ | `Appboy-iOS-SDK`バージョン4.X.Xで使用可能だったすべての`Appboy`および`ABK*`クラスとメソッドを含む互換性ライブラリー。使用の詳細については、[移行ガイド](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)の最小限の移行シナリオを参照してください。 |
 | `BrazeUICompat` | いいえ | `Appboy-iOS-SDK`バージョン4.X.Xの`AppboyUI`ライブラリーで使用可能だったすべての`ABK*`クラスとメソッドを含む互換性ライブラリー。使用の詳細については、[移行ガイド](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)の最小限の移行シナリオを参照してください。 |
 | `SDWebImage` | いいえ | 最小限の移行シナリオで`BrazeUICompat`によってのみ使用される依存関係。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### ステップ1.3：ファイルを準備する {#step-13-prepare-your-files}
 
@@ -178,7 +183,7 @@ Braze Swift SDKにはさまざまなスタンドアロンのXCFrameworkが含ま
 
 Xcodeプロジェクトでビルドターゲットを選択し、次に**General**を選択します。**Frameworks, Libraries, and Embedded Content**の下に、[以前に準備したファイル](#swift_step-3-prepare-your-files)をドラッグ＆ドロップします。
 
-![各Brazeライブラリーが「Embed & Sign」に設定されたXcodeプロジェクトの例。]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
+!["各Brazeライブラリーが「Embed & Sign」に設定されたXcodeプロジェクトの例。"]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
 
 {% alert note %}
 Swift SDK 12.0.0以降では、静的および動的の両方のバリアントにおいて、Braze XCFrameworksに対して常に**Embed & Sign**を選択してください。これにより、フレームワークのリソースがアプリバンドルに適切に組み込まれます。
@@ -482,8 +487,9 @@ Braze Swift SDKのデフォルトのログレベルは`.error`です。これは
 | `.info` | `BRZLoggerLevelInfo` | 一般的なSDK情報（ユーザーの変更など）+ `.error`を記録します。 |
 | `.error` | `BRZLoggerLevelError` | エラーを記録します。 |
 | `.disabled` | `BRZLoggerLevelDisabled` | ロギングは行われません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### ログレベルの設定 {#setting-the-log-level}
 

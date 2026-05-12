@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids`       | Opcional | Array de strings           | Identificadores de usuário da Braze a serem excluídos.                                                  |
 | `email_addresses` | Opcional | Array de strings           | E-mails de usuários a serem excluídos. Para saber mais, consulte [Exclusão de usuários por e-mail](#deleting-users-by-email).                                                             |
 | `phone_numbers` | Opcional | Array de strings | Números de telefone do usuário a serem excluídos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Exclusão de usuários por endereços de e-mail e números de telefone {#deleting-users-by-email-addresses-and-phone-numbers}
 
@@ -118,9 +118,9 @@ Uma resposta de sucesso confirma que a solicitação foi enfileirada, não que a
 
 Se o usuário ainda existir após vários minutos, verifique se o identificador na sua solicitação corresponde ao perfil real do usuário:
 
-- **Array `external_ids`:** Confirme se cada valor corresponde exatamente ao ID externo de um usuário.
-- **`braze_id`:** Você pode encontrar o `braze_id` de um usuário exportando os dados dele com o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) ou exportando um segmento para CSV (onde o `braze_id` aparece como "Appboy ID").
-- **Perfis somente com alias ou somente com e-mail:** Se o perfil não tiver um `external_id`, crie um segmento filtrando por **External User ID is blank** combinado com o e-mail ou número de telefone conhecido e, em seguida, exporte para CSV para obter o `braze_id`.
+- **Array `external_ids`:** confirme se cada valor corresponde exatamente ao ID externo de um usuário.
+- **`braze_id`:** você pode encontrar o `braze_id` de um usuário exportando os dados dele com o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) ou exportando um segmento para CSV (onde o `braze_id` aparece como "Appboy ID").
+- **Perfis somente com alias ou somente com e-mail:** se o perfil não tiver um `external_id`, crie um segmento filtrando por **External User ID is blank** combinado com o e-mail ou número de telefone conhecido e, em seguida, exporte para CSV para obter o `braze_id`.
 
 Para confirmar se um usuário foi excluído, chame o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) usando o mesmo tipo de identificador que você usou na solicitação de exclusão (por exemplo, incluindo o valor em `external_ids`, `braze_id` ou `user_aliases`). Se o usuário não existir mais, a resposta conterá `"users": []` e poderá incluir `"invalid_user_ids"` listando esse identificador.
 

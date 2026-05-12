@@ -29,7 +29,7 @@ Braze는 다음 키워드를 자동으로 처리하고 모든 수신 요청에 �
 | 옵트인 | `START`<br> `YES`<br> `UNSTOP` | 이러한 `Opt-In` 키워드 중 하나가 포함된 수신 요청은 구독 그룹 상태가 `subscribed`로 변경됩니다. 또한 해당 구독 그룹에 연결된 발신자 풀이 해당 고객에게 SMS, MMS 또는 RCS 메시지를 보낼 수 있게 됩니다(발신자가 지원하는 메시징 유형에 따라 다름). <br><br>사용자는 정의된 옵트인 자동 응답을 수신합니다.  |
 | 옵트아웃 | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | 이러한 `Opt-Out` 키워드 중 하나가 포함된 수신 요청은 구독 그룹 상태가 `unsubscribed`로 변경됩니다. 또한 해당 구독 그룹에 연결된 번호 풀이 더 이상 해당 고객에게 메시지를 보낼 수 없게 됩니다.<br><br>사용자는 정의된 옵트아웃 자동 응답을 수신합니다. |
 | 도움말 | `HELP`<br> `INFO` | 사용자는 정의된 도움말 자동 응답을 수신합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default keywords" }
 
 **정확한 단일 단어 메시지**만 처리됩니다(대소문자 구분 없음). `STOP PLEASE`와 같은 키워드는 [유사 옵트아웃]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)이 활성화되지 않은 경우 무시됩니다.
 
@@ -41,4 +41,4 @@ Braze는 다음 키워드를 자동으로 처리하고 모든 수신 요청에 �
 
 ## 자연어 옵트아웃 처리 {#handle-natural-language-opt-outs}
 
-표준 또는 커스텀 키워드 외의 옵트아웃 의도를 감지하기 위해 감성 분석을 사용하는 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)를 생성할 수 있습니다(예: "더 이상 문자 보내지 마세요"). 단계별 안내는 [에이전트 콘솔에서 자연어 옵트아웃 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console)를 참조하세요.
+감성 분석을 사용하여 표준 또는 커스텀 키워드 외의 옵트아웃 의도를 캡처하는 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)를 생성할 수 있습니다(예: "더 이상 문자 보내지 마세요"). 단계별 안내는 [에이전트 콘솔에서 자연어 옵트아웃 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console)를 참조하세요.

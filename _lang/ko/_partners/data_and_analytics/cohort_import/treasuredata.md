@@ -23,7 +23,7 @@ search_tag: Partner
 | Braze 데이터 가져오기 키 | Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동한 다음 **Treasure Data**를 선택하여 확인할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 | Treasure Data 고정 IP 주소 | Treasure Data의 고정 IP 주소는 이 통합의 액세스 포인트이자 연결 소스입니다. 고정 IP 주소를 확인하려면 Treasure Data 고객 성공 담당자 또는 Treasure Data 기술 지원팀에 문의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 데이터 가져오기 통합 {#data-import-integration}
 
@@ -35,11 +35,11 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Treasu
 
 Treasure Data 내에서 데이터 연결을 생성하기 전에 인증이 필요합니다. 먼저 **Integrations Hub**를 선택한 다음 **Catalog**를 선택합니다.
 
-![Treasure Data 통합 허브 카탈로그]({% image_buster /assets/img/treasure_data/cohort/cohort1.png %})
+![Treasure Data Integrations Hub Catalog]({% image_buster /assets/img/treasure_data/cohort/cohort1.png %})
 
 **Catalog**에서 Braze 통합을 검색한 다음 아이콘 위에 마우스를 올리고 **Create Authentication**을 선택합니다. 자격 증명을 입력하고 인증 이름을 지정한 다음 **Done**을 선택합니다.
 
-![Treasure Data 통합 허브 카탈로그]({% image_buster /assets/img/treasure_data/cohort/cohort2.png %})
+![Treasure Data Integrations Hub Catalog]({% image_buster /assets/img/treasure_data/cohort/cohort2.png %})
 
 ### 3단계: 코호트 오디언스 정의 {#step-3-define-your-cohort-audience}
 
@@ -61,7 +61,7 @@ Treasure Data 내에서 데이터 연결을 생성하기 전에 인증이 필요
 2. **New Query**를 선택합니다.
 3. 쿼리를 실행하여 결과 세트를 검증합니다.
 
-![Treasure Data 통합 허브 카탈로그]({% image_buster /assets/img/treasure_data/cohort/cohort3.png %})
+![Treasure Data Integrations Hub Catalog]({% image_buster /assets/img/treasure_data/cohort/cohort3.png %})
 
 ##### 사용 사례: 식별자별 코호트 동기화 {#use-case-syncing-cohorts-by-identifier}
 
@@ -163,7 +163,7 @@ FROM
 
 쿼리가 작성되면 **Export Results**를 선택합니다. 이전 단계에서 생성한 것과 같은 기존 인증을 선택하거나 출력에 사용할 새 인증을 생성할 수 있습니다.
 
-![Treasure Data 통합 허브 카탈로그]({% image_buster /assets/img/treasure_data/cohort/cohort5.png %})
+![Treasure Data Integrations Hub Catalog]({% image_buster /assets/img/treasure_data/cohort/cohort5.png %})
 
 
 | 내보내기 결과 매핑 | 설명 |
@@ -189,7 +189,7 @@ FROM
 
 #### 3.2단계: 활성화 세부 정보 입력 {#step-32-fill-out-your-activation-details}
 
-![Treasure Data 통합 활성화 세부 정보]({% image_buster /assets/img/treasure_data/cohort/cohort7.png %})
+![Treasure Data Integrations Activation Details]({% image_buster /assets/img/treasure_data/cohort/cohort7.png %})
 
 | 활성화 세부 설정 | 설명 |
 | ----------- | ----------- |
@@ -205,7 +205,7 @@ FROM
 
 #### 3.3단계: 출력 매핑 설정 {#step-33-set-up-output-mapping}
 
-![Treasure Data 통합 활성화 출력 매핑]({% image_buster /assets/img/treasure_data/cohort/cohort6.png %})
+![Treasure Data Integrations Activation Output Mapping]({% image_buster /assets/img/treasure_data/cohort/cohort6.png %})
 
 | 활성화 출력 매핑 | 설명 |
 | ----------- | ----------- |
@@ -225,7 +225,7 @@ FROM
 
 원하는 동기화 스케줄을 정의하고 활성화를 저장합니다.
 
-![Treasure Data 통합 활성화 스케줄]({% image_buster /assets/img/treasure_data/cohort/cohort8.png %})
+![Treasure Data Integrations Activation Schedule]({% image_buster /assets/img/treasure_data/cohort/cohort8.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -233,7 +233,7 @@ FROM
 
 Braze에서 **Segments**로 이동하여 새 Segment를 생성하고 필터로 **Treasure Data Cohorts**를 선택합니다. 여기에서 포함할 Treasure Data 코호트를 선택할 수 있습니다. Treasure Data 코호트 Segment가 생성되면 Campaign 또는 Canvas를 생성할 때 오디언스 필터로 선택할 수 있습니다.
 
-![Treasure Data 통합 허브 카탈로그]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
+![Treasure Data Integrations Hub Catalog]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 
 ## 사용자 매칭 {#user-matching}
 

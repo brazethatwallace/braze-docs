@@ -1,6 +1,6 @@
-# Einrichtung des Braze MCP Servers {#setting-up-the-braze-mcp-server}
+# Einrichtung des Braze MCP-Servers {#setting-up-the-braze-mcp-server}
 
-> Erfahren Sie, wie Sie den Braze MCP Server einrichten, damit Sie mit natürlichsprachlichen Tools wie Claude und Cursor mit Ihren Braze Daten interagieren können. Weitere allgemeine Informationen finden Sie unter [Braze MCP Server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Erfahren Sie, wie Sie den Braze MCP-Server einrichten, um mit Ihren Braze-Daten mithilfe von Tools für natürliche Sprache wie Claude und Cursor zu interagieren. Weitere allgemeine Informationen finden Sie unter [Braze MCP-Server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -10,12 +10,12 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 | Voraussetzung | Beschreibung |
 |--------------|-------------|
-| Braze-API-Schlüssel | Ein Braze-API-Schlüssel mit den erforderlichen Berechtigungen. Sie erstellen einen neuen Schlüssel, wenn Sie [Ihren Braze MCP Server einrichten](#create-api-key). |
-| MCP-Client | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) und [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) werden offiziell unterstützt. Sie benötigen ein Konto für einen dieser Clients, um den Braze MCP Server nutzen zu können. |
+| Braze-API-Schlüssel | Ein Braze-API-Schlüssel mit den erforderlichen Berechtigungen. Sie erstellen einen neuen Schlüssel, wenn Sie [Ihren Braze MCP-Server einrichten](#create-api-key). |
+| MCP-Client | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) und [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) werden offiziell unterstützt. Sie benötigen ein Konto für einen dieser Clients, um den Braze MCP-Server nutzen zu können. |
 | Terminal | Eine Terminal-App, mit der Sie Befehle ausführen und Tools installieren können. Verwenden Sie Ihre bevorzugte Terminal-App oder die auf Ihrem Computer vorinstallierte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Einrichtung des Braze MCP Servers
+## Einrichtung des Braze MCP-Servers
 
 ### 1. Schritt: `uv` installieren {#step-1-install-uv}
 
@@ -67,7 +67,7 @@ everything's installed!
 
 ### 2. Schritt: API-Schlüssel erstellen {#create-api-key}
 
-Der Braze MCP Server unterstützt 39 Endpunkte, die keine Daten aus Braze-Nutzerprofilen zurückgeben.
+Der Braze MCP-Server unterstützt 39 Endpunkte, die keine Daten aus Braze-Nutzerprofilen zurückgeben.
 
 So erstellen Sie Ihren API-Schlüssel:
 
@@ -88,7 +88,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
 | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 #### Canvas
 
@@ -98,7 +98,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
 | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
 #### Kataloge {#catalogs}
 
@@ -107,7 +107,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
 | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
 #### Cloud-Datenaufnahme {#cloud-data-ingestion}
 
@@ -115,7 +115,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 |----------|---------------------|
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
 
 #### Content Blocks
 
@@ -123,14 +123,14 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 #### Angepasste Attribute {#custom-attributes}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
 #### Ereignisse {#events}
 
@@ -139,7 +139,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
 | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
 #### KPIs
 
@@ -149,23 +149,23 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | `kpi.dau.data_series` |
 | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | `kpi.mau.data_series` |
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
 #### Medienbibliothek {#media-library}
 
-Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP Server unterstützt wird. Fügen Sie diese Berechtigung nur hinzu, wenn Ihr Agent Assets in Ihre Medienbibliothek hochladen soll.
+Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP-Server unterstützt wird. Fügen Sie diese Berechtigung nur hinzu, wenn Ihr Agent Assets in Ihre Medienbibliothek hochladen soll.
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
 #### Nachrichten {#messages}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
 #### Präferenzzentrum {#preference-center}
 
@@ -173,7 +173,7 @@ Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP Server unterstützt 
 |----------|---------------------|
 | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
 #### Käufe {#purchases}
 
@@ -182,7 +182,7 @@ Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP Server unterstützt 
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
 | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
 
 #### Segments
 
@@ -191,28 +191,28 @@ Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP Server unterstützt 
 | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
 | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
 #### Sendungen {#sends}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
 
 #### Sitzungen {#sessions}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
 #### SDK-Authentifizierungsschlüssel {#sdk-authentication-keys}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
 #### Abo {#subscription}
 
@@ -220,7 +220,7 @@ Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP Server unterstützt 
 |----------|---------------------|
 | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
 #### Templates
 
@@ -228,7 +228,7 @@ Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP Server unterstützt 
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
@@ -247,7 +247,7 @@ Konfigurieren Sie Ihren MCP-Client mithilfe der bereitgestellten Konfigurationsd
 
 {% tabs %}
 {% tab Claude %}
-Richten Sie Ihren MCP Server mithilfe des [Claude Desktop](https://claude.ai/download)-Konnektor-Verzeichnisses ein.
+Richten Sie Ihren MCP-Server mithilfe des [Claude Desktop](https://claude.ai/download)-Konnektor-Verzeichnisses ein.
 
 1. Gehen Sie in Claude Desktop zu **Settings** > **Connectors** > **Browse Connectors** > **Desktop Extensions** > **Braze MCP Server** > **Install**.
 2. Geben Sie Ihren API-Schlüssel und Ihre Basis-URL ein.
@@ -319,7 +319,7 @@ Ihre Konfiguration sollte in etwa wie folgt aussehen:
 }
 ```
 
-Wenn Sie fertig sind, speichern Sie die Konfiguration und starten Sie Gemini CLI neu. Führen Sie anschließend in Gemini die folgenden Befehle aus, um zu überprüfen, ob der Braze MCP Server aufgeführt ist und die Tools und das Schema zur Verwendung verfügbar sind:
+Wenn Sie fertig sind, speichern Sie die Konfiguration und starten Sie Gemini CLI neu. Führen Sie anschließend in Gemini die folgenden Befehle aus, um zu überprüfen, ob der Braze MCP-Server aufgeführt ist und die Tools und das Schema zur Verwendung verfügbar sind:
 
 ```powershell
 gemini
@@ -335,7 +335,7 @@ Sie sollten den `braze`-Server mit den verfügbaren Tools und Schemata aufgelist
 
 ### 5. Schritt: Test-Prompt senden {#step-5-send-a-test-prompt}
 
-Nachdem Sie den Braze MCP Server eingerichtet haben, senden Sie einen Test-Prompt an Ihren MCP-Client. Weitere Beispiele und Best Practices finden Sie unter [Verwendung des Braze MCP Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
+Nachdem Sie den Braze MCP-Server eingerichtet haben, senden Sie einen Test-Prompt an Ihren MCP-Client. Weitere Beispiele und Best Practices finden Sie unter [Verwendung des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
 
 {% tabs %}
 {% tab Claude %}
@@ -393,7 +393,7 @@ uvx --python 3.12 braze-mcp-server@latest
 
 ### Client-Konfiguration {#client-configuration}
 
-#### MCP-Client kann den Braze Server nicht finden {#mcp-client-cant-find-the-braze-server}
+#### MCP-Client kann den Braze-Server nicht finden {#mcp-client-cant-find-the-braze-server}
 
 1. Überprüfen Sie, ob die Syntax Ihrer MCP-Client-Konfiguration korrekt ist.
 2. Starten Sie Ihren MCP-Client nach Konfigurationsänderungen neu.

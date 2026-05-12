@@ -7,7 +7,7 @@ description: "Este artículo de referencia cubre las opciones disponibles para s
 
 ---
 
-# Preferencias de notificación
+# Preferencias de notificación {#notification-preferences}
 
 > Si quieres supervisar la mensajería y la actividad en la cuenta de tu empresa, puedes optar por configurar notificaciones específicas y seleccionar a dónde van.
 
@@ -15,13 +15,13 @@ La página **Preferencias de notificación** es donde puedes configurar quién (
 
 ![Página de preferencias de notificación en el panel de Braze]({% image_buster /assets/img_archive/notification_preferences.png %})
 
-Para acceder a esta página, ve a **Configuración** > **Configuración de administrador** > **Preferencias de notificación**.
+Para acceder a esta página, ve a **Settings** > **Admin Settings** > **Notification Preferences**.
 
 {% alert tip %}
 También puedes integrarte con Slack para recibir notificaciones. Para conocer los pasos, consulta [Enviar mensajes utilizando webhooks entrantes](https://api.slack.com/incoming-webhooks).
 {% endalert %}
 
-## Notificaciones disponibles
+## Notificaciones disponibles {#available-notifications}
 
 La siguiente tabla describe las notificaciones disponibles y qué canales se utilizan para entregarlas.
 
@@ -32,7 +32,7 @@ Si eliminas el valor predeterminado de **Destinatarios** de **Todos los usuarios
 | Notificación | Descripción | Canales de notificación disponibles |
 |--------------|-------------|-----------------|
 | Alertas de uso de API | Al seleccionar esta opción, accedes al **dashboard de uso de API**, donde puedes ir a la pestaña [**Alertas de uso de API**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/) y configurar alertas para rastrear los volúmenes clave de solicitudes de API. | Correo electrónico, Webhook |
-| Errores de credenciales de AWS | Notifica a los destinatarios cuando Braze recibe un error al intentar usar tus credenciales de Amazon Web Services para una exportación de datos. Esto incluye notificaciones de errores de credenciales para Google Cloud Services y Azure (Microsoft Cloud Services). | Correo electrónico, Webhook |
+| Errores de credenciales de AWS | Notifica a los destinatarios cuando Braze recibe un error al intentar usar tus credenciales de Amazon Web Services para una exportación de datos. Esto incluye notificaciones de errores de credenciales para Google Cloud Storage y Azure (Microsoft Cloud Services). | Correo electrónico, Webhook |
 | Campaign detenida automáticamente | Notifica a los destinatarios cuando Braze ha detenido una Campaign. | Correo electrónico |
 | Canvas detenido automáticamente | Notifica a los destinatarios cuando Braze ha detenido un Canvas. | Correo electrónico |
 | Expiración de interacción de Campaign | Notifica a los destinatarios sobre cualquier Campaign cuya información de interacción esté próxima a expirar, junto con información sobre Segments, Campaigns o Canvas que la referencien en un filtro de reorientación y que se hayan utilizado para enviar un mensaje en los últimos 30 días. | Correo electrónico |
@@ -48,15 +48,15 @@ Si eliminas el valor predeterminado de **Destinatarios** de **Todos los usuarios
 | Informe de análisis semanal | Envía un resumen de la actividad del espacio de trabajo de la semana anterior a los destinatarios cada lunes. Los destinatarios reciben un resumen de cada espacio de trabajo al que pertenecen. | Correo electrónico |
 | Límites de volumen de entrada diaria de Canvas/Campaign | Envía notificaciones cada vez que se alcanza un límite de envío. | Correo electrónico |
 | Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/) ha alcanzado su límite de ejecución con la funcionalidad actual o cuando un agente utiliza modelos que ya no están disponibles. | Correo electrónico |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificaciones disponibles" }
 
 {% alert note %}
 Los [usuarios suspendidos]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) aún pueden recibir notificaciones de Braze.
 {% endalert %}
 
-## Informe de análisis semanal
+## Informe de análisis semanal {#weekly-analytics-reporting}
 
-Braze envía opcionalmente un informe semanal por correo electrónico a las personas que designes dentro de tu empresa cada lunes a las 5 am EST. Puedes seleccionar los eventos personalizados que se incluirán en el informe semanal desde **Configuración de datos** > **Eventos personalizados**.
+Braze envía opcionalmente un informe semanal por correo electrónico a las personas que designes dentro de tu empresa cada lunes a las 5 am EST. Puedes seleccionar los eventos personalizados que se incluirán en el informe semanal desde **Data Settings** > **Custom Events**.
 
 Puedes seleccionar hasta cinco eventos para incluir en tu informe semanal:
 

@@ -61,7 +61,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `preheader` | Opcional | String | Pré-cabeçalho de e-mail usado para gerar pré-visualizações em alguns clientes. |
 | `tags` | Opcional | String | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) já devem existir. |
 | `should_inline_css` | Opcional | booleano | Ativa ou desativa o recurso `inline_css` por modelo. Se não for fornecido, a Braze usará a configuração padrão para o grupo de apps. Espera-se `true` ou `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 ```
@@ -90,6 +90,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | Todas as tags devem ser strings. | Confira se as tags estão entre aspas (`""`). |
 | Algumas tags não puderam ser encontradas. | Para adicionar uma tag ao criar um modelo de e-mail, a tag já deve existir na Braze. |
 | Valor inválido para `should_inline_css`. Esperava-se `true` ou `false`. | Esse parâmetro aceita apenas valores booleanos (true ou false). Certifique-se de que o valor de `should_inline_css` não esteja entre aspas (`""`), o que faz com que o valor seja enviado como uma string. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

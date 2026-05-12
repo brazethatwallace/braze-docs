@@ -31,7 +31,7 @@ GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS �
 
 ## 채널 가이드 {#channel-guidance}
 
-### Content Cards {#content-cards}
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
@@ -83,7 +83,7 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | Firefox | 192 x 192 px 이상 |
 | Safari | 192 x 192 px 이상 (macOS 13+ Safari 16에서 캠페인별 설정 가능) |
 | Opera | 192 x 192 px 이상 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹 푸시" }
 
 | 브라우저 | 플랫폼 | 큰 이미지 크기 |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="웹 푸시" }
 
 {% endtab %}
 {% tab 텍스트 %}
@@ -114,7 +114,7 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="웹 푸시" }
 
 {% endtab %}
 {% endtabs %}

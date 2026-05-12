@@ -149,7 +149,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Set up your source table in BigQuery" }
 
 {% alert note %}
 등록정보는 모든 행이나 사용자에 대해 필수는 아닙니다. 그러나 등록정보 값은 유효한 JSON 문자열이어야 합니다. 행에 등록정보가 없으면 빈 `{}` 문자열을 입력하세요.
@@ -178,7 +178,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 | BigQuery User | Braze가 쿼리를 실행하고, 메타데이터를 읽고, 테이블을 나열할 수 있도록 허용합니다. |
 | BigQuery Data Viewer | Braze가 데이터세트 및 콘텐츠를 볼 수 있도록 허용합니다. |
 | BigQuery Job User | Braze가 작업을 실행할 수 있도록 허용합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.3: Set up credentials" }
 
 권한을 부여한 후 JSON 키를 생성하세요. 자세한 방법은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 나중에 Braze 대시보드에 업로드하게 됩니다.
 
@@ -205,7 +205,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Set up your source table in Databricks" }
 
 스키마와 테이블 이름은 원하는 대로 지정할 수 있지만, 열 이름은 앞서 정의한 내용과 일치해야 합니다.
 
@@ -283,7 +283,7 @@ GO
 | `EXTERNAL_ID` | 예, `external_id` 또는 `alias_name`과 `alias_label` 중 하나 | 업데이트하려는 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다. |
 | `ALIAS_NAME` 및 `ALIAS_LABEL` | 예, `external_id` 또는 `alias_name`과 `alias_label` 중 하나 | 이 두 열은 사용자 별칭 오브젝트를 생성합니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다. |
 | `PROPERTIES` | 예 | Canvas에서 개인화 등록정보로 사용할 수 있는 필드의 JSON 문자열입니다. 사용자별 정보를 포함해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
 
 {% alert tip %}
 파일 이름은 AWS 규칙을 따라야 하며 고유해야 합니다. 고유성을 보장하기 위해 타임스탬프를 추가하세요. Amazon S3 동기화에 대한 자세한 내용은 [파일 저장소 통합](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations)을 참조하세요.

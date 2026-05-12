@@ -12,4 +12,4 @@
 | 자간 | 문자 사이의 가로 간격입니다. |
 | 정렬 | 드롭다운의 가로 정렬(왼쪽 또는 가운데)입니다. |
 | 패딩 | 블록 주변의 간격입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

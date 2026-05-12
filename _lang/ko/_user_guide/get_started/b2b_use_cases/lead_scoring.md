@@ -39,11 +39,11 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 ### 3단계: 타겟 오디언스 식별 {#step-3-identify-your-target-audience}
 
-#### 3a단계: Segment 선택 {#step-3a-select-segments}
+#### 3a단계: Segments 선택 {#step-3a-select-segments}
 
-모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [Segment]({{site.baseurl}}/user_guide/audience/segments/)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
+모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [Segments]({{site.baseurl}}/user_guide/audience/segments/)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
 
-![Segment와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Segments와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### 3b단계: Canvas 재진입 자격 설정 {#step-3b-set-canvas-re-eligibility}
 
@@ -184,7 +184,7 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>토큰을 가져오려면 OAuth 2.0 클라이언트 자격 증명 흐름에 대해 [연결된 앱을 구성](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)한 다음 연결된 콘텐츠를 사용하여 Salesforce에서 베어러를 가져옵니다. <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="2a단계: 웹훅 작성" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![Salesforce 웹훅 URL, PATCH HTTP 메서드, 원시 텍스트 요청 본문 및 요청 헤더로 구성되는 웹훅.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

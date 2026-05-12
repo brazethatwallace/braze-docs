@@ -40,7 +40,7 @@ Tendrás que confirmar que tienes los siguientes elementos creados y completados
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Una herramienta centralizada para administrar los activos de Facebook de tu marca (por ejemplo, cuentas de anuncios, páginas y aplicaciones). |
 | Cuenta publicitaria de Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Una cuenta de anuncios de Facebook activa vinculada al administrador de empresas de tu marca.<br><br>Asegúrate de que el administrador de tu empresa en Facebook te ha concedido permisos de "Gestionar campañas" o "Gestionar cuentas de anuncios" para las cuentas de anuncios de Facebook que piensas utilizar con Braze. Asegúrate también de que has aceptado los términos y condiciones de tu cuenta publicitaria. |
 | Términos de los públicos personalizados de Facebook | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Acepta las condiciones de públicos personalizados de Facebook para las cuentas de anuncios de Facebook que piensas utilizar con Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -97,7 +97,7 @@ Selecciona el botón **Custom Audience** para abrir el editor de componentes. A 
 Selecciona la cuenta de anuncios de Facebook deseada. En el desplegable **Choose a New or Existing Audience**, escribe el nombre de una audiencia nueva o existente.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Crear una nueva audiencia %}
 
 1. Introduce un nombre para la nueva audiencia personalizada.
 2. Selecciona **Add Users to Audience** y elige los campos que deseas sincronizar con Facebook.
@@ -110,7 +110,7 @@ Se te notificará en la parte superior del editor de pasos si la audiencia se ha
 Cuando lances un Canvas con una nueva audiencia, Braze creará la nueva audiencia personalizada al lanzar el Canvas y, posteriormente, sincronizará a los usuarios casi en tiempo real cuando entren en el paso Sincronización de audiencia.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar con una audiencia existente %}
 
 Braze ofrece la posibilidad de añadir o eliminar usuarios de las audiencias personalizadas de Facebook existentes para confirmar que estas audiencias están actualizadas. Para sincronizar con una audiencia existente, haz lo siguiente:
 
@@ -148,7 +148,7 @@ La siguiente tabla incluye métricas y descripciones que te ayudarán a comprend
 | Usuarios pendientes | Número de usuarios que están siendo procesados por Braze para sincronizarse con Facebook. |
 | Usuarios con errores | Número de usuarios que no se sincronizaron con Facebook debido a un error de la API tras unas 13 horas de reintentos. Las posibles causas de error pueden ser un token de Facebook no válido o que se haya eliminado la audiencia personalizada en Facebook. |
 | Salieron del Canvas | Número de usuarios que han salido del Canvas. Esto ocurre cuando el último paso en un Canvas es un paso de Facebook. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprender los análisis" }
 
 {% alert important %}
 Hay un retraso en los informes de métricas de usuarios sincronizados y usuarios con errores debido al procesamiento interno.
@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Solución de problemas">
   <caption>Solución de problemas</caption>
   <thead>
     <tr>

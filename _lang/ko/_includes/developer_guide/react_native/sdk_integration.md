@@ -85,7 +85,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS Push Stories에 사용되는 앱 그룹.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 다음 코드 스니펫은 `app.json` 구성 예시입니다:
 
@@ -444,7 +444,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS Push Stories에 사용되는 앱 그룹.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). 활성화되면 SDK는 [앱에서 유니버설 링크 지원](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)에 정의된 시스템 메서드로 유니버설 링크를 자동으로 전달합니다. React Native SDK v11.1.0 및 Expo Plugin v3.2.0에서 도입되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 다음 코드 스니펫은 `app.json` 구성 예시입니다:
 
@@ -550,7 +550,7 @@ npx expo prebuild
 
 #### 방법 2: React Native CLI 사용 {#method-2-using-react-native-cli}
 
-##### Android 설정 {#set-up-android-1}
+##### Android 설정
 
 **2.1단계: Kotlin Gradle 플러그인 추가**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS 설정 {#set-up-ios-1}
+##### iOS 설정
 
 **2.5단계: (선택 사항) 동적 XCFrameworks용 Podfile 구성**
 

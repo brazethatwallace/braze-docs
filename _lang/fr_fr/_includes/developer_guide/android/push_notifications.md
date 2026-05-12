@@ -4,18 +4,18 @@
 
 Les fonctionnalités suivantes sont intégrées au SDK Android de Braze. Pour utiliser d'autres fonctionnalités de notifications push, vous devrez [configurer les notifications push](#android_setting-up-push-notifications) pour votre application.
 
-|Fonctionnalité|Description|
+| Fonctionnalité | Description |
 |-------|-----------|
-|Push Stories|Les Push Stories Android sont intégrées par défaut au SDK Android de Braze. Pour en savoir plus, consultez la section [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Amorces de notifications push|Les campagnes d'amorces de notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Ceci peut se faire sans personnalisation du SDK, grâce à notre [amorce de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Push Stories | Les Push Stories Android sont intégrées par défaut au SDK Android de Braze. Pour en savoir plus, consultez la section [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/). |
+| Amorces de notifications push | Les campagnes d'amorces de notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Ceci peut se faire sans personnalisation du SDK, grâce à notre [amorce de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## À propos du cycle de vie des notifications push {#push-notification-lifecycle}
 
 Le diagramme suivant illustre la manière dont Braze gère le cycle de vie des notifications push, notamment les demandes d'autorisation, la génération de jetons et la distribution des messages.
 
 {% tabs local %}
-{% tab Granting permissions %}
+{% tab Accorder les autorisations %}
 ```mermaid
 ---
 config:
@@ -84,7 +84,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Generating push tokens %}
+{% tab Génération des jetons push %}
 ```mermaid
 ---
 config:
@@ -133,7 +133,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Displaying notifications %}
+{% tab Affichage des notifications %}
 ```mermaid
 ---
 config:
@@ -260,7 +260,7 @@ Ensuite, chargez vos identifiants JSON dans votre tableau de bord de Braze. Dans
 
 ![Le menu « Paramètres » ouvert dans Braze avec « Paramètres des applications » mis en évidence.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Sous les **Paramètres des notifications push** de votre application Android, choisissez **Firebase**, puis sélectionnez **Upload JSON File** et chargez les identifiants [que vous avez générés précédemment](#android_json). Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+Sous les **Paramètres des notifications push** de votre application Android, choisissez **Firebase**, puis sélectionnez **Upload JSON File** et chargez les identifiants [que vous avez générés précédemment](#android_json). Lorsque vous avez terminé, sélectionnez **Save**.
 
 ![Le formulaire « Push Notification Settings » avec « Firebase » sélectionné comme fournisseur de notifications push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
@@ -371,7 +371,7 @@ Pour éviter que Braze ne déclenche des requêtes réseau inutiles à chaque en
 Vous pouvez créer un nouveau service de messagerie Firebase, utiliser un service existant ou un service non Braze. Choisissez l'option qui répond le mieux à vos besoins.
 
 {% tabs local %}
-{% tab New %}
+{% tab Nouveau %}
 Braze inclut un service pour gérer la réception des notifications push et les intentions d'ouverture. Notre classe `BrazeFirebaseMessagingService` doit être enregistrée dans votre `AndroidManifest.xml` :
 
 ```xml
@@ -390,7 +390,7 @@ Avant la version 3.1.1 du SDK Braze, `AppboyFcmReceiver` était utilisé pour g�
 {% endalert %}
 {% endtab %}
 
-{% tab Existing %}
+{% tab Existant %}
 Si vous avez déjà enregistré un service de messagerie Firebase, vous pouvez passer des objets [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) à Braze via [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html). Cette méthode n'affichera une notification que si l'objet [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) provient de Braze et l'ignorera en toute sécurité dans le cas contraire.
 
 {% subtabs %}
@@ -696,7 +696,7 @@ Le nom et la description par défaut du canal peuvent également être configur�
 
 #### Tester l'affichage {#testing-display}
 
-À ce stade, vous devriez pouvoir voir les notifications envoyées par Braze. Pour tester cela, rendez-vous sur la page **Campaigns** de votre tableau de bord de Braze et créez une Campaign de **notification push**. Choisissez **Android Push** et concevez votre message. Cliquez ensuite sur l'icône en forme d'œil dans le composeur pour accéder à l'expéditeur de test. Saisissez l'ID utilisateur ou l'adresse e-mail de votre utilisateur actuel et cliquez sur **Envoyer le test**. La notification push devrait s'afficher sur votre appareil.
+À ce stade, vous devriez pouvoir voir les notifications envoyées par Braze. Pour tester cela, rendez-vous sur la page **Campaigns** de votre tableau de bord de Braze et créez une Campaign de **notification push**. Choisissez **Android Push** et concevez votre message. Cliquez ensuite sur l'icône en forme d'œil dans le composeur pour accéder à l'expéditeur de test. Saisissez l'ID utilisateur ou l'adresse e-mail de votre utilisateur actuel et cliquez sur **Send Test**. La notification push devrait s'afficher sur votre appareil.
 
 ![L'onglet « Test » d'une Campaign de notifications push dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -712,8 +712,8 @@ Pour les problèmes liés à l'analytique push, consultez notre [guide de résol
 
 Si vous souhaitez tester les notifications in-app et push via l'interface de ligne de commande, vous pouvez envoyer une seule notification via le terminal avec cURL et l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/). Vous devrez remplacer les champs suivants par les valeurs correctes pour votre cas de test :
 
-- `YOUR_API_KEY` (Accédez à **Paramètres** > **Clés API**.)
-- `YOUR_EXTERNAL_USER_ID` (Recherchez un profil sur la page **Rechercher des utilisateurs**.)
+- `YOUR_API_KEY` (Accédez à **Settings** > **API Keys**.)
+- `YOUR_EXTERNAL_USER_ID` (Recherchez un profil sur la page **Search Users**.)
 - `YOUR_KEY1` (facultatif)
 - `YOUR_VALUE1` (facultatif)
 

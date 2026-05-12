@@ -87,10 +87,6 @@ Un espace de travail met à jour son fuseau horaire de l'heure de l'Est (EST) à
 
 Suite à ce changement, un utilisateur qui effectue l'événement personnalisé à 22 h PST le 6 mars 2026 (soit 1 h EST le 7 mars 2026) est désormais inclus dans l'audience, car il se situe dans les limites du jour calendaire PST pour cette date.
 
-## Écarts dans les rapports {#reporting-discrepancies}
-
-Les fuseaux horaires des espaces de travail offrent un contrôle précis sur l'envoi des campagnes, mais vous devez être conscient des écarts potentiels dans les rapports tant que cette fonctionnalité est en accès anticipé. Recoupez les points de données et tenez compte du fuseau horaire lors de l'analyse des rapports pour les espaces de travail avec des remplacements de fuseau horaire spécifiques.
-
 ## Impact sur les données de performance {#impact-on-performance-data}
 
 La mise à jour du fuseau horaire de votre espace de travail affecte la manière dont les données de performance sont agrégées et affichées dans votre tableau de bord. Étant donné que les analyses pour des données telles que les *utilisateurs actifs quotidiens* (DAU) s'appuient sur le fuseau horaire de l'espace de travail pour définir le début et la fin d'une journée de 24 heures, une modification de ce paramètre décale ces fenêtres de reporting.

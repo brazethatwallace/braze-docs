@@ -16,7 +16,7 @@ description: "Este artículo de referencia proporciona los pasos para crear una 
 | --- | --- |
 | Autenticación de dos factores o SSO | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) para tu cuenta. |
 | Permisos correctos | Debes ser administrador de la cuenta o del espacio de trabajo, o tener permisos de usuario para "Gestionar transformaciones". |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Paso 1: Identificar una plataforma de origen {#step-1-identify-a-source-platform}
 
@@ -43,7 +43,7 @@ Este paso es opcional, pero recomendamos enviar un webhook de prueba desde tu pl
 
 Esto es lo que se ve para Typeform:
 
-![Example Data Transformation code that maps the webhook to Braze user profiles.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
+![Ejemplo de código de Transformación de datos que asigna el webhook a perfiles de usuario de Braze.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
 Es posible que Transformación de datos de Braze aún no admita plataformas externas que requieran una verificación o autenticación especial para los webhooks. Considera dejar [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal/) si te interesa utilizar este tipo de plataforma con Transformación de datos de Braze.
@@ -62,7 +62,7 @@ Transformación de datos de Braze tiene un copiloto de IA que pide a ChatGPT que
 {% endalert %}
 
 {% tabs %}
-{% tab Beginner - Track users %}
+{% tab Principiante - Seguimiento de usuarios %}
 
 Aquí, escribe código de transformación para definir cómo asignar varios valores de webhook a perfiles de usuario de Braze.
 
@@ -124,7 +124,7 @@ return brazecall;
 ¡Tu integración de webhook ya está completa!
 
 {% endtab %}
-{% tab Beginner - Update catalog items %}
+{% tab Principiante - Actualizar elementos del catálogo %}
 
 Aquí puedes escribir código de transformación para definir cómo quieres asignar varios valores de webhook a actualizaciones de elementos del catálogo de Braze.
 
@@ -196,7 +196,7 @@ return brazecall;
 ¡Tu integración de webhook ya está completa!
 
 {% endtab %}
-{% tab Advanced - Track users %}
+{% tab Avanzado - Seguimiento de usuarios %}
 
 En este paso, transformarás la carga útil del webhook de la plataforma de origen en un valor de retorno de objeto JavaScript. Este valor de retorno debe seguir el formato del cuerpo de la solicitud del punto de conexión `/users/track`:
 

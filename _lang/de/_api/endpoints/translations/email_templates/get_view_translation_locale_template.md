@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Spezifische Übersetzung und Lokalisierung für E-Mail-Template anzeigen"
 article_title: "GET: Spezifische Übersetzung und Lokalisierung für E-Mail-Template anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page

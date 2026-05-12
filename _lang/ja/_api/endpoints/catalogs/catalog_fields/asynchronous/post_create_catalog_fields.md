@@ -19,7 +19,7 @@ description: "この記事では、「カタログフィールドの作成」Bra
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_fields` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.create_fields` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -30,14 +30,14 @@ description: "この記事では、「カタログフィールドの作成」Bra
 | パラメーター | 必須 | データタイプ | 説明 |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields` | 必須 | 配列 | フィールドオブジェクトを含む配列。フィールドオブジェクトには、新しいフィールドの名前とタイプが含まれている必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
@@ -114,6 +114,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `company-size-limit-already-reached` | カタログのストレージサイズの上限に達しています。 |
 | `request-includes-too-many-fields` | 各リクエストは最大50の新規フィールドをサポートできます。 |
 | `catalog-exceeds-fields-limit` | カタログは500を超えるフィールドを持つことはできません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

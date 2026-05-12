@@ -25,7 +25,7 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
 
 ## Visualizações disponíveis {#available-views}
 
-<table>
+<table aria-label="Visualizações disponíveis">
   <caption>Visualizações disponíveis</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
 
 ## Instantâneos do perfil de usuário {#user-profile-snapshots}
 
@@ -83,7 +83,7 @@ Essas visualizações fornecem instantâneos periódicos dos atributos do perfil
 O campo `TIME` representa o momento da atualização do perfil de usuário. Para dados preenchidos retroativamente, o `TIME` é o momento do preenchimento retroativo.
 {% endalert %}
 
-### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#userdefaultattributesviewshared-schema}
+### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
@@ -104,10 +104,10 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
-### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#usercustomattributesviewshared-schema}
+### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#user_custom_attributes_view_shared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
@@ -118,11 +118,11 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## Visualizações do perfil de usuário em tempo real {#real-time-user-profile-views}
 
-Essas visualizações fornecem atualizações quase em tempo real sobre os atributos do perfil de usuário, com um atraso de dados de até 10 minutos após a ocorrência de uma atualização na Braze.
+Essas visualizações fornecem atualizações quase em tempo real sobre os atributos do perfil de usuário, com um atraso de até 10 minutos após a ocorrência de uma atualização na Braze.
 
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
@@ -140,7 +140,7 @@ Essas visualizações fornecem atualizações quase em tempo real sobre os atrib
 O campo `TIME` representa o momento da atualização do perfil de usuário. Para dados preenchidos retroativamente, o `TIME` é o momento do preenchimento retroativo.
 {% endalert %}
 
-### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#userlateststatedefaultattributesviewshared-schema}
+### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_latest_state_default_attributes_view_shared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
@@ -161,9 +161,9 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
-### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#userlateststatecustomattributeviewshared-schema}
+### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
@@ -174,7 +174,7 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
 
 ## Registros históricos de alterações {#historical-change-logs}
 
@@ -193,7 +193,7 @@ Essas visualizações armazenam registros históricos de alterações de atribut
 O campo `TIME` representa o momento da atualização do perfil de usuário. Para dados preenchidos retroativamente, o `TIME` é o momento do preenchimento retroativo.
 {% endalert %}
 
-### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#userdefaultattributeshistoryviewshared-schema}
+### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_default_attributes_history_view_shared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
@@ -216,9 +216,9 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
-### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#usercustomattributeshistoryviewshared-schema}
+### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_custom_attributes_history_view_shared-schema}
 
 | Nome da coluna     | Tipo de dados     |
 |-----------------|---------------|
@@ -231,7 +231,7 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ## Melhores práticas {#best-practices}
 
@@ -242,7 +242,7 @@ O campo `TIME` representa o momento da atualização do perfil de usuário. Para
 | **Consultas gerais** que não requerem atualizações recentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Execução rápida, com dados de até 12 horas.                          |
 | Consultas que exigem os **atributos de usuário mais recentes**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fornece atualizações quase em tempo real, mas pode ser mais lento para grandes conjuntos de dados. |
 | **Rastreamento histórico** de alterações de atributos           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Armazena alterações de atributos com granularidade de 12 horas.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
 
 ### Considerações de desempenho {#performance-considerations}
 

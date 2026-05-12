@@ -44,7 +44,7 @@ th:nth-child(5), td:nth-child(5) {
 }
 </style>
 
-<table>
+<table aria-label="기록된 이벤트 및 속성 목록">
   <caption>기록된 이벤트 및 속성 목록</caption>
     <thead>
         <tr>

@@ -36,7 +36,7 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime akt
     }
 </style>
 
-<table>
+<table aria-label="Segment-Statistiken">
   <caption>Segment-Statistiken</caption>
     <thead>
         <tr>

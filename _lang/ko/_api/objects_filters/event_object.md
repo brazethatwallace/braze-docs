@@ -68,11 +68,11 @@ Braze에서 기존 사용자 프로필만 업데이트하려면 요청 본문에
 | --- | --- |
 | 숫자 | [정수](https://en.wikipedia.org/wiki/Integer) 또는 [플로트](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
 | 부울 | `true` 또는 `false` |
-| 날짜/시간 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 또는 다음 형식 중 하나로 포맷해야 합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>배열 내에서는 지원되지 않습니다. <br><br>"T"는 플레이스홀더가 아닌 시간 지정자이므로 변경하거나 제거해서는 안 됩니다. <br><br>시간대가 없는 시간 속성은 기본적으로 UTC 자정으로 설정됩니다(회사 시간대의 자정에 해당하는 시간으로 대시보드에 표시됨). <br><br> 미래 타임스탬프가 있는 이벤트는 기본적으로 현재 시간으로 설정됩니다.  |
+| 날짜/시간 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 또는 다음 형식 중 하나로 포맷해야 합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>배열 내에서는 지원되지 않습니다. <br><br>"T"는 입력 안내가 아닌 시간 지정자이므로 변경하거나 제거해서는 안 됩니다. <br><br>시간대가 없는 시간 속성은 기본적으로 UTC 자정으로 설정됩니다(회사 시간대의 자정에 해당하는 시간으로 대시보드에 표시됨). <br><br> 미래 타임스탬프가 있는 이벤트는 기본적으로 현재 시간으로 설정됩니다. |
 | 문자열 | 255자 이하. |
 | 배열 | 배열에는 날짜/시간을 포함할 수 없습니다. |
 | 오브젝트 | 오브젝트는 문자열로 수집됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Event properties object" }
 
 배열 또는 오브젝트 값을 포함하는 이벤트 속성정보 객체는 최대 100&nbsp;KB의 이벤트 속성정보 페이로드를 가질 수 있습니다.
 
@@ -89,7 +89,7 @@ Braze에서 기존 사용자 프로필만 업데이트하려면 요청 본문에
 
 ### 이벤트 속성정보 지속성 {#event-property-persistence}
 
-이벤트 속성정보는 상위 이벤트에 의해 트리거된 메시지를 필터링하고 Liquid 개인화를 수행할 수 있도록 설계되었습니다. 기본적으로 이러한 정보는 Braze 사용자 프로필에 유지되지 않습니다. 세분화에서 이벤트 속성정보 값을 사용하려면 이벤트 속성정보 값을 장기 저장하는 다양한 접근 방식에 대해 자세히 설명하는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요.
+이벤트 속성정보는 상위 이벤트에 의해 트리거된 메시지를 필터링하고 Liquid 개인화를 수행할 수 있도록 설계되었습니다. 기본적으로 이러한 정보는 Braze 고객 프로필에 유지되지 않습니다. 세분화에서 이벤트 속성정보 값을 사용하려면 이벤트 속성정보 값을 장기 저장하는 다양한 접근 방식에 대해 자세히 설명하는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요.
 
 #### 이벤트 예제 요청 {#event-example-request}
 

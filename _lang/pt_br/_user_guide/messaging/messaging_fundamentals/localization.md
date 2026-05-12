@@ -33,7 +33,8 @@ Nesta abordagem, a localização é aplicada a um único modelo na Braze usando 
 | Vantagens | Considerações |
 | --- | --- |
 | - Abordagem centralizada<br>- Tempo reduzido de criação de e-mail, sem necessidade de criar o mesmo e-mail várias vezes | - Criação manual de relatórios<br>- O relatório da Campaign mostra métricas agregadas em vez de métricas por país<br>- É necessário testar o Liquid minuciosamente para garantir que ele seja preenchido conforme esperado<br>- Dependendo de como você obtém o valor do país ou de quantos países você configurou, pode ser difícil testar cada país<br>- Mais difícil programar envios para horários específicos em diferentes fusos horários<br>- Mais difícil de usar se você quiser enviar conteúdo diferente por país. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| --- | --- | --- |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template for all" }
 
 ### Um modelo por país {#one-template-per-country}
 
@@ -46,7 +47,7 @@ Nesta abordagem, os modelos são separados em diferentes localidades de envio. A
 | Vantagens | Considerações |
 | --- | --- |
 | - Escalável para múltiplas localidades<br>- Relatórios de receita por país dentro da Braze (como por Campaign)<br>- Flexibilidade se houver conteúdo drasticamente diferente por país | - Requer estruturação estratégica<br>- Mais esforço de construção necessário (como Campaigns separadas para cada país) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template per country" }
 {% endtab %}
 
 {% tab canvas %}
@@ -59,7 +60,7 @@ Após o envio de um Canvas, o dashboard fornece [análises agregadas do Canvas](
 | Vantagens | Considerações |
 | --- | --- |
 | - Abordagem centralizada<br>- Tempo reduzido de criação de e-mail — sem necessidade de criar o mesmo e-mail várias vezes. | - Criação manual de relatórios<br>- O relatório do Canvas mostra métricas agregadas em vez de métricas por país<br>- É necessário testar o Liquid minuciosamente para garantir que ele seja preenchido conforme esperado<br>- Dependendo de como você obtém o valor do país ou de quantos países você configurou, pode ser difícil testar cada país<br>- Mais difícil programar envios para horários específicos em diferentes fusos horários<br>- Mais difícil de usar se você quiser enviar conteúdo diferente por país. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey for all" }
 
 ### Uma jornada por país {#one-journey-per-country}
 
@@ -75,7 +76,7 @@ Após o envio, o dashboard fornece análises dinâmicas por país e, dentro dos 
 | Vantagens | Considerações |
 | --- | --- |
 | - Relatórios de receita por país dentro da Braze (como por Canvas, variante ou etapa)<br>- Flexibilidade se houver conteúdo drasticamente diferente por país<br>- Possibilidade de adicionar outros canais como parte da jornada no futuro | - Requer estruturação estratégica<br>- Mais esforço de construção necessário (como etapas de mensagem separadas para cada país)<br>- O Canvas pode ficar grande e difícil de ler se você tiver jornadas personalizadas e complexas para cada país em um único Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey per country" }
 {% endtab %}
 {% endtabs %}
 
@@ -225,7 +226,7 @@ Crie um CSV no seguinte formato:
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Alternative approaches" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -293,7 +294,7 @@ Primeiro, construa a planilha do Google de forma que os idiomas sejam objetos di
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 1: Format the Google sheet" }
 
 #### Etapa 2: Use a tag Liquid de idioma em uma chamada de Conteúdo conectado {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 

@@ -58,7 +58,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 | `RANDOM_UUID` | リクエスト時に Braze によって生成されるランダム UUID。 | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | UTC でエクスポートが要求された Unix 時間（2017-01-01:00:00:00Z からの秒数）。 | `1556044807` |
 | `filename` | ファイルごとにランダム。 | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="認証情報ベースの応答の詳細" }
 
 {% enddetails %}
 
@@ -95,7 +95,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。このパラメーターに `custom_attributes` を含めることで、すべてのカスタム属性をエクスポートすることもできます。エクスポートできるフィールドの完全なリストについては、[エクスポートするフィールド](#fields-to-export)を参照してください。 |
 | `custom_attributes_to_export` | オプション | 文字列の配列 | エクスポートする特定のカスタム属性の名前。最大500個のカスタム属性をエクスポートできます。ダッシュボードでカスタム属性の作成および管理を行うには、**データ設定** > **カスタム属性**に移動します。 |
 | `output_format` | オプション | 文字列 | ファイルの出力形式。デフォルトは `zip` ファイル形式です。独自の S3 バケットを使用している場合は、`zip` または `gzip` を指定できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
 `fields_to_export` パラメーターに `custom_attributes` が含まれている場合、`custom_attributes_to_export` の内容に関係なく、すべてのカスタム属性がエクスポートされます。特定の属性をエクスポートすることが目的の場合は、`custom_attributes` を `fields_to_export` パラメーターに含めないでください。代わりに、`custom_attributes_to_export` パラメーターを使用してください。
@@ -165,7 +165,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignおよびCanvasのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
 | `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 ## 重要な注意事項 {#important-reminders}
 

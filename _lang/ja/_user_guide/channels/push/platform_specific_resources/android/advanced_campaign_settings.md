@@ -20,15 +20,15 @@ tool:
 
 通知IDは、任意のメッセージカテゴリに対するユニークな識別子で、メッセージングサービスに対してそのIDの最新メッセージのみを尊重するよう指示します。通知IDを設定すると、古くなった無関係なメッセージの山ではなく、最新かつ関連性の高いメッセージのみを送信できます。
 
-通知IDを割り当てるには、IDを追加したいプッシュの作成ページに移動し、**設定**タブを選択します。**通知ID**セクションに整数を入力してください。この通知を発行後に更新するには、以前使用したものと同じIDで別の通知を送信します。
+通知IDを割り当てるには、IDを追加したいプッシュの作成ページに移動し、**Settings**タブを選択します。**Notification ID**セクションに整数を入力してください。この通知を発行後に更新するには、以前使用したものと同じIDで別の通知を送信します。
 
 ![通知IDフィールド。]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
-## 有効期間 (TTL) {#ttl}
+## 有効期間（TTL） {#ttl}
 
-**有効期間**フィールドでは、プッシュメッセージングサービスにメッセージを保存するカスタムの期間を設定できます。デバイスがTTLを超えてオフラインのままの場合、メッセージは期限切れとなり配信されません。
+**Time to Live**フィールドでは、プッシュメッセージングサービスにメッセージを保存するカスタムの期間を設定できます。デバイスがTTLを超えてオフラインのままの場合、メッセージは期限切れとなり配信されません。
 
-Androidプッシュの有効期間を編集するには、コンポーザーに移動して**設定**タブを選択します。**有効期間**フィールドを見つけ、日、時間、または秒で値を入力します。
+Androidプッシュの有効期間を編集するには、コンポーザーに移動して**Settings**タブを選択します。**Time to Live**フィールドを見つけ、日、時間、または秒で値を入力します。
 
 有効期間のデフォルト値は、管理者が[プッシュ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/)ページで定義します。デフォルトでは、Brazeは各プッシュメッセージングサービスの最大値にプッシュTTLを設定します。デフォルトのTTL設定はグローバルに適用されますが、Campaign作成時にメッセージレベルで上書きできます。これは、Campaignごとに緊急度や配信時間枠が異なる場合に便利です。
 
@@ -54,13 +54,13 @@ Androidプッシュの有効期間を編集するには、コンポーザーに�
 
 ## Firebaseメッセージング配信優先度 {#fcm-priority}
 
-**Firebaseメッセージング配信優先度**フィールドでは、プッシュをFirebase Cloud Messagingに「通常」または「高」の優先度で送信するかを制御できます。この設定は、メッセージの配信速度とデバイスのバッテリー寿命への影響を決定します。
+**Firebase Messaging Delivery Priority**フィールドでは、プッシュをFirebase Cloud Messagingに「通常」または「高」の優先度で送信するかを制御できます。この設定は、メッセージの配信速度とデバイスのバッテリー寿命への影響を決定します。
 
 | 優先度 | 説明 | 最適な用途 |
 |---------|-------------|----------|
 | 通常 | バッテリーを節約するために遅延する可能性のある、バッテリー最適化配信 | 緊急でないコンテンツ、プロモーションオファー、ニュース更新 |
 | 高 | バッテリー消費が高くなるが即時配信 | 時間に敏感な通知、重要なアラート、ライブイベント更新、アカウントアラート、速報ニュース、緊急リマインダー |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
 
 #### 考慮事項 {#considerations}
 
@@ -84,7 +84,7 @@ Androidプッシュの有効期間を編集するには、コンポーザーに�
 
 ## カスタムURI {#custom-uris}
 
-**カスタムURI**機能では、通知がクリックされたときに移動するWeb URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに移動します。カスタムURIを使用して、アプリ内へのディープリンクや、アプリ外のリソースへのユーザー誘導も可能です。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはプッシュコンポーザーの**作成**タブで指定できます。
+**Custom URI**機能では、通知がクリックされたときに移動するWeb URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに移動します。カスタムURIを使用して、アプリ内へのディープリンクや、アプリ外のリソースへのユーザー誘導も可能です。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはプッシュコンポーザーの**Compose**タブで指定できます。
 
 ![カスタムURIフィールド。]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -109,7 +109,7 @@ AndroidまたはFire OSプッシュ通知に設定できる優先度レベルに
 | デフォルト | ほとんどの通知。メッセージが他の優先度タイプに明確に該当しない場合に使用します。 | `0` |
 | 低 | ユーザーに知ってほしいが、即座のアクションを必要としない情報。 | `-1`|
 | 最小 | 文脈に応じた情報またはバックグラウンド情報。 | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
 
 詳細については、Googleの[Android通知](http://developer.android.com/design/patterns/notifications.html)に関するドキュメントを参照してください。
 
@@ -137,7 +137,7 @@ Androidプッシュ通知では、通知が事前定義されたカテゴリに�
 | ステータス | デバイスまたはコンテキストステータスに関する継続的な情報。 |
 | システム | システムまたはデバイスのステータス更新。システム使用のために予約されています。 |
 | トランスポート | 再生用のメディアトランスポートコントロール。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push category" }
 
 ## プッシュの表示設定 {#push-visibility}
 
@@ -148,7 +148,7 @@ Androidプッシュ通知には、ユーザーのロック画面で通知がど�
 | パブリック | 通知がロック画面に表示されます |
 | プライベート | 通知はメッセージとして「コンテンツが非表示」と表示されます |
 | シークレット | 通知はロック画面に表示されません |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push visibility" }
 
 さらに、Androidユーザーはデバイスの通知プライバシー設定を変更することで、プッシュ通知のロック画面での表示方法を上書きできます。この設定はプッシュ通知の表示設定を上書きします。
 
@@ -166,7 +166,7 @@ Android Oでは、通知サウンドは通知チャネルのプロパティに�
 
 Android Oより前のバージョンのAndroidを実行しているデバイスの場合、Brazeではダッシュボードコンポーザーを通じて個別のプッシュメッセージのサウンドを設定できます。デバイス上のローカルサウンドリソースを指定することで設定できます（例：`android.resource://com.mycompany.myapp/raw/mysound`）。
 
-このフィールドで**デフォルト**を選択すると、デバイスのデフォルト通知サウンドが再生されます。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはプッシュコンポーザーの**設定**で指定できます。
+このフィールドで**Default**を選択すると、デバイスのデフォルト通知サウンドが再生されます。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはプッシュコンポーザーの**Settings**で指定できます。
 
 ![「サウンド」フィールド。]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

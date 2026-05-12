@@ -21,7 +21,7 @@ Fügt ein klickbares Element für Aktionen wie das Öffnen eines Links oder das 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 {% alert important %}
-Wenn Sie einen Button mit **Formular absenden, wenn Button angeklickt wird** konfigurieren und eine Web-URL in einem neuen Tab öffnen, blockiert iOS Safari möglicherweise die Navigation. Öffnen Sie die URL nach dem Absenden im selben Tab, wenn Sie Formulare absenden. Weitere Informationen finden Sie unter [Landing-Pages erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
+Wenn Sie einen Button mit **Submit form when button is clicked** konfigurieren und eine Web-URL in einem neuen Tab öffnen, blockiert iOS Safari möglicherweise die Navigation. Öffnen Sie die URL nach dem Absenden im selben Tab, wenn Sie Formulare absenden. Weitere Informationen finden Sie unter [Landing-Pages erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
 {% endalert %}
 
 ### Optionsfeld {#radio-button}
@@ -65,7 +65,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Benutzerdefinierter Code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer

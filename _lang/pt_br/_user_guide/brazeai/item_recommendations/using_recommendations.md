@@ -24,7 +24,7 @@ Antes de usar recomendações no seu envio de mensagens, você precisará [criar
 Depois que sua recomendação terminar o treinamento, você pode personalizar suas mensagens com Liquid para inserir os produtos mais populares naquele catálogo.
 
 {% tabs local %}
-{% tab pre-formatted code %}
+{% tab código pré-formatado %}
 ![Modal "Adicionar personalização" com recomendação de item como o tipo de personalização.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
 Você pode gerar Liquid na seção **Adicionar personalização** no seu criador de mensagens:
@@ -37,14 +37,14 @@ Você pode gerar Liquid na seção **Adicionar personalização** no seu criador
 6. Selecione o ícone **Copiar** e cole o Liquid onde for necessário na sua mensagem.
 {% endtab %}
 
-{% tab custom code %}
+{% tab código personalizado %}
 Você pode escrever código Liquid personalizado referenciando o objeto `product_recommendation` de um catálogo. Ele contém todos os dados de recomendação do produto gerados dinamicamente para aquele catálogo, estruturados como um array de objetos, onde cada objeto representa um item recomendado.
 
 | Especificação | Informações |
 | ------------- | ----------- |
 | **Estrutura** | Cada item é acessado como `items[index]`, onde o índice começa em 0 (para o primeiro item) e incrementa para os itens subsequentes. |
 | **Campos do catálogo** | Cada item do array contém pares de chave-valor correspondentes a campos (colunas) no catálogo. Por exemplo, os campos comuns do catálogo para recomendações do produto incluem:<br>- `name` ou `title`<br>- `price`<br>- `image_url` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Adicione código Liquid" }
 
 Use a tag `assign` para buscar os dados de `product_recommendation` e atribuí-los a uma variável.
 
@@ -60,7 +60,7 @@ Substitua o seguinte:
 | ---------------- | --------- |
 | `recommendation_name` | O nome da recomendação de IA que você criou na Braze. |
 | `items` | A variável que armazena o array de itens recomendados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Adicione código Liquid" }
 
 Em seguida, faça referência a itens específicos e seus campos usando indexação de array e notação de ponto:
 
@@ -110,7 +110,7 @@ Substitua o seguinte:
 | ---------------- | --------- |
 | `recommendation_name` | O nome da sua recomendação. |
 | `image_url_field` | O nome do campo no seu catálogo que contém URLs de imagens. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Referencie uma imagem (opcional)" }
 
 Para incluir uma imagem de espaço reservado na sua pré-visualização e nos e-mails de teste, selecione **Escolher imagem** e escolha uma imagem da sua Biblioteca de mídia ou insira a URL de uma imagem do seu site de hospedagem.
 {% endtab %}
@@ -131,6 +131,6 @@ Substitua o seguinte:
 | ---------------- | --------- |
 | `recommendation_name` | O nome da sua recomendação. |
 | `image_url_field` | O nome do campo no seu catálogo que contém URLs de imagens. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Referencie uma imagem (opcional)" }
 {% endtab %}
 {% endtabs %}

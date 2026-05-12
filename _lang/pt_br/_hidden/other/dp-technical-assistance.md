@@ -117,7 +117,7 @@ Observe que o endereço de e-mail ou o número de telefone associado ao perfil d
     <ul>
         <li>PROPERTIES para USERS_BEHAVIORS_CUSTOMEVENT</li>
         <li>PROPERTIES para USERS_BEHAVIORS_PURCHASE</li>
-        <li>MESSAGE_EXTRAS para:</li>
+        <li>MESSAGE_EXTRAS para:
             <ul>
             <li>USERS_MESSAGES_CONTENTCARD</li>
             <li>USERS_MESSAGES_EMAIL_SEND</li>
@@ -127,6 +127,7 @@ Observe que o endereço de e-mail ou o número de telefone associado ao perfil d
             <li>USERS_MESSAGES_SMS_SEND</li>
             <li>Eventos futuros de envio de mensagens</li>
             </ul>
+        </li>
     </ul>
     <p>As configurações para isso podem ser acessadas em <b>Company Settings</b> > <b>Admin Settings</b> > <b>Security Settings</b>. As preferências de exclusão de dados são definidas por tipo ou categoria de evento. Somente um usuário com permissões de administrador pode fazer alterações nessas configurações. Como alternativa, um administrador pode delegar essas permissões a outro usuário.</p>
     <p>Se um tipo de evento ou extra de mensagem for definido para ser incluído no processo de exclusão, os dados desse campo serão excluídos dali em diante para os usuários para os quais você estiver executando o endpoint da REST API de exclusão de usuário. Além disso, quando você selecionar essa preferência de exclusão, no próximo trabalho de exclusão programado, os dados desses campos serão excluídos de quaisquer conjuntos de dados anonimizados existentes que contenham esses campos. Não será possível restaurar os campos de dados excluídos.</p>
@@ -137,7 +138,7 @@ Observe que o endereço de e-mail ou o número de telefone associado ao perfil d
 
 #### Análise de dados {#analytics}
 
-Para manter a integridade da análise de uso de Campaign e aplicativos, os dados agregados anônimos não serão modificados quando um usuário final for excluído. Por exemplo, a Braze não diminuirá o número total de sessões de um app quando um usuário final for excluído. A(s) sessão(ões) em que esse usuário final visitou o aplicativo ainda será(ão) incluída(s) no número total de visitas a esse aplicativo, mas esses dados não serão conectados de forma alguma ao perfil do usuário final esquecido, garantindo que esses dados anonimizados e agregados não possam ser vinculados a um usuário final individual.
+Para manter a integridade da análise de uso de Campaigns e aplicativos, os dados agregados anônimos não serão modificados quando um usuário final for excluído. Por exemplo, a Braze não diminuirá o número total de sessões de um app quando um usuário final for excluído. A(s) sessão(ões) em que esse usuário final visitou o aplicativo ainda será(ão) incluída(s) no número total de visitas a esse aplicativo, mas esses dados não serão conectados de forma alguma ao perfil do usuário final esquecido, garantindo que esses dados anonimizados e agregados não possam ser vinculados a um usuário final individual.
 
 As análises de dados nos Serviços Braze estão vinculadas ao identificador de usuário final da Braze. Depois que o perfil do usuário final for excluído, o identificador de usuário da Braze se tornará efetivamente um identificador completamente anônimo, pois a Braze não poderá vinculá-lo a nenhum usuário final individual.
 

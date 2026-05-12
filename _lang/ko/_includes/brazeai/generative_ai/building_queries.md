@@ -8,7 +8,7 @@
 
 ### 1단계: SQL 쿼리 생성 {#step-1-create-an-sql-query}
 
-새 쿼리를 생성하려면 **분석** > **쿼리 빌더**로 이동한 다음 **SQL 쿼리 생성**을 선택합니다.
+새 쿼리를 생성하려면 **Analytics** > **쿼리 빌더**로 이동한 다음 **SQL 쿼리 생성**을 선택합니다.
 
 !["SQL 쿼리 생성" 드롭다운에 있는 "쿼리 템플릿" 및 "SQL 편집기" 옵션.]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
@@ -16,7 +16,7 @@
 
 보고서에는 현재 날짜와 시간으로 자동으로 이름이 지정됩니다. 이름 위에 마우스를 올리고 <i class="fas fa-pencil" alt="편집"></i>을 선택하여 SQL 쿼리에 의미 있는 이름을 지정하세요.
 
-![보고서 이름 예시: "2025년 5월 채널 참여도".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
+![보고서 이름 예시: "Channel engagement for May 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
 ### 2단계: 쿼리 구축 {#step-2-build-your-query}
 
@@ -73,7 +73,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 이 쿼리는 최대 100개의 행으로 세 개의 ID와 연관된 이름 열을 모두 조회합니다:
 
@@ -100,7 +100,7 @@ LIMIT 100
 
 CSV 보고서를 다운로드하려면 **내보내기**를 선택합니다.
 
-![템플릿 쿼리 "지난 30일 동안의 채널 참여도 및 매출"에 대한 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
+![템플릿 쿼리 "Channel engagement and revenue for the last 30 days"에 대한 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
 각 보고서는 하루에 한 번만 결과를 생성할 수 있습니다. 같은 보고서를 하루에 여러 번 실행하면 각 보고서에서 동일한 결과가 표시됩니다.

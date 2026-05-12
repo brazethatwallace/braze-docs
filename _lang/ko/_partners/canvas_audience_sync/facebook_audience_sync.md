@@ -40,7 +40,7 @@ Canvas에서 Facebook 오디언스 단계를 설정하기 전에 다음 항목�
 | Facebook 비즈니스 매니저 | [Facebook](https://www.facebook.com/business/help/113163272211510) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
 | Facebook 광고 계정 | [Facebook](https://www.facebook.com/business/help/910137316041095) | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 매니저 관리자가 Braze와 함께 사용할 Facebook 광고 계정에 대해 "Manage Campaigns" 또는 "Manage ad accounts" 권한을 부여했는지 확인하세요. 또한 광고 계정 이용약관에 동의했는지 확인하세요. |
 | Facebook 커스텀 오디언스 약관 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Braze와 함께 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -148,7 +148,7 @@ Facebook 오디언스 매니저에서 커스텀 오디언스의 **History** 탭�
 | 대기 중인 사용자 | 현재 Braze에서 Facebook으로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | 오류 발생 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Facebook에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Facebook 토큰 또는 Facebook에서 커스텀 오디언스가 삭제된 경우가 포함됩니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수입니다. Canvas의 마지막 단계가 Facebook 단계인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 동기화된 사용자 및 오류 발생 사용자 측정기준에 대한 보고는 내부 처리로 인해 지연될 수 있습니다.
@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <caption>문제 해결</caption>
   <thead>
     <tr>

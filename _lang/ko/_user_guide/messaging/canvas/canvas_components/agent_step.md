@@ -25,7 +25,7 @@ toc_headers: h2
 
 이 변수는 세 가지 주요 방식으로 사용할 수 있습니다:
 
-- **의사결정:** 에이전트의 응답에 따라 사용자를 다른 Canvas 경로로 라우팅합니다. 예를 들어, 리드 스코어링 에이전트가 1에서 10 사이의 숫자를 반환할 수 있습니다. 이 점수를 사용하여 사용자에게 계속 메시지를 보낼지 또는 여정에서 제외할지 결정할 수 있습니다.
+- **의사결정:** 에이전트의 응답에 따라 사용자를 다른 Canvas 경로로 라우팅합니다. 예를 들어, 리드 스코어링 에이전트가 "Sales Ready", "Marketing Qualified" 또는 "Disqualified"와 같은 리드 카테고리를 반환할 수 있습니다. 이 할당을 사용하여 "Sales Ready" 리드에 대해 Slack 알림이나 자동 메시지를 트리거하고, "Disqualified" 리드는 여정에서 제외할 수 있습니다.
 - **개인화:** 에이전트의 응답을 메시지에 직접 삽입합니다. 예를 들어, 에이전트가 고객 피드백을 분석하고 고객의 의견을 참조하며 해결 방안을 제안하는 공감적인 후속 이메일을 생성할 수 있습니다.
 - **사용자 데이터 처리:** 사용자 데이터를 분석하고 표준화한 다음 고객 프로필에 저장하거나 웹훅을 사용하여 전송합니다. 예를 들어, 에이전트가 감성 점수나 제품 친밀도 할당을 반환할 수 있습니다. 해당 데이터를 고객 프로필에 저장하여 향후 사용할 수 있습니다.
 
@@ -51,9 +51,9 @@ toc_headers: h2
 | 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)에서의 라우팅 |
 | 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)에서의 예/아니오 분기 |
 | 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 위의 데이터 유형 중 하나 이상을 활용 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
-컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **컨텍스트 변수** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
+컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
 오브젝트 출력 변수에서 특정 등록정보를 사용하려면, Liquid에서 점 표기법을 사용하여 해당 등록정보에 접근합니다: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -80,7 +80,7 @@ toc_headers: h2
 - 연결된 모델이 사용량 제한 오류를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 재시도합니다.
 - 에이전트가 다른 이유(예: 타임아웃 오류 또는 잘못된 API 키)로 실패하면, 출력 변수는 `null`로 설정됩니다.
     - 에이전트가 일일 호출 한도에 도달하면, 출력 변수는 `null`로 설정됩니다.
-- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
+- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **Add Personalization** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다.
     - 캐시된 값을 사용하는 응답도 총 호출 수 및 일일 호출 수에 포함됩니다.
 - 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. 이 단계에서 아직 대기 중인 사용자가 보이면, 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
@@ -94,7 +94,7 @@ toc_headers: h2
 | _진입_ | 사용자가 에이전트 단계에 진입한 횟수입니다. |
 | _다음 단계로 진행_ | 에이전트 단계를 통과한 후 플로우의 다음 단계로 진행한 사용자 수입니다. |
 | _Canvas 종료_ | 에이전트 단계를 통과한 후 Canvas를 종료한 사용자 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 
 ## 모범 사례 {#best-practices}
 
@@ -112,7 +112,7 @@ toc_headers: h2
 
 기존 여정 대비 에이전트의 성능과 크레딧 소비를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) 단계를 추가하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
 
-예를 들어, 하루에 수천 명의 사용자를 에이전트가 있는 경로로 보내고 나머지는 대조군 경로 또는 에이전트가 없는 경로로 보냅니다. 1~2주간 데이터를 수집하고 경로 간 핵심 성과 지표(KPI), 반대 측정기준, 에이전트 크레딧 소비를 비교한 후 에이전트 활성화 분기로의 트래픽을 늘리세요.
+예를 들어, 약 25,000회의 호출을 사용하여 하루에 2,000명의 사용자를 에이전트가 있는 경로로 보내고 나머지는 대조군 경로 또는 에이전트가 없는 경로로 보냅니다. 1~2주간 데이터를 수집하고 경로 간 핵심 성과 지표(KPI), 반대 측정기준, 에이전트 크레딧 소비를 비교한 후 에이전트 활성화 분기로의 트래픽을 늘리세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -120,10 +120,10 @@ toc_headers: h2
 
 일반적으로, 특정 상황별 데이터를 LLM에 제공하고 사람이 처리할 수 없는 규모로 Canvas 컨텍스트 변수를 지능적으로 할당하도록 하려는 경우 에이전트 단계를 사용하는 것을 권장합니다.
 
-예를 들어, 이전에 초콜릿과 딸기를 주문한 사용자에게 새로운 아이스크림 맛을 추천하는 개인화된 메시지를 보낸다고 가정해 보겠습니다. 에이전트 단계와 AI 항목 추천을 사용하는 경우의 차이점은 다음과 같습니다:
+예를 들어, 이전에 초콜릿과 딸기를 주문한 사용자에게 새로운 아이스크림 맛을 추천하는 개인화된 메시지를 보낸다고 가정해 보겠습니다. 에이전트 단계와 인공지능 항목 추천을 사용하는 경우의 차이점은 다음과 같습니다:
 
 - **에이전트 단계:** LLM을 사용하여 에이전트에 제공된 지침과 컨텍스트 데이터 포인트를 기반으로 사용자가 원할 수 있는 것에 대해 정성적인 결정을 내립니다. 이 예에서 에이전트 단계는 사용자가 다른 맛을 시도하고 싶어할 가능성을 기반으로 새로운 맛을 추천할 수 있습니다.
-- **AI 항목 추천:** 머신 러닝 모델을 사용하여 구매와 같은 과거 사용자 이벤트를 기반으로 사용자가 가장 원할 가능성이 높은 제품을 예측합니다. 이 예에서 AI 항목 추천은 사용자의 이전 두 주문(초콜릿과 딸기)과 워크스페이스 내 다른 사용자의 행동을 비교하여 맛(바닐라)을 제안합니다.
+- **인공지능 항목 추천:** 머신 러닝 모델을 사용하여 구매와 같은 과거 사용자 이벤트를 기반으로 사용자가 가장 원할 가능성이 높은 제품을 예측합니다. 이 예에서 인공지능 항목 추천은 사용자의 이전 두 주문(초콜릿과 딸기)과 워크스페이스 내 다른 사용자의 행동을 비교하여 맛(바닐라)을 제안합니다.
 
 ### 에이전트 단계는 입력 데이터를 어떻게 사용하나요? {#how-do-agent-steps-use-input-data}
 

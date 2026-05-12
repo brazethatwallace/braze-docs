@@ -25,9 +25,9 @@ O Braze Connector oferece suporte a traduções para mensagens em Campaigns e Ca
 | Modelo de e-mail | ✅ | ✅ |
 | Banners | n/a | ✅ |
 | Content Blocks |  ✅* |  ✅* |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sobre a integração" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="About the integration" }
 
-*Consulte [Gerenciar traduções para Content Blocks](#managing-translations-for-content-blocks) para mais informações.
+*Consulte [Gerenciamento de traduções para Content Blocks](#managing-translations-for-content-blocks) para mais informações.
 
 ### Fluxo de trabalho legado {#legacy-workflow}
 
@@ -46,7 +46,7 @@ Para saber mais sobre o fluxo de trabalho legado, consulte [Gerenciamento de tra
 | Chave da API REST da Braze            | Uma chave da API REST da Braze com as seguintes permissões: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint REST da Braze           | [Sua URL de endpoint REST.]({{site.baseurl}}/api/basics/#endpoints) Seu endpoint depende da URL da Braze para sua instância.             |
 | Configurações multilíngues da Braze | [Conclua as configurações multilíngues na Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 

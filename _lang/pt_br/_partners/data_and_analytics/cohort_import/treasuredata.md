@@ -23,7 +23,7 @@ Esse recurso está em beta. Para saber mais, entre em contato com os representan
 | Chave de importação de dados da Braze | Isso pode ser obtido no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** e, em seguida, selecione **Treasure Data**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Endereço IP estático do Treasure Data | O endereço IP estático do Treasure Data é o ponto de acesso e a origem da vinculação para essa integração. Para determinar o endereço IP estático, entre em contato com o representante de sucesso do cliente do Treasure Data ou com o suporte técnico do Treasure Data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração de importação de dados {#data-import-integration}
 

@@ -19,7 +19,7 @@ Pour créer et lancer une campagne, vous avez besoin des autorisations « Edit C
 
 - Créez ou choisissez les [segments]({{site.baseurl}}/user_guide/audience/segments/) qui définissent les destinataires de vos messages.
 - Consultez les [bases des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics/) pour vous assurer que les canaux de communication, les types de distribution et les objectifs de conversion correspondent à votre cas d'utilisation.
-- Pour un parcours guidé sur la distribution, le ciblage et les conversions, suivez le cours Braze Learning [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Pour un parcours guidé sur la distribution, le ciblage et les conversions, suivez le cours d'apprentissage Braze [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
 
 ## Éditeur de campagne {#campaign-composer}
 
@@ -93,7 +93,7 @@ Utilisez les champs suivants pour enregistrer les métadonnées qui aident votre
 | Équipe | Facultatif. Affectez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) pour que les bons groupes puissent modifier ou consulter les rapports de cet envoi. |
 | Étiquettes | Facultatif. Ajoutez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) pour filtrer dans les listes et les outils tels que le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | ID de campagne | Lorsqu'il est affiché dans l'éditeur ou le résumé, copiez cet identifiant pour les appels API, les rapports et les intégrations qui font référence à une campagne spécifique. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
 
 ### Canaux et éditeurs {#channels-and-editors}
 
@@ -116,7 +116,7 @@ Choisissez quand les utilisateurs deviennent éligibles pour recevoir la campagn
 | [Distribution planifiée]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | Envoyez à une heure ou une cadence spécifiée. |
 | [Livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | Envoyez lorsque les utilisateurs effectuent des comportements ou remplissent des conditions que vous définissez. |
 | [Distribution déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | Envoyez lorsque vos systèmes appellent Braze pour déclencher la campagne pour les utilisateurs éligibles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
 
 Pour les concepts de planification dans Braze, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 

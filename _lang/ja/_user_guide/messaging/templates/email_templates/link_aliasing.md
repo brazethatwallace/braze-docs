@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}リンクエイリアス {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}リンクエイリアス {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > リンクエイリアスを使用して、Brazeから送信されるメールメッセージ内のリンクを識別するための、認識しやすいユーザー生成名を作成できます。これらのリンクは、セグメンテーションのリターゲティング、アクションベースのトリガー、およびリンク分析に利用できます。
 
@@ -77,46 +77,46 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 **ロジック:** Brazeは疑問符（?）を挿入し、URLに最初のクエリパラメーターを追加します。
 
-| メール本文内のリンク    | エイリアス付きリンク                     |
+| メール本文内のリンク | エイリアス付きリンク |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パーマリンク" }
 
 ### 追加のクエリパラメーターを含むリンク {#link-with-more-query-parameters}
 
 **ロジック:** Brazeは他のクエリパラメーターを検出し、URLの末尾に`lid=`を付加します。
 
-| メール本文内のリンク                                            | エイリアス付きリンク                                                             |
+| メール本文内のリンク | エイリアス付きリンク |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="追加のクエリパラメーターを含むリンク" }
 
 ### HTMLリンク {#html-link}
 
 **ロジック:** Brazeはリンクがすでに疑問符（?）を含むURLであることを認識し、疑問符の後に`lid`クエリパラメーターを付加します。
 
-| メール本文内のリンク                                                | エイリアス付きリンク                                                                |
+| メール本文内のリンク | エイリアス付きリンク |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTMLリンク" }
 
 ### アンカー付きリンク {#link-with-anchor}
 
 **ロジック:** Brazeは、アンカー（#）が疑問符（?）の後に配置される標準的なURL構造を想定しています。Brazeは左から右に読み取るため、疑問符と`lid`値はアンカーの前に付加されます。
 
-| メール本文内のリンク                               | エイリアス付きリンク                                                |
+| メール本文内のリンク | エイリアス付きリンク |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アンカー付きリンク" }
 
 ### アンカーとキャプチャタグ付きリンク {#link-with-anchor-and-capture-tag}
 
 **ロジック:** リンクエイリアスをアンカー（#）を含むURLで使用する場合、Brazeはアンカーがクエリパラメーターの後に配置されることを想定しています。つまり、適切なトラッキングのために`lid`値はアンカーの**前に**付加される必要があり、Brazeは左から右にURLを読み取るため、疑問符（?）と`lid`はアンカーの前に配置されます。
 
-| メール本文内のリンク                                                                        | エイリアス付きリンク                                                                                           |
+| メール本文内のリンク | エイリアス付きリンク |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アンカーとキャプチャタグ付きリンク" }
 
 ## リンクエイリアスのトラッキング {#tracking-link-aliases}
 

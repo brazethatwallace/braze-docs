@@ -82,7 +82,7 @@ Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 | --- | --- |
 | **Estimated Audience** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
 | **Current Audience** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience und Current Audience" }
 
 Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -220,7 +220,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="Content-Card-Metriken">
     <caption class="sr-only">Content-Card-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -295,7 +295,7 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
     }
 </style>
 
-<table>
+<table aria-label="Banner-Metriken">
     <caption class="sr-only">Banner-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -365,7 +365,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
     }
 </style>
 
-<table>
+<table aria-label="E-Mail-Metriken">
     <caption class="sr-only">E-Mail-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -445,7 +445,7 @@ Ein Klick kann ohne eine Öffnung protokolliert werden, wenn das Öffnungs-Pixel
 
 Ein Klick und eine Öffnung können auch an verschiedenen Tagen stattfinden: Eine Nutzer:in könnte am 16. Mai mit deaktivierten Bildern klicken (keine Öffnung) und dann am 17. Mai im Webmail öffnen (Öffnung wird dann protokolliert).
 
-##### Höhere _Unique Clicks_ als _Unique Opens_ {#higher-unique-clicks-than-unique-opens}
+##### Höhere _Unique Clicks_ als _Unique Opens_ {#higher-_unique-clicks_-than-_unique-opens_}
 
 _Unique Clicks_ können höher sein als _Unique Opens_, wenn Öffnungen zu niedrig gezählt oder Klicks überhöht werden:
 
@@ -471,7 +471,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
-Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
+Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung _Machine Opens_ erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die _Other Opens_ sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
 Die _Estimated Real Open Rate_ wird 36 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 24 Stunden neu berechnet. Bei wiederkehrenden Kampagnen wird die Schätzung 36 Stunden nach einem weiteren Versand neu berechnet.
 
@@ -516,7 +516,7 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     }
 </style>
 
-<table>
+<table aria-label="Metriken für In-App-Nachrichten">
     <caption class="sr-only">In-App-Nachrichten-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -585,7 +585,7 @@ Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Ana
 | Fehler | _Fehler_ ist die Anzahl der vom KakaoTalk-Anbieter zurückgegebenen Fehler (wird während des Sendevorgangs erhöht). |
 | Umsatz | _Umsatz_ ist der Umsatz in Dollar von Kampagnenempfänger:innen innerhalb des festgelegten primären Konversionsfensters. |
 | Primäre Konversionen | _Primäre Konversionen_ ist die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Kampagne aufgetreten ist. Dieses definierte Event wird von Ihnen beim Erstellen der Kampagne festgelegt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk-Metriken" }
 
 {% elsif include.channel == "push" %}
 
@@ -599,7 +599,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="Push-Metriken">
     <caption class="sr-only">Push-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -700,7 +700,7 @@ Firebase Cloud Messaging (FCM) Bounces können in drei Fällen auftreten:
 | Deinstallierte Anwendungen | Wenn eine Nachricht versucht, an ein Gerät zugestellt zu werden, und die vorgesehene App auf diesem Gerät deinstalliert ist, wird die Nachricht verworfen und die Registrierungs-ID des Geräts wird ungültig. Alle weiteren Versuche, das Gerät zu benachrichtigen, geben den Fehler NotRegistered zurück. |
 | Gesicherte Anwendung | Wenn eine Anwendung gesichert wird, kann ihre Registrierungs-ID ungültig werden, bevor die Anwendung wiederhergestellt wird. In diesem Fall speichert FCM die Registrierungs-ID der Anwendung nicht mehr und die Anwendung empfängt keine Nachrichten mehr. Registrierungs-IDs sollten daher **nicht** gespeichert werden, wenn eine Anwendung gesichert wird. |
 | Aktualisierte Anwendung | Wenn eine Anwendung aktualisiert wird, funktioniert die Registrierungs-ID der vorherigen Version möglicherweise nicht mehr. Daher sollte eine aktualisierte Anwendung ihre bestehende Registrierungs-ID ersetzen. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Warum Bounces auftreten" }
 
 {% endtab %}
 {% endtabs %}
@@ -718,7 +718,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="SMS-, MMS- und RCS-Metriken">
     <caption class="sr-only">SMS-, MMS- und RCS-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -770,7 +770,7 @@ Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen kö
     }
 </style>
 
-<table>
+<table aria-label="Webhook-Metriken">
     <caption class="sr-only">Webhook-Performance-Metriken</caption>
     <thead>
         <tr>
@@ -806,7 +806,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp-Metriken">
     <caption class="sr-only">WhatsApp-Performance-Metriken</caption>
     <thead>
         <tr>

@@ -24,7 +24,7 @@ WhatsAppユーザーには、`subscribed`と`unsubscribed`の2つのサブスク
 | --- | --- |
 | 購読中 | ユーザーが特定の会社からWhatsAppメッセージを受信することを明示的に確認しています。ユーザーは、BrazeサブスクリプションAPIを通じてサブスクリプション状態を更新するか、WhatsAppのガイドラインに従ってオプトイン戦略を展開することで購読できます。 |
 | 購読解除 | ユーザーがオプトインの同意を明示的に与えていないか、オプトインステータスが明示的に削除されています。<br><br>WhatsAppサブスクリプショングループから購読解除されたユーザーは、そのサブスクリプショングループに属する送信電話番号からのWhatsAppメッセージを受信しなくなります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsAppサブスクリプション状態" }
 
 ### ユーザーのWhatsAppサブスクリプショングループの設定 {#setting-users-whatsapp-subscription-groups}
 
@@ -36,7 +36,7 @@ WhatsAppユーザーには、`subscribed`と`unsubscribed`の2つのサブスク
 
 - **ユーザープロファイル：** 個々のユーザープロファイルは、Brazeダッシュボードから**オーディエンス** > **ユーザーを検索**でアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。ユーザープロファイル内の**エンゲージメント**タブで、ユーザーのWhatsAppサブスクリプショングループとそのステータスを確認できます。
 
-- **REST API：** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループをリストするエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーのサブスクリプショングループステータスをリストするエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)で確認できます。
+- **REST API：** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーのサブスクリプショングループステータスを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)で確認できます。
 
 ## WhatsAppのオプトインとオプトアウトのプロセス {#whatsapp-opt-in-and-opt-out-process}
 

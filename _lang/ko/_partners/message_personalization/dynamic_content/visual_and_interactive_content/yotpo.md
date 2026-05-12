@@ -32,7 +32,7 @@ Yotpo 제품 ID를 찾으려면 다음 단계를 수행하세요:
 
 1. 스토어 웹사이트로 이동합니다.
 2. 제품 페이지를 엽니다.
-3. 마우스 오른쪽 버튼을 클릭하고 **Inspect**를 선택합니다.
+3. 마우스 오른쪽 버튼을 클릭하고 **검사**를 선택합니다.
 4. <kbd>Control</kbd> + <kbd>F</kbd>를 누르고 코드에서 `yotpo-main`을 검색합니다. `data-product ID` 변수와 해당 값이 Yotpo div에 표시됩니다.
 
 ![yotpo-main을 검사하고 검색하여 data-product ID 변수 찾기]({% image_buster /assets/img/yotpo/image1.png %})
@@ -42,7 +42,7 @@ Yotpo 제품 ID를 찾으려면 다음 단계를 수행하세요:
 Yotpo와 Braze를 통합하려면 다음 단계를 수행하세요:
 
 1. Braze 대시보드로 이동합니다.
-2. **Campaigns** 페이지에서 **Create Campaign**을 클릭하고 **Email**을 선택합니다.
+2. **Campaigns** 페이지에서 **캠페인 생성**을 클릭하고 **Email**을 선택합니다.
 3. 원하는 템플릿을 선택합니다.
 4. **Edit email body**를 클릭하고 사용 사례에 맞는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) 스니펫을 추가합니다:
     - [제품의 별점 및 리뷰 수 표시](#star-review-count)

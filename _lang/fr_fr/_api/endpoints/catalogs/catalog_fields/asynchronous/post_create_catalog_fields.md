@@ -30,14 +30,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre      | Requis | Type de données | Description          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Requis | Chaîne de caractères    | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description                                                                                                  |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields`  | Requis | Tableau     | Un tableau contenant des objets de champ. Les objets de champ doivent contenir le nom et le type des nouveaux champs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 
@@ -114,6 +114,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `company-size-limit-already-reached` | La limite de taille de stockage du catalogue est atteinte.                                                             |
 | `request-includes-too-many-fields`   | Chaque requête peut contenir jusqu'à 50 nouveaux champs.                                                          |
 | `catalog-exceeds-fields-limit`       | Le catalogue ne peut pas comporter plus de 500 champs.                                                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

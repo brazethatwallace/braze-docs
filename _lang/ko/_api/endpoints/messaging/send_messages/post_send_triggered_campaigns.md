@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/)를 참조하세요. `audience`를 포함하면, 커스텀 속성 및 구독 상태와 같은 정의된 필터와 일치하는 사용자에게만 메시지가 전송됩니다. |
 | `recipients` | 선택 사항 | 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object/)를 참조하세요.<br><br>`send_to_existing_only`가 `false`인 경우 `attributes` 오브젝트를 포함해야 합니다.<br><br>중첩된 `attributes` 오브젝트에 `subscription_groups`를 포함하여 사용자의 구독 그룹 상태를 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/)를 참조하세요.<br><br>`recipients`가 제공되지 않고 `broadcast`가 true로 설정된 경우, Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지가 전송됩니다.<br><br>`email`이 식별자인 경우 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)을 포함해야 합니다. |
 | `attachments` | 선택 사항 | 배열 | `broadcast`가 true로 설정되어 있으면 `attachments` 목록을 포함할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 수신자 확인 동작 {#recipient-resolution-behavior}
 

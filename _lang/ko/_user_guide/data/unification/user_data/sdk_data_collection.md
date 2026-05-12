@@ -28,11 +28,11 @@ Braze는 유연한 데이터 수집이 가능하도록 설계되었으므로 다
 | 국가 | IP 주소 지리 위치로 식별된 국가. IP 주소 지리 위치를 사용할 수 없는 경우 [기기 로캘](#optional-data-collected-by-default)로 식별됩니다. 해당 값은 SDK가 `setCountry`로 직접 설정하는 값으로 대체될 수 있으나, SDK나 API를 통해 속성 값을 전달할 경우 데이터 포인트가 기록된다는 점에 유의하세요. **국가가 수동으로 설정된 후(SDK 메서드, REST API 또는 CSV 업로드를 통해)에는 SDK가 더 이상 이 값을 자동으로 업데이트하지 않습니다.** | 이 속성은 위치를 기준으로 메시지를 타겟팅하는 데 사용됩니다. |
 | 기기 ID | 기기 식별자, 무작위로 생성된 문자열 | 이 속성은 사용자의 기기를 구분하고 올바른 기기로 메시지를 전송하는 데 사용됩니다. |
 | OS 및 OS 버전 | 현재 보고된 기기 또는 브라우저 및 기기 또는 브라우저 버전 | 이 속성은 호환되는 기기로만 메시지를 보내는 데 사용됩니다. 세분화 내에서 사용자가 앱 버전을 업그레이드하도록 타겟팅하는 데도 사용할 수 있습니다. |
-| 세션 시작 및 세션 종료 | 사용자가 통합된 앱 또는 사이트를 사용하기 시작할 때 | Braze SDK는 사용자 참여를 계산하기 위해 Braze 대시보드에서 사용하는 세션 데이터 및 사용자를 이해하는 데 핵심적인 기타 분석을 보고합니다. 앱 또는 사이트에서 세션 시작 및 세션 종료가 호출되는 정확한 시점은 개발자가 구성할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web). |
+| 세션 시작 및 세션 종료 | 사용자가 통합된 앱 또는 사이트를 사용하기 시작할 때 | Braze SDK는 사용자 참여를 계산하기 위해 Braze 대시보드에서 사용하는 세션 데이터 및 사용자를 이해하는 데 핵심적인 기타 분석을 보고합니다. 앱 또는 사이트에서 세션 시작 및 세션 종료가 호출되는 정확한 시점은 개발자가 구성할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)). |
 | SDK 메시지 상호작용 데이터 | 푸시 직접 열기, 인앱 메시지 상호작용, 콘텐츠 카드 상호작용 | 이 속성은 메시지가 수신되었는지 확인하고 전송이 중복되지 않도록 하는 등 품질 관리 목적으로 사용됩니다. |
 | SDK 버전 | 현재 SDK 버전 | 이 속성은 호환되는 기기로만 메시지를 전송하고 서비스 중단을 방지하는 데 사용됩니다. |
 | 세션 ID 및 세션 타임스탬프 | 세션 식별자, 무작위로 생성된 문자열 및 세션 타임스탬프 | 사용자가 새 세션을 시작하는지 기존 세션을 이어가는지 여부를 판별하고, 이 사용자에게 의도된 메시지의 재수신 자격을 결정하는 데 사용됩니다.<br><br>인앱 메시지 및 Content Cards와 같은 일부 메시징 채널은 세션 시작 시 기기와 동기화됩니다. 그런 다음 백엔드는 기기가 저장하고 다시 전송하는 Braze 서버 마지막 접속 시점 관련 데이터를 사용하여 사용자가 새로운 메시지를 받을 자격이 있는지 확인합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Minimum integration" }
 
 ### 계산된 측정기준 {#calculated-metrics}
 
@@ -55,7 +55,7 @@ Braze는 SDK 데이터, 비 SDK 메시지와 관련된 메시지 상호작용 �
 | 태그가 있는 Campaign에서 메시지를 수신함 | 부울. 이 필터는 현재 태그가 있는 Campaign을 수신했는지 여부에 따라 사용자를 타겟팅합니다. |
 | 리타겟 Campaign | 부울. 이 필터는 사용자가 과거에 특정 이메일, 푸시 또는 인앱 메시지를 열었거나 클릭했는지 여부에 따라 사용자를 타겟팅합니다. |
 | 제거됨 | 부울 및 시간 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Calculated metrics" }
 
 {% alert important %}
 최소 통합에만 관심이 있고 mParticle, Segment, Tealium 또는 GTM과 통합하는 경우 다음 사항에 유의하세요:
@@ -80,7 +80,7 @@ Braze는 SDK 데이터, 비 SDK 메시지와 관련된 메시지 상호작용 �
 | 해상도 | Android, iOS, 웹 | 기기 또는 브라우저 해상도 | 선택적으로 기기 기반 메시지 타겟팅에 사용됩니다. 이 값의 형식은 "`<width>`x`<height>`"입니다. |
 | 시간대 | Android, iOS, 웹 | 기기 또는 브라우저 시간대 | 이 속성은 각 사용자의 현지 시간대에 따라 적절한 시간에 메시지를 보내는 데 사용됩니다. |
 | 사용자 에이전트 | 웹 | [사용자 에이전트](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) | 이 속성은 호환되는 기기로만 메시지를 보내는 데 사용됩니다. 세분화 내에서도 사용할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Optional data collected by default" }
 
 기기 수준 속성(기기 이동통신사, 시간대, 해상도 등) 추적에 대해 자세히 알아보려면 플랫폼별 설명서를 참조하세요: [Android]({{site.baseurl}}/developer_guide/storage/?tab=android), [iOS]({{site.baseurl}}/developer_guide/storage/?tab=swift), [Web]({{site.baseurl}}/developer_guide/storage/#cookies).
 
@@ -94,7 +94,7 @@ Braze는 SDK 데이터, 비 SDK 메시지와 관련된 메시지 상호작용 �
 | 기기 IDFA | iOS | 광고주를 위한 기기 식별자 | 이는 앱 추적 투명성 프레임워크를 필요로 하며, App Store에서 추가적인 개인정보 검토가 트리거됩니다. 자세한 내용은 [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:))를 참조하세요. |
 | Google 광고 ID | Android | Google Play 앱 내 광고를 위한 식별자 | 이를 위해 앱이 GAID를 검색하여 Braze에 전달해야 합니다. 자세한 내용은 [선택적 Google 광고 ID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration/#google-advertising-id)를 참조하세요. |
 | 가장 최근 위치 | Android, iOS | 사용자 기기의 마지막으로 알려진 GPS 위치입니다. 세션 시작 시 업데이트되며 사용자의 프로필에 저장됩니다. | 이를 위해서는 사용자가 앱에 위치 권한을 부여해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Data not collected by default" }
 
 {% alert note %}
 Braze SDK는 IP 주소를 로컬에 저장하지 않습니다.

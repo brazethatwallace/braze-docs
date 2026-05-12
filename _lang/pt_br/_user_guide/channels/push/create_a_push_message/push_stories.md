@@ -5,18 +5,17 @@ page_order: 2
 page_type: reference
 description: "Este artigo de referência aborda o que são Push Stories, como criar uma, além de algumas perguntas frequentes."
 channel:
-  - push
-
+  - Push
 ---
 
-# Push Stories
+# Push Stories {#push-stories}
 
 > Push Stories utilizam a funcionalidade de carrossel de fotos popularizada pelo Instagram e Facebook, permitindo que profissionais de marketing criem um carrossel de páginas dentro de uma notificação por push que conta uma história rica e coesa. Essas páginas consistem em uma imagem, ação de clique, título e descrição. Seus usuários podem deslizar por essas páginas e visualizar a história — contada por você.
 
 | Exemplo Android (expandido) | Exemplo iOS (expandido) |
 | :-----: | :----------: |
 | ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
 Nas versões 3.13.0+ do SDK para iOS, devido a uma mudança na forma como o SDK baixa imagens, uma miniatura da primeira imagem não será exibida na visualização condensada do push. Certifique-se de que o texto da sua mensagem incentive os usuários a expandir o push para ver as imagens.

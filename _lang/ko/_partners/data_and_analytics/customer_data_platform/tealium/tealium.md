@@ -175,7 +175,7 @@ Tealium에서는 먼저 커넥터가 가져올 유효한 데이터 소스를 설
 
 다음으로 페이지 하단의 **Add Connector**를 선택합니다. 커넥터 이름을 지정하고 Braze API 엔드포인트와 Braze REST API 키를 입력합니다.
 
-![]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
+![]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%"}
 
 이전에 커넥터를 생성한 적이 있다면 사용 가능한 커넥터 목록에서 기존 커넥터를 선택하고 연필 아이콘으로 수정하거나 휴지통 아이콘으로 삭제할 수 있습니다.
 
@@ -247,7 +247,7 @@ Tealium의 Trace 도구 구현에 대한 자세한 지침은 Tealium의 [Trace �
 ## 통합 데모 {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" title="Tealium 통합 데모" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## 잠재적 데이터 포인트 초과 {#potential-data-point-overages}

@@ -166,7 +166,7 @@ Après avoir défini le type de requête (méthode HTTP `POST`) et configuré le
 
 Cette section décrit comment importer les données des utilisateurs Braze d'un segment dans Lytics.
 
-#### Étape 1 : Créer une autorisation {#step-1-create-an-authorization}
+#### Étape 1 : Créer une autorisation
 
 Dans Lytics, accédez au tableau de bord **Authorization** au sein de la console **Data** dans la barre de navigation. Sélectionnez **Create New Authorization**, puis recherchez et sélectionnez **Custom Integrations**.
 

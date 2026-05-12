@@ -9,7 +9,7 @@ page_type: reference
 
 # 내보내기 엔드포인트 {#export-endpoints}
 
-이 엔드포인트 모음을 사용하면 KPI, 앱 세션, 사용자, 세그먼트, 캠페인, Canvases에 대한 다양한 수준의 세부 정보에 액세스하고 내보낼 수 있습니다. 매개변수 및 요청 본문을 작성할 때 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [API 키]({{site.baseurl}}/api/api_key/), [API 식별자]({{site.baseurl}}/api/identifier_types/)를 알고 있어야 합니다.
+이 엔드포인트 모음을 사용하면 KPI, 앱 세션, 사용자, 세그먼트, Campaigns, Canvases에 대한 다양한 수준의 세부 정보에 액세스하고 내보낼 수 있습니다. 매개변수 및 요청 본문을 작성할 때 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [API 키]({{site.baseurl}}/api/api_key/), [API 식별자]({{site.baseurl}}/api/identifier_types/)를 알고 있어야 합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -20,7 +20,7 @@ page_type: reference
 | Braze REST API 키 | 호출하려는 엔드포인트에 적합한 내보내기 권한이 있는 REST API 키입니다. API 키는 특정 엔드포인트에 범위가 지정되며, 생성 후에는 권한을 변경할 수 없습니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/api/basics/#about-rest-api-keys)를 참조하세요. |
 | 관련 식별자 | 내보내려는 데이터의 식별자(예: Campaign ID, Segment ID, Canvas ID)입니다. Braze 대시보드에서 확인할 수 있습니다. 전체 목록은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/)을 참조하세요. |
 | 클라우드 스토리지 자격 증명(선택 사항) | 대규모 데이터셋을 내보내는 경우, [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/), 또는 [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/) 버킷을 연결하여 내보내기 파일을 스토리지에 직접 기록할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert note %}
 API 액세스 권한이 없는 마케터 또는 팀원인 경우, 조직 내 개발자 또는 관리자와 협력하여 API 키 및 통합을 설정하세요.
@@ -41,7 +41,7 @@ API 액세스 권한이 없는 마케터 또는 팀원인 경우, 조직 내 개
 | 커스텀 이벤트 | 이벤트 이름, 이벤트 목록, 시간별 이벤트 분석 | [커스텀 이벤트 엔드포인트]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
 | 커스텀 속성 | 속성 이름 | [커스텀 속성 엔드포인트]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
 | 구매 | 시간별 매출 데이터, 제품 ID 목록, 구매 횟수 | [구매 엔드포인트]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What you can export" }
 
 ## 내보내기 데이터 전달 방식 {#how-export-data-is-delivered}
 
@@ -88,7 +88,7 @@ API 내보내기는 대시보드에서 다운로드하는 CSV 파일과 달리 J
 | 사용자 데이터 | POST | [User Data by Identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
 | 사용자 데이터 | POST | [User Data by Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
 | 사용자 데이터 | POST | [User Data by Global Control Group]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Export endpoints" }
 
 ## 관련 문서 {#related-articles}
 

@@ -23,7 +23,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="4XX-Fehler">
   <caption>4XX-Fehler</caption>
   <thead>
     <tr>
@@ -130,7 +130,7 @@ table td {
 | **529 Host Overloaded** | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
 | **598 Host Unhealthy** | Braze hat die Antwort simuliert, weil der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
 | **599 Connection Error** | Braze hat beim Versuch, eine Verbindung zum Endpunkt herzustellen, einen Timeout-Fehler bei der Netzwerkverbindung festgestellt. Das bedeutet, dass der Endpunkt möglicherweise instabil oder ausgefallen ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5XX-Fehler" }
 
 ### Behebung von 5XX-Fehlern {#resolving-5xx-errors}
 
@@ -147,11 +147,11 @@ Die Schwellenwerte für die Erkennung unterscheiden sich zwischen Webhooks und C
 - **Für Webhooks**: Wenn die Anzahl der **Fehlschläge 3.000 in einem beliebigen einminütigen gleitenden Zeitfenster überschreitet** (pro eindeutiger Kombination von Hostname und App-Gruppe&#8212;**nicht** pro Endpunktpfad), hält Braze Anfragen an den Zielhost vorübergehend für eine Minute an.
 - **Für Connected-Content**: Wenn die Anzahl der **Fehlschläge 3.000 übersteigt UND die Fehlerrate 90 % in einem beliebigen einminütigen gleitenden Zeitfenster übersteigt** (pro eindeutiger Kombination von Hostname und App-Gruppe&#8212;**nicht** pro Endpunktpfad), hält Braze Anfragen an den Zielhost vorübergehend für eine Minute an.
 
-Wenn Anfragen angehalten werden, simuliert Braze Antworten mit einem `598`-Fehlercode, um den fehlerhaften Zustand anzuzeigen. Nach einer Minute nimmt Braze die Anfragen mit voller Geschwindigkeit wieder auf, wenn sich der Host als fehlerfrei erweist. Wenn der Host immer noch fehlerhaft ist, wartet Braze eine weitere Minute, bevor es erneut versucht wird.
+Wenn Anfragen angehalten werden, simuliert Braze Antworten mit einem `598`-Fehlercode, um den fehlerhaften Zustand anzuzeigen. Nach einer Minute nimmt Braze die Anfragen mit voller Geschwindigkeit wieder auf, wenn sich der Host als fehlerfrei erweist. Wenn der Host immer noch fehlerhaft ist, wartet Braze eine weitere Minute, bevor ein erneuter Versuch unternommen wird.
 
 Die folgenden Fehlercodes tragen zur Fehleranzahl des Detektors für fehlerhafte Hosts bei: `408`, `429`, `502`, `503`, `504`, `529`.
 
-Bei Webhooks wird Braze HTTP-Anfragen, die durch den Detektor für fehlerhafte Hosts angehalten wurden, automatisch wiederholen. Dieser automatische Wiederholungsversuch verwendet exponentielles Backoff und wird nur wenige Male wiederholt, bevor er fehlschlägt. Weitere Informationen zu Webhook-Fehlern finden Sie unter [Fehler, Wiederholungslogik und Timeouts]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#errors-retry-logic-and-timeouts).
+Bei Webhooks wiederholt Braze HTTP-Anfragen, die durch den Detektor für fehlerhafte Hosts angehalten wurden, automatisch. Dieser automatische Wiederholungsversuch verwendet exponentielles Backoff und wird nur wenige Male wiederholt, bevor er fehlschlägt. Weitere Informationen zu Webhook-Fehlern finden Sie unter [Fehler, Wiederholungslogik und Timeouts]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#errors-retry-logic-and-timeouts).
 
 Wenn bei Connected-Content Anfragen an den Zielhost durch den Detektor für fehlerhafte Hosts angehalten werden, rendert Braze weiterhin Nachrichten und folgt Ihrer Liquid-Logik, als ob ein Fehlerantwortcode empfangen worden wäre. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen erneut versucht werden, wenn sie vom Detektor für fehlerhafte Hosts angehalten werden, verwenden Sie die Option `:retry`. Weitere Informationen über die Option `:retry` finden Sie unter [Wiederholungsversuche für Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
 

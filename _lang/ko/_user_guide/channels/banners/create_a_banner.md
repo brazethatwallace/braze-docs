@@ -110,7 +110,7 @@ channel:
 | 등록정보 유형 | 등록정보의 데이터 유형입니다. 지원되는 유형에는 문자열, 부울, 숫자, 타임스탬프, 이미지 URL 및 JSON 오브젝트가 포함됩니다. | 문자열 |
 | 등록정보 키 | 등록정보의 고유 식별자입니다. 이 키는 SDK에서 등록정보에 액세스하는 데 사용됩니다. | `color` |
 | 값 | 등록정보에 할당된 값입니다. 선택한 등록정보 유형과 일치해야 합니다. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 완료되면 **Done**을 선택합니다.
 

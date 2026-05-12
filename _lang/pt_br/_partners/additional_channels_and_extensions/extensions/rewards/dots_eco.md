@@ -125,4 +125,4 @@ Revise os erros de Conteúdo conectado no dashboard da Braze em **Configuraçõe
   - Na etapa de Atualização de usuário, use a guia **Pré-visualização e teste** para confirmar o preenchimento dos atributos. Em seguida, envie um teste para um usuário e confirme se os atributos estão salvos no perfil do usuário.
 - **Erro `422` (entidade não processável)**: Confirme se o token do app e a quantidade de impacto são válidos.
 - **Erro `401`**: Confirme se o token de autenticação está presente e correto.
-- **Sem pré-visualização da imagem na etapa de mensagem**: Selecione **Send Test to User** na etapa de Atualização de usuário e, em seguida, faça a pré-visualização da mensagem usando esse mesmo usuário.
+- **Sem pré-visualização da imagem na etapa de mensagem**: Selecione **Enviar teste para o usuário** na etapa de Atualização de usuário e, em seguida, faça a pré-visualização da mensagem usando esse mesmo usuário.

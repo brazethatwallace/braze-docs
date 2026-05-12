@@ -27,7 +27,7 @@ Braze Pilotでは、任意のBrazeダッシュボードに対してBraze SDKを�
 PilotでSDK接続を設定するには、デモ用QRコードとセットアップウィザードの2つの方法があります。
 
 {% tabs local %}
-{% tab Demo QR codes %}
+{% tab デモQRコード %}
 
 ### 方法1: デモQRコード {#method-1-demo-qr-codes}
 
@@ -36,14 +36,14 @@ SDKの初期化に必要なすべての詳細情報を含むQRコードをスキ
 | Android用Pilot | iOS用Pilot |
 | --- | --- |
 | ![Android用QRコード。]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![iOS用QRコード。]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="方法1: デモQRコード" }
 
 {% endtab %}
-{% tab Setup wizard %}
+{% tab セットアップウィザード %}
 
 ### 方法2: セットアップウィザード {#method-2-setup-wizard}
 
-Brazeダッシュボードの**アプリ設定**ページから、ダッシュボードワークスペースとの接続を初期化するためのステップバイステップガイドに従います。
+Brazeダッシュボードの**App Settings**ページから、ダッシュボードワークスペースとの接続を初期化するためのステップバイステップガイドに従います。
 
 ![Braze Pilotセットアップウィザードのステップ1。]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
@@ -59,7 +59,7 @@ Brazeダッシュボードの**アプリ設定**ページから、ダッシュ�
 最後に、アプリを通じてプッシュ通知機能をテストしたい場合は、アプリにプッシュ通知の送信権限を許可することをお勧めします。アプリにこれらの権限を付与するには、デバイスの設定でアプリの設定を更新する方法と、Brazeからアプリにプッシュプライマーメッセージを送信する方法があります。
 
 {% tabs local %}
-{% tab Update the settings for the app %}
+{% tab アプリの設定を更新する %}
 
 デバイスの設定を開き、Braze Pilotを見つけます。次に、設定を更新して通知がロック画面に表示されるようにします。
 
@@ -75,7 +75,7 @@ Brazeダッシュボードの**アプリ設定**ページから、ダッシュ�
 <br>
 
 {% endtab %}
-{% tab Launch a push primer message %}
+{% tab プッシュプライマーメッセージを送信する %}
 
 Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages)を参照してください。
 

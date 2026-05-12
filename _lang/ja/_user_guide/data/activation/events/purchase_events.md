@@ -123,7 +123,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
     }
 </style>
 
-<table>
+<table aria-label="収益の計算">
   <caption>収益の計算</caption>
     <thead>
         <tr>

@@ -32,7 +32,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | `companyPermissions` | オプション | 配列 | [会社レベルの権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company)の配列です。文字列が存在する場合、ユーザーが対応する権限を持っていることを示します。 |
 | `roles` | オプション | 配列 | [ロールオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object)の配列です。 |
 | `appGroup` | 必須 | 配列 | [ワークスペース権限オブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object)の配列です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
 
 ### ワークスペース権限オブジェクト {#workspace-permissions-object}
 
@@ -45,7 +45,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | `appGroupPermissionSets` | オプション | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)を持つ配列です。 |
 | `appGroupPermissions` | 必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings)テーブルに基づくワークスペースレベルの権限文字列の配列です。文字列が存在する場合、指定されたワークスペースに対してユーザーが対応する権限を持っていることを示します。 |
 | `team` | オプション | 配列 | [チーム権限オブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object)の配列です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
 ### ワークスペース権限セットオブジェクト {#workspace-permissions-set-object}
 
@@ -55,7 +55,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | オプション | 文字列 | このワークスペースでユーザーに割り当てられるワークスペース権限セットの名前です。 |
 | `appGroupPermissionSetID` | `appGroupPermissionSetName` がない場合は必須 | 文字列 | ワークスペースのIDです。このワークスペースでユーザーに割り当てられるワークスペース権限セットを指定する代替方法として機能します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### チーム権限オブジェクト {#team-permissions-object}
 
@@ -66,7 +66,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | `teamName` | オプション | 文字列 | チームの名前です。このオブジェクト内の権限がどのチームに対するものかを指定するために使用できます。 |
 | `teamId` | `teamName` がない場合は必須 | 文字列 | チームのIDです。チームを指定する代替方法として機能します。 |
 | `teamPermissions` | 必須 | 配列 | [チーム権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team)テーブルに基づくチームレベルの権限文字列の配列です。文字列が存在する場合、指定されたチームに対してユーザーが対応する権限を持っていることを示します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
 
 ## ロールオブジェクト {#role-object}
 
@@ -76,7 +76,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | --- | --- | --- | --- |
 | `roleName` | オプション | 文字列 | ユーザーに割り当てられるロールの名前です。 |
 | `roleId` | `roleName` がない場合は必須 | 文字列 | ロールのIDです。ロールを指定する代替方法として機能します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
 
 ## 付録 {#appendix}
 
@@ -85,9 +85,9 @@ Brazeではアプリグループはワークスペースに改名されました
 | UIでの表示 | SCIM API文字列 |
 | --- | --- |
 | 管理者 | `admin` |
-| 会社の設定の管理 | `manage_company_settings` |
+| 会社の設定を管理 | `manage_company_settings` |
 | ワークスペースの作成と削除 | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### ワークスペース権限文字列 {#workspace-strings}
 
@@ -204,7 +204,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | カタログを削除 | `delete_catalogs` |
 | WhatsApp設定を表示 | `view_whatsapp_settings` |
 | テクノロジーパートナーを編集 | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
 ### チーム権限文字列 {#team}
 
@@ -257,7 +257,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | Campaignsを起動 | `launch_campaigns` |
 | Canvasesを起動 | `launch_canvases` |
 | ダッシュボードユーザーを編集 | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
 ### 部門の文字列 {#department-strings}
 
@@ -270,4 +270,4 @@ Brazeではアプリグループはワークスペースに改名されました
 | ファイナンス | `finance` |
 | マーケティング / 編集 | `marketing` |
 | 製品管理 | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }

@@ -88,7 +88,7 @@ Post,Email,Create,Template,REST,API
 | `modified_before`  |  아니요 | ISO 8601 형식의 문자열 | 지정된 시간 또는 그 이전에 업데이트된 템플릿만 검색합니다. |
 | `limit` | 아니요 | 양수 | 검색할 템플릿의 최대 개수이며, 제공하지 않으면 기본값은 100이고 허용되는 최대값은 1000입니다. |
 | `offset`  |  아니요 | 양수 | 검색 기준에 맞는 나머지 템플릿을 반환하기 전에 건너뛸 템플릿 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `email_template_id`  | 예 | 문자열 | 이메일 템플릿의 API 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `email_template_id`  | 예 | 문자열 | 이메일 템플릿의 API 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
@@ -278,7 +278,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | gender | (문자열) "M", "F", "O"(기타), "N"(해당 없음), "P"(밝히고 싶지 않음) 또는 nil(알 수 없음)입니다. |
 | home_city | (문자열) |
 | image_url | (문자열) 고객 프로필과 연결할 이미지의 URL입니다. |
-| language | (문자열) 언어는 [ISO-639-1 표준][24]에 따라 Braze에 전달해야 합니다. <br>[허용되는 언어 목록](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/)|
+| language | (문자열) 언어는 [ISO-639-1 표준][24]에 따라 Braze에 전달해야 합니다. <br>[허용되는 언어 목록](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
 | last_name | (문자열) |
 | marked_email_as_spam_at | (문자열) 사용자의 이메일이 스팸으로 표시된 날짜입니다. ISO 8601 형식 또는 yyyy-MM-dd'T'HH:mm:ss:SSSZ 형식으로 표시됩니다. |
 | phone | (문자열) |
@@ -286,7 +286,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | push_tokens | `app_id` 및 `token` 문자열이 포함된 오브젝트 배열입니다. 선택적으로 이 토큰이 연결된 기기의 `device_id`를 제공할 수 있습니다(예: `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`). `device_id`를 제공하지 않으면 무작위로 생성됩니다. |
 | time_zone | (문자열) [IANA 시간대 데이터베이스][26]의 시간대 이름입니다(예: "America/New_York" 또는 "Eastern Time (US & Canada)"). 유효한 시간대 값만 설정됩니다. |
 | twitter | `id`(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 

@@ -34,14 +34,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `items` | Requis | Tableau | Un tableau qui contient des objets produit. Les objets produit doivent contenir tous les champs existants dans le catalogue. Jusqu'à 50 objets produit sont autorisés par requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 
@@ -161,6 +161,6 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `request-includes-too-many-items` | Votre requête contient trop de produits. La limite de produits par requête est de 50. |
 | `too-deep-nesting-in-value-object` | Les objets de produit ne peuvent pas avoir plus de 50 niveaux d'imbrication. |
 | `unable-to-coerce-value` | Les types de produit ne peuvent pas être convertis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

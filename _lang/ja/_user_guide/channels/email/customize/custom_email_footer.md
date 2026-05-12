@@ -12,7 +12,7 @@ channel:
 
 > ワークスペース全体のカスタムメールフッターを設定し、{% raw %}`{{${email_footer}}}`{% endraw %} Liquid属性を使用してすべてのメールにテンプレートとして適用できます。
 
-カスタムメールフッターを使用すると、メールテンプレートやメールキャンペーンごとに新しいフッターを作成する必要がなくなります。新規および既存のすべてのメールCampaignsに、カスタムフッターへの変更が反映されます。[CAN-SPAM Act of 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) に準拠するには、メールに会社の物理的な住所と配信停止リンクを含める必要があることにご注意ください。
+カスタムメールフッターを使用すると、メールテンプレートやメールCampaignごとに新しいフッターを作成する必要がなくなります。新規および既存のすべてのメールCampaignsに、カスタムフッターへの変更が反映されます。[CAN-SPAM Act of 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) に準拠するには、メールに会社の物理的な住所と配信停止リンクを含める必要があることにご注意ください。
 
 {% alert warning %}
 カスタムフッターが上記の要件を満たしていることを確認するのは、お客様の責任です。
@@ -76,7 +76,7 @@ Campaignコンポーザーでの警告は以下のとおりです。
 | ユーザーのカスタムオプトインURL | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | ユーザーのカスタム購読URL | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | ユーザーのカスタムBrazeユーザー設定センターURL | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizing with attributes" }
 
 ### 配信停止リンクとオプトインリンクの追加 {#including-an-unsubscribe-link-and-opt-in-link}
 

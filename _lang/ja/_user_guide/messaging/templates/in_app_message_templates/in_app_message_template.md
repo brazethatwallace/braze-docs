@@ -27,7 +27,7 @@ Brazeダッシュボードで、**テンプレート** > **アプリ内メッセ
 | ドラッグ＆ドロップレイアウトを再利用のために保存する | [ドラッグ＆ドロップのアプリ内メッセージ作成画面]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)で、エディターを終了した後に**テンプレートとして保存**を選択します（先にCampaignを起動するか、下書きとして保存する必要があります）。テンプレートは**テンプレート** > **アプリ内メッセージテンプレート**に表示され、次のメッセージで使用できます。 |
 | カラープロファイルまたはCSSテンプレートを作成する（従来のエディター） | **アプリ内メッセージテンプレート**ページで、**+ 作成**を選択し、**カラープロファイル**または**CSSテンプレート**を選択します。詳細については、[カラープロファイルとCSSテンプレート](#reusable-color-profiles)を参照してください。 |
 | Brazeテンプレートをカスタマイズする | ドラッグ＆ドロップエディターで[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)し、Brazeテンプレートを選択してカスタマイズを行い、**テンプレートとして保存**を選択します。各Brazeテンプレートの説明については、[アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose how to create a template" }
 
 {% alert note %}
 カラープロファイルとCSSテンプレートは従来のエディターに適用されます。ドラッグ＆ドロップエディターを使用している場合は、メッセージレベルのスタイリングに[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)を使用してください。

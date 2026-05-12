@@ -45,7 +45,7 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 重複ユーザーを一括統合すると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、1つのプロファイルを保持します。Brazeはまず`external_id`を持つプロファイルを優先し、次に**Resolving ties**設定（**Resolve ties using**と**Prioritization**）を適用します。`external_id`を持つプロファイルがない場合、Brazeは`external_id`を持たないプロファイル全体に対して**Resolve ties using**と**Prioritization**を使用します。Brazeは、これらの設定で保持するプロファイルが1つに特定できる場合にのみユーザーを統合します。たとえば、**Resolve ties using**が**Updated date**で、両方のプロファイルの最終更新タイムスタンプが同じ場合、Brazeはタイブレークを解決できないため、それらのユーザーは統合されません。
 
-### ステップ 1:Manage Audienceに移動する {#step-1-go-to-manage-audience}
+### ステップ 1:オーディエンスを管理に移動する {#step-1-go-to-manage-audience}
 
 Brazeダッシュボードで、**Audience** > **Manage Audience**を選択します。
 
@@ -70,7 +70,7 @@ Brazeがプレビューを生成し、CSVファイルとしてメールアドレ
 | alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
 | alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
 | alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Preview the results (optional)" }
 {% endtab %}
 {% endtabs %}
 

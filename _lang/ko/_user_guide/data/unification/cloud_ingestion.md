@@ -29,7 +29,7 @@ Braze 클라우드 데이터 수집 기능을 사용하면 다음을 수행할 �
 - 데이터 웨어하우스에서 Braze로 속성, 이벤트, 구매를 포함한 사용자 데이터를 안전하게 동기화할 수 있습니다.
 - 클라우드 데이터 수집을 Currents 또는 Snowflake 데이터 공유와 결합하여 Braze와의 데이터 루프를 닫을 수 있습니다.
 
-또한 [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/)는 제로 복사 대안입니다. Braze가 데이터 웨어하우스 또는 파일 저장 솔루션을 직접 쿼리하여 CDI 세그먼트를 구성할 수 있습니다&#8212;기본 데이터를 Braze로 복사하지 않고도 가능합니다.
+또한 [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/)는 제로 복사 대안입니다. Braze가 데이터 웨어하우스 또는 파일 저장 솔루션을 직접 쿼리하여 CDI Segments를 구성할 수 있습니다&#8212;기본 데이터를 Braze로 복사하지 않고도 가능합니다.
 
 ## 지원되는 데이터 소스 {#supported-data-sources}
 
@@ -72,7 +72,7 @@ Braze 클라우드 데이터 수집 기능을 사용하면 다음을 수행할 �
 | `BRAZE_ID` | Braze SDK에 의해 생성된 Braze 사용자 식별자입니다. 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수 없습니다. 새 사용자를 생성하려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요. |
 | `EMAIL` | 사용자의 이메일 주소입니다. 동일한 이메일 주소를 가진 여러 프로필이 존재하는 경우, 가장 최근에 업데이트된 프로필이 업데이트 우선순위를 갖습니다. 이메일과 전화번호를 모두 포함하는 경우, 이메일이 기본 식별자로 사용됩니다. |
 | `PHONE` | 사용자의 전화번호입니다. 동일한 전화번호를 가진 여러 프로필이 존재하는 경우, 가장 최근에 업데이트된 프로필이 업데이트 우선순위를 갖습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 수집을 위한 사용자 식별자" }
 
 테이블 열 설정 및 페이로드 형식 요구 사항에 대한 자세한 내용은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)을 참조하세요.
 

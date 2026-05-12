@@ -178,6 +178,8 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 
 링크가 체인에서 끊어지는 지점을 진단하려면:
 
+1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 활성화하세요 — SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
+2. [Branch 테스트 모드](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)를 활성화하세요 — Branch 대시보드에서 링크 클릭 이벤트를 확인하세요.
 1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 활성화하세요. SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
 2. [Branch 테스트 모드](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)를 활성화하세요. Branch 대시보드에서 링크 클릭 이벤트를 확인하세요.
 3. Braze가 링크를 기록했지만 Branch에서 클릭이 감지되지 않는다면, `BrazeDelegate` 라우팅 로직에 문제가 있을 가능성이 높습니다.
@@ -186,7 +188,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 
 Branch 대시보드에서 다음을 확인하세요:
 
-- 앱의 **번들 ID**와 **팀 ID**가 Xcode 프로젝트와 일치합니다.
+- 앱의 **Bundle ID**와 **Team ID**가 Xcode 프로젝트와 일치합니다.
 - **Associated Domains**에 Branch 링크 도메인이 포함되어 있습니다.
 - Branch AASA 파일이 유효합니다(Branch는 `app.link` 도메인에서 자동으로 호스팅합니다).
 
@@ -210,7 +212,7 @@ Branch 대시보드에서 다음을 확인하세요:
 | `Opening '<URL>': - channel: contentCard` | SDK가 Content Card의 링크를 처리 중입니다 |
 | `useWebView: true` | SDK가 앱 내 WebView에서 URL을 엽니다 |
 | `isUniversalLink: true` | SDK가 해당 URL을 유니버설 링크로 식별했습니다 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use verbose logging" }
 
 이러한 로그를 읽는 방법에 대한 자세한 내용은 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)를 참조하세요.
 

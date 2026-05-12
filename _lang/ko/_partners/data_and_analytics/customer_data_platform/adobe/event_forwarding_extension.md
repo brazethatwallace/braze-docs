@@ -15,7 +15,7 @@ search_tag: Partner
 이 문서에서는 확장 기능의 사용 사례, 이벤트 전달 라이브러리에 설치하는 방법, 이벤트 전달 [규칙](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)에서 기능을 활용하는 방법을 다룹니다.
 
 {% alert note %}
-Adobe 이벤트 전달 사용은 Braze 데이터 포인트 사용량을 증가시킬 수 있습니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/onboarding_with_braze/data_points/#billable-data-points)에 대한 Braze 설명서를 참조하세요.
+Adobe 이벤트 전달을 사용하면 Braze 데이터 포인트 사용량이 증가할 수 있습니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/onboarding_with_braze/data_points/#billable-data-points)에 대한 Braze 설명서를 참조하세요.
 {% endalert %}
 
 ## 사용 사례 {#use-cases}
@@ -31,7 +31,7 @@ Adobe 이벤트 전달 사용은 Braze 데이터 포인트 사용량을 증가�
 | API | 사용량 제한 |
 | --- | --- |
 | User Track | 분당 50,000건의 요청.<br><br>자세한 내용은 [User Track API 설명서]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#rate-limit)를 참조하세요.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limits" }
 
 ## 통합 {#integration}
 
@@ -43,7 +43,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | --- | --- |
 | Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
 | Braze REST API 키 | 모든 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Gather required configuration details" }
 
 ### 2단계: 시크릿 생성 {#step-2-create-a-secret}
 
@@ -69,7 +69,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | 외부 사용자 ID | 길고 무작위적이며 잘 분산된 UUID 또는 GUID. 사용자 ID 이름을 지정하는 다른 방법을 선택하는 경우에도 길고 무작위적이며 잘 분산되어야 합니다. [권장 사용자 ID 명명 규칙]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention)에 대해 자세히 알아보세요. |
 | Braze 사용자 ID | Braze 사용자 식별자. |
 | 사용자 별칭 | 별칭은 대체 고유 사용자 식별자 역할을 합니다. 별칭을 사용하여 핵심 사용자 ID와 다른 차원에서 사용자를 식별할 수 있습니다.<br><br>사용자 별칭 오브젝트는 식별자 자체인 `alias_name`과 별칭 유형을 나타내는 `alias_label` 두 부분으로 구성됩니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만 `alias_label`당 하나의 `alias_name`만 가질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
 이벤트를 사용자에게 연결하려면 `External User ID` 필드, `Braze User Identifier` 필드 또는 `User Alias` 섹션 중 하나를 입력해야 합니다.
@@ -84,7 +84,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | 이벤트 시간 | ISO 8601 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식의 문자열로 된 날짜-시간. | 예 |
 | 앱 식별자 | 앱 식별자 또는 `app_id`는 워크스페이스 내 특정 앱과 활동을 연결하는 매개변수입니다. 워크스페이스 내에서 상호작용하는 앱을 지정합니다. | 아니요 |
 | 이벤트 등록정보 | 이벤트의 커스텀 등록정보를 포함하는 JSON 오브젝트. | 아니요 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
 **Braze Send Event** 동작에는 **Event Name**과 **Event Time**만 지정하면 되지만, 커스텀 등록정보 필드에 가능한 한 많은 정보를 포함하는 것이 좋습니다. 자세한 내용은 [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)를 참조하세요.
@@ -109,7 +109,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | 시간대 | [IANA 시간대](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 데이터베이스의 시간대 이름(예: 'America/New_York' 또는 'Eastern Time (US & Canada)'). |
 | Facebook | `id`(문자열), `likes`(문자열 배열), `num_friends`(정수) 중 하나를 포함하는 해시. |
 | Twitter | id(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
 구성 내에서 추가된 모든 속성은 속성 값의 변경 여부와 관계없이 이벤트가 Braze에 전송될 때마다 전송됩니다. 사용자 속성을 구성할 때 이것이 데이터 포인트 사용량에 미치는 영향을 반드시 확인하세요.
@@ -132,7 +132,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | 외부 사용자 ID | 길고 무작위적이며 잘 분산된 UUID 또는 GUID. 사용자 ID 이름을 지정하는 다른 방법을 선택하는 경우에도 길고 무작위적이며 잘 분산되어야 합니다. [권장 사용자 ID 명명 규칙]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention)에 대해 자세히 알아보세요. |
 | Braze 사용자 ID | Braze 사용자 식별자. |
 | 사용자 별칭 | 별칭은 대체 고유 사용자 식별자 역할을 합니다. 별칭을 사용하여 핵심 사용자 ID와 다른 차원에서 사용자를 식별할 수 있습니다.<br><br>사용자 별칭 오브젝트는 식별자 자체인 `alias_name`과 별칭 유형을 나타내는 `alias_label` 두 부분으로 구성됩니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만 `alias_label`당 하나의 `alias_name`만 가질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
 이벤트를 사용자에게 연결하려면 `External User ID` 필드, `Braze User Identifier` 필드 또는 `User Alias` 섹션 중 하나를 완료해야 합니다.
@@ -150,7 +150,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | 수량 | 구매 수량. 제공되지 않으면 기본값은 1입니다. 최대값은 100 미만이어야 합니다. | 아니요 |
 | 앱 식별자 | 앱 식별자 또는 `app_id`는 워크스페이스 내 특정 앱과 활동을 연결하는 매개변수입니다. 워크스페이스 내에서 상호작용하는 앱을 지정합니다. | 아니요 |
 | 구매 등록정보 | 구매의 커스텀 등록정보를 포함하는 JSON 오브젝트. | 아니요 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
 **Send Purchase Event** 동작에는 `Product ID`, `Purchase Time`, `Currency`, `Price`만 지정하면 되지만, 구매 등록정보 필드에 가능한 한 많은 정보를 포함하는 것이 좋습니다. 자세한 내용은 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 참조하세요.
@@ -177,7 +177,7 @@ Edge Network를 Braze에 연결하려면 다음이 필요합니다:
 | 시간대 | [IANA 시간대](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 데이터베이스의 시간대 이름(예: 'America/New_York' 또는 'Eastern Time (US & Canada)'). |
 | Facebook | `id`(문자열), `likes`(문자열 배열), `num_friends`(정수) 중 하나를 포함하는 해시. |
 | Twitter | id(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
 구성 내에서 추가된 모든 속성은 속성 값의 변경 여부와 관계없이 이벤트가 Braze에 전송될 때마다 전송됩니다. 사용자 속성을 구성할 때 이것이 데이터 포인트 사용량에 미치는 영향을 반드시 확인하세요.

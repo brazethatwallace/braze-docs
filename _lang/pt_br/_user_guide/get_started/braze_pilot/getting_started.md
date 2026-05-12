@@ -36,7 +36,7 @@ Escaneie um código QR que inclui todos os detalhes necessários para inicializa
 | Pilot para Android | Pilot para iOS |
 | --- | --- |
 | ![Código QR para Android.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![Código QR para iOS.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método 1: Códigos QR de demonstração" }
 
 {% endtab %}
 {% tab Assistente de configuração %}

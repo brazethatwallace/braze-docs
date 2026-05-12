@@ -51,10 +51,10 @@ L'objet `selection` vous permet de spécifier quels éléments de votre catalogu
 | `external_id` | Requis | Chaîne de caractères | Un identifiant unique pour la sélection. |
 | `source` | Facultatif | Chaîne de caractères | La source des données du catalogue. Pour les catalogues Shopify, définissez cette valeur sur `"Shopify"`. Les valeurs acceptées sont `"Shopify"` et `"Braze"`. |
 | `filters` | Facultatif | Tableau d'objets | Un ensemble d'objets filtres à appliquer aux éléments du catalogue. Vous pouvez spécifier jusqu'à quatre filtres par requête. Si aucun filtre n'est fourni, tous les éléments du catalogue sont inclus. |
-| `results_limit` | Facultatif | Entier | Le nombre maximal de résultats à renvoyer. Il doit s'agir d'un nombre compris entre 1 et 50. |
+| `results_limit` | Facultatif | Nombre entier | Le nombre maximal de résultats à renvoyer. Il doit s'agir d'un nombre compris entre 1 et 50. |
 | `sort_field` | Facultatif | Chaîne de caractères | Le champ selon lequel trier les résultats. Ce paramètre doit être associé à `sort_order`. Si ni `sort_field` ni `sort_order` ne sont présents, les résultats sont renvoyés dans un ordre aléatoire. |
 | `sort_order` | Facultatif | Chaîne de caractères | L'ordre de tri des résultats. Les valeurs acceptées sont `"asc"` (ascendant) ou `"desc"` (descendant). Ce paramètre doit être associé à `sort_field`. Si ni `sort_field` ni `sort_order` ne sont présents, les résultats sont renvoyés dans un ordre aléatoire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
 
 ### Objet filtre {#filter-object}
 
@@ -64,8 +64,8 @@ Chaque objet filtre du tableau `filters` contient les champs décrits dans le ta
 | --- | -------- | ------------------------------------------- | ----------- |
 | `field`    | Requis | Chaîne de caractères                                      | Le champ du catalogue sur lequel appliquer le filtre. |
 | `operator` | Requis | Chaîne de caractères                                      | L'opérateur de comparaison à utiliser pour le filtrage. Par exemple, `"includes value"` et `"does not include value"`. |
-| `value`    | Requis | Variable (chaîne de caractères, nombre, booléen, heure)     | La valeur à comparer. Elle doit correspondre au type de données du champ du catalogue sous-jacent (par exemple, chaîne de caractères, nombre, booléen, heure). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `value`    | Requis | Variable (chaîne de caractères, nombre, valeur booléenne, heure)     | La valeur à comparer. Elle doit correspondre au type de données du champ du catalogue sous-jacent (par exemple, chaîne de caractères, nombre, valeur booléenne, heure). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
 L'API prend en charge un maximum de quatre filtres par requête de sélection. Dans le tableau de bord de Braze, vous pouvez ajouter jusqu'à 10 filtres par sélection. Les filtres sont appliqués dans l'ordre dans lequel ils apparaissent dans le tableau.

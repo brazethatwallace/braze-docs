@@ -38,7 +38,7 @@ Cet endpoint ne comporte pas de paramètres de chemin.
 | `template_id` | Requis | Chaîne de caractères | L'ID de votre modèle d'e-mail. |
 | `locale_id` | Requis | Chaîne de caractères | L'ID de la locale. |
 | `translations_map` | Requis | Chaîne de caractères | Le mappage des traductions pour votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.

@@ -33,7 +33,7 @@ Vous pouvez définir des variables de contexte de deux manières :
 - **À l'entrée du Canvas :** Les propriétés de l'événement personnalisé ou du déclencheur API sont automatiquement renseignées en tant que variables de contexte.
 - **Dans une étape Contexte :** Définissez ou mettez à jour manuellement les variables de contexte en ajoutant une étape Contexte.
 
-Chaque variable de contexte nécessite un nom, un type de données et une valeur (définie à l'aide de Liquid ou de l'outil Ajouter une personnalisation). Une fois définie, vous pouvez référencer les variables de contexte dans tout le Canvas à l'aide de Liquid, par exemple {% raw %}`{{context.${flight_time}}}`{% endraw %}. Dans le champ **Nom de la variable de contexte**, vous pouvez également saisir le nom de la variable de contexte ou le sélectionner dans le menu déroulant de l'éditeur d'étape. Pour plus de détails, consultez la [Référence des variables de contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
+Chaque variable de contexte nécessite un nom, un type de données et une valeur (définie à l'aide de Liquid ou de l'outil Ajouter une personnalisation). Une fois définie, vous pouvez référencer les variables de contexte dans tout le Canvas à l'aide de Liquid, par exemple {% raw %}`{{context.${flight_time}}}`{% endraw %}. Dans le champ **Context variable name**, vous pouvez également saisir le nom de la variable de contexte ou le sélectionner dans le menu déroulant de l'éditeur d'étape. Pour plus de détails, consultez la [Référence des variables de contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
 
 Chaque entrée dans le Canvas redéfinit les variables de contexte en fonction des dernières données d'entrée et de la configuration du Canvas, ce qui permet aux utilisateurs d'avoir plusieurs parcours actifs avec leur propre contexte. Par exemple, si un client a deux vols à venir, il aura deux états de parcours distincts s'exécutant simultanément&#8212;chacun avec ses propres variables de contexte spécifiques au vol, comme l'heure de départ et la destination. Cela vous permet d'envoyer des rappels personnalisés concernant son vol de 14 h vers New York tout en envoyant des mises à jour différentes concernant son vol de 8 h vers Los Angeles le lendemain, de sorte que chaque message reste pertinent par rapport à la réservation spécifique.
 
@@ -202,7 +202,7 @@ Voici un exemple de la marche à suivre :
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | Non |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | Non |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | Oui |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ce changement impacte-t-il les propriétés d'entrée Canvas ?" }
 
 #### Quel est un exemple concret de la façon dont le nouveau comportement des horodatages pourrait affecter mes messages ? {#faq-example}
 
@@ -260,7 +260,7 @@ Oui. Toutes les variables d'une étape Contexte sont évaluées en séquence, ce
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | Le type de cuisine préféré d'un utilisateur. |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | Le code de réduction disponible pour un utilisateur. |
 | `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Un message personnalisé qui combine les variables précédentes. Dans une étape Message, vous pourriez utiliser l'extrait de code Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} pour référencer la variable de contexte et délivrer un message personnalisé à chaque utilisateur. Vous pourriez également utiliser une étape Contexte pour enregistrer la valeur du [code promotionnel]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list) et l'intégrer dans d'autres étapes tout au long d'un Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Les variables peuvent-elles se référencer mutuellement dans une même étape Contexte ?" }
 
 Cela s'applique également entre plusieurs étapes Contexte. Par exemple, imaginez cette séquence :
 

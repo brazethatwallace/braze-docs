@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Aliasage de lien {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Aliasage de lien {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > Utilisez l'aliasage de lien pour créer des noms reconnaissables, générés par l'utilisateur, afin d'identifier les liens envoyés dans les e-mails depuis Braze. Ces liens sont disponibles pour le reciblage par segmentation, le déclenchement basé sur les actions et l'analyse des liens.
 
@@ -50,7 +50,7 @@ L'aliasage de lien est uniquement pris en charge dans les attributs `href` au se
 
 Pour afficher tous vos alias de lien suivis, procédez comme suit :
 
-1. Accédez à **Paramètres** > **Préférences des e-mails** sous **Paramètres de l'espace de travail**.
+1. Accédez à **Settings** > **Email Preferences** sous **Workspace Settings**.
 2. Sélectionnez l'onglet **Link Aliasing Settings**.
 
 {% alert important %}
@@ -59,7 +59,7 @@ Si vous utilisez l'[ancienne navigation]({{site.baseurl}}/user_guide/administer/
 
 Ici, vous pouvez trier, rechercher et désactiver le suivi des alias de lien.
 
-![Page Tracked Link Aliases affichant les alias de lien actifs et inactifs associés à diverses campagnes.]({% image_buster /assets/img/tracked_aliases.png %})
+![Page Tracked Link Aliases affichant les alias de lien actifs et inactifs associés à diverses Campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
 Utilisez les endpoints [Lister les alias de lien pour une Campaign]({{site.baseurl}}/get_campaign_link_alias/) et [Lister les alias de lien pour un Canvas]({{site.baseurl}}/get_canvas_link_alias/) pour extraire l'`alias` défini dans chaque variante de message d'une Campaign ou d'un composant Canvas spécifique aux e-mails.
@@ -80,7 +80,7 @@ Les tableaux suivants fournissent des exemples de liens dans le corps d'un e-mai
 | Lien dans le corps de l'e-mail | Lien avec aliasage |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permalien" }
 
 ### Lien avec des paramètres de requête supplémentaires {#link-with-more-query-parameters}
 
@@ -89,7 +89,7 @@ Les tableaux suivants fournissent des exemples de liens dans le corps d'un e-mai
 | Lien dans le corps de l'e-mail | Lien avec aliasage |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Lien avec des paramètres de requête supplémentaires" }
 
 ### Lien HTML {#html-link}
 
@@ -98,7 +98,7 @@ Les tableaux suivants fournissent des exemples de liens dans le corps d'un e-mai
 | Lien dans le corps de l'e-mail | Lien avec aliasage |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Lien HTML" }
 
 ### Lien avec ancre {#link-with-anchor}
 
@@ -107,7 +107,7 @@ Les tableaux suivants fournissent des exemples de liens dans le corps d'un e-mai
 | Lien dans le corps de l'e-mail | Lien avec aliasage |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Lien avec ancre" }
 
 ### Lien avec ancre et balise de capture {#link-with-anchor-and-capture-tag}
 
@@ -116,7 +116,7 @@ Les tableaux suivants fournissent des exemples de liens dans le corps d'un e-mai
 | Lien dans le corps de l'e-mail | Lien avec aliasage |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Lien avec ancre et balise de capture" }
 
 ## Suivi des alias de lien {#tracking-link-aliases}
 

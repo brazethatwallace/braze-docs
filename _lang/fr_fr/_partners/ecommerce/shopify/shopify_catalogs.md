@@ -93,7 +93,7 @@ Braze prend en charge les objets de métachamps suivants ainsi que certains de l
 | `number_integer` | Entier |
 | `single_line_text_field`, `list.single_line_text_field` | Chaîne de caractères, Tableau de chaînes de caractères |
 | `url`, `list.url` | Chaîne de caractères (URL), Tableau de chaînes de caractères (URL) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer des données produit supplémentaires (facultatif) #step-3" }
 
 {% endsubtab %}
 {% subtab Métachamps non pris en charge %}
@@ -189,7 +189,7 @@ La modification de vos sélections synchronisées peut affecter les Campaigns, C
 | `product_tags` | tableau | `["Summer", "Sale", "New"]`<br><br>Nécessite la synchronisation des étiquettes de produit. |
 | `collection_ids` | tableau | `[123456789012, 987654321098]` (ID de collections Shopify)<br><br>Nécessite la synchronisation des collections Shopify. |
 | `Metafield columns` | Varie selon le type | Chaque métachamp synchronisé apparaît sous forme de colonne distincte nommée par sa clé. Consultez les [métachamps pris en charge](#step-3) dans l'onglet « Métachamps de produit » de l'étape 3 pour plus d'informations. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
 
 {% alert warning %}
 Votre catalogue Shopify est géré par Shopify. Pour mettre à jour votre catalogue, apportez les modifications directement dans votre boutique Shopify, et elles seront automatiquement synchronisées avec Braze. Pour supprimer votre catalogue Shopify, accédez à la page partenaire Shopify dans Braze et [désactivez la synchronisation](#deactivate).
@@ -717,4 +717,4 @@ Si la synchronisation de vos produits Shopify rencontre une erreur, cela pourrai
 | Erreur du serveur | Cela se produit lorsqu'il y a une erreur de serveur du côté de Shopify au moment de la synchronisation de vos produits. | [Désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
 | SKU en double | Cela se produit si vous utilisez un SKU comme ID d'article de catalogue et que plusieurs produits partagent le même SKU. Comme l'ID de l'article du catalogue doit être unique, tous vos produits doivent avoir des SKU uniques. | Vérifiez votre liste complète de produits et de variantes dans Shopify pour vous assurer qu'il n'y a pas de SKU en double. S'il y en a, mettez-les à jour pour qu'ils soient uniques dans votre compte de boutique Shopify. Une fois la correction effectuée, [désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
 | Limite du catalogue dépassée | Cela se produit lorsque vous dépassez votre limite de catalogue. Braze ne pourra pas terminer la synchronisation ou la maintenir active en raison de l'absence d'espace de stockage disponible. | Il existe deux solutions à ce problème :<br><br>1. Contactez votre gestionnaire de compte pour passer à un niveau supérieur afin d'augmenter votre limite de catalogue.<br><br>2. Libérez de l'espace de stockage en supprimant l'un des éléments suivants :<br>- Des articles de catalogue d'autres catalogues<br>- D'autres catalogues<br>- Des sélections créées<br><br> Après avoir utilisé l'une ou l'autre des solutions, la synchronisation doit être désactivée puis relancée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }

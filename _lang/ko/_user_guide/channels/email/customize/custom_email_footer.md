@@ -22,10 +22,10 @@ channel:
 
 커스텀 바닥글을 만들거나 편집하려면 다음을 수행합니다:
 
-1. **설정** > **이메일 환경설정** > **가입 페이지 및 바닥글**로 이동합니다.
-2. **커스텀 바닥글** 섹션으로 이동하여 커스텀 바닥글을 켭니다.
-3. **편집**을 선택한 다음 **작성** 섹션에서 바닥글을 편집합니다.
-4. **미리보기**를 선택하면 이메일 바닥글이 고객의 받은편지함에 어떻게 표시되는지 미리 볼 수 있습니다. 선택적으로 **미리보기 링크 복사**를 선택하여 임의의 사용자에게 이메일이 어떻게 표시되는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 링크는 7일 동안 유효하며 그 후 다시 생성해야 합니다.
+1. **Settings** > **Email Preferences** > **Subscription Pages and Footers**로 이동합니다.
+2. **Custom footer** 섹션으로 이동하여 커스텀 바닥글을 켭니다.
+3. **Edit**를 선택한 다음 **Compose** 섹션에서 바닥글을 편집합니다.
+4. **Preview**를 선택하면 이메일 바닥글이 고객의 받은편지함에 어떻게 표시되는지 미리 볼 수 있습니다. 선택적으로 **Copy preview link**를 선택하여 임의의 사용자에게 이메일이 어떻게 표시되는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 링크는 7일 동안 유효하며 그 후 다시 생성해야 합니다.
 5. 테스트 메시지를 보냅니다.
 
 ![커스텀 바닥글의 예시.]({% image_buster /assets/img_archive/custom_footer.png %})
@@ -76,7 +76,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 | 사용자의 커스텀 옵트인 URL | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | 사용자의 커스텀 구독 URL | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | 사용자의 커스텀 Braze 환경설정 센터 URL | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizing with attributes" }
 
 ### 탈퇴 링크 및 옵트인 링크 포함 {#including-an-unsubscribe-link-and-opt-in-link}
 
@@ -86,7 +86,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 
 ### 일반 텍스트 이메일용 커스텀 바닥글 설정 {#setting-custom-footers-for-plaintext-emails}
 
-**이메일 환경설정** 페이지의 **가입 페이지 및 바닥글** 탭에서 일반 텍스트 이메일용 커스텀 바닥글을 설정할 수도 있으며, HTML 이메일용 커스텀 바닥글과 동일한 규칙을 따릅니다.
+**Email Preferences** 페이지의 **Subscription Pages and Footers** 탭에서 일반 텍스트 이메일용 커스텀 바닥글을 설정할 수도 있으며, HTML 이메일용 커스텀 바닥글과 동일한 규칙을 따릅니다.
 
 일반 텍스트 바닥글을 포함하지 않으면 Braze가 HTML 바닥글에서 자동으로 생성합니다. 커스텀 바닥글이 만족스러우면 **Save**를 선택합니다.
 

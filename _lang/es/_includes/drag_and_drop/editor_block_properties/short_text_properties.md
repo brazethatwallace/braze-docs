@@ -13,4 +13,4 @@
 | Color | Color del texto escrito en el campo. |
 | Alineación del texto | Alineación horizontal del texto de entrada dentro del campo. |
 | Relleno | Espaciado alrededor del bloque. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

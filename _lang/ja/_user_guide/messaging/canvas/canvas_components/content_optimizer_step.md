@@ -8,7 +8,7 @@ page_type: reference
 
 ---
 
-# コンテンツオプティマイザーエージェントステップ
+# コンテンツオプティマイザーエージェントステップ {#content-optimizer-agent-step}
 
 > コンテンツオプティマイザーエージェントステップでは、単一のステップ内でコンテンツコンポーネントの複数バージョンを設定してテストできます。コンテンツのバリエーションを実験し、時間の経過とともに最もパフォーマンスの高い組み合わせに向けて自動的に最適化します。概要については、[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer/)を参照してください。
 
@@ -16,17 +16,17 @@ page_type: reference
 コンテンツオプティマイザーは現在ベータ版です。ご利用を開始するには、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
-## コンテンツオプティマイザーステップの作成
+## コンテンツオプティマイザーステップの作成 {#creating-a-content-optimizer-step}
 
-最良の結果を得るには、ユーザーが時間をかけて徐々にステップに入るキャンバスでコンテンツオプティマイザーエージェントを使用してください。すべてのユーザーが一度にステップに入ると、エージェントは初期の結果から学習する時間がありません。
+最良の結果を得るには、ユーザーが時間をかけて徐々にステップに入るCanvasでコンテンツオプティマイザーエージェントを使用してください。すべてのユーザーが一度にステップに入ると、エージェントは初期の結果から学習する時間がありません。
 
-### ステップ 1: ステップを追加する
+### ステップ 1: ステップを追加する {#step-1-add-a-step}
 
 サイドバーから**コンテンツオプティマイザー**コンポーネントをドラッグ＆ドロップするか、ステップの下部にある<i class="fas fa-plus-circle"></i>プラスボタンを選択して**コンテンツオプティマイザー**を選択します。
 
-### ステップ 2: ベースメッセージを作成する
+### ステップ 2: ベースメッセージを作成する {#step-2-create-your-base-message}
 
-ベースメッセージはステップの出発点です。各コンテンツコンポーネントのバリアントは、**コンテンツオプティマイザー設定**タブで定義された組み合わせに基づいてダイナミックに挿入されます。
+ベースメッセージはステップの出発点です。各コンテンツコンポーネントのバリアントは、**Content Optimizer Settings**タブで定義された組み合わせに基づいてダイナミックに挿入されます。
 
 {% alert note %}
 ベータ期間中、サポートされるチャネルはメールとプッシュ通知です。
@@ -35,35 +35,35 @@ page_type: reference
 {% tabs local %}
 {% tab メール %}
 
-**メッセージングチャネル**タブから**メール**を選択し、ベースメールメッセージを作成します。詳しくは、専用の[メール]({{site.baseurl}}/user_guide/channels/email)セクションを参照してください。
+**Messaging Channels**タブから**Email**を選択し、ベースメールメッセージを作成します。詳しくは、専用の[メール]({{site.baseurl}}/user_guide/channels/email/)セクションを参照してください。
 
 コンテンツオプティマイザーエージェントは、このバリアントで指定された送信設定（メールドメインや返信先アドレスなど）を使用してすべてのメッセージを送信します。新しいデザインから始めることも、このメッセージ用に既存のテンプレートを選択することもできます。このステップでは、メッセージのどのコンポーネントを最適化したいかを検討してください。これらは[ステップ 4](#step-4)で定義します。
 
 最適化がサポートされるコンポーネントは以下のとおりです：
 
-- 件名
-- 本文ヘッダー
-- 本文コンテンツ
-- プライマリCTA
+- Subject
+- Body Header
+- Body Content
+- Primary CTA
 
 {% endtab %}
 {% tab プッシュ通知 %}
 
-**メッセージングチャネル**タブから**プッシュ通知**を選択し、ベースプッシュ通知を作成します。詳しくは、専用の[プッシュ]({{site.baseurl}}/user_guide/channels/push)セクションを参照してください。
+**Messaging Channels**タブから**Push notifications**を選択し、ベースプッシュ通知を作成します。詳しくは、専用の[プッシュ]({{site.baseurl}}/user_guide/channels/push/)セクションを参照してください。
 
 コンテンツオプティマイザーエージェントは、このバリアントで指定された選択済みのプッシュプラットフォームを使用してすべてのメッセージを送信します。新しいデザインから始めることも、このメッセージ用に既存のテンプレートを選択することもできます。このステップでは、メッセージのどのコンポーネントを最適化したいかを検討してください。これらは[ステップ 4](#step-4)で定義します。
 
 最適化がサポートされるコンポーネントは以下のとおりです：
 
-- タイトル
-- メッセージ
+- Title
+- Message
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: 配信設定を指定する
+### ステップ 3: 配信設定を指定する {#step-3-specify-delivery-settings}
 
-**配信設定**タブでは、ステップでインテリジェントタイミングまたは配信バリデーションを使用するかどうかを指定できます。詳しくは、メッセージステップの[配信設定の編集]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings)を参照してください。
+**Delivery Settings**タブでは、ステップでインテリジェントタイミングまたは配信バリデーションを使用するかどうかを指定できます。詳しくは、メッセージステップの[配信設定の編集]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings)を参照してください。
 
 ### ステップ 4: コンテンツコンポーネントとバリアントを追加する {#step-4}
 
@@ -72,70 +72,70 @@ page_type: reference
 - **メール：** ステップごとに最大3つのコンテンツコンポーネントを追加でき、コンポーネントごとに最大5つのバリアントを追加できるため、合計125のユニークなコンテンツの組み合わせが可能です。
 - **プッシュ通知：** ステップごとに最大2つのコンポーネントを追加でき、コンポーネントごとに最大5つのバリアントを追加できるため、合計25のユニークなコンテンツの組み合わせが可能です。
 
-![コンテンツオプティマイザーインターフェイスでコンテンツコンポーネントを追加・設定するオプション。件名、本文ヘッダー、本文コンテンツ、プライマリCTAなどの選択可能なコンポーネントが表示され、それぞれに異なるバリアントを入力するフィールドがあります。]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
+![コンテンツオプティマイザーインターフェイスでコンテンツコンポーネントを追加・設定するオプション。Subject、Body Header、Body Content、Primary CTAなどの選択可能なコンポーネントが表示され、それぞれに異なるバリアントを入力するフィールドがあります。]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
-#### ステップ 4.1: コンテンツコンポーネントを設定する
+#### ステップ 4.1: コンテンツコンポーネントを設定する {#step-41-configure-content-components}
 
-コンポーネントを設定するには、**コンテンツオプティマイザー設定**タブに移動します。
+コンポーネントを設定するには、**Content Optimizer Settings**タブに移動します。
 
 {% tabs local %}
 {% tab メール %}
 
 メールメッセージで最適化するコンポーネントを選択します。サポートされるオプションは以下のとおりです：
 
-- 件名
-- 本文ヘッダー
-- 本文コンテンツ
-- プライマリCTA
+- Subject
+- Body Header
+- Body Content
+- Primary CTA
 
 選択した各コンポーネントについて、そのコンテンツの代替バージョン（バリアント）のセットを定義します。トーン、構造、またはコンテンツが異なる明確で区別しやすいバリアントを使用してください。これにより、コンテンツオプティマイザーがトップパフォーマーをより効果的に特定できます。以下のことが可能です：
   - バリアントを手動で作成する。
   - AI生成の提案を使用して、新しいオプションをすばやく探索する。
 
-![メール最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するコンテンツオプティマイザー設定インターフェイス。各コンポーネントには異なるバリアントを入力するための入力フィールドがあります。コンポーネント名とバリアントテキストを入力するフィールドが表示されています。]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
+![メール最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するContent Optimizer Settings インターフェイス。各コンポーネントには異なるバリアントを入力するための入力フィールドがあります。コンポーネント名とバリアントテキストを入力するフィールドが表示されています。]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
 
 {% endtab %}
 {% tab プッシュ通知 %}
 
 プッシュ通知で最適化するコンポーネントを選択します。サポートされるオプションは以下のとおりです：
-- タイトル
-- メッセージ
+- Title
+- Message
 
 選択した各コンポーネントについて、そのコンテンツの代替バージョン（バリアント）のセットを定義します。トーン、構造、またはコンテンツが異なる明確で区別しやすいバリアントを使用してください。これにより、コンテンツオプティマイザーがトップパフォーマーをより効果的に特定できます。以下のことが可能です：
   - バリアントを手動で作成する。
   - AI生成の提案を使用して、新しいオプションをすばやく探索する。
 
-![プッシュ最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するコンテンツオプティマイザー設定。]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
+![プッシュ最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するContent Optimizer Settings。]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
 
 {% endtab %}
 {% endtabs %}
 
-#### ステップ 4.2: メッセージにLiquidを追加する
+#### ステップ 4.2: メッセージにLiquidを追加する {#step-42-add-liquid-to-your-message}
 
 各コンポーネントに少なくとも2つのバリアントを定義したら、各コンポーネントに関連付けられたLiquidタグをコピーし、ベースメッセージの対応する場所に貼り付けます。
 
 - たとえば、件名を最適化する場合は、メールコンポーザーの件名フィールドに{% raw %}`{% message_component "Subject" %}`{% endraw %}タグを貼り付けます。
 - コンポーネントタグをより長いテキスト内に含めて、コンポーネントの一部分だけをテストすることもできます。例：{% raw %}`Hey there, {% message_component "Subject" %}`{% endraw %}。
 
-![件名、本文ヘッダー、本文コンテンツ、プライマリCTAなどのコンテンツコンポーネントを追加・設定するオプション。各コンポーネントには異なるバリアントを入力するフィールドがあります。]({% image_buster /assets/img/content_optimizer/optimization_liquid_in_use.png %})
+![Subject、Body Header、Body Content、Primary CTAなどのコンテンツコンポーネントを追加・設定するオプション。各コンポーネントには異なるバリアントを入力するフィールドがあります。]({% image_buster /assets/img/content_optimizer/optimization_liquid_in_use.png %})
 
-選択したコンテンツコンポーネントにLiquidタグを追加しない場合、**コンテンツオプティマイザー設定**タブに警告が表示され、**メッセージングチャネル**タブにエラーが表示されます。選択したすべてのコンポーネントがベースメッセージに適切に追加されるまで、キャンバスを起動することはできません。
+選択したコンテンツコンポーネントにLiquidタグを追加しない場合、**Content Optimizer Settings**タブに警告が表示され、**Messaging Channels**タブにエラーが表示されます。選択したすべてのコンポーネントがベースメッセージに適切に追加されるまで、Canvasを起動することはできません。
 
-キャンバスの実行中、エージェントはコンポーネント間でバリアントを組み合わせて異なるコンテンツの組み合わせを生成します。時間の経過とともに、パフォーマンスの高い組み合わせが配信で優先され、手動の介入なしにパフォーマンスを向上させることができます。
+Canvasの実行中、エージェントはコンポーネント間でバリアントを組み合わせて異なるコンテンツの組み合わせを生成します。時間の経過とともに、パフォーマンスの高い組み合わせが配信で優先され、手動の介入なしにパフォーマンスを向上させることができます。
 
-#### Liquidリファレンス
+#### Liquidリファレンス {#liquid-references}
 
 | チャネル | コンポーネント | Liquidスニペット |
 | --- | --- | --- |
-| メール | 件名 | {% raw %}`{% message_component "Subject" %}`{% endraw %} |
-| メール | 本文ヘッダー | {% raw %}`{% message_component "Body Header" %}`{% endraw %} |
-| メール | 本文コンテンツ | {% raw %}`{% message_component "Body Content" %}`{% endraw %} | 
-| メール | プライマリCTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} | 
-| プッシュ | タイトル | {% raw %}`{% message_component "Title" %}`{% endraw %} | 
-| プッシュ | メッセージ | {% raw %}`{% message_component "Message" %}`{% endraw %} | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| メール | Subject | {% raw %}`{% message_component "Subject" %}`{% endraw %} |
+| メール | Body Header | {% raw %}`{% message_component "Body Header" %}`{% endraw %} |
+| メール | Body Content | {% raw %}`{% message_component "Body Content" %}`{% endraw %} |
+| メール | Primary CTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} |
+| プッシュ | Title | {% raw %}`{% message_component "Title" %}`{% endraw %} |
+| プッシュ | Message | {% raw %}`{% message_component "Message" %}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid references" }
 
-### ステップ 5: 最適化イベントを選択する
+### ステップ 5: 最適化イベントを選択する {#step-5-select-optimization-event}
 
 最適化イベントは、コンテンツオプティマイザーエージェントがパフォーマンスを評価し、時間の経過とともにコンテンツの組み合わせにトラフィックを割り当てる方法を決定します。
 
@@ -150,7 +150,7 @@ page_type: reference
 | --- | --- | --- |
 | 開封 | 受信者がメールを開封する組み合わせに最適化します。 | 件名のテストや視認性の向上を目指す場合 |
 | クリック | リンクへのエンゲージメントを促進する組み合わせに最適化します。ボットクリックやBrazeが認識した配信停止クリックは含まれません。 | リンクからのトラフィック、エンゲージメント、またはコンバージョンの促進 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Select optimization event" }
 
 {% endtab %}
 {% tab プッシュ通知 %}
@@ -160,30 +160,30 @@ page_type: reference
 {% endtab %}
 {% endtabs %}
 
-## ベストプラクティス
+## ベストプラクティス {#best-practices}
 
 - 一般的に、コンテンツオプティマイザーステップでは複数のコンポーネントをテストすることをお勧めします。
 - クリックに対して最適化する場合は、テストに件名を含めてください。より強力な件名は開封の増加に貢献し、クリックの機会を増やすことができます。
 - 開封に対して最適化する場合は、テストを件名に集中させてください。
 
-## 分析
+## 分析 {#analytics}
 
 パフォーマンスを確認するには、ステップレベルの分析パネルを開いて、コンテンツバリアントごとの指標と全体的な組み合わせのパフォーマンスを確認します。コンテンツオプティマイザーステップは、[メッセージステップと同じ分析]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics)を使用します。
 
 ![3つのボタンのコンテンツオプティマイザー分析と、上昇傾向にある送信の割り当て率。]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
 
-### ステップ分析が一般的な分析と異なる理由
+### ステップ分析が一般的な分析と異なる理由 {#why-step-analytics-differ-from-general-analytics}
 
-コンテンツオプティマイザーステップの分析が**分析**セクションと異なる理由は以下のとおりです：
+コンテンツオプティマイザーステップの分析が**Analytics**セクションと異なる理由は以下のとおりです：
 
 - プッシュ送信は、同じユーザーへの異なるデバイスへの送信について重複排除されます。
 - 一般的に、クリックと開封は各ユーザーに対してユニークになるよう重複排除されます。
 - コンテンツオプティマイザーステップでは、メッセージ送信後7日以内に発生したクリックと開封のみがカウントされます。
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
 | 問題 | 説明 | 修正方法 |
 | --- | --- | --- |
-| Liquidタグの欠落 | コンテンツコンポーネント（件名やCTAなど）を追加したが、対応するLiquidタグをベースメッセージに挿入していない場合、以下が表示されます：<br>- **コンテンツオプティマイザー設定**タブに警告<br>- **メッセージングチャネル**タブにエラー | **コンテンツオプティマイザー設定**タブの各コンポーネントの下に表示されるLiquidスニペットをコピーし、メッセージの適切な部分に貼り付けてください。 |
+| Liquidタグの欠落 | コンテンツコンポーネント（SubjectやCTAなど）を追加したが、対応するLiquidタグをベースメッセージに挿入していない場合、以下が表示されます：<br>- **Content Optimizer Settings**タブに警告<br>- **Messaging Channels**タブにエラー | **Content Optimizer Settings**タブの各コンポーネントの下に表示されるLiquidスニペットをコピーし、メッセージの適切な部分に貼り付けてください。 |
 | 孤立したLiquidタグ | コンテンツコンポーネントを削除したが、そのLiquidタグがベースメッセージに残っている場合、送信時にメッセージが期待どおりにレンダリングされない可能性があります。 | 起動前に、ベースメッセージから未使用の`message_component`タグを削除してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }

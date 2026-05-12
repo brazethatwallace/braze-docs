@@ -1,11 +1,11 @@
 ---
 nav_title: SDK-Übersicht
-article_title: SDK Übersicht für Entwickler:innen
+article_title: SDK-Übersicht für Entwickler:innen
 description: "Dieser Onboarding-Referenzartikel enthält eine technische Übersicht für Entwickler:innen des Braze SDK. Er behandelt die Standard-Analytics, die vom SDK getrackt werden, die Sperrung der automatischen Datenerfassung und die aktive SDK-Version Ihrer App."
 page_order: 0
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} SDK-Übersicht für Entwickler:innen {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} SDK-Übersicht für Entwickler:innen {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Bevor Sie mit der Integration der Braze SDKs beginnen, werden Sie sich vielleicht fragen, was genau Sie da eigentlich entwickeln und integrieren. Vielleicht sind Sie neugierig, wie Sie das SDK weiter an Ihre Bedürfnisse anpassen können. Dieser Artikel hilft Ihnen, alle Ihre Fragen zum SDK zu beantworten.
 
@@ -15,13 +15,13 @@ Kurz gesagt, das Braze SDK:
 * Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Nutzerprofil
 * Sammelt automatisch Sitzungsdaten, Geräteinformationen und Push-Tokens
 * Erfasst Marketingdaten und angepasste Daten speziell für Ihr Unternehmen
-* Unterstützt Push-Benachrichtigungen, In-App-Nachrichten und Content-Card-Nachrichtenkanäle
+* Unterstützt Push-Benachrichtigungen, In-App Messages und Content-Card-Nachrichtenkanäle
 
 Sehen Sie sich das folgende Video an, um eine kurze Einführung in die Grundlagen der Braze SDK-Integration und die Kernfunktionalität zu erhalten.
 
 {% multi_lang_include video.html id="il152jayp0" source="wistia" %}
 
-## App-Performance
+## App-Performance {#app-performance}
 
 Braze sollte keine negativen Auswirkungen auf die Performance Ihrer App haben.
 
@@ -45,12 +45,12 @@ Alle unsere Features sind konfigurierbar, aber es empfiehlt sich, das Standardmo
 
 Das Braze SDK speichert Daten (Sitzungen, angepasste Events usw.) im Cache und lädt sie in regelmäßigen Abständen hoch. Erst nachdem die Daten hochgeladen wurden, werden die Werte im Dashboard aktualisiert. Das Upload-Intervall berücksichtigt den Zustand des Geräts und richtet sich nach der Qualität der Netzwerkverbindung:
 
-|Qualität der Netzwerkverbindung |    Data-Flush-Intervall|
+| Qualität der Netzwerkverbindung | Data-Flush-Intervall |
 |---|---|
-|Sehr gut    |10 Sekunden|
-|Gut    |30 Sekunden|
-|Schlecht    |60 Sekunden|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Sehr gut | 10 Sekunden |
+| Gut | 30 Sekunden |
+| Schlecht | 60 Sekunden |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Daten hoch- und herunterladen" }
 
 Wenn keine Netzwerkverbindung besteht, werden die Daten lokal auf dem Gerät zwischengespeichert, bis die Netzwerkverbindung wiederhergestellt ist. Wenn die Verbindung wiederhergestellt ist, werden die Daten auf Braze hochgeladen.
 

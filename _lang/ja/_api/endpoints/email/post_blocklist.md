@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 | -----------|----------| --------|------- |
 | `email` | 必須 | 文字列または配列 | ブロックリストに追加するメールアドレスの文字列、またはブロックリストに追加する最大50件のメールアドレスの配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

@@ -343,7 +343,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. Créez un message de suivi qui délivre le code de réduction.
-4. (Facultatif) Créez une campagne ou un Canvas basé sur une action qui se déclenche lorsque l'utilisateur LINE est identifié pour lui envoyer son code de réduction. <br>![Campaign basée sur une action qui se déclenche lorsque l'utilisateur LINE est identifié.]({% image_buster /assets/img/line/account_link_2.png %})
+4. (Facultatif) Créez une Campaign ou un Canvas basé sur une action qui se déclenche lorsque l'utilisateur LINE est identifié pour lui envoyer son code de réduction. <br>![Campaign basée sur une action qui se déclenche lorsque l'utilisateur LINE est identifié.]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### Fonctionnement {#how-it-works}
 
@@ -387,9 +387,9 @@ if (user && isLoggedIn && lineUserId) {
 
 ## Création d'utilisateurs test LINE dans Braze {#creating-line-test-users-in-braze}
 
-Vous pouvez tester votre canal LINE avant de configurer la [réconciliation des ID utilisateur](#user-id-reconciliation) en créant un Canvas ou une campagne « Qui suis-je ».
+Vous pouvez tester votre canal LINE avant de configurer la [réconciliation des ID utilisateur](#user-id-reconciliation) en créant un Canvas ou une Campaign « Qui suis-je ».
 
-1. Configurez un Canvas qui renvoie l'ID utilisateur Braze d'un utilisateur sur un mot déclencheur spécifique. <br><br>Exemple de déclencheur <br><br>![Déclencheur pour envoyer la campagne aux utilisateurs qui ont envoyé un message LINE entrant à un groupe d'abonnement spécifique.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Exemple de message<br><br>![Message LINE indiquant l'ID utilisateur Braze.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. Configurez un Canvas qui renvoie l'ID utilisateur Braze d'un utilisateur sur un mot déclencheur spécifique. <br><br>Exemple de déclencheur <br><br>![Déclencheur pour envoyer la Campaign aux utilisateurs qui ont envoyé un message LINE entrant à un groupe d'abonnement spécifique.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Exemple de message<br><br>![Message LINE indiquant l'ID utilisateur Braze.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. Dans Braze, vous pouvez utiliser l'ID Braze pour rechercher des utilisateurs spécifiques et les modifier selon vos besoins.
 

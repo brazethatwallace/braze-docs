@@ -29,7 +29,7 @@ channel:
 | 세그먼터 | 세그먼터는 특정 [구독 그룹]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group)에 속한 사용자 수를 표시합니다. 전화번호 기준으로 중복을 제거하지 않으므로, 여러 사용자가 동일한 전화번호를 공유하는 경우 각 인스턴스가 별도로 집계됩니다. |
 | 구독 그룹 시계열 | 이메일 및 전화번호에 대한 구독의 일별 스냅샷을 제공합니다. 시계열은 구독, 구독 취소, 재구독을 집계합니다. 예를 들어, 사용자가 구독한 후 구독을 취소하고 다시 구독하면 구독 사용자 1명으로 집계됩니다. |
 | Currents | Currents를 사용하여 자체 보고서를 위한 [구독 및 참여 이벤트]({{site.baseurl}}/message_events_glossary/)를 내보낼 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 옵트인 및 옵트아웃 추적" }
 
 {% alert note %}
 **SMS/MMS/RCS 성과** 패널의 _옵트인_ 및 _옵트아웃_ 통계는 인바운드 키워드를 통해 옵트인 또는 옵트아웃한 사용자를 반영합니다(예: 옵트인의 경우 "START", 옵트아웃의 경우 "STOP" 문자 발송). 이 수치는 일반적으로 세그먼터에 표시되는 수치보다 낮습니다. 이는 SMS에 가입한 총 사용자 수가 아니라 해당 키워드가 문자로 발송된 횟수를 집계하기 때문입니다.
@@ -73,7 +73,7 @@ Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시�
 | 전달됨 | SMS 제공업체가 업스트림 통신사로부터(가능한 경우 대상 기기로부터) 메시지 전달 확인을 수신했습니다. | 요금 부과 |
 | 거부됨 | SMS 제공업체가 메시지가 전달되지 않았음을 나타내는 거부 수신 확인을 받았습니다. 통신사 콘텐츠 필터링 또는 대상 기기의 가용성 등 여러 이유로 발생할 수 있습니다. | 요금 부과 |
 | 통신사로 발송됨 | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | 개별 메시지 발송 결과에 따라 요금이 부과될 수 있음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS 발송 결과에 적용되는 요금" }
 
 ## Snowflake 또는 Currents와 *거부* 데이터 대조 {#reconcile-rejections-with-snowflake-or-currents}
 

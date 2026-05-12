@@ -31,12 +31,12 @@ Hay dos métodos para configurar la conexión del SDK en Pilot: códigos QR de d
 
 ### Método 1: Códigos QR de demostración {#method-1-demo-qr-codes}
 
-Escanea un código QR que incluye todos los detalles necesarios para inicializar el SDK, crear tu perfil de usuario y establecer un vínculo profundo con una simulación de aplicación concreta en Braze Pilot. Los códigos QR de demostración se muestran en el cajón complementario para Campaigns de demostración específicas en tu prueba gratuita.
+Escanea un código QR que incluye todos los detalles necesarios para inicializar el SDK, crear tu perfil de usuario y establecer un vínculo profundo con una simulación de aplicación concreta en Braze Pilot. Los códigos QR de demostración se muestran en el cajón complementario para campañas de demostración específicas en tu prueba gratuita.
 
 | Pilot para Android | Pilot para iOS |
 | --- | --- |
 | ![Código QR para Android.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![Código QR para iOS.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método 1: Códigos QR de demostración" }
 
 {% endtab %}
 {% tab Setup wizard %}
@@ -47,7 +47,7 @@ Sigue una guía paso a paso para inicializar la conexión con el espacio de trab
 
 ![Paso 1 del asistente de configuración de Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Esta conexión es específica del espacio de trabajo. Esto significa que si inicializas la conexión desde el espacio de trabajo de demostración y luego cambias al espacio de trabajo en vivo en tu dashboard de prueba gratuita, tendrás que reinicializar el SDK desde ese espacio de trabajo para recibir cualquier Campaign lanzada allí.
+Esta conexión es específica del espacio de trabajo. Esto significa que si inicializas la conexión desde el espacio de trabajo de demostración y luego cambias al espacio de trabajo en vivo en tu dashboard de prueba gratuita, tendrás que reinicializar el SDK desde ese espacio de trabajo para recibir cualquier campaña lanzada allí.
 
 ![El menú desplegable del espacio de trabajo en el panel de Braze con «Demo - Braze» seleccionado como espacio de trabajo activo.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 
@@ -89,6 +89,6 @@ Puedes utilizar un mensaje dentro de la aplicación de Braze para solicitar perm
 
 ## Paso 5: Experimenta la mensajería de Braze en Pilot {#step-5-experience-braze-messaging-in-pilot}
 
-¡Ya estás listo para empezar a recibir Campaigns y Canvas desde tu panel de Braze como usuario de Braze Pilot! Visita cualquiera de las Campaigns lanzadas en tu espacio de trabajo de demostración para ver una breve demostración de los casos de uso de Braze y, a continuación, dirígete a tu espacio de trabajo en vivo para empezar a enviar las tuyas.
+¡Ya estás listo para empezar a recibir Campaigns y Canvas desde tu panel de Braze como usuario de Braze Pilot! Visita cualquiera de las campañas lanzadas en tu espacio de trabajo de demostración para ver una breve demostración de los casos de uso de Braze y, a continuación, dirígete a tu espacio de trabajo en vivo para empezar a enviar las tuyas.
 
-Para obtener más información sobre cómo configurar Campaigns y Canvas en Braze, consulta [Primeros pasos: Campañas y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Para obtener más información sobre cómo configurar campañas y Canvas en Braze, consulta [Primeros pasos: Campañas y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).

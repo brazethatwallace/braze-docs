@@ -24,10 +24,10 @@ BrazeとAppsFlyerの統合により、AppsFlyerのモバイルインストール
 |---|---|
 | AppsFlyerアカウント | このパートナーシップを活用するには、AppsFlyerアカウントが必要です。 |
 | iOSまたはAndroidアプリ | この統合では、iOSアプリとAndroidアプリがサポートされています。ご使用のプラットフォームによっては、アプリケーションでコードスニペットが必要な場合があります。これらの要件の詳細については、統合プロセスのステップ1を参照してください。 |
-| AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)をインストールする必要があります。
+| AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)をインストールする必要があります。 |
 | メールドメインのセットアップ完了 | Brazeオンボーディング時にメールを設定するには、[IPとドメインの設定ステップ]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)を完了している必要があります。 |
 | SSL証明書 | [SSL証明書]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -124,27 +124,27 @@ BrazeがAppsFlyerからアトリビューションデータを受信すると、
 
 | AppsFlyerデータフィールド | Braze Segmentフィルター |
 | -------------------- | --------------------- |
-| `media_source` | アトリビューションソース |
-| `campaign` | アトリビューションCampaign |
-| `af_adset` | アトリビューション広告グループ |
-| `af_ad` | アトリビューション広告 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `media_source` | Attributed Source |
+| `campaign` | Attributed Campaign |
+| `af_adset` | Attributed Adgroup |
+| `af_ad` | Attributed Ad |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 Brazeダッシュボードでは、インストールアトリビューションフィルターを使用して、アトリビューションデータでユーザー群をセグメンテーションできます。
 
-![4つのフィルターが利用可能です。1つ目は「インストールアトリビューションソースがnetwork_val_0」。2つ目は「インストールアトリビューションソースがcampaign_val_0」。3つ目は「インストールアトリビューションソースがadgroup_val_0」。4つ目は「インストールアトリビューションソースがcreative_val_0」。リストされたフィルターの横に、これらのアトリビューションソースがどのようにユーザープロファイルに追加されるかを確認できます。ユーザー情報ページの「インストールアトリビューション」ボックスで、インストールソースはnetwork_val_0、キャンペーンはcampaign_val_0などと表示されます。]({% image_buster /assets/img/braze_attribution.png %})
+![4つのフィルターが利用可能です。1つ目は「Install Attribution Sourceがnetwork_val_0」。2つ目は「Install Attribution Sourceがcampaign_val_0」。3つ目は「Install Attribution Sourceがadgroup_val_0」。4つ目は「Install Attribution Sourceがcreative_val_0」。リストされたフィルターの横に、これらのアトリビューションソースがどのようにユーザープロファイルに追加されるかを確認できます。ユーザー情報ページの「Install Attribution」ボックスで、Install Sourceはnetwork_val_0、campaignはcampaign_val_0などと表示されます。]({% image_buster /assets/img/braze_attribution.png %})
 
 さらに、特定のユーザーのアトリビューションデータは、Brazeダッシュボードの各ユーザーのプロファイルで利用可能です。
 
 {% alert note %}
-FacebookおよびX（旧Twitter）キャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
+FacebookおよびX（旧Twitter）Campaignsのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
 {% endalert %}
 
 ## ディープリンクのためにAppsFlyerとBrazeを統合する {#integrate-appsflyer-with-braze-for-deep-linking}
 
 ディープリンク&#8212;アプリやWebサイト内の特定のページや場所にユーザーを誘導するリンク&#8212;は、カスタマイズされたユーザー体験を作り出すために使用されます。
 
-広く使われている一方で、ユーザーデータの収集に使われるもう一つの重要な機能であるクリックトラッキング&#8212;でメールによるディープリンクを使用する場合、問題が発生する可能性があります。これらの問題は、メールサービスプロバイダー（ESP）がディープリンクをクリック記録ドメインでラッピングし、元のリンクを壊してしまうことに起因します。そのため、ディープリンクをサポートするには追加の設定が必要です。
+広く使われている一方で、ユーザーデータの収集に使われるもう一つの重要な機能であるクリックトラッキング#8212でメールによるディープリンクを使用する場合、問題が発生する可能性があります。これらの問題は、メールサービスプロバイダー（ESP）がディープリンクをクリック記録ドメインでラッピングし、元のリンクを壊してしまうことに起因します。そのため、ディープリンクをサポートするには追加の設定が必要です。
 
 AppsFlyerはこのような問題を回避する[サービス](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer)を提供しており、ESPサーバーとお客様のドメイン名の間にAppsFlyerを仲介として介在させることができます。プロキシとしての役割により、ディープリンクを容易にするアソシエーションファイル（AASA/アセットリンク）の提供が可能になります。
 
@@ -154,14 +154,14 @@ AppsFlyerはこのような問題を回避する[サービス](https://support.a
 
 ![右上の「Support」ボタンの下にある「Get Help」ボタンを示すBraze UI]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
-既存のCTDを使用している場合でも、新しいCTDの作成は必須です。これにより、現在のライブメールキャンペーンのトラフィックに影響を与えることはありません。
+既存のCTDを使用している場合でも、新しいCTDの作成は必須です。これにより、現在のライブメールCampaignsのトラフィックに影響を与えることはありません。
 
 {% alert important%}
 AppsFlyerがSSL証明書を作成します。この段階では、メールのリンクはセキュリティで保護されていない可能性が高く、URLプレフィックスがHTTPSではなくHTTPであることを意味します。これは後のステップで解決されます。
 {%endalert%}
 
 ## ステップ2 - AppsFlyerでOneLinkテンプレートを作成する {#step-2-create-a-onelink-template-in-appsflyer}
-[OneLinkテンプレート](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures)を作成し、「When app is installed」でユニバーサルリンク/アプリリンクを設定します。このテンプレートは、後でメールキャンペーン用のOneLinkリンクを作成する際に使用します。
+[OneLinkテンプレート](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures)を作成し、「When app is installed」でユニバーサルリンク/アプリリンクを設定します。このテンプレートは、後でメールCampaigns用のOneLinkリンクを作成する際に使用します。
 
 {% alert note%} ユニバーサルリンク/アプリリンクを有効にする既存のOneLinkテンプレートがすでに設定されている場合は、それを使用できます。
 {%endalert%}
@@ -178,7 +178,7 @@ AppsFlyerでBraze統合を設定するには：
 ![Brazeを含むESP統合のリストを表示するAppsFlyerのUI。]({% image_buster /assets/img/attribution/appsflyer/3.png %})
 
 
-### 3. メールキャンペーンに使用するOneLinkテンプレートを選択し、「Next」をクリックします。 {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
+### 3. メールCampaignsに使用するOneLinkテンプレートを選択し、「Next」をクリックします。 {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
 ![AppsFlyerのUIに、ユーザーがテンプレートを選択できるドロップダウンが表示されています。]({% image_buster /assets/img/attribution/appsflyer/4.png %})
 
 
@@ -193,11 +193,11 @@ AppsFlyerでBraze統合を設定するには：
 次に、**Validate connection**をクリックし、クリック追跡ドメインが入力したエンドポイントを指していることを検証します。
 完了したら、**Next**をクリックします。
 
-### 5. リンクトラフィックをAppsFlyerにルーティングする： {#5-route-link-traffic-to-appsflyer}
+### 5. リンクトラフィックをAppsFlyerにルーティングする {#5-route-link-traffic-to-appsflyer}
 
 #### a. AppsFlyerでカスタマイズされたプレハブの説明書をコピーし、ITまたはドメイン管理者に送信します。 {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-管理者は、AppsFlyerが提供する新しいドメインでDNS CNAMEレコードを更新することにより、メールキャンペーンのトラフィックをESPサーバーからAppsFlyerサーバーにリルートする必要があります。
+管理者は、AppsFlyerが提供する新しいドメインでDNS CNAMEレコードを更新することにより、メールCampaignsのトラフィックをESPサーバーからAppsFlyerサーバーにリルートする必要があります。
 
 その結果、リンクがクリックされるたびに、クリックはAppsFlyerにリダイレクトされ、AppsFlyerからESPエンドポイントにリダイレクトされます。
 

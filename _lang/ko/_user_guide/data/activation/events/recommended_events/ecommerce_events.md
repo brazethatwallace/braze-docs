@@ -29,7 +29,7 @@ eCommerce 추천 이벤트는 **트랜잭션** 탭의 **구매 내역** 섹션�
 | 총 매출 | sum (`order_placed.total_value`) − sum (`order_refunded.total_value`) |
 | 총 주문 수 | count (distinct `order_placed`) − count (distinct `order_cancelled`) |
 | 총 환불 금액 | sum (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
 
 ![총 매출, 총 주문 수, 총 환불 금액이 표시된 주문 활동 섹션]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
 
@@ -77,7 +77,7 @@ Braze는 eCommerce 추천 이벤트를 진입, 종료 및 전환 기준으로 �
 | 진입 이벤트 | `ecommerce.product_viewed` |
 | 종료 이벤트 | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, 주문 완료 |
 | 전환 이벤트 | 주문 완료 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab 장바구니 포기 %}
@@ -91,7 +91,7 @@ Braze는 eCommerce 추천 이벤트를 진입, 종료 및 전환 기준으로 �
 | 진입 이벤트 | `ecommerce.cart_updated` |
 | 종료 이벤트 | `ecommerce.cart_updated`, `ecommerce.checkout_started`, 주문 완료 |
 | 전환 이벤트 | 주문 완료 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
 `ecommerce.cart_updated` 이벤트는 교체 모델을 사용합니다. 전송된 모든 이벤트가 사용자의 장바구니 상태를 덮어씁니다. 메시지에서 {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그를 사용하여 발송 시점의 현재 장바구니 내용을 동적으로 표시하세요.
@@ -109,7 +109,7 @@ Braze는 eCommerce 추천 이벤트를 진입, 종료 및 전환 기준으로 �
 | 진입 이벤트 | `ecommerce.checkout_started` |
 | 종료 이벤트 | 주문 완료 |
 | 전환 이벤트 | 주문 완료 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab 주문 확인 및 설문조사 %}
@@ -122,7 +122,7 @@ Braze는 eCommerce 추천 이벤트를 진입, 종료 및 전환 기준으로 �
 | --- | --- |
 | 진입 이벤트 | `ecommerce.order_placed` |
 | 전환 이벤트 | 세션 시작 또는 `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -151,7 +151,7 @@ eCommerce 추천 이벤트는 고객이 현재 사용하고 있는 동일한 매
 | 세그먼트 인사이트 | 세그먼트 인사이트 대시보드에서 Segments 간 매출 비교입니다. |
 | 보고서 빌더 | 보고서 빌더에서 구축한 커스텀 보고서의 매출 측정기준입니다. |
 | 대시보드 빌더 | 대시보드 빌더에서 구축한 커스텀 대시보드의 매출 측정기준입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 비사용자 계산 필드(예: Campaign 또는 Canvas 매출)의 경우, 매출은 모든 보고서에서 동일한 방식으로 계산됩니다: 주문 내 제품별 `price`에 `quantity`를 곱한 값을 각 `order_placed` 이벤트의 제품 전체에 걸쳐 합산합니다.
 
@@ -174,7 +174,7 @@ Braze는 데이터 웨어하우스, BI 도구 또는 다운스트림 시스템�
 | [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | eCommerce 이벤트는 커스텀 이벤트로 공유됩니다. `ecommerce.*` 네임스페이스를 검색하여 찾을 수 있습니다. 각 주문의 제품은 구매 테이블에서 사용할 수 있습니다. |
 | [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Segment 멤버의 CSV 내보내기입니다. eCommerce 이벤트를 포함하려면 커스텀 이벤트 드롭다운에서 이름으로 선택하세요. |
 | [Segment별 고객 프로필 내보내기(API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Segment 멤버의 고객 프로필 데이터로, API를 통해 반환됩니다. eCommerce 이벤트는 커스텀 이벤트로 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### 특정 제품별로 사용자를 세분화하려면 어떻게 하나요? {#how-do-i-segment-users-by-a-specific-product}
 

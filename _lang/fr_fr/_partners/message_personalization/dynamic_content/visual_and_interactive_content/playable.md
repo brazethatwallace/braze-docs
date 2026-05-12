@@ -16,7 +16,7 @@ _Cette intégration est maintenue par Playable._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et Playable vous permet de diffuser votre meilleur contenu (vidéo de haute qualité) auprès de votre meilleure audience (e-mail), en augmentant vos indicateurs de clics et de post-clics grâce à un contenu captivant qui se lance automatiquement dans la boîte de réception.
+L'intégration de Braze et Playable vous permet de diffuser votre meilleur contenu (vidéo de haute qualité) auprès de votre meilleure audience (e-mail), en augmentant vos indicateurs de clics et de post-clics grâce à un contenu captivant de haute qualité qui se lance automatiquement dans la boîte de réception.
 
 ## Conditions préalables {#prerequisites}
 

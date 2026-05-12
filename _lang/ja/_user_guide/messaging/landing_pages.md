@@ -37,11 +37,11 @@ alias: /landing_pages/
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | 公開ランディングページ | 会社あたり5件 | 追加20件 |
 | カスタムドメイン | 会社あたり1件 | 追加5件 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
 
-ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディターでランディングページに**カスタムコード**ブロックを追加し、Tag Managerのコードをブロックに挿入します。以下の例のように、Tag Managerのコードの前にデータレイヤーを追加してください。
+ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディターでランディングページに**Custom Code**ブロックを追加し、Tag Managerのコードをブロックに挿入します。以下の例のように、Tag Managerのコードの前にデータレイヤーを追加してください。
 
 ```
 <script>
@@ -76,7 +76,7 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 ### ランディングページ用のHTMLエディターはありますか？ {#is-there-an-html-editor-for-landing-pages}
 
-はい。ドラッグ＆ドロップエディターの**カスタムコード**ブロックを使用して、HTMLを追加または編集できます。
+はい。ドラッグ＆ドロップエディターの**Custom Code**ブロックを使用して、HTMLを追加または編集できます。
 
 ### ランディングページ内にWebhookを作成できますか？ {#can-i-create-a-webhook-inside-a-landing-page}
 

@@ -29,11 +29,11 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `catalog_name` | Obrigatório | String | Nome do catálogo. |
-| `item_id` | Obrigatório | String | O ID do item do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obrigatória | String | Nome do catálogo. |
+| `item_id` | Obrigatória | String | O ID do item do catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
@@ -92,6 +92,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
 | `catalog-not-found` | Verifique se o nome do catálogo é válido. |
 | `item-not-found` | Verifique se o item a ser excluído existe no seu catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

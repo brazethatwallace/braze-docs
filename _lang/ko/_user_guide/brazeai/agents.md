@@ -15,7 +15,7 @@ Braze 에이전트에 접근하고 사용하려면 메시지 크레딧이 필요
 
 에이전트 콘솔의 Braze 에이전트에 대한 개요를 보려면 이 동영상을 시청하세요.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="에이전트 콘솔의 Braze 에이전트 개요" %}
 
 ## Braze 에이전트를 사용하는 이유 {#why-use-braze-agents}
 
@@ -57,8 +57,7 @@ Braze 에이전트의 기능은 다음과 같습니다:
 | [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Canvas 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
 | [실행](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
 | [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
-| [온도]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | 에이전트 출력의 편차 수준입니다. 에이전트가 얼마나 정확하거나 창의적일 수 있는지를 정의합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="핵심 개념" }
 
 ## 제한 사항 {#limitations}
 

@@ -93,7 +93,7 @@ tool: Campaigns
 | 팀 | 선택 사항. 적절한 그룹이 이 발송을 편집하거나 보고할 수 있도록 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)를 할당하세요. |
 | 태그 | 선택 사항. [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) 등의 목록 및 도구에서 필터링할 수 있도록 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가하세요. |
 | 캠페인 ID | 작성기 또는 요약에 표시되는 경우, 특정 캠페인을 참조하는 API 호출, 보고 및 통합을 위해 이 식별자를 복사하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
 
 ### 채널 및 편집기 {#channels-and-editors}
 
@@ -116,7 +116,7 @@ tool: Campaigns
 | [스케줄 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | 지정된 시간 또는 주기에 발송합니다. |
 | [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | 사용자가 정의한 동작을 수행하거나 조건을 충족할 때 발송합니다. |
 | [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | 시스템이 Braze를 호출하여 자격이 있는 사용자에게 캠페인을 트리거할 때 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
 
 Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
@@ -176,7 +176,7 @@ Segments 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 
 
 **요약 검토** 단계에서는 스케줄, 오디언스, 배리언트 및 메시징 선택 사항을 보여줍니다. 캠페인을 시작하기 전에:
 
-1. Segments, 배리언트 및 전달 설정이 의도와 일치하는지 확인합니다.
+1. 세그먼트, 배리언트 및 전달 설정이 의도와 일치하는지 확인합니다.
 2. 테스트 기기 또는 내부 수신자에서 렌더링 및 동작을 검증하기 위해 [테스트 메시지를 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)합니다.
 
 준비가 되면 **캠페인 시작**을 선택합니다.

@@ -2,16 +2,16 @@
 
 ## デフォルトのユーザー属性 {#default-user-attributes}
 
-### 事前定義されたメソッド {#predefined-methods}
+### 定義済みメソッド {#predefined-methods}
 
-Brazeは、[`User`クラス](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html)内で以下のユーザー属性を設定するための事前定義されたメソッドを提供しています:
+Brazeは、[`User`クラス](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html)内で以下のユーザー属性を設定するための定義済みメソッドを提供しています:
 
 - 名
 - 姓
 - 言語
 - 国
 - 生年月日
-- メールアドレス
+- メール
 - 性別
 - 市区町村
 - 電話番号
@@ -140,7 +140,7 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-配列のデフォルトおよび最大要素数は500です。最大要素数は、Brazeダッシュボードの**[データ設定]** > **[カスタム属性]**で更新できます。最大要素数を超える配列は、最大要素数に切り詰められます。
+配列のデフォルトおよび最大要素数は500です。最大要素数は、Brazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。最大要素数を超える配列は、最大要素数に切り詰められます。
 
 
 `array`値でカスタム属性を設定するには:
@@ -220,7 +220,7 @@ braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | 配信登録済み、かつ明示的にオプトイン済み |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
 
 ユーザーがプッシュに登録されると、ブラウザは通知を許可するかブロックするかの選択を求めます。プッシュを許可することを選択した場合、デフォルトで`OPTED_IN`に設定されます。
 

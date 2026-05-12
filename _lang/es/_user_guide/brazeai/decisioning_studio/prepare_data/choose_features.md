@@ -26,7 +26,7 @@ Hay cuatro categorías comunes de características de cliente:
 | **Propensión del usuario** | Puntuaciones derivadas de modelos sobre la probabilidad del cliente de hacer algo | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Comportamiento del usuario** | Resúmenes de la actividad del cliente en una ventana de tiempo | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Ambiental** | Señales contextuales externas al cliente | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de características de cliente" }
 
 Juntos, estos tipos de características le dan al modelo la información que necesita para identificar segmentos, distinguir entre clientes y adaptar las recomendaciones en consecuencia.
 

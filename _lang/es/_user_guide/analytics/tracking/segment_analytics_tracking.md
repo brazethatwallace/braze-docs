@@ -9,42 +9,46 @@ tool:
   - Reports
 ---
 
-# Seguimiento analítico por Segments {#segment-analytics-tracking}
+# Seguimiento analítico por segmentos {#segment-analytics-tracking}
 
-> Cuando el seguimiento analítico está activado para un Segment, puedes ver las sesiones, los eventos personalizados y los ingresos a lo largo del tiempo para ese Segment.
+> Cuando el seguimiento analítico está activado para un segmento, puedes ver las sesiones, los eventos personalizados y los ingresos a lo largo del tiempo para ese segmento.
 
-Si no activas el seguimiento analítico para un Segment, podrás acceder a [las estadísticas en tiempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data/#segment-statistics) de ese Segment y dirigirte a sus usuarios con Campaigns. La única diferencia es si puedes acceder a las herramientas de análisis específicas mencionadas en esta página.
+Si no activas el seguimiento analítico para un segmento, podrás acceder a [las estadísticas en tiempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data/#segment-statistics) de ese segmento y dirigirte a sus usuarios con Campaigns. La única diferencia es si puedes acceder a las herramientas de análisis específicas mencionadas en esta página.
 
-## Activar el seguimiento analítico por Segments {#turning-on-segment-analytics}
+## Activar el seguimiento analítico por segmentos {#turning-on-segment-analytics}
 
-En la sección **Segment Details** de la página de un Segment, activa **Analytics Tracking**.
+En la sección **Segment Details** de la página de un segmento, activa **Analytics Tracking**.
 
-![Activación del seguimiento analítico de un Segment]({% image_buster /assets/img_archive/A_Tracking_2.png %})
+![Activación del seguimiento analítico de un segmento]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
-Una aplicación puede tener activado el seguimiento de hasta 25 Segments. Braze recomienda realizar un seguimiento de los Segments que te resulten importantes para analizar los efectos de tus Campaigns sobre las sesiones, los ingresos y las compras.
+Una aplicación puede tener activado el seguimiento de hasta 25 segmentos. Braze recomienda realizar un seguimiento de los segmentos que te resulten importantes para analizar los efectos de tus Campaigns sobre las sesiones, los ingresos y las compras.
+
+{% alert note %}
+Después de habilitar el seguimiento analítico, puede haber un retraso hasta que se completen los datos del segmento. Si los datos no se completan en un plazo de 24 horas, [ponte en contacto con Soporte]({{site.baseurl}}/braze_support/).
+{% endalert %}
 
 ## Ver los ingresos y las compras a lo largo del tiempo {#viewing-revenue-and-purchases-over-time}
 
-Ve a **Analytics** > **Revenue Report** para ver los datos sobre [ingresos y compras a lo largo del tiempo para este Segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).
+Ve a **Analytics** > **Revenue Report** para ver los datos sobre [ingresos y compras a lo largo del tiempo para este segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).
 
-![Datos de ingresos por Segment]({% image_buster /assets/img_archive/Revenue.png %})
+![Datos de ingresos por segmento]({% image_buster /assets/img_archive/Revenue.png %})
 
-Para comparar visualmente los datos de los Segments en cualquier intervalo de tiempo personalizado, añade o elimina Segments del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y, a continuación, selecciona tus Segments en **Breakdown values**.
+Para comparar visualmente los datos de los segmentos en cualquier intervalo de tiempo personalizado, añade o elimina segmentos del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y, a continuación, selecciona tus segmentos en **Breakdown values**.
 
-Selecciona cualquier nombre de Segment encima del gráfico para activar o desactivar la visibilidad de las métricas de ese Segment.
+Selecciona cualquier nombre de segmento encima del gráfico para activar o desactivar la visibilidad de las métricas de ese segmento.
 
-![Ingresos por múltiples Segments]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
+![Ingresos por múltiples segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## Sesiones a lo largo del tiempo {#sessions-over-time}
 
-Del mismo modo, puedes encontrar datos sobre [las sesiones a lo largo del tiempo para este Segment en particular]({{site.baseurl}}/user_guide/analytics/dashboards/home/#exporting-app-usage-data) en la página **Home**.
+Del mismo modo, puedes encontrar datos sobre [las sesiones a lo largo del tiempo para este segmento en particular]({{site.baseurl}}/user_guide/analytics/dashboards/home/#exporting-app-usage-data) en la página **Home**.
 
-![Datos de sesiones por Segment]({% image_buster /assets/img_archive/events_over_time2.png %})
+![Datos de sesiones por segmento]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Ver eventos personalizados a lo largo del tiempo {#view-custom-events-over-time}
 
-Para ver los datos de [los eventos personalizados a lo largo del tiempo para los Segments]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#analytics), ve a **Analytics** > **Custom Events Report**.
+Para ver los datos de [los eventos personalizados a lo largo del tiempo para los segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#analytics), ve a **Analytics** > **Custom Events Report**.
 
 ## Utilización de las plantillas del Generador de consultas {#using-query-builder-templates}
 
-Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del Generador de consultas para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por Segments. Para saber más, consulta [Datos de Segments]({{site.baseurl}}/user_guide/audience/segments/segment_data/#performance-data-by-segment).
+Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del Generador de consultas para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data/#performance-data-by-segment).

@@ -161,7 +161,7 @@ Use esta tabela para comparar os canais. Os padrões podem variar, então verifi
 | Banners | Mesmo comportamento das mensagens no app. |
 | Landing pages | Você pode definir o idioma na página publicada. Escolha um idioma ou use Liquid se sua conta permitir Liquid em landing pages. Os padrões também diferem das mensagens no app e Banners — verifique a página publicada. |
 | Content Cards | Os cartões usam um campo **Idioma** para apps em vez de um idioma de acessibilidade explícito. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suporte por canal e editor" }
 
 Quando você escreve HTML por conta própria, ainda pode adicionar uma tag de idioma em parte da mensagem (por exemplo, uma frase em outro idioma). Para mais padrões, veja [HTML personalizado](#custom-html).
 
@@ -240,7 +240,7 @@ Por exemplo, considere como você escreveria um link para ver um relatório mete
 | Ruim | Melhor | Ideal |
 | --- | --- | --- |
 | Clique aqui | Clique aqui para acessar o clima de hoje | Clima de hoje |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Escreva texto de link descritivo" }
 
 Como em todo conteúdo, mantenha a objetividade com o mínimo de palavras extras possível.
 

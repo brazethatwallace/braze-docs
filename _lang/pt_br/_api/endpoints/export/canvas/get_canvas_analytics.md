@@ -39,7 +39,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `include_variant_breakdown` | Opcional | booleano | Incluir ou não estatísticas de variantes (o padrão é `false`).  |
 | `include_step_breakdown` | Opcional | booleano | Incluir ou não estatísticas de etapas (o padrão é `false`). |
 | `include_deleted_step_data` | Opcional | booleano | Incluir ou não estatísticas de etapas excluídas (o padrão é `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

@@ -27,7 +27,7 @@ Use as opções a seguir para personalizar quais dados aparecem no gráfico **Pe
 | Agrupar eventos personalizados por | Controla como a série temporal do evento personalizado selecionado é agrupada. Por padrão, o gráfico mostra a tendência agregada geral por data. Alterne para **Custom Events by Hour** para ver padrões intradiários, ou **Custom Events per MAU** para normalizar o volume de eventos em relação à contagem de usuários ativos mensais. |
 | Filtrar por Segments | Ative essa opção para segmentar as contagens de eventos por um ou mais Segments. Quando ativado, selecione os Segments que deseja comparar. O gráfico mostra o número de usuários em cada segmento que realizaram o evento personalizado. |
 | Fórmula de KPI | Substitui a contagem bruta de eventos por uma métrica calculada, composta por um numerador (como a contagem de um evento personalizado) e um denominador (como DAU, MAU ou o tamanho de um segmento com análise de dados ativada). Quando você seleciona uma ou mais fórmulas, o gráfico plota o valor de cada fórmula ao longo do período selecionado, permitindo comparar o desempenho normalizado (por exemplo, "eventos por usuário ativo") em vez do volume total de eventos. Se não houver dados disponíveis para o período e as fórmulas selecionadas, a Braze exibe uma mensagem de "sem dados" — amplie o período ou escolha fórmulas diferentes. Selecione **Manage KPI formulas** para criar ou editar fórmulas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurando seu relatório" }
 
 ## Exportando dados {#exporting-data}
 

@@ -22,7 +22,7 @@ Cette intégration vous permet également d'[importer des cohortes d'utilisateur
 | Compte Hightouch | Un compte Hightouch est nécessaire pour profiter de ce partenariat.
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track` et `users.export.ids`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
 | Endpoint REST de Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).<br><br>Hightouch nécessite le nom du cluster sur lequel se trouve votre instance Braze. Par exemple, si votre endpoint Braze est `https://rest.iad-01.braze.com`, vous n'avez besoin que de `iad-01`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -47,7 +47,7 @@ Hightouch prend en charge la synchronisation à la fois des objets utilisateurs 
 |---|---|---|
 | Objet | Synchronise les enregistrements avec des objets tels que des utilisateurs ou des organisations dans votre destination. | Upsert ou mise à jour |
 | Événements | Synchronise les enregistrements en tant qu'événements vers votre destination, souvent sous la forme d'un appel de suivi. | Suivi des événements ou des achats |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Synchronisation des objets et des événements" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Object and event syncing" }
 
 {% alert note %}
 Reportez-vous à la [documentation Hightouch](https://hightouch.com/docs/destinations/braze#syncing-and-data-point-consumption) pour plus d'informations sur la manière dont les synchronisations affectent la consommation de points de données.
@@ -70,5 +70,5 @@ Vous trouverez de plus amples instructions sur la synchronisation des objets et 
 ## Démonstration de l'intégration {#integration-demo}
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

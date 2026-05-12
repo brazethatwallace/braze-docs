@@ -49,14 +49,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `template_name`|필수|문자열|이메일 템플릿의 이름입니다.|
-|`subject`|필수|문자열|이메일 템플릿 제목란입니다.|
-|`body`|필수|문자열|HTML을 포함할 수 있는 이메일 템플릿 본문입니다. 최대 400&nbsp;KB.|
-| `plaintext_body`|선택 사항|문자열|이메일 템플릿 본문의 일반 텍스트 버전입니다.|
-|`preheader`|선택 사항|문자열|일부 클라이언트에서 미리보기를 생성하는 데 사용되는 이메일 프리헤더입니다.|
-|`tags`|선택 사항|문자열|[태그]({{site.baseurl}}/user_guide/messaging/governance/tags/)가 이미 존재해야 합니다.|
-| `should_inline_css`|선택 사항|부울|템플릿별로 `inline_css` 기능을 활성화하거나 비활성화합니다. 제공하지 않으면 Braze는 앱 그룹의 기본값 설정을 사용합니다. `true` 또는 `false` 중 하나가 예상됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_name` | 필수 | 문자열 | 이메일 템플릿의 이름입니다. |
+| `subject` | 필수 | 문자열 | 이메일 템플릿 제목란입니다. |
+| `body` | 필수 | 문자열 | HTML을 포함할 수 있는 이메일 템플릿 본문입니다. 최대 400&nbsp;KB. |
+| `plaintext_body` | 선택 사항 | 문자열 | 이메일 템플릿 본문의 일반 텍스트 버전입니다. |
+| `preheader` | 선택 사항 | 문자열 | 일부 클라이언트에서 미리보기를 생성하는 데 사용되는 이메일 프리헤더입니다. |
+| `tags` | 선택 사항 | 문자열 | [태그]({{site.baseurl}}/user_guide/messaging/governance/tags/)가 이미 존재해야 합니다. |
+| `should_inline_css` | 선택 사항 | 부울 | 템플릿별로 `inline_css` 기능을 활성화하거나 비활성화합니다. 제공하지 않으면 Braze는 앱 그룹의 기본값 설정을 사용합니다. `true` 또는 `false` 중 하나가 예상됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 ```
@@ -94,6 +94,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/cr
 | 일부 태그를 찾을 수 없습니다 | 이메일 템플릿을 생성할 때 태그를 추가하려면 해당 태그가 이미 Braze에 존재해야 합니다. |
 | 이메일에 유효한 Content Blocks 이름이 있어야 합니다 | 이메일에 이 환경에 존재하지 않는 Content Blocks가 포함되어 있을 수 있습니다. |
 | `should_inline_css`에 대한 잘못된 값입니다. `true` 또는 `false` 중 하나가 예상되었습니다. | 이 매개변수는 부울 값(true 또는 false)만 허용합니다. `should_inline_css` 값이 따옴표(`""`)로 묶이지 않았는지 확인하세요. 따옴표로 묶으면 값이 문자열로 전송됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Primeiros passos: Visão geral da plataforma {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Primeiros passos: Visão geral da plataforma {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > Este artigo aborda as partes básicas e os recursos da plataforma Braze. Os links deste artigo se conectam a tópicos essenciais da Braze.
 
@@ -87,12 +87,12 @@ Depois de definir um segmento, as ferramentas de envio de mensagens da Braze per
 | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)* | Envie notificações no app altamente direcionadas e dinâmicas sem interromper o cliente. |
 | [E-mail]({{site.baseurl}}/user_guide/channels/email/) | Envie mensagens em HTML avançado criando seu e-mail usando o editor de rich-text, nosso editor de arrastar e soltar ou fazendo upload de um dos seus modelos HTML existentes. |
 | [In-App Messages]({{site.baseurl}}/in-app_messages/) | Envie notificações discretas no app usando a interface de usuário nativa personalizada da Braze. |
-| [Push]({{site.baseurl}}/user_guide/channels/push/) | Dispare automaticamente notificações por push de Campaigns de mensagens ou itens de notícias usando o serviço de Notificações por Push da Apple (APNs) para iOS ou o Firebase Cloud Messaging (FCM) para Android. |
+| [Push]({{site.baseurl}}/user_guide/channels/push/) | Dispare automaticamente notificações por push de campanhas de mensagens ou itens de notícias usando o serviço de Notificações por Push da Apple (APNs) para iOS ou o Firebase Cloud Messaging (FCM) para Android. |
 | [SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)* | Use SMS, MMS ou RCS para enviar notificações transacionais, compartilhar promoções, enviar lembretes e mais. |
 | [Push para a web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Envie notificações ao navegador da web, mesmo que os usuários não estejam ativos no site no momento. |
 | [Webhooks]({{site.baseurl}}/about_webhooks/) | Use webhooks para disparar ações que não sejam do aplicativo, fornecendo dados em tempo real a outros sistemas e aplicativos. |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Conecte-se diretamente com seus usuários e clientes aproveitando a popular plataforma de envio de mensagens ponto a ponto: WhatsApp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mensagens em vários canais" }
 
 <sup>*Disponível como um recurso complementar.*</sup>
 
@@ -115,7 +115,7 @@ A Braze é projetada para integração rápida. O tempo médio para valor é de 
 
 Como um recurso técnico, você estará envolvido em muitos dos detalhes básicos da Braze. Aqui estão alguns bons recursos que podem ser marcados como favoritos fora da nossa documentação. Enquanto estiver navegando, mantenha nosso glossário [Termos para conhecer]({{site.baseurl}}/user_guide/get_started/terms_to_know/) à mão caso tenha dúvidas sobre termos da Braze.
 
-| Recurso | O que você aprenderá|
+| Recurso | O que você aprenderá |
 |---|---|
 | [Depurando o SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | Ao solucionar problemas da sua integração, a ferramenta de debug do SDK será uma ferramenta útil. Certifique-se de tê-la à mão! |
 | [GitHub público da Braze](https://github.com/braze-inc/) | Você encontrará informações detalhadas sobre integração e exemplos de código em nosso repositório do GitHub. |
@@ -124,8 +124,8 @@ Como um recurso técnico, você estará envolvido em muitos dos detalhes básico
 | [Repositório GitHub do SDK do iOS (Swift)](https://github.com/braze-inc/braze-swift-sdk) | O repositório GitHub do Swift SDK. |
 | [Referência do SDK do iOS (Swift)](https://braze-inc.github.io/braze-swift-sdk/) | Documentação de classe para o SDK do iOS. |
 | [Repositório GitHub do Web SDK](https://github.com/braze-inc/braze-web-sdk) | O repositório GitHub do Web SDK. |
-| [Referência do Web SDK](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Documentação de classe para o SDK do iOS. |
+| [Referência do Web SDK](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Documentação de classe para o Web SDK. |
 | [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs/) | A Braze tem lançamentos mensais previsíveis, além de lançamentos para quaisquer problemas críticos e atualizações importantes do sistema operacional. |
 | [Coleção Postman da API da Braze](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Baixe nossa coleção Postman aqui.  |
 | [Monitor de status do sistema Braze](https://braze.statuspage.io/) | Nossa página de status é atualizada sempre que há incidentes ou interrupções. Acesse esta página para se inscrever para receber alertas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Recursos para adicionar aos favoritos" }

@@ -83,7 +83,7 @@ Context7は[Braze MCPサーバー]({{site.baseurl}}/developer_guide/mcp_server/)
 
 Context7を設定した後、プロンプトに`use context7`を含めることで、AIアシスタントにBrazeドキュメントをコンテキストとして取り込むよう指示します。以下の例は、一般的なSDKタスクに対して効果的なプロンプトを作成する方法を示しています。
 
-### React Native SDK
+### React Native SDK {#react-native-sdk}
 
 これらのプロンプトは、[Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)の一般的な統合タスクを示しています。
 
@@ -120,11 +120,11 @@ Native SDK, including how to log impressions and button clicks
 programmatically. Use context7.
 ```
 
-### Web SDK
+### Web SDK {#web-sdk}
 
 これらのプロンプトは、[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)の一般的な統合タスクを示しています。
 
-#### SDKの初期化 {#initializing-the-sdk}
+#### SDKの初期化
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with
@@ -168,6 +168,6 @@ Braze開発者ガイドのドキュメントは、AIツールやLLM向けに最�
 |------|-------------|
 | [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Braze開発者向けドキュメントページのタイトルと説明のインデックスです。利用可能なドキュメントを見つけるための出発点として使用できます。 |
 | [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | Braze開発者向けドキュメントの完全版を、LLMが利用しやすい形式でフォーマットした単一のプレーンテキストファイルです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plain text documentation" }
 
 これらのファイルは[llms.txt標準](https://llmstxt.org/)に準拠しています。これはAIツールがドキュメントにアクセスしやすくするための新しい規約です。プロンプト内でこれらのファイルを直接参照したり、内容をLLMに貼り付けてコンテキストとして使用したりできます。

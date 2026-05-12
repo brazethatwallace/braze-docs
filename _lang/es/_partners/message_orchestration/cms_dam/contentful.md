@@ -17,7 +17,7 @@ Una vez integrado, puedes utilizar las API RESTful de Contentful para entregar t
 
 Antes de empezar, necesitarás lo siguiente:
 
-| Requisito previo          | Descripción                        |
+| Requisito previo | Descripción |
 |-----------------------|------------------------------------|
 | Una cuenta de Contentful | Necesitas una cuenta de Contentful con acceso a la API de entrega de contenidos. |
 | Una cuenta de Braze | Necesitas una cuenta de Braze con acceso a la característica de contenido conectado. |

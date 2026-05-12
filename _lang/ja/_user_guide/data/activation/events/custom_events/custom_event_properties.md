@@ -31,8 +31,8 @@ description: "この記事では、カスタムイベントプロパティ、そ
 | プロパティ | 予約キー |
 | --- | --- |
 | カスタムイベント | `time` および `event_name` |
-| 購入イベント |`time`、`product_id`、`quantity`、`event_name`、`price`、`currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 購入イベント | `time`、`product_id`、`quantity`、`event_name`、`price`、`currency` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reserved keys" }
 
 ## カスタムイベントプロパティの使用 {#using-custom-event-properties}
 
@@ -129,7 +129,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 イベントプロパティの値に基づいてセグメント化するには、2つの方法があります。
 
-1. **30日以内:** Brazeの Segment内で、特定のイベントプロパティ値の頻度と最新性に基づいたイベントプロパティセグメンテーションを使用できます。このオプションはデータ使用量に影響します。<br><br>
+1. **30日以内:** BrazeのSegment内で、特定のイベントプロパティ値の頻度と最新性に基づいたイベントプロパティセグメンテーションを使用できます。このオプションはデータ使用量に影響します。<br><br>
 2. **30日以内および30日を超える場合:** 短期および長期の両方のイベントプロパティセグメンテーションに対応するには、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用できます。この機能は、過去2年間にトラッキングされたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
 
 特定のニーズに応じた最適なアプローチについては、Brazeカスタマーサクセスマネージャーにお問い合わせください。

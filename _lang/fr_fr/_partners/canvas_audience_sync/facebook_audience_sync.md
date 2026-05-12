@@ -38,9 +38,9 @@ Vous devrez confirmer que vous avez créé et complété les éléments suivants
 | Condition | Origine | Description |
 | ----------- | ------ | ----------- |
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages et les applications). |
-| Compte publicitaire Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Un compte publicitaire Facebook actif lié au gestionnaire d'entreprise de votre marque.<br><br>Assurez-vous que l'administrateur de votre Facebook Business Manager vous a accordé les autorisations « Gérer les campagnes » ou « Gérer les comptes publicitaires » pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze. Assurez-vous également que vous avez accepté les conditions générales de votre compte publicitaire. |
+| Compte publicitaire Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Un compte publicitaire Facebook actif lié au gestionnaire d'entreprise de votre marque.<br><br>Assurez-vous que l'administrateur de votre Facebook Business Manager vous a accordé les autorisations « Manage Campaigns » ou « Manage ad accounts » pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze. Assurez-vous également que vous avez accepté les conditions générales de votre compte publicitaire. |
 | Conditions des audiences personnalisées de Facebook | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Acceptez les conditions des audiences personnalisées de Facebook pour vos comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -50,9 +50,9 @@ Vous devrez confirmer que vous avez créé et complété les éléments suivants
 Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour connecter Facebook à votre compte Braze.
 {% endalert %}
 
-Dans le tableau de bord de Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Facebook**. Sous Exportation de l'audience Facebook, sélectionnez **Connect Facebook**.
+Dans le tableau de bord de Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Facebook**. Sous Facebook Audience Export, sélectionnez **Connect Facebook**.
 
-![Page technologique Facebook dans Braze comprenant une section Aperçu et une section Exportation de l'audience Facebook avec le bouton Connect Facebook.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
+![Page technologique Facebook dans Braze comprenant une section Aperçu et une section Facebook Audience Export avec le bouton Connect Facebook.]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
 
 Une fenêtre de dialogue Facebook oAuth s'affiche pour autoriser Braze à créer des audiences personnalisées dans vos comptes publicitaires Facebook.
 
@@ -74,8 +74,8 @@ Pour les clients qui ont déjà suivi le processus de révision de l'application
 
 Avant de créer votre Canvas, vous devez accepter les conditions de service de Facebook aux liens suivants :
 
-- **Conditions des audiences personnalisées de liste de clients pour votre compte personnel :** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
-- **Conditions des outils Facebook Business pour votre compte professionnel :** `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`.
+- **Customer List Custom Audiences Terms pour votre compte personnel :** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
+- **Facebook Business Tools Terms pour votre compte professionnel :** `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`.
 
 ![Un exemple des conditions à accepter pour les audiences personnalisées de listes de clients.]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos.png %}){: style="max-width:85%;"}
 ![Un exemple des conditions à accepter pour les outils professionnels Facebook.]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos2.png %}){: style="max-width:85%;"}
@@ -148,7 +148,7 @@ Le tableau suivant comprend des indicateurs et des descriptions pour vous aider 
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze pour la synchronisation avec Facebook. |
 | Utilisateurs en erreur | Nombre d'utilisateurs qui n'ont pas été synchronisés avec Facebook en raison d'une erreur d'API après environ 13 heures de tentatives. Les causes potentielles d'erreurs peuvent inclure un jeton Facebook invalide ou la suppression de l'audience personnalisée sur Facebook. |
 | Sortis du Canvas | Nombre d'utilisateurs qui ont quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est une étape Facebook. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Il y a un délai dans les rapports pour les indicateurs des utilisateurs synchronisés et des utilisateurs en erreur en raison du traitement interne.
@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <caption>Résolution des problèmes</caption>
   <thead>
     <tr>
@@ -244,38 +244,38 @@ table td {
   </thead>
   <tbody>
     <tr>
-      <td><b>Jeton invalide</b></td>
+      <td><b>Invalid Token</b></td>
       <td>Les causes typiques sont les suivantes : l'utilisateur qui a connecté l'intégration change de mot de passe, les identifiants expirent, etc.</td>
       <td>Allez dans <b>Intégrations partenaires</b> > <b>Facebook</b> et déconnectez puis reconnectez votre compte. Consultez <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>cette section de résolution des problèmes</a> pour connaître les étapes supplémentaires de vérification de votre compte Facebook.</td>
     </tr>
     <tr>
-      <td><b>Taille de l'audience trop petite</b></td>
+      <td><b>Audience Size Too Low</b></td>
       <td>Cette erreur peut se produire si vous avez créé une étape de synchronisation d'audience qui supprime des utilisateurs de vos audiences. Si la taille de votre audience se rapproche de zéro, le réseau peut signaler que la taille de l'audience est trop petite pour être diffusée.</td>
       <td>Utilisez une stratégie de synchronisation d'audience qui ajoute et supprime régulièrement des utilisateurs, sans épuiser complètement la taille de l'audience.</td>
     </tr>
     <tr>
-      <td><b>L'audience n'existe pas</b></td>
+      <td><b>Audience Does Not Exist</b></td>
       <td>L'étape de synchronisation d'audience utilise une audience qui n'existe pas ou qui a été supprimée. Cela peut également se déclencher si vous n'avez plus les autorisations nécessaires pour accéder à l'audience.</td>
       <td>Demandez à un administrateur de vérifier sur la plateforme partenaire si l'audience existe toujours. <br><br>Si elle existe, confirmez que l'utilisateur qui a connecté l'intégration a l'autorisation d'accéder à l'audience. Si ce n'est pas le cas, l'utilisateur doit se voir accorder l'accès à cette audience. <br><br>Si l'audience a été supprimée intentionnellement, ajoutez une audience active et créez une nouvelle audience sur l'étape.</td>
     </tr>
     <tr>
-      <td><b>Tentative d'accès au compte publicitaire</b></td>
+      <td><b>Ad Account Access Attempt</b></td>
       <td>Vous ne disposez pas des autorisations pour le compte publicitaire ou l'audience que vous avez sélectionné.</td>
       <td>Travaillez avec les administrateurs de votre compte publicitaire pour obtenir l'accès et les autorisations nécessaires.</td>
     </tr>
     <tr>
-      <td><b>Conditions de service non acceptées</b></td>
-      <td>Pour certaines destinations d'Audience Sync, comme Facebook, le réseau publicitaire exige que vous acceptiez des conditions de service spécifiques pour utiliser la fonctionnalité Audience Sync. Cette erreur se déclenche si vous n'avez pas accepté les conditions appropriées. Par conséquent, il se peut que vous ayez également reçu un e-mail de Braze avec ce sujet : « Vos identifiants d'autorisation pour Facebook ne sont pas valides ».</td>
+      <td><b>Terms of Service Not Accepted</b></td>
+      <td>Pour certaines destinations d'Audience Sync, comme Facebook, le réseau publicitaire exige que vous acceptiez des conditions de service spécifiques pour utiliser la fonctionnalité Audience Sync. Cette erreur se déclenche si vous n'avez pas accepté les conditions appropriées. Par conséquent, il se peut que vous ayez également reçu un e-mail de Braze avec ce sujet : « Your authorization credentials for Facebook are invalid ».</td>
       <td>Vérifiez que vous avez accepté les conditions requises par Facebook.</td>
     </tr>
     <tr>
-      <td><b>Tous les utilisateurs sont en erreur</b></td>
+      <td><b>All Users Are Erroring Out</b></td>
       <td>Si tous les utilisateurs obtiennent une erreur lors d'une étape alors qu'il a été confirmé que ces utilisateurs ont des valeurs pour les champs sélectionnés de l'étape, cela peut indiquer un problème avec votre compte Facebook.</td>
       <td>Suivez les étapes de <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>cette section de résolution des problèmes</a> pour vérifier que votre compte ne présente aucun problème.
       </td>
     </tr>
     <tr>
-      <td><b>Échec de la création de l'audience</b></td>
+      <td><b>Failed to create audience</b></td>
       <td>Sur la page Facebook Technology Partner, vous voyez « Connected », mais il y a une erreur à l'étape Facebook Audience Sync lors de la synchronisation d'une audience : « Failed to create audience 'audience name' ». L'autorisation de votre compte Facebook a échoué. Visitez la page des partenaires technologiques pour reconnecter votre compte.</td>
       <td>Suivez les étapes de <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>cette section de résolution des problèmes</a> pour vérifier que votre compte ne présente aucun problème.
       </td>
@@ -298,7 +298,7 @@ Si vous rencontrez d'autres problèmes avec votre intégration, reportez-vous au
 Acceptez toutes les conditions de service en attente de Facebook. Facebook vous demandera périodiquement, à vous (l'utilisateur) et au gestionnaire d'entreprise, de réapprouver ses conditions de service.
 
 1. L'utilisateur connecté doit accepter toutes les conditions de service pour chacun de ses comptes publicitaires :
-- Conditions des audiences personnalisées pour votre compte Facebook personnel :
+- Custom Audience TOS pour votre compte Facebook personnel :
 `https://business.facebook.com/ads/manage/customaudiences/tos/?act=<AD_ACCOUNT_ID>`
 
 ![Un compte disposant de toutes les autorisations de contrôle pour gérer un compte publicitaire.]({% image_buster /assets/img/fb_audience_sync/ad_account_permission.png %}){: style="max-width:70%;"}

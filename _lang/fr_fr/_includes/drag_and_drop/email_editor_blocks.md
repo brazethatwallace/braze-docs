@@ -24,7 +24,7 @@ Ajoute du texte pour les en-têtes dans l'e-mail.
 | Hauteur de ligne | Modifie l'espace entre les lignes de texte. |
 | Espacement des lettres | Modifie l'espace entre chaque caractère. |
 | Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### Paragraphe {#paragraph}
 
@@ -42,7 +42,7 @@ Permet de saisir du texte dans le message. Une barre d'outils facilite la mise e
 | Hauteur de ligne | Modifie l'espace entre les lignes de texte. |
 | Espacement des lettres | Modifie l'espace entre chaque caractère. |
 | Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### Liste {#list}
 
@@ -64,7 +64,7 @@ Ajoute une liste à puces.
 | Hauteur de ligne | Modifie l'espace entre les lignes de texte. |
 | Espacement des lettres | Modifie l'espace entre chaque caractère. |
 | Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### Bouton {#button}
 
@@ -74,7 +74,7 @@ Ajoute un bouton standard. Les propriétés permettent de modifier le style et d
 |---|---|
 | Options du bouton | Définit diverses options du bouton, telles que la police, la taille, la largeur, la couleur et la marge intérieure. |
 | Bouton au survol | Le style du bouton lorsqu'un utilisateur le survole avec une souris ou un trackpad. Cela inclut la couleur d'arrière-plan du bouton, la couleur de la police et les styles de bordure. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### Comportement au clic {#on-click-behavior}
 
@@ -85,7 +85,7 @@ Ajoute un bouton standard. Les propriétés permettent de modifier le style et d
 | Destinataire, objet et corps du message | Pour le type de lien **Send email**, définit l'adresse e-mail du destinataire, l'objet et le contenu qui seront pré-remplis dans un brouillon d'e-mail lorsque l'utilisateur sélectionne le bouton. |
 | Tél. | Pour les types de lien **Make call** et **Send SMS**, définit le numéro de téléphone que l'utilisateur appellera ou auquel il enverra un SMS en sélectionnant le bouton. |
 | Message | Pour le type de lien **Send SMS**, définit le contenu qui sera pré-rempli dans un brouillon de SMS lorsque l'utilisateur sélectionne le bouton. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### Ligne de séparation {#divider}
 
@@ -97,7 +97,7 @@ Insère une ligne continue, en pointillés ou en tirets pour faciliter l'espacem
 | Ligne | Les différents formats de ligne : pointillés, tirets ou trait continu. Vous pouvez également modifier l'épaisseur et la couleur de la ligne de séparation. |
 | Largeur | Ajuste l'étendue de la ligne de séparation par incréments de 5. |
 | Alignement | Déplace la ligne vers la gauche, le centre ou la droite. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### Espaceur {#spacer}
 
@@ -106,7 +106,7 @@ Ajoute de l'espace ou de la marge intérieure entre les autres blocs.
 | Propriété | Description |
 |---|---|
 | Hauteur | Ajuste la hauteur du bloc d'espacement. La valeur par défaut est 60 px. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### Image
 
@@ -124,7 +124,7 @@ Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/u
 | Image aux coins arrondis | Affiche l'image avec des coins arrondis. Par défaut, les images sont affichées avec des coins carrés. |
 | Action | Déclenche une action lorsque l'utilisateur clique sur l'image. |
 | Options du bloc | Définit la marge intérieure autour du bloc d'image. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 Pour la **largeur automatique**, le redimensionnement automatique choisit la meilleure taille pour l'image en combinant la largeur de l'image et l'espace disponible dans la mise en page :
@@ -143,7 +143,7 @@ Crée un lien vers du contenu vidéo. Seuls YouTube et Vimeo sont pris en charge
 | Style de l'icône de lecture | Propose différentes options pour le bouton de lecture situé en haut d'une image vidéo. |
 | Couleur de l'icône de lecture | Permet de sélectionner **Light** ou **Dark** pour le bouton de lecture. |
 | Taille de l'icône de lecture | Choisissez la taille en pixels du bouton de lecture. Plage prédéfinie de 50&nbsp;px à 80&nbsp;px (par incréments de 5&nbsp;px). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Les vidéos hébergées par Vimeo ne fonctionnent que si elles sont définies comme publiques. Tous les autres paramètres de sécurité disponibles dans Vimeo (par exemple, « Hide from Vimeo.com ») génèrent un format de lien différent qui n'est pas pris en charge par ce bloc de contenu. Ces types de liens sont modifiés par le générateur, ce qui empêche Braze de générer une miniature.
@@ -159,7 +159,7 @@ Insère les icônes de plateformes de réseaux sociaux. Vous pouvez télécharge
 | Configurer la collection d'icônes | Définit l'URL pour chaque icône sociale. Inclut le basculeur **More options** pour modifier le titre et le texte alternatif. |
 | Alignement | Déplace l'icône sociale vers la gauche, le centre ou la droite. |
 | Espacement des icônes | Détermine l'espacement entre chaque icône sociale. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### Icônes {#icons}
 
@@ -177,7 +177,7 @@ Insère une icône. Vous pouvez télécharger des images personnalisées. Braze 
 | Taille de l'icône | Détermine la taille de votre icône. |
 | Espacement de l'icône | Modifie l'espacement de l'icône. |
 | Marge intérieure de l'icône | Modifie la marge intérieure de l'icône. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -186,7 +186,7 @@ Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid/), comme
 | Propriété | Description |
 |---|---|
 | HTML | Ajoutez ou modifiez du HTML brut, y compris [Liquid]({{site.baseurl}}/liquid/) pour la personnalisation ou la logique conditionnelle. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menu
 
@@ -206,7 +206,7 @@ Crée un menu flexible pour le message que vous concevez.
 | Menu mobile | Propose des options pour modifier la taille, la couleur et le type d'icône sur un appareil mobile. |
 | Marge intérieure des éléments | Modifie la marge intérieure en utilisant le bouton **+** ou **-**, ou en saisissant un nombre spécifique. |
 | Tous les côtés | Définit une marge intérieure uniforme si la marge intérieure des éléments est désactivée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### Produit {#product}
 
@@ -228,7 +228,7 @@ Affiche des lignes de produits à partir d'un [catalogue de produits]({{site.bas
 | Nombre max. de produits par ligne | Définit le nombre de produits affichés par ligne : **1**, **2** ou **3** (**3** n'est disponible que lorsque l'orientation est **Image center**). |
 | Espacement des produits | Définit l'espacement entre les produits : **Auto** ou **Custom**. |
 | Espacement personnalisé | *(Lorsque **Custom** est sélectionné)* Définit l'écart en pixels entre les produits. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## Personnalisation {#personalization}
 

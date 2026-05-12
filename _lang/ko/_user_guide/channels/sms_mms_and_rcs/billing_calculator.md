@@ -56,7 +56,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 | 1072 - 1224자 | 8 세그먼트 |
 | 1225 - 1377자 | 9 세그먼트 |
 | 1378 - 1530자 | 10 세그먼트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% tab UCS-2 인코딩 %}
 | 문자 수 | 세그먼트 수 |
@@ -71,7 +71,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 | 470 - 536자 | 8 세그먼트 |
 | 537 - 603자 | 9 세그먼트 |
 | 604 - 670자 | 10 세그먼트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% endtabs %}
 

@@ -20,7 +20,7 @@ Antes de começar, certifique-se de ter o seguinte:
 | Chave da API REST da Braze | Uma chave da API REST com as permissões de exportação apropriadas para os endpoints que você pretende chamar. As chaves de API são limitadas a endpoints específicos, e as permissões não podem ser alteradas após a criação. Para mais detalhes, consulte [Chave da API REST]({{site.baseurl}}/api/basics/#about-rest-api-keys). |
 | Identificadores relevantes | Os identificadores dos dados que você deseja exportar, como um ID de Campaign, ID de Segment ou ID de Canvas. Você pode encontrá-los no dashboard da Braze. Para uma lista completa, consulte [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types/). |
 | Credenciais de armazenamento em nuvem (opcional) | Se você está exportando grandes conjuntos de dados, conecte um bucket [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) ou [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/) para que os arquivos de exportação sejam gravados diretamente no seu armazenamento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert note %}
 Se você é um profissional de marketing ou membro da equipe sem acesso à API, coordene com um desenvolvedor ou administrador da sua organização para configurar chaves de API e integrações.
@@ -41,7 +41,7 @@ A tabela a seguir resume as categorias de dados disponíveis por meio das APIs d
 | Eventos personalizados | Nomes de eventos, listas de eventos e análise de eventos ao longo do tempo | [Endpoints de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
 | Atributos personalizados | Nomes de atributos | [Endpoint de atributos personalizados]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
 | Compras | Dados de receita por tempo, listas de IDs de produtos e contagens de compras | [Endpoints de compras]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What you can export" }
 
 ## Como os dados de exportação são entregues {#how-export-data-is-delivered}
 
@@ -88,7 +88,7 @@ A tabela a seguir lista todas as APIs de exportação disponíveis.
 | Dados de usuários | POST | [User Data by Identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
 | Dados de usuários | POST | [User Data by Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
 | Dados de usuários | POST | [User Data by Global Control Group]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Export endpoints" }
 
 ## Artigos relacionados {#related-articles}
 

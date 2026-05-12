@@ -20,7 +20,7 @@ Dieses Feature unterstützt nicht Shopify Markets oder Markets Pro. Wenn Sie Unt
 | ----------- | ----------- |
 | Einen Shopify Shop einrichten | Stellen Sie sicher, dass Sie bereits [mindestens einen Shopify Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_overview/) haben. |
 | Eindeutige Shopify Storefront-Domains für jede Region | Die Unterstützung mehrerer Shops ist für die Verwendung eindeutiger Shopify Shop-Domains für verschiedene regionale Storefronts gedacht. <br><br>Wenn Sie mehrere Untermarken mit Braze verbinden möchten, empfehlen wir, für jede Untermarke einen eigenen Workspace zu erstellen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Einen zusätzlichen Shop verbinden {#connecting-an-additional-store}
 Nachdem Sie die Braze App in Ihrem Shopify Shop installiert und Ihren ersten Shop eingerichtet haben, wählen Sie **+ Connect New Store**.
@@ -57,7 +57,7 @@ Für Ihre externe Braze-ID können Sie aus den folgenden Optionen wählen:
 |------|-----------|
 | Shopify-Kunden-ID | Wenn Sie die Shopify-Kunden-ID als externe Braze-ID verwenden, generiert jeder Shop eine eindeutige Kunden-ID für jede:n Nutzer:in. Das bedeutet, dass Nutzer:innen, die mit mehreren Shops interagieren, separate Profile in Braze haben. |
 | E-Mail, gehashte E-Mail oder angepasste externe ID | Wenn Sie die Typen E-Mail, gehashte E-Mail oder angepasste externe ID verwenden, werden die Profile von Nutzer:innen, die sich in mehreren Shops engagieren, in einem einzigen konsolidierten Profil zusammengeführt, wenn sie sich anmelden oder eine Bestellung aufgeben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### Zusammengeführte Felder {#merged-fields}
 
@@ -79,21 +79,21 @@ Wenn ein Nutzerprofil synchronisiert wird, werden die folgenden Felder zusammeng
 Sie können wählen, ob Sie Abonnent:innen direkt über Braze (in Ihren Shopify-Konnektor-Einstellungen) oder über API- und SDK-Alternativen, die Daten von Shopify synchronisieren, sammeln möchten.
 
 {% tabs local %}
-{% tab Shopify connector %}
-Im Schritt **Manage Users** Ihrer Shopify-Konnektor-Einstellungen können Sie Braze verwenden, um Opt-ins von E-Mail- und SMS-Abonnent:innen zu sammeln und sie in einer speziellen Abo-Gruppe zu organisieren:
+{% tab Shopify-Konnektor %}
+Im Schritt **Manage users** Ihrer Shopify-Konnektor-Einstellungen können Sie Braze verwenden, um Opt-ins von E-Mail- und SMS-Abonnent:innen zu sammeln und sie in einer speziellen Abo-Gruppe zu organisieren:
 
 1. Erstellen Sie für jeden Shop, den Sie verbinden, eine eindeutige Abo-Gruppe. So erhalten Sie genaue Daten darüber, woher die Abonnent:innen kommen.
 2. Aktivieren Sie die Erfassung von E-Mail- und SMS-Abonnent:innen.
 {% endtab %}
 
-{% tab Braze API or SDKs %}
+{% tab Braze API oder SDKs %}
 Alternativ können Sie die Opt-in-Informationen für E-Mail- und SMS-Marketing direkt von Shopify über die Braze API oder SDKs synchronisieren.
 
 | Option | Ressourcen |
 |------|---------|
 | API | - [Abo-Gruppen-Endpunkte]({{site.baseurl}}/api/endpoints/subscription_groups/), um direkt zu ersetzen, was von der Integration unterstützt wird<br>- [`Users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) zum Festlegen der Abo-Gruppen-Daten oder des [globalen E-Mail-Abo-Status]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- [Braze Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions/) für angepasstere Marketing-Opt-in-Optionen |
 | SDKs | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
 {% endtab %}
 {% endtabs %}
 
@@ -122,7 +122,7 @@ Wenn Sie mehr als einen Shop verbinden, werden die folgenden Attribute mit dem n
 
 Wenn Sie mehrere Shops verbinden, enthalten eingehende empfohlene E-Commerce-Events eine Quell-Event-Eigenschaft. Diese Eigenschaft gibt an, von welcher Storefront-URL das Event stammt, sodass Sie diese Information zur Segmentierung oder zum Triggern bestimmter Anwendungsfälle verwenden können.
 
-![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event `ecommerce.order_placed` ausführen.]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „ecommerce.order_placed“ ausführen.]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
 Die unterstützten empfohlenen E-Commerce-Events innerhalb der Shopify-Integration sind:
 
@@ -137,7 +137,7 @@ Die unterstützten empfohlenen E-Commerce-Events innerhalb der Shopify-Integrati
 
 Eingehende angepasste Shopify-Events enthalten eine Event-Eigenschaft namens `shopify_storefront`. Diese Eigenschaft zeigt an, von welcher Storefront-URL das Event stammt, sodass Sie sie für die Segmentierung oder das Triggern von Anwendungsfällen nutzen können.
 
-![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event `shopify_paid_order` ausführen.]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „shopify_paid_order“ ausführen.]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
 Zu den unterstützten angepassten Shopify-Events gehören:
 

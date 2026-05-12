@@ -58,7 +58,7 @@ El cuerpo de la solicitud incluye los siguientes parámetros:
 | `asset_url` | Opcional | Cadena | Una URL de acceso público para el activo que se va a cargar en Braze. |
 | `asset_file` | Opcional | Binario | Datos de archivo binario. |
 | `name` | Opcional | Cadena | Nombre que aparecerá en la biblioteca de medios para este activo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
 
 {% alert important %}
 `asset_url` y `asset_file` son mutuamente excluyentes; solo debes incluir uno de ellos en tu solicitud de API.
@@ -74,7 +74,7 @@ En esta sección se explica cómo el punto de conexión asigna nombres a los arc
 | --- | --- |
 | `name` proporcionado | El valor de `name` se utiliza como nombre del activo en la biblioteca de medios. |
 | `name` excluido | Se utiliza el nombre de archivo original de la URL o del archivo cargado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
 
 #### Cargas de archivos ZIP {#zip-file-uploads}
 
@@ -82,7 +82,7 @@ En esta sección se explica cómo el punto de conexión asigna nombres a los arc
 | --- | --- |
 | `name` proporcionado | El valor de `name` se utiliza como prefijo, con un número incremental añadido como sufijo (por ejemplo, "Mi archivo 1", "Mi archivo 2", "Mi archivo 3"). |
 | `name` excluido | Cada archivo conserva su nombre original dentro del archivo ZIP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" style="table-layout: fixed; width: 100%;" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -127,7 +127,7 @@ Esta tabla enumera los posibles errores de validación.
 | 400 | "Either asset_url or asset_file must be provided." | No se proporcionó ningún parámetro de activo en la solicitud. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | Se proporcionaron ambos parámetros de activo; solo se permite uno. |
 | 403 | "Media Library Public APIs are not enabled for this company." | La característica de biblioteca de medios no está habilitada para este espacio de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
 
 #### Errores de procesamiento {#processing-errors}
 
@@ -154,7 +154,7 @@ Esta tabla enumera los posibles errores de procesamiento.
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Una entrada de archivo dentro del ZIP no tiene nombre. Asegúrate de que el archivo ZIP no esté dañado y añade un nombre a cualquier entrada de archivo sin nombre. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | El archivo ZIP contiene directorios anidados, que no son compatibles. Todos los archivos deben estar en el nivel raíz del ZIP. |
 | `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante la carga. El objeto `meta` incluye el mensaje `original_error` para la depuración. Vuelve a intentarlo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 
 ## Respuesta {#response}

@@ -31,7 +31,7 @@ Prenons l'exemple d'une organisation de retail ayant une présence multicanal (s
 | API | Limites de débit |
 | --- | --- |
 | Suivi des utilisateurs | 50 000 requêtes par minute.<br><br>Reportez-vous à la [documentation de l'API de suivi des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#rate-limit) pour plus de détails.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limits" }
 
 ## Intégration {#integration}
 
@@ -43,7 +43,7 @@ Pour connecter le réseau Edge à Braze, les éléments suivants sont nécessair
 | --- | --- |
 | Instance de Braze | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics/#endpoints). |
 | Clé API REST de Braze | Une clé API REST Braze avec toutes les autorisations. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Settings** > **API Keys**.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Gather required configuration details" }
 
 ### Étape 2 : Créer un secret {#step-2-create-a-secret}
 
@@ -69,7 +69,7 @@ Après avoir installé l'extension, créez une nouvelle [règle](https://experie
 | ID d'utilisateur externe | Un UUID ou GUID long, aléatoire et bien distribué. Si vous choisissez une autre méthode pour nommer vos ID d'utilisateur, ils doivent également être longs, aléatoires et bien répartis. En savoir plus sur la [convention de dénomination suggérée pour les ID d'utilisateurs]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention). |
 | ID utilisateur Braze | Identifiant de l'utilisateur Braze. |
 | Alias d'utilisateur | Un alias sert d'identifiant unique alternatif pour l'utilisateur. Utilisez des alias pour identifier les utilisateurs selon d'autres dimensions que votre ID d'utilisateur principal.<br><br>L'objet alias d'utilisateur se compose de deux parties : un `alias_name` pour l'identifiant lui-même et un `alias_label` indiquant le type d'alias. Les utilisateurs peuvent avoir plusieurs alias avec des libellés différents, mais un seul `alias_name` par `alias_label`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
 Pour lier l'événement à un utilisateur, vous devez remplir soit le champ `External User ID`, soit le champ `Braze User Identifier`, soit la section `User Alias`.
@@ -84,7 +84,7 @@ Pour lier l'événement à un utilisateur, vous devez remplir soit le champ `Ext
 | Heure de l'événement | Date-heure sous forme de chaîne de caractères au format ISO 8601 ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. | Oui |
 | Identifiant de l'application | L'identifiant de l'application ou `app_id` est un paramètre qui associe l'activité à une application spécifique dans votre espace de travail. Il désigne l'application avec laquelle vous interagissez au sein de l'espace de travail. | Non |
 | Propriétés d'événement | Un objet JSON contenant les propriétés personnalisées de l'événement. | Non |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
 L'action **Braze Send Event** ne requiert que la spécification d'un **Event Name** et d'un **Event Time**, mais vous devriez inclure autant d'informations que possible dans le champ des propriétés personnalisées. Reportez-vous à l'[objet événement]({{site.baseurl}}/api/objects_filters/event_object/) pour plus de détails.
@@ -109,7 +109,7 @@ Les attributs utilisateur peuvent être un objet JSON contenant des champs qui c
 | Fuseau horaire | Nom du fuseau horaire de la base de données [IANA Time Zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (par exemple, 'America/New_York' ou 'Eastern Time (US & Canada)'). |
 | Facebook | Un hachage contenant l'un des éléments suivants : `id` (chaîne de caractères), `likes` (tableau de chaînes de caractères), `num_friends` (nombre entier). |
 | Twitter | Un hachage contenant l'un des éléments suivants : id (nombre entier), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (nombre entier), `friends_count` (nombre entier), `statuses_count` (nombre entier). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
 
 {% alert note %}
 Tous les attributs ajoutés dans la configuration seront envoyés à chaque fois que l'événement est envoyé à Braze, que la valeur de l'attribut ait changé ou non. Lorsque vous configurez les attributs utilisateur, assurez-vous de savoir comment cela affectera votre consommation de points de données.
@@ -132,7 +132,7 @@ Après avoir installé l'extension, créez une nouvelle [règle](https://experie
 | ID d'utilisateur externe | Un UUID ou GUID long, aléatoire et bien distribué. Si vous choisissez une autre méthode pour nommer vos ID d'utilisateur, ils doivent également être longs, aléatoires et bien répartis. En savoir plus sur la [convention de dénomination suggérée pour les ID d'utilisateurs]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention). |
 | ID utilisateur Braze | Identifiant de l'utilisateur Braze. |
 | Alias d'utilisateur | Un alias sert d'identifiant unique alternatif pour l'utilisateur. Utilisez des alias pour identifier les utilisateurs selon d'autres dimensions que votre ID d'utilisateur principal.<br><br>L'objet alias d'utilisateur se compose de deux parties : un `alias_name` pour l'identifiant lui-même et un `alias_label` indiquant le type d'alias. Les utilisateurs peuvent avoir plusieurs alias avec des libellés différents, mais un seul `alias_name` par `alias_label`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
 Pour lier l'événement à un utilisateur, vous devez remplir soit le champ `External User ID`, soit le champ `Braze User Identifier`, soit la section `User Alias`.
@@ -150,7 +150,7 @@ Pour lier l'événement à un utilisateur, vous devez remplir soit le champ `Ext
 | Quantité | La quantité achetée. Si elle n'est pas fournie, la valeur par défaut est 1. La valeur maximale doit être inférieure à 100. | Non |
 | Identifiant de l'application | L'identifiant de l'application ou `app_id` est un paramètre qui associe l'activité à une application spécifique dans votre espace de travail. Il désigne l'application avec laquelle vous interagissez au sein de l'espace de travail. | Non |
 | Propriétés d'achat | Un objet JSON contenant les propriétés personnalisées de l'achat. | Non |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
 L'action **Send Purchase Event** ne nécessite que la spécification des paramètres `Product ID`, `Purchase Time`, `Currency` et `Price`, mais vous devriez inclure autant d'informations que possible dans le champ des propriétés d'achat. Reportez-vous à l'[objet achat]({{site.baseurl}}/api/objects_filters/purchase_object/) pour plus de détails.
@@ -177,7 +177,7 @@ Les attributs utilisateur peuvent être un objet JSON contenant des champs qui c
 | Fuseau horaire | Nom du fuseau horaire de la base de données [IANA Time Zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (par exemple, 'America/New_York' ou 'Eastern Time (US & Canada)'). |
 | Facebook | Un hachage contenant l'un des éléments suivants : `id` (chaîne de caractères), `likes` (tableau de chaînes de caractères), `num_friends` (nombre entier). |
 | Twitter | Un hachage contenant l'un des éléments suivants : id (nombre entier), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (nombre entier), `friends_count` (nombre entier), `statuses_count` (nombre entier). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }
 
 {% alert note %}
 Tous les attributs ajoutés dans la configuration seront envoyés à chaque fois que l'événement est envoyé à Braze, que la valeur de l'attribut ait changé ou non. Lorsque vous configurez les attributs utilisateur, assurez-vous de savoir comment cela affectera votre consommation de points de données.
@@ -188,4 +188,4 @@ Tous les attributs ajoutés dans la configuration seront envoyés à chaque fois
 
 ### Étape 6 : Valider les données dans Braze {#step-6-validate-data-within-braze}
 
-Si la collecte des événements et l'intégration d'Adobe Experience Platform ont réussi, vous verrez les événements dans la console Braze lorsque vous [consulterez les profils utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Plus précisément, les nouvelles données d'événement envoyées à Braze sont reflétées dans la section **Achats** ou **Événements personnalisés** de l'[onglet d'aperçu]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#overview-tab) d'un utilisateur particulier.
+Si la collecte des événements et l'intégration d'Adobe Experience Platform ont réussi, vous verrez les événements dans la console Braze lorsque vous [consulterez les profils utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Plus précisément, les nouvelles données d'événement envoyées à Braze sont reflétées dans la section **Purchases** ou **Custom Events** de l'[onglet d'aperçu]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#overview-tab) d'un utilisateur particulier.

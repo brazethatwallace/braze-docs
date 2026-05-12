@@ -38,7 +38,7 @@ O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem da 
 | Conta não verificada | Uma conta não revisada que pode ser obtida por qualquer pessoa (individual ou corporativa). Esta conta é representada por um selo cinza e não aparecerá nos resultados de pesquisa dentro do app LINE. |
 | Conta verificada | Uma conta que passou pela análise do LINE Yahoo. Esta conta é representada por um selo azul e aparecerá nos resultados de pesquisa dentro do app LINE.<br><br>Esta conta está disponível apenas para contas baseadas no Japão, Taiwan, Tailândia e Indonésia. |
 | Conta premium | Uma conta que passou pela análise do LINE Yahoo. Esta conta é representada por um selo verde e aparecerá nos resultados de pesquisa dentro do app LINE. Este tipo de conta é concedido automaticamente durante a análise, a critério do LINE. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de contas LINE" }
 
 ### Tipo de conta necessário {#required-account-type}
 
@@ -99,7 +99,7 @@ Após a conclusão do processo de integração, a Braze extrairá automaticament
 | Channel ID | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings** |
 | Channel secret | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings**. |
 | Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API**. Se não houver um channel access token, selecione **Issue**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2.1: Editar configurações de webhook" }
 
 {: start="3"}
 3. Acesse sua página **Settings** > **Response settings** e faça o seguinte:

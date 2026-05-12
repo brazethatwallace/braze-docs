@@ -55,7 +55,7 @@ El servicio de notificaciones push de Apple (APN) admite la configuración de pr
 | badge             | número                      | Gobierna el número que se muestra como señal en el icono de la aplicación                                                                                                                              |
 | sound             | cadena                      | El nombre del archivo de sonido que se reproduce como alerta; debe estar en el paquete de la aplicación o en la carpeta ```Library/Sounds```                                                                                    |
 | content-available | número                      | Los valores de entrada de 1 señalan a la aplicación la disponibilidad de nueva información al iniciar o reanudar la sesión |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Biblioteca APS" }
 
 
 ##### Biblioteca de propiedades de alertas {#alert-properties-library}
@@ -70,7 +70,7 @@ El servicio de notificaciones push de Apple (APN) admite la configuración de pr
 | loc-key        | cadena o nulo           | Una clave que establece el mensaje de notificación para la localización actual desde el archivo ```Localizable.strings```                                  |
 | loc-args       | matriz de cadenas         | Valores de cadena que pueden aparecer en lugar de los especificadores de formato de localización en loc-key                                                       |
 | launch-image   | cadenas                  | El nombre de un archivo de imagen en el paquete de la aplicación que deseas usar como imagen de lanzamiento cuando los usuarios tocan el botón de acción o deslizan la acción |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Biblioteca de propiedades de alertas" }
 
 El creador de mensajes de Braze maneja automáticamente la creación de las siguientes claves: **alert** y **sus propiedades**, **content-available**, **sound** y **category**.
 
@@ -159,7 +159,7 @@ Una notificación push silenciosa es una notificación push que no contiene mens
 
 Los especialistas en marketing deben probar que las notificaciones push silenciosas desencadenen el comportamiento esperado antes de enviarlas a los usuarios de su aplicación. Después de redactar tu notificación push silenciosa de [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) o [Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android), asegúrate de dirigirte solo a un usuario de prueba filtrando por [ID de usuario externo]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id) o [dirección de correo electrónico]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 
-Al lanzar la Campaign, debes verificar que no hayas recibido ninguna notificación push visible en tu dispositivo de prueba.
+Al lanzar la campaña, debes verificar que no hayas recibido ninguna notificación push visible en tu dispositivo de prueba.
 
 {% alert note %}
 La limitación de notificaciones silenciosas de iOS puede causar los siguientes síntomas:

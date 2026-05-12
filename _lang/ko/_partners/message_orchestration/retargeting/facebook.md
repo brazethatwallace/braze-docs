@@ -34,7 +34,7 @@ Meta 워크 계정 베타 테스트에 참여 중인 경우, [Facebook 파트너
 | [Facebook 비즈니스 관리자](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
 | [Facebook 광고 계정](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Braze 커스텀 오디언스와 함께 사용하려는 브랜드의 비즈니스 관리자에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 관리자 관리자가 Braze에서 사용할 Facebook 광고 계정에 대한 관리자 권한을 부여했는지, 그리고 광고 계정 이용약관에 동의했는지 확인하세요. 그렇지 않으면 Braze 내에서 Facebook 광고 계정에 접근할 수 없습니다. |
 | [Facebook 커스텀 오디언스 약관](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Braze에서 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의해야 합니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

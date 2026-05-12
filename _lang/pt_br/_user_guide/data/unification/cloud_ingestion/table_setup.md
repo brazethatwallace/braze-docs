@@ -19,7 +19,7 @@ Para sincronizações de dados de usuários via CDI, configure ambos:
 | --- | --- |
 | Configuração da tabela de origem | Colunas obrigatórias, identificadores de usuário e comportamento de sincronização de `UPDATED_AT` |
 | Formatação de carga útil | Campos JSON em `PAYLOAD`, incluindo a estrutura do objeto para atributos, eventos e compras |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entenda a configuração de tabela em comparação com a formatação de carga útil" }
 
 A Braze lê as linhas da sua tabela de origem primeiro e, em seguida, valida o campo `PAYLOAD` com base no tipo de dados selecionado.
 
@@ -38,7 +38,7 @@ Para sincronizações de dados de usuários via data warehouse, sua tabela ou vi
 
 Cada linha deve incluir um tipo de identificador por vez, mesmo que sua tabela contenha múltiplas colunas de identificador.
 
-### Requisitos de `UPDATED_AT` {#updatedat-requirements}
+### Requisitos de `UPDATED_AT` {#updated_at-requirements}
 
 - Armazene os valores de `UPDATED_AT` em UTC para evitar problemas com horário de verão.
 - A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado.
@@ -59,7 +59,7 @@ O valor de `PAYLOAD` segue os mesmos formatos de objeto usados pelo endpoint `/u
 | `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configure a coluna PAYLOAD" }
 
 Para atributos aninhados, inclua datas usando o formato descrito em [Capturando datas como propriedades de objeto]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties).
 

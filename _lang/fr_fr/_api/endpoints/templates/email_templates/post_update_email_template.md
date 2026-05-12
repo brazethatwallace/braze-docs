@@ -23,6 +23,7 @@ Tous les champs autres que l'`email_template_id` sont facultatifs, mais vous dev
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
+
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `templates.email.update`.
 
 ## Limite de débit {#rate-limit}
@@ -61,7 +62,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `preheader` | Facultatif | Chaîne de caractères | Accroche d'e-mail utilisée pour générer des aperçus chez certains clients. |
 | `tags` | Facultatif | Chaîne de caractères | Les [étiquettes]({{site.baseurl}}/user_guide/messaging/governance/tags/) doivent déjà exister. |
 | `should_inline_css` | Facultatif | Valeur booléenne | Active ou désactive la fonctionnalité `inline_css` par modèle. Si non renseigné, Braze utilisera le paramètre par défaut de l'AppGroup. `true` ou `false` est attendu. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de demande {#example-request}
 ```
@@ -90,6 +91,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | Toutes les étiquettes doivent être des chaînes de caractères | Assurez-vous que vos étiquettes sont encadrées par des guillemets (`""`). |
 | Certaines étiquettes sont introuvables | Pour ajouter une étiquette lors de la création d'un modèle d'e-mail, l'étiquette doit déjà exister dans Braze. |
 | Valeur non valide pour `should_inline_css`. `true` ou `false` était attendu | Ce paramètre accepte uniquement les valeurs booléennes (true ou false). Assurez-vous que la valeur de `should_inline_css` n'est pas encadrée par des guillemets (`""`), ce qui entraînerait l'envoi de la valeur en tant que chaîne de caractères. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -9,7 +9,7 @@ tool: Currents
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
 > [Mixpanel](https://mixpanel.com/)はビジネス分析プラットフォームであり、Mixpanelから他のプラットフォームにイベントをエクスポートして、より深い分析を実行できます。収集されたデータは、カスタムレポートの作成やユーザーエンゲージメントとリテンションの測定に使用できます。
 
@@ -23,7 +23,7 @@ Braze Currentsを利用して[BrazeイベントをMixpanelにエクスポート]
 |---|---|
 | Mixpanelアカウント | このパートナーシップを活用するには、[Mixpanelアカウント](https://mixpanel.com/)が必要です。 |
 | Currents | Mixpanelにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## データエクスポートの統合 {#data-export-integration}
 

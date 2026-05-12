@@ -33,7 +33,7 @@ description: "この記事では、コンテンツブロックの全翻訳を表
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | 必須 | 文字列 | コンテンツブロックのID。|
 | `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。

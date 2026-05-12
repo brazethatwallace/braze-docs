@@ -85,7 +85,7 @@ Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/ca
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="시작 또는 진입 시 카드 생성과 첫 번째 노출 시 카드 생성의 차이점" class="tg">
   <caption>시작 또는 진입 시 카드 생성과 첫 번째 노출 시 카드 생성의 차이점</caption>
 <thead>
   <tr>

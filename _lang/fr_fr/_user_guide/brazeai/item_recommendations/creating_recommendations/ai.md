@@ -130,7 +130,7 @@ Les exemples de mappages suivants font tous deux référence à ce catalogue d'e
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Exemples de mappages" class="tg">
   <caption>Exemples de mappages</caption>
 <thead>
   <tr>

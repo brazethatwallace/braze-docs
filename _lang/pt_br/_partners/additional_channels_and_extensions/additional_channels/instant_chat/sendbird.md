@@ -87,16 +87,16 @@ Na Braze, em **Modelos e mídia**, acesse **Modelos de webhook** e escolha o **m
 
 ### Campaigns
 
-1. No dashboard da Braze, na página **Campaigns**, clique em **Criar campanha** > **Webhook**.
+1. No dashboard da Braze, na página **Campaigns**, clique em **Create Campaign** > **Webhook**.
 2. Selecione o modelo de webhook que você criou acima. É altamente recomendável que você use o endpoint Batch para Campaigns.
-3. Personalize o modelo editando suas variáveis na guia **Redigir**.
+3. Personalize o modelo editando suas variáveis na guia **Compose**.
 
 ### Canvas
 
-1. Em um Canvas novo ou existente, adicione um componente **Mensagem**.
-2. Abra o componente e selecione **Webhook** nos **Canais de envio de mensagens**.
+1. Em um Canvas novo ou existente, adicione um componente **Message**.
+2. Abra o componente e selecione **Webhook** nos **Messaging Channels**.
 3. Selecione o modelo de webhook que você criou acima. É altamente recomendável que você use o endpoint em tempo real para Canvas.
-4. Personalize o modelo editando suas variáveis na guia **Redigir**.
+4. Personalize o modelo editando suas variáveis na guia **Compose**.
 
 ## Personalização {#customization}
 
@@ -104,9 +104,9 @@ Na Braze, em **Modelos e mídia**, acesse **Modelos de webhook** e escolha o **m
 
 Para integrar a entrega das notificações e o evento de status de abertura com a métrica de conversão de uma campanha, adicione um evento personalizado no dashboard da Braze.
 
-1. No dashboard da Braze, acesse **Configurações > Gerenciar configurações > Eventos personalizados** e clique em **+ Adicionar evento personalizado**.
-2. Depois de criar um evento personalizado, clique em **Gerenciar propriedades**, adicione uma propriedade chamada "status" e escolha "String" como o tipo de propriedade.
-3. Ao criar uma notificação em Campaigns ou Canvas, insira o nome do evento personalizado no campo **Nome do evento**.
+1. No dashboard da Braze, acesse **Settings** > **Manage Settings** > **Custom Events** e clique em **+ Add Custom Event**.
+2. Depois de criar um evento personalizado, clique em **Manage Properties**, adicione uma propriedade chamada "status" e escolha "String" como o tipo de propriedade.
+3. Ao criar uma notificação em Campaigns ou Canvas, insira o nome do evento personalizado no campo **Event Name**.
 
 Esse evento personalizado será disparado duas vezes para cada notificação: quando uma mensagem for enviada e quando um usuário abrir a mensagem.
 - Quando uma mensagem é enviada, um evento personalizado é disparado com o status `SENT`.

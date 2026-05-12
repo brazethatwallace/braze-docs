@@ -54,7 +54,7 @@ Mit dem `selection`-Objekt können Sie festlegen, welche Artikel aus Ihrem Katal
 | `results_limit` | Optional | Integer | Die maximale Anzahl der zurückzugebenden Ergebnisse. Es muss sich um eine Zahl zwischen 1 und 50 handeln. |
 | `sort_field` | Optional | String | Das Feld, nach dem die Ergebnisse sortiert werden sollen. Dies muss mit `sort_order` kombiniert werden. Wenn sowohl `sort_field` als auch `sort_order` nicht vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
 | `sort_order` | Optional | String | Die Reihenfolge, in der die Ergebnisse sortiert werden sollen. Zulässige Werte sind `"asc"` (aufsteigend) oder `"desc"` (absteigend). Dies muss mit `sort_field` kombiniert werden. Wenn sowohl `sort_field` als auch `sort_order` nicht vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
 
 ### Filterobjekt {#filter-object}
 
@@ -65,7 +65,7 @@ Jedes Filterobjekt im `filters`-Array enthält die in der folgenden Tabelle besc
 | `field`    | Erforderlich | String                                      | Das Katalogfeld, nach dem gefiltert werden soll. |
 | `operator` | Erforderlich | String                                      | Der Vergleichsoperator, der für die Filterung verwendet werden soll. Beispiele sind `"includes value"` und `"does not include value"`. |
 | `value`    | Erforderlich | Variiert (String, Zahl, Boolescher Wert, Zeitangabe)     | Der Wert, mit dem verglichen werden soll. Dieser muss mit dem Datentyp des zugrunde liegenden Katalogfelds übereinstimmen (z. B. String, Zahl, Boolescher Wert, Zeitangabe). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
 Die API unterstützt maximal vier Filter pro Auswahlanfrage. Im Braze-Dashboard können Sie bis zu 10 Filter pro Auswahl hinzufügen. Filter werden in der Reihenfolge angewendet, in der sie im Array erscheinen.

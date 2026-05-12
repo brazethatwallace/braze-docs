@@ -36,7 +36,7 @@ Ten en cuenta las convenciones de nomenclatura para los ID de usuario.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | El identificador único que asigna automáticamente Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | El identificador único del perfil de un usuario configurado por el cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID de usuario" }
 
 ### Valores de la plataforma {#platform-values}
 
@@ -52,7 +52,7 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores de la plataforma" }
 
 {% enddetails %}
 
@@ -512,7 +512,7 @@ Este evento se produce cuando Braze recibe una solicitud para actualizar el esta
 | Registro de token de notificaciones push | Cuando un usuario se actualiza mediante el proceso de registro de tokens |
 | Lista de cancelación de suscripciones | Cuando un usuario cancela la suscripción a través del mailto de Braze o del encabezado de cancelar suscripción con un solo clic |
 | Otro | Incluye cualquier otra fuente, como trabajos de sincronización de demostración o de proveedores, o devoluciones de llamada de eventos SMS y WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles de la propiedad" }
 
 
 {% endapi %}
@@ -4494,7 +4494,7 @@ Este evento se produce si un mensaje de correo electrónico fue cancelado debido
 Email, Bounce
 {% endapitags %}
 
-Este evento se produce cuando un proveedor de servicios de Internet devuelve un rebote duro. Un rebote duro significa un fallo permanente en la capacidad de entrega.
+Este evento se produce cuando un proveedor de servicios de Internet devuelve un rebote duro. Un rebote duro indica un fallo permanente en la capacidad de entrega.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8122,7 +8122,7 @@ Este evento se produce cuando un usuario hace clic en un enlace de un mensaje de
 
 #### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -8326,7 +8326,7 @@ Este evento se produce cuando se recibe un mensaje de LINE de un usuario.
 
 #### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -8725,7 +8725,7 @@ Este evento se produce cuando se envía un mensaje de LINE a LINE.
 
 #### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -12938,6 +12938,7 @@ Braze emite `users.messages.sms.Rejection` a Currents, Uso compartido de datos d
 {% endapi %}
 
 {% api %}
+
 ## Eventos de reintento de SMS {#sms-retry-events}
 
 {% apitags %}
@@ -13119,6 +13120,7 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envío de SMS {#sms-send-events}
 
 {% apitags %}
@@ -13347,6 +13349,7 @@ Este evento se produce cuando un usuario envía un SMS.
 {% endapi %}
 
 {% api %}
+
 ## Eventos de clic en enlaces cortos de SMS {#sms-short-link-click-events}
 
 {% apitags %}

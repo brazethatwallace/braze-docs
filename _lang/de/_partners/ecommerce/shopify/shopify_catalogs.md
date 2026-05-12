@@ -93,7 +93,7 @@ Braze unterstützt die folgenden Metafeld-Objekte und einige ihrer jeweiligen Ty
 | `number_integer` | Integer |
 | `single_line_text_field`, `list.single_line_text_field` | String, String-Array |
 | `url`, `list.url` | String (URL), String-Array (URLs) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
 
 {% endsubtab %}
 {% subtab Nicht unterstützte Metafelder %}
@@ -189,7 +189,7 @@ Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Can
 | `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Erfordert die Synchronisierung von Produkt-Tags. |
 | `collection_ids` | Array | `[123456789012, 987654321098]` (Shopify-Kollektions-IDs)<br><br>Erfordert die Synchronisierung von Shopify-Kollektionen. |
 | `Metafeld-Spalten` | Variiert je nach Typ | Jedes synchronisierte Metafeld erscheint als separate Spalte, benannt nach seinem Schlüssel. Informationen finden Sie unter [Unterstützte Metafelder](#step-3) im Tab „Produkt-Metafelder“ von Schritt 3. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
 
 {% alert warning %}
 Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu aktualisieren, nehmen Sie Änderungen direkt in Ihrem Shopify-Shop vor, und sie werden automatisch mit Braze synchronisiert. Um Ihren Shopify-Katalog zu löschen, gehen Sie zur Shopify-Partnerseite in Braze und [deaktivieren Sie die Synchronisierung](#deactivate).
@@ -717,4 +717,4 @@ Wenn bei der Shopify Produkt-Synchronisation ein Fehler auftritt, kann dies auf 
 | Server-Fehler | Dies tritt auf, wenn ein Server-Fehler auf Seiten von Shopify auftritt, wenn wir versuchen, Ihre Produkte zu synchronisieren. | [Deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Doppelte SKU | Dies tritt auf, wenn Sie eine SKU als ID für Ihren Katalogartikel verwenden und Produkte mit der gleichen SKU haben. Da die ID des Katalogartikels eindeutig sein muss, müssen alle Ihre Produkte eindeutige SKUs haben. | Prüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass es keine doppelten SKUs gibt. Wenn es doppelte SKUs gibt, aktualisieren Sie diese so, dass sie nur in Ihrem Shopify-Konto eindeutige SKUs sind. Nachdem das Problem behoben ist, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Katalog-Limit überschritten | Dies geschieht, wenn Sie Ihr Katalog-Limit überschreiten. Braze ist nicht in der Lage, die Synchronisierung zu beenden oder aktiv zu halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Wenden Sie sich an Ihren Account Manager, um Ihre Stufe zu upgraden und Ihr Katalog-Limit zu erhöhen.<br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Auswahlen<br><br> Nachdem Sie eine der beiden Lösungen verwendet haben, müssen Sie die Synchronisierung deaktivieren und dann erneut synchronisieren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }

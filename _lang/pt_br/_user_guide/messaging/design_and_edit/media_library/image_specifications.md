@@ -31,7 +31,7 @@ GIFs são compatíveis com push para iOS, mensagens no app, e-mail, Content Card
 
 ## Orientações por canal {#channel-guidance}
 
-### Content Cards {#content-cards}
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
@@ -83,7 +83,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | Firefox | 192 x 192 px ou maior |
 | Safari | 192 x 192 px ou maior (configurável por campanha com Safari 16 no macOS 13+) |
 | Opera | 192 x 192 px ou maior |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push para a web" }
 
 | Navegador | Plataforma | Tamanho de imagem grande |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push para a web" }
 
 {% endtab %}
 {% tab Texto %}
@@ -114,7 +114,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Push para a web" }
 
 {% endtab %}
 {% endtabs %}

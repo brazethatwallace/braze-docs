@@ -39,7 +39,7 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 | `include_variant_breakdown` | Opcional | Booleano | Incluir o no estadísticas de variantes (por defecto `false`).  |
 | `include_step_breakdown` | Opcional | Booleano | Incluir o no estadísticas de pasos (por defecto `false`). |
 | `include_deleted_step_data` | Opcional | Booleano | Incluir o no las estadísticas de los pasos eliminados (por defecto `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

@@ -24,7 +24,7 @@ description: "이 페이지에서는 Braze에서 오른쪽에서 왼쪽으로 �
 |------------------|------------------------|
 | 느낌표와 이모지가 문장의 **끝**에 표시됩니다. | 느낌표와 이모지가 문장의 **시작 부분**에 표시됩니다. |
 | ![표준 오른쪽에서 왼쪽 메시지의 예시.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![왼쪽에서 오른쪽 메시지의 예시.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="메시지 표시 형태" }
 
 ## 오른쪽에서 왼쪽으로 읽는 메시지 만들기 {#creating-a-right-to-left-message}
 

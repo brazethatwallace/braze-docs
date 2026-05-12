@@ -42,7 +42,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -73,11 +73,11 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 ![확장된 "진입 규칙"이 포함된 적용된 "유기한 장바구니" Canvas 템플릿.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### 설정 {#setup-1}
+#### 설정
 
 Canvas 페이지에서 **Use a Canvas Template** > **Braze templates**를 선택한 다음 **유기한 장바구니** 템플릿을 적용합니다.
 
-##### 기본 설정 {#default-settings-1}
+##### 기본 설정
 
 Canvas에는 다음 설정이 미리 구성되어 있습니다:
 - 기본 사항
@@ -121,7 +121,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -174,11 +174,11 @@ Shopify를 사용하는 경우 이 Liquid 템플릿을 사용하여 장바구니
 
 ![확장된 "진입 규칙"이 포함된 적용된 "유기한 결제" Canvas 템플릿.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### 설정 {#setup-2}
+#### 설정
 
 Canvas 페이지에서 **Use a Canvas Template** > **Braze templates**를 선택한 다음 **유기한 결제** 템플릿을 적용합니다.
 
-##### 기본 설정 {#default-settings-2}
+##### 기본 설정
 
 Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
@@ -212,7 +212,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -241,7 +241,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 | ----- | -------- |
 | `true` (기본값) | 장바구니가 유기되지 않은 경우, 즉 사용자가 이후 주문을 완료한 경우 메시지가 중단됩니다. |
 | `false` | 장바구니가 유기 상태가 아니더라도 메시지가 발송되어, 현재 결제 상태와 관계없이 이메일에 장바구니 세부 정보를 포함할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="abortifnotabandoned #abort-if-not-abandoned" }
 
 발송 시점에 장바구니가 여전히 유기 상태인지 여부와 관계없이 결제 리마인더를 보내려면 `abort_if_not_abandoned`를 `false`로 설정하세요. 파라미터를 생략하거나 `true`로 설정하면 Braze는 이미 구매를 완료한 사용자에 대해 메시지를 중단합니다.
 
@@ -258,15 +258,15 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 ### 주문 확인 및 피드백 설문조사 {#order-confirmation-and-feedback-survey}
 
-**주문 확인 & 피드백 설문조사** 템플릿을 사용하여 성공적인 주문을 확인하고 고객 만족을 향상시키세요.
+**주문 확인 및 피드백 설문조사** 템플릿을 사용하여 성공적인 주문을 확인하고 고객 만족을 향상시키세요.
 
 ![확장된 "진입 규칙"이 포함된 적용된 "주문 확인" Canvas 템플릿.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### 설정 {#setup-3}
+#### 설정
 
-Canvas 페이지에서 **Use a Canvas Template** > **Braze templates**를 선택한 다음 **주문 확인 & 피드백 설문조사** 템플릿을 적용합니다.
+Canvas 페이지에서 **Use a Canvas Template** > **Braze templates**를 선택한 다음 **주문 확인 및 피드백 설문조사** 템플릿을 적용합니다.
 
-##### 기본 설정 {#default-settings-3}
+##### 기본 설정
 
 Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
@@ -296,7 +296,7 @@ Canvas에는 다음 설정이 미리 구성되어 있습니다:
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

@@ -31,9 +31,9 @@ Selon la terminologie de Zapier, un « zap » est un flux de travail automatisé
 
 En utilisant notre exemple WordPress, sur la plateforme Zapier, nous allons configurer notre zap pour qu'il se déclenche lorsqu'une nouvelle publication WordPress est ajoutée et nous sélectionnerons **Published** et **Posts** comme **Post Status** et **Post Type**.
 
-![Sur la plateforme Zapier, dans un zap, sélectionnez le déclencheur comme « nouveau commentaire », « n'importe quel webhook » ou « nouvelle publication ». Pour cet exemple, « nouvelle publication » est sélectionné.][5]
+![Sur la plateforme Zapier, dans un zap, sélectionnez le déclencheur comme « nouveau commentaire », « n'importe quel webhook » ou « nouvelle publication ». Pour cet exemple, « nouvelle publication » est sélectionné.] [5]
 
-![Sur la plateforme Zapier, dans un zap, configurez le déclencheur en sélectionnant le statut et le type de publication souhaités. Pour cet exemple, « Published » et « Posts » sont sélectionnés.][6]
+![Sur la plateforme Zapier, dans un zap, configurez le déclencheur en sélectionnant le statut et le type de publication souhaités. Pour cet exemple, « Published » et « Posts » sont sélectionnés.] [6]
 
 ### Étape 2 : Ajouter un webhook d'action {#step-2-add-an-action-webhook}
 
@@ -75,7 +75,7 @@ Lorsque vous configurez votre webhook, utilisez les paramètres suivants et indi
 
 ### Étape 4 : Créer une campagne Braze {#step-4-create-a-braze-campaign}
 
-Une fois que vous avez configuré votre zap avec succès, vous pouvez personnaliser vos campagnes ou Canvas Braze avec les données de WordPress en utilisant le formatage Liquid pour afficher les informations contenues dans vos messages.
+Une fois que vous avez configuré votre zap avec succès, vous pouvez personnaliser vos Campaigns ou Canvas Braze avec les données de WordPress en utilisant le formatage Liquid pour afficher les informations contenues dans vos messages.
 
 ## Utiliser Zapier avec l'endpoint `/users/track` {#using-zapier-with-the-userstrack-endpoint}
 
