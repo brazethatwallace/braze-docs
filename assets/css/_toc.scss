@@ -34,6 +34,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
     padding-left: 0px;
     overflow-y: auto;
     overflow-x: hidden;
+    align-self: flex-start;
     font-size: $toc_font_size;
     line-height: 1.6;
     position: -webkit-sticky;
