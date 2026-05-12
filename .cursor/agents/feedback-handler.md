@@ -158,14 +158,12 @@ Base your work on `develop`. Your branch name must be `jira-<ticket_id>`
 Create the PR as a draft using:
 
 **Assign the PR to the Jira ticket assignee:**
-The agent already has the ticket assignee from Step 1. Use the
-Atlassian MCP to retrieve their Jira profile and get their email
-address, then attempt to match it to a GitHub username using
-`gh api /search/users?q=<email>+in:email`. If a match is found,
+Look up the Jira ticket assignee's display name in
+`.cursor/agents/jira-github-users.yml`. If a match is found,
 add `--assignee <github-username>` to the `gh pr create` command.
 
-If no GitHub match can be found for the assignee's email, skip
-the assignment and add a note in the Notes for reviewer section:
+If the assignee's name is not in the mapping file, skip the
+assignment and add a note in the Notes for reviewer section:
 "Could not resolve GitHub username for Jira assignee — please
 assign manually."
 
