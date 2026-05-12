@@ -49,6 +49,11 @@ edited docs content or in the PR description. Anonymize or omit it.
 
 ### 1. Read the ticket and all linked resources
 
+Prerequisite: The Atlassian MCP must be enabled for Cloud Agent runs
+in this repo. If it is not configured, Step 1 and all edge cases that
+require leaving comments will fail. Confirm this is set up before
+running the workflow in production.
+
 Use the Atlassian MCP to fetch the full ticket by ticket ID. Then
 check for any linked resources and read those too before proceeding.
 Do not skip this — linked tickets and pages often contain the context
@@ -99,6 +104,10 @@ the first directory segment — for example:
 - `/docs/user_guide/feature/` → `_docs/_user_guide/feature.md`
 - `/docs/api/endpoint/` → `_docs/_api/endpoint.md`
 - `/docs/developer_guide/topic/` → `_docs/_developer_guide/topic.md`
+- If the URL path ends with a directory segment (no file extension),
+  try `index.md` inside that directory before searching more broadly.
+  For example: `/docs/user_guide/feature/` →
+  `_docs/_user_guide/feature/index.md`
 
 The subdirectories within `_docs/` are:
 `_api`, `_developer_guide`, `_docs_pages`, `_help`, `_hidden`,
@@ -162,13 +171,15 @@ Create the PR as a draft using:
 
 **Assign the PR to the Jira ticket assignee:**
 Look up the Jira ticket assignee's display name in
-`.cursor/agents/jira-github-users.yml`. If a match is found,
-add `--assignee <github-username>` to the `gh pr create` command.
+`.cursor/agents/jira-github-users.yml`. Match the display name
+exactly as returned by Jira — trim whitespace and compare
+case-sensitively. If a match is found, add
+`--assignee <github-username>` to the `gh pr create` command.
 
-If the assignee's name is not in the mapping file, skip the
-assignment and add a note in the Notes for reviewer section:
-"Could not resolve GitHub username for Jira assignee — please
-assign manually."
+If the assignee's name is not in the mapping file, or if the ticket
+is unassigned, add `--reviewer braze-inc/docs-team` instead, and
+note in the Notes for reviewer section: "Could not resolve assignee —
+routed to docs team for triage."
 
 gh pr create --draft --base develop \
   --title "<ticket_id>: <short description of fix>" \
@@ -191,9 +202,11 @@ intentionally left unchanged, explain why.>
 ## Source code verification
 <List each source file and line number checked, and state whether
 it confirmed the fix, contradicted the reporter, or was inconclusive.
-If verification was not possible, state that explicitly.>
+If verification was not possible, state that explicitly. Use the
+actual paths from your verification — the examples below are
+illustrative only.>
 
-Example:
+Example (replace with real paths):
 - `../platform/path/to/file.rb` line 42 — confirmed the described
   behavior matches the implementation
 - `../platform/path/to/other_file.rb` lines 88–91 — inconclusive,
