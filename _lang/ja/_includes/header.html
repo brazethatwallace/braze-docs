@@ -117,7 +117,7 @@ function OptanonWrapper() { }
   <path d="M4.5 9L7.5 6L4.5 3" stroke="#FDA4FB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
            </a>
-           <div class="dropdown-menu" aria-labelledby="nav_responsive_dropdown">
+           <div class="dropdown-menu" role="menu" aria-labelledby="nav_responsive_dropdown">
              {%-  for cl in collect -%}
                {%- if cl.title -%}
                  {%- unless cl.hidden -%}
