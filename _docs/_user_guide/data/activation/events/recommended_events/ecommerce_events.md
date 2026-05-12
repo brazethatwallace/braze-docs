@@ -41,7 +41,7 @@ eCommerce recommended events do not populate within the **Purchase history** sec
 
 ### Active cart
 
-The **Active cart** module shows the latest cart for a user on their profile. Use it to confirm cart contents while testing cart-based journeys, or to verify that `ecommerce.cart_updated` events are updating the profile as you expect.
+The **Active cart** module shows the latest cart on the user profile. That view is especially helpful while you test. You can use it to confirm cart contents, validate cart-based journeys, or verify that `ecommerce.cart_updated` events are updating the profile as you expect.
 
 **Active cart** includes the following:
 
