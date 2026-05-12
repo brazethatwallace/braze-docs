@@ -16,11 +16,11 @@ search_rank: 1
 
 # Criar uma mensagem SMS, MMS ou RCS {#create-an-sms-mms-or-rcs-message}
 
-> Campaigns de SMS, MMS e RCS são ótimas para alcançar diretamente e conversar de forma programática com seus clientes. Você pode usar Liquid e outros conteúdos dinâmicos para criar uma experiência pessoal com seus usuários e criar um ambiente que promova e aprimore uma experiência de usuário discreta com sua marca.
+> Campanhas de SMS, MMS e RCS são ótimas para alcançar diretamente e conversar de forma programática com seus clientes. Você pode usar Liquid e outros conteúdos dinâmicos para criar uma experiência pessoal com seus usuários e criar um ambiente que promova e aprimore uma experiência de usuário discreta com sua marca.
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campanhas são melhores para envios de mensagens únicos e direcionados, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -62,7 +62,7 @@ O grupo de inscrições selecionado determina quais tipos de mensagem estão dis
 | Somente SMS | SMS |
 | SMS com números habilitados para MMS | SMS e MMS |
 | Habilitado para RCS (com remetente verificado para RCS) | SMS, MMS (se habilitado) e RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 A Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS para fallback. Isso garante que, se uma mensagem RCS não for entregue (por exemplo, devido a incompatibilidade de dispositivo ou cobertura incompleta da operadora), a mensagem ainda chegue ao seu usuário via SMS.
@@ -108,7 +108,7 @@ Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JP
 | --- | --- |
 | Tamanho | Até 600&nbsp;KB |
 | Tipos de arquivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### Cartões de contato {#contact-cards}
 
@@ -177,7 +177,7 @@ Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não s�
 | Imagem | Formatos suportados: JPG, JPEG, GIF |
 | Vídeo | Formatos suportados: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Documento | Formato suportado: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **Considerações:**
 

@@ -23,7 +23,7 @@ Decisioning Studio Go est une plateforme en libre-service dotée de fonctionnali
 | **Données client** | Engagement uniquement | Toutes les données 1P |
 | **Configuration** | Libre-service | Assistance des services AI Decisioning |
 | **Groupes expérimentaux** | Go + Contrôle aléatoire + BAU facultatif | Entièrement personnalisable |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
 
 ## Concevoir votre agent Go {#design-your-go-agent}
 
@@ -62,7 +62,7 @@ Envisagez de créer un segment dédié pour votre expérimentateur Decisioning S
 Les dimensions sont les « leviers » que l'agent peut actionner pour personnaliser l'expérience client. Il s'agit notamment de dimensions créatives telles que la ligne d'objet et l'image principale, ainsi que de dimensions liées au type d'envoi, telles que la fréquence des e-mails ou l'heure de la journée.
 
 {% alert note %}
-Les dimensions spécifiques disponibles dépendent de votre CEP et de la configuration de vos Campaigns. Utilisez les modèles et le contenu que vous avez configurés dans votre CEP.
+Les dimensions spécifiques disponibles dépendent de votre CEP et de la configuration de vos campagnes. Utilisez les modèles et le contenu que vous avez configurés dans votre CEP.
 {% endalert %}
 
 ### Étape 3 : Configurer votre banque d'actions {#step-3-configure-your-action-bank}
@@ -81,8 +81,8 @@ Decisioning Studio Go crée automatiquement des groupes d'expérimentation afin 
 |-------|-------------|
 | **Decisioning Studio Go** | Les clients qui reçoivent des recommandations optimisées par l'intelligence artificielle |
 | **Contrôle aléatoire** | Les clients qui reçoivent des options sélectionnées de manière aléatoire (comparaison de référence) |
-| **Activités habituelles (facultatif)** | Les clients qui reçoivent votre Campaign actuelle (si l'on compare avec les performances actuelles) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Activités habituelles (facultatif)** | Les clients qui reçoivent votre campagne actuelle (si l'on compare avec les performances actuelles) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
 
 {% alert important %}
 Pour une comparaison précise, assurez-vous qu'aucun client ne peut appartenir à plus d'un groupe d'expérimentation et que les clients sont répartis de manière aléatoire dans les groupes, sans biais.

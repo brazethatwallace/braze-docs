@@ -63,7 +63,7 @@ Si tous les messages de votre campagne vont être similaires ou avoir le même c
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) à l'aide du compositeur Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
 3. Choisissez un [calendrier d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) et spécifiez un délai si nécessaire.
-4. Filtrez votre audience pour cette étape selon vos besoins. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des Segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
+4. Filtrez votre audience pour cette étape selon vos besoins. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
 
@@ -79,7 +79,7 @@ Il existe plusieurs façons de procéder en fonction de vos sélections précéd
 | Sélection précédente | Options |
 | --- | --- |
 | Campagne de notification push | Sélectionnez une ou plusieurs plateformes et appareils. Si vous choisissez de cibler plusieurs appareils et plateformes, vous créez automatiquement une campagne push rapide. Cela offre une expérience d'édition optimisée pour rédiger un message pour toutes les plateformes sélectionnées dans un seul éditeur. Consultez [Campagnes push rapides]({{site.baseurl}}/quick_push/) pour comprendre ce qui diffère dans cette expérience d'édition. |
-| Campagne multicanal | Sélectionnez **Add Messaging Channel** pour ajouter des plateformes push supplémentaires. Comme les sélections de plateformes sont spécifiques à chaque variante, vous pouvez tester l'engagement des messages par plateforme.
+| Campagne multicanal | Sélectionnez **Add Messaging Channel** pour ajouter des plateformes push supplémentaires. Comme les sélections de plateformes sont spécifiques à chaque variante, vous pouvez tester l'engagement des messages par plateforme. |
 | Canvas | Dans votre étape Message, sélectionnez **+ Add more** pour ajouter des plateformes push supplémentaires. Comme pour les campagnes multicanal, les sélections de plateformes sont spécifiques à chaque variante. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -92,7 +92,7 @@ Si vous créez une campagne push rapide, le type de notification est automatique
 Sinon, pour iOS et Android, sélectionnez votre type de notification :
 
 - Push standard
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)
+- [Contenu push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)
 - Image intégrée (Android uniquement)
 
 Si vous souhaitez inclure des images dans votre campagne push, consultez les guides suivants sur la création d'une notification enrichie pour [iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/) ou [Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/).
@@ -141,7 +141,7 @@ Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant d
 ![Bouton Lancer le rédacteur IA, situé dans le champ Corps du compositeur push.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}
 
-#### Image
+#### Image {#image}
 
 Lorsque c'est pris en charge, l'icône de votre application est automatiquement ajoutée comme image pour votre notification push. Vous avez également la possibilité d'envoyer des notifications enrichies, qui permettent une personnalisation plus poussée de vos notifications push en ajoutant du contenu supplémentaire au-delà du texte.
 
@@ -210,23 +210,23 @@ Cette étape est également celle où vous pouvez spécifier les contrôles de l
 
 #### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Les statistiques détaillées de l'audience pour les canaux ciblés par votre campagne sont disponibles dans le pied de page. Pour voir quel pourcentage de votre base d'utilisateurs est ciblé et la valeur vie client pour ce Segment, sélectionnez **Show Additional Stats**.
+Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce segment. Les statistiques détaillées de l'audience pour les canaux ciblés par votre campagne sont disponibles dans le pied de page. Pour voir quel pourcentage de votre base d'utilisateurs est ciblé et la valeur vie client pour ce segment, sélectionnez **Show Additional Stats**.
 
 {% multi_lang_include target_audiences.md %}
 
 {% details Pourquoi mon indicateur Total des utilisateurs atteignables ne correspond-il pas à la somme de tous les canaux ? %}
 
-Lorsque vous consultez le Total des utilisateurs atteignables pour votre audience filtrée, vous pouvez remarquer que la somme des colonnes individuelles est inférieure au Total des utilisateurs atteignables. Cet écart est généralement dû au fait qu'un certain nombre d'utilisateurs remplissent les critères du Segment ou des filtres de la campagne, mais ne sont pas atteignables par push (par exemple, parce qu'ils n'ont pas de [jetons de notification push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#push-tokens) valides ou actifs).
+Lorsque vous consultez le Total des utilisateurs atteignables pour votre audience filtrée, vous pouvez remarquer que la somme des colonnes individuelles est inférieure au Total des utilisateurs atteignables. Cet écart est généralement dû au fait qu'un certain nombre d'utilisateurs remplissent les critères du segment ou des filtres de la campagne, mais ne sont pas atteignables par push (par exemple, parce qu'ils n'ont pas de [jetons de notification push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#push-tokens) valides ou actifs).
 
 {% enddetails %}
 
 ![Tableau des statistiques détaillées de l'audience pour les utilisateurs atteignables.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
-Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
+Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée avant l'envoi du message.
 
 Vous pouvez également choisir de n'envoyer votre campagne qu'aux utilisateurs ayant un [statut d'abonnement]({{site.baseurl}}/user_guide/channels/email/subscriptions/) spécifique, comme ceux qui sont abonnés et ont opté pour le push.
 
-Facultativement, vous pouvez également limiter la livraison à un nombre spécifié d'utilisateurs au sein du Segment, ou permettre aux utilisateurs de recevoir le même message deux fois lors d'une récurrence de la campagne.
+Facultativement, vous pouvez également limiter la livraison à un nombre spécifié d'utilisateurs au sein du segment, ou permettre aux utilisateurs de recevoir le même message deux fois lors d'une récurrence de la campagne.
 
 ##### Campagnes multicanal avec e-mail et push {#multichannel-campaigns-with-email-and-push}
 

@@ -9,7 +9,7 @@ tool:
 
 ---
 
-# Preguntas más frecuentes {#frequently-asked-questions}
+# Preguntas frecuentes {#frequently-asked-questions}
 
 > Este artículo ofrece respuestas a algunas preguntas frecuentes sobre la sincronización de audiencias.
 
@@ -53,4 +53,4 @@ El usuario que se vuelva a conectar debe tener acceso de lectura y escritura a t
 | Intento de acceso a la cuenta publicitaria | Este error se produce si no tienes permiso para la cuenta de publicidad, para una audiencia que hayas seleccionado o para ambas. | Trabaja con los administradores de tu cuenta publicitaria para obtener el acceso y los permisos adecuados. |
 | Configuración no válida | Esto puede ocurrir si no has configurado un destino específico de sincronización de audiencia en Canvas, incluidos los campos de cuenta publicitaria, audiencia o usuario que deben coincidir. | Completa la configuración de cada socio antes del lanzamiento. |
 | Condiciones de servicio | Para algunos destinos de sincronización de audiencia, como Facebook, la red publicitaria requiere que aceptes unas condiciones de servicio específicas para utilizar la característica de sincronización de audiencia. Este error se producirá si no has aceptado las condiciones correspondientes. | Confirma que has aceptado las condiciones requeridas de cada socio. Para Facebook en concreto, revisa [la solución de problemas de Facebook]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#troubleshooting). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What are common errors that can occur when creating and managing my Audience Syncs?" }

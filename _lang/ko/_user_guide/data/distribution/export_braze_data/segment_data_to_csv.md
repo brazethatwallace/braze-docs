@@ -108,7 +108,7 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 | unsubscribed_from_emails_at | 이메일 구독 취소 날짜 |
 | opted_in_to_emails_at | 이메일 옵트인 날짜 |
 | user_aliases | 사용자 별칭(있는 경우) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) 문서를 참조하세요.

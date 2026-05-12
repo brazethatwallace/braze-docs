@@ -48,7 +48,7 @@ Use públicos conectados para cenários em que seus sistemas de backend detectam
 | E-commerce | Um varejista online envia alertas de queda de preço ou de produto de volta ao estoque para usuários cujo array `wishlisted_products` inclui o ID do produto relevante. |
 | Viagens | Um app de viagens envia notificações de atraso de voo para usuários cujo atributo `booked_flight` corresponde ao número do voo afetado. |
 | Serviços financeiros | Uma plataforma de negociação alerta usuários cujo array `watchlist` inclui um ticker de ação que ultrapassou um limite de preço. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 Em cada caso, uma única Campaign ou definição de mensagem somente via API lida com todas as variações. Seu backend determina os valores do filtro e os passa na requisição de API, então você não precisa criar um segmento ou uma Campaign separada para cada produto, programa, time ou localização.
 
@@ -132,13 +132,13 @@ Esse filtro permite segmentar com base em um atributo personalizado do usuário.
 O tipo de dados do atributo personalizado determina as comparações válidas para um determinado filtro.
 
 | Tipo de atributo personalizado | Comparações permitidas |
-| ---------------------| --------------- |
+| --- | --- |
 | String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist` |
 | Vetor | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist` |
 | Numérico | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Booleano | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Horário | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Allowed comparisons by data type" }
 
 #### Ressalvas sobre comparação de atributos {#attribute-comparison-caveats}
 
@@ -146,7 +146,7 @@ O tipo de dados do atributo personalizado determina as comparações válidas pa
 | --- | --- |
 | `value` | O `value` não é necessário ao usar as comparações `exists` ou `does_not_exist`. `value` deve ser uma string de data e hora ISO 8601 ao usar as comparações `before` e `after`. |
 | `matches_regex` | Ao usar a comparação `matches_regex`, o valor passado deve ser uma string. Para saber mais sobre o uso de expressões regulares com a Braze, consulte [Expressões regulares]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) e [Tipos de dados de atributos personalizados]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
 
 #### Exemplo de atributo personalizado {#custom-attribute-example}
 
@@ -205,7 +205,7 @@ Esse filtro permite segmentar com base no status de inscrição push de um usuá
 
 Esse filtro permite segmentar com base no status de inscrição de e-mail de um usuário.
 
-#### Corpo do filtro {#filter-body-1}
+#### Corpo do filtro
 
 ```json
 {
@@ -224,7 +224,7 @@ Esse filtro permite segmentar com base no status de inscrição de e-mail de um 
 
 Esse filtro permite segmentar com base em quando o usuário usou o app pela última vez. Esses filtros contêm dois campos:
 
-#### Corpo do filtro {#filter-body-2}
+#### Corpo do filtro
 ```json
 {
   "last_used_app":

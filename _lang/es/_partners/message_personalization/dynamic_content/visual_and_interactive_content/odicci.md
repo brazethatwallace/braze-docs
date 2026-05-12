@@ -35,10 +35,10 @@ Un comercio minorista utiliza las experiencias gamificadas de Odicci para recopi
 
 Antes de empezar, necesitarás lo siguiente:
 
-| Requisito previo             | Descripción                                                               |
+| Requisito previo | Descripción |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Una cuenta de Odicci            | Se requiere una cuenta de Odicci con acceso a la sección **Integrations** para aprovechar esta integración.|
-| Clave de API REST de Braze        | Una clave de API REST de Braze con los permisos `users.track` y `campaigns.list`. |
+| Una cuenta de Odicci | Se requiere una cuenta de Odicci con acceso a la sección **Integrations** para aprovechar esta integración. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track` y `campaigns.list`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integración de Odicci {#integrating-odicci}

@@ -11,11 +11,11 @@ description: "Erfahren Sie, wie BrazeAI Decisioning Studio Go über Ihre Custome
 
 ## Wie Go auf Kundendaten zugreift {#how-go-accesses-customer-data}
 
-Im Gegensatz zu Decisioning Studio Pro, das die direkte Datenintegration mit verschiedenen Quellen unterstützt, greift Decisioning Studio Go über Ihr CEP auf Kundendaten zu. Dies bedeutet:
+Im Gegensatz zu Decisioning Studio Pro, das die direkte Datenintegration mit verschiedenen Quellen unterstützt, greift Decisioning Studio Go über Ihre CEP auf Kundendaten zu. Dies bedeutet:
 
-- **Zielgruppendaten** werden direkt aus den in Ihrem CEP (Braze oder Salesforce Marketing Cloud) definierten Segments oder Listen abgerufen und können nur bestimmte vordefinierte Attribute enthalten (keine 1P-Daten).
-- **Engagement-Daten** (Öffnungen, Klicks, Sendungen) werden durch automatisierte Abfragen oder native Integrationen mit Ihrem CEP erfasst.
-- Es ist **keine zusätzliche Einrichtung der Datenpipeline** erforderlich, die über die Konfiguration in Ihrem CEP hinausgeht.
+- **Zielgruppendaten** werden direkt aus den in Ihrer CEP (Braze oder Salesforce Marketing Cloud) definierten Segmenten oder Listen abgerufen und können nur bestimmte vordefinierte Attribute enthalten (keine 1P-Daten).
+- **Engagement-Daten** (Öffnungen, Klicks, Sendungen) werden durch automatisierte Abfragen oder native Integrationen mit Ihrer CEP erfasst.
+- Es ist **keine zusätzliche Einrichtung der Datenpipeline** erforderlich, die über die Konfiguration in Ihrer CEP hinausgeht.
 
 ## Unterstützte Integrationsmuster {#supported-integration-patterns}
 
@@ -25,7 +25,7 @@ Decisioning Studio Go unterstützt die folgenden CEPs für den Zugriff auf Daten
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Braze-Currents-Export |
 | **Salesforce Marketing Cloud** | Datenerweiterungen | Automatisierung von SQL-Anfragen |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Datenanforderungen nach CEP {#data-requirements-by-cep}
 

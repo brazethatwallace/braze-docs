@@ -43,16 +43,16 @@ Teilen Sie Ihren Entwickler:innen mit, welche Kanäle Sie verwenden möchten, um
 
 | Kanal | Details |
 |---|---|
-| In-App Messages | Erfordert die SDK-Implementierung sowie diese kanalspezifischen Schritte. |
+| In-App-Nachrichten | Erfordert die SDK-Implementierung sowie diese kanalspezifischen Schritte. |
 | Push | Erfordert eine SDK-Implementierung für die korrekte Handhabung von Messaging-Zugangsdaten und Push-Token. |
 | E-Mail | Dies ist ein völlig anderer Prozess. Weitere Einzelheiten zur Integration finden Sie im Abschnitt [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup/). |
 | Content Cards | Um mit [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/) zu beginnen, wenden Sie sich bitte an Ihren Braze-Customer-Success-Manager. |
 | SMS und MMS | Weitere Einzelheiten zur Integration finden Sie im Abschnitt [SMS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/). |
 | Webhooks | Erfordert eine SDK-Implementierung sowie kanalspezifische Schritte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: They implement your desired messaging channels" }
 
 {% alert tip %}
-Mit Braze können Sie für jeden Kanal barrierefreie Messaging-Campaigns erstellen. Stellen Sie gemeinsam mit Ihren Entwickler:innen sicher, dass Sie bei der Implementierung die Standards der Barrierefreiheit einhalten.
+Mit Braze können Sie für jeden Kanal barrierefreie Messaging-Kampagnen erstellen. Stellen Sie gemeinsam mit Ihren Entwickler:innen sicher, dass Sie bei der Implementierung die Standards der Barrierefreiheit einhalten.
 {% endalert %}
 
 ### 3. Schritt: Daten einrichten {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ Braze ist kein One-Trick-Pony. Hier geht es nicht nur um das Versenden von E-Mai
 
 Was müssen Sie also tun, um ihnen diese Informationen zu geben?
 
-1. Arbeiten Sie mit Ihrem Marketingteam zusammen, um Campaigns, Ziele, Attribute und Events festzulegen, die Sie verfolgen wollen. Definieren Sie diese Anwendungsfälle und teilen Sie sie mit Ihren Teams.
+1. Arbeiten Sie mit Ihrem Marketingteam zusammen, um Kampagnen, Ziele, Attribute und Events festzulegen, die Sie verfolgen wollen. Definieren Sie diese Anwendungsfälle und teilen Sie sie mit Ihren Teams.
 2. Definieren Sie Ihre angepassten Datenanforderungen ([angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) usw.).
 3. Diskutieren Sie dann, wie diese Daten getrackt werden sollen (getriggert durch das SDK usw.).
 4. Legen Sie fest, wie viele [Workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/) Sie benötigen. Ihre Entwickler:innen müssen wissen, wie sie diese Workspaces [testen und konfigurieren]({{site.baseurl}}/user_guide/get_started/workspaces/) können.

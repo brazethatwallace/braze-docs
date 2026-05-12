@@ -12,7 +12,7 @@ description: "このリファレンスページでは、Liquidがサポートす
 
 以下の表は、サポートされている演算子の一覧です。Liquidではかっこは無効な文字であり、タグが正しく動作しなくなることに注意してください。
 
-|   構文| 演算子の説明|
+| 構文 | 演算子の説明 |
 |---------|-----------|
 | ==  | 等しい        |
 | !=  | 等しくない|
@@ -23,7 +23,7 @@ description: "このリファレンスページでは、Liquidがサポートす
 | or | 条件Aまたは条件B|
 | and | 条件Aかつ条件B|
 | contains | 文字列または文字列配列に特定の文字列が含まれているかを確認する|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
 演算子は条件文（`if`、`elsif`、`unless`）で使用できますが、`assign` 文、`for` ループ、配列アクセスの角かっこでは使用できません。`case` と `when` タグでは、各分岐は任意の演算子式ではなく、等価比較を使用して `case` 式を `when` 値と比較します。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)を参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。

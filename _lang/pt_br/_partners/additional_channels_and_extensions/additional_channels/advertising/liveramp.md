@@ -58,7 +58,7 @@ Em seguida, crie uma tabela de dados com o [formato necessário](https://docs.li
 | Apenas e-mail      | Os endereços de e-mail do usuário, como `alex-lee@email.com`. |
 | Dispositivo          | Inclui cookies de terceiros, IDs de publicidade móvel (MAIDs), IDs de TV conectada (CTV IDs) e RampIDs (resolvidos para um RampID de residência). |
 | CIDs            | Esses são identificadores de um parceiro de plataforma ou de uma sincronização de identidade com a LiveRamp, como seu ID de cliente interno. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Criar uma tabela de dados" }
 
 #### Identificadores da Braze {#braze-identifiers}
 
@@ -70,7 +70,7 @@ Os registros de eventos da Braze contêm identificadores que podem ser usados no
 | `EMAIL_ADDRESS`   | Endereço de e-mail que pode ser usado em conjunto com os serviços de resolução somente por e-mail da LiveRamp |
 | `TO_PHONE_NUMBER` | Número de telefone, que pode ser usado em conjunto com os serviços de resolução de IPI da LiveRamp. |
 | `EXTERNAL_USER_ID` | O ID externo associado a um usuário, que pode ser usado em conjunto com os serviços de resolução de dispositivos (CID) da LiveRamp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores da Braze" }
 
 {% alert important %}
 O uso de qualquer identificador personalizado específico do cliente ou da marca no aplicativo da LiveRamp requer uma [sincronização de identidade com a LiveRamp](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html).

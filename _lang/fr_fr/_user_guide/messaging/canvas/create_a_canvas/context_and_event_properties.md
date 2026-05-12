@@ -7,13 +7,13 @@ description: "Cet article de référence décrit les différences entre les prop
 tool: Canvas
 ---
 
-# Propriétés de contexte et d'événement
+# Propriétés de contexte et d'événement {#context-and-event-properties}
 
 > Cet article de référence couvre les informations relatives à `context` et `event_properties`, notamment quand utiliser chaque propriété et les différences de comportement. <br><br> Pour des informations générales sur les propriétés d'événements personnalisés, consultez [Propriétés d'événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Les propriétés de contexte et les propriétés d'événement fonctionnent différemment au sein de vos workflows Canvas. Les propriétés des événements ou des appels API qui déclenchent l'entrée d'un utilisateur dans un Canvas sont appelées `context`. Les propriétés des événements qui se produisent lorsqu'un utilisateur progresse dans un parcours Canvas sont appelées `event_properties`. La différence principale est que `context` ne se limite pas aux événements : il permet également d'accéder aux propriétés des PAYLOAD d'entrée dans les Canvas déclenchés par API.
+Les propriétés de contexte et les propriétés d'événement fonctionnent différemment au sein de vos workflows Canvas. Les propriétés des événements ou des appels API qui déclenchent l'entrée d'un utilisateur dans un Canvas sont appelées `context`. Les propriétés des événements qui se produisent lorsqu'un utilisateur progresse dans un parcours Canvas sont appelées `event_properties`. La différence principale est que `context` ne se limite pas aux événements : il permet également d'accéder aux propriétés des payloads d'entrée dans les Canvas déclenchés par API.
 
 Consultez le tableau suivant pour un résumé des différences entre les propriétés de contexte et les propriétés d'événement.
 
@@ -21,15 +21,15 @@ Consultez le tableau suivant pour un résumé des différences entre les propri�
 |----|----|----|
 | **Liquid** | `context` | `event_properties` |
 | **Persistance** | Peuvent être référencées par toutes les étapes [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) pendant toute la durée d'un Canvas. | - Ne peuvent être référencées qu'une seule fois. <br> - Ne peuvent pas être référencées par les étapes Message suivantes. |
-| **Comportement dans Canvas** | Vous pouvez référencer `context` dans n'importe quelle étape d'un Canvas. Pour le comportement après le lancement, consultez [Modifier les Canvas après le lancement]({{site.baseurl}}/post-launch_edits#canvas-entry-properties). | - Vous pouvez référencer `event_properties` dans la première étape Message **après** une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) où l'action effectuée est un événement personnalisé ou un événement d'achat. <br> - Ne peut pas se trouver après le parcours Tous les autres de l'étape Parcours d'actions. <br> - D'autres composants non-Message peuvent se trouver entre les étapes Parcours d'actions et Message. Si l'un de ces composants non-Message est une étape Parcours d'actions, l'utilisateur peut emprunter le parcours Tous les autres de ce parcours d'actions. | 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **Comportement dans Canvas** | Vous pouvez référencer `context` dans n'importe quelle étape d'un Canvas. Pour le comportement après le lancement, consultez [Modifier les Canvas après le lancement]({{site.baseurl}}/post-launch_edits/#canvas-entry-properties). | - Vous pouvez référencer `event_properties` dans la première étape Message **après** une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) où l'action effectuée est un événement personnalisé ou un événement d'achat. <br> - Ne peut pas se trouver après le parcours Tous les autres de l'étape Parcours d'actions. <br> - D'autres composants non-Message peuvent se trouver entre les étapes Parcours d'actions et Message. Si l'un de ces composants non-Message est une étape Parcours d'actions, l'utilisateur peut emprunter le parcours Tous les autres de ce parcours d'actions. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Context and event properties" }
 
 {% details Détails de l'éditeur Canvas d'origine %}
 
 Vous ne pouvez plus créer ni dupliquer de Canvas avec l'éditeur d'origine. Notez que le contexte Canvas n'est pas pris en charge dans l'éditeur Canvas d'origine. Cette section est donc disponible à titre de référence pour l'utilisation des propriétés d'entrée Canvas et des propriétés d'événement dans l'ancien workflow Canvas.
 
 **Propriétés d'entrée Canvas :**
-- Les propriétés d'entrée persistantes doivent être activées. 
+- Les propriétés d'entrée persistantes doivent être activées.
 - Vous ne pouvez référencer `canvas_entry_properties` que dans la première étape complète d'un Canvas. Le Canvas doit être basé sur une action ou déclenché par API.
 
 **Propriétés d'entrée :**
@@ -41,7 +41,7 @@ Vous ne pouvez plus créer ni dupliquer de Canvas avec l'éditeur d'origine. Not
 
 {% enddetails %}
 
-### Points importants
+### Points importants {#things-to-know}
 
 - Le contexte n'est disponible que pour référence dans Liquid. Pour filtrer sur les propriétés au sein du Canvas, utilisez plutôt la [segmentation par propriétés d'événement]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 - Pour les canaux de messages in-app, vous pouvez référencer `context` et `event_properties` dans un Canvas. `event_properties` est accessible lorsqu'il est inclus dans la première étape du Canvas, car celle-ci est basée sur un déclencheur.
@@ -54,11 +54,11 @@ L'éligibilité de l'audience est évaluée une seule fois à l'entrée dans le 
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
-### Horodatages pour les déclencheurs
+### Horodatages pour les déclencheurs {#timestamps-for-triggers}
 
 Si vous utilisez des horodatages avec un [type datetime]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) provenant d'événements qui déclenchent des Canvas basés sur une action, référencés via [context]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), les horodatages sont normalisés en UTC.
 
-Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre Liquid de fuseau horaire comme dans l'exemple suivant pour garantir que vos messages sont envoyés avec votre [fuseau horaire préféré]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#time-zone-filter).
+Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre Liquid de fuseau horaire comme dans l'exemple suivant pour garantir que vos messages sont envoyés avec votre [fuseau horaire préféré]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#time-zone-filter).
 
 {% raw %}
 ```liquid
@@ -66,12 +66,12 @@ Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre 
 ```
 {% endraw %}
 
-#### Exceptions
+#### Exceptions {#exceptions}
 
 - Les horodatages ne sont pas normalisés en UTC dans la première étape d'un Canvas si cette étape est une étape Message.
 - Les horodatages ne sont pas normalisés en UTC dans les étapes Message utilisant le canal de message in-app, quel que soit leur ordre dans le Canvas.
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-case}
 
 ![Une étape Parcours d'actions suivie d'une étape Délai et d'une étape Message pour les utilisateurs qui ont ajouté un article à leur liste de souhaits, et un parcours pour tous les autres.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 

@@ -17,11 +17,11 @@ search_tag: Partner
 
 시작하기 전에 다음이 필요합니다:
 
-| 필수 조건          | 설명                        |
+| 필수 조건 | 설명 |
 |-----------------------|------------------------------------|
 | Contentful 계정 | Content Delivery API에 접근할 수 있는 Contentful 계정이 필요합니다. |
 | Braze 계정 | 연결된 콘텐츠 기능에 접근할 수 있는 Braze 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

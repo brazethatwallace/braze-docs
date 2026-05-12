@@ -1,23 +1,23 @@
-Tous les e-mails transactionnels sont complétés par des postbacks de statut d’événement envoyés en tant que requête HTTP à l’URL spécifiée. Cela vous permet d’évaluer le statut du message en temps réel et de prendre des mesures pour atteindre l’utilisateur sur un autre canal si le message n’est pas reçu ou recourir à un système interne si Braze connaît une certaine latence.
+Tous les e-mails transactionnels sont complétés par des postbacks de statut d'événement envoyés sous forme de requête HTTP vers l'URL que vous avez spécifiée. Cela vous permet d'évaluer le statut du message en temps réel et de prendre des mesures pour atteindre l'utilisateur sur un autre canal si le message n'est pas distribué, ou de basculer vers un système interne si Braze connaît une certaine latence.
 
 Vous pouvez associer ces mises à jour à des messages individuels à l'aide d'identifiants uniques :
 
-- `dispatch_id` : Un ID unique est généré automatiquement par Braze pour chaque message.
-- `external_send_id` : Un identifiant personnalisé que vous fournissez, tel qu'un numéro de commande, pour faire correspondre les mises à jour avec vos systèmes internes.
+- `dispatch_id` : un ID unique généré automatiquement par Braze pour chaque message.
+- `external_send_id` : un identifiant personnalisé que vous fournissez, tel qu'un numéro de commande, pour faire correspondre les mises à jour avec vos systèmes internes.
 
-Par exemple, si vous incluez `external_send_id: 1234` dans la requête lors de l'envoi d'un e-mail de confirmation de commande, toutes les rétrocessions d'événements ultérieures pour cet e-mail - comme `Sent` ou `Delivered`- incluront `external_send_id: 1234`. Cela vous permet de confirmer que le client de la commande n°1234 a bien reçu l'e-mail de confirmation de sa commande.
+Par exemple, si vous incluez `external_send_id: 1234` dans la requête lors de l'envoi d'un e-mail de confirmation de commande, tous les postbacks d'événements ultérieurs pour cet e-mail — comme `Sent` ou `Delivered` — incluront `external_send_id: 1234`. Cela vous permet de confirmer que le client de la commande n°1234 a bien reçu son e-mail de confirmation de commande.
 
-### Mise en place de postbacks
+### Mise en place des postbacks {#setting-up-postbacks}
 
 Dans votre tableau de bord de Braze :
 
-1. Allez dans **Paramètres** > **Préférences e-mail.**
-2. Sous **Postback d'état d'événement transactionnel**, entrez l'URL où Braze doit envoyer des mises à jour d'état pour vos e-mails transactionnels.
+1. Allez dans **Paramètres** > **Préférences des e-mails**.
+2. Sous **Transactional Event Status Postback**, saisissez l'URL vers laquelle Braze doit envoyer les mises à jour de statut pour vos e-mails transactionnels.
 3. Testez le postback.
 
 ![]({% image_buster /assets/img/transactional_webhook_url.png %})
 
-### Corps de postback
+### Corps du postback {#postback-body}
 
 ```json
 {
@@ -40,18 +40,18 @@ Dans votre tableau de bord de Braze :
 }
 ```
 
-#### Statut du message
+#### Statut du message {#message-status}
 
-|  État | Description |
+| État | Description |
 | ------------ | ----------- |
 | `sent` | Message envoyé avec succès à un partenaire d'envoi d'e-mail de Braze |
-| `processed` | Le partenaire d’envoi d’e-mail a reçu et préparé avec succès le message pour l’envoyer au fournisseur de messagerie de l’utilisateur |
-| `aborted` | Braze n’a pas réussi à envoyer le message, car l’adresse de l’utilisateur ne permet pas de recevoir des e-mails ou la logique d’interruption de Liquid a été appelée dans le corps du message. Tous les événements abandonnés comprennent un champ `reason` dans l’objet de métadonnées indiquant pourquoi le message a été abandonné |
-|`delivered`| Le message a été accepté par le fournisseur de messagerie de l’utilisateur |
-|`bounced`| Le message a été rejeté par le fournisseur de messagerie de l’utilisateur. Tous les événements renvoyés comprennent un champ `reason` dans l’objet de métadonnées reflétant le code d’erreur de rebond indiqué par le fournisseur de messagerie |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `processed` | Le partenaire d'envoi d'e-mail a reçu et préparé le message avec succès pour l'envoyer au fournisseur de boîte de réception de l'utilisateur |
+| `aborted` | Braze n'a pas réussi à envoyer le message, car l'adresse de l'utilisateur ne permet pas de recevoir des e-mails ou la logique d'interruption Liquid a été appelée dans le corps du message. Tous les événements abandonnés comprennent un champ `reason` dans l'objet de métadonnées indiquant pourquoi le message a été abandonné |
+| `delivered` | Le message a été accepté par le fournisseur de boîte de réception de l'utilisateur |
+| `bounced` | Le message a été rejeté par le fournisseur de boîte de réception de l'utilisateur. Tous les événements de rebond comprennent un champ `reason` dans l'objet de métadonnées reflétant le code d'erreur de rebond fourni par le fournisseur de boîte de réception |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
 
-### Exemple de postback
+### Exemple de postback {#example-postback}
 ```json
 
 // Sent Event

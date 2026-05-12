@@ -36,7 +36,7 @@ Notez les conventions d'appellation pour les ID utilisateur.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | L'identifiant unique attribué automatiquement par Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur, défini par le client. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schéma d'ID utilisateur" }
 
 ### Valeurs de la plateforme {#platform-values}
 
@@ -52,7 +52,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valeurs de la plateforme" }
 
 {% enddetails %}
 
@@ -512,7 +512,7 @@ Cet événement se produit lorsque Braze reçoit une demande de mise à jour de 
 | Enregistrement du jeton de notification push | Lorsqu'un utilisateur est mis à jour par le processus d'enregistrement des jetons |
 | List-Unsubscribe | Lorsqu'un utilisateur se désabonne via un « mailto » de Braze ou un en-tête de désabonnement de liste en un clic |
 | Autre | Inclut toutes les autres sources, telles que les tâches de synchronisation des démos ou des fournisseurs, ou les rappels d'événements SMS et WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détails de la propriété" }
 
 
 {% endapi %}
@@ -7905,7 +7905,7 @@ Cet événement se produit lorsqu'un message LINE planifié ne peut pas être di
 
 #### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une campagne. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été abandonné. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'abandon]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été abandonné en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'abandon. Exemple : `Frequency cap rule: 5 LINE messages every 1 week`
@@ -14804,7 +14804,6 @@ Cet événement se produit lorsqu'un utilisateur clique sur un lien ou un bouton
 {% endapi %}
 
 {% api %}
-
 ## Événements de distribution WhatsApp {#whatsapp-delivery-events}
 
 {% apitags %}

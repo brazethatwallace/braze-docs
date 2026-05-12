@@ -24,7 +24,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | --- | --- |
 | Ein Trustpilot-Konto | Sie benötigen ein Trustpilot-Konto mit Zugriff auf die API von Trustpilot. |
 | Ein Trustpilot-Authentifizierungsschlüssel | Sie müssen einen API-Schlüssel einrichten und ein Access Token anfordern. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -42,7 +42,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 Richten Sie eine aktionsbasierte Braze-Webhook-Campaign ein, um die Trustpilot-APIs zu triggern und E-Mail-Bewertungseinladungen an Nutzer:innen zu senden. Sie könnten zum Beispiel eine Einladung zur Bewertung senden, nachdem Nutzer:innen eine Bestellung aufgegeben haben, mit den folgenden Webhook-Details:
    * [Webhook-URL](https://developers.trustpilot.com/invitation-api?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..#create-invitation(s)): `https://invitations-api.trustpilot.com/v1/private/business-units/{businessUnitId}/email-invitations`
    * Methode: POST
-   * Fügen Sie die relevanten Kund:innen-Informationen als Schlüssel-Wert-Paare hinzu.
+   * Fügen Sie die relevanten Kundeninformationen als Schlüssel-Wert-Paare hinzu.
 
 ### 2. Schritt: Access Token abrufen {#step-2-retrieve-the-access-token}
 
@@ -87,7 +87,7 @@ Führen Sie in Ihrer Braze-Campaign einen Connected-Content-Aufruf durch, um Dat
 ```
 {% endraw %}
 
-![Connected-Content in E-Mails mit Liquid, um Informationen abzurufen.]({% image_buster /assets/img/trustpilot_connected_content_example.png %}){:style="max-width:38%;"}
+![Connected-Content in einer E-Mail mit Liquid, um Informationen abzurufen.]({% image_buster /assets/img/trustpilot_connected_content_example.png %}){:style="max-width:38%;"}
 
 Die Connected-Content-Anfrage gibt die Produktbewertungen zurück.
 
@@ -117,4 +117,4 @@ Die Connected-Content-Anfrage gibt die Produktbewertungen zurück.
 {: start="2"}
 2. Verwenden Sie die Liquid-Syntax, um die relevanten Inhalte in Ihre Nachricht einzubinden. Um zum Beispiel den Inhalt der Produktbewertung abzurufen, verwenden Sie den Liquid-Tag {% raw %}`{{result.productReviews[0].content}}`{% endraw %}.
 
-![Personalisierte E-Mail mit einer Bewertung eines Spielzeuglastwagens, den Nutzer:innen in ihrem Warenkorb gelassen haben.]({% image_buster /assets/img/trustpilot_personalized_email.png %}){:style="max-width:38%;"}
+![Personalisierte E-Mail mit einer Bewertung eines Spielzeuglastwagens, den die Nutzer:innen in ihrem Warenkorb gelassen haben.]({% image_buster /assets/img/trustpilot_personalized_email.png %}){:style="max-width:38%;"}

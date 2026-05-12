@@ -1,18 +1,18 @@
 ---
-nav_title: カスタム Currents コネクター
+nav_title: カスタムCurrentsコネクター
 alias: /currents_connector/
 hidden: true
 ---
 
-# カスタム Currents コネクター {#custom-currents-connector}
+# カスタムCurrentsコネクター {#custom-currents-connector}
 
-> カスタム Currents コネクターを統合して、Brazeからイベントデータをリアルタイムで取得し、分析、レポート、オートメーションのカスタマイズを拡張する方法を紹介します。
+> カスタムCurrentsコネクターを統合して、Brazeからイベントデータをリアルタイムで取得し、分析、レポート、オートメーションのカスタマイズを拡張する方法を紹介します。
 
 ## 前提条件 {#prerequisites}
 
-Brazeでカスタム Currents コネクターを統合するには、エンドポイントURLと[オプションの認証トークン](#authentication)を指定する必要があります。
+BrazeでカスタムCurrentsコネクターを統合するには、エンドポイントURLと[オプションの認証トークン](#authentication)を指定する必要があります。
 
-さらに、Brazeに複数のアプリグループがある場合は、グループごとにカスタム Currents コネクターを設定する必要があります。ただし、すべてのアプリグループを同じエンドポイントに向けることも、`your_app_group_key="Brand A"` のように `GET` パラメーターを追加したエンドポイントに向けることもできます。
+さらに、Brazeに複数のアプリグループがある場合は、グループごとにカスタムCurrentsコネクターを設定する必要があります。ただし、すべてのアプリグループを同じエンドポイントに向けることも、`your_app_group_key="Brand A"` のように `GET` パラメーターを追加したエンドポイントに向けることもできます。
 
 ## データ損失の防止 {#preventing-data-loss}
 
@@ -57,7 +57,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 |----|-----------|
 | `"user"` | `user_id`、`external_user_id`、`device_id`、`timezone` などのユーザープロパティが格納されます。|
 | `"properties"` | `app/campaign/canvas/platform` など、適用されるイベントの属性が含まれます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 ダウンストリームエンドポイントがゼロイベントまたは空のリクエスト本文を含むペイロードを受信した場合、その結果はno-opとみなされ、このコールからはダウンストリームへの影響が発生しないようにする必要があります。ただし、（通常のAPIコールの場合と同様に）`Authorization` ヘッダーをチェックし、[無効な認証情報](#authentication)に対しては `401` や `403` などの適切なHTTPレスポンスを返す必要があります。これにより、Brazeはコネクターの認証情報が有効であることを認識できます。
 
@@ -430,7 +430,7 @@ Brazeの再試行メカニズムが24時間以上イベントの配信に失敗�
 
 以下のHTTPステータスコードがコネクタークライアントによって認識されます。
 
-<table>
+<table aria-label="Error handling and retry mechanism">
   <caption>エラー処理と再試行のメカニズム</caption>
   <thead>
     <tr>
@@ -482,4 +482,4 @@ Brazeの再試行メカニズムが24時間以上イベントの配信に失敗�
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

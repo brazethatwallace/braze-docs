@@ -24,8 +24,8 @@ A integração entre a Braze e a Playable permite que você forneça seu melhor 
 | ----------- | ----------- |
 | Conta da Playable | É necessário ter uma conta da Playable para usar essa parceria. Se ainda não tiver uma conta da Playable, inscreva-se [aqui](https://signup.playable.video).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
-| Conteúdo de vídeo | Faça upload de arquivos de vídeo para a Playable ou forneça URLs de vídeo de sites como Facebook, Instagram, YouTube, X (antigo Twitter), TikTok e muito mais. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Conteúdo de vídeo | Faça upload de arquivos de vídeo para a Playable ou forneça URLs de vídeo de sites como Facebook, Instagram, YouTube, X (antigo Twitter), TikTok e muito mais. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Implementação {#implementation}
 

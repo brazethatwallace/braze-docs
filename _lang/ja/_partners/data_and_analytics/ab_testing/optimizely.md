@@ -20,13 +20,13 @@ Braze と Optimizely の統合は双方向の統合であり、以下のこと�
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件                     | 説明 |
+| 必要条件 | 説明 |
 |----------------------------------|-------------|
 | Optimizely Data Platform アカウント | このパートナーシップを活用するには、Optimizely Data Platform (ODP) アカウントが必要です。 |
-| Braze REST APIキー               | 以下の権限を持つ Braze REST APIキー: `users.track`、`users.export.segments`、`segments.list`、`campaigns.trigger.send`、および `canvas.trigger.send`。 |
-| Currents                         | データを Optimizely にエクスポートするには、アカウントに Braze Currentsを設定する必要があります。 |
-| Optimizely の URL とトークン         | Optimizely ダッシュボードに移動し、取り込み URL とトークンをコピーすることで取得できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST APIキー | 以下の権限を持つ Braze REST APIキー: `users.track`、`users.export.segments`、`segments.list`、`campaigns.trigger.send`、および `canvas.trigger.send`。 |
+| Currents | データを Optimizely にエクスポートするには、アカウントに Braze Currentsを設定する必要があります。 |
+| Optimizely の URL とトークン | Optimizely ダッシュボードに移動し、取り込み URL とトークンをコピーすることで取得できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -41,14 +41,14 @@ Braze と Optimizely の統合は双方向の統合であり、以下のこと�
 4. **Create New Current** > **Custom Currents Export** の順に選択します。
 5. ODP で提供されるエンドポイントとトークンを使用して Current を設定します。これは、BrazeイベントをODP に同期するために必要です。
 
-![Optimizely 認証。]({% image_buster /assets/img/optimizely/image1_authorization.png %})
+![Optimizely の認証設定画面。]({% image_buster /assets/img/optimizely/image1_authorization.png %})
 
 {:start="6"}
 6. ODP で、**Segments** セクションを展開し、**Segments to Sync** リストから特定のSegmentsを選択するか、**Import All Customers** を選択してすべてのSegmentsを同期します。
 7. Braze と ODP の間で必要な[追加フィールドマッピング](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/29918568615949-Integrate-Braze%23h_01J6Z1P53JVDBFZ758Q78CK1QB&sa=D&source=editors&ust=1733948158380300&usg=AOvVaw3WSAND5ie3LCVuSxUlLanR)を追加します。
 8. **Save** を選択します。
 
-![Optimizely と BrazeのSegment同期。]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
+![Optimizely と BrazeのSegment同期画面。]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
 
 {% alert tip %}
 Brazeの顧客プロファイルをインポートするには、Segmentsを選択する必要があります。Segmentsを選択しない場合、統合で顧客プロファイルはインポートされません。
@@ -58,7 +58,7 @@ Brazeの顧客プロファイルをインポートするには、Segmentsを選�
 
 統合には、Braze と ODP 間のデフォルトのデータフィールドマッピングがあります。たとえば、Brazeの **Email** フィールドは、ODP の **Last Seen Email** フィールドにマッピングされます。
 
-![Optimizely と BrazeのSegmentマッピングフィールド。]({% image_buster /assets/img/optimizely/image3_emailmapfield.png %})
+![Optimizely と BrazeのSegmentマッピングフィールド画面。]({% image_buster /assets/img/optimizely/image3_emailmapfield.png %})
 
 #### 追加フィールドのマッピング（オプション） {#map-additional-fields-optional}
 
@@ -68,7 +68,7 @@ ODP にマッピングする追加のデータフィールドが Braze にある
 2. **ODP Customer Fields** ドロップダウンリストから ODP フィールドを選択します。
 3. **Save Field Map** を選択します。
 
-![Optimizely と BrazeのSegment保存フィールドマッピング]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
+![Optimizely と BrazeのSegmentフィールドマッピング保存画面]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
 
 #### 不要なフィールドマッピングの削除（オプション） {#delete-non-required-field-mappings-optional}
 
@@ -77,7 +77,7 @@ ODP にマッピングする追加のデータフィールドが Braze にある
 1. アプリの **Segments** セクションで、**Field Map** ドロップダウンリストから削除するフィールドマッピングを選択します。
 2. **Delete Field Map** を選択します。
 
-![Optimizely と BrazeのSegment削除フィールドマッピング]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
+![Optimizely と BrazeのSegmentフィールドマッピング削除画面]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
 
 ### ステップ 3: Optimizely Data Platform (ODP) から Braze へデータを同期する {#step-3-sync-data-from-optimizely-data-platform-odp-to-braze}
 
@@ -87,8 +87,8 @@ ODP にマッピングする追加のデータフィールドが Braze にある
 2. **Behavioral** を選択して、自動定期同期を設定します。
 3. **Create From Scratch** を選択し、Brazeに同期するデータを表すアクティベーションの名前を入力します（**Braze Data Sync** など）。
 4. **Enrollment** セクションでは、Segmentに一致する顧客のデータを同期したり、イベントをトリガーする顧客のデータを同期したりできます（ODP が顧客のメール開封を登録した場合など）。
-   - **Segmentに一致する顧客:** 必要なSegmentを選択し、**Next** を選択します。<br><br>![OptimizelyのSegment選択]({% image_buster /assets/img/optimizely/image6_segment.png %})
-   - **イベントをトリガーする顧客:** **Filter** ドロップダウンリストを展開し、Brazeへのこのデータ同期のトリガーとして使用する ODP イベントを選択します。次に、**Automation Rules** を展開し、必要に応じて調整します。<br><br>![Optimizely トリガーイベント]({% image_buster /assets/img/optimizely/image7_trigger.png %})
+   - **Segmentに一致する顧客:** 必要なSegmentを選択し、**Next** を選択します。<br><br>![OptimizelyのSegment選択画面]({% image_buster /assets/img/optimizely/image6_segment.png %})
+   - **イベントをトリガーする顧客:** **Filter** ドロップダウンリストを展開し、Brazeへのこのデータ同期のトリガーとして使用する ODP イベントを選択します。次に、**Automation Rules** を展開し、必要に応じて調整します。<br><br>![Optimizely トリガーイベント設定画面]({% image_buster /assets/img/optimizely/image7_trigger.png %})
 5. **Touchpoints** を展開し、**Touchpoint 1** の編集を選択して、**Braze** を選択します。
 6. **Targeting** セクションを展開し、**Target Identifier** を選択します。
 7. **Configure** セクションで、**Add Users To** に次のオプションのいずれかを選択します。

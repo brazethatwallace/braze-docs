@@ -31,7 +31,7 @@ BrazeをLyticsに接続して、メール、SMS、プッシュアクティビテ
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Lyticsアカウント | この統合を活用するには、Lyticsアカウントが必要です。 |
-| Lyticsアカウント番号 | WebhookのエンドポイントURLを設定するには、Lyticsのアカウント番号が必要です。 |
+| Lyticsアカウント番号 | WebhookエンドポイントURLを設定するには、Lyticsのアカウント番号が必要です。 |
 | Lytics APIトークン | データマネージャー権限を持つLytics REST APIトークン。<br><br> これは、Lyticsダッシュボード内の**Account Settings Console** > **Access Tokens** > **Create New Token**から作成できます。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Brazeインスタンス | お客様の[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)。不明な場合は、Brazeのオンボーディングマネージャーにお問い合わせください。 |
@@ -61,7 +61,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
 
 ### ステップ3:ジョブを設定する {#step-3-configure-the-job}
 
-**Configure Job**プロンプト内で、ラベルとオプションの説明を入力します。次に、**Braze External User ID Field**の入力から、Braze外部ユーザーID（`braze_id`）を含むLyticsのフィールドを選択します。次は最も重要なステップです。Brazeにエクスポートするオーディエンスを選択します。
+**Configure Job**プロンプト内で、ラベルとオプションの説明を入力します。次に、**Braze External User ID Field**の入力欄から、Braze外部ユーザーID（`braze_id`）を含むLyticsのフィールドを選択します。次は最も重要なステップです。Brazeにエクスポートするオーディエンスを選択します。
 
 ![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
 
@@ -166,7 +166,7 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
 
 このセクションでは、BrazeのユーザーデータをSegmentからLyticsにインポートする方法を説明します。
 
-#### ステップ1:認証を作成する {#step-1-create-an-authorization}
+#### ステップ1:認証を作成する
 
 Lyticsで、ナビゲーションバーの**Data**コンソール内の**Authorization**ダッシュボードに移動します。**Create New Authorization**を選択し、**Custom Integrations**を検索して選択します。
 

@@ -188,17 +188,17 @@ Les deux fonctions prennent comme argument `Appboy.Models.AppboyNotificationSubs
 | `OPTED_IN` | Abonné et explicitement inscrit |
 | `SUBSCRIBED` | Abonné, mais pas explicitement inscrit |
 | `UNSUBSCRIBED` | Désabonné et/ou explicitement désinscrit |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les abonnements des utilisateurs" }
 
 {% alert note %}
 Windows ne requiert aucun abonnement explicite pour envoyer des notifications push aux utilisateurs. Lorsqu'un utilisateur est enregistré pour les notifications push, il est défini sur `SUBSCRIBED` plutôt que `OPTED_IN` par défaut. Pour en savoir plus, consultez notre documentation sur [l'implémentation des abonnements et des inscriptions explicites]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 {% endalert %}
 
-| Type d'abonnement                        | Description |
+| Type d'abonnement | Description |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` à la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
-| `PushNotificationSubscriptionType`       | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` après une inscription valide aux notifications push. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `EmailNotificationSubscriptionType` | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` à la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
+| `PushNotificationSubscriptionType` | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` après une inscription valide aux notifications push. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les abonnements des utilisateurs" }
 
 {% alert note %}
 Ces types relèvent de `Appboy.Models.AppboyNotificationSubscriptionType`.

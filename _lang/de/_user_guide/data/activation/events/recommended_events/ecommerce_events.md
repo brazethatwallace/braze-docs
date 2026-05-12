@@ -29,7 +29,7 @@ Empfohlene E-Commerce-Events werden nicht im Abschnitt **Kaufhistorie** des Tabs
 | Gesamtumsatz | Summe (`order_placed.total_value`) − Summe (`order_refunded.total_value`) |
 | Gesamtbestellungen | Anzahl (eindeutige `order_placed`) − Anzahl (eindeutige `order_cancelled`) |
 | Gesamter Erstattungswert | Summe (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
 
 ![Abschnitt „Bestellaktivität“ mit Gesamtumsatz, Gesamtbestellungen und gesamtem Erstattungswert.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
 
@@ -77,7 +77,7 @@ Verwenden Sie dieses Template, wenn Sie Besucher:innen dazu bringen möchten, Pr
 | Eintritts-Event | `ecommerce.product_viewed` |
 | Austritts-Events | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Konversions-Event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Warenkorb-Abbruch %}
@@ -91,7 +91,7 @@ Verwenden Sie dieses Template, wenn Sie Nutzer:innen an Artikel in ihrem Warenko
 | Eintritts-Event | `ecommerce.cart_updated` |
 | Austritts-Events | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Konversions-Event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
 Das `ecommerce.cart_updated`-Event verwendet ein Ersetzungsmodell. Jedes gesendete Event überschreibt den Warenkorbstatus der Nutzer:in. Verwenden Sie den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag in Ihrer Nachricht, um den aktuellen Warenkorbinhalt zum Sendezeitpunkt dynamisch anzuzeigen.
@@ -109,7 +109,7 @@ Verwenden Sie dieses Template, wenn Sie Käufe in der Phase mit der höchsten Ka
 | Eintritts-Event | `ecommerce.checkout_started` |
 | Austritts-Event | Placed Order |
 | Konversions-Event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Bestellbestätigung und Umfrage %}
@@ -122,7 +122,7 @@ Verwenden Sie dieses Template, wenn Sie die Kommunikation nach dem Kauf optimier
 | --- | --- |
 | Eintritts-Event | `ecommerce.order_placed` |
 | Konversions-Event | Start Session oder `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -151,7 +151,7 @@ Empfohlene E-Commerce-Events speisen dieselben Umsatzoberflächen, die Kund:inne
 | Segment-Insights | Umsatzvergleiche über Segmente hinweg im Segment-Insights-Dashboard. |
 | Berichts-Builder | Umsatzmetriken in individuellen Berichten, die im Berichts-Builder erstellt wurden. |
 | Dashboard-Builder | Umsatzmetriken in individuellen Dashboards, die im Dashboard-Builder erstellt wurden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 Für nicht nutzerbezogene berechnete Felder (z. B. Campaign- oder Canvas-Umsatz) wird der Umsatz in allen Berichten gleich berechnet: `price` multipliziert mit `quantity` pro Produkt in der Bestellung, summiert über die Produkte in jedem `order_placed`-Event.
 
@@ -174,7 +174,7 @@ Braze bietet mehrere Möglichkeiten, E-Commerce-Event-Daten für die Verwendung 
 | [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | E-Commerce-Events werden als angepasste Events geteilt; suchen Sie im `ecommerce.*`-Namespace, um sie zu finden. Produkte aus jeder Bestellung sind in der Käufe-Tabelle verfügbar. |
 | [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | CSV-Export von Segmentmitgliedern. Um E-Commerce-Events einzubeziehen, wählen Sie sie namentlich aus dem Dropdown für angepasste Events aus. |
 | [Nutzerprofil nach Segment exportieren (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Nutzerprofildaten für Segmentmitglieder, die über die API zurückgegeben werden. E-Commerce-Events sind als angepasste Events enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### Wie segmentiere ich Nutzer:innen nach einem bestimmten Produkt? {#how-do-i-segment-users-by-a-specific-product}
 

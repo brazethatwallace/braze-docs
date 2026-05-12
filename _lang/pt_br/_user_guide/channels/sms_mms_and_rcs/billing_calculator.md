@@ -56,7 +56,7 @@ Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze
 | 1072 - 1224 caracteres | 8 segmentos |
 | 1225 - 1377 caracteres | 9 segmentos |
 | 1378 - 1530 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% tab Codificação UCS-2 %}
 | Número de caracteres | Quantos segmentos? |
@@ -71,7 +71,7 @@ Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze
 | 470 - 536 caracteres | 8 segmentos |
 | 537 - 603 caracteres | 9 segmentos |
 | 604 - 670 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
 {% endtab %}
 {% endtabs %}
 

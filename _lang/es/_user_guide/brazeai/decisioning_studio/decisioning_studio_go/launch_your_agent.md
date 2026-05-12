@@ -55,7 +55,7 @@ Después de validar el diseño de tu experimento, recopila los siguientes datos 
 |-----|---------------|
 | **Braze** | Campaigns y Canvas |
 | **Salesforce Marketing Cloud** | Solo recorridos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información requerida" }
 
 **ID de audiencia de tu CEP:**
 
@@ -63,7 +63,7 @@ Después de validar el diseño de tu experimento, recopila los siguientes datos 
 |-----|---------------|
 | **Braze** | Solo Segments |
 | **Salesforce Marketing Cloud** | Solo extensiones de datos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información requerida" }
 
 Si no tienes una audiencia existente que realice el seguimiento de tu audiencia BAU, debes crear una.
 

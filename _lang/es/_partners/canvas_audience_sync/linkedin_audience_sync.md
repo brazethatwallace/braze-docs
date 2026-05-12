@@ -31,7 +31,7 @@ Debes asegurarte de que tienes los siguientes elementos creados, completados o a
 | --- | --- | --- |
 | Cuenta publicitaria en LinkedIn | [LinkedIn](https://www.linkedin.com/campaignmanager) | Una cuenta publicitaria activa en LinkedIn vinculada a tu marca.<br><br>Asegúrate de que has aceptado las condiciones pertinentes de LinkedIn para acceder a esa cuenta y utilizarla, y de que tu administrador de LinkedIn te ha concedido los permisos adecuados para gestionar audiencias. |
 | Términos y políticas de LinkedIn | LinkedIn | Aceptas cumplir cualquiera de los términos, políticas, directrices y documentación requeridos por LinkedIn en relación con tu uso de la sincronización de audiencias de LinkedIn, incluidos los términos, políticas, directrices y documentación incorporados por referencia a los mismos, que pueden incluir los de LinkedIn: Condiciones de los servicios, Acuerdo de anuncios, Acuerdo de procesamiento de datos y Directrices de la comunidad profesional. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -41,7 +41,7 @@ Debes asegurarte de que tienes los siguientes elementos creados, completados o a
 Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar LinkedIn a tu cuenta de Braze.
 {% endalert %}
 
-En el panel de Braze, ve a **Socios tecnológicos** y selecciona **LinkedIn**. En la sección **LinkedIn Audience Sync**, selecciona **Connect LinkedIn**.
+En el dashboard de Braze, ve a **Socios tecnológicos** y selecciona **LinkedIn**. En la sección **LinkedIn Audience Sync**, selecciona **Connect LinkedIn**.
 
 ![La página de tecnología de LinkedIn en Braze incluye una sección de resumen y otra de sincronización de audiencia de LinkedIn con el botón Conectar LinkedIn.]({% image_buster /assets/img/linkedin/linkedin3.png %}){: style="max-width:75%;"}
 
@@ -86,7 +86,7 @@ A continuación, selecciona la cuenta publicitaria de LinkedIn que desees. En el
 ![Sincronización de la audiencia con LinkedIn con Braze seleccionada como cuenta publicitaria.]({% image_buster /assets/img/linkedin/linkedin20.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Crear una nueva audiencia %}
 
 **Crear una nueva audiencia**<br>
 Introduce un nombre para la nueva audiencia, selecciona **Add Users to Audience** y selecciona los campos que deseas sincronizar con LinkedIn. Para esta integración, actualmente admitimos lo siguiente:
@@ -105,7 +105,7 @@ Braze muestra una notificación en la parte superior del editor de pasos si la a
 Cuando lanzas un Canvas con una nueva audiencia, Braze sincroniza a los usuarios casi en tiempo real a medida que entran en el componente Audience Sync.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar con una audiencia existente %}
 
 **Sincronizar con una audiencia existente**<br>
 Braze también ofrece la posibilidad de añadir usuarios a las audiencias existentes de LinkedIn para confirmar que dichas audiencias están actualizadas. Para sincronizar con una audiencia existente, escribe el nombre de la audiencia existente en el desplegable y selecciona **Add to the Audience**. A continuación, Braze añadirá usuarios casi en tiempo real a medida que entren en el componente Audience Sync.
@@ -142,7 +142,7 @@ La tabla siguiente incluye métricas y descripciones que te ayudarán a comprend
 | Usuarios pendientes | Número de usuarios que Braze está procesando actualmente para sincronizarlos con LinkedIn. |
 | Usuarios con errores | Número de usuarios que no se sincronizaron con LinkedIn debido a un error de la API tras unas 13 horas de reintentos. Las causas potenciales de los errores pueden incluir un token de LinkedIn no válido o si la audiencia fue eliminada en LinkedIn. |
 | Salieron de Canvas | Número de usuarios que han salido de Canvas. Esto ocurre cuando el último paso de un Canvas es un componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprender los análisis" }
 
 {% alert important %}
 Recuerda que se producirá un retraso en los informes de las métricas de usuarios sincronizados y usuarios con errores debido a la descarga masiva y al reintento de 13 horas, respectivamente.

@@ -40,7 +40,7 @@ A abordagem Crawl coloca o poder da personalização diretamente nas mãos dos p
 
 Os profissionais de marketing determinam o conteúdo, o público e o momento das mensagens pelo dashboard. No entanto, as opções de estilo são limitadas. Essa abordagem é mais adequada para equipes com recursos de desenvolvimento limitados ou que desejam compartilhar rapidamente conteúdo simples.
 
-<table>
+<table aria-label="Visão geral da personalização">
   <caption>Visão geral da personalização</caption>
 <thead>
   <tr>
@@ -87,7 +87,7 @@ Durante o processo de implementação, os desenvolvedores escrevem código perso
 
 Os profissionais de marketing ainda mantêm o controle do público, do conteúdo, do comportamento ao clicar e da expiração diretamente no dashboard da Braze.
 
-<table>
+<table aria-label="Visão geral da personalização">
   <caption>Visão geral da personalização</caption>
 <thead>
   <tr>
@@ -132,7 +132,7 @@ Com a abordagem Run, os desenvolvedores assumem o controle total da experiência
 
 Quando você cria conteúdo personalizado completamente novo, como novos tipos de Content Cards ou mensagens no app com interface personalizada, o Braze SDK não [rastreia automaticamente a análise de dados]({{site.baseurl}}/developer_guide/analytics/). Você deve lidar com a análise de dados de forma programática para que os profissionais de marketing continuem a ter acesso a métricas como impressões, cliques e dispensas no dashboard da Braze. Chame os métodos de análise de dados do Braze SDK para que ele retorne esses dados para a Braze. Cada canal de envio de mensagens tem um artigo de análise de dados para ajudar a facilitar isso.
 
-<table>
+<table aria-label="Visão geral da personalização">
   <caption>Visão geral da personalização</caption>
 <thead>
   <tr>

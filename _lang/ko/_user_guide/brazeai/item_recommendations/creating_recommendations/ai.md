@@ -130,7 +130,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Example mappings" class="tg">
   <caption>예시 매핑</caption>
 <thead>
   <tr>

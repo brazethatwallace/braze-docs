@@ -12,4 +12,4 @@
 | Espaciado entre letras | Espaciado horizontal entre caracteres. |
 | Alineación | Alineación horizontal del menú desplegable (izquierda o centro). |
 | Relleno | Espaciado alrededor del bloque. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

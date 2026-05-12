@@ -24,7 +24,7 @@ Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 | Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
 | Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
 | Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### Absatz {#paragraph}
 
@@ -42,7 +42,7 @@ Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Tex
 | Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
 | Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
 | Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### Liste {#list}
 
@@ -64,7 +64,7 @@ Fügt eine Aufzählungsliste hinzu.
 | Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
 | Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
 | Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### Button
 
@@ -74,7 +74,7 @@ Fügt einen Standard-Button hinzu. Die Eigenschaften ermöglichen das Bearbeiten
 |---|---|
 | Button-Optionen | Legt verschiedene Button-Optionen fest, wie z. B. Schriftart, Größe, Breite, Farbe und Padding. |
 | Button-Hover | Der Stil des Buttons, wenn Nutzer:innen mit der Maus oder dem Trackpad darüber fahren. Dazu gehören die Hintergrundfarbe des Buttons, die Schriftfarbe und der Rahmenstil. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### Klick-Verhalten {#on-click-behavior}
 
@@ -85,7 +85,7 @@ Fügt einen Standard-Button hinzu. Die Eigenschaften ermöglichen das Bearbeiten
 | Empfänger:in, Betreff und Text | Für den Link-Typ **Send email** werden hier die E-Mail-Adresse der Empfänger:in, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf angezeigt werden, wenn Nutzer:innen den Button auswählen. |
 | Tel. | Für die Link-Typen **Make call** und **Send SMS** wird hier die Telefonnummer festgelegt, die Nutzer:innen anrufen oder per SMS kontaktieren, wenn sie den Button auswählen. |
 | Nachricht | Für den Link-Typ **Send SMS** legt dies den Inhalt fest, der in einem SMS-Entwurf angezeigt wird, wenn Nutzer:innen den Button auswählen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### Trennlinie {#divider}
 
@@ -93,11 +93,11 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um die Abstän
 
 | Eigenschaft | Beschreibung |
 |---|---|
-| Transparent | Wenn aktiviert, werden die Optionen „Linie“ und „Breite“ entfernt. |
+| Transparent | Wenn aktiviert, werden die Optionen für Linie und Breite entfernt. |
 | Linie | Die verschiedenen Linienformate, ob gepunktet, gestrichelt oder durchgezogen. Darüber hinaus können Sie die Dicke und Farbe der Trennlinie ändern. |
 | Breite | Passt die Ausdehnung der Trennlinie in 5er-Schritten an. |
 | Ausrichtung | Verschiebt die Linie nach links, in die Mitte oder nach rechts. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### Spacer
 
@@ -106,7 +106,7 @@ Fügt Leerraum oder Padding zwischen anderen Blöcken hinzu.
 | Eigenschaft | Beschreibung |
 |---|---|
 | Höhe | Passt die Höhe des Spacer-Blocks an. Der Standardwert ist 60px. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### Bild {#image}
 
@@ -124,7 +124,7 @@ Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/
 | Bild mit abgerundeten Ecken | Rendert das Bild mit abgerundeten Ecken. Standardmäßig werden Bilder mit eckigen Ecken gerendert. |
 | Aktion | Löst eine Aktion aus, wenn Nutzer:innen auf das Bild klicken. |
 | Blockoptionen | Legt das Padding um den Bildblock fest. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 Für **Automatische Breite** wählt die automatische Bildgrößenanpassung die beste Größe für das Bild auf der Grundlage einer Kombination aus Bildbreite und verfügbarem Platz im Layout:
@@ -143,7 +143,7 @@ Erstellt einen Link zu Video-Inhalten. Es werden nur YouTube und Vimeo unterstü
 | Wiedergabesymbol-Stil | Enthält verschiedene Optionen für den Wiedergabe-Button, der sich oben auf einem Videobild befindet. |
 | Wiedergabesymbol-Farbe | Option zur Auswahl von **Light** oder **Dark** für den Wiedergabe-Button. |
 | Wiedergabesymbol-Größe | Wählen Sie die Pixelgröße für den Wiedergabe-Button. Vordefinierter Bereich von 50&nbsp;px bis 80&nbsp;px (in 5&nbsp;px-Schritten). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Videos, die von Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich eingestellt sind. Alle anderen Sicherheitseinstellungen, die in Vimeo verfügbar sind (z. B. „Vor Vimeo.com verbergen“), generieren ein anderes Linkformat, das von diesem Content-Block nicht unterstützt wird. Diese Arten von Links werden vom Builder geändert, wodurch Braze keine Miniaturansicht erstellen kann.
@@ -159,7 +159,7 @@ Fügt Social-Media-Plattform-Symbole ein. Sie können angepasste Bilder für mar
 | Symbolsammlung konfigurieren | Legt die URL für jedes Social-Media-Symbol fest. Enthält den Umschalter **Weitere Optionen** zum Bearbeiten des Titels und des Alternativtextes. |
 | Ausrichtung | Verschiebt das Social-Media-Symbol nach links, in die Mitte oder nach rechts. |
 | Symbolabstand | Bestimmt den Abstand zwischen den einzelnen Social-Media-Symbolen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### Icons
 
@@ -177,7 +177,7 @@ Fügt ein Symbol ein. Sie können angepasste Bilder hochladen. Braze verwendet e
 | Symbolgröße | Bestimmt die Größe Ihres Symbols. |
 | Symbolabstand | Ändert den Abstand des Symbols. |
 | Symbol-Padding | Ändert das Padding des Symbols. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -186,7 +186,7 @@ Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid/), wie z. 
 | Eigenschaft | Beschreibung |
 |---|---|
 | HTML | Fügen Sie rohes HTML hinzu oder bearbeiten Sie es, einschließlich [Liquid]({{site.baseurl}}/liquid/) für Personalisierung oder bedingte Logik. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menü {#menu}
 
@@ -206,7 +206,7 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie entwerfen.
 | Mobiles Menü | Enthält Optionen zum Ändern der Symbolgröße, Farbe und des Symboltyps bei der Anzeige auf einem Mobilgerät. |
 | Element-Padding | Ändert das Padding entweder mit der Taste **+** oder **-** oder durch Eingabe einer bestimmten Zahl. |
 | Alle Seiten | Legt ein einheitliches Padding fest, wenn das Element-Padding deaktiviert ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### Produkt {#product}
 
@@ -228,7 +228,7 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 | Max. Produkte pro Zeile | Legt fest, wie viele Produkte pro Zeile angezeigt werden: **1**, **2** oder **3** (**3** ist nur verfügbar, wenn die Ausrichtung **Bild zentriert** ist). |
 | Produktabstand | Legt den Abstand zwischen Produkten fest: **Automatisch** oder **Angepasst**. |
 | Angepasster Abstand | *(Wenn **Angepasst** ausgewählt ist)* Legt den Abstand in Pixel zwischen Produkten fest. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## Personalisierung {#personalization}
 

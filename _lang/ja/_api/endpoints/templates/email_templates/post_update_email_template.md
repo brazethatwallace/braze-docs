@@ -61,7 +61,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `preheader` | オプション | 文字列 | 一部のクライアントでプレビューを生成するために使用されるメールプリヘッダー。|
 | `tags` | オプション | 文字列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)はすでに存在している必要があります。|
 | `should_inline_css` | オプション | ブール値 | テンプレートごとに`inline_css`機能を有効または無効にします。指定されない場合、BrazeはAppGroupのデフォルト設定を使用します。`true`または`false`のいずれかを指定します。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -90,6 +90,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/up
 | すべてのタグは文字列でなければなりません | タグが引用符（`""`）で囲まれていることを確認してください。 |
 | 一部のタグが見つかりませんでした | メールテンプレート作成時にタグを追加するには、そのタグがすでにBrazeに存在している必要があります。 |
 | `should_inline_css`の値が無効です。`true`または`false`のいずれかが必要です | このパラメーターはブール値（trueまたはfalse）のみを受け付けます。`should_inline_css`の値が引用符（`""`）で囲まれていないことを確認してください。囲まれている場合、値は文字列として送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

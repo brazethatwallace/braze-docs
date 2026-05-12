@@ -470,7 +470,7 @@ Si vous souhaitez formater les réponses à une enquête de satisfaction simple 
 | **likelihood_score** | Nombre |
 | **explanation** | Chaîne de caractères |
 | **confidence_score** | Nombre |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schémas avancés" }
 
 ![Console des agents affichant trois champs de sortie pour le score de probabilité, l'explication et le score de confiance.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -516,13 +516,9 @@ Vous pouvez sélectionner jusqu'à cinq Segments pour que l'agent puisse croiser
 
 Vous pouvez sélectionner des [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) que votre agent devra respecter dans ses réponses. Par exemple, si vous souhaitez que votre agent génère un texte SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre ligne directrice prédéfinie, audacieuse et motivante.
 
-## Température {#temperature}
+## Historique d'interaction spécifique à l'utilisateur {#user-history}
 
-Si votre objectif est d'utiliser un agent pour générer du texte incitant les utilisateurs à se connecter à votre application mobile, vous pouvez définir une température plus élevée pour que votre agent soit plus créatif et exploite les nuances des variables de contexte. Si vous utilisez un agent pour générer des scores de sentiment, il est préférable de définir une température plus basse afin d'éviter toute spéculation de l'agent sur les réponses négatives aux enquêtes. Nous vous recommandons de tester ce paramètre et d'examiner les résultats générés par l'agent pour les adapter à votre scénario.
-
-{% alert note %}
-Les températures ne sont actuellement pas prises en charge avec OpenAI.
-{% endalert %}
+Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les Campaign et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
 
 ## Dupliquer des agents {#duplicate-agents}
 

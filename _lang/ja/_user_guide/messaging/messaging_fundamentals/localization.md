@@ -34,7 +34,7 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 | --- | --- |
 | - 一元化されたアプローチ<br>- メール作成時間の短縮、メールを複数回作成する必要がない | - 手動でのレポート作成<br>- Campaignレポートには国別ではなく集約された指標が表示される<br>- Liquidが期待どおりに表示されることを十分にテストする必要がある<br>- 国の値の取得方法や設定した国の数によっては、各国のテストが難しい場合がある<br>- タイムゾーンをまたいだ特定の時間での送信スケジュールが難しい<br>- 国ごとに異なるコンテンツを送信したい場合に使いにくい |
 | --- | --- | --- |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="すべてに1つのテンプレート" }
 
 ### 国ごとに1つのテンプレート {#one-template-per-country}
 
@@ -47,7 +47,7 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 | メリット | 考慮事項 |
 | --- | --- |
 | - 複数のロケーションにスケーラブル<br>- Braze内での国別収益レポート（Campaign単位など）<br>- 国ごとに大幅に異なるコンテンツがある場合の柔軟性 | - 戦略的な構造化が必要<br>- より多くの構築作業が必要（各国ごとに個別のCampaignsなど） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="国ごとに1つのテンプレート" }
 {% endtab %}
 
 {% tab canvas %}
@@ -60,7 +60,7 @@ Canvasが送信された後、ダッシュボードには集約された[Canvas�
 | メリット | 考慮事項 |
 | --- | --- |
 | - 一元化されたアプローチ<br>- メール作成時間の短縮 - メールを複数回作成する必要がない | - 手動でのレポート作成<br>- Canvasレポートには国別ではなく集約された指標が表示される<br>- Liquidが期待どおりに表示されることを十分にテストする必要がある<br>- 国の値の取得方法や設定した国の数によっては、各国のテストが難しい場合がある<br>- タイムゾーンをまたいだ特定の時間での送信スケジュールが難しい<br>- 国ごとに異なるコンテンツを送信したい場合に使いにくい |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="すべてに1つのジャーニー" }
 
 ### 国ごとに1つのジャーニー {#one-journey-per-country}
 
@@ -76,7 +76,7 @@ Canvasが送信された後、ダッシュボードには集約された[Canvas�
 | メリット | 考慮事項 |
 | --- | --- |
 | - Braze内での国別収益レポート（Canvas、バリアント、ステップ単位など）<br>- 国ごとに大幅に異なるコンテンツがある場合の柔軟性<br>- 将来的にジャーニーの一部として他のチャネルを追加可能 | - 戦略的な構造化が必要<br>- より多くの構築作業が必要（各国ごとに個別のメッセージステップなど）<br>- 単一のCanvas内で各国ごとにカスタムの複雑なジャーニーがある場合、Canvasが大きくなり読みにくくなる可能性がある |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="国ごとに1つのジャーニー" }
 {% endtab %}
 {% endtabs %}
 
@@ -86,14 +86,14 @@ Canvasが送信された後、ダッシュボードには集約された[Canvas�
 
 ### 翻訳Liquidタグ（推奨） {#translation-liquid-tag}
 
-Brazeは、単一のメッセージで異なる言語のユーザーをターゲットにするための {% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% endraw %} Liquidタグをサポートしています。
+Brazeは、単一のメッセージで異なる言語のユーザーをターゲットにするための{% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% endraw %} Liquidタグをサポートしています。
 
 詳しい手順については、[翻訳タグの使用ガイド]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
 ### 代替アプローチ {#alternative-approaches}
 
 {% tabs local %}
-{% tab Custom Liquid %}
+{% tab カスタムLiquid %}
 メッセージ本文にコンテンツを手動で貼り付け、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)を使用して受信者に正しい言語を[条件付き]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)で表示できます。これを行うには：
 
 1. メッセージを作成し、**Language**を選択して、選択した各言語のLiquid条件ロジックを生成します。
@@ -114,7 +114,7 @@ Brazeは、単一のメッセージで異なる言語のユーザーをターゲ
 3. 送信前にユーザーのIDまたはメールアドレスを入力して、言語に応じてメッセージがどのように表示されるかを確認し、メッセージをテストしてください。
 
 {% alert tip %}
-メッセージングには常に {% raw %}`{% else %}`{% endraw %} ステートメントを含めることをお勧めします。ほとんどのユーザーは特定の言語のメッセージを見ますが、以下のユーザーにはこのテキストが表示されます：
+メッセージングには常に{% raw %}`{% else %}`{% endraw %}ステートメントを含めることをお勧めします。ほとんどのユーザーは特定の言語のメッセージを見ますが、以下のユーザーにはこのテキストが表示されます：
 - 言語が選択されていない
 - Brazeがサポートしていない言語を使用している
 - デバイスの言語が検出できない
@@ -124,7 +124,7 @@ Brazeは、単一のメッセージで異なる言語のユーザーをターゲ
 {% tab Content Blocks %}
 Brazeの[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)は再利用可能なコンテンツブロックです。ブロックが変更されると、そのブロックへのすべての参照が変更されます。たとえば、メールのヘッダーやフッターの更新はすべてのメールに反映されます。また、翻訳を格納するためにも使用できます。これらのブロックはREST APIを使用して[作成]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/#create-content-block)および[更新]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)することもでき、ユーザーはプログラムで翻訳をアップロードできます。
 
-ダッシュボードでCampaignを構築する際、Content Blocksはタグ {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %} を使用して参照できます。これらのブロックには、オプション1に示すように各言語の条件ロジック内にすべての翻訳を含めることも、各言語ごとに個別のブロックを使用することもできます。
+ダッシュボードでCampaignを構築する際、Content Blocksはタグ{% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}を使用して参照できます。これらのブロックには、オプション1に示すように各言語の条件ロジック内にすべての翻訳を含めることも、各言語ごとに個別のブロックを使用することもできます。
 
 Content Blocksは翻訳管理プロセスとしても活用できます。翻訳が必要なコンテンツをContent Block内に格納し、取得、翻訳、更新します：
 1. ダッシュボードで「Needs Translation」タグ付きのContent Blockを手動で作成します。
@@ -134,7 +134,7 @@ Content Blocksは翻訳管理プロセスとしても活用できます。翻訳
 5. サービスが[`/content_block/update`エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)にアクセスして、翻訳されたコンテンツを更新し、タグを「Translation Complete」に更新します。
 {% endtab %}
 
-{% tab Catalogs %}
+{% tab カタログ %}
 [カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を使用すると、APIおよびCSVファイルを介してインポートされたJSONオブジェクトからデータにアクセスし、カスタム属性やカスタムイベントプロパティと同様にLiquidを通じてメッセージを充実させることができます。例：
 
 {% subtabs local %}
@@ -226,7 +226,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="代替アプローチ" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -241,13 +241,13 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endraw %}
 {% endtab %}
 
-{% tab Braze partners %}
+{% tab Brazeパートナー %}
 多くのBrazeパートナーが、[Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex/#about-transifex)や[Crowdin](https://crowdin.com/)などのローカライゼーションソリューションを提供しています。通常、ユーザーは社内チームや翻訳エージェンシーと併せてプラットフォームを使用します。翻訳はそこにアップロードされ、REST APIを介してアクセスできるようになります。これらのサービスは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)も活用することが多く、ユーザーはAPIを介して翻訳を取得できます。
 
 たとえば、以下のコネクテッドコンテンツ呼び出しはTransifexとCrowdinを呼び出して翻訳を取得し、{% raw %}`{{${language}}}`{% endraw %}を活用して特定のユーザーに対する正しい翻訳を識別します。この翻訳はJSONブロック「strings」に保存され、参照されます。
 
 {% subtabs local %}
-{% subtab Transifex example %}
+{% subtab Transifexの例 %}
 {% raw %}
 ```liquid
 {% connected_content https://www.transifex.com/api/2/project/example/resource/example/translation/{{${language}}}/strings :basic_auth semc :save strings %}
@@ -255,7 +255,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 ```
 {% endraw %}
 {% endsubtab %}
-{% subtab Crowdin example %}
+{% subtab Crowdinの例 %}
 {% raw %}
 ```liquid
 {% connected_content https://api.crowdin.com/api/project/braze-test/export-file?key=you_api_key&language={{${language}}}&file=test.json&export_translated_only=1 :save response %}
@@ -266,11 +266,11 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Spreadsheets %}
+{% tab スプレッドシート %}
 スプレッドシートに翻訳を格納し、以下のいずれかの方法を使用して関連する言語でメッセージを送信します。
 
 {% subtabs local %}
-{% subtab Connected Content %}
+{% subtab コネクテッドコンテンツ %}
 翻訳エージェンシーと協力してGoogleスプレッドシートに翻訳を保存し、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用してこのコンテンツをクエリできます。メッセージを送信すると、各ユーザーの選択した言語に基づいて、関連する翻訳がCampaign本文に取り込まれます。
 
 {% alert note %}
@@ -278,7 +278,7 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 {% endalert %}
 {% endsubtab %}
 
-{% subtab JSON API via SheetDB %}
+{% subtab SheetDB経由のJSON API %}
 このオプションは、GoogleスプレッドシートをコネクテッドコンテンツでクエリされるJSONオブジェクトに変換する代替方法を提供します。スプレッドシートをSheetDB経由でJSON APIに変換することで、API呼び出しの頻度に応じて[複数のサブスクリプションティア](https://sheetdb.io/pricing)から選択できます。
 
 スプレッドシートの構造はオプション4の手順に従いますが、SheetDBはオブジェクトをクエリするための[追加フィルター](https://docs.sheetdb.io/#sheetdb-api)も提供しています。
@@ -294,11 +294,11 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ステップ1：Googleスプレッドシートのフォーマット" }
 
 #### ステップ2：コネクテッドコンテンツ呼び出しで言語Liquidタグを使用 {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 
-次に、コネクテッドコンテンツ呼び出し内で {% raw %}`{{${language}}}`{% endraw %} Liquidタグを実装します。SheetDBはスプレッドシートの作成時に`sheet_id`を自動生成します。
+次に、コネクテッドコンテンツ呼び出し内で{% raw %}`{{${language}}}`{% endraw %} Liquidタグを実装します。SheetDBはスプレッドシートの作成時に`sheet_id`を自動生成します。
 
 {% raw %}
 ```liquid

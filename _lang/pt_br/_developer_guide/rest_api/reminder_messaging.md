@@ -8,7 +8,7 @@ description: "Este artigo de referência explica como usar landing pages, atribu
 
 # Mensagens de lembrete selecionadas pelo usuário {#user-selected-reminder-messaging}
 
-> Use [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) da Braze, atributos personalizados e campanhas para permitir que os usuários escolham quando desejam receber mensagens de lembrete sobre eventos ou compromissos futuros. Essa abordagem permite que usuários não técnicos da Braze criem e editem o conteúdo das páginas de inscrição para lembretes, enquanto as preferências selecionadas pelos usuários podem orientar a segmentação, o direcionamento e a personalização em todo o envio de mensagens da Braze.
+> Use [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) da Braze, atributos personalizados e Campaigns para permitir que os usuários escolham quando desejam receber mensagens de lembrete sobre eventos ou compromissos futuros. Essa abordagem permite que usuários não técnicos da Braze criem e editem o conteúdo das páginas de inscrição para lembretes, enquanto as preferências selecionadas pelos usuários podem orientar a segmentação, o direcionamento e a personalização em todo o envio de mensagens da Braze.
 
 Com essa abordagem, você pode:
 
@@ -26,7 +26,7 @@ Para concluir este guia, você precisa de:
 | Acesso a landing pages | Acesso e permissões para criar [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) na Braze. |
 | Conhecimento de HTML e JavaScript | Familiaridade básica com HTML e JavaScript para personalizar sua landing page. Necessário apenas para a [Opção B](#option-b-personal-dates-custom-code-block). |
 | Conhecimento de Liquid | Familiaridade básica com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) para criar templates de variáveis personalizadas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Etapa 1: Criar uma landing page e vinculá-la a uma mensagem {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -116,17 +116,17 @@ Para encontrar os IDs dos elementos dos componentes da sua landing page, visuali
 
 ## Etapa 3: Configurar e disparar mensagens de lembrete {#step-3-set-up-and-trigger-reminder-messages}
 
-Após coletar atributos personalizados por meio da landing page, crie campanhas para enviar mensagens aos usuários sobre eventos futuros.
+Após coletar atributos personalizados por meio da landing page, crie Campaigns para enviar mensagens aos usuários sobre eventos futuros.
 
 ### Opção A: Datas compartilhadas {#step-3-option-a-shared-dates}
 
-Se você usou atributos personalizados booleanos (Opção A na [Etapa 2](#option-a-shared-dates-dnd-form-blocks)), use esse atributo como filtro de segmento para construir o público da sua mensagem de lembrete. Em seguida, crie uma nova campanha, agendada antes do evento, para direcionar esse grupo com o conteúdo escolhido.
+Se você usou atributos personalizados booleanos (Opção A na [Etapa 2](#option-a-shared-dates-dnd-form-blocks)), use esse atributo como filtro de segmento para construir o público da sua mensagem de lembrete. Em seguida, crie uma nova Campaign, agendada antes do evento, para direcionar esse grupo com o conteúdo escolhido.
 
 ### Opção B: Datas pessoais {#step-3-option-b-personal-dates}
 
-Se você usou atributos personalizados aninhados (Opção B na [Etapa 2](#option-b-personal-dates-custom-code-block)), use o filtro de público **Atributo Personalizado Aninhado** para selecionar todos os usuários que têm uma data de lembrete em um período específico — por exemplo, daqui a dois dias.
+Se você usou atributos personalizados aninhados (Opção B na [Etapa 2](#option-b-personal-dates-custom-code-block)), use o filtro de público **Nested Custom Attribute** para selecionar todos os usuários que têm uma data de lembrete em um período específico — por exemplo, daqui a dois dias.
 
-Para enviar lembretes de forma contínua, configure uma campanha recorrente diária para que, a cada dia, os usuários com lembretes futuros dentro do seu período recebam suas mensagens.
+Para enviar lembretes de forma contínua, configure uma Campaign recorrente diária para que, a cada dia, os usuários com lembretes futuros dentro do seu período recebam suas mensagens.
 
 ## Etapa 4: Verificar sua integração {#step-4-verify-your-integration}
 
@@ -135,7 +135,7 @@ Após concluir a configuração, verifique sua integração:
 1. Envie para si mesmo um link para a landing page e preencha o formulário.
 2. Navegue até o seu perfil de usuário no dashboard da Braze e confirme que o atributo personalizado aparece.
 3. Envie uma mensagem de lembrete de teste para o seu perfil e verifique se os detalhes personalizados são renderizados corretamente.
-4. Monitore os resultados de perto ao lançar sua campanha.
+4. Monitore os resultados de perto ao lançar sua Campaign.
 
 ## Considerações {#considerations}
 

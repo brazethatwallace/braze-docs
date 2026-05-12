@@ -71,7 +71,7 @@ Notez que la liste suivante n'est pas exhaustive concernant ce qui est copié en
 | État d'abonnement du destinataire |  |
 | Planification récurrente |  |
 | Est transactionnel |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,7 +87,7 @@ Notez que la liste suivante n'est pas exhaustive concernant ce qui est copié en
 | État d'abonnement du destinataire |  |
 | Planification récurrente | Critères de sortie |
 | Est transactionnel |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)) ne sont pas copiés vers l'espace de travail de destination. Reconfigurez ces filtres après la copie.
 
@@ -105,7 +105,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Interaction avec la campagne | ID de campagne |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -116,12 +116,12 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Interaction avec le Canvas | ID de Canvas |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
 
-### Actions
+### Actions {#actions}
 
 {% tabs local %}
 {% tab campaigns %}
@@ -132,7 +132,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Interaction avec la campagne | ID de campagne |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -143,7 +143,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Interaction avec le Canvas | ID de Canvas |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -159,7 +159,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Type | ID de groupes initiateurs |
 |  | ID de modèles de lien |
 |  | ID de groupes d'utilisateurs internes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -170,7 +170,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Type | ID de groupes initiateurs |
 |  | ID de modèles de lien |
 |  | ID de groupes d'utilisateurs internes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -189,7 +189,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Objet | Modèle de lien |
 |  | Aliasage de lien |
 |  | Traductions |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -202,7 +202,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Objet | Modèle de lien |
 |  | Aliasage de lien |
 |  | Traductions |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Accroche |  |
 | CSS en ligne |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +231,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Accroche |  |
 | CSS en ligne |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +248,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Objet | Territoires |
 | En-têtes | Étiquettes |
 | | Traductions |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +260,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Objet | Territoires |
 | En-têtes | Étiquettes |
 | | Traductions |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Description | Clés API |
 | Contenu | Territoires |
 | Contenu HTML et glisser-déposer | Étiquettes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -287,7 +287,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Description | Clés API |
 | Contenu | Territoires |
 | Contenu HTML et glisser-déposer | Étiquettes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +303,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Raccourcissement de lien | Éléments multimédias VCF |
 | Suivi des clics |  |
 | Éléments multimédias |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +314,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Raccourcissement de lien | Éléments multimédias VCF |
 | Suivi des clics |  |
 | Éléments multimédias |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}

@@ -55,7 +55,7 @@ O serviço de Notificações por Push da Apple (APNs) suporta a definição de p
 | badge             | número                      | Governa o número exibido como badge no ícone do app                                                                                                                              |
 | sound             | string                      | O nome do arquivo de som a ser reproduzido como alerta; deve estar no bundle do app ou na pasta ```Library/Sounds```                                                                                    |
 | content-available | número                      | Valores de entrada 1 sinalizam ao app a disponibilidade de novas informações ao iniciar ou retomar a sessão |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Biblioteca APS" }
 
 
 ##### Biblioteca de propriedades de alerta {#alert-properties-library}
@@ -70,7 +70,7 @@ O serviço de Notificações por Push da Apple (APNs) suporta a definição de p
 | loc-key        | string ou null           | Uma chave que define a mensagem de notificação para a localização atual a partir do arquivo ```Localizable.strings```                                  |
 | loc-args       | array de strings         | Valores de string que podem aparecer no lugar dos especificadores de formato de localização em loc-key                                                       |
 | launch-image   | strings                  | O nome de um arquivo de imagem no bundle do app que você deseja usar como imagem de lançamento quando os usuários tocam no botão de ação ou deslizam a ação |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Biblioteca de propriedades de alerta" }
 
 O criador de mensagens da Braze lida automaticamente com a criação das seguintes chaves: **alert** e **suas propriedades**, **content-available**, **sound** e **category**.
 

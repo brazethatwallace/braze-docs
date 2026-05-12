@@ -22,7 +22,7 @@ BrazeでThoughtSpotの使用を開始するには、ThoughtSpotがデータに�
 | ----------- | ----------- |
 | ThoughtSpotアカウント | このパートナーシップを利用するにはThoughtSpotアカウントが必要です。 |
 | クラウドデータウェアハウス | Brazeのデータは、Braze Currentsを使用してクラウドデータウェアハウスに保存されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## TMLブロック {#tml-blocks}
 

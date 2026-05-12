@@ -20,9 +20,9 @@ Braze와 RudderStack 통합은 Android, iOS 및 웹 애플리케이션을 위한
 | RudderStack 계정 | 이 파트너십을 활용하려면 [RudderStack 계정](https://app.rudderstack.com/)이 필요합니다. |
 | 구성된 소스 | [소스](https://www.rudderstack.com/docs/dashboard-guides/sources/)는 기본적으로 웹사이트, 모바일 앱 또는 백엔드 서버와 같이 RudderStack으로 전송되는 모든 데이터의 출처입니다. RudderStack에서 Braze를 대상으로 설정하기 전에 소스를 구성해야 합니다. |
 | Braze REST API 키 | `users.track`, `users.identify`, `users.delete`, `users.alias.new` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze 앱 키 | Braze 대시보드에서 앱 키를 가져오려면 **설정** > **앱 설정** > **식별**으로 이동하여 앱 이름을 찾습니다. 연결된 식별자 문자열을 저장합니다.
+| Braze 앱 키 | Braze 대시보드에서 앱 키를 가져오려면 **설정** > **앱 설정** > **식별**로 이동하여 앱 이름을 찾습니다. 연결된 식별자 문자열을 저장합니다.
 | 데이터 센터 | 데이터 센터는 Braze 대시보드 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)와 일치합니다.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

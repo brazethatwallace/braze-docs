@@ -241,7 +241,7 @@ Les modèles de ce guide sont conçus pour envoyer les données à la destinatio
 
 ### Test {#testing}
 
-Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Cliquez sur **Validate** pour obtenir un aperçu de la sortie de votre code et vérifier s'il s'agit d'une requête acceptable pour la destination choisie.
+Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Cliquez sur « Validate » pour obtenir un aperçu de la sortie de votre code et vérifier s'il s'agit d'une requête acceptable pour la destination choisie.
 
 ![Capture d'écran de l'interface de Transformation des données de Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 

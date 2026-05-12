@@ -36,7 +36,7 @@ Você pode visualizar as seguintes estatísticas de Segment, que são atualizada
     }
 </style>
 
-<table>
+<table aria-label="Estatísticas de Segment">
   <caption>Estatísticas de Segment</caption>
     <thead>
         <tr>

@@ -14,41 +14,40 @@ search_tag: Partner
 
 _Esta integración está mantenida por Jebbit._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Jebbit te permite pasar correos electrónicos de usuarios y atributos de tus campañas de Jebbit como datos de usuario a Braze en tiempo real. Estos datos pueden utilizarse para impulsar iniciativas de marketing, como campañas de correo electrónico personalizadas y activadores. 
+La integración de Braze y Jebbit te permite pasar correos electrónicos de usuarios y atributos de tus campañas de Jebbit como datos de usuario a Braze en tiempo real. Estos datos pueden utilizarse para impulsar iniciativas de marketing, como campañas de correo electrónico personalizadas y desencadenadores.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 |---|---|
-|Cuenta Jebbit | Se necesita una cuenta Jebbit para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST Braze con todos los permisos de datos de usuario. <br><br> Puede crearse en el dashboard de Braze desde **Configuración** > **Claves API**. |
-|Punto final REST Braze | La URL de su punto final REST. Tu punto final dependerá de la URL Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta Jebbit | Se necesita una cuenta Jebbit para beneficiarse de esta asociación. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de datos de usuario. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
 Cuando solicites la integración con Jebbit, comunica si hay que cumplir algún plazo estricto. Además, asegúrate de que tienes mapeados los atributos de tu(s) experiencia(s) Jebbit que te gustaría pasar a Braze.
 
-### Paso 1: Proporcionar credenciales de API
+### Paso 1: Proporcionar credenciales de API {#step-1-provide-api-credentials}
 
-Proporciona tus credenciales API a Jebbit en un archivo de texto a través de una solicitud de archivo de Dropbox.
+Proporciona tus credenciales de API a Jebbit en un archivo de texto a través de una solicitud de archivo de Dropbox.
 Envía tu archivo utilizando la siguiente [URL de Dropbox](https://www.dropbox.com/request/RqKQHkJHXw1cFBKbXpZx).
 
-### Paso 2: Confirmar el envío de la prueba
+### Paso 2: Confirmar el envío de prueba {#step-2-confirm-test-submission}
 
-Un ingeniero de Jebbit asignado a tu integración enviará un envío de prueba de Jebbit a Braze, para que puedas ver cómo se verán los datos en tu entorno Braze. Este es el último paso para activar la integración. Ahora que tus datos Jebbit están configurados, utilízalos para impulsar tus iniciativas de marketing.
+Un ingeniero de Jebbit asignado a tu integración enviará un envío de prueba de Jebbit a Braze, para que puedas ver cómo se verán los datos en tu entorno de Braze. Este es el último paso para activar la integración. Ahora que tus datos de Jebbit están configurados, utilízalos para impulsar tus iniciativas de marketing.
 
 {% alert note %}
-El ID de atributo que ha establecido en Jebbit es como se mostrará el nombre del campo de atributo en Braze.
+El ID de atributo que has establecido en Jebbit es como se mostrará el nombre del campo de atributo en Braze.
 {% endalert %}
 
-## Personalización
+## Personalización {#customization}
 
 Actualmente admitimos específicamente los puntos finales de [datos de usuario]({{site.baseurl}}/api/endpoints/user_data/), pero se pueden admitir solicitudes de puntos finales diferentes.
 
-Los nombres de los campos de atributos también pueden personalizarse según sus preferencias.
+Los nombres de los campos de atributos también pueden personalizarse según tus preferencias.
 
 Si quieres atributos adicionales de Jebbit en Braze, mapea el nuevo atributo en tu cuenta de Jebbit. El atributo se mostrará automáticamente en Braze a medida que recopiles datos para ese atributo.
-

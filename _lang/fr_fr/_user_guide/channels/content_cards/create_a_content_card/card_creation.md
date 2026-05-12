@@ -85,7 +85,7 @@ Cette section décrit les principales différences entre la création de cartes 
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Différences entre la création de cartes au lancement ou à l'entrée et la création à la première impression" class="tg">
   <caption>Différences entre la création de cartes au lancement ou à l'entrée et la création à la première impression</caption>
 <thead>
   <tr>

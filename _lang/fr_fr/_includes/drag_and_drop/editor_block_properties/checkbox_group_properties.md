@@ -15,4 +15,4 @@
 | Alignement | Alignement horizontal du groupe (début ou centre). |
 | Couleur d'accentuation | Couleur des cases à cocher. |
 | Marge intérieure | Espacement autour du bloc. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

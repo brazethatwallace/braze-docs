@@ -16,6 +16,8 @@ Empfohlene E-Commerce-Events befinden sich derzeit im Early Access. Wenden Sie s
 
 Um Ihr E-Commerce-Umsatz-Dashboard aufzurufen, gehen Sie zu **Analytics** > **Dashboard-Builder** und wählen Sie **eCommerce Revenue - Last Touch Attribution** aus. Dieses Dashboard zeigt den Umsatz, der der letzten Campaign oder dem letzten Canvas zugeordnet wird, mit der bzw. dem ein:e Nutzer:in vor einer Bestellung interagiert hat – innerhalb des ausgewählten Conversion-Fensters.
 
+![Dashboard „E-Commerce-Umsatz – Last-Touch-Attribution“ mit Statistiken für E-Commerce-Umsatz, tägliche Bestellungen und durchschnittlichen täglichen E-Commerce-Umsatz sowie einem Chart „E-Commerce-Umsatz im Zeitverlauf“.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
+
 ## Verfügbare Metriken {#available-metrics}
 
 | Metrik | Definition |
@@ -27,6 +29,8 @@ Um Ihr E-Commerce-Umsatz-Dashboard aufzurufen, gehen Sie zu **Analytics** > **Da
 | E-Commerce-Umsatz nach Campaign | Zugeordneter Umsatz aufgeschlüsselt nach Campaign. |
 | E-Commerce-Umsatz nach Canvas | Zugeordneter Umsatz aufgeschlüsselt nach Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+
+![Charts „E-Commerce-Umsatz nach Campaign“ und „E-Commerce-Umsatz nach Canvas“.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
 ## Attributionsmodell {#attribution-model}
 
@@ -71,7 +75,6 @@ Umsatz und Bestellanzahlen verwenden standardisierte Braze-Berechnungen.
 ### Ausgeschlossene Daten {#excluded-data}
 
 Käufe, die über das veraltete Kauf-Event erfasst wurden, sind nicht enthalten. Das Dashboard **E-Commerce-Umsatz – Last-Touch-Attribution** unterstützt derzeit keine Features, die an veraltete Kauf-Events gebunden sind, wie z. B. LTV oder Umsatzberichte innerhalb von Campaigns oder Canvases.
-
 
 ## Währungsbehandlung {#currency-handling}
 

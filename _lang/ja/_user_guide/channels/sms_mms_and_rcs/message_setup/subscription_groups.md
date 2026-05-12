@@ -26,7 +26,7 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つのサ�
 | --------- | ---------- |
 | 購読中 | ユーザーは特定のサブスクリプショングループからSMSおよびRCSを受信するよう購読しています。ユーザーは、BrazeサブスクリプションAPIを通じてサブスクリプション状態を更新するか、オプトインキーワード応答をテキスト送信することで購読できます。ユーザーがSMS、RCS、またはその両方を受信するには、SMSまたはRCSサブスクリプショングループに購読している必要があります。[ダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)が有効な場合、ユーザーはサブスクリプションステータスが`Subscribed`に更新される前にオプトインの意思を確認する必要があります。 |
 | 購読解除 | ユーザーはSMSおよびRCSサブスクリプショングループとそのサブスクリプショングループ内の送信電話番号からのメッセージングを明示的にオプトアウトしています。オプトアウトキーワード応答をテキスト送信するか、[BrazeサブスクリプションAPI]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)を通じてユーザーの購読を解除できます。SMSおよびRCSサブスクリプショングループから購読解除されたユーザーは、そのサブスクリプショングループに属する送信電話番号からSMSまたはRCSを受信しなくなります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サブスクリプショングループの状態" }
 
 ### ユーザーの状態を設定する {#set-a-users-state}
 
@@ -53,7 +53,7 @@ Webhookを使用してサブスクリプショングループを更新すると�
 ユーザーのサブスクリプショングループを確認するには、以下のいずれかの方法を使用します。
 
 - **ユーザープロファイル:** 個々のユーザープロファイルは、サイドバーから**ユーザー検索**を選択してBrazeダッシュボードからアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。ユーザープロファイル内の「エンゲージメント」タブで、ユーザーのSMSおよびRCSサブスクリプショングループを確認できます。
-- **REST API:** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループをリストするエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーのサブスクリプショングループステータスをリストするエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)で確認できます。
+- **REST API:** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーのサブスクリプショングループステータスを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)で確認できます。
 
 ## サブスクリプショングループでメッセージを送信する {#send-messages-with-a-subscription-group}
 
@@ -132,7 +132,7 @@ Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブ�
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Segmentを作成する** | サブスクリプショングループ内のすべてのユーザーまたはセグメンテーションフィルターを使用したサブセット（ランダムな5〜10%など）を含むSegmentを作成します。Segmentは各送信前に更新され、現在のユーザー群を反映します。 |
 | **CampaignまたはCanvasフィルターを適用する** | CampaignまたはCanvasの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2: オーディエンスを定義する" }
 
 ### ステップ3: ユーザーの更新ステップを設定する {#step-3-configure-a-user-update-step}
 

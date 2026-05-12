@@ -140,7 +140,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     | `ID` | String | Ja |
     | `NAME` | String | Ja |
     | `DELETED` | Boolescher Wert | Optional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {:start="3"}
 3. Erstellen Sie einen Benutzer und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden, solange sie Zugriff auf die Kontotabelle haben.
@@ -151,7 +151,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     | BigQuery User | Ermöglicht Braze das Ausführen von Abfragen, Lesen von Metadaten und Auflisten von Tabellen. |
     | BigQuery Data Viewer | Ermöglicht Braze das Anzeigen von Datensätzen und Inhalten. |
     | BigQuery Job User | Ermöglicht Braze das Ausführen von Jobs. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Kontodaten synchronisieren" }
 
     Generieren Sie nach der Vergabe der Berechtigungen einen JSON-Schlüssel. Anweisungen finden Sie unter [Schlüssel erstellen und löschen](https://cloud.google.com/iam/docs/keys-create-delete). Sie laden ihn später im Braze-Dashboard hoch.
 
@@ -187,7 +187,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     | `ID` | String | Ja |
     | `NAME` | String | Ja |
     | `DELETED` | Boolescher Wert | Optional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {:start="3"}
 3. Erstellen Sie ein persönliches Zugriffstoken in Databricks:
@@ -236,7 +236,7 @@ Um Kontodaten aus einem Dateispeicher zu synchronisieren, erstellen Sie eine Que
 | `PAYLOAD` | Ja | JSON-String der Felder, die mit dem Konto in Braze synchronisiert werden sollen |
 | `DELETED` | Optional | Boolescher Wert, der angibt, dass das Konto aus Braze gelöscht werden soll |
 | `UPDATED_AT` | _*Nicht unterstützt_ | Dateispeicher unterstützen keine `UPDATED_AT`-Spalten |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {% alert note %}
 Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Hängen Sie Zeitstempel an, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Amazon S3-Synchronisierung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).

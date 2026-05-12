@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `merge_updates` | 필수 | 배열 | 오브젝트 배열입니다. 각 오브젝트에는 `identifier_to_merge` 오브젝트와 `identifier_to_keep` 오브젝트가 포함되어야 하며, 각각 `external_id`, `user_alias`, `phone` 또는 `email`로 사용자를 참조해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### 병합 동작 {#merge-behavior}
 
@@ -218,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### most_recently_updated 우선순위를 포함하지 않고 식별되지 않은 사용자 병합하기 {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### most_recently_updated 우선순위를 포함하지 않고 식별되지 않은 사용자 병합하기 {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 이메일 주소 `john.smith@braze.com`을 가진 식별되지 않은 사용자가 두 명인 경우, 이 예시 요청은 해당 이메일 주소를 가진 식별되지 않은 사용자가 두 명이므로 사용자를 병합하지 않습니다. 이 요청은 이메일 주소 `john.smith@braze.com`을 가진 식별되지 않은 사용자가 단 한 명일 때만 작동합니다.
 
@@ -276,6 +276,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 한 요청에 병합 업데이트는 최대 50개까지만 지정할 수 있습니다. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | 요청에 포함된 식별자를 확인하세요. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates`에 `identifier_to_merge`와 `identifier_to_keep` 두 개의 오브젝트만 포함되어 있는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

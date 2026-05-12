@@ -30,7 +30,7 @@ El tamaño máximo de la carga útil depende de la plataforma.
 | Android | 3930 bytes |
 | iOS | 3960 bytes |
 | Kindle | 5985 bytes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 Si tu push supera el tamaño máximo de la carga útil, es posible que el mensaje no se envíe. Como buena práctica, mantén tu carga útil en unos pocos cientos de bytes.
 
@@ -75,7 +75,7 @@ Las notificaciones push deben tratarse con cuidado para dirigirse a los usuarios
 
 Puedes crear una página de configuración en tu aplicación que permita a los usuarios indicar qué notificaciones desean recibir. Un enfoque común es crear un atributo personalizado booleano en Braze que corresponda al estado de configuración de la aplicación. Por ejemplo, una aplicación de noticias podría tener configuraciones de suscripción para noticias de última hora, deportes o política.
 
-Cuando la aplicación de noticias quiere crear una campaña dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al segmento. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
+Cuando la aplicación de noticias quiere crear una Campaign dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al segmento. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
 
 Para más información sobre cómo establecer atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes) o [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification).
 
@@ -118,9 +118,9 @@ Aunque puedas ser reticente a dejar de enviar notificaciones push a usuarios que
 
 ## Establece eventos de conversión para aperturas de la aplicación {#set-conversion-events-for-app-opens}
 
-Al asignar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) a una campaña push, puedes rastrear las aperturas de la aplicación durante un cierto período después de que se reciba la campaña. Establecer un evento de conversión para aperturas de la aplicación proporciona una perspectiva diferente de las estadísticas de resultados que normalmente recibes después de una campaña push.
+Al asignar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) a una Campaign push, puedes rastrear las aperturas de la aplicación durante un cierto período después de que se reciba la Campaign. Establecer un evento de conversión para aperturas de la aplicación proporciona una perspectiva diferente de las estadísticas de resultados que normalmente recibes después de una Campaign push.
 
-Mientras que todos los resultados de las campañas push desglosan las aperturas directas y las aperturas de un mensaje (que incluyen tanto las aperturas directas como las [aperturas influenciadas]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), el seguimiento de conversiones rastreará cualquier tipo de apertura, ya sea directa o influenciada.
+Mientras que todos los resultados de las Campaigns push desglosan las aperturas directas y las aperturas de un mensaje (que incluyen tanto las aperturas directas como las [aperturas influenciadas]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), el seguimiento de conversiones rastreará cualquier tipo de apertura, ya sea directa o influenciada.
 
 Además, al usar el evento de conversión "abre la aplicación", estás rastreando las aperturas de la aplicación que ocurren antes de esa fecha límite de conversión (por ejemplo, tres días). Esto difiere de una apertura influenciada en que el tiempo que tiene un usuario para registrar una apertura influenciada puede variar de persona a persona, dependiendo del comportamiento de interacción pasado de cada usuario.
 
@@ -135,12 +135,12 @@ Dado que los mensajes push son un tipo de mensajería intrusiva que va directame
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Inaceptable: (i) Crear una interfaz para mostrar aplicaciones, extensiones o complementos de terceros similar a la App Store o como una colección de interés general. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) Las notificaciones push no deben ser necesarias para que la aplicación funcione, y no deben usarse para enviar información personal sensible o confidencial. Las notificaciones push no deben usarse con fines de promoción o marketing directo a menos que los clientes hayan optado explícitamente por recibirlas mediante un lenguaje de consentimiento mostrado en la interfaz de usuario de tu aplicación, y proporciones un método en tu aplicación para que el usuario deje de recibir dichos mensajes. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) No puedes monetizar las capacidades integradas proporcionadas por el hardware o el sistema operativo, como las notificaciones push, la cámara o el giroscopio; ni los servicios y tecnologías de Apple, como el acceso a Apple Music, el almacenamiento en iCloud o las APIs de Screen Time. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Política de Google Play Store |
 | --- |
 | [Uso no autorizado o imitación de funcionalidad del sistema](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) No permitimos aplicaciones o anuncios que imiten o interfieran con la funcionalidad del sistema, como notificaciones o advertencias. Las notificaciones a nivel del sistema solo pueden usarse para las características integrales de una aplicación, como una aplicación de aerolínea que notifica a los usuarios sobre ofertas especiales, o un juego que notifica a los usuarios sobre promociones dentro del juego. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## Artículos relacionados {#related-articles}
 

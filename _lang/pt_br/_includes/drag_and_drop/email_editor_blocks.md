@@ -24,7 +24,7 @@ Adiciona texto para cabeçalhos dentro do e-mail.
 | Altura da linha | Modifica a distância entre as linhas de texto. |
 | Espaçamento entre letras | Modifica a distância entre cada caractere. |
 | Direção do texto | Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### Parágrafo {#paragraph}
 
@@ -42,7 +42,7 @@ Insere texto na mensagem. Uma barra de ferramentas ajuda na funcionalidade de ed
 | Altura da linha | Modifica a distância entre as linhas de texto. |
 | Espaçamento entre letras | Modifica a distância entre cada caractere. |
 | Direção do texto | Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### Lista {#list}
 
@@ -64,7 +64,7 @@ Adiciona uma lista com marcadores.
 | Altura da linha | Modifica a distância entre as linhas de texto. |
 | Espaçamento entre letras | Modifica a distância entre cada caractere. |
 | Direção do texto | Padrão da esquerda para a direita, mas pode ser editado para ser [da direita para a esquerda]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### Botão {#button}
 
@@ -74,7 +74,7 @@ Adiciona um botão padrão. As propriedades permitem editar o estilo e definir o
 |---|---|
 | Opções do botão | Define várias opções do botão, como fonte, tamanho, largura, cor e preenchimento. |
 | Passar o mouse sobre o botão | O estilo do botão quando um usuário passa o mouse sobre ele usando um mouse ou trackpad. Inclui a cor de fundo do botão, a cor da fonte e os estilos de borda. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### Comportamento ao clicar {#on-click-behavior}
 
@@ -85,7 +85,7 @@ Adiciona um botão padrão. As propriedades permitem editar o estilo e definir o
 | Para, Assunto e Corpo | Para o tipo de link **Send email**, define o endereço de e-mail do destinatário, o assunto e o conteúdo que serão preenchidos em um rascunho de e-mail quando o usuário selecionar o botão. |
 | Tel | Para os tipos de link **Make call** e **Send SMS**, define o número de telefone para o qual o usuário ligará ou enviará mensagem ao selecionar o botão. |
 | Mensagem | Para o tipo de link **Send SMS**, define o conteúdo que será preenchido em um rascunho de mensagem SMS quando o usuário selecionar o botão. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### Divisor {#divider}
 
@@ -97,7 +97,7 @@ Insere uma linha sólida, pontilhada ou tracejada para ajudar no espaçamento.
 | Linha | Os diferentes formatos de linha, seja pontilhada, tracejada ou sólida. Você também pode modificar a espessura e a cor da linha divisória. |
 | Largura | Ajusta a extensão do divisor em incrementos de 5. |
 | Alinhar | Move a linha para a esquerda, centro ou direita. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### Espaçador {#spacer}
 
@@ -106,7 +106,7 @@ Adiciona espaço ou preenchimento entre outros blocos.
 | Propriedade | Descrição |
 |---|---|
 | Altura | Ajusta a altura do bloco espaçador. O padrão é 60px. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### Imagem {#image}
 
@@ -124,7 +124,7 @@ Insere uma imagem da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messagin
 | Imagem com cantos arredondados | Renderiza a imagem com cantos arredondados. Por padrão, as imagens são renderizadas com cantos quadrados. |
 | Ação | Aciona uma ação quando o usuário clica na imagem. |
 | Opções do bloco | Define o preenchimento ao redor do bloco da imagem. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 Para **Largura automática**, o redimensionamento automático da imagem escolhe o melhor tamanho para a imagem com base em uma combinação da largura da imagem e do espaço disponível no layout:
@@ -143,7 +143,7 @@ Cria um link para conteúdo de vídeo. Apenas YouTube e Vimeo são compatíveis.
 | Estilo do ícone de reprodução | Inclui diferentes opções para o botão de reprodução localizado na parte superior de uma imagem de vídeo. |
 | Cor do ícone de reprodução | Opção para selecionar **Light** ou **Dark** para o botão de reprodução. |
 | Tamanho do ícone de reprodução | Escolha o tamanho em pixels para o botão de reprodução. Intervalo predefinido de 50&nbsp;px a 80&nbsp;px (incrementado em 5&nbsp;px). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Os vídeos hospedados pelo Vimeo só funcionam se estiverem definidos como públicos. Todas as outras configurações de segurança disponíveis no Vimeo (por exemplo, "Hide from Vimeo.com") geram um formato de link diferente que não é compatível com este bloco de conteúdo. Esses tipos de links são alterados pelo construtor, o que impede a Braze de gerar uma miniatura.
@@ -159,7 +159,7 @@ Insere ícones de plataformas de redes sociais. Você pode fazer upload de image
 | Configure a coleção de ícones | Define a URL de cada ícone social. Inclui o botão de alternância **Mais opções** para editar o título e o texto alternativo. |
 | Alinhar | Move o ícone social para a esquerda, centro ou direita. |
 | Espaçamento do ícone | Determina o espaçamento entre cada ícone social. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### Ícones {#icons}
 
@@ -177,7 +177,7 @@ Insere um ícone. Você pode fazer upload de imagens personalizadas. A Braze usa
 | Tamanho do ícone | Determina o tamanho do seu ícone. |
 | Espaçamento do ícone | Modifica o espaço do ícone. |
 | Preenchimento do ícone | Modifica o preenchimento do ícone. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -186,7 +186,7 @@ Insere HTML bruto. Recomendado para [Liquid]({{site.baseurl}}/liquid/), como Con
 | Propriedade | Descrição |
 |---|---|
 | HTML | Adicione ou edite HTML bruto, incluindo [Liquid]({{site.baseurl}}/liquid/) para personalização ou lógica condicional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menu
 
@@ -206,7 +206,7 @@ Cria um menu flexível para a mensagem que você está projetando.
 | Menu móvel | Inclui opções para modificar o tamanho, a cor e o tipo do ícone quando exibido em um dispositivo móvel. |
 | Preenchimento do item | Modifica o preenchimento usando o botão **+** ou **-** ou inserindo um número específico. |
 | Todos os lados | Define um número de preenchimento consistente se o preenchimento do item estiver desativado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### Produto {#product}
 
@@ -228,7 +228,7 @@ Renderiza linhas de produtos de um [Catálogo de Produtos]({{site.baseurl}}/user
 | Máximo de produtos por linha | Define quantos produtos aparecem por linha: **1**, **2** ou **3** (**3** está disponível apenas quando a orientação é **Imagem centralizada**). |
 | Espaçamento entre produtos | Define o espaçamento entre os produtos: **Automático** ou **Personalizado**. |
 | Espaçamento personalizado | *(Quando **Personalizado** é selecionado)* Define o espaço em pixels entre os produtos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## Personalização {#personalization}
 

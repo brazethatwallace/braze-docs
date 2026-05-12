@@ -153,7 +153,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
   }
 </style>
 
-<table>
+<table aria-label="각 접근 방식에 대한 개요">
   <caption>각 접근 방식에 대한 개요</caption>
     <tr>
         <th></th>

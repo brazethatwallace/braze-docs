@@ -28,7 +28,7 @@ platform:
 }
 
 </style>
-<table id="tv-feature-table">
+<table aria-label="プラットフォームと機能" id="tv-feature-table">
   <caption>プラットフォームと機能</caption>
     <thead>
         <tr>

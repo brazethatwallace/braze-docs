@@ -37,7 +37,7 @@ alias: /landing_pages/
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | 게시된 랜딩 페이지 | 회사당 5개 | 추가 20개 |
 | 커스텀 도메인 | 회사당 1개 | 추가 5개 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## 랜딩 페이지에 Google Tag Manager 추가하기 {#adding-google-tag-manager-to-a-landing-page}
 

@@ -29,11 +29,11 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `modified_after`  | Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour à partir de la date et de l'heure indiquées. |
-| `modified_before`  |  Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour au plus tard à la date et à l'heure indiquées. |
+| `modified_after` | Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour à partir de la date et de l'heure indiquées. |
+| `modified_before` | Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour au plus tard à la date et à l'heure indiquées. |
 | `limit` | Facultatif | Nombre positif | Nombre maximum de Content Blocks à récupérer. Par défaut à 100 si non renseigné, avec une valeur maximale acceptable de 1 000. |
-| `offset`  |  Facultatif | Nombre positif | Nombre de Content Blocks à ignorer avant de renvoyer le reste des modèles correspondant aux critères de recherche. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | Facultatif | Nombre positif | Nombre de Content Blocks à ignorer avant de renvoyer le reste des modèles correspondant aux critères de recherche. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 ```
@@ -75,6 +75,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `Content Block number limit exceeds maximum of 1000` | Modifiez le paramètre `limit` pour qu'il soit un entier inférieur à 1 000. |
 | `Offset is invalid` | Le paramètre `offset` doit être un entier supérieur à 0. |
 | `Offset must be greater than 0` | Modifiez le paramètre `offset` pour qu'il soit un entier supérieur à 0. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

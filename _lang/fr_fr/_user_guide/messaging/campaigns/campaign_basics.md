@@ -50,7 +50,7 @@ Vous pouvez utiliser des [segments]({{site.baseurl}}/user_guide/audience/segment
 | Activité marketing | Segmentez les clients en fonction de comportements universels comme le dernier engagement ou les campagnes reçues. |
 | Attributs de l'utilisateur | Segmentez les clients selon leurs attributs et caractéristiques constants. |
 | Attribution d'installation | Segmentez les clients selon leur première source, groupe publicitaire, campagne ou annonce. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Le « qui » : sélectionnez une audience d'entrée" }
 
 ### Le « pourquoi » : identifiez les événements de conversion {#the-why-identify-conversion-events}
 

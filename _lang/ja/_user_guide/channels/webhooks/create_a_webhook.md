@@ -75,7 +75,7 @@ Webhookをゼロから作成するか、既存のテンプレートを使用す�
 
 右から左に書く言語のコピーを追加する場合、右から左のメッセージの最終的な表示はサービスプロバイダーのレンダリング方法に大きく依存することに注意してください。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
 
-#### Webhook URL
+#### Webhook URL {#webhook-url}
 
 Webhook URL（HTTP URL）はエンドポイントを指定します。エンドポイントは、Webhookでキャプチャしている情報を送信する場所です。
 
@@ -97,7 +97,7 @@ Brazeは、標準ポート`80`（HTTP）および`443`（HTTPS）で通信する
 | GET | 新しい情報を書き込むのではなく、既存の情報を取得します。定義上、GETリクエストはリクエストボディをサポートしません。 |
 | PUT | エンドポイントの情報を更新し、既存の情報をリクエストボディの内容で置き換えます。 |
 | DELETE | HTTP URL内のリソースを削除します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### リクエストボディ {#request-body}
 
@@ -230,7 +230,7 @@ Webhookリクエストが送信されると、受信サーバーはリクエス�
 | `429`（レート制限）  | いいえ | はい |
 | `その他の4XX`（クライアントエラー）  | いいえ | いいえ |
 | `5XX`（サーバーエラー）   | いいえ | はい |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Brazeは、上記のステータスコードに対して、エクスポネンシャルバックオフを使用して30分以内に最大5回リトライします。エンドポイントに到達できない場合、リトライは24時間にわたって分散される場合があります。<br><br>各Webhookはタイムアウトまでに90秒が許可されています。

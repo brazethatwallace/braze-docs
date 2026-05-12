@@ -57,7 +57,7 @@ Além disso, sua estrutura varia ligeiramente da estrutura plana encontrada em [
 |----|-----------|
 | `"user"` | Contém propriedades do usuário, como `user_id`, `external_user_id`, `device_id` e `timezone`. |
 | `"properties"` | Contém atributos de um evento, como o `app/campaign/canvas/platform` ao qual se aplica. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplos de carga útil" }
 
 Se um endpoint downstream receber uma carga útil com zero eventos ou um corpo de solicitação vazio, o resultado deve ser considerado um no-op, ou seja, nenhum efeito downstream deve ocorrer a partir dessa chamada. No entanto, você ainda deve verificar o cabeçalho `Authorization` (como faria em uma chamada de API normal) e dar uma resposta HTTP apropriada para [credenciais inválidas](#authentication), como `401` ou `403`. Isso permite que a Braze saiba que as credenciais do conector são válidas.
 
@@ -430,7 +430,7 @@ Se o mecanismo de novas tentativas da Braze falhar em entregar um evento por mai
 
 Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente conector:
 
-<table>
+<table aria-label="Mecanismo de tratamento de erros e novas tentativas">
   <caption>Mecanismo de tratamento de erros e novas tentativas</caption>
   <thead>
     <tr>
@@ -482,4 +482,4 @@ Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente cone
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mecanismo de tratamento de erros e novas tentativas" }

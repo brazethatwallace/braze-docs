@@ -26,7 +26,7 @@ channel: push
 
 #### Estado de suscripción push {#push-subscription-status}
 
-Las notificaciones push solo pueden enviarse a usuarios suscritos u optados. Comprueba tu perfil de usuario en la pestaña [Interacción]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) en la sección **Perfil de usuario** para confirmar si estás registrado activamente para push en el espacio de trabajo que estás probando. Si estás registrado en varias aplicaciones, las encontrarás en el campo **Push Registered For**:
+Las notificaciones push solo pueden enviarse a usuarios suscritos u optados. Comprueba tu perfil de usuario en la pestaña [Interacción]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) en la sección **User Profile** para confirmar si estás registrado activamente para push en el espacio de trabajo que estás probando. Si estás registrado en varias aplicaciones, las encontrarás en el campo **Push Registered For**:
 
 ![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
@@ -38,11 +38,11 @@ Cualquiera de los dos puntos de conexión devolverá un objeto de token de push 
 
 #### Segment {#segment}
 
-Asegúrate de que perteneces al segmento al que te diriges (si se trata de una campaña en vivo y no de una prueba). En el **Perfil de usuario**, verás una lista de segmentos a los que pertenece actualmente el usuario. Recuerda que esta es una variable en constante cambio, ya que la segmentación se actualiza en tiempo real.
+Asegúrate de que perteneces al segmento al que te diriges (si se trata de una campaña en vivo y no de una prueba). En el **User Profile**, verás una lista de segmentos a los que pertenece actualmente el usuario. Recuerda que esta es una variable en constante cambio, ya que la segmentación se actualiza en tiempo real.
 
 ![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-También puedes confirmar que el usuario forma parte del segmento utilizando **Búsqueda de usuario** al crear un segmento.
+También puedes confirmar que el usuario forma parte del segmento utilizando **User Lookup** al crear un segmento.
 
 ![Sección de búsqueda de usuario con un campo de búsqueda.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -104,7 +104,7 @@ Si tienes problemas con enlaces en notificaciones push que se abren inesperadame
 
 En tu campaña o paso en Canvas, verifica que **Open web URL inside mobile app** no esté seleccionado. Si lo está, desmarca la selección y vuelve a lanzar.
 
-!["On-click behavior" field of configuring a push set to "Open web URL" with "Open web URL inside mobile app" unchecked.]({% image_buster /assets/img/push_on_click.png %})
+![Campo "On-click behavior" de la configuración de una notificación push establecido en "Open web URL" con "Open web URL inside mobile app" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
 
 La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abrirán en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
 
@@ -123,7 +123,7 @@ Si los enlaces en tus notificaciones push se abren inesperadamente en la aplicac
 
 Las claves de autenticación `.p8` de Apple son el enfoque requerido para push de APNs en Braze. A diferencia de los tipos de archivo de certificado heredados, las claves `.p8` no caducan y son compatibles con todas tus aplicaciones bajo una sola clave, eliminando la necesidad de renovaciones anuales de certificados y reduciendo el riesgo de fallos en la entrega push.
 
-Si actualmente estás usando un certificado `.p12` o `.pem`, migra a una clave `.p8` lo antes posible. Para instrucciones sobre cómo crear y cargar una clave `.p8`, consulta [Cargar tu certificado push de APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Para la guía de Apple sobre cómo generar una clave `.p8` desde tu cuenta de desarrollador, consulta [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+Si actualmente estás usando un certificado `.p12` o `.pem`, migra a una clave `.p8` lo antes posible. Para instrucciones sobre cómo crear y cargar una clave `.p8`, consulta [Cargar tu certificado push de APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Para la guía de Apple sobre cómo generar una clave `.p8` desde tu cuenta de desarrollador, consulta [Comunicarse con APNs usando tokens de autenticación](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
 ## Las notificaciones push web no se comportan como se espera {#web-push-notifications-arent-behaving-as-expected}
 
@@ -148,7 +148,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Restablecer Chrome en escritorio" }
 
 {:start="4"}
 4. En DevTools, navega a la pestaña **Application**.
@@ -162,7 +162,7 @@ Tus permisos push se han restablecido. Abre una nueva pestaña en tu sitio y pru
 
 Si tienes una notificación de tu sitio visible en el cajón de notificaciones de Android:
 
-1. Desde la notificación push, toca <i class="fas fa-cog" title="Settings"></i> y selecciona **Site settings**.
+1. Desde la notificación push, toca <i class="fas fa-cog" title="Configuración"></i> y selecciona **Site settings**.
 2. Desde **Site settings**, toca **Clear & Reset**.
 
 Si no tienes una notificación de tu sitio abierta:
@@ -181,8 +181,8 @@ Tus permisos push se han restablecido. Abre una nueva pestaña en tu sitio y pru
 
 ### Restablecer Firefox en escritorio {#reset-firefox-on-desktop}
 
-1. Junto a la URL de tu sitio, selecciona <i class="fa-solid fa-circle-info" alt="info icon"></i> o <i class="fas fa-lock" alt="lock icon"></i>.
-2. En **Permissions**, junto a **Receive Notifications**, selecciona <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> para borrar los permisos de notificación.
+1. Junto a la URL de tu sitio, selecciona <i class="fa-solid fa-circle-info" alt="icono de información"></i> o <i class="fas fa-lock" alt="icono de candado"></i>.
+2. En **Permissions**, junto a **Receive Notifications**, selecciona <i class="fa-solid fa-circle-xmark" title="Borrar este permiso y preguntar de nuevo"></i> para borrar los permisos de notificación.
 3. En el mismo menú, selecciona **Clear Cookies and Site Data**.
 4. En el diálogo para confirmar tu elección, selecciona **OK**.
 

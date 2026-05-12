@@ -18,11 +18,11 @@ Nach der Integration von Bannern in eine App oder Website können Marketer die B
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
-| Ankündigungen | Halten Sie Ankündigungen wie bevorstehende Veranstaltungen oder Änderungen der Richtlinien im Vordergrund Ihres App-Erlebnisses. |
+| Ankündigungen | Halten Sie Ankündigungen wie bevorstehende Ereignisse oder Änderungen der Richtlinien im Vordergrund Ihres App-Erlebnisses. |
 | Personalisierung von Angeboten | Zeigen Sie personalisierte Aktionen und Anreize auf der Grundlage des Browserverlaufs, des Warenkorb-Inhalts, der Abo-Stufe und des Treuestatus jedes Nutzers bzw. jeder Nutzerin. |
 | Targeting für das Engagement neuer Nutzer:innen | Führen Sie neue Nutzer:innen durch Onboarding-Abläufe und die Kontoeinrichtung. |
 | Verkäufe und Aktionen | Heben Sie besondere Inhalte, aktuelle Produkte und laufende Markenkampagnen persistent und direkt auf Ihrer Homepage hervor, ohne das Nutzererlebnis zu stören. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Warum Banner verwenden?" }
 
 ## Features
 

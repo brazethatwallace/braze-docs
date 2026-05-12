@@ -148,7 +148,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chrome auf dem Desktop zurücksetzen" }
 
 {:start="4"}
 4. Navigieren Sie in den DevTools zum Tab **Application**.

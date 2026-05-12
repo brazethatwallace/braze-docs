@@ -15,11 +15,11 @@ platform:
   - Unity
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 통합 개요 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 통합 개요 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > 이 문서에서는 온보딩 프로세스에 대한 기본적인 개요를 제공합니다.
 
-!["가치 실현 시간"을 중심으로 발견, 통합, 품질 보증, 유지 관리 등 4개의 원으로 구성된 벤 다이어그램입니다.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
+![발견, 통합, 품질 보증, 유지 관리 등 4개의 원이 "가치 실현 시간"을 중심으로 구성된 벤 다이어그램입니다.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
 기술 리소스로서 Braze를 기술 스택에 통합하여 팀의 역량을 강화할 수 있습니다. 온보딩은 크게 네 단계로 나뉩니다:
 * [발견 및 계획](#discovery): 팀과 협력하여 범위를 조정하고, 데이터 및 Campaign의 구조를 계획하며, 적절한 워크스페이스 구조를 구축합니다.
@@ -145,7 +145,7 @@ Braze를 사용하는 동안 여러 시점에 다양한 작업을 위해 REST AP
 1. 기록 데이터 가져오기
 2. Braze에서 트리거되지 않는 지속적인 업데이트. 예를 들어, 사용자가 앱에 로그인하지 않고도 사용자 프로필이 VIP로 업그레이드되는 경우 API는 이 정보를 Braze에 전달해야 합니다.
 
-[Braze API]({{site.baseurl}}/api/basics/) 시작하기.
+[Braze API]({{site.baseurl}}/api/basics/)로 시작하세요.
 
 {% alert important %}
 API를 사용하는 동안 요청을 배치로 처리하고 델타 값만 전송해야 합니다. Braze는 전송되는 모든 속성을 다시 작성합니다. 값이 변경되지 않은 커스텀 속성은 업데이트하지 마세요.
@@ -167,7 +167,7 @@ Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/
 
 Braze SDK는 "세션 열기" 및 "세션 닫기" 데이터 포인트를 생성합니다. Braze SDK는 정기적으로 데이터를 플러시하기도 합니다. 세션 추적 기본값은 아래 링크를 참조하세요. 모두 커스터마이징할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)).
 
-### 커스텀 이벤트, 속성 및 구매 이벤트 추적하기 {#tracking-custom-events-attributes-and-purchase-events}
+### 커스텀 이벤트, 속성 및 구매 이벤트 추적 {#tracking-custom-events-attributes-and-purchase-events}
 
 팀과 협력하여 커스텀 이벤트, 사용자 속성, 구매 이벤트 등 계획한 데이터 스키마를 설정합니다. [커스텀 데이터 스키마]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)는 대시보드를 사용하여 입력되며 SDK 통합 중에 구현한 내용과 정확히 일치해야 합니다.
 
@@ -199,7 +199,7 @@ QA를 시작하기 전에 프로덕션 및 테스트 환경이 설정되어 있�
 |                           | Content Cards가 전달되고 측정기준이 기록되는지 테스트합니다. |
 |                           | 연결된 콘텐츠를 활성화합니다(예: AccuWeather). |
 |                           | 모든 메시지 채널 통합이 제대로 작동하는지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quality assurance #qa" }
 
 {% alert note %}
 SDK 통합에 대한 QA를 수행하는 동안 [SDK 디버거]({{site.baseurl}}/developer_guide/sdk_integration/debugging/)를 사용하면 앱에 대한 상세 로깅을 켜지 않고도 문제를 해결할 수 있습니다.

@@ -162,7 +162,7 @@ Votre requête peut échouer pour l'une des raisons suivantes :
 
 ## Utiliser des variables {#using-variables}
 
-Utilisez des variables pour employer des types de variables prédéfinis en SQL afin de référencer des valeurs sans avoir à copier manuellement la valeur. Par exemple, au lieu de copier manuellement l'ID d'une Campaign dans l'éditeur SQL, vous pouvez utiliser {% raw %}`{{campaign.${My campaign}}}`{% endraw %} pour sélectionner directement une Campaign depuis un menu déroulant dans l'onglet **Variables**.
+Utilisez des variables pour employer des types de variables prédéfinis en SQL afin de référencer des valeurs sans avoir à copier manuellement la valeur. Par exemple, au lieu de copier manuellement l'ID d'une campagne dans l'éditeur SQL, vous pouvez utiliser {% raw %}`{{campaign.${My campaign}}}`{% endraw %} pour sélectionner directement une campagne depuis un menu déroulant dans l'onglet **Variables**.
 
 Une fois une variable créée, elle apparaîtra dans l'onglet **Variables** de votre rapport du Générateur de requêtes. Les avantages de l'utilisation de variables SQL incluent :
 
@@ -215,7 +215,7 @@ Les quatre types sont affichés si `start_date` et `end_date` sont utilisés ave
 | Date de début | Spécifie une date de début | Nécessite `start_date` |
 | Date de fin | Spécifie une date de fin | Nécessite `end_date` |
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemples de valeurs" }
 
 - **Valeur de remplacement :** Remplace `start_date` et `end_date` par un horodatage Unix en secondes pour une date spécifiée en UTC, tel que `1696517353`.
 - **Exemple d'utilisation :** Pour toutes les variables relatives, date de début, date de fin et plage de dates :
@@ -228,35 +228,35 @@ Toutes les variables d'envoi de messages doivent partager le même identifiant l
 
 ##### Canvas
 
-Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner un Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (multiples) {#canvases}
 
-Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner plusieurs Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON des Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign
 
-Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner une campagne. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
-- **Valeur de remplacement :** ID BSON de la Campaign
+- **Valeur de remplacement :** ID BSON de la campagne
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns
 
-Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner plusieurs campagnes. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
-- **Valeur de remplacement :** ID BSON des Campaigns
+- **Valeur de remplacement :** ID BSON des campagnes
 - **Exemple d'utilisation :** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
 ##### Variantes de campagne {#campaign-variants}
 
-Pour sélectionner les variantes de campagne appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
+Pour sélectionner les variantes de campagne appartenant à la campagne sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
 
 - **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}

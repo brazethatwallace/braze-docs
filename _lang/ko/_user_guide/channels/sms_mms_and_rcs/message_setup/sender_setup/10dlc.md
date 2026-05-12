@@ -44,7 +44,7 @@ A2P 10DLC 등록에는 여러 유형의 수수료가 포함될 수 있습니다:
 | 등록 수수료 | 모든 주요 미국 네트워크에 브랜드와 사용 사례를 등록할 때 적용되는 소액 수수료입니다. |
 | 2차 심사 수수료 | 브랜드는 [브랜드 신뢰 점수](#trust-score)에 이의를 제기하고 전체 처리량을 개선하기 위해 2차 심사 프로세스를 요청할 수 있으며, 이 프로세스에는 수수료가 부과됩니다. |
 | 통신사 수수료 | 10DLC 등록 후 사용자에게 발송되는 아웃바운드 SMS 및 MMS 메시지에 대해 통신사가 부과하는 수수료입니다. 2021년 10월 1일부터 미등록 트래픽(표준 긴 코드)에 대한 통신사 수수료가 등록된 트래픽(10DLC)보다 높아집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Costs" }
 
 업데이트된 [수수료 추정치](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-)를 확인하려면 Twilio 10DLC 문서를 방문하세요.
 
@@ -61,7 +61,7 @@ Campaign Registry(TCR)는 회사와 관련된 특정 기준을 검토하기 위�
 | 높음 | 75-100 | 75 MPS | 75 MPS | 75 MPS |
 | 중간 | 50-74 | 40 MPS | 40 MPS | 40 MPS |
 | 낮음 | 1-49 | 4 MPS | 4 MPS | 4 MPS |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Brand trust score #trust-score" }
 
 {% alert tip %}
 Russell 3000 지수에 등재된 회사는 10DLC 등록 및 검토 후 높은 처리량과 브랜드 신뢰 점수를 부여받습니다.
@@ -90,7 +90,7 @@ Russell 3000 지수에 등재된 회사는 10DLC 등록 및 검토 후 높은 �
 | 2FA | OTP와 같은 계정 인증 또는 확인입니다. |
 | 보안 경고 | 시스템 침해에 대한 알림입니다. |
 | 사기 경고 | 잠재적 사기 활동에 대한 메시지입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging use cases" }
 
 {% tabs %}
 {% tab 선언된 사용 사례 %}
@@ -101,7 +101,7 @@ Russell 3000 지수에 등재된 회사는 10DLC 등록 및 검토 후 높은 �
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Messaging use cases" }
 
 {% endtab %}
 {% tab 혼합 마케팅 사용 사례 %}
@@ -113,7 +113,7 @@ Russell 3000 지수에 등재된 회사는 10DLC 등록 및 검토 후 높은 �
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Messaging use cases" }
 
 {% endtab %}
 {% endtabs %}

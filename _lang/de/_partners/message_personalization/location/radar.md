@@ -28,7 +28,7 @@ Darüber hinaus können die Radar Geo APIs verwendet werden, um Ihre Marketingka
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | App-Bezeichner | Ihren [App-Bezeichner]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) finden Sie im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | iOS-API-Schlüssel<br>Android-API-Schlüssel | Diese API-Schlüssel finden Sie im Braze-Dashboard unter **Einstellungen** > **App-Einstellungen**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

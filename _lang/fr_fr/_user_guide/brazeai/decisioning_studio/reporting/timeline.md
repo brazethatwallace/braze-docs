@@ -5,7 +5,7 @@ page_order: 4
 description: "Découvrez comment utiliser le rapport Chronologie pour visualiser les événements clés aux côtés des indicateurs de performance dans BrazeAI Decisioning Studio."
 ---
 
-# Rapport Chronologie
+# Rapport Chronologie {#timeline-report}
 
 > Le rapport Chronologie fournit un historique visuel des événements clés aux côtés de vos indicateurs de performance. Ces événements incluent les exécutions d'agents, les modifications de configuration, les mises à jour des garde-fous, et bien plus encore.
 
@@ -22,4 +22,4 @@ Pour comparer les performances entre deux groupes, utilisez les menus déroulant
 | Libellé | Nom ou identifiant attribué à l'événement. |
 | Détails | Informations complémentaires décrivant l'événement. |
 | Visible dans les graphiques | Indique si l'événement est affiché dans les graphiques associés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rapport Chronologie" }

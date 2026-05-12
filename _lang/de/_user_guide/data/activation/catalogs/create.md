@@ -47,7 +47,7 @@ Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden A
 | Datentypen | Unterstützte Datentypen für CSV-Uploads umfassen String, Zahl, Boolescher Wert und Zeitangabe. Die vollständige Liste der Datentypen, einschließlich derjenigen, die nur über die API und CDI verfügbar sind, finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatierung | Formatieren Sie den gesamten Text in Kleinbuchstaben, um die Einheitlichkeit zu gewährleisten. |
 | Kodierung | Speichern und laden Sie die CSV-Datei mit UTF-8-Kodierung hoch. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Überprüfen Sie Ihre CSV-Datei" }
 
 {% alert note %}
 Benötigen Sie mehr Platz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze Account Manager, um weitere Informationen über Katalog-Upgrades zu erhalten.
@@ -94,7 +94,7 @@ In dieser Anleitung verwenden wir einen Katalog, der zwei Spiele mit Preisangabe
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Anleitung: Erstellen eines Katalogs aus einer CSV-Datei" class="tg">
   <caption>Anleitung: Erstellen eines Katalogs aus einer CSV-Datei</caption>
 <thead>
   <tr>
@@ -218,6 +218,8 @@ Wenn Sie zum Beispiel einen einzelnen Katalogartikel bearbeiten möchten, könne
 
 ## Katalogspeicher {#tiers}
 
+Einen schnellen Überblick über die Speicherlimits nach Tarif finden Sie unter [Einschränkungen der Datenspeicherung]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+
 Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 100 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
 
 {% alert important %}
@@ -241,7 +243,7 @@ Die folgende Tabelle fasst die Spezifikationen zusammen, die für Kataloge gelte
 | Zeichen pro Artikelwert | Bis zu 5.000 Zeichen in einem einzelnen Wert. Wenn Sie beispielsweise ein Feld mit der Bezeichnung `description` haben, beträgt die maximale Zeichenanzahl innerhalb des Feldes 5.000. |
 | Zeichen pro Artikelspaltenname | Bis zu 250 Zeichen |
 | Auswahlen pro Katalog | Bis zu 30 Auswahlen pro Katalog |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spezifikationen" }
 
 {% alert important %}
 Katalog-Liquid-Tags können nicht rekursiv verwendet werden. Das bedeutet, dass Sie keinen Katalogartikel referenzieren können, der dann innerhalb derselben Liquid-Auswertung einen zweiten Katalogartikel aufruft.

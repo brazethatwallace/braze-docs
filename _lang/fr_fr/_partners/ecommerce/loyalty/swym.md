@@ -21,12 +21,12 @@ L'intégration de Swym et Braze vous permet de proposer des campagnes marketing 
 
 Avant de commencer, vous aurez besoin des éléments suivants :
 
-| Prérequis          | Description                                                                                                                                |
+| Prérequis | Description |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Swym  | Les applications Swym Wishlist Plus, Back in Stock, ou les deux doivent être installées sur votre plateforme e-commerce (Shopify ou BigCommerce), et vous devez disposer du plan Enterprise.       |
-| Une clé REST API de Braze  | Une clé REST API de Braze avec les autorisations `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Un endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Swym | Les applications Swym Wishlist Plus, Back in Stock, ou les deux doivent être installées sur votre plateforme e-commerce (Shopify ou BigCommerce), et vous devez disposer du plan Enterprise. |
+| Une clé REST API de Braze | Une clé REST API de Braze avec les autorisations `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Un endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -51,9 +51,9 @@ Pour protéger vos clés API, Swym vous recommande de partager les identifiants 
 
 3. Une fois la clé API et l'URL de l'instance partagées avec l'équipe d'assistance de Swym, celle-ci mettra en place l'intégration pour vous et vous enverra une confirmation.
 
-4. Une fois la configuration terminée, les événements personnalisés de Swym seront automatiquement enregistrés dans Braze. Vous pouvez consulter la liste des événements Swym enregistrés dans le tableau de bord de Braze en accédant à **Data Settings** > **Custom Events**.
+4. Une fois la configuration terminée, les événements personnalisés de Swym seront automatiquement enregistrés dans Braze. Vous pouvez consulter la liste des événements Swym enregistrés dans le tableau de bord de Braze en accédant à **Paramètres des données** > **Événements personnalisés**.
 
-5. Consultez les propriétés de chaque événement Swym en sélectionnant **Manage Properties** pour l'événement personnalisé correspondant. Ces propriétés contiennent les valeurs d'événement qui peuvent être utilisées pour personnaliser vos messages.
+5. Consultez les propriétés de chaque événement Swym en sélectionnant **Gérer les propriétés** pour l'événement personnalisé correspondant. Ces propriétés contiennent les valeurs d'événement qui peuvent être utilisées pour personnaliser vos messages.
 
 ![Propriétés personnalisées dans Braze.]({% image_buster /assets/img/swym/braze-custom-properties.png %})
 
@@ -74,7 +74,7 @@ Depuis votre application Wishlist Plus, accédez à l'onglet **Marketing** et tr
 | Price Drop alert | Un produit d'une liste de souhaits est mis en promotion |
 | Low Stock alert | Un produit d'une liste de souhaits est bientôt en rupture de stock |
 | Back in Stock alert | Un produit d'une liste de souhaits est réapprovisionné |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements de l'application Swym Wishlist Plus" }
 
 #### Événements de l'application Swym Back in Stock Alerts {#swym-back-in-stock-alerts-app-events}
 
@@ -83,7 +83,7 @@ Depuis votre application Wishlist Plus, accédez à l'onglet **Marketing** et tr
 | Back in Stock Acknowledgment | L'acheteur s'abonne pour être informé du retour en stock d'un produit |
 | Restock Alert | Le produit pour lequel un acheteur a demandé une alerte de retour en stock est réapprovisionné |
 | Restock Reminder | Alerte de suivi (généralement environ 24 heures après la première alerte de réapprovisionnement, configurable) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements de l'application Swym Back in Stock Alerts" }
 
 ### Étape 3 : Créer une campagne ou un Canvas dans Braze {#step-3-create-a-braze-campaign-or-canvas}
 

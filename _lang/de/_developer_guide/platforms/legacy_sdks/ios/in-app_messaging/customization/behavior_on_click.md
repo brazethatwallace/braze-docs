@@ -11,7 +11,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Anpassen des Verhaltens von In-App-Nachrichten bei einem Klick
+# Anpassen des Verhaltens von In-App-Nachrichten bei einem Klick {#customize-in-app-message-behavior-on-click}
 
 Die Eigenschaft `inAppMessageClickActionType` von `ABKInAppMessage` definiert das Aktionsverhalten nach dem Klicken auf die In-App-Nachricht. Diese Eigenschaft ist schreibgeschützt. Wenn Sie das Klickverhalten der In-App-Nachricht ändern möchten, können Sie die folgende Methode auf `ABKInAppMessage` aufrufen:
 
@@ -36,15 +36,15 @@ Die `inAppMessageClickActionType` kann auf einen der folgenden Werte eingestellt
 
 | `ABKInAppMessageClickActionType` | On-Click-Verhalten |
 | -------------------------- | -------- |
-| `ABKInAppMessageRedirectToURI` | Die angegebene URI wird angezeigt, wenn auf die Nachricht geklickt wird, und die Nachricht wird ausgeblendet. Beachten Sie, dass der Parameter `uri` nicht Null sein darf. |
-| `ABKInAppMessageNoneClickAction` | Die Nachricht wird ausgeblendet, wenn sie angeklickt wird. Beachten Sie, dass der Parameter `uri` ignoriert und die Eigenschaft `uri` von `ABKInAppMessage` auf Null gesetzt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ABKInAppMessageRedirectToURI` | Die angegebene URI wird angezeigt, wenn auf die Nachricht geklickt wird, und die Nachricht wird ausgeblendet. Beachten Sie, dass der Parameter `uri` nicht nil sein darf. |
+| `ABKInAppMessageNoneClickAction` | Die Nachricht wird ausgeblendet, wenn sie angeklickt wird. Beachten Sie, dass der Parameter `uri` ignoriert und die Eigenschaft `uri` von `ABKInAppMessage` auf nil gesetzt wird. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customize in-app message behavior on click" }
 
 {% alert important %}
 Bei In-App-Nachrichten mit Buttons wird die `clickAction` der Nachricht ebenfalls in die endgültige Nutzlast aufgenommen, wenn die Klickaktion vor dem Hinzufügen des Button-Textes hinzugefügt wird.
 {% endalert %}
 
-## Anpassen von Klicks auf In-App-Nachrichtentexte
+## Anpassen von Klicks auf den In-App-Nachrichtentext {#customizing-in-app-message-body-clicks}
 
 Wenn auf eine In-App-Nachricht geklickt wird, wird die folgende Delegate-Methode [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) aufgerufen:
 
@@ -65,7 +65,7 @@ func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 {% endtab %}
 {% endtabs %}
 
-## Anpassen von Klicks auf Buttons in In-App-Nachrichten
+## Anpassen von Klicks auf Buttons in In-App-Nachrichten {#customizing-in-app-message-button-clicks}
 
 Für Klicks auf In-App-Nachrichten-Buttons und HTML-In-App-Nachrichten-Buttons (z. B. Links) enthält [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) die folgenden Delegate-Methoden:
 
@@ -127,11 +127,10 @@ if inAppMessage is ABKInAppMessageImmersive {
 {% endtab %}
 {% endtabs %}
 
-Wenn eine In-App-Nachricht Buttons enthält, werden nur die Klickaktionen auf dem Modell `ABKInAppMessageButton` ausgeführt. Die In-App-Nachricht kann nicht angeklickt werden, obwohl dem Modell `ABKInAppMessage` die Standard-Klick-Aktion zugewiesen ist.
+Wenn eine In-App-Nachricht Buttons enthält, werden nur die Klickaktionen auf dem Modell `ABKInAppMessageButton` ausgeführt. Der In-App-Nachrichtentext kann nicht angeklickt werden, obwohl dem Modell `ABKInAppMessage` die Standard-Klickaktion zugewiesen ist.
 
-## Methoden-Deklarationen
+## Methoden-Deklarationen {#method-declarations}
 
 Weitere Informationen finden Sie in den folgenden Header-Dateien:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

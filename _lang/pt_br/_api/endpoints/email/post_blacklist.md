@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | -----------|----------| --------|------- |
 | `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para adicionar à lista de proibições, ou uma matriz de até 50 endereços de e-mail para adicionar à lista de proibições. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 ```

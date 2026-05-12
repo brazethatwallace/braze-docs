@@ -13,4 +13,4 @@
 | Couleur | Couleur du texte saisi dans le champ. |
 | Alignement du texte | Alignement horizontal du texte saisi dans le champ. |
 | Marge intérieure | Espacement autour du bloc. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

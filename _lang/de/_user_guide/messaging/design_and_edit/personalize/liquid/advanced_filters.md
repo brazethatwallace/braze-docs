@@ -24,7 +24,7 @@ description: "Dieser Referenzartikel listet erweiterte Filter, Beispiele und der
 | `hmac_sha1_base64` | Gibt eine HMAC-SHA1-Signatur zurück, codiert als Base64-String | `{{'hey' | hmac_sha1_base64: 'secret_key'}}` | KjlpvtJb/u+wCspAY+uVkLTfjw4= |
 | `hmac_sha256_hex` | Gibt eine HMAC-SHA256-Signatur zurück, codiert als Hex-String | `{{'hey' | hmac_sha256_hex: 'secret_key'}}` | 8df897f8da3d7992fe57c8dbc6f27578cfbf2dcc4d0fbb4000b8c924841d508e |
 | `hmac_sha256_base64` | Gibt eine HMAC-SHA256-Signatur zurück, codiert als Base64-String | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Codierungsfilter" }
 
 ## URL-Filter {#url-filters}
 
@@ -33,7 +33,7 @@ description: "Dieser Referenzartikel listet erweiterte Filter, Beispiele und der
 | `url_escape` | Identifiziert alle Zeichen in einem String, die in URLs nicht zulässig sind, und ersetzt sie durch ihre escapten Varianten | `{{'hey<>hi' | url_escape}}` | hey%3C%3Ehi |
 | `url_param_escape` | Ersetzt alle Zeichen in einem String, die in URLs nicht zulässig sind, durch ihre escapten Varianten, einschließlich des kaufmännischen Und-Zeichens (&) | `{{'hey<&>hi' | url_param_escape}}` | hey%3C%26%3Ehi |
 | `url_encode` | Codiert einen String in ein URL-freundliches Format | `{{ 'google search' | url_encode }}` | google+search |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="URL-Filter" }
 
 {% endraw %}
 {% alert tip %}
@@ -52,7 +52,7 @@ Das `assign`-Tag kann mit HTML kombiniert werden, um Ihnen Zeit und Aufwand beim
 | Filtername | Filterbeschreibung |
 | --- | --- |
 | `property_accessor` | Nimmt einen Hash und einen Hash-Schlüssel entgegen und gibt den Wert in diesem Hash an diesem Schlüssel zurück |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eigenschaftszugriffs-Filter" }
 
 **Beispiel-Hash:** `{"a" => 42, "b" => 0}`
 **Beispieleingabe:** `{{hash | property_accessor: 'a'}}`
@@ -73,14 +73,14 @@ Es gibt keine Möglichkeit, einen Hash als Variable (z. B. als Ausdruck) in Liqu
 | Filtername | Filterbeschreibung | Beispieleingabe | Beispielausgabe |
 |---|---|---|---|
 | `number_with_delimiter` | Formatiert eine Zahl mit Kommas | `{{ 123456 | number_with_delimiter }}` | 123,456 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Zahlenformatierungs-Filter" }
 
 ## JSON-Escape- / String-Escape-Filter {#json-escape-string-escape-filter}
 
 | Filtername | Filterbeschreibung |
 |---|---|
 | `json_escape` | Escapet alle Sonderzeichen in einem String (wie doppelte Anführungszeichen `""` und Backslash '\'). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON-Escape- / String-Escape-Filter" }
 
 Dieser Filter sollte immer verwendet werden, wenn ein String in einem JSON-Wörterbuch personalisiert wird, und ist besonders nützlich für Webhooks.
 
@@ -90,7 +90,7 @@ Dieser Filter sollte immer verwendet werden, wenn ein String in einem JSON-Wört
 |---|---|
 | `json_parse` | Konvertiert einen JSON-String in eine entsprechende Datenstruktur, wie ein Objekt oder Array. |
 | `as_json_string` | Konvertiert eine Datenstruktur, wie ein Objekt oder Array, in einen entsprechenden JSON-String. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON-Formatierungs-Filter" }
 
 {% endraw %}
 

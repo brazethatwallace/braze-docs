@@ -12,4 +12,4 @@
 | 行の高さ | テキスト行間の垂直方向の間隔です。 |
 | テキストの色 | テキストの色です。 |
 | 文字間隔 | 文字間の水平方向の間隔です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

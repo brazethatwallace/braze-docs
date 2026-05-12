@@ -3,7 +3,7 @@ nav_title: "通知オプション"
 article_title: iOS通知オプション
 page_order: 2
 page_layout: reference
-description: "このリファレンス記事では、クリティカルアラート、サイレント通知、仮プッシュ通知など、iOSの通知オプションについて説明しています。"
+description: "このリファレンス記事では、クリティカルアラート、サイレント通知、仮プッシュ通知など、iOSの通知オプションについて説明します。"
 
 platform: iOS
 channel:
@@ -25,11 +25,11 @@ iOSプッシュCampaignを作成し、**設定**タブに移動して**通知グ
 
 ドロップダウンから通知グループを選択します。通知グループの設定が正しく機能しない場合、またはドロップダウンから**なし**を選択した場合、メッセージはワークスペース内の定義済みユーザー全員に通常どおり自動送信されます。
 
-ここに通知グループが表示されていない場合は、iOSスレッドIDを使用して追加できます。追加したい通知グループごとに1つのiOSスレッドIDが必要です。次に、ドロップダウンの**通知グループを管理**をクリックし、表示される**iOSプッシュ通知グループの管理**ウィンドウで必要なフィールドに入力して、通知グループに追加します。
+ここに通知グループが表示されていない場合は、iOSスレッドIDを使用して追加できます。追加したい通知グループごとに1つのiOSスレッドIDが必要です。次に、ドロップダウンの**Manage Notification Groups**をクリックし、表示される**Manage iOS Push Notification Groups**ウィンドウで必要なフィールドに入力して、通知グループに追加します。
 
 ![iOSプッシュ通知グループを管理するウィンドウ。]({% image_buster /assets/img_archive/managenotgroups.png %}){: style="max-width:70%;" }
 
-iOSプッシュCampaignを作成し、コンポーザーの上部を確認します。そこに**通知グループ**というラベルのドロップダウンが表示されます。
+iOSプッシュCampaignを作成し、コンポーザーの上部を確認します。そこに**Notification Groups**というラベルのドロップダウンが表示されます。
 
 ### サマリー引数 {#summary-arguments}
 
@@ -39,7 +39,7 @@ iOSプッシュCampaignを作成し、コンポーザーの上部を確認しま
 同じスレッドIDを持つ通知が通知トレイでどのようにグループ化されるかは、OSの制御下にあります。iOSは、最適と判断した内容に応じて、同じスレッドIDを持つ通知を個別に表示したり、グループ化して表示したりする場合があります。
 {% endalert %}
 
-**プッシュコンポーザー**の**アラートオプション**ボックスにチェックを入れます。
+**プッシュコンポーザー**の**Alert Options**ボックスにチェックを入れます。
 
 次に、キーとして`summary-arg`と`summary-arg-count`を選択し、対応する列にそれらの値を入力します。`summary-arg`に値を設定しない場合、デフォルトで1になります。
 
@@ -47,7 +47,7 @@ iOSプッシュCampaignを作成し、コンポーザーの上部を確認しま
 
 サマリーカテゴリを使用すると、通知がグループ化された際に表示されるサマリー全体をカスタマイズできます。複数のカテゴリを作成して適用できます。
 
-メッセージでカテゴリを使用するには、以下の例を参考にして開発者と連携して実装してください:
+メッセージでカテゴリを使用するには、以下の例を参考にして開発者と連携して実装してください：
 
 ```
 UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdentifier:@"news"
@@ -66,7 +66,7 @@ SDKの更新は必要ありません。
 `%u`と`%@`は、それぞれサマリーカウントとサマリー引数のフォーマット文字列です。サマリーが表示される際、これらのプレースホルダーは`summary-count`と`summary-arg`の値に置き換えられます。
 {% endalert %}
 
-アプリでの設定が完了したら、**通知ボタン**ボックスにチェックを入れ、**事前登録済みiOSカテゴリを入力**を選択して、サマリーカテゴリを使用します。
+アプリでの設定が完了したら、**Notification Buttons**ボックスにチェックを入れ、**Enter Pre-registered iOS Category**を選択して、サマリーカテゴリを使用します。
 
 次に、アプリで設定したサマリーカテゴリ識別子を入力します。
 
@@ -138,7 +138,7 @@ iOS 15の新しい集中モードにより、ユーザーはアプリの通知�
 
 アプリは、通知の緊急度に基づいて、通知に含める中断レベルを指定できるようになりました。
 
-iOSプッシュ通知の中断レベルを変更するには、**設定**タブを選択し、**中断レベル**ドロップダウンメニューから希望のレベルを選択します。
+iOSプッシュ通知の中断レベルを変更するには、**Settings**タブを選択し、**Interruption Level**ドロップダウンメニューから希望のレベルを選択します。
 
 ![中断レベルを選択するドロップダウン。]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
@@ -148,12 +148,12 @@ iOSプッシュ通知の中断レベルを変更するには、**設定**タブ�
 
 中断レベルとその説明については、以下の表を参照してください。
 
-|中断レベル|説明|使用するタイミング|集中モードの突破|
+| 中断レベル | 説明 | 使用するタイミング | 集中モードの突破 |
 |--|--|--|--|
-|[パッシブ](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive)|サウンド、バイブレーション、画面の点灯なしで通知を送信します。|即時の注意を必要としない通知。|いいえ|
-|[アクティブ](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active)（デフォルト）|ユーザーが集中モードでない場合にのみ、サウンド、バイブレーション、画面の点灯を行います。|ユーザーが集中モードを有効にしていない限り、即時の注意を必要とする通知。|いいえ|
-|[時間的制約あり](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive)|集中モード中でもサウンド、バイブレーション、画面の点灯を行います。これには、Xcodeでアプリに**時間的制約のある通知機能**を追加する必要があります。|ライドシェアや配達通知など、集中モードに関係なくユーザーに通知すべきタイムリーな通知。|はい|
-|[クリティカル](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical)|電話の**おやすみモード**スイッチが有効になっていても、サウンド、バイブレーション、画面の点灯を行います。これには[Appleによる明示的な承認が必要です](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/)。|悪天候や安全警報などの緊急事態。|はい|
+| [パッシブ](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive) | サウンド、バイブレーション、画面の点灯なしで通知を送信します。 | 即時の注意を必要としない通知。 | いいえ |
+| [アクティブ](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active)（デフォルト） | ユーザーが集中モードでない場合にのみ、サウンド、バイブレーション、画面の点灯を行います。 | ユーザーが集中モードを有効にしていない限り、即時の注意を必要とする通知。 | いいえ |
+| [時間的制約あり](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | 集中モード中でもサウンド、バイブレーション、画面の点灯を行います。これには、Xcodeでアプリに**Time Sensitive Notifications capability**を追加する必要があります。 | ライドシェアや配達通知など、集中モードに関係なくユーザーに通知すべきタイムリーな通知。 | はい |
+| [クリティカル](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | 電話の**おやすみモード**スイッチが有効になっていても、サウンド、バイブレーション、画面の点灯を行います。これには[Appleによる明示的な承認が必要です](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/)。 | 悪天候や安全警報などの緊急事態。 | はい |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### 関連性スコア（iOS 15以降） {#relevance-score}
@@ -162,17 +162,17 @@ iOSプッシュ通知の中断レベルを変更するには、**設定**タブ�
 
 iOS 15では、1日を通じて指定した時間に複数の通知をダイジェストグループとしてスケジュールする新しい方法もユーザーに提供されています。これは、即時の注意を必要としない通知による1日中の絶え間ない中断を防ぐためのものです。
 
-アプリは**関連性スコア**を設定することで、どのプッシュ通知が最も関連性が高いかを指定できます。Appleはこのスコアを使用して、スケジュールされた通知サマリーにどの通知を表示するかを決定し、残りの通知はユーザーがサマリーをクリックした際に利用可能になります。
+アプリは**Relevance Score**を設定することで、どのプッシュ通知が最も関連性が高いかを指定できます。Appleはこのスコアを使用して、スケジュールされた通知サマリーにどの通知を表示するかを決定し、残りの通知はユーザーがサマリーをクリックした際に利用可能になります。
 
 すべての通知は、ユーザーの通知センターで引き続きアクセスできます。
 
-iOS通知の関連性スコアを設定するには、**設定**タブで`0.0`から`1.0`の間の値を入力します。たとえば、最も重要なメッセージは`1.0`で送信し、中程度の重要度のメッセージは`0.5`で送信します。
+iOS通知の関連性スコアを設定するには、**Settings**タブで`0.0`から`1.0`の間の値を入力します。たとえば、最も重要なメッセージは`1.0`で送信し、中程度の重要度のメッセージは`0.5`で送信します。
 
 ![関連性スコア「0.5」。]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
 この機能にはSDKの最小バージョン要件はありませんが、iOS 15以降を実行しているデバイスにのみ適用されます。
 
-さまざまなメッセージタイプの最大メッセージ長の詳細については、以下のリソースを参照してください:
+さまざまなメッセージタイプの最大メッセージ長の詳細については、以下のリソースを参照してください：
 
 - [画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
 - [iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)

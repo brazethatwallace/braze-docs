@@ -28,7 +28,7 @@ BrazeとAmazon S3の統合には、2つの統合戦略があります。
 | Amazon S3アカウント | この連携を利用するには、Amazon S3アカウントが必要です。 |
 | 専用S3バケット | Amazon S3と統合する前に、アプリ用のS3バケットを作成する必要があります。<br><br>すでにS3バケットがある場合でも、Braze専用の新しいバケットを作成して権限を制限することをお勧めします。新しいバケットの作成方法については、以下の手順を参照してください。 |
 | Currents | Amazon S3にデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。メッセージアーカイブの設定のみの場合、Currentsは必要ありません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### 新しいS3バケットの作成 {#creating-a-new-s3-bucket}
 
@@ -271,11 +271,11 @@ AWSコンソールに戻り、信頼できるエンティティセレクター�
 
 次に、以前に作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横にチェックマークを付けてアタッチします。完了したら**Next**を選択します。
 
-![ロールARN]({{site.baseurl}}/assets/img/create_role_3_attach.png)
+![Role ARN]({{site.baseurl}}/assets/img/create_role_3_attach.png)
 
 ロールに名前と説明を指定し、**Create Role**を選択します。
 
-![ロールARN]({{site.baseurl}}/assets/img/create_role_4_name.png)
+![Role ARN]({{site.baseurl}}/assets/img/create_role_4_name.png)
 
 新しく作成したロールがリストに表示されます。
 

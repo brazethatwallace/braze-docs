@@ -28,7 +28,7 @@ Die Integration von Braze und Amazon S3 bietet zwei Integrationsstrategien:
 | Amazon S3-Konto | Sie benötigen ein Amazon S3-Konto, um die Vorteile dieser Partnerschaft zu nutzen. |
 | Dedizierter S3-Bucket | Vor der Integration mit Amazon S3 müssen Sie einen S3-Bucket für Ihre App erstellen.<br><br>Wenn Sie bereits einen S3-Bucket haben, empfehlen wir Ihnen dennoch, einen neuen Bucket speziell für Braze zu erstellen, damit Sie die Berechtigungen einschränken können. In der folgenden Anleitung erfahren Sie, wie Sie einen neuen Bucket erstellen. |
 | Currents | Um Daten zurück in Amazon S3 zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto einrichten lassen. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### Erstellen eines neuen S3-Buckets {#creating-a-new-s3-bucket}
 

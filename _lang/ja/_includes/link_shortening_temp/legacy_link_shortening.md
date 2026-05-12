@@ -63,9 +63,9 @@ LiquidによってレンダリングされたURLは、APIトリガープロパ�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`link_shortening_enabled`| オプション | ブール値 | `link_shortening_enabled`を`true`に設定すると、リンク短縮とキャンペーンレベルのクリックトラッキングが有効になります。トラッキングを使用するには、`campaign_id`と`message_variation_id`が必要です。|
-|`user_click_tracking_enabled`| オプション | ブール値 | `user_click_tracking_enabled`を`true`に設定すると、リンク短縮、キャンペーンレベルおよびユーザーレベルのクリックトラッキングが有効になります。トラッキングデータを使用して、URLをクリックしたユーザーのSegmentを作成できます。<br><br>このパラメーターを使用するには、`link_shortening_enabled`が`true`であり、`campaign_id`と`message_variation_id`が必要です。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `link_shortening_enabled` | オプション | ブール値 | `link_shortening_enabled`を`true`に設定すると、リンク短縮とキャンペーンレベルのクリックトラッキングが有効になります。トラッキングを使用するには、`campaign_id`と`message_variation_id`が必要です。|
+| `user_click_tracking_enabled` | オプション | ブール値 | `user_click_tracking_enabled`を`true`に設定すると、リンク短縮、キャンペーンレベルおよびユーザーレベルのクリックトラッキングが有効になります。トラッキングデータを使用して、URLをクリックしたユーザーのSegmentを作成できます。<br><br>このパラメーターを使用するには、`link_shortening_enabled`が`true`であり、`campaign_id`と`message_variation_id`が必要です。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 リクエストパラメーターの完全なリストについては、[リクエストパラメーター]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)を参照してください。
 
@@ -117,7 +117,7 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 ユニバーサルリンクでリンク短縮を実装する前に、ユーザーエクスペリエンスをテストして、期待どおりであることを確認してください。
 {% endalert %}
 
-### `send_ids`はSMSクリックイベントに関連付けられていますか？ {#are-sendids-associated-with-sms-click-events}
+### `send_ids`はSMSクリックイベントに関連付けられていますか？ {#are-send_ids-associated-with-sms-click-events}
 
 いいえ。ただし、高度なトラッキングが有効になっている場合、[クエリビルダー]({{site.baseurl}}/query_builder/)を使用して、次のクエリでCurrentsデータをクエリすることにより、一般的に`send_ids`をクリックイベントに関連付けることができます。
 

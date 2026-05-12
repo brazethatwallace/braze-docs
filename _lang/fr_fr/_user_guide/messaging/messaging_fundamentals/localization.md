@@ -33,7 +33,7 @@ Dans cette approche, la localisation est appliquée à un seul modèle dans Braz
 | Avantages | Considérations |
 | --- | --- |
 | - Approche centralisée<br>- Temps de création d'e-mail réduit, pas besoin de créer un e-mail plusieurs fois | - Création manuelle des rapports<br>- Le rapport de Campaign affiche des indicateurs agrégés plutôt que des indicateurs par pays<br>- Nécessité de tester minutieusement le Liquid pour s'assurer qu'il s'affiche comme prévu<br>- Selon la façon dont vous récupérez la valeur du pays ou le nombre de pays que vous avez configurés, il peut être difficile de tester chaque pays<br>- Plus difficile de planifier des envois à des heures spécifiques selon les fuseaux horaires<br>- Plus difficile à utiliser si vous souhaitez envoyer un contenu distinct par pays. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template for all" }
 
 ### Un modèle par pays {#one-template-per-country}
 
@@ -46,7 +46,7 @@ Cette approche sépare les modèles en différentes localisations d'envoi. Aprè
 | Avantages | Considérations |
 | --- | --- |
 | - Évolutif pour plusieurs emplacements<br>- Rapports sur le chiffre d'affaires par pays dans Braze (par exemple par Campaign)<br>- Flexibilité si le contenu diffère considérablement d'un pays à l'autre | - Nécessite une structuration stratégique<br>- Effort de création plus important (par exemple des Campaigns distinctes pour chaque pays) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template per country" }
 {% endtab %}
 
 {% tab canvas %}
@@ -59,7 +59,7 @@ Après l'envoi d'un Canvas, le tableau de bord fournit des [analyses Canvas]({{s
 | Avantages | Considérations |
 | --- | --- |
 | - Approche centralisée<br>- Temps de création d'e-mail réduit — pas besoin de créer un e-mail plusieurs fois. | - Création manuelle des rapports<br>- Le rapport Canvas affiche des indicateurs agrégés plutôt que des indicateurs par pays<br>- Nécessité de tester minutieusement le Liquid pour s'assurer qu'il s'affiche comme prévu<br>- Selon la façon dont vous récupérez la valeur du pays ou le nombre de pays que vous avez configurés, il peut être difficile de tester chaque pays<br>- Plus difficile de planifier des envois à des heures spécifiques selon les fuseaux horaires<br>- Plus difficile à utiliser si vous souhaitez envoyer un contenu distinct par pays. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey for all" }
 
 ### Un parcours par pays {#one-journey-per-country}
 
@@ -75,7 +75,7 @@ Une fois envoyé, le tableau de bord fournit des analyses dynamiques par pays et
 | Avantages | Considérations |
 | --- | --- |
 | - Rapports sur le chiffre d'affaires par pays dans Braze (par exemple par Canvas, variante ou étape)<br>- Flexibilité si le contenu diffère considérablement d'un pays à l'autre<br>- Possibilité d'ajouter d'autres canaux dans le parcours à l'avenir | - Nécessite une structuration stratégique<br>- Effort de création plus important (par exemple des étapes de message distinctes pour chaque pays)<br>- Le Canvas peut devenir volumineux et difficile à lire si vous avez des parcours personnalisés et complexes pour chaque pays dans un seul Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey per country" }
 {% endtab %}
 {% endtabs %}
 
@@ -92,7 +92,7 @@ Pour un guide complet, consultez le [guide sur l'utilisation des étiquettes de 
 ### Approches alternatives {#alternative-approaches}
 
 {% tabs local %}
-{% tab Custom Liquid %}
+{% tab Liquid personnalisé %}
 Vous pouvez coller manuellement votre contenu dans le corps de votre message et utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) pour afficher [conditionnellement]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) la bonne langue au destinataire. Pour ce faire :
 
 1. Rédigez votre message, puis sélectionnez **Langue** pour générer la logique conditionnelle Liquid pour chacune de vos langues sélectionnées.
@@ -133,7 +133,7 @@ Les Content Blocks peuvent également être utilisés comme processus de gestion
 5. Votre service appelle l'[endpoint `/content_block/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) pour mettre à jour le contenu traduit et modifier l'étiquette en « Translation Complete ».
 {% endtab %}
 
-{% tab Catalogs %}
+{% tab Catalogues %}
 Les [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) vous permettent d'accéder à des données provenant d'objets JSON importés via API et fichiers CSV pour enrichir vos messages, de manière similaire aux attributs personnalisés ou aux propriétés d'événement personnalisées via Liquid. Par exemple :
 
 {% subtabs local %}
@@ -225,7 +225,7 @@ Créez un fichier CSV au format suivant :
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Alternative approaches" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -240,13 +240,13 @@ Ces éléments de catalogue peuvent ensuite être référencés à l'aide de la 
 {% endraw %}
 {% endtab %}
 
-{% tab Braze partners %}
+{% tab Partenaires Braze %}
 De nombreux partenaires Braze proposent des solutions de localisation, notamment [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex/#about-transifex) et [Crowdin](https://crowdin.com/). En général, les utilisateurs utilisent la plateforme en complément d'une équipe interne et d'une agence de traduction. Ces traductions sont ensuite téléchargées et deviennent accessibles via la REST API. Ces services exploitent également souvent le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), permettant aux utilisateurs de récupérer les traductions via API.
 
 Par exemple, les appels de Contenu connecté suivants appellent Transifex et Crowdin pour récupérer une traduction, en utilisant {% raw %}`{{${language}}}`{% endraw %} pour identifier la traduction correcte pour un utilisateur donné. Cette traduction est ensuite enregistrée dans le bloc JSON « strings » et référencée.
 
 {% subtabs local %}
-{% subtab Transifex example %}
+{% subtab Exemple Transifex %}
 {% raw %}
 ```liquid
 {% connected_content https://www.transifex.com/api/2/project/example/resource/example/translation/{{${language}}}/strings :basic_auth semc :save strings %}
@@ -254,7 +254,7 @@ Par exemple, les appels de Contenu connecté suivants appellent Transifex et Cro
 ```
 {% endraw %}
 {% endsubtab %}
-{% subtab Crowdin example %}
+{% subtab Exemple Crowdin %}
 {% raw %}
 ```liquid
 {% connected_content https://api.crowdin.com/api/project/braze-test/export-file?key=you_api_key&language={{${language}}}&file=test.json&export_translated_only=1 :save response %}
@@ -265,11 +265,11 @@ Par exemple, les appels de Contenu connecté suivants appellent Transifex et Cro
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Spreadsheets %}
+{% tab Tableurs %}
 Hébergez les traductions dans un tableur, puis utilisez l'une des méthodes suivantes pour envoyer votre message dans la langue appropriée.
 
 {% subtabs local %}
-{% subtab Connected Content %}
+{% subtab Contenu connecté %}
 Vous pouvez travailler avec une agence de traduction pour stocker les traductions dans un tableur Google Sheets, puis interroger ce contenu à l'aide du [Contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). Lorsque vous envoyez un message, la traduction correspondante pour chaque utilisateur sera intégrée dans le corps de votre Campaign en fonction de la langue sélectionnée.
 
 {% alert note %}
@@ -277,7 +277,7 @@ L'API Google Sheets a une limite de 500 requêtes par 100 secondes par projet. L
 {% endalert %}
 {% endsubtab %}
 
-{% subtab JSON API via SheetDB %}
+{% subtab API JSON via SheetDB %}
 Cette option fournit une méthode alternative pour transformer des Google Sheets en objets JSON interrogés via le Contenu connecté. En transformant un tableur en API JSON via SheetDB, vous pouvez choisir parmi [plusieurs niveaux d'abonnement](https://sheetdb.io/pricing) en fonction de la fréquence des appels API.
 
 La structure du tableur suit les étapes de l'option 4, mais SheetDB fournit également des [filtres supplémentaires](https://docs.sheetdb.io/#sheetdb-api) pour interroger les objets.
@@ -293,7 +293,7 @@ Tout d'abord, construisez le tableur Google de sorte que les langues soient des 
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 1: Format the Google sheet" }
 
 #### Étape 2 : Utiliser l'étiquette Liquid de langue dans un appel de Contenu connecté {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 

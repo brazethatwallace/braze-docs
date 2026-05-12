@@ -31,7 +31,7 @@ La première étape consiste à choisir quelle CEP utiliser avec Decisioning Stu
 | **Braze** | Intégration native via API (recommandée) | Faible |
 | **Salesforce Marketing Cloud** | Événements API + Journey Builder | Moyenne |
 | **Autres CEP** | Personnalisée (fichier de recommandation) | Élevée |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP prises en charge" }
 
 {% alert tip %}
 Si vous utilisez déjà Braze comme CEP, nous vous recommandons d'utiliser l'intégration native Braze pour une expérience de configuration optimale.
@@ -52,7 +52,7 @@ Avant de configurer l'orchestration, rassemblez les éléments suivants en fonct
 | **Nom d'affichage et adresse de l'expéditeur** | Les informations d'expéditeur à utiliser pour vos Campaigns (disponibles dans **Settings** > **Email Preferences**). |
 | **Modèles de base** | Les modèles de messages que votre agent utilisera pour l'orchestration. Vous créerez des Campaigns déclenchées par API pour chaque modèle. |
 | **ID utilisateur test** | Un ID utilisateur pour tester l'intégration avant le lancement. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -64,7 +64,7 @@ Avant de configurer l'orchestration, rassemblez les éléments suivants en fonct
 | **Extensions de données** | Vous aurez besoin d'extensions de données pour les données d'abonnés, les données d'engagement et les recommandations. |
 | **Modèles d'e-mail** | Les modèles que vous souhaitez que Decisioning Studio utilise, avec les ID de modèle pour chacun. |
 | **Accès à Journey Builder** | Accès pour créer et activer des parcours multi-étapes avec des sources d'entrée par événement API. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}
 {% tab Autres CEP %}
@@ -76,7 +76,7 @@ Si vous utilisez une CEP autre que Braze ou Salesforce Marketing Cloud, Decision
 | **Capacité d'ingestion de données** | Votre CEP doit être capable d'ingérer des fichiers de recommandation (généralement CSV ou JSON) contenant des décisions personnalisées pour chaque client. |
 | **Prise en charge du contenu dynamique** | Vos Campaigns doivent prendre en charge le remplissage dynamique des champs à partir des données de recommandation. |
 | **Ressources d'ingénierie personnalisées** | Votre équipe devra créer l'intégration pour lire les fichiers de recommandation et déclencher les communications. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}
 {% endtabs %}
@@ -114,7 +114,7 @@ Pour les intégrations Braze, planifiez les dimensions que votre agent optimiser
 | Appel à l'action | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | Offre | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | Montant de la remise | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Propriétés de déclenchement API" }
 
 ## Configuration de l'intégration {#integration-setup}
 
@@ -143,7 +143,7 @@ Un modèle de base est tout modèle que l'agent de décision pourrait utiliser p
 
 Assurez-vous que toutes les Campaigns déclenchées par API permettent aux utilisateurs de redevenir éligibles dans un délai de 15 minutes.
 
-![Diagramme Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
+![Diagramme de limite de fréquence Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
 
 {% alert note %}
 Bien que l'agent Decisioning Studio n'envoie jamais la même Campaign plus d'une fois par jour, vous voudrez avoir la possibilité d'envoyer les mêmes Campaigns plusieurs fois par jour à des fins de test.
@@ -161,31 +161,31 @@ Supposons que l'agent Decisioning Studio optimise une Campaign e-mail. La config
 
 En supposant que l'agent optimise le choix des modèles et le message d'appel à l'action (CTA), une Campaign déclenchée par API devrait être créée pour chaque modèle, et la section CTA d'un modèle pourrait ressembler à :
 
-![Exemple de CTA e-mail Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
+![Exemple de section CTA e-mail Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
 
 #### Exemple 2 : Campaign push {#example-2-push-campaign}
 
 Supposons qu'un agent Decisioning Studio optimise le message d'une Campaign push. La configuration pourrait ressembler à ceci :
 
-![Exemple de Campaign push Decisioning Studio - configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
+![Exemple de Campaign push Decisioning Studio – configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
 
-![Exemple de Campaign push Decisioning Studio - propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
+![Exemple de Campaign push Decisioning Studio – propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
 
 Ce qui donne le message suivant :
 
-![Exemple de Campaign push Decisioning Studio - résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
+![Exemple de Campaign push Decisioning Studio – résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
 
 #### Exemple 3 : Campaign SMS {#example-3-sms-campaign}
 
 Supposons que l'agent Decisioning Studio optimise les champs d'une Campaign SMS. La configuration pourrait ressembler à ceci :
 
-![Exemple de Campaign SMS Decisioning Studio - configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
+![Exemple de Campaign SMS Decisioning Studio – configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 
-![Exemple de Campaign SMS Decisioning Studio - propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
+![Exemple de Campaign SMS Decisioning Studio – propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
 
 Ce qui donne le message suivant :
 
-![Exemple de Campaign SMS Decisioning Studio - résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_3.png %})
+![Exemple de Campaign SMS Decisioning Studio – résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_3.png %})
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}

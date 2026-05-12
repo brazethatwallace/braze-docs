@@ -1,7 +1,7 @@
 ---
 nav_title: Airbyte
 article_title: Airbyte
-description: "This reference article covers the Braze and Airbyte integration. Airbyte is an open-source data integration engine that helps you consolidate your data in your data warehouses, lakes, and databases, forwarding real-time events from Airbyte to Braze."
+description: "이 참조 문서에서는 Braze와 Airbyte 통합에 대해 다룹니다. Airbyte는 데이터 웨어하우스, 레이크, 데이터베이스에 데이터를 통합하고 Airbyte에서 Braze로 실시간 이벤트를 전달하는 데 도움이 되는 오픈소스 데이터 통합 엔진입니다."
 alias: /partners/airbyte/
 page_type: partner
 search_tag: Airbyte
@@ -10,36 +10,36 @@ search_tag: Airbyte
 
 # Airbyte
 
-> [Airbyte](https://airbyte.com/) is an open-source data integration engine that helps you consolidate your data in your data warehouses, lakes, and databases.
+> [Airbyte](https://airbyte.com/)는 데이터 웨어하우스, 레이크, 데이터베이스에 데이터를 통합하는 데 도움이 되는 오픈소스 데이터 통합 엔진입니다.
 
-_This integration is maintained by Airbyte._
+_이 통합은 Airbyte에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and Airbyte integration allows users to create a data pipeline to collect and analyze Braze data by connecting all of your applications and databases to a central warehouse. After data has been collected in the central warehouse, data teams can explore Braze data effectively using their preferred business intelligence tools.
+Braze와 Airbyte 통합을 사용하면 모든 애플리케이션과 데이터베이스를 중앙 웨어하우스에 연결하여 Braze 데이터를 수집하고 분석하는 데이터 파이프라인을 생성할 수 있습니다. 중앙 웨어하우스에 데이터가 수집되면 데이터 팀은 선호하는 비즈니스 인텔리전스 도구를 사용하여 Braze 데이터를 효과적으로 탐색할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Airbyte Cloud account | An [Airbyte Cloud](https://cloud.airbyte.io/workspaces) account is required to take advantage of this integration. |
-| Braze REST API key | A Braze REST API key with all permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | Your endpoint will depend on the Braze URL for your instance. |
+| Airbyte Cloud 계정 | 이 통합을 활용하려면 [Airbyte Cloud](https://cloud.airbyte.io/workspaces) 계정이 필요합니다. |
+| Braze REST API 키 | 모든 권한이 포함된 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Integration
+## 통합 {#integration}
 
-1. In your Airbyte Cloud account, navigate to **Sources > + New Source > Set up the Source**.
-2. Enter "Braze" as the source name and select **Braze** from the source dropdown.
-3. Provide your endpoint URL, Braze REST API key, and start date. Click **Set up Source**.
+1. Airbyte Cloud 계정에서 **Sources > + New Source > Set up the Source**로 이동합니다.
+2. 소스 이름으로 "Braze"를 입력하고 소스 드롭다운에서 **Braze**를 선택합니다.
+3. 엔드포인트 URL, Braze REST API 키, 시작 날짜를 입력합니다. **Set up Source**를 클릭합니다.
 
-### Supported sync modes
+### 지원되는 동기화 모드 {#supported-sync-modes}
 
-Airbyte's Braze source connector supports the following [sync modes](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes):
-- **Full Refresh | Overwrite**: sync all records from the source and replace data in the destination by overwriting it.
-- **Incremental Sync | Append**: Sync new records from the source and add them to the destination without deleting any data.
+Airbyte의 Braze 소스 커넥터는 다음 [동기화 모드](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes)를 지원합니다:
+- **Full Refresh | Overwrite**: 소스에서 모든 레코드를 동기화하고 대상의 데이터를 덮어씁니다.
+- **Incremental Sync | Append**: 소스에서 새 레코드를 동기화하고 기존 데이터를 삭제하지 않고 대상에 추가합니다.
 
-### Supported streams
+### 지원되는 스트림 {#supported-streams}
 
 - [`campaigns`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18)
 - [`campaigns_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1)
@@ -56,5 +56,5 @@ Airbyte's Braze source connector supports the following [sync modes](https://doc
 - [`segments_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e)
 
 {% alert note %}
-Rate limits differ depending on the stream. Visit the [rate limits table]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) for more information.
+사용량 제한은 스트림에 따라 다릅니다. 자세한 내용은 [사용량 제한 표]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type)를 참조하세요.
 {% endalert %}

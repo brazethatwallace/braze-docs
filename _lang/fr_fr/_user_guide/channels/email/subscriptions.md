@@ -23,7 +23,7 @@ Braze dispose de trois états d'abonnement globaux pour les utilisateurs d'e-mai
 | Abonnement confirmé (opted-in) | Un utilisateur a explicitement confirmé qu'il souhaite recevoir des e-mails. Nous recommandons un processus d'abonnement explicite pour obtenir le consentement des utilisateurs avant l'envoi d'e-mails. |
 | Abonné (subscribed) | Un utilisateur ne s'est ni désabonné ni explicitement abonné à la réception d'e-mails. Il s'agit de l'état d'abonnement par défaut lors de la création d'un profil utilisateur. |
 | Désabonné (unsubscribed) | Un utilisateur s'est explicitement désabonné de vos e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
 
 {% alert note %}
 Braze ne comptabilise pas les changements d'état d'abonnement dans vos points de donnée, que ce soit au niveau global ou au niveau des groupes d'abonnement.
@@ -115,7 +115,7 @@ Les groupes d'abonnement archivés ne peuvent pas être modifiés et n'apparaiss
 Pour archiver votre groupe depuis la page **Subscription Groups**, procédez comme suit :
 
 1. Trouvez votre groupe dans la liste des groupes d'abonnement.
-2. Sélectionnez **Archive** dans le menu déroulant <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;.
+2. Sélectionnez **Archive** dans le menu déroulant <i class="fa-solid fa-ellipsis-vertical" aria-label="Ouvrir le menu d'options"></i>&nbsp;.
 
 Braze ne traite pas les changements d'état pour les utilisateurs des groupes archivés. Par exemple, si vous archivez le groupe d'abonnement 1 alors qu'Alex y est abonné, Alex reste « abonné » même s'il clique sur un lien de désabonnement. Cela n'a pas d'importance car le groupe d'abonnement 1 est archivé et vous ne pouvez pas envoyer de messages en l'utilisant.
 

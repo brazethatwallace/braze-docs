@@ -37,7 +37,7 @@ SQL変数を使用するメリットには以下があります。
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | 使用したい定義済みの変数タイプ（`campaign`や`catalog_fields`など）。完全なリストについては、[サポートされている変数タイプ](#variable-types)を参照してください。 |
 | `custom_label` | クエリビルダーの**変数**タブで変数を識別するために使用されるラベル。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1: 変数を追加する" }
 
 以下の例では、ある月の初日から最終日までのユーザー総数をCampaignに対してクエリしています。各変数には次のステップで値が割り当てられます。
 
@@ -183,7 +183,7 @@ time > {{start_date.${custom_label}}} AND time < {{end_date.${custom_label}}}
 | 開始日 | 開始日を指定します | `start_date`が必要 |
 | 終了日 | 終了日を指定します | `end_date`が必要 |
 | 日付範囲 | 開始日と終了日の両方を指定します | `start_date`と`end_date`の両方が必要 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="日付範囲" }
 
 Liquidは指定された日付範囲内にカレンダーを表示するために使用されます。
 
@@ -243,7 +243,7 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 すべてのCampaignおよびCanvas変数は、単一グループ内で状態を同期するために同じ識別子を使用する必要があります。
 {% endalert %}
 
-### Canvases
+### Canvases {#canvases}
 
 {% tabs local %}
 {% tab 1つのCanvas %}

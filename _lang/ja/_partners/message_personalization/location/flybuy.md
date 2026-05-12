@@ -26,7 +26,7 @@ FlybuyはリッチなユーザーインテリジェンスイベントをBrazeに
 |---|---|
 | Flybuyアカウント | 少なくとも1つのプロジェクトを持つFlybuyアカウント。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## インテグレーション {#integration}
 

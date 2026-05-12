@@ -23,7 +23,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="4XXエラー">
   <caption>4XXエラー</caption>
   <thead>
     <tr>
@@ -130,13 +130,13 @@ table td {
 | **529 Host Overloaded** | エンドポイントホストが過負荷になり、応答できませんでした。 |
 | **598 Host Unhealthy** | エンドポイントホストが一時的に異常とマークされているため、Brazeは応答をシミュレートしました。詳細については、[異常ホストの検出](#unhealthy-host-detection)を参照してください。 |
 | **599 Connection Error** | エンドポイントへの接続を確立しようとしたときに、Brazeでネットワーク接続タイムアウトエラーが発生しました。エンドポイントが不安定またはダウンしている可能性があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5XXエラー" }
 
 ### 5XXエラーの解決 {#resolving-5xx-errors}
 
 一般的な `5XX` エラーのトラブルシューティングのヒントを次に示します。
 
-- **メッセージアクティビティログ**で利用可能な特定の詳細について、エラーメッセージを確認してください。Webhookの場合は、Brazeホームページの**Performance Over Time**セクションに移動し、Webhookの統計を選択します。ここから、エラーが発生した日時を示すタイムスタンプを確認できます。
+- **メッセージアクティビティログ**で利用可能な特定の詳細について、エラーメッセージを確認してください。Webhookの場合は、Brazeホームページの**Performance Over Time**セクションに移動し、webhookの統計を選択します。ここから、エラーが発生した日時を示すタイムスタンプを確認できます。
 - 大量のリクエストを送信してエンドポイントを過負荷にしないようにしてください。バッチで送信するか、レート制限を調整してエラーが減少するかどうかを確認できます。
 
 ## 異常ホストの検出 {#unhealthy-host-detection}

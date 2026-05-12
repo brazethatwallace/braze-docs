@@ -432,7 +432,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,7 +469,7 @@ Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% alert tip %}
@@ -515,7 +515,7 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,11 +544,11 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% alert tip %}
-Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함되지 않습니다. 따라서 [이메일용 주문 확인 및 피드백 설문조사]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)에서 언급된 카탈로그 Liquid 개인화를 사용해야 합니다.
+Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함되지 않습니다. 따라서 [이메일용 유기한 장바구니 제품 개인화]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)에서 언급된 카탈로그 Liquid 개인화를 사용해야 합니다.
 {% endalert %}
 
 {% endsubtab %}
@@ -599,7 +599,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% endsubtab %}
@@ -650,7 +650,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% endsubtab %}
@@ -684,7 +684,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% endsubtab %}
@@ -721,7 +721,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
@@ -746,7 +746,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 | 변수 | Liquid 템플릿 |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="추적되는 Shopify 이벤트" }
 {% endraw %}
 
 {% alert note %}
@@ -809,7 +809,7 @@ Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/da
 | `shopify_last_order_name` | 고객의 마지막 주문 이름입니다. 이는 주문 리소스의 `name` 필드와 직접 관련됩니다. |
 | `shopify_zipcode` | 고객의 기본 주소에 있는 우편번호입니다. |
 | `shopify_province` | 고객의 기본 주소에 있는 시/도입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 Shopify 커스텀 속성" }
 
 {% alert important %}
 현재 Shopify API 버전의 알려진 문제로 인해 `shopify_last_order_name` 사용자 속성이 올바르게 채워지지 않습니다. 사용자에게 미치는 영향은 다음과 같습니다:<br><br>
@@ -886,4 +886,4 @@ Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external
 | Braze 추천 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 구독 상태 |
 | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어와 연결된 이메일 마케팅 구독</li><li>이 Shopify 스토어와 연결된 SMS 마케팅 구독</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="동기화된 데이터" }

@@ -1,30 +1,30 @@
 ---
-nav_title: "POST: Duplicar canvas"
-article_title: "POST: Duplicar canvas"
+nav_title: "POST: Duplicar Canvas"
+article_title: "POST: Duplicar Canvas"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint de duplicação de canvas."
+description: "Este artigo descreve detalhes sobre o endpoint de duplicação de Canvas."
 ---
 
 {% api %}
-# Duplicar canvas usando a API
+# Duplicar Canvas usando a API {#duplicate-canvases-using-the-api}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
-> Use esse endpoint para duplicar canvas. Esse endpoint da API é semelhante à [duplicação de canvas no dashboard da Braze][1].
+> Use esse endpoint para duplicar Canvas. Esse endpoint da API é semelhante à [duplicação de Canvas no dashboard da Braze][1].
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `canvas.duplicate`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 Esse endpoint está limitado a 100 chamadas de API por minuto.
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -40,19 +40,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`| Obrigatória | String | Consulte [Identificador do canva](https://www.braze.com/docs/api/identifier_types/). |
-|`name`| Obrigatória | String | O nome do canva resultante. |
-|`description`| Opcional | String | O campo de descrição do canva resultante. |
-|`tag_names` | Opcional | String | As tags do canva resultante. Essas devem ser tags existentes. Se você adicionar novas tags na solicitação, elas substituirão todas as tags que estavam no canva original. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Obrigatório | String | Consulte [Identificador do Canvas](https://www.braze.com/docs/api/identifier_types/). |
+| `name` | Obrigatório | String | O nome do Canvas resultante. |
+| `description` | Opcional | String | O campo de descrição do Canvas resultante. |
+| `tag_names` | Opcional | String | As tags do Canvas resultante. Essas devem ser tags existentes. Se você adicionar novas tags na solicitação, elas substituirão todas as tags que estavam no Canvas original. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Resposta
+## Resposta {#response}
 
-Esse endpoint retornará um código de status `202` e a criação do canva ocorrerá de forma assíncrona. Você pode usar o [download do evento de segurança][2] para ver os registros de quando os canvas foram duplicados e por qual chave de API.
+Esse endpoint retornará um código de status `202` e a criação do Canvas ocorrerá de forma assíncrona. Você pode usar o [download do evento de segurança][2] para ver os registros de quando os Canvas foram duplicados e por qual chave de API.
 
 [1]: {{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/duplicating
 [2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings

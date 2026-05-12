@@ -47,7 +47,7 @@ Antes de fazer upload do seu arquivo CSV, certifique-se de que ele atende aos se
 | Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano e hora. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatação | Formate todo o texto em letras minúsculas para manter a consistência. |
 | Codificação | Salve e faça upload do arquivo CSV usando a codificação UTF-8. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Revise seu arquivo CSV" }
 
 {% alert note %}
 Precisa de mais espaço para acomodar seus arquivos CSV? Fale com seu gerente de conta da Braze para saber mais sobre como fazer upgrade dos seus catálogos.
@@ -55,7 +55,7 @@ Precisa de mais espaço para acomodar seus arquivos CSV? Fale com seu gerente de
 
 ### Etapa 2: Fazer upload do CSV {#step-2-upload-csv}
 
-Arraste e solte seu arquivo na zona de upload ou selecione **Fazer upload de CSV** e escolha seu arquivo.
+Arraste e solte seu arquivo na zona de upload ou selecione **Upload CSV** e escolha seu arquivo.
 
 ![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
@@ -79,7 +79,7 @@ Você também pode [usar modelos em um nome de catálogo](#template-catalog-name
 
 ![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-Selecione **Processar catálogo** para criar o catálogo.
+Selecione **Process Catalog** para criar o catálogo.
 
 {% alert important %}
 Seu arquivo CSV pode ser rejeitado se você ultrapassar seu [nível](#tiers).
@@ -94,7 +94,7 @@ Para este tutorial, estamos usando um catálogo que lista dois jogos, seu custo 
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
   <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
@@ -128,7 +128,7 @@ Esse tipo de dados não pode ser editado após a configuração do catálogo.
 
 ![Quatro nomes de colunas do catálogo: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Processar catálogo**. A Braze verificará se há erros no catálogo antes da criação.
+Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Process Catalog**. A Braze verificará se há erros no catálogo antes da criação.
 
 ![Um catálogo chamado "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
@@ -165,11 +165,11 @@ Você também pode [usar modelos em um nome de catálogo](#template-catalog-name
 
 ### Etapa 2: Crie seu catálogo {#step-2-create-your-catalog}
 
-Selecione seu catálogo na lista e, em seguida, selecione **Atualizar catálogo** > **Adicionar campos**. Insira o **Nome do campo** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
+Selecione seu catálogo na lista e, em seguida, selecione **Update Catalog** > **Add fields**. Insira o **Field name** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
 
 ![Dois campos de exemplo: "rating" e "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-Selecione **Atualizar catálogo** > **Adicionar itens** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Salvar item** ou **Salvar e adicionar outro** para continuar adicionando seus itens.
+Selecione **Update Catalog** > **Add items** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Save Item** ou **Save and Add Another** para continuar adicionando seus itens.
 
 ![Adicionar um item de catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
@@ -198,7 +198,7 @@ Ao nomear seu catálogo, você também pode usar modelos em um nome de catálogo
 
 ### No dashboard {#in-the-dashboard}
 
-Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo no navegador, selecione **Atualizar catálogo** > **Fazer upload de CSV** e então selecione se deseja atualizar, adicionar ou excluir itens no seu catálogo.
+Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo no navegador, selecione **Update Catalog** > **Upload CSV** e então selecione se deseja atualizar, adicionar ou excluir itens no seu catálogo.
 
 ### Usando a REST API {#using-the-rest-api}
 
@@ -217,6 +217,8 @@ Além de gerenciar seus catálogos, você também pode usar endpoints assíncron
 Por exemplo, se você quiser editar um item de catálogo individual, pode usar o [endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
 
 ## Armazenamento de catálogo {#tiers}
+
+Para uma visão geral rápida dos limites de armazenamento por plano, consulte [Limitações de armazenamento de dados]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
 
 A versão gratuita dos catálogos suporta tamanhos de arquivo CSV de até 100 MB para todos os arquivos CSV combinados na sua empresa, enquanto a versão Catalogs Pro suporta tamanhos de arquivo CSV de até 2 GB para um único arquivo CSV.
 
@@ -241,7 +243,7 @@ A tabela a seguir resume as especificações do que você pode incluir nos catá
 | Caracteres do valor do item | Até 5.000 caracteres em um único valor. Por exemplo, se você tiver um campo chamado `description`, o número máximo de caracteres dentro do campo é 5.000. |
 | Caracteres do nome da coluna do item | Até 250 caracteres |
 | Seleções por catálogo | Até 30 seleções por catálogo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações" }
 
 {% alert important %}
 As Liquid tags de catálogo não podem ser usadas recursivamente, o que significa que você não pode referenciar um item de catálogo que, por sua vez, chama um segundo item de catálogo dentro da mesma avaliação Liquid.

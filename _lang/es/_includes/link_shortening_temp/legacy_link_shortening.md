@@ -61,17 +61,17 @@ Acortamos las URL que son renderizadas por Liquid, incluso aquellas incluidas en
 
 El acortamiento de enlaces también está activado para mensajes exclusivos de API a través del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Para activar también el seguimiento básico o avanzado, usa los parámetros de solicitud `link_shortening_enabled` o `user_click_tracking_enabled`.
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`link_shortening_enabled`| Opcional | Booleano | Establece `link_shortening_enabled` en `true` para activar el acortamiento de enlaces y el seguimiento de clics a nivel de campaña. Para usar el seguimiento, deben estar presentes un `campaign_id` y un `message_variation_id`.|
-|`user_click_tracking_enabled`| Opcional | Booleano | Establece `user_click_tracking_enabled` en `true` para activar el acortamiento de enlaces, y el seguimiento de clics a nivel de campaña y a nivel de usuario. Puedes usar los datos rastreados para crear segmentos de usuarios que hicieron clic en las URL.<br><br> Para usar este parámetro, `link_shortening_enabled` debe ser `true`, y deben estar presentes un `campaign_id` y un `message_variation_id`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `link_shortening_enabled` | Opcional | Booleano | Establece `link_shortening_enabled` en `true` para activar el acortamiento de enlaces y el seguimiento de clics a nivel de campaña. Para usar el seguimiento, deben estar presentes un `campaign_id` y un `message_variation_id`. |
+| `user_click_tracking_enabled` | Opcional | Booleano | Establece `user_click_tracking_enabled` en `true` para activar el acortamiento de enlaces, y el seguimiento de clics a nivel de campaña y a nivel de usuario. Puedes usar los datos rastreados para crear segmentos de usuarios que hicieron clic en las URL.<br><br> Para usar este parámetro, `link_shortening_enabled` debe ser `true`, y deben estar presentes un `campaign_id` y un `message_variation_id`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 Para obtener una lista completa de los parámetros de solicitud, ve a [parámetros de solicitud]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Prueba** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o a un usuario individual.
+Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o a un usuario individual.
 
 Esta vista previa se actualiza con la personalización relevante y la URL acortada. El número de caracteres y los [segmentos facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) también se actualizan para reflejar la personalización renderizada y la URL acortada.
 
@@ -83,19 +83,19 @@ Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", e
 Si se crea un borrador dentro de un Canvas activo, no se generará una URL acortada. La URL acortada real se genera cuando el borrador del Canvas se activa.
 {% endalert %}
 
-![Pestaña "Prueba" del mensaje con campos para seleccionar destinatarios de prueba.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
+![Pestaña "Test" del mensaje con campos para seleccionar destinatarios de prueba.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
 
 {% alert note %}
-La personalización con Liquid y las URL acortadas se procesan en la pestaña **Prueba** después de que se haya seleccionado un usuario. Asegúrate de seleccionar un usuario para recibir un conteo de caracteres preciso.
+La personalización con Liquid y las URL acortadas se procesan en la pestaña **Test** después de que se haya seleccionado un usuario. Asegúrate de seleccionar un usuario para recibir un conteo de caracteres preciso.
 {% endalert %}
 
 ## Seguimiento de clics {#click-tracking}
 
-Cuando el acortamiento de enlaces está activado, la tabla de **rendimiento de SMS/MMS/RCS** incluye una columna titulada **Clics totales** que muestra un conteo de eventos de clic por variante y una tasa de clics asociada. Para más detalles sobre las métricas, consulta [Rendimiento de mensajes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
+Cuando el acortamiento de enlaces está activado, la tabla de **rendimiento de SMS/MMS/RCS** incluye una columna titulada **Total Clicks** que muestra un conteo de eventos de clic por variante y una tasa de clics asociada. Para más detalles sobre las métricas, consulta [Rendimiento de mensajes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
 ![Tabla de métricas de rendimiento de SMS y MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
-Las tablas de **rendimiento histórico** y **rendimiento de SMS/MMS/RCS** también incluyen una opción para **Clics totales** y muestran una serie temporal diaria de eventos de clic. Los clics se incrementan en la redirección (como cuando un usuario visita un enlace), y pueden incrementarse más de una vez por usuario.
+Las tablas de **Historical Performance** y **rendimiento de SMS/MMS/RCS** también incluyen una opción para **Total Clicks** y muestran una serie temporal diaria de eventos de clic. Los clics se incrementan en la redirección (como cuando un usuario visita un enlace), y pueden incrementarse más de una vez por usuario.
 
 ## Reorientación de usuarios {#retargeting-users}
 
@@ -117,7 +117,7 @@ El acortamiento de enlaces no funciona con vínculos profundos. Como alternativa
 Prueba la experiencia del usuario antes de implementar el acortamiento de enlaces con enlaces universales para confirmar que cumple con tus expectativas.
 {% endalert %}
 
-### ¿Los `send_ids` están asociados con los eventos de clic de SMS? {#are-sendids-associated-with-sms-click-events}
+### ¿Los `send_ids` están asociados con los eventos de clic de SMS? {#are-send_ids-associated-with-sms-click-events}
 
 No. Sin embargo, si tienes el seguimiento avanzado habilitado, generalmente puedes atribuir `send_ids` con eventos de clic usando el [Generador de consultas]({{site.baseurl}}/query_builder/) para consultar datos de Currents con esta consulta:
 

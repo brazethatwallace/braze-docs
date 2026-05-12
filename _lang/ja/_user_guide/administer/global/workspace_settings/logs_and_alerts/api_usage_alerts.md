@@ -7,7 +7,7 @@ page_order: 0
 
 # API使用アラート {#api-usage-alerts}
 
-> API使用状況アラートは、APIの使用状況を可視化する重要な手段であり、予期せぬトラフィックを事前に検知することを可能にします。これらのアラートを設定して主要なAPIリクエスト量をトラッキングすれば、リアルタイムで通知を受け取ることができ、問題がマーケティングキャンペーンに影響を与える前に解決できます。
+> API使用状況アラートは、APIの使用状況を可視化する重要な手段であり、予期せぬトラフィックを事前に検知することを可能にします。これらのアラートを設定して主要なAPIリクエスト量をトラッキングすれば、リアルタイムで通知を受け取ることができ、問題がマーケティングCampaignsに影響を与える前に解決できます。
 
 ## API使用アラートについて {#about-api-usage-alerts}
 
@@ -17,7 +17,7 @@ API使用量アラートを使って、以下のカテゴリのリクエスト�
 |--------------|---------|
 | REST APIエンドポイント | Brazeのバックエンドに対して行われたすべてのREST API呼び出しの使用状況をトラッキングします。例えば、メッセージ送信、Campaign作成、ユーザーエクスポートなどです。 |
 | SDK APIリクエスト | Braze SDKからクライアントアプリに対して行われるAPIリクエストを追跡します。例えば、アプリ内メッセージのトリガーやユーザーデータの同期などです。<br><br>_*「月間アクティブユーザー – CY 24-25」を購入した顧客のみが利用可能です。_ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
 
 ## API使用量アラートの作成 {#creating-an-api-usage-alert}
 
@@ -33,7 +33,7 @@ API使用量アラートを作成するには：
 
 アラート基準を定義する際には、以下のしきい値を調整できます。
 
-<table>
+<table aria-label="Alert thresholds #api-usage-alert-thresholds">
   <caption>アラートしきい値</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ API使用量アラートを作成するには：
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
 
 ## アラート通知の設定 {#setting-up-alert-notifications}
 
@@ -108,7 +108,7 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | すべてのエンドポイント | すべてのAPIキー | `4XX` および `5XX` | 10%増加 | 10 | 1時間 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab エンドポイントのレート制限 %}
@@ -117,7 +117,7 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | すべてのAPIキー | `429` | 以上 | 100 | 1時間 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab APIトリガーのCampaigns %}
@@ -126,7 +126,7 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | すべてのAPIキー | `4XX` および `5XX` | 以上 | 1 | 1時間 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab パートナー連携 %}
@@ -135,7 +135,7 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | すべてのエンドポイント | パートナー連携に使用しているAPIキー | すべての応答コード | 以下 | 0 | 1日 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 {% endtabs %}
 

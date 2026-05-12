@@ -7,7 +7,7 @@ description: "Este artigo de referência descreve os grupos internos, uma ótima
 
 ---
 
-# Grupos internos
+# Grupos internos {#internal-groups}
 
 > Grupos internos são uma ótima maneira de criar e organizar grupos de teste internos ou de terceiros. Eles fornecem insights sobre os registros do SDK ou da API e são úteis ao testar a integração de SDK. Você pode criar um número ilimitado de grupos internos personalizados com até 1.000 usuários.
 
@@ -15,7 +15,7 @@ description: "Este artigo de referência descreve os grupos internos, uma ótima
 Também recomendamos conferir nosso curso do Braze Learning [Testes e solução de problemas](https://learning.braze.com/path/developer/testing-and-troubleshooting), que aborda como usar grupos internos para conduzir sua própria solução de problemas e depuração.
 {% endalert %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para criar e gerenciar grupos internos, você precisa da [permissão legada Acessar Console de Desenvolvedor]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) ou destas [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions):
 
@@ -35,7 +35,7 @@ Para criar e gerenciar grupos internos, você precisa da [permissão legada Aces
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-## Criando um grupo interno
+## Criando um grupo interno {#creating-an-internal-group}
 
 Para criar um grupo interno:
 
@@ -44,34 +44,34 @@ Para criar um grupo interno:
 3. Dê um nome ao seu grupo, como "Grupo de teste de e-mail".
 4. Escolha um ou mais tipos de grupo, conforme listado na tabela a seguir.
 
-| Tipo de grupo         | Descrição                                                                                 |
-|--------------------|---------------------------------------------------------------------------------------------|
-| **Grupo de eventos de usuário**   | Use para verificar eventos ou registros do seu dispositivo de teste.                                    |
+| Tipo de grupo | Descrição |
+|---|---|
+| **Grupo de eventos de usuário** | Use para verificar eventos ou registros do seu dispositivo de teste. |
 | **Grupo de teste de conteúdo** | Use em push, e-mail e mensagens no app para enviar uma cópia renderizada da mensagem. |
-| **Grupo de teste**         | Envia automaticamente uma cópia do e-mail para todos no grupo de teste no momento do envio.               |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Grupo de teste** | Envia automaticamente uma cópia do e-mail para todos no grupo de teste no momento do envio. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Criando um grupo interno" }
 
 {:start="5"}
 
 5. Selecione **Criar grupo interno** novamente.
 
-### Adicionando usuários teste
+### Adicionando usuários teste {#adding-test-users}
 
 Depois de criar seu grupo interno, adicione usuários teste como membros desse grupo.
 
 1. Na página de gerenciamento do seu grupo interno, selecione **Adicionar usuários teste**.
 2. Escolha entre os seguintes métodos para pesquisar e selecionar seus usuários teste.
 
-| Método                  | Descrição                                                                                                                                                                                                                                          |
-|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Adicionar usuário identificado** | Pesquise o usuário pelo ID externo, endereço de e-mail, número de telefone ou token por push.                                                                                                                                                           |
-| **Adicionar usuário anônimo**  | Pesquise por endereço IP. Em seguida, forneça um nome para cada usuário teste adicionado. Esse é o nome ao qual todos os registros de eventos são associados na página [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/). |
-| **Adicionar usuários em massa**      | Copie e cole uma lista de endereços de e-mail ou IDs externos. Você só pode adicionar usuários que já são conhecidos no dashboard. Para saber mais, consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).          |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Método | Descrição |
+|---|---|
+| **Adicionar usuário identificado** | Pesquise o usuário pelo ID externo, endereço de e-mail, número de telefone ou token por push. |
+| **Adicionar usuário anônimo** | Pesquise por endereço IP. Em seguida, forneça um nome para cada usuário teste adicionado. Esse é o nome ao qual todos os registros de eventos são associados na página [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/). |
+| **Adicionar usuários em massa** | Copie e cole uma lista de endereços de e-mail ou IDs externos. Você só pode adicionar usuários que já são conhecidos no dashboard. Para saber mais, consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Adicionando usuários teste" }
 
 ![Configurações de grupo interno ao criar um novo grupo interno]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
-### Grupos de teste de conteúdo
+### Grupos de teste de conteúdo {#content-test-groups}
 
 Semelhante ao envio de uma pré-visualização de teste de uma mensagem, o grupo de teste de conteúdo economiza tempo e permite que você lance testes para uma lista predefinida de usuários da Braze simultaneamente. Isso está disponível para push, mensagens no app, SMS, e-mail e Content Cards na Braze. Somente grupos marcados como grupos de teste de conteúdo ficam disponíveis na seção de pré-visualização de uma mensagem.
 
@@ -87,7 +87,7 @@ Se você usar um pool de IP para enviar um e-mail, selecione de qual pool de IP 
 
 ![A seção de teste do editor de mensagens no app para selecionar o grupo de teste de conteúdo.]({% image_buster /assets/img_archive/content_test_preview.png %}){: style="max-width:60%" }
 
-### Grupos de teste
+### Grupos de teste {#seed-groups}
 
 Os grupos de teste são compatíveis apenas com o canal de e-mail. Adicione usuários a um grupo de teste para enviar cópias de cada variante de mensagem de e-mail para todos os membros do grupo.
 
@@ -103,7 +103,7 @@ E-mails de teste têm `[SEED]` adicionado antes da linha de assunto. Observe que
 - Impactam o limite de frequência.
 - Contabilizam ou impactam os limites de taxa de velocidade de entrega.
 
-#### Comportamento de inscrição
+#### Comportamento de inscrição {#subscription-behavior}
 
 Os envios de teste são projetados para QA e revisão internos, então eles intencionalmente ignoram as verificações de inscrição para os usuários da empresa incluídos no grupo de teste. Isso significa que usuários com endereços de e-mail válidos que fazem parte de um grupo de teste recebem a mensagem mesmo que não estejam inscritos. No entanto, a mensagem deve estar configurada para enviar cópias de teste para esse grupo.
 
@@ -113,7 +113,7 @@ Se os membros do grupo de teste não estiverem vendo a mensagem, confirme que el
 Se o e-mail usar [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), os membros do grupo de teste ainda devem satisfazer a condição de cancelamento para receber o envio.
 {% endalert %}
 
-#### Para campanhas
+#### Para campanhas {#for-campaigns}
 
 Ao compor uma campanha de e-mail, edite seus grupos de teste na seção **Público-alvo** do editor.
 
@@ -131,7 +131,7 @@ Se você tiver uma campanha recorrente e qualquer uma das variantes for atualiza
 
 ![O grupo de teste "Email seed test" selecionado para receber a campanha de e-mail da Variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
 
-#### Para Canvas
+#### Para Canvas {#for-canvas}
 
 Os grupos de teste no Canvas funcionam de forma semelhante a qualquer campanha disparada. A Braze detecta automaticamente todas as etapas que contêm uma mensagem de e-mail e envia quando seu usuário alcança pela primeira vez aquela etapa de e-mail específica.
 

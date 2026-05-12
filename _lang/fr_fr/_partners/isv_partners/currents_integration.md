@@ -57,7 +57,7 @@ En outre, leur structure diffère légèrement de la structure plate que l'on tr
 |----|-----------|
 | `"user"` | Contient des propriétés utilisateur telles que `user_id`, `external_user_id`, `device_id` et `timezone`. |
 | `"properties"` | Contient les attributs d'un événement, tels que le `app/campaign/canvas/platform` auquel il s'applique. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 Si un endpoint en aval reçoit un payload avec zéro événement ou un corps de requête vide, le résultat doit être considéré comme un no-op, ce qui signifie qu'aucun effet en aval ne doit résulter de cet appel. Cependant, vous devez toujours vérifier l'en-tête `Authorization` (comme vous le feriez pour un appel API normal) et fournir une réponse HTTP appropriée en cas d'[informations d'identification non valides](#authentication), telle que `401` ou `403`. Cela permet à Braze de savoir que les informations d'identification du connecteur sont valides.
 
@@ -430,7 +430,7 @@ Si le mécanisme de relance de Braze ne parvient pas à livrer un événement pe
 
 Les codes d'état HTTP suivants seront reconnus par notre client de connecteur :
 
-<table>
+<table aria-label="Error handling and retry mechanism">
   <caption>Gestion des erreurs et mécanisme de nouvelle tentative</caption>
   <thead>
     <tr>
@@ -482,4 +482,4 @@ Les codes d'état HTTP suivants seront reconnus par notre client de connecteur :
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

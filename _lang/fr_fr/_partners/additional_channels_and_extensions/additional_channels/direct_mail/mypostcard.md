@@ -22,7 +22,7 @@ Utilisez l'intégration de MyPostcard et de Braze pour envoyer sans effort des m
 | Compte MyPostcard B2B | L'inscription à MyPostcard est nécessaire pour profiter de cette intégration. |
 | Clé API B2B et identifiants | Vous trouverez votre clé API et vos identifiants dans l'outil d'administration MyPostcard B2B. |
 | Campaign MyPostcard B2B approuvée | Pour profiter de cette intégration, vous devez configurer une campagne de publipostage dans l'outil MyPostcard B2B. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -50,14 +50,14 @@ Si vous souhaitez créer une Campaign webhook MyPostcard ponctuelle ou utiliser 
 |---|---|
 | **Webhook URL** | L'URL du webhook telle qu'elle apparaît dans l'outil d'administration B2B. |
 | **Request Body** | Texte brut (format JSON disponible dans l'outil d'administration B2B). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### Méthode de requête et en-têtes {#request-method-and-headers}
 
 MyPostcard exige qu'une méthode HTTP ainsi que les en-têtes HTTP suivants soient inclus dans le modèle.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
   <caption>Méthode de requête et en-têtes</caption>
   <thead>
     <tr>
@@ -85,7 +85,7 @@ MyPostcard exige qu'une méthode HTTP ainsi que les en-têtes HTTP suivants soie
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### Corps de la requête {#request-body}
 

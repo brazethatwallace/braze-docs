@@ -58,17 +58,17 @@ Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft
 
 | Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | -------------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product_id` | String | Ja | Eindeutiger Produktbezeichner (z. B. SKU oder Artikel-ID). |
-| `product_name` | String | Ja | Anzeigename des Produkts. |
-| `variant_id` | String | Ja | Produktvarianten-Bezeichner (z. B. `shirt_medium_blue`). |
-| `image_url` | String | Nein | Produktbild-URL. |
-| `product_url` | String | Nein | URL zur Produktseite für weitere Details. |
-| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis zum Zeitpunkt der Ansicht. |
-| `currency` | String | Ja | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
-| `source` | String | Ja | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
-| `type` | String-Array | Nein | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `sku` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | String           | Ja      | Eindeutiger Produktbezeichner (z. B. SKU oder Artikel-ID).                                                                                                   |
+| `product_name` | String           | Ja      | Anzeigename des Produkts.                                                                                                                               |
+| `variant_id`   | String           | Ja      | Produktvarianten-Bezeichner (z. B. `shirt_medium_blue`).                                                                                            |
+| `image_url`    | String           | Nein       | Produktbild-URL.                                                                                                                                  |
+| `product_url`  | String           | Nein       | URL zur Produktseite für weitere Details.                                                                                                           |
+| `price`        | Gleitkommazahl            | Ja      | Varianten-Stückpreis zum Zeitpunkt der Ansicht.                                                                                                          |
+| `currency`     | String           | Ja      | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`).                                                                                               |
+| `source`       | String           | Ja      | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`).                                                                               |
+| `type`         | String-Array | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"`     |
+| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `sku` (String)                                                                                   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### REST-API-Beispiel {#rest-api-example}
 
@@ -117,30 +117,30 @@ Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% 
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `cart_id` | String | Ja | Eindeutiger Bezeichner für den Warenkorb. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| `total_value` | Gleitkommazahl | Ja | Gesamter Geldwert des Warenkorbs. |
-| `subtotal_value` | Gleitkommazahl | Nein | Zwischensumme des Warenkorbs (nach Rabatt, vor Steuern/Versand). |
-| `tax` | Gleitkommazahl | Nein | Gesamte auf den Warenkorb angewandte Steuer. |
-| `shipping` | Gleitkommazahl | Nein | Gesamte Versandkosten für den Warenkorb. |
-| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
-| `products` | Array | Ja | Vollständiges Array der aktuell im Warenkorb befindlichen Artikel. Siehe Produkteigenschaften-Untertabelle. |
-| `source` | String | Ja | Quelle, von der das Event stammt. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare für zusätzliche Daten auf Event-Ebene. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cart_id`       | String    | Ja      | Eindeutiger Bezeichner für den Warenkorb. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt.                   |
+| `total_value`   | Gleitkommazahl     | Ja      | Gesamter Geldwert des Warenkorbs.                                                                                             |
+| `subtotal_value`| Gleitkommazahl     | Nein       | Zwischensumme des Warenkorbs (nach Rabatt, vor Steuern/Versand).                                                                 |
+| `tax`           | Gleitkommazahl     | Nein       | Gesamte auf den Warenkorb angewandte Steuer.                                                                                                |
+| `shipping`      | Gleitkommazahl     | Nein       | Gesamte Versandkosten für den Warenkorb.                                                                                             |
+| `currency`      | String    | Ja      | Dreistelliger ISO-4217-Code.                                                                                                   |
+| `products`      | Array     | Ja      | Vollständiges Array der aktuell im Warenkorb befindlichen Artikel. Siehe Produkteigenschaften-Untertabelle.                                              |
+| `source`        | String    | Ja      | Quelle, von der das Event stammt.                                                                                             |
+| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare für zusätzliche Daten auf Event-Ebene.                                                                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`) {#product-properties-products}
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-------------------------------------------------|
-| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
-| `product_name` | String | Ja | Anzeigename des Produkts. |
-| `variant_id` | String | Ja | Varianten-Bezeichner. |
-| `image_url` | String | Nein | Produktbild-URL. |
-| `product_url` | String | Nein | URL zur Produktseite. |
-| `quantity` | Integer | Ja | Anzahl der Einheiten im Warenkorb. |
-| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | String    | Ja      | Eindeutiger Produktbezeichner.                      |
+| `product_name`  | String    | Ja      | Anzeigename des Produkts.                           |
+| `variant_id`    | String    | Ja      | Varianten-Bezeichner.                             |
+| `image_url`     | String    | Nein       | Produktbild-URL.                              |
+| `product_url`   | String    | Nein       | URL zur Produktseite.                        |
+| `quantity`      | Integer   | Ja      | Anzahl der Einheiten im Warenkorb.                    |
+| `price`         | Gleitkommazahl     | Ja      | Varianten-Stückpreis.                             |
+| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`).   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
 #### REST-API-Beispiel
 
@@ -205,31 +205,31 @@ Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z.
 
 | Eigenschaft | Typ | Erforderlich | Beschreibung |
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
-| checkout_id | String | Ja | Eindeutiger Bezeichner für die Checkout-Sitzung. |
-| cart_id | String | Nein | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| total_value | Gleitkommazahl | Ja | Gesamter Geldwert des Checkouts. |
-| subtotal_value | Gleitkommazahl | Nein | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| tax | Gleitkommazahl | Nein | Gesamte auf den Checkout angewandte Steuer. |
-| shipping | Gleitkommazahl | Nein | Gesamte Versandkosten. |
-| currency | String | Ja | Dreistelliger ISO-4217-Code. |
-| products | Array | Ja | Artikel im Checkout. Siehe Produkteigenschaften-Untertabelle. |
-| source | String | Ja | Quelle, von der das Event stammt. |
-| metadata | Objekt | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `checkout_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| checkout_id    | String  | Ja      | Eindeutiger Bezeichner für die Checkout-Sitzung.                                                                      |
+| cart_id        | String  | Nein       | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt.                     |
+| total_value    | Gleitkommazahl   | Ja      | Gesamter Geldwert des Checkouts.                                                                            |
+| subtotal_value | Gleitkommazahl   | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand).                                                                |
+| tax            | Gleitkommazahl   | Nein       | Gesamte auf den Checkout angewandte Steuer.                                                                               |
+| shipping       | Gleitkommazahl   | Nein       | Gesamte Versandkosten.                                                                                             |
+| currency       | String  | Ja      | Dreistelliger ISO-4217-Code.                                                                                      |
+| products       | Array   | Ja      | Artikel im Checkout. Siehe Produkteigenschaften-Untertabelle.                                                       |
+| source         | String  | Ja      | Quelle, von der das Event stammt.                                                                                |
+| metadata       | Objekt  | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `checkout_url` (String)                                       |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |----------------|-----------|----------|----------------------------------------------------------|
-| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
-| `product_name` | String | Ja | Anzeigename des Produkts. |
-| `variant_id` | String | Ja | Varianten-Bezeichner. |
-| `image_url` | String | Nein | Produktbild-URL. |
-| `product_url` | String | Nein | URL zur Produktseite. |
-| `quantity` | Integer | Ja | Anzahl der Einheiten im Warenkorb. |
-| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare (z. B. Farbe, Größe). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | String    | Ja      | Eindeutiger Produktbezeichner.                               |
+| `product_name` | String    | Ja      | Anzeigename des Produkts.                                    |
+| `variant_id`   | String    | Ja      | Varianten-Bezeichner.                                      |
+| `image_url`    | String    | Nein       | Produktbild-URL.                                       |
+| `product_url`  | String    | Nein       | URL zur Produktseite.                                 |
+| `quantity`     | Integer   | Ja      | Anzahl der Einheiten im Warenkorb.                             |
+| `price`        | Gleitkommazahl     | Ja      | Varianten-Stückpreis.                                      |
+| `metadata`     | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. Farbe, Größe).            |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
 #### REST-API-Beispiel
 
@@ -300,33 +300,33 @@ Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den W
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-----------------------------------------------------------------------------------------------|
-| `order_id` | String | Ja | Eindeutiger Bezeichner für die Bestellung. |
-| `cart_id` | String | Nein | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| `total_value` | Gleitkommazahl | Ja | Gesamter Geldwert der Bestellung. |
-| `subtotal_value` | Gleitkommazahl | Nein | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| `tax` | Gleitkommazahl | Nein | Gesamte auf die Bestellung angewandte Steuer. |
-| `shipping` | Gleitkommazahl | Nein | Gesamte Versandkosten. |
-| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
-| `total_discounts` | Gleitkommazahl | Nein | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
-| `discounts` | Array | Nein | Detaillierte Liste der angewandten Rabatte. |
-| `products` | Array | Ja | Artikel in der Bestellung. Siehe Produkteigenschaften-Untertabelle. |
-| `source` | String | Ja | Quelle, von der das Event stammt. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`      | String    | Ja      | Eindeutiger Bezeichner für die Bestellung.                                                              |
+| `cart_id`       | String    | Nein       | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt.  |
+| `total_value`   | Gleitkommazahl     | Ja      | Gesamter Geldwert der Bestellung.                                                            |
+| `subtotal_value`| Gleitkommazahl     | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand).                                             |
+| `tax`           | Gleitkommazahl     | Nein       | Gesamte auf die Bestellung angewandte Steuer.                                                               |
+| `shipping`      | Gleitkommazahl     | Nein       | Gesamte Versandkosten.                                                                          |
+| `currency`      | String    | Ja      | Dreistelliger ISO-4217-Code.                                                                   |
+| `total_discounts`| Gleitkommazahl    | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte.                                               |
+| `discounts`     | Array     | Nein       | Detaillierte Liste der angewandten Rabatte.                                                           |
+| `products`      | Array     | Ja      | Artikel in der Bestellung. Siehe Produkteigenschaften-Untertabelle.                                         |
+| `source`        | String    | Ja      | Quelle, von der das Event stammt.                                                             |
+| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String)                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|---------------------------------------------|
-| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
-| `product_name` | String | Ja | Anzeigename des Produkts. |
-| `variant_id` | String | Ja | Varianten-Bezeichner. |
-| `image_url` | String | Nein | Produktbild-URL. |
-| `product_url` | String | Nein | URL zur Produktseite. |
-| `quantity` | Integer | Ja | Anzahl der Einheiten in der Bestellung. |
-| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | String    | Ja      | Eindeutiger Produktbezeichner.                  |
+| `product_name`  | String    | Ja      | Anzeigename des Produkts.                       |
+| `variant_id`    | String    | Ja      | Varianten-Bezeichner.                         |
+| `image_url`     | String    | Nein       | Produktbild-URL.                          |
+| `product_url`   | String    | Nein       | URL zur Produktseite.                    |
+| `quantity`      | Integer   | Ja      | Anzahl der Einheiten in der Bestellung.                |
+| `price`         | Gleitkommazahl     | Ja      | Varianten-Stückpreis.                         |
+| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`).|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
 #### REST-API-Beispiel
 
@@ -404,33 +404,33 @@ Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfl
 
 | Eigenschaft | Typ | Erforderlich | Beschreibung |
 |------------------|---------|----------|--------------------------------------------------------------------------------------------------|
-| `order_id` | String | Ja | Eindeutiger Bezeichner für die Bestellung. |
-| `total_value` | Gleitkommazahl | Ja | Gesamter Geldwert der stornierten Bestellung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Verringerung. |
-| `subtotal_value` | Gleitkommazahl | Nein | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| `tax` | Gleitkommazahl | Nein | Gesamte auf die Bestellung angewandte Steuer. |
-| `shipping` | Gleitkommazahl | Nein | Gesamte Versandkosten. |
-| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
-| `total_discounts` | Gleitkommazahl | Nein | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
-| `discounts` | Array | Nein | Detaillierte Liste der angewandten Rabatte. |
-| `cancel_reason` | String | Ja | Grund für die Stornierung der Bestellung. |
-| `products` | Array | Ja | Artikel in der stornierten Bestellung. Siehe Produkteigenschaften-Untertabelle. |
-| `source` | String | Ja | Quelle, von der das Event stammt. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`       | String  | Ja      | Eindeutiger Bezeichner für die Bestellung.                                                                 |
+| `total_value`    | Gleitkommazahl   | Ja      | Gesamter Geldwert der stornierten Bestellung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Verringerung. |
+| `subtotal_value` | Gleitkommazahl   | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand).                                                |
+| `tax`            | Gleitkommazahl   | Nein       | Gesamte auf die Bestellung angewandte Steuer.                                                                  |
+| `shipping`       | Gleitkommazahl   | Nein       | Gesamte Versandkosten.                                                                             |
+| `currency`       | String  | Ja      | Dreistelliger ISO-4217-Code.                                                                      |
+| `total_discounts`| Gleitkommazahl   | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte.                                                  |
+| `discounts`      | Array   | Nein       | Detaillierte Liste der angewandten Rabatte.                                                              |
+| `cancel_reason`  | String  | Ja      | Grund für die Stornierung der Bestellung.                                                                  |
+| `products`       | Array   | Ja      | Artikel in der stornierten Bestellung. Siehe Produkteigenschaften-Untertabelle.                                  |
+| `source`         | String  | Ja      | Quelle, von der das Event stammt.                                                                |
+| `metadata`       | Objekt  | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String)                   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |----------------|-----------|----------|-----------------------------------------------|
-| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
-| `product_name` | String | Ja | Anzeigename des Produkts. |
-| `variant_id` | String | Ja | Varianten-Bezeichner. |
-| `image_url` | String | Nein | Produktbild-URL. |
-| `product_url` | String | Nein | URL zur Produktseite. |
-| `quantity` | Integer | Ja | Anzahl der Einheiten in der Bestellung. |
-| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | String    | Ja      | Eindeutiger Produktbezeichner.                    |
+| `product_name` | String    | Ja      | Anzeigename des Produkts.                         |
+| `variant_id`   | String    | Ja      | Varianten-Bezeichner.                           |
+| `image_url`    | String    | Nein       | Produktbild-URL.                            |
+| `product_url`  | String    | Nein       | URL zur Produktseite.                      |
+| `quantity`     | Integer   | Ja      | Anzahl der Einheiten in der Bestellung.                  |
+| `price`        | Gleitkommazahl     | Ja      | Varianten-Stückpreis.                           |
+| `metadata`     | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
 #### REST-API-Beispiel
 
@@ -497,29 +497,29 @@ Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-------------------|-----------|----------|------------------------------------------------------------------------------------------------------|
-| `order_id` | String | Ja | Eindeutiger Bezeichner für die ursprüngliche Bestellung. |
-| `total_value` | Gleitkommazahl | Ja | Gesamter Geldwert der Erstattung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Erhöhung von total_refunds. |
-| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
-| `total_discounts` | Gleitkommazahl | Nein | Gesamtbetrag der ursprünglich angewandten Rabatte. |
-| `discounts` | Array | Nein | Detaillierte Liste der Rabatte. |
-| `products` | Array | Ja | Erstattete Artikel. Siehe Produkteigenschaften-Untertabelle. |
-| `source` | String | Ja | Quelle, von der das Event stammt. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`        | String    | Ja      | Eindeutiger Bezeichner für die ursprüngliche Bestellung.                                                            |
+| `total_value`     | Gleitkommazahl     | Ja      | Gesamter Geldwert der Erstattung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Erhöhung von total_refunds. |
+| `currency`        | String    | Ja      | Dreistelliger ISO-4217-Code.                                                                          |
+| `total_discounts` | Gleitkommazahl     | Nein       | Gesamtbetrag der ursprünglich angewandten Rabatte.                                                        |
+| `discounts`       | Array     | Nein       | Detaillierte Liste der Rabatte.                                                                          |
+| `products`        | Array     | Ja      | Erstattete Artikel. Siehe Produkteigenschaften-Untertabelle.                                              |
+| `source`          | String    | Ja      | Quelle, von der das Event stammt.                                                                    |
+| `metadata`        | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String).                      |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-------------------------------------------------------|
-| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
-| `product_name` | String | Ja | Anzeigename des Produkts. |
-| `variant_id` | String | Ja | Varianten-Bezeichner. |
-| `image_url` | String | Nein | Produktbild-URL. |
-| `product_url` | String | Nein | URL zur Produktseite. |
-| `quantity` | Integer | Ja | Anzahl der erstatteten Einheiten. |
-| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
-| `metadata` | Objekt | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | String    | Ja      | Eindeutiger Produktbezeichner.                            |
+| `product_name`  | String    | Ja      | Anzeigename des Produkts.                                 |
+| `variant_id`    | String    | Ja      | Varianten-Bezeichner.                                   |
+| `image_url`     | String    | Nein       | Produktbild-URL.                                    |
+| `product_url`   | String    | Nein       | URL zur Produktseite.                              |
+| `quantity`      | Integer   | Ja      | Anzahl der erstatteten Einheiten.                          |
+| `price`         | Gleitkommazahl     | Ja      | Varianten-Stückpreis.                                   |
+| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`).         |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
 #### REST-API-Beispiele {#rest-api-examples}
 
@@ -613,13 +613,13 @@ Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut,
 
 | Event | Was Braze automatisch tut |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `ecommerce.order_placed` | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Nutzerprofil. |
-| `ecommerce.order_cancelled` | Verringert **Gesamtbestellungen** um 1. |
-| `ecommerce.order_refunded` | Verringert **Gesamtumsatz** um `total_value` und erhöht **Gesamterstattungswert**. |
-| `ecommerce.cart_updated` | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Nutzerprofil. Der Warenkorb läuft nach 30 Tagen ohne Update ab. |
-| `ecommerce.product_viewed` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
-| `ecommerce.checkout_started` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ecommerce.order_placed`     | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Nutzerprofil.                     |
+| `ecommerce.order_cancelled`  | Verringert **Gesamtbestellungen** um 1.                                                                                 |
+| `ecommerce.order_refunded`   | Verringert **Gesamtumsatz** um `total_value` und erhöht **Gesamterstattungswert**.                              |
+| `ecommerce.cart_updated`     | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Nutzerprofil. Der Warenkorb läuft nach 30 Tagen ohne Update ab.|
+| `ecommerce.product_viewed`   | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen).|
+| `ecommerce.checkout_started` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows).        |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce-Event-Nachbearbeitung" }
 
 {% alert important %}
 Nicht-USD-Währungswerte werden automatisch anhand des Wechselkurses am Tag der Event-Meldung in USD umgerechnet. Wenn Sie bereits in USD berichten, setzen Sie `USD` als Währung fest, um eine unbeabsichtigte Umrechnung zu vermeiden.
@@ -711,13 +711,13 @@ Für jedes Event, dessen Name einem empfohlenen E-Commerce-Event entspricht, pr�
 
 | Prüfung | Beispiel |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Event-Name | Muss exakt sein. Zum Beispiel ist `ecommerce.cart_updated` korrekt – nicht `ecommerce.Cart_Updated`, `cartupdated` oder `cart_updated`. |
-| Erforderliche Eigenschaften vorhanden | `order_placed` erfordert `order_id`, `total_value`, `currency`, `products` und `source`. |
-| Korrekte Datentypen | `total_value` muss eine Zahl sein; `currency` muss ein String sein; `products` muss ein Array sein. |
-| Keine zusätzlichen Eigenschaften auf oberster Ebene | Benutzerdefinierte Felder unter „properties“ führen zum Fehlschlagen. Verwenden Sie stattdessen das `metadata`-Objekt. |
-| Wertbeschränkungen | Geldbetragsfelder müssen ≥ `0` sein. `currency` muss ein gültiger ISO-4217-String sein. |
-| Felder pro Produkt | Jeder Eintrag in `products[]` muss `product_id`, `product_name`, `variant_id`, `quantity` und `price` enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Event-Name                | Muss exakt sein. Zum Beispiel ist `ecommerce.cart_updated` korrekt – nicht `ecommerce.Cart_Updated`, `cartupdated` oder `cart_updated`. |
+| Erforderliche Eigenschaften vorhanden | `order_placed` erfordert `order_id`, `total_value`, `currency`, `products` und `source`.                                   |
+| Korrekte Datentypen        | `total_value` muss eine Zahl sein; `currency` muss ein String sein; `products` muss ein Array sein.                                   |
+| Keine zusätzlichen Eigenschaften auf oberster Ebene | Benutzerdefinierte Felder unter „properties“ führen zum Fehlschlagen. Verwenden Sie stattdessen das `metadata`-Objekt.                                         |
+| Wertbeschränkungen         | Geldbetragsfelder müssen ≥ `0` sein. `currency` muss ein gültiger ISO-4217-String sein.                                                  |
+| Felder pro Produkt        | Jeder Eintrag in `products[]` muss `product_id`, `product_name`, `variant_id`, `quantity` und `price` enthalten.                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Was wir validieren" }
 
 ### Warum wir validieren {#why-we-validate}
 
@@ -765,10 +765,10 @@ Fehler werden auch intern klassifiziert und für die Fehlerübersichts-E-Mail ag
 
 | Fehlertyp | Bedeutung | Beispiel |
 |------------------------|---------------------------------------------------|----------------------------------------------------------------|
-| `missing_property` | Ein erforderliches Feld fehlt. | `order_placed` ohne `order_id` gesendet. |
-| `extra_property` | Ein Feld wurde hinzugefügt, das das Schema nicht definiert. | Ein benutzerdefiniertes `gift_wrapped`-Feld auf der obersten Ebene von `properties` statt innerhalb von `metadata`. |
-| `unexpected_data_type` | Ein Feld hat den falschen Typ. | `total_value: "29.99"` (String) statt `29.99` (Zahl). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `missing_property`     | Ein erforderliches Feld fehlt.                       | `order_placed` ohne `order_id` gesendet.                        |
+| `extra_property`       | Ein Feld wurde hinzugefügt, das das Schema nicht definiert. | Ein benutzerdefiniertes `gift_wrapped`-Feld auf der obersten Ebene von `properties` statt innerhalb von `metadata`. |
+| `unexpected_data_type` | Ein Feld hat den falschen Typ.                        | `total_value: "29.99"` (String) statt `29.99` (Zahl).   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beispiel einer API-Fehlerantwort" }
 
 {% alert note %}
 Event-Namen, die nicht exakt einem empfohlenen Event entsprechen (z. B. `ecommerce.OrderPlaced`), überspringen die Validierung vollständig und werden als gewöhnliche angepasste Events aufgezeichnet. Sie erscheinen in Currents und der Segmentierung unter dem von Ihnen gesendeten Namen, erhalten jedoch keine Nachbearbeitung für empfohlene Events und keinen `errors`-Eintrag in der Antwort.

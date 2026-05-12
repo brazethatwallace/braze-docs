@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat procesa 10 consultas por segundo y 100.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Sí | Snapchat admite hasta 1.000 audiencias de anuncios. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Hasta 24 horas | N/A | Sí | {::nomarkdown}<ul><li>No hay un tamaño mínimo de audiencia para las audiencias de CRM en The Trade Desk.</li><li>No hay límite en la cantidad de audiencias que admite The Trade Desk.</li><li>Si sincronizas con una audiencia con una región configurada en la UE, el número de teléfono no es compatible.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Entre 24 y 48 horas | TikTok procesa 50 consultas por segundo y 10.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Sí | {::nomarkdown}<ul><li>TikTok admite hasta 400 audiencias de anuncios.</li><li>Las audiencias de TikTok requieren al menos 1.000 usuarios para empezar a mostrar anuncios.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
 <sup>Cuando se alcance el límite de velocidad, Braze reintentará las sincronizaciones durante 13 horas.</sup>
 
 ## Cómo funciona {#how-it-works}
@@ -76,7 +76,7 @@ Para utilizar un socio de Audience Sync Pro, como TikTok, Pinterest, Snapchat o 
 
 ![Audience Sync Pro sin socios seleccionados todavía.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
-Primero, selecciona los socios que pretendes utilizar haciendo clic en Select Partners. Cada compra de Audience Sync Pro te proporcionará 3 destinos asignados de Audience Sync Pro, que estarán disponibles en cada uno de tus espacios de trabajo dentro de tu dashboard.
+Primero, selecciona los socios que pretendes utilizar haciendo clic en **Select Partners**. Cada compra de Audience Sync Pro te proporcionará 3 destinos asignados de Audience Sync Pro, que estarán disponibles en cada uno de tus espacios de trabajo dentro de tu dashboard.
 
 ![Opción de seleccionar hasta tres socios para conectarse a Braze.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 

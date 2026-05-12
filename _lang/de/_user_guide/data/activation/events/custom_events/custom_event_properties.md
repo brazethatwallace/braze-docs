@@ -32,7 +32,7 @@ Sie können keine reservierten Schlüssel als Event-Eigenschaftsnamen verwenden.
 | --- | --- |
 | Angepasste Events | `time` und `event_name` |
 | Kauf-Events | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reserved keys" }
 
 ## Verwendung angepasster Event-Eigenschaften {#using-custom-event-properties}
 
@@ -52,7 +52,7 @@ Verschachtelte angepasste Event-Eigenschaften werden auch bei der [aktionsbasier
 
 Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) mit einem Trigger-Event verwendet, kann angepasste Event-Eigenschaften dieses Events für die Personalisierung des Messagings nutzen.
 
-Wenn Sie beispielsweise eine Gaming-App haben und eine Nachricht an Nutzer:innen senden möchten, die ein Level abgeschlossen haben, könnten Sie Ihre Nachricht mit einer Eigenschaft für die Zeit, die die Nutzer:innen zum Abschließen des Levels benötigt haben, weiter personalisieren. In diesem Beispiel wird die Nachricht für drei verschiedene Segments mithilfe von [bedingter Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/) personalisiert. Die angepasste Event-Eigenschaft `time_spent` kann in die Nachricht eingefügt werden, indem Sie ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufrufen.
+Wenn Sie beispielsweise eine Gaming-App haben und eine Nachricht an Nutzer:innen senden möchten, die ein Level abgeschlossen haben, könnten Sie Ihre Nachricht mit einer Eigenschaft für die Zeit, die die Nutzer:innen zum Abschließen des Levels benötigt haben, weiter personalisieren. In diesem Beispiel wird die Nachricht für drei verschiedene Segmente mithilfe von [bedingter Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/) personalisiert. Die angepasste Event-Eigenschaft `time_spent` kann in die Nachricht eingefügt werden, indem Sie ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufrufen.
 
 {% raw %}
 ```liquid
@@ -85,7 +85,7 @@ Event-Eigenschaften für angepasste Events werden in Realtime für jedes Segment
 
 #### Event-Eigenschaften für die Segmentierung hinzufügen {#adding-event-properties-for-segmentation}
 
-Sie benötigen die [Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) „Edit Custom Event Property Segmentation“, um Segments basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
+Sie benötigen die [Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) „Edit Custom Event Property Segmentation“, um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
 
 {% multi_lang_include deprecations/user_permissions.md %}
 

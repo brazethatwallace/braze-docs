@@ -152,7 +152,7 @@ Evite usar as seguintes chaves:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>Cabeçalhos de e-mail</caption>
 <thead>
   <tr>

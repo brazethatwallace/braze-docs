@@ -41,7 +41,7 @@ iOS용 리치 푸시 알림을 생성하기 전에 다음 세부 사항을 확�
 
 사용자는 다양한 상황에서 푸시 알림을 볼 수 있으며, 다음과 같이 서로 다른 길이의 텍스트를 볼 수 있습니다.
 
-<table>
+<table aria-label="알림 상태">
   <caption>알림 상태</caption>
 <thead>
   <tr>
@@ -58,7 +58,7 @@ iOS용 리치 푸시 알림을 생성하기 전에 다음 세부 사항을 확�
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 상태" }
 
 ![잠금 화면, 확장 시, 기기 활성 상태에서 표시되는 푸시 알림 예시.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

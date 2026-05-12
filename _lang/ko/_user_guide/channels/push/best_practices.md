@@ -30,7 +30,7 @@ channel: push
 | Android | 3,930바이트 |
 | iOS | 3,960바이트 |
 | Kindle | 5,985바이트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 푸시가 최대 페이로드 크기를 초과하면 메시지가 발송되지 않을 수 있습니다. 모범 사례로서, 페이로드를 수백 바이트 이내로 유지하세요.
 
@@ -135,12 +135,12 @@ Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) 허용되지 않음: (i) App Store와 유사하거나 일반적인 관심 컬렉션으로 서드파티 앱, 확장 프로그램 또는 플러그인을 표시하기 위한 인터페이스를 만드는 것. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) 푸시 알림은 앱 기능에 필수적이어서는 안 되며, 민감한 개인 정보나 기밀 정보를 전송하는 데 사용해서는 안 됩니다. 앱의 UI에 표시된 동의 문구를 통해 고객이 명시적으로 수신에 옵트인하고, 앱에서 이러한 메시지 수신을 거부할 수 있는 방법을 제공하지 않는 한, 푸시 알림은 프로모션이나 직접 마케팅 목적으로 사용해서는 안 됩니다. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) 푸시 알림, 카메라 또는 자이로스코프와 같은 하드웨어 또는 운영체제에서 제공하는 내장 기능이나, Apple Music 접근, iCloud 저장소 또는 Screen Time API와 같은 Apple 서비스 및 기술을 수익화해서는 안 됩니다. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Google Play Store 정책 |
 | --- |
 | [시스템 기능의 무단 사용 또는 모방](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) 알림이나 경고와 같은 시스템 기능을 모방하거나 방해하는 앱이나 광고는 허용되지 않습니다. 시스템 수준 알림은 항공사 앱이 특별 할인을 알리거나 게임이 인게임 프로모션을 알리는 것과 같이 앱의 핵심 기능에만 사용할 수 있습니다. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## 관련 문서 {#related-articles}
 

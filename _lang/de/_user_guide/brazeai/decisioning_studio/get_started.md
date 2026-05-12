@@ -50,7 +50,7 @@ Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Ent
 | **Dimensionen** | Welche Entscheidungen soll der Agent personalisieren? | Tageszeit, Betreffzeile, Häufigkeit, Angebote, Kanal |
 | **Optionen** | Welche Optionen stehen dem Agenten zur Verfügung? | Bestimmte Templates, Angebote, Zeitfenster |
 | **Einschränkungen** | Welche Entscheidungen soll der Agent niemals treffen? | Geografische Beschränkungen, Budgetlimits, Berechtigungsregeln |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Key design decisions" }
 
 Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Uplift der Agent generieren kann und wie schnell. Unser AI Decisioning Services-Team arbeitet mit Ihnen zusammen, um einen Agenten zu entwerfen, der maximalen Mehrwert generiert und gleichzeitig alle Ihre Geschäftsregeln einhält.
 
@@ -65,11 +65,11 @@ Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Upli
 | **Jede CEP** | Native Integrationen mit Braze, Salesforce Marketing Cloud oder angepasste Integrationen für jede Plattform |
 | **AI Decisioning Services** | Dedizierter Support durch das Data-Science-Team von Braze |
 | **Erweitertes Experimentdesign** | Vollständig anpassbare Behandlungsgruppen und Holdouts |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Decisioning Studio capabilities" }
 
-## Bewährte Methoden
+## Best Practices {#best-practices}
 
-Einige bewährte Methoden für das Design von Decisioning-Studio-Agenten:
+Einige Best Practices für das Design von Decisioning-Studio-Agenten:
 
 - **Maximieren Sie die Datenvielfalt:** Je mehr Informationen die Agenten über Ihre Kund:innen haben, desto besser ist ihre Performance.
 - **Diversifizieren Sie die Aktionen:** Je vielfältiger die Aktionen sind, die der Agent ausführen kann, desto stärker kann er seine Strategie für jede:n einzelne:n Nutzer:in personalisieren.

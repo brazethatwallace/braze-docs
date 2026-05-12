@@ -44,7 +44,7 @@ Registrarse con A2P 10DLC puede incluir varios tipos de tarifas:
 | Tarifas de registro | Tarifas nominales aplicadas al registrar tu marca y caso de uso en todas las principales redes de EE. UU. |
 | Tarifas de verificación secundaria | Las marcas pueden apelar su [puntuación de confianza de marca](#trust-score) y solicitar un proceso de verificación secundaria para mejorar su rendimiento general; hay una tarifa asociada con este proceso. |
 | Tarifas de operador | Tarifas cobradas por los operadores por mensajes SMS y MMS salientes enviados a usuarios después del registro 10DLC. A partir del 1 de octubre de 2021, las tarifas de operador serán más altas para el tráfico no registrado (códigos largos estándar) que para el tráfico registrado (10DLC). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Costos" }
 
 Visita el artículo de Twilio sobre 10DLC para consultar las [estimaciones de tarifas](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-) actualizadas.
 
@@ -61,7 +61,7 @@ El Campaign Registry (TCR) es una agencia de terceros que utiliza un algoritmo d
 | Alta | 75-100 | 75 MPS | 75 MPS | 75 MPS |
 | Media | 50-74 | 40 MPS | 40 MPS | 40 MPS |
 | Baja | 1-49 | 4 MPS | 4 MPS | 4 MPS |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Puntuación de confianza de marca" }
 
 {% alert tip %}
 Las empresas que figuran en el índice Russell 3000 recibirán un alto rendimiento y una puntuación de confianza de marca alta después del registro y revisión de 10DLC.
@@ -90,7 +90,7 @@ Dependiendo de tu caso de uso, la puntuación de confianza necesaria para alcanz
 | 2FA | Cualquier autenticación de verificación de cuenta, como OTP. |
 | Alertas de seguridad | Notificación de un sistema comprometido. |
 | Alertas de fraude | Mensajería sobre actividad potencialmente fraudulenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso de mensajería" }
 
 {% tabs %}
 {% tab Caso de uso declarado %}
@@ -101,7 +101,7 @@ Un caso de uso declarado significa que has elegido un caso de uso específico qu
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de mensajería" }
 
 {% endtab %}
 {% tab Caso de uso de marketing mixto %}
@@ -113,7 +113,7 @@ Los casos de uso de marketing mixto se pueden registrar para clientes que desean
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de mensajería" }
 
 {% endtab %}
 {% endtabs %}

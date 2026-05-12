@@ -45,7 +45,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 | Taille du contenu | Maximum de 50 Ko. |
 | Emplacement | Les blocs de contenu ne peuvent pas être utilisés dans un pied de page d'e-mail, mais vous pouvez [créer un bloc de contenu qui inclut un pied de page](#email-footers) pour l'utiliser dans vos e-mails. |
 | Création | Éditeur HTML ou éditeur glisser-déposer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 Lors de la création de blocs de contenu, il peut être utile de visualiser le HTML et le Liquid en ajoutant des sauts de ligne. Si ces sauts de ligne sont conservés lors de l'envoi, vous risquez d'avoir des espaces superflus qui peuvent affecter le rendu du bloc. Pour éviter cela, utilisez la balise **Capture** sur votre bloc avec le filtre **&#124; strip**.

@@ -28,7 +28,7 @@ channel: push
 
 プッシュ通知は、購読中またはオプトインしたユーザーにのみ送信できます。**ユーザープロファイル**セクションの[エンゲージメント]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)タブでユーザープロファイルを確認し、テスト対象のワークスペースでプッシュ通知に登録されているかどうかを確認してください。複数のアプリに登録している場合は、**Push Registered For** フィールドに一覧表示されます。
 
-![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
+![プッシュ通知の登録先]({% image_buster /assets/img_archive/trouble1.png %})
 
 Brazeのエクスポートエンドポイントを使用してユーザープロファイルをエクスポートすることもできます。
 - [識別子によるユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
@@ -63,7 +63,7 @@ CampaignまたはCanvasにレート制限が設定されている場合、この
 単一チャネルのCampaignまたはコントロールグループを含むCanvasの場合、コントロールグループに入っている可能性があります。
 
   1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing/#step-5-distribute-users-among-your-variants)を確認して、コントロールグループがあるかどうかを確認します。
-  2. コントロールグループがある場合は、[Campaignコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter)でフィルタリングするSegmentを作成し、[Segmentをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv)して、自分のユーザー ID がこのリストに含まれているかどうかを確認します。
+  2. コントロールグループがある場合は、[Campaignコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter)でフィルタリングするSegmentを作成し、[Segmentをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv)して、自分のユーザーIDがこのリストに含まれているかどうかを確認します。
 
 #### 有効なプッシュトークン {#valid-push-token}
 プッシュトークンは、送信者が特定のデバイスにプッシュ通知を送信するために使用する識別子です。そのため、デバイスに有効なプッシュトークンがない場合、プッシュ通知を送信する方法はありません。
@@ -88,7 +88,7 @@ CampaignまたはCanvasにレート制限が設定されている場合、この
 2. **ディープリンクの処理を確認する:** `braze.xml` ファイルで、`com_braze_handle_push_deep_links_automatically` が `true` または `false` に設定されているか確認します。
    - `true` に設定されている場合、Braze SDKがディープリンクを直接処理し、アプリは期待どおりに開くはずです。
    - `false` に設定されている場合、アプリにはプッシュ受信およびオープンインテントをリッスンして処理するブロードキャストレシーバーが必要です。このレシーバーが正しく実装されていることを確認してください。
-3. **詳細ログを収集する:** [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)、問題を再現して、ログと `braze.xml` および `AndroidManifest.xml` を Braze サポートに提供してください。
+3. **詳細ログを収集する:** [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)、問題を再現して、ログと `braze.xml` および `AndroidManifest.xml` をBrazeサポートに提供してください。
 
 ### iOS
 
@@ -119,7 +119,7 @@ CampaignまたはCanvasステップで、**モバイルアプリ内でWeb URLを
 3. **iOSプッシュ登録を確認する:** iOSの場合、[APNsへのプッシュ通知の登録]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns)に関するプッシュ統合ガイドのステップ1を再確認してください。デリゲートオブジェクトがアプリの起動完了前に同期的に割り当てられていることを確認します。このステップは `application:didFinishLaunchingWithOptions:` メソッドで完了する必要があります。
 4. **統合をテストする:** 調整を行った後、iOSとAndroidの両方のデバイスでプッシュ通知の動作をテストし、問題が解決されたことを確認してください。
 
-## .p8 認証キーへの移行 {#migrate-to-a-p8-authentication-key}
+## .p8認証キーへの移行 {#migrate-to-a-p8-authentication-key}
 
 Appleの `.p8` 認証キーは、BrazeでのAPNsプッシュに必要なアプローチです。レガシーの証明書ファイルタイプとは異なり、`.p8` キーは有効期限がなく、単一のキーですべてのアプリをサポートするため、年次の証明書更新が不要になり、プッシュ配信の失敗リスクが軽減されます。
 
@@ -134,7 +134,7 @@ Appleの `.p8` 認証キーは、BrazeでのAPNsプッシュに必要なアプ�
 
 ### デスクトップでChromeをリセットする {#reset-chrome-on-desktop}
 
-1. Chromeブラウザの URL の横にある**サイト情報を表示**スライダーアイコンを選択します。
+1. ChromeブラウザのURLの横にある**サイト情報を表示**スライダーアイコンを選択します。
 2. **通知**の下で、**権限をリセット**を選択します。
 3. Chrome DevToolsを開きます。以下はオペレーティングシステムごとの関連するショートカットです。
 
@@ -148,13 +148,13 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="デスクトップでChromeをリセットする" }
 
 {:start="4"}
 4. DevToolsで、**Application** タブに移動します。
-5. サイドバーで **Storage** を選択します。
-6. **Clear site data** を選択します。
-7. Chromeが更新された設定を適用するためにページの再読み込みを求めます。**Reload** を選択します。
+5. サイドバーで**Storage**を選択します。
+6. **Clear site data**を選択します。
+7. Chromeが更新された設定を適用するためにページの再読み込みを求めます。**Reload**を選択します。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
@@ -162,17 +162,17 @@ table {
 
 サイトからの通知がAndroidの通知ドロワーに表示されている場合:
 
-1. プッシュ通知から <i class="fas fa-cog" title="設定"></i> をタップし、**Site settings** を選択します。
-2. **Site settings** から **Clear & Reset** をタップします。
+1. プッシュ通知から<i class="fas fa-cog" title="設定"></i>をタップし、**Site settings**を選択します。
+2. **Site settings**から**Clear & Reset**をタップします。
 
 サイトからの通知が開いていない場合:
 
 1. AndroidでChromeを開きます。
 2. <i class="fas fa-ellipsis-vertical"></i> メニューをタップします。
-3. **Settings** > **Site Settings** > **Notifications** に移動します。
-4. 通知が **Ask before sending (recommended)** に設定されていることを確認します。
+3. **Settings** > **Site Settings** > **Notifications**に移動します。
+4. 通知が**Ask before sending (recommended)**に設定されていることを確認します。
 5. リストからサイトを見つけます。
-6. エントリを選択し、**Clear and Reset** をタップします。
+6. エントリを選択し、**Clear and Reset**をタップします。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
@@ -181,16 +181,16 @@ table {
 
 ### デスクトップでFirefoxをリセットする {#reset-firefox-on-desktop}
 
-1. サイトのURLの横にある <i class="fa-solid fa-circle-info" alt="情報アイコン"></i> または <i class="fas fa-lock" alt="ロックアイコン"></i> を選択します。
-2. **権限**の下で、**通知を受信**の横にある <i class="fa-solid fa-circle-xmark" title="この権限をクリアして再度確認する"></i> を選択して通知権限をクリアします。
+1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="情報アイコン"></i>または<i class="fas fa-lock" alt="ロックアイコン"></i>を選択します。
+2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="この権限をクリアして再度確認する"></i>を選択して通知権限をクリアします。
 3. 同じメニューで、**Cookieとサイトデータを消去**を選択します。
-4. 確認ダイアログで **OK** を選択します。
+4. 確認ダイアログで**OK**を選択します。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
 ### AndroidでFirefoxをリセットする {#reset-firefox-on-android}
 
-Androidでプッシュ権限をリセットするには、この [Mozilla サポート記事](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)を参照してください。
+Androidでプッシュ権限をリセットするには、この[Mozillaサポート記事](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)を参照してください。
 
 {% endtab %}
 {% tab Safari %}

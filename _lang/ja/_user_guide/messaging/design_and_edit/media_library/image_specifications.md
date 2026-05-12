@@ -31,7 +31,7 @@ GIFは、iOSプッシュ通知、アプリ内メッセージ、メール、コ�
 
 ## チャネルガイダンス {#channel-guidance}
 
-### コンテンツカード {#content-cards}
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
@@ -83,7 +83,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 | Firefox | 192 x 192 px以上 |
 | Safari | 192 x 192 px以上（macOS 13+のSafari 16ではCampaignごとに設定可能） |
 | Opera | 192 x 192 px以上 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 
 | ブラウザ | プラットフォーム | 大きい画像サイズ |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Webプッシュ" }
 
 {% endtab %}
 {% tab テキスト %}
@@ -114,7 +114,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Webプッシュ" }
 
 {% endtab %}
 {% endtabs %}

@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### ステップ 2a:プライベートサブスクライバー変数を作成する {#step-2a-create-a-private-subscriber-variable}
+#### ステップ 2a:プライベートサブスクライバー変数を作成する
 
 カードの更新を購読するには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
 
@@ -133,7 +133,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### ステップ 2b:更新を購読する {#step-2b-subscribe-to-updates}
+#### ステップ 2b:更新を購読する
 
 以下のコードを追加して、Brazeからのコンテンツカードの更新を購読します。通常、カスタムコンテンツカードアクティビティの `Activity.onCreate()` 内に配置します。
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### ステップ 2c:購読を解除する {#step-2c-unsubscribe}
+#### ステップ 2c:購読を解除する
 
 カスタムアクティビティが画面外に移動したときに購読を解除します。以下のコードをアクティビティの `onDestroy()` ライフサイクルメソッドに追加します。
 
@@ -225,7 +225,7 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 1. [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) メソッドを呼び出して、アプリケーションでアクティブユーザーを設定します。
 2. Brazeで**Campaigns**に移動し、[新しいContent Cards Campaignを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)。
-3. Campaignで**テスト**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**テストを送信**を選択します。すぐにデバイスでコンテンツカードを起動できます。
+3. Campaignで**Test**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**Send Test**を選択します。すぐにデバイスでコンテンツカードを起動できます。
 
 ![BrazeのContent Cards Campaignでは、自分のユーザー ID をテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
 
@@ -241,13 +241,13 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 
 #### 例 {#example}
 
-たとえば、ユーザーにおすすめの有効化を促すコールトゥアクションと、新しいサブスクライバーSegmentに付与されるクーポンコードという2つのメッセージカードを作成できます。
+たとえば、ユーザーにおすすめの読書の有効化を促すコールトゥアクションと、新しいサブスクライバーSegmentに付与されるクーポンコードという2つのメッセージカードを作成できます。
 
 `body`、`title`、`buttonText` などのキーは、マーケターが設定できるシンプルな文字列値を持つ場合があります。`terms` のようなキーは、法務部門が承認したフレーズの小さなコレクションを提供する値を持つ場合があります。`style` や `class_type` などのキーには、アプリやサイトでのカードのレンダリング方法を決定するために設定できる文字列値があります。
 
 {% tabs local %}
-{% tab Reading recommendations %}
-おすすめカードのキーと値のペア:
+{% tab おすすめの読書 %}
+おすすめの読書カードのキーと値のペア:
 
 | キー         | 値                                                                |
 |------------|----------------------------------------------------------------------|
@@ -255,10 +255,10 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 
-{% tab New subscriber coupon %}
+{% tab 新しいサブスクライバークーポン %}
 新しいサブスクライバークーポンのキーと値のペア:
 
 | キー         | 値                                                            |
@@ -270,7 +270,7 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
 
@@ -414,4 +414,4 @@ Content Cardsカルーセルを実装するには:
 
 Content Cardsは「カード」のように見せる必要はありません。たとえば、Content Cardsは、ホームページや指定されたページの上部に永続的に表示されるダイナミックな画像として表示できます。
 
-これを実現するには、マーケターが**画像のみ**タイプのContent CardsでCampaignまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。
+これを実現するには、マーケターが**Image Only**タイプのContent CardsでCampaignまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。

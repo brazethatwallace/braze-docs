@@ -31,7 +31,7 @@ description: "このリファレンス記事では、スライドアップアプ
 | レイアウト | アセットサイズ | 備考 |
 |--- | --- | --- |
 | 画像 + テキスト | 1:1アスペクト比<br>高解像度 150 x 150&nbsp;px<br> 最小 50 x 50&nbsp;px | さまざまなアスペクト比の画像は、トリミングされることなく正方形の画像コンテナに収まります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
 
 画像やメッセージの最も重要な部分が期待どおりに表示されることを確認するために、さまざまなデバイスで常に[メッセージをプレビューおよびテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してください。コンポーザーでメッセージをプレビューする場合、デバイスでの実際のレンダリングとは異なる場合があることに注意してください。
 

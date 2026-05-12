@@ -21,7 +21,7 @@ L'intégration Braze et RudderStack vous permet de tirer parti de Braze Currents
 | Compte RudderStack | Un [compte RudderStack](https://app.rudderstack.com/login) est nécessaire pour bénéficier de ce partenariat. |
 | Destination Braze | Nous vous suggérons d'avoir [configuré Braze comme destination]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration) dans RudderStack. |
 | Currents | Pour exporter des données vers RudderStack, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 

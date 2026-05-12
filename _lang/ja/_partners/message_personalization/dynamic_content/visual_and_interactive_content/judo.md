@@ -24,11 +24,11 @@ BrazeとJudoの統合により、CampaignsとCanvasesで特別にカスタマイ
 |---|---|
 | Judoアカウント | このパートナーシップを活用するには、[Judo](https://www.judo.app/)アカウントが必要です。 |
 | Judo SDK | Judo SDKは、[iOS](https://github.com/judoapp/judo-ios/)アプリおよび/または[Android](https://github.com/judoapp/judo-android)アプリに統合する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
-**オンボーディング**：Judoを使用するアプリパブリッシャーは、リッチでネイティブなオンボーディングエクスペリエンスを構築、デプロイします。これらのエクスペリエンスを、Brazeにより調整されるパーソナライズされたクロスチャネルのオンボーディングジャーニーの要素として利用できます。さまざまなアプリ内フローの有効性をテストするために、エクスペリエンスをパーソナライズし、アプリの更新なしで迅速に更新できます。
+**オンボーディング**：Judoを使用するアプリパブリッシャーは、リッチでネイティブなオンボーディングエクスペリエンスを構築、デプロイします。これらのエクスペリエンスを、Brazeにより調整されるパーソナライズされたクロスチャネルのオンボーディングジャーニーの要素として利用できるようになりました。さまざまなアプリ内フローの有効性をテストするために、エクスペリエンスをパーソナライズし、アプリの更新なしで迅速に更新できます。
 
 **コンバージョン**：アプリパブリッシャーはBrazeのデータを使用して、パーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Judoの統合フックを使用して、アプリ内購入、有料サブスクリプション、または文脈に応じたマーチャンダイジングを促進することができます。これらのエクスペリエンスへのアクセスは、Brazeで作成されたエンゲージメントマーケティングCampaignsによってトリガーできます。
 
@@ -36,11 +36,11 @@ BrazeとJudoの統合により、CampaignsとCanvasesで特別にカスタマイ
 
 ## サイドバイサイドのSDK統合 {#side-by-side-sdk-integration}
 
-Judoは、モバイルアプリにJudoとBraze SDKを並べて統合するために必要な作業の一部を自動化する追加ライブラリを提供しています。
+Judoは、モバイルアプリにJudoとBraze SDKを並べて統合するために必要な作業の一部を自動化する追加ライブラリーを提供しています。
 
-### ステップ1：Judo-Braze統合ライブラリをインストールする {#step-1-install-the-judo-braze-integration-library}
+### ステップ1：Judo-Braze統合ライブラリーをインストールする {#step-1-install-the-judo-braze-integration-library}
 
-アプリにJudo-Braze統合ライブラリをインストールしてセットアップします。これにより、イベントトラッキングが自動的に有効になります。
+アプリにJudo-Braze統合ライブラリーをインストールしてセットアップします。これにより、イベントトラッキングが自動的に有効になります。
 
 - [iOSのインストール
 手順](https://github.com/judoapp/judo-braze-ios/wiki#installation)
@@ -51,7 +51,7 @@ Judoは、モバイルアプリにJudoとBraze SDKを並べて統合するため
 
 このステップでは、iOSおよびAndroid用のカスタム`ABKInAppMessageControllerDelegate`および`IInAppMessageManagerListener`実装を作成します。
 
-各統合ライブラリに同梱されているアプリ内メッセージ設定ドキュメントを参照してください：
+各統合ライブラリーに同梱されているアプリ内メッセージ設定ドキュメントを参照してください：
 
 - [iOSアプリ内メッセージ
 セットアップ](https://github.com/judoapp/judo-braze-ios/wiki#in-app-messaging-setup)
@@ -80,7 +80,7 @@ JudoがこれをJudoエクスペリエンスに書き換えて置き換えるた
 ### ステップ2：Judo用のキーバリューペアを設定する {#step-2-set-a-key-value-pair-for-judo}
 ![この統合に必要な1つのキーバリューペアを示す画像。「key」は「judo-experience」、「value」はJudoリンクです。]({% image_buster /assets/img/judo/braze-campaign-extras-judo-experience.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Campaignに[カスタムキーバリューペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)を設定します。キーは`judo-experience`です。ここに表示したいJudoエクスペリエンスのURLを入力します。その後、Judo-Braze統合ライブラリはハンドラーでこのキーバリューペアを検出し、Judoエクスペリエンスを標準のBrazeアプリ内メッセージUIの代わりに挿入します。
+Campaignに[カスタムキーバリューペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)を設定します。キーは`judo-experience`です。ここに表示したいJudoエクスペリエンスのURLを入力します。その後、Judo-Braze統合ライブラリーはハンドラーでこのキーバリューペアを検出し、Judoエクスペリエンスを標準のBrazeアプリ内メッセージUIの代わりに挿入します。
 <br><br>
 ### ステップ3：Campaignを完了する {#step-3-finishing-the-campaign}
 

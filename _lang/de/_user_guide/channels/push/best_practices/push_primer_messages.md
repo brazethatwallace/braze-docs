@@ -26,11 +26,11 @@ Beachten Sie außerdem die folgenden plattformspezifischen Details:
 
 {% tabs local %}
 {% tab android %}
-|Betriebssystemversion|Zusätzliche Informationen|
+| Betriebssystemversion | Zusätzliche Informationen |
 |----------|----------------------|
 | **Android 12 und früher** | Die Implementierung von Push-Primern wird nicht empfohlen, da Push standardmäßig aktiviert ist. |
 | **Android 13+** | Wenn Nutzer:innen Ihre Push-Berechtigungsanfrage zweimal ablehnen, blockiert Android weitere Anfragen – einschließlich Braze-Push-Primer-Nachrichten. Um danach die Berechtigung zu erteilen, müssen Nutzer:innen Push für Ihre App manuell in den Geräteeinstellungen aktivieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 {% endtab %}
 
 {% tab swift %}

@@ -137,7 +137,7 @@ Asegúrate de previsualizar el correo electrónico en Braze para confirmar que e
 
 Braze Currents permite el seguimiento del rendimiento y la optimización a lo largo del tiempo.
 
-1. En Braze, ve a **Partner Integrations** > **Data Export**.
+1. En Braze, ve a **Integraciones de socios** > **Exportación de datos**.
 2. Selecciona **Create New Test Current** y luego selecciona **Test Amazon S3 Data Export**.
 
 ![Menú desplegable "Create New Test Current" con la opción "Test Amazon S3 Data Export".]({% image_buster /assets/img/just_words/test_amazon_s3.png %}){: style="max-width:80%;"}
@@ -145,12 +145,12 @@ Braze Currents permite el seguimiento del rendimiento y la optimización a lo la
 {: start="3" }
 3. Introduce el ID de acceso S3, la clave de acceso secreta de AWS, el nombre de contenedor y la carpeta proporcionados por JustAI durante la incorporación.
 
-![Sección "Credentials" para la clave de acceso secreta de AWS.]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
+![Sección de credenciales para la clave de acceso secreta de AWS.]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
 
 {: start="4" }
 4. Selecciona los eventos a rastrear, como envíos, aperturas, clics, cancelaciones de suscripción, conversiones y otros.
 
-![Sección "Message Engagement Events" con eventos para seleccionar.]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
+![Sección de eventos de interacción de mensajes con eventos para seleccionar.]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
 
 {: start="5" }
 5. Lanza el Braze Current.

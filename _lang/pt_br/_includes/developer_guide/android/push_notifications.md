@@ -4,18 +4,18 @@
 
 Os seguintes recursos estão integrados ao SDK Android da Braze. Para usar quaisquer outros recursos de notificação por push, você precisará [configurar notificações por push](#android_setting-up-push-notifications) para seu app.
 
-|Recurso|Descrição|
+| Recurso | Descrição |
 |-------|-----------|
-|Push Stories|As Push Stories do Android estão integradas ao SDK Android da Braze por padrão. Para saber mais, veja [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Push Primers|Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Push Stories | As Push Stories do Android estão integradas ao SDK Android da Braze por padrão. Para saber mais, veja [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/). |
+| Push Primers | Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## Sobre o ciclo de vida da notificação por push {#push-notification-lifecycle}
 
 O fluxograma a seguir mostra como a Braze lida com o ciclo de vida da notificação por push, como solicitações de permissão, geração de token e entrega de mensagens.
 
 {% tabs local %}
-{% tab Granting permissions %}
+{% tab Concedendo permissões %}
 ```mermaid
 ---
 config:
@@ -84,7 +84,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Generating push tokens %}
+{% tab Gerando tokens de push %}
 ```mermaid
 ---
 config:
@@ -133,7 +133,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Displaying notifications %}
+{% tab Exibindo notificações %}
 ```mermaid
 ---
 config:
@@ -256,13 +256,13 @@ As chaves privadas podem representar um risco de segurança se forem comprometid
 
 ### Etapa 6: Faça upload das suas credenciais JSON na Braze {#step-6-upload-your-json-credentials-to-braze}
 
-Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear"></i>&nbsp;**Configurações** > **Configurações do app**.
+Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **App Settings**.
 
-![O menu "Configurações" aberto na Braze com "Configurações do app" destacado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![O menu "Settings" aberto na Braze com "App Settings" destacado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Nas **Configurações das notificações por push** do seu app Android, escolha **Firebase**, selecione **Upload JSON File** e faça upload das credenciais [geradas anteriormente](#android_json). Quando terminar, selecione **Save**.
+Nas **Push Notification Settings** do seu app Android, escolha **Firebase**, selecione **Upload JSON File** e faça upload das credenciais [geradas anteriormente](#android_json). Quando terminar, selecione **Save**.
 
-![O formulário de "Configurações das notificações por push" com "Firebase" selecionado como o provedor de push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
+![O formulário de "Push Notification Settings" com "Firebase" selecionado como o provedor de push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
 {% alert warning %}
 As chaves privadas podem representar um risco de segurança se forem comprometidas. Agora que sua chave foi carregada na Braze, exclua o arquivo [gerado anteriormente](#android_json).
@@ -371,7 +371,7 @@ Para evitar que a Braze dispare solicitações de rede desnecessárias sempre qu
 Você pode criar um serviço de mensagens Firebase novo, usar um existente ou usar um que não seja da Braze. Escolha o que melhor atende às suas necessidades.
 
 {% tabs local %}
-{% tab New %}
+{% tab Novo %}
 A Braze oferece um serviço para lidar com o recebimento de push e intenções de abertura. Nossa classe `BrazeFirebaseMessagingService` precisará ser registrada no seu `AndroidManifest.xml`:
 
 ```xml
@@ -390,7 +390,7 @@ Antes do Braze SDK 3.1.1, o `AppboyFcmReceiver` era usado para lidar com o push 
 {% endalert %}
 {% endtab %}
 
-{% tab Existing %}
+{% tab Existente %}
 Se você já tiver um serviço de mensagens Firebase registrado, poderá passar objetos [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) para a Braze via [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html). Esse método só exibirá uma notificação se o objeto [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) for originário da Braze e será ignorado com segurança caso contrário.
 
 {% subtabs %}
@@ -434,7 +434,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Non-Braze %}
+{% tab Não Braze %}
 Se você tiver outro Firebase Messaging Service que também gostaria de usar, especifique um Firebase Messaging Service de fallback para chamar se o app receber um push que não seja da Braze.
 
 No seu `braze.xml`, especifique:
@@ -712,8 +712,8 @@ Para problemas relacionados à análise de dados de push, consulte nosso [guia d
 
 Se quiser testar notificações no app e por push via interface de linha de comando, você pode enviar uma única notificação pelo terminal via cURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
 
-- `YOUR_API_KEY` (Acesse **Configurações** > **Chaves de API**.)
-- `YOUR_EXTERNAL_USER_ID` (Procure um perfil na página **Pesquisar usuários**.)
+- `YOUR_API_KEY` (Acesse **Settings** > **API Keys**.)
+- `YOUR_EXTERNAL_USER_ID` (Procure um perfil na página **Search Users**.)
 - `YOUR_KEY1` (opcional)
 - `YOUR_VALUE1` (opcional)
 

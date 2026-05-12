@@ -309,7 +309,7 @@ Um die korrekte LINE-ID für alle Nutzer:innen zu erhalten, richten Sie LINE Log
 
 5. Senden Sie die neuen oder aktualisierten Nutzerinformationen an Braze über den [`/user/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users/), [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
 
-#### Workflows
+#### Workflows {#workflows}
 
 ##### Bestehende:r Follower:in verwendet LINE Login {#existing-follower-uses-line-login}
 
@@ -343,7 +343,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. Erstellen Sie eine Folgenachricht, die den Gutscheincode liefert.
-4. (Optional) Erstellen Sie eine aktionsbasierte Kampagne oder ein Canvas, das ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden, um ihnen den Gutscheincode zu senden. <br>![Aktionsbasierte Kampagne, die ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden.]({% image_buster /assets/img/line/account_link_2.png %})
+4. (Optional) Erstellen Sie eine aktionsbasierte Campaign oder ein Canvas, das ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden, um ihnen den Gutscheincode zu senden. <br>![Aktionsbasierte Campaign, die ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden.]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### So funktioniert es {#how-it-works}
 
@@ -387,9 +387,9 @@ if (user && isLoggedIn && lineUserId) {
 
 ## LINE-Testnutzer:innen in Braze erstellen {#creating-line-test-users-in-braze}
 
-Sie können Ihren LINE-Kanal testen, bevor Sie die [Nutzerabstimmung](#user-id-reconciliation) einrichten, indem Sie ein „Wer bin ich“-Canvas oder eine Kampagne erstellen.
+Sie können Ihren LINE-Kanal testen, bevor Sie die [Nutzerabstimmung](#user-id-reconciliation) einrichten, indem Sie ein „Wer bin ich“-Canvas oder eine Campaign erstellen.
 
-1. Richten Sie ein Canvas ein, das die Braze-Nutzer-ID bei einem bestimmten Triggerwort zurückgibt. <br><br>Beispiel-Trigger <br><br>![Trigger zum Senden der Kampagne an Nutzer:innen, die eine eingehende LINE-Nachricht an eine bestimmte Abo-Gruppe gesendet haben.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Beispielnachricht<br><br>![LINE-Nachricht mit der Braze-Nutzer-ID.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. Richten Sie ein Canvas ein, das die Braze-Nutzer-ID bei einem bestimmten Triggerwort zurückgibt. <br><br>Beispiel-Trigger <br><br>![Trigger zum Senden der Campaign an Nutzer:innen, die eine eingehende LINE-Nachricht an eine bestimmte Abo-Gruppe gesendet haben.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Beispielnachricht<br><br>![LINE-Nachricht mit der Braze-Nutzer-ID.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. In Braze können Sie die Braze-ID verwenden, um bestimmte Nutzer:innen zu suchen und bei Bedarf zu ändern.
 

@@ -62,7 +62,7 @@ Die folgenden Events werden in der Standardintegration standardmäßig aktiviert
 | Von Braze empfohlene Events | Angepasste Shopify-Events | Angepasste Shopify-Attribute |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Produkt angesehen</li><li>Warenkorb aktualisiert</li><li>Checkout gestartet</li><li>Bestellung aufgegeben</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 Weitere Informationen zu den Daten, die durch die Integration getrackt werden, finden Sie unter [Shopify-Daten-Features]({{site.baseurl}}/shopify_data_features/).
 
@@ -85,7 +85,7 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="(Fortgeschritten) Angepasstes Daten-Tracking einrichten" style="width: 100%;">
   <caption>(Fortgeschritten) Angepasstes Daten-Tracking einrichten</caption>
   <thead>
     <tr>
@@ -152,7 +152,7 @@ Die nächsten Schritte hängen davon ab, welche externe ID Sie ausgewählt haben
 - **Wenn Sie Shopify-Kund:innen-ID, E-Mail oder gehashte E-Mail ausgewählt haben:** Überspringen Sie die Schritte 4.1–4.3 und fahren Sie direkt mit Schritt 4.4 fort.
 {% endalert %}
 
-### Schritt 4.1: Erstellen Sie das Metafeld `braze.external_id` {#step-41-create-the-brazeexternalid-metafield}
+### Schritt 4.1: Erstellen Sie das Metafeld `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
 1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Settings** > **Metafields and metaobjects**.
 2. Wählen Sie **Customers** > **Add definition**.
@@ -177,10 +177,10 @@ Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id | Ja | String | Die Shopify-Kund:innen-ID. |
-| shopify_storefront | Ja | String | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
-| email_address | Nein | String | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| shopify_customer_id  | Ja      | String    | Die Shopify-Kund:innen-ID.                                         |
+| shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Bsp.: `<storefront_name>.myshopify.com` |
+| email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:in. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Nullwerte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpunkt-Spezifikationen" }
 
 #### Beispiel-Endpunkt {#example-endpoint}
 

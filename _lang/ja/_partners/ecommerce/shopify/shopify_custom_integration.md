@@ -613,8 +613,8 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 }
 </style>
 
-<table style="width: 100%;">
-  <caption>ステップ5: カスタムデータトラッキングの設定（上級）</caption>
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">カスタムイベント</th>
@@ -663,7 +663,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 - **Shopify顧客ID、メール、またはハッシュメールを選択した場合:** ステップ6.1〜6.3をスキップし、ステップ6.4に直接進みます。
 {% endalert %}
 
-#### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternalid-metafield}
+#### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Shopifyの管理パネルで、**Settings** > **Metafields** に移動します。
 2. **Customers** > **Add definition** を選択します。

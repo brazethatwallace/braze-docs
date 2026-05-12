@@ -31,7 +31,7 @@ Vous devez vous assurer que les éléments suivants ont été créés, complét�
 | --- | --- | --- |
 | Compte publicitaire LinkedIn | [LinkedIn](https://www.linkedin.com/campaignmanager) | Un compte publicitaire LinkedIn actif lié à votre marque.<br><br>Assurez-vous que vous avez accepté toutes les conditions générales pertinentes de LinkedIn pour accéder à ce compte et l'utiliser, et que votre administrateur LinkedIn vous a accordé les autorisations appropriées pour gérer les audiences. |
 | Conditions d'utilisation et politiques de LinkedIn | LinkedIn | Accepter de se conformer à l'ensemble des conditions, politiques, directives et documents requis par LinkedIn liés à votre utilisation de la synchronisation d'audience avec LinkedIn, y compris les conditions, politiques, directives et documents incorporés par référence, qui peuvent inclure, dans le cadre de LinkedIn : les conditions d'utilisation des services, l'accord sur les publicités, l'accord sur le traitement des données et les directives pour la communauté professionnelle. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -86,7 +86,7 @@ Sélectionnez ensuite le compte publicitaire LinkedIn souhaité. Dans la liste d
 ![Synchronisation de l'audience sur LinkedIn avec Braze sélectionné comme compte publicitaire.]({% image_buster /assets/img/linkedin/linkedin20.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 
 **Créer une nouvelle audience**<br>
 Saisissez un nom pour la nouvelle audience, sélectionnez **Add Users to Audience** et sélectionnez les champs que vous souhaitez synchroniser avec LinkedIn. Pour cette intégration, nous prenons actuellement en charge les éléments suivants :
@@ -105,10 +105,10 @@ Braze affiche une notification en haut de l'éditeur d'étape si l'audience est 
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les utilisateurs quasiment en temps réel lorsqu'ils entrent dans le composant de synchronisation de l'audience.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Synchroniser avec une audience existante %}
 
-**Synchronisation avec une audience existante**<br>
-Braze offre également la possibilité d'ajouter des utilisateurs à des audiences LinkedIn existantes afin de confirmer que ces audiences sont à jour. Pour synchroniser une audience existante, saisissez le nom de l'audience dans le menu déroulant et choisissez **Add to the Audience**. Braze ajoutera ensuite des utilisateurs en temps quasi réel au fur et à mesure qu'ils entreront dans le composant Audience Sync.
+**Synchroniser avec une audience existante**<br>
+Braze offre également la possibilité d'ajouter des utilisateurs à des audiences LinkedIn existantes afin de confirmer que ces audiences sont à jour. Pour synchroniser avec une audience existante, saisissez le nom de l'audience dans le menu déroulant et choisissez **Add to the Audience**. Braze ajoutera ensuite des utilisateurs en temps quasi réel au fur et à mesure qu'ils entreront dans le composant Audience Sync.
 
 ![Vue élargie de l'étape Canvas de l'audience personnalisée. Le compte publicitaire souhaité et l'audience existante sont sélectionnés ici.]({% image_buster /assets/img/linkedin/linkedin17.png %})
 
@@ -142,7 +142,7 @@ Le tableau suivant contient des indicateurs et des descriptions pour vous aider 
 | Users Pending | Nombre d'utilisateurs actuellement traités par Braze en vue d'une synchronisation avec LinkedIn. |
 | Users Errored | Nombre d'utilisateurs qui n'ont pas été synchronisés avec LinkedIn en raison d'une erreur de l'API après environ 13 heures de tentatives. Les causes potentielles d'erreurs peuvent inclure un jeton LinkedIn non valide ou la suppression de l'audience dans LinkedIn. |
 | Exited Canvas | Nombre d'utilisateurs ayant quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est un composant de synchronisation d'audience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre les analyses" }
 
 {% alert important %}
 N'oubliez pas que les indicateurs relatifs aux utilisateurs synchronisés et aux utilisateurs en erreur sont retardés en raison de la vidange en masse et de la relance après 13 heures, respectivement.
@@ -184,4 +184,4 @@ Actuellement, il n'y a pas de limite au nombre d'audiences dans votre compte pub
 
 ### Pourquoi un segment est-il bloqué à l'état BUILDING et n'est-il pas mis à jour ? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Un segment est considéré comme inutilisé et défini comme ARCHIVED lorsqu'il n'a pas été utilisé de manière continue pendant 30 jours dans une campagne provisoire ou active. Pour cette raison, un segment peut sembler « bloqué » dans la phase de BUILDING lorsque des mises à jour sont envoyées à un segment ARCHIVED, le poussant ainsi dans l'état de BUILDING, et juste avant qu'il ne soit à nouveau archivé, de nouvelles mises à jour sont envoyées au segment inutilisé.
+Un segment est considéré comme inutilisé et passe à l'état ARCHIVED lorsqu'il n'a pas été utilisé de manière continue pendant 30 jours dans une campagne provisoire ou active. Pour cette raison, un segment peut sembler « bloqué » dans la phase de BUILDING lorsque des mises à jour sont envoyées à un segment ARCHIVED, le poussant ainsi dans l'état BUILDING, et juste avant qu'il ne soit à nouveau archivé, de nouvelles mises à jour sont envoyées au segment inutilisé.

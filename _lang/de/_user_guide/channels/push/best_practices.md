@@ -6,7 +6,7 @@ description: "Diese Seite enthält Best Practices und Anwendungsfälle für Push
 channel: push
 ---
 
-# Push-Best-Practices
+# Push-Best-Practices {#push-best-practices}
 
 > Diese Seite enthält Best Practices und Anwendungsfälle für Push-Benachrichtigungen, damit Ihre Push-Nachrichten Engagement statt Ärger erzeugen.
 
@@ -30,13 +30,13 @@ Die maximale Payload-Größe hängt von der Plattform ab.
 | Android | 3.930 Bytes |
 | iOS | 3.960 Bytes |
 | Kindle | 5.985 Bytes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload-Größe von Push-Benachrichtigungen reduzieren" }
 
 Wenn Ihre Push-Benachrichtigung die maximale Payload-Größe überschreitet, wird die Nachricht möglicherweise nicht gesendet. Als Best Practice sollten Sie Ihre Payload auf wenige hundert Bytes beschränken.
 
 ### Was ist eine Push-Payload? {#what-is-a-push-payload}
 
-Push-Dienstanbieter prüfen, ob Ihre Push-Benachrichtigung einem Nutzer angezeigt werden kann, indem sie die Byte-Größe der gesamten Push-Payload betrachten. Die Payload ist bei den meisten Push-Diensten auf **4 KB (4.096 Bytes)** begrenzt, darunter:
+Push-Dienstanbieter prüfen, ob Ihre Push-Benachrichtigung einem/einer Nutzer:in angezeigt werden kann, indem sie die Byte-Größe der gesamten Push-Payload betrachten. Die Payload ist bei den meisten Push-Diensten auf **4 KB (4.096 Bytes)** begrenzt, darunter:
 
 - Apple Push Notification service (APNs)
 - Androids Firebase Cloud Messaging (FCM)
@@ -135,12 +135,12 @@ Da Push-Benachrichtigungen eine aufdringliche Art von Messaging sind, die direkt
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Inakzeptabel: (i) Erstellen einer Oberfläche zur Anzeige von Drittanbieter-Apps, Erweiterungen oder Plug-ins, die dem App Store ähnelt oder als allgemeine Sammlung dient. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) Push-Benachrichtigungen dürfen nicht für die Funktion der App erforderlich sein und sollten nicht zum Senden sensibler persönlicher oder vertraulicher Informationen verwendet werden. Push-Benachrichtigungen sollten nicht für Werbe- oder Direktmarketing-Zwecke verwendet werden, es sei denn, Kund:innen haben sich ausdrücklich über eine in der App-UI angezeigte Einwilligungsformulierung für den Empfang entschieden, und Sie bieten in Ihrer App eine Methode an, mit der Nutzer:innen den Empfang solcher Nachrichten abbestellen können. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) Sie dürfen integrierte Funktionen, die von der Hardware oder dem Betriebssystem bereitgestellt werden, wie Push-Benachrichtigungen, die Kamera oder das Gyroskop, nicht monetarisieren; ebenso wenig Apple-Dienste und -Technologien wie Apple Music-Zugang, iCloud-Speicher oder Screen Time APIs. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Vorschriften für mobile Push-Benachrichtigungen in Apps" }
 
 | Google Play Store-Richtlinie |
 | --- |
 | [Unbefugte Nutzung oder Nachahmung von Systemfunktionen](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) Wir erlauben keine Apps oder Anzeigen, die Systemfunktionen wie Benachrichtigungen oder Warnungen nachahmen oder stören. Benachrichtigungen auf Systemebene dürfen nur für wesentliche Funktionen einer App verwendet werden, z. B. eine Fluggesellschafts-App, die Nutzer:innen über Sonderangebote informiert, oder ein Spiel, das Nutzer:innen über In-Game-Aktionen benachrichtigt. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Vorschriften für mobile Push-Benachrichtigungen in Apps" }
 
 ## Verwandte Artikel {#related-articles}
 

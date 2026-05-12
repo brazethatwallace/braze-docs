@@ -13,7 +13,7 @@ search_rank: 1
 
 # WhatsApp 메시지 만들기 {#create-a-whatsapp-message}
 
-> WhatsApp Campaign(캠페인)은 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자와 개인화된 경험을 만들고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 조성할 수 있습니다.
+> WhatsApp Campaign은 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자와 개인화된 경험을 만들고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 조성할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -138,7 +138,7 @@ Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트하는
 응답 메시지(테스트 메시지 포함)를 보내려면 대화 기간이 필요합니다. 대화 기간을 시작하려면 이 메시지에 사용 중인 구독 그룹과 연결된 전화번호로 WhatsApp 메시지를 보내세요. 연결된 전화번호는 **Test** 탭의 알림에 나열되어 있습니다.
 {% endalert %}
 
-!['테스트하려면 먼저 +1 217-582-9414로 WhatsApp 메시지를 보내 대화 기간을 여세요. 그런 다음 테스트 사용자에게 응답 메시지를 보내세요.'라는 알림.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![테스트하려면 먼저 +1 217-582-9414로 WhatsApp 메시지를 보내 대화 기간을 여세요. 그런 다음 테스트 사용자에게 응답 메시지를 보내세요.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp)를 참조하세요.
 
@@ -202,7 +202,7 @@ Braze를 통해 전송하는 아웃바운드 WhatsApp 메시지에 대해 다음
 | 문서 | 문서는 본문 텍스트 내에 삽입할 수 있습니다. 파일은 URL을 통해 호스팅되어야 합니다. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | 동영상 | 동영상은 본문 텍스트 내에 삽입할 수 있습니다. 파일은 URL을 통해 호스팅되거나 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 있어야 합니다. | < 16 MB | `.3gp`, `.mp4` |
 | 오디오 | 오디오는 응답 메시징을 통해서만 지원됩니다. 파일은 URL을 통해 호스팅되어야 합니다. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +218,7 @@ Braze를 통해 수신하는 인바운드 WhatsApp 메시지에 대해 다음 �
 | 문서 | 문서는 메시지 첨부를 통해 지원됩니다. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | 동영상 | H.264 비디오 코덱과 AAC 오디오 코덱만 지원됩니다. 동영상에는 단일 오디오 스트림이 있거나 오디오 스트림이 없어야 합니다. | `.mp4`, `.3gp` |
 | CTA 링크 | 다양한 콜투액션(CTA) 유형이 지원됩니다. 자세한 내용은 [콜투액션 유형](#ctas)을 참조하세요. | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
 
 ### 콜투액션 유형 {#ctas}
 
@@ -233,4 +233,4 @@ Braze를 통해 전송하는 WhatsApp 메시지에 대해 다음 콜투액션 �
 | 쿠폰 코드 메시지 템플릿 | 메시지 템플릿에서만 사용 가능합니다. <br>다른 메시지 템플릿처럼 열고 편집할 수 있으며, Liquid 및 Braze 프로모션 코드와 호환됩니다. |
 | CTA 응답 메시지 | 콜투액션 버튼이 포함된 응답 메시지를 만듭니다. |
 | [목록 응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | 사용자가 선택할 수 있는 최대 10개의 옵션 목록이 포함된 응답 메시지를 만듭니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }

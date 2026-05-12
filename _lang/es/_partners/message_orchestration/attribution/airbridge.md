@@ -25,7 +25,7 @@ La integración de Braze y Airbridge te permite pasar todos los datos de atribuc
 | Cuenta Airbridge | Se necesita una cuenta Airbridge para beneficiarse de esta asociación. |
 | Aplicación para iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, es posible que se requieran fragmentos de código en tu aplicación. |
 | SDK de Airbridge | Además del SDK de Braze necesario, debes instalar el SDK de Airbridge [para Android](https://help.airbridge.io/en/developers/android-sdk) o [iOS](https://help.airbridge.io/en/developers/ios-sdk). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 
@@ -192,7 +192,7 @@ AirbridgeUnity.StartTracking()
 
 ### Paso 2: Obtener la clave de importación de datos de Braze {#step-2-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Airbridge**.
+En Braze, ve a **Partner Integrations** > **Technology Partners** y selecciona **Airbridge**.
 
 Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente. La clave de importación de datos y el punto de conexión REST se utilizan en el siguiente paso al configurar un postback en el dashboard de Airbridge.
 

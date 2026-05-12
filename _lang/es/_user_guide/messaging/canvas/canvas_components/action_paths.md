@@ -83,6 +83,6 @@ Si los usuarios entran en una ruta de acción varias veces y tienen múltiples e
 |---|--------------|
 | **Desactivada** | Un usuario puede entrar en una ruta de acción más de una vez. Estas entradas se retienen en la ruta de acción hasta que se registra una acción o evento desencadenante. Si el evento desencadenante no cumple los filtros de propiedades de una entrada (por ejemplo, una [variable de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) no coincide con los filtros de propiedades del desencadenante), la entrada permanece en la ruta de acción. <br><br>Si el evento desencadenante cumple más de una entrada, Braze deduplica solo estas entradas y avanza inmediatamente la entrada coincidente más antigua a través del grupo de acción correspondiente. |
 | **Activada** | Todas las entradas avanzan al final de la ventana de evaluación correspondiente. No se realiza deduplicación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas con reelegibilidad" }
 
 Ten en cuenta que las clasificaciones no son [editables después del lanzamiento]({{site.baseurl}}/post-launch_edits/).

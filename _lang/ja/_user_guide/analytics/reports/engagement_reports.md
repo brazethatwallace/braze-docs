@@ -43,7 +43,7 @@ tool:
 - CampaignsとCanvasesを手動で選択する
 - 特定のルールに基づいてCampaignsとCanvasesを自動的に選択する
 
-![エンゲージメントレポートのメッセージ選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### CampaignsまたはCanvasesを手動で選択する {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ tool:
 
 **統計を追加**ステップでは、選択したCampaignsまたはCanvasesの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
 
-![エンゲージメントレポートの統計追加画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 エンゲージメントレポートはCampaignまたはCanvasごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなCampaignsおよびCanvasesにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder/)を使用してください。
 
@@ -77,7 +77,7 @@ tool:
 | アプリ内メッセージ | インプレッション数、クリック数、第1ボタンクリック数、第2ボタンクリック数 |
 | Webhook | 送信数、エラー数 |
 | SMS | 送信数、キャリアへの送信数、確認済み配信数、配信失敗数、拒否数 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### ステップ 4:レポート設定を完了する {#step-4-complete-report-setup}
 
@@ -100,7 +100,7 @@ tool:
 
 デフォルトでは、エンゲージメントレポートに表示されるデータは日次（1日単位）です。異なる間隔でデータを表示するには、レポートのデータを集計する明示的な日数または週数を選択します。日次指標の代わりに、週次、月次、四半期ごと、または同様の単位でエンゲージメントを表示できます。時間ベースの集計では不十分な場合は、CampaignまたはCanvasレベルでデータをエクスポートすることもできます。
 
-![エンゲージメントレポートのデータカバレッジ画面]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### CampaignまたはCanvas全体でデータを表示する {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ tool:
 - **すぐに送信:** レポートが起動された後、Brazeはこのレポートをすぐに送信します。
 - **指定した時間に送信:** このオプションでは、レポートを受け取る頻度を柔軟に選択できます。設定した日数、週数、または月数ごとにレポートを送信するよう選択できます。レポートの送信を停止する時期も定義できます。
 
-![エンゲージメントレポートのスケジュール設定画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### ステップ 5:確認して起動する {#step-5-review-and-launch}
 

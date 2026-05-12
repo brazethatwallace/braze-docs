@@ -194,7 +194,7 @@ Die folgenden Features werden für ausgehende WhatsApp-Nachrichten unterstützt,
 
 | Feature | Details | Max. Größe | Unterstützte Formate |
 | ------- | ------- | ------------- | ---------------------- |
-| Header-Text | Strings und Variablenparameter werden unterstützt. | — | —
+| Header-Text | Strings und Variablenparameter werden unterstützt. | — | — |
 | Body-Text | Strings und Variablenparameter werden unterstützt. | — | — |
 | Footer-Text | Strings und Variablenparameter werden unterstützt. | — | — |
 | CTA-Links | Verschiedene Call-to-Action (CTA)-Typen werden unterstützt. Weitere Details finden Sie unter [Call-to-Action-Typen](#ctas). | — | — |
@@ -225,7 +225,7 @@ Die folgenden Features werden für eingehende WhatsApp-Nachrichten unterstützt,
 Die folgenden Call-to-Action-Typen werden für WhatsApp-Nachrichten unterstützt, die Sie über Braze senden:
 
 | CTA-Typ | Details |
-| ----------- |---------------- |
+| ----------- | ---------------- |
 | Website besuchen | Maximal ein Button (einschließlich Variablenparameter). |
 | Telefonnummer anrufen | Nur für Nachrichten-Templates verfügbar. <br>Maximal ein Button. |
 | Benutzerdefinierte Schnellantwort-Buttons | Maximal drei Buttons. |

@@ -24,7 +24,7 @@ BrazeとZeotap Symphonyの統合により、リアルタイムのオーケスト
 | クライアント名 | Brazeアカウントのクライアント名です。Brazeコンソールに移動して確認できます。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | インスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから入手するか、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)で確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -109,7 +109,7 @@ Symphonyでユーザーにフィルターを適用した後、またはユーザ
 | 言語 | ドロップダウン選択 | • 使用可能なフォーマットは`ISO-639-1`標準（例：en）です。<br>• 正しい形式の言語を登録してそれにマッピングします。 |
 | 生年月日 | ドロップダウン選択 | 登録する`Date of Birth`フィールドにマッピングします。 |
 | カスタム属性 | カスタムデータ入力 | 任意のユーザー属性をカスタムデータ入力にマッピングし、それをBrazeに送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported attributes" }
 
 ## Brazeコンソールでデータを確認する {#viewing-data-on-braze-console}
 

@@ -34,7 +34,7 @@ Campaign- und Canvas-Attribute sind mit [Nachrichten-Engagement-Ereignissen]({{s
 | Campaign-ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A (wird als Eingabe für den API-Aufruf selbst verwendet) | `campaign_id` |
 | Variantenname | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | N/A (Abbildung des Variantennamens auf die Varianten-ID mithilfe des Endpunkts „Campaign-Details exportieren“) |
 | Varianten-ID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign-Attribute" }
 
 ## Canvas-Attribute {#canvas-attributes}
 
@@ -48,4 +48,4 @@ Campaign- und Canvas-Attribute sind mit [Nachrichten-Engagement-Ereignissen]({{s
 | Schritt-ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | `steps.id` | `canvas_step_id` |
 | Nachrichtenkanal | N/A | `steps.messages.message_variation_id.channel` | N/A (abhängig vom Event-Typ, z. B. Push-Sendung oder E-Mail-Öffnung) |
 | Nachrichten-ID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `steps.message.message_variation_id` | `canvas_step_message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Canvas-Attribute" }

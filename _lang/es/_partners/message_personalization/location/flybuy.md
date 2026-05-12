@@ -56,7 +56,7 @@ Los eventos personalizados y los atributos personalizados se pueden utilizar par
 
 ### Crear un segmento de audiencia de clientes que tuvieron una mala experiencia de recogida {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
 
-Por ejemplo, dirigirte a cualquier cliente que calificó su experiencia de recogida con menos de 5 estrellas.
+Por ejemplo, dirígete a cualquier cliente que calificó su experiencia de recogida con menos de 5 estrellas.
 
 ![Segmento para mala experiencia de recogida]({% image_buster /assets/img/flybuy/flybuy1.png %})
 
@@ -70,7 +70,7 @@ Envía un SMS personalizado dirigido a clientes sin una cuenta de fidelización 
 
 ### Crear un segmento de audiencia de clientes que tuvieron un tiempo de espera prolongado {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
 
-Por ejemplo, dirigirte a cualquier cliente que tuvo un tiempo de espera de más de dos minutos al salir de las instalaciones virtuales de una tienda.
+Por ejemplo, dirígete a cualquier cliente que tuvo un tiempo de espera de más de dos minutos al salir de las instalaciones virtuales de una tienda.
 
 ![Crear un segmento de audiencia de clientes que tuvieron un tiempo de espera prolongado]({% image_buster /assets/img/flybuy/flybuy3.png %})
 
@@ -84,6 +84,6 @@ Por ejemplo, envía una oferta especial cuando un cliente VIP llega a sus ubicac
 
 ### Crear un segmento de audiencia de clientes a los que les faltaban artículos en su pedido {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
 
-Por ejemplo, dirigirte a cualquier cliente que comentó que faltaban artículos en su pedido digital.
+Por ejemplo, dirígete a cualquier cliente que comentó que faltaban artículos en su pedido digital.
 
 Para más detalles sobre APIs y SDKs, consulta la [documentación para desarrolladores de Flybuy](https://www.radiusnetworks.com/developers/flybuy/#/).

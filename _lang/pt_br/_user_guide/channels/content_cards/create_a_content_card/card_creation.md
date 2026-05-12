@@ -27,14 +27,14 @@ Após fazer upgrade do SDK, os usuários de dispositivos móveis precisam atuali
 {% tabs %}
 {% tab Campaign %}
 
-Você pode escolher quando a Braze cria um cartão na etapa **Delivery** ao criar uma nova [Campaign de cartão de conteúdo]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) com entrega agendada.
+Você pode escolher quando a Braze cria um cartão na etapa **Delivery** ao criar uma nova [Campaign de Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) com entrega agendada.
 
 ![Seção de controles do cartão de conteúdo ao editar a entrega de um cartão de conteúdo agendado.]({% image_buster /assets/img_archive/card_creation.png %})
 
 As seguintes opções estão disponíveis:
 
-- **No lançamento da Campaign:** O comportamento padrão anterior para Content Cards. A Braze calcula a elegibilidade do público e a personalização quando a Campaign é lançada, depois cria o cartão e o armazena até que o usuário abra o app.
-- **Na primeira impressão (recomendado):** Quando o usuário abrir o app novamente (iniciar uma nova [sessão](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), a Braze determina para quais Content Cards o usuário é elegível, processa qualquer personalização como Liquid ou Conteúdo conectado e então cria o cartão. Essa opção geralmente oferece melhor desempenho.
+- **At campaign launch:** O comportamento padrão anterior para Content Cards. A Braze calcula a elegibilidade do público e a personalização quando a Campaign é lançada, depois cria o cartão e o armazena até que o usuário abra o app.
+- **At first impression (recomendado):** Quando o usuário abrir o app novamente (iniciar uma nova [sessão](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), a Braze determina para quais Content Cards o usuário é elegível, processa qualquer personalização como Liquid ou Conteúdo conectado e então cria o cartão. Essa opção geralmente oferece melhor desempenho.
 
 Independentemente da opção selecionada, a contagem regressiva da data de expiração do Content Card começa quando a Campaign é lançada.
 
@@ -47,8 +47,8 @@ Você pode escolher quando a Braze cria um cartão na guia **Messaging Channels*
 
 As seguintes opções estão disponíveis:
 
-- **Na entrada da etapa:** O comportamento padrão anterior para Content Cards. A Braze calcula a elegibilidade do público quando o usuário entra na etapa do Canvas, depois cria o cartão e o armazena até que o usuário abra o app.
-- **Na primeira impressão (recomendado):** A Braze calcula a elegibilidade do público quando o usuário entra na etapa do Canvas. Quando o usuário abrir o app novamente (iniciar uma nova [sessão](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), a Braze processa qualquer personalização como Liquid ou Conteúdo conectado e então cria o cartão. Essa opção oferece melhor desempenho na entrega de cartões e personalização mais atualizada.
+- **At step entry:** O comportamento padrão anterior para Content Cards. A Braze calcula a elegibilidade do público quando o usuário entra na etapa do Canvas, depois cria o cartão e o armazena até que o usuário abra o app.
+- **At first impression (recomendado):** A Braze calcula a elegibilidade do público quando o usuário entra na etapa do Canvas. Quando o usuário abrir o app novamente (iniciar uma nova [sessão](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), a Braze processa qualquer personalização como Liquid ou Conteúdo conectado e então cria o cartão. Essa opção oferece melhor desempenho na entrega de cartões e personalização mais atualizada.
 
 Independentemente da opção selecionada, a contagem regressiva da data de expiração do Content Card começa quando o usuário entra na etapa do Canvas.
 
@@ -85,7 +85,7 @@ Esta seção descreve as principais diferenças entre a criação de cartões no
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Diferenças entre criar cartões no lançamento ou na entrada versus na primeira impressão" class="tg">
   <caption>Diferenças entre criar cartões no lançamento ou na entrada versus na primeira impressão</caption>
 <thead>
   <tr>

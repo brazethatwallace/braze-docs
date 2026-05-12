@@ -20,7 +20,7 @@ BrazeとCanvaの連携は、2つのエクスポートパスをサポートして
 | --- | --- |
 | **画像またはデザインをメディアライブラリへ** | デザインをアセットとしてBrazeメディアライブラリに送信します。 |
 | **メールデザインをBrazeへ** | Canvaの**メール**ドキュメントを、件名メタデータを含むBrazeメールテンプレートとして公開します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="連携について" }
 
 ## BrazeとCanvaを連携する {#integrate-braze-with-canva}
 

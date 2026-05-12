@@ -21,7 +21,7 @@ page_order: 2
 
 사용 가능한 리소스와 사용 사례에 적합한 추천 엔진을 결정할 때 아래 고려 사항 표를 참조하세요.
 
-<table style="text-align: center;">
+<table aria-label="Recommendation engine options" style="text-align: center;">
   <caption>추천 엔진 옵션</caption>
   <thead>
     <tr>
@@ -73,7 +73,7 @@ page_order: 2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Recommendation engine options" }
 
 ## 추천 엔진 만들기 {#creating-a-recommendation-engine}
 
@@ -91,7 +91,7 @@ page_order: 2
 
 ### 예시 {#example}
 
-건강식품 앱이 있고 사용자가 앱에 가입한 기간에 따라 다른 레시피를 전송하는 콘텐츠 카드 Campaign을 만들고 싶다고 가정해 보겠습니다. 먼저, 다음 정보를 포함하는 CSV 파일을 통해 카탈로그를 생성하고 업로드하세요:
+건강식품 앱이 있고 사용자가 앱에 가입한 기간에 따라 다른 레시피를 전송하는 콘텐츠 카드 캠페인을 만들고 싶다고 가정해 보겠습니다. 먼저, 다음 정보를 포함하는 CSV 파일을 통해 카탈로그를 생성하고 업로드하세요:
 
 | 필드 | 설명 |
 |-----|-----------|
@@ -100,13 +100,13 @@ page_order: 2
 | **title** | "이번 주 점심 미리 만들어 놓기" 또는 "타코 먹자"와 같이 각 ID에 대해 전송될 콘텐츠 카드의 제목입니다. |
 | **link** | 레시피 문서로 연결되는 링크입니다. |
 | **image_url** | 레시피에 해당하는 이미지입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 카탈로그가 Braze에 업로드된 후 일부 카탈로그 항목의 미리보기를 확인하여 가져온 정보가 정확한지 확인합니다. 미리보기에서 항목이 무작위로 표시될 수 있지만 추천 엔진의 출력에는 영향을 미치지 않습니다.
 
 ![Braze의 예제 카탈로그.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-콘텐츠 카드 Campaign을 만듭니다. 작성기에서 Liquid 로직을 입력하여 Campaign을 수신할 사용자와 표시할 레시피 및 이미지를 결정합니다. 이 사용 사례에서 Braze는 사용자의 `start_date`(또는 가입 날짜)를 가져와 현재 날짜와 비교합니다. 날짜 차이에 따라 전송되는 콘텐츠 카드가 결정됩니다.
+콘텐츠 카드 캠페인을 만듭니다. 작성기에서 Liquid 로직을 입력하여 캠페인을 수신할 사용자와 표시할 레시피 및 이미지를 결정합니다. 이 사용 사례에서 Braze는 사용자의 `start_date`(또는 가입 날짜)를 가져와 현재 날짜와 비교합니다. 날짜 차이에 따라 전송되는 콘텐츠 카드가 결정됩니다.
 
 {% subtabs local %}
 {% subtab title %}
@@ -155,7 +155,7 @@ page_order: 2
 
 예시:
 
-![콘텐츠 카드 Campaign의 예제 메시지 작성기.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![콘텐츠 카드 캠페인의 예제 메시지 작성기.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 **On click behavior** 섹션에서 사용자가 iOS, Android 및 웹 기기에서 콘텐츠 카드를 클릭할 때 리디렉션될 위치에 대한 Liquid 로직을 입력합니다.
 
@@ -176,7 +176,7 @@ page_order: 2
 
 **Test** 탭으로 이동하여 **Preview message as user**에서 **Custom user**를 선택합니다. **Custom attribute** 필드에 날짜를 입력하면 해당 날짜에 가입한 사용자에게 전송될 콘텐츠 카드를 미리 볼 수 있습니다. <br><br>
 
-![start_date라는 이름의 예제 커스텀 속성.]({% image_buster /assets/img/recs/custom_attributes_test.png %})
+!['start_date'라는 이름의 예제 커스텀 속성.]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
 
 {% tab using Connected Content %}
@@ -187,7 +187,7 @@ page_order: 2
 | **스프레드시트 변환** | SheetDP와 같은 서비스를 사용하여 스프레드시트를 JSON API 엔드포인트로 변환하고, 생성된 API URL을 기록하세요. |
 | **커스텀 엔드포인트 생성** | 커스텀으로 구축된 내부 엔드포인트를 구축하고 호스팅하며 유지 관리하세요. |
 | **서드파티 엔진 사용** | [Alloy 파트너]({{site.baseurl}}/partners/message_personalization/) 중 하나인 서드파티 추천 엔진을 사용하세요. 여기에는 [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) 등이 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 다음으로, 엔드포인트를 호출하여 커스텀 속성 값을 사용자 프로필과 일치시키고 해당 추천을 가져오는 메시지에서 Liquid를 사용하세요.
 
@@ -211,7 +211,7 @@ page_order: 2
 | `YOUR_API_URL` | API의 실제 URL로 바꿉니다. |
 | `RECOMMENDED_ITEM_IDS` | 추천 항목의 ID가 포함된 커스텀 속성의 실제 이름으로 바꿉니다. 이 속성은 세미콜론으로 구분된 ID 문자열이어야 합니다. |
 | `ITEM_ID` | API 응답에서 항목 ID에 해당하는 속성의 실제 이름으로 바꿉니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 {% alert note %}
 이는 기본적인 예시이며, 특정 요구 사항과 데이터 구조에 따라 추가 수정이 필요할 수 있습니다. 자세한 안내는 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 참조하거나 개발자에게 문의하세요.

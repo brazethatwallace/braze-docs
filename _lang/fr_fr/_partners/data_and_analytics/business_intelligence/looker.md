@@ -8,11 +8,11 @@ search_tag: Partner
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
 > [Looker](https://looker.com/), une plateforme d'aide à la décision et d'analyse de big data, vous permet d'explorer, d'analyser et de partager des analyses commerciales en temps réel de façon fluide.
 
-L'intégration de Braze et Looker permet aux utilisateurs de l'entreprise de tirer parti du signalement des utilisateurs via les [blocs Looker](#looker-blocks) et les [actions Looker](#looker-actions) de première partie via la REST API. Ces utilisateurs signalés peuvent être ajoutés à des segments pour [cibler](#segment-users) de futures Campaigns ou Canvas Braze. Pour utiliser Looker avec Braze, nous vous recommandons d'envoyer vos données Braze vers un [entrepôt de données à l'aide de Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/), puis d'utiliser les blocs Looker de Braze pour modéliser et visualiser rapidement vos données Braze dans Looker.
+L'intégration de Braze et Looker permet aux utilisateurs de l'entreprise de tirer parti du signalement des utilisateurs via les [blocs Looker](#looker-blocks) et les [actions Looker](#looker-actions) de première partie via la REST API. Ces utilisateurs signalés peuvent être ajoutés à des Segments pour [cibler](#segment-users) de futures Campaigns ou Canvas Braze. Pour utiliser Looker avec Braze, nous vous recommandons d'envoyer vos données Braze vers un [entrepôt de données à l'aide de Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/), puis d'utiliser les blocs Looker de Braze pour modéliser et visualiser rapidement vos données Braze dans Looker.
 
 ## Conditions préalables {#prerequisites}
 
@@ -21,7 +21,7 @@ L'intégration de Braze et Looker permet aux utilisateurs de l'entreprise de tir
 | Compte Looker | Un [compte Looker](https://looker.com/) est nécessaire pour bénéficier de ce partenariat. |
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### Considérations {#considerations}
 
@@ -56,7 +56,7 @@ Soyez conscient des différentes conventions de dénomination ! Les noms personn
 |---|---|
 | Bloc d'analyse de l'engagement des messages | Ce bloc comprend des données relatives aux événements de push, d'e-mail, de messages in-app, de webhook, de conversion, d'entrée dans Canvas et d'inscription au groupe de contrôle de Campaign. <br><br>En savoir plus sur ce [bloc Looker](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), ou consultez le [code GitHub](https://github.com/llooker/braze_message_engagement_block). |
 | Bloc d'analyse du comportement des utilisateurs | Ce bloc comprend des données relatives aux événements personnalisés, aux achats, aux sessions, aux événements de localisation et aux désinstallations.<br><br>En savoir plus sur ce [bloc Looker](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), ou consultez le [code GitHub](https://github.com/llooker/braze_retention_block). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available Blocks" }
 
 ### Actions Looker {#looker-actions}
 
@@ -143,11 +143,11 @@ Authorization: Bearer [API_KEY]
 
 ### Segmenter les utilisateurs dans Braze {#segment-users}
 
-Dans Braze, pour créer un segment avec ces utilisateurs signalés, naviguez vers **Segments** sous **Engagement**, nommez votre segment et sélectionnez **Looker_Export** comme filtre. Ensuite, utilisez l'option « inclut la valeur » et fournissez le drapeau d'attribut personnalisé que vous avez attribué dans Looker.
+Dans Braze, pour créer un Segment avec ces utilisateurs signalés, naviguez vers **Segments** sous **Engagement**, nommez votre Segment et sélectionnez **Looker_Export** comme filtre. Ensuite, utilisez l'option « inclut la valeur » et fournissez le drapeau d'attribut personnalisé que vous avez attribué dans Looker.
 
-![Dans le générateur de segments Braze, le filtre « looker_export » est réglé sur « includes_value » et « Looker ».]({% image_buster /assets/img/braze_segments.png %})
+![Dans le générateur de Segments Braze, le filtre « looker_export » est réglé sur « includes_value » et « Looker ».]({% image_buster /assets/img/braze_segments.png %})
 
-Une fois enregistré, vous pouvez faire référence à ce segment lors de la création d'un Canvas ou d'une Campaign à l'étape du ciblage des utilisateurs.
+Une fois enregistré, vous pouvez faire référence à ce Segment lors de la création d'un Canvas ou d'une Campaign à l'étape du ciblage des utilisateurs.
 
 ## Résolution des problèmes {#troubleshooting}
 Si vous rencontrez des problèmes avec l'action Looker, ajoutez un utilisateur test aux [groupes internes]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/) et vérifiez les points suivants :

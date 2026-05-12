@@ -37,7 +37,7 @@ Remplissez les champs suivants :
 | **Compte** | Le compte WhatsApp Business (WABA) auquel vous souhaitez soumettre le modèle. Tous les groupes d'abonnement et numéros de téléphone d'un WABA partagent l'accès aux modèles. |
 | **Langue** | La langue de ce modèle. WhatsApp exige un modèle distinct pour chaque langue. |
 | **Nom du modèle** | Un nom unique pour votre modèle. Les noms de modèles ne peuvent contenir que des lettres minuscules, des chiffres et des underscores. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer les paramètres du modèle" }
 
 ### Étape 3 : Choisir une disposition {#step-3-choose-a-layout}
 
@@ -81,7 +81,7 @@ Ajoutez jusqu'à 10 boutons à votre modèle. Les types de boutons ont des caté
 | Numéro de téléphone | Boutons d'appel à l'action | {::nomarkdown}<ul><li><b>Nombre maximum :</b> 1</li><li><b>Texte du bouton :</b> Jusqu'à 25 caractères</li><li><b>Numéro de téléphone :</b> Numéro de téléphone valide avec indicatif pays, sans + (par exemple « 14155552671 »)</li></ul> {:/}|
 | Visiter le site web | Boutons d'appel à l'action | {::nomarkdown}<ul><li><b>Nombre maximum :</b> 2</li><li><b>Texte du bouton :</b> Jusqu'à 25 caractères</li><li><b>URL du site web :</b> Jusqu'à 2 000 caractères</li></ul> {:/}|
 | Copier le code promotionnel | Boutons d'appel à l'action | {::nomarkdown}<ul><li><b>Nombre maximum :</b> 1</li><li><b>Texte du bouton :</b> « Copy offer code » (non modifiable)</li><li><b>Code promotionnel :</b> Jusqu'à 15 caractères</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Boutons (facultatif)" }
 
 ![Compositeur de modèles WhatsApp avec des boutons de réponse rapide et d'appel à l'action.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -104,7 +104,7 @@ Seuls les modèles Marketing sont actuellement pris en charge dans le générate
 
 Une fois votre modèle approuvé par Meta, vous pouvez l'utiliser dans une campagne ou un Canvas WhatsApp.
 
-1. Accédez à **Campaigns** et sélectionnez **Créer une campagne** > **WhatsApp**.
+1. Accédez à **Campaigns** et sélectionnez **Create Campaign** > **WhatsApp**.
 2. Dans le compositeur de messages, sélectionnez votre modèle approuvé.
 3. Braze renseigne automatiquement le contenu du modèle, y compris les médias et le Liquid que vous avez saisis lors de la création du modèle, afin que vous n'ayez pas à les saisir à nouveau.
 4. Mettez à jour le contenu variable ou la personnalisation selon vos besoins. Les champs verrouillés par Meta (affichés en gris) ne peuvent pas être modifiés. Pour modifier le contenu verrouillé, vous devez éditer et resoumettre le modèle pour approbation.

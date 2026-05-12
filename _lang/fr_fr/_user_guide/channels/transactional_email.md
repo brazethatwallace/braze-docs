@@ -32,7 +32,7 @@ L'e-mail transactionnel est conçu pour envoyer des messages non promotionnels d
 | Réinitialisations de mot de passe | Envoyer des liens sécurisés et urgents permettant aux clients de réinitialiser les identifiants de leur compte. |
 | Notifications d'expédition | Informer les clients lorsque leur commande a été expédiée, y compris les informations de suivi et les dates de livraison estimées. |
 | Alertes de compte | Envoyer des notifications critiques liées au compte, telles que des échecs de paiement, des modifications d'abonnement ou des alertes de sécurité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 ## Différences entre l'e-mail transactionnel et l'e-mail marketing {#how-transactional-email-differs-from-marketing-email}
 
@@ -45,4 +45,4 @@ Les e-mails transactionnels sont envoyés via une [API HTTP transactionnelle]({{
 ## Étapes suivantes {#next-steps}
 
 - [Créer un e-mail transactionnel]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
-- [Suivi]({{site.baseurl}}/user_guide/channels/transactional_email/tracking/)
+- [Configurer le suivi]({{site.baseurl}}/user_guide/channels/transactional_email/tracking/)

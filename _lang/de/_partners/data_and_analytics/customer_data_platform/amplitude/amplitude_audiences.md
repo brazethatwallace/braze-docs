@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) ist eine Plattform für Produkt-Analytics und Business-Intelligence.
 
@@ -22,7 +22,7 @@ Die bidirektionale Integration von Braze und Amplitude ermöglicht es Ihnen, [Ih
 |---|---|
 | Amplitude-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Amplitude-Konto](https://amplitude.com/). |
 | Currents | Um Daten zurück nach Amplitude zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Wählen Sie eine Integration {#choose-an-integration}
 
@@ -87,7 +87,7 @@ Wählen Sie als Nächstes ein Ziel aus, mit dem Sie Ihre Nutzereigenschaft synch
 
 Legen Sie schließlich die Häufigkeit Ihrer Synchronisierung fest.
 
-![Definieren Sie Ihre Kadenz als einmalige oder geplante Synchronisierung.]({% image_buster /assets/img/amplitude9.png %})
+![Definieren Sie Ihren Rhythmus als einmalige oder geplante Synchronisierung.]({% image_buster /assets/img/amplitude9.png %})
 
 {% endtab %}
 {% tab Syncing computation %}
@@ -102,7 +102,7 @@ Wählen Sie als Nächstes ein Ziel aus, mit dem Sie Ihre Berechnung synchronisie
 
 Legen Sie schließlich die Häufigkeit Ihrer Synchronisierung fest.
 
-![Definieren Sie Ihre Kadenz als einmalige oder geplante Synchronisierung.]({% image_buster /assets/img/amplitude9.png %})
+![Definieren Sie Ihren Rhythmus als einmalige oder geplante Synchronisierung.]({% image_buster /assets/img/amplitude9.png %})
 
 {% endtab %}
 {% endtabs %}

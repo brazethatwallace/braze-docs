@@ -23,6 +23,10 @@ Segmentのページの**Segment Details**セクションで、**Analytics Tracki
 
 アプリでは、最大25個のSegmentについて追跡をオンにすることができます。Brazeでは、Campaignsがセッション、収益、および購入に及ぼす効果を把握するうえで、分析すべき重要なSegmentsを追跡することをお勧めします。
 
+{% alert note %}
+分析の追跡を有効にした後、Segmentデータが反映されるまでに時間がかかる場合があります。24時間以内にデータが反映されない場合は、[サポートにお問い合わせください]({{site.baseurl}}/braze_support/)。
+{% endalert %}
+
 ## 収益と購入の推移の表示 {#viewing-revenue-and-purchases-over-time}
 
 [このSegmentの収益と購入の推移]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)に関するデータを表示するには、**Analytics** > **Revenue Report**に移動します。

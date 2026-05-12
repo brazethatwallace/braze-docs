@@ -45,7 +45,7 @@ tool:
 | コンテンツサイズ | 最大50 KB。 |
 | 配置 | コンテンツブロックはメールフッター内では使用できませんが、メールで使用するための[フッターを含むコンテンツブロックを作成](#email-footers)できます。 |
 | 作成 | HTMLエディターまたはドラッグ＆ドロップエディター。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 コンテンツブロックを作成する際、改行を追加してHTMLとLiquidを視覚化すると便利です。送信時にこれらの改行が残っていると、余分なスペースが生じ、ブロックのレンダリングに影響する可能性があります。これを避けるには、ブロックで**Capture**タグと**&#124; strip**フィルターを使用してください。

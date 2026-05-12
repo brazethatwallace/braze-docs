@@ -36,7 +36,7 @@ search_rank: 6
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 고객 프로필의 고유 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 ID 스키마" }
 
 ### 플랫폼 값 {#platform-values}
 
@@ -52,7 +52,7 @@ search_rank: 6
 | 웹 | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="플랫폼 값" }
 
 {% enddetails %}
 
@@ -512,7 +512,7 @@ Subscription
 | 푸시 토큰 등록 | 토큰 등록 프로세스에 의해 사용자가 업데이트되는 경우 |
 | 목록 수신 거부 | 사용자가 Braze mailto 또는 원클릭 목록 수신 거부 헤더를 통해 구독을 취소하는 경우 |
 | 기타 | 데모 또는 공급자 동기화 작업, SMS 및 WhatsApp 이벤트 콜백 등 기타 소스를 포함합니다 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="속성 세부정보" }
 
 
 {% endapi %}
@@ -7462,7 +7462,6 @@ In-App Messages, Clicks
 {% endapi %}
 
 {% api %}
-
 ## 인앱 메시지 노출 이벤트 {#in-app-message-impression-events}
 
 {% apitags %}
@@ -7707,7 +7706,6 @@ In-App Messages, Impressions
 {% endapi %}
 
 {% api %}
-
 ## LINE 중단 이벤트 {#line-abort-events}
 
 {% apitags %}
@@ -12940,6 +12938,7 @@ Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze
 {% endapi %}
 
 {% api %}
+
 ## SMS 재시도 이벤트 {#sms-retry-events}
 
 {% apitags %}
@@ -13121,6 +13120,7 @@ SMS, Retry
 {% endapi %}
 
 {% api %}
+
 ## SMS 전송 이벤트 {#sms-send-events}
 
 {% apitags %}
@@ -13349,6 +13349,7 @@ SMS, Sends
 {% endapi %}
 
 {% api %}
+
 ## SMS 단축 링크 클릭 이벤트 {#sms-short-link-click-events}
 
 {% apitags %}
@@ -13773,6 +13774,7 @@ Abort, Webhooks
 {% endapi %}
 
 {% api %}
+
 ## 웹훅 실패 이벤트 {#webhook-failure-events}
 
 {% apitags %}
@@ -14003,6 +14005,7 @@ Failure, Webhooks
 {% endapi %}
 
 {% api %}
+
 ## 웹훅 재시도 이벤트 {#webhook-retry-events}
 
 {% apitags %}
@@ -14201,6 +14204,7 @@ Webhooks, Retry
 {% endapi %}
 
 {% api %}
+
 ## 웹훅 전송 이벤트 {#webhook-send-events}
 
 {% apitags %}
@@ -14385,7 +14389,7 @@ Webhooks, Sends
 {% endtab %}
 {% endtabs %}
 
-#### 등록정보 세부 정보
+#### 속성 세부 정보
 
 - `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어 또는 국가) 및 Canvas 진입 등록정보로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag/)를 참조하세요.
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
@@ -14803,7 +14807,6 @@ WhatsApp, Clicks
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp 전달 이벤트 {#whatsapp-delivery-events}
 
 {% apitags %}

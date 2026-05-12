@@ -140,7 +140,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     | `ID` | String | Oui |
     | `NAME` | String | Oui |
     | `DELETED` | Boolean | Facultatif |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Synchroniser les données de votre compte" }
 
 {:start="3"}
 3. Créez un utilisateur et accordez les autorisations. Si vous disposez déjà d'identifiants provenant d'une autre synchronisation, vous pouvez les réutiliser à condition qu'ils aient accès à la table des comptes.
@@ -151,7 +151,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     | BigQuery User | Permet à Braze d'exécuter des requêtes, de lire les métadonnées et de lister les tables. |
     | BigQuery Data Viewer | Permet à Braze de consulter les jeux de données et leur contenu. |
     | BigQuery Job User | Permet à Braze d'exécuter des tâches. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Synchroniser les données de votre compte" }
 
     Après avoir accordé les autorisations, générez une clé JSON. Consultez [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) pour les instructions. Vous la téléverserez ultérieurement dans le tableau de bord de Braze.
 
@@ -187,7 +187,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     | `ID` | String | Oui |
     | `NAME` | String | Oui |
     | `DELETED` | Boolean | Facultatif |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Synchroniser les données de votre compte" }
 
 {:start="3"}
 3. Créez un jeton d'accès personnel dans Databricks :
@@ -233,10 +233,10 @@ Pour synchroniser les données de compte depuis un stockage de fichiers, créez 
 | --- | --- | --- |
 | `ID` | Oui | ID du compte à mettre à jour ou à créer |
 | `NAME` | Oui | Nom du compte |
-| `payload` | Oui | Chaîne de caractères JSON des champs à synchroniser vers le compte dans Braze |
+| `payload` | Oui | Chaîne JSON des champs à synchroniser vers le compte dans Braze |
 | `DELETED` | Facultatif | Valeur booléenne indiquant la suppression du compte dans Braze |
 | `UPDATED_AT` | _*Non pris en charge_ | Le stockage de fichiers ne prend pas en charge les colonnes `UPDATED_AT` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Synchroniser les données de votre compte" }
 
 {% alert note %}
 Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).

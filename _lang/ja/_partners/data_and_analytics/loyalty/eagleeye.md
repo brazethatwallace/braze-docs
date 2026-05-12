@@ -19,7 +19,7 @@ Eagle Eye Connect は、Braze と AIR 間の双方向統合で、ブランドが
 
 ## ユースケース {#use-cases}
 
-- ポイントのしきい値や獲得報酬などのロイヤルティイベントに基づいて Braze Campaignsをトリガーします。
+- ポイントのしきい値や獲得報酬などのロイヤルティイベントに基づいてBraze Campaignsをトリガーします。
 - Braze ユーザープロファイルをリアルタイムのロイヤルティデータで充実させ、よりパーソナライズされたターゲティングを可能にします。
 - 報酬の引き換えに関連するCampaignの効果を追跡およびレポートします。
 - ユーザーがBrazeでCampaignsに参加すると、AIR で報酬を発行します。
@@ -31,16 +31,16 @@ Eagle Eye Connect は、Braze と AIR 間の双方向統合で、ブランドが
 | Eagle Eye AIR アカウント | このパートナーシップを利用するには、アクティブな Eagle Eye AIR アカウントが必要です。開始するには、Eagle Eye のパートナーシップチーム（[partnerships@eagleeye.com](mailto:partnerships@eagleeye.com)）にお問い合わせください。 |
 | Braze REST APIキー | `users.track` 権限を持つ Braze REST APIキー。<br><br>これは、Brazeダッシュボードの**「設定」>「APIキー」**から作成できます。 |
 | Braze REST エンドポイント | [REST エンドポイント URL](https://www.braze.com/docs/api/basics/#endpoints)。エンドポイントはインスタンスの Braze URL に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## アウトバウンドとインバウンド {#outbound-vs-inbound}
 
-以下の表は、Braze と Eagle Eye AIR の間でサポートされる 2 種類の統合の概要を示しています。Eagle Eye Connect は、AIR とBrazeのようなパートナーシステム間のデータ交換を可能にするミドルウェアです。詳しくは、[Eagle Eye の Braze ドキュメント](https://developer.eagleeye.com/docs/braze)を参照してください。
+以下の表は、Braze と Eagle Eye AIR の間でサポートされる2種類の統合の概要を示しています。Eagle Eye Connect は、AIR とBrazeのようなパートナーシステム間のデータ交換を可能にするミドルウェアです。詳しくは、[Eagle Eye の Braze ドキュメント](https://developer.eagleeye.com/docs/braze)を参照してください。
 
 {% tabs local %}
-{% tab outbound %}
-<table>
-  <caption>アウトバウンドとインバウンド</caption>
+{% tab アウトバウンド %}
+<table aria-label="Outbound vs. inbound">
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>方向</th>
@@ -56,7 +56,7 @@ Eagle Eye Connect は、Braze と AIR 間の双方向統合で、ブランドが
       <td>Eagle Eye</td>
       <td>Braze API へ</td>
       <td>
-        ロイヤルティデータをカスタムイベント経由でカスタム属性として Braze ユーザープロファイルに送信します。Brazeでは、取り込んだデータを次のように使用できます。
+        ロイヤルティデータをカスタムイベント経由でカスタム属性としてBrazeユーザープロファイルに送信します。Brazeでは、取り込んだデータを次のように使用できます。
         <ul>
           <li>ユーザーのセグメント化、Campaignsのトリガー</li>
           <li>メッセージのパーソナライズ</li>
@@ -71,12 +71,12 @@ Eagle Eye Connect は、Braze と AIR 間の双方向統合で、ブランドが
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
 {% endtab %}
 
-{% tab inbound %}
-<table>
-  <caption>アウトバウンドとインバウンド</caption>
+{% tab インバウンド %}
+<table aria-label="Outbound vs. inbound">
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>方向</th>
@@ -105,7 +105,7 @@ Eagle Eye Connect は、Braze と AIR 間の双方向統合で、ブランドが
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
 {% endtab %}
 {% endtabs %}
 
@@ -128,8 +128,8 @@ Eagle Eye チームと協力する際には、以下を実行します。
 | Braze API 認証情報 | Braze REST エンドポイント、アプリ識別子、APIキーをEagle Eyeの担当者と安全に共有します。 |
 | 識別子マッチング | external IDやメールなど、AIR とBrazeで共通するプロファイル更新用の主要ユーザー識別子を決定し、共有します。 |
 | 認証キー | インバウンドおよびアウトバウンドコネクターごとに秘密認証キーを決定して共有します。 |
-| 通貨コード | 購入金額を表示するための 3 桁の通貨コードを共有します（例: USD）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| 通貨コード | 購入金額を表示するための3桁の通貨コードを共有します（例: USD）。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Provide configuration details" }
 
 ### ステップ 2: Eagle Eye Connect を設定する {#step-2-configure-eagle-eye-connect}
 
@@ -137,9 +137,9 @@ Eagle Eye チームは、提供された詳細情報、固有の AIR API 認証�
 
 ### ステップ 3: AIR でソーシャル行動アクションを設定する {#step-3-configure-social-behavioral-actions-in-air}
 
-次に、ポイントまたはクーポンを発行するための一意のアクション参照を使用して、AIR で 1 つ以上のソーシャル行動アクションを設定します。
+次に、ポイントまたはクーポンを発行するための一意のアクション参照を使用して、AIR で1つ以上のソーシャル行動アクションを設定します。
 
-### ステップ 4: Braze を設定する {#step-4-configure-braze}
+### ステップ 4: Brazeを設定する {#step-4-configure-braze}
 
 Brazeで、以下を実行します。
 

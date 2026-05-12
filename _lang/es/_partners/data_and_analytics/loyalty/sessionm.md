@@ -74,7 +74,7 @@ En la pestaña **Configuración**, añade los pares clave-valor para cada campo 
 
 ![Configuración del webhook.]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-Programa tu entrega, configura tu **Target Audiences** para que se dirija al segmento [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu campaña.
+Programa tu entrega, configura tu **Público objetivo** para que se dirija al segmento [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu campaña.
 
 {% alert important %}
 Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [punto de conexión de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un tiempo de vida para cada usuario en la llamada (un único usuario por llamada).

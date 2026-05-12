@@ -15,4 +15,4 @@
 | Alineación | Alineación horizontal del grupo (inicio o centro). |
 | Color de acento | Color de los controles de casilla de verificación. |
 | Relleno | Espaciado alrededor del bloque. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

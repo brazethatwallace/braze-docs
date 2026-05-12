@@ -5,7 +5,7 @@
 | --- | --- |
 | Bild und Text | Hohe oder schmale Bilder werden verkleinert und horizontal zentriert. Breite Bilder werden am linken und rechten Rand abgeschnitten. |
 | Nur Bild | Die Nachricht passt sich an die meisten Seitenverhältnisse an. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -18,7 +18,7 @@ Wir empfehlen die folgenden Nutzlastgrößen:
 | iOS (vor iOS 8) | 0.256 KB |
 | iOS (nach iOS 8) | 2 KB |
 | Android (FCM) | 4 KB |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 | --- | --- | --- | --- |
 | Hochformat Vollbild mit Text | 6:5 | Hohe Auflösung 1200 x 1000 px <br>Mindestauflösung 600 x 500 px | Der Beschnitt kann an allen Seiten erfolgen, aber das Bild füllt immer die oberen 50 % des Ansichtsfensters aus. |
 | Hochformat Vollbild (nur Bild, mit oder ohne Buttons) | 3:5 | Hohe Auflösung 1200 x 2000 px <br> Mindestauflösung 600 x 1000 px | Bei größeren Geräten kann es am linken und rechten Rand zu Beschneidungen kommen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Landscape %}
@@ -46,7 +46,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 | --- | --- | --- | --- |
 | Querformat Vollbild mit Text | 10:3 | Hohe Auflösung 2000 x 600 px <br>Mindestauflösung 1000 x 300 px | Der Beschnitt kann an allen Seiten erfolgen, aber das Bild füllt immer die oberen 50 % des Ansichtsfensters aus. |
 | Querformat Vollbild (nur Bild, mit oder ohne Buttons) | 5:3 | Hohe Auflösung 2000 x 600 px <br> Mindestauflösung 1000 x 600 px | Bei größeren Geräten kann es am linken und rechten Rand zu Beschneidungen kommen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Slideup %}
@@ -54,7 +54,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 | Typ | Seitenverhältnis | Bildqualität | Anmerkungen |
 | --- | --- | --- | --- |
 | Slideup | 1:1 | Hohe Auflösung 150 x 150 px <br> Mindestauflösung 50 x 50 px | Bilder mit unterschiedlichen Seitenverhältnissen passen in einen quadratischen Bildcontainer, ohne dass sie beschnitten werden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Modal %}
@@ -63,7 +63,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 | --- | --- | --- | --- |
 | Modal (nur Bild) | 1:1 | Empfohlene maximale Auflösung: 1200 x 2000 px <br> Mindestauflösung: 600 x 600 px | Die Nachricht passt sich an die meisten Seitenverhältnisse an. Die empfohlene maximale Auflösung hat ein Seitenverhältnis von 3:5, was möglicherweise nicht zu optimalen Ergebnissen führt. Größere Bilder sind zwar verwendbar, können jedoch zu längeren Ladezeiten führen. <br> Das ideale Seitenverhältnis für Bilder ist 1:1. Wird dieses Verhältnis nicht eingehalten, kann dies beim Hochladen eine Warnung auslösen. Diese Warnung ist ein Vorschlag für optimale Ergebnisse und verhindert nicht das Hochladen größerer Bilder. |
 | Modal mit Text | 29:10 | Hohe Auflösung 1450 x 500 px <br> Mindestauflösung 600 x 205 px | Hohe Bilder werden verkleinert und horizontal zentriert. Breite Bilder werden am linken und rechten Rand abgeschnitten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 | iOS-Banneralarm | 85 Zeichen | 43 Zeichen |
 | Android-Sperrbildschirm | 49 Zeichen | 43 Zeichen |
 | Android-Benachrichtigungsschublade | 597 Zeichen | 43 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 Die empfohlene Bildgröße für alle Push-Bilder beträgt 500 KB.
 
@@ -89,7 +89,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Table">
   <thead>
     <tr>
       <th>Bildtyp</th>
@@ -120,7 +120,7 @@ table td {
     <tr>
       <td>Android erweitertes Benachrichtigungsbild</td>
       <td>2:1</td>
-      <td><b>Klein:</b><br>512 x 256<br><br><b>Medium:</b><br>1024 x 512<br><br><b>Groß:</b><br>2048 x 1024</td>
+      <td><b>Klein:</b><br>512 x 256<br><br><b>Mittel:</b><br>1024 x 512<br><br><b>Groß:</b><br>2048 x 1024</td>
       <td>500 KB</td>
       <td>PNG, JPEG</td>
       <td>Wird in <a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">Android Rich-Benachrichtigungen</a> verwendet.</td>
@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
 
 {% endif %}
 
@@ -146,21 +146,21 @@ table td {
 | Nur Text | 25 KB |
 | Text mit Bildern | 60 KB |
 | E-Mail-Breite | 600 px |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 | Bildspezifikationen | Empfohlene Maximalwerte |
 | --- | --- |
 | Größe | 5 MB |
-| Breite | Header: 600 px<br>Text: 480 px |
+| Breite | Header: 600 px<br>Textkörper: 480 px |
 | Dateitypen | PNG, JPEG, GIF<br><br> Die Unterstützung für WebP-Bilder variiert je nach E-Mail-Client. Um eine zuverlässige Darstellung zu gewährleisten, konvertieren Sie WebP-Bilder in das PNG- oder JPEG-Format, bevor Sie sie zu E-Mail-Nachrichten hinzufügen. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 | Textspezifikationen | Empfohlene Maximalwerte |
 | --- | --- |
 | Länge der Betreffzeile | 35 Zeichen<br>6 bis 10 Wörter |
 | `"From: Name"` Länge | 25 Zeichen |
 | Preheader-Länge | 85 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -171,7 +171,7 @@ table td {
 | Klassisch   | Seitenverhältnis 1:1 | 60 x 60&nbsp;px        |
 | Mit Beschriftung | Seitenverhältnis 4:3 | 600&nbsp;px Mindestbreite |
 | Banner    | Beliebiges Seitenverhältnis | 600&nbsp;px Mindestbreite |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
 
@@ -189,7 +189,7 @@ Diese Spezifikationen gelten für Template-Header, Antwort-Mediennachrichten und
 | Beschriftung (nur Bildnachrichten) | Optional; maximal 1.024 Zeichen | |
 | Empfohlene Abmessungen | 1.125 × 600 px | Wir empfehlen JPEG- oder PNG-Bilder mit einer Größe von 1.125 × 600 px (1,91:1) für eine konsistente Darstellung auf allen Geräten und die Einhaltung der Meta-Anforderungen. |
 | Empfohlenes Seitenverhältnis | 1,91:1 (breit) | Quadratische (1:1) und breite (16:9) Formate werden akzeptiert, aber Bilder können je nach Gerät der Nutzer:innen beschnitten oder vergrößert werden.<br><br> Bei Karussell-Karten werden Header-Bilder von WhatsApp automatisch auf ein breites Verhältnis zugeschnitten, es sei denn, es gibt keinen Textkörper – in diesem Fall wird das Bild quadratisch dargestellt.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 {% endif %}
 
@@ -206,7 +206,7 @@ Die folgenden Spezifikationen gelten für Template-Header, Antwort-Mediennachric
 | Audio-Streams | Einzelner Audio-Stream oder kein Audio-Stream |
 | Beschriftung (nur Videonachrichten) | Optional; maximal 1.024 Zeichen |
 | Empfohlenes Seitenverhältnis | 1,91:1 (breit) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 

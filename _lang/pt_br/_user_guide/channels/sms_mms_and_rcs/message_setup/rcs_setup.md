@@ -32,7 +32,7 @@ Para ser elegível para enviar RCS com a Braze, sua empresa deve atender a três
 - França
 - Itália
 - Colômbia
-3. Você deve adquirir um ou mais SKUs de RCS a $0 no seu contrato.
+3. Você deve adquirir um ou mais SKUs de RCS no seu contrato.
 
 ## Etapa 2: Registrar um remetente verificado de RCS {#step-2-register-an-rcs-verified-sender}
 
@@ -78,7 +78,7 @@ Defina seu público usando um dos métodos a seguir. Em seguida, vá para a etap
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Criar um segmento** | Crie um segmento que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os segmentos são atualizados antes de cada envio para refletir sua base de usuários atual. |
 | **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Etapa 3: Configurar uma etapa de Atualização de usuário {#step-3-configure-a-user-update-step}
 

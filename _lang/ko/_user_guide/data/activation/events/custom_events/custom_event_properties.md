@@ -31,7 +31,7 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 | 등록정보 | 예약 키 |
 | --- | --- |
 | 커스텀 이벤트 | `time` 및 `event_name` |
-| 구매 이벤트 |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
+| 구매 이벤트 | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 커스텀 이벤트 속성정보 사용 {#using-custom-event-properties}
@@ -52,7 +52,7 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 메시징 템플릿 내에서 개인화를 위해 커스텀 이벤트 속성정보를 사용할 수도 있습니다. 트리거 이벤트와 함께 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)을 사용하는 모든 Campaign은 해당 이벤트의 커스텀 이벤트 속성정보를 메시징 개인화에 활용할 수 있습니다.
 
-예를 들어, 게임 앱에서 레벨을 완료한 사용자에게 메시지를 보내려면 해당 레벨을 완료하는 데 걸린 시간에 대한 속성정보로 메시지를 더욱 개인화할 수 있습니다. 이 예시에서는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)을 사용하여 세 가지 다른 Segment에 대해 메시지를 개인화합니다. `time_spent`라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
+예를 들어, 게임 앱에서 레벨을 완료한 사용자에게 메시지를 보내려면 해당 레벨을 완료하는 데 걸린 시간에 대한 속성정보로 메시지를 더욱 개인화할 수 있습니다. 이 예시에서는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)을 사용하여 세 가지 다른 세그먼트에 대해 메시지를 개인화합니다. `time_spent`라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -129,7 +129,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 이벤트 속성정보 값을 기반으로 세분화하는 방법은 두 가지가 있습니다:
 
-1. **30일 이내:** Braze Segment 내에서 특정 이벤트 속성정보 값의 빈도 및 최근성을 기반으로 이벤트 속성정보 세분화를 사용할 수 있습니다. 이 옵션은 데이터 사용량에 영향을 미칩니다.<br><br>
+1. **30일 이내:** Braze Segments 내에서 특정 이벤트 속성정보 값의 빈도 및 최근성을 기반으로 이벤트 속성정보 세분화를 사용할 수 있습니다. 이 옵션은 데이터 사용량에 영향을 미칩니다.<br><br>
 2. **30일 이내 및 이후:** 단기 및 장기 이벤트 속성정보 세분화를 모두 다루려면 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용할 수 있습니다. 이 기능은 지난 2년 동안 추적된 커스텀 이벤트 및 이벤트 속성정보를 기반으로 사용자를 세분화합니다. 이 옵션은 데이터 사용량에 영향을 미치지 않습니다.
 
 특정 요구 사항에 따른 최적의 접근 방식에 대한 권장 사항은 Braze 고객 성공 매니저에게 문의하세요.

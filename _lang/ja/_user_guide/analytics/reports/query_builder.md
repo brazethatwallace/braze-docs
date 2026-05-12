@@ -23,7 +23,7 @@ alias: /query_builder/
 
 1. **Analytics** > **クエリビルダー**に移動します。
 2. **Create SQL Query**を選択します。クエリの作成にインスピレーションやヘルプが必要な場合は、**Query Template**を選択し、リストからテンプレートを選択します。それ以外の場合は、**SQL Editor**を選択してエディターに直接移動します。
-3. レポートには現在の日時で自動的に名前が付けられます。名前にカーソルを合わせ、<i class="fas fa-pencil" alt="Edit"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
+3. レポートには現在の日時で自動的に名前が付けられます。名前にカーソルを合わせ、<i class="fas fa-pencil" alt="編集"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
 4. エディターでSQLクエリを記述するか、**AI Query Builder**タブから[AIのヘルプを利用](#ai-query-builder)します。独自のSQLを記述する場合は、要件とリソースについて[カスタムSQLクエリの記述](#custom-sql)を参照してください。
 5. **Run Query**を選択します。
 6. クエリを保存します。
@@ -76,13 +76,13 @@ send_date_sydney;
 
 より長い期間のクエリ使用状況を監査したり、7日を超えてレコードを維持したりする必要がある場合は、有効期限が切れる前に重要なクエリ結果をエクスポートまたは保存することをお勧めします。
 
-## AI Query Builderを使用してSQLを生成する {#generating-sql-with-the-ai-query-builder}
+## AIクエリビルダーを使用してSQLを生成する {#generating-sql-with-the-ai-query-builder}
 
-AI Query Builderは、OpenAIを搭載した[GPT](https://openai.com/gpt-4)を活用して、クエリ用のSQLを推奨します。
+AIクエリビルダーは、OpenAIを搭載した[GPT](https://openai.com/gpt-4)を活用して、クエリ用のSQLを推奨します。
 
-![SQL AI Query Builder。]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![SQL AIクエリビルダー。]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-AI Query BuilderでSQLを生成するには:
+AIクエリビルダーでSQLを生成するには:
 
 1. クエリビルダーでレポートを作成した後、**AI Query Builder**タブを選択します。
 2. プロンプトを入力するか、サンプルプロンプトを選択し、**Generate**を選択してプロンプトをSQLに変換します。
@@ -92,7 +92,7 @@ AI Query BuilderでSQLを生成するには:
 
 - [SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)で利用可能なテーブルとカラムを確認してください。これらのテーブルに存在しないデータを要求すると、ChatGPTが架空のテーブルを作成する可能性があります。
 - この機能の[SQL記述ルール]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql)を確認してください。これらのルールに従わないとエラーが発生します。
-- AI Query Builderでは、1分あたり最大20件のプロンプトを送信できます。
+- AIクエリビルダーでは、1分あたり最大20件のプロンプトを送信できます。
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -104,7 +104,7 @@ AI Query BuilderでSQLを生成するには:
 
 1. **クエリビルダー**ページから、**Reference**パネルを開き、**Available Data Tables**を選択して、利用可能なデータテーブルとその名前を表示します。
 3. <i class="fas fa-chevron-down" alt=""></i> **See Details**を選択して、テーブルの説明やデータタイプなどのテーブルカラムに関する情報を表示します。
-4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="Copy table name to SQL editor"></i>を選択します。
+4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
 
 Brazeが提供するビルド済みクエリを使用するには、クエリビルダーでレポートを最初に作成するときに**Query Template**を選択します。
 
@@ -215,7 +215,7 @@ LIMIT 100
 | 開始日 | 開始日を指定します | `start_date`が必要 |
 | 終了日 | 終了日を指定します | `end_date`が必要 |
 | 日付範囲 | 開始日と終了日の両方を指定します | `start_date`と`end_date`の両方が必要 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example values" }
 
 - **置換値:** `start_date`と`end_date`を、UTCで指定された日付のUnixタイムスタンプ（秒単位）に置き換えます（`1696517353`など）。
 - **使用例:** 相対、開始日、終了日、日付範囲のすべての変数について:

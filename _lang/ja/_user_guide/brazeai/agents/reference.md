@@ -470,7 +470,7 @@ Max Characters: 20
 | **likelihood_score** | 数値 |
 | **explanation** | 文字列 |
 | **confidence_score** | 数値 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
 
 ![likelihood score、explanation、confidence scoreの3つの出力フィールドを表示するエージェントコンソール。]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -516,13 +516,9 @@ Max Characters: 20
 
 エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
 
-## 温度 {#temperature}
+## ユーザー固有のインタラクション履歴 {#user-history}
 
-エージェントを使用してモバイルアプリへのログインを促すコピーを生成する場合、エージェントの温度を高く設定することで、よりクリエイティブにコンテキスト変数のニュアンスを活用できます。センチメントスコアの生成にエージェントを使用している場合は、ネガティブなアンケートレスポンスに対するエージェントの推測を避けるために、低い温度に設定するのが理想的です。この設定をテストし、シナリオに合わせてエージェントの生成出力を確認することをお勧めします。
-
-{% alert note %}
-現在、OpenAIでの使用では温度はサポートされていません。
-{% endalert %}
+ユーザーのインタラクションデータには、最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータが含まれます。たとえば、Canvasで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
 
 ## エージェントの複製 {#duplicate-agents}
 

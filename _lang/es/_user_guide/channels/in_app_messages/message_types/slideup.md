@@ -31,7 +31,7 @@ Los mensajes de deslizamiento hacia arriba pueden contener hasta tres líneas de
 | Diseño | Tamaño del activo | Notas |
 |--- | --- | --- |
 | Imagen + texto | Relación de aspecto 1:1<br>Alta resolución 150 x 150&nbsp;px<br> Mínimo 50 x 50&nbsp;px | Las imágenes de diversas relaciones de aspecto se ajustarán a un contenedor de imagen cuadrado, sin recorte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
 
 Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) en una variedad de dispositivos para asegurarte de que las áreas más importantes de tu imagen y mensaje aparezcan como se espera. Ten en cuenta que al previsualizar tu mensaje en el compositor, la representación real en los dispositivos puede diferir.
 

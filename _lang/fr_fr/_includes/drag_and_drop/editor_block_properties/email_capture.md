@@ -8,4 +8,4 @@
 | Espacement des lettres | Modifie la distance entre chaque caractère. |
 | Alignement du texte | Déplace le texte pour l'aligner à gauche, au centre, à droite ou en justifié. |
 | Texte de la marque substitutive | Une adresse e-mail de marque substitutive à afficher. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

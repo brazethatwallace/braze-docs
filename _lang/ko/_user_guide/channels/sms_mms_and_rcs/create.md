@@ -16,7 +16,7 @@ search_rank: 1
 
 # SMS, MMS 또는 RCS 메시지 만들기 {#create-an-sms-mms-or-rcs-message}
 
-> SMS, MMS, RCS Campaigns는 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자에게 개인화된 경험을 제공하고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 만들 수 있습니다.
+> SMS, MMS, RCS Campaign(캠페인)은 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자에게 개인화된 경험을 제공하고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 만들 수 있습니다.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
@@ -62,7 +62,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 | SMS 전용 | SMS |
 | MMS 지원 번호가 포함된 SMS | SMS 및 MMS |
 | RCS 지원(RCS 인증 발신자 포함) | SMS, MMS(활성화된 경우) 및 RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 Braze는 RCS 발신자를 포함하는 모든 구독 그룹에 대체용 SMS 코드를 하나 이상 포함할 것을 강력히 권장합니다. 이렇게 하면 RCS 메시지가 전달되지 않는 경우(예: 기기 호환성 문제 또는 불완전한 통신사 커버리지) SMS를 통해 사용자에게 메시지가 전달됩니다.
@@ -108,7 +108,7 @@ MMS 메시지를 보내려면 구독 그룹에 MMS 지원 전화번호가 하나
 | --- | --- |
 | 크기 | 최대 600&nbsp;KB |
 | 파일 유형 | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### 연락처 카드 {#contact-cards}
 
@@ -177,7 +177,7 @@ RCS 미디어 메시지를 사용하면 이미지, 동영상, 문서 파일 등 
 | 이미지 | 지원 형식: JPG, JPEG, GIF |
 | 동영상 | 지원 형식: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | 문서 | 지원 형식: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **고려 사항:**
 

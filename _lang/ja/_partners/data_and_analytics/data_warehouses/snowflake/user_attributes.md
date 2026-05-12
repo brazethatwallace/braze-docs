@@ -25,7 +25,7 @@ toc_headers: h2
 
 ## 利用可能なビュー {#available-views}
 
-<table>
+<table aria-label="利用可能なビュー">
   <caption>利用可能なビュー</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ toc_headers: h2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
 
 ## ユーザープロファイルスナップショット {#user-profile-snapshots}
 
@@ -74,7 +74,7 @@ toc_headers: h2
 
 ### 使用方法 {#usage}
 
-* **12時間の遅延**を伴うユーザー属性のスナップショットを提供します。
+* 最大**12時間の遅延**を伴うユーザー属性のスナップショットを提供します。
 * リアルタイムの正確性を必要としないクエリに適しています。
 * 特に`USER_ID`以外の属性でフィルタリングする場合、クエリの実行が高速です。
 * **制限事項:** データはリアルタイムで更新されません。
@@ -83,7 +83,7 @@ toc_headers: h2
 `TIME`フィールドは、ユーザープロファイルが更新された時刻を表します。バックフィルされたデータの場合、`TIME`はバックフィルの実行時刻です。
 {% endalert %}
 
-### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`のスキーマ {#userdefaultattributesviewshared-schema}
+### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`のスキーマ {#user_default_attributes_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
@@ -104,10 +104,10 @@ toc_headers: h2
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
-### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`のスキーマ {#usercustomattributesviewshared-schema}
+### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`のスキーマ {#user_custom_attributes_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
@@ -118,7 +118,7 @@ toc_headers: h2
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## リアルタイムユーザープロファイルビュー {#real-time-user-profile-views}
 
@@ -140,7 +140,7 @@ toc_headers: h2
 `TIME`フィールドは、ユーザープロファイルが更新された時刻を表します。バックフィルされたデータの場合、`TIME`はバックフィルの実行時刻です。
 {% endalert %}
 
-### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`のスキーマ {#userlateststatedefaultattributesviewshared-schema}
+### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`のスキーマ {#user_latest_state_default_attributes_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
@@ -161,9 +161,9 @@ toc_headers: h2
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
-### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`のスキーマ {#userlateststatecustomattributeviewshared-schema}
+### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`のスキーマ {#user_latest_state_custom_attribute_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
@@ -174,7 +174,7 @@ toc_headers: h2
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
 
 ## 変更履歴ログ {#historical-change-logs}
 
@@ -193,7 +193,7 @@ toc_headers: h2
 `TIME`フィールドは、ユーザープロファイルが更新された時刻を表します。バックフィルされたデータの場合、`TIME`はバックフィルの実行時刻です。
 {% endalert %}
 
-### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`のスキーマ {#userdefaultattributeshistoryviewshared-schema}
+### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`のスキーマ {#user_default_attributes_history_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
@@ -216,9 +216,9 @@ toc_headers: h2
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
-### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`のスキーマ {#usercustomattributeshistoryviewshared-schema}
+### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`のスキーマ {#user_custom_attributes_history_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
@@ -231,7 +231,7 @@ toc_headers: h2
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ## ベストプラクティス {#best-practices}
 
@@ -241,8 +241,8 @@ toc_headers: h2
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
 | 最近の更新を必要としない**一般的なクエリ** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 高速な実行。データは最大12時間前のものです。                          |
 | **最新のユーザー属性**を必要とするクエリ       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | ほぼリアルタイムの更新を提供しますが、大規模なデータセットでは低速になる場合があります。 |
-| 属性変更の**履歴追跡**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+| 属性変更の**履歴トラッキング**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
 
 ### パフォーマンスに関する考慮事項 {#performance-considerations}
 

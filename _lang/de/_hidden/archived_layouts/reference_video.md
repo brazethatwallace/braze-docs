@@ -83,9 +83,9 @@ Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:inne
 
 | Variable | Beschreibung |
 | -------- | ----------- |
-| Seitentitel | Sie können Ihre Seite beliebig betiteln. Dies ist erforderlich. |
-| Meine erste Überschrift | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dies ist optional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Sie können Ihre Seite beliebig betiteln. Dies ist erforderlich. |
+| My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dies ist optional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code-Beispiel" }
 
 ## Thema 2 zu diesem Konzept {#topic-2-regarding-this-concept}
 

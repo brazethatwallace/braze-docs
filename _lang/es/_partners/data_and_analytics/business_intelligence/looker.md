@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
 > [Looker](https://looker.com/), una plataforma de análisis de inteligencia empresarial y big data, te permite explorar, analizar y compartir análisis empresariales en tiempo real fácilmente.
 
@@ -19,9 +19,9 @@ La integración de Braze y Looker permite a los usuarios de la empresa aprovecha
 | Requisito | Descripción |
 |---|---|
 | Cuenta Looker | Se necesita una [cuenta Looker](https://looker.com/) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
 | Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 #### Consideraciones {#considerations}
 
@@ -56,7 +56,7 @@ Braze ha construido nuestros bloques de Looker utilizando [Snowflake](https://ww
 |---|---|
 | Bloque de análisis de interacción de mensajes | Este bloque incluye datos sobre push, correo electrónico, mensajes dentro de la aplicación, webhook, conversión, entrada en Canvas y eventos de inscripción en el grupo de control de Campaign. <br><br>Obtén más información sobre este [bloque de Looker](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) o consulta el [código de GitHub](https://github.com/llooker/braze_message_engagement_block). |
 | Bloque de análisis del comportamiento del usuario | Este bloque incluye datos sobre eventos personalizados, compras, sesiones, eventos de ubicación y desinstalaciones.<br><br>Obtén más información sobre este [bloque de Looker](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) o consulta el [código de GitHub](https://github.com/llooker/braze_retention_block). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloques disponibles" }
 
 ### Acciones de Looker {#looker-actions}
 
@@ -102,7 +102,7 @@ Ten en cuenta las siguientes limitaciones:
 
 #### Paso 4: Enviar la acción Looker {#step-4-send-the-looker-action}
 
-1. Dentro de un Look con una dimensión `braze_id` seleccionada, haz clic en el engranaje de configuración ( <i class="fas fa-cog"></i> ) en la parte superior derecha y selecciona **Send...**.
+1. Dentro de un Look con una dimensión `braze_id` seleccionada, haz clic en el engranaje de configuración (<i class="fas fa-cog"></i>) en la parte superior derecha y selecciona **Send...**.
 2. Selecciona la acción Braze personalizada.
 3. En **Unique Key**, proporciona la clave de mapeado de usuario principal para la cuenta de Braze (`external_id` o `braze_id`).
 4. Dale un nombre a la exportación. Si no se indica ninguno, se utilizará `LOOKER_EXPORT`.

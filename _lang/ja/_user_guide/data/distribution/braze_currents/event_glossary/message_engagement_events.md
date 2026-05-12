@@ -36,7 +36,7 @@ search_rank: 6
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられる一意の識別子。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されたユーザープロファイルの一意の識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### プラットフォームの値 {#platform-values}
 
@@ -52,7 +52,7 @@ search_rank: 6
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
@@ -512,7 +512,7 @@ Subscription
 | プッシュトークン登録 | トークン登録プロセスによってユーザーが更新された場合 |
 | リスト配信停止 | ユーザーが Braze の mailto またはワンクリックリスト配信停止ヘッダーを使用して配信停止した場合 |
 | その他 | デモまたはプロバイダーの同期ジョブ、SMS および WhatsApp イベントコールバックなど、その他のソースが含まれます |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プロパティの詳細" }
 
 
 {% endapi %}
@@ -12938,6 +12938,7 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
 {% endapi %}
 
 {% api %}
+
 ## SMS再試行イベント {#sms-retry-events}
 
 {% apitags %}
@@ -13771,6 +13772,7 @@ Abort, Webhooks
 {% endapi %}
 
 {% api %}
+
 ## Webhook失敗イベント {#webhook-failure-events}
 
 {% apitags %}
@@ -14001,6 +14003,7 @@ Failure, Webhooks
 {% endapi %}
 
 {% api %}
+
 ## Webhook再試行イベント {#webhook-retry-events}
 
 {% apitags %}
@@ -14199,6 +14202,7 @@ Webhooks, Retry
 {% endapi %}
 
 {% api %}
+
 ## Webhook送信イベント {#webhook-send-events}
 
 {% apitags %}

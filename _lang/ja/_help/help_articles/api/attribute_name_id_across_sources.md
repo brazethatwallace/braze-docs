@@ -20,7 +20,7 @@ CampaignおよびCanvasの属性は、ダッシュボードで{% raw %}（`{{cam
 
 ### REST API
 
-CampaignとCanvasの属性は、[Campaignの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)または[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)でも利用できます。REST APIを使用してマッピング（すべてのCanvas名と対応するIDのリスト）を構築できます。
+CampaignとCanvasの属性は、[Campaignの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)や[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)でも利用できます。REST APIを使用してマッピング（すべてのCanvas名と対応するIDのリスト）を構築できます。
 
 ### Currents
 
@@ -31,21 +31,21 @@ CampaignとCanvasの属性は、Currentsの[メッセージエンゲージメン
 | 属性 | Liquid | REST API | Currents |
 | --- | --- | --- | --- |
 | Campaign名 | {% raw %}`{{campaign.${name}}}`{% endraw %} | `name` | `campaign_name` |
-| Campaign ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | 該当なし（API呼び出し自体の入力として使用される） | campaign_id |
-| バリアント名 | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | 該当なし（Campaignの詳細エクスポートエンドポイントを使用してバリアント名をバリアントIDにマッピングする） |
+| Campaign ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | 該当なし（API呼び出し自体の入力として使用されます） | campaign_id |
+| バリアント名 | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | 該当なし（Campaignの詳細エクスポートエンドポイントを使用してバリアント名をバリアントIDにマッピングします） |
 | バリアントID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign attributes" }
 
 ## Canvas属性 {#canvas-attributes}
 
 | 属性 | Liquid | REST API | Currents |
 | --- | --- | --- | --- |
 | Canvas名 | {% raw %}`{{canvas.${name}}}`{% endraw %} | `name` | `canvas_name` |
-| Canvas ID | {% raw %}`{{canvas.${api_id}}}`{% endraw %} | 該当なし（API呼び出し自体の入力として使用される） | canvas_id |
+| Canvas ID | {% raw %}`{{canvas.${api_id}}}`{% endraw %} | 該当なし（API呼び出し自体の入力として使用されます） | canvas_id |
 | バリアント名 | {% raw %}`{{canvas.${variant_name}}}`{% endraw %} | `variants.name` | `canvas_variation_name` |
 | バリアントID | {% raw %}`{{canvas.${variant_api_id}}}`{% endraw %} | `variants.name.id` | `canvas_variation_id` |
 | ステップ名（メッセージステップのみ） | {% raw %}`{{campaign.${name}}}`{% endraw %} | `steps.name` | `canvas_step_name` |
 | ステップID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | `steps.id` | `canvas_step_id` |
-| メッセージチャネル | 該当なし | `steps.messages.message_variation_id.channel` | 該当なし（プッシュ送信やメール開封など、イベントタイプに固有） |
+| メッセージチャネル | 該当なし | `steps.messages.message_variation_id.channel` | 該当なし（プッシュ送信やメール開封など、イベントタイプに固有です） |
 | メッセージID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `steps.message.message_variation_id` | `canvas_step_message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Canvas attributes" }

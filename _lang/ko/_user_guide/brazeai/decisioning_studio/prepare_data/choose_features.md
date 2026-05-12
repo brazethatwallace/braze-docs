@@ -26,7 +26,7 @@ Braze 고객의 경우, 고객 기능은 일반적으로 고객 프로필의 커
 | **사용자 성향** | 고객이 특정 행동을 할 가능성에 대한 모델 기반 점수 | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **사용자 행동** | 특정 기간 동안의 고객 활동 요약 | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **환경적** | 고객 외부의 상황별 신호 | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types of customer features" }
 
 이러한 기능 유형을 함께 사용하면 모델이 세그먼트를 식별하고, 고객 간의 차이를 구분하며, 그에 따라 추천을 조정하는 데 필요한 정보를 제공합니다.
 

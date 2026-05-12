@@ -58,7 +58,7 @@ PIIベースのテーブルを準備する前に、ジョブで実行される[L
 | メールのみ | ユーザーのメールアドレス（`alex-lee@email.com` など）。 |
 | デバイス | これには、サードパーティCookie、モバイル広告ID（MAID）、コネクテッドTV ID（CTV ID）、およびRampID（Household RampIDに解決される）が含まれます。 |
 | CID | これらは、プラットフォームパートナーまたはLiveRampとのID同期からの識別子です（内部顧客IDなど）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Create a data table" }
 
 #### Brazeの識別子 {#braze-identifiers}
 
@@ -70,7 +70,7 @@ Brazeのイベントログには、LiveRampネイティブアプリ内で使用�
 | `EMAIL_ADDRESS` | LiveRampのメール専用解決サービスと併用できるメールアドレスです。 |
 | `TO_PHONE_NUMBER` | LiveRampのPII解決サービスと併用できる電話番号です。 |
 | `EXTERNAL_USER_ID` | ユーザーに関連付けられたexternal IDです。LiveRampのDevice Resolutionサービス（CID）と併用できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze identifiers" }
 
 {% alert important %}
 LiveRampのアプリケーション内でクライアントまたはブランド固有のカスタム識別子を使用するには、[LiveRampとのID同期](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html)が必要です。

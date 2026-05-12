@@ -17,18 +17,18 @@ Puedes cargar atributos de usuario y eventos a través de una importación CSV e
 
 Puedes usar la importación CSV para registrar y actualizar los siguientes atributos de usuario y eventos personalizados. Para empezar, consulta [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
 
-|Tipo|Definición|Ejemplo|Tamaño máximo de archivo|
+| Tipo | Definición | Ejemplo | Tamaño máximo de archivo |
 |---|---|---|---|
-|Atributos predeterminados|Atributos de usuario reservados reconocidos por Braze.| `first_name`, `email`|500 MB|
-|Atributos personalizados|Atributos de usuario únicos para tu empresa.| `last_destination_searched`|500 MB|
-|Eventos personalizados|Eventos únicos para tu empresa que representan acciones de los usuarios.| `trip_booked`|50 MB|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| Atributos predeterminados | Atributos de usuario reservados reconocidos por Braze. | `first_name`, `email` | 500 MB |
+| Atributos personalizados | Atributos de usuario exclusivos de tu empresa. | `last_destination_searched` | 500 MB |
+| Eventos personalizados | Eventos exclusivos de tu empresa que representan acciones de los usuarios. | `trip_booked` | 50 MB |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
 
 #### Construir tu CSV {#constructing-your-csv}
 
 Braze acepta datos de usuario en formato CSV estándar. Las importaciones de atributos predeterminados y personalizados admiten archivos de hasta 500 MB; las importaciones de eventos personalizados admiten archivos de hasta 50 MB. Para identificadores, encabezados de columna, reglas de validación y ejemplos, consulta [Importación CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import/).
 
-Cuando cargas un CSV grande a través de **Importar usuarios** en el dashboard, la página puede parecer que no responde o responder lentamente mientras Braze recibe el archivo y ejecuta el paso de cálculo. Deja que la carga y el cálculo terminen; el tiempo total varía de unos minutos a unas horas dependiendo del tamaño del archivo, y los archivos más grandes tardan más en calcularse.
+Cuando cargas un CSV grande a través de **Import Users** en el dashboard, la página puede parecer que no responde o responder lentamente mientras Braze recibe el archivo y ejecuta el paso de cálculo. Deja que la carga y el cálculo terminen; el tiempo total varía de unos minutos a unas horas dependiendo del tamaño del archivo, y los archivos más grandes tardan más en calcularse.
 
 {% alert note %}
 Al importar eventos personalizados con propiedades, debes usar la notación de punto en los encabezados de columna de tu CSV. Para más información sobre el formato de eventos personalizados, consulta [Comprender el formato de eventos personalizados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/?tab=custom%20events#understanding-custom-event-formatting).

@@ -23,7 +23,7 @@ BrazeとGrouparooの統合により、データウェアハウスのデータを
 | Grouparooのアカウントとプロジェクト | このパートナーシップを利用するには、Grouparooのアカウントとプロジェクトが必要です。<br><br>この統合は、Grouparooが提供する無料のコミュニティエディションおよびエンタープライズソリューションで使用できます。セットアップはGrouparooの設定ユーザーインターフェイスで行います。 |
 | Braze REST APIキー | ユーザーとトラックの権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL](https://www.grouparoo.com/)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -50,7 +50,7 @@ Grouparooで、ナビゲーションバーからモデルを選択します。�
 
 #### プロパティフィールドのマッピング {#property-field-mapping}
 
-次に、GrouparooのプロパティフィールドをBrazeのプロパティフィールドにマッピングする必要があります。
+次に、Grouparooのプロパティフィールドを Brazeのプロパティフィールドにマッピングする必要があります。
 
 ![プロパティマッピングフィールドの例。GrouparooのuserIDはexternal_idにマッピングされるよう設定されています。email、firstName、lastNameは、それぞれ対応する「email」、「first_name」、「last_name」のGrouparooフィールドに設定されています。]({% image_buster /assets/img/grouparoo/mapping.png %}){: style="max-width:80%;"}
 
