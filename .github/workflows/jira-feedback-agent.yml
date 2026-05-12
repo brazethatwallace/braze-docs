@@ -15,15 +15,15 @@ jobs:
   start-cursor-cloud-agent:
     name: Start Cursor cloud agent
     runs-on: ubuntu-latest
+    permissions:
+      contents: none
     steps:
       - name: Log Jira ticket context
         env:
           TICKET_ID: ${{ github.event.client_payload.ticket_id }}
-          SUMMARY: ${{ github.event.client_payload.summary }}
         run: |
           set -euo pipefail
           echo "Jira ticket ID: ${TICKET_ID}"
-          echo "Summary: ${SUMMARY}"
 
       - name: Validate payload and Cursor API key
         env:
