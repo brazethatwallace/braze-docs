@@ -19,7 +19,7 @@ channel:
 
 Recomendamos importar los números de teléfono en formato [`E.164`](https://en.wikipedia.org/wiki/e.164) para garantizar la precisión en caso de que envíes a múltiples regiones con diferentes códigos de país o área&#8212;incluso para números de teléfono con sede en EE. UU.
 
-- **Números de EE. UU.:** Todos los números de EE. UU. deben ser números de teléfono válidos de 10 dígitos con un código de área válido. Si a algún número de 10 dígitos le falta un `+` y el código de país, Braze lo asignará como número de EE. UU.
+- **Números de EE. UU.:** Todos los números de EE. UU. deben ser números de teléfono válidos de 10 dígitos con un código de área válido. Si a algún número de teléfono de 10 dígitos le falta un `+` y el código de país, Braze lo asignará como número de EE. UU.
 - **Números internacionales:** Todos los números internacionales deben comenzar con un `+`, seguido de su código de país y luego el número de teléfono. Por ejemplo, `+442071838750`.
 
 ![Ejemplo de un número de teléfono internacional válido en formato e164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -31,7 +31,7 @@ Aquí tienes algunos ejemplos que muestran las diferencias entre el formato loca
 | EE. UU. | `4155552671` | 1 | `+14155552671` |
 | Reino Unido | `2071838750` | 44 | `+442071838750` |
 | Brasil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formato recomendado" }
 
 ## Importar números de teléfono {#importing-phone-numbers}
 

@@ -15,7 +15,7 @@ description: "이 페이지는 클라우드 데이터 수집을 사용하여 사
 
 ## 통합 구성하기 {#configuring-the-integration}
 
-표준 프로세스에 따라 연결하려는 데이터 웨어하우스에 대해 [Braze 대시보드에서 새로운 통합을 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)합니다. 삭제 테이블에 액세스할 수 있는 역할을 포함해야 합니다. **Create import sync** 페이지에서 **데이터 유형**을 **Delete Users**로 설정하여 통합 실행 중에 사용자를 삭제하는 적절한 동작이 수행되도록 합니다.
+표준 프로세스에 따라 연결하려는 데이터 웨어하우스에 대해 [Braze 대시보드에서 새로운 통합을 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)합니다. 삭제 테이블에 액세스할 수 있는 역할을 포함해야 합니다. **Create import sync** 페이지에서 **Data Type**을 **Delete Users**로 설정하여 통합 실행 중에 사용자를 삭제하는 적절한 동작이 수행되도록 합니다.
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
@@ -78,6 +78,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -90,6 +91,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
@@ -115,10 +117,10 @@ GO
 
 Braze 클라우드 데이터 수집을 사용하면 데이터 웨어하우스 인스턴스와 Braze 워크스페이스 간의 통합을 설정하여 데이터를 정기적으로 동기화할 수 있습니다. 이 동기화는 설정한 스케줄에 따라 실행되며, 각 통합은 서로 다른 스케줄을 가질 수 있습니다. 동기화는 15분마다 자주 실행하거나 한 달에 한 번씩 드물게 실행할 수 있습니다. 15분보다 더 자주 동기화가 필요한 고객은 고객 성공 매니저와 상담하거나, 실시간 데이터 수집을 위해 REST API 호출을 사용하는 것을 고려하세요.
 
-동기화가 실행되면 Braze는 데이터 웨어하우스 인스턴스에 직접 연결하여 지정된 테이블에서 모든 새 데이터를 검색하고, Braze 대시보드에서 해당 사용자 프로필을 삭제합니다.
+동기화가 실행되면 Braze는 데이터 웨어하우스 인스턴스에 직접 연결하여 지정된 테이블에서 모든 새 데이터를 검색하고, Braze 대시보드에서 해당 고객 프로필을 삭제합니다.
 
 {% alert warning %}
-사용자 프로필 삭제는 되돌릴 수 없습니다. 사용자가 영구적으로 제거되며 데이터에 불일치가 발생할 수 있습니다. 자세한 내용은 [사용자 프로필 삭제]({{site.baseurl}}/help/help_articles/api/delete_user/)를 참조하세요.
+고객 프로필 삭제는 되돌릴 수 없습니다. 사용자가 영구적으로 제거되며 데이터에 불일치가 발생할 수 있습니다. 자세한 내용은 [고객 프로필 삭제]({{site.baseurl}}/help/help_articles/api/delete_user/)를 참조하세요.
 {% endalert %}
 
 <br><br>

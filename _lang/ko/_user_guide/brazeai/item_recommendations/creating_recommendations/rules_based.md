@@ -22,6 +22,7 @@ page_order: 2
 사용 가능한 리소스와 사용 사례에 적합한 추천 엔진을 결정할 때 아래 고려 사항 표를 참조하세요.
 
 <table style="text-align: center;">
+  <caption>추천 엔진 옵션</caption>
   <thead>
     <tr>
       <th>추천 엔진</th>
@@ -90,7 +91,7 @@ page_order: 2
 
 ### 예시 {#example}
 
-건강식품 앱이 있고 사용자가 앱에 가입한 기간에 따라 다른 레시피를 전송하는 콘텐츠 카드 **Campaign**을 만들고 싶다고 가정해 보겠습니다. 먼저, 다음 정보를 포함하는 CSV 파일을 통해 카탈로그를 생성하고 업로드하세요:
+건강식품 앱이 있고 사용자가 앱에 가입한 기간에 따라 다른 레시피를 전송하는 콘텐츠 카드 Campaign을 만들고 싶다고 가정해 보겠습니다. 먼저, 다음 정보를 포함하는 CSV 파일을 통해 카탈로그를 생성하고 업로드하세요:
 
 | 필드 | 설명 |
 |-----|-----------|
@@ -105,7 +106,7 @@ page_order: 2
 
 ![Braze의 예제 카탈로그.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-콘텐츠 카드 **Campaign**을 만듭니다. 작성기에서 Liquid 로직을 입력하여 **Campaign**을 수신할 사용자와 표시할 레시피 및 이미지를 결정합니다. 이 사용 사례에서 Braze는 사용자의 `start_date`(또는 가입 날짜)를 가져와 현재 날짜와 비교합니다. 날짜 차이에 따라 전송되는 콘텐츠 카드가 결정됩니다.
+콘텐츠 카드 Campaign을 만듭니다. 작성기에서 Liquid 로직을 입력하여 Campaign을 수신할 사용자와 표시할 레시피 및 이미지를 결정합니다. 이 사용 사례에서 Braze는 사용자의 `start_date`(또는 가입 날짜)를 가져와 현재 날짜와 비교합니다. 날짜 차이에 따라 전송되는 콘텐츠 카드가 결정됩니다.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,7 +155,7 @@ page_order: 2
 
 예시:
 
-![콘텐츠 카드 **Campaign**의 예제 메시지 작성기.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![콘텐츠 카드 Campaign의 예제 메시지 작성기.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 **On click behavior** 섹션에서 사용자가 iOS, Android 및 웹 기기에서 콘텐츠 카드를 클릭할 때 리디렉션될 위치에 대한 Liquid 로직을 입력합니다.
 
@@ -175,7 +176,7 @@ page_order: 2
 
 **Test** 탭으로 이동하여 **Preview message as user**에서 **Custom user**를 선택합니다. **Custom attribute** 필드에 날짜를 입력하면 해당 날짜에 가입한 사용자에게 전송될 콘텐츠 카드를 미리 볼 수 있습니다. <br><br>
 
-!['start_date'라는 이름의 예제 커스텀 속성.]({% image_buster /assets/img/recs/custom_attributes_test.png %})
+![start_date라는 이름의 예제 커스텀 속성.]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
 
 {% tab using Connected Content %}

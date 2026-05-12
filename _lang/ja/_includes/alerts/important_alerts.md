@@ -61,7 +61,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-レガシーの購入イベントはメンテナンスモードに移行します。既存の購入イベントは引き続き期待どおりに動作しますが、eコマース推奨イベントが優先されるため、購入イベントの上に新しい機能が構築されることはありません。当面の間、購入イベントを引き続き使用できます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。
+レガシーの購入イベントはメンテナンスモードに移行します。既存のBrazeのお客様は、レガシーの購入イベントを引き続き使用できます。購入イベントは引き続き期待どおりに動作しますが、今後はeコマース推奨イベントを基盤として新しい機能が構築されます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。新規のBrazeのお客様は、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)を使用してください。レガシーの購入イベントは利用できません。
 {% endalert %}
 
 {% endif %}
@@ -85,7 +85,7 @@ S3バケットに保存されたエクスポートファイルは、ダウンロ
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Shopify連携は、Shopifyの顧客作成と顧客更新のwebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[サブスクリプショングループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
+Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[サブスクリプショングループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
 {% endalert %}
 
 {% endif %}

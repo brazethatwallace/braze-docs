@@ -28,7 +28,7 @@ Die [sichere Datenfreigabe](https://docs.snowflake.com/en/user-guide/data-sharin
 |---|---|
 | Snowflake-Konto | Sie benötigen ein Snowflake-Konto mit Admin-Rechten. |
 | LiveRamp-Konto | Wenden Sie sich an Ihr LiveRamp-Kontoteam oder an [snowflake@liveramp.com](mailto:snowflake@liveramp.com), um die erforderlichen LiveRamp-Anwendungen in Snowflake zu besprechen. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Einrichten der Integration {#setting-up-the-integration}
 
@@ -66,7 +66,7 @@ Die Ereignisprotokolle von Braze enthalten Bezeichner, die Sie in der nativen Li
 
 | Bezeichner-Typ | Beschreibung |
 |---|---|
-| `AD_ID` | Werbe-IDs wie `ios_idfa`, `google_ad_id`, `roku_ad_id`, die innerhalb bestimmter Event-Typen erfasst werden und in Verbindung mit den Diensten von LiveRamp zur Geräteauflösung verwendet werden können. Standardmäßig werden Werbe-IDs nicht erfasst – Sie können das Tracking jedoch aktivieren, indem Sie der [Braze-Dokumentation]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#data-not-collected-by-default) folgen. |
+| `AD_ID` | Werbe-IDs wie `ios_idfa`, `google_ad_id`, `roku_ad_id`, die innerhalb bestimmter Event-Typen erfasst werden und in Verbindung mit den Diensten von LiveRamp zur Geräteauflösung verwendet werden können. Standardmäßig werden Werbe-IDs nicht erfasst&#8212;Sie können das Tracking jedoch aktivieren, indem Sie der [Braze-Dokumentation]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#data-not-collected-by-default) folgen. |
 | `EMAIL_ADDRESS` | E-Mail-Adresse, die in Verbindung mit den Diensten von LiveRamp zur reinen E-Mail-Auflösung verwendet werden kann. |
 | `TO_PHONE_NUMBER` | Telefonnummer, die in Verbindung mit den Diensten zur PII-Auflösung von LiveRamp verwendet werden kann. |
 | `EXTERNAL_USER_ID` | Die einer Nutzer:in zugeordnete externe ID, die in Verbindung mit den Diensten von LiveRamp zur Geräteauflösung (CID) verwendet werden kann. |

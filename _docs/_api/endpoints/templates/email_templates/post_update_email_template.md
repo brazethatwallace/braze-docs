@@ -61,7 +61,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 |`preheader`|Optional|String|Email preheader used to generate previews in some clients.|
 |`tags`|Optional|String|[Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) must already exist.|
 |`should_inline_css`|Optional|Boolean|Enables or disables the `inline_css` feature per template. If not provided, Braze will use the default setting for the AppGroup. One of `true` or `false` is expected.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```
@@ -90,6 +90,6 @@ The following table lists possible returned errors and their associated troubles
 | All tags must be strings | Make sure your tags are encapsulated in quotes (`""`). |
 | Some tags could not be found | To add a tag when creating an email template, the tag must already exist in Braze. |
 | Invalid value for `should_inline_css`. One of `true` or `false` was expected | This parameter only accepts boolean values (true or false). Make sure the value for `should_inline_css` is not encapsulated in quotes (`""`), which causes the value to be sent as a string instead. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

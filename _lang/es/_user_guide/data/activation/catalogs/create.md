@@ -95,6 +95,7 @@ Para este tutorial, vamos a utilizar un catálogo que enumera dos juegos, su cos
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>Tutorial: Creación de un catálogo a partir de un archivo CSV</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -136,7 +137,7 @@ Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Pue
 Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Crear en el navegador %}
 ### Requisitos previos {#prerequisites}
 
 Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para tu espacio de trabajo:
@@ -227,7 +228,7 @@ El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad
 
 El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 100&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 100&nbsp;MB.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
 A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (100&nbsp;MB) está incluido en cada uno de estos planes.
 

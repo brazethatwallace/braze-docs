@@ -35,12 +35,12 @@ LINE 사용자 ID는 LINE 공급자별로 고유합니다. 특정 사용자는 �
 | 회사가 `/users/track` 엔드포인트를 사용하고 `native_line_id` 속성을 지정함 | 예 | 지정된 사용자에 대한 고객 프로필이 있는 경우([`external_id`, `user_alias`, `braze_id` 또는 `email`로 지정]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)):<br>- `native_line_id`가 지정된 값으로 설정됩니다<br>- 요청에 지정된 다른 모든 속성이 고객 프로필에 설정됩니다<br>- 여러 프로필이 동일한 `native_line_id`를 가질 수 있습니다 |
 | 회사가 Braze에 구독 상태 동기화 도구 실행을 요청함 | 아니요 | LINE에서 반환된 사용자 LINE ID에 해당하는 고객 프로필이 Braze에 없는 경우, 익명 사용자 프로필이 생성됩니다:<br>- `native_line_id`가 사용자의 LINE ID로 설정됩니다<br>- `line_id` 사용자 별칭이 사용자의 LINE ID로 설정됩니다<br>- 사용자가 채널의 Braze 구독 그룹에 가입됩니다<br><br>동일한 LINE ID를 가진 사용자가 나중에 생성되면 중복 사용자가 발생하지만, 두 프로필 모두 올바른 LINE 구독 상태를 갖게 됩니다. 이러한 경우 사용자 병합을 통해 사용자 기반을 정리할 수 있습니다. |
 | 회사가 Braze에 구독 상태 동기화 도구 실행을 요청함 | 예 | LINE에서 반환된 사용자 LINE ID에 해당하는 고객 프로필이 Braze에 있는 경우:<br>- 사용자가 채널의 Braze 구독 그룹에 가입됩니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Setting the nativelineid attribute" }
 
 ## `native_line_id` 찾기 {#finding-the-nativelineid}
 
-Braze 대시보드에서 고객 프로필을 볼 때, **참여** 탭 > **연락처 설정** 섹션 > **LINE** 섹션으로 이동하여 `native_line_id` 속성이 설정되어 있는지 확인할 수 있습니다.
+Braze 대시보드에서 고객 프로필을 볼 때, **Engagement** 탭 > **Contact Settings** 섹션 > **LINE** 섹션으로 이동하여 `native_line_id` 속성이 설정되어 있는지 확인할 수 있습니다.
 
 `native_line_id`가 설정된 경우 **LINE User ID** 아래에 표시됩니다. 설정되지 않은 경우에는 표시되지 않습니다.
 
-![참여 탭의 LINE 연락처 설정.]({% image_buster /assets/img/line/line_contact_settings.png %}){: style="max-width:50%;"}
+![Engagement 탭의 LINE 연락처 설정.]({% image_buster /assets/img/line/line_contact_settings.png %}){: style="max-width:50%;"}

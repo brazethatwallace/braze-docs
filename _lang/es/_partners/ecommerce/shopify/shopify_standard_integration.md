@@ -86,6 +86,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 </style>
 
 <table style="width: 100%;">
+  <caption>(Avanzado) Configuración personalizada del seguimiento de datos</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>

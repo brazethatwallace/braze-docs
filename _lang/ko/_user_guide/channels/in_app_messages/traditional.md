@@ -85,6 +85,7 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 </style>
 
 <table class="tg">
+  <caption>메시지 유형</caption>
 <thead>
   <tr>
     <th>메시지 유형</th>
@@ -134,6 +135,7 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 이 인앱 메시지는 필요에 맞게 커스터마이징할 수 있습니다.
 
 <table class="tg">
+  <caption>고급 메시지 유형</caption>
 <thead>
   <tr>
     <th>메시지 유형</th>

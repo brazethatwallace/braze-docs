@@ -31,7 +31,7 @@ Here are guidelines to select the variables:
 | `Catalog field`| The field in your catalog that contains the same values as your `Custom event property`. This is often a type of ID. In the eCommerce use case, this would be `shopify_id`. |
 | `Custom event` | The name of your custom event, which is the same event that contains a property with values matching your `Catalog field`. In the eCommerce use case, this would be `Made Order`. |
 | `Custom event property` | The name of your custom event property, which matches values with your `Catalog field`. In the eCommerce example use case, this would be `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
 
 {: start="4"}
 4. If needed, fill in additional optional fields for your use case to segment by a particular field value within your catalog:
@@ -97,7 +97,7 @@ You would set up a catalog segment by using the following variables:
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
 | `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -120,7 +120,7 @@ You would set up a catalog segment by using the following variables:
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
 
 {% endtab %}
 {% endtabs %}

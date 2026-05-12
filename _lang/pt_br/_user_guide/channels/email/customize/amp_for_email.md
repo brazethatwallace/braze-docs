@@ -35,6 +35,7 @@ Antes de enviar e-mails AMP para os usuários, você precisa se registrar nos no
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Para uma lista completa de clientes de e-mail compatíveis, consulte a [documentação do AMP](https://amp.dev/support/faq/email-support).
 
@@ -204,6 +205,7 @@ Ao envolver seu conteúdo com a tag `raw`, o mecanismo de processamento da Braze
 </style>
 
 <table>
+  <caption>Métricas e análise de dados</caption>
     <thead>
         <tr>
             <th>Métrica</th>

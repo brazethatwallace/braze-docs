@@ -19,6 +19,7 @@ tool:
 L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#rows) comme deux composants clés pour simplifier votre flux de travail, sans recourir au HTML.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>Composants de l'éditeur : Contenu et Lignes</caption>
     <tr>
         <th style="width: 50%;">Contenu</th>
         <th style="width: 50%;">Lignes</th>
@@ -173,7 +174,7 @@ Vous pouvez également sélectionner **Copy preview link** pour générer et cop
 
 Notez que les modifications apportées à un modèle d'e-mail ne seront pas reflétées dans un lien généré précédemment. Vous devrez générer un nouveau lien de prévisualisation pour voir les modifications.
 
-![Prévisualisation d'e-mail avec un bouton « Copy preview link » et copier le lien généré.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![Prévisualisation d'e-mail avec un bouton « Copy preview link » pour copier le lien généré.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Utiliser Inbox Vision {#use-inbox-vision}
 
@@ -192,6 +193,7 @@ La taille moyenne de nos données HTML exportées a été réduite, ce qui entra
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
 - Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table>` standard
+  <caption>Utiliser Inbox Vision</caption>
 - Les [blocs éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) ont été recodés pour plus de concision
 - Le code HTML final est compressé pour supprimer les espaces entre les balises
 - Les séparateurs transparents sont automatiquement convertis en remplissage de contenu

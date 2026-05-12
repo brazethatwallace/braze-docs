@@ -12,4 +12,4 @@
 | Letter spacing | Horizontal spacing between characters. |
 | Align | Horizontal alignment of the dropdown (left or center). |
 | Padding | Spacing around the block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

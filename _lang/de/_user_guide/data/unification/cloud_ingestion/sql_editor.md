@@ -165,6 +165,10 @@ Nach der Validierung:
 
 Wenn die Validierung erfolgreich ist, fahren Sie mit **Weiter: Benachrichtigungen** fort und erstellen Sie Ihre Synchronisierung.
 
+{% alert important %}
+Eine ungenaue SQL-Konfiguration kann zu unbeabsichtigten Ergebnissen führen, einschließlich eines übermäßigen Verbrauchs von Datenpunkten und weiterer betrieblicher Risiken. Sie sind dafür verantwortlich, dass Ihre Anfragelogik korrekt ist, und sollten alle Ergebnisse sorgfältig in der Vorschau prüfen, bevor Sie eine Synchronisierung aktivieren.
+{% endalert %}
+
 ## SQL-Einschränkungen {#sql-constraints}
 
 Ihre Anfrage muss die folgenden Anforderungen erfüllen.
@@ -276,7 +280,7 @@ Wenn Ihre Anfrage null Zeilen zurückgibt:
 - Sie können die Synchronisierung trotzdem erstellen
 - Es werden keine Nutzer:innen aktualisiert, bis Zeilen zurückgegeben werden
 
-## PAYLOAD-Unterstützung (Legacy) {#payload-support-legacy}
+## `PAYLOAD`-Unterstützung (Legacy) {#payload-support-legacy}
 
 Der SQL-Editor unterstützt [Legacy-CDI-Tabellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views), in denen eine `PAYLOAD`-Spalte vorhanden ist.
 
@@ -316,6 +320,7 @@ Wenn „Keine Vorschau verfügbar“ angezeigt wird, kann einer der folgenden zu
 | „Verbindung zur Quelle nicht möglich“ | Überprüfen Sie den konfigurierten Nutzernamen, den Account Locator und die RSA-Schlüsselpaar-Authentifizierungseinrichtung.<br>Stellen Sie sicher, dass das Warehouse läuft.<br>Bestätigen Sie den Netzwerkzugriff. |
 | „SQL-Syntaxfehler“ | Überprüfen Sie Ihre SQL-Syntax. |
 | „Objekt existiert nicht oder nicht autorisiert“ | Stellen Sie sicher, dass die Rolle `SELECT`-Zugriff auf die Tabelle hat.<br>Bestätigen Sie die Datenbank- und Schemaberechtigungen.<br>Überprüfen Sie Tippfehler im Tabellennamen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="„Keine Vorschau verfügbar“" }
 
 ### „Bezeichner-Spalte erforderlich“ {#identity-column-required}
 

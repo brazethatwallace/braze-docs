@@ -24,7 +24,7 @@ The Braze and Certona integration uses Certona's machine learning product recomm
 | ---| ---|
 | [Certona account](https://manage.certona.com/) | A Certona account is required to take advantage of this partnership. |
 | [Certona REST API endpoint](https://manage.certona.com/) | This endpoint is used directly in your Braze campaign message to pull recommended content based on user ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

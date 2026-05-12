@@ -38,6 +38,18 @@ SMS 및 MMS가 여러 인스턴스에 걸쳐 설정되어 있고 잘못된 구�
 
 Braze는 고객 프로필(`user_id`) 수준과 전화번호(`channel_id`) 수준 모두에서 SMS/MMS 구독을 관리합니다. 전화번호가 옵트인 또는 옵트아웃되면 해당 번호를 공유하는 모든 프로필에 업데이트가 적용됩니다. 최종 사용자가 특정 전화번호로 옵트인한 후 전화번호를 변경하는 경우, 새 전화번호는 해당 사용자의 구독 그룹 상태를 상속합니다. 따라서 최종 사용자가 옵트아웃한 후 새 전화번호로 앱이나 웹사이트에 다시 접속하더라도 원치 않는 메시지를 수신하지 않습니다.
 
+## 전화번호 목록 위생 권장 사항 {#phone-number-list-hygiene-recommendations}
+
+전화번호 목록 위생을 유지하면 시간이 지나도 유효한 동의 및 도달 가능성 데이터를 보존할 수 있습니다. Braze는 규정 준수 위험을 줄이고, 동의 기반 메시징 관행을 지원하며, 원래 사용자에게 더 이상 속하지 않을 수 있는 번호로의 발송을 방지하기 위해 일부 전화번호를 유효하지 않음으로 표시합니다.
+
+전화번호가 유효하지 않음으로 표시되는 일반적인 이유는 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers)를 참조하세요.
+
+유효하지 않은 전화번호를 제거하기 위해 다음 워크플로를 권장합니다:
+
+1. [`/sms/invalid_phone_numbers` 엔드포인트]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/)를 통해 영향을 받는 전화번호를 식별합니다.
+2. 비활성화된 전화번호와 통신사 오류를 수신한 전화번호를 구분합니다.
+3. 비활성화된 전화번호의 경우 사용자에게 전화번호를 재확인합니다. 사용자가 전화번호를 확인한 후 [`/sms/invalid_phone_numbers/remove` 엔드포인트]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/)를 통해 유효하지 않은 목록에서 전화번호를 제거합니다.
+
 ## 트래픽 펌핑 권장 사항 {#traffic-pumping-recommendations}
 
 ### 트래픽 펌핑이란? {#what-is-traffic-pumping}

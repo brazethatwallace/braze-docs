@@ -10,8 +10,6 @@ description: "このページでは、CDI を使用して Braze Canvasをトリ�
 
 > CDI を使ってCanvasトリガーを同期し、ゼロコピーパーソナライゼーションを実現する方法を説明します。この機能は、データストレージソリューションからユーザー固有の情報にアクセスし、それを送信先のCanvasに渡します。キャンバスステップには、Braze ユーザープロファイルに永続化されないパーソナライゼーションフィールドをオプションで含めることができます。
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Canvasトリガーの同期 {#syncing-canvas-triggers}
 
 ### クイックスタートのステップ {#quick-start-steps}
@@ -326,13 +324,10 @@ GO
 
 CDI Canvasトリガーは、`/canvas/trigger/send` の REST API レート制限を利用します。このエンドポイントを CDI Canvasトリガーと REST API 統合で同時に使用する場合、その合計使用量がレート制限にカウントされることを想定してください。
 
-CDI Canvasトリガーは現在早期アクセス中であるため、以下の詳細を考慮してください。
+各同期実行では、最大で1時間あたり約 375 万人のユーザーを、それぞれの送信先Canvasにエントリさせます。以下の場合には、ソースからCanvasへのエントリ時間が長くなることを想定してください。
 
-* ワークスペースごとに最大 5 つのアクティブなCanvasトリガー同期
-* 各同期実行では、最大で1時間あたり約 375 万人のユーザーを、それぞれの送信先Canvasにエントリさせます。
-  * 以下の場合には、ソースからCanvasへのエントリ時間が長くなることを想定してください。
-    * 1回の同期実行で 375 万人以上のユーザーを同期する場合。
-    * REST APIの [`/canvas/trigger/send` のレート制限]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)が既に飽和状態にある場合に CDI Canvasトリガーを使用する場合。
+* 1回の同期実行で 375 万人以上のユーザーを同期する場合。
+* REST APIの [`/canvas/trigger/send` のレート制限]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)が既に飽和状態にある場合に CDI Canvasトリガーを使用する場合。
 
 メッセージのアーカイブが有効な場合のゼロコピー CDI について、以下の点を考慮してください。
 

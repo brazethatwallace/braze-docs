@@ -51,6 +51,7 @@ Algunos proveedores de LLM pueden permitirte ajustar el nivel de razonamiento de
 | **Bajo** | Tareas que se benefician de un poco más de razonamiento pero no necesitan un análisis profundo. |
 | **Medio** | Tareas de varios pasos o con matices (como analizar varias entradas para recomendar una acción). |
 | **Alto** | Razonamiento complejo, casos extremos o cuando necesitas que el modelo trabaje los pasos antes de responder. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
 Recomendamos empezar con **Mínimo** y probar las respuestas de tu agente. Luego, puedes ajustar el nivel de razonamiento a **Bajo** o **Medio** si encuentras que el agente tiene dificultades para proporcionar respuestas precisas. En casos excepcionales, puede ser necesario un nivel de razonamiento **Alto**, aunque usar este nivel puede resultar en altos costes de tokens y tiempos de respuesta más largos o mayor riesgo de errores de tiempo de espera. Si tu agente tiene dificultades para equilibrar el razonamiento de varios pasos con tiempos de respuesta razonables, considera dividir tu caso de uso en más de un agente que puedan trabajar juntos en un Canvas o catálogo.
 

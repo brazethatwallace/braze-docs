@@ -51,6 +51,7 @@ Some LLM providers may allow you to adjust a selected model's thinking level. Th
 | **Low** | Tasks that benefit from a bit more reasoning but don't need deep analysis. |
 | **Medium** | Multi-step or nuanced tasks (such as analyzing several inputs to recommend an action). |
 | **High** | Complex reasoning, edge cases, or when you need the model to work through steps before answering. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
 We recommend starting with **Minimal** and testing your agent’s responses. Then, you can adjust the thinking level to **Low** or **Medium** if you find the agent is struggling to provide accurate answers. In rare cases, a **High** thinking level may be needed, although using this level can result in high token costs and longer response times or higher risk of timeout errors. If your agent is struggling to balance multi-step reasoning with reasonable response times, consider breaking your use case apart into more than one agent that can work together in a Canvas or catalog.
 
@@ -469,7 +470,7 @@ If you want to format responses to a simple feedback survey to determine how lik
 | **likelihood_score** | Number |
 | **explanation** | String |
 | **confidence_score** | Number |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
 
 ![Agent Console showing three output fields for likelihood score, explanation, and confidence score.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -515,13 +516,9 @@ You can select up to five segments for the agent to cross-reference each user's 
 
 You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 
-## Temperature
+## User-specific interaction history {#user-history}
 
-If your goal is to use an agent to generate copy to encourage users to log into your mobile app, you can set a higher temperature for your agent to be more creative and use the nuances of the context variables. If you're using an agent to generate sentiment scores, it may be ideal to set a lower temperature to avoid any agent speculation on negative survey responses. We recommend testing this setting and reviewing the agent's generated output to fit your scenario.
-
-{% alert note %}
-Temperatures aren't currently supported for use with OpenAI.
-{% endalert %}
+A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. For example, you can include this context for an agent to reference when it's evaluated in Canvas. User-specific interaction history can also help influence an agent when its job is to write personalized message copy.
 
 ## Duplicate agents
 

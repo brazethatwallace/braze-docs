@@ -26,6 +26,7 @@ Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren Cust
 ## Verfügbare Ansichten {#available-views}
 
 <table>
+  <caption>Verfügbare Ansichten</caption>
   <thead>
     <tr>
       <th>Typ</th>

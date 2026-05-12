@@ -29,11 +29,11 @@ In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Bet
 
 Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:in in Echtzeit zu personalisieren. Wenn ein Agent beispielsweise weiß, dass die bevorzugte Eissorte einer bestimmten Nutzer:in Schokolade ist und das bevorzugte Topping Gummibärchen sind, kann er eine Push-Nachricht erstellen, die speziell auf diese Kombination für diese Nutzer:in zugeschnitten ist, während sie den Canvas durchläuft.
 
-Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung von einem übergeordneten Marketingziel, das er messen und maximieren möchte. Selbst wenn Sie ihn anweisen, generell Texte zu verfassen, die Conversions fördern, verfügt er über keinen Mechanismus, um die Conversion-Auswirkungen seines agentenbasierten Schreibens zu „überwachen“ und diese Daten in zukünftige agentenbasierte Aufrufe zu integrieren. Man kann sich dies als „Stimmungs“-Entscheidung vorstellen, nicht als belohnungsbasierte KI-Entscheidungsfindung.
+Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung von einem übergeordneten Marketingziel, das er messen und maximieren möchte. Selbst wenn Sie ihn anweisen, generell Texte zu verfassen, die Conversions fördern, verfügt er über keinen Mechanismus, um die Conversion-Auswirkungen seines agentenbasierten Schreibens zu „überwachen“ und diese Daten in zukünftige agentenbasierte Aufrufe zu integrieren. Man kann sich dies als „Stimmungs“-Entscheidungsfindung vorstellen, nicht als belohnungsbasierte KI-Entscheidungsfindung.
 
 Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, eine bestimmte Handlung auszuführen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
 
-## Features
+## Features {#features}
 
 Zu den Features von Braze Agents gehören:
 
@@ -65,7 +65,7 @@ Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten 
 Es gelten die folgenden Einschränkungen:
 
 - Jeder Agent verfügt über ein standardmäßiges tägliches Ausführungslimit von 250.000 Durchläufen, das auf maximal 1.000.000 Durchläufe pro Tag erhöht werden kann. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie dieses Limit erhöhen möchten.
-- Standardmäßig muss jeder Durchlauf innerhalb von 15 Sekunden abgeschlossen sein. Nach 15 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
+- Standardmäßig muss jeder Durchlauf innerhalb von 20 Sekunden abgeschlossen sein. Nach 20 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung haben, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 - Die Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden gekürzt.
 

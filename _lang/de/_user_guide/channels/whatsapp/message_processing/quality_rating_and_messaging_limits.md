@@ -19,9 +19,9 @@ channel:
 | --- | --- |
 | Qualitätsbewertung | Eine Bewertung, die auf den Nachrichten basiert, die Ihre Kund:innen in den letzten sieben Tagen erhalten haben. Diese Bewertung wird durch das Feedback Ihrer Kund:innen bestimmt, z. B. durch den Grund für das Blockieren Ihrer Telefonnummer und andere gemeldete Probleme. Lesen Sie die Dokumentation von Meta, um mehr [über Ihre Qualitätsbewertung](https://www.facebook.com/business/help/896873687365001) zu erfahren. |
 | Messaging-Limit | Die maximale Anzahl von geschäftlich initiierten Konversationen, die Sie mit jeder Ihrer Telefonnummern in einem rollierenden 24-Stunden-Zeitraum beginnen können. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definitionen" }
 
-## Onboarding
+## Onboarding {#onboarding}
 
 Wenn ein neues WhatsApp Business-Konto erstellt wird, verwendet Meta verschiedene Faktoren, um das anfängliche Sendelimit zu bestimmen. Sie finden dieses Limit in Ihrem WhatsApp Business Manager sowie weitere Details auf Ihrer Seite „Phone Number Insights“.
 
@@ -33,7 +33,7 @@ Meta startet jede registrierte geschäftliche Telefonnummer mit einem Durchsatz 
 
 Lesen Sie die Dokumentation von Meta, um mehr über Ihren [Durchsatz](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput) zu erfahren.
 
-## Template-Pacing
+## Template-Pacing {#template-pacing}
 
 Kürzlich erstellte Marketing-Templates und pausierte Marketing-Templates, deren Pausierung aufgehoben wird, unterliegen möglicherweise dem Pacing. Die Pacing-Auswahlkriterien von Meta werden hauptsächlich durch Ihren Template-Qualitätsverlauf bestimmt. Wenn Sie ein kürzlich erstelltes Marketing-Template oder ein kürzlich wieder aktiviertes Marketing-Template verwenden, werden Nachrichten normal gesendet, bis ein nicht näher spezifizierter Schwellenwert erreicht wird. Nachdem dieser Schwellenwert erreicht wurde, werden nachfolgende Nachrichten mit diesem Template zurückgehalten, um genügend Zeit für Kund:innen-Feedback zu ermöglichen.
 

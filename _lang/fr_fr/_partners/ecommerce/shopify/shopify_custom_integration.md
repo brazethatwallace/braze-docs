@@ -306,9 +306,9 @@ export async function loader(args) {
 }
 ```
 
-### Étape 5 : Ajouter le suivi des événements Produit consulté et Panier mis à jour {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
+### Étape 5 : Ajouter le suivi des événements Product Viewed et Cart Updated {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
 
-#### Événements Produit consulté {#product-viewed-events}
+#### Événements Product Viewed {#product-viewed-events}
 
 1. Ajoutez cette fonction à votre fichier `Tracking.jsx` :
 
@@ -388,7 +388,7 @@ async function loadCriticalData({context, params, request}) {
 }
 ```
 
-#### Événements Panier mis à jour {#cart-updated-events}
+#### Événements Cart Updated {#cart-updated-events}
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify cart token alias' %}
 
@@ -614,6 +614,7 @@ Avec les SDK de Braze, vous pouvez suivre des événements personnalisés ou des
 </style>
 
 <table style="width: 100%;">
+  <caption>Étape 5 : Configuration personnalisée du suivi des données (avancée)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Événements personnalisés</th>

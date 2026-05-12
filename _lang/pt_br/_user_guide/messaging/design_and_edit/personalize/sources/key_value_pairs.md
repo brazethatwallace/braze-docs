@@ -10,9 +10,9 @@ channel:
 
 ---
 
-# Pares de chave-valor
+# Pares de chave-valor {#key-value-pairs}
 
-> Esta página aborda como usar pares de chave-valor para enviar cargas úteis de dados extras para dispositivos de usuários. Esse recurso está disponível nos canais de envio de mensagens push, no app, e-mail e Cartões de conteúdo.
+> Esta página aborda como usar pares de chave-valor para enviar cargas úteis de dados extras para dispositivos de usuários. Esse recurso está disponível nos canais de envio de mensagens push, no app, e-mail e Content Cards.
 
 Use pares de chave-valor para adicionar metadados estruturados às mensagens. Essas cargas úteis de dados extras podem enriquecer as mensagens com informações contextuais adicionais que podem influenciar como uma mensagem é renderizada ou processada.
 
@@ -23,7 +23,7 @@ Cada par consiste em:
 - **Chave:** O identificador (Exemplo: `utm_source`)
 - **Valor:** O dado associado (Exemplo: `newsletter`)
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
 Aqui estão alguns exemplos de casos de uso para adicionar metadados com pares de chave-valor:
 
@@ -37,7 +37,7 @@ Aqui estão alguns exemplos de casos de uso para adicionar metadados com pares d
    - Chave: `deep_link`
    - Valor: `app://promo-page`
 
-## Notificações por push
+## Notificações por push {#push-notifications}
 
 Pares de chave-valor podem ser adicionados a notificações por push para Android, iOS e web. Você pode usar pares de chave-valor para atualizar métricas internas e conteúdo do app ou personalizar propriedades de notificações por push, como priorização de alertas, localização e sons.
 
@@ -45,9 +45,9 @@ No criador de mensagens, selecione a guia **Settings**, selecione **Add New Pair
 
 ### iOS
 
-O serviço de Notificações por Push da Apple (APNs) suporta a definição de preferências de alerta e o envio de dados personalizados usando pares de chave-valor. O APNs utiliza a biblioteca reservada da Apple ```aps```, que inclui chaves e valores predeterminados que governam as propriedades de alerta.
+O serviço de Notificações por Push da Apple (APNs) suporta a definição de preferências de alerta e o envio de dados personalizados usando pares de chave-valor. O APNs utiliza a biblioteca reservada da Apple `aps`, que inclui chaves e valores predeterminados que governam as propriedades de alerta.
 
-##### Biblioteca APS
+##### Biblioteca APS {#aps-library}
 
 | Chave  | Tipo de valor  | Descrição do valor |
 |-------------------|-----------------------------|----------------------------------|
@@ -58,7 +58,7 @@ O serviço de Notificações por Push da Apple (APNs) suporta a definição de p
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 
-##### Biblioteca de propriedades de alerta
+##### Biblioteca de propriedades de alerta {#alert-properties-library}
 
 | Chave            | Tipo de valor               | Descrição do valor                                                                                                                             |
 |----------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -107,9 +107,9 @@ Quando a Braze envia uma notificação por push para o APNs, a carga útil será
 
 {% endraw %}
 
-##### Pares de chave-valor personalizados
+##### Pares de chave-valor personalizados {#custom-key-value-pairs}
 
-Além dos valores de carga útil da biblioteca ```aps```, você pode enviar pares de chave-valor personalizados para o dispositivo de um usuário. Os valores nesses pares são restritos a tipos primitivos: dicionário (objeto), array, string, número e booleano.
+Além dos valores de carga útil da biblioteca `aps`, você pode enviar pares de chave-valor personalizados para o dispositivo de um usuário. Os valores nesses pares são restritos a tipos primitivos: dicionário (objeto), array, string, número e booleano.
 
 ![]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
@@ -125,15 +125,15 @@ A Apple aconselha os clientes a evitar incluir informações do cliente ou quais
 Se você estiver usando a API do provedor HTTP/2, qualquer carga útil individual que você enviar para o APNs não pode exceder um tamanho de 4096 bytes. A interface binária legada, que em breve será descontinuada, suporta apenas um tamanho de carga útil de 2048 bytes.
 {% endalert %}
 
-###### Campanhas disparadas por API
+###### Campaigns disparadas por API {#api-triggered-campaigns}
 
-A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em campanhas disparadas por API e campanhas agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
+A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
 ### Android
 
 A Braze permite que você envie cargas úteis de dados adicionais em notificações por push usando pares de chave-valor.
 
-##### Carga útil de dados
+##### Carga útil de dados {#data-payload}
 
 Semelhante ao push para iOS, você pode enviar pares de chave-valor personalizados para o dispositivo de um usuário.
 
@@ -143,29 +143,36 @@ Alguns casos de uso para pares de chave-valor personalizados incluem manutençã
 O backend do seu app deve ser capaz de processar pares de chave-valor personalizados para que a carga útil de dados funcione corretamente.
 {% endalert %}
 
-###### Campanhas disparadas por API
+###### Campaigns disparadas por API
 
-A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em campanhas disparadas por API e campanhas agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
+A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
-##### Opções de mensagens FCM
+##### Opções de mensagens FCM {#fcm-messaging-options}
 
 As notificações por push para Android podem ser ainda mais personalizadas com opções de mensagens FCM. Essas incluem [prioridade de notificação]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority), [som]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#sounds), postergação, tempo de vida e capacidade de agrupamento. Esses valores podem ser especificados na guia **Settings** ao criar uma mensagem push. Consulte [Configurações avançadas de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#android_settings) para mais instruções sobre como definir essas opções no criador de mensagens da Braze.
 
 ![]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
-### Notificações por push silenciosas
+### Notificações por push silenciosas {#silent-push-notifications}
 
 Uma notificação por push silenciosa é uma notificação por push que não contém mensagem de alerta ou som, usada para atualizar a interface ou o conteúdo do seu app em segundo plano. Essas notificações utilizam pares de chave-valor para disparar essas ações do app em segundo plano. As notificações por push silenciosas também alimentam nosso [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
 
 Os profissionais de marketing devem testar se as notificações por push silenciosas disparam o comportamento esperado antes de enviá-las aos usuários do app. Depois de redigir sua notificação por push silenciosa para [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) ou [Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android), certifique-se de direcionar apenas um usuário teste filtrando por [ID de usuário externo]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id) ou [endereço de e-mail]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 
-Ao lançar a campanha, você deve verificar se não recebeu nenhuma notificação por push visível no seu dispositivo de teste.
+Ao lançar a Campaign, você deve verificar se não recebeu nenhuma notificação por push visível no seu dispositivo de teste.
 
 {% alert note %}
-O sistema operacional iOS pode [limitar notificações]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/silent_push_notifications/#ios-silent-notifications-limitations) para alguns recursos (rastreamento de desinstalação, geofences e Push Stories). Se você estiver enfrentando dificuldades com esses recursos, o controle de notificações silenciosas do iOS pode ser a causa.
+O controle de notificações silenciosas do iOS pode causar os seguintes sintomas:
+
+- Métricas de rastreamento de desinstalação menores do que o esperado para usuários iOS
+- Entrega inconsistente ou atrasada de notificações por push silenciosas
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) que não são exibidas
+- Push Stories que chegam sem as imagens, vídeos ou páginas esperados
+
+Essa é uma limitação da plataforma Apple, não um problema da Braze. O iOS pode atrasar ou descartar notificações em segundo plano para alguns recursos da Braze, incluindo rastreamento de desinstalação e Push Stories. Para detalhes sobre o que o iOS limita e quando, consulte [Limitações do iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#ios-limitations).
 {% endalert %}
 
-## Mensagens no app
+## Mensagens no app {#in-app-messages}
 
 Você pode adicionar um par de chave-valor a uma mensagem no app no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) selecionando a guia **Settings**, selecionando **Add New Pair** e especificando seus pares de chave-valor.
 
@@ -174,11 +181,11 @@ Pares de chave-valor não podem ser definidos por meio do editor de arrastar e s
 {% endalert %}
 ![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### Campanhas disparadas por API
+#### Campaigns disparadas por API
 
-A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em campanhas disparadas por API e campanhas agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
+A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
-## E-mails
+## E-mails {#emails}
 
 Tanto o SparkPost quanto o SendGrid suportam pares de chave-valor em e-mails. Se você usa o SendGrid, os pares de chave-valor serão enviados como [argumentos únicos](https://docs.sendgrid.com/for-developers/sending-email/unique-arguments). O SendGrid permite que você anexe um número ilimitado de pares de chave-valor com até 10.000 bytes de dados. Esses pares de chave-valor podem ser vistos em posts do [Event Webhook](https://sendgrid.com/docs/for-developers/tracking-events/event/) do SendGrid.
 
@@ -188,8 +195,8 @@ E-mails com bounce não entregarão pares de chave-valor ao SparkPost ou SendGri
 
 ![Guia de informações de envio do criador de mensagens de e-mail na Braze.]({% image_buster /assets/img_archive/keyvalue_email.png %})
 
-## Cartões de conteúdo
+## Content Cards
 
-Para adicionar um par de chave-valor a um cartão de conteúdo, acesse a guia **Settings** no criador de mensagens da Braze e selecione **Add New Pair**.
+Para adicionar um par de chave-valor a um Content Card, acesse a guia **Settings** no criador de mensagens da Braze e selecione **Add New Pair**.
 
-![Adicionar par de chave-valor ao cartão de conteúdo]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+![Adicionar par de chave-valor ao Content Card]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}

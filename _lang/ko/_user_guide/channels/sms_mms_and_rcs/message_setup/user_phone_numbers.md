@@ -31,7 +31,7 @@ channel:
 | 미국 | `4155552671` | 1 | `+14155552671` |
 | 영국 | `2071838750` | 44 | `+442071838750` |
 | 브라질 | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recommended format" }
 
 ## 전화번호 가져오기 {#importing-phone-numbers}
 

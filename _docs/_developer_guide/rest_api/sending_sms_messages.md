@@ -32,7 +32,7 @@ To complete this guide, you need:
 | Braze REST API key | A key with the `messages.send` permission. To create one, go to **Settings** > **APIs and Identifiers** > **API Keys**. |
 | SMS subscription group | An SMS subscription group configured in your Braze workspace. |
 | Backend service | A backend service or scripting environment capable of making HTTP POST requests to the Braze REST API. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Create an API campaign
 

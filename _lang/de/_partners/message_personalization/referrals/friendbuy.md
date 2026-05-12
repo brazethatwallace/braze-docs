@@ -1,6 +1,6 @@
 ---
-nav_title: Friendbuy
-article_title: Friendbuy
+nav_title: FriendBuy
+article_title: FriendBuy
 description: "Erfahren Sie, wie Sie Friendbuy in Braze integrieren können."
 alias: /partners/friendbuy/
 page_type: partner
@@ -74,3 +74,4 @@ Friendbuy verwendet den internationalen Standard (E.164), um echte Telefonnummer
 | Nur Telefon | Nur die Telefonnummer der Kund:in wird an Braze gesendet. |
 | Keines | Es werden keine Kundendaten an Braze gesendet. |
 | Beides | Die E-Mail-Adresse und Telefonnummer der Kund:in werden an Braze gesendet. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verhalten bei Kontrollkästchen" }

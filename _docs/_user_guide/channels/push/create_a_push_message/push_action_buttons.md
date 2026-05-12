@@ -72,7 +72,7 @@ The following table outlines how many characters you can add before your button 
 | 1 | 46 characters |
 | 2 | 20 characters |
 | 3 | 11 characters |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}
 

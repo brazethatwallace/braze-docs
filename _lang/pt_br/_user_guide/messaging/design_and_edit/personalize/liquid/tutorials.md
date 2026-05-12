@@ -6,7 +6,7 @@ description: "Esta página de referência contém tutoriais para iniciantes que 
 page_type: tutorial
 ---
 
-# Tutoriais: Escrevendo código Liquid
+# Tutoriais: Escrevendo código Liquid {#tutorials-writing-liquid-code}
 
 > Novo no Liquid? Estes tutoriais vão ajudar você a começar a escrever código Liquid para casos de uso voltados a iniciantes. Cada tutorial aborda uma combinação diferente de objetivos de aprendizado, como lógica condicional e operadores.
 
@@ -24,7 +24,7 @@ Ao concluir estes tutoriais, você será capaz de:
 | [Contagem regressiva para evento](#countdown) | variáveis, filtros de data |
 | [Mensagem mensal de aniversário](#birthday) | variáveis, filtros de data, operadores |
 | [Promover um produto favorito](#favorite-product) | variáveis, filtros de data, equações, operadores |
-{: .reset-br-td-1 .reset-br-td-2}
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutoriais: Escrevendo código Liquid" }
 
 ## Mensagens personalizadas para segmentos de usuários {#segments}
 

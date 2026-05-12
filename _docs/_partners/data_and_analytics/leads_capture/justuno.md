@@ -22,7 +22,7 @@ Integrating Justuno and Braze gives you the best of both worlds. You can combine
 
 | Braze Rest API key | A Braze REST API key with the `users.track` and `custom_attributes.get` permissions.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrating Justuno with Braze
 
@@ -56,7 +56,7 @@ To send profile data from Justuno to a specific Braze email or SMS Subscription 
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
 | Braze SMS Subscription Group ID  | Yes       | This ID is used to collect SMS consent from user profiles. If no ID is entered in Justuno, profiles will not have consent when Justuno pushes that profile to Braze. |
 | Braze Email Subscription Group ID | No        | If this ID is not entered in Justuno, Justuno will send the profile data to Braze as a user with no associated subscription groups. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3: Connect your Braze subscription groups" }
 
 #### Step 3.1: Locate the IDs in Braze
 

@@ -614,6 +614,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 </style>
 
 <table style="width: 100%;">
+  <caption>5단계: 커스텀 데이터 추적 설정(고급)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>

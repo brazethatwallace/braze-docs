@@ -24,11 +24,11 @@ Le [partage de données sécurisé](https://docs.snowflake.com/en/user-guide/dat
 
 ## Conditions préalables {#prerequisites}
 
-| Prérequis       | Description                                                                                                                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Compte Snowflake | Vous avez besoin d'un compte Snowflake avec des autorisations de niveau administrateur.                                                                                                                                      |
-| Compte LiveRamp  | Contactez votre équipe LiveRamp ou [snowflake@liveramp.com](mailto:snowflake@liveramp.com) pour discuter des applications LiveRamp requises dans Snowflake.                              |
-{: .reset-td-br-1 .reset-td-br-2 }
+| Prérequis | Description |
+|-----------|-------------|
+| Compte Snowflake | Vous avez besoin d'un compte Snowflake avec des autorisations de niveau administrateur. |
+| Compte LiveRamp | Contactez votre équipe LiveRamp ou [snowflake@liveramp.com](mailto:snowflake@liveramp.com) pour discuter des applications LiveRamp requises dans Snowflake. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Configuration de l'intégration {#setting-up-the-integration}
 
@@ -52,22 +52,22 @@ Avant de préparer des tables basées sur des informations personnelles, assurez
 
 Ensuite, créez une table de données au [format requis](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html) qui sera appelée par le biais de l'application native LiveRamp. Reportez-vous aux catégories suivantes pour déterminer lesquels de vos identifiants peuvent faire l'objet d'une résolution :
 
-| Type d'identifiant | Description  |
+| Type d'identifiant | Description |
 |-----------------|--------------|
-| PII complet        | Les informations personnelles identifiables (PII) incluent le nom, l'adresse postale, l'e-mail et le numéro de téléphone de l'utilisateur. **Remarque :** tous les identifiants ne sont pas requis pour chaque enregistrement. |
-| E-mail uniquement      | Les adresses e-mail de l'utilisateur, telles que `alex-lee@email.com`. |
-| Appareil          | Cela inclut les cookies tiers, les identifiants publicitaires mobiles (MAID), les identifiants de télévision connectée (CTV ID) et les RampID (résolus en RampID de foyer). |
-| CID            | Il s'agit d'identifiants provenant d'un partenaire de plateforme ou d'une synchronisation d'identité avec LiveRamp, tels que votre identifiant client interne. |
+| PII complet | Les informations personnelles identifiables (PII) incluent le nom, l'adresse postale, l'e-mail et le numéro de téléphone de l'utilisateur. **Remarque :** tous les identifiants ne sont pas requis pour chaque enregistrement. |
+| E-mail uniquement | Les adresses e-mail de l'utilisateur, telles que `alex-lee@email.com`. |
+| Appareil | Cela inclut les cookies tiers, les identifiants publicitaires mobiles (MAID), les identifiants de télévision connectée (CTV ID) et les RampID (résolus en RampID de foyer). |
+| CID | Il s'agit d'identifiants provenant d'un partenaire de plateforme ou d'une synchronisation d'identité avec LiveRamp, tels que votre identifiant client interne. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Identifiants Braze {#braze-identifiers}
 
 Les journaux d'événements de Braze contiennent des identifiants que vous pouvez utiliser dans l'application native LiveRamp. Pour obtenir la liste complète des identifiants disponibles pour chaque type d'événement, téléchargez les [schémas et identifiants d'événements Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
 
-| Type d'identifiant | Description  |
+| Type d'identifiant | Description |
 |-----------------|--------------|
 | `AD_ID` | Les identifiants publicitaires, tels que `ios_idfa`, `google_ad_id` et `roku_ad_id`, capturés dans le cadre de types d'événements particuliers, peuvent être utilisés conjointement avec les services de résolution des appareils de LiveRamp. Par défaut, les identifiants publicitaires ne sont pas collectés&#8212;toutefois, vous pouvez activer le suivi en suivant la [documentation de Braze]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#data-not-collected-by-default). |
-| `EMAIL_ADDRESS`   | Adresse e-mail pouvant être utilisée conjointement avec les services de résolution par e-mail uniquement de LiveRamp. |
+| `EMAIL_ADDRESS` | Adresse e-mail pouvant être utilisée conjointement avec les services de résolution par e-mail uniquement de LiveRamp. |
 | `TO_PHONE_NUMBER` | Numéro de téléphone pouvant être utilisé conjointement avec les services de résolution PII de LiveRamp. |
 | `EXTERNAL_USER_ID` | L'ID externe associé à un utilisateur, pouvant être utilisé conjointement avec les services de résolution des appareils (CID) de LiveRamp. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -89,7 +89,7 @@ Maintenant que vos variables sont définies, créez la table de métadonnées po
 Enfin, effectuez l'opération de résolution d'identité. Pour une procédure pas à pas complète, consultez [LiveRamp : Perform the Identity Resolution Operation](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#perform-the-identity-resolution-operation).
 
 {% tabs local %}
-{% tab example input %}
+{% tab exemple d'entrée %}
 ```sql
 call lr_resolution_and_transcoding(
 $customer_input_table_name,
@@ -101,7 +101,7 @@ $customer_metrics_table_name
 ```
 {% endtab %}
 
-{% tab example output %}
+{% tab exemple de sortie %}
 ```sql
 call check_for_output(
 $output_table_name

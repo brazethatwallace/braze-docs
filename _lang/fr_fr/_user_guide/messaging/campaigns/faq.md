@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### Comment créer une campagne multicanale ? {#how-do-i-create-a-multichannel-campaign}
 
-Pour créer une campagne multicanale, sélectionnez **Messaging** > **Campaigns**. Ensuite, sélectionnez **Create Campaign** > **Multichannel**. Vous pouvez alors choisir parmi les canaux de communication suivants : Content Cards, e-mail, LINE, notifications push, SMS/MMS/RCS, webhook ou WhatsApp.
+Consultez [Campagnes multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) dans **Créer une campagne** pour les étapes de configuration et les canaux pris en charge.
 
 ### Puis-je ajouter un groupe de contrôle à ma campagne multicanale ? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Non, les groupes de contrôle dans les campagnes sont conçus pour les communications monocanales, comme E-mail A versus E-mail B. Comme alternative, essayez d'utiliser [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) pour tester différents canaux, contenus de messages et délais de livraison.
+Consultez [Groupes de contrôle]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) dans **Créer une campagne**. Pour les tests cross-canal, utilisez [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### Quels sont les moyens de commencer à tester et optimiser les campagnes ? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -48,9 +48,7 @@ Le même schéma s'applique aux campagnes récurrentes et à la rééligibilité
 
 ### Pourquoi le nombre de conversions peut-il dépasser le nombre d'utilisateurs uniques pour les campagnes multicanales ? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Pour les campagnes multicanales, Braze comptabilise les conversions par canal, et non par utilisateur. Lorsqu'un utilisateur effectue une seule action de conversion dans la fenêtre de conversion, Braze attribue cette conversion à chaque canal par lequel l'utilisateur a reçu un message. Cela signifie que si un utilisateur reçoit des messages sur plusieurs canaux (par exemple, e-mail et push) et convertit, Braze comptabilise plusieurs conversions, une pour chaque canal. Par conséquent, le nombre total de conversions peut dépasser le nombre d'utilisateurs uniques ayant converti.
-
-Par exemple, si une campagne multicanale envoie à la fois un e-mail et une notification push à un utilisateur, et que cet utilisateur effectue une action de conversion après avoir reçu les deux messages et dans la fenêtre de conversion, Braze comptabilise cela comme deux conversions, une attribuée à l'e-mail et une attribuée au push, même s'il s'agit d'une seule action du même utilisateur.
+Consultez [Conversions et reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) dans **Créer une campagne** et [Règles de suivi des conversions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) dans **Événements de conversion**.
 
 ### Pourquoi ma campagne a-t-elle une base d'utilisateurs atteignables plus petite que le segment que j'utilise pour la campagne ? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -113,7 +111,7 @@ Braze recommande fortement de planifier toutes les campagnes en fuseau horaire l
 
 Par exemple, s'il est 13 h et que vous planifiez une campagne en fuseau horaire local pour 15 h, la campagne sera immédiatement envoyée à tous les utilisateurs dont l'heure locale est entre 15 h et 16 h, mais pas aux utilisateurs dont l'heure locale est 17 h. De plus, l'heure d'envoi que vous choisissez pour votre campagne ne doit pas encore être passée dans le fuseau horaire de votre entreprise.
 
-La modification d'une campagne en fuseau horaire local planifiée moins de 24 heures à l'avance ne modifiera pas la planification du message. Si vous décidez de modifier une campagne en fuseau horaire local pour l'envoyer à une heure ultérieure (par exemple, 19 h au lieu de 18 h), les utilisateurs qui faisaient partie du segment ciblé lorsque l'heure d'envoi originale a été choisie recevront toujours le message à l'heure originale (18 h). Si vous modifiez un fuseau horaire local pour envoyer à une heure antérieure (par exemple, 16 h au lieu de 17 h), la campagne sera tout de même envoyée à tous les membres du segment à l'heure originale (17 h).
+La modification d'une campagne en fuseau horaire local planifiée moins de 24 heures à l'avance ne modifiera pas la planification du message. Si vous décidez de modifier une campagne en fuseau horaire local pour l'envoyer à une heure ultérieure (par exemple, 19 h au lieu de 18 h), les utilisateurs qui faisaient partie du segment ciblé lorsque l'heure d'envoi originale a été choisie recevront toujours le message à l'heure originale (18 h). Si vous modifiez une campagne en fuseau horaire local pour envoyer à une heure antérieure (par exemple, 16 h au lieu de 17 h), la campagne sera tout de même envoyée à tous les membres du segment à l'heure originale (17 h).
 
 {% alert note %}
 Pour les composants Canvas, les utilisateurs n'ont pas besoin d'être dans le composant pendant 24 heures pour recevoir le composant suivant du parcours utilisateur pour la livraison en fuseau horaire local.

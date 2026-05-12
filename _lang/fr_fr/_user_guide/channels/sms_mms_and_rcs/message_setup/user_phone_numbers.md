@@ -31,7 +31,7 @@ Voici quelques exemples illustrant les différences entre le formatage local et 
 | USA | `4155552671` | 1 | `+14155552671` |
 | UK | `2071838750` | 44 | `+442071838750` |
 | Brésil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recommended format" }
 
 ## Importation des numéros de téléphone {#importing-phone-numbers}
 

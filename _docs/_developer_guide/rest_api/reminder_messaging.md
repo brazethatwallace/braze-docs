@@ -26,7 +26,7 @@ To complete this guide, you need:
 | Landing page access | Access and permissions to create [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) in Braze. |
 | HTML and JavaScript knowledge | Basic familiarity with HTML and JavaScript to customize your landing page. Required for [Option B](#option-b-personal-dates-custom-code-block) only. |
 | Liquid knowledge | Basic familiarity with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) for templating personalized variables. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Create a landing page and link to it from a message
 

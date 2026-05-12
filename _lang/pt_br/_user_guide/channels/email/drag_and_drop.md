@@ -19,6 +19,7 @@ tool:
 O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como os dois componentes principais para simplificar seu fluxo de trabalho, sem uso adicional de HTML.
 
 <table style="width: 100%; table-layout: fixed;">
+    <caption>Componentes do editor: Conteúdo e Linhas</caption>
     <tr>
         <th style="width: 50%;">Conteúdo</th>
         <th style="width: 50%;">Linhas</th>
@@ -192,6 +193,7 @@ O tamanho médio dos dados HTML exportados foi reduzido, levando a carregamento 
 
 A renderização HTML foi aprimorada com base nas seguintes atualizações que minimizam o número de comentários condicionais e consultas de mídia CSS. Como resultado, os arquivos HTML são menores e codificados de forma mais eficiente.
 - Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table>` padrão
+  <caption>Usar o Inbox Vision</caption>
 - Os [blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) foram recodificados para maior concisão
 - O código HTML final é comprimido para remover espaços em branco entre tags
 - Divisores transparentes são automaticamente convertidos em preenchimento de conteúdo

@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 프로젝트, 데이터셋 및 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 스키마와 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
@@ -531,7 +533,7 @@ Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집*
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집** > **소스**로 이동하여 **데이터 소스 추가**를 선택한 다음 **Microsoft Fabric**을 선택합니다.
+Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소스로 이동하여 **데이터 소스 추가**를 선택한 다음 **Microsoft Fabric**을 선택합니다.
 
 #### 2.1단계: 클라우드 데이터 수집 동기화 설정 {#step-21-set-up-a-cloud-data-ingestion-sync}
 

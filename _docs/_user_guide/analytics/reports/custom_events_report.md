@@ -27,7 +27,7 @@ Use the following options to customize what data appears in the **Performance Ov
 | Breakdown custom events by | Controls how the time series for your selected custom event is grouped. By default, the chart shows the overall aggregate trend by date. Switch to **Custom Events by Hour** to see intraday patterns, or **Custom Events per MAU** to normalize event volume against your monthly active user count. |
 | Filter by Segments | Toggle this on to break down event counts by one or more segments. When enabled, select the segments you want to compare. The graph shows the number of users in each segment who performed the custom event. |
 | KPI formula | Replaces the raw event count with a calculated metric built from a numerator (such as a custom event count) and a denominator (such as DAU, MAU, or an analytics-enabled segment size). When you select one or more formulas, the chart plots each formula's value over the selected date range so you can compare normalized performance (for example, "events per active user") instead of total event volume. If no data is available for the selected time range and formulas, Braze displays a "no data" message—broaden the time range or choose different formulas. Select **Manage KPI formulas** to create or edit formulas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuring your report" }
 
 ## Exporting data
 

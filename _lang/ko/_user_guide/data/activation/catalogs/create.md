@@ -95,6 +95,7 @@ CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg">
+  <caption>튜토리얼: CSV 파일에서 카탈로그 만들기</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

@@ -30,7 +30,7 @@ search_rank: 3
 - [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web)
 - [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-purchases)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=unity)
-- [.NET MAUI (구 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#logging-purchases)
+- [.NET MAUI(구 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#logging-purchases)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=roku)
 
 ## 구매 데이터 보기 {#view-purchase-data}
@@ -41,14 +41,14 @@ search_rank: 3
 
 Braze에서 구매 데이터를 사용하는 방법은 여러 가지가 있습니다:
 
-- **[세분화](#purchase-event-segmentation):** 구매 데이터를 사용하여 구매 행동을 기반으로 사용자 Segments를 생성합니다.
+- **[세분화](#purchase-event-segmentation):** 구매 데이터를 사용하여 구매 행동을 기반으로 사용자 세그먼트를 생성합니다.
 - **[개인화](#personalization):** 구매 데이터를 사용하여 사용자에게 메시지를 개인화합니다.
 - **[메시지 트리거](#trigger-messages):** 구매 이벤트를 기반으로 메시지가 트리거되도록 설정합니다.
-- **[분석](#analytics):** 구매 데이터를 분석하여 사용자 행동과 마케팅 Campaigns의 효과에 대한 인사이트를 얻습니다.
+- **[분석](#analytics):** 구매 데이터를 분석하여 사용자 행동과 마케팅 Campaign(캠페인)의 효과에 대한 인사이트를 얻습니다.
 
 ### 세분화 {#purchase-event-segmentation}
 
-기록된 구매 이벤트를 기반으로 원하는 수와 유형의 후속 Campaigns를 트리거할 수 있습니다. 예를 들어, 지난 30일 동안 구매한 사용자 Segment나 특정 금액 이상을 지출한 사용자 Segment를 생성할 수 있습니다.
+기록된 구매 이벤트를 기반으로 원하는 수와 유형의 후속 캠페인을 트리거할 수 있습니다. 예를 들어, 지난 30일 동안 구매한 사용자 세그먼트나 특정 금액 이상을 지출한 사용자 세그먼트를 생성할 수 있습니다.
 
 사용자를 타겟팅할 때 다음과 같은 세분화 필터를 사용할 수 있습니다:
 
@@ -111,7 +111,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 ### 분석 {#analytics}
 
-세분화를 위한 구매 측정기준 추적 외에도, Braze는 각 제품의 구매 횟수와 시간에 따른 매출도 기록합니다. 이를 통해 가장 인기 있는 제품을 파악하거나 프로모션 Campaign이 매출에 미치는 영향을 측정하는 데 도움이 될 수 있습니다.
+세분화를 위한 구매 측정기준 추적 외에도, Braze는 각 제품의 구매 횟수와 시간에 따른 매출도 기록합니다. 이를 통해 가장 인기 있는 제품을 파악하거나 프로모션 캠페인이 매출에 미치는 영향을 측정하는 데 도움이 될 수 있습니다.
 
 이 데이터는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data) 페이지에서 확인할 수 있습니다.
 
@@ -124,6 +124,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 </style>
 
 <table>
+  <caption>매출 계산</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -132,23 +133,23 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">생애 매출</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">Lifetime Revenue</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">사용자당 생애주기 가치</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime Value Per User</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">일평균 매출</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Average Daily Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-purchases">일일 구매</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-purchases">Daily Purchases</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Purchases' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">사용자당 일일 매출</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">Daily Revenue Per User</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Revenue Per User' %}</td>
         </tr>
     </tbody>
@@ -179,7 +180,7 @@ Braze에서 사용자의 LTV를 파악할 수 있는 주요 위치는 두 곳입
 - -$5 가격의 구매 1건
 - 생애 매출 $7
 
-Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 한 번만 구매했습니다. 사용자의 구매 횟수를 기반으로 구축된 Segments나 사용 사례가 있는 경우 이 점을 고려하는 것이 중요합니다. 지속적인 환불은 사용자 프로필의 구매 횟수를 부풀릴 수 있습니다.
+Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 한 번만 구매했습니다. 사용자의 구매 횟수를 기반으로 구축된 세그먼트나 사용 사례가 있는 경우 이 점을 고려하는 것이 중요합니다. 지속적인 환불은 사용자 프로필의 구매 횟수를 부풀릴 수 있습니다.
 
 ## 구매 이벤트 속성정보 {#purchase-properties}
 
@@ -208,7 +209,7 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 - 최근 Y일 동안 속성정보 Y의 값이 V인 구매를 X회 한 경우
 - 모든 구매, 이벤트, 구매 및 이벤트 내 속성정보에 대해 1~30일 세분화 추가
 
-[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)과 달리, 사용되는 Segments는 실시간으로 업데이트되고, 무제한의 Segments를 지원하며, 최대 30일의 조회 기록을 제공하고, 데이터 포인트가 발생합니다. 추가 데이터 포인트 비용이 발생하므로, 커스텀 이벤트에 대한 이벤트 속성정보를 활성화하려면 Braze 고객 성공 매니저에게 문의해야 합니다.
+[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)과 달리, 사용되는 세그먼트는 실시간으로 업데이트되고, 무제한의 세그먼트를 지원하며, 최대 30일의 조회 기록을 제공하고, 데이터 포인트가 발생합니다. 추가 데이터 포인트 비용이 발생하므로, 커스텀 이벤트에 대한 이벤트 속성정보를 활성화하려면 Braze 고객 성공 매니저에게 문의해야 합니다.
 
 승인되면 **데이터 설정** > **커스텀 이벤트**에서 **등록정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
 

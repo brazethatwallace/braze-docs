@@ -17,7 +17,7 @@ alias: /line/subscription_groups/
 | --- | --- |
 | Subscribed | The user followed the LINE channel from within their LINE app. Users are automatically subscribed when they follow after you've completed the integration steps. |
 | Unsubscribed | The user didn't follow the LINE channel from within their LINE app, or the user explicitly unfollowed the LINE channel. <br><br> Users who unsubscribe from a LINE subscription group will no longer receive any LINE messages from sending channels that belong to the subscription group. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE subscription groups" }
 
 ## Setting a user's LINE subscription group
 

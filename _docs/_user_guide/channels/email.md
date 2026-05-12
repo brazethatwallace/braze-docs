@@ -36,7 +36,7 @@ You can customize your email messaging in a variety of ways, including:
 | Multimedia content | Ease of multimedia content placement that engages users such as videos and images. |
 | Newsletters | Conveniently send monthly or weekly newsletters to maintain user engagement. |
 | Transactions | Notify users of recent purchases and deliver important product and shipping information with [transactional emails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Email services {#email-services}
 

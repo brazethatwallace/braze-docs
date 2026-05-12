@@ -19,7 +19,7 @@ For CDI user data syncs, configure both:
 | --- | --- |
 | Source table setup | Required columns, user identifiers, and `UPDATED_AT` sync behavior |
 | Payload formatting | JSON fields in `PAYLOAD`, including object shape for attributes, events, and purchases |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understand table setup compared to payload formatting" }
 
 Braze reads rows from your source table first, then validates the `PAYLOAD` field based on the selected data type.
 
@@ -59,7 +59,7 @@ The `PAYLOAD` value follows the same object formats used by the Braze `/users/tr
 | `attributes` | [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | [Events object]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | [Purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Set up the PAYLOAD column" }
 
 For nested attributes, include dates using the format in [Capturing dates as object properties]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties).
 

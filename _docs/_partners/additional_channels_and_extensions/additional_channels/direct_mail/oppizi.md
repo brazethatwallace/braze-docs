@@ -20,7 +20,7 @@ _This integration is maintained by Oppizi._
 | Oppizi account                 | An active Oppizi account is required to use this integration.                 |
 | Oppizi API key                 | Found in your Oppizi account in **Integrations** > **Braze**.                |
 | Oppizi Direct Mail workflow ID | Create a workflow in Oppizi on the **Direct Mail Workflow** page to obtain an ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

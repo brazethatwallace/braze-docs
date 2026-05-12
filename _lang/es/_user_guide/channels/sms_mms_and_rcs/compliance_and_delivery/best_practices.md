@@ -38,6 +38,18 @@ Cuando SMS y MMS se han configurado en múltiples instancias y, debido a una con
 
 Braze gestiona las suscripciones de SMS/MMS tanto a nivel del perfil de usuario (`user_id`) como a nivel del número de teléfono (`channel_id`). Cuando un número de teléfono se suscribe o cancela la suscripción, la actualización se aplica a todos los perfiles que comparten ese número. En el caso de que un usuario final se haya suscrito con un determinado número de teléfono, pero luego cambie de número, el nuevo número heredará el estado del grupo de suscripción del usuario. En consecuencia, si un usuario final ha cancelado la suscripción, pero luego vuelve a entrar en la aplicación o el sitio web con un nuevo número de teléfono, no recibirá mensajes no deseados.
 
+## Recomendaciones de higiene de la lista de números de teléfono {#phone-number-list-hygiene-recommendations}
+
+Mantener la higiene de la lista de números de teléfono te ayuda a conservar datos válidos de consentimiento y accesibilidad a lo largo del tiempo. Braze marca algunos números de teléfono como no válidos para ayudar a reducir el riesgo de cumplimiento, respaldar las prácticas de mensajería basadas en el consentimiento y evitar el envío a números que pueden ya no pertenecer al usuario original.
+
+Para conocer las razones por las que los números de teléfono suelen marcarse como no válidos, consulta [Gestión de números de teléfono no válidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+Recomendamos el siguiente flujo de trabajo para eliminar números de teléfono no válidos:
+
+1. Identifica los números de teléfono afectados a través del [punto de conexión `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Diferencia entre los números de teléfono que están desactivados y los números de teléfono que recibieron errores del proveedor.
+3. Para los números de teléfono desactivados, vuelve a verificar el número de teléfono con el usuario. Después de que el usuario confirme su número de teléfono, elimina el número de teléfono de la lista de no válidos a través del [punto de conexión `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+
 ## Recomendaciones sobre el bombeo de tráfico {#traffic-pumping-recommendations}
 
 ### ¿Qué es el bombeo de tráfico? {#what-is-traffic-pumping}

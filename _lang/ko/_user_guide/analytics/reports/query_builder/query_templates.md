@@ -32,21 +32,21 @@ table td {
 | Segment별 구매 및 매출 | 이 보고서는 특정 Segment에 대해 전송된 메시지의 측정기준을 표시합니다. <br><br> 구매 측정기준은 보고 기간 전체에서 고유합니다. 한 사용자는 최대 한 건의 구매를 생성할 수 있습니다. 매출은 보고 기간의 모든 구매를 고려합니다. |
 | Segment별 배리언트 또는 단계의 구매 및 매출 | 이 보고서는 각 Segment에 전송된 메시지의 배리언트 또는 캔버스 단계에 대한 측정기준을 표시합니다. <br><br> 구매 측정기준은 보고 기간 전체에서 고유합니다. 한 사용자는 최대 한 건의 구매를 생성할 수 있습니다. 매출은 보고 기간의 모든 구매를 고려합니다. |
 | 구매 상위/하위 메시징 | 이 보고서는 상위 또는 하위 Campaigns, Canvases 또는 캔버스 단계에 대한 구매 측정기준을 표시합니다. 각 행은 Campaign, Canvas 또는 캔버스 단계입니다. 상위 또는 하위 성과를 표시할지 여부와 이 분석을 실행할 특정 측정기준(예: *수신 시 고유 구매*, *수신 시 매출*, *고유 수신자*)을 지정해야 합니다. <br><br> 상위 성과 보고서의 행은 최고에서 최저 순으로 정렬되며, 하위 성과 보고서의 행은 최저에서 최고 순으로 정렬됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel templates" }
 
 ## Campaign 템플릿 {#campaign-templates}
 
 | 쿼리 이름 | 설명 |
 | --- | --- |
 | 국가별 Campaign 매출 | 이 보고서는 특정 Campaign에 대한 국가별 매출을 표시합니다. 이 보고서를 실행하려면 Campaign의 API 식별자를 지정해야 합니다. Campaign의 API 식별자는 해당 Campaign 세부 정보 페이지 하단에서 확인할 수 있습니다. <br><br> 이 보고서는 각 국가에 대해 생성된 매출 금액, 주문 수, 반품 수, 순매출, 총매출을 표시합니다.<br><br> {::nomarkdown} <ul> <li> <i>주문:</i> 구매 이벤트 수 </li> <li><i> 반품:</i> 음수 매출 값을 가진 구매 이벤트 수 </li> <li><i> 순매출:</i> 반품을 제외한 모든 매출 </li> <li><i> 총매출:</i> 반품 값을 포함한 매출 </li></ul>{:/} ![]({% image_buster /assets/img_archive/campaign_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign templates" }
 
 ## Canvas 템플릿 {#canvas-templates}
 
 | 쿼리 이름 | 설명 |
 | --- | --- |
 | 국가별 Canvas 매출 | 이 보고서는 특정 Canvas에 대한 국가별 매출을 표시합니다. 이 보고서를 실행하려면 Canvas의 API 식별자를 지정해야 합니다. Canvas API 식별자는 **Analyze Variants** 아래에서 확인할 수 있습니다. <br><br> 이 보고서는 각 국가에 대해 생성된 매출 금액, 주문 수, 반품 수, 순매출, 총매출을 표시합니다.<br><br> {::nomarkdown} <ul> <li> <i>주문:</i> 구매 이벤트 수 </li> <li><i> 반품:</i> 음수 매출 값을 가진 구매 이벤트 수 </li> <li><i> 순매출:</i> 반품을 제외한 모든 매출 </li> <li><i> 총매출:</i> 반품 값을 포함한 매출 </li></ul>{:/} ![]({% image_buster /assets/img_archive/canvas_revenue_country.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas templates" }
 
 ## 이메일 템플릿 {#email-templates}
 
@@ -61,7 +61,7 @@ table td {
 | 이메일 구독 그룹 옵트인 및 옵트아웃 | 이 보고서는 모든 이메일 구독 그룹에 대해 매주 고유 사용자 옵트인 및 옵트아웃 수를 표시합니다. 이 쿼리를 실행하려면 워크스페이스에 최소 하나의 [이메일 구독 그룹]({{site.baseurl}}/user_guide/channels/email/subscriptions/)이 있어야 합니다. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q2.png %}){: style="max-width:70%;"} |
 | 클릭된 이메일 URL | 이 보고서는 이메일의 각 링크가 받은 클릭 수를 표시합니다. 이 보고서를 실행하려면 Campaign 또는 Canvas의 API 식별자를 지정해야 합니다. Campaign의 API 식별자는 해당 Campaign 세부 정보 페이지 하단에서, Canvas API 식별자는 **Analyze Variants** 아래에서 확인할 수 있습니다. <br><br> 이 보고서는 비개인화된 링크와 각 링크의 클릭 수를 표시합니다. CSV 다운로드에는 클릭한 모든 사용자의 사용자 ID, 클릭한 링크, 클릭한 타임스탬프가 포함됩니다. <br><br> *비개인화된 URL:* Liquid 태그가 제거된 URL입니다. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q5.png %}){: style="max-width:70%;"} |
 | 이메일 참여 상위/하위 메시징 | 이 보고서는 상위 또는 하위 Campaigns, Canvases 또는 캔버스 단계에 대한 이메일 참여 측정기준을 표시합니다. 상위 또는 하위 성과를 표시할지 여부와 이 분석을 실행할 특정 측정기준(예: *전송*, *소프트바운스*, *고유 열람*)을 지정해야 합니다. <br><br> 상위 성과 보고서의 행은 최고에서 최저 순으로 정렬되며, 하위 성과 보고서의 행은 최저에서 최고 순으로 정렬됩니다. <br><br> ![]({% image_buster /assets/img_archive/top-bottom-email.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 ## 모바일 템플릿 {#mobile-templates}
 
@@ -73,14 +73,14 @@ table td {
 | 기기 화면 해상도 | 1179x2556, 750x1334 등 기기 화면 해상도별 사용자 수입니다. <br><br> ![]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
 | SMS 오류 코드 | 이 보고서는 각 SMS 오류 코드에 대한 오류 유형과 오류 수를 표시합니다. <br><br>![]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
 | 사용자별 SMS 제공자 오류 | 이 보고서는 특정 사용자에 대한 SMS 오류 코드를 표시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mobile templates" }
 
 ## 푸시 템플릿 {#push-templates}
 
 | 쿼리 이름 | 설명 |
 | --- | --- |
 | 국가별 푸시 성과 | 이 보고서는 각 국가에 대해 다음 측정기준을 표시합니다: 전달 수, 열람률, 클릭률. 국가는 이메일 전송 시점의 사용자 국가입니다. <br><br> ![]({% image_buster /assets/img_archive/query_builder_q7.png %}){: style="max-width:70%;"} |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push templates" }
 
 ## Segment 분석 {#segment-breakdown}
 
@@ -91,4 +91,4 @@ table td {
 | 이메일 참여 상위/하위 메시징 | 이 보고서는 지정된 이메일 참여 측정기준에서 최고 또는 최저 성과를 보인 Campaigns, Canvases 또는 캔버스 단계를 표시합니다. |
 | 구매 상위/하위 메시징 | 이 보고서는 지정된 구매 또는 매출 측정기준에서 최고 또는 최저 성과를 보인 Campaigns, Canvases 또는 캔버스 단계를 표시합니다. |
 | Segment별 푸시 성과 | 이 보고서는 Segment별로 분류된 푸시 측정기준을 표시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }

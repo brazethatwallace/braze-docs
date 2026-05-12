@@ -37,7 +37,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `include_variant_breakdown` | Optional | Boolean | Whether to include variant statistics (defaults to `false`).  |
 | `include_step_breakdown` | Optional | Boolean | Whether to include step statistics (defaults to `false`). |
 | `include_deleted_step_data` | Optional | Boolean | Whether to include step statistics for deleted steps (defaults to `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Time zone alignment:** Braze Dashboard analytics are aggregated daily in your company's configured time zone in the dashboard. Make sure your timestamps align with your company's time zone so that your stats match the dashboard. For example, if your company time is UTC+2, then the timestamp should be 12AM UTC+2.

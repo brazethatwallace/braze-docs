@@ -54,7 +54,7 @@ En intégrant VWO à Braze, vous pouvez exploiter les données d'expérience de 
 
 ## Flux de données {#data-flow}
 
-VWO envoie les données d'expérience de la campagne à Braze sous la forme d'un événement personnalisé en utilisant le format suivant :
+VWO envoie les données d'expérience de la campagne à Braze sous la forme d'un événement personnalisé au format suivant :
 
 - **Nom de l'événement :** VWO
 - **Propriétés d'événement :** `vwo_campaign_name`, `vwo_variation_name`
@@ -70,6 +70,7 @@ Ces propriétés d'événements personnalisés peuvent également être utilisé
 Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous devez l'activer dans Braze. Utilisez le modèle suivant pour contacter votre gestionnaire de la satisfaction client Braze ou l'équipe d'assistance pour obtenir l'accès.
 
    <table>
+     <caption>Demander la segmentation des propriétés d'événement</caption>
    <thead>
       <tr>
          <th>Champ</th>
@@ -100,7 +101,7 @@ Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous d
 
 L'événement personnalisé envoyé par VWO à Braze&#8212;y compris toutes les propriétés d'événement activées pour la segmentation&#8212;enregistrera des points de données dans votre instance Braze.
 
-### Restrictions {#considerations}
+### Délai de synchronisation
 
 Actuellement, cette intégration ne prend pas en charge la synchronisation en temps réel des données de test. Il peut s'écouler jusqu'à 15 minutes avant que les données de test n'apparaissent dans Braze.
 

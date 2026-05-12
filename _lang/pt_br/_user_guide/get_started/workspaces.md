@@ -154,62 +154,63 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
 </style>
 
 <table>
+  <caption>Visão geral de cada abordagem</caption>
     <tr>
         <th></th>
-        <th colspan="2">Espaços de trabalho separados</th>
-        <th colspan="2">Espaços de trabalho compartilhados</th>
+        <th colspan="2" scope="colgroup">Espaços de trabalho separados</th>
+        <th colspan="2" scope="colgroup">Espaços de trabalho compartilhados</th>
     </tr>
     <tr>
         <th></th>
-        <th>Benefícios</th>
-        <th>Desvantagens</th>
-        <th>Benefícios</th>
-        <th>Desvantagens</th>
+        <th scope="col">Benefícios</th>
+        <th scope="col">Desvantagens</th>
+        <th scope="col">Benefícios</th>
+        <th scope="col">Desvantagens</th>
     </tr>
     <tr>
-        <td>Direcionamento</td>
+        <th scope="row">Direcionamento</th>
         <td>A maneira mais segura de manter as comunicações separadas. As Campaigns têm a garantia de direcionar apenas perfis de usuários específicos.</td>
         <td>Não é possível enviar mensagens promocionais cruzadas, mesmo sabendo que um usuário tem outro perfil de usuário em um espaço de trabalho diferente.</td>
         <td>Pode enviar mensagens promocionais cruzadas se souber que um usuário tem vários apps em seu espaço de trabalho.<br><br>Pode fazer referência a dados de usuários de vários apps. Por exemplo, João tem um atributo X relevante para o App 1 e um atributo Y relevante para o App 2, que podem ser referenciados em uma Campaign.</td>
-        <td>Mais espaço para erro humano — você pode direcionar acidentalmente os usuários em várias instâncias do app.<br><br>Para enviar **In-App Messages**, é necessário ter eventos personalizados específicos do app para que uma Campaign não seja exibida em outro app por acidente. Por exemplo, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
+        <td>Mais espaço para erro humano — você pode direcionar acidentalmente os usuários em várias instâncias do app.<br><br>Para enviar mensagens no app, é necessário ter eventos personalizados específicos do app para que uma Campaign não seja exibida em outro app por acidente. Por exemplo, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>Eventos e atributos personalizados</td>
+        <th scope="row">Eventos e atributos personalizados</th>
         <td>É garantido que os atributos e eventos personalizados sejam específicos de uma instância do app.</td>
         <td>Não é possível rastrear o comportamento do usuário nos espaços de trabalho.<br><br><b>Dica:</b> Você pode utilizar vários conectores Currents para fazer isso.</td>
         <td>Pode rastrear o comportamento do usuário em todas as instâncias do app no espaço de trabalho.</td>
         <td>Atributos e eventos personalizados se aplicariam a todas as instâncias do app, o que poderia dificultar a identificação de quais dados de um perfil de usuário são relevantes para qual instância do app. Por exemplo, "date_of_parking" é relevante para o App 1 ou o App 2? Para combater isso, certifique-se de usar convenções de nomenclatura bem estruturadas.</td>
     </tr>
     <tr>
-        <td>Limite de frequência</td>
+        <th scope="row">Limite de frequência</th>
         <td>O limite de frequência pode ser definido separadamente para cada instância do app (com base no espaço de trabalho).</td>
         <td>N/D</td>
         <td>N/D</td>
         <td>O limite de frequência se aplica a todas as Campaigns, e não por app, o que torna mais difícil evitar o envio excessivo de mensagens aos clientes.</td>
     </tr>
     <tr>
-        <td>Status da inscrição para perfis de usuário</td>
+        <th scope="row">Status da inscrição para perfis de usuário</th>
         <td>O status de inscrição de cada perfil de usuário é exclusivo para cada instância do app.</td>
         <td>N/D</td>
         <td>N/D</td>
         <td>Os status de inscrição de um perfil de usuário são combinados entre as instâncias do app.<br><br><b>Dica:</b> Em vez disso, é possível usar <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>atributos personalizados</a> para gerenciar as inscrições de seus usuários.</td>
     </tr>
     <tr>
-        <td>Permissões de usuário da empresa</td>
+        <th scope="row">Permissões de usuário da empresa</th>
         <td>N/D</td>
         <td>A atualização das <a href='/docs/user_guide/administer/global/user_management/permissions'>permissões de usuário</a> para um usuário do dashboard deve ser feita separadamente para cada espaço de trabalho ao qual o usuário precisa ter acesso.</td>
         <td>As <a href='/docs/user_guide/administer/global/user_management/permissions'>permissões de usuário</a> podem ser definidas uma vez para um usuário do dashboard, e ele terá as mesmas permissões para todas as instâncias do app no espaço de trabalho.</td>
         <td>N/D</td>
     </tr>
     <tr>
-        <td>Duplicação de conteúdo</td>
+        <th scope="row">Duplicação de conteúdo</th>
         <td>N/D</td>
-        <td>Não é possível duplicar Segments, Campaigns de push ou de cartão de conteúdo, nem **Canvases** entre espaços de trabalho.</td>
-        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espaços de trabalho</a> para os seguintes canais suportados: SMS, **In-App Messages**, e-mail, modelos de e-mail e Content Blocks. <br><br>Pode duplicar Segments, Campaigns e **Canvases** para reutilizar conteúdo de uma instância do app para outra.</td>
+        <td>Não é possível duplicar Segments, Campaigns de push ou de cartão de conteúdo, nem Canvas entre espaços de trabalho.</td>
+        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espaços de trabalho</a> para os seguintes canais suportados: SMS, mensagens no app, e-mail, modelos de e-mail e Content Blocks. <br><br>Pode duplicar Segments, Campaigns e Canvas para reutilizar conteúdo de uma instância do app para outra.</td>
         <td>N/D</td>
     </tr>
     <tr>
-        <td>Análise de dados</td>
+        <th scope="row">Análise de dados</th>
         <td>As estatísticas globais serão precisas na página inicial.</td>
         <td>N/D</td>
         <td>N/D</td>

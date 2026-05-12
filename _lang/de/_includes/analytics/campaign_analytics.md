@@ -221,6 +221,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 </style>
 
 <table>
+    <caption class="sr-only">Content-Card-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -295,6 +296,7 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
 </style>
 
 <table>
+    <caption class="sr-only">Banner-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -364,6 +366,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
 </style>
 
 <table>
+    <caption class="sr-only">E-Mail-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -514,6 +517,7 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
 </style>
 
 <table>
+    <caption class="sr-only">In-App-Nachrichten-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -596,6 +600,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 </style>
 
 <table>
+    <caption class="sr-only">Push-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -714,6 +719,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 </style>
 
 <table>
+    <caption class="sr-only">SMS-, MMS- und RCS-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -765,6 +771,7 @@ Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen kö
 </style>
 
 <table>
+    <caption class="sr-only">Webhook-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -800,6 +807,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 </style>
 
 <table>
+    <caption class="sr-only">WhatsApp-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>

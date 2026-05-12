@@ -52,9 +52,9 @@ A continuación, configura los detalles de tu agente:
 2. (opcional) Añade etiquetas para filtrar tu agente.
 3. Elige el [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) que utilizará tu agente.
 4. Si no estás utilizando el modelo **Braze Auto**, selecciona el [nivel de pensamiento]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels) del modelo. Puedes elegir entre mínimo, bajo, medio o alto. Te recomendamos que comiences con **Mínimo** y pruebes las respuestas de tu agente, ajustándolo según sea necesario.
-5. Establece un límite de ejecución diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
+5. Establece un límite de invocaciones diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
 
-![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de ejecución diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de invocaciones diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Paso 3: Escribe las instrucciones {#agent-instructions}
 
@@ -98,7 +98,7 @@ El panel de **vista previa** es una instancia del agente que aparece como un pan
 3. Selecciona **Simular respuesta**. El agente se ejecutará según tu configuración y mostrará su respuesta.
 
 {% alert note %}
-Las ejecuciones de prueba cuentan para tu límite de ejecución diario.
+Las ejecuciones de prueba cuentan para tu límite de invocaciones diario.
 {% endalert %}
 
 ![Consola de Agente que muestra el panel de vista previa para probar un agente personalizado. La interfaz muestra un campo de entradas de muestra con datos de clientes de ejemplo, un botón Ejecutar prueba y un área de respuesta donde aparece la salida del agente.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

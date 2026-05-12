@@ -114,6 +114,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 - `identified`는 `external_id`가 있는 사용자에게 우선순위를 지정하는 것을 의미합니다
 - `unidentified`는 `external_id`가 없는 사용자에게 우선순위를 지정하는 것을 의미합니다
 
+{% alert important %}
+두 프로필 모두 유효하지 않은 전화번호를 가지고 있는 경우, Braze는 이를 병합하지 않습니다. 유효하지 않은 번호는 E.164 형식으로 저장되지 않으며, 병합 작업은 해당 프로필을 결합하지 않습니다. 엔드포인트는 여전히 성공 메시지와 함께 `202 Accepted`를 반환하므로, HTTP 응답은 병합이 건너뛰어졌음을 나타내지 않습니다. 병합하기 전에 하나 또는 두 프로필의 전화번호를 수정하세요.
+{% endalert %}
+
 ## 요청 예시 {#example-requests}
 
 ### 기본 요청 {#basic-request}

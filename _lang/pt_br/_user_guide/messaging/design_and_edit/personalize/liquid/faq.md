@@ -6,75 +6,75 @@ description: "Este artigo fornece respostas para perguntas frequentes sobre Liqu
 
 ---
 
-# Perguntas frequentes
+# Perguntas frequentes {#frequently-asked-questions}
 
 > Nesta página, você encontrará respostas para algumas perguntas frequentes sobre Liquid.<br><br>A Braze atualmente não oferece suporte a 100% do Liquid da Shopify, apenas a certas partes que tentamos descrever em nossa documentação. Recomendamos fortemente que você teste todas as mensagens que usam Liquid antes de enviá-las, para reduzir o risco de erros ou de uso de Liquid não suportado.
 
-### Como uso snippets de Liquid na Braze?
+### Como uso snippets de Liquid na Braze? {#how-do-i-use-liquid-snippets-in-braze}
 
 Em muitos casos, você pode incorporar snippets de Liquid navegando até suas Campaigns ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo do e-mail ou nos seus Segments.
 
-#### Onde posso saber mais?
+#### Onde posso saber mais? {#where-can-i-learn-more}
 
 Para saber mais sobre Liquid, confira nosso caminho de aprendizado guiado [Personalização dinâmica com Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) no Braze Learning! Você também pode consultar a [biblioteca de casos de uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) para inspiração e uma variedade de exemplos de personalização usando Liquid.
 
-### Qual é a diferença entre usar Liquid e Conteúdo conectado para personalização?
+### Qual é a diferença entre usar Liquid e Conteúdo conectado para personalização? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
 O Conteúdo conectado da Braze é um exemplo de Liquid tag. Ele também é usado para personalização, mas os dados vêm de um endpoint externo em vez de dados armazenados na Braze. Confira nossa seção dedicada de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para saber mais sobre como expandir a personalização das suas mensagens.
 
-### O que é templating de Liquid?
+### O que é templating de Liquid? {#what-is-liquid-templating}
 
 Essa é a forma mais comum de usar Liquid na Braze. O templating de Liquid envolve puxar dados do perfil de um usuário para uma mensagem. Esses dados podem variar desde o nome do usuário até eventos personalizados de uma mensagem disparada por evento.
 
 Consulte [Tags de personalização suportadas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) para uma lista completa das Liquid tags suportadas.
 
-### Como atribuo variáveis com Liquid?
+### Como atribuo variáveis com Liquid? {#how-do-i-assign-variables-with-liquid}
 
 Você pode criar e atribuir variáveis usando a tag `assign`. Isso cria uma variável no criador de mensagens que também pode ser referenciada ao longo da sua mensagem.
 
-### Usar Liquid registra pontos de dados?
+### Usar Liquid registra pontos de dados? {#does-using-liquid-log-data-points}
 
 Não.
 
-### Como posso usar Liquid para enviar uma saudação personalizada?
+### Como posso usar Liquid para enviar uma saudação personalizada? {#how-can-i-use-liquid-to-send-a-personalized-greeting}
 
 Para uma saudação personalizada usando o nome do usuário, você pode puxar os atributos padrão do perfil de usuário, como {% raw %} `{{${first_name}}}`, `{{${last_name}}}`.
 
 Você também pode usar uma instrução `{% if X %}` {% endraw %} de Liquid para fazer renderização condicional com base em qualquer coisa, como o dia da semana ou atributos personalizados. Para saber mais sobre os operadores de Liquid suportados que podem ser usados em instruções condicionais, confira [Operadores]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
 
-### Como posso personalizar uma mensagem com base no local de um cliente?
+### Como posso personalizar uma mensagem com base no local de um cliente? {#how-can-i-personalize-a-message-based-on-a-customers-location}
 
 {% raw %}
 Existe um atributo padrão para o local do usuário: `{{${most_recent_location}}}`.
 
-### Qual é a diferença entre {{campaign.${name}}} e {{campaign.${message_name}}}?
+### Qual é a diferença entre {{campaign.${name}}} e {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessagename}
 
 Tanto `{{campaign.${name}}}` quanto `{{campaign.${message_name}}}` são Liquid tags de personalização suportadas. Ambas as tags fazem referência a atributos da Campaign. `{{campaign.${name}}}` indica o nome da sua Campaign, e `{{campaign.${message_name}}}` é o nome da variante da sua mensagem.
 {% endraw %}
 
-### Como uso Liquid com objetos aninhados?
+### Como uso Liquid com objetos aninhados? {#how-do-i-use-liquid-with-nested-objects}
 
 A Braze tem um recurso integrado que gera código Liquid para Segments que podem ser usados em uma mensagem. Especificamente, você pode criar um Segment que corresponda a múltiplos critérios em um objeto.
 
 Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation).
 
-### Como uso atributos de evento para personalizar uma mensagem que um evento está disparando?
+### Como uso atributos de evento para personalizar uma mensagem que um evento está disparando? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
 Você pode acessar propriedades de eventos disparados por API com a tag `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
-### Por que meu Liquid disparado por API está falhando na Braze?
+### Por que meu Liquid disparado por API está falhando na Braze? {#why-is-my-api-triggered-liquid-failing-in-braze}
 
 {% raw %}
 Uma causa comum é um par extra de chaves. Por exemplo, `{{{api_trigger_properties.${attribute_key}}}}` não é uma sintaxe de personalização válida na Braze. Use exatamente duas chaves de abertura e duas de fechamento: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
-### O que é lógica de cancelamento e como posso usá-la?
+### O que é lógica de cancelamento e como posso usá-la? {#what-is-abort-logic-and-how-can-i-use-it}
 
 A lógica de cancelamento permite que você interrompa o envio de uma mensagem se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de cancelamento nas suas Campaigns de marketing, leia mais em [Cancelamento de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
 
-### O que é lógica de loop for e como posso usá-la?
+### O que é lógica de loop for e como posso usá-la? {#what-is-for-loop-logic-and-how-can-i-use-it}
 
 Loops for também são conhecidos como [tags de iteração](https://shopify.github.io/liquid/tags/iteration/). Usar lógica de loop for nos seus snippets de Liquid permite que você percorra blocos de Liquid até que uma condição seja atendida.
 
@@ -93,11 +93,11 @@ Por exemplo, digamos que você tenha um catálogo chamado "Games" que tem uma se
 
 Quando as condições definidas forem atendidas, sua mensagem pode prosseguir. Usar essa lógica é uma forma útil de economizar tempo, em vez de repetir blocos de Liquid para diferentes condições.
 
-### Por que há espaçamento extra em mensagens que usam Content Blocks?
+### Por que há espaçamento extra em mensagens que usam Content Blocks? {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
 
 Se você notar espaçamento extra em mensagens enviadas que usam Content Blocks com Liquid, pode haver quebras de parágrafo ou de linha desnecessárias dentro das suas instruções condicionais. Escreva suas instruções condicionais em uma única linha em vez de em múltiplas linhas.
 
-#### Exemplo
+#### Exemplo {#example}
 
 {% raw %}
 ```liquid
@@ -105,23 +105,38 @@ Se você notar espaçamento extra em mensagens enviadas que usam Content Blocks 
 ```
 {% endraw %}
 
-### Quando devo usar `assign` versus `capture`?
+### Quando devo usar `assign` versus `capture`? {#when-should-i-use-assign-versus-capture}
 
 Tanto `assign` quanto `capture` criam variáveis de Liquid, mas servem a propósitos diferentes:
 
 - `assign` é para variáveis simples que armazenam um único valor, como um booleano, número ou string simples. Você também pode aplicar um único filtro na mesma linha.
-- `capture` é para armazenar um bloco de texto que pode incluir múltiplas variáveis, strings ou expressões complexas. Use `capture` quando o valor for complexo demais para uma única instrução `assign`, como URLs que utilizam outras variáveis de Liquid ou atributos personalizados como parâmetros. `capture` também é preferido ao implementar variáveis de Liquid no corpo de chamadas de Conteúdo conectado.
+- `capture` é para armazenar um bloco de texto que pode incluir múltiplas variáveis, strings ou expressões complexas.
 
-#### Exemplos
+Use `capture` quando o valor for complexo demais para uma única instrução `assign`, como URLs que utilizam outras variáveis de Liquid ou atributos personalizados como parâmetros. `capture` também é preferido ao implementar variáveis de Liquid no corpo de chamadas de Conteúdo conectado.
+
+#### Exemplos {#examples}
 
 {% raw %}
 ```liquid
-{% comment %} Valid assign usage {% endcomment %}
+{% comment %}Use assign for custom attributes{% endcomment %}
 {% assign name = {{custom_attribute.${first_name}}} %}
 {% assign price = {{custom_attribute.${price}}} | plus: 0 %}
 
-{% comment %} Use capture for complex strings {% endcomment %}
+{% comment %}Use assign for a simple variable{% endcomment %}
+{% assign discount_label = "20% off" %}
+Hello {{ customer.first_name | default: "there" }}, enjoy {{ discount_label }} on your next order!
+
+{% comment %}Use capture for complex strings{% endcomment %}
 {% capture greeting %}Hello, {{custom_attribute.${first_name}}}! Your order #{{custom_attribute.${order_id}}} is ready.{% endcapture %}
 {{ greeting }}
+
+{% comment %}Use capture to create conditional content{% endcomment %}
+{% capture promo_block %}
+{% if customer.vip == true %}
+As a VIP member, you get free shipping.
+{% else %}
+Join our VIP program to unlock free shipping.
+{% endif %}
+{% endcapture %}
 ```
 {% endraw %}

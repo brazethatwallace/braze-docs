@@ -10,8 +10,6 @@ description: "Diese Seite bietet eine Übersicht darüber, wie Sie Braze-Canvase
 
 > Erfahren Sie, wie Sie Canvas-Trigger mithilfe von CDI für eine Zero-Copy-Personalisierung synchronisieren können. Dieses Feature greift auf nutzerspezifische Informationen aus Ihrer Datenspeicher-Lösung zu und überträgt diese an einen Ziel-Canvas. Canvas-Schritte können optional Personalisierungsfelder enthalten, die nicht in Braze-Nutzerprofilen persistent gespeichert werden.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Canvas-Trigger synchronisieren {#syncing-canvas-triggers}
 
 ### Schnellstart-Schritte {#quick-start-steps}
@@ -326,13 +324,10 @@ Wenn die Synchronisierung ausgeführt wird, beginnen die Nutzer:innen in Ihrer Q
 
 CDI Canvas-Trigger nutzen Ihr REST API-Rate-Limit für `/canvas/trigger/send`. Wenn Sie diesen Endpunkt gleichzeitig mit CDI Canvas-Triggern und Ihrer REST API-Integration verwenden, wird die kombinierte Nutzung auf Ihr Rate-Limit angerechnet.
 
-Da sich CDI Canvas-Trigger noch in der Early-Access-Phase befinden, beachten Sie bitte die folgenden Details:
+Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen. Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
 
-* Bis zu 5 aktive Canvas-Trigger-Synchronisierungen pro Workspace
-* Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen.
-  * Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
-    * Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
-    * CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) bereits ausgeschöpft ist.
+* Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
+* CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) bereits ausgeschöpft ist.
 
 Beachten Sie Folgendes zur Zero-Copy-CDI, wenn die Nachrichtenarchivierung aktiviert ist:
 
