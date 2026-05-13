@@ -16,6 +16,10 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar bl
 
 > Use esse endpoint para criar um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
+{% alert tip %}
+Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Isso permite que ferramentas de IA como Claude e Cursor criem blocos de conteúdo por meio de prompts em linguagem natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}

@@ -1,6 +1,6 @@
 # Braze MCPサーバー関数 {#braze-mcp-server-functions}
 
-> Braze MCPサーバーは、特定のBraze REST APIエンドポイントに対応するAPI関数のセットを公開しています。ClaudeやCursorなどのMCPクライアントは、これらの関数を呼び出して非PIIデータの取得や、PIIを含まない書き込みアクションを実行できます。より一般的な情報については、[Braze MCPサーバー]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}を参照してください。
+> Braze MCPサーバーは、特定のBraze REST APIエンドポイントに対応するAPI関数のセットを公開しています。ClaudeやCursorなどのMCPクライアントは、これらの関数を呼び出して非PIIデータを取得し、適切な権限があればPIIを含まない書き込みアクションを実行できます。より一般的な情報については、[Braze MCPサーバー]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}を参照してください。
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -38,7 +38,7 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 |----------|----------|-------------|
 | `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | メタデータ付きのCanvasリストをエクスポートします。 |
 | `get_canvas_details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | 特定のCanvasに関する詳細情報を取得します。 |
-| `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | Canvasのパフォーマンスに関するサマリー分析を取得します。 |
+| `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | Canvasパフォーマンスのサマリー分析を取得します。 |
 | `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Canvasの時系列分析データを取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canvases" }
 
@@ -61,10 +61,14 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 
 ### Content Blocks
 
+`create_content_block`関数と`update_content_block`関数は書き込み関数です。MCPクライアントは`call_write_function`でこれらを呼び出す必要があり、APIキーには対応する`content_blocks.create`または`content_blocks.update`権限が必要です。
+
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
 | `get_content_blocks_list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | 利用可能なコンテンツブロックを一覧表示します。 |
 | `get_content_blocks_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | コンテンツブロックに関する情報を取得します。 |
+| `create_content_block` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | コンテンツブロックを作成します。`name`と`content`が必須です。オプションフィールドは`description`、`state`（`active`または`draft`である必要があります）、および`tags`です。 |
+| `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | 既存のコンテンツブロックを更新します。`content_block_id`と、少なくとも1つの更新可能なフィールド（`name`、`content`、`description`、`state`（`active`または`draft`である必要があります）、または`tags`）が必須です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Blocks" }
 
 ### カスタム属性 {#custom-attributes}
@@ -87,15 +91,15 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_new_users_data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | 新規ユーザー数の日次推移。 |
-| `get_dau_data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | デイリーアクティブユーザーの時系列データ。 |
-| `get_mau_data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | 月間アクティブユーザーの時系列データ。 |
-| `get_uninstalls_data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | アプリのアンインストール時系列データ。 |
+| `get_new_users_data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | 新規ユーザー数の日次推移です。 |
+| `get_dau_data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | デイリーアクティブユーザーの時系列データです。 |
+| `get_mau_data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | 月間アクティブユーザーの時系列データです。 |
+| `get_uninstalls_data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | アプリのアンインストール時系列データです。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="KPIs" }
 
 ### メディアライブラリ {#media-library}
 
-これはBraze MCPサーバーにおける唯一の書き込み関数です。使用するには、APIキーに `media_library.create` 権限が必要です。
+`create_media_library_asset`関数は書き込み関数です。MCPクライアントは`call_write_function`でこれを呼び出す必要があり、APIキーには`media_library.create`権限が必要です。
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
@@ -122,8 +126,8 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
 | `get_product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | 商品IDのページネーション付きリストをエクスポートします。 |
-| `get_revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | 収益分析の時系列データ。 |
-| `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | 購入数量の時系列データ。 |
+| `get_revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | 収益分析の時系列データです。 |
+| `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | 購入数量の時系列データです。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Purchases" }
 
 ### Segments
@@ -131,22 +135,22 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
 | `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | 分析トラッキングステータス付きのSegmentリストをエクスポートします。 |
-| `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Segmentの時系列分析データ。 |
-| `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | 特定のSegmentに関する詳細情報。 |
+| `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Segmentの時系列分析データです。 |
+| `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | 特定のSegmentに関する詳細情報です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segments" }
 
 ### 送信 {#sends}
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | トラッキング対象Campaign送信の日次分析。 |
+| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | トラッキング対象のCampaign送信に関する日次分析です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sends" }
 
 ### セッション {#sessions}
 
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
-| `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | アプリセッション数の時系列データ。 |
+| `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | アプリセッション数の時系列データです。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sessions" }
 
 ### SDK認証キー {#sdk-authentication-keys}
@@ -166,10 +170,14 @@ MCPクライアントは、Braze MCPサーバーとやり取りするために�
 
 ### テンプレート {#templates}
 
+`create_email_template`関数と`update_email_template`関数は書き込み関数です。MCPクライアントは`call_write_function`でこれらを呼び出す必要があり、APIキーには対応する`templates.email.create`または`templates.email.update`権限が必要です。
+
 | 関数 | エンドポイント | 説明 |
 |----------|----------|-------------|
 | `get_email_templates_list` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | 利用可能なメールテンプレートを一覧表示します。 |
 | `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | メールテンプレートに関する情報を取得します。 |
+| `create_email_template` | [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | メールテンプレートを作成します。`template_name`、`subject`、および`body`が必須です。オプションフィールドは`plaintext_body`、`preheader`、`tags`、および`should_inline_css`です。 |
+| `update_email_template` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | 既存のメールテンプレートを更新します。`email_template_id`と、少なくとも1つの更新可能なフィールド（`template_name`、`subject`、`body`、`plaintext_body`、`preheader`、`tags`、または`should_inline_css`）が必須です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Templates" }
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

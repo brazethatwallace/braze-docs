@@ -12,7 +12,7 @@ page_order: 3
 > L'Optimiseur de contenu est un agent qui vous aide à tester et à optimiser le contenu de vos messages à grande échelle, en utilisant l'intelligence artificielle pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
 
 {% alert important %}
-L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail et notifications push. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
+L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail, notifications push et messages SMS/MMS/RCS. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
 ## À propos de l'Optimiseur de contenu {#about-content-optimizer}
@@ -21,6 +21,7 @@ L'Optimiseur de contenu est un agent qui s'exécute dans une étape du Canvas. I
 
 - Optimiser les lignes d'objet, l'en-tête, le contenu ou l'appel à l'action principal des e-mails.
 - Optimiser les titres et les messages des notifications push.
+- Optimiser les accroches, les corps de texte et les CTA des messages SMS, MMS et RCS.
 - Améliorer continuellement les performances de vos messages sans avoir à configurer manuellement des tests A/B.
 - Tester rapidement de grands volumes de variantes de contenu en tirant parti de l'intelligence artificielle pour l'idéation.
 - Éliminer automatiquement les contenus peu performants et donner plus de visibilité à ceux qui fonctionnent le mieux.
@@ -47,6 +48,15 @@ Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/
 | Variantes du titre | Augmenter le taux d'ouverture | Testez la clarté, l'urgence, la personnalisation et le ton dans le titre de la notification push. |
 | Styles du corps du texte | Améliorer l'engagement | Comparez les messages concis, axés sur les avantages et orientés vers l'action dans le corps de la notification push. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notifications push" }
+
+### Messages SMS, MMS et RCS {#sms-mms-and-rcs-messages}
+
+| Cas d'utilisation de l'optimisation | Objectif | Description |
+| --- | --- | --- |
+| Variantes d'accroche | Augmenter l'engagement | Testez l'urgence, la personnalisation et le ton dans la première ligne affichée dans les aperçus SMS, les légendes MMS ou les introductions RCS. |
+| Styles du corps du texte | Améliorer l'engagement | Comparez les messages concis et orientés vers l'action dans le corps du texte, y compris le texte accompagnant les médias sur MMS et RCS. |
+| Variantes du texte du CTA | Augmenter les clics | Comparez les formulations d'appel à l'action axées sur l'action et conversationnelles pour les liens et les invites à l'étape suivante dans les SMS, MMS et RCS. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages SMS, MMS et RCS" }
 
 ## Fonctionnement {#how-it-works}
 
@@ -79,11 +89,14 @@ L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée réc
 
 ## Points à prendre en compte {#considerations}
 
-- L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail et notifications push.
+- L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail, notifications push et messages SMS/MMS/RCS.
 - Pour les e-mails, l'agent peut générer jusqu'à 125 combinaisons par étape :
    - Jusqu'à 3 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
 - Pour les notifications push, l'agent peut générer jusqu'à 25 combinaisons par étape :
+   - Jusqu'à 2 composants par étape
+   - Jusqu'à 5 variantes pour chaque composant
+- Pour les messages SMS, MMS et RCS, l'agent peut générer jusqu'à 25 combinaisons par étape :
    - Jusqu'à 2 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
 - Un seul message est envoyé par utilisateur et par entrée. Les réentrées ne conservent aucune mémoire des envois précédents.

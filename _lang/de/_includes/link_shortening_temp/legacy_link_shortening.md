@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Von Liquid-Variablen gerenderte URLs verkürzen {#shorten-urls-rendered-by-liquid-variables}
 
+**Unterstützte Kanäle:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Wir verkürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, verkürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
 
 ### URLs im `/messages/send`-Endpunkt verkürzen {#shorten-urls-in-messagessend-endpoint}

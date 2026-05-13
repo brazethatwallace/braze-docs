@@ -67,7 +67,7 @@ everything's installed!
 
 ### 2단계: API 키 생성 {#create-api-key}
 
-Braze MCP 서버는 Braze 고객 프로필에서 데이터를 반환하지 않는 39개의 엔드포인트를 지원합니다.
+Braze MCP 서버에는 읽기 전용 엔드포인트와 쓰기 엔드포인트가 모두 포함되어 있습니다. Braze 고객 프로필에서 데이터를 반환하지는 않습니다. 쓰기 엔드포인트를 사용하면 에이전트가 워크스페이스에서 콘텐츠를 생성하거나 업데이트할 수 있습니다.
 
 API 키를 생성하려면:
 
@@ -76,7 +76,7 @@ API 키를 생성하려면:
 3. 키에 다음 권한 중 일부 또는 전부를 할당합니다.
 
 {% alert important %}
-에이전트가 사용하기를 원하는 권한만 할당하세요. 에이전트가 Braze에서 변경 작업을 수행하지 못하도록 하려면 `media_library.create` 권한을 제외하세요.
+에이전트가 사용하기를 원하는 권한만 할당하세요. 에이전트가 Braze에서 변경 작업을 수행하지 못하도록 하려면 API 키를 생성할 때 쓰기 권한을 모두 제외하세요.
 {% endalert %}
 
 {% details 지원되는 권한 목록 %}
@@ -119,10 +119,14 @@ API 키를 생성하려면:
 
 #### Content Blocks
 
+`content_blocks.create` 및 `content_blocks.update` 권한은 쓰기 권한입니다. 에이전트가 워크스페이스에서 Content Blocks를 생성하거나 업데이트하도록 하려는 경우에만 추가하세요.
+
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 #### 커스텀 속성 {#custom-attributes}
@@ -153,7 +157,7 @@ API 키를 생성하려면:
 
 #### 미디어 라이브러리 {#media-library}
 
-이 엔드포인트는 Braze MCP 서버에서 지원하는 쓰기 엔드포인트입니다. 에이전트가 미디어 라이브러리에 자산을 업로드하도록 하려는 경우에만 이 권한을 추가하세요.
+`media_library.create` 권한은 쓰기 권한입니다. 에이전트가 미디어 라이브러리에 자산을 업로드하도록 하려는 경우에만 추가하세요.
 
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
@@ -224,15 +228,19 @@ API 키를 생성하려면:
 
 #### 템플릿 {#templates}
 
+`templates.email.create` 및 `templates.email.update` 권한은 쓰기 권한입니다. 에이전트가 워크스페이스에서 이메일 템플릿을 생성하거나 업데이트하도록 하려는 경우에만 추가하세요.
+
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-기존 API 키를 재사용하지 마세요. MCP 클라이언트 전용으로 새 키를 생성하세요. 에이전트에 필요한 권한만 할당하세요. 에이전트는 부여된 모든 권한을 사용하려고 시도할 수 있으므로, 에이전트가 Braze에서 변경 작업을 수행하지 않기를 원한다면 `media_library.create`와 같은 쓰기 권한은 제외하세요.
+기존 API 키를 재사용하지 마세요. MCP 클라이언트 전용으로 새 키를 생성하세요. 에이전트에 필요한 권한만 할당하세요. 에이전트는 부여된 모든 권한을 사용하려고 시도할 수 있으므로, 에이전트가 Braze에서 변경 작업을 수행하지 않기를 원한다면 쓰기 권한은 제외하세요.
 {% endalert %}
 
 ### 3단계: 식별자 및 엔드포인트 가져오기 {#step-3-get-your-identifier-and-endpoint}

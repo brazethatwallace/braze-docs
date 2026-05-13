@@ -25,7 +25,7 @@ Für die Integration von LINE mit Braze benötigen Sie Folgendes:
 - [LINE-Entwicklerkonto](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging API-Kanal](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben Ihres Kontos abgezogen.
+Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben oder Aktionsguthaben Ihres Kontos abgezogen.
 
 {% alert note %}
 **`native_line_id` festlegen**: Sie können `native_line_id` festlegen, indem Sie Nutzeraktualisierungen an Braze senden (z. B. mit dem [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). Wenn Ihr clientseitiges SDK kein dediziertes Feld für `native_line_id` hat, senden Sie es in serverseitigen Nutzeraktualisierungen über eine dieser Methoden.
@@ -38,7 +38,7 @@ Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben Ih
 | Nicht verifiziertes Konto | Ein nicht überprüftes Konto, das von jeder Person (Einzelperson oder Unternehmen) erstellt werden kann. Dieses Konto wird mit einem grauen Badge dargestellt und erscheint nicht in den Suchergebnissen der LINE-App. |
 | Verifiziertes Konto | Ein Konto, das die LINE Yahoo-Überprüfung bestanden hat. Dieses Konto wird mit einem blauen Badge dargestellt und erscheint in den Suchergebnissen der LINE-App.<br><br>Dieses Konto ist nur für Konten mit Sitz in Japan, Taiwan, Thailand und Indonesien verfügbar. |
 | Premium-Konto | Ein Konto, das die LINE Yahoo-Überprüfung bestanden hat. Dieses Konto wird mit einem grünen Badge dargestellt und erscheint in den Suchergebnissen der LINE-App. Dieser Kontotyp wird während der Überprüfung automatisch nach Ermessen von LINE vergeben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of LINE accounts" }
 
 ### Erforderlicher Kontotyp {#required-account-type}
 
@@ -99,7 +99,7 @@ Nach Abschluss des Integrationsprozesses ruft Braze automatisch die LINE-Followe
 | Kanal-ID | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Kanalgeheimnis | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Kanalzugriffstoken | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Messaging API**. Wenn kein Kanalzugriffstoken vorhanden ist, wählen Sie **Issue**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
 {: start="3"}
 3. Gehen Sie zu Ihrer Seite **Settings** > **Response settings** und führen Sie Folgendes aus:

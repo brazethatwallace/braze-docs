@@ -10,7 +10,7 @@ description: "Braze Agents können Inhalte generieren, intelligente Entscheidung
 > Braze Agents sind KI-gestützte Assistenten, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, damit Sie personalisiertere Kundenerlebnisse bieten können.
 
 {% alert important %}
-Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichtenguthaben erforderlich. Sollten Sie derzeit nicht über Nachrichtenguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
+Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichten- oder Aktionsguthaben erforderlich. Sollten Sie derzeit nicht über Aktionsguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
 {% endalert %}
 
 Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Agentenkonsole zu erhalten.
@@ -25,7 +25,7 @@ In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Bet
 
 Über das Messaging hinaus können Agenten Ihre Kataloge bereichern, indem sie Produkt- und Profilfeldwerte berechnen oder generieren und so Ihre Daten aktuell und dynamisch halten. Durch die Übernahme repetitiver oder komplexer Aufgaben ermöglichen sie Ihrem Team, sich auf Strategie und Kreativität zu konzentrieren, anstatt sich mit manuellem Setup zu befassen. Braze Agents agieren eher als Kooperationspartner denn als Hintergrundprozesse – sie unterstützen Sie bei der Lösung von Problemen und erzielen Wirkung in großem Maßstab.
 
-### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden {#when-to-use-braze-agents-versus-other-brazeai-features}
+### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden? {#when-to-use-braze-agents-versus-other-brazeai-features}
 
 Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:in in Echtzeit zu personalisieren. Wenn ein Agent beispielsweise weiß, dass die bevorzugte Eissorte einer bestimmten Nutzer:in Schokolade ist und das bevorzugte Topping Gummibärchen sind, kann er eine Push-Nachricht erstellen, die speziell auf diese Kombination für diese Nutzer:in zugeschnitten ist, während sie den Canvas durchläuft.
 

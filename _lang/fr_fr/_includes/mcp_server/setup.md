@@ -67,16 +67,16 @@ everything's installed!
 
 ### Étape 2 : Créer une clé API {#create-api-key}
 
-Le serveur Braze MCP prend en charge 39 endpoints qui ne renvoient pas de données issues des profils utilisateurs Braze.
+Le serveur Braze MCP comprend des endpoints en lecture seule et des endpoints en écriture. Ils ne renvoient pas de données issues des profils utilisateurs Braze. Les endpoints en écriture permettent aux agents de créer ou de mettre à jour du contenu dans votre espace de travail.
 
 Pour créer votre clé API :
 
-1. Rendez-vous dans **Paramètres** > **API et identifiants** > **Clés API**.
+1. Rendez-vous dans **Settings** > **APIs and Identifiers** > **API Keys**.
 2. Créez une nouvelle clé.
 3. Attribuez certaines ou toutes les autorisations suivantes à votre clé.
 
 {% alert important %}
-N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Pour empêcher votre agent d'effectuer des modifications dans Braze, ne cochez pas l'autorisation `media_library.create`.
+N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Pour empêcher votre agent d'effectuer des modifications dans Braze, ne cochez aucune autorisation d'écriture lors de la création de votre clé API.
 {% endalert %}
 
 {% details Liste des autorisations prises en charge %}
@@ -100,7 +100,7 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
-#### Catalogues {#catalogs}
+#### Catalogs
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -109,7 +109,7 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### Ingestion de données cloud {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -119,20 +119,24 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 
 #### Content Blocks
 
+Les autorisations `content_blocks.create` et `content_blocks.update` sont des autorisations d'écriture. Ne les ajoutez que si vous souhaitez que votre agent puisse créer ou mettre à jour des Content Blocks dans votre espace de travail.
+
 | Endpoint | Autorisation requise |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### Attributs personnalisés {#custom-attributes}
+#### Custom Attributes
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### Événements {#events}
+#### Events
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -141,7 +145,7 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
-#### Indicateurs clés de performance {#kpis}
+#### KPIs
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -151,9 +155,9 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### Bibliothèque multimédia {#media-library}
+#### Media Library
 
-Cet endpoint est un endpoint d'écriture pris en charge par le serveur Braze MCP. N'ajoutez cette autorisation que si vous souhaitez que votre agent puisse importer des ressources dans votre bibliothèque multimédia.
+L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajoutez que si vous souhaitez que votre agent puisse importer des ressources dans votre bibliothèque multimédia.
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -167,7 +171,7 @@ Cet endpoint est un endpoint d'écriture pris en charge par le serveur Braze MCP
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
-#### Centre de préférences {#preference-center}
+#### Preference Center
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -175,7 +179,7 @@ Cet endpoint est un endpoint d'écriture pris en charge par le serveur Braze MCP
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
-#### Achats {#purchases}
+#### Purchases
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -193,7 +197,7 @@ Cet endpoint est un endpoint d'écriture pris en charge par le serveur Braze MCP
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
-#### Envois {#sends}
+#### Sends
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -207,14 +211,14 @@ Cet endpoint est un endpoint d'écriture pris en charge par le serveur Braze MCP
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
-#### Clés d'authentification SDK {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
-#### Abonnement {#subscription}
+#### Subscription
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -222,24 +226,28 @@ Cet endpoint est un endpoint d'écriture pris en charge par le serveur Braze MCP
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
-#### Modèles {#templates}
+#### Templates
+
+Les autorisations `templates.email.create` et `templates.email.update` sont des autorisations d'écriture. Ne les ajoutez que si vous souhaitez que votre agent puisse créer ou mettre à jour des modèles d'e-mail dans votre espace de travail.
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-Ne réutilisez pas une clé API existante. Créez-en une spécifiquement pour votre client MCP. N'attribuez que les autorisations dont votre agent a besoin. Les agents peuvent tenter d'utiliser toute autorisation que vous leur accordez : ne cochez donc pas les autorisations d'écriture comme `media_library.create` si vous ne souhaitez pas que votre agent effectue des modifications dans Braze.
+Ne réutilisez pas une clé API existante. Créez-en une spécifiquement pour votre client MCP. N'attribuez que les autorisations dont votre agent a besoin. Les agents peuvent tenter d'utiliser toute autorisation que vous leur accordez : ne cochez donc pas les autorisations d'écriture si vous ne souhaitez pas que votre agent effectue des modifications dans Braze.
 {% endalert %}
 
 ### Étape 3 : Obtenir votre identifiant et votre endpoint {#step-3-get-your-identifier-and-endpoint}
 
-Lorsque vous configurez votre client MCP, vous aurez besoin de l'identifiant de votre clé API et de l'endpoint REST de votre espace de travail. Pour obtenir ces informations, retournez à la page **Clés API** dans le tableau de bord&#8212;gardez cette page ouverte afin de pouvoir vous y référer lors de [l'étape suivante](#configure-client).
+Lorsque vous configurez votre client MCP, vous aurez besoin de l'identifiant de votre clé API et de l'endpoint REST de votre espace de travail. Pour obtenir ces informations, retournez à la page **API Keys** dans le tableau de bord&#8212;gardez cette page ouverte afin de pouvoir vous y référer lors de [l'étape suivante](#configure-client).
 
-![La page « Clés API » dans Braze affichant une clé API nouvellement créée et l'endpoint REST de l'utilisateur.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
+![La page « API Keys » dans Braze affichant une clé API nouvellement créée et l'endpoint REST de l'utilisateur.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
 
 ### Étape 4 : Configurer votre client MCP {#configure-client}
 
@@ -273,7 +281,7 @@ Dans [Cursor](https://cursor.com/), rendez-vous dans **Settings** > **Tools and 
 }
 ```
 
-Remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **Clés API** dans Braze. Votre configuration devrait être similaire à ce qui suit :
+Remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **API Keys** dans Braze. Votre configuration devrait être similaire à ce qui suit :
 
 ```json
 {
@@ -300,7 +308,7 @@ mkdir -p ~/.gemini
 nano ~/.gemini/settings.json
 ```
 
-Ensuite, remplacez `yourname` par la chaîne de caractères exacte précédant `@BZXXXXXXXX` dans votre invite de commande. Puis remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **Clés API** dans Braze.
+Ensuite, remplacez `yourname` par la chaîne de caractères exacte précédant `@BZXXXXXXXX` dans votre invite de commande. Puis remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **API Keys** dans Braze.
 
 Votre configuration devrait être similaire à ce qui suit :
 
@@ -333,9 +341,9 @@ Vous devriez voir le serveur `braze` répertorié avec les outils et le schéma 
 {% endtab %}
 {% endtabs %}
 
-### Étape 5 : Envoyer une invite de test {#step-5-send-a-test-prompt}
+### Étape 5 : Envoyer un prompt de test {#step-5-send-a-test-prompt}
 
-Après avoir configuré le serveur Braze MCP, essayez d'envoyer une invite de test à votre client MCP. Pour d'autres exemples et bonnes pratiques, consultez [Utilisation du serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
+Après avoir configuré le serveur Braze MCP, essayez d'envoyer un prompt de test à votre client MCP. Pour d'autres exemples et bonnes pratiques, consultez [Utilisation du serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
 
 {% tabs %}
 {% tab Claude %}

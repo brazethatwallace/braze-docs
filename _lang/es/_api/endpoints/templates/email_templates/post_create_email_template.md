@@ -17,6 +17,10 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Estas plantillas estarán disponibles en la página **Plantillas y medios**. La respuesta de este punto de conexión incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
 
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates). Esto permite que herramientas de IA como Claude y Cursor creen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Requisitos previos {#prerequisites}

@@ -111,7 +111,7 @@ Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#c
 5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
 
 {% alert note %}
-Die Nutzung der Agentenkonsole verbraucht Message Credits.
+Die Nutzung der Agentenkonsole verbraucht Message oder Action Credits.
 {% endalert %}
 
 ## SMS-Traffic zu RCS migrieren {#migrate-sms-traffic-to-rcs}

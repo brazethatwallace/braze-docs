@@ -15,7 +15,7 @@ tool:
 
 ## Disponibilidad de la característica {#feature-availability}
 
-Todos los clientes de Braze tienen acceso inmediato a Audience Sync con Google y Facebook, pero los clientes que utilizan créditos de mensajes pueden acceder a todos los socios de Audience Sync. Para desbloquear destinos adicionales de Audience Sync para clientes que no utilizan créditos de mensajes, compra Audience Sync Pro. Ponte en contacto con tu director de cuentas de Braze para obtener más información.
+Todos los clientes de Braze tienen acceso inmediato a Audience Sync con Google y Facebook, pero los clientes con Action Credits pueden acceder a todos los socios de Audience Sync. Para desbloquear destinos adicionales de Audience Sync para clientes que no utilizan Action Credits, compra Audience Sync Pro. Ponte en contacto con tu director de cuentas de Braze para obtener más información.
 
 ## Casos de uso {#use-cases}
 

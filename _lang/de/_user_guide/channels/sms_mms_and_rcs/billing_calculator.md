@@ -147,6 +147,6 @@ Rich-Media-Nachrichten enthalten eine Mediendatei (Bild, Video) oder eine Rich C
 
 ### Nachrichten-Editor und Nachrichtennutzungs-Dashboard {#message-composer-and-message-usage-dashboard}
 
-Während Sie Ihre Nachricht erstellen, zeigt der Nachrichten-Editor den Abrechnungstyp in Echtzeit über ein Label an (Basic RCS, Single RCS, Rich oder Rich Media), damit Sie die Kosten vor dem Senden im Blick behalten können.
+Während Sie Ihre Nachricht erstellen, zeigt der Nachrichten-Editor den Abrechnungstyp in Realtime über ein Label an (Basic RCS, Single RCS, Rich oder Rich Media), damit Sie die Kosten vor dem Senden im Blick behalten können.
 
-Ihr [Nachrichtennutzungs-Dashboard]({{site.baseurl}}/message_usage_dashboard/) spiegelt diese Abrechnungstypen wider und zeigt die Anzahl der verwendeten Segmente für US-Nachrichten an, sodass Sie einen transparenten Überblick über Ihren Nachrichtenguthaben-Verbrauch erhalten.
+Ihr [Nachrichtennutzungs-Dashboard]({{site.baseurl}}/message_usage_dashboard/) spiegelt diese Abrechnungstypen wider und zeigt die Anzahl der verwendeten Segmente für US-Nachrichten an, sodass Sie einen transparenten Überblick über Ihren Verbrauch an Nachrichten- oder Aktionsguthaben erhalten.

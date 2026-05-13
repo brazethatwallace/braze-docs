@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Raccourcir les URL générées par des variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
+**Canaux pris en charge :** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Nous raccourcissons les URL générées par Liquid, y compris celles incluses dans les propriétés de déclenchement API. Par exemple, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} représente une URL valide, nous raccourcissons et suivons cette URL avant l'envoi du message.
 
 ### Raccourcir les URL dans l'endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
@@ -91,7 +93,7 @@ La personnalisation Liquid et les URL raccourcies sont générées dans l'onglet
 
 ## Suivi des clics {#click-tracking}
 
-Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total Clicks** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
+Lorsque le raccourcissement de liens est activé, le tableau **SMS/MMS/RCS Performance** inclut une colonne intitulée **Total Clicks** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
 ![Tableau des indicateurs de performance SMS et MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 

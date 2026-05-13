@@ -20,6 +20,10 @@ description: "이 문서에서는 이메일 템플릿 업데이트 Braze 엔드�
 
 `email_template_id` 이외의 모든 필드는 선택 사항이지만 업데이트할 필드를 하나 이상 지정해야 합니다.
 
+{% alert tip %}
+[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server/)의 [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 통해 이메일 템플릿을 업데이트할 수 있습니다.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## 필수 조건 {#prerequisites}

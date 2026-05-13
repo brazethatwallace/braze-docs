@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Content Blocks作成Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、Content Blocksの作成Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
@@ -15,6 +15,10 @@ description: "この記事では、Content Blocks作成Brazeエンドポイン�
 {% endapimethod %}
 
 > このエンドポイントを使用して、[Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)を作成します。
+
+{% alert tip %}
+このエンドポイントは、[`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks) 関数を使用して [Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)経由で呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてコンテンツブロックを作成できます。
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 

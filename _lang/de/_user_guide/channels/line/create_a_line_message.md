@@ -23,7 +23,7 @@ Bevor Sie eine LINE-Nachricht erstellen, gehen Sie wie folgt vor:
 2. Machen Sie sich mit den Richtlinien, Limits und Inhaltsregeln vertraut.
 3. [Richten Sie Ihre LINE-Verbindung ein]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-Das Senden von LINE-Nachrichten über Braze wird von den Message Credits Ihres Kontos abgezogen.
+Das Senden von LINE-Nachrichten über Braze wird von den Message oder Action Credits Ihres Kontos abgezogen.
 
 ## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 

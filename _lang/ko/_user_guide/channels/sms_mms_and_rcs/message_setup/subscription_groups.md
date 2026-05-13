@@ -111,7 +111,7 @@ RCS 인증 발신자를 추가하는 방법은 두 가지입니다:
 5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
 
 {% alert note %}
-에이전트 콘솔을 사용하면 메시지 크레딧이 소모됩니다.
+에이전트 콘솔을 사용하면 메시지 또는 액션 크레딧이 소모됩니다.
 {% endalert %}
 
 ## SMS 트래픽을 RCS로 마이그레이션 {#migrate-sms-traffic-to-rcs}

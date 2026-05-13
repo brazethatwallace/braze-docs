@@ -113,6 +113,8 @@ https://example.com/{{url_var}}
 
 ### Von Liquid-Variablen gerenderte URLs verkürzen {#shorten-urls-rendered-by-liquid-variables}
 
+**Unterstützte Kanäle:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Wir verkürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn zum Beispiel {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, verkürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
 
 ### URLs im `/messages/send`-Endpunkt verkürzen {#shorten-urls-in-messagessend-endpoint}
@@ -122,4 +124,4 @@ Die Linkverkürzung ist auch für reine API-Nachrichten über den [`/messages/se
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Ja | Boolescher Wert | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkverkürzung zu aktivieren. Um Tracking zu verwenden, müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="URLs im /messages/send-Endpunkt verkürzen" }

@@ -111,7 +111,7 @@ Use o [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-ag
 5. Adicione uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) para alterar o status do usuário no grupo de inscrições de SMS específico para "Cancelou inscrição".
 
 {% alert note %}
-O uso do Console do agente consome créditos de mensagem.
+O uso do Console do agente consome créditos de mensagem ou de ação.
 {% endalert %}
 
 ## Migrar tráfego de SMS para RCS {#migrate-sms-traffic-to-rcs}

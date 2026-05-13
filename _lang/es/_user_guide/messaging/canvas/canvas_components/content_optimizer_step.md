@@ -29,7 +29,7 @@ Arrastra y suelta el componente **Content Optimizer** desde la barra lateral, o 
 El mensaje base es el punto de partida para tu paso. Las variantes para cada componente de contenido se insertan dinámicamente en función de las combinaciones definidas en la pestaña **Content Optimizer Settings**.
 
 {% alert note %}
-Durante el periodo beta, los canales compatibles son correo electrónico y notificaciones push.
+Durante el periodo beta, los canales compatibles son correo electrónico, notificaciones push y SMS/MMS/RCS.
 {% endalert %}
 
 {% tabs local %}
@@ -59,6 +59,19 @@ Los componentes compatibles para optimizar incluyen:
 - Message
 
 {% endtab %}
+{% tab SMS/MMS/RCS %}
+
+Desde la pestaña **Messaging Channels**, selecciona **SMS/MMS/RCS** y crea tu mensaje base. Consulta nuestra sección dedicada de [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) para obtener ayuda.
+
+El agente Optimizador de contenidos utiliza los detalles de **Content** y **Message** especificados en esta variante para enviar todos los mensajes. Puedes empezar con un nuevo diseño o seleccionar una plantilla existente para este mensaje. En este paso, considera qué componentes del mensaje quieres optimizar. Los defines en el [paso 4](#step-4).
+
+Los componentes compatibles para optimizar incluyen:
+
+- Hook
+- Body
+- CTA
+
+{% endtab %}
 {% endtabs %}
 
 ### Paso 3: Especificar los ajustes de entrega {#step-3-specify-delivery-settings}
@@ -71,6 +84,7 @@ Los componentes de contenido son los elementos individuales de tu mensaje que qu
 
 - **Correo electrónico:** Puedes añadir hasta tres componentes de contenido por paso y hasta cinco variantes por componente, para un total de 125 combinaciones de contenido únicas.
 - **Notificaciones push:** Puedes añadir hasta dos componentes por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
+- **SMS/MMS/RCS:** Puedes añadir hasta dos componentes de contenido por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
 
 ![Opciones para añadir y configurar componentes de contenido en la interfaz del Optimizador de contenidos. La interfaz muestra componentes seleccionables como Subject, Body Header, Body Content y Primary CTA, cada uno con campos para introducir diferentes variantes.]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
@@ -105,7 +119,23 @@ Para cada componente seleccionado, define un conjunto de versiones alternativas 
   - Escribir tus propias variantes manualmente.
   - Usar sugerencias generadas por IA para explorar nuevas opciones rápidamente.
 
-![Content Optimizer Settings que muestra opciones para añadir y configurar componentes de contenido para la optimización push.]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
+![Ajustes del Optimizador de contenidos que muestran opciones para añadir y configurar componentes de contenido para la optimización push.]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
+
+{% endtab %}
+{% tab SMS/MMS/RCS %}
+
+Después de seleccionar tu grupo de suscripción y tipo de mensaje (si corresponde), elige qué componentes quieres optimizar para SMS/MMS/RCS. Las opciones compatibles son:
+- Hook
+- Body
+- CTA
+{% alert note %}
+Después de que se lance un paso del Optimizador de contenidos de SMS/MMS/RCS, no puedes actualizar el grupo de suscripción ni el tipo de mensaje.
+{% endalert %}
+Para cada componente seleccionado, define un conjunto de versiones alternativas de ese contenido (variantes). Usa variantes claras y diferenciadas que difieran en tono, estructura o contenido. Esto ayuda al Optimizador de contenidos a identificar las de mejor rendimiento de forma más efectiva. Puedes:
+  - Escribir tus propias variantes manualmente.
+  - Usar sugerencias generadas por IA para explorar nuevas opciones rápidamente.
+
+![Ajustes del Optimizador de contenidos que muestran opciones para añadir y configurar componentes de contenido para la optimización de SMS/MMS/RCS.]({% image_buster /assets/img/content_optimizer/add_content_components_sms_rcs_mms.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -133,6 +163,9 @@ A medida que el Canvas se ejecuta, el agente mezcla y combina variantes entre co
 | Correo electrónico | Primary CTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} |
 | Push | Title | {% raw %}`{% message_component "Title" %}`{% endraw %} |
 | Push | Message | {% raw %}`{% message_component "Message" %}`{% endraw %} |
+| SMS/MMS/RCS | Hook | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
+| SMS/MMS/RCS | Body | {% raw %}`{% message_component "Body" %}`{% endraw %} |
+| SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid references" }
 
 ### Paso 5: Seleccionar el evento de optimización {#step-5-select-optimization-event}
@@ -158,19 +191,77 @@ Para correo electrónico, puedes optimizar para uno de los siguientes eventos. E
 Para notificaciones push, puedes optimizar **Aperturas**. Esto optimiza las combinaciones que logran que los destinatarios abran la notificación push. Puedes usar este evento de optimización para probar variaciones en el título o el texto del mensaje.
 
 {% endtab %}
+{% tab SMS/MMS/RCS %}
+
+Para mensajes SMS y MMS, puedes optimizar **Clics**. Para mensajes RCS, puedes optimizar **Lecturas** o **Clics**.
+
+Para que el paso tenga un evento hacia el cual optimizar:
+- Los mensajes SMS y MMS deben contener un enlace.
+- Los mensajes RCS deben contener un enlace o una respuesta sugerida.
+
+{% alert note %}
+En este momento, la mensajería RCS con el Optimizador de contenidos no admite alternativas de SMS.
+{% endalert %}
+{% endtab %}
 {% endtabs %}
 
 ## Buenas prácticas {#best-practices}
 
-- En general, recomendamos probar más de un componente para el paso del Optimizador de contenidos.
+- En general, recomendamos probar más componentes en lugar de menos para el paso del Optimizador de contenidos. Por ejemplo, en lugar de probar dos componentes para correo electrónico, prueba tres.
+- Prueba al menos 10 combinaciones totales para obtener mejores resultados.
 - Si estás optimizando para clics, incluye líneas del asunto en tus pruebas, ya que líneas del asunto más efectivas pueden contribuir a un aumento de aperturas y crear más oportunidades para clics.
 - Si estás optimizando para aperturas, mantén tus pruebas enfocadas en la línea del asunto.
+- Si es la primera vez que usas el Optimizador de contenidos, considera usar un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que solo una parte de tu audiencia entre en la rama que contiene el paso del Optimizador de contenidos. Por ejemplo, podrías enviar a la mitad de tus usuarios por un recorrido con el paso del Optimizador de contenidos y enviar a la otra mitad por un recorrido de control que envíe el paso de mensaje con tu contenido habitual. Luego, recopila datos durante 2-3 semanas y compara cualquier indicador clave de rendimiento (KPI) o contraindicador antes de aumentar el tráfico hacia los recorridos con pasos del Optimizador de contenidos.
+  - Para una comparación efectiva uno a uno, recomendamos que tu paso del Optimizador de contenidos contenga tu contenido habitual como una de las variantes para cada componente.
+
+## Consideraciones {#considerations}
+
+- La configuración multilingüe no es compatible con los pasos del Optimizador de contenidos. En su lugar, recomendamos usar un paso del Optimizador de contenidos por idioma y ramificar los recorridos individualmente.
+- Las etiquetas de Liquid para componentes del Optimizador de contenidos no son compatibles con los pasos de mensaje, por lo que Liquid se interrumpe en los pasos de mensaje.
 
 ## Análisis {#analytics}
 
 Para revisar el rendimiento, abre el panel de análisis a nivel de paso para ver métricas por variante de contenido y rendimiento general de combinaciones. El paso del Optimizador de contenidos utiliza los [mismos análisis que el paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
 
 ![Análisis del Optimizador de contenidos para tres botones y el porcentaje de asignación de envíos, que tiende al alza.]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
+
+### Rendimiento por componente {#performance-by-component}
+
+La sección **Rendimiento por componente** muestra el rendimiento de cada componente en el paso del Optimizador de contenidos. La columna **Componente** coincide con el componente de contenido que estás probando (por ejemplo, **Subject line** o **Primary CTA**). La columna **Identificador** coincide con el identificador de esta variante en la pestaña **Content Optimizer Settings**.
+
+Las aperturas únicas y los clics se capturan dentro de los siete días posteriores al envío de un mensaje. Las columnas que ves dependen de tu canal y del evento de optimización seleccionado.
+
+| Métrica | Descripción |
+| --- | --- |
+| Envíos | El número de envíos atribuidos a esta variante para ese componente en este paso, utilizando el mismo conteo de envíos a nivel de paso que [*Envíos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends) en la tabla [Rendimiento por combinación](#performance-by-combination). |
+| Aperturas | Cuando esta columna aparece para tu canal, el número de aperturas **únicas** para esta variante dentro de los siete días posteriores al envío. Consulta [*Aperturas únicas*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens). |
+| Tasa de apertura | Cuando esta columna aparece, el porcentaje de envíos para esta variante que registraron al menos una apertura única cualificada dentro de los siete días. |
+| Clics | El número de clics **únicos** para esta variante dentro de los siete días posteriores al envío. Consulta [*Clics totales*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks), [*Clics únicos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks) y [Paso 5: Seleccionar el evento de optimización](#step-5-select-optimization-event). |
+| Tasa de clics | El porcentaje de envíos para esta variante que registraron al menos un clic único cualificado dentro de los siete días, utilizando la misma ventana de paso que la tabla [Rendimiento por combinación](#performance-by-combination). Para más información, consulta [Por qué los análisis del paso difieren de los análisis generales](#why-step-analytics-differ-from-general-analytics). |
+| Lecturas | Cuando esta columna aparece (por ejemplo, para RCS cuando optimizas para lecturas), cuenta cuando un consumidor lee el mensaje con los acuses de lectura habilitados. Consulta [*Lecturas*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads). |
+| Tasa de lectura | El porcentaje de envíos para esta variante que resultaron en una lectura entre los usuarios con acuses de lectura activados. Consulta [*Tasa de lectura*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de rendimiento por componente" }
+
+![Análisis de rendimiento por componente del Optimizador de contenidos con tablas separadas por componente, que muestran envíos, clics y tasa de clics para cada variante.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_component.png %})
+
+### Rendimiento por combinación {#performance-by-combination}
+
+La sección **Rendimiento por combinación** muestra el rendimiento de cada combinación en el paso del Optimizador de contenidos. Las combinaciones son la mezcla de variantes que definen esta fila: una variante seleccionada de cada componente de contenido que estás probando (por ejemplo, una línea del asunto emparejada con un CTA principal).
+
+Las aperturas únicas y los clics se capturan dentro de los siete días posteriores al envío de un mensaje. Las columnas que ves dependen de tu canal y del evento de optimización seleccionado.
+
+| Métrica | Descripción |
+| --- | --- |
+| Envíos | El número total de mensajes enviados desde este paso utilizando esta combinación. Los conteos siguen el mismo significado general que [*Envíos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends), limitados a cada combinación. |
+| Aperturas | El número de aperturas únicas para esta combinación dentro de los siete días posteriores al envío. Para saber cómo se definen las aperturas únicas para correo electrónico, consulta [*Aperturas únicas*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens). |
+| Tasa de apertura | El porcentaje de envíos para esta combinación que registraron al menos una apertura única cualificada dentro de los siete días. |
+| Clics | El número de clics únicos para esta combinación dentro de los siete días posteriores al envío. Para saber cómo Braze define los clics por canal, consulta [*Clics totales*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks) y [*Clics únicos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks). |
+| Tasa de clics | El porcentaje de envíos para esta combinación que registraron al menos un clic único cualificado dentro de los siete días. Dado que el Optimizador de contenidos utiliza los conteos deduplicados de siete días del paso, esta tasa puede no coincidir con las tasas de clics en los análisis generales de Campaign. Para más información, consulta [Por qué los análisis del paso difieren de los análisis generales](#why-step-analytics-differ-from-general-analytics). |
+| [Lecturas]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads) | Cuando esta columna aparece (por ejemplo, para RCS cuando optimizas para lecturas), cuenta cuando un consumidor lee el mensaje con los acuses de lectura habilitados. |
+| [Tasa de lectura]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate) | Cuando esta columna aparece, el porcentaje de envíos para esta combinación que resultaron en una lectura entre los usuarios con acuses de lectura activados. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de rendimiento por combinación" }
+
+![Tabla de análisis de rendimiento por combinación del Optimizador de contenidos con envíos, clics y tasa de clics para cada combinación de contenido.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_combination.png %})
 
 ### Por qué los análisis del paso difieren de los análisis generales {#why-step-analytics-differ-from-general-analytics}
 

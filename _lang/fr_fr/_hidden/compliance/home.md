@@ -68,7 +68,7 @@ Nonobstant ce qui précède, dans le cas où le client envoie des messages mobil
 
 ### Conditions d'exception pour l'utilisation des webhooks {#webhook-use-exception-terms}
 
-Applicable aux clients ayant souscrit à des crédits de messages à compter du 9 décembre 2024 (selon la date d'entrée en vigueur du bon de commande) : les restrictions décrites dans la documentation de conformité du canal webhooks ne s'appliquent pas à l'utilisation de webhooks pour l'envoi de messages mobiles via une plateforme de fournisseur tiers.
+Applicable aux clients ayant souscrit à des crédits d'action à compter du 9 décembre 2024 (selon la date d'entrée en vigueur du bon de commande) : les restrictions décrites dans la documentation de conformité du canal webhooks ne s'appliquent pas à l'utilisation de webhooks pour l'envoi de messages mobiles via une plateforme de fournisseur tiers.
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -118,14 +118,13 @@ Les conditions supplémentaires suivantes s'appliquent dans le cadre de l'utilis
 
 ### Conditions préalables {#pre-requisites}
 
-Pour envoyer des messages via le canal LINE, les clients doivent obtenir un compte officiel LINE vérifié, qui est approuvé et accordé par LINE à sa seule discrétion. Les clients doivent s'assurer d'obtenir un compte officiel vérifié auprès de LINE avant d'acheter des crédits de messages Braze pour l'utilisation du canal LINE.
+Pour envoyer des messages via le canal LINE, les clients doivent obtenir un compte officiel LINE vérifié, qui est approuvé et accordé par LINE à sa seule discrétion. Les clients doivent s'assurer d'obtenir un compte officiel vérifié auprès de LINE avant d'acheter des crédits d'action Braze pour l'utilisation du canal LINE.
 
 ### Conditions applicables du fournisseur tiers
 
 En utilisant le canal LINE, le client accepte de se conformer et d'être lié par, le cas échéant, toutes les conditions et politiques requises par LY Corporation et ses sociétés affiliées (collectivement « LINE »), y compris, sans s'y limiter, les conditions d'utilisation du compte officiel LINE, les conditions d'utilisation de l'API du compte officiel, les directives du compte officiel LINE, la politique de données utilisateur LINE, et toutes les politiques, conditions, directives et documentations incorporées par référence (collectivement, les « Conditions LINE »). Pour plus de clarté, le client est responsable de : (i) s'assurer que toute donnée traitée en lien avec LINE est traitée conformément aux conditions LINE applicables ; et (ii) tous les frais ou paiements dus à LINE pour l'utilisation des services LINE en lien avec le canal LINE.
 
 Nonobstant toute disposition contraire dans les conditions LINE, le client reste principalement responsable de son utilisation des services LINE.
-
 
 ## 5. Documentation de conformité de l'intégration Shopify {#shopify-integration-compliance-documentation}
 
@@ -148,6 +147,7 @@ Le client reconnaît que les fournisseurs tiers peuvent examiner, filtrer et/ou 
 ## 7. Documentation de conformité de l'archivage des messages et du chiffrement au niveau du champ {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Clause de non-responsabilité
+
 Le client reconnaît que l'utilisation de l'archivage des messages et/ou du chiffrement au niveau du champ (chacun, la « **Fonctionnalité** ») peut avoir un impact sur la vitesse d'envoi des messages envoyés via les services Braze. Braze ne saurait être tenu responsable d'un tel impact, et tout engagement relatif à la vitesse d'envoi ne s'appliquera pas lorsque le client utilise la fonctionnalité. La fonctionnalité peut être utilisée pour soutenir les efforts de conformité du client, cependant le client reconnaît que Braze ne fait aucune déclaration ni garantie quant à savoir si l'utilisation de la fonctionnalité elle-même satisfait les obligations de conformité du client, et décline toute responsabilité à cet égard.
 
 ## 8. Documentation de conformité de la Console des agents {#agent-console-compliance-documentation}

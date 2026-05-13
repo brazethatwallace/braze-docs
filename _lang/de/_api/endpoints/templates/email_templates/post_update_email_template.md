@@ -20,6 +20,10 @@ Sie können auf die `email_template_id` eines E-Mail-Templates zugreifen, indem 
 
 Alle Felder außer `email_template_id` sind optional, aber Sie müssen mindestens ein Feld zum Aktualisieren angeben.
 
+{% alert tip %}
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) mit der Funktion [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben aktualisieren.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}

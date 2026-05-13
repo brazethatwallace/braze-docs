@@ -57,7 +57,7 @@ Para verificar el grupo de suscripción de un usuario, utiliza uno de los siguie
 
 ## Enviar mensajes con un grupo de suscripción {#send-messages-with-a-subscription-group}
 
-Para lanzar una campaña de SMS o RCS a través de Braze, selecciona un grupo de suscripción en el menú desplegable **SMS/MMS/RCS Variants**. Una vez seleccionado, se agregará automáticamente un filtro de audiencia a tu Campaign o Canvas, asegurando que solo los usuarios `subscribed` al grupo de suscripción seleccionado estén en la audiencia objetivo.
+Para lanzar una campaña de SMS o RCS a través de Braze, selecciona un grupo de suscripción en el menú desplegable **SMS/MMS/RCS Variants**. Una vez seleccionado, se agregará automáticamente un filtro de audiencia a tu campaña o Canvas, asegurando que solo los usuarios `subscribed` al grupo de suscripción seleccionado estén en la audiencia objetivo.
 
 {% alert important %}
 De acuerdo con las [normativas y directrices internacionales de telecomunicaciones]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/), Braze nunca enviará SMS o RCS a usuarios que no se hayan suscrito al grupo de suscripción seleccionado.
@@ -111,7 +111,7 @@ Usa [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agen
 5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Dado de baja".
 
 {% alert note %}
-El uso de la Consola de Agente consume créditos de mensaje.
+El uso de la Consola de Agente consume créditos de mensaje o de acción.
 {% endalert %}
 
 ## Migrar tráfico de SMS a RCS {#migrate-sms-traffic-to-rcs}
@@ -131,7 +131,7 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10 % aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Target Audience** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
