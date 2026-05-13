@@ -260,3 +260,16 @@ Si aún no lo has hecho, completa las secciones restantes de tu componente de Ca
 Después de terminar de construir la última parte de tu campaña o Canvas, revisa sus detalles. Para las campañas, la página final te ofrece un resumen de la campaña que diseñaste. Confirma todos los detalles relevantes, asegúrate de haber probado tu mensaje, luego envíalo y ¡observa cómo llegan los datos!
 
 A continuación, consulta [Informes push]({{site.baseurl}}/user_guide/channels/push/reporting/) para aprender cómo puedes acceder a los resultados de tu campaña push. Para las notificaciones push, podrás ver estadísticas del número de mensajes enviados, entregados, rebotados, abiertos y abiertos directamente.
+
+### Solución de problemas {#troubleshooting}
+
+#### Comportamiento al hacer clic
+
+Si estás usando el comportamiento al hacer clic predeterminado para tu versión del SDK y al seleccionar una notificación push con una URL web se abre dentro de la aplicación en lugar de en un navegador web, consulta las siguientes guías de integración para determinar el manejo de notificaciones push:
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+Debes asignar tu objeto delegado usando `center.delegate = self` de forma sincrónica antes de que tu aplicación termine de lanzarse, preferiblemente en `application:didFinishLaunchingWithOptions:`. De lo contrario, tu aplicación podría perder notificaciones push entrantes. Consulta la [documentación de `UNUserNotificationCenterDelegate` de Apple](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) para obtener más información.
+{% endalert %}

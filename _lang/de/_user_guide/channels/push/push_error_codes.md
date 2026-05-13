@@ -29,23 +29,32 @@ Häufige Fehlerursachen können sein:
 - Nutzer:innen registrieren sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen registrieren und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token entstehen.
 
 ### Push-Bounce: NotRegistered {#notregistered}
+
 `NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite Registrierung das Push-Token ungültig macht, das Braze erhalten hat.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
-Dieser Fehler erscheint im Nachrichten-Aktivitätsprotokoll als:
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+Dieser Fehler erscheint im Nachrichten-Aktivitätsprotokoll als: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 Dies tritt typischerweise aus einem der folgenden Gründe auf:
 
 - Die Nutzer:innen haben die App deinstalliert. Dies ist die häufigste Ursache. Wenn die App von einem Gerät entfernt wird, wird das Push-Token ungültig.
 - Die Push-Zugangsdaten wurden in der App aktualisiert. Wenn Ihr Team die FCM-Zugangsdaten oder Zertifikate geändert hat, die mit der App gebündelt sind, haben Nutzer:innen, die sich mit den vorherigen Zugangsdaten registriert haben, ungültige Token, bis die App sie erneut registriert.
-- Benutzerdefinierte Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, ein Gerät programmatisch über das Firebase/Android-SDK von Push abzumelden.
+- Angepasste Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, ein Gerät programmatisch über das [Firebase/Android-SDK](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()) von Push abzumelden.
 
 {% alert note %}
 Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist – nur, dass ein bestimmtes Token aus ihrem Profil entfernt wurde. Dies ist häufig bei Nutzer:innen, die Funktionen testen und die App häufig installieren und deinstallieren. Um zu prüfen, ob die Nutzer:innen noch gültige Token haben, gehen Sie zur **Nutzersuche** und überprüfen Sie den Abschnitt **Kontakteinstellungen** auf dem Tab **Engagement**.
 {% endalert %}
+
+### Angeforderte Entität wurde nicht gefunden {#requested-entity-was-not-found}
+
+Dieser Fehler kann aus folgenden Gründen auftreten:
+
+- Die Endnutzer:innen haben die App deinstalliert. Sie können deren Nutzerprofil überprüfen, um zu bestätigen, ob dies der Fall ist.
+- Es liegt ein ungültiger Benachrichtigungskanal vor. Je nach Ihrer Integration können Geräte Push-Token haben, die nur für bestimmte Benachrichtigungskanäle gültig sind. Beim Senden an einen ungültigen Kanal wird die Nachricht als Bounce zurückgewiesen.
+- Die Payload-Größe ist zu groß.
+
+Weitere Informationen finden Sie in [Googles Dokumentation](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) zu veralteten und abgelaufenen Registrierungstoken.
 
 {% endtab %}
 {% tab iOS %}
@@ -61,12 +70,12 @@ In Braze kann diese Dashboard-Nachricht einem der folgenden APNs-Fehlergründe z
 
 Häufige Ursachen sind:
 
-- Benutzerdefinierte Schlüssel (und deren Werte), die die Payload zu groß machen (dies kann unerwartet große, durch Liquid gerenderte Werte umfassen).
+- Angepasste Schlüssel (und deren Werte), die die Payload zu groß machen (dies kann unerwartet große, durch Liquid gerenderte Werte umfassen).
 - Ein leerer oder fehlender Alert oder Body, wo dieser erforderlich ist (oder eine anderweitig fehlerhafte `aps`-Payload).
 
 Nächste Schritte:
 
-- Reduzieren Sie die Payload-Größe, indem Sie benutzerdefinierte Schlüssel kürzen und große dynamische Werte verkleinern.
+- Reduzieren Sie die Payload-Größe, indem Sie angepasste Schlüssel kürzen und große dynamische Werte verkleinern.
 - Wenn Sie über die API senden, validieren Sie die endgültige JSON-Payload (einschließlich Größe) vor dem Senden.
 
 ### Push-Bounce: BadToken {#push-bounced-badtoken}
@@ -101,7 +110,7 @@ Dies ist das iOS-Äquivalent des Android-Fehlers [DEVICE_UNREGISTERED](#device-u
 
 - Die Nutzer:innen haben die App deinstalliert. Dies ist die häufigste Ursache.
 - Push-Zertifikate wurden aktualisiert. Wenn Ihr Team die APNs-Zertifikate geändert oder erneuert hat, haben Nutzer:innen, die sich mit den vorherigen Zertifikaten registriert haben, möglicherweise ungültige Token, bis die App sie erneut registriert.
-- Benutzerdefinierte Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, sich programmatisch über das iOS-SDK von Remote-Benachrichtigungen abzumelden.
+- Angepasste Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, sich programmatisch über das iOS-SDK von Remote-Benachrichtigungen abzumelden.
 
 {% alert note %}
 Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist – nur, dass ein bestimmtes Token aus ihrem Profil entfernt wurde. Um zu prüfen, ob die Nutzer:innen noch gültige Token haben, gehen Sie zur **Nutzersuche** und überprüfen Sie den Abschnitt **Kontakteinstellungen** auf dem Tab **Engagement**.

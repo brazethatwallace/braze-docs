@@ -16,12 +16,18 @@ Dado que los eventos de comercio electrónico siguen un esquema predecible, Braz
 Los eventos de comercio electrónico de Braze y sus propiedades de eventos segmentables no cuentan como [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Pestaña Transacciones {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-La pestaña **Transacciones** en cada perfil de usuario proporciona una vista en vivo de la actividad comercial de un usuario al mostrar tres métricas calculadas que se actualizan en tiempo real a medida que se procesan los eventos. El modelo a nivel de pedido de estos cálculos separa claramente los precios de los productos del valor total del pedido.
+## Pestaña Comercio {#commerce-tab}
+
+La pestaña **Commerce** en cada perfil de usuario combina dos módulos: **Order activity** (métricas calculadas de ingresos y pedidos) y **Active cart** (el carrito más reciente de los eventos `ecommerce.cart_updated`).
+
+### Actividad de pedidos {#order-activity}
+
+El módulo **Order activity** muestra tres métricas calculadas que se actualizan en tiempo real a medida que se procesan los eventos. El modelo a nivel de pedido de estos cálculos separa claramente los precios de los productos del valor total del pedido.
 
 {% alert note %}
-Los eventos recomendados de comercio electrónico no se muestran dentro de la sección **Historial de compras** de la pestaña **Transacciones**. El historial de compras se llena con los eventos de compra heredados. Usa las métricas de la siguiente tabla para los ingresos y la actividad de pedidos de los eventos recomendados.
+Los eventos recomendados de comercio electrónico no se muestran dentro de la sección **Purchase history** de la pestaña **Commerce**. El historial de compras se llena con los eventos de compra heredados. Usa las métricas de la siguiente tabla para los ingresos y la actividad de pedidos de los eventos recomendados.
 {% endalert %}
 
 | Métrica | Fórmula |
@@ -29,9 +35,18 @@ Los eventos recomendados de comercio electrónico no se muestran dentro de la se
 | Ingresos totales | suma (`order_placed.total_value`) − suma (`order_refunded.total_value`) |
 | Total de pedidos | conteo (distintos `order_placed`) − conteo (distintos `order_cancelled`) |
 | Valor total de reembolsos | suma (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Sección de actividad de pedidos con ingresos totales, total de pedidos y valor total de reembolsos.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Carrito activo {#active-cart}
+
+El módulo **Active cart** muestra el carrito más reciente en el perfil de usuario. Esta vista es especialmente útil mientras realizas pruebas. Puedes usarla para confirmar el contenido del carrito, validar recorridos basados en el carrito o verificar que los eventos `ecommerce.cart_updated` están actualizando el perfil como esperas.
+
+**Active cart** incluye lo siguiente:
+
+- **Cart ID** — Identificador del carrito que recibió por última vez un evento `ecommerce.cart_updated`.
+- **Last updated** — Marca de tiempo de la actualización de carrito más reciente.
+- **Total cart value** — Valor total de los artículos en el carrito actual.
+- **View products** — Un enlace para abrir la lista de productos en el carrito (hasta 50 productos).
 
 ## Orquestación de comercio electrónico {#ecommerce-orchestration}
 
@@ -94,7 +109,7 @@ Usa esta plantilla cuando quieras recordar a los usuarios sobre los artículos e
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-El evento `ecommerce.cart_updated` usa un modelo de reemplazo. Cada evento enviado sobrescribe el estado del carrito del usuario. Usa la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} en tu mensaje para mostrar dinámicamente el contenido actual del carrito en el momento del envío.
+El evento `ecommerce.cart_updated` admite el reemplazo completo del carrito (cada evento puede describir el carrito completo) o actualizaciones incrementales usando los valores `add` y `remove` para la propiedad opcional `action`. Elige un enfoque por carrito y evita mezclar actualizaciones de reemplazo e incrementales para el mismo `cart_id`. Usa la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} en tu mensaje para mostrar dinámicamente el contenido actual del carrito en el momento del envío.
 {% endalert %}
 
 {% endtab %}
@@ -175,6 +190,7 @@ Braze ofrece varias formas de exportar datos de eventos de comercio electrónico
 | [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Exportación CSV de miembros del segmento. Para incluir eventos de comercio electrónico, selecciónalos por nombre en el menú desplegable de eventos personalizados. |
 | [Exportar perfil de usuario por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Datos de perfil de usuario para miembros del segmento, devueltos a través de la API. Los eventos de comercio electrónico se incluyen como eventos personalizados. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
+
 ### ¿Cómo segmento usuarios por un producto específico? {#how-do-i-segment-users-by-a-specific-product}
 
 El segmentador te permite filtrar por el número de veces que un usuario realizó un evento de comercio electrónico. Para filtrar por propiedades específicas del producto (como `product_id` o `product_name`), usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que admiten el filtrado de propiedades de eventos anidados. Por ejemplo, puedes encontrar todos los usuarios que compraron el producto "SKU-123" en los últimos 90 días.

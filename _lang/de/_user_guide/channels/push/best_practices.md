@@ -30,7 +30,7 @@ Die maximale Payload-Größe hängt von der Plattform ab.
 | Android | 3.930 Bytes |
 | iOS | 3.960 Bytes |
 | Kindle | 5.985 Bytes |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload-Größe von Push-Benachrichtigungen reduzieren" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 Wenn Ihre Push-Benachrichtigung die maximale Payload-Größe überschreitet, wird die Nachricht möglicherweise nicht gesendet. Als Best Practice sollten Sie Ihre Payload auf wenige hundert Bytes beschränken.
 
@@ -95,6 +95,14 @@ Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und 
 
 Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren, was ihr Vordergrund-Push-Token vollständig entfernt, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state).
 
+### Erweiterte Zeitplanung verwenden oder Verzögerungen hinzufügen {#use-advanced-scheduling-or-add-delays}
+
+Abhängig von der Größe Ihrer Zielgruppe und davon, wie weit im Voraus Ihre Push-Nachricht geplant ist, kann es zu Verzögerungen bei der Push-Zustellung kommen. Wie lange das Senden von Push-Benachrichtigungen dauert, hängt von der zugewiesenen Rechenleistung ab. Wenn Ihre Push-Nachricht beispielsweise mehrere Connected-Content-Aufrufe verwendet, kann dies die Komplexität des Templating der Push-Nachricht erhöhen und zu Geschwindigkeiten führen, die davon begrenzt werden, wie schnell Ihre Drittanbieter-APIs Daten zurückgeben.
+
+Eine kleinere Push-Payload und eine höhere Benachrichtigungspriorität können dazu beitragen, Verzögerungen zu reduzieren und Ihre Nachrichten zu skalieren. Sie können `Push Enabled = true` in Ihrem Zielgruppen-Filter hinzufügen, um die Zielgruppengröße zu reduzieren, sodass nur Push-aktivierte Nutzer:innen für den Campaign-Versand verarbeitet werden.
+
+Wir empfehlen außerdem, die Anzahl der API-Aufrufe zu minimieren, indem Sie die benötigten Daten optimieren. Wenn möglich, versuchen Sie, alle benötigten Daten in einem einzigen API-Aufruf abzurufen, anstatt mehrere Aufrufe zu tätigen.
+
 ### Push-Abo-Status verstehen {#understand-push-subscription-states}
 
 Der Push-Abo-Status garantiert nicht, dass eine Push-Benachrichtigung zugestellt wird – Nutzer:innen müssen auch Push-aktiviert sein, um Benachrichtigungen zu erhalten. Das liegt daran, dass ein Nutzerprofil mehrere Geräte mit unterschiedlichen Vordergrund-Push-Berechtigungen haben kann, aber nur einen einzigen Push-Abo-Status.
@@ -135,12 +143,12 @@ Da Push-Benachrichtigungen eine aufdringliche Art von Messaging sind, die direkt
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Inakzeptabel: (i) Erstellen einer Oberfläche zur Anzeige von Drittanbieter-Apps, Erweiterungen oder Plug-ins, die dem App Store ähnelt oder als allgemeine Sammlung dient. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) Push-Benachrichtigungen dürfen nicht für die Funktion der App erforderlich sein und sollten nicht zum Senden sensibler persönlicher oder vertraulicher Informationen verwendet werden. Push-Benachrichtigungen sollten nicht für Werbe- oder Direktmarketing-Zwecke verwendet werden, es sei denn, Kund:innen haben sich ausdrücklich über eine in der App-UI angezeigte Einwilligungsformulierung für den Empfang entschieden, und Sie bieten in Ihrer App eine Methode an, mit der Nutzer:innen den Empfang solcher Nachrichten abbestellen können. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) Sie dürfen integrierte Funktionen, die von der Hardware oder dem Betriebssystem bereitgestellt werden, wie Push-Benachrichtigungen, die Kamera oder das Gyroskop, nicht monetarisieren; ebenso wenig Apple-Dienste und -Technologien wie Apple Music-Zugang, iCloud-Speicher oder Screen Time APIs. |
-{: .reset-td-br-1 aria-label="Vorschriften für mobile Push-Benachrichtigungen in Apps" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Google Play Store-Richtlinie |
 | --- |
 | [Unbefugte Nutzung oder Nachahmung von Systemfunktionen](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) Wir erlauben keine Apps oder Anzeigen, die Systemfunktionen wie Benachrichtigungen oder Warnungen nachahmen oder stören. Benachrichtigungen auf Systemebene dürfen nur für wesentliche Funktionen einer App verwendet werden, z. B. eine Fluggesellschafts-App, die Nutzer:innen über Sonderangebote informiert, oder ein Spiel, das Nutzer:innen über In-Game-Aktionen benachrichtigt. |
-{: .reset-td-br-1 aria-label="Vorschriften für mobile Push-Benachrichtigungen in Apps" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## Verwandte Artikel {#related-articles}
 

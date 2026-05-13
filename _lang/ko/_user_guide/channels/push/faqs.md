@@ -72,3 +72,17 @@ Braze에서 Apple 푸시 인증서를 추가할 때, **프로덕션으로 전송
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 사용자가 `포그라운드 푸시 활성화됨` 없이 `백그라운드 또는 포그라운드 푸시 활성화됨`일 수 있습니다. 이는 사용자가 기기 설정에서 표시되는 푸시 알림을 비활성화했지만 앱이 여전히 백그라운드 푸시 토큰을 보유하고 있는 경우 발생합니다. 자세한 내용은 [푸시 사용자 및 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled)을 참조하세요.
+
+### Braze는 푸시 메시지가 성공적으로 전송되었는지 어떻게 판단하나요? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
+
+메시지는 푸시 서비스 제공업체가 수신하는 즉시 전송된 것으로 기록됩니다. 이는 사용자가 메시지를 수신하거나 확인했음을 반드시 의미하지는 않습니다.
+
+iOS의 경우 푸시 서비스 제공업체는 Apple Push Notification Service(APNs)이고, Android의 경우 일반적으로 Firebase Cloud Messaging(FCM)입니다. 푸시 서비스 제공업체는 성공 또는 실패로 즉시 응답합니다. 실패에는 반송 또는 네트워크 장애로 인한 재시도가 포함될 수 있습니다.
+
+성공 메시지가 반환되면 Braze에서 전송이 기록된 후, 푸시 서비스가 기기로 전달을 시도합니다. 기기에 즉시 도달할 수 없는 경우, 서비스는 Braze에서 설정된 만료 옵션(Android의 경우 **TTL**, iOS의 경우 **만료**)까지 재시도합니다. 메시지가 시간 초과되면 푸시 서비스가 푸시를 폐기하지만, 반송으로 간주되지는 않습니다.
+
+- 실행 기반 전달 푸시 Campaign의 경우, 사용자가 Campaign을 트리거하는 동작을 수행하는 즉시 메시지 전송이 기록됩니다.
+- 스케줄된 Campaign의 경우, 전송 시간은 메시지가 대기줄에 추가되어 푸시 서비스 제공업체에 전달된 시간입니다.
+- 두 전달 유형 모두, 사용자가 아직 푸시를 보거나 수신하지 않았더라도 Braze 및 고객 프로필의 **수신한 Campaigns**에 "전송됨"으로 표시됩니다.
+
+대시보드의 푸시 "전달" 측정기준은 페이지 로드 시 전송 수에서 반송 수를 뺀 값으로 계산됩니다.

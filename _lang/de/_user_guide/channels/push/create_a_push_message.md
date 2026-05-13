@@ -118,13 +118,13 @@ Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschriebe
 #### Titel und Text {#title-and-body}
 
 {% tabs local %}
-{% tab ios %}
+{% tab iOS %}
 Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld links erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
 
 Fügen Sie eine Überschrift über das Feld **Title** hinzu. Um Ihren Push personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) einbinden.
 {% endtab %}
 
-{% tab android %}
+{% tab Android %}
 Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld links erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
 
 Um Ihren Push personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) einbinden.
@@ -260,3 +260,16 @@ Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte I
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details. Bei Campaigns gibt Ihnen die letzte Seite eine Zusammenfassung der von Ihnen entworfenen Campaign. Bestätigen Sie alle relevanten Details, stellen Sie sicher, dass Sie Ihre Nachricht getestet haben, und senden Sie sie ab – dann beobachten Sie, wie die Daten eintreffen!
 
 Lesen Sie als Nächstes [Push-Berichte]({{site.baseurl}}/user_guide/channels/push/reporting/), um zu erfahren, wie Sie auf die Ergebnisse Ihrer Push-Campaign zugreifen können. Für Push-Benachrichtigungen können Sie Statistiken zur Anzahl der gesendeten, zugestellten, gebouncten, geöffneten und direkt geöffneten Nachrichten einsehen.
+
+### Fehlerbehebung {#troubleshooting}
+
+#### Klickverhalten
+
+Wenn Sie das Standard-Klickverhalten für Ihre SDK-Version verwenden und beim Auswählen einer Push-Benachrichtigung mit einer Web-URL diese in der App statt im Webbrowser geöffnet wird, lesen Sie die folgenden Integrationsleitfäden zur Handhabung von Push-Benachrichtigungen:
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+Sie müssen Ihr Delegate-Objekt mit `center.delegate = self` synchron zuweisen, bevor Ihre App den Start abgeschlossen hat, vorzugsweise in `application:didFinishLaunchingWithOptions:`. Andernfalls kann es passieren, dass Ihre App eingehende Push-Benachrichtigungen verpasst. Weitere Informationen finden Sie in der [Apple-Dokumentation zu `UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate).
+{% endalert %}

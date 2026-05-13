@@ -3,19 +3,19 @@ nav_title: 제거 추적
 article_title: 제거 추적
 page_order: 1
 page_type: reference
-description: "이 참조 문서에서는 **Campaign** 수준 및 앱 수준 통계에 대한 제거 추적 구현에 대해 설명합니다."
+description: "이 참조 문서에서는 Campaign 수준 및 앱 수준 통계에 대한 제거 추적 구현에 대해 설명합니다."
 tool: Reports
 
 ---
 
 # 제거 추적 {#uninstall-tracking}
 
-> 이 문서에서는 시간 경과에 따른 집계된 앱 제거를 확인하여 추세와 이상 징후를 파악하고, **Campaign** 수준의 제거를 추적하여 특정 **Campaign**이 앱 설치를 유도하는지 또는 방해하는지 확인하는 방법을 설명합니다.
+> 이 문서에서는 시간 경과에 따른 집계된 앱 제거를 확인하여 추세와 이상 징후를 파악하고, Campaign 수준의 제거를 추적하여 특정 Campaign이 앱 설치를 유도하는지 또는 방해하는지 확인하는 방법을 설명합니다.
 
 Braze의 제거 추적은 다음과 같은 세부 정보를 제공합니다:
 
 1. **홈** 페이지의 시계열 그래프에서 일일 앱 수준 제거 통계를 확인할 수 있습니다.
-2. 특정 Campaign의 **Campaign Details** 페이지에서 Campaign 수준 제거 통계를 시계열 그래프로 확인할 수 있습니다. 이 통계는 매일 앱을 제거하는 **Campaign** 수신자 수를 나타냅니다.
+2. 특정 Campaign의 **Campaign Details** 페이지에서 Campaign 수준 제거 통계를 시계열 그래프로 확인할 수 있습니다. 이 통계는 매일 앱을 제거하는 Campaign 수신자 수를 나타냅니다.
 
 {% alert note %}
 Braze 대시보드에서 제거 추적을 활성화해야 합니다. 이 기능은 iOS, Android 및 Fire OS의 앱에서 사용할 수 있습니다.
@@ -23,9 +23,9 @@ Braze 대시보드에서 제거 추적을 활성화해야 합니다. 이 기능�
 
 ## 작동 방식 {#how-it-works}
 
-Braze는 정기적인 푸시 **Campaigns**에서 기본 수준의 제거 정보를 자동으로 수집합니다. 그러나 사용자마다 푸시 **Campaigns**를 수신하는 빈도가 다를 수 있으므로, 제거 추적 기능을 제공하여 사용자들의 제거 활동에 대한 보다 정확한 스냅샷을 제공합니다.
+Braze는 정기적인 푸시 Campaigns에서 기본 수준의 제거 정보를 자동으로 수집합니다. 그러나 사용자마다 푸시 Campaigns를 수신하는 빈도가 다를 수 있으므로, 제거 추적 기능을 제공하여 사용자들의 제거 활동에 대한 보다 정확한 스냅샷을 제공합니다.
 
-Braze가 제거를 감지하면 해당 사용자에게 제거 태그가 지정됩니다. **Campaign**에서 **Has Not Uninstalled** 필터를 사용하면 이러한 태그가 지정된 사용자는 제외됩니다. 사용자가 앱을 다시 설치했지만 열지 않은 경우 제거 태그는 프로필에 그대로 남아 있습니다. 태그는 사용자가 다시 설치한 앱에서 새 세션을 시작할 때만 제거됩니다. 즉, 앱을 다시 설치했지만 한 번도 열지 않은 사용자는 계속 제거된 것으로 표시됩니다.
+Braze가 제거를 감지하면 해당 사용자에게 제거 태그가 지정됩니다. Campaign에서 **Has Not Uninstalled** 필터를 사용하면 이러한 태그가 지정된 사용자는 제외됩니다. 사용자가 앱을 다시 설치했지만 열지 않은 경우 제거 태그는 프로필에 그대로 남아 있습니다. 태그는 사용자가 다시 설치한 앱에서 새 세션을 시작할 때만 제거됩니다. 즉, 앱을 다시 설치했지만 한 번도 열지 않은 사용자는 계속 제거된 것으로 표시됩니다.
 
 제거 추적 사용에 대한 자세한 내용은 블로그 게시물 [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/)를 참조하세요.
 
@@ -37,7 +37,7 @@ Braze가 제거를 감지하면 해당 사용자에게 제거 태그가 지정�
 
 ### 구성 {#configuration}
 
-iOS 애플리케이션의 제거 추적을 구성하려면 [유틸리티 메서드]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)를 사용하세요. Android 애플리케이션의 경우 [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)를 사용하세요. 제거 추적 또는 일반 푸시 **Campaign** 전달을 통해 제거가 감지되면, Braze는 제거의 최적 예상 시간을 기록합니다. 이 시간은 고객 프로필에 표준 속성으로 저장되며, 윈백 **Campaigns**의 사용자 **Segment**를 정의하는 데 사용할 수 있습니다.
+iOS 애플리케이션의 제거 추적을 구성하려면 [유틸리티 메서드]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)를 사용하세요. Android 애플리케이션의 경우 [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)를 사용하세요. 제거 추적 또는 일반 푸시 Campaign 전달을 통해 제거가 감지되면, Braze는 제거의 최적 예상 시간을 기록합니다. 이 시간은 고객 프로필에 표준 속성으로 저장되며, 윈백 Campaigns의 사용자 Segment를 정의하는 데 사용할 수 있습니다.
 
 ## 제거를 기준으로 Segment 필터링 {#filtering-segments-by-uninstalls}
 
@@ -57,11 +57,11 @@ iOS 애플리케이션의 제거 추적을 구성하려면 [유틸리티 메서�
 제거 추적이 활성화되지 않은 앱은 일부 사용자(푸시 알림 타겟으로 지정된 사용자)의 제거만 보고하므로, 일일 제거 총계가 표시된 것보다 높을 수 있습니다.
 {% endalert %}
 
-## **Campaigns**의 제거 추적 {#uninstall-tracking-for-campaigns}
+## Campaigns의 제거 추적 {#uninstall-tracking-for-campaigns}
 
-**Campaign** 제거 추적은 특정 **Campaign**을 수신한 후 선택한 기간 내에 앱을 제거한 사용자 수를 표시합니다. 이 도구는 **Campaigns**이 의도하지 않은 부정적인 사용자 행동을 유발할 수 있는지에 대한 인사이트를 제공하고, 전반적인 **Campaign** 효과를 측정하는 데 도움이 됩니다.
+Campaign 제거 추적은 특정 Campaign을 수신한 후 선택한 기간 내에 앱을 제거한 사용자 수를 표시합니다. 이 도구는 Campaigns이 의도하지 않은 부정적인 사용자 행동을 유발할 수 있는지에 대한 인사이트를 제공하고, 전반적인 Campaign 효과를 측정하는 데 도움이 됩니다.
 
-**Campaigns**의 제거 통계는 특정 **Campaign**의 **Campaign Analytics** 페이지에 있습니다. 멀티채널 및 다변량 **Campaigns**의 경우, 제거를 각각 채널 및 배리언트별로 세분화할 수 있습니다.
+Campaigns의 제거 통계는 특정 Campaign의 **Campaign Analytics** 페이지에 있습니다. 멀티채널 및 다변량 Campaigns의 경우, 제거를 각각 채널 및 배리언트별로 세분화할 수 있습니다.
 
 ![Campaign 수준의 제거 추적.]({% image_buster /assets/img_archive/campaign_level_uninstall_tracking.png %})
 
@@ -75,6 +75,10 @@ Braze는 사용자의 기기로 전송된 푸시 메시지가 Firebase 클라우
 
 FCM과 APNs는 제거 추적에 제한을 둡니다. Braze는 FCM 또는 APNs가 사용자가 제거했다고 알려줄 때만 제거 수를 증가시키지만, 이러한 서드파티 시스템은 언제든지 제거를 알릴 수 있습니다. 정확한 통계보다는 방향성 추세를 감지하기 위해 제거 추적을 사용하세요.
 
+Braze는 다음 FCM 응답을 토큰 제거(제거) 응답으로 처리합니다: `DEVICE_UNREGISTERED`, `BAD_REGISTRATION`, `SENDER_ID_MISMATCH`.
+
+제거 추적 사용에 대한 자세한 내용은 블로그 게시물 [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/)를 참조하세요.
+
 ## 문제 해결 {#troubleshooting}
 
 ### 갑자기 제거가 급증하는 이유는 무엇인가요? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
@@ -87,7 +91,7 @@ FCM과 APNs는 제거 추적에 제한을 둡니다. Braze는 FCM 또는 APNs가
 
 ### 특정 Campaign이 제거를 유발했는지 어떻게 확인하나요? {#how-do-i-determine-if-a-specific-campaign-caused-uninstalls}
 
-제거 급증이 발생한 시점과 비슷한 시기에 메시지를 보낸 **Campaigns**의 분석을 확인하세요. 특정 메시지가 제거 증가와 상관관계가 있다면, 해당 메시지가 사용자의 제거에 영향을 미치고 있을 수 있습니다.
+제거 급증이 발생한 시점과 비슷한 시기에 메시지를 보낸 Campaigns의 분석을 확인하세요. 특정 메시지가 제거 증가와 상관관계가 있다면, 해당 메시지가 사용자의 제거에 영향을 미치고 있을 수 있습니다.
 
 Segment별 제거를 확인하려면:
 1. 대시보드의 **홈** 페이지로 이동합니다.

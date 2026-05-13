@@ -58,7 +58,15 @@ AppDelegate.braze = braze
 
 Braze REST API의 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자의 [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/) 속성을 업데이트함으로써 구독 상태를 변경할 수 있습니다.
 
-### 푸시 구독 상태 확인 {#checking-push-subscription-state}
+### 푸시 활성화와 푸시 구독 상태의 차이점 {#differences-between-push-enablement-and-push-subscription-status}
+
+푸시 활성화는 사용자가 특정 기기에서 알림을 수신하기 위해 OS 또는 브라우저 수준의 권한을 부여했는지 여부를 나타냅니다. 푸시 구독 상태는 Braze 수준의 설정으로, 프로필 전체에서 푸시 수신에 대한 사용자의 글로벌 선호도를 나타냅니다.
+
+자동 옵트인이 활성화된 경우(기본값), Braze는 사용자가 앱에 대한 푸시 알림을 승인하거나 시스템 설정에서 권한을 다시 활성화할 때(예: iOS, Android 13 이상, 지원되는 웹 브라우저) 사용자의 푸시 구독 상태를 `Opted-In`으로 업데이트합니다. 그렇지 않으면 SDK 메서드 또는 REST API 호출을 사용하여 명시적으로 변경할 때까지 사용자의 푸시 구독 상태는 `Subscribed`로 유지됩니다.
+
+Braze는 사용자가 OS, 브라우저 또는 앱 수준에서 알림을 옵트아웃할 때 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하지 않습니다. 사용자의 푸시 구독 상태를 업데이트하려면 Braze에서 직접 업데이트해야 합니다. 예를 들어, 사용자가 인앱 환경설정 센터에서 푸시를 비활성화하면 Braze에서 푸시 구독 상태를 `Unsubscribed`로 업데이트하세요. Braze는 환경설정 센터를 기반으로 고객 프로필을 자동 업데이트하지 않습니다. 구독 상태를 사용자의 인앱 환경설정과 일치시키려면 [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration)(iOS 또는 Android) 또는 [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api)를 사용하여 적절한 메서드를 호출하세요.
+
+### 푸시 구독 상태 확인하기 {#checking-push-subscription-state}
 
 ![푸시 구독 상태가 Subscribed로 설정된 John Doe의 고객 프로필.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 

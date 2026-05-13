@@ -99,7 +99,7 @@ Par exemple, supposons que vous ayez deux utilisateurs : Charlie et Kim. Si Char
 
 Une application ou un site web ne peut avoir qu'un seul abonnement push par appareil. Ainsi, lorsqu'un utilisateur se déconnecte d'un appareil ou d'un site web et qu'un nouvel utilisateur se connecte, le jeton push est réattribué au nouvel utilisateur. Cela se reflète sur le profil de l'utilisateur, dans la section **Contact Settings** de l'onglet **Engagement** :
 
-![Journal des modifications du jeton push dans l'onglet **Engagement** du profil d'un utilisateur, qui indique quand le jeton push a été transféré à un autre utilisateur et quel était le jeton.]({% image_buster /assets/img/push_token_changelog.png %})
+![Journal des modifications du jeton push dans l'onglet Engagement du profil d'un utilisateur, qui indique quand le jeton push a été transféré à un autre utilisateur et quel était le jeton.]({% image_buster /assets/img/push_token_changelog.png %})
 
 Comme il n'existe aucun moyen pour les fournisseurs push (APNs/FCM) de distinguer plusieurs utilisateurs sur un même appareil, nous transmettons le jeton push au dernier utilisateur connecté pour déterminer quel utilisateur cibler sur l'appareil pour le push.
 
@@ -123,6 +123,26 @@ Un utilisateur est considéré comme « activé pour le push » ou « enregistr�
 Pour savoir comment vérifier l'état d'enregistrement push, consultez [statut d'enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
 {% endalert %}
 
+## Trouver les informations d'enregistrement push et le journal des modifications {#finding-push-registration-and-changelog-information}
+
+Dans le tableau de bord, vous pouvez trouver des informations sur l'enregistrement push et les journaux de modifications push dans :
+
+- **Segmentation** – Filtrez les utilisateurs par états d'abonnement, état d'activation, et état d'activation au premier plan et en arrière-plan.
+- **Analyse de Campaign** – Consultez les statistiques push et les retours pour une Campaign ou un Canvas individuel.
+- **Profil utilisateur (onglet Engagement)** – Consultez les **Contact Settings** et le journal des modifications push pour un utilisateur spécifique.
+
+Lors de l'examen de l'état d'activation push, **Push Registered for** indique les plateformes vers lesquelles Braze peut envoyer des notifications push au premier plan pour cet utilisateur. Sur iOS et Android, si un utilisateur est passé de l'activation push au premier plan à l'activation push en arrière-plan (`remote_notification_enabled`), cela sera documenté dans le journal des modifications push comme « Push token was updated from foreground push enabled to foreground push disabled. »
+
+Si l'utilisateur est ajouté en tant qu'utilisateur test, dans **Console de développement** > **User Event Log**, le profil utilisateur affichera une requête SDK avec `remote_notification_enabled` défini sur `true` ou `false`. Vous devrez peut-être actualiser le profil utilisateur pour voir les mises à jour, car il y a un court délai avant que les mises à jour du SDK n'atteignent le profil utilisateur.
+
+**Filtres de segmentation pour l'état push iOS :**
+
+- **Push au premier plan et en arrière-plan iOS désactivé :** L'utilisateur n'a pas encore reçu d'invite push.
+- **Arrière-plan iOS activé :** L'utilisateur a reçu l'invite push et a refusé, ou a accepté puis a désactivé les notifications push dans les paramètres de son appareil (reflété après que l'utilisateur a enregistré une session).
+- **Premier plan iOS activé :** L'utilisateur a reçu l'invite push et est éligible pour recevoir des notifications push au premier plan.
+
+L'analyse de Campaign reflétera les statistiques push conformément aux détails ci-dessus. Vous pouvez également télécharger les profils utilisateurs qui sont entrés dans la Campaign ou le Canvas pour croiser les profils utilisateurs.
+
 ## Autres scénarios spécifiques aux plateformes {#other-platform-specific-scenarios}
 
 {% tabs %}
@@ -133,6 +153,12 @@ Lorsqu'un utilisateur accepte l'invite native d'autorisation push, son statut d'
 Pour gérer les abonnements, vous pouvez utiliser la méthode utilisateur [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype) pour créer une page de paramètres de préférences sur votre site, après quoi vous pouvez filtrer les utilisateurs par statut de désabonnement dans le tableau de bord.
 
 Si un utilisateur désactive les notifications dans son navigateur, la prochaine notification push envoyée à cet utilisateur rebondira, et Braze mettra à jour le jeton push de l'utilisateur en conséquence. Cela est utilisé pour gérer l'éligibilité aux filtres d'activation push (`Background or Foreground Push Enabled`, `Foreground Push Enabled` et `Foreground Push Enabled for App`). Le statut d'abonnement défini sur le profil de l'utilisateur est un paramètre au niveau de l'utilisateur et ne change pas lorsqu'un push rebondit.
+
+### Erreurs de jeton push Web 410 {#410-web-push-token-errors}
+
+Si vous recevez une erreur `410: Gone`, cela peut se produire lorsqu'un utilisateur désactive les notifications push web depuis le navigateur dans les paramètres de son OS, ou s'il se connecte en tant qu'utilisateur différent sur le même appareil, ou si l'utilisateur n'a pas visité le site web depuis un certain temps.
+
+Si vous recevez une erreur `410: Endpoint Not Valid`, cela peut signifier que le jeton push web (essentiellement l'URL) a expiré. Cela peut se produire si l'utilisateur ne visite plus jamais le site ou si le navigateur invalide le jeton. Cela peut également se produire périodiquement (souvent tous les quelques mois), selon le navigateur. Lorsque l'utilisateur visite à nouveau le site, si son navigateur est toujours configuré sur « Allow », Braze collectera automatiquement un nouveau jeton pour l'appareil. Cela suppose que l'[option d'initialisation `disablePushTokenMaintenance`](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions) n'est pas utilisée lors de l'initialisation du SDK.
 
 {% alert note %}
 Les plateformes web ne permettent pas le push en arrière-plan ou silencieux.

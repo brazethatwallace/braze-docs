@@ -40,7 +40,7 @@ Ambos os endpoints retornarão um objeto de token por push que inclui informaç�
 
 Certifique-se de que você faz parte do segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você verá uma lista de segmentos nos quais o usuário está atualmente incluído. Lembre-se de que essa é uma variável em constante mudança, pois a segmentação é atualizada em tempo real.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento.
 
@@ -52,7 +52,7 @@ Verifique os limites de frequência globais. É possível que você não tenha r
 
 Você pode fazer isso verificando o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) no dashboard. Se a Campaign estiver configurada para obedecer às regras do limite de frequência, haverá um número de usuários impactados por essas configurações.
 
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+![Detalhes da Campaign]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Limites de taxa {#rate-limits}
 
@@ -66,7 +66,6 @@ Se for uma Campaign de canal único ou um Canvas com grupo de controle, é poss�
   2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv) e verifique se o ID do seu usuário está nessa lista.
 
 #### Token por push válido {#valid-push-token}
-
 Um token por push é um identificador que os remetentes usam para direcionar dispositivos específicos com uma notificação por push. Portanto, se o dispositivo não tiver um token por push válido, não há como enviar uma notificação por push para ele.
 
 #### Tipo de notificação por push {#push-notification-type}
@@ -78,6 +77,50 @@ Verifique se você está usando o tipo correto de notificação por push. Por ex
 #### App atual {#current-app}
 
 Ao testar envios de push com usuários internos, certifique-se de que o usuário que você deseja que receba a notificação por push esteja atualmente logado no app relevante. Isso pode fazer com que o usuário não receba um push ou receba um push para o qual você acredita que ele não está segmentado.
+
+{% alert note %}
+Se você está enviando mensagens push com imagens no Android, o FCM pode, às vezes, descartar a imagem e exibir apenas o texto na mensagem push. Esse problema geralmente é causado por problemas de conectividade com o servidor.
+{% endalert %}
+
+## Erro: MismatchSenderID {#error-mismatchsenderid}
+
+MismatchSenderID indica uma falha de autenticação com o Firebase Cloud Messaging (FCM). Confirme se o ID do remetente do Firebase e a chave de API do FCM estão corretos.
+
+Para encontrar a chave correta do servidor Firebase e substituí-la:
+
+1. Acesse o console do Firebase para o seu app.
+2. Em **Project Overview**, selecione **Project Settings**.
+3. Na guia **Cloud Messaging**, verifique se o Sender ID abaixo das chaves de API corresponde ao que está na Braze (em **Settings** > **App Settings** > **Cloud Messaging API Key**).
+
+{% alert warning %}
+Não altere o Sender ID no dashboard da Braze. Fazer isso fará com que os registros de push existentes sejam invalidados. Se o Sender ID não corresponder, você deve encontrar o projeto do Firebase com o Sender ID correspondente.
+{% endalert %}
+
+{:start="4"}
+4. Copie a **Server Key** em **Project credentials**.
+5. Na Braze, acesse **Settings** > **App Settings**, selecione seu app e cole a chave do servidor no campo **Cloud Messaging API Key** (substituindo a chave desatualizada).
+6. Selecione **Save**.
+7. Para verificar, envie um push de teste para um dispositivo antes e depois de alterar a chave de API sem abrir o aplicativo. Isso ajuda a confirmar que os usuários continuam recebendo notificações por push sem a necessidade de gerar um novo ID de registro de push (token por push).
+
+## Cenários de solução de problemas {#troubleshooting-scenarios}
+
+### Notificações por push atrasadas {#delayed-push-notifications}
+
+Suas notificações por push podem atrasar por estes motivos:
+
+- Conexão de dados fraca no dispositivo
+- Código personalizado no app que pode suprimir notificações por push da Braze
+- Preferências do usuário para notificações por push nas configurações do dispositivo
+- Prioridade da mensagem do push quando criada na Campaign ou Canvas
+- Atrasos de tráfego ou problemas com os provedores de notificação por push (FCM e APNs)
+
+### Notificações por push estão sendo enviadas mais lentamente do que o esperado {#push-notifications-are-sending-slower-than-expected}
+
+Certifique-se de que a configuração das suas notificações por push segue estas práticas recomendadas:
+
+- Se você está enviando para grandes públicos sem considerar o status de ativação de push, isso pode levar a uma velocidade de envio mais lenta. Em vez disso, considere enviar apenas para usuários com push ativado para reduzir o tamanho do seu público.
+- Se possível, tente programar suas Campaigns com antecedência em vez de imediatamente.
+- Se você está direcionando um número maior de usuários com notificações por push em um Canvas, pode esperar que as etapas de mensagem subsequentes no Canvas exijam tempos de processamento diferentes de uma Campaign que envia para os usuários imediatamente. Nesse caso, as Campaigns normalmente terminam o envio antes de um Canvas, pois a primeira "etapa" de um Canvas é verificar se os usuários se qualificam para a jornada específica do usuário.
 
 ## Clicar em uma notificação por push não abre o app {#clicking-a-push-notification-doesnt-open-the-app}
 
@@ -105,7 +148,7 @@ Se você está enfrentando problemas com links em notificações por push que ab
 
 Na sua Campaign ou etapa do Canvas, verifique novamente se **Open web URL inside mobile app** não está selecionado. Se estiver, desmarque a seleção e relance.
 
-!["On-click behavior" field of configuring a push set to "Open web URL" with "Open web URL inside mobile app" unchecked.]({% image_buster /assets/img/push_on_click.png %})
+![Campo "Comportamento ao clicar" da configuração de um push definido como "Open web URL" com "Open web URL inside mobile app" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
 
 A interação padrão para o comportamento ao clicar "Open web URL" difere por versão do SDK. Para as versões do SDK iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web serão abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador web padrão do dispositivo.
 
@@ -119,6 +162,10 @@ Se os links nas suas notificações por push estão abrindo no app inesperadamen
 2. **Inspecione o tratamento personalizado de links:** verifique se o app inclui tratamento personalizado para todos os links `https://`. Configurações personalizadas podem sobrescrever comportamentos padrão. Colabore com sua equipe de desenvolvimento para revisar e ajustar essas configurações, se necessário.
 3. **Verifique o registro de push no iOS:** para iOS, revise a etapa 1 do guia de integração de push sobre [registrar notificações por push com APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns). Certifique-se de que seu objeto delegate é atribuído de forma síncrona antes que o app termine de iniciar. Essa etapa deve ser concluída no método `application:didFinishLaunchingWithOptions:`.
 4. **Teste sua integração:** após fazer os ajustes, teste o comportamento das notificações por push em dispositivos iOS e Android para confirmar que o problema foi resolvido.
+
+### Deep links com o app ainda em execução em segundo plano (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
+
+Se os deep links funcionam quando o app não está em execução ou quando o link é usado diretamente, mas não quando o aplicativo já está em execução em segundo plano, o problema pode estar relacionado à forma como o app trata o link. Verifique se você está usando alguma biblioteca de terceiros que utiliza method swizzling. Recomendamos desativar o swizzling, pois ele pode causar problemas com implementações de deep link.
 
 ## Migrar para uma chave de autenticação .p8 {#migrate-to-a-p8-authentication-key}
 
@@ -149,7 +196,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Reset Chrome on desktop" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redefinir o Chrome no desktop" }
 
 {:start="4"}
 4. No DevTools, navegue até a guia **Application**.
@@ -163,7 +210,7 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 Se você tem uma notificação do seu site visível na gaveta de notificações do Android:
 
-1. Na notificação por push, toque em <i class="fas fa-cog" title="Settings"></i> e selecione **Site settings**.
+1. Na notificação por push, toque em <i class="fas fa-cog" title="Configurações"></i> e selecione **Site settings**.
 2. Em **Site settings**, toque em **Clear & Reset**.
 
 Se você não tem uma notificação do seu site aberta:
@@ -182,8 +229,8 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 ### Redefinir o Firefox no desktop {#reset-firefox-on-desktop}
 
-1. Ao lado da URL do seu site, selecione <i class="fa-solid fa-circle-info" alt="info icon"></i> ou <i class="fas fa-lock" alt="lock icon"></i>.
-2. Em **Permissions**, ao lado de **Receive Notifications**, selecione <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> para limpar as permissões de notificação.
+1. Ao lado da URL do seu site, selecione <i class="fa-solid fa-circle-info" alt="ícone de informação"></i> ou <i class="fas fa-lock" alt="ícone de cadeado"></i>.
+2. Em **Permissions**, ao lado de **Receive Notifications**, selecione <i class="fa-solid fa-circle-xmark" title="Limpar esta permissão e perguntar novamente"></i> para limpar as permissões de notificação.
 3. No mesmo menu, selecione **Clear Cookies and Site Data**.
 4. Na caixa de diálogo para confirmar sua escolha, selecione **OK**.
 

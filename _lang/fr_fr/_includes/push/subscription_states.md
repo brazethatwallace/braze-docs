@@ -58,9 +58,17 @@ Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec le SDK de 
 
 Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec la REST API de Braze en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour mettre à jour l'attribut [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
 
+### Différences entre l'activation push et le statut d'abonnement push {#differences-between-push-enablement-and-push-subscription-status}
+
+L'activation push indique si un utilisateur a accordé l'autorisation au niveau du système d'exploitation ou du navigateur de recevoir des notifications sur un appareil spécifique. Le statut d'abonnement push est un paramètre au niveau de Braze qui représente la préférence globale d'un utilisateur pour la réception de notifications push sur l'ensemble de son profil.
+
+Lorsque l'abonnement automatique est activé (par défaut), Braze met à jour l'état d'abonnement push d'un utilisateur sur `Opted-In` lorsqu'il autorise les notifications push pour votre application ou réactive les autorisations dans les paramètres de son système (par exemple, sur iOS, Android 13+ et les navigateurs web pris en charge). Dans le cas contraire, l'état d'abonnement push de l'utilisateur reste `Subscribed` jusqu'à ce que vous le modifiiez explicitement à l'aide d'une méthode SDK ou d'un appel REST API.
+
+Braze ne change pas automatiquement l'état d'abonnement push d'un utilisateur vers `Unsubscribed` lorsqu'il désactive les notifications au niveau du système d'exploitation, du navigateur ou de l'application. Pour mettre à jour l'état d'abonnement push d'un utilisateur, vous devez le modifier dans Braze. Par exemple, si un utilisateur désactive les notifications push depuis un centre de préférences in-app, mettez à jour l'état d'abonnement push vers `Unsubscribed` dans Braze. Braze ne met pas à jour les profils utilisateurs en fonction de votre centre de préférences. Pour aligner les états d'abonnement avec les préférences in-app d'un utilisateur, appelez les méthodes appropriées à l'aide du [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS ou Android) ou de la [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
+
 ### Vérification de l'état d'abonnement aux notifications push {#checking-push-subscription-state}
 
-![Profil utilisateur de John Doe dont l'état d'abonnement push est défini sur Abonné.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Profil utilisateur de John Doe dont l'état d'abonnement push est défini sur Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Vous pouvez vérifier l'état d'abonnement push d'un utilisateur avec Braze de l'une des manières suivantes :
 

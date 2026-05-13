@@ -105,7 +105,14 @@ Se desencadena cuando un usuario ve una página de detalle de producto. Este eve
 
 Se desencadena cada vez que cambia el contenido del carrito de un usuario.
 
-Este evento usa un modelo de reemplazo, lo que significa que cada llamada debe incluir el array completo y actual del carrito, no solo el artículo que cambió. Braze sobrescribe el estado anterior del carrito con el array que envías.
+Puedes enviar este evento de dos maneras:
+
+- **Reemplazo completo del carrito:** Omite `action` o establece `action` en `replace`. Incluye el conjunto completo de artículos en `products` con cantidades absolutas (unidades totales por variante en el carrito). Debes incluir `total_value`.
+- **Actualizaciones incrementales del carrito:** Establece `action` en `add` o `remove`. Incluye solo los artículos que cambiaron. Cada `quantity` es el número de unidades a agregar o quitar, no la cantidad total en el carrito. Para `add`, Braze incrementa la cantidad de la línea o agrega una nueva línea. Para `remove`, Braze decrementa la cantidad de la línea y la elimina cuando la cantidad llega a `0`. `total_value` es opcional para `add` y `remove`.
+
+{% alert warning %}
+Usa actualizaciones incrementales del carrito (`add` o `remove`) o reemplazo completo (sin `action` o `replace`) para un carrito dado. No se recomienda mezclar ambos enfoques para el mismo `cart_id` y puede llevar a un estado de carrito inconsistente en Braze.
+{% endalert %}
 
 Para desencadenar mensajería a partir de este evento, usa el desencadenante **Perform Cart Updated Event** en Canvas y Campaigns. Este desencadenante incluye un tratamiento especial para evitar que el carrito avance a través del embudo de compras.
 
@@ -118,12 +125,13 @@ El carrito crea un objeto de mapeado de carritos en el perfil de usuario que ali
 | Propiedad | Tipo de datos | Obligatoria | Descripción |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `cart_id`       | String    | Sí      | Identificador único del carrito. Compartido entre los eventos de carrito, pago y pedido para el mapeado del carrito del usuario. |
-| `total_value`   | Float     | Sí      | Valor monetario total del carrito. |
+| `action`        | String    | No       | `add` (incrementar cantidad o agregar una línea), `remove` (decrementar cantidad; la línea se elimina en `0`) o `replace` (reemplazo completo del carrito, igual que omitir `action`). |
+| `total_value`   | Float     | Condicional | Obligatoria cuando se omite `action` o es `replace`. Opcional cuando `action` es `add` o `remove`. |
 | `subtotal_value`| Float     | No       | Valor del subtotal del carrito (después de descuentos, antes de impuestos/envío). |
 | `tax`           | Float     | No       | Impuesto total aplicado al carrito. |
 | `shipping`      | Float     | No       | Costo total de envío del carrito. |
 | `currency`      | String    | Sí      | Código ISO 4217 de tres letras. |
-| `products`      | Array     | Sí      | Array completo de artículos actualmente en el carrito. Consulta la subtabla de propiedades de producto. |
+| `products`      | Array     | Sí      | Artículos para esta actualización. Para reemplazo completo (sin `action` o `replace`), incluye el carrito completo con cantidades absolutas. Para `add` o `remove`, incluye solo las líneas que cambiaron; consulta las propiedades de producto. |
 | `source`        | String    | Sí      | Fuente de la que se origina el evento. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles para datos adicionales a nivel de evento. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
@@ -137,12 +145,427 @@ El carrito crea un objeto de mapeado de carritos en el perfil de usuario que ali
 | `variant_id`    | String    | Sí      | Identificador de la variante. |
 | `image_url`     | String    | No       | URL de la imagen del producto. |
 | `product_url`   | String    | No       | URL de la página del producto. |
-| `quantity`      | Integer   | Sí      | Número de unidades en el carrito. |
+| `quantity`      | Integer   | Sí      | Para reemplazo completo (sin `action` o `replace`), unidades en el carrito para esta línea. Para `add` o `remove`, cuántas unidades agregar o quitar. |
 | `price`         | Float     | Sí      | Precio unitario de la variante. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
-#### Ejemplo de REST API
+#### Ejemplos de código {#code-examples}
+
+Cada pestaña de plataforma a continuación usa el diseño de fragmento de código que corresponde a esa ruta de integración (por ejemplo, encabezados o etiquetas dentro de un bloque delimitado). Las cargas útiles de `add`, `remove` y `replace` son las mismas en todas las plataformas; solo difiere la superficie del SDK o la API.
+
+{% subtabs local %}
+{% subtab Web %}
+
+##### `add`
+
+`add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "add",
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-RUN-4821",
+      product_name: "Ultraboost Running Shoe",
+      variant_id: "UB-BLK-11",
+      quantity: 1,
+      price: 189.99,
+    },
+  ],
+});
+```
+##### `remove`
+
+`remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "remove",
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-SOC-1102",
+      product_name: "Performance Running Socks",
+      variant_id: "SOC-WHT-L",
+      quantity: 1,
+      price: 14.99,
+    },
+  ],
+});
+```
+
+##### `replace`
+
+`replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
+
+```javascript
+braze.logCustomEvent("ecommerce.cart_updated", {
+  cart_id: "cart_abc123",
+  action: "replace",
+  total_value: 234.96,
+  currency: "USD",
+  source: "web",
+  products: [
+    {
+      product_id: "SKU-RUN-4821",
+      product_name: "Ultraboost Running Shoe",
+      variant_id: "UB-BLK-11",
+      image_url: "https://cdn.example.com/shoes/ub-blk-11.jpg",
+      product_url: "https://www.example.com/products/ultraboost-running-shoe?variant=UB-BLK-11",
+      quantity: 1,
+      price: 189.99,
+    },
+    {
+      product_id: "SKU-SOC-1102",
+      product_name: "Performance Running Socks",
+      variant_id: "SOC-WHT-L",
+      image_url: "https://cdn.example.com/socks/soc-wht-l.jpg",
+      product_url: "https://www.example.com/products/performance-running-socks?variant=SOC-WHT-L",
+      quantity: 2,
+      price: 14.99,
+    },
+  ],
+});
+```
+
+{% endsubtab %}
+{% subtab Android %}
+
+##### Add
+
+`add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
+
+```text
+Kotlin
+
+// add — units to add
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "add")
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray().put(
+          JSONObject()
+            .put("product_id", "SKU-RUN-4821")
+            .put("product_name", "Ultraboost Running Shoe")
+            .put("variant_id", "UB-BLK-11")
+            .put("quantity", 1)
+            .put("price", 189.99),
+        ),
+      ),
+  ),
+)
+
+JavaScript
+
+// add — units to add
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "add")
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-RUN-4821")
+                .put("product_name", "Ultraboost Running Shoe")
+                .put("variant_id", "UB-BLK-11")
+                .put("quantity", 1)
+                .put("price", 189.99)))));
+```
+
+##### Remove
+
+`remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
+
+```text
+Kotlin
+
+// remove — units to remove
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "remove")
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray().put(
+          JSONObject()
+            .put("product_id", "SKU-SOC-1102")
+            .put("product_name", "Performance Running Socks")
+            .put("variant_id", "SOC-WHT-L")
+            .put("quantity", 1)
+            .put("price", 14.99),
+        ),
+      ),
+  ),
+)
+
+JavaScript
+
+// remove — units to remove
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "remove")
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-SOC-1102")
+                .put("product_name", "Performance Running Socks")
+                .put("variant_id", "SOC-WHT-L")
+                .put("quantity", 1)
+                .put("price", 14.99)))));
+```
+
+##### Replace
+
+`replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
+
+```text
+Kotlin
+
+// replace — full cart; total_value required
+Braze.getInstance(context).logCustomEvent(
+  "ecommerce.cart_updated",
+  BrazeProperties(
+    JSONObject()
+      .put("cart_id", "cart_abc123")
+      .put("action", "replace")
+      .put("total_value", 234.96)
+      .put("currency", "USD")
+      .put("source", "android")
+      .put(
+        "products",
+        JSONArray()
+          .put(
+            JSONObject()
+              .put("product_id", "SKU-RUN-4821")
+              .put("product_name", "Ultraboost Running Shoe")
+              .put("variant_id", "UB-BLK-11")
+              .put("quantity", 1)
+              .put("price", 189.99),
+          )
+          .put(
+            JSONObject()
+              .put("product_id", "SKU-SOC-1102")
+              .put("product_name", "Performance Running Socks")
+              .put("variant_id", "SOC-WHT-L")
+              .put("quantity", 2)
+              .put("price", 14.99),
+          ),
+      ),
+  ),
+)
+
+JavaScript
+
+// replace — full cart; total_value required
+Braze.getInstance(context).logCustomEvent(
+    "ecommerce.cart_updated",
+    new BrazeProperties(new JSONObject()
+        .put("cart_id", "cart_abc123")
+        .put("action", "replace")
+        .put("total_value", 234.96)
+        .put("currency", "USD")
+        .put("source", "android")
+        .put("products", new JSONArray()
+            .put(new JSONObject()
+                .put("product_id", "SKU-RUN-4821")
+                .put("product_name", "Ultraboost Running Shoe")
+                .put("variant_id", "UB-BLK-11")
+                .put("quantity", 1)
+                .put("price", 189.99))
+            .put(new JSONObject()
+                .put("product_id", "SKU-SOC-1102")
+                .put("product_name", "Performance Running Socks")
+                .put("variant_id", "SOC-WHT-L")
+                .put("quantity", 2)
+                .put("price", 14.99)))));
+```
+
+{% endsubtab %}
+{% subtab Swift %}
+
+##### Add
+
+`add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
+
+```text
+Swift
+
+// add — units to add
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "add",
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-RUN-4821",
+        "product_name": "Ultraboost Running Shoe",
+        "variant_id": "UB-BLK-11",
+        "quantity": 1,
+        "price": 189.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// add — units to add
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"add",
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[@{
+    @"product_id": @"SKU-RUN-4821",
+    @"product_name": @"Ultraboost Running Shoe",
+    @"variant_id": @"UB-BLK-11",
+    @"quantity": @1,
+    @"price": @189.99,
+  }],
+}];
+```
+
+##### Remove
+
+`remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
+
+```text
+Swift
+
+// remove — units to remove
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "remove",
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-SOC-1102",
+        "product_name": "Performance Running Socks",
+        "variant_id": "SOC-WHT-L",
+        "quantity": 1,
+        "price": 14.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// remove — units to remove
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"remove",
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[@{
+    @"product_id": @"SKU-SOC-1102",
+    @"product_name": @"Performance Running Socks",
+    @"variant_id": @"SOC-WHT-L",
+    @"quantity": @1,
+    @"price": @14.99,
+  }],
+}];
+```
+
+##### Replace
+
+`replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
+
+```text
+Swift
+
+// replace — full cart; total_value required
+AppDelegate.braze?.logCustomEvent(
+  name: "ecommerce.cart_updated",
+  properties: [
+    "cart_id": "cart_abc123",
+    "action": "replace",
+    "total_value": 234.96,
+    "currency": "USD",
+    "source": "ios",
+    "products": [
+      [
+        "product_id": "SKU-RUN-4821",
+        "product_name": "Ultraboost Running Shoe",
+        "variant_id": "UB-BLK-11",
+        "quantity": 1,
+        "price": 189.99,
+      ],
+      [
+        "product_id": "SKU-SOC-1102",
+        "product_name": "Performance Running Socks",
+        "variant_id": "SOC-WHT-L",
+        "quantity": 2,
+        "price": 14.99,
+      ],
+    ],
+  ]
+)
+
+Objective-C
+
+// replace — full cart; total_value required
+[AppDelegate.braze logCustomEvent:@"ecommerce.cart_updated"
+                       properties:@{
+  @"cart_id": @"cart_abc123",
+  @"action": @"replace",
+  @"total_value": @234.96,
+  @"currency": @"USD",
+  @"source": @"ios",
+  @"products": @[
+    @{
+      @"product_id": @"SKU-RUN-4821",
+      @"product_name": @"Ultraboost Running Shoe",
+      @"variant_id": @"UB-BLK-11",
+      @"quantity": @1,
+      @"price": @189.99,
+    },
+    @{
+      @"product_id": @"SKU-SOC-1102",
+      @"product_name": @"Performance Running Socks",
+      @"variant_id": @"SOC-WHT-L",
+      @"quantity": @2,
+      @"price": @14.99,
+    },
+  ],
+}];
+```
+
+{% endsubtab %}
+{% subtab REST API %}
+
+##### `add`
+
+`add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
 
 ```json
 {
@@ -153,6 +576,69 @@ El carrito crea un objeto de mapeado de carritos en el perfil de usuario que ali
       "time": "2026-04-28T14:25:33Z",
       "properties": {
         "cart_id": "cart_abc123",
+        "action": "add",
+        "currency": "USD",
+        "source": "web",
+        "products": [
+          {
+            "product_id": "SKU-RUN-4821",
+            "product_name": "Ultraboost Running Shoe",
+            "variant_id": "UB-BLK-11",
+            "quantity": 1,
+            "price": 189.99
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+##### `remove`
+
+`remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
+
+```json
+{
+  "events": [
+    {
+      "external_id": "user_98765",
+      "name": "ecommerce.cart_updated",
+      "time": "2026-04-28T14:26:10Z",
+      "properties": {
+        "cart_id": "cart_abc123",
+        "action": "remove",
+        "currency": "USD",
+        "source": "web",
+        "products": [
+          {
+            "product_id": "SKU-SOC-1102",
+            "product_name": "Performance Running Socks",
+            "variant_id": "SOC-WHT-L",
+            "quantity": 1,
+            "price": 14.99
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+##### `replace`
+
+`replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
+
+```json
+{
+  "events": [
+    {
+      "external_id": "user_98765",
+      "name": "ecommerce.cart_updated",
+      "time": "2026-04-28T14:27:00Z",
+      "properties": {
+        "cart_id": "cart_abc123",
+        "action": "replace",
         "total_value": 234.96,
         "subtotal_value": 219.97,
         "tax": 9.0,
@@ -195,6 +681,9 @@ El carrito crea un objeto de mapeado de carritos en el perfil de usuario que ali
   ]
 }
 ```
+
+{% endsubtab %}
+{% endsubtabs %}
 
 {% endtab %}
 {% tab ecommerce.checkout_started %}
@@ -616,7 +1105,7 @@ La siguiente tabla resume lo que Braze hace automáticamente para cada evento cu
 | `ecommerce.order_placed`     | Incrementa **Total Revenue** en `total_value` y **Total Orders** en 1 en el perfil de usuario. |
 | `ecommerce.order_cancelled`  | Decrementa **Total Orders** en 1. |
 | `ecommerce.order_refunded`   | Decrementa **Total Revenue** en `total_value` e incrementa **Total Refund Value**. |
-| `ecommerce.cart_updated`     | Crea o actualiza el objeto de mapeado de carritos en el perfil de usuario. El carrito expira después de 30 días sin una actualización. |
+| `ecommerce.cart_updated`     | Crea o actualiza el objeto de mapeado de carritos en el perfil de usuario (cargas útiles de carrito completo o actualizaciones incrementales del carrito con `action` opcional: `add`, `remove` o `replace`). El carrito expira después de 30 días sin una actualización. |
 | `ecommerce.product_viewed`   | Sin cambios en el perfil de usuario. Disponible para segmentación, desencadenantes y características de BrazeAI<sup>TM</sup> (como recomendaciones de artículos). |
 | `ecommerce.checkout_started` | Sin cambios en el perfil de usuario. Disponible para segmentación y desencadenantes (por ejemplo, flujos de pago abandonado). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
