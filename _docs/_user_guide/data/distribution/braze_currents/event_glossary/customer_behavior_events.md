@@ -1291,7 +1291,8 @@ This event occurs when a push token is inserted, updated, or removed. Use this t
 - The `push_token_foreground_push_disabled` field indicates whether the push token can receive foreground or background push.
   - If the user explicitly allowed push notification permission on their device, this is `false`, and the token can receive foreground push notifications.
   - If the user explicitly denied push notification permission on their device, this is `true`, and the token is only allowed with background push notifications.
-  - If the push permission is unknown, this is `null` (or empty, depending on your destination format). Treat this the same as `false` (foreground-pushable), because Braze still attempts to send foreground push notifications to that token.
+  - If push permission has not yet been determined (for example, the user hasn't responded to the OS prompt), this is `true`, and the token is only allowed with background push notifications.
+  - This field can be `null` (or empty, depending on your destination format) for older SDK token registrations that haven't yet reported permission status and for web push tokens. Treat `null` the same as `false` (foreground-pushable), because Braze still attempts to send foreground push notifications to those tokens.
   - A push send attempt does not update this field. If a send succeeds, no `TokenStateChange` event is emitted. If a send bounces because the token is invalid, Braze emits a `remove` event and deletes the token.
   - This field only changes when Braze ingests a token state update from the SDK (for example, a later session sync that reports push permission status).
 - The `push_token_provisionally_opted_in` field only applies to iOS push tokens.
