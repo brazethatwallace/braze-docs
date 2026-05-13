@@ -50,7 +50,7 @@ edited docs content or in the PR description. Anonymize or omit it.
 ### 1. Read the ticket and all linked resources
 
 Prerequisite: The Atlassian MCP must be enabled for Cloud Agent runs
-in this repo. If it is not configured, Step 1 and all edge cases that
+in this repo. If it is not configured, Step 1, Step 6, and all edge cases that
 require leaving comments will fail. Confirm this is set up before
 running the workflow in production.
 
@@ -175,15 +175,39 @@ Look up the Jira ticket assignee's display name in
 exactly as returned by Jira — trim whitespace and compare
 case-sensitively. If a match is found, add
 `--assignee <github-username>` to the `gh pr create` command.
-
 If the assignee's name is not in the mapping file, or if the ticket
-is unassigned, add `--reviewer braze-inc/docs-team` instead, and
-note in the Notes for reviewer section: "Could not resolve assignee —
-routed to docs team for triage."
+is unassigned, omit `--assignee` and note in the Notes for reviewer
+section: "Could not map Jira assignee to a GitHub user for assignee —
+requested review from docs team (`gh pr edit --add-reviewer braze-inc/docs-team`)."
 
 gh pr create --draft --base develop \
   --title "<ticket_id>: <short description of fix>" \
   --body "<PR description>"
+
+**Request a GitHub review (after the PR exists):**
+From the same branch (`jira-<ticket_id>`), use the **same**
+`jira-github-users.yml` lookup on the Jira assignee's display name.
+If a GitHub username is found, run:
+
+`gh pr edit --add-reviewer <github-username>`
+
+If there is no mapping or the ticket is unassigned, run:
+
+`gh pr edit --add-reviewer braze-inc/docs-team`
+
+`gh pr edit` applies to the pull request for your current branch. If
+either command fails, log the error and continue — the draft PR is
+still valid.
+
+**Add the PR label (after the PR exists):**
+Run:
+
+`gh pr edit --add-label "In Review"`
+
+The label **In Review** must exist on `braze-inc/braze-docs`. If the
+command fails (for example the label is missing or permissions are
+insufficient), log the error and continue — do not treat it as a
+blocker.
 
 The PR description must contain all five of these sections,
 followed by the standard automation footer:
@@ -223,6 +247,40 @@ or reasons this might need a closer look.>
 > assume correctness — the agent may have misunderstood the issue
 > or made edits beyond the intended scope.
 ---
+
+### 6. Post completion comment on Jira
+
+After the draft PR is created in Step 5, use the Atlassian MCP tool
+`addCommentToJiraIssue` to post a comment on the original Jira ticket
+(the same issue key from Step 1).
+
+- If you have the PR URL (for example from `gh pr create` output,
+  `gh pr view`, or the GitHub web UI), post a comment whose body is
+  exactly this text, with `<PR URL>` replaced by the real URL (two
+  sentences as shown):
+
+  ```text
+  🤖 Cursor Agent: Draft PR is ready for your review: <PR URL>
+  Please review the proposed changes and merge or request edits as needed.
+  ```
+
+- If the PR URL is not available, post a comment whose body is
+  exactly this line, with the branch name matching `jira-<ticket_id>`
+  from Step 5 (for example `jira-BD-1234`):
+
+  ```text
+  🤖 Cursor Agent: A draft PR has been opened for this ticket. Search GitHub for branch `jira-BD-1234` to find it.
+  ```
+
+  Replace `jira-BD-1234` with your actual branch name (`jira-` plus the
+  Jira issue key).
+
+**If Jira comment fails:** If the `addCommentToJiraIssue` tool is
+unavailable, returns an error, or the comment request otherwise fails,
+**log the failure** (include any error message or tool output you
+received) and **continue**. Do not abort the run, do not revert the
+PR, and do not treat a failed Jira comment as a blocker — the draft PR
+and documentation fix remain the primary outcome.
 
 ---
 

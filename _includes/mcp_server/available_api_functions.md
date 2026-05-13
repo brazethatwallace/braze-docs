@@ -1,6 +1,6 @@
 # Braze MCP server functions
 
-> The Braze MCP server exposes a set of API functions that map to specific Braze REST API endpoints. MCP clients like Claude and Cursor can call these functions to retrieve non-PII data and, perform no-PII write actions. For more general information, see [Braze MCP server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> The Braze MCP server exposes a set of API functions that map to specific Braze REST API endpoints. MCP clients like Claude and Cursor can call these functions to retrieve non-PII data and, with the right permissions, perform non-PII write actions. For more general information, see [Braze MCP server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -61,10 +61,14 @@ These functions help your MCP client discover and run the available Braze API fu
 
 ### Content Blocks
 
+The `create_content_block` and `update_content_block` functions are write functions. Your MCP client must call them with `call_write_function`, and your API key must have the matching `content_blocks.create` or `content_blocks.update` permission.
+
 | Function | Endpoint | Description |
 |----------|----------|-------------|
 | `get_content_blocks_list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | List your available content blocks. |
 | `get_content_blocks_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | Get information on your content blocks. |
+| `create_content_block` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) | Create a content block. Requires `name` and `content`. Optional fields are `description`, `state` (must be `active` or `draft`), and `tags`. |
+| `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | Update an existing content block. Requires `content_block_id` and at least one updatable field: `name`, `content`, `description`, `state` (must be `active` or `draft`), or `tags`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Blocks" }
 
 ### Custom Attributes
@@ -95,7 +99,7 @@ These functions help your MCP client discover and run the available Braze API fu
 
 ### Media Library
 
-This is the only write function in the Braze MCP server. To use it, your API key must have the `media_library.create` permission.
+The `create_media_library_asset` function is a write function. Your MCP client must call it with `call_write_function`, and your API key must have the `media_library.create` permission.
 
 | Function | Endpoint | Description |
 |----------|----------|-------------|
@@ -166,10 +170,14 @@ This is the only write function in the Braze MCP server. To use it, your API key
 
 ### Templates
 
+The `create_email_template` and `update_email_template` functions are write functions. Your MCP client must call them with `call_write_function`, and your API key must have the matching `templates.email.create` or `templates.email.update` permission.
+
 | Function | Endpoint | Description |
 |----------|----------|-------------|
 | `get_email_templates_list` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | List your available email templates. |
 | `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | Get information on your email templates. |
+| `create_email_template` | [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) | Create an email template. Requires `template_name`, `subject`, and `body`. Optional fields are `plaintext_body`, `preheader`, `tags`, and `should_inline_css`. |
+| `update_email_template` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) | Update an existing email template. Requires `email_template_id` and at least one updatable field: `template_name`, `subject`, `body`, `plaintext_body`, `preheader`, `tags`, or `should_inline_css`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Templates" }
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

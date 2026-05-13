@@ -21,6 +21,18 @@ By default, for your user to receive your messages through push, their push subs
 Braze does not automatically change a user's push subscription state to `Unsubscribed`. Remember that if a user's push subscription state is `Unsubscribed`, then the user's `Foreground Push Enabled` filter in segmentation is `false`.
 {% endalert %}
 
+### Push registration and reachable users
+
+Push subscription state reflects a user's preference, but whether they count as **reachable** for push in the dashboard also depends on [push registration]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)—that is, a valid foreground push token on their profile. For how Braze calculates channel-level counts, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+
+- **Push campaigns and Canvases:** Users who aren't push registered aren't included in **Reachable users** for Android Push or iOS Push in audience statistics, even when their push subscription state is `Subscribed` or `Opted-In`.
+- **Other channels:** The same users can still count as reachable for other channels they qualify for (for example, email or in-app messages).
+- **Segments:** Segment membership follows your filters. Users without push registration remain in the segment unless a filter excludes them (for example, **Foreground Push Enabled**). Total segment membership can be higher than the sum of users shown in push-specific **Reachable users** rows.
+
+A user profile can show push subscription state `Subscribed` while no push token is assigned. Those users still don't count toward **Reachable users** for Android Push or iOS Push until Braze records a valid token.
+
+For filter definitions, see [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+
 ### Updating push subscription states {#update-push-subscription-state}
 
 Review the following ways to update a user's push subscription state:
