@@ -32,7 +32,7 @@ platform:
 
 `NotRegistered` は通常、アプリがデバイスから削除されたことを意味します（アンインストールのシグナルなど）。これは、多重登録が発生し、2番目の登録がBrazeが受信したプッシュトークンを無効にした場合にも発生する可能性があります。
 
-### DEVICE_UNREGISTERED {#device-unregistered}
+### DEVICE_UNREGISTERED エラー {#device-unregistered}
 
 このエラーはメッセージアクティビティログに以下のように表示されます: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -100,7 +100,7 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 2. **APNs認証設定を確認してください。** アプリが正しいAPNs `.p8` キーで構成されていること、およびそのキーが送信先のアプリと同じApple Developer Teamに関連付けられていることを確認してください。
 3. **アプリ環境を確認してください。** 開発ビルドと本番ビルドでBrazeに別々のApp IDがある場合は、それぞれが正しいプッシュ認証情報と環境で構成されていることを確認してください。
 
-### Unregistered {#ios-unregistered}
+### Unregistered エラー {#ios-unregistered}
 
 このエラーはメッセージアクティビティログに以下のように表示されます:
 
@@ -116,7 +116,7 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 このエラーは、ユーザーのプッシュが無効であることを意味するものではありません。特定のトークンがプロファイルから削除されたことを示しているだけです。ユーザーがまだ有効なトークンを持っているかどうかを確認するには、**ユーザー検索**に移動し、**エンゲージメント**タブの**連絡先設定**セクションを確認してください。
 {% endalert %}
 
-### InvalidProviderToken
+### InvalidProviderToken エラー {#invalidprovidertoken}
 
 `InvalidProviderToken` エラーは、認証トークン（`.p8` キーから）またはプッシュ証明書（`.p12`）がアプリのバンドルIDまたはTeam IDと一致しないため、APNsがリクエストを拒否したことを意味します。これを解決するには:
 

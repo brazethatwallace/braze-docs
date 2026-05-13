@@ -8,7 +8,7 @@ channel: push
 
 # Push-Best-Practices {#push-best-practices}
 
-> Diese Seite enthält Best Practices und Anwendungsfälle für Push-Benachrichtigungen, damit Ihre Push-Nachrichten Engagement statt Ärger erzeugen.
+> Diese Seite enthält Best Practices und Anwendungsfälle für Push-Benachrichtigungen, damit Ihre Push-Nachrichten Engagement statt Ärger erzeugen. **In-App Messages** und E-Mail ergänzen Push, wenn Sie Nutzer:innen in der App oder außerhalb erreichen möchten.
 
 Push-Benachrichtigungen sind leistungsstarke Werkzeuge, um mit den Nutzer:innen Ihrer App zu interagieren, sollten aber mit Bedacht eingesetzt werden, um zeitnahe und relevante Nachrichten zu übermitteln. Bevor Sie Ihre Push-Nachricht senden, beachten Sie die folgenden Best Practices für Dinge, die Sie wissen und überprüfen sollten.
 
@@ -89,7 +89,7 @@ Android 13 und höher erfordert eine Genehmigung, bevor Push-Benachrichtigungen 
 
 ### Nutzer:innen auf Push vorbereiten {#prime-users-for-push}
 
-Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und nachdem sie abgelehnt haben, ist es sehr schwer, sie davon zu überzeugen, Push in ihren Geräteeinstellungen wieder zu aktivieren. Aus diesem Grund sollten Sie Nutzer:innen mit einer In-App-Nachricht auf Push vorbereiten, bevor Sie die Systemaufforderung anzeigen. Weitere Informationen zur Steigerung der Opt-ins finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und nachdem sie abgelehnt haben, ist es sehr schwer, sie davon zu überzeugen, Push in ihren Geräteeinstellungen wieder zu aktivieren. Aus diesem Grund sollten Sie Nutzer:innen mit einer In-App Message auf Push vorbereiten, bevor Sie die Systemaufforderung anzeigen. Weitere Informationen zur Steigerung der Opt-ins finden Sie unter [Push-Primer-In-App Messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
 
 ### Push-Abo-Steuerungen hinzufügen {#add-push-subscription-controls}
 
@@ -122,7 +122,7 @@ Erstellen Sie dazu eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels
 3. Bevor Sie Push-Benachrichtigungen vollständig entfernen, senden Sie eine letzte Benachrichtigung, die erklärt, warum sie keine weiteren erhalten werden. Dies gibt Nutzer:innen die Möglichkeit, ihr Interesse an weiteren Push-Benachrichtigungen zu zeigen, indem sie diese Benachrichtigung öffnen.
 4. Nachdem die Sunset-Richtlinie in Kraft getreten ist, verwenden Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/), um diese Nutzer:innen daran zu erinnern, dass sie zwar keine Push-Benachrichtigungen mehr erhalten, In-App-Messaging-Kanäle aber weiterhin interessante, hilfreiche Informationen liefern.
 
-Auch wenn Sie möglicherweise zögern, Nutzer:innen, die sich ursprünglich für Push entschieden haben, keine Push-Benachrichtigungen mehr zu senden, denken Sie daran, dass andere Messaging-Kanäle diese Nutzer:innen effektiver erreichen können, insbesondere wenn sie Ihre Push-Benachrichtigungen zuvor ignoriert haben. Wenn Nutzer:innen Ihre E-Mails öffnen, sind E-Mail-Campaigns eine gute Möglichkeit, sie außerhalb Ihrer App zu erreichen. Wenn nicht, sind In-App-Nachrichten der beste Weg, Inhalte zu liefern, ohne zu riskieren, dass Nutzer:innen Ihre App deinstallieren.
+Auch wenn Sie möglicherweise zögern, Nutzer:innen, die sich ursprünglich für Push entschieden haben, keine Push-Benachrichtigungen mehr zu senden, denken Sie daran, dass andere Messaging-Kanäle diese Nutzer:innen effektiver erreichen können, insbesondere wenn sie Ihre Push-Benachrichtigungen zuvor ignoriert haben. Wenn Nutzer:innen Ihre E-Mails öffnen, sind E-Mail-Campaigns eine gute Möglichkeit, sie außerhalb Ihrer App zu erreichen. Wenn nicht, sind **In-App Messages** der beste Weg, Inhalte zu liefern, ohne zu riskieren, dass Nutzer:innen Ihre App deinstallieren.
 
 ## Konversions-Events für App-Öffnungen festlegen {#set-conversion-events-for-app-opens}
 

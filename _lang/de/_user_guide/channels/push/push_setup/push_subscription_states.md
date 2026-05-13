@@ -68,7 +68,7 @@ Vor iOS 12 (veröffentlicht 2018) mussten alle Nutzer:innen explizit dem Empfang
 
 In iOS 12 führte Apple die [provisorische Autorisierung](https://www.braze.com/resources/articles/mastering-provisional-push) ein, die es Marken ermöglicht, stille Push-Benachrichtigungen an das Benachrichtigungscenter ihrer Nutzer:innen zu senden, bevor diese explizit zustimmen, und Ihnen so die Möglichkeit gibt, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Weitere Informationen finden Sie unter [Provisorische Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications).
 
-### Web {#web}
+### Web-Push {#web}
 
 Für Web müssen Sie ein explizites Opt-in der Nutzer:innen über den nativen Browser-Berechtigungsdialog anfordern.
 

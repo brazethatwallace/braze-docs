@@ -32,7 +32,7 @@ Häufige Fehlerursachen können sein:
 
 `NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite Registrierung das Push-Token ungültig macht, das Braze erhalten hat.
 
-### DEVICE_UNREGISTERED {#device-unregistered}
+### Fehler DEVICE_UNREGISTERED {#device-unregistered}
 
 Dieser Fehler erscheint im Nachrichten-Aktivitätsprotokoll als: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -100,7 +100,7 @@ Der `TopicDisallowed`-Fehler bedeutet, dass APNs den Push abgelehnt hat, weil da
 2. **Überprüfen Sie Ihre APNs-Authentifizierungseinrichtung.** Bestätigen Sie, dass Ihre App mit dem richtigen APNs-`.p8`-Schlüssel konfiguriert ist und dass der Schlüssel mit demselben Apple Developer Team verknüpft ist wie die App, an die Sie senden.
 3. **Bestätigen Sie die App-Umgebung.** Wenn Sie separate App-IDs in Braze für Entwicklungs- und Produktions-Builds haben, überprüfen Sie, ob jede mit den richtigen Push-Zugangsdaten und der richtigen Umgebung konfiguriert ist.
 
-### Unregistered {#ios-unregistered}
+### Fehler Unregistered {#ios-unregistered}
 
 Dieser Fehler erscheint im Nachrichten-Aktivitätsprotokoll als:
 
@@ -116,7 +116,7 @@ Dies ist das iOS-Äquivalent des Android-Fehlers [DEVICE_UNREGISTERED](#device-u
 Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist – nur, dass ein bestimmtes Token aus ihrem Profil entfernt wurde. Um zu prüfen, ob die Nutzer:innen noch gültige Token haben, gehen Sie zur **Nutzersuche** und überprüfen Sie den Abschnitt **Kontakteinstellungen** auf dem Tab **Engagement**.
 {% endalert %}
 
-### InvalidProviderToken
+### Fehler InvalidProviderToken {#invalidprovidertoken}
 
 Der `InvalidProviderToken`-Fehler bedeutet, dass APNs die Anfrage abgelehnt hat, weil das Authentifizierungstoken (von einem `.p8`-Schlüssel) oder das Push-Zertifikat (`.p12`) nicht mit der Bundle-ID oder Team-ID der App übereinstimmt. Um dies zu beheben:
 

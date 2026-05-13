@@ -67,7 +67,7 @@ Antes do iOS 12 (lançado em 2018), todos os usuários precisavam fazer opt-in e
 
 No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para saber mais.
 
-### Web {#web}
+### Navegador web {#web}
 
 Para Web, você deve solicitar opt-in explícito do usuário por meio do diálogo nativo de permissão do navegador.
 

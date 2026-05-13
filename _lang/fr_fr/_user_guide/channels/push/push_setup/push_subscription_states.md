@@ -68,7 +68,7 @@ Avant iOS 12 (sorti en 2018), tous les utilisateurs devaient explicitement s'abo
 
 Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) pour en savoir plus.
 
-### Web {#web}
+### Navigateur web {#web}
 
 Pour le Web, vous devez demander l'abonnement explicite de l'utilisateur via la boîte de dialogue d'autorisation native du navigateur.
 

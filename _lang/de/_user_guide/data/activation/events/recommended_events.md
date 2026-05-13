@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Add
+##### Hinzufügen
 
 `add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Remove
+##### Entfernen
 
 `remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Replace
+##### Ersetzen
 
 `replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
 
@@ -404,7 +404,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Add
+##### Hinzufügen
 
 `add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
 
@@ -450,7 +450,7 @@ Objective-C
 }];
 ```
 
-##### Remove
+##### Entfernen
 
 `remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
 
@@ -496,7 +496,7 @@ Objective-C
 }];
 ```
 
-##### Replace
+##### Ersetzen
 
 `replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
 

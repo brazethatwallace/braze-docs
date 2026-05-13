@@ -32,7 +32,7 @@ Les échecs courants peuvent inclure :
 
 `NotRegistered` signifie généralement que l'application a été supprimée de l'appareil (ce qui constitue notre signal de désinstallation). Cela peut également se produire en cas d'enregistrements multiples, lorsqu'un second enregistrement invalide le jeton de notification push que Braze reçoit.
 
-### DEVICE_UNREGISTERED {#device-unregistered}
+### Erreur DEVICE_UNREGISTERED {#device-unregistered}
 
 Cette erreur apparaît dans le journal d'activité des messages sous la forme : `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -100,7 +100,7 @@ L'erreur `TopicDisallowed` signifie qu'APNs a rejeté la notification push car l
 2. **Vérifiez votre configuration d'authentification APNs.** Confirmez que votre application est configurée avec la bonne clé APNs `.p8` et que la clé est associée à la même équipe Apple Developer que l'application à laquelle vous envoyez.
 3. **Confirmez l'environnement de l'application.** Si vous avez des ID d'application séparés dans Braze pour les builds de développement et de production, vérifiez que chacun est configuré avec les bons identifiants push et le bon environnement.
 
-### Unregistered {#ios-unregistered}
+### Erreur Unregistered {#ios-unregistered}
 
 Cette erreur apparaît dans le journal d'activité des messages sous la forme :
 
@@ -116,7 +116,7 @@ C'est l'équivalent iOS de l'erreur Android [DEVICE_UNREGISTERED](#device-unregi
 Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications push — seulement qu'un jeton spécifique a été supprimé de son profil. Pour vérifier si l'utilisateur dispose encore de jetons valides, accédez à **User Search** et consultez la section **Contact Settings** dans l'onglet **Engagement**.
 {% endalert %}
 
-### InvalidProviderToken
+### Erreur InvalidProviderToken {#invalidprovidertoken}
 
 L'erreur `InvalidProviderToken` signifie qu'APNs a rejeté la requête car le jeton d'authentification (provenant d'une clé `.p8`) ou le certificat push (`.p12`) ne correspond pas à l'ID de bundle ou au Team ID de l'application. Pour résoudre ce problème :
 

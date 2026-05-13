@@ -68,7 +68,7 @@ Antes de iOS 12 (lanzado en 2018), todos los usuarios debían adherirse explíci
 
 En iOS 12, Apple introdujo la [autorización provisional](https://www.braze.com/resources/articles/mastering-provisional-push), que permite a las marcas enviar notificaciones push silenciosas al centro de notificaciones de sus usuarios antes de que se adhieran explícitamente, dándote la oportunidad de demostrar el valor de tus mensajes de forma temprana. Consulta [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para obtener más información.
 
-### Web {#web}
+### Push web {#web}
 
 Para Web, debes solicitar la adhesión voluntaria explícita del usuario a través del diálogo de permiso nativo del navegador.
 

@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Add
+##### 추가
 
 `add`는 수량을 증가시키거나 새 라인을 추가합니다. `quantity` 등록정보는 추가할 단위 수입니다.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Remove
+##### 제거
 
 `remove`는 `quantity`에 지정된 양만큼 수량을 감소시킵니다. 수량이 `0`에 도달하면 라인이 제거됩니다.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Replace
+##### 교체
 
 `replace`(또는 `action` 생략)는 전체 장바구니를 전송합니다. `total_value`가 필수입니다.
 
@@ -404,7 +404,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Add
+##### 추가
 
 `add`는 수량을 증가시키거나 새 라인을 추가합니다. `quantity` 등록정보는 추가할 단위 수입니다.
 
@@ -450,7 +450,7 @@ Objective-C
 }];
 ```
 
-##### Remove
+##### 제거
 
 `remove`는 `quantity`에 지정된 양만큼 수량을 감소시킵니다. 수량이 `0`에 도달하면 라인이 제거됩니다.
 
@@ -496,7 +496,7 @@ Objective-C
 }];
 ```
 
-##### Replace
+##### 교체
 
 `replace`(또는 `action` 생략)는 전체 장바구니를 전송합니다. `total_value`가 필수입니다.
 

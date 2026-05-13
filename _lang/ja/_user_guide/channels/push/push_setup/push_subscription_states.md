@@ -68,7 +68,7 @@ iOS 12（2018年リリース）より前は、すべてのユーザーがプッ�
 
 iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications)を参照してください。
 
-### Web {#web}
+### ウェブ {#web}
 
 Webでは、ネイティブブラウザの権限ダイアログを通じて明示的なユーザーオプトインをリクエストする必要があります。
 

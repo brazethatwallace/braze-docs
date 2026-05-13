@@ -32,7 +32,7 @@ platform:
 
 `NotRegistered`는 일반적으로 앱이 기기에서 삭제되었음을 의미합니다(앱 삭제 감지 신호). 다중 등록이 발생하여 두 번째 등록이 Braze가 수신한 푸시 토큰을 무효화하는 경우에도 발생할 수 있습니다.
 
-### DEVICE_UNREGISTERED {#device-unregistered}
+### DEVICE_UNREGISTERED 오류 {#device-unregistered}
 
 이 오류는 메시지 활동 로그에 다음과 같이 표시됩니다: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -100,7 +100,7 @@ Braze에서 이 대시보드 메시지는 다음 APNs 오류 원인 중 하나�
 2. **APNs 인증 설정을 확인하세요.** 앱이 올바른 APNs `.p8` 키로 구성되어 있고, 해당 키가 전송 대상 앱과 동일한 Apple Developer Team에 연결되어 있는지 확인하세요.
 3. **앱 환경을 확인하세요.** 개발 빌드와 프로덕션 빌드에 대해 Braze에서 별도의 앱 ID를 사용하는 경우, 각각 올바른 푸시 자격 증명과 환경으로 구성되어 있는지 확인하세요.
 
-### Unregistered {#ios-unregistered}
+### Unregistered 오류 {#ios-unregistered}
 
 이 오류는 메시지 활동 로그에 다음과 같이 표시됩니다:
 
@@ -116,7 +116,7 @@ Braze에서 이 대시보드 메시지는 다음 APNs 오류 원인 중 하나�
 이 오류는 사용자가 푸시 비활성화 상태라는 의미가 아니라, 특정 토큰이 프로필에서 제거되었다는 의미입니다. 사용자에게 여전히 유효한 토큰이 있는지 확인하려면 **사용자 검색**으로 이동하여 **참여** 탭의 **연락처 설정** 섹션을 확인하세요.
 {% endalert %}
 
-### InvalidProviderToken
+### InvalidProviderToken 오류 {#invalidprovidertoken}
 
 `InvalidProviderToken` 오류는 인증 토큰(`.p8` 키에서 가져온)이나 푸시 인증서(`.p12`)가 앱의 번들 ID 또는 Team ID와 일치하지 않아 APNs가 요청을 거부했음을 의미합니다. 이를 해결하려면:
 

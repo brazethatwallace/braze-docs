@@ -237,7 +237,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Add
+##### Añadir
 
 `add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
 
@@ -286,7 +286,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Remove
+##### Eliminar
 
 `remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
 
@@ -335,7 +335,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Replace
+##### Reemplazar
 
 `replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
 
@@ -404,7 +404,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Add
+##### Añadir
 
 `add` incrementa la cantidad o agrega una nueva línea. La propiedad `quantity` indica cuántas unidades agregar.
 
@@ -450,7 +450,7 @@ Objective-C
 }];
 ```
 
-##### Remove
+##### Eliminar
 
 `remove` decrementa la cantidad en el monto indicado en `quantity`. La línea se elimina cuando la cantidad llega a `0`.
 
@@ -496,7 +496,7 @@ Objective-C
 }];
 ```
 
-##### Replace
+##### Reemplazar
 
 `replace` (u omitir `action`) envía el carrito completo. `total_value` es obligatoria.
 

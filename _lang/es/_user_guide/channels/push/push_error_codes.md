@@ -32,7 +32,7 @@ Los fallos comunes pueden incluir:
 
 `NotRegistered` generalmente significa que la aplicación ha sido eliminada del dispositivo (como nuestra señal de desinstalación). Esto también puede ocurrir si hay un registro múltiple y un segundo registro invalida el token de notificaciones push que Braze recibe.
 
-### DEVICE_UNREGISTERED {#device-unregistered}
+### Error DEVICE_UNREGISTERED {#device-unregistered}
 
 Este error aparece en el Registro de actividad de mensajes como: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -100,7 +100,7 @@ El error `TopicDisallowed` significa que APNs rechazó el push porque el tema (I
 2. **Verifica tu configuración de autenticación de APNs.** Confirma que tu aplicación esté configurada con la clave `.p8` de APNs correcta y que la clave esté asociada con el mismo equipo de Apple Developer que la aplicación a la que estás enviando.
 3. **Confirma el entorno de la aplicación.** Si tienes IDs de aplicación separados en Braze para compilaciones de desarrollo y producción, verifica que cada uno esté configurado con las credenciales push y el entorno correctos.
 
-### Unregistered {#ios-unregistered}
+### Error Unregistered {#ios-unregistered}
 
 Este error aparece en el Registro de actividad de mensajes como:
 
@@ -116,7 +116,7 @@ Este es el equivalente en iOS del error [DEVICE_UNREGISTERED](#device-unregister
 Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Engagement**.
 {% endalert %}
 
-### InvalidProviderToken
+### Error InvalidProviderToken {#invalidprovidertoken}
 
 El error `InvalidProviderToken` significa que APNs rechazó la solicitud porque el token de autenticación (de una clave `.p8`) o el certificado push (`.p12`) no coincide con el ID de paquete o el Team ID de la aplicación. Para resolver esto:
 
